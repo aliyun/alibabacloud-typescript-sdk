@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstanceNetworkAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06
    */

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-10-09T15:13:21+08:00
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * aic-xxxx-0
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Public Key Grouping
+   * 
    * @example
    * test-group
    */
   keyGroup?: string;
   /**
+   * @remarks
+   * Public Key Name
+   * 
    * @example
    * mykey
    */
   keyName?: string;
   /**
+   * @remarks
+   * Public key type
+   * 
    * @example
    * adb
    */
@@ -59,22 +74,38 @@ export class ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo extends 
 
 export class ListAICPublicKeyDeliveriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number when paging
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Public Key List
+   */
   publicKeyDeliverInfo?: ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxsxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */

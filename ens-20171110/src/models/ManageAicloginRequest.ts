@@ -5,6 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ManageAICLoginRequest extends $dara.Model {
   /**
    * @remarks
+   * Manage actions
+   * 
+   * Valid value:
+   * 
+   * *   open
+   * *   close
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +20,8 @@ export class ManageAICLoginRequest extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +29,17 @@ export class ManageAICLoginRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Public Key Grouping
+   * 
    * @example
    * g-test
    */
   keyGroup?: string;
   /**
+   * @remarks
+   * Public Key Name
+   * 
    * @example
    * mykey
    */

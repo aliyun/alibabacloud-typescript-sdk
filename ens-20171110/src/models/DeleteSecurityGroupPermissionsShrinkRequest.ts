@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityGroupPermissionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The security group rules.
+   * 
    * This parameter is required.
    */
   permissionsShrink?: string;
   /**
    * @remarks
+   * The ID of the security group.
+   * 
    * This parameter is required.
    * 
    * @example

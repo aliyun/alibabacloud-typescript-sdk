@@ -1557,8 +1557,16 @@ export default class Client extends OpenApi {
       query["InstanceChargeType"] = request.instanceChargeType;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.internetChargeType)) {
       query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!$dara.isNull(request.ipAddress)) {
+      query["IpAddress"] = request.ipAddress;
     }
 
     if (!$dara.isNull(request.isp)) {
@@ -3358,7 +3366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用CreateSecurityGroupPermissions创建安全组规则。
+   * Create an ENS security group rule.
    * 
    * @param tmpReq - CreateSecurityGroupPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3399,7 +3407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用CreateSecurityGroupPermissions创建安全组规则。
+   * Create an ENS security group rule.
    * 
    * @param request - CreateSecurityGroupPermissionsRequest
    * @returns CreateSecurityGroupPermissionsResponse
@@ -3734,7 +3742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除托管公钥
+   * Deletes a specified AIC public key. You can delete a public key only if it is not associated with the public key.
    * 
    * @param request - DeleteAICPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3765,7 +3773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除托管公钥
+   * Deletes a specified AIC public key. You can delete a public key only if it is not associated with the public key.
    * 
    * @param request - DeleteAICPublicKeyRequest
    * @returns DeleteAICPublicKeyResponse
@@ -4924,7 +4932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DeleteSecurityGroupPermissions删除安全组规则。
+   * Deletes an ENS security group rule.
    * 
    * @param tmpReq - DeleteSecurityGroupPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4965,7 +4973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DeleteSecurityGroupPermissions删除安全组规则。
+   * Deletes an ENS security group rule.
    * 
    * @param request - DeleteSecurityGroupPermissionsRequest
    * @returns DeleteSecurityGroupPermissionsResponse
@@ -7522,7 +7530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DescribeForwardEntryAttribute查询DNAT条目明细
+   * You can call the DescribeForwardEntryAttribute operation to query the details of a DNAT rule.
    * 
    * @param request - DescribeForwardEntryAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7553,7 +7561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DescribeForwardEntryAttribute查询DNAT条目明细
+   * You can call the DescribeForwardEntryAttribute operation to query the details of a DNAT rule.
    * 
    * @param request - DescribeForwardEntryAttributeRequest
    * @returns DescribeForwardEntryAttributeResponse
@@ -9844,7 +9852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SDG下的共享盘
+   * You can query the information of shared disks in a specified SDG.
    * 
    * @param request - DescribeSDGSharedDisksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9891,7 +9899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SDG下的共享盘
+   * You can query the information of shared disks in a specified SDG.
    * 
    * @param request - DescribeSDGSharedDisksRequest
    * @returns DescribeSDGSharedDisksResponse
@@ -11886,7 +11894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询公钥下发信息
+   * Queries the related information of AIC public keys. Paged query is supported.
    * 
    * @param request - ListAICPublicKeyDeliveriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11937,7 +11945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询公钥下发信息
+   * Queries the related information of AIC public keys. Paged query is supported.
    * 
    * @param request - ListAICPublicKeyDeliveriesRequest
    * @returns ListAICPublicKeyDeliveriesResponse
@@ -11948,7 +11956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有托管的公钥
+   * Query the list of AIC public keys that meet the conditions. Paged query is supported.
    * 
    * @param request - ListAICPublicKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11995,7 +12003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有托管的公钥
+   * Query the list of AIC public keys that meet the conditions. Paged query is supported.
    * 
    * @param request - ListAICPublicKeysRequest
    * @returns ListAICPublicKeysResponse
@@ -12278,7 +12286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AIC公钥登入管理
+   * Log on to the AIC instance. You can associate or disassociate an AIC instance based on the uploaded AIC public key.
    * 
    * @param request - ManageAICLoginRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12321,7 +12329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AIC公钥登入管理
+   * Log on to the AIC instance. You can associate or disassociate an AIC instance based on the uploaded AIC public key.
    * 
    * @param request - ManageAICLoginRequest
    * @returns ManageAICLoginResponse
@@ -13014,7 +13022,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例网络
+   * Modifies the private IP address or vSwitch of a VPC-type ECS instance.
+   * 
+   * @remarks
+   * The instance that you want to manage must be in the Stopped state. When you modify the parameters of a scaling group, the following limits apply:
+   * *   Instance:
+   *     *   Instances that are associated with SLB are not supported.
+   * *   Network:
+   *     *   Instances that are associated with EIPs are not supported.
+   *     *   Instances that are associated with high-availability virtual IP addresses are not supported.
+   *     *   Instances that have been used as next hops in the routing table are not supported.
+   *     *   Secondary ENIs cannot be attached to the ECS instance.
+   *     *   Instances configured with secondary IP addresses are not supported.
    * 
    * @param request - ModifyInstanceNetworkAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13053,7 +13072,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例网络
+   * Modifies the private IP address or vSwitch of a VPC-type ECS instance.
+   * 
+   * @remarks
+   * The instance that you want to manage must be in the Stopped state. When you modify the parameters of a scaling group, the following limits apply:
+   * *   Instance:
+   *     *   Instances that are associated with SLB are not supported.
+   * *   Network:
+   *     *   Instances that are associated with EIPs are not supported.
+   *     *   Instances that are associated with high-availability virtual IP addresses are not supported.
+   *     *   Instances that have been used as next hops in the routing table are not supported.
+   *     *   Secondary ENIs cannot be attached to the ECS instance.
+   *     *   Instances configured with secondary IP addresses are not supported.
    * 
    * @param request - ModifyInstanceNetworkAttributeRequest
    * @returns ModifyInstanceNetworkAttributeResponse
@@ -16248,7 +16278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 共享AIC镜像
+   * Share the specified AIC image to other users.
    * 
    * @param tmpReq - ShareAICImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16289,7 +16319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 共享AIC镜像
+   * Share the specified AIC image to other users.
    * 
    * @param request - ShareAICImageRequest
    * @returns ShareAICImageResponse
@@ -17356,7 +17386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传公钥
+   * Upload a new AIC public key.
    * 
    * @param request - UploadAICPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17403,7 +17433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传公钥
+   * Upload a new AIC public key.
    * 
    * @param request - UploadAICPublicKeyRequest
    * @returns UploadAICPublicKeyResponse

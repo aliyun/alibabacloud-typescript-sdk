@@ -4,27 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSDGSharedDisksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
+   * @remarks
+   * The page number, which is used for paged query
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou-xx
    */
   regionId?: string;
   /**
    * @remarks
+   * sdg ID
+   * 
    * This parameter is required.
    * 
    * @example

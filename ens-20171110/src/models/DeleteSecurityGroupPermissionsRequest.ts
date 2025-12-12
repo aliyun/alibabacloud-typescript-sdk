@@ -4,12 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteSecurityGroupPermissionsRequestPermissions extends $dara.Model {
   /**
+   * @remarks
+   * The destination IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
+   * 
    * @example
    * 10.XX.XX.91
    */
   destCidrIp?: string;
   /**
    * @remarks
+   * The direction in which the security group rule is applied.
+   * 
+   * *   egress
+   * *   ingress
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +26,14 @@ export class DeleteSecurityGroupPermissionsRequestPermissions extends $dara.Mode
   direction?: string;
   /**
    * @remarks
+   * Protocol type. Valid values:
+   * 
+   * *   TCP
+   * *   UDP
+   * *   ICMP: the ICMP protocol
+   * *   ICMPv6: the IPv6 ICMP protocol.
+   * *   ALL: All protocols are supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,17 +41,32 @@ export class DeleteSecurityGroupPermissionsRequestPermissions extends $dara.Mode
    */
   ipProtocol?: string;
   /**
+   * @remarks
+   * The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
+   * 
+   * >  This parameter and the `DestCidrIp` parameter cannot be set at the same time.
+   * 
    * @example
    * ::/0
    */
   ipv6DestCidrIp?: string;
   /**
+   * @remarks
+   * The source IPv6 CIDR block of the security group rule. IPv6 CIDR blocks and IPv6 addresses are supported.
+   * 
+   * >  This parameter and the `DestCidrIp` parameter cannot be set at the same time.
+   * 
    * @example
    * ::/0
    */
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
+   * The action specified in the security group rule. Valid values:
+   * 
+   * *   Accept
+   * *   Drop
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +75,12 @@ export class DeleteSecurityGroupPermissionsRequestPermissions extends $dara.Mode
   policy?: string;
   /**
    * @remarks
+   * The destination port range of the security group rule. Valid values:
+   * 
+   * *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to ICMP, the port range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +89,8 @@ export class DeleteSecurityGroupPermissionsRequestPermissions extends $dara.Mode
   portRange?: string;
   /**
    * @remarks
+   * The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59,11 +98,21 @@ export class DeleteSecurityGroupPermissionsRequestPermissions extends $dara.Mode
    */
   priority?: number;
   /**
+   * @remarks
+   * The source IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
+   * 
    * @example
    * 0.XX.XX.0/0
    */
   sourceCidrIp?: string;
   /**
+   * @remarks
+   * The range of source port numbers for the protocols specified in the security group rule. Valid values:
+   * 
+   * *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to ICMP, the port range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port range is -1/-1.
+   * 
    * @example
    * 22/22
    */
@@ -110,11 +159,15 @@ export class DeleteSecurityGroupPermissionsRequestPermissions extends $dara.Mode
 export class DeleteSecurityGroupPermissionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The security group rules.
+   * 
    * This parameter is required.
    */
   permissions?: DeleteSecurityGroupPermissionsRequestPermissions[];
   /**
    * @remarks
+   * The ID of the security group.
+   * 
    * This parameter is required.
    * 
    * @example

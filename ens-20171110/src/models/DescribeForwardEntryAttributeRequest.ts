@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeForwardEntryAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the DNAT entry.
+   * 
    * This parameter is required.
    * 
    * @example

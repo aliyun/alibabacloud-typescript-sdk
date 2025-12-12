@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ShareAICImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The image name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ShareAICImageShrinkRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
+   * The user groups.
+   * 
    * This parameter is required.
    */
   usersShrink?: string;

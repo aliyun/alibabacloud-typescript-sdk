@@ -13,6 +13,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
    * ens.esk.sn1.medium
    */
   instanceSpec?: string;
+  loginPassword?: string;
   /**
    * @example
    * 30000-32767
@@ -42,6 +43,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
     return {
       imageId: 'ImageId',
       instanceSpec: 'InstanceSpec',
+      loginPassword: 'LoginPassword',
       nodePortRange: 'NodePortRange',
       runtime: 'Runtime',
       size: 'Size',
@@ -54,6 +56,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
     return {
       imageId: 'string',
       instanceSpec: 'string',
+      loginPassword: 'string',
       nodePortRange: 'string',
       runtime: 'string',
       size: 'number',

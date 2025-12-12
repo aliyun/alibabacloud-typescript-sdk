@@ -96,6 +96,7 @@ export class CreateEipInstanceRequest extends $dara.Model {
    * PostPaid
    */
   instanceChargeType?: string;
+  instanceId?: string;
   /**
    * @remarks
    * The metering method of the EIP. Set the value to **95BandwidthByMonth**.
@@ -106,6 +107,7 @@ export class CreateEipInstanceRequest extends $dara.Model {
    * 95BandwidthByMonth
    */
   internetChargeType?: string;
+  ipAddress?: string;
   /**
    * @remarks
    * The Internet service provider. Valid values:
@@ -138,7 +140,9 @@ export class CreateEipInstanceRequest extends $dara.Model {
       description: 'Description',
       ensRegionId: 'EnsRegionId',
       instanceChargeType: 'InstanceChargeType',
+      instanceId: 'InstanceId',
       internetChargeType: 'InternetChargeType',
+      ipAddress: 'IpAddress',
       isp: 'Isp',
       name: 'Name',
       tag: 'Tag',
@@ -152,7 +156,9 @@ export class CreateEipInstanceRequest extends $dara.Model {
       description: 'string',
       ensRegionId: 'string',
       instanceChargeType: 'string',
+      instanceId: 'string',
       internetChargeType: 'string',
+      ipAddress: 'string',
       isp: 'string',
       name: 'string',
       tag: { 'type': 'array', 'itemType': CreateEipInstanceRequestTag },

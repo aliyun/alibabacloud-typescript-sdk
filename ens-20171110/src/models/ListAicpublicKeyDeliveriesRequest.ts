@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * aic-xxxx-0
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Public Key Grouping
+   * 
    * @example
    * g-test
    */
   keyGroup?: string;
   /**
+   * @remarks
+   * Public Key Name
+   * 
    * @example
    * mykey
    */
   keyName?: string;
   /**
+   * @remarks
+   * Public key type
+   * 
    * @example
    * adb
    */
   keyType?: string;
   /**
+   * @remarks
+   * The page number of the page to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

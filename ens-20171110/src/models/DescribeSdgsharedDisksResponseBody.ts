@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
   /**
+   * @remarks
+   * The time when the shared disk was created.
+   * 
    * @example
    * 2025-10-09T15:13:21+08:00
    */
   creationTime?: string;
   /**
+   * @remarks
+   * shared disk id
+   * 
    * @example
    * d-57kvvpuj1rk2ghumlgs6
    */
   diskId?: string;
   /**
+   * @remarks
+   * Shared disk type
+   * 
    * @example
    * standard
    */
   diskType?: string;
   /**
+   * @remarks
+   * The namespace of the service.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * cn-hangzhou-1
    */
   regionId?: string;
   /**
+   * @remarks
+   * SdgId of the shared disk
+   * 
    * @example
    * sdg-fqehhfdjv
    */
   sdgId?: string;
   /**
+   * @remarks
+   * Number of shared mounts
+   * 
    * @example
    * 10
    */
   sharedNum?: number;
   /**
+   * @remarks
+   * Shared disk status
+   * 
    * @example
    * avaliable
    */
@@ -80,22 +104,38 @@ export class DescribeSDGSharedDisksResponseBodySharedDisks extends $dara.Model {
 
 export class DescribeSDGSharedDisksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number when paging
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxsxxxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Shared disk list
+   */
   sharedDisks?: DescribeSDGSharedDisksResponseBodySharedDisks[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
