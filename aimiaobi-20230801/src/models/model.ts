@@ -8,6 +8,7 @@ export { AddDatasetDocumentRequestDocumentMultimodalMedias } from './AddDatasetD
 export { AddDatasetDocumentRequestDocument } from './AddDatasetDocumentRequest';
 export { AddDatasetDocumentResponseBodyData } from './AddDatasetDocumentResponseBody';
 export { AsyncCreateClipsTaskRequestColorWords } from './AsyncCreateClipsTaskRequest';
+export { AsyncCreateClipsTaskRequestStickers } from './AsyncCreateClipsTaskRequest';
 export { AsyncCreateClipsTaskResponseBodyData } from './AsyncCreateClipsTaskResponseBody';
 export { AsyncCreateClipsTimeLineResponseBodyData } from './AsyncCreateClipsTimeLineResponseBody';
 export { AsyncEditTimelineRequestTimelinesClips } from './AsyncEditTimelineRequest';
@@ -16,6 +17,8 @@ export { AsyncEditTimelineResponseBodyData } from './AsyncEditTimelineResponseBo
 export { AsyncUploadTenderDocResponseBodyData } from './AsyncUploadTenderDocResponseBody';
 export { AsyncUploadVideoRequestReferenceVideo } from './AsyncUploadVideoRequest';
 export { AsyncUploadVideoRequestSourceVideos } from './AsyncUploadVideoRequest';
+export { AsyncUploadVideoRequestVideoRolesRoleUrls } from './AsyncUploadVideoRequest';
+export { AsyncUploadVideoRequestVideoRoles } from './AsyncUploadVideoRequest';
 export { AsyncUploadVideoResponseBodyDataVideoInfos } from './AsyncUploadVideoResponseBody';
 export { AsyncUploadVideoResponseBodyData } from './AsyncUploadVideoResponseBody';
 export { AsyncWritingBiddingDocResponseBodyData } from './AsyncWritingBiddingDocResponseBody';
@@ -55,6 +58,7 @@ export { GenerateViewPointResponseBodyData } from './GenerateViewPointResponseBo
 export { GetAuditNotePostProcessingStatusResponseBodyData } from './GetAuditNotePostProcessingStatusResponseBody';
 export { GetAuditNoteProcessingStatusResponseBodyData } from './GetAuditNoteProcessingStatusResponseBody';
 export { GetAutoClipsTaskInfoResponseBodyDataColorWords } from './GetAutoClipsTaskInfoResponseBody';
+export { GetAutoClipsTaskInfoResponseBodyDataStickers } from './GetAutoClipsTaskInfoResponseBody';
 export { GetAutoClipsTaskInfoResponseBodyDataTimelinesClips } from './GetAutoClipsTaskInfoResponseBody';
 export { GetAutoClipsTaskInfoResponseBodyDataTimelines } from './GetAutoClipsTaskInfoResponseBody';
 export { GetAutoClipsTaskInfoResponseBodyData } from './GetAutoClipsTaskInfoResponseBody';

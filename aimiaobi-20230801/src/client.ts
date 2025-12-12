@@ -172,9 +172,33 @@ export default class Client extends OpenApi {
       request.colorWordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.colorWords, "ColorWords", "json");
     }
 
+    if (!$dara.isNull(tmpReq.stickers)) {
+      request.stickersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stickers, "Stickers", "json");
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.closeMusic)) {
+      body["CloseMusic"] = request.closeMusic;
+    }
+
+    if (!$dara.isNull(request.closeSubtitle)) {
+      body["CloseSubtitle"] = request.closeSubtitle;
+    }
+
+    if (!$dara.isNull(request.closeVoice)) {
+      body["CloseVoice"] = request.closeVoice;
+    }
+
     if (!$dara.isNull(request.colorWordsShrink)) {
       body["ColorWords"] = request.colorWordsShrink;
+    }
+
+    if (!$dara.isNull(request.customVoiceUrl)) {
+      body["CustomVoiceUrl"] = request.customVoiceUrl;
+    }
+
+    if (!$dara.isNull(request.customVoiceVolume)) {
+      body["CustomVoiceVolume"] = request.customVoiceVolume;
     }
 
     if (!$dara.isNull(request.height)) {
@@ -187,6 +211,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.musicVolume)) {
       body["MusicVolume"] = request.musicVolume;
+    }
+
+    if (!$dara.isNull(request.stickersShrink)) {
+      body["Stickers"] = request.stickersShrink;
     }
 
     if (!$dara.isNull(request.subtitleFontSize)) {
@@ -432,13 +460,25 @@ export default class Client extends OpenApi {
       request.sourceVideosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceVideos, "SourceVideos", "json");
     }
 
+    if (!$dara.isNull(tmpReq.videoRoles)) {
+      request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "VideoRoles", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.anlysisPrompt)) {
       body["AnlysisPrompt"] = request.anlysisPrompt;
     }
 
+    if (!$dara.isNull(request.faceIdentitySimilarityMinScore)) {
+      body["FaceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore;
+    }
+
     if (!$dara.isNull(request.referenceVideoShrink)) {
       body["ReferenceVideo"] = request.referenceVideoShrink;
+    }
+
+    if (!$dara.isNull(request.removeSubtitle)) {
+      body["RemoveSubtitle"] = request.removeSubtitle;
     }
 
     if (!$dara.isNull(request.sourceVideosShrink)) {
@@ -447,6 +487,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.splitInterval)) {
       body["SplitInterval"] = request.splitInterval;
+    }
+
+    if (!$dara.isNull(request.videoRolesShrink)) {
+      body["VideoRoles"] = request.videoRolesShrink;
+    }
+
+    if (!$dara.isNull(request.videoShotFaceIdentityCount)) {
+      body["VideoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount;
     }
 
     if (!$dara.isNull(request.workspaceId)) {

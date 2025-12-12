@@ -59,8 +59,97 @@ export class AsyncCreateClipsTaskRequestColorWords extends $dara.Model {
   }
 }
 
+export class AsyncCreateClipsTaskRequestStickers extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  duration?: number;
+  /**
+   * @example
+   * 8
+   */
+  dyncFrames?: number;
+  /**
+   * @example
+   * 100
+   */
+  height?: number;
+  /**
+   * @example
+   * 5
+   */
+  timelineIn?: number;
+  /**
+   * @example
+   * http://xxx/xxx.gif
+   */
+  url?: string;
+  /**
+   * @example
+   * 100
+   */
+  width?: number;
+  /**
+   * @example
+   * 200
+   */
+  x?: number;
+  /**
+   * @example
+   * 200
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      dyncFrames: 'DyncFrames',
+      height: 'Height',
+      timelineIn: 'TimelineIn',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      dyncFrames: 'number',
+      height: 'number',
+      timelineIn: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AsyncCreateClipsTaskRequest extends $dara.Model {
+  closeMusic?: boolean;
+  closeSubtitle?: boolean;
+  closeVoice?: boolean;
   colorWords?: AsyncCreateClipsTaskRequestColorWords[];
+  /**
+   * @example
+   * http://xxx/xxx.mp4
+   */
+  customVoiceUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  customVoiceVolume?: number;
   /**
    * @example
    * 1920
@@ -72,6 +161,7 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
    */
   musicUrl?: string;
   musicVolume?: number;
+  stickers?: AsyncCreateClipsTaskRequestStickers[];
   subtitleFontSize?: number;
   /**
    * @remarks
@@ -98,10 +188,16 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      closeMusic: 'CloseMusic',
+      closeSubtitle: 'CloseSubtitle',
+      closeVoice: 'CloseVoice',
       colorWords: 'ColorWords',
+      customVoiceUrl: 'CustomVoiceUrl',
+      customVoiceVolume: 'CustomVoiceVolume',
       height: 'Height',
       musicUrl: 'MusicUrl',
       musicVolume: 'MusicVolume',
+      stickers: 'Stickers',
       subtitleFontSize: 'SubtitleFontSize',
       taskId: 'TaskId',
       voiceStyle: 'VoiceStyle',
@@ -113,10 +209,16 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      closeMusic: 'boolean',
+      closeSubtitle: 'boolean',
+      closeVoice: 'boolean',
       colorWords: { 'type': 'array', 'itemType': AsyncCreateClipsTaskRequestColorWords },
+      customVoiceUrl: 'string',
+      customVoiceVolume: 'number',
       height: 'number',
       musicUrl: 'string',
       musicVolume: 'number',
+      stickers: { 'type': 'array', 'itemType': AsyncCreateClipsTaskRequestStickers },
       subtitleFontSize: 'number',
       taskId: 'string',
       voiceStyle: 'string',
@@ -129,6 +231,9 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.colorWords)) {
       $dara.Model.validateArray(this.colorWords);
+    }
+    if(Array.isArray(this.stickers)) {
+      $dara.Model.validateArray(this.stickers);
     }
     super.validate();
   }

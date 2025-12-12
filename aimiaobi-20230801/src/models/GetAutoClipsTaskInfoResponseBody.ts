@@ -67,6 +67,82 @@ export class GetAutoClipsTaskInfoResponseBodyDataColorWords extends $dara.Model 
   }
 }
 
+export class GetAutoClipsTaskInfoResponseBodyDataStickers extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  duration?: number;
+  /**
+   * @example
+   * 8
+   */
+  dyncFrames?: number;
+  /**
+   * @example
+   * 200
+   */
+  height?: number;
+  /**
+   * @example
+   * 10
+   */
+  timelineIn?: number;
+  /**
+   * @example
+   * http://xxx/xxx.gif
+   */
+  url?: string;
+  /**
+   * @example
+   * 200
+   */
+  width?: number;
+  /**
+   * @example
+   * 100
+   */
+  x?: number;
+  /**
+   * @example
+   * 100
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      dyncFrames: 'DyncFrames',
+      height: 'Height',
+      timelineIn: 'TimelineIn',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      dyncFrames: 'number',
+      height: 'number',
+      timelineIn: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAutoClipsTaskInfoResponseBodyDataTimelinesClips extends $dara.Model {
   /**
    * @example
@@ -168,8 +244,21 @@ export class GetAutoClipsTaskInfoResponseBodyDataTimelines extends $dara.Model {
 }
 
 export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
+  closeMusic?: boolean;
+  closeSubtitle?: boolean;
+  closeVoice?: boolean;
   colorWords?: GetAutoClipsTaskInfoResponseBodyDataColorWords[];
   content?: string;
+  /**
+   * @example
+   * http://xxx/xxx.mp4
+   */
+  customVoiceUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  customVoiceVolume?: number;
   errorMessage?: string;
   mediaCloudTimeline?: string;
   musicStyle?: string;
@@ -194,6 +283,7 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
    * clips
    */
   step?: string;
+  stickers?: GetAutoClipsTaskInfoResponseBodyDataStickers[];
   /**
    * @example
    * 5
@@ -213,8 +303,13 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
   voiceVolume?: number;
   static names(): { [key: string]: string } {
     return {
+      closeMusic: 'CloseMusic',
+      closeSubtitle: 'CloseSubtitle',
+      closeVoice: 'CloseVoice',
       colorWords: 'ColorWords',
       content: 'Content',
+      customVoiceUrl: 'CustomVoiceUrl',
+      customVoiceVolume: 'CustomVoiceVolume',
       errorMessage: 'ErrorMessage',
       mediaCloudTimeline: 'MediaCloudTimeline',
       musicStyle: 'MusicStyle',
@@ -223,6 +318,7 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
       outputVideoUrl: 'OutputVideoUrl',
       status: 'Status',
       step: 'Step',
+      stickers: 'Stickers',
       subtitleFontSize: 'SubtitleFontSize',
       taskId: 'TaskId',
       timelines: 'Timelines',
@@ -233,8 +329,13 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      closeMusic: 'boolean',
+      closeSubtitle: 'boolean',
+      closeVoice: 'boolean',
       colorWords: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataColorWords },
       content: 'string',
+      customVoiceUrl: 'string',
+      customVoiceVolume: 'number',
       errorMessage: 'string',
       mediaCloudTimeline: 'string',
       musicStyle: 'string',
@@ -243,6 +344,7 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
       outputVideoUrl: 'string',
       status: 'number',
       step: 'string',
+      stickers: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataStickers },
       subtitleFontSize: 'number',
       taskId: 'string',
       timelines: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataTimelines },
@@ -254,6 +356,9 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.colorWords)) {
       $dara.Model.validateArray(this.colorWords);
+    }
+    if(Array.isArray(this.stickers)) {
+      $dara.Model.validateArray(this.stickers);
     }
     if(Array.isArray(this.timelines)) {
       $dara.Model.validateArray(this.timelines);

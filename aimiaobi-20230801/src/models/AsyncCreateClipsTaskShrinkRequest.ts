@@ -3,7 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
+  closeMusic?: boolean;
+  closeSubtitle?: boolean;
+  closeVoice?: boolean;
   colorWordsShrink?: string;
+  /**
+   * @example
+   * http://xxx/xxx.mp4
+   */
+  customVoiceUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  customVoiceVolume?: number;
   /**
    * @example
    * 1920
@@ -15,6 +28,7 @@ export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
    */
   musicUrl?: string;
   musicVolume?: number;
+  stickersShrink?: string;
   subtitleFontSize?: number;
   /**
    * @remarks
@@ -41,10 +55,16 @@ export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      closeMusic: 'CloseMusic',
+      closeSubtitle: 'CloseSubtitle',
+      closeVoice: 'CloseVoice',
       colorWordsShrink: 'ColorWords',
+      customVoiceUrl: 'CustomVoiceUrl',
+      customVoiceVolume: 'CustomVoiceVolume',
       height: 'Height',
       musicUrl: 'MusicUrl',
       musicVolume: 'MusicVolume',
+      stickersShrink: 'Stickers',
       subtitleFontSize: 'SubtitleFontSize',
       taskId: 'TaskId',
       voiceStyle: 'VoiceStyle',
@@ -56,10 +76,16 @@ export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      closeMusic: 'boolean',
+      closeSubtitle: 'boolean',
+      closeVoice: 'boolean',
       colorWordsShrink: 'string',
+      customVoiceUrl: 'string',
+      customVoiceVolume: 'number',
       height: 'number',
       musicUrl: 'string',
       musicVolume: 'number',
+      stickersShrink: 'string',
       subtitleFontSize: 'number',
       taskId: 'string',
       voiceStyle: 'string',
