@@ -43,6 +43,7 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
    * kernel
    */
   name?: string;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries per page. Default value: **10**.
@@ -75,6 +76,7 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
    * 3.10.0
    */
   softwareVersion?: string;
+  useNextToken?: boolean;
   /**
    * @remarks
    * The UUID of the server.
@@ -90,10 +92,12 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
       installTimeEnd: 'InstallTimeEnd',
       installTimeStart: 'InstallTimeStart',
       name: 'Name',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       path: 'Path',
       remark: 'Remark',
       softwareVersion: 'SoftwareVersion',
+      useNextToken: 'UseNextToken',
       uuid: 'Uuid',
     };
   }
@@ -105,10 +109,12 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
       installTimeEnd: 'number',
       installTimeStart: 'number',
       name: 'string',
+      nextToken: 'string',
       pageSize: 'number',
       path: 'string',
       remark: 'string',
       softwareVersion: 'string',
+      useNextToken: 'boolean',
       uuid: 'string',
     };
   }

@@ -24,6 +24,15 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
    * scan:ASCV-2019-032401
    */
   name?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 1232428423234****
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks

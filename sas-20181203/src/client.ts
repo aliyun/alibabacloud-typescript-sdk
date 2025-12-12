@@ -18682,6 +18682,10 @@ export default class Client extends OpenApi {
       query["Extend"] = request.extend;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -18692,6 +18696,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
     }
 
     if (!$dara.isNull(request.user)) {
@@ -18806,6 +18814,10 @@ export default class Client extends OpenApi {
       query["Extend"] = request.extend;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -18824,6 +18836,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceDirectoryAccountId)) {
       query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    if (!$dara.isNull(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
     }
 
     if (!$dara.isNull(request.uuid)) {
@@ -18938,6 +18954,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -18956,6 +18976,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceDirectoryAccountId)) {
       query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    if (!$dara.isNull(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
     }
 
     if (!$dara.isNull(request.user)) {
@@ -19078,6 +19102,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -19128,6 +19156,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.searchItemSub)) {
       query["SearchItemSub"] = request.searchItemSub;
+    }
+
+    if (!$dara.isNull(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
     }
 
     if (!$dara.isNull(request.user)) {
@@ -19370,6 +19402,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -19384,6 +19420,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.softwareVersion)) {
       query["SoftwareVersion"] = request.softwareVersion;
+    }
+
+    if (!$dara.isNull(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
     }
 
     if (!$dara.isNull(request.uuid)) {
@@ -19600,12 +19640,20 @@ export default class Client extends OpenApi {
       query["LastLoginTimeStart"] = request.lastLoginTimeStart;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
     }
 
     if (!$dara.isNull(request.user)) {
@@ -27197,6 +27245,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -27207,6 +27259,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.searchCriteriaList)) {
       query["SearchCriteriaList"] = request.searchCriteriaList;
+    }
+
+    if (!$dara.isNull(request.useNextToken)) {
+      query["UseNextToken"] = request.useNextToken;
     }
 
     if (!$dara.isNull(request.uuid)) {
@@ -34752,6 +34808,10 @@ export default class Client extends OpenApi {
   async listCloudAssetInstancesWithOptions(request: $_model.ListCloudAssetInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAssetInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.cloudAssetQueryData)) {
+      query["CloudAssetQueryData"] = request.cloudAssetQueryData;
+    }
+
     if (!$dara.isNull(request.cloudAssetTypes)) {
       query["CloudAssetTypes"] = request.cloudAssetTypes;
     }
@@ -40625,7 +40685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a scan task for urgent vulnerabilities.
+   * Scans for urgent vulnerabilities.
    * 
    * @param request - ModifyEmgVulSubmitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40668,7 +40728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a scan task for urgent vulnerabilities.
+   * Scans for urgent vulnerabilities.
    * 
    * @param request - ModifyEmgVulSubmitRequest
    * @returns ModifyEmgVulSubmitResponse

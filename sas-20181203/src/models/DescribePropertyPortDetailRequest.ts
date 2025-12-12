@@ -27,6 +27,7 @@ export class DescribePropertyPortDetailRequest extends $dara.Model {
    * 1
    */
   extend?: string;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries to return on each page. Default value: **10**.
@@ -69,6 +70,7 @@ export class DescribePropertyPortDetailRequest extends $dara.Model {
    * 127608589417****
    */
   resourceDirectoryAccountId?: number;
+  useNextToken?: boolean;
   /**
    * @remarks
    * The UUID of the server.
@@ -82,11 +84,13 @@ export class DescribePropertyPortDetailRequest extends $dara.Model {
       bindIp: 'BindIp',
       currentPage: 'CurrentPage',
       extend: 'Extend',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       port: 'Port',
       procName: 'ProcName',
       remark: 'Remark',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
+      useNextToken: 'UseNextToken',
       uuid: 'Uuid',
     };
   }
@@ -96,11 +100,13 @@ export class DescribePropertyPortDetailRequest extends $dara.Model {
       bindIp: 'string',
       currentPage: 'number',
       extend: 'string',
+      nextToken: 'string',
       pageSize: 'number',
       port: 'string',
       procName: 'string',
       remark: 'string',
       resourceDirectoryAccountId: 'number',
+      useNextToken: 'boolean',
       uuid: 'string',
     };
   }

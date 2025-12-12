@@ -19,6 +19,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
    * 1
    */
   extend?: string;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries to return on each page. Default value: **10**.
@@ -43,6 +44,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
    * /etc/cron.d/root
    */
   source?: string;
+  useNextToken?: boolean;
   /**
    * @remarks
    * The username of the account that runs the scheduled task.
@@ -63,9 +65,11 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
     return {
       currentPage: 'CurrentPage',
       extend: 'Extend',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       remark: 'Remark',
       source: 'Source',
+      useNextToken: 'UseNextToken',
       user: 'User',
       uuid: 'Uuid',
     };
@@ -75,9 +79,11 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
     return {
       currentPage: 'number',
       extend: 'string',
+      nextToken: 'string',
       pageSize: 'number',
       remark: 'string',
       source: 'string',
+      useNextToken: 'boolean',
       user: 'string',
       uuid: 'string',
     };

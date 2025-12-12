@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListCloudAssetInstancesRequestCloudAssetQueryData extends $dara.Model {
+  data?: string;
+  operator?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      operator: 'Operator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      operator: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
   /**
    * @remarks
@@ -63,6 +89,7 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
 }
 
 export class ListCloudAssetInstancesRequest extends $dara.Model {
+  cloudAssetQueryData?: ListCloudAssetInstancesRequestCloudAssetQueryData[];
   /**
    * @remarks
    * The details of the cloud asset.
@@ -124,6 +151,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      cloudAssetQueryData: 'CloudAssetQueryData',
       cloudAssetTypes: 'CloudAssetTypes',
       criteria: 'Criteria',
       currentPage: 'CurrentPage',
@@ -135,6 +163,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudAssetQueryData: { 'type': 'array', 'itemType': ListCloudAssetInstancesRequestCloudAssetQueryData },
       cloudAssetTypes: { 'type': 'array', 'itemType': ListCloudAssetInstancesRequestCloudAssetTypes },
       criteria: 'string',
       currentPage: 'number',
@@ -145,6 +174,9 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.cloudAssetQueryData)) {
+      $dara.Model.validateArray(this.cloudAssetQueryData);
+    }
     if(Array.isArray(this.cloudAssetTypes)) {
       $dara.Model.validateArray(this.cloudAssetTypes);
     }

@@ -19,6 +19,7 @@ export class DescribePropertyScaDetailResponseBodyPageInfo extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries returned per page. Default value: **10**.
@@ -39,6 +40,7 @@ export class DescribePropertyScaDetailResponseBodyPageInfo extends $dara.Model {
     return {
       count: 'Count',
       currentPage: 'CurrentPage',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
     };
@@ -48,6 +50,7 @@ export class DescribePropertyScaDetailResponseBodyPageInfo extends $dara.Model {
     return {
       count: 'number',
       currentPage: 'number',
+      nextToken: 'string',
       pageSize: 'number',
       totalCount: 'number',
     };

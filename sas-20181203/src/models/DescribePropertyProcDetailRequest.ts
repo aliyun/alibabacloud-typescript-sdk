@@ -35,6 +35,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
    * 8888
    */
   name?: string;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries to return on each page. Default value: **10**.
@@ -77,6 +78,7 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
    * 127608589417****
    */
   resourceDirectoryAccountId?: number;
+  useNextToken?: boolean;
   /**
    * @remarks
    * The user who runs the process.
@@ -99,11 +101,13 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       extend: 'Extend',
       name: 'Name',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       procTimeEnd: 'ProcTimeEnd',
       procTimeStart: 'ProcTimeStart',
       remark: 'Remark',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
+      useNextToken: 'UseNextToken',
       user: 'User',
       uuid: 'Uuid',
     };
@@ -115,11 +119,13 @@ export class DescribePropertyProcDetailRequest extends $dara.Model {
       currentPage: 'number',
       extend: 'string',
       name: 'string',
+      nextToken: 'string',
       pageSize: 'number',
       procTimeEnd: 'number',
       procTimeStart: 'number',
       remark: 'string',
       resourceDirectoryAccountId: 'number',
+      useNextToken: 'boolean',
       user: 'string',
       uuid: 'string',
     };

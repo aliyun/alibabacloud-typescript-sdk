@@ -19,6 +19,7 @@ export class DescribePropertySoftwareDetailResponseBodyPageInfo extends $dara.Mo
    * 1
    */
   currentPage?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries per page. Default value: **10**.
@@ -39,6 +40,7 @@ export class DescribePropertySoftwareDetailResponseBodyPageInfo extends $dara.Mo
     return {
       count: 'Count',
       currentPage: 'CurrentPage',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
     };
@@ -48,6 +50,7 @@ export class DescribePropertySoftwareDetailResponseBodyPageInfo extends $dara.Mo
     return {
       count: 'number',
       currentPage: 'number',
+      nextToken: 'string',
       pageSize: 'number',
       totalCount: 'number',
     };

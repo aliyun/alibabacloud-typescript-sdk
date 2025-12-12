@@ -46,6 +46,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
    * 164922523600
    */
   lastLoginTimeStart?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries to return on each page. Default value: **10**.
@@ -62,6 +63,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
    * 192.168.XX.XX
    */
   remark?: string;
+  useNextToken?: boolean;
   /**
    * @remarks
    * The name of the account to which the server belongs.
@@ -85,8 +87,10 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
       isRoot: 'IsRoot',
       lastLoginTimeEnd: 'LastLoginTimeEnd',
       lastLoginTimeStart: 'LastLoginTimeStart',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       remark: 'Remark',
+      useNextToken: 'UseNextToken',
       user: 'User',
       uuid: 'Uuid',
     };
@@ -99,8 +103,10 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
       isRoot: 'string',
       lastLoginTimeEnd: 'number',
       lastLoginTimeStart: 'number',
+      nextToken: 'string',
       pageSize: 'number',
       remark: 'string',
+      useNextToken: 'boolean',
       user: 'string',
       uuid: 'string',
     };

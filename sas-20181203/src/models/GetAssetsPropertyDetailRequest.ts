@@ -92,6 +92,7 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
    * en
    */
   lang?: string;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
@@ -115,6 +116,7 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
    * The conditions that are used to query the details about the asset fingerprint.
    */
   searchCriteriaList?: GetAssetsPropertyDetailRequestSearchCriteriaList[];
+  useNextToken?: boolean;
   /**
    * @remarks
    * The UUID of the server.
@@ -131,9 +133,11 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       itemName: 'ItemName',
       lang: 'Lang',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       remark: 'Remark',
       searchCriteriaList: 'SearchCriteriaList',
+      useNextToken: 'UseNextToken',
       uuid: 'Uuid',
     };
   }
@@ -144,9 +148,11 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
       currentPage: 'number',
       itemName: 'string',
       lang: 'string',
+      nextToken: 'string',
       pageSize: 'number',
       remark: 'string',
       searchCriteriaList: { 'type': 'array', 'itemType': GetAssetsPropertyDetailRequestSearchCriteriaList },
+      useNextToken: 'boolean',
       uuid: 'string',
     };
   }

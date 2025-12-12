@@ -791,6 +791,7 @@ export { ListCheckTypesResponseBodyData } from './ListCheckTypesResponseBody';
 export { ListClientAlertModeResponseBodyData } from './ListClientAlertModeResponseBody';
 export { ListClientUserDefineRulesResponseBodyPageInfo } from './ListClientUserDefineRulesResponseBody';
 export { ListClientUserDefineRulesResponseBodyUserDefineRuleList } from './ListClientUserDefineRulesResponseBody';
+export { ListCloudAssetInstancesRequestCloudAssetQueryData } from './ListCloudAssetInstancesRequest';
 export { ListCloudAssetInstancesRequestCloudAssetTypes } from './ListCloudAssetInstancesRequest';
 export { ListCloudAssetInstancesResponseBodyInstances } from './ListCloudAssetInstancesResponseBody';
 export { ListCloudAssetInstancesResponseBodyPageInfo } from './ListCloudAssetInstancesResponseBody';

@@ -62,6 +62,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
    * 1
    */
   name?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The number of entries to return on each page. Default value: **10**.
@@ -201,6 +202,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
    * version
    */
   searchItemSub?: string;
+  useNextToken?: boolean;
   /**
    * @remarks
    * The user who runs the process.
@@ -224,6 +226,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       lang: 'Lang',
       name: 'Name',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       pid: 'Pid',
       port: 'Port',
@@ -237,6 +240,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
       searchInfoSub: 'SearchInfoSub',
       searchItem: 'SearchItem',
       searchItemSub: 'SearchItemSub',
+      useNextToken: 'UseNextToken',
       user: 'User',
       uuid: 'Uuid',
     };
@@ -249,6 +253,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
       currentPage: 'number',
       lang: 'string',
       name: 'number',
+      nextToken: 'string',
       pageSize: 'number',
       pid: 'string',
       port: 'string',
@@ -262,6 +267,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
       searchInfoSub: 'string',
       searchItem: 'string',
       searchItemSub: 'string',
+      useNextToken: 'boolean',
       user: 'string',
       uuid: 'string',
     };

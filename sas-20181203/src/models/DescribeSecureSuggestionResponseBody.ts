@@ -94,6 +94,7 @@ export class DescribeSecureSuggestionResponseBody extends $dara.Model {
    * 676F80E3-4B3F-43DA-9CBB-5FF79F202AA2
    */
   requestId?: string;
+  score?: string;
   suggestions?: DescribeSecureSuggestionResponseBodySuggestions[];
   /**
    * @example
@@ -104,6 +105,7 @@ export class DescribeSecureSuggestionResponseBody extends $dara.Model {
     return {
       calTime: 'CalTime',
       requestId: 'RequestId',
+      score: 'Score',
       suggestions: 'Suggestions',
       totalCount: 'TotalCount',
     };
@@ -113,6 +115,7 @@ export class DescribeSecureSuggestionResponseBody extends $dara.Model {
     return {
       calTime: 'number',
       requestId: 'string',
+      score: 'string',
       suggestions: { 'type': 'array', 'itemType': DescribeSecureSuggestionResponseBodySuggestions },
       totalCount: 'number',
     };
