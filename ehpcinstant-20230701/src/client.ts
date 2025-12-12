@@ -1002,6 +1002,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Executor的事件信息
+   * 
+   * @param tmpReq - ListExecutorEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExecutorEventsResponse
+   */
+  async listExecutorEventsWithOptions(tmpReq: $_model.ListExecutorEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListExecutorEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListExecutorEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListExecutorEvents",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListExecutorEventsResponse>(await this.callApi(params, req, runtime), new $_model.ListExecutorEventsResponse({}));
+  }
+
+  /**
+   * 查询Executor的事件信息
+   * 
+   * @param request - ListExecutorEventsRequest
+   * @returns ListExecutorEventsResponse
+   */
+  async listExecutorEvents(request: $_model.ListExecutorEventsRequest): Promise<$_model.ListExecutorEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listExecutorEventsWithOptions(request, runtime);
+  }
+
+  /**
    * Querying Global Executor Information
    * 
    * @param tmpReq - ListExecutorsRequest
