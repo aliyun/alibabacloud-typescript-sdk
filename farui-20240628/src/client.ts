@@ -259,6 +259,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 合同抽取
+   * 
+   * @param tmpReq - RunContractExtractRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunContractExtractResponse
+   */
+  async runContractExtractWithOptions(workspaceId: string, tmpReq: $_model.RunContractExtractRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunContractExtractResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunContractExtractShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fieldsToExtract)) {
+      request.fieldsToExtractShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fieldsToExtract, "fieldsToExtract", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["appId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.fieldsToExtractShrink)) {
+      body["fieldsToExtract"] = request.fieldsToExtractShrink;
+    }
+
+    if (!$dara.isNull(request.fileOssUrl)) {
+      body["fileOssUrl"] = request.fileOssUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunContractExtract",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/pop/contract/extraction`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunContractExtractResponse>(await this.callApi(params, req, runtime), new $_model.RunContractExtractResponse({}));
+  }
+
+  /**
+   * 合同抽取
+   * 
+   * @param request - RunContractExtractRequest
+   * @returns RunContractExtractResponse
+   */
+  async runContractExtract(workspaceId: string, request: $_model.RunContractExtractRequest): Promise<$_model.RunContractExtractResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runContractExtractWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 生成合同审查结果
    * 
    * @param tmpReq - RunContractResultGenerationRequest
