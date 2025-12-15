@@ -1,10 +1,517 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetClusterResponseBodyClusterCustomConfiguration } from "./GetClusterResponseBodyClusterCustomConfiguration";
-import { GetClusterResponseBodyManager } from "./GetClusterResponseBodyManager";
-import { GetClusterResponseBodyMonitorSpec } from "./GetClusterResponseBodyMonitorSpec";
-import { GetClusterResponseBodySchedulerSpec } from "./GetClusterResponseBodySchedulerSpec";
 
+
+export class GetClusterResponseBodyClusterCustomConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The arguments that are used to run the script after the scrip is installed.
+   * 
+   * @example
+   * E-HPC cn-hangzhou
+   */
+  args?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the post-processing script.
+   * 
+   * @example
+   * http://*****
+   */
+  script?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      script: 'Script',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      script: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerDNS extends $dara.Model {
+  /**
+   * @remarks
+   * The state of the domain name resolution service. Valid values:
+   * 
+   * *   uninit: The service is being installed.
+   * *   initing: The service is being initialized.
+   * *   running: The service is running.
+   * *   exception: The service has run into an exception.
+   * *   releasing: The service is being released.
+   * *   stopped: The service is stopped.
+   * *   pending: The service is waiting to be configured.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The resolution type.
+   * 
+   * @example
+   * nis
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the resolution service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerDirectoryService extends $dara.Model {
+  /**
+   * @remarks
+   * The state of the domain account service. Valid values:
+   * 
+   * *   uninit: The service is being installed.
+   * *   initing: The service is being initialized.
+   * *   running: The service is running.
+   * *   exception: The service has run into an exception.
+   * *   releasing: The service is being released.
+   * *   stopped: The service is stopped.
+   * *   pending: The service is waiting to be configured.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The type of the domain account.
+   * 
+   * @example
+   * nis
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain account service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerManagerNodeSystemDisk extends $dara.Model {
+  /**
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @example
+   * PL0
+   */
+  level?: string;
+  /**
+   * @example
+   * 40
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      level: 'Level',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      level: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerManagerNode extends $dara.Model {
+  autoRenew?: boolean;
+  /**
+   * @example
+   * Month
+   */
+  autoRenewPeriod?: number;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  enableHt?: boolean;
+  /**
+   * @remarks
+   * The expiration time of the management node.
+   * 
+   * @example
+   * 2099-12-31T15:59Z
+   */
+  expiredTime?: string;
+  /**
+   * @example
+   * aliyun_2_1903_x64_20G_alibase_20200324.vhd
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The instance billing method of the management node. Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go
+   * *   PrePaid: subscription
+   * 
+   * @example
+   * PostPaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance ID of the management node.
+   * 
+   * @example
+   * i-bp1a170jgea1vl******
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The instance type of the management node.
+   * 
+   * @example
+   * ecs.g6.4xlarge
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * 1
+   */
+  spotPriceLimit?: number;
+  /**
+   * @example
+   * NoSpot
+   */
+  spotStrategy?: string;
+  systemDisk?: GetClusterResponseBodyManagerManagerNodeSystemDisk;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'AutoRenew',
+      autoRenewPeriod: 'AutoRenewPeriod',
+      duration: 'Duration',
+      enableHt: 'EnableHt',
+      expiredTime: 'ExpiredTime',
+      imageId: 'ImageId',
+      instanceChargeType: 'InstanceChargeType',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+      systemDisk: 'SystemDisk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      duration: 'number',
+      enableHt: 'boolean',
+      expiredTime: 'string',
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      spotPriceLimit: 'number',
+      spotStrategy: 'string',
+      systemDisk: GetClusterResponseBodyManagerManagerNodeSystemDisk,
+    };
+  }
+
+  validate() {
+    if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
+      (this.systemDisk as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerScheduler extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduler state. Valid values:
+   * 
+   * *   uninit: The scheduler is being installed.
+   * *   initing: The scheduler is being initialized.
+   * *   running: The scheduler is running.
+   * *   exception: The scheduler has run into an exception.
+   * *   releasing: The scheduler is being released.
+   * *   stopped: The scheduler is stopped.
+   * *   pending: The scheduler is waiting to be configured.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The scheduler type. Valid values:
+   * 
+   * *   SLURM
+   * *   PBS
+   * *   OPENGRIDSCHEDULER
+   * *   LSF_PLUGIN
+   * *   PBS_PLUGIN
+   * 
+   * @example
+   * SLURM
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The scheduler version.
+   * 
+   * @example
+   * 22.05.8
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManager extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the domain name resolution service.
+   */
+  DNS?: GetClusterResponseBodyManagerDNS;
+  /**
+   * @remarks
+   * The information about the domain account service.
+   */
+  directoryService?: GetClusterResponseBodyManagerDirectoryService;
+  /**
+   * @remarks
+   * The configurations of the management node.
+   */
+  managerNode?: GetClusterResponseBodyManagerManagerNode;
+  /**
+   * @remarks
+   * The information about the scheduler.
+   */
+  scheduler?: GetClusterResponseBodyManagerScheduler;
+  static names(): { [key: string]: string } {
+    return {
+      DNS: 'DNS',
+      directoryService: 'DirectoryService',
+      managerNode: 'ManagerNode',
+      scheduler: 'Scheduler',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNS: GetClusterResponseBodyManagerDNS,
+      directoryService: GetClusterResponseBodyManagerDirectoryService,
+      managerNode: GetClusterResponseBodyManagerManagerNode,
+      scheduler: GetClusterResponseBodyManagerScheduler,
+    };
+  }
+
+  validate() {
+    if(this.DNS && typeof (this.DNS as any).validate === 'function') {
+      (this.DNS as any).validate();
+    }
+    if(this.directoryService && typeof (this.directoryService as any).validate === 'function') {
+      (this.directoryService as any).validate();
+    }
+    if(this.managerNode && typeof (this.managerNode as any).validate === 'function') {
+      (this.managerNode as any).validate();
+    }
+    if(this.scheduler && typeof (this.scheduler as any).validate === 'function') {
+      (this.scheduler as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyMonitorSpec extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the monitoring component of compute nodes is enabled for the cluster. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableComputeLoadMonitor?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableComputeLoadMonitor: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodySchedulerSpec extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the topology awareness feature is enabled for the cluster. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableTopologyAwareness?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableTopologyAwareness: 'EnableTopologyAwareness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTopologyAwareness: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetClusterResponseBody extends $dara.Model {
   /**

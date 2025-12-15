@@ -13,7 +13,7 @@ export class ListInstalledSoftwaresRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The page number.
    * 
    * @example
    * 1

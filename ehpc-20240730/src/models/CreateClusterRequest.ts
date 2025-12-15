@@ -1,14 +1,431 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateClusterRequestAdditionalPackages } from "./CreateClusterRequestAdditionalPackages";
-import { CreateClusterRequestAddons } from "./CreateClusterRequestAddons";
-import { CreateClusterRequestClusterCredentials } from "./CreateClusterRequestClusterCredentials";
-import { CreateClusterRequestClusterCustomConfiguration } from "./CreateClusterRequestClusterCustomConfiguration";
-import { CreateClusterRequestManager } from "./CreateClusterRequestManager";
 import { QueueTemplate } from "./QueueTemplate";
 import { SharedStorageTemplate } from "./SharedStorageTemplate";
-import { CreateClusterRequestTags } from "./CreateClusterRequestTags";
+import { NodeTemplate } from "./NodeTemplate";
 
+
+export class CreateClusterRequestAdditionalPackages extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the software that you want to install in the cluster.
+   * 
+   * @example
+   * mpich
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software that you want to install in the cluster.
+   * 
+   * @example
+   * 4.0.3
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The addon name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The resource configurations of the addon.
+   * 
+   * @example
+   * "{\\\\"EipResource\\\\": {\\\\"AutoCreate\\\\": true}, \\\\"EcsResources\\\\": [{\\\\"InstanceType\\\\": \\\\"ecs.c7.xlarge\\\\", \\\\"ImageId\\\\": \\\\"centos_7_6_x64_20G_alibase_20211130.vhd\\\\", \\\\"SystemDisk\\\\": {\\\\"Category\\\\": \\\\"cloud_essd\\\\", \\\\"Size\\\\": 40, \\\\"Level\\\\": \\\\"PL0\\\\"}, \\\\"EnableHT\\\\": true, \\\\"InstanceChargeType\\\\": \\\\"PostPaid\\\\", \\\\"SpotStrategy\\\\": \\\\"NoSpot\\\\"}]}"
+   */
+  resourcesSpec?: string;
+  /**
+   * @remarks
+   * The service configurations of the addon.
+   * 
+   * @example
+   * "[{\\\\"ServiceName\\\\": \\\\"SSH\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 22, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"VNC\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12016, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"CLIENT\\\\", \\\\"ServiceAccessType\\\\": \\\\"URL\\\\", \\\\"ServiceAccessUrl\\\\": \\\\"\\\\", \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12011, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}]"
+   */
+  servicesSpec?: string;
+  /**
+   * @remarks
+   * The addon version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      resourcesSpec: 'ResourcesSpec',
+      servicesSpec: 'ServicesSpec',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      resourcesSpec: 'string',
+      servicesSpec: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestClusterCredentials extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the key pair. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+   * 
+   * >  For more information, see [Create a key pair](https://help.aliyun.com/document_detail/51793.html).
+   * 
+   * @example
+   * ali0824
+   */
+  keyPairName?: string;
+  /**
+   * @remarks
+   * The password for the root user to log on to the node. The password must be 8 to 20 characters in length, and must contain at least 3 of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `() ~ ! @ # $ % ^ & * - = + { } [ ] : ; \\" < > , . ? /`
+   * 
+   * >  We recommend that you use HTTPS to call the API operation to prevent password leakage.
+   * 
+   * @example
+   * **********
+   */
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPairName: 'KeyPairName',
+      password: 'Password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPairName: 'string',
+      password: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestClusterCustomConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The runtime parameters of the script after the cluster is created.
+   * 
+   * @example
+   * E-HPC cn-hangzhou
+   */
+  args?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the post-processing script.
+   * 
+   * @example
+   * http://*****
+   */
+  script?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      script: 'Script',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      script: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManagerDNS extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name resolution type.
+   * 
+   * Valid values:
+   * 
+   * *   NIS
+   * 
+   * @example
+   * NIS
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain name resolution service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManagerDirectoryService extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the domain account.
+   * 
+   * Valid values:
+   * 
+   * *   NIS
+   * 
+   * @example
+   * NIS
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain account service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManagerScheduler extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduler type. Valid values:
+   * 
+   * *   SLURM
+   * *   PBS
+   * *   OPENGRIDSCHEDULER
+   * *   LSF_PLUGIN
+   * *   PBS_PLUGIN
+   * 
+   * @example
+   * SLURM
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The scheduler version.
+   * 
+   * @example
+   * 22.05.8
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManager extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the domain name resolution service.
+   */
+  DNS?: CreateClusterRequestManagerDNS;
+  /**
+   * @remarks
+   * The configurations of the domain account service.
+   */
+  directoryService?: CreateClusterRequestManagerDirectoryService;
+  /**
+   * @remarks
+   * The hardware configurations of the management node.
+   */
+  managerNode?: NodeTemplate;
+  /**
+   * @remarks
+   * The configurations of the scheduler service.
+   */
+  scheduler?: CreateClusterRequestManagerScheduler;
+  static names(): { [key: string]: string } {
+    return {
+      DNS: 'DNS',
+      directoryService: 'DirectoryService',
+      managerNode: 'ManagerNode',
+      scheduler: 'Scheduler',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNS: CreateClusterRequestManagerDNS,
+      directoryService: CreateClusterRequestManagerDirectoryService,
+      managerNode: NodeTemplate,
+      scheduler: CreateClusterRequestManagerScheduler,
+    };
+  }
+
+  validate() {
+    if(this.DNS && typeof (this.DNS as any).validate === 'function') {
+      (this.DNS as any).validate();
+    }
+    if(this.directoryService && typeof (this.directoryService as any).validate === 'function') {
+      (this.directoryService as any).validate();
+    }
+    if(this.managerNode && typeof (this.managerNode as any).validate === 'function') {
+      (this.managerNode as any).validate();
+    }
+    if(this.scheduler && typeof (this.scheduler as any).validate === 'function') {
+      (this.scheduler as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * ClusterId
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * ehpc-hz-******
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateClusterRequest extends $dara.Model {
   /**

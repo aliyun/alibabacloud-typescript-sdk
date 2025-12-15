@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AttachNodesShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The compute node information.
+   * The list of compute nodes.
    * 
    * This parameter is required.
    */

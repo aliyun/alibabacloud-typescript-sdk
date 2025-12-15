@@ -1970,6 +1970,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询产品支持的地域列表。
+   * 
+   * @param request - ListRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegionsResponse
+   */
+  async listRegionsWithOptions(request: $_model.ListRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.specCode)) {
+      query["SpecCode"] = request.specCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRegions",
+      version: "2024-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRegionsResponse>(await this.callApi(params, req, runtime), new $_model.ListRegionsResponse({}));
+  }
+
+  /**
+   * 查询产品支持的地域列表。
+   * 
+   * @param request - ListRegionsRequest
+   * @returns ListRegionsResponse
+   */
+  async listRegions(request: $_model.ListRegionsRequest): Promise<$_model.ListRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRegionsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the shared storage that is attached to a cluster.
    * 
    * @param request - ListSharedStoragesRequest

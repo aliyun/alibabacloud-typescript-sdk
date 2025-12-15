@@ -15,7 +15,7 @@ export class ListUsersRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The page number.
    * 
    * Pages start from page 1.
    * 

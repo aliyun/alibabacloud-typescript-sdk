@@ -1,9 +1,115 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateClusterRequestClusterCustomConfiguration } from "./UpdateClusterRequestClusterCustomConfiguration";
-import { UpdateClusterRequestMonitorSpec } from "./UpdateClusterRequestMonitorSpec";
-import { UpdateClusterRequestSchedulerSpec } from "./UpdateClusterRequestSchedulerSpec";
 
+
+export class UpdateClusterRequestClusterCustomConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the monitoring component of compute nodes. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * E-HPC cn-hangzhou
+   */
+  args?: string;
+  /**
+   * @remarks
+   * The monitoring details of the cluster.
+   * 
+   * @example
+   * http://*****
+   */
+  script?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      script: 'Script',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      script: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterRequestMonitorSpec extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the monitoring component of compute nodes. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableComputeLoadMonitor?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableComputeLoadMonitor: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterRequestSchedulerSpec extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the topology awareness feature. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableTopologyAwareness?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableTopologyAwareness: 'EnableTopologyAwareness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTopologyAwareness: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateClusterRequest extends $dara.Model {
   /**
