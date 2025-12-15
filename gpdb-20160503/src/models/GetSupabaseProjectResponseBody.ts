@@ -54,6 +54,9 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * 15
    */
   engineVersion?: string;
+  eni?: string;
+  instanceVersion?: string;
+  payType?: string;
   /**
    * @remarks
    * The private (VPC) connection URL for the Supabase Dashboard.
@@ -136,6 +139,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * 2
    */
   storageSize?: number;
+  storageType?: string;
   /**
    * @remarks
    * The vSwitch ID of the instance. This parameter must be specified when VPCId is specified.
@@ -176,6 +180,9 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       diskPerformanceLevel: 'DiskPerformanceLevel',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      eni: 'Eni',
+      instanceVersion: 'InstanceVersion',
+      payType: 'PayType',
       privateConnectUrl: 'PrivateConnectUrl',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
@@ -186,6 +193,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       securityIpList: 'SecurityIpList',
       status: 'Status',
       storageSize: 'StorageSize',
+      storageType: 'StorageType',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -200,6 +208,9 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       diskPerformanceLevel: 'string',
       engine: 'string',
       engineVersion: 'string',
+      eni: 'string',
+      instanceVersion: 'string',
+      payType: 'string',
       privateConnectUrl: 'string',
       projectId: 'string',
       projectName: 'string',
@@ -210,6 +221,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       securityIpList: 'string',
       status: 'string',
       storageSize: 'number',
+      storageType: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',

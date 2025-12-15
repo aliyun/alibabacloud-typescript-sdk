@@ -19,6 +19,8 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
    * caeba0bbb2be03f84eb48b699f0a****
    */
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
    * The region ID of the cluster.
@@ -33,6 +35,8 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
     };
   }
@@ -41,6 +45,8 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
     };
   }

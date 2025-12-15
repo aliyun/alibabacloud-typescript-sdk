@@ -87,6 +87,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
    * 2025-06-16T02:04:42Z
    */
   updateTime?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       bindObject: 'BindObject',
@@ -96,6 +97,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
       nodeName: 'NodeName',
       nodeSpec: 'NodeSpec',
       updateTime: 'UpdateTime',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -108,6 +110,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
       nodeName: 'string',
       nodeSpec: 'string',
       updateTime: 'string',
+      zoneId: 'string',
     };
   }
 

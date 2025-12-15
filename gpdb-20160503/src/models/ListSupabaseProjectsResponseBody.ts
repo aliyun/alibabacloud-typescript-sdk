@@ -51,6 +51,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
    * 6.0
    */
   engineVersion?: string;
+  expireTime?: string;
   /**
    * @remarks
    * The billing method of the instance. Valid values:
@@ -171,6 +172,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
       diskPerformanceLevel: 'DiskPerformanceLevel',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      expireTime: 'ExpireTime',
       payType: 'PayType',
       privateConnectUrl: 'PrivateConnectUrl',
       projectId: 'ProjectId',
@@ -195,6 +197,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
       diskPerformanceLevel: 'string',
       engine: 'string',
       engineVersion: 'string',
+      expireTime: 'string',
       payType: 'string',
       privateConnectUrl: 'string',
       projectId: 'string',
