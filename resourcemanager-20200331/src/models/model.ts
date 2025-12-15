@@ -88,6 +88,7 @@ export { ListPolicyAttachmentsResponseBodyPolicyAttachmentsPolicyAttachment } fr
 export { ListPolicyAttachmentsResponseBodyPolicyAttachments } from './ListPolicyAttachmentsResponseBody';
 export { ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion } from './ListPolicyVersionsResponseBody';
 export { ListPolicyVersionsResponseBodyPolicyVersions } from './ListPolicyVersionsResponseBody';
+export { ListResourceGroupCapabilityResponseBodyCapabilities } from './ListResourceGroupCapabilityResponseBody';
 export { ListResourceGroupsRequestTag } from './ListResourceGroupsRequest';
 export { ListResourceGroupsResponseBodyResourceGroupsResourceGroupTagsTag } from './ListResourceGroupsResponseBody';
 export { ListResourceGroupsResponseBodyResourceGroupsResourceGroupTags } from './ListResourceGroupsResponseBody';
@@ -113,6 +114,10 @@ export { ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTarge
 export { ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments } from './ListTargetAttachmentsForControlPolicyResponseBody';
 export { ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabledServicePrincipal } from './ListTrustedServiceStatusResponseBody';
 export { ListTrustedServiceStatusResponseBodyEnabledServicePrincipals } from './ListTrustedServiceStatusResponseBody';
+export { LookupResourceGroupEventsRequestLookupAttributes } from './LookupResourceGroupEventsRequest';
+export { LookupResourceGroupEventsResponseBodyEventsSourceResourceGroupInfo } from './LookupResourceGroupEventsResponseBody';
+export { LookupResourceGroupEventsResponseBodyEventsTargetResourceGroupInfo } from './LookupResourceGroupEventsResponseBody';
+export { LookupResourceGroupEventsResponseBodyEvents } from './LookupResourceGroupEventsResponseBody';
 export { MoveResourcesRequestResources } from './MoveResourcesRequest';
 export { MoveResourcesResponseBodyResponses } from './MoveResourcesResponseBody';
 export { PromoteResourceAccountResponseBodyAccount } from './PromoteResourceAccountResponseBody';
@@ -351,6 +356,9 @@ export { ListPolicyAttachmentsResponse } from './ListPolicyAttachmentsResponse';
 export { ListPolicyVersionsRequest } from './ListPolicyVersionsRequest';
 export { ListPolicyVersionsResponseBody } from './ListPolicyVersionsResponseBody';
 export { ListPolicyVersionsResponse } from './ListPolicyVersionsResponse';
+export { ListResourceGroupCapabilityRequest } from './ListResourceGroupCapabilityRequest';
+export { ListResourceGroupCapabilityResponseBody } from './ListResourceGroupCapabilityResponseBody';
+export { ListResourceGroupCapabilityResponse } from './ListResourceGroupCapabilityResponse';
 export { ListResourceGroupsRequest } from './ListResourceGroupsRequest';
 export { ListResourceGroupsResponseBody } from './ListResourceGroupsResponseBody';
 export { ListResourceGroupsResponse } from './ListResourceGroupsResponse';
@@ -378,6 +386,9 @@ export { ListTargetAttachmentsForControlPolicyResponse } from './ListTargetAttac
 export { ListTrustedServiceStatusRequest } from './ListTrustedServiceStatusRequest';
 export { ListTrustedServiceStatusResponseBody } from './ListTrustedServiceStatusResponseBody';
 export { ListTrustedServiceStatusResponse } from './ListTrustedServiceStatusResponse';
+export { LookupResourceGroupEventsRequest } from './LookupResourceGroupEventsRequest';
+export { LookupResourceGroupEventsResponseBody } from './LookupResourceGroupEventsResponseBody';
+export { LookupResourceGroupEventsResponse } from './LookupResourceGroupEventsResponse';
 export { MoveAccountRequest } from './MoveAccountRequest';
 export { MoveAccountResponseBody } from './MoveAccountResponseBody';
 export { MoveAccountResponse } from './MoveAccountResponse';

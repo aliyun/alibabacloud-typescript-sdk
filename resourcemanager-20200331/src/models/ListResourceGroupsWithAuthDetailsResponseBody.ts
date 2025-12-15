@@ -193,6 +193,13 @@ export class ListResourceGroupsWithAuthDetailsResponseBody extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * 4141780B-4E3D-5D2A-A8F4-44D6D34F****
+   */
   requestId?: string;
   resourceGroups?: ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups[];
   /**

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceGroupAdminSettingRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the Use Creator as Administrator feature.
+   * 
    * This parameter is required.
    * 
    * @example

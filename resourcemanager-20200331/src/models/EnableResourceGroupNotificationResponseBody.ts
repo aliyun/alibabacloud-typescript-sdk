@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableResourceGroupNotificationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F7701451-340B-5CB3-AEA7-7D831F7F38C0
    */

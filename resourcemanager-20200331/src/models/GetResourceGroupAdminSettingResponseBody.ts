@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetResourceGroupAdminSettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether enable the Use Creator as Administrator feature.
+   * 
    * @example
    * true
    */
   creatorAsAdmin?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 776B05B3-A0B0-464B-A191-F4E1119A94B2
    */

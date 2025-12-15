@@ -1906,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭资源组通知
+   * Disables group event notification.
    * 
    * @param request - DisableResourceGroupNotificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1929,7 +1929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭资源组通知
+   * Disables group event notification.
    * @returns DisableResourceGroupNotificationResponse
    */
   async disableResourceGroupNotification(): Promise<$_model.DisableResourceGroupNotificationResponse> {
@@ -2102,7 +2102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通资源组通知
+   * Enables group event notification.
    * 
    * @param request - EnableResourceGroupNotificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2125,7 +2125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通资源组通知
+   * Enables group event notification.
    * @returns EnableResourceGroupNotificationResponse
    */
   async enableResourceGroupNotification(): Promise<$_model.EnableResourceGroupNotificationResponse> {
@@ -2748,7 +2748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源组管理员配置
+   * Queries the configurations of a resource group administrator.
    * 
    * @param request - GetResourceGroupAdminSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2771,7 +2771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源组管理员配置
+   * Queries the configurations of a resource group administrator.
    * @returns GetResourceGroupAdminSettingResponse
    */
   async getResourceGroupAdminSetting(): Promise<$_model.GetResourceGroupAdminSettingResponse> {
@@ -2780,7 +2780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源组通知设置
+   * Queries the notification settings of a resource group.
    * 
    * @param request - GetResourceGroupNotificationSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2803,7 +2803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源组通知设置
+   * Queries the notification settings of a resource group.
    * @returns GetResourceGroupNotificationSettingResponse
    */
   async getResourceGroupNotificationSetting(): Promise<$_model.GetResourceGroupNotificationSettingResponse> {
@@ -3248,7 +3248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出自动分组修正记录
+   * Queries a list of automatic grouping remediation records.
    * 
    * @param request - ListAutoGroupingRemediationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3311,7 +3311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出自动分组修正记录
+   * Queries a list of automatic grouping remediation records.
    * 
    * @param request - ListAutoGroupingRemediationsRequest
    * @returns ListAutoGroupingRemediationsResponse
@@ -3928,6 +3928,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出资源组能力项
+   * 
+   * @param request - ListResourceGroupCapabilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceGroupCapabilityResponse
+   */
+  async listResourceGroupCapabilityWithOptions(request: $_model.ListResourceGroupCapabilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceGroupCapabilityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.supportResourceGroupEvent)) {
+      query["SupportResourceGroupEvent"] = request.supportResourceGroupEvent;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResourceGroupCapability",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListResourceGroupCapabilityResponse>(await this.callApi(params, req, runtime), new $_model.ListResourceGroupCapabilityResponse({}));
+  }
+
+  /**
+   * 列出资源组能力项
+   * 
+   * @param request - ListResourceGroupCapabilityRequest
+   * @returns ListResourceGroupCapabilityResponse
+   */
+  async listResourceGroupCapability(request: $_model.ListResourceGroupCapabilityRequest): Promise<$_model.ListResourceGroupCapabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listResourceGroupCapabilityWithOptions(request, runtime);
+  }
+
+  /**
    * @remarks
    * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
    * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
@@ -4507,6 +4557,76 @@ export default class Client extends OpenApi {
   async listTrustedServiceStatus(request: $_model.ListTrustedServiceStatusRequest): Promise<$_model.ListTrustedServiceStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTrustedServiceStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资源组事件
+   * 
+   * @param request - LookupResourceGroupEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LookupResourceGroupEventsResponse
+   */
+  async lookupResourceGroupEventsWithOptions(request: $_model.LookupResourceGroupEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LookupResourceGroupEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.eventCategory)) {
+      query["EventCategory"] = request.eventCategory;
+    }
+
+    if (!$dara.isNull(request.lookupAttributes)) {
+      query["LookupAttributes"] = request.lookupAttributes;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupDisplayName)) {
+      query["ResourceGroupDisplayName"] = request.resourceGroupDisplayName;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LookupResourceGroupEvents",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LookupResourceGroupEventsResponse>(await this.callApi(params, req, runtime), new $_model.LookupResourceGroupEventsResponse({}));
+  }
+
+  /**
+   * 查询资源组事件
+   * 
+   * @param request - LookupResourceGroupEventsRequest
+   * @returns LookupResourceGroupEventsResponse
+   */
+  async lookupResourceGroupEvents(request: $_model.LookupResourceGroupEventsRequest): Promise<$_model.LookupResourceGroupEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.lookupResourceGroupEventsWithOptions(request, runtime);
   }
 
   /**
@@ -5580,7 +5700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源组管理员配置
+   * Updates the configurations of a resource group administrator.
    * 
    * @param request - UpdateResourceGroupAdminSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5611,7 +5731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源组管理员配置
+   * Updates the configurations of a resource group administrator.
    * 
    * @param request - UpdateResourceGroupAdminSettingRequest
    * @returns UpdateResourceGroupAdminSettingResponse

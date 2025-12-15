@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetResourceGroupNotificationSettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F70D09B-0EE5-54A6-A09A-1EBDB9297172
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the group event notification is enabled.
+   * 
    * @example
    * true
    */
