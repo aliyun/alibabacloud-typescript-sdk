@@ -1984,6 +1984,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of members who have the permission to query member information in a resource directory.
+   * 
+   * @remarks
+   * The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+   * 
+   * @param request - ListAuthorizedAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizedAccountsResponse
+   */
+  async listAuthorizedAccountsWithOptions(request: $_model.ListAuthorizedAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthorizedAccountsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthorizedAccounts",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthorizedAccountsResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthorizedAccountsResponse({}));
+  }
+
+  /**
+   * Queries a list of members who have the permission to query member information in a resource directory.
+   * 
+   * @remarks
+   * The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+   * 
+   * @param request - ListAuthorizedAccountsRequest
+   * @returns ListAuthorizedAccountsResponse
+   */
+  async listAuthorizedAccounts(request: $_model.ListAuthorizedAccountsRequest): Promise<$_model.ListAuthorizedAccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthorizedAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of folders that have permissions to query subfolder information in a resource directory.
+   * 
+   * @remarks
+   * The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+   * 
+   * @param request - ListAuthorizedFoldersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizedFoldersResponse
+   */
+  async listAuthorizedFoldersWithOptions(request: $_model.ListAuthorizedFoldersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthorizedFoldersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthorizedFolders",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthorizedFoldersResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthorizedFoldersResponse({}));
+  }
+
+  /**
+   * Queries a list of folders that have permissions to query subfolder information in a resource directory.
+   * 
+   * @remarks
+   * The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+   * 
+   * @param request - ListAuthorizedFoldersRequest
+   * @returns ListAuthorizedFoldersResponse
+   */
+  async listAuthorizedFolders(request: $_model.ListAuthorizedFoldersRequest): Promise<$_model.ListAuthorizedFoldersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthorizedFoldersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries access control policies.
    * 
    * @param request - ListControlPoliciesRequest
