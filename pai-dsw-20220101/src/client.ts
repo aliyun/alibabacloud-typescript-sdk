@@ -206,6 +206,10 @@ export default class Client extends OpenApi {
       body["Labels"] = request.labels;
     }
 
+    if (!$dara.isNull(request.migrationOptions)) {
+      body["MigrationOptions"] = request.migrationOptions;
+    }
+
     if (!$dara.isNull(request.oversoldType)) {
       body["OversoldType"] = request.oversoldType;
     }
@@ -1821,6 +1825,10 @@ export default class Client extends OpenApi {
       body["DisassociateForwardInfos"] = request.disassociateForwardInfos;
     }
 
+    if (!$dara.isNull(request.disassociateMigrationOptions)) {
+      body["DisassociateMigrationOptions"] = request.disassociateMigrationOptions;
+    }
+
     if (!$dara.isNull(request.disassociateSpot)) {
       body["DisassociateSpot"] = request.disassociateSpot;
     }
@@ -1863,6 +1871,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.migrationOptions)) {
+      body["MigrationOptions"] = request.migrationOptions;
     }
 
     if (!$dara.isNull(request.oversoldType)) {

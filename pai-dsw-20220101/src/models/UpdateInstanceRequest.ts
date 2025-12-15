@@ -617,6 +617,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * false
    */
   disassociateForwardInfos?: boolean;
+  disassociateMigrationOptions?: boolean;
   disassociateSpot?: boolean;
   disassociateUserCommand?: boolean;
   /**
@@ -684,6 +685,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * training_data
    */
   instanceName?: string;
+  migrationOptions?: { [key: string]: any };
   oversoldType?: string;
   /**
    * @remarks
@@ -754,6 +756,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       disassociateDriver: 'DisassociateDriver',
       disassociateEnvironmentVariables: 'DisassociateEnvironmentVariables',
       disassociateForwardInfos: 'DisassociateForwardInfos',
+      disassociateMigrationOptions: 'DisassociateMigrationOptions',
       disassociateSpot: 'DisassociateSpot',
       disassociateUserCommand: 'DisassociateUserCommand',
       disassociateVpc: 'DisassociateVpc',
@@ -765,6 +768,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
+      migrationOptions: 'MigrationOptions',
       oversoldType: 'OversoldType',
       priority: 'Priority',
       requestedResource: 'RequestedResource',
@@ -791,6 +795,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       disassociateDriver: 'boolean',
       disassociateEnvironmentVariables: 'boolean',
       disassociateForwardInfos: 'boolean',
+      disassociateMigrationOptions: 'boolean',
       disassociateSpot: 'boolean',
       disassociateUserCommand: 'boolean',
       disassociateVpc: 'boolean',
@@ -802,6 +807,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       imageId: 'string',
       imageUrl: 'string',
       instanceName: 'string',
+      migrationOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       oversoldType: 'string',
       priority: 'number',
       requestedResource: UpdateInstanceRequestRequestedResource,
@@ -835,6 +841,9 @@ export class UpdateInstanceRequest extends $dara.Model {
     }
     if(this.environmentVariables) {
       $dara.Model.validateMap(this.environmentVariables);
+    }
+    if(this.migrationOptions) {
+      $dara.Model.validateMap(this.migrationOptions);
     }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();

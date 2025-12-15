@@ -818,6 +818,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * {\\"foo\\": \\"bar\\"}
    */
   labels?: CreateInstanceRequestLabels[];
+  migrationOptions?: { [key: string]: any };
   oversoldType?: string;
   /**
    * @remarks
@@ -911,6 +912,7 @@ export class CreateInstanceRequest extends $dara.Model {
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
       labels: 'Labels',
+      migrationOptions: 'MigrationOptions',
       oversoldType: 'OversoldType',
       priority: 'Priority',
       requestedResource: 'RequestedResource',
@@ -942,6 +944,7 @@ export class CreateInstanceRequest extends $dara.Model {
       imageUrl: 'string',
       instanceName: 'string',
       labels: { 'type': 'array', 'itemType': CreateInstanceRequestLabels },
+      migrationOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       oversoldType: 'string',
       priority: 'number',
       requestedResource: CreateInstanceRequestRequestedResource,
@@ -980,6 +983,9 @@ export class CreateInstanceRequest extends $dara.Model {
     }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
+    }
+    if(this.migrationOptions) {
+      $dara.Model.validateMap(this.migrationOptions);
     }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();

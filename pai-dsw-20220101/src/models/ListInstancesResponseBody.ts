@@ -1363,6 +1363,7 @@ export class ListInstancesResponseBody extends $dara.Model {
    * "XXX"
    */
   message?: string;
+  migrationOptions?: { [key: string]: any };
   /**
    * @remarks
    * The request ID.
@@ -1396,6 +1397,7 @@ export class ListInstancesResponseBody extends $dara.Model {
       httpStatusCode: 'HttpStatusCode',
       instances: 'Instances',
       message: 'Message',
+      migrationOptions: 'MigrationOptions',
       requestId: 'RequestId',
       success: 'Success',
       totalCount: 'TotalCount',
@@ -1408,6 +1410,7 @@ export class ListInstancesResponseBody extends $dara.Model {
       httpStatusCode: 'number',
       instances: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstances },
       message: 'string',
+      migrationOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       success: 'boolean',
       totalCount: 'number',
@@ -1417,6 +1420,9 @@ export class ListInstancesResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.instances)) {
       $dara.Model.validateArray(this.instances);
+    }
+    if(this.migrationOptions) {
+      $dara.Model.validateMap(this.migrationOptions);
     }
     super.validate();
   }

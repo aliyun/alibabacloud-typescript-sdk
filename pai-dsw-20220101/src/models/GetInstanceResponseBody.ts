@@ -1169,6 +1169,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * "XXX"
    */
   message?: string;
+  migrationOptions?: { [key: string]: any };
   /**
    * @remarks
    * The error recovery configuration of the node.
@@ -1389,6 +1390,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       labels: 'Labels',
       latestSnapshot: 'LatestSnapshot',
       message: 'Message',
+      migrationOptions: 'MigrationOptions',
       nodeErrorRecovery: 'NodeErrorRecovery',
       paymentType: 'PaymentType',
       podIps: 'PodIps',
@@ -1447,6 +1449,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       labels: { 'type': 'array', 'itemType': GetInstanceResponseBodyLabels },
       latestSnapshot: GetInstanceResponseBodyLatestSnapshot,
       message: 'string',
+      migrationOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       nodeErrorRecovery: GetInstanceResponseBodyNodeErrorRecovery,
       paymentType: 'string',
       podIps: { 'type': 'array', 'itemType': PodIp },
@@ -1507,6 +1510,9 @@ export class GetInstanceResponseBody extends $dara.Model {
     }
     if(this.latestSnapshot && typeof (this.latestSnapshot as any).validate === 'function') {
       (this.latestSnapshot as any).validate();
+    }
+    if(this.migrationOptions) {
+      $dara.Model.validateMap(this.migrationOptions);
     }
     if(this.nodeErrorRecovery && typeof (this.nodeErrorRecovery as any).validate === 'function') {
       (this.nodeErrorRecovery as any).validate();
