@@ -2,23 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetAudioAsrTaskStatusResponseBodyResultData extends $dara.Model {
-  end?: number;
-  start?: number;
-  text?: string;
+export class GetMultiModalRerankerResponseBodyResultScores extends $dara.Model {
+  index?: number;
+  score?: number;
   static names(): { [key: string]: string } {
     return {
-      end: 'end',
-      start: 'start',
-      text: 'text',
+      index: 'index',
+      score: 'score',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      end: 'number',
-      start: 'number',
-      text: 'string',
+      index: 'number',
+      score: 'number',
     };
   }
 
@@ -31,32 +28,23 @@ export class GetAudioAsrTaskStatusResponseBodyResultData extends $dara.Model {
   }
 }
 
-export class GetAudioAsrTaskStatusResponseBodyResult extends $dara.Model {
-  data?: GetAudioAsrTaskStatusResponseBodyResultData[];
-  error?: string;
-  status?: string;
-  taskId?: string;
+export class GetMultiModalRerankerResponseBodyResult extends $dara.Model {
+  scores?: GetMultiModalRerankerResponseBodyResultScores[];
   static names(): { [key: string]: string } {
     return {
-      data: 'data',
-      error: 'error',
-      status: 'status',
-      taskId: 'task_id',
+      scores: 'scores',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': GetAudioAsrTaskStatusResponseBodyResultData },
-      error: 'string',
-      status: 'string',
-      taskId: 'string',
+      scores: { 'type': 'array', 'itemType': GetMultiModalRerankerResponseBodyResultScores },
     };
   }
 
   validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
+    if(Array.isArray(this.scores)) {
+      $dara.Model.validateArray(this.scores);
     }
     super.validate();
   }
@@ -66,17 +54,20 @@ export class GetAudioAsrTaskStatusResponseBodyResult extends $dara.Model {
   }
 }
 
-export class GetAudioAsrTaskStatusResponseBodyUsage extends $dara.Model {
-  duration?: number;
+export class GetMultiModalRerankerResponseBodyUsage extends $dara.Model {
+  imageToken?: number;
+  textToken?: number;
   static names(): { [key: string]: string } {
     return {
-      duration: 'duration',
+      imageToken: 'image_token',
+      textToken: 'text_token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      duration: 'number',
+      imageToken: 'number',
+      textToken: 'number',
     };
   }
 
@@ -89,11 +80,11 @@ export class GetAudioAsrTaskStatusResponseBodyUsage extends $dara.Model {
   }
 }
 
-export class GetAudioAsrTaskStatusResponseBody extends $dara.Model {
+export class GetMultiModalRerankerResponseBody extends $dara.Model {
   latency?: number;
   requestId?: string;
-  result?: GetAudioAsrTaskStatusResponseBodyResult;
-  usage?: GetAudioAsrTaskStatusResponseBodyUsage;
+  result?: GetMultiModalRerankerResponseBodyResult;
+  usage?: GetMultiModalRerankerResponseBodyUsage;
   static names(): { [key: string]: string } {
     return {
       latency: 'latency',
@@ -107,8 +98,8 @@ export class GetAudioAsrTaskStatusResponseBody extends $dara.Model {
     return {
       latency: 'number',
       requestId: 'string',
-      result: GetAudioAsrTaskStatusResponseBodyResult,
-      usage: GetAudioAsrTaskStatusResponseBodyUsage,
+      result: GetMultiModalRerankerResponseBodyResult,
+      usage: GetMultiModalRerankerResponseBodyUsage,
     };
   }
 

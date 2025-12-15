@@ -2,20 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetMultiModalEmbeddingRequestInput extends $dara.Model {
-  image?: string;
-  text?: string;
+export class GetImageObjectDetectionRequestImage extends $dara.Model {
+  content?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      image: 'image',
-      text: 'text',
+      content: 'content',
+      url: 'url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      image: 'string',
-      text: 'string',
+      content: 'string',
+      url: 'string',
     };
   }
 
@@ -28,26 +28,26 @@ export class GetMultiModalEmbeddingRequestInput extends $dara.Model {
   }
 }
 
-export class GetMultiModalEmbeddingRequest extends $dara.Model {
-  input?: GetMultiModalEmbeddingRequestInput[];
+export class GetImageObjectDetectionRequest extends $dara.Model {
+  image?: GetImageObjectDetectionRequestImage;
   options?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      input: 'input',
+      image: 'image',
       options: 'options',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      input: { 'type': 'array', 'itemType': GetMultiModalEmbeddingRequestInput },
+      image: GetImageObjectDetectionRequestImage,
       options: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
   validate() {
-    if(Array.isArray(this.input)) {
-      $dara.Model.validateArray(this.input);
+    if(this.image && typeof (this.image as any).validate === 'function') {
+      (this.image as any).validate();
     }
     if(this.options) {
       $dara.Model.validateMap(this.options);

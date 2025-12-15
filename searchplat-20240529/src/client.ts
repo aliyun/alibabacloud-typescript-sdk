@@ -506,6 +506,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 图片主体检测
+   * 
+   * @param request - GetImageObjectDetectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageObjectDetectionResponse
+   */
+  async getImageObjectDetectionWithOptions(workspaceName: string, serviceId: string, request: $_model.GetImageObjectDetectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageObjectDetectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.image)) {
+      body["image"] = request.image;
+    }
+
+    if (!$dara.isNull(request.options)) {
+      body["options"] = request.options;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImageObjectDetection",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/image-object-detection/${serviceId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetImageObjectDetectionResponse>(await this.execute(params, req, runtime), new $_model.GetImageObjectDetectionResponse({}));
+  }
+
+  /**
+   * 图片主体检测
+   * 
+   * @param request - GetImageObjectDetectionRequest
+   * @returns GetImageObjectDetectionResponse
+   */
+  async getImageObjectDetection(workspaceName: string, serviceId: string, request: $_model.GetImageObjectDetectionRequest): Promise<$_model.GetImageObjectDetectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getImageObjectDetectionWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
    * 多模态向量化
    * 
    * @param request - GetMultiModalEmbeddingRequest
@@ -518,6 +567,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.input)) {
       body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.options)) {
+      body["options"] = request.options;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -548,6 +601,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMultiModalEmbeddingWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 多模态 Reranker
+   * 
+   * @param request - GetMultiModalRerankerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultiModalRerankerResponse
+   */
+  async getMultiModalRerankerWithOptions(workspaceName: string, serviceId: string, request: $_model.GetMultiModalRerankerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMultiModalRerankerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docs)) {
+      body["docs"] = request.docs;
+    }
+
+    if (!$dara.isNull(request.options)) {
+      body["options"] = request.options;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMultiModalReranker",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/multi-modal-reranker/${serviceId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMultiModalRerankerResponse>(await this.execute(params, req, runtime), new $_model.GetMultiModalRerankerResponse({}));
+  }
+
+  /**
+   * 多模态 Reranker
+   * 
+   * @param request - GetMultiModalRerankerRequest
+   * @returns GetMultiModalRerankerResponse
+   */
+  async getMultiModalReranker(workspaceName: string, serviceId: string, request: $_model.GetMultiModalRerankerRequest): Promise<$_model.GetMultiModalRerankerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMultiModalRerankerWithOptions(workspaceName, serviceId, request, headers, runtime);
   }
 
   /**

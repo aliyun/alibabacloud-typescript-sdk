@@ -2,23 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetTextSparseEmbeddingResponseBodyResultSparseEmbeddingsEmbedding extends $dara.Model {
-  token?: string;
-  tokenId?: number;
-  weight?: number;
+export class GetImageObjectDetectionResponseBodyResultObjectsLocation extends $dara.Model {
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
-      token: 'token',
-      tokenId: 'token_id',
-      weight: 'weight',
+      x: 'X',
+      y: 'Y',
+      height: 'height',
+      width: 'width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      token: 'string',
-      tokenId: 'number',
-      weight: 'number',
+      x: 'number',
+      y: 'number',
+      height: 'number',
+      width: 'number',
     };
   }
 
@@ -31,26 +34,26 @@ export class GetTextSparseEmbeddingResponseBodyResultSparseEmbeddingsEmbedding e
   }
 }
 
-export class GetTextSparseEmbeddingResponseBodyResultSparseEmbeddings extends $dara.Model {
-  embedding?: GetTextSparseEmbeddingResponseBodyResultSparseEmbeddingsEmbedding[];
-  index?: number;
+export class GetImageObjectDetectionResponseBodyResultObjects extends $dara.Model {
+  confidence?: string;
+  location?: GetImageObjectDetectionResponseBodyResultObjectsLocation;
   static names(): { [key: string]: string } {
     return {
-      embedding: 'embedding',
-      index: 'index',
+      confidence: 'confidence',
+      location: 'location',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      embedding: { 'type': 'array', 'itemType': GetTextSparseEmbeddingResponseBodyResultSparseEmbeddingsEmbedding },
-      index: 'number',
+      confidence: 'string',
+      location: GetImageObjectDetectionResponseBodyResultObjectsLocation,
     };
   }
 
   validate() {
-    if(Array.isArray(this.embedding)) {
-      $dara.Model.validateArray(this.embedding);
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
     }
     super.validate();
   }
@@ -60,23 +63,23 @@ export class GetTextSparseEmbeddingResponseBodyResultSparseEmbeddings extends $d
   }
 }
 
-export class GetTextSparseEmbeddingResponseBodyResult extends $dara.Model {
-  sparseEmbeddings?: GetTextSparseEmbeddingResponseBodyResultSparseEmbeddings[];
+export class GetImageObjectDetectionResponseBodyResult extends $dara.Model {
+  objects?: GetImageObjectDetectionResponseBodyResultObjects[];
   static names(): { [key: string]: string } {
     return {
-      sparseEmbeddings: 'sparse_embeddings',
+      objects: 'objects',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sparseEmbeddings: { 'type': 'array', 'itemType': GetTextSparseEmbeddingResponseBodyResultSparseEmbeddings },
+      objects: { 'type': 'array', 'itemType': GetImageObjectDetectionResponseBodyResultObjects },
     };
   }
 
   validate() {
-    if(Array.isArray(this.sparseEmbeddings)) {
-      $dara.Model.validateArray(this.sparseEmbeddings);
+    if(Array.isArray(this.objects)) {
+      $dara.Model.validateArray(this.objects);
     }
     super.validate();
   }
@@ -86,17 +89,17 @@ export class GetTextSparseEmbeddingResponseBodyResult extends $dara.Model {
   }
 }
 
-export class GetTextSparseEmbeddingResponseBodyUsage extends $dara.Model {
-  tokenCount?: number;
+export class GetImageObjectDetectionResponseBodyUsage extends $dara.Model {
+  image?: number;
   static names(): { [key: string]: string } {
     return {
-      tokenCount: 'token_count',
+      image: 'image',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tokenCount: 'number',
+      image: 'number',
     };
   }
 
@@ -109,11 +112,11 @@ export class GetTextSparseEmbeddingResponseBodyUsage extends $dara.Model {
   }
 }
 
-export class GetTextSparseEmbeddingResponseBody extends $dara.Model {
+export class GetImageObjectDetectionResponseBody extends $dara.Model {
   latency?: number;
   requestId?: string;
-  result?: GetTextSparseEmbeddingResponseBodyResult;
-  usage?: GetTextSparseEmbeddingResponseBodyUsage;
+  result?: GetImageObjectDetectionResponseBodyResult;
+  usage?: GetImageObjectDetectionResponseBodyUsage;
   static names(): { [key: string]: string } {
     return {
       latency: 'latency',
@@ -127,8 +130,8 @@ export class GetTextSparseEmbeddingResponseBody extends $dara.Model {
     return {
       latency: 'number',
       requestId: 'string',
-      result: GetTextSparseEmbeddingResponseBodyResult,
-      usage: GetTextSparseEmbeddingResponseBodyUsage,
+      result: GetImageObjectDetectionResponseBodyResult,
+      usage: GetImageObjectDetectionResponseBodyUsage,
     };
   }
 

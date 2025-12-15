@@ -1,7 +1,29 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDocumentAnalyzeTaskResponseBodyResult } from "./CreateDocumentAnalyzeTaskResponseBodyResult";
 
+
+export class CreateDocumentAnalyzeTaskResponseBodyResult extends $dara.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDocumentAnalyzeTaskResponseBody extends $dara.Model {
   latency?: number;

@@ -1,9 +1,84 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDocumentAnalyzeTaskRequestDocument } from "./CreateDocumentAnalyzeTaskRequestDocument";
-import { CreateDocumentAnalyzeTaskRequestOutput } from "./CreateDocumentAnalyzeTaskRequestOutput";
-import { CreateDocumentAnalyzeTaskRequestStrategy } from "./CreateDocumentAnalyzeTaskRequestStrategy";
 
+
+export class CreateDocumentAnalyzeTaskRequestDocument extends $dara.Model {
+  content?: string;
+  fileName?: string;
+  fileType?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      fileName: 'file_name',
+      fileType: 'file_type',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      fileName: 'string',
+      fileType: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocumentAnalyzeTaskRequestOutput extends $dara.Model {
+  imageStorage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageStorage: 'image_storage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageStorage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocumentAnalyzeTaskRequestStrategy extends $dara.Model {
+  enableSemantic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableSemantic: 'enable_semantic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSemantic: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDocumentAnalyzeTaskRequest extends $dara.Model {
   document?: CreateDocumentAnalyzeTaskRequestDocument;

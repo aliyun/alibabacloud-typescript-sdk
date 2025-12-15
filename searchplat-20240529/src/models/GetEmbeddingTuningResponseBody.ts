@@ -1,8 +1,55 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetEmbeddingTuningResponseBodyResult } from "./GetEmbeddingTuningResponseBodyResult";
-import { GetEmbeddingTuningResponseBodyUsage } from "./GetEmbeddingTuningResponseBodyUsage";
 
+
+export class GetEmbeddingTuningResponseBodyResult extends $dara.Model {
+  output?: number[][];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.output)) {
+      $dara.Model.validateArray(this.output);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEmbeddingTuningResponseBodyUsage extends $dara.Model {
+  docCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      docCount: 'doc_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetEmbeddingTuningResponseBody extends $dara.Model {
   latency?: number;

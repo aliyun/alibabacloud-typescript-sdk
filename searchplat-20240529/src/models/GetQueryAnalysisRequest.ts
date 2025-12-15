@@ -1,8 +1,61 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetQueryAnalysisRequestFunctions } from "./GetQueryAnalysisRequestFunctions";
-import { GetQueryAnalysisRequestHistory } from "./GetQueryAnalysisRequestHistory";
 
+
+export class GetQueryAnalysisRequestFunctions extends $dara.Model {
+  name?: string;
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      parameters: 'parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryAnalysisRequestHistory extends $dara.Model {
+  content?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetQueryAnalysisRequest extends $dara.Model {
   functions?: GetQueryAnalysisRequestFunctions[];

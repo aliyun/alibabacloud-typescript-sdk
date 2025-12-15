@@ -1,8 +1,93 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetMultiModalEmbeddingResponseBodyResult } from "./GetMultiModalEmbeddingResponseBodyResult";
-import { GetMultiModalEmbeddingResponseBodyUsage } from "./GetMultiModalEmbeddingResponseBodyUsage";
 
+
+export class GetMultiModalEmbeddingResponseBodyResultEmbeddings extends $dara.Model {
+  embedding?: number[];
+  index?: number;
+  static names(): { [key: string]: string } {
+    return {
+      embedding: 'embedding',
+      index: 'index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embedding: { 'type': 'array', 'itemType': 'number' },
+      index: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.embedding)) {
+      $dara.Model.validateArray(this.embedding);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiModalEmbeddingResponseBodyResult extends $dara.Model {
+  embeddings?: GetMultiModalEmbeddingResponseBodyResultEmbeddings[];
+  static names(): { [key: string]: string } {
+    return {
+      embeddings: 'embeddings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embeddings: { 'type': 'array', 'itemType': GetMultiModalEmbeddingResponseBodyResultEmbeddings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.embeddings)) {
+      $dara.Model.validateArray(this.embeddings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiModalEmbeddingResponseBodyUsage extends $dara.Model {
+  image?: number;
+  imageToken?: number;
+  textToken?: number;
+  tokenCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'image',
+      imageToken: 'image_token',
+      textToken: 'text_token',
+      tokenCount: 'token_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'number',
+      imageToken: 'number',
+      textToken: 'number',
+      tokenCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetMultiModalEmbeddingResponseBody extends $dara.Model {
   latency?: number;
