@@ -114,6 +114,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * The list of data disks.
    */
   dataDisk?: CreateWuyingServerRequestDataDisk[];
+  hostName?: string;
   /**
    * @remarks
    * Idempotence token to ensure operation uniqueness
@@ -250,6 +251,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       dataDisk: 'DataDisk',
+      hostName: 'HostName',
       idempotenceToken: 'IdempotenceToken',
       imageId: 'ImageId',
       networkStrategyType: 'NetworkStrategyType',
@@ -279,6 +281,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       bizRegionId: 'string',
       chargeType: 'string',
       dataDisk: { 'type': 'array', 'itemType': CreateWuyingServerRequestDataDisk },
+      hostName: 'string',
       idempotenceToken: 'string',
       imageId: 'string',
       networkStrategyType: 'string',

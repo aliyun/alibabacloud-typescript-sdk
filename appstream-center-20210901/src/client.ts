@@ -499,11 +499,6 @@ export default class Client extends OpenApi {
    */
   async createWuyingServerWithOptions(request: $_model.CreateWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWuyingServerResponse> {
     request.validate();
-    let query = { };
-    if (!$dara.isNull(request.savingPlanId)) {
-      query["SavingPlanId"] = request.savingPlanId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.amount)) {
       body["Amount"] = request.amount;
@@ -532,6 +527,10 @@ export default class Client extends OpenApi {
     let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.dataDisk)) {
       bodyFlat["DataDisk"] = request.dataDisk;
+    }
+
+    if (!$dara.isNull(request.hostName)) {
+      body["HostName"] = request.hostName;
     }
 
     if (!$dara.isNull(request.idempotenceToken)) {
@@ -564,6 +563,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.promotionId)) {
       body["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.savingPlanId)) {
+      body["SavingPlanId"] = request.savingPlanId;
     }
 
     if (!$dara.isNull(request.serverInstanceType)) {
@@ -603,7 +606,6 @@ export default class Client extends OpenApi {
       ...OpenApiUtil.query(bodyFlat),
     };
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
