@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ManageSchedulerxJobSyncRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of task IDs.
+   * 
    * This parameter is required.
    */
   jobIdList?: number[];
   /**
+   * @remarks
+   * The source of the namespace. Required only for specific third-party cases.
+   * 
    * @example
    * schedulerx
    */
   namespaceSource?: string;
   /**
    * @remarks
+   * The source application group to which the task belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +30,8 @@ export class ManageSchedulerxJobSyncRequest extends $dara.Model {
   originalGroupId?: string;
   /**
    * @remarks
+   * The source namespace where the task resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +40,8 @@ export class ManageSchedulerxJobSyncRequest extends $dara.Model {
   originalNamespace?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +50,8 @@ export class ManageSchedulerxJobSyncRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the destination application group to which the task will be synchronized.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +60,8 @@ export class ManageSchedulerxJobSyncRequest extends $dara.Model {
   targetGroupId?: string;
   /**
    * @remarks
+   * The destination namespace to which the task will be synchronized.
+   * 
    * This parameter is required.
    * 
    * @example

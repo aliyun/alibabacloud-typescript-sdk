@@ -682,6 +682,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a calendar.
+   * 
+   * @param request - CreateSchedulerxCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSchedulerxCalendarResponse
+   */
+  async createSchedulerxCalendarWithOptions(request: $_model.CreateSchedulerxCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSchedulerxCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.calendarName)) {
+      body["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.monthDaysContent)) {
+      body["MonthDaysContent"] = request.monthDaysContent;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      body["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSchedulerxCalendar",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSchedulerxCalendarResponse>(await this.callApi(params, req, runtime), new $_model.CreateSchedulerxCalendarResponse({}));
+  }
+
+  /**
+   * Creates a calendar.
+   * 
+   * @param request - CreateSchedulerxCalendarRequest
+   * @returns CreateSchedulerxCalendarResponse
+   */
+  async createSchedulerxCalendar(request: $_model.CreateSchedulerxCalendarRequest): Promise<$_model.CreateSchedulerxCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSchedulerxCalendarWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a notification policy.
+   * 
+   * @param request - CreateSchedulerxNotificationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSchedulerxNotificationPolicyResponse
+   */
+  async createSchedulerxNotificationPolicyWithOptions(request: $_model.CreateSchedulerxNotificationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSchedulerxNotificationPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channelTimeRange)) {
+      body["ChannelTimeRange"] = request.channelTimeRange;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      body["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSchedulerxNotificationPolicy",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSchedulerxNotificationPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateSchedulerxNotificationPolicyResponse({}));
+  }
+
+  /**
+   * Creates a notification policy.
+   * 
+   * @param request - CreateSchedulerxNotificationPolicyRequest
+   * @returns CreateSchedulerxNotificationPolicyResponse
+   */
+  async createSchedulerxNotificationPolicy(request: $_model.CreateSchedulerxNotificationPolicyRequest): Promise<$_model.CreateSchedulerxNotificationPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSchedulerxNotificationPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
    * 
    * @param request - CreateWorkflowRequest
@@ -852,7 +960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除命名空间
+   * Deletes a namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -887,7 +995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除命名空间
+   * Deletes a namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @returns DeleteNamespaceResponse
@@ -949,6 +1057,102 @@ export default class Client extends OpenApi {
   async deleteRouteStrategy(request: $_model.DeleteRouteStrategyRequest): Promise<$_model.DeleteRouteStrategyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRouteStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a calendar.
+   * 
+   * @param request - DeleteSchedulerxCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSchedulerxCalendarResponse
+   */
+  async deleteSchedulerxCalendarWithOptions(request: $_model.DeleteSchedulerxCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSchedulerxCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.calendarName)) {
+      body["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      body["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSchedulerxCalendar",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSchedulerxCalendarResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSchedulerxCalendarResponse({}));
+  }
+
+  /**
+   * Deletes a calendar.
+   * 
+   * @param request - DeleteSchedulerxCalendarRequest
+   * @returns DeleteSchedulerxCalendarResponse
+   */
+  async deleteSchedulerxCalendar(request: $_model.DeleteSchedulerxCalendarRequest): Promise<$_model.DeleteSchedulerxCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSchedulerxCalendarWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a notification policy.
+   * 
+   * @param request - DeleteSchedulerxNotificationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSchedulerxNotificationPolicyResponse
+   */
+  async deleteSchedulerxNotificationPolicyWithOptions(request: $_model.DeleteSchedulerxNotificationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSchedulerxNotificationPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.policyName)) {
+      body["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSchedulerxNotificationPolicy",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSchedulerxNotificationPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSchedulerxNotificationPolicyResponse({}));
+  }
+
+  /**
+   * Deletes a notification policy.
+   * 
+   * @param request - DeleteSchedulerxNotificationPolicyRequest
+   * @returns DeleteSchedulerxNotificationPolicyResponse
+   */
+  async deleteSchedulerxNotificationPolicy(request: $_model.DeleteSchedulerxNotificationPolicyRequest): Promise<$_model.DeleteSchedulerxNotificationPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSchedulerxNotificationPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -1506,7 +1710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询概览数据信息
+   * Retrieves job scheduling data for Professional Edition applications.
    * 
    * @param request - GetOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1565,7 +1769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询概览数据信息
+   * Retrieves job scheduling data for Professional Edition applications.
    * 
    * @param request - GetOverviewRequest
    * @returns GetOverviewResponse
@@ -1830,7 +2034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务脚本历史列表
+   * Queries historical scripts of a job.
    * 
    * @param request - ListJobScriptHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1877,7 +2081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务脚本历史列表
+   * Queries historical scripts of a job.
    * 
    * @param request - ListJobScriptHistoryRequest
    * @returns ListJobScriptHistoryResponse
@@ -2008,6 +2212,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information of a workflow.
+   * 
+   * @param request - ListWorkFlowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkFlowsResponse
+   */
+  async listWorkFlowsWithOptions(request: $_model.ListWorkFlowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkFlowsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespaceSource)) {
+      query["NamespaceSource"] = request.namespaceSource;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workflowName)) {
+      query["WorkflowName"] = request.workflowName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkFlows",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkFlowsResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkFlowsResponse({}));
+  }
+
+  /**
+   * Queries the information of a workflow.
+   * 
+   * @param request - ListWorkFlowsRequest
+   * @returns ListWorkFlowsResponse
+   */
+  async listWorkFlows(request: $_model.ListWorkFlowsRequest): Promise<$_model.ListWorkFlowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkFlowsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the execution history of a workflow. You can call this operation only in the professional edition.
    * 
    * @param request - ListWorkflowInstanceRequest
@@ -2046,7 +2320,65 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步任务
+   * Updates a calendar.
+   * 
+   * @param request - ManageSchedulerxCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManageSchedulerxCalendarResponse
+   */
+  async manageSchedulerxCalendarWithOptions(request: $_model.ManageSchedulerxCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ManageSchedulerxCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.calendarName)) {
+      body["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.incremental)) {
+      body["Incremental"] = request.incremental;
+    }
+
+    if (!$dara.isNull(request.monthDaysContent)) {
+      body["MonthDaysContent"] = request.monthDaysContent;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      body["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManageSchedulerxCalendar",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ManageSchedulerxCalendarResponse>(await this.callApi(params, req, runtime), new $_model.ManageSchedulerxCalendarResponse({}));
+  }
+
+  /**
+   * Updates a calendar.
+   * 
+   * @param request - ManageSchedulerxCalendarRequest
+   * @returns ManageSchedulerxCalendarResponse
+   */
+  async manageSchedulerxCalendar(request: $_model.ManageSchedulerxCalendarRequest): Promise<$_model.ManageSchedulerxCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.manageSchedulerxCalendarWithOptions(request, runtime);
+  }
+
+  /**
+   * Synchronizes tasks across namespaces.
    * 
    * @param tmpReq - ManageSchedulerxJobSyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2107,7 +2439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步任务
+   * Synchronizes tasks across namespaces.
    * 
    * @param request - ManageSchedulerxJobSyncRequest
    * @returns ManageSchedulerxJobSyncResponse
@@ -2118,7 +2450,127 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取机器详细信息
+   * Updates a notification policy.
+   * 
+   * @param request - ManageSchedulerxNotificationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManageSchedulerxNotificationPolicyResponse
+   */
+  async manageSchedulerxNotificationPolicyWithOptions(request: $_model.ManageSchedulerxNotificationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ManageSchedulerxNotificationPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channelTimeRange)) {
+      body["ChannelTimeRange"] = request.channelTimeRange;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      body["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManageSchedulerxNotificationPolicy",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ManageSchedulerxNotificationPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ManageSchedulerxNotificationPolicyResponse({}));
+  }
+
+  /**
+   * Updates a notification policy.
+   * 
+   * @param request - ManageSchedulerxNotificationPolicyRequest
+   * @returns ManageSchedulerxNotificationPolicyResponse
+   */
+  async manageSchedulerxNotificationPolicy(request: $_model.ManageSchedulerxNotificationPolicyRequest): Promise<$_model.ManageSchedulerxNotificationPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.manageSchedulerxNotificationPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the information of a calendar.
+   * 
+   * @param request - ReadSchedulerxCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadSchedulerxCalendarResponse
+   */
+  async readSchedulerxCalendarWithOptions(request: $_model.ReadSchedulerxCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReadSchedulerxCalendarResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.calendarName)) {
+      query["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.fetchCalendarDetail)) {
+      query["FetchCalendarDetail"] = request.fetchCalendarDetail;
+    }
+
+    if (!$dara.isNull(request.fetchSystemCalendar)) {
+      query["FetchSystemCalendar"] = request.fetchSystemCalendar;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      query["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadSchedulerxCalendar",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadSchedulerxCalendarResponse>(await this.callApi(params, req, runtime), new $_model.ReadSchedulerxCalendarResponse({}));
+  }
+
+  /**
+   * Retrieves the information of a calendar.
+   * 
+   * @param request - ReadSchedulerxCalendarRequest
+   * @returns ReadSchedulerxCalendarResponse
+   */
+  async readSchedulerxCalendar(request: $_model.ReadSchedulerxCalendarRequest): Promise<$_model.ReadSchedulerxCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.readSchedulerxCalendarWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries detailed information of the workers specified by a job.
    * 
    * @param request - ReadSchedulerxDesignateDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2169,7 +2621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取机器详细信息
+   * Queries detailed information of the workers specified by a job.
    * 
    * @param request - ReadSchedulerxDesignateDetailRequest
    * @returns ReadSchedulerxDesignateDetailResponse
@@ -2180,7 +2632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定机器基本信息
+   * Queries the basic information of specified workers.
    * 
    * @param request - ReadSchedulerxDesignateInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2227,7 +2679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定机器基本信息
+   * Queries the basic information of specified workers.
    * 
    * @param request - ReadSchedulerxDesignateInfoRequest
    * @returns ReadSchedulerxDesignateInfoResponse
@@ -2235,6 +2687,60 @@ export default class Client extends OpenApi {
   async readSchedulerxDesignateInfo(request: $_model.ReadSchedulerxDesignateInfoRequest): Promise<$_model.ReadSchedulerxDesignateInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.readSchedulerxDesignateInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries notification policies.
+   * 
+   * @param request - ReadSchedulerxNotificationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadSchedulerxNotificationPolicyResponse
+   */
+  async readSchedulerxNotificationPolicyWithOptions(request: $_model.ReadSchedulerxNotificationPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReadSchedulerxNotificationPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadSchedulerxNotificationPolicy",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadSchedulerxNotificationPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ReadSchedulerxNotificationPolicyResponse({}));
+  }
+
+  /**
+   * Queries notification policies.
+   * 
+   * @param request - ReadSchedulerxNotificationPolicyRequest
+   * @returns ReadSchedulerxNotificationPolicyResponse
+   */
+  async readSchedulerxNotificationPolicy(request: $_model.ReadSchedulerxNotificationPolicyRequest): Promise<$_model.ReadSchedulerxNotificationPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.readSchedulerxNotificationPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -2607,6 +3113,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.enableLog)) {
+      query["EnableLog"] = request.enableLog;
+    }
+
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
@@ -2625,6 +3135,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.namespace)) {
       query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.notificationPolicyName)) {
+      query["NotificationPolicyName"] = request.notificationPolicyName;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -2852,7 +3366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务执行脚本
+   * Updates the execution script of a job.
    * 
    * @param request - UpdateJobScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2907,7 +3421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务执行脚本
+   * Updates the execution script of a job.
    * 
    * @param request - UpdateJobScriptRequest
    * @returns UpdateJobScriptResponse
@@ -2918,7 +3432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新命名空间
+   * Updates a namespace.
    * 
    * @param request - UpdateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2961,7 +3475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新命名空间
+   * Updates a namespace.
    * 
    * @param request - UpdateNamespaceRequest
    * @returns UpdateNamespaceResponse

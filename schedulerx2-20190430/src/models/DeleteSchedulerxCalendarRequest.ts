@@ -2,17 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteNamespaceRequest extends $dara.Model {
+export class DeleteSchedulerxCalendarRequest extends $dara.Model {
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespaces page in the SchedulerX console.
+   * The calendar name.
    * 
    * This parameter is required.
    * 
    * @example
-   * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+   * 2025workday
    */
-  namespace?: string;
+  calendarName?: string;
   /**
    * @remarks
    * The region ID.
@@ -23,17 +23,29 @@ export class DeleteNamespaceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The year.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2025
+   */
+  year?: number;
   static names(): { [key: string]: string } {
     return {
-      namespace: 'Namespace',
+      calendarName: 'CalendarName',
       regionId: 'RegionId',
+      year: 'Year',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespace: 'string',
+      calendarName: 'string',
       regionId: 'string',
+      year: 'number',
     };
   }
 

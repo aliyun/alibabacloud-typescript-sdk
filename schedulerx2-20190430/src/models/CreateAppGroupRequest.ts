@@ -120,6 +120,11 @@ export class CreateAppGroupRequest extends $dara.Model {
    */
   namespaceSource?: string;
   /**
+   * @example
+   * test-workday-notification
+   */
+  notificationPolicyName?: string;
+  /**
    * @remarks
    * The region ID.
    * 
@@ -150,6 +155,7 @@ export class CreateAppGroupRequest extends $dara.Model {
       namespace: 'Namespace',
       namespaceName: 'NamespaceName',
       namespaceSource: 'NamespaceSource',
+      notificationPolicyName: 'NotificationPolicyName',
       regionId: 'RegionId',
       scheduleBusyWorkers: 'ScheduleBusyWorkers',
     };
@@ -170,6 +176,7 @@ export class CreateAppGroupRequest extends $dara.Model {
       namespace: 'string',
       namespaceName: 'string',
       namespaceSource: 'string',
+      notificationPolicyName: 'string',
       regionId: 'string',
       scheduleBusyWorkers: 'boolean',
     };

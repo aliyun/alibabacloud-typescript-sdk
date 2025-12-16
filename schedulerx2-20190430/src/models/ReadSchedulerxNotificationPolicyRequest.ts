@@ -2,33 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateNamespaceRequest extends $dara.Model {
+export class ReadSchedulerxNotificationPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the namespace.
+   * The maximum number of entries returned. Default value: 20.
    * 
    * @example
-   * Test
+   * 10
    */
-  description?: string;
+  maxResults?: number;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespaces page in the SchedulerX console.
-   * 
-   * This parameter is required.
+   * The cursor for pagination. Leave this parameter empty for the first request. When the returned value is empty, all data has been retrieved.
    * 
    * @example
-   * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+   * O39nXKu5XafATl3/cJjSJw==
    */
-  namespace?: string;
+  nextToken?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the notification policy. Supports fuzzy matching.
    * 
    * @example
-   * test
+   * test-weekdays
    */
-  namespaceName?: string;
+  policyName?: string;
   /**
    * @remarks
    * The region ID.
@@ -41,18 +39,18 @@ export class UpdateNamespaceRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      namespace: 'Namespace',
-      namespaceName: 'NamespaceName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      policyName: 'PolicyName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      namespace: 'string',
-      namespaceName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      policyName: 'string',
       regionId: 'string',
     };
   }

@@ -43,6 +43,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
    * Test
    */
   description?: string;
+  enableLog?: boolean;
   /**
    * @remarks
    * The application ID.
@@ -66,6 +67,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
       appName: 'AppName',
       appVersion: 'AppVersion',
       description: 'Description',
+      enableLog: 'EnableLog',
       groupId: 'GroupId',
       namespace: 'Namespace',
     };
@@ -78,6 +80,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
       appName: 'string',
       appVersion: 'number',
       description: 'string',
+      enableLog: 'boolean',
       groupId: 'string',
       namespace: 'string',
     };

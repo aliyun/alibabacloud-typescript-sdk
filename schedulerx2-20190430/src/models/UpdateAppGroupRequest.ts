@@ -19,6 +19,7 @@ export class UpdateAppGroupRequest extends $dara.Model {
    * Test
    */
   description?: string;
+  enableLog?: boolean;
   /**
    * @remarks
    * The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
@@ -68,6 +69,11 @@ export class UpdateAppGroupRequest extends $dara.Model {
    */
   namespace?: string;
   /**
+   * @example
+   * test-workday-notification
+   */
+  notificationPolicyName?: string;
+  /**
    * @remarks
    * The ID of the region.
    * 
@@ -81,11 +87,13 @@ export class UpdateAppGroupRequest extends $dara.Model {
     return {
       appVersion: 'AppVersion',
       description: 'Description',
+      enableLog: 'EnableLog',
       groupId: 'GroupId',
       maxConcurrency: 'MaxConcurrency',
       monitorConfigJson: 'MonitorConfigJson',
       monitorContactsJson: 'MonitorContactsJson',
       namespace: 'Namespace',
+      notificationPolicyName: 'NotificationPolicyName',
       regionId: 'RegionId',
     };
   }
@@ -94,11 +102,13 @@ export class UpdateAppGroupRequest extends $dara.Model {
     return {
       appVersion: 'number',
       description: 'string',
+      enableLog: 'boolean',
       groupId: 'string',
       maxConcurrency: 'number',
       monitorConfigJson: 'string',
       monitorContactsJson: 'string',
       namespace: 'string',
+      notificationPolicyName: 'string',
       regionId: 'string',
     };
   }

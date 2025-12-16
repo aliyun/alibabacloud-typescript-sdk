@@ -4,12 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadSchedulerxDesignateDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * The information type of the specified workers that you want to query. Valid values: 1 and 2.
+   * 
+   * 1: the IP address of the specified workers.
+   * 2: the tags of the specified workers.
+   * 
    * @example
    * 1
    */
   designateType?: number;
   /**
    * @remarks
+   * The ID of the application. You can obtain the application ID on the Applications page in the SchedulerX console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +26,8 @@ export class ReadSchedulerxDesignateDetailRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
+   * The job ID. You can obtain the ID on the Tasks page in the SchedulerX console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +36,8 @@ export class ReadSchedulerxDesignateDetailRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
+   * The unique identifier (UID) of the namespace. You can obtain the namespace UID on the Namespaces page in the SchedulerX console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,12 +45,17 @@ export class ReadSchedulerxDesignateDetailRequest extends $dara.Model {
    */
   namespace?: string;
   /**
+   * @remarks
+   * The source of the namespace. This parameter is required only for a special third party.
+   * 
    * @example
    * schedulerx
    */
   namespaceSource?: string;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example

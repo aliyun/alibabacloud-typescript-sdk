@@ -2,17 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteNamespaceRequest extends $dara.Model {
+export class DeleteSchedulerxNotificationPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespaces page in the SchedulerX console.
+   * The name of the notification policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
+   * test-weekdays
    */
-  namespace?: string;
+  policyName?: string;
   /**
    * @remarks
    * The region ID.
@@ -25,14 +25,14 @@ export class DeleteNamespaceRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      namespace: 'Namespace',
+      policyName: 'PolicyName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespace: 'string',
+      policyName: 'string',
       regionId: 'string',
     };
   }

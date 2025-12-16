@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateJobScriptResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The additional information returned only if an error occurs.
+   * 
    * @example
    * job is not existed, jobId=302
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4F68ABED-AC31-4412-9297-D9A8F0401108
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

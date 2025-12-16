@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReadSchedulerxDesignateInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application. You can obtain the application ID on the **Applications** page in the SchedulerX console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ReadSchedulerxDesignateInfoRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
+   * The job ID. You can obtain the ID on the Tasks page in the SchedulerX console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ReadSchedulerxDesignateInfoRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
+   * The unique identifier (UID) of the namespace. You can obtain the namespace UID on the Namespaces page in the SchedulerX console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,12 +34,17 @@ export class ReadSchedulerxDesignateInfoRequest extends $dara.Model {
    */
   namespace?: string;
   /**
+   * @remarks
+   * The source of the namespace. This parameter is required only for a special third party.
+   * 
    * @example
    * schedulerx
    */
   namespaceSource?: string;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example

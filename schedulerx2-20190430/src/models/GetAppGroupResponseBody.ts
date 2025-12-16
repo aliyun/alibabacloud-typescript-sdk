@@ -43,6 +43,7 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
    * Test
    */
   description?: string;
+  enableLog?: boolean;
   /**
    * @remarks
    * The ID of the application.
@@ -87,6 +88,11 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
    * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
    */
   namespace?: string;
+  /**
+   * @example
+   * test-workday-notification
+   */
+  notificationPolicyName?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
@@ -94,11 +100,13 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
       appVersion: 'AppVersion',
       curJobs: 'CurJobs',
       description: 'Description',
+      enableLog: 'EnableLog',
       groupId: 'GroupId',
       maxJobs: 'MaxJobs',
       monitorConfigJson: 'MonitorConfigJson',
       monitorContactsJson: 'MonitorContactsJson',
       namespace: 'Namespace',
+      notificationPolicyName: 'NotificationPolicyName',
     };
   }
 
@@ -109,11 +117,13 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
       appVersion: 'string',
       curJobs: 'number',
       description: 'string',
+      enableLog: 'boolean',
       groupId: 'string',
       maxJobs: 'number',
       monitorConfigJson: 'string',
       monitorContactsJson: 'string',
       namespace: 'string',
+      notificationPolicyName: 'string',
     };
   }
 
