@@ -1486,6 +1486,10 @@ export default class Client extends OpenApi {
       query["KmsKeyId"] = request.kmsKeyId;
     }
 
+    if (!$dara.isNull(request.replication)) {
+      query["Replication"] = request.replication;
+    }
+
     if (!$dara.isNull(request.vaultName)) {
       query["VaultName"] = request.vaultName;
     }
@@ -1538,6 +1542,56 @@ export default class Client extends OpenApi {
   async createVault(request: $_model.CreateVaultRequest): Promise<$_model.CreateVaultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createVaultWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建备份库复制
+   * 
+   * @param request - CreateVaultReplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVaultReplicationResponse
+   */
+  async createVaultReplicationWithOptions(request: $_model.CreateVaultReplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVaultReplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.replicationSourceRegionId)) {
+      query["ReplicationSourceRegionId"] = request.replicationSourceRegionId;
+    }
+
+    if (!$dara.isNull(request.replicationSourceVaultId)) {
+      query["ReplicationSourceVaultId"] = request.replicationSourceVaultId;
+    }
+
+    if (!$dara.isNull(request.replicationTargetVaultId)) {
+      query["ReplicationTargetVaultId"] = request.replicationTargetVaultId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVaultReplication",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVaultReplicationResponse>(await this.callApi(params, req, runtime), new $_model.CreateVaultReplicationResponse({}));
+  }
+
+  /**
+   * 创建备份库复制
+   * 
+   * @param request - CreateVaultReplicationRequest
+   * @returns CreateVaultReplicationResponse
+   */
+  async createVaultReplication(request: $_model.CreateVaultReplicationRequest): Promise<$_model.CreateVaultReplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVaultReplicationWithOptions(request, runtime);
   }
 
   /**
@@ -2240,6 +2294,56 @@ export default class Client extends OpenApi {
   async deleteVault(request: $_model.DeleteVaultRequest): Promise<$_model.DeleteVaultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVaultWithOptions(request, runtime);
+  }
+
+  /**
+   * 关闭备份库复制
+   * 
+   * @param request - DeleteVaultReplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVaultReplicationResponse
+   */
+  async deleteVaultReplicationWithOptions(request: $_model.DeleteVaultReplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVaultReplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.replicationSourceRegionId)) {
+      query["ReplicationSourceRegionId"] = request.replicationSourceRegionId;
+    }
+
+    if (!$dara.isNull(request.replicationSourceVaultId)) {
+      query["ReplicationSourceVaultId"] = request.replicationSourceVaultId;
+    }
+
+    if (!$dara.isNull(request.replicationTargetVaultId)) {
+      query["ReplicationTargetVaultId"] = request.replicationTargetVaultId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVaultReplication",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVaultReplicationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVaultReplicationResponse({}));
+  }
+
+  /**
+   * 关闭备份库复制
+   * 
+   * @param request - DeleteVaultReplicationRequest
+   * @returns DeleteVaultReplicationResponse
+   */
+  async deleteVaultReplication(request: $_model.DeleteVaultReplicationRequest): Promise<$_model.DeleteVaultReplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVaultReplicationWithOptions(request, runtime);
   }
 
   /**
@@ -3661,6 +3765,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.replication)) {
+      query["Replication"] = request.replication;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -3675,6 +3783,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.vaultName)) {
       query["VaultName"] = request.vaultName;
+    }
+
+    if (!$dara.isNull(request.vaultOwnerId)) {
+      query["VaultOwnerId"] = request.vaultOwnerId;
     }
 
     if (!$dara.isNull(request.vaultRegionId)) {

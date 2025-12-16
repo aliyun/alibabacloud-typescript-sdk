@@ -59,6 +59,7 @@ export class DescribeVaultsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  replication?: boolean;
   /**
    * @remarks
    * Resource group ID.
@@ -104,6 +105,7 @@ export class DescribeVaultsRequest extends $dara.Model {
    * vaultname
    */
   vaultName?: string;
+  vaultOwnerId?: number;
   /**
    * @remarks
    * The region ID to which the backup vault belongs.
@@ -126,11 +128,13 @@ export class DescribeVaultsRequest extends $dara.Model {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      replication: 'Replication',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       tag: 'Tag',
       vaultId: 'VaultId',
       vaultName: 'VaultName',
+      vaultOwnerId: 'VaultOwnerId',
       vaultRegionId: 'VaultRegionId',
       vaultType: 'VaultType',
     };
@@ -140,11 +144,13 @@ export class DescribeVaultsRequest extends $dara.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      replication: 'boolean',
       resourceGroupId: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeVaultsRequestTag },
       vaultId: 'string',
       vaultName: 'string',
+      vaultOwnerId: 'number',
       vaultRegionId: 'string',
       vaultType: 'string',
     };

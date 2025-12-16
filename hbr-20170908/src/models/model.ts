@@ -90,6 +90,7 @@ export { DescribeVaultReplicationRegionsResponseBodyRegions } from './DescribeVa
 export { DescribeVaultsRequestTag } from './DescribeVaultsRequest';
 export { DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics } from './DescribeVaultsResponseBody';
 export { DescribeVaultsResponseBodyVaultsVaultReplicationProgress } from './DescribeVaultsResponseBody';
+export { DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds } from './DescribeVaultsResponseBody';
 export { DescribeVaultsResponseBodyVaultsVaultSourceTypes } from './DescribeVaultsResponseBody';
 export { DescribeVaultsResponseBodyVaultsVaultTagsTag } from './DescribeVaultsResponseBody';
 export { DescribeVaultsResponseBodyVaultsVaultTags } from './DescribeVaultsResponseBody';
@@ -173,6 +174,9 @@ export { CreateTempFileUploadUrlResponse } from './CreateTempFileUploadUrlRespon
 export { CreateVaultRequest } from './CreateVaultRequest';
 export { CreateVaultResponseBody } from './CreateVaultResponseBody';
 export { CreateVaultResponse } from './CreateVaultResponse';
+export { CreateVaultReplicationRequest } from './CreateVaultReplicationRequest';
+export { CreateVaultReplicationResponseBody } from './CreateVaultReplicationResponseBody';
+export { CreateVaultReplicationResponse } from './CreateVaultReplicationResponse';
 export { DeleteAirEcsInstanceRequest } from './DeleteAirEcsInstanceRequest';
 export { DeleteAirEcsInstanceShrinkRequest } from './DeleteAirEcsInstanceShrinkRequest';
 export { DeleteAirEcsInstanceResponseBody } from './DeleteAirEcsInstanceResponseBody';
@@ -215,6 +219,9 @@ export { DeleteUdmEcsInstanceResponse } from './DeleteUdmEcsInstanceResponse';
 export { DeleteVaultRequest } from './DeleteVaultRequest';
 export { DeleteVaultResponseBody } from './DeleteVaultResponseBody';
 export { DeleteVaultResponse } from './DeleteVaultResponse';
+export { DeleteVaultReplicationRequest } from './DeleteVaultReplicationRequest';
+export { DeleteVaultReplicationResponseBody } from './DeleteVaultReplicationResponseBody';
+export { DeleteVaultReplicationResponse } from './DeleteVaultReplicationResponse';
 export { DescribeBackupClientsRequest } from './DescribeBackupClientsRequest';
 export { DescribeBackupClientsShrinkRequest } from './DescribeBackupClientsShrinkRequest';
 export { DescribeBackupClientsResponseBody } from './DescribeBackupClientsResponseBody';

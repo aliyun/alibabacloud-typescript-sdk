@@ -212,6 +212,32 @@ export class DescribeVaultsResponseBodyVaultsVaultReplicationProgress extends $d
   }
 }
 
+export class DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds extends $dara.Model {
+  rsTargetAccountId?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      rsTargetAccountId: 'RsTargetAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rsTargetAccountId: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rsTargetAccountId)) {
+      $dara.Model.validateArray(this.rsTargetAccountId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVaultsResponseBodyVaultsVaultSourceTypes extends $dara.Model {
   sourceType?: string[];
   static names(): { [key: string]: string } {
@@ -545,6 +571,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
    * The progress of data synchronization from the backup vault to the mirror vault.
    */
   replicationProgress?: DescribeVaultsResponseBodyVaultsVaultReplicationProgress;
+  replicationSourceOwnerId?: number;
   /**
    * @remarks
    * The ID of the region in which the source vault resides. This parameter is valid only for remote backup vaults.
@@ -572,6 +599,8 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
    * v-*********************
    */
   replicationSourceVaultId?: string;
+  replicationStatus?: string;
+  replicationTargetOwnerId?: number;
   /**
    * @remarks
    * Target region for remote backup repository.
@@ -580,6 +609,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
    * cn-shanghai
    */
   replicationTargetRegionId?: string;
+  replicationTargetVaultId?: string;
   /**
    * @remarks
    * The ID of the resource group.
@@ -596,6 +626,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
    * 2
    */
   retention?: number;
+  rsTargetAccountIds?: DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds;
   /**
    * @remarks
    * Indicates whether the backup search feature is enabled.
@@ -672,6 +703,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
    * vaultname
    */
   vaultName?: string;
+  vaultOwnerId?: number;
   /**
    * @remarks
    * The ID of the region in which the backup vault resides.
@@ -737,12 +769,17 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
       redundancyType: 'RedundancyType',
       replication: 'Replication',
       replicationProgress: 'ReplicationProgress',
+      replicationSourceOwnerId: 'ReplicationSourceOwnerId',
       replicationSourceRegionId: 'ReplicationSourceRegionId',
       replicationSourceVault: 'ReplicationSourceVault',
       replicationSourceVaultId: 'ReplicationSourceVaultId',
+      replicationStatus: 'ReplicationStatus',
+      replicationTargetOwnerId: 'ReplicationTargetOwnerId',
       replicationTargetRegionId: 'ReplicationTargetRegionId',
+      replicationTargetVaultId: 'ReplicationTargetVaultId',
       resourceGroupId: 'ResourceGroupId',
       retention: 'Retention',
+      rsTargetAccountIds: 'RsTargetAccountIds',
       searchEnabled: 'SearchEnabled',
       snapshotCount: 'SnapshotCount',
       sourceTypes: 'SourceTypes',
@@ -753,6 +790,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
       updatedTime: 'UpdatedTime',
       vaultId: 'VaultId',
       vaultName: 'VaultName',
+      vaultOwnerId: 'VaultOwnerId',
       vaultRegionId: 'VaultRegionId',
       vaultStatusMessage: 'VaultStatusMessage',
       vaultStorageClass: 'VaultStorageClass',
@@ -783,12 +821,17 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
       redundancyType: 'string',
       replication: 'boolean',
       replicationProgress: DescribeVaultsResponseBodyVaultsVaultReplicationProgress,
+      replicationSourceOwnerId: 'number',
       replicationSourceRegionId: 'string',
       replicationSourceVault: 'boolean',
       replicationSourceVaultId: 'string',
+      replicationStatus: 'string',
+      replicationTargetOwnerId: 'number',
       replicationTargetRegionId: 'string',
+      replicationTargetVaultId: 'string',
       resourceGroupId: 'string',
       retention: 'number',
+      rsTargetAccountIds: DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds,
       searchEnabled: 'boolean',
       snapshotCount: 'number',
       sourceTypes: DescribeVaultsResponseBodyVaultsVaultSourceTypes,
@@ -799,6 +842,7 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
       updatedTime: 'number',
       vaultId: 'string',
       vaultName: 'string',
+      vaultOwnerId: 'number',
       vaultRegionId: 'string',
       vaultStatusMessage: 'string',
       vaultStorageClass: 'string',
@@ -813,6 +857,9 @@ export class DescribeVaultsResponseBodyVaultsVault extends $dara.Model {
     }
     if(this.replicationProgress && typeof (this.replicationProgress as any).validate === 'function') {
       (this.replicationProgress as any).validate();
+    }
+    if(this.rsTargetAccountIds && typeof (this.rsTargetAccountIds as any).validate === 'function') {
+      (this.rsTargetAccountIds as any).validate();
     }
     if(this.sourceTypes && typeof (this.sourceTypes as any).validate === 'function') {
       (this.sourceTypes as any).validate();

@@ -30,6 +30,7 @@ export class CreateVaultRequest extends $dara.Model {
    * alias/yzs-hhht
    */
   kmsKeyId?: string;
+  replication?: boolean;
   /**
    * @remarks
    * The name of the backup vault. The name must be 1 to 64 characters in length.
@@ -87,6 +88,7 @@ export class CreateVaultRequest extends $dara.Model {
       description: 'Description',
       encryptType: 'EncryptType',
       kmsKeyId: 'KmsKeyId',
+      replication: 'Replication',
       vaultName: 'VaultName',
       vaultRegionId: 'VaultRegionId',
       vaultStorageClass: 'VaultStorageClass',
@@ -100,6 +102,7 @@ export class CreateVaultRequest extends $dara.Model {
       description: 'string',
       encryptType: 'string',
       kmsKeyId: 'string',
+      replication: 'boolean',
       vaultName: 'string',
       vaultRegionId: 'string',
       vaultStorageClass: 'string',
