@@ -13,6 +13,7 @@ export { CredentialVerifyV2ResponseBodyResultObjectVlResult } from './Credential
 export { CredentialVerifyV2ResponseBodyResultObject } from './CredentialVerifyV2responseBody';
 export { DeepfakeDetectResponseBodyResultObject } from './DeepfakeDetectResponseBody';
 export { DeleteFaceVerifyResultResponseBodyResultObject } from './DeleteFaceVerifyResultResponseBody';
+export { DescribeAuthVerifyResponseBodyResult } from './DescribeAuthVerifyResponseBody';
 export { DescribeCardVerifyResponseBodyResultObject } from './DescribeCardVerifyResponseBody';
 export { DescribeCloudauthstSceneListResponseBodyItems } from './DescribeCloudauthstSceneListResponseBody';
 export { DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo } from './DescribeDeviceInfoResponseBody';
@@ -71,6 +72,7 @@ export { Id2MetaVerifyResponseBodyResultObject } from './Id2metaVerifyResponseBo
 export { Id2MetaVerifyWithOCRResponseBodyResultObject } from './Id2metaVerifyWithOcrresponseBody';
 export { Id3MetaVerifyResponseBodyResultObject } from './Id3metaVerifyResponseBody';
 export { Id3MetaVerifyWithOCRResponseBodyResultObject } from './Id3metaVerifyWithOcrresponseBody';
+export { InitAuthVerifyResponseBodyResult } from './InitAuthVerifyResponseBody';
 export { InitCardVerifyResponseBodyResultObject } from './InitCardVerifyResponseBody';
 export { InitFaceVerifyResponseBodyResultObject } from './InitFaceVerifyResponseBody';
 export { LivenessFaceVerifyResponseBodyResultObject } from './LivenessFaceVerifyResponseBody';
@@ -181,6 +183,9 @@ export { DeleteWhitelistSettingResponseBody } from './DeleteWhitelistSettingResp
 export { DeleteWhitelistSettingResponse } from './DeleteWhitelistSettingResponse';
 export { DescribeAntAndCloudAuthUserStatusResponseBody } from './DescribeAntAndCloudAuthUserStatusResponseBody';
 export { DescribeAntAndCloudAuthUserStatusResponse } from './DescribeAntAndCloudAuthUserStatusResponse';
+export { DescribeAuthVerifyRequest } from './DescribeAuthVerifyRequest';
+export { DescribeAuthVerifyResponseBody } from './DescribeAuthVerifyResponseBody';
+export { DescribeAuthVerifyResponse } from './DescribeAuthVerifyResponse';
 export { DescribeCardVerifyRequest } from './DescribeCardVerifyRequest';
 export { DescribeCardVerifyResponseBody } from './DescribeCardVerifyResponseBody';
 export { DescribeCardVerifyResponse } from './DescribeCardVerifyResponse';
@@ -298,6 +303,9 @@ export { Id3MetaVerifyWithOCRRequest } from './Id3metaVerifyWithOcrrequest';
 export { Id3MetaVerifyWithOCRAdvanceRequest } from './Id3metaVerifyWithOcradvanceRequest';
 export { Id3MetaVerifyWithOCRResponseBody } from './Id3metaVerifyWithOcrresponseBody';
 export { Id3MetaVerifyWithOCRResponse } from './Id3metaVerifyWithOcrresponse';
+export { InitAuthVerifyRequest } from './InitAuthVerifyRequest';
+export { InitAuthVerifyResponseBody } from './InitAuthVerifyResponseBody';
+export { InitAuthVerifyResponse } from './InitAuthVerifyResponse';
 export { InitCardVerifyRequest } from './InitCardVerifyRequest';
 export { InitCardVerifyResponseBody } from './InitCardVerifyResponseBody';
 export { InitCardVerifyResponse } from './InitCardVerifyResponse';

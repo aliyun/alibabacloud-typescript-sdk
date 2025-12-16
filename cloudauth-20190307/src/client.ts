@@ -2170,6 +2170,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取结果
+   * 
+   * @param request - DescribeAuthVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAuthVerifyResponse
+   */
+  async describeAuthVerifyWithOptions(request: $_model.DescribeAuthVerifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAuthVerifyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.certifyId)) {
+      body["CertifyId"] = request.certifyId;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAuthVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAuthVerifyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAuthVerifyResponse({}));
+  }
+
+  /**
+   * 获取结果
+   * 
+   * @param request - DescribeAuthVerifyRequest
+   * @returns DescribeAuthVerifyResponse
+   */
+  async describeAuthVerify(request: $_model.DescribeAuthVerifyRequest): Promise<$_model.DescribeAuthVerifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAuthVerifyWithOptions(request, runtime);
+  }
+
+  /**
    * Obtain Authentication Results from Image Element Verification
    * 
    * @remarks
@@ -4907,6 +4953,84 @@ export default class Client extends OpenApi {
 
     let id3MetaVerifyWithOCRResp = await this.id3MetaVerifyWithOCRWithOptions(id3MetaVerifyWithOCRReq, runtime);
     return id3MetaVerifyWithOCRResp;
+  }
+
+  /**
+   * 服务端初始化
+   * 
+   * @param request - InitAuthVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitAuthVerifyResponse
+   */
+  async initAuthVerifyWithOptions(request: $_model.InitAuthVerifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitAuthVerifyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callbackToken)) {
+      body["CallbackToken"] = request.callbackToken;
+    }
+
+    if (!$dara.isNull(request.callbackUrl)) {
+      body["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!$dara.isNull(request.cardPageNumber)) {
+      body["CardPageNumber"] = request.cardPageNumber;
+    }
+
+    if (!$dara.isNull(request.cardType)) {
+      body["CardType"] = request.cardType;
+    }
+
+    if (!$dara.isNull(request.docScanMode)) {
+      body["DocScanMode"] = request.docScanMode;
+    }
+
+    if (!$dara.isNull(request.idSpoof)) {
+      body["IdSpoof"] = request.idSpoof;
+    }
+
+    if (!$dara.isNull(request.metaInfo)) {
+      body["MetaInfo"] = request.metaInfo;
+    }
+
+    if (!$dara.isNull(request.outerOrderNo)) {
+      body["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitAuthVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitAuthVerifyResponse>(await this.callApi(params, req, runtime), new $_model.InitAuthVerifyResponse({}));
+  }
+
+  /**
+   * 服务端初始化
+   * 
+   * @param request - InitAuthVerifyRequest
+   * @returns InitAuthVerifyResponse
+   */
+  async initAuthVerify(request: $_model.InitAuthVerifyRequest): Promise<$_model.InitAuthVerifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initAuthVerifyWithOptions(request, runtime);
   }
 
   /**
