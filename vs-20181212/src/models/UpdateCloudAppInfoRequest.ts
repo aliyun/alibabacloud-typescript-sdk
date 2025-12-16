@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
+  asStablePatch?: boolean;
   /**
    * @example
    * https://test_host/app/test-tar-pkg.tar
@@ -18,19 +19,31 @@ export class UpdateCloudAppInfoRequestPatch extends $dara.Model {
    * p1
    */
   patchName?: string;
+  /**
+   * @example
+   * tar
+   */
+  pkgFormat?: string;
+  renderingInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      asStablePatch: 'AsStablePatch',
       downloadURL: 'DownloadURL',
       md5: 'Md5',
       patchName: 'PatchName',
+      pkgFormat: 'PkgFormat',
+      renderingInstanceId: 'RenderingInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      asStablePatch: 'boolean',
       downloadURL: 'string',
       md5: 'string',
       patchName: 'string',
+      pkgFormat: 'string',
+      renderingInstanceId: 'string',
     };
   }
 
@@ -54,6 +67,7 @@ export class UpdateCloudAppInfoRequest extends $dara.Model {
   appId?: string;
   description?: string;
   patch?: UpdateCloudAppInfoRequestPatch;
+  pkgLabels?: string[];
   /**
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4
@@ -64,6 +78,7 @@ export class UpdateCloudAppInfoRequest extends $dara.Model {
       appId: 'AppId',
       description: 'Description',
       patch: 'Patch',
+      pkgLabels: 'PkgLabels',
       stablePatchId: 'StablePatchId',
     };
   }
@@ -73,6 +88,7 @@ export class UpdateCloudAppInfoRequest extends $dara.Model {
       appId: 'string',
       description: 'string',
       patch: UpdateCloudAppInfoRequestPatch,
+      pkgLabels: { 'type': 'array', 'itemType': 'string' },
       stablePatchId: 'string',
     };
   }
@@ -80,6 +96,9 @@ export class UpdateCloudAppInfoRequest extends $dara.Model {
   validate() {
     if(this.patch && typeof (this.patch as any).validate === 'function') {
       (this.patch as any).validate();
+    }
+    if(Array.isArray(this.pkgLabels)) {
+      $dara.Model.validateArray(this.pkgLabels);
     }
     super.validate();
   }

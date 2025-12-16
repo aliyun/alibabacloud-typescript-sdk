@@ -699,6 +699,7 @@ export { UpdateVsPullStreamInfoConfigRequest } from './UpdateVsPullStreamInfoCon
 export { UpdateVsPullStreamInfoConfigResponseBody } from './UpdateVsPullStreamInfoConfigResponseBody';
 export { UpdateVsPullStreamInfoConfigResponse } from './UpdateVsPullStreamInfoConfigResponse';
 export { UploadCloudAppRequest } from './UploadCloudAppRequest';
+export { UploadCloudAppShrinkRequest } from './UploadCloudAppShrinkRequest';
 export { UploadCloudAppResponseBody } from './UploadCloudAppResponseBody';
 export { UploadCloudAppResponse } from './UploadCloudAppResponse';
 export { UploadFileRequest } from './UploadFileRequest';

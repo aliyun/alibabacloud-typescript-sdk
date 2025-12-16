@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UploadCloudAppRequest extends $dara.Model {
+export class UploadCloudAppShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -37,7 +37,7 @@ export class UploadCloudAppRequest extends $dara.Model {
    */
   md5?: string;
   pkgFormat?: string;
-  pkgLabels?: string[];
+  pkgLabelsShrink?: string;
   pkgType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,7 +47,7 @@ export class UploadCloudAppRequest extends $dara.Model {
       downloadUrl: 'DownloadUrl',
       md5: 'Md5',
       pkgFormat: 'PkgFormat',
-      pkgLabels: 'PkgLabels',
+      pkgLabelsShrink: 'PkgLabels',
       pkgType: 'PkgType',
     };
   }
@@ -60,15 +60,12 @@ export class UploadCloudAppRequest extends $dara.Model {
       downloadUrl: 'string',
       md5: 'string',
       pkgFormat: 'string',
-      pkgLabels: { 'type': 'array', 'itemType': 'string' },
+      pkgLabelsShrink: 'string',
       pkgType: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.pkgLabels)) {
-      $dara.Model.validateArray(this.pkgLabels);
-    }
     super.validate();
   }
 

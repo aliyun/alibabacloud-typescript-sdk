@@ -13,6 +13,7 @@ export class UpdateCloudAppInfoShrinkRequest extends $dara.Model {
   appId?: string;
   description?: string;
   patchShrink?: string;
+  pkgLabelsShrink?: string;
   /**
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4
@@ -23,6 +24,7 @@ export class UpdateCloudAppInfoShrinkRequest extends $dara.Model {
       appId: 'AppId',
       description: 'Description',
       patchShrink: 'Patch',
+      pkgLabelsShrink: 'PkgLabels',
       stablePatchId: 'StablePatchId',
     };
   }
@@ -32,6 +34,7 @@ export class UpdateCloudAppInfoShrinkRequest extends $dara.Model {
       appId: 'string',
       description: 'string',
       patchShrink: 'string',
+      pkgLabelsShrink: 'string',
       stablePatchId: 'string',
     };
   }

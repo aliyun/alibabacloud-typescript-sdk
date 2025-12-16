@@ -19,6 +19,7 @@ export class ListCloudAppsRequest extends $dara.Model {
    */
   appVersion?: string;
   endTime?: string;
+  latestVersionOnly?: boolean;
   /**
    * @example
    * 1
@@ -29,18 +30,23 @@ export class ListCloudAppsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  pkgLabel?: string;
   pkgType?: string;
   startTime?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
       appVersion: 'AppVersion',
       endTime: 'EndTime',
+      latestVersionOnly: 'LatestVersionOnly',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      pkgLabel: 'PkgLabel',
       pkgType: 'PkgType',
       startTime: 'StartTime',
+      status: 'Status',
     };
   }
 
@@ -50,10 +56,13 @@ export class ListCloudAppsRequest extends $dara.Model {
       appName: 'string',
       appVersion: 'string',
       endTime: 'string',
+      latestVersionOnly: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
+      pkgLabel: 'string',
       pkgType: 'string',
       startTime: 'string',
+      status: 'string',
     };
   }
 

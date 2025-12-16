@@ -9415,6 +9415,10 @@ export default class Client extends OpenApi {
       request.patchShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.patch, "Patch", "json");
     }
 
+    if (!$dara.isNull(tmpReq.pkgLabels)) {
+      request.pkgLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pkgLabels, "PkgLabels", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
@@ -9424,16 +9428,22 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
-    if (!$dara.isNull(request.patchShrink)) {
-      query["Patch"] = request.patchShrink;
+    if (!$dara.isNull(request.pkgLabelsShrink)) {
+      query["PkgLabels"] = request.pkgLabelsShrink;
     }
 
     if (!$dara.isNull(request.stablePatchId)) {
       query["StablePatchId"] = request.stablePatchId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.patchShrink)) {
+      body["Patch"] = request.patchShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateCloudAppInfo",
@@ -9741,12 +9751,18 @@ export default class Client extends OpenApi {
   /**
    * 应用上架
    * 
-   * @param request - UploadCloudAppRequest
+   * @param tmpReq - UploadCloudAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UploadCloudAppResponse
    */
-  async uploadCloudAppWithOptions(request: $_model.UploadCloudAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadCloudAppResponse> {
-    request.validate();
+  async uploadCloudAppWithOptions(tmpReq: $_model.UploadCloudAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadCloudAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.UploadCloudAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.pkgLabels)) {
+      request.pkgLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pkgLabels, "PkgLabels", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
@@ -9770,6 +9786,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pkgFormat)) {
       query["PkgFormat"] = request.pkgFormat;
+    }
+
+    if (!$dara.isNull(request.pkgLabelsShrink)) {
+      query["PkgLabels"] = request.pkgLabelsShrink;
     }
 
     if (!$dara.isNull(request.pkgType)) {
