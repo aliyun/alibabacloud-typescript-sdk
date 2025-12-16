@@ -88,6 +88,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 服务单授权
+   * 
    * @param request - BindProduceAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindProduceAuthorizationResponse
@@ -125,6 +127,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 服务单授权
+   * 
    * @param request - BindProduceAuthorizationRequest
    * @returns BindProduceAuthorizationResponse
    */
@@ -1900,6 +1904,10 @@ export default class Client extends OpenApi {
       query["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.employeeCode)) {
+      query["EmployeeCode"] = request.employeeCode;
+    }
+
     if (!$dara.isNull(request.personId)) {
       query["PersonId"] = request.personId;
     }
@@ -1952,6 +1960,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.employeeCode)) {
+      query["EmployeeCode"] = request.employeeCode;
     }
 
     if (!$dara.isNull(request.personId)) {

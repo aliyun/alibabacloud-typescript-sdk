@@ -19,10 +19,8 @@ export class TransferProduceOwnerRequest extends $dara.Model {
    * esp.companyreg_cloud
    */
   bizType?: string;
+  employeeCode?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 15565
    */
@@ -32,6 +30,7 @@ export class TransferProduceOwnerRequest extends $dara.Model {
     return {
       bizId: 'BizId',
       bizType: 'BizType',
+      employeeCode: 'EmployeeCode',
       personId: 'PersonId',
       remark: 'Remark',
     };
@@ -41,6 +40,7 @@ export class TransferProduceOwnerRequest extends $dara.Model {
     return {
       bizId: 'string',
       bizType: 'string',
+      employeeCode: 'string',
       personId: 'number',
       remark: 'string',
     };
