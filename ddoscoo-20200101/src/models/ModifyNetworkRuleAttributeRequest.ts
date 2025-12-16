@@ -75,12 +75,14 @@ export class ModifyNetworkRuleAttributeRequest extends $dara.Model {
    * ddoscoo-cn-mp91j1ao****
    */
   instanceId?: string;
+  module?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
       forwardProtocol: 'ForwardProtocol',
       frontendPort: 'FrontendPort',
       instanceId: 'InstanceId',
+      module: 'Module',
     };
   }
 
@@ -90,6 +92,7 @@ export class ModifyNetworkRuleAttributeRequest extends $dara.Model {
       forwardProtocol: 'string',
       frontendPort: 'number',
       instanceId: 'string',
+      module: 'string',
     };
   }
 
