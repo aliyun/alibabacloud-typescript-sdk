@@ -177,6 +177,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 云端获取透传鉴权信息
+   * 
+   * @param request - GetPassThroughAuthInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPassThroughAuthInfoResponse
+   */
+  async getPassThroughAuthInfoWithOptions(request: $_model.GetPassThroughAuthInfoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPassThroughAuthInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["appId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.deviceName)) {
+      body["deviceName"] = request.deviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPassThroughAuthInfo",
+      version: "2024-08-16",
+      protocol: "HTTPS",
+      pathname: `/open/api/auth/v1/token/getPassThroughAuthInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPassThroughAuthInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetPassThroughAuthInfoResponse({}));
+  }
+
+  /**
+   * 云端获取透传鉴权信息
+   * 
+   * @param request - GetPassThroughAuthInfoRequest
+   * @returns GetPassThroughAuthInfoResponse
+   */
+  async getPassThroughAuthInfo(request: $_model.GetPassThroughAuthInfoRequest): Promise<$_model.GetPassThroughAuthInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPassThroughAuthInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取网关校验Token
    * 
    * @param request - GetTokenRequest

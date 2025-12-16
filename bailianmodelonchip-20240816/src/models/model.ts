@@ -1,6 +1,7 @@
 export { ActiveInteractionCreateResponseBodyData } from './ActiveInteractionCreateResponseBody';
 export { ActiveInteractionEuCreateResponseBodyData } from './ActiveInteractionEuCreateResponseBody';
 export { DeviceRegisterResponseBodyData } from './DeviceRegisterResponseBody';
+export { GetPassThroughAuthInfoResponseBodyData } from './GetPassThroughAuthInfoResponseBody';
 export { GetTokenResponseBodyData } from './GetTokenResponseBody';
 export { ModelTypeDetermineRequestHistory } from './ModelTypeDetermineRequest';
 export { ModelTypeDetermineResponseBodyData } from './ModelTypeDetermineResponseBody';
@@ -14,6 +15,9 @@ export { ActiveInteractionEuCreateResponse } from './ActiveInteractionEuCreateRe
 export { DeviceRegisterRequest } from './DeviceRegisterRequest';
 export { DeviceRegisterResponseBody } from './DeviceRegisterResponseBody';
 export { DeviceRegisterResponse } from './DeviceRegisterResponse';
+export { GetPassThroughAuthInfoRequest } from './GetPassThroughAuthInfoRequest';
+export { GetPassThroughAuthInfoResponseBody } from './GetPassThroughAuthInfoResponseBody';
+export { GetPassThroughAuthInfoResponse } from './GetPassThroughAuthInfoResponse';
 export { GetTokenRequest } from './GetTokenRequest';
 export { GetTokenResponseBody } from './GetTokenResponseBody';
 export { GetTokenResponse } from './GetTokenResponse';
