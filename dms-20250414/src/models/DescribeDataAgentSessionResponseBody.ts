@@ -49,6 +49,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
    * CHINESE
    */
   language?: string;
+  mcpServerIds?: string[];
   /**
    * @example
    * ANALYSIS
@@ -60,6 +61,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
       customAgentStage: 'CustomAgentStage',
       enableSearch: 'EnableSearch',
       language: 'Language',
+      mcpServerIds: 'McpServerIds',
       mode: 'Mode',
     };
   }
@@ -70,11 +72,15 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
       customAgentStage: 'string',
       enableSearch: 'boolean',
       language: 'string',
+      mcpServerIds: { 'type': 'array', 'itemType': 'string' },
       mode: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.mcpServerIds)) {
+      $dara.Model.validateArray(this.mcpServerIds);
+    }
     super.validate();
   }
 

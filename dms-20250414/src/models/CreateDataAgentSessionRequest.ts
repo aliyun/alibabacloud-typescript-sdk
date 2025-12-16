@@ -23,6 +23,7 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
    * CHINESE
    */
   language?: string;
+  mcpServerIds?: string[];
   /**
    * @example
    * ANALYSIS
@@ -34,6 +35,7 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
       customAgentStage: 'CustomAgentStage',
       enableSearch: 'EnableSearch',
       language: 'Language',
+      mcpServerIds: 'McpServerIds',
       mode: 'Mode',
     };
   }
@@ -44,11 +46,15 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
       customAgentStage: 'string',
       enableSearch: 'boolean',
       language: 'string',
+      mcpServerIds: { 'type': 'array', 'itemType': 'string' },
       mode: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.mcpServerIds)) {
+      $dara.Model.validateArray(this.mcpServerIds);
+    }
     super.validate();
   }
 
