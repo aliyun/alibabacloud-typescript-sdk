@@ -3958,6 +3958,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用高阶配置
+   * 
+   * @param request - GetApplicationAdvancedConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationAdvancedConfigResponse
+   */
+  async getApplicationAdvancedConfigWithOptions(request: $_model.GetApplicationAdvancedConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationAdvancedConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApplicationAdvancedConfig",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApplicationAdvancedConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetApplicationAdvancedConfigResponse({}));
+  }
+
+  /**
+   * 获取应用高阶配置
+   * 
+   * @param request - GetApplicationAdvancedConfigRequest
+   * @returns GetApplicationAdvancedConfigResponse
+   */
+  async getApplicationAdvancedConfig(request: $_model.GetApplicationAdvancedConfigRequest): Promise<$_model.GetApplicationAdvancedConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApplicationAdvancedConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 获取应用联邦凭证
    * 
    * @param request - GetApplicationFederatedCredentialRequest
@@ -9177,6 +9223,56 @@ export default class Client extends OpenApi {
   async unlockUser(request: $_model.UnlockUserRequest): Promise<$_model.UnlockUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unlockUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用高阶配置
+   * 
+   * @param request - UpdateApplicationAdvancedConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationAdvancedConfigResponse
+   */
+  async updateApplicationAdvancedConfigWithOptions(request: $_model.UpdateApplicationAdvancedConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationAdvancedConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scimServerAdvancedConfig)) {
+      query["ScimServerAdvancedConfig"] = request.scimServerAdvancedConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationAdvancedConfig",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationAdvancedConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationAdvancedConfigResponse({}));
+  }
+
+  /**
+   * 修改应用高阶配置
+   * 
+   * @param request - UpdateApplicationAdvancedConfigRequest
+   * @returns UpdateApplicationAdvancedConfigResponse
+   */
+  async updateApplicationAdvancedConfig(request: $_model.UpdateApplicationAdvancedConfigRequest): Promise<$_model.UpdateApplicationAdvancedConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationAdvancedConfigWithOptions(request, runtime);
   }
 
   /**

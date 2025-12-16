@@ -73,6 +73,12 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * sase
+   */
+  managedServiceCode?: string;
+  serviceManaged?: boolean;
+  /**
    * @remarks
    * The status of the instance. Valid values:
    * 
@@ -89,6 +95,8 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       defaultEndpoint: 'DefaultEndpoint',
       description: 'Description',
       instanceId: 'InstanceId',
+      managedServiceCode: 'ManagedServiceCode',
+      serviceManaged: 'ServiceManaged',
       status: 'Status',
     };
   }
@@ -99,6 +107,8 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       defaultEndpoint: ListInstancesResponseBodyInstancesDefaultEndpoint,
       description: 'string',
       instanceId: 'string',
+      managedServiceCode: 'string',
+      serviceManaged: 'boolean',
       status: 'string',
     };
   }

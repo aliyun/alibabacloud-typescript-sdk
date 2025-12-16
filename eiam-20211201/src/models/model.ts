@@ -35,6 +35,8 @@ export { CreateIdentityProviderRequestWeComConfig } from './CreateIdentityProvid
 export { CreateUserRequestCustomFields } from './CreateUserRequest';
 export { CreateUserRequestPasswordInitializationConfig } from './CreateUserRequest';
 export { GetApplicationResponseBodyApplication } from './GetApplicationResponseBody';
+export { GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfigScimServerAdvancedConfig } from './GetApplicationAdvancedConfigResponseBody';
+export { GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig } from './GetApplicationAdvancedConfigResponseBody';
 export { GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialAttributeMappings } from './GetApplicationFederatedCredentialResponseBody';
 export { GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredential } from './GetApplicationFederatedCredentialResponseBody';
 export { GetApplicationGrantScopeResponseBodyApplicationGrantScope } from './GetApplicationGrantScopeResponseBody';
@@ -267,6 +269,7 @@ export { SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig } from 
 export { SetIdentityProviderUdPullConfigurationRequestPullProtectedRule } from './SetIdentityProviderUdPullConfigurationRequest';
 export { SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig } from './SetIdentityProviderUdPullConfigurationRequest';
 export { SetPasswordComplexityConfigurationRequestPasswordComplexityRules } from './SetPasswordComplexityConfigurationRequest';
+export { UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig } from './UpdateApplicationAdvancedConfigRequest';
 export { UpdateApplicationFederatedCredentialRequestAttributeMappings } from './UpdateApplicationFederatedCredentialRequest';
 export { UpdateApplicationSsoFormParamsRequestApplicationTemplateParams } from './UpdateApplicationSsoFormParamsRequest';
 export { UpdateConditionalAccessPolicyRequestConditionsConfigApplications } from './UpdateConditionalAccessPolicyRequest';
@@ -517,6 +520,9 @@ export { EnableUserResponse } from './EnableUserResponse';
 export { GetApplicationRequest } from './GetApplicationRequest';
 export { GetApplicationResponseBody } from './GetApplicationResponseBody';
 export { GetApplicationResponse } from './GetApplicationResponse';
+export { GetApplicationAdvancedConfigRequest } from './GetApplicationAdvancedConfigRequest';
+export { GetApplicationAdvancedConfigResponseBody } from './GetApplicationAdvancedConfigResponseBody';
+export { GetApplicationAdvancedConfigResponse } from './GetApplicationAdvancedConfigResponse';
 export { GetApplicationFederatedCredentialRequest } from './GetApplicationFederatedCredentialRequest';
 export { GetApplicationFederatedCredentialResponseBody } from './GetApplicationFederatedCredentialResponseBody';
 export { GetApplicationFederatedCredentialResponse } from './GetApplicationFederatedCredentialResponse';
@@ -814,6 +820,9 @@ export { UnbindUserAuthnSourceMappingResponse } from './UnbindUserAuthnSourceMap
 export { UnlockUserRequest } from './UnlockUserRequest';
 export { UnlockUserResponseBody } from './UnlockUserResponseBody';
 export { UnlockUserResponse } from './UnlockUserResponse';
+export { UpdateApplicationAdvancedConfigRequest } from './UpdateApplicationAdvancedConfigRequest';
+export { UpdateApplicationAdvancedConfigResponseBody } from './UpdateApplicationAdvancedConfigResponseBody';
+export { UpdateApplicationAdvancedConfigResponse } from './UpdateApplicationAdvancedConfigResponse';
 export { UpdateApplicationAuthorizationTypeRequest } from './UpdateApplicationAuthorizationTypeRequest';
 export { UpdateApplicationAuthorizationTypeResponseBody } from './UpdateApplicationAuthorizationTypeResponseBody';
 export { UpdateApplicationAuthorizationTypeResponse } from './UpdateApplicationAuthorizationTypeResponse';

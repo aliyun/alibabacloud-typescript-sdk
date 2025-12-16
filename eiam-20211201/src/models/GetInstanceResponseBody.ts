@@ -139,6 +139,19 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * sase
+   * 
+   * **if can be null:**
+   * false
+   */
+  managedServiceCode?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
+  serviceManaged?: boolean;
+  /**
    * @remarks
    * The status of the instance. Valid values:
    * 
@@ -157,6 +170,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       domainConfig: 'DomainConfig',
       egressAddresses: 'EgressAddresses',
       instanceId: 'InstanceId',
+      managedServiceCode: 'ManagedServiceCode',
+      serviceManaged: 'ServiceManaged',
       status: 'Status',
     };
   }
@@ -169,6 +184,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       domainConfig: GetInstanceResponseBodyInstanceDomainConfig,
       egressAddresses: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
+      managedServiceCode: 'string',
+      serviceManaged: 'boolean',
       status: 'string',
     };
   }
