@@ -4,6 +4,9 @@ export { WritingStyleTemplateDefineExample } from './WritingStyleTemplateDefine'
 export { WritingStyleTemplateFieldEnums } from './WritingStyleTemplateField';
 export { WritingStyleTemplateFieldStyle } from './WritingStyleTemplateField';
 export { AddAuditTermsResponseBodyDataV1 } from './AddAuditTermsResponseBody';
+export { AddDatasetDocumentRequestDocumentMetadataAsrSentences } from './AddDatasetDocumentRequest';
+export { AddDatasetDocumentRequestDocumentMetadataVideoShots } from './AddDatasetDocumentRequest';
+export { AddDatasetDocumentRequestDocumentMetadata } from './AddDatasetDocumentRequest';
 export { AddDatasetDocumentRequestDocumentMultimodalMedias } from './AddDatasetDocumentRequest';
 export { AddDatasetDocumentRequestDocument } from './AddDatasetDocumentRequest';
 export { AddDatasetDocumentResponseBodyData } from './AddDatasetDocumentResponseBody';
@@ -90,6 +93,9 @@ export { GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs } from './Ge
 export { GetDatasetResponseBodyDataDatasetConfig } from './GetDatasetResponseBody';
 export { GetDatasetResponseBodyDataDocumentHandleConfig } from './GetDatasetResponseBody';
 export { GetDatasetResponseBodyData } from './GetDatasetResponseBody';
+export { GetDatasetDocumentResponseBodyDataMetadataAsrSentences } from './GetDatasetDocumentResponseBody';
+export { GetDatasetDocumentResponseBodyDataMetadataVideoShots } from './GetDatasetDocumentResponseBody';
+export { GetDatasetDocumentResponseBodyDataMetadata } from './GetDatasetDocumentResponseBody';
 export { GetDatasetDocumentResponseBodyData } from './GetDatasetDocumentResponseBody';
 export { GetDeepWriteTaskResponseBodyData } from './GetDeepWriteTaskResponseBody';
 export { GetDeepWriteTaskResultResponseBodyData } from './GetDeepWriteTaskResultResponseBody';
@@ -815,6 +821,7 @@ export { GetDatasetRequest } from './GetDatasetRequest';
 export { GetDatasetResponseBody } from './GetDatasetResponseBody';
 export { GetDatasetResponse } from './GetDatasetResponse';
 export { GetDatasetDocumentRequest } from './GetDatasetDocumentRequest';
+export { GetDatasetDocumentShrinkRequest } from './GetDatasetDocumentShrinkRequest';
 export { GetDatasetDocumentResponseBody } from './GetDatasetDocumentResponseBody';
 export { GetDatasetDocumentResponse } from './GetDatasetDocumentResponse';
 export { GetDeepWriteTaskRequest } from './GetDeepWriteTaskRequest';

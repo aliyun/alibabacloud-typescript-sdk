@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDatasetDocumentRequest extends $dara.Model {
+export class GetDatasetDocumentShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -23,7 +23,7 @@ export class GetDatasetDocumentRequest extends $dara.Model {
    * xxx
    */
   docUuid?: string;
-  includeFields?: string[];
+  includeFieldsShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -38,7 +38,7 @@ export class GetDatasetDocumentRequest extends $dara.Model {
       datasetName: 'DatasetName',
       docId: 'DocId',
       docUuid: 'DocUuid',
-      includeFields: 'IncludeFields',
+      includeFieldsShrink: 'IncludeFields',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -49,15 +49,12 @@ export class GetDatasetDocumentRequest extends $dara.Model {
       datasetName: 'string',
       docId: 'string',
       docUuid: 'string',
-      includeFields: { 'type': 'array', 'itemType': 'string' },
+      includeFieldsShrink: 'string',
       workspaceId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.includeFields)) {
-      $dara.Model.validateArray(this.includeFields);
-    }
     super.validate();
   }
 

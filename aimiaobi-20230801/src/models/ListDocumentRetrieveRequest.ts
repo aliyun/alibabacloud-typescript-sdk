@@ -60,6 +60,11 @@ export class ListDocumentRetrieveRequest extends $dara.Model {
   subContentType?: string;
   /**
    * @example
+   * 国防和交流合作事务
+   */
+  subjectClassify?: string;
+  /**
+   * @example
    * 宁民规〔2020〕5号
    */
   wordSize?: string;
@@ -84,6 +89,7 @@ export class ListDocumentRetrieveRequest extends $dara.Model {
       source: 'Source',
       startDate: 'StartDate',
       subContentType: 'SubContentType',
+      subjectClassify: 'SubjectClassify',
       wordSize: 'WordSize',
       workspaceId: 'WorkspaceId',
     };
@@ -102,6 +108,7 @@ export class ListDocumentRetrieveRequest extends $dara.Model {
       source: 'string',
       startDate: 'string',
       subContentType: 'string',
+      subjectClassify: 'string',
       wordSize: 'string',
       workspaceId: 'string',
     };

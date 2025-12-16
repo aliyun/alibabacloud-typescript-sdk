@@ -2,6 +2,99 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class AddDatasetDocumentRequestDocumentMetadataAsrSentences extends $dara.Model {
+  endTime?: number;
+  startTime?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDatasetDocumentRequestDocumentMetadataVideoShots extends $dara.Model {
+  endTime?: number;
+  startTime?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDatasetDocumentRequestDocumentMetadata extends $dara.Model {
+  asrSentences?: AddDatasetDocumentRequestDocumentMetadataAsrSentences[];
+  text?: string;
+  videoShots?: AddDatasetDocumentRequestDocumentMetadataVideoShots[];
+  static names(): { [key: string]: string } {
+    return {
+      asrSentences: 'AsrSentences',
+      text: 'Text',
+      videoShots: 'VideoShots',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrSentences: { 'type': 'array', 'itemType': AddDatasetDocumentRequestDocumentMetadataAsrSentences },
+      text: 'string',
+      videoShots: { 'type': 'array', 'itemType': AddDatasetDocumentRequestDocumentMetadataVideoShots },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.asrSentences)) {
+      $dara.Model.validateArray(this.asrSentences);
+    }
+    if(Array.isArray(this.videoShots)) {
+      $dara.Model.validateArray(this.videoShots);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddDatasetDocumentRequestDocumentMultimodalMedias extends $dara.Model {
   /**
    * @example
@@ -84,6 +177,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
    * 扩展字段3
    */
   extend3?: string;
+  metadata?: AddDatasetDocumentRequestDocumentMetadata;
   /**
    * @example
    * 模型名称 todo 商业化 仅个别账号可传入
@@ -125,6 +219,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
       extend1: 'Extend1',
       extend2: 'Extend2',
       extend3: 'Extend3',
+      metadata: 'Metadata',
       multimodalIndexName: 'MultimodalIndexName',
       multimodalMedias: 'MultimodalMedias',
       pubTime: 'PubTime',
@@ -145,6 +240,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
       extend1: 'string',
       extend2: 'string',
       extend3: 'string',
+      metadata: AddDatasetDocumentRequestDocumentMetadata,
       multimodalIndexName: 'string',
       multimodalMedias: { 'type': 'array', 'itemType': AddDatasetDocumentRequestDocumentMultimodalMedias },
       pubTime: 'string',
@@ -156,6 +252,9 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
   }
 
   validate() {
+    if(this.metadata && typeof (this.metadata as any).validate === 'function') {
+      (this.metadata as any).validate();
+    }
     if(Array.isArray(this.multimodalMedias)) {
       $dara.Model.validateArray(this.multimodalMedias);
     }

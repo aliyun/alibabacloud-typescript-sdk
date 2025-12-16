@@ -3518,12 +3518,18 @@ export default class Client extends OpenApi {
   /**
    * 获取数据集文档
    * 
-   * @param request - GetDatasetDocumentRequest
+   * @param tmpReq - GetDatasetDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDatasetDocumentResponse
    */
-  async getDatasetDocumentWithOptions(request: $_model.GetDatasetDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetDocumentResponse> {
-    request.validate();
+  async getDatasetDocumentWithOptions(tmpReq: $_model.GetDatasetDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetDocumentResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDatasetDocumentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.includeFields)) {
+      request.includeFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.includeFields, "IncludeFields", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.datasetId)) {
       body["DatasetId"] = request.datasetId;
@@ -3539,6 +3545,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.docUuid)) {
       body["DocUuid"] = request.docUuid;
+    }
+
+    if (!$dara.isNull(request.includeFieldsShrink)) {
+      body["IncludeFields"] = request.includeFieldsShrink;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -5682,44 +5692,19 @@ export default class Client extends OpenApi {
    */
   async listDocumentRetrieveWithOptions(request: $_model.ListDocumentRetrieveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDocumentRetrieveResponse> {
     request.validate();
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.contentType)) {
-      query["ContentType"] = request.contentType;
+      body["ContentType"] = request.contentType;
     }
 
     if (!$dara.isNull(request.elementScope)) {
-      query["ElementScope"] = request.elementScope;
+      body["ElementScope"] = request.elementScope;
     }
 
     if (!$dara.isNull(request.endDate)) {
-      query["EndDate"] = request.endDate;
+      body["EndDate"] = request.endDate;
     }
 
-    if (!$dara.isNull(request.office)) {
-      query["Office"] = request.office;
-    }
-
-    if (!$dara.isNull(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!$dara.isNull(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    if (!$dara.isNull(request.startDate)) {
-      query["StartDate"] = request.startDate;
-    }
-
-    if (!$dara.isNull(request.subContentType)) {
-      query["SubContentType"] = request.subContentType;
-    }
-
-    if (!$dara.isNull(request.wordSize)) {
-      query["WordSize"] = request.wordSize;
-    }
-
-    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
@@ -5728,8 +5713,36 @@ export default class Client extends OpenApi {
       body["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.office)) {
+      body["Office"] = request.office;
+    }
+
     if (!$dara.isNull(request.query)) {
       body["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.subContentType)) {
+      body["SubContentType"] = request.subContentType;
+    }
+
+    if (!$dara.isNull(request.subjectClassify)) {
+      body["SubjectClassify"] = request.subjectClassify;
+    }
+
+    if (!$dara.isNull(request.wordSize)) {
+      body["WordSize"] = request.wordSize;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -5737,7 +5750,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
