@@ -27,10 +27,12 @@ export class DescribeCertificatePrivateKeyRequest extends $dara.Model {
    * bc37133bb7ed68c7938d928fd26d****
    */
   identifier?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       encryptedCode: 'EncryptedCode',
       identifier: 'Identifier',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -38,6 +40,7 @@ export class DescribeCertificatePrivateKeyRequest extends $dara.Model {
     return {
       encryptedCode: 'string',
       identifier: 'string',
+      resourceGroupId: 'string',
     };
   }
 

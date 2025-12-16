@@ -1317,6 +1317,10 @@ export default class Client extends OpenApi {
       query["Identifier"] = request.identifier;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1425,6 +1429,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取客户端证书
+   * 
+   * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
+   * 
+   * @param request - DescribeClientCertificateForSerialNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClientCertificateForSerialNumberResponse
+   */
+  async describeClientCertificateForSerialNumberWithOptions(request: $_model.DescribeClientCertificateForSerialNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClientCertificateForSerialNumberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serialNumber)) {
+      query["SerialNumber"] = request.serialNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClientCertificateForSerialNumber",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClientCertificateForSerialNumberResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClientCertificateForSerialNumberResponse({}));
+  }
+
+  /**
+   * 获取客户端证书
+   * 
+   * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
+   * 
+   * @param request - DescribeClientCertificateForSerialNumberRequest
+   * @returns DescribeClientCertificateForSerialNumberResponse
+   */
+  // Deprecated
+  async describeClientCertificateForSerialNumber(request: $_model.DescribeClientCertificateForSerialNumberRequest): Promise<$_model.DescribeClientCertificateForSerialNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClientCertificateForSerialNumberWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
    * 
    * @remarks
@@ -1474,6 +1525,99 @@ export default class Client extends OpenApi {
   async describeClientCertificateStatus(request: $_model.DescribeClientCertificateStatusRequest): Promise<$_model.DescribeClientCertificateStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeClientCertificateStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取客户端证书状态
+   * 
+   * @param request - DescribeClientCertificateStatusForSerialNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClientCertificateStatusForSerialNumberResponse
+   */
+  async describeClientCertificateStatusForSerialNumberWithOptions(request: $_model.DescribeClientCertificateStatusForSerialNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClientCertificateStatusForSerialNumberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serialNumber)) {
+      query["SerialNumber"] = request.serialNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClientCertificateStatusForSerialNumber",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClientCertificateStatusForSerialNumberResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClientCertificateStatusForSerialNumberResponse({}));
+  }
+
+  /**
+   * 获取客户端证书状态
+   * 
+   * @param request - DescribeClientCertificateStatusForSerialNumberRequest
+   * @returns DescribeClientCertificateStatusForSerialNumberResponse
+   */
+  async describeClientCertificateStatusForSerialNumber(request: $_model.DescribeClientCertificateStatusForSerialNumberRequest): Promise<$_model.DescribeClientCertificateStatusForSerialNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClientCertificateStatusForSerialNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+   * 
+   * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
+   * 
+   * @param request - DescribePcaAndExternalCACertificateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePcaAndExternalCACertificateListResponse
+   */
+  async describePcaAndExternalCACertificateListWithOptions(request: $_model.DescribePcaAndExternalCACertificateListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePcaAndExternalCACertificateListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePcaAndExternalCACertificateList",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePcaAndExternalCACertificateListResponse>(await this.callApi(params, req, runtime), new $_model.DescribePcaAndExternalCACertificateListResponse({}));
+  }
+
+  /**
+   * 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+   * 
+   * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
+   * 
+   * @param request - DescribePcaAndExternalCACertificateListRequest
+   * @returns DescribePcaAndExternalCACertificateListResponse
+   */
+  // Deprecated
+  async describePcaAndExternalCACertificateList(request: $_model.DescribePcaAndExternalCACertificateListRequest): Promise<$_model.DescribePcaAndExternalCACertificateListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePcaAndExternalCACertificateListWithOptions(request, runtime);
   }
 
   /**
@@ -1592,6 +1736,48 @@ export default class Client extends OpenApi {
   async listAllEndEntityInstance(request: $_model.ListAllEndEntityInstanceRequest): Promise<$_model.ListAllEndEntityInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAllEndEntityInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取证书日志
+   * 
+   * @param request - ListCACertificateLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCACertificateLogResponse
+   */
+  async listCACertificateLogWithOptions(request: $_model.ListCACertificateLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCACertificateLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCACertificateLog",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCACertificateLogResponse>(await this.callApi(params, req, runtime), new $_model.ListCACertificateLogResponse({}));
+  }
+
+  /**
+   * 获取证书日志
+   * 
+   * @param request - ListCACertificateLogRequest
+   * @returns ListCACertificateLogResponse
+   */
+  async listCACertificateLog(request: $_model.ListCACertificateLogRequest): Promise<$_model.ListCACertificateLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCACertificateLogWithOptions(request, runtime);
   }
 
   /**
