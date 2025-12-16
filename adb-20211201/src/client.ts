@@ -4674,6 +4674,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询自动续费参数
+   * 
+   * @param tmpReq - DescribeAutoRenewalAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoRenewalAttributeResponse
+   */
+  async describeAutoRenewalAttributeWithOptions(tmpReq: $_model.DescribeAutoRenewalAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAutoRenewalAttributeResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeAutoRenewalAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.DBClusterId)) {
+      request.DBClusterIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBClusterId, "DBClusterId", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBClusterIdShrink)) {
+      query["DBClusterId"] = request.DBClusterIdShrink;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAutoRenewalAttribute",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAutoRenewalAttributeResponse({}));
+  }
+
+  /**
+   * 查询自动续费参数
+   * 
+   * @param request - DescribeAutoRenewalAttributeRequest
+   * @returns DescribeAutoRenewalAttributeResponse
+   */
+  async describeAutoRenewalAttribute(request: $_model.DescribeAutoRenewalAttributeRequest): Promise<$_model.DescribeAutoRenewalAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAutoRenewalAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeAvailableAdvicesRequest
@@ -13218,6 +13298,80 @@ export default class Client extends OpenApi {
   async modifyAuditLogConfig(request: $_model.ModifyAuditLogConfigRequest): Promise<$_model.ModifyAuditLogConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAuditLogConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改自动续费配置
+   * 
+   * @param request - ModifyAutoRenewalAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAutoRenewalAttributeResponse
+   */
+  async modifyAutoRenewalAttributeWithOptions(request: $_model.ModifyAutoRenewalAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoRenewalAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenewalPeriod)) {
+      query["AutoRenewalPeriod"] = request.autoRenewalPeriod;
+    }
+
+    if (!$dara.isNull(request.autoRenewalPeriodUnit)) {
+      query["AutoRenewalPeriodUnit"] = request.autoRenewalPeriodUnit;
+    }
+
+    if (!$dara.isNull(request.autoRenewalStatus)) {
+      query["AutoRenewalStatus"] = request.autoRenewalStatus;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAutoRenewalAttribute",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAutoRenewalAttributeResponse({}));
+  }
+
+  /**
+   * 修改自动续费配置
+   * 
+   * @param request - ModifyAutoRenewalAttributeRequest
+   * @returns ModifyAutoRenewalAttributeResponse
+   */
+  async modifyAutoRenewalAttribute(request: $_model.ModifyAutoRenewalAttributeRequest): Promise<$_model.ModifyAutoRenewalAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAutoRenewalAttributeWithOptions(request, runtime);
   }
 
   /**
