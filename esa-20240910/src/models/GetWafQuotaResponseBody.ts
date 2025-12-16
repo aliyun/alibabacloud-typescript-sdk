@@ -5,6 +5,35 @@ import { QuotaPageContentTypesValue } from "./QuotaPageContentTypesValue";
 import { QuotaListItemsValue } from "./QuotaListItemsValue";
 
 
+export class GetWafQuotaResponseBodyQuotaCaptcha extends $dara.Model {
+  enable?: boolean;
+  numberTotal?: WafQuotaInteger;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      numberTotal: 'NumberTotal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      numberTotal: WafQuotaInteger,
+    };
+  }
+
+  validate() {
+    if(this.numberTotal && typeof (this.numberTotal as any).validate === 'function') {
+      (this.numberTotal as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWafQuotaResponseBodyQuotaList extends $dara.Model {
   /**
    * @remarks
@@ -194,6 +223,7 @@ export class GetWafQuotaResponseBodyQuotaScenePolicy extends $dara.Model {
 }
 
 export class GetWafQuotaResponseBodyQuota extends $dara.Model {
+  captcha?: GetWafQuotaResponseBodyQuotaCaptcha;
   /**
    * @remarks
    * Quota information related to custom lists.
@@ -216,6 +246,7 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
   scenePolicy?: GetWafQuotaResponseBodyQuotaScenePolicy;
   static names(): { [key: string]: string } {
     return {
+      captcha: 'Captcha',
       list: 'List',
       managedRulesGroup: 'ManagedRulesGroup',
       page: 'Page',
@@ -225,6 +256,7 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      captcha: GetWafQuotaResponseBodyQuotaCaptcha,
       list: GetWafQuotaResponseBodyQuotaList,
       managedRulesGroup: GetWafQuotaResponseBodyQuotaManagedRulesGroup,
       page: GetWafQuotaResponseBodyQuotaPage,
@@ -233,6 +265,9 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
   }
 
   validate() {
+    if(this.captcha && typeof (this.captcha as any).validate === 'function') {
+      (this.captcha as any).validate();
+    }
     if(this.list && typeof (this.list as any).validate === 'function') {
       (this.list as any).validate();
     }

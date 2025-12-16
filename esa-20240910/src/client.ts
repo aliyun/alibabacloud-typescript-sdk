@@ -1744,6 +1744,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建边缘容器应用的镜像秘钥
+   * 
+   * @param request - CreateEdgeContainerAppImageSecretRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEdgeContainerAppImageSecretResponse
+   */
+  async createEdgeContainerAppImageSecretWithOptions(request: $_model.CreateEdgeContainerAppImageSecretRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEdgeContainerAppImageSecretResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.registry)) {
+      query["Registry"] = request.registry;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEdgeContainerAppImageSecret",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEdgeContainerAppImageSecretResponse>(await this.callApi(params, req, runtime), new $_model.CreateEdgeContainerAppImageSecretResponse({}));
+  }
+
+  /**
+   * 创建边缘容器应用的镜像秘钥
+   * 
+   * @param request - CreateEdgeContainerAppImageSecretRequest
+   * @returns CreateEdgeContainerAppImageSecretResponse
+   */
+  async createEdgeContainerAppImageSecret(request: $_model.CreateEdgeContainerAppImageSecretRequest): Promise<$_model.CreateEdgeContainerAppImageSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEdgeContainerAppImageSecretWithOptions(request, runtime);
+  }
+
+  /**
    * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
@@ -5065,6 +5119,52 @@ export default class Client extends OpenApi {
   async deleteEdgeContainerApp(request: $_model.DeleteEdgeContainerAppRequest): Promise<$_model.DeleteEdgeContainerAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEdgeContainerAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除边缘容器应用的镜像秘钥
+   * 
+   * @param request - DeleteEdgeContainerAppImageSecretRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEdgeContainerAppImageSecretResponse
+   */
+  async deleteEdgeContainerAppImageSecretWithOptions(request: $_model.DeleteEdgeContainerAppImageSecretRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEdgeContainerAppImageSecretResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEdgeContainerAppImageSecret",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEdgeContainerAppImageSecretResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEdgeContainerAppImageSecretResponse({}));
+  }
+
+  /**
+   * 删除边缘容器应用的镜像秘钥
+   * 
+   * @param request - DeleteEdgeContainerAppImageSecretRequest
+   * @returns DeleteEdgeContainerAppImageSecretResponse
+   */
+  async deleteEdgeContainerAppImageSecret(request: $_model.DeleteEdgeContainerAppImageSecretRequest): Promise<$_model.DeleteEdgeContainerAppImageSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEdgeContainerAppImageSecretWithOptions(request, runtime);
   }
 
   /**
@@ -8476,6 +8576,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取边缘容器应用的资源容量
+   * 
+   * @param request - GetEdgeContainerAppResourceCapacityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerAppResourceCapacityResponse
+   */
+  async getEdgeContainerAppResourceCapacityWithOptions(request: $_model.GetEdgeContainerAppResourceCapacityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEdgeContainerAppResourceCapacityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEdgeContainerAppResourceCapacity",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetEdgeContainerAppResourceCapacityResponse>(await this.callApi(params, req, runtime), new $_model.GetEdgeContainerAppResourceCapacityResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用的资源容量
+   * 
+   * @param request - GetEdgeContainerAppResourceCapacityRequest
+   * @returns GetEdgeContainerAppResourceCapacityResponse
+   */
+  async getEdgeContainerAppResourceCapacity(request: $_model.GetEdgeContainerAppResourceCapacityRequest): Promise<$_model.GetEdgeContainerAppResourceCapacityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEdgeContainerAppResourceCapacityWithOptions(request, runtime);
+  }
+
+  /**
    * Obtain the resource reservation configuration of the edge container.
    * 
    * @param request - GetEdgeContainerAppResourceReserveRequest
@@ -11403,6 +11545,48 @@ export default class Client extends OpenApi {
   async listESAIPInfo(request: $_model.ListESAIPInfoRequest): Promise<$_model.ListESAIPInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listESAIPInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用的镜像秘钥列表
+   * 
+   * @param request - ListEdgeContainerAppImageSecretsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEdgeContainerAppImageSecretsResponse
+   */
+  async listEdgeContainerAppImageSecretsWithOptions(request: $_model.ListEdgeContainerAppImageSecretsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEdgeContainerAppImageSecretsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEdgeContainerAppImageSecrets",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEdgeContainerAppImageSecretsResponse>(await this.callApi(params, req, runtime), new $_model.ListEdgeContainerAppImageSecretsResponse({}));
+  }
+
+  /**
+   * 获取边缘容器应用的镜像秘钥列表
+   * 
+   * @param request - ListEdgeContainerAppImageSecretsRequest
+   * @returns ListEdgeContainerAppImageSecretsResponse
+   */
+  async listEdgeContainerAppImageSecrets(request: $_model.ListEdgeContainerAppImageSecretsRequest): Promise<$_model.ListEdgeContainerAppImageSecretsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEdgeContainerAppImageSecretsWithOptions(request, runtime);
   }
 
   /**
