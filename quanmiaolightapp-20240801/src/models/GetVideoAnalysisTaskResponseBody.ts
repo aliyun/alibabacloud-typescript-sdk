@@ -71,7 +71,43 @@ export class GetVideoAnalysisTaskResponseBodyDataHeader extends $dara.Model {
   }
 }
 
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputAddDatasetDocumentsResult extends $dara.Model {
+  docId?: string;
+  docUuid?: string;
+  errorMessage?: string;
+  status?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      docUuid: 'docUuid',
+      errorMessage: 'errorMessage',
+      status: 'status',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      errorMessage: 'string',
+      status: 'number',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage extends $dara.Model {
+  imageTokens?: number;
   /**
    * @example
    * 0
@@ -89,6 +125,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResul
   totalTokens?: number;
   static names(): { [key: string]: string } {
     return {
+      imageTokens: 'imageTokens',
       inputTokens: 'inputTokens',
       outputTokens: 'outputTokens',
       totalTokens: 'totalTokens',
@@ -97,6 +134,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResul
 
   static types(): { [key: string]: any } {
     return {
+      imageTokens: 'number',
       inputTokens: 'number',
       outputTokens: 'number',
       totalTokens: 'number',
@@ -186,6 +224,87 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResul
     }
     if(Array.isArray(this.videoShotAnalysisResults)) {
       $dara.Model.validateArray(this.videoShotAnalysisResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResultItems extends $dara.Model {
+  inputExpense?: number;
+  inputToken?: number;
+  /**
+   * @example
+   * xxx
+   */
+  name?: string;
+  outputExpense?: number;
+  outputToken?: number;
+  time?: number;
+  timeExpense?: number;
+  /**
+   * @example
+   * 0.098
+   */
+  totalExpense?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputExpense: 'inputExpense',
+      inputToken: 'inputToken',
+      name: 'name',
+      outputExpense: 'outputExpense',
+      outputToken: 'outputToken',
+      time: 'time',
+      timeExpense: 'timeExpense',
+      totalExpense: 'totalExpense',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputExpense: 'number',
+      inputToken: 'number',
+      name: 'string',
+      outputExpense: 'number',
+      outputToken: 'number',
+      time: 'number',
+      timeExpense: 'number',
+      totalExpense: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResult extends $dara.Model {
+  items?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResultItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResultItems },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
     }
     super.validate();
   }
@@ -795,8 +914,10 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerate
 }
 
 export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Model {
+  addDatasetDocumentsResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputAddDatasetDocumentsResult;
   resultJsonFileUrl?: string;
   videoAnalysisResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult;
+  videoCalculatorResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResult;
   videoCaptionResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult;
   videoGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult;
   videoGenerateResults?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResults[];
@@ -805,8 +926,10 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
   videoTitleGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult;
   static names(): { [key: string]: string } {
     return {
+      addDatasetDocumentsResult: 'addDatasetDocumentsResult',
       resultJsonFileUrl: 'resultJsonFileUrl',
       videoAnalysisResult: 'videoAnalysisResult',
+      videoCalculatorResult: 'videoCalculatorResult',
       videoCaptionResult: 'videoCaptionResult',
       videoGenerateResult: 'videoGenerateResult',
       videoGenerateResults: 'videoGenerateResults',
@@ -818,8 +941,10 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      addDatasetDocumentsResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputAddDatasetDocumentsResult,
       resultJsonFileUrl: 'string',
       videoAnalysisResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult,
+      videoCalculatorResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResult,
       videoCaptionResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult,
       videoGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult,
       videoGenerateResults: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResults },
@@ -830,8 +955,14 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
   }
 
   validate() {
+    if(this.addDatasetDocumentsResult && typeof (this.addDatasetDocumentsResult as any).validate === 'function') {
+      (this.addDatasetDocumentsResult as any).validate();
+    }
     if(this.videoAnalysisResult && typeof (this.videoAnalysisResult as any).validate === 'function') {
       (this.videoAnalysisResult as any).validate();
+    }
+    if(this.videoCalculatorResult && typeof (this.videoCalculatorResult as any).validate === 'function') {
+      (this.videoCalculatorResult as any).validate();
     }
     if(this.videoCaptionResult && typeof (this.videoCaptionResult as any).validate === 'function') {
       (this.videoCaptionResult as any).validate();

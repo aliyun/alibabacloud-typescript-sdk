@@ -2,6 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class RunVideoAnalysisRequestAddDocumentParamDocument extends $dara.Model {
+  docId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestAddDocumentParam extends $dara.Model {
+  datasetId?: number;
+  datasetName?: string;
+  document?: RunVideoAnalysisRequestAddDocumentParamDocument;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'datasetId',
+      datasetName: 'datasetName',
+      document: 'document',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      document: RunVideoAnalysisRequestAddDocumentParamDocument,
+    };
+  }
+
+  validate() {
+    if(this.document && typeof (this.document as any).validate === 'function') {
+      (this.document as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunVideoAnalysisRequestFrameSampleMethod extends $dara.Model {
   interval?: number;
   methodName?: string;
@@ -209,6 +267,7 @@ export class RunVideoAnalysisRequestVideoRoles extends $dara.Model {
 }
 
 export class RunVideoAnalysisRequest extends $dara.Model {
+  addDocumentParam?: RunVideoAnalysisRequestAddDocumentParam;
   autoRoleRecognitionVideoUrl?: string;
   excludeGenerateOptions?: string[];
   faceIdentitySimilarityMinScore?: number;
@@ -269,6 +328,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      addDocumentParam: 'addDocumentParam',
       autoRoleRecognitionVideoUrl: 'autoRoleRecognitionVideoUrl',
       excludeGenerateOptions: 'excludeGenerateOptions',
       faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
@@ -296,6 +356,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addDocumentParam: RunVideoAnalysisRequestAddDocumentParam,
       autoRoleRecognitionVideoUrl: 'string',
       excludeGenerateOptions: { 'type': 'array', 'itemType': 'string' },
       faceIdentitySimilarityMinScore: 'number',
@@ -322,6 +383,9 @@ export class RunVideoAnalysisRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.addDocumentParam && typeof (this.addDocumentParam as any).validate === 'function') {
+      (this.addDocumentParam as any).validate();
+    }
     if(Array.isArray(this.excludeGenerateOptions)) {
       $dara.Model.validateArray(this.excludeGenerateOptions);
     }

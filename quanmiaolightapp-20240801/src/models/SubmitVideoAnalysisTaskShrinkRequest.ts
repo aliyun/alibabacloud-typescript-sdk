@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
+  addDocumentParamShrink?: string;
   autoRoleRecognitionVideoUrl?: string;
   /**
    * @example
@@ -65,6 +66,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      addDocumentParamShrink: 'addDocumentParam',
       autoRoleRecognitionVideoUrl: 'autoRoleRecognitionVideoUrl',
       deduplicationId: 'deduplicationId',
       excludeGenerateOptionsShrink: 'excludeGenerateOptions',
@@ -91,6 +93,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addDocumentParamShrink: 'string',
       autoRoleRecognitionVideoUrl: 'string',
       deduplicationId: 'string',
       excludeGenerateOptionsShrink: 'string',

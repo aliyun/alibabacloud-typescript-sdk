@@ -2706,6 +2706,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.RunVideoAnalysisShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addDocumentParam)) {
+      request.addDocumentParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam, "addDocumentParam", "json");
+    }
+
     if (!$dara.isNull(tmpReq.excludeGenerateOptions)) {
       request.excludeGenerateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions, "excludeGenerateOptions", "json");
     }
@@ -2731,6 +2735,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addDocumentParamShrink)) {
+      body["addDocumentParam"] = request.addDocumentParamShrink;
+    }
+
     if (!$dara.isNull(request.autoRoleRecognitionVideoUrl)) {
       body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl;
     }
@@ -2862,6 +2870,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.RunVideoAnalysisShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addDocumentParam)) {
+      request.addDocumentParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam, "addDocumentParam", "json");
+    }
+
     if (!$dara.isNull(tmpReq.excludeGenerateOptions)) {
       request.excludeGenerateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions, "excludeGenerateOptions", "json");
     }
@@ -2887,6 +2899,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addDocumentParamShrink)) {
+      body["addDocumentParam"] = request.addDocumentParamShrink;
+    }
+
     if (!$dara.isNull(request.autoRoleRecognitionVideoUrl)) {
       body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl;
     }
@@ -3493,6 +3509,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.SubmitVideoAnalysisTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addDocumentParam)) {
+      request.addDocumentParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam, "addDocumentParam", "json");
+    }
+
     if (!$dara.isNull(tmpReq.excludeGenerateOptions)) {
       request.excludeGenerateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions, "excludeGenerateOptions", "json");
     }
@@ -3518,6 +3538,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addDocumentParamShrink)) {
+      body["addDocumentParam"] = request.addDocumentParamShrink;
+    }
+
     if (!$dara.isNull(request.autoRoleRecognitionVideoUrl)) {
       body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl;
     }

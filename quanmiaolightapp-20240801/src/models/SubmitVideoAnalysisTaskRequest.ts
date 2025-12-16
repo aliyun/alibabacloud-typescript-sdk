@@ -2,6 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SubmitVideoAnalysisTaskRequestAddDocumentParamDocument extends $dara.Model {
+  docId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoAnalysisTaskRequestAddDocumentParam extends $dara.Model {
+  datasetId?: number;
+  datasetName?: string;
+  document?: SubmitVideoAnalysisTaskRequestAddDocumentParamDocument;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'datasetId',
+      datasetName: 'datasetName',
+      document: 'document',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      document: SubmitVideoAnalysisTaskRequestAddDocumentParamDocument,
+    };
+  }
+
+  validate() {
+    if(this.document && typeof (this.document as any).validate === 'function') {
+      (this.document as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitVideoAnalysisTaskRequestFrameSampleMethod extends $dara.Model {
   /**
    * @example
@@ -221,6 +279,7 @@ export class SubmitVideoAnalysisTaskRequestVideoRoles extends $dara.Model {
 }
 
 export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
+  addDocumentParam?: SubmitVideoAnalysisTaskRequestAddDocumentParam;
   autoRoleRecognitionVideoUrl?: string;
   /**
    * @example
@@ -283,6 +342,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      addDocumentParam: 'addDocumentParam',
       autoRoleRecognitionVideoUrl: 'autoRoleRecognitionVideoUrl',
       deduplicationId: 'deduplicationId',
       excludeGenerateOptions: 'excludeGenerateOptions',
@@ -309,6 +369,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addDocumentParam: SubmitVideoAnalysisTaskRequestAddDocumentParam,
       autoRoleRecognitionVideoUrl: 'string',
       deduplicationId: 'string',
       excludeGenerateOptions: { 'type': 'array', 'itemType': 'string' },
@@ -334,6 +395,9 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.addDocumentParam && typeof (this.addDocumentParam as any).validate === 'function') {
+      (this.addDocumentParam as any).validate();
+    }
     if(Array.isArray(this.excludeGenerateOptions)) {
       $dara.Model.validateArray(this.excludeGenerateOptions);
     }

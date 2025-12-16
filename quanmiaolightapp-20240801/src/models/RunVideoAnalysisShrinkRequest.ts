@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunVideoAnalysisShrinkRequest extends $dara.Model {
+  addDocumentParamShrink?: string;
   autoRoleRecognitionVideoUrl?: string;
   excludeGenerateOptionsShrink?: string;
   faceIdentitySimilarityMinScore?: number;
@@ -63,6 +64,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      addDocumentParamShrink: 'addDocumentParam',
       autoRoleRecognitionVideoUrl: 'autoRoleRecognitionVideoUrl',
       excludeGenerateOptionsShrink: 'excludeGenerateOptions',
       faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
@@ -90,6 +92,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addDocumentParamShrink: 'string',
       autoRoleRecognitionVideoUrl: 'string',
       excludeGenerateOptionsShrink: 'string',
       faceIdentitySimilarityMinScore: 'number',

@@ -22,9 +22,12 @@ export { GetTagMiningAnalysisTaskResponseBodyDataResults } from './GetTagMiningA
 export { GetTagMiningAnalysisTaskResponseBodyData } from './GetTagMiningAnalysisTaskResponseBody';
 export { GetVideoAnalysisConfigResponseBodyData } from './GetVideoAnalysisConfigResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataHeader } from './GetVideoAnalysisTaskResponseBody';
+export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputAddDatasetDocumentsResult } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultVideoShotAnalysisResults } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult } from './GetVideoAnalysisTaskResponseBody';
+export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResultItems } from './GetVideoAnalysisTaskResponseBody';
+export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResult } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResultVideoCaptions } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultUsage } from './GetVideoAnalysisTaskResponseBody';
@@ -135,6 +138,8 @@ export { RunTagMiningAnalysisResponseBodyHeader } from './RunTagMiningAnalysisRe
 export { RunTagMiningAnalysisResponseBodyPayloadOutput } from './RunTagMiningAnalysisResponseBody';
 export { RunTagMiningAnalysisResponseBodyPayloadUsage } from './RunTagMiningAnalysisResponseBody';
 export { RunTagMiningAnalysisResponseBodyPayload } from './RunTagMiningAnalysisResponseBody';
+export { RunVideoAnalysisRequestAddDocumentParamDocument } from './RunVideoAnalysisRequest';
+export { RunVideoAnalysisRequestAddDocumentParam } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisRequestFrameSampleMethod } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisRequestTextProcessTasks } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions } from './RunVideoAnalysisRequest';
@@ -142,9 +147,12 @@ export { RunVideoAnalysisRequestVideoCaptionInfo } from './RunVideoAnalysisReque
 export { RunVideoAnalysisRequestVideoRolesTimeIntervals } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisRequestVideoRoles } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisResponseBodyHeader } from './RunVideoAnalysisResponseBody';
+export { RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult } from './RunVideoAnalysisResponseBody';
+export { RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResultItems } from './RunVideoAnalysisResponseBody';
+export { RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage } from './RunVideoAnalysisResponseBody';
@@ -181,6 +189,8 @@ export { SubmitEssayCorrectionTaskRequestTasks } from './SubmitEssayCorrectionTa
 export { SubmitEssayCorrectionTaskResponseBodyData } from './SubmitEssayCorrectionTaskResponseBody';
 export { SubmitTagMiningAnalysisTaskRequestTags } from './SubmitTagMiningAnalysisTaskRequest';
 export { SubmitTagMiningAnalysisTaskResponseBodyData } from './SubmitTagMiningAnalysisTaskResponseBody';
+export { SubmitVideoAnalysisTaskRequestAddDocumentParamDocument } from './SubmitVideoAnalysisTaskRequest';
+export { SubmitVideoAnalysisTaskRequestAddDocumentParam } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskRequestFrameSampleMethod } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskRequestTextProcessTasks } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions } from './SubmitVideoAnalysisTaskRequest';
