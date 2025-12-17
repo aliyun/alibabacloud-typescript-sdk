@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.Model {
+  eipId?: string;
   /**
    * @remarks
    * The public IP address.
@@ -29,6 +30,7 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
   serverPortRange?: string;
   static names(): { [key: string]: string } {
     return {
+      eipId: 'EipId',
       ipAddress: 'IpAddress',
       networkInterfaceId: 'NetworkInterfaceId',
       serverPortRange: 'ServerPortRange',
@@ -37,6 +39,7 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      eipId: 'string',
       ipAddress: 'string',
       networkInterfaceId: 'string',
       serverPortRange: 'string',

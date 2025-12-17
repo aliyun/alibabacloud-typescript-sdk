@@ -175,6 +175,10 @@ export default class Client extends OpenApi {
   /**
    * Creates a delivery group.
    * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+   * A delivery group is a logical group that is used to deliver cloud applications to end users, including the images, resource management policies, and user groups on which the cloud applications rely. For more information, see [Publish delivery groups](https://help.aliyun.com/document_detail/426046.html).
+   * 
    * @param tmpReq - CreateAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppInstanceGroupResponse
@@ -349,6 +353,10 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a delivery group.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+   * A delivery group is a logical group that is used to deliver cloud applications to end users, including the images, resource management policies, and user groups on which the cloud applications rely. For more information, see [Publish delivery groups](https://help.aliyun.com/document_detail/426046.html).
    * 
    * @param request - CreateAppInstanceGroupRequest
    * @returns CreateAppInstanceGroupResponse
@@ -3320,7 +3328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新研发主机镜像
+   * Updates the workstation image.
    * 
    * @param request - UpdateWuyingServerImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3359,7 +3367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新研发主机镜像
+   * Updates the workstation image.
    * 
    * @param request - UpdateWuyingServerImageRequest
    * @returns UpdateWuyingServerImageResponse
