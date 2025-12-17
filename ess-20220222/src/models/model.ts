@@ -328,6 +328,9 @@ export { DeactivateScalingConfigurationResponse } from './DeactivateScalingConfi
 export { DeleteAlarmRequest } from './DeleteAlarmRequest';
 export { DeleteAlarmResponseBody } from './DeleteAlarmResponseBody';
 export { DeleteAlarmResponse } from './DeleteAlarmResponse';
+export { DeleteDiagnoseReportRequest } from './DeleteDiagnoseReportRequest';
+export { DeleteDiagnoseReportResponseBody } from './DeleteDiagnoseReportResponseBody';
+export { DeleteDiagnoseReportResponse } from './DeleteDiagnoseReportResponse';
 export { DeleteEciScalingConfigurationRequest } from './DeleteEciScalingConfigurationRequest';
 export { DeleteEciScalingConfigurationResponseBody } from './DeleteEciScalingConfigurationResponseBody';
 export { DeleteEciScalingConfigurationResponse } from './DeleteEciScalingConfigurationResponse';

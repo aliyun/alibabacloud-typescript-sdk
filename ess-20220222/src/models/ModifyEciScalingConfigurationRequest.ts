@@ -2119,6 +2119,15 @@ export class ModifyEciScalingConfigurationRequest extends $dara.Model {
    * The endpoints of Network Time Protocol (NTP) servers.
    */
   ntpServers?: string[];
+  /**
+   * @remarks
+   * Specifies whether to override existing data. Valid Values:
+   * 
+   * true false
+   * 
+   * @example
+   * false
+   */
   override?: boolean;
   ownerId?: number;
   /**

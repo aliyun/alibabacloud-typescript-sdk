@@ -75,7 +75,7 @@ export class ScaleWithAdjustmentShrinkRequest extends $dara.Model {
   minAdjustmentMagnitude?: number;
   /**
    * @remarks
-   * The overrides that allow you to adjust the scaling group of the Elastic Container Instance type during a scale-out event.
+   * The overrides that allow you to adjust the scaling group of the Elastic Container Instance (ECI) type during a scale-out event.
    */
   overridesShrink?: string;
   ownerId?: number;

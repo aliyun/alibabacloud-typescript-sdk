@@ -2602,6 +2602,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteDiagnoseReport
+   * 
+   * @param request - DeleteDiagnoseReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDiagnoseReportResponse
+   */
+  async deleteDiagnoseReportWithOptions(request: $_model.DeleteDiagnoseReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDiagnoseReportResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDiagnoseReport",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDiagnoseReportResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDiagnoseReportResponse({}));
+  }
+
+  /**
+   * DeleteDiagnoseReport
+   * 
+   * @param request - DeleteDiagnoseReportRequest
+   * @returns DeleteDiagnoseReportResponse
+   */
+  async deleteDiagnoseReport(request: $_model.DeleteDiagnoseReportRequest): Promise<$_model.DeleteDiagnoseReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDiagnoseReportWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a scaling configuration of the Elastic Container Instance type. If the scaling configuration of a scaling group is in the Inactive state and the scaling group contains no elastic container instances created from the scaling configuration, you can call the DeleteEciScalingConfiguration operation to delete the scaling configuration to free up the scaling configuration quota.
    * 
    * @remarks

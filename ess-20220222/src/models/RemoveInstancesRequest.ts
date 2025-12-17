@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveInstancesRequestLifecycleHookContext extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to disable the lifecycle hook. Valid Values:
+   * Specifies whether to disable the lifecycle hook. Valid values:
    * 
    * *   true
    * *   false
