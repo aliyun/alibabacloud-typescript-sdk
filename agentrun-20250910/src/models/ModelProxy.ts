@@ -11,6 +11,7 @@ export class ModelProxy extends $dara.Model {
   credentialName?: string;
   description?: string;
   endpoint?: string;
+  executionRoleArn?: string;
   functionName?: string;
   lastUpdatedAt?: string;
   litellmVersion?: string;
@@ -32,6 +33,7 @@ export class ModelProxy extends $dara.Model {
       credentialName: 'credentialName',
       description: 'description',
       endpoint: 'endpoint',
+      executionRoleArn: 'executionRoleArn',
       functionName: 'functionName',
       lastUpdatedAt: 'lastUpdatedAt',
       litellmVersion: 'litellmVersion',
@@ -56,6 +58,7 @@ export class ModelProxy extends $dara.Model {
       credentialName: 'string',
       description: 'string',
       endpoint: 'string',
+      executionRoleArn: 'string',
       functionName: 'string',
       lastUpdatedAt: 'string',
       litellmVersion: 'string',

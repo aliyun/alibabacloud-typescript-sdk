@@ -10,6 +10,7 @@ export class UpdateModelProxyInput extends $dara.Model {
   armsConfiguration?: ArmsConfiguration;
   credentialName?: string;
   description?: string;
+  executionRoleArn?: string;
   logConfiguration?: LogConfiguration;
   networkConfiguration?: NetworkConfiguration;
   proxyConfig?: ProxyConfig;
@@ -18,6 +19,7 @@ export class UpdateModelProxyInput extends $dara.Model {
       armsConfiguration: 'armsConfiguration',
       credentialName: 'credentialName',
       description: 'description',
+      executionRoleArn: 'executionRoleArn',
       logConfiguration: 'logConfiguration',
       networkConfiguration: 'networkConfiguration',
       proxyConfig: 'proxyConfig',
@@ -29,6 +31,7 @@ export class UpdateModelProxyInput extends $dara.Model {
       armsConfiguration: ArmsConfiguration,
       credentialName: 'string',
       description: 'string',
+      executionRoleArn: 'string',
       logConfiguration: LogConfiguration,
       networkConfiguration: NetworkConfiguration,
       proxyConfig: ProxyConfig,

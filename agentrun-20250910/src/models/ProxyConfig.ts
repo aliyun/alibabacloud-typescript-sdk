@@ -37,6 +37,53 @@ export class ProxyConfigEndpoints extends $dara.Model {
   }
 }
 
+export class ProxyConfigPoliciesAiGuardrailConfig extends $dara.Model {
+  blockOnContentModeration?: boolean;
+  blockOnMaliciousUrl?: boolean;
+  blockOnModelHallucination?: boolean;
+  blockOnPromptAttack?: boolean;
+  blockOnSensitiveData?: boolean;
+  checkRequest?: boolean;
+  checkResponse?: boolean;
+  level?: string;
+  maxTextLength?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockOnContentModeration: 'blockOnContentModeration',
+      blockOnMaliciousUrl: 'blockOnMaliciousUrl',
+      blockOnModelHallucination: 'blockOnModelHallucination',
+      blockOnPromptAttack: 'blockOnPromptAttack',
+      blockOnSensitiveData: 'blockOnSensitiveData',
+      checkRequest: 'checkRequest',
+      checkResponse: 'checkResponse',
+      level: 'level',
+      maxTextLength: 'maxTextLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockOnContentModeration: 'boolean',
+      blockOnMaliciousUrl: 'boolean',
+      blockOnModelHallucination: 'boolean',
+      blockOnPromptAttack: 'boolean',
+      blockOnSensitiveData: 'boolean',
+      checkRequest: 'boolean',
+      checkResponse: 'boolean',
+      level: 'string',
+      maxTextLength: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ProxyConfigPoliciesFallbacks extends $dara.Model {
   modelName?: string;
   modelServiceName?: string;
@@ -63,35 +110,79 @@ export class ProxyConfigPoliciesFallbacks extends $dara.Model {
   }
 }
 
-export class ProxyConfigPolicies extends $dara.Model {
-  cache?: boolean;
-  concurrencyLimit?: number;
-  fallbacks?: ProxyConfigPoliciesFallbacks[];
-  numRetries?: number;
-  requestTimeout?: number;
+export class ProxyConfigPoliciesTokenRateLimiter extends $dara.Model {
+  tpd?: number;
+  tph?: number;
+  tpm?: number;
+  tps?: number;
   static names(): { [key: string]: string } {
     return {
-      cache: 'cache',
-      concurrencyLimit: 'concurrencyLimit',
-      fallbacks: 'fallbacks',
-      numRetries: 'numRetries',
-      requestTimeout: 'requestTimeout',
+      tpd: 'tpd',
+      tph: 'tph',
+      tpm: 'tpm',
+      tps: 'tps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      tpd: 'number',
+      tph: 'number',
+      tpm: 'number',
+      tps: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProxyConfigPolicies extends $dara.Model {
+  aiGuardrailConfig?: ProxyConfigPoliciesAiGuardrailConfig;
+  cache?: boolean;
+  concurrencyLimit?: number;
+  fallbacks?: ProxyConfigPoliciesFallbacks[];
+  numRetries?: number;
+  requestTimeout?: number;
+  tokenRateLimiter?: ProxyConfigPoliciesTokenRateLimiter;
+  static names(): { [key: string]: string } {
+    return {
+      aiGuardrailConfig: 'aiGuardrailConfig',
+      cache: 'cache',
+      concurrencyLimit: 'concurrencyLimit',
+      fallbacks: 'fallbacks',
+      numRetries: 'numRetries',
+      requestTimeout: 'requestTimeout',
+      tokenRateLimiter: 'tokenRateLimiter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiGuardrailConfig: ProxyConfigPoliciesAiGuardrailConfig,
       cache: 'boolean',
       concurrencyLimit: 'number',
       fallbacks: { 'type': 'array', 'itemType': ProxyConfigPoliciesFallbacks },
       numRetries: 'number',
       requestTimeout: 'number',
+      tokenRateLimiter: ProxyConfigPoliciesTokenRateLimiter,
     };
   }
 
   validate() {
+    if(this.aiGuardrailConfig && typeof (this.aiGuardrailConfig as any).validate === 'function') {
+      (this.aiGuardrailConfig as any).validate();
+    }
     if(Array.isArray(this.fallbacks)) {
       $dara.Model.validateArray(this.fallbacks);
+    }
+    if(this.tokenRateLimiter && typeof (this.tokenRateLimiter as any).validate === 'function') {
+      (this.tokenRateLimiter as any).validate();
     }
     super.validate();
   }

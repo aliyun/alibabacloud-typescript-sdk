@@ -1,7 +1,9 @@
 export { CredentialPublicConfigRemoteConfig } from './CredentialPublicConfig';
 export { CredentialPublicConfigUsers } from './CredentialPublicConfig';
 export { ProxyConfigEndpoints } from './ProxyConfig';
+export { ProxyConfigPoliciesAiGuardrailConfig } from './ProxyConfig';
 export { ProxyConfigPoliciesFallbacks } from './ProxyConfig';
+export { ProxyConfigPoliciesTokenRateLimiter } from './ProxyConfig';
 export { ProxyConfigPolicies } from './ProxyConfig';
 export { TemplateMcpOptions } from './Template';
 export { TemplateMcpState } from './Template';

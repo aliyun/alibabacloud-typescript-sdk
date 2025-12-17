@@ -15,6 +15,7 @@ export class CreateModelProxyInput extends $dara.Model {
   cpu?: number;
   credentialName?: string;
   description?: string;
+  executionRoleArn?: string;
   litellmVersion?: string;
   logConfiguration?: LogConfiguration;
   /**
@@ -46,6 +47,7 @@ export class CreateModelProxyInput extends $dara.Model {
       cpu: 'cpu',
       credentialName: 'credentialName',
       description: 'description',
+      executionRoleArn: 'executionRoleArn',
       litellmVersion: 'litellmVersion',
       logConfiguration: 'logConfiguration',
       memory: 'memory',
@@ -64,6 +66,7 @@ export class CreateModelProxyInput extends $dara.Model {
       cpu: 'number',
       credentialName: 'string',
       description: 'string',
+      executionRoleArn: 'string',
       litellmVersion: 'string',
       logConfiguration: LogConfiguration,
       memory: 'number',
