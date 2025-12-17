@@ -399,6 +399,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建一个健康检查任务
+   * 
+   * @param request - CreateSanityCheckTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSanityCheckTaskResponse
+   */
+  async createSanityCheckTaskWithOptions(CheckType: string, request: $_model.CreateSanityCheckTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSanityCheckTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSanityCheckTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/sanitychecks/${$dara.URL.percentEncode(CheckType)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSanityCheckTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateSanityCheckTaskResponse({}));
+  }
+
+  /**
+   * 创建一个健康检查任务
+   * 
+   * @param request - CreateSanityCheckTaskRequest
+   * @returns CreateSanityCheckTaskResponse
+   */
+  async createSanityCheckTask(CheckType: string, request: $_model.CreateSanityCheckTaskRequest): Promise<$_model.CreateSanityCheckTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSanityCheckTaskWithOptions(CheckType, request, headers, runtime);
+  }
+
+  /**
    * Deletes the automatic stop policy of an instance.
    * 
    * @param headers - map
@@ -1095,6 +1140,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceGroupStatisticsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询健康检查任务结果
+   * 
+   * @param request - GetSanityCheckTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSanityCheckTaskResponse
+   */
+  async getSanityCheckTaskWithOptions(CheckType: string, TaskId: string, request: $_model.GetSanityCheckTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSanityCheckTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSanityCheckTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/sanitychecks/${$dara.URL.percentEncode(CheckType)}/${$dara.URL.percentEncode(TaskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSanityCheckTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetSanityCheckTaskResponse({}));
+  }
+
+  /**
+   * 查询健康检查任务结果
+   * 
+   * @param request - GetSanityCheckTaskRequest
+   * @returns GetSanityCheckTaskResponse
+   */
+  async getSanityCheckTask(CheckType: string, TaskId: string, request: $_model.GetSanityCheckTaskRequest): Promise<$_model.GetSanityCheckTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSanityCheckTaskWithOptions(CheckType, TaskId, request, headers, runtime);
   }
 
   /**

@@ -36,6 +36,7 @@ export { GetInstanceMetricsResponseBodyPodMetricsMetrics } from './GetInstanceMe
 export { GetInstanceMetricsResponseBodyPodMetrics } from './GetInstanceMetricsResponseBody';
 export { GetInstanceSnapshotResponseBodyLabels } from './GetInstanceSnapshotResponseBody';
 export { GetLifecycleResponseBodyLifecycle } from './GetLifecycleResponseBody';
+export { GetSanityCheckTaskResponseBodyCheckDetails } from './GetSanityCheckTaskResponseBody';
 export { GetUserCommandResponseBodyOnStart } from './GetUserCommandResponseBody';
 export { GetUserConfigResponseBodyFreeTier } from './GetUserConfigResponseBody';
 export { ListEcsSpecsResponseBodyEcsSpecsLabels } from './ListEcsSpecsResponseBody';
@@ -92,6 +93,9 @@ export { CreateInstanceShutdownTimerResponse } from './CreateInstanceShutdownTim
 export { CreateInstanceSnapshotRequest } from './CreateInstanceSnapshotRequest';
 export { CreateInstanceSnapshotResponseBody } from './CreateInstanceSnapshotResponseBody';
 export { CreateInstanceSnapshotResponse } from './CreateInstanceSnapshotResponse';
+export { CreateSanityCheckTaskRequest } from './CreateSanityCheckTaskRequest';
+export { CreateSanityCheckTaskResponseBody } from './CreateSanityCheckTaskResponseBody';
+export { CreateSanityCheckTaskResponse } from './CreateSanityCheckTaskResponse';
 export { DeleteIdleInstanceCullerResponseBody } from './DeleteIdleInstanceCullerResponseBody';
 export { DeleteIdleInstanceCullerResponse } from './DeleteIdleInstanceCullerResponse';
 export { DeleteInstanceResponseBody } from './DeleteInstanceResponseBody';
@@ -130,6 +134,9 @@ export { GetMetricsResponse } from './GetMetricsResponse';
 export { GetResourceGroupStatisticsRequest } from './GetResourceGroupStatisticsRequest';
 export { GetResourceGroupStatisticsResponseBody } from './GetResourceGroupStatisticsResponseBody';
 export { GetResourceGroupStatisticsResponse } from './GetResourceGroupStatisticsResponse';
+export { GetSanityCheckTaskRequest } from './GetSanityCheckTaskRequest';
+export { GetSanityCheckTaskResponseBody } from './GetSanityCheckTaskResponseBody';
+export { GetSanityCheckTaskResponse } from './GetSanityCheckTaskResponse';
 export { GetTokenRequest } from './GetTokenRequest';
 export { GetTokenResponseBody } from './GetTokenResponseBody';
 export { GetTokenResponse } from './GetTokenResponse';
