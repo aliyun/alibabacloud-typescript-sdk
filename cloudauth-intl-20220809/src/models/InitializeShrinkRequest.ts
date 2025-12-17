@@ -293,10 +293,6 @@ export class InitializeShrinkRequest extends $dara.Model {
    * 
    * - **PHOTINUS_LIVENESS**: Blinking action liveness + photinus liveness dual detection.
    * 
-   * - **PHOTINUS_FAR_NEAR_LIVENESS**:
-   * Blinking action + far/near + photinus liveness detection.
-   * (Only supported by APP SDK or Flutter integration based on APP SDK)
-   * 
    * > 
    * > - For supported SDK versions, see [SDK Publishing Record](https://www.alibabacloud.com/help/zh/ekyc/latest/sdk-publishing-record?spm=a2c63.p38356.0.i99).
    * > - PC does not support photinus liveness dual detection.

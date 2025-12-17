@@ -177,6 +177,8 @@ export default class Client extends OpenApi {
    * @remarks
    * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
    * 
+   * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
+   * 
    * @param request - AddressVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddressVerifyIntlResponse
@@ -251,9 +253,12 @@ export default class Client extends OpenApi {
    * @remarks
    * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
    * 
+   * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
+   * 
    * @param request - AddressVerifyIntlRequest
    * @returns AddressVerifyIntlResponse
    */
+  // Deprecated
   async addressVerifyIntl(request: $_model.AddressVerifyIntlRequest): Promise<$_model.AddressVerifyIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addressVerifyIntlWithOptions(request, runtime);
@@ -1481,6 +1486,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Console Export Records
+   * 
+   * @param request - DownloadVerifyRecordIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadVerifyRecordIntlResponse
+   */
+  async downloadVerifyRecordIntlWithOptions(request: $_model.DownloadVerifyRecordIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadVerifyRecordIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.downloadMode)) {
+      query["DownloadMode"] = request.downloadMode;
+    }
+
+    if (!$dara.isNull(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadVerifyRecordIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadVerifyRecordIntlResponse>(await this.callApi(params, req, runtime), new $_model.DownloadVerifyRecordIntlResponse({}));
+  }
+
+  /**
+   * Console Export Records
+   * 
+   * @param request - DownloadVerifyRecordIntlRequest
+   * @returns DownloadVerifyRecordIntlResponse
+   */
+  async downloadVerifyRecordIntl(request: $_model.DownloadVerifyRecordIntlRequest): Promise<$_model.DownloadVerifyRecordIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadVerifyRecordIntlWithOptions(request, runtime);
+  }
+
+  /**
    * This topic describes how to integrate with ID Verification using only the server-side API.
    * 
    * @param request - EkycVerifyRequest
@@ -1666,32 +1729,34 @@ export default class Client extends OpenApi {
       query["SceneCode"] = request.sceneCode;
     }
 
-    if (!$dara.isNull(request.sourceAFacePicture)) {
-      query["SourceAFacePicture"] = request.sourceAFacePicture;
-    }
-
     if (!$dara.isNull(request.sourceAFacePictureUrl)) {
       query["SourceAFacePictureUrl"] = request.sourceAFacePictureUrl;
-    }
-
-    if (!$dara.isNull(request.sourceBFacePicture)) {
-      query["SourceBFacePicture"] = request.sourceBFacePicture;
     }
 
     if (!$dara.isNull(request.sourceBFacePictureUrl)) {
       query["SourceBFacePictureUrl"] = request.sourceBFacePictureUrl;
     }
 
-    if (!$dara.isNull(request.sourceCFacePicture)) {
-      query["SourceCFacePicture"] = request.sourceCFacePicture;
-    }
-
     if (!$dara.isNull(request.sourceCFacePictureUrl)) {
       query["SourceCFacePictureUrl"] = request.sourceCFacePictureUrl;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sourceAFacePicture)) {
+      body["SourceAFacePicture"] = request.sourceAFacePicture;
+    }
+
+    if (!$dara.isNull(request.sourceBFacePicture)) {
+      body["SourceBFacePicture"] = request.sourceBFacePicture;
+    }
+
+    if (!$dara.isNull(request.sourceCFacePicture)) {
+      body["SourceCFacePicture"] = request.sourceCFacePicture;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "FaceCrossCompareIntl",
@@ -1951,6 +2016,8 @@ export default class Client extends OpenApi {
   /**
    * Anti-Fraud Callback Interface
    * 
+   * @deprecated OpenAPI FraudResultCallBack is deprecated
+   * 
    * @param request - FraudResultCallBackRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FraudResultCallBackResponse
@@ -1994,9 +2061,12 @@ export default class Client extends OpenApi {
   /**
    * Anti-Fraud Callback Interface
    * 
+   * @deprecated OpenAPI FraudResultCallBack is deprecated
+   * 
    * @param request - FraudResultCallBackRequest
    * @returns FraudResultCallBackResponse
    */
+  // Deprecated
   async fraudResultCallBack(request: $_model.FraudResultCallBackRequest): Promise<$_model.FraudResultCallBackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fraudResultCallBackWithOptions(request, runtime);

@@ -50,13 +50,6 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
    * 1234567890
    */
   sceneCode?: string;
-  /**
-   * @remarks
-   * Base64 encoded portrait photo.
-   * 
-   * @example
-   * base64
-   */
   sourceAFacePicture?: string;
   /**
    * @remarks
@@ -66,13 +59,6 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
    * https://www.xxx.com/1.jpg
    */
   sourceAFacePictureUrl?: string;
-  /**
-   * @remarks
-   * Base64 encoded portrait photo.
-   * 
-   * @example
-   * base64
-   */
   sourceBFacePicture?: string;
   /**
    * @remarks
@@ -82,13 +68,6 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
    * https://www.xxx.com/1.jpg
    */
   sourceBFacePictureUrl?: string;
-  /**
-   * @remarks
-   * Base64 encoded portrait photo.
-   * 
-   * @example
-   * base64
-   */
   sourceCFacePicture?: string;
   /**
    * @remarks

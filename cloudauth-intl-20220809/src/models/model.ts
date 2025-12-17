@@ -14,6 +14,7 @@ export { DeepfakeDetectIntlStreamResponseBodyResultObject } from './DeepfakeDete
 export { DeleteVerifyResultResponseBodyResult } from './DeleteVerifyResultResponseBody';
 export { DocOcrResponseBodyResult } from './DocOcrResponseBody';
 export { DocOcrMaxResponseBodyResult } from './DocOcrMaxResponseBody';
+export { DownloadVerifyRecordIntlResponseBodyData } from './DownloadVerifyRecordIntlResponseBody';
 export { EkycVerifyResponseBodyResult } from './EkycVerifyResponseBody';
 export { FaceCompareResponseBodyResult } from './FaceCompareResponseBody';
 export { FaceCrossCompareIntlResponseBodyResult } from './FaceCrossCompareIntlResponseBody';
@@ -87,6 +88,9 @@ export { DocOcrResponse } from './DocOcrResponse';
 export { DocOcrMaxRequest } from './DocOcrMaxRequest';
 export { DocOcrMaxResponseBody } from './DocOcrMaxResponseBody';
 export { DocOcrMaxResponse } from './DocOcrMaxResponse';
+export { DownloadVerifyRecordIntlRequest } from './DownloadVerifyRecordIntlRequest';
+export { DownloadVerifyRecordIntlResponseBody } from './DownloadVerifyRecordIntlResponseBody';
+export { DownloadVerifyRecordIntlResponse } from './DownloadVerifyRecordIntlResponse';
 export { EkycVerifyRequest } from './EkycVerifyRequest';
 export { EkycVerifyResponseBody } from './EkycVerifyResponseBody';
 export { EkycVerifyResponse } from './EkycVerifyResponse';
