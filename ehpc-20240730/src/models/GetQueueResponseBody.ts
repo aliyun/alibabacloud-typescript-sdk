@@ -18,6 +18,11 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
    */
   computeNodes?: NodeTemplate[];
   /**
+   * @example
+   * 2025-01-01T12:05:00Z
+   */
+  createTime?: string;
+  /**
    * @remarks
    * Indicates whether auto scale-in is enabled for the queue. Valid values:
    * 
@@ -130,6 +135,11 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
    */
   reservedNodePoolId?: string;
   /**
+   * @example
+   * 2025-01-01T12:05:00Z
+   */
+  updateTime?: string;
+  /**
    * @remarks
    * The available vSwitches for compute nodes in the queue. Valid values of N: 1 to 5.
    */
@@ -138,6 +148,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
     return {
       allocationStrategy: 'AllocationStrategy',
       computeNodes: 'ComputeNodes',
+      createTime: 'CreateTime',
       enableScaleIn: 'EnableScaleIn',
       enableScaleOut: 'EnableScaleOut',
       hostnamePrefix: 'HostnamePrefix',
@@ -151,6 +162,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
       queueName: 'QueueName',
       ramRole: 'RamRole',
       reservedNodePoolId: 'ReservedNodePoolId',
+      updateTime: 'UpdateTime',
       vSwitchIds: 'VSwitchIds',
     };
   }
@@ -159,6 +171,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
     return {
       allocationStrategy: 'string',
       computeNodes: { 'type': 'array', 'itemType': NodeTemplate },
+      createTime: 'string',
       enableScaleIn: 'boolean',
       enableScaleOut: 'boolean',
       hostnamePrefix: 'string',
@@ -172,6 +185,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
       queueName: 'string',
       ramRole: 'string',
       reservedNodePoolId: 'string',
+      updateTime: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
