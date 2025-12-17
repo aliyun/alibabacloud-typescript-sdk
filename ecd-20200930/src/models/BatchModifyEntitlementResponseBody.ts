@@ -4,12 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends $dara.Model {
   /**
+   * @remarks
+   * The cloud computer ID.
+   * 
    * @example
    * ecd-e94kzikmpljjx99pl
    */
   desktopId?: string;
+  /**
+   * @remarks
+   * The authorized user IDs for the cloud computer.
+   */
   endUserIds?: string[];
   /**
+   * @remarks
+   * The assign result for each cloud computer.
+   * 
+   * Valid values:
+   * 
+   * *   FAILED
+   * *   NOT_STARTED
+   * *   STARTED
+   * *   PROCESSING
+   * *   FINISHED
+   * 
    * @example
    * FINISHED
    */
@@ -45,11 +63,25 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
 export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model {
   assignModels?: BatchModifyEntitlementResponseBodyEntitlementsAssignModels[];
   /**
+   * @remarks
+   * The result.
+   * 
+   * Valid values:
+   * 
+   * *   FAILED
+   * *   NOT_STARTED
+   * *   STARTED
+   * *   PROCESSING
+   * *   FINISHED
+   * 
    * @example
    * FINISHED
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * B2F4F018-0EDF-159C-B285-117B5F1C****
    */
@@ -85,6 +117,9 @@ export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model 
 export class BatchModifyEntitlementResponseBody extends $dara.Model {
   entitlements?: BatchModifyEntitlementResponseBodyEntitlements;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 51592A88-0F2C-55E6-AD2C-2AD9C10D****
    */

@@ -984,6 +984,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   *   The cloud computers for which you want to change their policies must be in the Running state.
+   * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+   * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+   * 
    * @param request - BatchModifyEntitlementRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchModifyEntitlementResponse
@@ -1037,6 +1042,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   *   The cloud computers for which you want to change their policies must be in the Running state.
+   * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+   * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+   * 
    * @param request - BatchModifyEntitlementRequest
    * @returns BatchModifyEntitlementResponse
    */
@@ -9283,6 +9293,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询全局定时任务Batch记录
+   * 
+   * @param request - DescribeGlobalTimerBatchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGlobalTimerBatchesResponse
+   */
+  async describeGlobalTimerBatchesWithOptions(request: $_model.DescribeGlobalTimerBatchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGlobalTimerBatchesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    if (!$dara.isNull(request.timerType)) {
+      query["TimerType"] = request.timerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGlobalTimerBatches",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGlobalTimerBatchesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGlobalTimerBatchesResponse({}));
+  }
+
+  /**
+   * 查询全局定时任务Batch记录
+   * 
+   * @param request - DescribeGlobalTimerBatchesRequest
+   * @returns DescribeGlobalTimerBatchesResponse
+   */
+  async describeGlobalTimerBatches(request: $_model.DescribeGlobalTimerBatchesRequest): Promise<$_model.DescribeGlobalTimerBatchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGlobalTimerBatchesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the execution records of scheduled tasks on cloud computers.
+   * 
+   * @param request - DescribeGlobalTimerRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGlobalTimerRecordsResponse
+   */
+  async describeGlobalTimerRecordsWithOptions(request: $_model.DescribeGlobalTimerRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGlobalTimerRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.batchId)) {
+      query["BatchId"] = request.batchId;
+    }
+
+    if (!$dara.isNull(request.desktopIds)) {
+      query["DesktopIds"] = request.desktopIds;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resultCategory)) {
+      query["ResultCategory"] = request.resultCategory;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    if (!$dara.isNull(request.timerResult)) {
+      query["TimerResult"] = request.timerResult;
+    }
+
+    if (!$dara.isNull(request.timerTypes)) {
+      query["TimerTypes"] = request.timerTypes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGlobalTimerRecords",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGlobalTimerRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGlobalTimerRecordsResponse({}));
+  }
+
+  /**
+   * Queries the execution records of scheduled tasks on cloud computers.
+   * 
+   * @param request - DescribeGlobalTimerRecordsRequest
+   * @returns DescribeGlobalTimerRecordsResponse
+   */
+  async describeGlobalTimerRecords(request: $_model.DescribeGlobalTimerRecordsRequest): Promise<$_model.DescribeGlobalTimerRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGlobalTimerRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the applications and their processes of an end user.
    * 
    * @param request - DescribeGuestApplicationsRequest
@@ -16771,6 +16921,10 @@ export default class Client extends OpenApi {
   /**
    * Modifies a custom cloud computer template.
    * 
+   * @remarks
+   * *
+   * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
+   * 
    * @param request - ModifyTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyTemplateResponse
@@ -16886,6 +17040,10 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies a custom cloud computer template.
+   * 
+   * @remarks
+   * *
+   * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
    * 
    * @param request - ModifyTemplateRequest
    * @returns ModifyTemplateResponse

@@ -161,6 +161,13 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
    * REGISTERED
    */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-uf6bpyqivwl5f3pvoxxu0
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
