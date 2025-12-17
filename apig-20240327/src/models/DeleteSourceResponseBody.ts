@@ -2,29 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteServiceVersionResponseBody extends $dara.Model {
+export class DeleteSourceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The status code returned.
-   * 
    * @example
    * Ok
    */
   code?: string;
   /**
-   * @remarks
-   * The response message returned.
-   * 
    * @example
    * success
    */
   message?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * A1994B10-C6A8-58FA-8347-6A08B0D4EFDE
+   * C67DED2B-F19B-5BEC-88C1-D6EB854CD0D4
    */
   requestId?: string;
   static names(): { [key: string]: string } {

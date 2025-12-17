@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/apig20240327",
-  "version": "5.2.1",
+  "version": "5.3.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

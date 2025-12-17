@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceVersionRequestLabels extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class UpdateServiceVersionRequestLabels extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * cn-hangzhou-k
    */
@@ -42,6 +47,8 @@ export class UpdateServiceVersionRequestLabels extends $dara.Model {
 export class UpdateServiceVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of tags.
+   * 
    * This parameter is required.
    */
   labels?: UpdateServiceVersionRequestLabels[];

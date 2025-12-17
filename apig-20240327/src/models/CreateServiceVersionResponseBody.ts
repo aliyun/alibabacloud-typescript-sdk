@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateServiceVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B373A13-9BB8-5068-9C94-AD6D39E6BBA2
    */

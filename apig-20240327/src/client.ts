@@ -1255,7 +1255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建服务版本
+   * Creates a service version.
    * 
    * @param request - CreateServiceVersionRequest
    * @param headers - map
@@ -1292,7 +1292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建服务版本
+   * Creates a service version.
    * 
    * @param request - CreateServiceVersionRequest
    * @returns CreateServiceVersionResponse
@@ -1301,6 +1301,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceVersionWithOptions(serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建服务来源
+   * 
+   * @param request - CreateSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSourceResponse
+   */
+  async createSourceWithOptions(request: $_model.CreateSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.k8sSourceConfig)) {
+      body["k8sSourceConfig"] = request.k8sSourceConfig;
+    }
+
+    if (!$dara.isNull(request.nacosSourceConfig)) {
+      body["nacosSourceConfig"] = request.nacosSourceConfig;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSource",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/sources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateSourceResponse({}));
+  }
+
+  /**
+   * 创建服务来源
+   * 
+   * @param request - CreateSourceRequest
+   * @returns CreateSourceResponse
+   */
+  async createSource(request: $_model.CreateSourceRequest): Promise<$_model.CreateSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSourceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1809,7 +1870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务版本
+   * Deletes a service version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1834,13 +1895,48 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务版本
+   * Deletes a service version.
    * @returns DeleteServiceVersionResponse
    */
   async deleteServiceVersion(serviceId: string, name: string): Promise<$_model.DeleteServiceVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceVersionWithOptions(serviceId, name, headers, runtime);
+  }
+
+  /**
+   * 删除服务来源
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSourceResponse
+   */
+  async deleteSourceWithOptions(sourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSource",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/sources/${$dara.URL.percentEncode(sourceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSourceResponse({}));
+  }
+
+  /**
+   * 删除服务来源
+   * @returns DeleteSourceResponse
+   */
+  async deleteSource(sourceId: string): Promise<$_model.DeleteSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSourceWithOptions(sourceId, headers, runtime);
   }
 
   /**
@@ -2582,6 +2678,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceWithOptions(serviceId, headers, runtime);
+  }
+
+  /**
+   * 获取服务来源
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSourceResponse
+   */
+  async getSourceWithOptions(sourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSource",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/sources/${$dara.URL.percentEncode(sourceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSourceResponse>(await this.callApi(params, req, runtime), new $_model.GetSourceResponse({}));
+  }
+
+  /**
+   * 获取服务来源
+   * @returns GetSourceResponse
+   */
+  async getSource(sourceId: string): Promise<$_model.GetSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSourceWithOptions(sourceId, headers, runtime);
   }
 
   /**
@@ -5011,7 +5142,84 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务版本
+   * 更新服务
+   * 
+   * @param request - UpdateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceResponse
+   */
+  async updateServiceWithOptions(serviceId: string, request: $_model.UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addresses)) {
+      body["addresses"] = request.addresses;
+    }
+
+    if (!$dara.isNull(request.agentServiceConfig)) {
+      body["agentServiceConfig"] = request.agentServiceConfig;
+    }
+
+    if (!$dara.isNull(request.aiServiceConfig)) {
+      body["aiServiceConfig"] = request.aiServiceConfig;
+    }
+
+    if (!$dara.isNull(request.dnsServers)) {
+      body["dnsServers"] = request.dnsServers;
+    }
+
+    if (!$dara.isNull(request.healthCheckConfig)) {
+      body["healthCheckConfig"] = request.healthCheckConfig;
+    }
+
+    if (!$dara.isNull(request.healthyPanicThreshold)) {
+      body["healthyPanicThreshold"] = request.healthyPanicThreshold;
+    }
+
+    if (!$dara.isNull(request.outlierDetectionConfig)) {
+      body["outlierDetectionConfig"] = request.outlierDetectionConfig;
+    }
+
+    if (!$dara.isNull(request.ports)) {
+      body["ports"] = request.ports;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      body["protocol"] = request.protocol;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateService",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services/${$dara.URL.percentEncode(serviceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServiceResponse({}));
+  }
+
+  /**
+   * 更新服务
+   * 
+   * @param request - UpdateServiceRequest
+   * @returns UpdateServiceResponse
+   */
+  async updateService(serviceId: string, request: $_model.UpdateServiceRequest): Promise<$_model.UpdateServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceWithOptions(serviceId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a service version.
    * 
    * @param request - UpdateServiceVersionRequest
    * @param headers - map
@@ -5044,7 +5252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务版本
+   * Updates a service version.
    * 
    * @param request - UpdateServiceVersionRequest
    * @returns UpdateServiceVersionResponse
