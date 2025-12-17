@@ -2354,6 +2354,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListFileUpload
+   * 
+   * @param request - ListFileUploadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileUploadResponse
+   */
+  async listFileUploadWithOptions(request: $_model.ListFileUploadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileUploadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callFrom)) {
+      query["CallFrom"] = request.callFrom;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.fileCategory)) {
+      query["FileCategory"] = request.fileCategory;
+    }
+
+    if (!$dara.isNull(request.fileFrom)) {
+      query["FileFrom"] = request.fileFrom;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sortColumn)) {
+      query["SortColumn"] = request.sortColumn;
+    }
+
+    if (!$dara.isNull(request.sortDirection)) {
+      query["SortDirection"] = request.sortDirection;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFileUpload",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFileUploadResponse>(await this.callApi(params, req, runtime), new $_model.ListFileUploadResponse({}));
+  }
+
+  /**
+   * ListFileUpload
+   * 
+   * @param request - ListFileUploadRequest
+   * @returns ListFileUploadResponse
+   */
+  async listFileUpload(request: $_model.ListFileUploadRequest): Promise<$_model.ListFileUploadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFileUploadWithOptions(request, runtime);
+  }
+
+  /**
    * SendChatMessage
    * 
    * @param tmpReq - SendChatMessageRequest
