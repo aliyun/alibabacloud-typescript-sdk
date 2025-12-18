@@ -35,6 +35,7 @@ export class ListAggregateCompliancePacksShrinkRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  riskLevel?: number;
   /**
    * @remarks
    * The status of the one or more compliance packages to be queried. Valid values:
@@ -56,6 +57,7 @@ export class ListAggregateCompliancePacksShrinkRequest extends $dara.Model {
       aggregatorId: 'AggregatorId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      riskLevel: 'RiskLevel',
       status: 'Status',
       tagShrink: 'Tag',
     };
@@ -66,6 +68,7 @@ export class ListAggregateCompliancePacksShrinkRequest extends $dara.Model {
       aggregatorId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      riskLevel: 'number',
       status: 'string',
       tagShrink: 'string',
     };

@@ -1,8 +1,86 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateConfigRuleShrinkRequestExcludeTagsScope } from "./CreateConfigRuleShrinkRequestExcludeTagsScope";
-import { CreateConfigRuleShrinkRequestTagsScope } from "./CreateConfigRuleShrinkRequestTagsScope";
 
+
+export class CreateConfigRuleShrinkRequestExcludeTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-2
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-2
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRuleShrinkRequestTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateConfigRuleShrinkRequest extends $dara.Model {
   /**

@@ -1,9 +1,132 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateAggregateConfigRuleRequestExcludeTagsScope } from "./UpdateAggregateConfigRuleRequestExcludeTagsScope";
-import { UpdateAggregateConfigRuleRequestTag } from "./UpdateAggregateConfigRuleRequestTag";
-import { UpdateAggregateConfigRuleRequestTagsScope } from "./UpdateAggregateConfigRuleRequestTagsScope";
 
+
+export class UpdateAggregateConfigRuleRequestExcludeTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-2
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-2
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateConfigRuleRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregateConfigRuleRequestTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   /**
@@ -234,6 +357,8 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * The tags of the resource.
    * 
    * You can add up to 20 tags to a resource.
+   * 
+   * @deprecated
    */
   tag?: UpdateAggregateConfigRuleRequestTag[];
   /**

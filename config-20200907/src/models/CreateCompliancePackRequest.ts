@@ -1,10 +1,266 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateCompliancePackRequestConfigRules } from "./CreateCompliancePackRequestConfigRules";
-import { CreateCompliancePackRequestExcludeTagsScope } from "./CreateCompliancePackRequestExcludeTagsScope";
-import { CreateCompliancePackRequestTag } from "./CreateCompliancePackRequestTag";
-import { CreateCompliancePackRequestTagsScope } from "./CreateCompliancePackRequestTagsScope";
 
+
+export class CreateCompliancePackRequestConfigRulesConfigRuleParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the input parameter.
+   * 
+   * You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value is specified, you must specify this parameter. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the names of input parameters of the managed rule.
+   * 
+   * @example
+   * bandwidth
+   */
+  parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter.
+   * 
+   * You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value is specified, you must specify this parameter. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the values of input parameters of the managed rule.
+   * 
+   * @example
+   * 10
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterName: 'ParameterName',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterName: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackRequestConfigRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule ID. If you specify this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+   * 
+   * You need to only specify `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, Cloud Config adds a rule based on the value of `ConfigRuleId`. You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+   * 
+   * @example
+   * cr-e918626622af000f****
+   */
+  configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
+  configRuleName?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   */
+  configRuleParameters?: CreateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * The description of the test rule.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule. Cloud Config automatically creates a managed rule based on the specified identifier and adds the rule to the compliance package.
+   * 
+   * You need to only specify `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, Cloud Config adds a rule based on the value of `ConfigRuleId`. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the identifier of the managed rule.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
+  managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * @example
+   * 1
+   */
+  riskLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleId: 'ConfigRuleId',
+      configRuleName: 'ConfigRuleName',
+      configRuleParameters: 'ConfigRuleParameters',
+      description: 'Description',
+      managedRuleIdentifier: 'ManagedRuleIdentifier',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleId: 'string',
+      configRuleName: 'string',
+      configRuleParameters: { 'type': 'array', 'itemType': CreateCompliancePackRequestConfigRulesConfigRuleParameters },
+      description: 'string',
+      managedRuleIdentifier: 'string',
+      riskLevel: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configRuleParameters)) {
+      $dara.Model.validateArray(this.configRuleParameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackRequestExcludeTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-2
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-2
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys.
+   * 
+   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * key-1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCompliancePackRequestTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * Tagkey
+   * 
+   * @example
+   * key-1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateCompliancePackRequest extends $dara.Model {
   /**

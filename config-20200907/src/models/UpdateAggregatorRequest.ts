@@ -1,8 +1,112 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateAggregatorRequestAggregatorAccounts } from "./UpdateAggregatorRequestAggregatorAccounts";
-import { UpdateAggregatorRequestTag } from "./UpdateAggregatorRequestTag";
 
+
+export class UpdateAggregatorRequestAggregatorAccounts extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * For more information about how to obtain the ID of a member, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
+   * 
+   * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * @example
+   * 173808452267****
+   */
+  accountId?: number;
+  /**
+   * @remarks
+   * The display name of the member.
+   * 
+   * For more information about how to obtain the name of a member, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
+   * 
+   * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * @example
+   * Tony
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
+   * 
+   * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * @example
+   * ResourceDirectory
+   */
+  accountType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      accountName: 'AccountName',
+      accountType: 'AccountType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      accountName: 'string',
+      accountType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAggregatorRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateAggregatorRequest extends $dara.Model {
   /**
@@ -68,6 +172,8 @@ export class UpdateAggregatorRequest extends $dara.Model {
    * The tags of the resource.
    * 
    * You can add up to 20 tags to a resource.
+   * 
+   * @deprecated
    */
   tag?: UpdateAggregatorRequestTag[];
   static names(): { [key: string]: string } {

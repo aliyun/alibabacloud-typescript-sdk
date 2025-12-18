@@ -91,6 +91,7 @@ export class ListAggregateDiscoveredResourcesRequest extends $dara.Model {
    * eni-hp31cqoba96jagtz****
    */
   resourceId?: string;
+  resourceName?: string;
   /**
    * @deprecated
    */
@@ -126,6 +127,7 @@ export class ListAggregateDiscoveredResourcesRequest extends $dara.Model {
       resourceAccountId: 'ResourceAccountId',
       resourceDeleted: 'ResourceDeleted',
       resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
       resourceOwnerId: 'ResourceOwnerId',
       resourceTypes: 'ResourceTypes',
       startUpdateTimestamp: 'StartUpdateTimestamp',
@@ -143,6 +145,7 @@ export class ListAggregateDiscoveredResourcesRequest extends $dara.Model {
       resourceAccountId: 'number',
       resourceDeleted: 'number',
       resourceId: 'string',
+      resourceName: 'string',
       resourceOwnerId: 'number',
       resourceTypes: 'string',
       startUpdateTimestamp: 'number',

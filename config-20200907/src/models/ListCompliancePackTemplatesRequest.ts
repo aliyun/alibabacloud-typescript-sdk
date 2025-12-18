@@ -12,6 +12,11 @@ export class ListCompliancePackTemplatesRequest extends $dara.Model {
    */
   compliancePackTemplateId?: string;
   /**
+   * @example
+   * LAW
+   */
+  filterType?: string;
+  /**
    * @remarks
    * The page number.
    * 
@@ -39,21 +44,26 @@ export class ListCompliancePackTemplatesRequest extends $dara.Model {
    * ACS::ECS::Instance
    */
   resourceTypes?: string;
+  ruleRiskLevel?: number;
   static names(): { [key: string]: string } {
     return {
       compliancePackTemplateId: 'CompliancePackTemplateId',
+      filterType: 'FilterType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceTypes: 'ResourceTypes',
+      ruleRiskLevel: 'RuleRiskLevel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       compliancePackTemplateId: 'string',
+      filterType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceTypes: 'string',
+      ruleRiskLevel: 'number',
     };
   }
 

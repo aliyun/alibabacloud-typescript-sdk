@@ -1,7 +1,121 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult } from "./GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult";
 
+
+export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances extends $dara.Model {
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
+  complianceType?: string;
+  /**
+   * @remarks
+   * The number of statistical results.
+   * 
+   * @example
+   * 1
+   */
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complianceType: 'ComplianceType',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceType: 'string',
+      count: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList extends $dara.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
+  compliances?: GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances[];
+  /**
+   * @remarks
+   * The type of the evaluated resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      compliances: 'Compliances',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliances: { 'type': 'array', 'itemType': GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.compliances)) {
+      $dara.Model.validateArray(this.compliances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult extends $dara.Model {
+  /**
+   * @remarks
+   * The evaluation results grouped by resource type.
+   */
+  complianceResultList?: GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList[];
+  static names(): { [key: string]: string } {
+    return {
+      complianceResultList: 'ComplianceResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceResultList: { 'type': 'array', 'itemType': GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.complianceResultList)) {
+      $dara.Model.validateArray(this.complianceResultList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetAggregateResourceComplianceGroupByResourceTypeResponseBody extends $dara.Model {
   /**

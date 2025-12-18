@@ -1,9 +1,132 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateConfigRuleRequestExcludeTagsScope } from "./CreateConfigRuleRequestExcludeTagsScope";
-import { CreateConfigRuleRequestTag } from "./CreateConfigRuleRequestTag";
-import { CreateConfigRuleRequestTagsScope } from "./CreateConfigRuleRequestTagsScope";
 
+
+export class CreateConfigRuleRequestExcludeTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-2
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-2
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRuleRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys.
+   * 
+   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * key-1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * value-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRuleRequestTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateConfigRuleRequest extends $dara.Model {
   /**

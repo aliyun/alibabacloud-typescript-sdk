@@ -99,6 +99,7 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  sortBy?: string;
   /**
    * @remarks
    * The tags of the resource.
@@ -117,6 +118,7 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
       pageSize: 'PageSize',
       resourceTypes: 'ResourceTypes',
       riskLevel: 'RiskLevel',
+      sortBy: 'SortBy',
       tagShrink: 'Tag',
     };
   }
@@ -132,6 +134,7 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
       pageSize: 'number',
       resourceTypes: 'string',
       riskLevel: 'number',
+      sortBy: 'string',
       tagShrink: 'string',
     };
   }

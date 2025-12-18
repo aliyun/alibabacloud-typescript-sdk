@@ -71,6 +71,7 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
    * eni-hp31cqoba96jagtz****
    */
   resourceId?: string;
+  resourceName?: string;
   /**
    * @remarks
    * The type of the resource. Separate multiple resource types with commas (,).
@@ -100,6 +101,7 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
       regions: 'Regions',
       resourceDeleted: 'ResourceDeleted',
       resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
       resourceTypes: 'ResourceTypes',
       startUpdateTimestamp: 'StartUpdateTimestamp',
     };
@@ -114,6 +116,7 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
       regions: 'string',
       resourceDeleted: 'number',
       resourceId: 'string',
+      resourceName: 'string',
       resourceTypes: 'string',
       startUpdateTimestamp: 'number',
     };

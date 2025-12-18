@@ -1,7 +1,68 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetResourceComplianceByPackResponseBodyResourceComplianceResult } from "./GetResourceComplianceByPackResponseBodyResourceComplianceResult";
 
+
+export class GetResourceComplianceByPackResponseBodyResourceComplianceResult extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
+  compliancePackId?: string;
+  compliantCount?: number;
+  ignoredCount?: number;
+  insufficientDataCount?: number;
+  /**
+   * @remarks
+   * The number of non-compliant resources.
+   * 
+   * @example
+   * 7
+   */
+  nonCompliantCount?: number;
+  notApplicableCount?: number;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      compliancePackId: 'CompliancePackId',
+      compliantCount: 'CompliantCount',
+      ignoredCount: 'IgnoredCount',
+      insufficientDataCount: 'InsufficientDataCount',
+      nonCompliantCount: 'NonCompliantCount',
+      notApplicableCount: 'NotApplicableCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePackId: 'string',
+      compliantCount: 'number',
+      ignoredCount: 'number',
+      insufficientDataCount: 'number',
+      nonCompliantCount: 'number',
+      notApplicableCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetResourceComplianceByPackResponseBody extends $dara.Model {
   /**

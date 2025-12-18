@@ -75,6 +75,8 @@ export class ListAggregateResourceEvaluationResultsRequest extends $dara.Model {
    * ACS::RAM::User
    */
   resourceType?: string;
+  riskLevel?: number;
+  sortBy?: string;
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
@@ -84,6 +86,8 @@ export class ListAggregateResourceEvaluationResultsRequest extends $dara.Model {
       region: 'Region',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
+      riskLevel: 'RiskLevel',
+      sortBy: 'SortBy',
     };
   }
 
@@ -96,6 +100,8 @@ export class ListAggregateResourceEvaluationResultsRequest extends $dara.Model {
       region: 'string',
       resourceId: 'string',
       resourceType: 'string',
+      riskLevel: 'number',
+      sortBy: 'string',
     };
   }
 

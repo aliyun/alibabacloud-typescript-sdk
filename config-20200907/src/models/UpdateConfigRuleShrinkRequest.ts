@@ -1,8 +1,86 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateConfigRuleShrinkRequestExcludeTagsScope } from "./UpdateConfigRuleShrinkRequestExcludeTagsScope";
-import { UpdateConfigRuleShrinkRequestTagsScope } from "./UpdateConfigRuleShrinkRequestTagsScope";
 
+
+export class UpdateConfigRuleShrinkRequestExcludeTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key-2
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value-2
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigRuleShrinkRequestTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key-1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateConfigRuleShrinkRequest extends $dara.Model {
   /**
@@ -186,6 +264,8 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
    * The tags of the resource.
    * 
    * You can add up to 20 tags to a resource.
+   * 
+   * @deprecated
    */
   tagShrink?: string;
   /**

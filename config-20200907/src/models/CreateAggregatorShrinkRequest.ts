@@ -57,8 +57,6 @@ export class CreateAggregatorShrinkRequest extends $dara.Model {
    * @remarks
    * The description of the account group.
    * 
-   * This parameter is required.
-   * 
    * @example
    * Aggregator description.
    */

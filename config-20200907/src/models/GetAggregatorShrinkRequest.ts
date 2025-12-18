@@ -18,6 +18,8 @@ export class GetAggregatorShrinkRequest extends $dara.Model {
    * The tags of the resource.
    * 
    * You can add up to 20 tags to a resource.
+   * 
+   * @deprecated
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

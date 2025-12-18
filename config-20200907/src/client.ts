@@ -1436,100 +1436,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a delivery channel.
-   * 
-   * @remarks
-   * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   * 
-   * @deprecated OpenAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead.
-   * 
-   * @param request - CreateDeliveryChannelRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateDeliveryChannelResponse
-   */
-  // Deprecated
-  async createDeliveryChannelWithOptions(request: $_model.CreateDeliveryChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeliveryChannelResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.configurationItemChangeNotification)) {
-      body["ConfigurationItemChangeNotification"] = request.configurationItemChangeNotification;
-    }
-
-    if (!$dara.isNull(request.configurationSnapshot)) {
-      body["ConfigurationSnapshot"] = request.configurationSnapshot;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelAssumeRoleArn)) {
-      body["DeliveryChannelAssumeRoleArn"] = request.deliveryChannelAssumeRoleArn;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelCondition)) {
-      body["DeliveryChannelCondition"] = request.deliveryChannelCondition;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelName)) {
-      body["DeliveryChannelName"] = request.deliveryChannelName;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelTargetArn)) {
-      body["DeliveryChannelTargetArn"] = request.deliveryChannelTargetArn;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelType)) {
-      body["DeliveryChannelType"] = request.deliveryChannelType;
-    }
-
-    if (!$dara.isNull(request.description)) {
-      body["Description"] = request.description;
-    }
-
-    if (!$dara.isNull(request.nonCompliantNotification)) {
-      body["NonCompliantNotification"] = request.nonCompliantNotification;
-    }
-
-    if (!$dara.isNull(request.oversizedDataOSSTargetArn)) {
-      body["OversizedDataOSSTargetArn"] = request.oversizedDataOSSTargetArn;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CreateDeliveryChannel",
-      version: "2020-09-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CreateDeliveryChannelResponse>(await this.callApi(params, req, runtime), new $_model.CreateDeliveryChannelResponse({}));
-  }
-
-  /**
-   * Creates a delivery channel.
-   * 
-   * @remarks
-   * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   * 
-   * @deprecated OpenAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead.
-   * 
-   * @param request - CreateDeliveryChannelRequest
-   * @returns CreateDeliveryChannelResponse
-   */
-  // Deprecated
-  async createDeliveryChannel(request: $_model.CreateDeliveryChannelRequest): Promise<$_model.CreateDeliveryChannelResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.createDeliveryChannelWithOptions(request, runtime);
-  }
-
-  /**
    * Creates a remediation template for a rule.
    * 
    * @remarks
@@ -2204,6 +2110,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量获取资源详情
+   * 
+   * @param request - DescribeDiscoveredResourceBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDiscoveredResourceBatchResponse
+   */
+  async describeDiscoveredResourceBatchWithOptions(request: $_model.DescribeDiscoveredResourceBatchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDiscoveredResourceBatchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regions)) {
+      query["Regions"] = request.regions;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDiscoveredResourceBatch",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDiscoveredResourceBatchResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDiscoveredResourceBatchResponse({}));
+  }
+
+  /**
+   * 批量获取资源详情
+   * 
+   * @param request - DescribeDiscoveredResourceBatchRequest
+   * @returns DescribeDiscoveredResourceBatchResponse
+   */
+  async describeDiscoveredResourceBatch(request: $_model.DescribeDiscoveredResourceBatchRequest): Promise<$_model.DescribeDiscoveredResourceBatchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDiscoveredResourceBatchWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户集成云产品的授权状态
+   * 
+   * @param request - DescribeIntegratedServiceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIntegratedServiceStatusResponse
+   */
+  async describeIntegratedServiceStatusWithOptions(request: $_model.DescribeIntegratedServiceStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeIntegratedServiceStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeIntegratedServiceStatus",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeIntegratedServiceStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeIntegratedServiceStatusResponse({}));
+  }
+
+  /**
+   * 查询用户集成云产品的授权状态
+   * 
+   * @param request - DescribeIntegratedServiceStatusRequest
+   * @returns DescribeIntegratedServiceStatusResponse
+   */
+  async describeIntegratedServiceStatus(request: $_model.DescribeIntegratedServiceStatusRequest): Promise<$_model.DescribeIntegratedServiceStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeIntegratedServiceStatusWithOptions(request, runtime);
+  }
+
+  /**
    * This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
    * 
    * @param request - DescribeRemediationRequest
@@ -2359,6 +2357,52 @@ export default class Client extends OpenApi {
   async detachConfigRuleToCompliancePack(request: $_model.DetachConfigRuleToCompliancePackRequest): Promise<$_model.DetachConfigRuleToCompliancePackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachConfigRuleToCompliancePackWithOptions(request, runtime);
+  }
+
+  /**
+   * 试运行事前合规预检的规则
+   * 
+   * @param request - DryRunConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DryRunConfigRuleResponse
+   */
+  async dryRunConfigRuleWithOptions(request: $_model.DryRunConfigRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DryRunConfigRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configurationItem)) {
+      body["ConfigurationItem"] = request.configurationItem;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DryRunConfigRule",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DryRunConfigRuleResponse>(await this.callApi(params, req, runtime), new $_model.DryRunConfigRuleResponse({}));
+  }
+
+  /**
+   * 试运行事前合规预检的规则
+   * 
+   * @param request - DryRunConfigRuleRequest
+   * @returns DryRunConfigRuleResponse
+   */
+  async dryRunConfigRule(request: $_model.DryRunConfigRuleRequest): Promise<$_model.DryRunConfigRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dryRunConfigRuleWithOptions(request, runtime);
   }
 
   /**
@@ -4806,6 +4850,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取资源配置样例
+   * 
+   * @param request - GetResourceConfigurationSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceConfigurationSampleResponse
+   */
+  async getResourceConfigurationSampleWithOptions(request: $_model.GetResourceConfigurationSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceConfigurationSampleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mockOnly)) {
+      query["MockOnly"] = request.mockOnly;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceConfigurationSample",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceConfigurationSampleResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceConfigurationSampleResponse({}));
+  }
+
+  /**
+   * 获取资源配置样例
+   * 
+   * @param request - GetResourceConfigurationSampleRequest
+   * @returns GetResourceConfigurationSampleResponse
+   */
+  async getResourceConfigurationSample(request: $_model.GetResourceConfigurationSampleRequest): Promise<$_model.GetResourceConfigurationSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getResourceConfigurationSampleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configuration timeline of a resource.
    * 
    * @remarks
@@ -4891,6 +4981,44 @@ export default class Client extends OpenApi {
   async getResourceInventory(): Promise<$_model.GetResourceInventoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourceInventoryWithOptions(runtime);
+  }
+
+  /**
+   * 获取资源类型的属性配置
+   * 
+   * @param request - GetResourceTypePropertiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceTypePropertiesResponse
+   */
+  async getResourceTypePropertiesWithOptions(request: $_model.GetResourceTypePropertiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceTypePropertiesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceTypeProperties",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceTypePropertiesResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceTypePropertiesResponse({}));
+  }
+
+  /**
+   * 获取资源类型的属性配置
+   * 
+   * @param request - GetResourceTypePropertiesRequest
+   * @returns GetResourceTypePropertiesResponse
+   */
+  async getResourceTypeProperties(request: $_model.GetResourceTypePropertiesRequest): Promise<$_model.GetResourceTypePropertiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getResourceTypePropertiesWithOptions(request, runtime);
   }
 
   /**
@@ -5110,6 +5238,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -5392,6 +5524,10 @@ export default class Client extends OpenApi {
       query["RiskLevel"] = request.riskLevel;
     }
 
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
     if (!$dara.isNull(request.tagShrink)) {
       query["Tag"] = request.tagShrink;
     }
@@ -5476,6 +5612,10 @@ export default class Client extends OpenApi {
       query["ResourceId"] = request.resourceId;
     }
 
+    if (!$dara.isNull(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
@@ -5517,6 +5657,84 @@ export default class Client extends OpenApi {
   async listAggregateDiscoveredResources(request: $_model.ListAggregateDiscoveredResourcesRequest): Promise<$_model.ListAggregateDiscoveredResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAggregateDiscoveredResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取推荐的托管规则列表-多账号
+   * 
+   * @param request - ListAggregateRecommendManagedRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateRecommendManagedRulesResponse
+   */
+  async listAggregateRecommendManagedRulesWithOptions(request: $_model.ListAggregateRecommendManagedRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAggregateRecommendManagedRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    if (!$dara.isNull(request.excludeRegionIdsScope)) {
+      query["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!$dara.isNull(request.excludeResourceGroupIdsScope)) {
+      query["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
+    if (!$dara.isNull(request.excludeResourceIdsScope)) {
+      query["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionIdsScope)) {
+      query["RegionIdsScope"] = request.regionIdsScope;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIdsScope)) {
+      query["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!$dara.isNull(request.resourceIdsScope)) {
+      query["ResourceIdsScope"] = request.resourceIdsScope;
+    }
+
+    if (!$dara.isNull(request.selectedManagedRuleIdentifiers)) {
+      query["SelectedManagedRuleIdentifiers"] = request.selectedManagedRuleIdentifiers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAggregateRecommendManagedRules",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAggregateRecommendManagedRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListAggregateRecommendManagedRulesResponse({}));
+  }
+
+  /**
+   * 获取推荐的托管规则列表-多账号
+   * 
+   * @param request - ListAggregateRecommendManagedRulesRequest
+   * @returns ListAggregateRecommendManagedRulesResponse
+   */
+  async listAggregateRecommendManagedRules(request: $_model.ListAggregateRecommendManagedRulesRequest): Promise<$_model.ListAggregateRecommendManagedRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAggregateRecommendManagedRulesWithOptions(request, runtime);
   }
 
   /**
@@ -5678,6 +5896,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5934,6 +6160,10 @@ export default class Client extends OpenApi {
       query["CompliancePackTemplateId"] = request.compliancePackTemplateId;
     }
 
+    if (!$dara.isNull(request.filterType)) {
+      query["FilterType"] = request.filterType;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -5944,6 +6174,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceTypes)) {
       query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    if (!$dara.isNull(request.ruleRiskLevel)) {
+      query["RuleRiskLevel"] = request.ruleRiskLevel;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6002,6 +6236,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -6162,6 +6400,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 规则支持的操作符列表
+   * 
+   * @param request - ListConfigRuleOperatorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigRuleOperatorsResponse
+   */
+  async listConfigRuleOperatorsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListConfigRuleOperatorsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConfigRuleOperators",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConfigRuleOperatorsResponse>(await this.callApi(params, req, runtime), new $_model.ListConfigRuleOperatorsResponse({}));
+  }
+
+  /**
+   * 规则支持的操作符列表
+   * @returns ListConfigRuleOperatorsResponse
+   */
+  async listConfigRuleOperators(): Promise<$_model.ListConfigRuleOperatorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listConfigRuleOperatorsWithOptions(runtime);
+  }
+
+  /**
    * Queries the rules of the current account.
    * 
    * @remarks
@@ -6214,6 +6484,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.riskLevel)) {
       query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
     }
 
     if (!$dara.isNull(request.tagShrink)) {
@@ -6290,6 +6564,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
     }
 
     if (!$dara.isNull(request.resourceTypes)) {
@@ -6508,6 +6786,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取推荐的托管规则列表
+   * 
+   * @param request - ListRecommendManagedRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecommendManagedRulesResponse
+   */
+  async listRecommendManagedRulesWithOptions(request: $_model.ListRecommendManagedRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecommendManagedRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.excludeRegionIdsScope)) {
+      query["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope;
+    }
+
+    if (!$dara.isNull(request.excludeResourceGroupIdsScope)) {
+      query["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope;
+    }
+
+    if (!$dara.isNull(request.excludeResourceIdsScope)) {
+      query["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionIdsScope)) {
+      query["RegionIdsScope"] = request.regionIdsScope;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIdsScope)) {
+      query["ResourceGroupIdsScope"] = request.resourceGroupIdsScope;
+    }
+
+    if (!$dara.isNull(request.resourceIdsScope)) {
+      query["ResourceIdsScope"] = request.resourceIdsScope;
+    }
+
+    if (!$dara.isNull(request.selectedManagedRuleIdentifiers)) {
+      query["SelectedManagedRuleIdentifiers"] = request.selectedManagedRuleIdentifiers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecommendManagedRules",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecommendManagedRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListRecommendManagedRulesResponse({}));
+  }
+
+  /**
+   * 获取推荐的托管规则列表
+   * 
+   * @param request - ListRecommendManagedRulesRequest
+   * @returns ListRecommendManagedRulesResponse
+   */
+  async listRecommendManagedRules(request: $_model.ListRecommendManagedRulesRequest): Promise<$_model.ListRecommendManagedRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRecommendManagedRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the remediation records of a rule.
    * 
    * @remarks
@@ -6718,6 +7070,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7361,6 +7721,48 @@ export default class Client extends OpenApi {
   async startConfigRuleEvaluation(request: $_model.StartConfigRuleEvaluationRequest): Promise<$_model.StartConfigRuleEvaluationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startConfigRuleEvaluationWithOptions(request, runtime);
+  }
+
+  /**
+   * 触发单资源重新评估
+   * 
+   * @param request - StartConfigRuleEvaluationByResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartConfigRuleEvaluationByResourceResponse
+   */
+  async startConfigRuleEvaluationByResourceWithOptions(request: $_model.StartConfigRuleEvaluationByResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartConfigRuleEvaluationByResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartConfigRuleEvaluationByResource",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartConfigRuleEvaluationByResourceResponse>(await this.callApi(params, req, runtime), new $_model.StartConfigRuleEvaluationByResourceResponse({}));
+  }
+
+  /**
+   * 触发单资源重新评估
+   * 
+   * @param request - StartConfigRuleEvaluationByResourceRequest
+   * @returns StartConfigRuleEvaluationByResourceResponse
+   */
+  async startConfigRuleEvaluationByResource(request: $_model.StartConfigRuleEvaluationByResourceRequest): Promise<$_model.StartConfigRuleEvaluationByResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startConfigRuleEvaluationByResourceWithOptions(request, runtime);
   }
 
   /**
@@ -8595,104 +8997,6 @@ export default class Client extends OpenApi {
   async updateConfigurationRecorder(request: $_model.UpdateConfigurationRecorderRequest): Promise<$_model.UpdateConfigurationRecorderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateConfigurationRecorderWithOptions(request, runtime);
-  }
-
-  /**
-   * Modifies a delivery channel.
-   * 
-   * @remarks
-   * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-   * 
-   * @deprecated OpenAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-   * 
-   * @param request - UpdateDeliveryChannelRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateDeliveryChannelResponse
-   */
-  // Deprecated
-  async updateDeliveryChannelWithOptions(request: $_model.UpdateDeliveryChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeliveryChannelResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.clientToken)) {
-      body["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.configurationItemChangeNotification)) {
-      body["ConfigurationItemChangeNotification"] = request.configurationItemChangeNotification;
-    }
-
-    if (!$dara.isNull(request.configurationSnapshot)) {
-      body["ConfigurationSnapshot"] = request.configurationSnapshot;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelAssumeRoleArn)) {
-      body["DeliveryChannelAssumeRoleArn"] = request.deliveryChannelAssumeRoleArn;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelCondition)) {
-      body["DeliveryChannelCondition"] = request.deliveryChannelCondition;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelId)) {
-      body["DeliveryChannelId"] = request.deliveryChannelId;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelName)) {
-      body["DeliveryChannelName"] = request.deliveryChannelName;
-    }
-
-    if (!$dara.isNull(request.deliveryChannelTargetArn)) {
-      body["DeliveryChannelTargetArn"] = request.deliveryChannelTargetArn;
-    }
-
-    if (!$dara.isNull(request.description)) {
-      body["Description"] = request.description;
-    }
-
-    if (!$dara.isNull(request.nonCompliantNotification)) {
-      body["NonCompliantNotification"] = request.nonCompliantNotification;
-    }
-
-    if (!$dara.isNull(request.oversizedDataOSSTargetArn)) {
-      body["OversizedDataOSSTargetArn"] = request.oversizedDataOSSTargetArn;
-    }
-
-    if (!$dara.isNull(request.status)) {
-      body["Status"] = request.status;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "UpdateDeliveryChannel",
-      version: "2020-09-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.UpdateDeliveryChannelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeliveryChannelResponse({}));
-  }
-
-  /**
-   * Modifies a delivery channel.
-   * 
-   * @remarks
-   * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-   * 
-   * @deprecated OpenAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-   * 
-   * @param request - UpdateDeliveryChannelRequest
-   * @returns UpdateDeliveryChannelResponse
-   */
-  // Deprecated
-  async updateDeliveryChannel(request: $_model.UpdateDeliveryChannelRequest): Promise<$_model.UpdateDeliveryChannelResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.updateDeliveryChannelWithOptions(request, runtime);
   }
 
   /**

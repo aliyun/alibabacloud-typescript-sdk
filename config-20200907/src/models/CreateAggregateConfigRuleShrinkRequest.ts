@@ -1,8 +1,86 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateAggregateConfigRuleShrinkRequestExcludeTagsScope } from "./CreateAggregateConfigRuleShrinkRequestExcludeTagsScope";
-import { CreateAggregateConfigRuleShrinkRequestTagsScope } from "./CreateAggregateConfigRuleShrinkRequestTagsScope";
 
+
+export class CreateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource that you want to exclude.
+   * 
+   * @example
+   * key-2
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to exclude.
+   * 
+   * @example
+   * value-2
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAggregateConfigRuleShrinkRequestTagsScope extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   /**

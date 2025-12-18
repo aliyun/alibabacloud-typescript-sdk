@@ -21,8 +21,6 @@ export class ListAggregateRemediationsRequest extends $dara.Model {
    * 
    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
    * 
-   * This parameter is required.
-   * 
    * @example
    * cr-6b7c626622af00b4****
    */

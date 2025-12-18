@@ -1,7 +1,113 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { EvaluatePreConfigRulesRequestResourceEvaluateItems } from "./EvaluatePreConfigRulesRequestResourceEvaluateItems";
 
+
+export class EvaluatePreConfigRulesRequestResourceEvaluateItemsRules extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of the evaluation rule.
+   * 
+   * For more information about how to obtain the identifier of an evaluation rule, see [ListManagedRules](https://help.aliyun.com/document_detail/467810.html).
+   * 
+   * @example
+   * ecs-instance-deletion-protection-enabled
+   */
+  identifier?: string;
+  /**
+   * @remarks
+   * The input parameters of the evaluation rule.
+   * 
+   * @example
+   * {}
+   */
+  inputParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+      inputParameters: 'InputParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      inputParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EvaluatePreConfigRulesRequestResourceEvaluateItems extends $dara.Model {
+  /**
+   * @remarks
+   * The logical ID of the resource.
+   * 
+   * @example
+   * ResourceLogicId-test
+   */
+  resourceLogicalId?: string;
+  /**
+   * @remarks
+   * The properties of the resource.
+   * 
+   * @example
+   * {
+   *     "ImageId": "ubuntu_18_04_64_20G_alibase_20190624.vhd",
+   *     "SecurityGroupId": "sg-bp15ed6xe1yxeycg****",
+   *     "HostName": "LocalHostName",
+   *     "RegionId": "cn-hangzhou"
+   * }
+   */
+  resourceProperties?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The evaluation rules.
+   */
+  rules?: EvaluatePreConfigRulesRequestResourceEvaluateItemsRules[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceLogicalId: 'ResourceLogicalId',
+      resourceProperties: 'ResourceProperties',
+      resourceType: 'ResourceType',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceLogicalId: 'string',
+      resourceProperties: 'string',
+      resourceType: 'string',
+      rules: { 'type': 'array', 'itemType': EvaluatePreConfigRulesRequestResourceEvaluateItemsRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class EvaluatePreConfigRulesRequest extends $dara.Model {
   /**
