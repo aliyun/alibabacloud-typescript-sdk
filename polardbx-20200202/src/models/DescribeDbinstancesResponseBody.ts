@@ -152,6 +152,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
    * polarx
    */
   engine?: string;
+  engineVersion?: string;
   /**
    * @example
    * 2021-12-01T16:00:00.000+0000
@@ -298,6 +299,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
       dnNodeClassCode: 'DnNodeClassCode',
       dnNodeCount: 'DnNodeCount',
       engine: 'Engine',
+      engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
       expired: 'Expired',
       id: 'Id',
@@ -349,6 +351,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
       dnNodeClassCode: 'string',
       dnNodeCount: 'number',
       engine: 'string',
+      engineVersion: 'string',
       expireTime: 'string',
       expired: 'boolean',
       id: 'string',

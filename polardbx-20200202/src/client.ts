@@ -868,6 +868,10 @@ export default class Client extends OpenApi {
       query["DNNodeCount"] = request.DNNodeCount;
     }
 
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.dnClass)) {
       query["DnClass"] = request.dnClass;
     }
@@ -1657,6 +1661,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放实例
+   * 
    * @param request - DeleteDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDBInstanceResponse
@@ -1690,6 +1696,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放实例
+   * 
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
    */

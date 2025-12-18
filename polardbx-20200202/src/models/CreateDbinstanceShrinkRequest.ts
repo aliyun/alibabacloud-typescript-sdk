@@ -26,6 +26,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    */
   DBNodeCount?: number;
   DNNodeCount?: number;
+  description?: string;
   dnClass?: string;
   dnStorageSpace?: string;
   /**
@@ -135,6 +136,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       DBNodeClass: 'DBNodeClass',
       DBNodeCount: 'DBNodeCount',
       DNNodeCount: 'DNNodeCount',
+      description: 'Description',
       dnClass: 'DnClass',
       dnStorageSpace: 'DnStorageSpace',
       engineVersion: 'EngineVersion',
@@ -168,6 +170,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       DBNodeClass: 'string',
       DBNodeCount: 'number',
       DNNodeCount: 'number',
+      description: 'string',
       dnClass: 'string',
       dnStorageSpace: 'string',
       engineVersion: 'string',

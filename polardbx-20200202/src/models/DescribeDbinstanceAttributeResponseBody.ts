@@ -254,6 +254,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
    * polarx
    */
   engine?: string;
+  engineVersion?: string;
   /**
    * @example
    * 2022-08-31T16:00:00.000+0000
@@ -431,6 +432,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
       dnNodeClassCode: 'DnNodeClassCode',
       dnNodeCount: 'DnNodeCount',
       engine: 'Engine',
+      engineVersion: 'EngineVersion',
       expireDate: 'ExpireDate',
       expired: 'Expired',
       gdnInstanceName: 'GdnInstanceName',
@@ -493,6 +495,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
       dnNodeClassCode: 'string',
       dnNodeCount: 'number',
       engine: 'string',
+      engineVersion: 'string',
       expireDate: 'string',
       expired: 'string',
       gdnInstanceName: 'string',
