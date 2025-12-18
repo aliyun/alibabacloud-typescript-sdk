@@ -1144,6 +1144,10 @@ export default class Client extends OpenApi {
       query["SourceDBClusterId"] = request.sourceDBClusterId;
     }
 
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!$dara.isNull(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }

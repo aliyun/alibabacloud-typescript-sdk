@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDBInstanceRequestTags extends $dara.Model {
+  /**
+   * @example
+   * user123
+   */
+  key?: string;
+  /**
+   * @example
+   * 示例字符串
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -221,6 +255,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * cc-bp1lxbo89u950****
    */
   sourceDBClusterId?: string;
+  tags?: CreateDBInstanceRequestTags[];
   /**
    * @remarks
    * The subscription duration of the subscription cluster.
@@ -318,6 +353,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sourceDBClusterId: 'SourceDBClusterId',
+      tags: 'Tags',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchBak: 'VSwitchBak',
@@ -353,6 +389,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sourceDBClusterId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateDBInstanceRequestTags },
       usedTime: 'string',
       VPCId: 'string',
       vSwitchBak: 'string',
@@ -365,6 +402,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

@@ -1,5 +1,6 @@
 export { CheckScaleOutBalancedResponseBodyTableDetailsTableDetail } from './CheckScaleOutBalancedResponseBody';
 export { CheckScaleOutBalancedResponseBodyTableDetails } from './CheckScaleOutBalancedResponseBody';
+export { CreateDBInstanceRequestTags } from './CreateDbinstanceRequest';
 export { DescribeAccountsResponseBodyAccountsAccount } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponseBodyAccounts } from './DescribeAccountsResponseBody';
 export { DescribeActiveOperationMaintainConfResponseBodyConfig } from './DescribeActiveOperationMaintainConfResponseBody';
