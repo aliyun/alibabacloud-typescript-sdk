@@ -83,6 +83,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
 }
 
 export class ListListsResponseBody extends $dara.Model {
+  itemsUsage?: number;
   /**
    * @remarks
    * The array that contains list information, including list data after paging.
@@ -130,6 +131,7 @@ export class ListListsResponseBody extends $dara.Model {
   usage?: number;
   static names(): { [key: string]: string } {
     return {
+      itemsUsage: 'ItemsUsage',
       lists: 'Lists',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -141,6 +143,7 @@ export class ListListsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      itemsUsage: 'number',
       lists: { 'type': 'array', 'itemType': ListListsResponseBodyLists },
       pageNumber: 'number',
       pageSize: 'number',

@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * Client IP pass-through protocol, supporting:
-   * - **off**: No pass-through.
-   * - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
-   * - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
-   * - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
+   * The domain name of the transport layer application.
    * 
    * @example
    * off
@@ -17,19 +13,18 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   clientIPPassThroughMode?: string;
   /**
    * @remarks
-   * Comment information of the rule.
+   * Switch for IP access rules. When turned on, the IP access rules in WAF take effect on the transport layer application.
+   * 
+   * - on: Turned on.
+   * - off: Turned off.
    * 
    * @example
-   * 测试
+   * IPv6 switch.
    */
   comment?: string;
   /**
    * @remarks
-   * Edge port. Supports:
-   * 
-   * - A single port, such as 80.
-   * - Port range, such as 81-85, representing ports 81, 82, 83, 84, 85.
-   * - Combination of ports and port ranges, separated by commas, for example 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
+   * Comment information of the rule.
    * 
    * @example
    * 80
@@ -37,10 +32,11 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   edgePort?: string;
   /**
    * @remarks
-   * Forwarding rule protocol, with values:
-   * 
-   * - TCP: TCP protocol.
-   * - UDP: UDP protocol.
+   * Client IP pass-through protocol, supporting:
+   * - **off**: No pass-through.
+   * - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
+   * - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
+   * - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
    * 
    * @example
    * TCP
@@ -48,20 +44,15 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Rule ID.
+   * Status of the transport layer application
+   * 
+   * - **deploying**: Deploying. In this state, modification and deletion are not allowed.
+   * - **active**: Active.
    * 
    * @example
    * 1234323***
    */
   ruleId?: number;
-  /**
-   * @remarks
-   * Specific value of the origin, which needs to match the type of the origin.
-   * 
-   * @example
-   * 1.1.1.1
-   */
-  source?: string;
   /**
    * @remarks
    * Origin port. Supports:
@@ -70,16 +61,20 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
    * - Port range, only when the edge port is a port range, the origin port can be set as a port range and the size of the range must be consistent with the edge port. For example, if the edge port is 90-93, the origin port cannot be set to 81-85 because the origin port range is 5 and the edge port range is 3, which are inconsistent.
    * 
    * @example
+   * 1.1.1.1
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The CNAME domain corresponding to the transport layer acceleration application. This field is not empty only when the site is accessed via CNAME.
+   * 
+   * @example
    * 80
    */
   sourcePort?: string;
   /**
    * @remarks
-   * Origin type, supporting:
-   * - **ip**: IP.
-   * - **domain**: Domain name.
-   * - **OP**: Origin pool.
-   * - **LB**: Load balancer.
+   * Rule ID.
    * 
    * @example
    * domain
@@ -149,7 +144,7 @@ export class GetTransportLayerApplicationResponseBodyStaticIpV4List extends $dar
 export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Transport layer application ID.
+   * Specific value of the origin, which needs to match the type of the origin.
    * 
    * @example
    * 17099311410****
@@ -157,28 +152,22 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
-   * The CNAME domain corresponding to the transport layer acceleration application. This field is not empty only when the site is accessed via CNAME.
+   * Whether to enable China mainland network access optimization, default is off. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * example.com.ialicdn.com
    */
   cname?: string;
   /**
-   * @remarks
-   * Whether to enable China mainland network access optimization, default is off. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
-   * 
    * @example
    * on
    */
   crossBorderOptimization?: string;
   /**
    * @remarks
-   * Switch for IP access rules. When turned on, the IP access rules in WAF take effect on the transport layer application.
-   * 
-   * - on: Turned on.
-   * - off: Turned off.
+   * #/components/schemas/WafRuleMatch2
    * 
    * @example
    * on
@@ -186,7 +175,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   ipAccessRule?: string;
   /**
    * @remarks
-   * IPv6 switch.
+   * Ipv6 switch
    * 
    * @example
    * on
@@ -194,7 +183,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   ipv6?: string;
   /**
    * @remarks
-   * The domain name of the transport layer application.
+   * Query Transport Layer Acceleration Application
    * 
    * @example
    * test.example.com
@@ -210,12 +199,19 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of forwarding rules.
+   * Edge port. Supports:
+   * 
+   * - A single port, such as 80.
+   * - Port range, such as 81-85, representing ports 81, 82, 83, 84, 85.
+   * - Combination of ports and port ranges, separated by commas, for example 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
    */
   rules?: GetTransportLayerApplicationResponseBodyRules[];
   /**
    * @remarks
-   * Number of forwarding rules contained in the transport layer acceleration application.
+   * Forwarding rule protocol, with values:
+   * 
+   * - TCP: TCP protocol.
+   * - UDP: UDP protocol.
    * 
    * @example
    * 1
@@ -223,7 +219,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   rulesCount?: number;
   /**
    * @remarks
-   * Site ID.
+   * Details of the forwarding rule.
    * 
    * @example
    * 123456****
@@ -232,12 +228,6 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   staticIp?: string;
   staticIpV4List?: GetTransportLayerApplicationResponseBodyStaticIpV4List[];
   /**
-   * @remarks
-   * Status of the transport layer application
-   * 
-   * - **deploying**: Deploying. In this state, modification and deletion are not allowed.
-   * - **active**: Active.
-   * 
    * @example
    * active
    */

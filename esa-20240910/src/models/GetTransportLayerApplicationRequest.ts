@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTransportLayerApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * Application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+   * Number of forwarding rules contained in the transport layer acceleration application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetTransportLayerApplicationRequest extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * Transport layer application ID.
    * 
    * This parameter is required.
    * 

@@ -9744,7 +9744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single Origin Rule Configuration
+   * Queries the configurations of a single origin rule.
    * 
    * @param request - GetOriginRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9771,7 +9771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single Origin Rule Configuration
+   * Queries the configurations of a single origin rule.
    * 
    * @param request - GetOriginRuleRequest
    * @returns GetOriginRuleResponse
