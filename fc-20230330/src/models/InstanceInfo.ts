@@ -11,6 +11,7 @@ export class InstanceInfo extends $dara.Model {
    */
   instanceId?: string;
   qualifier?: string;
+  resourceType?: string;
   status?: string;
   versionId?: string;
   static names(): { [key: string]: string } {
@@ -19,6 +20,7 @@ export class InstanceInfo extends $dara.Model {
       destroyedTimeMs: 'destroyedTimeMs',
       instanceId: 'instanceId',
       qualifier: 'qualifier',
+      resourceType: 'resourceType',
       status: 'status',
       versionId: 'versionId',
     };
@@ -30,6 +32,7 @@ export class InstanceInfo extends $dara.Model {
       destroyedTimeMs: 'number',
       instanceId: 'string',
       qualifier: 'string',
+      resourceType: 'string',
       status: 'string',
       versionId: 'string',
     };

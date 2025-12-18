@@ -7,10 +7,12 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 export class ScalingConfigStatus extends $dara.Model {
   currentError?: string;
   currentInstances?: number;
+  enableMixMode?: boolean;
   enableOnDemandScaling?: boolean;
   functionArn?: string;
   horizontalScalingPolicies?: ScalingPolicy[];
   minInstances?: number;
+  requestDispatchPolicy?: string;
   residentPoolId?: string;
   scheduledPolicies?: ScheduledPolicy[];
   targetInstances?: number;
@@ -18,10 +20,12 @@ export class ScalingConfigStatus extends $dara.Model {
     return {
       currentError: 'currentError',
       currentInstances: 'currentInstances',
+      enableMixMode: 'enableMixMode',
       enableOnDemandScaling: 'enableOnDemandScaling',
       functionArn: 'functionArn',
       horizontalScalingPolicies: 'horizontalScalingPolicies',
       minInstances: 'minInstances',
+      requestDispatchPolicy: 'requestDispatchPolicy',
       residentPoolId: 'residentPoolId',
       scheduledPolicies: 'scheduledPolicies',
       targetInstances: 'targetInstances',
@@ -32,10 +36,12 @@ export class ScalingConfigStatus extends $dara.Model {
     return {
       currentError: 'string',
       currentInstances: 'number',
+      enableMixMode: 'boolean',
       enableOnDemandScaling: 'boolean',
       functionArn: 'string',
       horizontalScalingPolicies: { 'type': 'array', 'itemType': ScalingPolicy },
       minInstances: 'number',
+      requestDispatchPolicy: 'string',
       residentPoolId: 'string',
       scheduledPolicies: { 'type': 'array', 'itemType': ScheduledPolicy },
       targetInstances: 'number',

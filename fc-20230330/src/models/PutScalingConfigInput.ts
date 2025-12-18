@@ -5,16 +5,20 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 
 
 export class PutScalingConfigInput extends $dara.Model {
+  enableMixMode?: boolean;
   enableOnDemandScaling?: boolean;
   horizontalScalingPolicies?: ScalingPolicy[];
   minInstances?: number;
+  requestDispatchPolicy?: string;
   residentPoolId?: string;
   scheduledPolicies?: ScheduledPolicy[];
   static names(): { [key: string]: string } {
     return {
+      enableMixMode: 'enableMixMode',
       enableOnDemandScaling: 'enableOnDemandScaling',
       horizontalScalingPolicies: 'horizontalScalingPolicies',
       minInstances: 'minInstances',
+      requestDispatchPolicy: 'requestDispatchPolicy',
       residentPoolId: 'residentPoolId',
       scheduledPolicies: 'scheduledPolicies',
     };
@@ -22,9 +26,11 @@ export class PutScalingConfigInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableMixMode: 'boolean',
       enableOnDemandScaling: 'boolean',
       horizontalScalingPolicies: { 'type': 'array', 'itemType': ScalingPolicy },
       minInstances: 'number',
+      requestDispatchPolicy: 'string',
       residentPoolId: 'string',
       scheduledPolicies: { 'type': 'array', 'itemType': ScheduledPolicy },
     };
