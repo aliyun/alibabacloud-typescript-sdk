@@ -8990,6 +8990,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 同步部门信息。
+   * 
+   * @param tmpReq - SyncDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncDepartmentResponse
+   */
+  async syncDepartmentWithOptions(tmpReq: $_model.SyncDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncDepartmentResponse> {
+    tmpReq.validate();
+    let request = new $_model.SyncDepartmentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.syncDepartmentCommand)) {
+      request.syncDepartmentCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.syncDepartmentCommand, "SyncDepartmentCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.syncDepartmentCommandShrink)) {
+      body["SyncDepartmentCommand"] = request.syncDepartmentCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncDepartment",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncDepartmentResponse>(await this.callApi(params, req, runtime), new $_model.SyncDepartmentResponse({}));
+  }
+
+  /**
+   * 同步部门信息。
+   * 
+   * @param request - SyncDepartmentRequest
+   * @returns SyncDepartmentResponse
+   */
+  async syncDepartment(request: $_model.SyncDepartmentRequest): Promise<$_model.SyncDepartmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncDepartmentWithOptions(request, runtime);
+  }
+
+  /**
+   * 同步部门成员信息
+   * 
+   * @param tmpReq - SyncDepartmentUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncDepartmentUserResponse
+   */
+  async syncDepartmentUserWithOptions(tmpReq: $_model.SyncDepartmentUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncDepartmentUserResponse> {
+    tmpReq.validate();
+    let request = new $_model.SyncDepartmentUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.syncDepartmentUserCommand)) {
+      request.syncDepartmentUserCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.syncDepartmentUserCommand, "SyncDepartmentUserCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.syncDepartmentUserCommandShrink)) {
+      body["SyncDepartmentUserCommand"] = request.syncDepartmentUserCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncDepartmentUser",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncDepartmentUserResponse>(await this.callApi(params, req, runtime), new $_model.SyncDepartmentUserResponse({}));
+  }
+
+  /**
+   * 同步部门成员信息
+   * 
+   * @param request - SyncDepartmentUserRequest
+   * @returns SyncDepartmentUserResponse
+   */
+  async syncDepartmentUser(request: $_model.SyncDepartmentUserRequest): Promise<$_model.SyncDepartmentUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncDepartmentUserWithOptions(request, runtime);
+  }
+
+  /**
    * 一键转交负责人
    * 
    * @param tmpReq - TransferOwnershipForAllObjectRequest
