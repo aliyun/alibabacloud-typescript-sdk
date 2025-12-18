@@ -13550,6 +13550,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新用户版本信息
+   * 
+   * @param request - ModifyCfwInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCfwInstanceResponse
+   */
+  async modifyCfwInstanceWithOptions(request: $_model.ModifyCfwInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCfwInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.updateList)) {
+      query["UpdateList"] = request.updateList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCfwInstance",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCfwInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCfwInstanceResponse({}));
+  }
+
+  /**
+   * 更新用户版本信息
+   * 
+   * @param request - ModifyCfwInstanceRequest
+   * @returns ModifyCfwInstanceResponse
+   */
+  async modifyCfwInstance(request: $_model.ModifyCfwInstanceRequest): Promise<$_model.ModifyCfwInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCfwInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configurations of an access control policy.
    * 
    * @remarks

@@ -224,6 +224,7 @@ export { DescribeVulnerabilityProtectedListResponseBodyVulnList } from './Descri
 export { ListTlsInspectCACertificatesResponseBodyCertificates } from './ListTlsInspectCacertificatesResponseBody';
 export { ModifyAddressBookRequestAckLabels } from './ModifyAddressBookRequest';
 export { ModifyAddressBookRequestTagList } from './ModifyAddressBookRequest';
+export { ModifyCfwInstanceRequestUpdateList } from './ModifyCfwInstanceRequest';
 export { ModifyInstanceMemberAttributesRequestMembers } from './ModifyInstanceMemberAttributesRequest';
 export { ModifyThreatIntelligenceSwitchRequestCategoryList } from './ModifyThreatIntelligenceSwitchRequest';
 export { ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList } from './ModifyTrFirewallV2routePolicyScopeRequest';
@@ -879,6 +880,9 @@ export { ListTlsInspectCACertificatesResponse } from './ListTlsInspectCacertific
 export { ModifyAddressBookRequest } from './ModifyAddressBookRequest';
 export { ModifyAddressBookResponseBody } from './ModifyAddressBookResponseBody';
 export { ModifyAddressBookResponse } from './ModifyAddressBookResponse';
+export { ModifyCfwInstanceRequest } from './ModifyCfwInstanceRequest';
+export { ModifyCfwInstanceResponseBody } from './ModifyCfwInstanceResponseBody';
+export { ModifyCfwInstanceResponse } from './ModifyCfwInstanceResponse';
 export { ModifyControlPolicyRequest } from './ModifyControlPolicyRequest';
 export { ModifyControlPolicyResponseBody } from './ModifyControlPolicyResponseBody';
 export { ModifyControlPolicyResponse } from './ModifyControlPolicyResponse';
