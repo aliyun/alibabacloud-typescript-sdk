@@ -82,6 +82,100 @@ export class GetResourceOverviewResponseBodyDataGateway extends $dara.Model {
   }
 }
 
+export class GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails extends $dara.Model {
+  /**
+   * @example
+   * gw-xxxxxx
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * test-gateway
+   */
+  gatewayName?: string;
+  /**
+   * @example
+   * LOW
+   */
+  riskLevel?: string;
+  riskNames?: string[];
+  /**
+   * @example
+   * 100
+   */
+  score?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'gatewayId',
+      gatewayName: 'gatewayName',
+      riskLevel: 'riskLevel',
+      riskNames: 'riskNames',
+      score: 'score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      gatewayName: 'string',
+      riskLevel: 'string',
+      riskNames: { 'type': 'array', 'itemType': 'string' },
+      score: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.riskNames)) {
+      $dara.Model.validateArray(this.riskNames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceOverviewResponseBodyDataRiskOverview extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  count?: string;
+  riskDetails?: GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails[];
+  /**
+   * @example
+   * LOW
+   */
+  riskLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      riskDetails: 'riskDetails',
+      riskLevel: 'riskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      riskDetails: { 'type': 'array', 'itemType': GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails },
+      riskLevel: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.riskDetails)) {
+      $dara.Model.validateArray(this.riskDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceOverviewResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -93,10 +187,12 @@ export class GetResourceOverviewResponseBodyData extends $dara.Model {
    * Gateway information.
    */
   gateway?: GetResourceOverviewResponseBodyDataGateway;
+  riskOverview?: GetResourceOverviewResponseBodyDataRiskOverview[];
   static names(): { [key: string]: string } {
     return {
       api: 'api',
       gateway: 'gateway',
+      riskOverview: 'riskOverview',
     };
   }
 
@@ -104,6 +200,7 @@ export class GetResourceOverviewResponseBodyData extends $dara.Model {
     return {
       api: GetResourceOverviewResponseBodyDataApi,
       gateway: GetResourceOverviewResponseBodyDataGateway,
+      riskOverview: { 'type': 'array', 'itemType': GetResourceOverviewResponseBodyDataRiskOverview },
     };
   }
 
@@ -113,6 +210,9 @@ export class GetResourceOverviewResponseBodyData extends $dara.Model {
     }
     if(this.gateway && typeof (this.gateway as any).validate === 'function') {
       (this.gateway as any).validate();
+    }
+    if(Array.isArray(this.riskOverview)) {
+      $dara.Model.validateArray(this.riskOverview);
     }
     super.validate();
   }
