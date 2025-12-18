@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels extends $dara.Model {
+  opticalModuleModel?: string;
+  portType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opticalModuleModel: 'OpticalModuleModel',
+      portType: 'PortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opticalModuleModel: 'string',
+      portType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $dara.Model {
   /**
    * @remarks
@@ -45,6 +71,7 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
    * 120.247514
    */
   longitude?: number;
+  opticalModuleModels?: ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels[];
   /**
    * @remarks
    * The connectivity provider of the Express Connect circuit. Valid values:
@@ -85,6 +112,7 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
       cloudBoxInstanceIds: 'CloudBoxInstanceIds',
       latitude: 'Latitude',
       longitude: 'Longitude',
+      opticalModuleModels: 'OpticalModuleModels',
       supportLineOperator: 'SupportLineOperator',
       supportPortTypes: 'SupportPortTypes',
     };
@@ -97,12 +125,16 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
       cloudBoxInstanceIds: 'string',
       latitude: 'number',
       longitude: 'number',
+      opticalModuleModels: { 'type': 'array', 'itemType': ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels },
       supportLineOperator: 'string',
       supportPortTypes: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.opticalModuleModels)) {
+      $dara.Model.validateArray(this.opticalModuleModels);
+    }
     super.validate();
   }
 

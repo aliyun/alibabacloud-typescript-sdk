@@ -119,6 +119,7 @@ export class CreatePhysicalConnectionRequest extends $dara.Model {
    * test
    */
   name?: string;
+  opticalModuleModel?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -209,6 +210,7 @@ export class CreatePhysicalConnectionRequest extends $dara.Model {
       deviceAdvancedCapacity: 'DeviceAdvancedCapacity',
       lineOperator: 'LineOperator',
       name: 'Name',
+      opticalModuleModel: 'OpticalModuleModel',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       peerLocation: 'PeerLocation',
@@ -233,6 +235,7 @@ export class CreatePhysicalConnectionRequest extends $dara.Model {
       deviceAdvancedCapacity: { 'type': 'array', 'itemType': 'string' },
       lineOperator: 'string',
       name: 'string',
+      opticalModuleModel: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       peerLocation: 'string',

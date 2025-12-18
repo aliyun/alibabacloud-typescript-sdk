@@ -6382,6 +6382,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.opticalModuleModel)) {
+      query["OpticalModuleModel"] = request.opticalModuleModel;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }

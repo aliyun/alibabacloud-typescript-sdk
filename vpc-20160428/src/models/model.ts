@@ -402,6 +402,7 @@ export { GetVpcPrefixListEntriesResponseBodyPrefixListEntry } from './GetVpcPref
 export { GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys } from './GetVpcRouteEntrySummaryResponseBody';
 export { GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys } from './GetVpcRouteEntrySummaryResponseBody';
 export { GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult } from './GetVpnGatewayDiagnoseResultResponseBody';
+export { ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels } from './ListBusinessAccessPointsResponseBody';
 export { ListBusinessAccessPointsResponseBodyBusinessAccessPoints } from './ListBusinessAccessPointsResponseBody';
 export { ListBusinessRegionsResponseBodyGeographicSubRegions } from './ListBusinessRegionsResponseBody';
 export { ListDhcpOptionsSetsRequestTags } from './ListDhcpOptionsSetsRequest';

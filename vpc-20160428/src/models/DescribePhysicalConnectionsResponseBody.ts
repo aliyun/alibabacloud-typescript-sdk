@@ -237,6 +237,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
    * nametest
    */
   name?: string;
+  opticalModuleModel?: string;
   /**
    * @remarks
    * The payer for the hosted connection. Valid values:
@@ -459,6 +460,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       lineOperator: 'LineOperator',
       loaStatus: 'LoaStatus',
       name: 'Name',
+      opticalModuleModel: 'OpticalModuleModel',
       orderMode: 'OrderMode',
       parentPhysicalConnectionAliUid: 'ParentPhysicalConnectionAliUid',
       parentPhysicalConnectionId: 'ParentPhysicalConnectionId',
@@ -502,6 +504,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       lineOperator: 'string',
       loaStatus: 'string',
       name: 'string',
+      opticalModuleModel: 'string',
       orderMode: 'string',
       parentPhysicalConnectionAliUid: 'number',
       parentPhysicalConnectionId: 'string',

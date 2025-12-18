@@ -70,6 +70,7 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
    * test
    */
   name?: string;
+  opticalModuleModel?: string;
   /**
    * @remarks
    * The geographical location of the data center.
@@ -114,6 +115,7 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
       description: 'Description',
       lineOperator: 'LineOperator',
       name: 'Name',
+      opticalModuleModel: 'OpticalModuleModel',
       peerLocation: 'PeerLocation',
       portNum: 'PortNum',
       regionId: 'RegionId',
@@ -129,6 +131,7 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
       description: 'string',
       lineOperator: 'string',
       name: 'string',
+      opticalModuleModel: 'string',
       peerLocation: 'string',
       portNum: 'number',
       regionId: 'string',
