@@ -143,6 +143,8 @@ export { GetHDMAliyunResourceSyncResultResponseBodyData } from './GetHdmaliyunRe
 export { GetHDMLastAliyunResourceSyncResultResponseBodyDataSubResultsResourceSyncSubResult } from './GetHdmlastAliyunResourceSyncResultResponseBody';
 export { GetHDMLastAliyunResourceSyncResultResponseBodyDataSubResults } from './GetHdmlastAliyunResourceSyncResultResponseBody';
 export { GetHDMLastAliyunResourceSyncResultResponseBodyData } from './GetHdmlastAliyunResourceSyncResultResponseBody';
+export { GetInstanceGroupInspectReportDetailResponseBodyData } from './GetInstanceGroupInspectReportDetailResponseBody';
+export { GetInstanceGroupInspectReportListResponseBodyData } from './GetInstanceGroupInspectReportListResponseBody';
 export { GetInstanceInspectionsResponseBodyDataListAutoFunction } from './GetInstanceInspectionsResponseBody';
 export { GetInstanceInspectionsResponseBodyDataListInstance } from './GetInstanceInspectionsResponseBody';
 export { GetInstanceInspectionsResponseBodyDataList } from './GetInstanceInspectionsResponseBody';
@@ -443,6 +445,12 @@ export { GetHDMAliyunResourceSyncResultResponse } from './GetHdmaliyunResourceSy
 export { GetHDMLastAliyunResourceSyncResultRequest } from './GetHdmlastAliyunResourceSyncResultRequest';
 export { GetHDMLastAliyunResourceSyncResultResponseBody } from './GetHdmlastAliyunResourceSyncResultResponseBody';
 export { GetHDMLastAliyunResourceSyncResultResponse } from './GetHdmlastAliyunResourceSyncResultResponse';
+export { GetInstanceGroupInspectReportDetailRequest } from './GetInstanceGroupInspectReportDetailRequest';
+export { GetInstanceGroupInspectReportDetailResponseBody } from './GetInstanceGroupInspectReportDetailResponseBody';
+export { GetInstanceGroupInspectReportDetailResponse } from './GetInstanceGroupInspectReportDetailResponse';
+export { GetInstanceGroupInspectReportListRequest } from './GetInstanceGroupInspectReportListRequest';
+export { GetInstanceGroupInspectReportListResponseBody } from './GetInstanceGroupInspectReportListResponseBody';
+export { GetInstanceGroupInspectReportListResponse } from './GetInstanceGroupInspectReportListResponse';
 export { GetInstanceInspectionsRequest } from './GetInstanceInspectionsRequest';
 export { GetInstanceInspectionsResponseBody } from './GetInstanceInspectionsResponseBody';
 export { GetInstanceInspectionsResponse } from './GetInstanceInspectionsResponse';

@@ -5017,6 +5017,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例组日报详情
+   * 
+   * @param request - GetInstanceGroupInspectReportDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceGroupInspectReportDetailResponse
+   */
+  async getInstanceGroupInspectReportDetailWithOptions(request: $_model.GetInstanceGroupInspectReportDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceGroupInspectReportDetailResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportId)) {
+      body["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceGroupInspectReportDetail",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceGroupInspectReportDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceGroupInspectReportDetailResponse({}));
+  }
+
+  /**
+   * 获取实例组日报详情
+   * 
+   * @param request - GetInstanceGroupInspectReportDetailRequest
+   * @returns GetInstanceGroupInspectReportDetailResponse
+   */
+  async getInstanceGroupInspectReportDetail(request: $_model.GetInstanceGroupInspectReportDetailRequest): Promise<$_model.GetInstanceGroupInspectReportDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceGroupInspectReportDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例组的报告信息
+   * 
+   * @param request - GetInstanceGroupInspectReportListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceGroupInspectReportListResponse
+   */
+  async getInstanceGroupInspectReportListWithOptions(request: $_model.GetInstanceGroupInspectReportListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceGroupInspectReportListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceGroupInspectReportList",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceGroupInspectReportListResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceGroupInspectReportListResponse({}));
+  }
+
+  /**
+   * 查询实例组的报告信息
+   * 
+   * @param request - GetInstanceGroupInspectReportListRequest
+   * @returns GetInstanceGroupInspectReportListResponse
+   */
+  async getInstanceGroupInspectReportList(request: $_model.GetInstanceGroupInspectReportListRequest): Promise<$_model.GetInstanceGroupInspectReportListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceGroupInspectReportListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the result of an inspection that is performed on a database instance by using the inspection and scoring feature.
    * 
    * @remarks
