@@ -7,6 +7,8 @@ export { CreateAccountRequestDmlAuthSetting } from './CreateAccountRequest';
 export { CreateAccountResponseBodyData } from './CreateAccountResponseBody';
 export { CreateDBResponseBodyData } from './CreateDbresponseBody';
 export { CreateDBInstanceRequestMultiZone } from './CreateDbinstanceRequest';
+export { CreateDBInstanceRequestTags } from './CreateDbinstanceRequest';
+export { CreateDBInstanceShrinkRequestTags } from './CreateDbinstanceShrinkRequest';
 export { CreateDBInstanceResponseBodyData } from './CreateDbinstanceResponseBody';
 export { DeleteAccountResponseBodyData } from './DeleteAccountResponseBody';
 export { DeleteDBResponseBodyData } from './DeleteDbresponseBody';
@@ -28,6 +30,7 @@ export { DescribeDBInstanceConfigChangeLogResponseBodyDataParamChangeLogs } from
 export { DescribeDBInstanceConfigChangeLogResponseBodyData } from './DescribeDbinstanceConfigChangeLogResponseBody';
 export { DescribeDBInstanceDataSourcesResponseBodyDataColumns } from './DescribeDbinstanceDataSourcesResponseBody';
 export { DescribeDBInstanceDataSourcesResponseBodyData } from './DescribeDbinstanceDataSourcesResponseBody';
+export { DescribeDBInstancesRequestTags } from './DescribeDbinstancesRequest';
 export { DescribeDBInstancesResponseBodyDataDBInstancesTags } from './DescribeDbinstancesResponseBody';
 export { DescribeDBInstancesResponseBodyDataDBInstances } from './DescribeDbinstancesResponseBody';
 export { DescribeDBInstancesResponseBodyData } from './DescribeDbinstancesResponseBody';

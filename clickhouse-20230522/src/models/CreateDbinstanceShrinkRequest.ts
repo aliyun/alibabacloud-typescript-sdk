@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDBInstanceShrinkRequestTags extends $dara.Model {
+  /**
+   * @example
+   * user_123
+   */
+  key?: string;
+  /**
+   * @example
+   * 示例字符串
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
@@ -122,6 +156,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * OSS
    */
   storageType?: string;
+  tags?: CreateDBInstanceShrinkRequestTags[];
   /**
    * @remarks
    * The virtual private cloud (VPC) ID.
@@ -167,6 +202,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       sourceDBInstanceId: 'SourceDBInstanceId',
       storageQuota: 'StorageQuota',
       storageType: 'StorageType',
+      tags: 'Tags',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
@@ -194,6 +230,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       sourceDBInstanceId: 'string',
       storageQuota: 'number',
       storageType: 'string',
+      tags: { 'type': 'array', 'itemType': CreateDBInstanceShrinkRequestTags },
       vpcId: 'string',
       vswitchId: 'string',
       zoneId: 'string',
@@ -201,6 +238,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

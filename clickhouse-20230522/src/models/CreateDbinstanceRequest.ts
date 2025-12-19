@@ -42,6 +42,40 @@ export class CreateDBInstanceRequestMultiZone extends $dara.Model {
   }
 }
 
+export class CreateDBInstanceRequestTags extends $dara.Model {
+  /**
+   * @example
+   * user_123
+   */
+  key?: string;
+  /**
+   * @example
+   * 示例字符串
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -162,6 +196,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * OSS
    */
   storageType?: string;
+  tags?: CreateDBInstanceRequestTags[];
   /**
    * @remarks
    * The virtual private cloud (VPC) ID.
@@ -207,6 +242,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       sourceDBInstanceId: 'SourceDBInstanceId',
       storageQuota: 'StorageQuota',
       storageType: 'StorageType',
+      tags: 'Tags',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
@@ -234,6 +270,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       sourceDBInstanceId: 'string',
       storageQuota: 'number',
       storageType: 'string',
+      tags: { 'type': 'array', 'itemType': CreateDBInstanceRequestTags },
       vpcId: 'string',
       vswitchId: 'string',
       zoneId: 'string',
@@ -243,6 +280,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.multiZone)) {
       $dara.Model.validateArray(this.multiZone);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

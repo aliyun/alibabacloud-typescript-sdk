@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDBInstancesRequestTags extends $dara.Model {
+  /**
+   * @example
+   * user_123
+   */
+  key?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
@@ -59,6 +93,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * rg-4690g37929****
    */
   resourceGroupId?: string;
+  tags?: DescribeDBInstancesRequestTags[];
   static names(): { [key: string]: string } {
     return {
       DBInstanceIds: 'DBInstanceIds',
@@ -68,6 +103,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -80,10 +116,14 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeDBInstancesRequestTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

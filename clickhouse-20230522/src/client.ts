@@ -459,6 +459,10 @@ export default class Client extends OpenApi {
       query["StorageType"] = request.storageType;
     }
 
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -1293,6 +1297,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

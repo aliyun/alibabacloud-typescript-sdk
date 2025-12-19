@@ -13,6 +13,8 @@ export class AttachWhitelistTemplateToInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * RegionId
+   * 
    * This parameter is required.
    * 
    * @example

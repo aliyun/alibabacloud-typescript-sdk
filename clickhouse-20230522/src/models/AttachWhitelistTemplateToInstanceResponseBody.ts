@@ -187,6 +187,9 @@ export class AttachWhitelistTemplateToInstanceResponseBodyData extends $dara.Mod
 export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   data?: AttachWhitelistTemplateToInstanceResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1234567890
    */
