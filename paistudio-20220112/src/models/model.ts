@@ -43,6 +43,8 @@ export { GetTrainingJobErrorInfoResponseBodyErrorInfo } from './GetTrainingJobEr
 export { GetTrainingJobLatestMetricsResponseBodyMetrics } from './GetTrainingJobLatestMetricsResponseBody';
 export { ListAlgorithmVersionsResponseBodyAlgorithmVersions } from './ListAlgorithmVersionsResponseBody';
 export { ListAlgorithmsResponseBodyAlgorithms } from './ListAlgorithmsResponseBody';
+export { ListNodesRequestHealthCount } from './ListNodesRequest';
+export { ListNodesRequestHealthRate } from './ListNodesRequest';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics } from './ListTrainingJobInstanceMetricsResponseBody';
@@ -234,6 +236,7 @@ export { ListAlgorithmsRequest } from './ListAlgorithmsRequest';
 export { ListAlgorithmsResponseBody } from './ListAlgorithmsResponseBody';
 export { ListAlgorithmsResponse } from './ListAlgorithmsResponse';
 export { ListNodesRequest } from './ListNodesRequest';
+export { ListNodesShrinkRequest } from './ListNodesShrinkRequest';
 export { ListNodesResponseBody } from './ListNodesResponseBody';
 export { ListNodesResponse } from './ListNodesResponse';
 export { ListQuotaWorkloadsRequest } from './ListQuotaWorkloadsRequest';

@@ -1675,13 +1675,23 @@ export default class Client extends OpenApi {
   /**
    * 获取资源节点列表
    * 
-   * @param request - ListNodesRequest
+   * @param tmpReq - ListNodesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNodesResponse
    */
-  async listNodesWithOptions(request: $_model.ListNodesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodesResponse> {
-    request.validate();
+  async listNodesWithOptions(tmpReq: $_model.ListNodesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.healthCount)) {
+      request.healthCountShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.healthCount, "HealthCount", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.healthRate)) {
+      request.healthRateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.healthRate, "HealthRate", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.acceleratorType)) {
       query["AcceleratorType"] = request.acceleratorType;
@@ -1707,12 +1717,24 @@ export default class Client extends OpenApi {
       query["GPUType"] = request.GPUType;
     }
 
+    if (!$dara.isNull(request.healthCountShrink)) {
+      query["HealthCount"] = request.healthCountShrink;
+    }
+
+    if (!$dara.isNull(request.healthRateShrink)) {
+      query["HealthRate"] = request.healthRateShrink;
+    }
+
     if (!$dara.isNull(request.hyperNode)) {
       query["HyperNode"] = request.hyperNode;
     }
 
     if (!$dara.isNull(request.hyperZone)) {
       query["HyperZone"] = request.hyperZone;
+    }
+
+    if (!$dara.isNull(request.layoutMode)) {
+      query["LayoutMode"] = request.layoutMode;
     }
 
     if (!$dara.isNull(request.machineGroupIds)) {

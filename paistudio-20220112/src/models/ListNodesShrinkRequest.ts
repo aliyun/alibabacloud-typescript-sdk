@@ -2,59 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListNodesRequestHealthCount extends $dara.Model {
-  operation?: string;
-  value?: number;
-  static names(): { [key: string]: string } {
-    return {
-      operation: 'operation',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operation: 'string',
-      value: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodesRequestHealthRate extends $dara.Model {
-  operation?: string;
-  value?: number;
-  static names(): { [key: string]: string } {
-    return {
-      operation: 'operation',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operation: 'string',
-      value: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodesRequest extends $dara.Model {
+export class ListNodesShrinkRequest extends $dara.Model {
   /**
    * @example
    * CPU
@@ -77,8 +25,8 @@ export class ListNodesRequest extends $dara.Model {
    * T4
    */
   GPUType?: string;
-  healthCount?: ListNodesRequestHealthCount;
-  healthRate?: ListNodesRequestHealthRate;
+  healthCountShrink?: string;
+  healthRateShrink?: string;
   hyperNode?: string;
   hyperZone?: string;
   layoutMode?: string;
@@ -154,8 +102,8 @@ export class ListNodesRequest extends $dara.Model {
       filterByQuotaId: 'FilterByQuotaId',
       filterByResourceGroupIds: 'FilterByResourceGroupIds',
       GPUType: 'GPUType',
-      healthCount: 'HealthCount',
-      healthRate: 'HealthRate',
+      healthCountShrink: 'HealthCount',
+      healthRateShrink: 'HealthRate',
       hyperNode: 'HyperNode',
       hyperZone: 'HyperZone',
       layoutMode: 'LayoutMode',
@@ -186,8 +134,8 @@ export class ListNodesRequest extends $dara.Model {
       filterByQuotaId: 'string',
       filterByResourceGroupIds: 'string',
       GPUType: 'string',
-      healthCount: ListNodesRequestHealthCount,
-      healthRate: ListNodesRequestHealthRate,
+      healthCountShrink: 'string',
+      healthRateShrink: 'string',
       hyperNode: 'string',
       hyperZone: 'string',
       layoutMode: 'string',
@@ -211,12 +159,6 @@ export class ListNodesRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.healthCount && typeof (this.healthCount as any).validate === 'function') {
-      (this.healthCount as any).validate();
-    }
-    if(this.healthRate && typeof (this.healthRate as any).validate === 'function') {
-      (this.healthRate as any).validate();
-    }
     super.validate();
   }
 

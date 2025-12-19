@@ -42,6 +42,7 @@ export class Node extends $dara.Model {
   resourceGroupId?: string;
   resourceGroupName?: string;
   selfQuotaWorkloadNum?: number;
+  subNodes?: string[];
   systemReservedCPU?: string;
   systemReservedMemory?: string;
   users?: UserInfo[];
@@ -85,6 +86,7 @@ export class Node extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceGroupName: 'ResourceGroupName',
       selfQuotaWorkloadNum: 'SelfQuotaWorkloadNum',
+      subNodes: 'SubNodes',
       systemReservedCPU: 'SystemReservedCPU',
       systemReservedMemory: 'SystemReservedMemory',
       users: 'Users',
@@ -131,6 +133,7 @@ export class Node extends $dara.Model {
       resourceGroupId: 'string',
       resourceGroupName: 'string',
       selfQuotaWorkloadNum: 'number',
+      subNodes: { 'type': 'array', 'itemType': 'string' },
       systemReservedCPU: 'string',
       systemReservedMemory: 'string',
       users: { 'type': 'array', 'itemType': UserInfo },
@@ -141,6 +144,9 @@ export class Node extends $dara.Model {
   validate() {
     if(Array.isArray(this.boundQuotas)) {
       $dara.Model.validateArray(this.boundQuotas);
+    }
+    if(Array.isArray(this.subNodes)) {
+      $dara.Model.validateArray(this.subNodes);
     }
     if(Array.isArray(this.users)) {
       $dara.Model.validateArray(this.users);
