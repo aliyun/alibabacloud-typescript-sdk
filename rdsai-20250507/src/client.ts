@@ -241,6 +241,10 @@ export default class Client extends OpenApi {
       query["DatabasePassword"] = request.databasePassword;
     }
 
+    if (!$dara.isNull(request.initializeWithExistingData)) {
+      query["InitializeWithExistingData"] = request.initializeWithExistingData;
+    }
+
     if (!$dara.isNull(request.instanceClass)) {
       query["InstanceClass"] = request.instanceClass;
     }

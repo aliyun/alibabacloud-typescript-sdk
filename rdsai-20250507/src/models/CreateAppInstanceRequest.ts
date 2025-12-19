@@ -80,6 +80,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * test_Password
    */
   databasePassword?: string;
+  initializeWithExistingData?: boolean;
   /**
    * @example
    * rdsai.supabase.basic
@@ -112,6 +113,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       dashboardPassword: 'DashboardPassword',
       dashboardUsername: 'DashboardUsername',
       databasePassword: 'DatabasePassword',
+      initializeWithExistingData: 'InitializeWithExistingData',
       instanceClass: 'InstanceClass',
       publicEndpointEnabled: 'PublicEndpointEnabled',
       publicNetworkAccessEnabled: 'PublicNetworkAccessEnabled',
@@ -131,6 +133,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       dashboardPassword: 'string',
       dashboardUsername: 'string',
       databasePassword: 'string',
+      initializeWithExistingData: 'boolean',
       instanceClass: 'string',
       publicEndpointEnabled: 'boolean',
       publicNetworkAccessEnabled: 'boolean',
