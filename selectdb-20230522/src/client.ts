@@ -1630,6 +1630,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeVSwitches
+   * 
+   * @param request - DescribeVSwitchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVSwitchesResponse
+   */
+  async describeVSwitchesWithOptions(request: $_model.DescribeVSwitchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVSwitchesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVSwitches",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVSwitchesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVSwitchesResponse({}));
+  }
+
+  /**
+   * DescribeVSwitches
+   * 
+   * @param request - DescribeVSwitchesRequest
+   * @returns DescribeVSwitchesResponse
+   */
+  async describeVSwitches(request: $_model.DescribeVSwitchesRequest): Promise<$_model.DescribeVSwitchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVSwitchesWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeZones
+   * 
+   * @param request - DescribeZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeZonesResponse
+   */
+  async describeZonesWithOptions(request: $_model.DescribeZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeZonesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeZones",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeZonesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeZonesResponse({}));
+  }
+
+  /**
+   * DescribeZones
+   * 
+   * @param request - DescribeZonesRequest
+   * @returns DescribeZonesResponse
+   */
+  async describeZones(request: $_model.DescribeZonesRequest): Promise<$_model.DescribeZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeZonesWithOptions(request, runtime);
+  }
+
+  /**
    * Uses the scheduled scaling policy.
    * 
    * @param request - EnDisableScalingRulesRequest
@@ -2603,6 +2719,66 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * UpgradeDBInstanceDeployScheme
+   * 
+   * @param tmpReq - UpgradeDBInstanceDeploySchemeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeDBInstanceDeploySchemeResponse
+   */
+  async upgradeDBInstanceDeploySchemeWithOptions(tmpReq: $_model.UpgradeDBInstanceDeploySchemeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeDBInstanceDeploySchemeResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpgradeDBInstanceDeploySchemeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.multiZone)) {
+      request.multiZoneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.multiZone, "MultiZone", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.multiZoneShrink)) {
+      query["MultiZone"] = request.multiZoneShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeDBInstanceDeployScheme",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeDBInstanceDeploySchemeResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeDBInstanceDeploySchemeResponse({}));
+  }
+
+  /**
+   * UpgradeDBInstanceDeployScheme
+   * 
+   * @param request - UpgradeDBInstanceDeploySchemeRequest
+   * @returns UpgradeDBInstanceDeploySchemeResponse
+   */
+  async upgradeDBInstanceDeployScheme(request: $_model.UpgradeDBInstanceDeploySchemeRequest): Promise<$_model.UpgradeDBInstanceDeploySchemeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeDBInstanceDeploySchemeWithOptions(request, runtime);
   }
 
   /**
