@@ -918,6 +918,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看某操作的输入参数
+   * 
+   * @param request - GetOperationParamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOperationParamsResponse
+   */
+  async getOperationParamsWithOptions(request: $_model.GetOperationParamsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOperationParamsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.operation)) {
+      body["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.serviceType)) {
+      body["ServiceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOperationParams",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOperationParamsResponse>(await this.callApi(params, req, runtime), new $_model.GetOperationParamsResponse({}));
+  }
+
+  /**
+   * 查看某操作的输入参数
+   * 
+   * @param request - GetOperationParamsRequest
+   * @returns GetOperationParamsResponse
+   */
+  async getOperationParams(request: $_model.GetOperationParamsRequest): Promise<$_model.GetOperationParamsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOperationParamsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the zones where the specified disaster recovery service can be switched.
    * 
    * @remarks
@@ -1368,6 +1414,80 @@ export default class Client extends OpenApi {
   async listFoCreatedApps(): Promise<$_model.ListFoCreatedAppsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFoCreatedAppsWithOptions(runtime);
+  }
+
+  /**
+   * 查看某服务支持的操作
+   * 
+   * @param request - ListOperationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationsResponse
+   */
+  async listOperationsWithOptions(request: $_model.ListOperationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOperations",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOperationsResponse>(await this.callApi(params, req, runtime), new $_model.ListOperationsResponse({}));
+  }
+
+  /**
+   * 查看某服务支持的操作
+   * 
+   * @param request - ListOperationsRequest
+   * @returns ListOperationsResponse
+   */
+  async listOperations(request: $_model.ListOperationsRequest): Promise<$_model.ListOperationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOperationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看支持的服务列表
+   * 
+   * @param request - ListServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServicesResponse
+   */
+  async listServicesWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListServicesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServices",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListServicesResponse({}));
+  }
+
+  /**
+   * 查看支持的服务列表
+   * @returns ListServicesResponse
+   */
+  async listServices(): Promise<$_model.ListServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServicesWithOptions(runtime);
   }
 
   /**
