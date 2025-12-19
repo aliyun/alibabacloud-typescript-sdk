@@ -57,6 +57,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
    * 4ECEEE12-56F1-4FBC-9AB1-890F7494****
    */
   activationId?: string;
+  connected?: string;
   /**
    * @remarks
    * The ID of managed instance N. Valid values of N: 1 to 50.
@@ -180,6 +181,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       activationId: 'ActivationId',
+      connected: 'Connected',
       instanceId: 'InstanceId',
       instanceIp: 'InstanceIp',
       instanceName: 'InstanceName',
@@ -202,6 +204,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       activationId: 'string',
+      connected: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
       instanceIp: 'string',
       instanceName: 'string',

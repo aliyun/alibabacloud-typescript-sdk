@@ -51,7 +51,7 @@ export class DescribeStorageSetsRequest extends $dara.Model {
    * @remarks
    * The page number. Pages start from page 1.
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -59,9 +59,9 @@ export class DescribeStorageSetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of entries to return on each page. Maximum value: 100.
    * 
-   * Default value: 10.
+   * Default value: 10
    * 
    * @example
    * 1

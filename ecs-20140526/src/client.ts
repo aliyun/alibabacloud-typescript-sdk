@@ -16704,6 +16704,10 @@ export default class Client extends OpenApi {
       query["ActivationId"] = request.activationId;
     }
 
+    if (!$dara.isNull(request.connected)) {
+      query["Connected"] = request.connected;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

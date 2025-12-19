@@ -45,9 +45,9 @@ export class DescribeStorageSetDetailsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100
    * 
-   * Default value: 10.
+   * Default value: 10
    * 
    * @example
    * 10
