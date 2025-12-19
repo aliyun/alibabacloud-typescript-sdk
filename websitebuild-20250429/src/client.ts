@@ -84,6 +84,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建建站实例
+   * 
+   * @param request - CreateAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppInstanceResponse
+   */
+  async createAppInstanceWithOptions(request: $_model.CreateAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deployArea)) {
+      query["DeployArea"] = request.deployArea;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.quantity)) {
+      query["Quantity"] = request.quantity;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppInstance",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppInstanceResponse({}));
+  }
+
+  /**
+   * 创建建站实例
+   * 
+   * @param request - CreateAppInstanceRequest
+   * @returns CreateAppInstanceResponse
+   */
+  async createAppInstance(request: $_model.CreateAppInstanceRequest): Promise<$_model.CreateAppInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 免登ticket
+   * 
+   * @param request - CreateAppInstanceTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppInstanceTicketResponse
+   */
+  async createAppInstanceTicketWithOptions(request: $_model.CreateAppInstanceTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppInstanceTicketResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppInstanceTicket",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppInstanceTicketResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppInstanceTicketResponse({}));
+  }
+
+  /**
+   * 免登ticket
+   * 
+   * @param request - CreateAppInstanceTicketRequest
+   * @returns CreateAppInstanceTicketResponse
+   */
+  async createAppInstanceTicket(request: $_model.CreateAppInstanceTicketRequest): Promise<$_model.CreateAppInstanceTicketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppInstanceTicketWithOptions(request, runtime);
+  }
+
+  /**
    * 提交创建Logo任务
    * 
    * @param request - CreateLogoTaskRequest
@@ -335,6 +459,48 @@ export default class Client extends OpenApi {
   async dispatchConsoleAPIForPartner(request: $_model.DispatchConsoleAPIForPartnerRequest): Promise<$_model.DispatchConsoleAPIForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.dispatchConsoleAPIForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询应用实例详情
+   * 
+   * @param request - GetAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppInstanceResponse
+   */
+  async getAppInstanceWithOptions(request: $_model.GetAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppInstance",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppInstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetAppInstanceResponse({}));
+  }
+
+  /**
+   * 查询应用实例详情
+   * 
+   * @param request - GetAppInstanceRequest
+   * @returns GetAppInstanceResponse
+   */
+  async getAppInstance(request: $_model.GetAppInstanceRequest): Promise<$_model.GetAppInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -696,6 +862,164 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 建站实例列表查询
+   * 
+   * @param tmpReq - ListAppInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppInstancesResponse
+   */
+  async listAppInstancesWithOptions(tmpReq: $_model.ListAppInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppInstancesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAppInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.endTimeBegin)) {
+      query["EndTimeBegin"] = request.endTimeBegin;
+    }
+
+    if (!$dara.isNull(request.endTimeEnd)) {
+      query["EndTimeEnd"] = request.endTimeEnd;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.statusListShrink)) {
+      query["StatusList"] = request.statusListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppInstances",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListAppInstancesResponse({}));
+  }
+
+  /**
+   * 建站实例列表查询
+   * 
+   * @param request - ListAppInstancesRequest
+   * @returns ListAppInstancesResponse
+   */
+  async listAppInstances(request: $_model.ListAppInstancesRequest): Promise<$_model.ListAppInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 建站实例变配
+   * 
+   * @param request - ModifyAppInstanceSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppInstanceSpecResponse
+   */
+  async modifyAppInstanceSpecWithOptions(request: $_model.ModifyAppInstanceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppInstanceSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deployArea)) {
+      query["DeployArea"] = request.deployArea;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppInstanceSpec",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppInstanceSpecResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppInstanceSpecResponse({}));
+  }
+
+  /**
+   * 建站实例变配
+   * 
+   * @param request - ModifyAppInstanceSpecRequest
+   * @returns ModifyAppInstanceSpecResponse
+   */
+  async modifyAppInstanceSpec(request: $_model.ModifyAppInstanceSpecRequest): Promise<$_model.ModifyAppInstanceSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppInstanceSpecWithOptions(request, runtime);
+  }
+
+  /**
    * 合作伙伴操作应用
    * 
    * @param request - OperateAppInstanceForPartnerRequest
@@ -793,6 +1117,118 @@ export default class Client extends OpenApi {
   async operateAppServiceForPartner(request: $_model.OperateAppServiceForPartnerRequest): Promise<$_model.OperateAppServiceForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateAppServiceForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * 刷新ticket
+   * 
+   * @param request - RefreshAppInstanceTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshAppInstanceTicketResponse
+   */
+  async refreshAppInstanceTicketWithOptions(request: $_model.RefreshAppInstanceTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshAppInstanceTicketResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshAppInstanceTicket",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefreshAppInstanceTicketResponse>(await this.callApi(params, req, runtime), new $_model.RefreshAppInstanceTicketResponse({}));
+  }
+
+  /**
+   * 刷新ticket
+   * 
+   * @param request - RefreshAppInstanceTicketRequest
+   * @returns RefreshAppInstanceTicketResponse
+   */
+  async refreshAppInstanceTicket(request: $_model.RefreshAppInstanceTicketRequest): Promise<$_model.RefreshAppInstanceTicketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.refreshAppInstanceTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * 建站实例续费
+   * 
+   * @param request - RenewAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewAppInstanceResponse
+   */
+  async renewAppInstanceWithOptions(request: $_model.RenewAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewAppInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewAppInstance",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenewAppInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RenewAppInstanceResponse({}));
+  }
+
+  /**
+   * 建站实例续费
+   * 
+   * @param request - RenewAppInstanceRequest
+   * @returns RenewAppInstanceResponse
+   */
+  async renewAppInstance(request: $_model.RenewAppInstanceRequest): Promise<$_model.RenewAppInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewAppInstanceWithOptions(request, runtime);
   }
 
   /**
