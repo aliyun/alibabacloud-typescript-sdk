@@ -584,6 +584,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定PPT作品信息
+   * 
+   * @param request - BindPptArtifactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindPptArtifactResponse
+   */
+  async bindPptArtifactWithOptions(request: $_model.BindPptArtifactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindPptArtifactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactId)) {
+      body["ArtifactId"] = request.artifactId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindPptArtifact",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindPptArtifactResponse>(await this.callApi(params, req, runtime), new $_model.BindPptArtifactResponse({}));
+  }
+
+  /**
+   * 绑定PPT作品信息
+   * 
+   * @param request - BindPptArtifactRequest
+   * @returns BindPptArtifactResponse
+   */
+  async bindPptArtifact(request: $_model.BindPptArtifactRequest): Promise<$_model.BindPptArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindPptArtifactWithOptions(request, runtime);
+  }
+
+  /**
    * 取消异步任务
    * 
    * @param request - CancelAsyncTaskRequest
@@ -4338,6 +4388,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取PPT组件的配置
+   * 
+   * @param request - GetPptConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPptConfigResponse
+   */
+  async getPptConfigWithOptions(request: $_model.GetPptConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPptConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPptConfig",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPptConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetPptConfigResponse({}));
+  }
+
+  /**
+   * 获取PPT组件的配置
+   * 
+   * @param request - GetPptConfigRequest
+   * @returns GetPptConfigResponse
+   */
+  async getPptConfig(request: $_model.GetPptConfigRequest): Promise<$_model.GetPptConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPptConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 获取当前用户的配置
    * 
    * @param request - GetPropertiesRequest
@@ -4725,6 +4817,56 @@ export default class Client extends OpenApi {
   async importInterveneFileAsync(request: $_model.ImportInterveneFileAsyncRequest): Promise<$_model.ImportInterveneFileAsyncResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importInterveneFileAsyncWithOptions(request, runtime);
+  }
+
+  /**
+   * 初始化PPT创建操作
+   * 
+   * @param request - InitiatePptCreationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitiatePptCreationResponse
+   */
+  async initiatePptCreationWithOptions(request: $_model.InitiatePptCreationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitiatePptCreationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.outline)) {
+      body["Outline"] = request.outline;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitiatePptCreation",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitiatePptCreationResponse>(await this.callApi(params, req, runtime), new $_model.InitiatePptCreationResponse({}));
+  }
+
+  /**
+   * 初始化PPT创建操作
+   * 
+   * @param request - InitiatePptCreationRequest
+   * @returns InitiatePptCreationResponse
+   */
+  async initiatePptCreation(request: $_model.InitiatePptCreationRequest): Promise<$_model.InitiatePptCreationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initiatePptCreationWithOptions(request, runtime);
   }
 
   /**
@@ -7430,6 +7572,152 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 妙笔：AI助手写作
+   * 
+   * @param tmpReq - RunAiHelperWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunAiHelperWritingResponse
+   */
+  async *runAiHelperWritingWithSSE(tmpReq: $_model.RunAiHelperWritingRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunAiHelperWritingResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunAiHelperWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.writingParams)) {
+      request.writingParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.writingParams, "WritingParams", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.distributeWriting)) {
+      body["DistributeWriting"] = request.distributeWriting;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.promptMode)) {
+      body["PromptMode"] = request.promptMode;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.writingParamsShrink)) {
+      body["WritingParams"] = request.writingParamsShrink;
+    }
+
+    if (!$dara.isNull(request.writingScene)) {
+      body["WritingScene"] = request.writingScene;
+    }
+
+    if (!$dara.isNull(request.writingStyle)) {
+      body["WritingStyle"] = request.writingStyle;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunAiHelperWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunAiHelperWritingResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunAiHelperWritingResponse({}));
+    }
+  }
+
+  /**
+   * 妙笔：AI助手写作
+   * 
+   * @param tmpReq - RunAiHelperWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunAiHelperWritingResponse
+   */
+  async runAiHelperWritingWithOptions(tmpReq: $_model.RunAiHelperWritingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunAiHelperWritingResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunAiHelperWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.writingParams)) {
+      request.writingParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.writingParams, "WritingParams", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.distributeWriting)) {
+      body["DistributeWriting"] = request.distributeWriting;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.promptMode)) {
+      body["PromptMode"] = request.promptMode;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.writingParamsShrink)) {
+      body["WritingParams"] = request.writingParamsShrink;
+    }
+
+    if (!$dara.isNull(request.writingScene)) {
+      body["WritingScene"] = request.writingScene;
+    }
+
+    if (!$dara.isNull(request.writingStyle)) {
+      body["WritingStyle"] = request.writingStyle;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunAiHelperWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunAiHelperWritingResponse>(await this.callApi(params, req, runtime), new $_model.RunAiHelperWritingResponse({}));
+  }
+
+  /**
+   * 妙笔：AI助手写作
+   * 
+   * @param request - RunAiHelperWritingRequest
+   * @returns RunAiHelperWritingResponse
+   */
+  async runAiHelperWriting(request: $_model.RunAiHelperWritingRequest): Promise<$_model.RunAiHelperWritingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runAiHelperWritingWithOptions(request, runtime);
+  }
+
+  /**
    * 妙读生成书籍脑图
    * 
    * @param request - RunBookBrainmapRequest
@@ -10091,6 +10379,100 @@ export default class Client extends OpenApi {
   async runMultiDocIntroduction(request: $_model.RunMultiDocIntroductionRequest): Promise<$_model.RunMultiDocIntroductionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runMultiDocIntroductionWithOptions(request, runtime);
+  }
+
+  /**
+   * 流式输出PPT大纲
+   * 
+   * @param request - RunPptOutlineGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunPptOutlineGenerationResponse
+   */
+  async *runPptOutlineGenerationWithSSE(request: $_model.RunPptOutlineGenerationRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunPptOutlineGenerationResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunPptOutlineGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunPptOutlineGenerationResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunPptOutlineGenerationResponse({}));
+    }
+  }
+
+  /**
+   * 流式输出PPT大纲
+   * 
+   * @param request - RunPptOutlineGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunPptOutlineGenerationResponse
+   */
+  async runPptOutlineGenerationWithOptions(request: $_model.RunPptOutlineGenerationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunPptOutlineGenerationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunPptOutlineGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunPptOutlineGenerationResponse>(await this.callApi(params, req, runtime), new $_model.RunPptOutlineGenerationResponse({}));
+  }
+
+  /**
+   * 流式输出PPT大纲
+   * 
+   * @param request - RunPptOutlineGenerationRequest
+   * @returns RunPptOutlineGenerationResponse
+   */
+  async runPptOutlineGeneration(request: $_model.RunPptOutlineGenerationRequest): Promise<$_model.RunPptOutlineGenerationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runPptOutlineGenerationWithOptions(request, runtime);
   }
 
   /**
