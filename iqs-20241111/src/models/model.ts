@@ -17,6 +17,7 @@ export { GlobalSceneItem } from './GlobalSceneItem';
 export { GlobalSearchInformation } from './GlobalSearchInformation';
 export { GlobalSearchResult } from './GlobalSearchResult';
 export { IncludeImage } from './IncludeImage';
+export { LocationInfo } from './LocationInfo';
 export { QueryContext } from './QueryContext';
 export { ReadPageBody } from './ReadPageBody';
 export { ReadPageItem } from './ReadPageItem';

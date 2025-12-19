@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { RequestContents } from "./RequestContents";
+import { LocationInfo } from "./LocationInfo";
 
 
 export class UnifiedSearchInput extends $dara.Model {
@@ -9,6 +10,7 @@ export class UnifiedSearchInput extends $dara.Model {
   contents?: RequestContents;
   engineType?: string;
   location?: string;
+  locationInfo?: LocationInfo;
   query?: string;
   timeRange?: string;
   static names(): { [key: string]: string } {
@@ -18,6 +20,7 @@ export class UnifiedSearchInput extends $dara.Model {
       contents: 'contents',
       engineType: 'engineType',
       location: 'location',
+      locationInfo: 'locationInfo',
       query: 'query',
       timeRange: 'timeRange',
     };
@@ -30,6 +33,7 @@ export class UnifiedSearchInput extends $dara.Model {
       contents: RequestContents,
       engineType: 'string',
       location: 'string',
+      locationInfo: LocationInfo,
       query: 'string',
       timeRange: 'string',
     };
@@ -41,6 +45,9 @@ export class UnifiedSearchInput extends $dara.Model {
     }
     if(this.contents && typeof (this.contents as any).validate === 'function') {
       (this.contents as any).validate();
+    }
+    if(this.locationInfo && typeof (this.locationInfo as any).validate === 'function') {
+      (this.locationInfo as any).validate();
     }
     super.validate();
   }
