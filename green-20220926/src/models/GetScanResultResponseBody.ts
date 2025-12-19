@@ -53,6 +53,7 @@ export class GetScanResultResponseBodyDataItemsResult extends $dara.Model {
 }
 
 export class GetScanResultResponseBodyDataItems extends $dara.Model {
+  accountId?: string;
   /**
    * @remarks
    * Automated review labels.
@@ -204,6 +205,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * nonLabel
    */
   labels?: string;
+  liveId?: string;
   /**
    * @remarks
    * Malicious file risk level.
@@ -471,6 +473,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   voiceService?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       apiLabels: 'ApiLabels',
       apiRequestTime: 'ApiRequestTime',
       apiRiskLevel: 'ApiRiskLevel',
@@ -490,6 +493,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       imageService: 'ImageService',
       imageUrl: 'ImageUrl',
       labels: 'Labels',
+      liveId: 'LiveId',
       maliciousFileLevel: 'MaliciousFileLevel',
       maliciousUrlLevel: 'MaliciousUrlLevel',
       manualOnly: 'ManualOnly',
@@ -528,6 +532,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       apiLabels: 'string',
       apiRequestTime: 'string',
       apiRiskLevel: 'string',
@@ -547,6 +552,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       imageService: 'string',
       imageUrl: 'string',
       labels: 'string',
+      liveId: 'string',
       maliciousFileLevel: 'string',
       maliciousUrlLevel: 'string',
       manualOnly: 'boolean',
