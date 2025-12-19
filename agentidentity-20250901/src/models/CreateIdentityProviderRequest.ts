@@ -1,0 +1,51 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CreateIdentityProviderRequest extends $dara.Model {
+  allowedAudience?: string[];
+  /**
+   * @example
+   * example agent
+   */
+  description?: string;
+  /**
+   * @example
+   * https://oauth.aliyun.com/.well-known/openid-configuration
+   */
+  discoveryURL?: string;
+  /**
+   * @example
+   * identity-provider-okta
+   */
+  identityProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedAudience: 'AllowedAudience',
+      description: 'Description',
+      discoveryURL: 'DiscoveryURL',
+      identityProviderName: 'IdentityProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedAudience: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      discoveryURL: 'string',
+      identityProviderName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowedAudience)) {
+      $dara.Model.validateArray(this.allowedAudience);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
