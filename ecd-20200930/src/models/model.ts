@@ -164,6 +164,8 @@ export { DescribePriceResponseBodyPriceInfo } from './DescribePriceResponseBody'
 export { DescribePriceForCreateDesktopOversoldGroupResponseBodyData } from './DescribePriceForCreateDesktopOversoldGroupResponseBody';
 export { DescribePriceForModifyDesktopOversoldGroupSaleResponseBodyData } from './DescribePriceForModifyDesktopOversoldGroupSaleResponseBody';
 export { DescribePriceForRenewDesktopOversoldGroupResponseBodyData } from './DescribePriceForRenewDesktopOversoldGroupResponseBody';
+export { DescribeRecordFileResponseBodyRecordFilesEventDetails } from './DescribeRecordFileResponseBody';
+export { DescribeRecordFileResponseBodyRecordFiles } from './DescribeRecordFileResponseBody';
 export { DescribeRecordingsResponseBodyRecordings } from './DescribeRecordingsResponseBody';
 export { DescribeRefundPriceResponseBodyPriceInfo } from './DescribeRefundPriceResponseBody';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
@@ -702,6 +704,9 @@ export { DescribePriceForModifyDesktopOversoldGroupSaleResponse } from './Descri
 export { DescribePriceForRenewDesktopOversoldGroupRequest } from './DescribePriceForRenewDesktopOversoldGroupRequest';
 export { DescribePriceForRenewDesktopOversoldGroupResponseBody } from './DescribePriceForRenewDesktopOversoldGroupResponseBody';
 export { DescribePriceForRenewDesktopOversoldGroupResponse } from './DescribePriceForRenewDesktopOversoldGroupResponse';
+export { DescribeRecordFileRequest } from './DescribeRecordFileRequest';
+export { DescribeRecordFileResponseBody } from './DescribeRecordFileResponseBody';
+export { DescribeRecordFileResponse } from './DescribeRecordFileResponse';
 export { DescribeRecordingsRequest } from './DescribeRecordingsRequest';
 export { DescribeRecordingsResponseBody } from './DescribeRecordingsResponseBody';
 export { DescribeRecordingsResponse } from './DescribeRecordingsResponse';

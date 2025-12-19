@@ -10585,6 +10585,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询录屏文件列表
+   * 
+   * @param request - DescribeRecordFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordFileResponse
+   */
+  async describeRecordFileWithOptions(request: $_model.DescribeRecordFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRecordFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderSort)) {
+      query["OrderSort"] = request.orderSort;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      query["RecordType"] = request.recordType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRecordFile",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRecordFileResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRecordFileResponse({}));
+  }
+
+  /**
+   * 查询录屏文件列表
+   * 
+   * @param request - DescribeRecordFileRequest
+   * @returns DescribeRecordFileResponse
+   */
+  async describeRecordFile(request: $_model.DescribeRecordFileRequest): Promise<$_model.DescribeRecordFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRecordFileWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of screen recording files.
    * 
    * @param request - DescribeRecordingsRequest
