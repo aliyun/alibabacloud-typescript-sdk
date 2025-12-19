@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetValidateFileStatusResponseBody extends $dara.Model {
+export class ListValidateFileResponseBodyFiles extends $dara.Model {
   /**
    * @example
-   * 2
+   * 1
    */
   catchAllNum?: string;
   /**
@@ -15,20 +15,29 @@ export class GetValidateFileStatusResponseBody extends $dara.Model {
   completeTime?: string;
   /**
    * @example
-   * 1
+   * 0
    */
   doNotMailNum?: string;
+  /**
+   * @example
+   * xxx
+   */
   fileId?: string;
   /**
    * @example
-   * file.txt
+   * test.csv
    */
   fileName?: string;
   /**
    * @example
-   * 2
+   * 4
    */
   invalidNum?: string;
+  /**
+   * @example
+   * true
+   */
+  isDownloadable?: boolean;
   /**
    * @example
    * 100%
@@ -41,11 +50,6 @@ export class GetValidateFileStatusResponseBody extends $dara.Model {
   processedNum?: string;
   /**
    * @example
-   * yyyy-yyyy-yyyy-yyyy
-   */
-  requestId?: string;
-  /**
-   * @example
    * completed
    */
   status?: string;
@@ -56,7 +60,7 @@ export class GetValidateFileStatusResponseBody extends $dara.Model {
   totalNum?: string;
   /**
    * @example
-   * 1
+   * 0
    */
   unknownNum?: string;
   /**
@@ -66,7 +70,7 @@ export class GetValidateFileStatusResponseBody extends $dara.Model {
   uploadTime?: string;
   /**
    * @example
-   * 4
+   * 5
    */
   validNum?: string;
   static names(): { [key: string]: string } {
@@ -77,9 +81,9 @@ export class GetValidateFileStatusResponseBody extends $dara.Model {
       fileId: 'FileId',
       fileName: 'FileName',
       invalidNum: 'InvalidNum',
+      isDownloadable: 'IsDownloadable',
       percentage: 'Percentage',
       processedNum: 'ProcessedNum',
-      requestId: 'RequestId',
       status: 'Status',
       totalNum: 'TotalNum',
       unknownNum: 'UnknownNum',
@@ -96,9 +100,9 @@ export class GetValidateFileStatusResponseBody extends $dara.Model {
       fileId: 'string',
       fileName: 'string',
       invalidNum: 'string',
+      isDownloadable: 'boolean',
       percentage: 'string',
       processedNum: 'string',
-      requestId: 'string',
       status: 'string',
       totalNum: 'string',
       unknownNum: 'string',
@@ -108,6 +112,74 @@ export class GetValidateFileStatusResponseBody extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListValidateFileResponseBody extends $dara.Model {
+  files?: ListValidateFileResponseBodyFiles[];
+  /**
+   * @example
+   * true
+   */
+  hasNext?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalPages?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      files: 'Files',
+      hasNext: 'HasNext',
+      page: 'Page',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalPages: 'TotalPages',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      files: { 'type': 'array', 'itemType': ListValidateFileResponseBodyFiles },
+      hasNext: 'boolean',
+      page: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalPages: 'number',
+      totalSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.files)) {
+      $dara.Model.validateArray(this.files);
+    }
     super.validate();
   }
 

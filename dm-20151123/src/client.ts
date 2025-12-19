@@ -2876,6 +2876,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取上传的校验文件的列表
+   * 
+   * @param request - ListValidateFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListValidateFileResponse
+   */
+  async listValidateFileWithOptions(request: $_model.ListValidateFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListValidateFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.fileKeyword)) {
+      query["FileKeyword"] = request.fileKeyword;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListValidateFile",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListValidateFileResponse>(await this.callApi(params, req, runtime), new $_model.ListValidateFileResponse({}));
+  }
+
+  /**
+   * 获取上传的校验文件的列表
+   * 
+   * @param request - ListValidateFileRequest
+   * @returns ListValidateFileResponse
+   */
+  async listValidateFile(request: $_model.ListValidateFileRequest): Promise<$_model.ListValidateFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listValidateFileWithOptions(request, runtime);
+  }
+
+  /**
    * Modify the sending address
    * 
    * @param request - ModifyMailAddressRequest
