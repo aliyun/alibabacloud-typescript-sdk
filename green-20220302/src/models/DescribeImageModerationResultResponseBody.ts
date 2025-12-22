@@ -63,6 +63,7 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $dara.M
 }
 
 export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
+  accountId?: string;
   /**
    * @remarks
    * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
@@ -111,6 +112,7 @@ export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       dataId: 'DataId',
       frame: 'Frame',
       frameNum: 'FrameNum',
@@ -123,6 +125,7 @@ export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       dataId: 'string',
       frame: 'string',
       frameNum: 'number',

@@ -80,6 +80,9 @@ export { ManualModerationResultResponseBodyData } from './ManualModerationResult
 export { MultiModalGuardResponseBodyDataDetailResult } from './MultiModalGuardResponseBody';
 export { MultiModalGuardResponseBodyDataDetail } from './MultiModalGuardResponseBody';
 export { MultiModalGuardResponseBodyData } from './MultiModalGuardResponseBody';
+export { MultiModalGuardForBase64ResponseBodyDataDetailResult } from './MultiModalGuardForBase64responseBody';
+export { MultiModalGuardForBase64ResponseBodyDataDetail } from './MultiModalGuardForBase64responseBody';
+export { MultiModalGuardForBase64ResponseBodyData } from './MultiModalGuardForBase64responseBody';
 export { MultimodalAsyncModerationResponseBodyData } from './MultimodalAsyncModerationResponseBody';
 export { TextModerationResponseBodyData } from './TextModerationResponseBody';
 export { TextModerationPlusResponseBodyDataAdvice } from './TextModerationPlusResponseBody';
@@ -152,6 +155,9 @@ export { ManualModerationResultResponse } from './ManualModerationResultResponse
 export { MultiModalGuardRequest } from './MultiModalGuardRequest';
 export { MultiModalGuardResponseBody } from './MultiModalGuardResponseBody';
 export { MultiModalGuardResponse } from './MultiModalGuardResponse';
+export { MultiModalGuardForBase64Request } from './MultiModalGuardForBase64request';
+export { MultiModalGuardForBase64ResponseBody } from './MultiModalGuardForBase64responseBody';
+export { MultiModalGuardForBase64Response } from './MultiModalGuardForBase64response';
 export { MultimodalAsyncModerationRequest } from './MultimodalAsyncModerationRequest';
 export { MultimodalAsyncModerationResponseBody } from './MultimodalAsyncModerationResponseBody';
 export { MultimodalAsyncModerationResponse } from './MultimodalAsyncModerationResponse';

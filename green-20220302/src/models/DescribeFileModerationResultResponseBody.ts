@@ -595,6 +595,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
 }
 
 export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
+  accountId?: string;
   /**
    * @remarks
    * The ID of the moderated object.
@@ -639,6 +640,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       dataId: 'DataId',
       docType: 'DocType',
       pageResult: 'PageResult',
@@ -650,6 +652,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       dataId: 'string',
       docType: 'string',
       pageResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResult },

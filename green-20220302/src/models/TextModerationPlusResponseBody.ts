@@ -283,6 +283,7 @@ export class TextModerationPlusResponseBodyDataSensitiveResult extends $dara.Mod
 }
 
 export class TextModerationPlusResponseBodyData extends $dara.Model {
+  accountId?: string;
   /**
    * @remarks
    * The suggestion.
@@ -348,6 +349,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
   translatedContent?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       advice: 'Advice',
       attackLevel: 'AttackLevel',
       attackResult: 'AttackResult',
@@ -365,6 +367,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       advice: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataAdvice },
       attackLevel: 'string',
       attackResult: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataAttackResult },

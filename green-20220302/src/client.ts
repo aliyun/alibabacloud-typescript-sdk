@@ -750,6 +750,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 多模态同步检测接口，支持图片base64字符串
+   * 
+   * @param request - MultiModalGuardForBase64Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalGuardForBase64Response
+   */
+  async multiModalGuardForBase64WithOptions(request: $_model.MultiModalGuardForBase64Request, runtime: $dara.RuntimeOptions): Promise<$_model.MultiModalGuardForBase64Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageBase64Str)) {
+      body["ImageBase64Str"] = request.imageBase64Str;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalGuardForBase64",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultiModalGuardForBase64Response>(await this.callApi(params, req, runtime), new $_model.MultiModalGuardForBase64Response({}));
+  }
+
+  /**
+   * 多模态同步检测接口，支持图片base64字符串
+   * 
+   * @param request - MultiModalGuardForBase64Request
+   * @returns MultiModalGuardForBase64Response
+   */
+  async multiModalGuardForBase64(request: $_model.MultiModalGuardForBase64Request): Promise<$_model.MultiModalGuardForBase64Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multiModalGuardForBase64WithOptions(request, runtime);
+  }
+
+  /**
    * 多模态-异步检测
    * 
    * @param request - MultimodalAsyncModerationRequest

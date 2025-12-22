@@ -1448,6 +1448,7 @@ export class ImageModerationResponseBodyDataResult extends $dara.Model {
 }
 
 export class ImageModerationResponseBodyData extends $dara.Model {
+  accountId?: string;
   /**
    * @remarks
    * The ID of the moderated object.
@@ -1479,6 +1480,7 @@ export class ImageModerationResponseBodyData extends $dara.Model {
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       dataId: 'DataId',
       ext: 'Ext',
       manualTaskId: 'ManualTaskId',
@@ -1489,6 +1491,7 @@ export class ImageModerationResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       dataId: 'string',
       ext: ImageModerationResponseBodyDataExt,
       manualTaskId: 'string',
