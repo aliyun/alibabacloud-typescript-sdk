@@ -365,6 +365,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
    */
   liveness?: string;
+  lokiConfigs?: string;
   /**
    * @remarks
    * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
@@ -887,6 +888,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
       liveness: 'Liveness',
+      lokiConfigs: 'LokiConfigs',
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
       microRegistrationConfig: 'MicroRegistrationConfig',
@@ -977,6 +979,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       jdk: 'string',
       kafkaConfigs: 'string',
       liveness: 'string',
+      lokiConfigs: 'string',
       memory: 'number',
       microRegistration: 'string',
       microRegistrationConfig: 'string',

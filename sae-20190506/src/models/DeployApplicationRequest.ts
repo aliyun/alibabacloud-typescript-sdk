@@ -369,6 +369,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * {"exec":{"command":["sleep","5s"]},"initialDelaySeconds":10,"timeoutSeconds":11}
    */
   liveness?: string;
+  lokiConfigs?: string;
   maxSurgeInstanceRatio?: number;
   maxSurgeInstances?: number;
   /**
@@ -926,6 +927,7 @@ export class DeployApplicationRequest extends $dara.Model {
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
       liveness: 'Liveness',
+      lokiConfigs: 'LokiConfigs',
       maxSurgeInstanceRatio: 'MaxSurgeInstanceRatio',
       maxSurgeInstances: 'MaxSurgeInstances',
       memory: 'Memory',
@@ -1014,6 +1016,7 @@ export class DeployApplicationRequest extends $dara.Model {
       jdk: 'string',
       kafkaConfigs: 'string',
       liveness: 'string',
+      lokiConfigs: 'string',
       maxSurgeInstanceRatio: 'number',
       maxSurgeInstances: 'number',
       memory: 'number',

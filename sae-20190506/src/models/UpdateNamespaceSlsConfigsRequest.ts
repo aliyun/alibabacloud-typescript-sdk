@@ -42,11 +42,13 @@ export class UpdateNamespaceSlsConfigsRequest extends $dara.Model {
    * [{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]
    */
   slsConfigs?: string;
+  slsLogEnvTags?: string;
   static names(): { [key: string]: string } {
     return {
       nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
       slsConfigs: 'SlsConfigs',
+      slsLogEnvTags: 'SlsLogEnvTags',
     };
   }
 
@@ -55,6 +57,7 @@ export class UpdateNamespaceSlsConfigsRequest extends $dara.Model {
       nameSpaceShortId: 'string',
       namespaceId: 'string',
       slsConfigs: 'string',
+      slsLogEnvTags: 'string',
     };
   }
 

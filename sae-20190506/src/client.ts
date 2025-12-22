@@ -606,6 +606,10 @@ export default class Client extends OpenApi {
       query["Liveness"] = request.liveness;
     }
 
+    if (!$dara.isNull(request.lokiConfigs)) {
+      query["LokiConfigs"] = request.lokiConfigs;
+    }
+
     if (!$dara.isNull(request.memory)) {
       query["Memory"] = request.memory;
     }
@@ -2676,6 +2680,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.liveness)) {
       query["Liveness"] = request.liveness;
+    }
+
+    if (!$dara.isNull(request.lokiConfigs)) {
+      query["LokiConfigs"] = request.lokiConfigs;
     }
 
     if (!$dara.isNull(request.maxSurgeInstanceRatio)) {
@@ -8922,6 +8930,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.slsConfigs)) {
       query["SlsConfigs"] = request.slsConfigs;
+    }
+
+    if (!$dara.isNull(request.slsLogEnvTags)) {
+      query["SlsLogEnvTags"] = request.slsLogEnvTags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
