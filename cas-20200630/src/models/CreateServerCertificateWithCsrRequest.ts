@@ -97,6 +97,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
    * -----BEGIN CERTIFICATE REQUEST-----   ...... -----END CERTIFICATE REQUEST-----
    */
   csr?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The validity period of the server certificate. Unit: days.
@@ -218,6 +219,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
       commonName: 'CommonName',
       country: 'Country',
       csr: 'Csr',
+      customIdentifier: 'CustomIdentifier',
       days: 'Days',
       domain: 'Domain',
       enableCrl: 'EnableCrl',
@@ -242,6 +244,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
       commonName: 'string',
       country: 'string',
       csr: 'string',
+      customIdentifier: 'string',
       days: 'number',
       domain: 'string',
       enableCrl: 'number',

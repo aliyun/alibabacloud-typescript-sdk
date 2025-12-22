@@ -163,6 +163,10 @@ export default class Client extends OpenApi {
       query["Country"] = request.country;
     }
 
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
+    }
+
     if (!$dara.isNull(request.days)) {
       query["Days"] = request.days;
     }
@@ -289,6 +293,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.csr)) {
       query["Csr"] = request.csr;
+    }
+
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
     }
 
     if (!$dara.isNull(request.days)) {
@@ -437,6 +445,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.validity)) {
       query["Validity"] = request.validity;
+    }
+
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["customIdentifier"] = request.customIdentifier;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -735,6 +747,10 @@ export default class Client extends OpenApi {
       query["Country"] = request.country;
     }
 
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
+    }
+
     if (!$dara.isNull(request.days)) {
       query["Days"] = request.days;
     }
@@ -856,6 +872,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.csr)) {
       query["Csr"] = request.csr;
+    }
+
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
     }
 
     if (!$dara.isNull(request.days)) {

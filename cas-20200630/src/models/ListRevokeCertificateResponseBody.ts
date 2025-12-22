@@ -57,6 +57,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
    * CN
    */
   countryCode?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The unique identifier of the certificate.
@@ -203,6 +204,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
       certificateType: 'CertificateType',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
+      customIdentifier: 'CustomIdentifier',
       identifier: 'Identifier',
       keySize: 'KeySize',
       locality: 'Locality',
@@ -229,6 +231,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
       certificateType: 'string',
       commonName: 'string',
       countryCode: 'string',
+      customIdentifier: 'string',
       identifier: 'string',
       keySize: 'number',
       locality: 'string',

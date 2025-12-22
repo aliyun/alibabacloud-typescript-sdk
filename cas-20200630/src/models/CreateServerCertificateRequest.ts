@@ -89,6 +89,7 @@ export class CreateServerCertificateRequest extends $dara.Model {
    * CN
    */
   country?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The validity period of the server certificate. Unit: days. You must specify at least one of the **Days**, **BeforeTime**, and **AfterTime** parameters. The **BeforeTime** and **AfterTime** parameters must be both empty or both specified. The following list describes how to specify these parameters:
@@ -208,6 +209,7 @@ export class CreateServerCertificateRequest extends $dara.Model {
       beforeTime: 'BeforeTime',
       commonName: 'CommonName',
       country: 'Country',
+      customIdentifier: 'CustomIdentifier',
       days: 'Days',
       domain: 'Domain',
       enableCrl: 'EnableCrl',
@@ -231,6 +233,7 @@ export class CreateServerCertificateRequest extends $dara.Model {
       beforeTime: 'number',
       commonName: 'string',
       country: 'string',
+      customIdentifier: 'string',
       days: 'number',
       domain: 'string',
       enableCrl: 'number',

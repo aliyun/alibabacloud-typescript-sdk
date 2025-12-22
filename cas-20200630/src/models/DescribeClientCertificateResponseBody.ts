@@ -57,6 +57,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * 1634283958000
    */
   beforeDate?: number;
+  certChain?: string;
   /**
    * @remarks
    * The type of the certificate. Valid values:
@@ -86,6 +87,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * CN
    */
   countryCode?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The validity period of the certificate. Unit: days.
@@ -242,9 +244,11 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       afterDate: 'AfterDate',
       algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      certChain: 'CertChain',
       certificateType: 'CertificateType',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
+      customIdentifier: 'CustomIdentifier',
       days: 'Days',
       identifier: 'Identifier',
       keySize: 'KeySize',
@@ -271,9 +275,11 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       afterDate: 'number',
       algorithm: 'string',
       beforeDate: 'number',
+      certChain: 'string',
       certificateType: 'string',
       commonName: 'string',
       countryCode: 'string',
+      customIdentifier: 'string',
       days: 'number',
       identifier: 'string',
       keySize: 'number',

@@ -39,6 +39,7 @@ export class ListCertResponseBodyList extends $dara.Model {
    * www.kfsjn.xyz
    */
   commonName?: string;
+  customIdentifier?: string;
   /**
    * @example
    * {\\"appId\\":\\"APP_PFHMIGUHKDUW6S3N7ZL2\\"}
@@ -87,6 +88,7 @@ export class ListCertResponseBodyList extends $dara.Model {
       beforeTime: 'BeforeTime',
       certificateType: 'CertificateType',
       commonName: 'CommonName',
+      customIdentifier: 'CustomIdentifier',
       extra: 'Extra',
       id: 'Id',
       identifier: 'Identifier',
@@ -110,6 +112,7 @@ export class ListCertResponseBodyList extends $dara.Model {
       beforeTime: 'number',
       certificateType: 'string',
       commonName: 'string',
+      customIdentifier: 'string',
       extra: 'string',
       id: 'string',
       identifier: 'string',

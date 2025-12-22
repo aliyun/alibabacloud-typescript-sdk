@@ -523,6 +523,7 @@ export class CreateCustomCertificateRequest extends $dara.Model {
    * ● 2006-01-02T15:04:05Z/2023-03-09T17:48:13Z
    */
   validity?: string;
+  customIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
       apiPassthrough: 'ApiPassthrough',
@@ -533,6 +534,7 @@ export class CreateCustomCertificateRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       validity: 'Validity',
+      customIdentifier: 'customIdentifier',
     };
   }
 
@@ -546,6 +548,7 @@ export class CreateCustomCertificateRequest extends $dara.Model {
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': CreateCustomCertificateRequestTags },
       validity: 'string',
+      customIdentifier: 'string',
     };
   }
 

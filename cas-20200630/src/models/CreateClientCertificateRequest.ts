@@ -87,6 +87,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
    * CN
    */
   country?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The validity period of the client certificate. Unit: day. You must specify at least one of the **Days**, **BeforeTime**, and **AfterTime** parameters. The **BeforeTime** and **AfterTime** parameters must be both empty or both specified. The following list describes how to specify these parameters:
@@ -213,6 +214,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
       beforeTime: 'BeforeTime',
       commonName: 'CommonName',
       country: 'Country',
+      customIdentifier: 'CustomIdentifier',
       days: 'Days',
       enableCrl: 'EnableCrl',
       immediately: 'Immediately',
@@ -237,6 +239,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
       beforeTime: 'number',
       commonName: 'string',
       country: 'string',
+      customIdentifier: 'string',
       days: 'number',
       enableCrl: 'number',
       immediately: 'number',

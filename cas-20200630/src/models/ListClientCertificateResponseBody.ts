@@ -60,6 +60,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * CN
    */
   countryCode?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The validity period of the certificate. Unit: days.
@@ -218,6 +219,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
       certificateType: 'CertificateType',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
+      customIdentifier: 'CustomIdentifier',
       days: 'Days',
       identifier: 'Identifier',
       keySize: 'KeySize',
@@ -246,6 +248,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
       certificateType: 'string',
       commonName: 'string',
       countryCode: 'string',
+      customIdentifier: 'string',
       days: 'number',
       identifier: 'string',
       keySize: 'number',
