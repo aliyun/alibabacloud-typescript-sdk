@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class RecognizeCharacterResponseBodyDataResultsTextRectanglesPos extends $dara.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'x',
+      y: 'y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeCharacterResponseBodyDataResultsTextRectangles extends $dara.Model {
   /**
    * @example
@@ -18,6 +44,7 @@ export class RecognizeCharacterResponseBodyDataResultsTextRectangles extends $da
    * 511
    */
   left?: number;
+  pos?: RecognizeCharacterResponseBodyDataResultsTextRectanglesPos[];
   /**
    * @example
    * 150
@@ -33,6 +60,7 @@ export class RecognizeCharacterResponseBodyDataResultsTextRectangles extends $da
       angle: 'Angle',
       height: 'Height',
       left: 'Left',
+      pos: 'Pos',
       top: 'Top',
       width: 'Width',
     };
@@ -43,12 +71,16 @@ export class RecognizeCharacterResponseBodyDataResultsTextRectangles extends $da
       angle: 'number',
       height: 'number',
       left: 'number',
+      pos: { 'type': 'array', 'itemType': RecognizeCharacterResponseBodyDataResultsTextRectanglesPos },
       top: 'number',
       width: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.pos)) {
+      $dara.Model.validateArray(this.pos);
+    }
     super.validate();
   }
 

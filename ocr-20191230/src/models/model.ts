@@ -5,6 +5,7 @@ export { RecognizeBusinessLicenseResponseBodyDataQRCode } from './RecognizeBusin
 export { RecognizeBusinessLicenseResponseBodyDataStamp } from './RecognizeBusinessLicenseResponseBody';
 export { RecognizeBusinessLicenseResponseBodyDataTitle } from './RecognizeBusinessLicenseResponseBody';
 export { RecognizeBusinessLicenseResponseBodyData } from './RecognizeBusinessLicenseResponseBody';
+export { RecognizeCharacterResponseBodyDataResultsTextRectanglesPos } from './RecognizeCharacterResponseBody';
 export { RecognizeCharacterResponseBodyDataResultsTextRectangles } from './RecognizeCharacterResponseBody';
 export { RecognizeCharacterResponseBodyDataResults } from './RecognizeCharacterResponseBody';
 export { RecognizeCharacterResponseBodyData } from './RecognizeCharacterResponseBody';
