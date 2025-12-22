@@ -74,6 +74,14 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
    */
   addressType?: number;
   attachments?: SingleSendMailAdvanceRequestAttachments[];
+  /**
+   * @example
+   * 1@example.com,2@example.com
+   * 
+   * **if can be null:**
+   * true
+   */
+  bccAddress?: string;
   clickTrace?: string;
   fromAlias?: string;
   headers?: string;
@@ -109,6 +117,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
       accountName: 'AccountName',
       addressType: 'AddressType',
       attachments: 'Attachments',
+      bccAddress: 'BccAddress',
       clickTrace: 'ClickTrace',
       fromAlias: 'FromAlias',
       headers: 'Headers',
@@ -135,6 +144,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
       accountName: 'string',
       addressType: 'number',
       attachments: { 'type': 'array', 'itemType': SingleSendMailAdvanceRequestAttachments },
+      bccAddress: 'string',
       clickTrace: 'string',
       fromAlias: 'string',
       headers: 'string',

@@ -4262,6 +4262,10 @@ export default class Client extends OpenApi {
       body["Attachments"] = request.attachments;
     }
 
+    if (!$dara.isNull(request.bccAddress)) {
+      body["BccAddress"] = request.bccAddress;
+    }
+
     if (!$dara.isNull(request.clickTrace)) {
       body["ClickTrace"] = request.clickTrace;
     }
