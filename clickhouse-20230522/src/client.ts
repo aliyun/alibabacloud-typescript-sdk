@@ -562,6 +562,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增白名单模板
+   * 
+   * @param request - CreateWhitelistTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWhitelistTemplateResponse
+   */
+  async createWhitelistTemplateWithOptions(request: $_model.CreateWhitelistTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWhitelistTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.securityIPList)) {
+      body["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWhitelistTemplate",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateWhitelistTemplateResponse({}));
+  }
+
+  /**
+   * 新增白名单模板
+   * 
+   * @param request - CreateWhitelistTemplateRequest
+   * @returns CreateWhitelistTemplateResponse
+   */
+  async createWhitelistTemplate(request: $_model.CreateWhitelistTemplateRequest): Promise<$_model.CreateWhitelistTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWhitelistTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a database account from an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DeleteAccountRequest
