@@ -30,6 +30,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AddUserDefinedSg
+   * 
+   * @param tmpReq - AddUserDefinedSgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUserDefinedSgResponse
+   */
+  async addUserDefinedSgWithOptions(tmpReq: $_model.AddUserDefinedSgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddUserDefinedSgResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddUserDefinedSgShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sgIdList)) {
+      request.sgIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sgIdList, "SgIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sgIdListShrink)) {
+      query["SgIdList"] = request.sgIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddUserDefinedSg",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddUserDefinedSgResponse>(await this.callApi(params, req, runtime), new $_model.AddUserDefinedSgResponse({}));
+  }
+
+  /**
+   * AddUserDefinedSg
+   * 
+   * @param request - AddUserDefinedSgRequest
+   * @returns AddUserDefinedSgResponse
+   */
+  async addUserDefinedSg(request: $_model.AddUserDefinedSgRequest): Promise<$_model.AddUserDefinedSgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addUserDefinedSgWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the resource group of an ApsaraMQ for Kafka instance.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -1261,6 +1317,62 @@ export default class Client extends OpenApi {
   async deleteTopic(request: $_model.DeleteTopicRequest): Promise<$_model.DeleteTopicResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteUserDefinedSg
+   * 
+   * @param tmpReq - DeleteUserDefinedSgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserDefinedSgResponse
+   */
+  async deleteUserDefinedSgWithOptions(tmpReq: $_model.DeleteUserDefinedSgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUserDefinedSgResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteUserDefinedSgShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sgIdList)) {
+      request.sgIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sgIdList, "SgIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sgIdListShrink)) {
+      query["SgIdList"] = request.sgIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteUserDefinedSg",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteUserDefinedSgResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUserDefinedSgResponse({}));
+  }
+
+  /**
+   * DeleteUserDefinedSg
+   * 
+   * @param request - DeleteUserDefinedSgRequest
+   * @returns DeleteUserDefinedSgResponse
+   */
+  async deleteUserDefinedSg(request: $_model.DeleteUserDefinedSgRequest): Promise<$_model.DeleteUserDefinedSgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteUserDefinedSgWithOptions(request, runtime);
   }
 
   /**
@@ -2767,6 +2879,62 @@ export default class Client extends OpenApi {
   async modifyTopicRemark(request: $_model.ModifyTopicRemarkRequest): Promise<$_model.ModifyTopicRemarkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyTopicRemarkWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyUserDefinedSg
+   * 
+   * @param tmpReq - ModifyUserDefinedSgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserDefinedSgResponse
+   */
+  async modifyUserDefinedSgWithOptions(tmpReq: $_model.ModifyUserDefinedSgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyUserDefinedSgResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyUserDefinedSgShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sgIdList)) {
+      request.sgIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sgIdList, "SgIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sgIdListShrink)) {
+      query["SgIdList"] = request.sgIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyUserDefinedSg",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyUserDefinedSgResponse>(await this.callApi(params, req, runtime), new $_model.ModifyUserDefinedSgResponse({}));
+  }
+
+  /**
+   * ModifyUserDefinedSg
+   * 
+   * @param request - ModifyUserDefinedSgRequest
+   * @returns ModifyUserDefinedSgResponse
+   */
+  async modifyUserDefinedSg(request: $_model.ModifyUserDefinedSgRequest): Promise<$_model.ModifyUserDefinedSgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyUserDefinedSgWithOptions(request, runtime);
   }
 
   /**
