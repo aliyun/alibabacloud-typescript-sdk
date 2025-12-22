@@ -59,6 +59,7 @@ export { DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets } from
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages } from './DescribeFileSystemsResponseBody';
+export { DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag } from './DescribeFileSystemsResponseBody';
 export { DescribeFileSystemsResponseBodyFileSystemsFileSystemTags } from './DescribeFileSystemsResponseBody';

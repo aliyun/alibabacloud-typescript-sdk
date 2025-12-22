@@ -478,6 +478,32 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages extend
   }
 }
 
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds extends $dara.Model {
+  redundancyVSwitchId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      redundancyVSwitchId: 'RedundancyVSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      redundancyVSwitchId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.redundancyVSwitchId)) {
+      $dara.Model.validateArray(this.redundancyVSwitchId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures extends $dara.Model {
   supportedFeature?: string[];
   static names(): { [key: string]: string } {
@@ -697,13 +723,11 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
    * @remarks
    * The file system type.
    * 
-   * Valid values:
+   * The following information is displayed:
    * 
    * *   standard: General-purpose NAS file system.
    * *   extreme: Extreme NAS file system.
    * *   cpfs: CPFS file system.
-   * 
-   * >  CPFS file systems are available only on the China site (aliyun.com).
    * 
    * @example
    * standard
@@ -773,13 +797,11 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
    * @remarks
    * The protocol type of the file system.
    * 
-   * Valid values:
+   * The following information is displayed:
    * 
    * *   NFS: Network File System.
    * *   SMB: Server Message Block.
    * *   cpfs: The protocol type supported by the CPFS file system.
-   * 
-   * >  CPFS file systems are available only on the China site (aliyun.com).
    * 
    * @example
    * NFS
@@ -793,6 +815,12 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
    * vsw-2ze37k6jh8ums2fw2****
    */
   quorumVswId?: string;
+  /**
+   * @example
+   * LRS
+   */
+  redundancyType?: string;
+  redundancyVSwitchIds?: DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds;
   /**
    * @remarks
    * The region ID.
@@ -825,13 +853,13 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
   status?: string;
   /**
    * @remarks
-   * The storage type.
+   * The type of the storage.
    * 
-   * Valid values:
-   * - Valid values for General-purpose NAS file systems: Capacity,Premium and Performance.
-   * - Valid values for Extreme NAS file systems: standard and advance.
-   * - Valid values for CPFS file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline).
-   *  > CPFS file systems are available only on the China site (aliyun.com).
+   * The following information is displayed:
+   * 
+   * *   Valid values for General-purpose NAS file systems: Capacity, Performance, and Premium
+   * *   Valid values for Extreme NAS file systems: standard and advance
+   * *   Valid values for Cloud Parallel File Storage (CPFS) file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline)
    * 
    * @example
    * Performance
@@ -909,6 +937,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
       packages: 'Packages',
       protocolType: 'ProtocolType',
       quorumVswId: 'QuorumVswId',
+      redundancyType: 'RedundancyType',
+      redundancyVSwitchIds: 'RedundancyVSwitchIds',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
@@ -946,6 +976,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
       packages: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages,
       protocolType: 'string',
       quorumVswId: 'string',
+      redundancyType: 'string',
+      redundancyVSwitchIds: DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds,
       regionId: 'string',
       resourceGroupId: 'string',
       status: 'string',
@@ -972,6 +1004,9 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
     }
     if(this.packages && typeof (this.packages as any).validate === 'function') {
       (this.packages as any).validate();
+    }
+    if(this.redundancyVSwitchIds && typeof (this.redundancyVSwitchIds as any).validate === 'function') {
+      (this.redundancyVSwitchIds as any).validate();
     }
     if(this.supportedFeatures && typeof (this.supportedFeatures as any).validate === 'function') {
       (this.supportedFeatures as any).validate();

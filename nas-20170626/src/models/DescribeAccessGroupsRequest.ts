@@ -22,11 +22,9 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard (default): General-purpose NAS file system.
+   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
    * *   extreme: Extreme NAS file system.
-   * *   cpfs: Cloud Parallel File Storage (CPFS) file system.
-   * 
-   * > CPFS file systems are available only on the China site (aliyun.com).
+   * *   cpfs: CPFS file system.
    * 
    * @example
    * standard
@@ -44,7 +42,7 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of permission groups returned per page.
    * 
    * Valid values: 1 to 100.
    * 

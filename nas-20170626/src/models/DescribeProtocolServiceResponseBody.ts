@@ -130,6 +130,16 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    * Running
    */
   status?: string;
+  /**
+   * @example
+   * vsw-123xxx
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-123xxx
+   */
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -145,6 +155,8 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
       protocolThroughput: 'ProtocolThroughput',
       protocolType: 'ProtocolType',
       status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -163,6 +175,8 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
       protocolThroughput: 'number',
       protocolType: 'string',
       status: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 

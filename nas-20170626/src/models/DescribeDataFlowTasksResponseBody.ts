@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats extends $dara.Model {
   /**
    * @remarks
-   * The actual amount of data for which the data flow task is complete. Unit: bytes.
+   * The actual amount of data for which the dataflow task is complete. Unit: bytes.
    * 
    * @example
    * 131092971520
@@ -13,7 +13,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats extends 
   actualBytes?: number;
   /**
    * @remarks
-   * The actual number of files for which the data flow task is complete.
+   * The actual number of files for which the dataflow task is complete.
    * 
    * @example
    * 3
@@ -29,7 +29,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats extends 
   averageSpeed?: number;
   /**
    * @remarks
-   * The amount of data (including skipped data) for which the data flow task is complete. Unit: bytes.
+   * The amount of data (including skipped data) for which the dataflow task is complete. Unit: bytes.
    * 
    * @example
    * 131092971520
@@ -45,7 +45,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats extends 
   bytesTotal?: number;
   /**
    * @remarks
-   * The number of files (including skipped files) for which the data flow task is complete.
+   * The number of files (including skipped files) for which the dataflow task is complete.
    * 
    * @example
    * 3
@@ -111,7 +111,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTaskReportsReport extends 
    * 
    *     TotalFilesReport: task reports.
    * 
-   * *   CPFS for LINGJUN:
+   * *   CPFS for Lingjun:
    * 
    *     *   FailedFilesReport: failed file reports.
    *     *   SkippedFilesReport: skipped file reports.
@@ -198,7 +198,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the data flow.
+   * The ID of the dataflow.
    * 
    * @example
    * dfid-194433a5be3****
@@ -206,13 +206,13 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   dataFlowId?: string;
   /**
    * @remarks
-   * The type of data on which operations are performed by the data flow task. Valid values:
+   * The type of data on which operations are performed by the dataflow task. The following information is displayed:
    * 
    * *   Metadata: the metadata of a file, including the timestamp, ownership, and permission information of the file. If you select Metadata, only the metadata of the file is imported. You can only query the file. When you access the file data, the file is loaded from the source storage as required.
    * *   Data: the data blocks of the file.
    * *   MetaAndData: the metadata and data blocks of the file.
    * 
-   * >  CPFS for LINGJUN supports only the MetaAndData type.
+   * >  CPFS for Lingjun supports only the MetaAndData type.
    * 
    * @example
    * Metadata
@@ -220,7 +220,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The directory in which the data flow task is executed.
+   * The directory in which the dataflow task is executed.
    * 
    * @example
    * /path_in_cpfs/
@@ -228,7 +228,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The directory mapped to the data flow task.
+   * The directory mapped to the dataflow task.
    * 
    * @example
    * /path_in_cpfs/
@@ -236,7 +236,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   dstDirectory?: string;
   /**
    * @remarks
-   * The time when the task ended.
+   * The end time of the task.
    * 
    * @example
    * 2021-08-04 18:27:35
@@ -284,7 +284,9 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   fsPath?: string;
   /**
    * @remarks
-   * Filter the directories under directory and transfer the folder contents contained in the filtered directory.
+   * Filters subdirectories and transfers their contents.
+   * 
+   * >  Only CPFS for Lingjun supports this operation.
    * 
    * @example
    * ["/test/","/test1/"]
@@ -292,7 +294,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   includes?: string;
   /**
    * @remarks
-   * The initiator of the data flow task. Valid values:
+   * The initiator of the dataflow task. The following information is displayed:
    * 
    * *   User: The task is initiated by a user.
    * *   System: The task is automatically initiated by CPFS based on the automatic update interval.
@@ -305,7 +307,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   originator?: string;
   /**
    * @remarks
-   * The progress of the data flow task. The number of operations that have been performed by the data flow task.
+   * The progress of the dataflow task. The number of operations that have been performed by the dataflow task.
    * 
    * @example
    * 240
@@ -313,15 +315,15 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The progress of the data flow task.
+   * The progress of the dataflow task.
    */
   progressStats?: DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats;
   /**
    * @remarks
-   * The save path of data flow task reports in the CPFS file system.
+   * The save path of dataflow task reports in the CPFS file system.
    * 
    * *   The task reports for a CPFS file system are generated in the `.dataflow_report` directory of the CPFS file system.
-   * *   CPFS for LINGJUN returns an OSS download link for you to download the task reports.
+   * *   CPFS for Lingjun returns an OSS download link for you to download the task reports.
    * 
    * @example
    * /path_in_cpfs/reportfile.cvs
@@ -333,14 +335,20 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
    * @remarks
    * The reports.
    * 
-   * >  Streaming tasks do not support reports.
+   * > 
+   * 
+   * *   Streaming tasks do not support reports.
+   * 
+   * *   If the WithReport parameter is set to True, the CPFS for Lingjun report data is returned.
+   * 
+   * *   Only CPFS for Lingjun supports the WithReport parameter.
    */
   reports?: DescribeDataFlowTasksResponseBodyTaskInfoTaskReports;
   /**
    * @remarks
    * The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
    * 
-   * Parameters:
+   * Among them:
    * 
    * *   storage type: Only Object Storage Service (OSS) is supported.
    * 
@@ -356,7 +364,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
    * 
    * *   The OSS bucket must be an existing bucket in the region.
    * 
-   * *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
+   * *   Only CPFS for Lingjun V2.6.0 and later support the account id parameter.
    * 
    * @example
    * oss://bucket1
@@ -364,7 +372,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   sourceStorage?: string;
   /**
    * @remarks
-   * The time when the task started.
+   * The start time of the task.
    * 
    * @example
    * 2021-08-04 18:27:35
@@ -372,14 +380,14 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the data flow task. Valid values:
+   * The status of the dataflow task. The following information is displayed:
    * 
-   * *   Pending: The data flow task has been created and has not started.
-   * *   Executing: The data flow task is being executed.
-   * *   Failed: The data flow task failed to be executed. You can view the cause of the failure in the data flow task report.
-   * *   Completed: The data flow task is completed. You can check that all the files have been correctly transferred in the data flow task report.
-   * *   Canceled: The data flow task is canceled and is not completed.
-   * *   Canceling: The data flow task is being canceled.
+   * *   Pending: The dataflow task has been created and has not started.
+   * *   Executing: The dataflow task is being executed.
+   * *   Failed: The dataflow task failed to be executed. You can view the cause of the failure in the dataflow task report.
+   * *   Completed: The dataflow task is completed. You can check that all the files have been correctly transferred in the dataflow task report.
+   * *   Canceled: The dataflow task is canceled and is not completed.
+   * *   Canceling: The dataflow task is being canceled.
    * 
    * @example
    * Executing
@@ -387,16 +395,16 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the data flow task. Valid values:
+   * The type of the dataflow task. The following information is displayed:
    * 
    * *   Import: imports data stored in the source storage to a CPFS file system.
    * *   Export: exports specified data from a CPFS file system to the source storage.
    * *   StreamImport: imports the specified data from the source storage to a CPFS file system in streaming mode.
    * *   StreamExport: exports specified data from a CPFS file system to the source storage in streaming mode.
    * *   Evict: releases the data blocks of a file in a CPFS file system. After the eviction, only the metadata of the file is retained in the CPFS file system. You can still query the file. However, the data blocks of the file are cleared and do not occupy the storage space in the CPFS file system. When you access the file data, the file is loaded from the source storage as required.
-   * *   Inventory: obtains the inventory list managed by a data flow from the CPFS file system, providing the cache status of inventories in the data flow.
+   * *   Inventory: obtains the inventory list managed by a dataflow from the CPFS file system, providing the cache status of inventories in the dataflow.
    * 
-   * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
+   * >  Only CPFS for Lingjun V2.6.0 and later support StreamImport and StreamExport.
    * 
    * @example
    * Import
@@ -404,12 +412,21 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   taskAction?: string;
   /**
    * @remarks
-   * The ID of the data flow task.
+   * The ID of the dataflow task.
    * 
    * @example
    * taskId-12345678
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Specify the OSS directory and synchronize data based on the content of the CSV file in the OSS directory.
+   * 
+   * >  Only CPFS for Lingjun supports this operation.
+   * 
+   * @example
+   * /path_in_cpfs/
+   */
   transferFileListPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -511,7 +528,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfo extends $dara.Model {
 export class DescribeDataFlowTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -527,7 +544,7 @@ export class DescribeDataFlowTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about data flow tasks.
+   * The information about dataflow tasks.
    */
   taskInfo?: DescribeDataFlowTasksResponseBodyTaskInfo;
   static names(): { [key: string]: string } {

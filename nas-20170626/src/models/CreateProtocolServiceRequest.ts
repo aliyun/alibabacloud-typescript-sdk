@@ -98,20 +98,22 @@ export class CreateProtocolServiceRequest extends $dara.Model {
    * @remarks
    * The vSwitch ID of the protocol service.
    * 
-   * This parameter is required.
-   * 
    * @example
    * vsw-123****
+   * 
+   * **if can be null:**
+   * true
    */
   vSwitchId?: string;
   /**
    * @remarks
    * The virtual private cloud (VPC) ID of the protocol service. The VPC ID of the protocol service must be the same as the VPC ID of the file system.
    * 
-   * This parameter is required.
-   * 
    * @example
    * vpc-123****
+   * 
+   * **if can be null:**
+   * true
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

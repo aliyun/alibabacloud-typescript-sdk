@@ -110,20 +110,27 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    * @remarks
    * The vSwitch ID of the export directory for the protocol service.
    * 
-   * This parameter is required.
-   * 
    * @example
    * vsw-123****
+   * 
+   * **if can be null:**
+   * true
    */
   vSwitchId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  vSwitchIds?: string[];
   /**
    * @remarks
    * The VPC ID of the export directory for the protocol service.
    * 
-   * This parameter is required.
-   * 
    * @example
    * vpc-123****
+   * 
+   * **if can be null:**
+   * true
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -137,6 +144,7 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
       path: 'Path',
       protocolServiceId: 'ProtocolServiceId',
       vSwitchId: 'VSwitchId',
+      vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
     };
   }
@@ -152,11 +160,15 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
       path: 'string',
       protocolServiceId: 'string',
       vSwitchId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
     super.validate();
   }
 

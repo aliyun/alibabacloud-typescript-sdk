@@ -88,12 +88,12 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
   autoRefreshInterval?: number;
   /**
    * @remarks
-   * The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy. Valid values:
+   * The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy. The following information is displayed:
    * 
-   * *   None: Updated data in the source storage is not automatically imported into the CPFS file system. You can run a data flow task to import the updated data from the source storage.
+   * *   None: Updated data in the source storage is not automatically imported into the CPFS file system. You can run a dataflow task to import the updated data from the source storage.
    * *   ImportChanged: Updated data in the source storage is automatically imported into the CPFS file system.
    * 
-   * >  Only CPFS supports this parameter.
+   * >  Only CPFS is supported.
    * 
    * @example
    * None
@@ -105,13 +105,15 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
    * 
    * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
+   * >  Only CPFS supports this parameter.
+   * 
    * @example
    * 2021-09-30T10:08:08Z
    */
   createTime?: string;
   /**
    * @remarks
-   * The dataflow ID.
+   * The ID of the dataflow.
    * 
    * @example
    * df-194433a5be31****
@@ -123,9 +125,9 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
    * 
    * Limits:
    * 
-   * *   The description must be 2 to 128 characters in length.
-   * *   The description must start with a letter but cannot start with `http://` or `https://`.
-   * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * *   The name must be 2 to 128 characters in length and
+   * *   start with a letter but cannot start with `http://` or `https://`.
+   * *   The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * test
@@ -133,7 +135,7 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The error message returned. Valid values:
+   * The error message. Valid values:
    * 
    * *   None (default): The dataflow status is normal.
    * *   SourceStorageUnreachable: The access path of the source storage is not found.
@@ -157,12 +159,12 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
    * 
    * Limits:
    * 
-   * *   The directory must be 2 to 1,024 characters in length.
+   * *   The directory must be 2 to 1024 characters in length.
    * *   The directory must be encoded in UTF-8.
    * *   The directory must start and end with a forward slash (/).
    * *   The directory must be a fileset directory in the CPFS file system.
    * 
-   * >  Only CPFS supports this parameter.
+   * >  Only CPFS is supported.
    * 
    * @example
    * /a/b/c/
@@ -182,15 +184,17 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
    * @remarks
    * The fileset ID.
    * 
+   * >  Only CPFS supports this parameter.
+   * 
    * @example
    * fset-1902718ea0ae****
    */
   fsetId?: string;
   /**
    * @remarks
-   * The type of security mechanism for the source storage. This parameter must be specified if the source storage is accessed with a security mechanism. Valid values:
+   * The type of security mechanism for the source storage. This parameter must be specified if the source storage is accessed with a security mechanism. Valid value:
    * 
-   * *   None (default): The source storage can be accessed without a security mechanism.
+   * *   Null (default): The OSS bucket can be accessed without a security mechanism.
    * *   SSL: The source storage must be accessed with an SSL certificate.
    * 
    * @example
@@ -199,20 +203,26 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
   sourceSecurityType?: string;
   /**
    * @remarks
-   * The access path of the source storage. Format: `<storage type>://<path>`.
+   * The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
    * 
-   * Parameters:
+   * Among them:
    * 
-   * *   storage type: Only Object Storage Service (OSS) is supported.
+   * *   storage type: Only OSS is supported.
    * 
-   * *   path: the name of the OSS bucket.
+   * *   account id: The UID of the account of the source storage.
+   * 
+   * *   path: The name of the OSS bucket.
    * 
    *     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
    *     *   The name must be 8 to 128 characters in length.
-   *     *   The name must be encoded in UTF-8.
+   *     *   Must be encoded in UTF-8.
    *     *   The name cannot start with http:// or https://.
    * 
-   * >  The OSS bucket must be an existing bucket in the region.
+   * > 
+   * 
+   * *   The OSS bucket must be an existing bucket in the region.
+   * 
+   * *   Only CPFS for Lingjun V2.6.0 and later support the account id parameter.
    * 
    * @example
    * oss://bucket1
@@ -222,7 +232,7 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
    * @remarks
    * The access path in the bucket of the source storage.
    * 
-   * >  Only CPFS for LINGJUN supports this parameter.
+   * >  Only CPFS for Lingjun supports this parameter.
    * 
    * @example
    * /prefix/
@@ -230,7 +240,7 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
   sourceStoragePath?: string;
   /**
    * @remarks
-   * The dataflow status. Valid values:
+   * The dataflow status. The following information is displayed:
    * 
    * *   Starting: The dataflow is being created or enabled.
    * *   Running: The dataflow has been created and is running properly.
@@ -246,13 +256,17 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The maximum dataflow throughput. Unit: MB/s. Valid values:
+   * The maximum dataflow throughput. Unit: MB/s. Valid value:
    * 
    * *   600
-   * *   1,200
-   * *   1,500
+   * *   1200
+   * *   1500
    * 
-   * >  The dataflow throughput must be less than the I/O throughput of the file system.
+   * > 
+   * 
+   * *   The dataflow throughput must be less than the I/O throughput of the file system.
+   * 
+   * *   Only CPFS supports this parameter.
    * 
    * @example
    * 600
@@ -263,6 +277,8 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $dara.Mod
    * The time when the fileset was last updated.
    * 
    * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * 
+   * >  Only CPFS supports this parameter.
    * 
    * @example
    * 2021-09-30T10:08:08Z
@@ -353,7 +369,7 @@ export class DescribeDataFlowsResponseBodyDataFlowInfo extends $dara.Model {
 export class DescribeDataFlowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about data flows.
+   * The dataflow details.
    */
   dataFlowInfo?: DescribeDataFlowsResponseBodyDataFlowInfo;
   /**

@@ -17,7 +17,7 @@ export class CancelDataFlowAutoRefreshRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The dataflow ID.
+   * The ID of the dataflow.
    * 
    * This parameter is required.
    * 

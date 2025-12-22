@@ -17,12 +17,12 @@ export class ModifyFilesetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation.
+   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation. Valid values:
    * 
    * *   true: enables release protection.
    * *   false: disables release protection.
    * 
-   * >  This parameter can protect filesets only against manual releases, but not against automatic releases.
+   * > This parameter can protect filesets only against manual releases, but not against automatic releases.
    * 
    * @example
    * false
@@ -60,8 +60,6 @@ export class ModifyFilesetRequest extends $dara.Model {
    * 
    * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
    * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
-   * 
-   * >  CPFS is not supported on the international site.
    * 
    * This parameter is required.
    * 

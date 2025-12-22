@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dataflow ID.
+   * The ID of the dataflow.
    * 
    * @example
    * df-194433a5be31****

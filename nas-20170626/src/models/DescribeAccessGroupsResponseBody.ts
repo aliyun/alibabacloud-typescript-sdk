@@ -41,11 +41,9 @@ export class DescribeAccessGroupsResponseBodyAccessGroupsAccessGroup extends $da
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose File Storage NAS (NAS) file system
-   * *   extreme: Extreme NAS file system
-   * *   cpfs: Cloud Parallel File Storage (CPFS) file system
-   * 
-   * >  CPFS file systems are available only on the China site (aliyun.com).
+   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+   * *   extreme: Extreme NAS file system.
+   * *   cpfs: CPFS file system.
    * 
    * @example
    * standard

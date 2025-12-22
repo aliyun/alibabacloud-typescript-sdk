@@ -17,7 +17,7 @@ export class CancelDataFlowTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The dataflow ID.
+   * The ID of the dataflow.
    * 
    * This parameter is required.
    * 
@@ -46,8 +46,6 @@ export class CancelDataFlowTaskRequest extends $dara.Model {
    * 
    * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
    * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
-   * 
-   * >  CPFS is not supported on the international site.
    * 
    * This parameter is required.
    * 

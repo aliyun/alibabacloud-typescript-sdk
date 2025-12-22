@@ -7,13 +7,11 @@ export class DescribeZonesRequest extends $dara.Model {
    * @remarks
    * The type of the file system.
    * 
-   * Valid values:
+   * Valid value:
    * 
-   * *   standard (default): General-purpose NAS file system
-   * *   extreme: Extreme NAS file system
-   * *   cpfs: Cloud Parallel File Storage (CPFS) file system
-   * 
-   * > CPFS file systems are available only on the China site (aliyun.com).
+   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+   * *   extreme: Extreme NAS file system.
+   * *   cpfs: CPFS file system.
    * 
    * @example
    * standard

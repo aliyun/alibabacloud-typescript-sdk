@@ -11,8 +11,6 @@ export class DeleteFileSystemRequest extends $dara.Model {
    * *   The IDs of Extreme NAS file systems must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
    * *   The IDs of Cloud Parallel File Storage (CPFS) file systems must start with `cpfs-`, for example, cpfs-00cb6fa094ca\\*\\*\\*\\*.
    * 
-   * > CPFS file systems are available only on the China site (aliyun.com).
-   * 
    * This parameter is required.
    * 
    * @example

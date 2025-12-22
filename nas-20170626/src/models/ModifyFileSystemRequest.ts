@@ -59,7 +59,6 @@ export class ModifyFileSystemRequest extends $dara.Model {
    * *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
    * *   The IDs of Extreme NAS file systems must start with `extreme-`. Example: `extreme-0015****`.
    * *   The IDs of Cloud Paralleled File System (CPFS) file systems must start with `cpfs-`. Example: `cpfs-125487****`.
-   * >CPFS file systems are available only on the China site (aliyun.com).
    * 
    * This parameter is required.
    * 

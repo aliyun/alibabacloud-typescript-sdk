@@ -91,6 +91,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
    * vsw-2vc3c2lybvdllxyq4****
    */
   vSwitchId?: string;
+  vSwitchIds?: string[];
   /**
    * @remarks
    * The VPC ID of the export directory for the protocol service.
@@ -112,6 +113,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
       protocolType: 'ProtocolType',
       status: 'Status',
       vSwitchId: 'VSwitchId',
+      vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
     };
   }
@@ -129,11 +131,15 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
       protocolType: 'string',
       status: 'string',
       vSwitchId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
     super.validate();
   }
 

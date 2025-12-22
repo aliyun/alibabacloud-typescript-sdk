@@ -47,9 +47,9 @@ export class ApplyDataFlowAutoRefreshRequestAutoRefreshs extends $dara.Model {
 export class ApplyDataFlowAutoRefreshRequest extends $dara.Model {
   /**
    * @remarks
-   * The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minutes.
+   * The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minute.
    * 
-   * Valid values: 5 to 526600. Default value: 10.
+   * Valid values: 10 to 525600. Default value: 10.
    * 
    * @example
    * 10
@@ -87,7 +87,7 @@ export class ApplyDataFlowAutoRefreshRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The dataflow ID.
+   * The ID of the dataflow.
    * 
    * This parameter is required.
    * 

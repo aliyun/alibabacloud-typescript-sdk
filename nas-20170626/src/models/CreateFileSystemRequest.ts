@@ -70,19 +70,20 @@ export class CreateFileSystemRequest extends $dara.Model {
    * 
    * Specify a value based on the specifications on the buy page.
    * 
+   * [CPFS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui\\&commodityCode=nas_cpfspost_public_intl#/buy)
+   * 
    * @example
    * 150
    */
   bandwidth?: number;
   /**
    * @remarks
-   * The capacity of the file system. Unit: GiB.
-   * 
-   * This parameter is valid and required if the FileSystemType parameter is set to extreme.
+   * Specify the capacity of the file system. Unit: GiB. Specify the Capacity parameter when the FileSystemType parameter is set to extreme or cpfs.
    * 
    * Specify a value based on the specifications on the following buy page:
    * 
-   * [Extreme NAS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?commodityCode=nas_extpost_public_intl#/buy)
+   * *   [Extreme NAS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?commodityCode=nas_extpost_public_intl#/buy)
+   * *   [CPFS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui\\&commodityCode=nas_cpfspost_public_intl#/buy)
    * 
    * @example
    * 100
@@ -95,7 +96,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * Valid values:
    * 
    * *   PayAsYouGo (default): pay-as-you-go
-   * *   Subscription: subscription
+   * *   Subscription
    * 
    * @example
    * PayAsYouGo
@@ -177,11 +178,9 @@ export class CreateFileSystemRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard (default): General-purpose NAS file system
-   * *   extreme: Extreme NAS file system
-   * *   cpfs: Cloud Parallel File Storage (CPFS) file system
-   * 
-   * > CPFS file systems are available only on the China site (aliyun.com).
+   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+   * *   extreme: Extreme NAS file system.
+   * *   cpfs: CPFS file system
    * 
    * @example
    * standard
@@ -199,10 +198,11 @@ export class CreateFileSystemRequest extends $dara.Model {
   kmsKeyId?: string;
   /**
    * @remarks
-   * The protocol type.
+   * Specify the protocol type.
    * 
-   * *   If the FileSystemType parameter is set to standard, you can set the ProtocolType parameter to NFS or SMB.
-   * *   If the FileSystemType parameter is set to extreme, you can set the ProtocolType parameter to NFS.
+   * *   If the FileSystemType parameter is set to standard, set the ProtocolType parameter to NFS or SMB.
+   * *   If the FileSystemType parameter is set to extreme, set the ProtocolType parameter to NFS.
+   * *   If the FileSystemType parameter is set to cpfs, set the ProtocolType parameter to cpfs.
    * 
    * This parameter is required.
    * 
@@ -210,6 +210,19 @@ export class CreateFileSystemRequest extends $dara.Model {
    * NFS
    */
   protocolType?: string;
+  /**
+   * @example
+   * ZRS
+   * 
+   * **if can be null:**
+   * true
+   */
+  redundancyType?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  redundancyVSwitchIds?: string[];
   /**
    * @remarks
    * The resource group ID.
@@ -234,10 +247,11 @@ export class CreateFileSystemRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The storage class.
+   * The storage type.
    * 
-   * *   If the FileSystemType parameter is set to standard, you can set the StorageType parameter to Performance, Capacity, or Premium.
-   * *   If the FileSystemType parameter is set to extreme, you can set the StorageType parameter to standard or advance.
+   * *   If the FileSystemType parameter is set to standard, set the StorageType parameter to Performance, Capacity, or Premium.
+   * *   If the FileSystemType parameter is set to extreme, set the StorageType parameter to standard or advance.
+   * *   If the FileSystemType parameter is set to cpfs, set the StorageType parameter to advance_100 (100 MB/s/TiB baseline) or advance_200 (200 MB/s/TiB baseline).
    * 
    * This parameter is required.
    * 
@@ -254,9 +268,10 @@ export class CreateFileSystemRequest extends $dara.Model {
   tag?: CreateFileSystemRequestTag[];
   /**
    * @remarks
-   * The vSwitch ID.
+   * The vSwitch ID of the cluster.
    * 
-   * This parameter is reserved and does not take effect. You do not need to configure this parameter.
+   * *   This parameter is required only if you set the FileSystemType parameter to cpfs.
+   * *   This parameter is reserved and not required if you set the FileSystemType parameter to standard or extreme.
    * 
    * @example
    * vsw-2ze37k6jh8ums2fw2****
@@ -266,7 +281,8 @@ export class CreateFileSystemRequest extends $dara.Model {
    * @remarks
    * The ID of the virtual private cloud (VPC).
    * 
-   * This parameter is reserved and does not take effect. You do not need to configure this parameter.
+   * *   This parameter is required only if you set the FileSystemType parameter to cpfs.
+   * *   This parameter is reserved and not required if you set the FileSystemType parameter to standard or extreme.
    * 
    * @example
    * vpc-bp1cbv1ljve4j5hlw****
@@ -274,16 +290,19 @@ export class CreateFileSystemRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The ID of the zone.
    * 
-   * Each region has multiple isolated locations known as zones. Each zone has its own independent power supply and networks.
+   * Each region has multiple isolated locations known as zones. Each zone has its own independent power supply and network.
    * 
    * This parameter is not required if the FileSystemType parameter is set to standard. By default, a random zone is selected based on the protocol type and storage type.
    * 
-   * This parameter is required if the FileSystemType parameter is set to extreme.
+   * This parameter is required if the FileSystemType parameter is set to extreme or cpfs.
    * 
-   * > *   An Elastic Compute Service (ECS) instance and a NAS file system that reside in different zones of the same region can access each other.
-   * >*   We recommend that you select the zone where the ECS instance resides. This prevents cross-zone latency between the file system and the ECS instance.
+   * > 
+   * 
+   * *   An Elastic Compute Service (ECS) instance and a NAS file system that reside in different zones of the same region can access each other.
+   * 
+   * *   We recommend that you select the zone where the ECS instance resides. This prevents cross-zone latency between the file system and the ECS instance.
    * 
    * @example
    * cn-hangzhou-b
@@ -302,6 +321,8 @@ export class CreateFileSystemRequest extends $dara.Model {
       fileSystemType: 'FileSystemType',
       kmsKeyId: 'KmsKeyId',
       protocolType: 'ProtocolType',
+      redundancyType: 'RedundancyType',
+      redundancyVSwitchIds: 'RedundancyVSwitchIds',
       resourceGroupId: 'ResourceGroupId',
       snapshotId: 'SnapshotId',
       storageType: 'StorageType',
@@ -325,6 +346,8 @@ export class CreateFileSystemRequest extends $dara.Model {
       fileSystemType: 'string',
       kmsKeyId: 'string',
       protocolType: 'string',
+      redundancyType: 'string',
+      redundancyVSwitchIds: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
       snapshotId: 'string',
       storageType: 'string',
@@ -336,6 +359,9 @@ export class CreateFileSystemRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.redundancyVSwitchIds)) {
+      $dara.Model.validateArray(this.redundancyVSwitchIds);
+    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }

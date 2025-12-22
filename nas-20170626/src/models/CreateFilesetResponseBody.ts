@@ -13,7 +13,7 @@ export class CreateFilesetResponseBody extends $dara.Model {
   fsetId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****

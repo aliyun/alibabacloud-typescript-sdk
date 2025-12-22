@@ -19,8 +19,8 @@ export class CreateAccessRuleRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard (default): General-purpose NAS file system
-   * *   extreme: Extreme NAS file system
+   * *   standard (default): General-purpose NAS file system.
+   * *   extreme: Extreme NAS file system.
    * 
    * @example
    * standard
@@ -58,8 +58,8 @@ export class CreateAccessRuleRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   RDWR (default): the read and write permissions
-   * *   RDONLY: the read-only permissions
+   * *   RDWR (default): the read and write permissions.
+   * *   RDONLY: the read-only permissions.
    * 
    * @example
    * RDWR

@@ -104,6 +104,11 @@ export class DescribeProtocolMountTargetRequest extends $dara.Model {
    * aBcdg==
    */
   nextToken?: string;
+  /**
+   * @example
+   * ptc-123xxx
+   */
+  protocolServiceIds?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -111,6 +116,7 @@ export class DescribeProtocolMountTargetRequest extends $dara.Model {
       filters: 'Filters',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      protocolServiceIds: 'ProtocolServiceIds',
     };
   }
 
@@ -121,6 +127,7 @@ export class DescribeProtocolMountTargetRequest extends $dara.Model {
       filters: { 'type': 'array', 'itemType': DescribeProtocolMountTargetRequestFilters },
       maxResults: 'number',
       nextToken: 'string',
+      protocolServiceIds: 'string',
     };
   }
 

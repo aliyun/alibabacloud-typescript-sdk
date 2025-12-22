@@ -17,7 +17,7 @@ export class ModifyDataFlowRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The dataflow ID.
+   * The ID of the dataflow.
    * 
    * This parameter is required.
    * 
@@ -59,9 +59,7 @@ export class ModifyDataFlowRequest extends $dara.Model {
    * The ID of the file system.
    * 
    * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
-   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
-   * 
-   * >  CPFS is not supported on the international site.
+   * *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
    * 
    * This parameter is required.
    * 
