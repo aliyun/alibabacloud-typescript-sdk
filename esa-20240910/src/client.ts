@@ -5264,6 +5264,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除深度学习和防护下发的规则
+   * 
+   * @param request - DeleteHttpDDoSIntelligentRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHttpDDoSIntelligentRuleResponse
+   */
+  async deleteHttpDDoSIntelligentRuleWithOptions(request: $_model.DeleteHttpDDoSIntelligentRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHttpDDoSIntelligentRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.recordName)) {
+      query["RecordName"] = request.recordName;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHttpDDoSIntelligentRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHttpDDoSIntelligentRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHttpDDoSIntelligentRuleResponse({}));
+  }
+
+  /**
+   * 删除深度学习和防护下发的规则
+   * 
+   * @param request - DeleteHttpDDoSIntelligentRuleRequest
+   * @returns DeleteHttpDDoSIntelligentRuleResponse
+   */
+  async deleteHttpDDoSIntelligentRule(request: $_model.DeleteHttpDDoSIntelligentRuleRequest): Promise<$_model.DeleteHttpDDoSIntelligentRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHttpDDoSIntelligentRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes the configuration of modifying incoming HTTP request headers for a website.
    * 
    * @param request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
@@ -15307,6 +15357,106 @@ export default class Client extends OpenApi {
   async setHttpDDoSAttackProtection(request: $_model.SetHttpDDoSAttackProtectionRequest): Promise<$_model.SetHttpDDoSAttackProtectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setHttpDDoSAttackProtectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置HTTP DDoS攻击防护指定规则防护动作
+   * 
+   * @param request - SetHttpDDoSAttackRuleActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetHttpDDoSAttackRuleActionResponse
+   */
+  async setHttpDDoSAttackRuleActionWithOptions(request: $_model.SetHttpDDoSAttackRuleActionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetHttpDDoSAttackRuleActionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetHttpDDoSAttackRuleAction",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetHttpDDoSAttackRuleActionResponse>(await this.callApi(params, req, runtime), new $_model.SetHttpDDoSAttackRuleActionResponse({}));
+  }
+
+  /**
+   * 设置HTTP DDoS攻击防护指定规则防护动作
+   * 
+   * @param request - SetHttpDDoSAttackRuleActionRequest
+   * @returns SetHttpDDoSAttackRuleActionResponse
+   */
+  async setHttpDDoSAttackRuleAction(request: $_model.SetHttpDDoSAttackRuleActionRequest): Promise<$_model.SetHttpDDoSAttackRuleActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setHttpDDoSAttackRuleActionWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置HTTP DDoS攻击防护指定规则防护状态
+   * 
+   * @param request - SetHttpDDoSAttackRuleStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetHttpDDoSAttackRuleStatusResponse
+   */
+  async setHttpDDoSAttackRuleStatusWithOptions(request: $_model.SetHttpDDoSAttackRuleStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetHttpDDoSAttackRuleStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetHttpDDoSAttackRuleStatus",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetHttpDDoSAttackRuleStatusResponse>(await this.callApi(params, req, runtime), new $_model.SetHttpDDoSAttackRuleStatusResponse({}));
+  }
+
+  /**
+   * 设置HTTP DDoS攻击防护指定规则防护状态
+   * 
+   * @param request - SetHttpDDoSAttackRuleStatusRequest
+   * @returns SetHttpDDoSAttackRuleStatusResponse
+   */
+  async setHttpDDoSAttackRuleStatus(request: $_model.SetHttpDDoSAttackRuleStatusRequest): Promise<$_model.SetHttpDDoSAttackRuleStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setHttpDDoSAttackRuleStatusWithOptions(request, runtime);
   }
 
   /**

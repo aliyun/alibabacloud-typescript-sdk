@@ -569,6 +569,9 @@ export { DeleteEdgeContainerAppRecordResponse } from './DeleteEdgeContainerAppRe
 export { DeleteEdgeContainerAppVersionRequest } from './DeleteEdgeContainerAppVersionRequest';
 export { DeleteEdgeContainerAppVersionResponseBody } from './DeleteEdgeContainerAppVersionResponseBody';
 export { DeleteEdgeContainerAppVersionResponse } from './DeleteEdgeContainerAppVersionResponse';
+export { DeleteHttpDDoSIntelligentRuleRequest } from './DeleteHttpDdoSintelligentRuleRequest';
+export { DeleteHttpDDoSIntelligentRuleResponseBody } from './DeleteHttpDdoSintelligentRuleResponseBody';
+export { DeleteHttpDDoSIntelligentRuleResponse } from './DeleteHttpDdoSintelligentRuleResponse';
 export { DeleteHttpIncomingRequestHeaderModificationRuleRequest } from './DeleteHttpIncomingRequestHeaderModificationRuleRequest';
 export { DeleteHttpIncomingRequestHeaderModificationRuleResponseBody } from './DeleteHttpIncomingRequestHeaderModificationRuleResponseBody';
 export { DeleteHttpIncomingRequestHeaderModificationRuleResponse } from './DeleteHttpIncomingRequestHeaderModificationRuleResponse';
@@ -1239,6 +1242,12 @@ export { SetHttpDDoSAttackIntelligentProtectionResponse } from './SetHttpDdoSatt
 export { SetHttpDDoSAttackProtectionRequest } from './SetHttpDdoSattackProtectionRequest';
 export { SetHttpDDoSAttackProtectionResponseBody } from './SetHttpDdoSattackProtectionResponseBody';
 export { SetHttpDDoSAttackProtectionResponse } from './SetHttpDdoSattackProtectionResponse';
+export { SetHttpDDoSAttackRuleActionRequest } from './SetHttpDdoSattackRuleActionRequest';
+export { SetHttpDDoSAttackRuleActionResponseBody } from './SetHttpDdoSattackRuleActionResponseBody';
+export { SetHttpDDoSAttackRuleActionResponse } from './SetHttpDdoSattackRuleActionResponse';
+export { SetHttpDDoSAttackRuleStatusRequest } from './SetHttpDdoSattackRuleStatusRequest';
+export { SetHttpDDoSAttackRuleStatusResponseBody } from './SetHttpDdoSattackRuleStatusResponseBody';
+export { SetHttpDDoSAttackRuleStatusResponse } from './SetHttpDdoSattackRuleStatusResponse';
 export { SetOriginClientCertificateHostnamesRequest } from './SetOriginClientCertificateHostnamesRequest';
 export { SetOriginClientCertificateHostnamesShrinkRequest } from './SetOriginClientCertificateHostnamesShrinkRequest';
 export { SetOriginClientCertificateHostnamesResponseBody } from './SetOriginClientCertificateHostnamesResponseBody';
