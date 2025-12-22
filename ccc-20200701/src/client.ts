@@ -7085,6 +7085,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询反馈记录
+   * 
+   * @param request - ListFeedbacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeedbacksResponse
+   */
+  async listFeedbacksWithOptions(request: $_model.ListFeedbacksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFeedbacksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.taskIdList)) {
+      query["TaskIdList"] = request.taskIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFeedbacks",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFeedbacksResponse>(await this.callApi(params, req, runtime), new $_model.ListFeedbacksResponse({}));
+  }
+
+  /**
+   * 查询反馈记录
+   * 
+   * @param request - ListFeedbacksRequest
+   * @returns ListFeedbacksResponse
+   */
+  async listFeedbacks(request: $_model.ListFeedbacksRequest): Promise<$_model.ListFeedbacksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFeedbacksWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - ListFlashSmsApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFlashSmsApplicationsResponse
@@ -11976,6 +12022,64 @@ export default class Client extends OpenApi {
   async sendDtmfSignaling(request: $_model.SendDtmfSignalingRequest): Promise<$_model.SendDtmfSignalingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.sendDtmfSignalingWithOptions(request, runtime);
+  }
+
+  /**
+   * 推送消息
+   * 
+   * @param request - SendNotificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendNotificationResponse
+   */
+  async sendNotificationWithOptions(request: $_model.SendNotificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendNotificationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.messageBody)) {
+      query["MessageBody"] = request.messageBody;
+    }
+
+    if (!$dara.isNull(request.notificationTarget)) {
+      query["NotificationTarget"] = request.notificationTarget;
+    }
+
+    if (!$dara.isNull(request.notificationType)) {
+      query["NotificationType"] = request.notificationType;
+    }
+
+    if (!$dara.isNull(request.shardingKey)) {
+      query["ShardingKey"] = request.shardingKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendNotification",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendNotificationResponse>(await this.callApi(params, req, runtime), new $_model.SendNotificationResponse({}));
+  }
+
+  /**
+   * 推送消息
+   * 
+   * @param request - SendNotificationRequest
+   * @returns SendNotificationResponse
+   */
+  async sendNotification(request: $_model.SendNotificationRequest): Promise<$_model.SendNotificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendNotificationWithOptions(request, runtime);
   }
 
   /**
