@@ -1983,6 +1983,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看函数列表
+   * 
+   * @param request - ListFunctionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFunctionsResponse
+   */
+  async listFunctionsWithOptions(catalogId: string, database: string, request: $_model.ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFunctionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.functionNamePattern)) {
+      query["functionNamePattern"] = request.functionNamePattern;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFunctions",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/functions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFunctionsResponse>(await this.callApi(params, req, runtime), new $_model.ListFunctionsResponse({}));
+  }
+
+  /**
+   * 查看函数列表
+   * 
+   * @param request - ListFunctionsRequest
+   * @returns ListFunctionsResponse
+   */
+  async listFunctions(catalogId: string, database: string, request: $_model.ListFunctionsRequest): Promise<$_model.ListFunctionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFunctionsWithOptions(catalogId, database, request, headers, runtime);
+  }
+
+  /**
    * 查看iceberg数据库列表
    * 
    * @param request - ListIcebergNamespaceDetailsRequest
@@ -2938,6 +2991,112 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listUsersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查看视图详情列表
+   * 
+   * @param request - ListViewDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListViewDetailsResponse
+   */
+  async listViewDetailsWithOptions(catalogId: string, database: string, request: $_model.ListViewDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListViewDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.viewNamePattern)) {
+      query["viewNamePattern"] = request.viewNamePattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListViewDetails",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/view-details`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListViewDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ListViewDetailsResponse({}));
+  }
+
+  /**
+   * 查看视图详情列表
+   * 
+   * @param request - ListViewDetailsRequest
+   * @returns ListViewDetailsResponse
+   */
+  async listViewDetails(catalogId: string, database: string, request: $_model.ListViewDetailsRequest): Promise<$_model.ListViewDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listViewDetailsWithOptions(catalogId, database, request, headers, runtime);
+  }
+
+  /**
+   * 查看视图详情列表
+   * 
+   * @param request - ListViewsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListViewsResponse
+   */
+  async listViewsWithOptions(catalogId: string, database: string, request: $_model.ListViewsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListViewsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.viewNamePattern)) {
+      query["viewNamePattern"] = request.viewNamePattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListViews",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/views`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListViewsResponse>(await this.callApi(params, req, runtime), new $_model.ListViewsResponse({}));
+  }
+
+  /**
+   * 查看视图详情列表
+   * 
+   * @param request - ListViewsRequest
+   * @returns ListViewsResponse
+   */
+  async listViews(catalogId: string, database: string, request: $_model.ListViewsRequest): Promise<$_model.ListViewsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listViewsWithOptions(catalogId, database, request, headers, runtime);
   }
 
   /**
