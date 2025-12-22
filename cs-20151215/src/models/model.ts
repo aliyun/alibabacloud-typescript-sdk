@@ -169,6 +169,8 @@ export { GetUpgradeStatusResponseBodyUpgradeTask } from './GetUpgradeStatusRespo
 export { GrantPermissionsRequestBody } from './GrantPermissionsRequest';
 export { InstallClusterAddonsRequestBody } from './InstallClusterAddonsRequest';
 export { ListAddonsResponseBodyAddons } from './ListAddonsResponseBody';
+export { ListClusterAddonInstanceResourcesResponseBodyHelmRelease } from './ListClusterAddonInstanceResourcesResponseBody';
+export { ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects } from './ListClusterAddonInstanceResourcesResponseBody';
 export { ListClusterAddonInstancesResponseBodyAddons } from './ListClusterAddonInstancesResponseBody';
 export { ListClusterChecksResponseBodyChecks } from './ListClusterChecksResponseBody';
 export { ListClusterInspectReportsResponseBodyReportsSummary } from './ListClusterInspectReportsResponseBody';
@@ -422,6 +424,8 @@ export { InstallClusterAddonsResponse } from './InstallClusterAddonsResponse';
 export { ListAddonsRequest } from './ListAddonsRequest';
 export { ListAddonsResponseBody } from './ListAddonsResponseBody';
 export { ListAddonsResponse } from './ListAddonsResponse';
+export { ListClusterAddonInstanceResourcesResponseBody } from './ListClusterAddonInstanceResourcesResponseBody';
+export { ListClusterAddonInstanceResourcesResponse } from './ListClusterAddonInstanceResourcesResponse';
 export { ListClusterAddonInstancesResponseBody } from './ListClusterAddonInstancesResponseBody';
 export { ListClusterAddonInstancesResponse } from './ListClusterAddonInstancesResponse';
 export { ListClusterChecksRequest } from './ListClusterChecksRequest';

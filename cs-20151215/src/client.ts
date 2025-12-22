@@ -4706,6 +4706,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取集群组件实例的资源列表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterAddonInstanceResourcesResponse
+   */
+  async listClusterAddonInstanceResourcesWithOptions(clusterId: string, instanceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterAddonInstanceResourcesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListClusterAddonInstanceResources",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/addon_instances/${$dara.URL.percentEncode(instanceName)}/resources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListClusterAddonInstanceResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListClusterAddonInstanceResourcesResponse({}));
+  }
+
+  /**
+   * 获取集群组件实例的资源列表
+   * @returns ListClusterAddonInstanceResourcesResponse
+   */
+  async listClusterAddonInstanceResources(clusterId: string, instanceName: string): Promise<$_model.ListClusterAddonInstanceResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listClusterAddonInstanceResourcesWithOptions(clusterId, instanceName, headers, runtime);
+  }
+
+  /**
    * Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
    * 
    * @param headers - map
