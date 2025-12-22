@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails extends $dara.Model {
   /**
    * @example
-   * x
+   * no_face_detected
    */
   code?: string;
   /**
    * @example
-   * xxx
+   * 0.8
    */
   confidence?: number;
   pass?: boolean;
   /**
    * @example
-   * xxx
+   * 未检测到人脸
    */
   reason?: string;
   static names(): { [key: string]: string } {
@@ -47,18 +47,32 @@ export class GetImageDetectionTaskResultResponseBodyDataDetectionResultDetection
 }
 
 export class GetImageDetectionTaskResultResponseBodyDataDetectionResult extends $dara.Model {
+  /**
+   * @example
+   * 图像为一只猫
+   */
+  description?: string;
   detectionDetails?: GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails[];
+  /**
+   * @example
+   * full_body
+   */
+  portraitType?: string;
   suggestions?: string[];
   static names(): { [key: string]: string } {
     return {
+      description: 'description',
       detectionDetails: 'detectionDetails',
+      portraitType: 'portraitType',
       suggestions: 'suggestions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       detectionDetails: { 'type': 'array', 'itemType': GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails },
+      portraitType: 'string',
       suggestions: { 'type': 'array', 'itemType': 'string' },
     };
   }
