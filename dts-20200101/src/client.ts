@@ -7697,6 +7697,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - PromoteToMasterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PromoteToMasterResponse
+   */
+  async promoteToMasterWithOptions(request: $_model.PromoteToMasterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PromoteToMasterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.masterDbInstanceId)) {
+      query["MasterDbInstanceId"] = request.masterDbInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.slaveDbInstanceId)) {
+      query["SlaveDbInstanceId"] = request.slaveDbInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PromoteToMaster",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PromoteToMasterResponse>(await this.callApi(params, req, runtime), new $_model.PromoteToMasterResponse({}));
+  }
+
+  /**
+   * @param request - PromoteToMasterRequest
+   * @returns PromoteToMasterResponse
+   */
+  async promoteToMaster(request: $_model.PromoteToMasterRequest): Promise<$_model.PromoteToMasterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.promoteToMasterWithOptions(request, runtime);
+  }
+
+  /**
    * Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
    * 
    * @param request - RenewInstanceRequest

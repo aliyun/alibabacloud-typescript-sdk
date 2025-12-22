@@ -561,6 +561,9 @@ export { ModifySynchronizationObjectResponse } from './ModifySynchronizationObje
 export { PreCheckCreateGadOrderRequest } from './PreCheckCreateGadOrderRequest';
 export { PreCheckCreateGadOrderResponseBody } from './PreCheckCreateGadOrderResponseBody';
 export { PreCheckCreateGadOrderResponse } from './PreCheckCreateGadOrderResponse';
+export { PromoteToMasterRequest } from './PromoteToMasterRequest';
+export { PromoteToMasterResponseBody } from './PromoteToMasterResponseBody';
+export { PromoteToMasterResponse } from './PromoteToMasterResponse';
 export { RenewInstanceRequest } from './RenewInstanceRequest';
 export { RenewInstanceResponseBody } from './RenewInstanceResponseBody';
 export { RenewInstanceResponse } from './RenewInstanceResponse';
