@@ -2986,13 +2986,19 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of private gateways.
    * 
-   * @param request - ListGatewayRequest
+   * @param tmpReq - ListGatewayRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayResponse
    */
-  async listGatewayWithOptions(request: $_model.ListGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayResponse> {
-    request.validate();
+  async listGatewayWithOptions(tmpReq: $_model.ListGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListGatewayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.label)) {
+      request.labelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.label, "Label", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
@@ -3012,6 +3018,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.internetEnabled)) {
       query["InternetEnabled"] = request.internetEnabled;
+    }
+
+    if (!$dara.isNull(request.labelShrink)) {
+      query["Label"] = request.labelShrink;
     }
 
     if (!$dara.isNull(request.order)) {

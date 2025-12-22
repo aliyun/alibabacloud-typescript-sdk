@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListGatewayRequest extends $dara.Model {
+export class ListGatewayShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
@@ -22,7 +22,7 @@ export class ListGatewayRequest extends $dara.Model {
   gatewayName?: string;
   gatewayType?: string;
   internetEnabled?: boolean;
-  label?: { [key: string]: string };
+  labelShrink?: string;
   order?: string;
   /**
    * @remarks
@@ -57,7 +57,7 @@ export class ListGatewayRequest extends $dara.Model {
       gatewayName: 'GatewayName',
       gatewayType: 'GatewayType',
       internetEnabled: 'InternetEnabled',
-      label: 'Label',
+      labelShrink: 'Label',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -74,7 +74,7 @@ export class ListGatewayRequest extends $dara.Model {
       gatewayName: 'string',
       gatewayType: 'string',
       internetEnabled: 'boolean',
-      label: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      labelShrink: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -85,9 +85,6 @@ export class ListGatewayRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.label) {
-      $dara.Model.validateMap(this.label);
-    }
     super.validate();
   }
 

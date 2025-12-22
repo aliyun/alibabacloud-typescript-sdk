@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListGatewayResponseBodyGatewaysLabels extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  labelKey?: string;
+  /**
+   * @example
+   * value1
+   */
+  labelValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelKey: 'LabelKey',
+      labelValue: 'LabelValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelKey: 'string',
+      labelValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayResponseBodyGateways extends $dara.Model {
   /**
    * @remarks
@@ -79,6 +113,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
    * true
    */
   isDefault?: boolean;
+  labels?: ListGatewayResponseBodyGatewaysLabels[];
   /**
    * @remarks
    * The number of nodes in the private gateway.
@@ -133,6 +168,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
       intranetDomain: 'IntranetDomain',
       intranetEnabled: 'IntranetEnabled',
       isDefault: 'IsDefault',
+      labels: 'Labels',
       replicas: 'Replicas',
       SSLRedirectionEnabled: 'SSLRedirectionEnabled',
       status: 'Status',
@@ -152,6 +188,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
       intranetDomain: 'string',
       intranetEnabled: 'boolean',
       isDefault: 'boolean',
+      labels: { 'type': 'array', 'itemType': ListGatewayResponseBodyGatewaysLabels },
       replicas: 'number',
       SSLRedirectionEnabled: 'boolean',
       status: 'string',
@@ -160,6 +197,9 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
     super.validate();
   }
 

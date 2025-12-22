@@ -15,6 +15,7 @@ export { CreateServiceCronScalerRequestScaleJobs } from './CreateServiceCronScal
 export { CreateVirtualResourceRequestResources } from './CreateVirtualResourceRequest';
 export { DeleteAclPolicyRequestAclPolicyList } from './DeleteAclPolicyRequest';
 export { DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs } from './DeleteGatewayIntranetLinkedVpcPeerRequest';
+export { DescribeGatewayResponseBodyLabels } from './DescribeGatewayResponseBody';
 export { DescribeGroupEndpointsResponseBodyEndpoints } from './DescribeGroupEndpointsResponseBody';
 export { DescribeMachineSpecResponseBodyInstanceMetas } from './DescribeMachineSpecResponseBody';
 export { DescribeMachineSpecResponseBodyTypes } from './DescribeMachineSpecResponseBody';
@@ -34,6 +35,7 @@ export { ListAclPolicyResponseBodyInternetAclPolicyList } from './ListAclPolicyR
 export { ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList } from './ListAclPolicyResponseBody';
 export { ListAclPolicyResponseBodyIntranetVpcAclPolicyList } from './ListAclPolicyResponseBody';
 export { ListBenchmarkTaskResponseBodyTasks } from './ListBenchmarkTaskResponseBody';
+export { ListGatewayResponseBodyGatewaysLabels } from './ListGatewayResponseBody';
 export { ListGatewayResponseBodyGateways } from './ListGatewayResponseBody';
 export { ListGatewayDomainsResponseBodyCustomDomains } from './ListGatewayDomainsResponseBody';
 export { ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList } from './ListGatewayIntranetLinkedVpcResponseBody';
@@ -228,6 +230,7 @@ export { ListBenchmarkTaskRequest } from './ListBenchmarkTaskRequest';
 export { ListBenchmarkTaskResponseBody } from './ListBenchmarkTaskResponseBody';
 export { ListBenchmarkTaskResponse } from './ListBenchmarkTaskResponse';
 export { ListGatewayRequest } from './ListGatewayRequest';
+export { ListGatewayShrinkRequest } from './ListGatewayShrinkRequest';
 export { ListGatewayResponseBody } from './ListGatewayResponseBody';
 export { ListGatewayResponse } from './ListGatewayResponse';
 export { ListGatewayDomainsResponseBody } from './ListGatewayDomainsResponseBody';
