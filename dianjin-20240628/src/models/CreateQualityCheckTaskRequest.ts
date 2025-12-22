@@ -179,6 +179,7 @@ export class CreateQualityCheckTaskRequest extends $dara.Model {
    * 0FC6636E-380A-5369-AE01-D1C15BB9B254
    */
   requestId?: string;
+  sceneCode?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -194,6 +195,7 @@ export class CreateQualityCheckTaskRequest extends $dara.Model {
       metaData: 'metaData',
       qualityGroup: 'qualityGroup',
       requestId: 'requestId',
+      sceneCode: 'sceneCode',
       type: 'type',
     };
   }
@@ -205,6 +207,7 @@ export class CreateQualityCheckTaskRequest extends $dara.Model {
       metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       qualityGroup: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      sceneCode: 'string',
       type: 'string',
     };
   }

@@ -16,41 +16,87 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("dianjin", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -387,6 +433,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建图片检测任务
+   * 
+   * @param request - CreateImageDetectionTaskRequest
+   * @param headers - CreateImageDetectionTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageDetectionTaskResponse
+   */
+  async createImageDetectionTaskWithOptions(workspaceId: string, request: $_model.CreateImageDetectionTaskRequest, headers: $_model.CreateImageDetectionTaskHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageDetectionTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileInfo)) {
+      body["fileInfo"] = request.fileInfo;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["fileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateImageDetectionTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/imageDetect/task/submit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateImageDetectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateImageDetectionTaskResponse({}));
+  }
+
+  /**
+   * 创建图片检测任务
+   * 
+   * @param request - CreateImageDetectionTaskRequest
+   * @returns CreateImageDetectionTaskResponse
+   */
+  async createImageDetectionTask(workspaceId: string, request: $_model.CreateImageDetectionTaskRequest): Promise<$_model.CreateImageDetectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CreateImageDetectionTaskHeaders({ });
+    return await this.createImageDetectionTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 创建文档库
    * 
    * @param request - CreateLibraryRequest
@@ -588,6 +700,10 @@ export default class Client extends OpenApi {
       body["requestId"] = request.requestId;
     }
 
+    if (!$dara.isNull(request.sceneCode)) {
+      body["sceneCode"] = request.sceneCode;
+    }
+
     if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
     }
@@ -620,6 +736,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createQualityCheckTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建视频生成任务
+   * 
+   * @param request - CreateVideoCreationTaskRequest
+   * @param headers - CreateVideoCreationTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoCreationTaskResponse
+   */
+  async createVideoCreationTaskWithOptions(workspaceId: string, request: $_model.CreateVideoCreationTaskRequest, headers: $_model.CreateVideoCreationTaskHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVideoCreationTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.creationInstruction)) {
+      body["creationInstruction"] = request.creationInstruction;
+    }
+
+    if (!$dara.isNull(request.fileInfo)) {
+      body["fileInfo"] = request.fileInfo;
+    }
+
+    if (!$dara.isNull(request.imageDetectionTaskId)) {
+      body["imageDetectionTaskId"] = request.imageDetectionTaskId;
+    }
+
+    if (!$dara.isNull(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVideoCreationTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/videoCreation/task/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVideoCreationTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateVideoCreationTaskResponse({}));
+  }
+
+  /**
+   * 创建视频生成任务
+   * 
+   * @param request - CreateVideoCreationTaskRequest
+   * @returns CreateVideoCreationTaskResponse
+   */
+  async createVideoCreationTask(workspaceId: string, request: $_model.CreateVideoCreationTaskRequest): Promise<$_model.CreateVideoCreationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CreateVideoCreationTaskHeaders({ });
+    return await this.createVideoCreationTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -714,6 +900,83 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLibraryWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 端到端实时对话
+   * 
+   * @param request - EndToEndRealTimeDialogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EndToEndRealTimeDialogResponse
+   */
+  async endToEndRealTimeDialogWithOptions(workspaceId: string, request: $_model.EndToEndRealTimeDialogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EndToEndRealTimeDialogResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.asrModelId)) {
+      query["asrModelId"] = request.asrModelId;
+    }
+
+    if (!$dara.isNull(request.inputFormat)) {
+      query["inputFormat"] = request.inputFormat;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      query["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.pitchRate)) {
+      query["pitchRate"] = request.pitchRate;
+    }
+
+    if (!$dara.isNull(request.sampleRate)) {
+      query["sampleRate"] = request.sampleRate;
+    }
+
+    if (!$dara.isNull(request.speechRate)) {
+      query["speechRate"] = request.speechRate;
+    }
+
+    if (!$dara.isNull(request.ttsModelId)) {
+      query["ttsModelId"] = request.ttsModelId;
+    }
+
+    if (!$dara.isNull(request.voiceCode)) {
+      query["voiceCode"] = request.voiceCode;
+    }
+
+    if (!$dara.isNull(request.volume)) {
+      query["volume"] = request.volume;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EndToEndRealTimeDialog",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ws/realtime/dialog`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EndToEndRealTimeDialogResponse>(await this.callApi(params, req, runtime), new $_model.EndToEndRealTimeDialogResponse({}));
+  }
+
+  /**
+   * 端到端实时对话
+   * 
+   * @param request - EndToEndRealTimeDialogRequest
+   * @returns EndToEndRealTimeDialogResponse
+   */
+  async endToEndRealTimeDialog(workspaceId: string, request: $_model.EndToEndRealTimeDialogRequest): Promise<$_model.EndToEndRealTimeDialogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.endToEndRealTimeDialogWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -1355,6 +1618,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取检测结果
+   * 
+   * @param request - GetImageDetectionTaskResultRequest
+   * @param headers - GetImageDetectionTaskResultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageDetectionTaskResultResponse
+   */
+  async getImageDetectionTaskResultWithOptions(workspaceId: string, request: $_model.GetImageDetectionTaskResultRequest, headers: $_model.GetImageDetectionTaskResultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageDetectionTaskResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImageDetectionTaskResult",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/imageDetect/task/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetImageDetectionTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.GetImageDetectionTaskResultResponse({}));
+  }
+
+  /**
+   * 获取检测结果
+   * 
+   * @param request - GetImageDetectionTaskResultRequest
+   * @returns GetImageDetectionTaskResultResponse
+   */
+  async getImageDetectionTaskResult(workspaceId: string, request: $_model.GetImageDetectionTaskResultRequest): Promise<$_model.GetImageDetectionTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetImageDetectionTaskResultHeaders({ });
+    return await this.getImageDetectionTaskResultWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取文档库配置详情
    * 
    * @param request - GetLibraryRequest
@@ -1683,6 +2004,64 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskStatusWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取视频生成任务结果
+   * 
+   * @param request - GetVideoCreationTaskResultRequest
+   * @param headers - GetVideoCreationTaskResultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoCreationTaskResultResponse
+   */
+  async getVideoCreationTaskResultWithOptions(workspaceId: string, request: $_model.GetVideoCreationTaskResultRequest, headers: $_model.GetVideoCreationTaskResultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoCreationTaskResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoCreationTaskResult",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/videoCreation/task/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoCreationTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoCreationTaskResultResponse({}));
+  }
+
+  /**
+   * 获取视频生成任务结果
+   * 
+   * @param request - GetVideoCreationTaskResultRequest
+   * @returns GetVideoCreationTaskResultResponse
+   */
+  async getVideoCreationTaskResult(workspaceId: string, request: $_model.GetVideoCreationTaskResultRequest): Promise<$_model.GetVideoCreationTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetVideoCreationTaskResultHeaders({ });
+    return await this.getVideoCreationTaskResultWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -3259,7 +3638,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       uploadDocumentReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
