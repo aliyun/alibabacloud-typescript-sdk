@@ -2,6 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryConfigResponseBodyDataNacosRunningEnvFencePolicy extends $dara.Model {
+  enabledModules?: string[];
+  interceptPolicy?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      enabledModules: 'enabledModules',
+      interceptPolicy: 'interceptPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabledModules: { 'type': 'array', 'itemType': 'string' },
+      interceptPolicy: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.enabledModules)) {
+      $dara.Model.validateArray(this.enabledModules);
+    }
+    if(this.interceptPolicy) {
+      $dara.Model.validateMap(this.interceptPolicy);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryConfigResponseBodyDataNacosRunningEnv extends $dara.Model {
   /**
    * @remarks
@@ -11,10 +43,14 @@ export class QueryConfigResponseBodyDataNacosRunningEnv extends $dara.Model {
    * true
    */
   emptyProtect?: boolean;
+  fenceEnabled?: boolean;
+  fencePolicy?: QueryConfigResponseBodyDataNacosRunningEnvFencePolicy;
   grayAuth?: string;
   static names(): { [key: string]: string } {
     return {
       emptyProtect: 'emptyProtect',
+      fenceEnabled: 'fenceEnabled',
+      fencePolicy: 'fencePolicy',
       grayAuth: 'grayAuth',
     };
   }
@@ -22,11 +58,16 @@ export class QueryConfigResponseBodyDataNacosRunningEnv extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       emptyProtect: 'boolean',
+      fenceEnabled: 'boolean',
+      fencePolicy: QueryConfigResponseBodyDataNacosRunningEnvFencePolicy,
       grayAuth: 'string',
     };
   }
 
   validate() {
+    if(this.fencePolicy && typeof (this.fencePolicy as any).validate === 'function') {
+      (this.fencePolicy as any).validate();
+    }
     super.validate();
   }
 
@@ -270,6 +311,7 @@ export class QueryConfigResponseBodyData extends $dara.Model {
    * password
    */
   passWord?: string;
+  prometheusSdProtocolEnabled?: string;
   /**
    * @remarks
    * Indicates whether the instance was restarted and new configurations have taken effect. Valid values:
@@ -350,6 +392,7 @@ export class QueryConfigResponseBodyData extends $dara.Model {
       namingCreateServiceSupported: 'NamingCreateServiceSupported',
       openSuperAcl: 'OpenSuperAcl',
       passWord: 'PassWord',
+      prometheusSdProtocolEnabled: 'PrometheusSdProtocolEnabled',
       restartFlag: 'RestartFlag',
       snapshotCount: 'SnapshotCount',
       syncLimit: 'SyncLimit',
@@ -388,6 +431,7 @@ export class QueryConfigResponseBodyData extends $dara.Model {
       namingCreateServiceSupported: 'boolean',
       openSuperAcl: 'boolean',
       passWord: 'string',
+      prometheusSdProtocolEnabled: 'string',
       restartFlag: 'boolean',
       snapshotCount: 'string',
       syncLimit: 'string',

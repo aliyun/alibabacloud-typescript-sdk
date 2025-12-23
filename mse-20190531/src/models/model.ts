@@ -305,6 +305,7 @@ export { QueryClusterInfoResponseBodyDataInstanceModels } from './QueryClusterIn
 export { QueryClusterInfoResponseBodyDataMaintenancePeriod } from './QueryClusterInfoResponseBody';
 export { QueryClusterInfoResponseBodyData } from './QueryClusterInfoResponseBody';
 export { QueryClusterSpecificationResponseBodyData } from './QueryClusterSpecificationResponseBody';
+export { QueryConfigResponseBodyDataNacosRunningEnvFencePolicy } from './QueryConfigResponseBody';
 export { QueryConfigResponseBodyDataNacosRunningEnv } from './QueryConfigResponseBody';
 export { QueryConfigResponseBodyData } from './QueryConfigResponseBody';
 export { QueryGovernanceKubernetesClusterResponseBodyDataResult } from './QueryGovernanceKubernetesClusterResponseBody';

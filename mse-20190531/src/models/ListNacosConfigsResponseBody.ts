@@ -11,6 +11,7 @@ export class ListNacosConfigsResponseBodyConfigurations extends $dara.Model {
    * test
    */
   appName?: string;
+  configTags?: string;
   /**
    * @remarks
    * The ID of the configuration.
@@ -19,6 +20,7 @@ export class ListNacosConfigsResponseBodyConfigurations extends $dara.Model {
    * log.yaml
    */
   dataId?: string;
+  description?: string;
   /**
    * @remarks
    * The ID of the group.
@@ -38,7 +40,9 @@ export class ListNacosConfigsResponseBodyConfigurations extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
+      configTags: 'ConfigTags',
       dataId: 'DataId',
+      description: 'Description',
       group: 'Group',
       id: 'Id',
     };
@@ -47,7 +51,9 @@ export class ListNacosConfigsResponseBodyConfigurations extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appName: 'string',
+      configTags: 'string',
       dataId: 'string',
+      description: 'string',
       group: 'string',
       id: 'string',
     };
