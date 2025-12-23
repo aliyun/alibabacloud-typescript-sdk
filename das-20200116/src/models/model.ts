@@ -50,6 +50,8 @@ export { DescribeHotBigKeysResponseBodyDataHighTrafficKeysHighTrafficKey } from 
 export { DescribeHotBigKeysResponseBodyDataHighTrafficKeys } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyDataHotKeysHotKey } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyDataHotKeys } from './DescribeHotBigKeysResponseBody';
+export { DescribeHotBigKeysResponseBodyDataLargeKeysLargeKey } from './DescribeHotBigKeysResponseBody';
+export { DescribeHotBigKeysResponseBodyDataLargeKeys } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyData } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotKeysResponseBodyDataHotKey } from './DescribeHotKeysResponseBody';
 export { DescribeHotKeysResponseBodyData } from './DescribeHotKeysResponseBody';

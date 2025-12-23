@@ -277,6 +277,67 @@ export class DescribeHotBigKeysResponseBodyDataHotKeys extends $dara.Model {
   }
 }
 
+export class DescribeHotBigKeysResponseBodyDataLargeKeysLargeKey extends $dara.Model {
+  dataSize?: string;
+  db?: string;
+  key?: string;
+  keyType?: string;
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSize: 'DataSize',
+      db: 'Db',
+      key: 'Key',
+      keyType: 'KeyType',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSize: 'string',
+      db: 'string',
+      key: 'string',
+      keyType: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHotBigKeysResponseBodyDataLargeKeys extends $dara.Model {
+  largeKey?: DescribeHotBigKeysResponseBodyDataLargeKeysLargeKey[];
+  static names(): { [key: string]: string } {
+    return {
+      largeKey: 'LargeKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      largeKey: { 'type': 'array', 'itemType': DescribeHotBigKeysResponseBodyDataLargeKeysLargeKey },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.largeKey)) {
+      $dara.Model.validateArray(this.largeKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -306,6 +367,8 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
    * The list of hot keys.
    */
   hotKeys?: DescribeHotBigKeysResponseBodyDataHotKeys;
+  largeKeyMsg?: string;
+  largeKeys?: DescribeHotBigKeysResponseBodyDataLargeKeys;
   static names(): { [key: string]: string } {
     return {
       bigKeyMsg: 'BigKeyMsg',
@@ -314,6 +377,8 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
       highTrafficKeys: 'HighTrafficKeys',
       hotKeyMsg: 'HotKeyMsg',
       hotKeys: 'HotKeys',
+      largeKeyMsg: 'LargeKeyMsg',
+      largeKeys: 'LargeKeys',
     };
   }
 
@@ -325,6 +390,8 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
       highTrafficKeys: DescribeHotBigKeysResponseBodyDataHighTrafficKeys,
       hotKeyMsg: 'string',
       hotKeys: DescribeHotBigKeysResponseBodyDataHotKeys,
+      largeKeyMsg: 'string',
+      largeKeys: DescribeHotBigKeysResponseBodyDataLargeKeys,
     };
   }
 
@@ -337,6 +404,9 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
     }
     if(this.hotKeys && typeof (this.hotKeys as any).validate === 'function') {
       (this.hotKeys as any).validate();
+    }
+    if(this.largeKeys && typeof (this.largeKeys as any).validate === 'function') {
+      (this.largeKeys as any).validate();
     }
     super.validate();
   }
