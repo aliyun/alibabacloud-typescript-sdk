@@ -19,6 +19,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
    * 1762309642177
    */
   createTime?: number;
+  externalData?: string;
   /**
    * @remarks
    * 来源Idp Id
@@ -63,6 +64,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
     return {
       authnSourceType: 'AuthnSourceType',
       createTime: 'CreateTime',
+      externalData: 'ExternalData',
       identityProviderId: 'IdentityProviderId',
       instanceId: 'InstanceId',
       updateTime: 'UpdateTime',
@@ -75,6 +77,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
     return {
       authnSourceType: 'string',
       createTime: 'number',
+      externalData: 'string',
       identityProviderId: 'string',
       instanceId: 'string',
       updateTime: 'number',
