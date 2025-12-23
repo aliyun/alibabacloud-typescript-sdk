@@ -8,9 +8,9 @@ export class ChangeResourceGroupInput extends $dara.Model {
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      newResourceGroupId: 'newResourceGroupId',
-      resourceId: 'resourceId',
-      resourceType: 'resourceType',
+      newResourceGroupId: 'NewResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
     };
   }
 

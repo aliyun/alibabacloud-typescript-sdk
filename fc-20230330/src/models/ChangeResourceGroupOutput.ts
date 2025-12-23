@@ -8,9 +8,9 @@ export class ChangeResourceGroupOutput extends $dara.Model {
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
-      newResourceGroupId: 'newResourceGroupId',
-      oldResourceGroupId: 'oldResourceGroupId',
-      resourceId: 'resourceId',
+      newResourceGroupId: 'NewResourceGroupId',
+      oldResourceGroupId: 'OldResourceGroupId',
+      resourceId: 'ResourceId',
     };
   }
 

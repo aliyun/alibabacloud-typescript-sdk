@@ -1,6 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { NASConfig } from "./Nasconfig";
+import { OSSMountConfig } from "./OssmountConfig";
+import { PolarFsConfig } from "./PolarFsConfig";
 
 
 export class Session extends $dara.Model {
@@ -26,6 +28,8 @@ export class Session extends $dara.Model {
    */
   lastModifiedTime?: string;
   nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
+  polarFsConfig?: PolarFsConfig;
   /**
    * @example
    * AliasName1
@@ -64,6 +68,8 @@ export class Session extends $dara.Model {
       functionName: 'functionName',
       lastModifiedTime: 'lastModifiedTime',
       nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
+      polarFsConfig: 'polarFsConfig',
       qualifier: 'qualifier',
       sessionAffinityType: 'sessionAffinityType',
       sessionId: 'sessionId',
@@ -81,6 +87,8 @@ export class Session extends $dara.Model {
       functionName: 'string',
       lastModifiedTime: 'string',
       nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
+      polarFsConfig: PolarFsConfig,
       qualifier: 'string',
       sessionAffinityType: 'string',
       sessionId: 'string',
@@ -93,6 +101,12 @@ export class Session extends $dara.Model {
   validate() {
     if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
       (this.nasConfig as any).validate();
+    }
+    if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
+      (this.ossMountConfig as any).validate();
+    }
+    if(this.polarFsConfig && typeof (this.polarFsConfig as any).validate === 'function') {
+      (this.polarFsConfig as any).validate();
     }
     super.validate();
   }
