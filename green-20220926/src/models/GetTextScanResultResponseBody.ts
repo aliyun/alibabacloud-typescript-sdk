@@ -53,6 +53,7 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $dara.Model {
 }
 
 export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
+  accountId?: string;
   /**
    * @remarks
    * Bailian Request ID
@@ -69,6 +70,7 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
    * 测试内容
    */
   content?: string;
+  dataId?: string;
   /**
    * @remarks
    * Feedback information.
@@ -180,8 +182,10 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       bailianRequestId: 'BailianRequestId',
       content: 'Content',
+      dataId: 'DataId',
       extFeedback: 'ExtFeedback',
       extra: 'Extra',
       gmtCreate: 'GmtCreate',
@@ -200,8 +204,10 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       bailianRequestId: 'string',
       content: 'string',
+      dataId: 'string',
       extFeedback: 'string',
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreate: 'string',
