@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model {
+  connectionDrainTimeout?: number;
   /**
    * @example
    * wwe
@@ -21,6 +22,7 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
    * 1741247308294
    */
   createTime?: number;
+  enableConnectionDrain?: boolean;
   /**
    * @example
    * 1513561019707729_16f37aae5f3_-375882821_-169099****
@@ -68,11 +70,14 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
    * 8080
    */
   targetPort?: number;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
       cookie: 'Cookie',
       cookieTimeout: 'CookieTimeout',
       createTime: 'CreateTime',
+      enableConnectionDrain: 'EnableConnectionDrain',
       httpsCaCertId: 'HttpsCaCertId',
       httpsCertId: 'HttpsCertId',
       port: 'Port',
@@ -80,14 +85,17 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
       targetPort: 'TargetPort',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      connectionDrainTimeout: 'number',
       cookie: 'string',
       cookieTimeout: 'number',
       createTime: 'number',
+      enableConnectionDrain: 'boolean',
       httpsCaCertId: 'string',
       httpsCertId: 'string',
       port: 'number',
@@ -95,6 +103,7 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
       stickySession: 'boolean',
       stickySessionType: 'string',
       targetPort: 'number',
+      VServerGroupId: 'string',
     };
   }
 
@@ -108,6 +117,7 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
 }
 
 export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model {
+  connectionDrainTimeout?: number;
   /**
    * @example
    * wwe
@@ -126,6 +136,7 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
    * 1741247308294
    */
   createTime?: number;
+  enableConnectionDrain?: boolean;
   /**
    * @example
    * 1513561019707729_16f37aae5f3_-375882821_-169099****
@@ -173,11 +184,14 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
    * 8080
    */
   targetPort?: number;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
       cookie: 'Cookie',
       cookieTimeout: 'CookieTimeout',
       createTime: 'CreateTime',
+      enableConnectionDrain: 'EnableConnectionDrain',
       httpsCaCertId: 'HttpsCaCertId',
       httpsCertId: 'HttpsCertId',
       port: 'Port',
@@ -185,14 +199,17 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
       targetPort: 'TargetPort',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      connectionDrainTimeout: 'number',
       cookie: 'string',
       cookieTimeout: 'number',
       createTime: 'number',
+      enableConnectionDrain: 'boolean',
       httpsCaCertId: 'string',
       httpsCertId: 'string',
       port: 'number',
@@ -200,6 +217,7 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
       stickySession: 'boolean',
       stickySessionType: 'string',
       targetPort: 'number',
+      VServerGroupId: 'string',
     };
   }
 
