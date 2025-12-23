@@ -30,6 +30,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加ipam可信服务纳管成员
+   * 
+   * @param request - AddIpamMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddIpamMembersResponse
+   */
+  async addIpamMembersWithOptions(request: $_model.AddIpamMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddIpamMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.members)) {
+      query["Members"] = request.members;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddIpamMembers",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddIpamMembersResponse>(await this.callApi(params, req, runtime), new $_model.AddIpamMembersResponse({}));
+  }
+
+  /**
+   * 添加ipam可信服务纳管成员
+   * 
+   * @param request - AddIpamMembersRequest
+   * @returns AddIpamMembersResponse
+   */
+  async addIpamMembers(request: $_model.AddIpamMembersRequest): Promise<$_model.AddIpamMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addIpamMembersWithOptions(request, runtime);
+  }
+
+  /**
    * Provisions a CIDR block to an IP Address Manager (IPAM) pool.
    * 
    * @remarks
@@ -1466,6 +1536,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询ipam可信服务纳管成员
+   * 
+   * @param request - ListIpamMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamMembersResponse
+   */
+  async listIpamMembersWithOptions(request: $_model.ListIpamMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListIpamMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberIds)) {
+      query["MemberIds"] = request.memberIds;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIpamMembers",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIpamMembersResponse>(await this.callApi(params, req, runtime), new $_model.ListIpamMembersResponse({}));
+  }
+
+  /**
+   * 查询ipam可信服务纳管成员
+   * 
+   * @param request - ListIpamMembersRequest
+   * @returns ListIpamMembersResponse
+   */
+  async listIpamMembers(request: $_model.ListIpamMembersRequest): Promise<$_model.ListIpamMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listIpamMembersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
    * 
    * @param request - ListIpamPoolAllocationsRequest
@@ -2257,6 +2397,76 @@ export default class Client extends OpenApi {
   async openVpcIpamService(request: $_model.OpenVpcIpamServiceRequest): Promise<$_model.OpenVpcIpamServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.openVpcIpamServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除ipam可信服务纳管成员
+   * 
+   * @param request - RemoveIpamMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveIpamMembersResponse
+   */
+  async removeIpamMembersWithOptions(request: $_model.RemoveIpamMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveIpamMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.members)) {
+      query["Members"] = request.members;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveIpamMembers",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveIpamMembersResponse>(await this.callApi(params, req, runtime), new $_model.RemoveIpamMembersResponse({}));
+  }
+
+  /**
+   * 移除ipam可信服务纳管成员
+   * 
+   * @param request - RemoveIpamMembersRequest
+   * @returns RemoveIpamMembersResponse
+   */
+  async removeIpamMembers(request: $_model.RemoveIpamMembersRequest): Promise<$_model.RemoveIpamMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeIpamMembersWithOptions(request, runtime);
   }
 
   /**
