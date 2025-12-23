@@ -86,6 +86,7 @@ export { DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus } from './
 export { DescribeDesktopGroupsResponseBodyDesktopGroupsTags } from './DescribeDesktopGroupsResponseBody';
 export { DescribeDesktopGroupsResponseBodyDesktopGroups } from './DescribeDesktopGroupsResponseBody';
 export { DescribeDesktopInfoResponseBodyDesktops } from './DescribeDesktopInfoResponseBody';
+export { DescribeDesktopMetadataResponseBodyDesktops } from './DescribeDesktopMetadataResponseBody';
 export { DescribeDesktopOversoldGroupResponseBodyData } from './DescribeDesktopOversoldGroupResponseBody';
 export { DescribeDesktopOversoldUserResponseBodyData } from './DescribeDesktopOversoldUserResponseBody';
 export { DescribeDesktopOversoldUserGroupResponseBodyData } from './DescribeDesktopOversoldUserGroupResponseBody';
@@ -596,6 +597,9 @@ export { DescribeDesktopGroupsResponse } from './DescribeDesktopGroupsResponse';
 export { DescribeDesktopInfoRequest } from './DescribeDesktopInfoRequest';
 export { DescribeDesktopInfoResponseBody } from './DescribeDesktopInfoResponseBody';
 export { DescribeDesktopInfoResponse } from './DescribeDesktopInfoResponse';
+export { DescribeDesktopMetadataRequest } from './DescribeDesktopMetadataRequest';
+export { DescribeDesktopMetadataResponseBody } from './DescribeDesktopMetadataResponseBody';
+export { DescribeDesktopMetadataResponse } from './DescribeDesktopMetadataResponse';
 export { DescribeDesktopOversoldGroupRequest } from './DescribeDesktopOversoldGroupRequest';
 export { DescribeDesktopOversoldGroupResponseBody } from './DescribeDesktopOversoldGroupResponseBody';
 export { DescribeDesktopOversoldGroupResponse } from './DescribeDesktopOversoldGroupResponse';

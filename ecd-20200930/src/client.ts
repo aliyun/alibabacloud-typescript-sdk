@@ -7937,6 +7937,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询云电脑基础元数据
+   * 
+   * @param request - DescribeDesktopMetadataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDesktopMetadataResponse
+   */
+  async describeDesktopMetadataWithOptions(request: $_model.DescribeDesktopMetadataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDesktopMetadataResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.creationTimeStart)) {
+      query["CreationTimeStart"] = request.creationTimeStart;
+    }
+
+    if (!$dara.isNull(request.desktopIds)) {
+      query["DesktopIds"] = request.desktopIds;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.includeDesktopGroup)) {
+      query["IncludeDesktopGroup"] = request.includeDesktopGroup;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.operationTimeStart)) {
+      query["OperationTimeStart"] = request.operationTimeStart;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDesktopMetadata",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDesktopMetadataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDesktopMetadataResponse({}));
+  }
+
+  /**
+   * 查询云电脑基础元数据
+   * 
+   * @param request - DescribeDesktopMetadataRequest
+   * @returns DescribeDesktopMetadataResponse
+   */
+  async describeDesktopMetadata(request: $_model.DescribeDesktopMetadataRequest): Promise<$_model.DescribeDesktopMetadataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDesktopMetadataWithOptions(request, runtime);
+  }
+
+  /**
    * 查询超卖组
    * 
    * @param request - DescribeDesktopOversoldGroupRequest
