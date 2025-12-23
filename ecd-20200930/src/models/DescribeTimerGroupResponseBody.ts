@@ -3,9 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends $dara.Model {
+  /**
+   * @example
+   * 1764660600967
+   */
+  appointmentTimer?: number;
   endCronExpression?: string;
   enforce?: boolean;
+  /**
+   * @example
+   * m-5b0vjqbiqu010XXXXXX
+   */
+  imageId?: string;
   interval?: number;
+  /**
+   * @example
+   * 1800
+   */
+  lockScreenTime?: number;
   notificationTime?: number;
   operationType?: string;
   processWhitelist?: string[];
@@ -16,9 +31,12 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
+      appointmentTimer: 'AppointmentTimer',
       endCronExpression: 'EndCronExpression',
       enforce: 'Enforce',
+      imageId: 'ImageId',
       interval: 'Interval',
+      lockScreenTime: 'LockScreenTime',
       notificationTime: 'NotificationTime',
       operationType: 'OperationType',
       processWhitelist: 'ProcessWhitelist',
@@ -32,9 +50,12 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
 
   static types(): { [key: string]: any } {
     return {
+      appointmentTimer: 'number',
       endCronExpression: 'string',
       enforce: 'boolean',
+      imageId: 'string',
       interval: 'number',
+      lockScreenTime: 'number',
       notificationTime: 'number',
       operationType: 'string',
       processWhitelist: { 'type': 'array', 'itemType': 'string' },
@@ -238,6 +259,18 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
    */
   groupId?: string;
   /**
+   * @example
+   * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE_DESC
+   */
+  innerTimerDesc?: string;
+  /**
+   * @example
+   * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE
+   */
+  innerTimerName?: string;
+  isBind?: boolean;
+  isUpdate?: boolean;
+  /**
    * @remarks
    * The name of the configuration group.
    */
@@ -288,6 +321,10 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
       configTimers: 'ConfigTimers',
       description: 'Description',
       groupId: 'GroupId',
+      innerTimerDesc: 'InnerTimerDesc',
+      innerTimerName: 'InnerTimerName',
+      isBind: 'IsBind',
+      isUpdate: 'IsUpdate',
       name: 'Name',
       productType: 'ProductType',
       status: 'Status',
@@ -302,6 +339,10 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
       configTimers: { 'type': 'array', 'itemType': DescribeTimerGroupResponseBodyDataConfigTimers },
       description: 'string',
       groupId: 'string',
+      innerTimerDesc: 'string',
+      innerTimerName: 'string',
+      isBind: 'boolean',
+      isUpdate: 'boolean',
       name: 'string',
       productType: 'string',
       status: 'string',

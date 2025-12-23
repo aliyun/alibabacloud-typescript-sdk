@@ -33,6 +33,18 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
    */
   groupId?: string;
   /**
+   * @example
+   * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE_DESC
+   */
+  innerTimerDesc?: string;
+  /**
+   * @example
+   * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE
+   */
+  innerTimerName?: string;
+  isBind?: boolean;
+  isUpdate?: boolean;
+  /**
    * @remarks
    * The name of the configuration group.
    * 
@@ -85,6 +97,10 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
       bindCountMap: 'BindCountMap',
       description: 'Description',
       groupId: 'GroupId',
+      innerTimerDesc: 'InnerTimerDesc',
+      innerTimerName: 'InnerTimerName',
+      isBind: 'IsBind',
+      isUpdate: 'IsUpdate',
       name: 'Name',
       productType: 'ProductType',
       status: 'Status',
@@ -98,6 +114,10 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
       bindCountMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       description: 'string',
       groupId: 'string',
+      innerTimerDesc: 'string',
+      innerTimerName: 'string',
+      isBind: 'boolean',
+      isUpdate: 'boolean',
       name: 'string',
       productType: 'string',
       status: 'string',

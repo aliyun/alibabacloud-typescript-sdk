@@ -3,9 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Model {
+  /**
+   * @example
+   * 1764660600967
+   */
+  appointmentTimer?: number;
   endCronExpression?: string;
   enforce?: boolean;
+  /**
+   * @example
+   * m-5b0vjqbiqu010XXXXXX
+   */
+  imageId?: string;
   interval?: number;
+  /**
+   * @example
+   * 1800
+   */
+  lockScreenTime?: number;
   notificationTime?: number;
   operationType?: string;
   processWhitelist?: string[];
@@ -16,9 +31,12 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
+      appointmentTimer: 'AppointmentTimer',
       endCronExpression: 'EndCronExpression',
       enforce: 'Enforce',
+      imageId: 'ImageId',
       interval: 'Interval',
+      lockScreenTime: 'LockScreenTime',
       notificationTime: 'NotificationTime',
       operationType: 'OperationType',
       processWhitelist: 'ProcessWhitelist',
@@ -32,9 +50,12 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      appointmentTimer: 'number',
       endCronExpression: 'string',
       enforce: 'boolean',
+      imageId: 'string',
       interval: 'number',
+      lockScreenTime: 'number',
       notificationTime: 'number',
       operationType: 'string',
       processWhitelist: { 'type': 'array', 'itemType': 'string' },

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeOfficeSitesRequest extends $dara.Model {
+  accountType?: string;
   /**
    * @remarks
    * The number of entries to return on each page.
@@ -171,6 +172,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      accountType: 'AccountType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       officeSiteId: 'OfficeSiteId',
@@ -184,6 +186,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountType: 'string',
       maxResults: 'number',
       nextToken: 'string',
       officeSiteId: { 'type': 'array', 'itemType': 'string' },

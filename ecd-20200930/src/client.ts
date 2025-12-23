@@ -10244,6 +10244,10 @@ export default class Client extends OpenApi {
   async describeOfficeSitesWithOptions(request: $_model.DescribeOfficeSitesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOfficeSitesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accountType)) {
+      query["AccountType"] = request.accountType;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
