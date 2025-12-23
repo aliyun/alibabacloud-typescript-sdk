@@ -1720,6 +1720,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * IPC下单
+   * 
+   * @param request - CreateIpcOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIpcOrderResponse
+   */
+  async createIpcOrderWithOptions(request: $_model.CreateIpcOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIpcOrderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.capability)) {
+      query["Capability"] = request.capability;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateIpcOrder",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateIpcOrderResponse>(await this.callApi(params, req, runtime), new $_model.CreateIpcOrderResponse({}));
+  }
+
+  /**
+   * IPC下单
+   * 
+   * @param request - CreateIpcOrderRequest
+   * @returns CreateIpcOrderResponse
+   */
+  async createIpcOrder(request: $_model.CreateIpcOrderRequest): Promise<$_model.CreateIpcOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createIpcOrderWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a live package channel.
    * 
    * @remarks
@@ -7425,6 +7475,68 @@ export default class Client extends OpenApi {
   async getHotwordLibrary(request: $_model.GetHotwordLibraryRequest): Promise<$_model.GetHotwordLibraryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotwordLibraryWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询IPC设备信息
+   * 
+   * @param request - GetIpcDeviceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIpcDeviceInfoResponse
+   */
+  async getIpcDeviceInfoWithOptions(request: $_model.GetIpcDeviceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIpcDeviceInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.capability)) {
+      query["Capability"] = request.capability;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIpcDeviceInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIpcDeviceInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetIpcDeviceInfoResponse({}));
+  }
+
+  /**
+   * 查询IPC设备信息
+   * 
+   * @param request - GetIpcDeviceInfoRequest
+   * @returns GetIpcDeviceInfoResponse
+   */
+  async getIpcDeviceInfo(request: $_model.GetIpcDeviceInfoRequest): Promise<$_model.GetIpcDeviceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIpcDeviceInfoWithOptions(request, runtime);
   }
 
   /**
@@ -13771,6 +13883,64 @@ export default class Client extends OpenApi {
   async queryIProductionJob(request: $_model.QueryIProductionJobRequest): Promise<$_model.QueryIProductionJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryIProductionJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询IPC用量
+   * 
+   * @param request - QueryIpcQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryIpcQuotaResponse
+   */
+  async queryIpcQuotaWithOptions(request: $_model.QueryIpcQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryIpcQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.capability)) {
+      query["Capability"] = request.capability;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryIpcQuota",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryIpcQuotaResponse>(await this.callApi(params, req, runtime), new $_model.QueryIpcQuotaResponse({}));
+  }
+
+  /**
+   * 查询IPC用量
+   * 
+   * @param request - QueryIpcQuotaRequest
+   * @returns QueryIpcQuotaResponse
+   */
+  async queryIpcQuota(request: $_model.QueryIpcQuotaRequest): Promise<$_model.QueryIpcQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryIpcQuotaWithOptions(request, runtime);
   }
 
   /**

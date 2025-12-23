@@ -86,6 +86,58 @@ export class QuerySmarttagJobResponseBodyResults extends $dara.Model {
   }
 }
 
+export class QuerySmarttagJobResponseBodyUsagesUsage extends $dara.Model {
+  quota?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quota: 'Quota',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quota: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmarttagJobResponseBodyUsages extends $dara.Model {
+  usage?: QuerySmarttagJobResponseBodyUsagesUsage[];
+  static names(): { [key: string]: string } {
+    return {
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      usage: { 'type': 'array', 'itemType': QuerySmarttagJobResponseBodyUsagesUsage },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.usage)) {
+      $dara.Model.validateArray(this.usage);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySmarttagJobResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -113,6 +165,7 @@ export class QuerySmarttagJobResponseBody extends $dara.Model {
    * The analysis results of the smart tagging job. The value is an array.
    */
   results?: QuerySmarttagJobResponseBodyResults;
+  usages?: QuerySmarttagJobResponseBodyUsages;
   /**
    * @remarks
    * The content of callback messages that are sent to Simple Message Queue (SMQ) when the information of the smart tagging job changes. For more information about the parameters contained in the callback message, see the "Callback parameters" section of this topic.
@@ -126,6 +179,7 @@ export class QuerySmarttagJobResponseBody extends $dara.Model {
       jobStatus: 'JobStatus',
       requestId: 'RequestId',
       results: 'Results',
+      usages: 'Usages',
       userData: 'UserData',
     };
   }
@@ -135,6 +189,7 @@ export class QuerySmarttagJobResponseBody extends $dara.Model {
       jobStatus: 'string',
       requestId: 'string',
       results: QuerySmarttagJobResponseBodyResults,
+      usages: QuerySmarttagJobResponseBodyUsages,
       userData: 'string',
     };
   }
@@ -142,6 +197,9 @@ export class QuerySmarttagJobResponseBody extends $dara.Model {
   validate() {
     if(this.results && typeof (this.results as any).validate === 'function') {
       (this.results as any).validate();
+    }
+    if(this.usages && typeof (this.usages as any).validate === 'function') {
+      (this.usages as any).validate();
     }
     super.validate();
   }
