@@ -105,6 +105,7 @@ export class SearchResourcesRequest extends $dara.Model {
    * The filter conditions.
    */
   filter?: SearchResourcesRequestFilter[];
+  includeDeletedResources?: boolean;
   /**
    * @remarks
    * The maximum number of entries per page.
@@ -135,6 +136,7 @@ export class SearchResourcesRequest extends $dara.Model {
    * rg-acfmzawhxxc****
    */
   resourceGroupId?: string;
+  searchExpression?: string;
   /**
    * @remarks
    * The method that is used to sort the entries returned.
@@ -143,9 +145,11 @@ export class SearchResourcesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
+      includeDeletedResources: 'IncludeDeletedResources',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
+      searchExpression: 'SearchExpression',
       sortCriterion: 'SortCriterion',
     };
   }
@@ -153,9 +157,11 @@ export class SearchResourcesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filter: { 'type': 'array', 'itemType': SearchResourcesRequestFilter },
+      includeDeletedResources: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       resourceGroupId: 'string',
+      searchExpression: 'string',
       sortCriterion: SearchResourcesRequestSortCriterion,
     };
   }

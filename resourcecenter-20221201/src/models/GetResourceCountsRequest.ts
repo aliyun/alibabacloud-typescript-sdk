@@ -74,10 +74,14 @@ export class GetResourceCountsRequest extends $dara.Model {
    * ResourceType
    */
   groupByKey?: string;
+  includeDeletedResources?: boolean;
+  searchExpression?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
       groupByKey: 'GroupByKey',
+      includeDeletedResources: 'IncludeDeletedResources',
+      searchExpression: 'SearchExpression',
     };
   }
 
@@ -85,6 +89,8 @@ export class GetResourceCountsRequest extends $dara.Model {
     return {
       filter: { 'type': 'array', 'itemType': GetResourceCountsRequestFilter },
       groupByKey: 'string',
+      includeDeletedResources: 'boolean',
+      searchExpression: 'string',
     };
   }
 

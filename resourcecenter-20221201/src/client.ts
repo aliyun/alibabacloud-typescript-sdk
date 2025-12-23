@@ -1195,6 +1195,14 @@ export default class Client extends OpenApi {
       query["GroupByKey"] = request.groupByKey;
     }
 
+    if (!$dara.isNull(request.includeDeletedResources)) {
+      query["IncludeDeletedResources"] = request.includeDeletedResources;
+    }
+
+    if (!$dara.isNull(request.searchExpression)) {
+      query["SearchExpression"] = request.searchExpression;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2064,6 +2072,10 @@ export default class Client extends OpenApi {
       query["Filter"] = request.filter;
     }
 
+    if (!$dara.isNull(request.includeDeletedResources)) {
+      query["IncludeDeletedResources"] = request.includeDeletedResources;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -2074,6 +2086,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.searchExpression)) {
+      query["SearchExpression"] = request.searchExpression;
     }
 
     if (!$dara.isNull(request.sortCriterion)) {

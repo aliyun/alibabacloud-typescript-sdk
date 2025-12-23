@@ -164,6 +164,7 @@ export class SearchResourcesResponseBodyResources extends $dara.Model {
    * 2021-06-30T09:20:08Z
    */
   createTime?: string;
+  deleted?: boolean;
   /**
    * @remarks
    * The time when the resource expires.
@@ -243,6 +244,7 @@ export class SearchResourcesResponseBodyResources extends $dara.Model {
     return {
       accountId: 'AccountId',
       createTime: 'CreateTime',
+      deleted: 'Deleted',
       expireTime: 'ExpireTime',
       ipAddressAttributes: 'IpAddressAttributes',
       ipAddresses: 'IpAddresses',
@@ -260,6 +262,7 @@ export class SearchResourcesResponseBodyResources extends $dara.Model {
     return {
       accountId: 'string',
       createTime: 'string',
+      deleted: 'boolean',
       expireTime: 'string',
       ipAddressAttributes: { 'type': 'array', 'itemType': SearchResourcesResponseBodyResourcesIpAddressAttributes },
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
