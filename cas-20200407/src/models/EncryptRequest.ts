@@ -24,12 +24,11 @@ export class EncryptRequest extends $dara.Model {
    * *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
    * *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 12345678-1234-1234-1234-12345678****
    */
   certIdentifier?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The value type of the Message parameter. Valid values:
@@ -59,6 +58,7 @@ export class EncryptRequest extends $dara.Model {
     return {
       algorithm: 'Algorithm',
       certIdentifier: 'CertIdentifier',
+      customIdentifier: 'CustomIdentifier',
       messageType: 'MessageType',
       plaintext: 'Plaintext',
     };
@@ -68,6 +68,7 @@ export class EncryptRequest extends $dara.Model {
     return {
       algorithm: 'string',
       certIdentifier: 'string',
+      customIdentifier: 'string',
       messageType: 'string',
       plaintext: 'string',
     };

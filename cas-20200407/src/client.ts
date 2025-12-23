@@ -589,6 +589,10 @@ export default class Client extends OpenApi {
       query["CiphertextBlob"] = request.ciphertextBlob;
     }
 
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
+    }
+
     if (!$dara.isNull(request.messageType)) {
       query["MessageType"] = request.messageType;
     }
@@ -1143,6 +1147,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.certIdentifier)) {
       query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
     }
 
     if (!$dara.isNull(request.messageType)) {
@@ -2085,6 +2093,10 @@ export default class Client extends OpenApi {
       query["CertIdentifier"] = request.certIdentifier;
     }
 
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
+    }
+
     if (!$dara.isNull(request.message)) {
       query["Message"] = request.message;
     }
@@ -2481,6 +2493,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.certIdentifier)) {
       query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!$dara.isNull(request.customIdentifier)) {
+      query["CustomIdentifier"] = request.customIdentifier;
     }
 
     if (!$dara.isNull(request.message)) {

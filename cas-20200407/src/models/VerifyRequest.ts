@@ -10,12 +10,11 @@ export class VerifyRequest extends $dara.Model {
    * *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
    * *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 5870821-cn-hangzhou
    */
   certIdentifier?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The data for which you want to verify the signature. The value must be encoded in Base64.\\
@@ -71,6 +70,7 @@ export class VerifyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       certIdentifier: 'CertIdentifier',
+      customIdentifier: 'CustomIdentifier',
       message: 'Message',
       messageType: 'MessageType',
       signatureValue: 'SignatureValue',
@@ -81,6 +81,7 @@ export class VerifyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       certIdentifier: 'string',
+      customIdentifier: 'string',
       message: 'string',
       messageType: 'string',
       signatureValue: 'string',

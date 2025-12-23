@@ -10,12 +10,11 @@ export class SignRequest extends $dara.Model {
    * *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
    * *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
    * 
-   * This parameter is required.
-   * 
    * @example
    * ccaf0c629c2be1e2abb63bb76b
    */
   certIdentifier?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The data to sign. The value must be encoded in Base64.\\
@@ -61,6 +60,7 @@ export class SignRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       certIdentifier: 'CertIdentifier',
+      customIdentifier: 'CustomIdentifier',
       message: 'Message',
       messageType: 'MessageType',
       signingAlgorithm: 'SigningAlgorithm',
@@ -70,6 +70,7 @@ export class SignRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       certIdentifier: 'string',
+      customIdentifier: 'string',
       message: 'string',
       messageType: 'string',
       signingAlgorithm: 'string',

@@ -24,8 +24,6 @@ export class DecryptRequest extends $dara.Model {
    * *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
    * *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 12345678-1234-1234-1234-12345678****
    */
@@ -40,6 +38,7 @@ export class DecryptRequest extends $dara.Model {
    * ZOyIygCyaOW6Gj****MlNKiuyjfzw=
    */
   ciphertextBlob?: string;
+  customIdentifier?: string;
   /**
    * @remarks
    * The value type of the Message parameter. Valid values:
@@ -56,6 +55,7 @@ export class DecryptRequest extends $dara.Model {
       algorithm: 'Algorithm',
       certIdentifier: 'CertIdentifier',
       ciphertextBlob: 'CiphertextBlob',
+      customIdentifier: 'CustomIdentifier',
       messageType: 'MessageType',
     };
   }
@@ -65,6 +65,7 @@ export class DecryptRequest extends $dara.Model {
       algorithm: 'string',
       certIdentifier: 'string',
       ciphertextBlob: 'string',
+      customIdentifier: 'string',
       messageType: 'string',
     };
   }
