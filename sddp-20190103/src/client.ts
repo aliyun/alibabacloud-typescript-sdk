@@ -674,6 +674,10 @@ export default class Client extends OpenApi {
       query["LoadWhiteList"] = request.loadWhiteList;
     }
 
+    if (!$dara.isNull(request.logQueryOpJson)) {
+      query["LogQueryOpJson"] = request.logQueryOpJson;
+    }
+
     if (!$dara.isNull(request.logSource)) {
       query["LogSource"] = request.logSource;
     }

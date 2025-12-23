@@ -65,6 +65,11 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   loadWhiteList?: boolean;
   /**
    * @example
+   * [ {   "isContain" : false,   "queryKey" : "effectRowRange" }, {   "isContain" : false,   "queryKey" : "remoteClientIp" } ]
+   */
+  logQueryOpJson?: string;
+  /**
+   * @example
    * SLOW_SQL
    */
   logSource?: string;
@@ -144,6 +149,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       ipType: 'IpType',
       lang: 'Lang',
       loadWhiteList: 'LoadWhiteList',
+      logQueryOpJson: 'LogQueryOpJson',
       logSource: 'LogSource',
       memberAccount: 'MemberAccount',
       message: 'Message',
@@ -176,6 +182,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       ipType: 'string',
       lang: 'string',
       loadWhiteList: 'boolean',
+      logQueryOpJson: 'string',
       logSource: 'string',
       memberAccount: 'string',
       message: 'string',
