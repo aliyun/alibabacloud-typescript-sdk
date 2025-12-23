@@ -333,6 +333,104 @@ export class PatchEventRequestStart extends $dara.Model {
   }
 }
 
+export class PatchEventRequestCategories extends $dara.Model {
+  categoryId?: string;
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'categoryId',
+      displayName: 'displayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      displayName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestOnlineMeetingInfo extends $dara.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestRichTextDescription extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestUiConfigs extends $dara.Model {
+  uiName?: string;
+  uiStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uiName: 'uiName',
+      uiStatus: 'uiStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uiName: 'string',
+      uiStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PatchEventRequest extends $dara.Model {
   attendees?: PatchEventRequestAttendees[];
   /**
@@ -365,6 +463,11 @@ export class PatchEventRequest extends $dara.Model {
   reminders?: PatchEventRequestReminders[];
   start?: PatchEventRequestStart;
   summary?: string;
+  categories?: PatchEventRequestCategories[];
+  freeBusyStatus?: string;
+  onlineMeetingInfo?: PatchEventRequestOnlineMeetingInfo;
+  richTextDescription?: PatchEventRequestRichTextDescription;
+  uiConfigs?: PatchEventRequestUiConfigs[];
   static names(): { [key: string]: string } {
     return {
       attendees: 'Attendees',
@@ -380,6 +483,11 @@ export class PatchEventRequest extends $dara.Model {
       reminders: 'Reminders',
       start: 'Start',
       summary: 'Summary',
+      categories: 'categories',
+      freeBusyStatus: 'freeBusyStatus',
+      onlineMeetingInfo: 'onlineMeetingInfo',
+      richTextDescription: 'richTextDescription',
+      uiConfigs: 'uiConfigs',
     };
   }
 
@@ -398,6 +506,11 @@ export class PatchEventRequest extends $dara.Model {
       reminders: { 'type': 'array', 'itemType': PatchEventRequestReminders },
       start: PatchEventRequestStart,
       summary: 'string',
+      categories: { 'type': 'array', 'itemType': PatchEventRequestCategories },
+      freeBusyStatus: 'string',
+      onlineMeetingInfo: PatchEventRequestOnlineMeetingInfo,
+      richTextDescription: PatchEventRequestRichTextDescription,
+      uiConfigs: { 'type': 'array', 'itemType': PatchEventRequestUiConfigs },
     };
   }
 
@@ -425,6 +538,18 @@ export class PatchEventRequest extends $dara.Model {
     }
     if(this.start && typeof (this.start as any).validate === 'function') {
       (this.start as any).validate();
+    }
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(this.onlineMeetingInfo && typeof (this.onlineMeetingInfo as any).validate === 'function') {
+      (this.onlineMeetingInfo as any).validate();
+    }
+    if(this.richTextDescription && typeof (this.richTextDescription as any).validate === 'function') {
+      (this.richTextDescription as any).validate();
+    }
+    if(Array.isArray(this.uiConfigs)) {
+      $dara.Model.validateArray(this.uiConfigs);
     }
     super.validate();
   }

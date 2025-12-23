@@ -34,6 +34,11 @@ export class PatchEventShrinkRequest extends $dara.Model {
   remindersShrink?: string;
   startShrink?: string;
   summary?: string;
+  categoriesShrink?: string;
+  freeBusyStatus?: string;
+  onlineMeetingInfoShrink?: string;
+  richTextDescriptionShrink?: string;
+  uiConfigsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       attendeesShrink: 'Attendees',
@@ -49,6 +54,11 @@ export class PatchEventShrinkRequest extends $dara.Model {
       remindersShrink: 'Reminders',
       startShrink: 'Start',
       summary: 'Summary',
+      categoriesShrink: 'categories',
+      freeBusyStatus: 'freeBusyStatus',
+      onlineMeetingInfoShrink: 'onlineMeetingInfo',
+      richTextDescriptionShrink: 'richTextDescription',
+      uiConfigsShrink: 'uiConfigs',
     };
   }
 
@@ -67,6 +77,11 @@ export class PatchEventShrinkRequest extends $dara.Model {
       remindersShrink: 'string',
       startShrink: 'string',
       summary: 'string',
+      categoriesShrink: 'string',
+      freeBusyStatus: 'string',
+      onlineMeetingInfoShrink: 'string',
+      richTextDescriptionShrink: 'string',
+      uiConfigsShrink: 'string',
     };
   }
 

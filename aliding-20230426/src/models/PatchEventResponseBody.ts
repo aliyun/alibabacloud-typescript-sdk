@@ -57,6 +57,58 @@ export class PatchEventResponseBodyAttendees extends $dara.Model {
   }
 }
 
+export class PatchEventResponseBodyCardInstances extends $dara.Model {
+  outTrackId?: string;
+  scenario?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outTrackId: 'outTrackId',
+      scenario: 'scenario',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outTrackId: 'string',
+      scenario: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventResponseBodyCategories extends $dara.Model {
+  categoryId?: string;
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'categoryId',
+      displayName: 'displayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      displayName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PatchEventResponseBodyEnd extends $dara.Model {
   /**
    * @example
@@ -123,6 +175,35 @@ export class PatchEventResponseBodyLocation extends $dara.Model {
     if(Array.isArray(this.meetingRooms)) {
       $dara.Model.validateArray(this.meetingRooms);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventResponseBodyOnlineMeetingInfo extends $dara.Model {
+  conferenceId?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'conferenceId',
+      type: 'type',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -341,6 +422,29 @@ export class PatchEventResponseBodyReminders extends $dara.Model {
   }
 }
 
+export class PatchEventResponseBodyRichTextDescription extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PatchEventResponseBodyStart extends $dara.Model {
   /**
    * @example
@@ -382,8 +486,36 @@ export class PatchEventResponseBodyStart extends $dara.Model {
   }
 }
 
+export class PatchEventResponseBodyUiConfigs extends $dara.Model {
+  uiName?: string;
+  uiStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uiName: 'uiName',
+      uiStatus: 'uiStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uiName: 'string',
+      uiStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PatchEventResponseBody extends $dara.Model {
   attendees?: PatchEventResponseBodyAttendees[];
+  cardInstances?: PatchEventResponseBodyCardInstances[];
+  categories?: PatchEventResponseBodyCategories[];
   /**
    * @example
    * 2022-10-25T02:26:14Z
@@ -391,6 +523,7 @@ export class PatchEventResponseBody extends $dara.Model {
   createTime?: string;
   description?: string;
   end?: PatchEventResponseBodyEnd;
+  freeBusyStatus?: string;
   /**
    * @example
    * 123456
@@ -402,6 +535,7 @@ export class PatchEventResponseBody extends $dara.Model {
    */
   isAllDay?: boolean;
   location?: PatchEventResponseBodyLocation;
+  onlineMeetingInfo?: PatchEventResponseBodyOnlineMeetingInfo;
   organizer?: PatchEventResponseBodyOrganizer;
   recurrence?: PatchEventResponseBodyRecurrence;
   reminders?: PatchEventResponseBodyReminders[];
@@ -413,8 +547,10 @@ export class PatchEventResponseBody extends $dara.Model {
    * 4248DCC9-785F-5A14-8BE0-830FD52E1261
    */
   requestId?: string;
+  richTextDescription?: PatchEventResponseBodyRichTextDescription;
   start?: PatchEventResponseBodyStart;
   summary?: string;
+  uiConfigs?: PatchEventResponseBodyUiConfigs[];
   /**
    * @example
    * 2020-01-01T10:15:30+08:00
@@ -423,18 +559,24 @@ export class PatchEventResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attendees: 'attendees',
+      cardInstances: 'cardInstances',
+      categories: 'categories',
       createTime: 'createTime',
       description: 'description',
       end: 'end',
+      freeBusyStatus: 'freeBusyStatus',
       id: 'id',
       isAllDay: 'isAllDay',
       location: 'location',
+      onlineMeetingInfo: 'onlineMeetingInfo',
       organizer: 'organizer',
       recurrence: 'recurrence',
       reminders: 'reminders',
       requestId: 'requestId',
+      richTextDescription: 'richTextDescription',
       start: 'start',
       summary: 'summary',
+      uiConfigs: 'uiConfigs',
       updateTime: 'updateTime',
     };
   }
@@ -442,18 +584,24 @@ export class PatchEventResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attendees: { 'type': 'array', 'itemType': PatchEventResponseBodyAttendees },
+      cardInstances: { 'type': 'array', 'itemType': PatchEventResponseBodyCardInstances },
+      categories: { 'type': 'array', 'itemType': PatchEventResponseBodyCategories },
       createTime: 'string',
       description: 'string',
       end: PatchEventResponseBodyEnd,
+      freeBusyStatus: 'string',
       id: 'string',
       isAllDay: 'boolean',
       location: PatchEventResponseBodyLocation,
+      onlineMeetingInfo: PatchEventResponseBodyOnlineMeetingInfo,
       organizer: PatchEventResponseBodyOrganizer,
       recurrence: PatchEventResponseBodyRecurrence,
       reminders: { 'type': 'array', 'itemType': PatchEventResponseBodyReminders },
       requestId: 'string',
+      richTextDescription: PatchEventResponseBodyRichTextDescription,
       start: PatchEventResponseBodyStart,
       summary: 'string',
+      uiConfigs: { 'type': 'array', 'itemType': PatchEventResponseBodyUiConfigs },
       updateTime: 'string',
     };
   }
@@ -462,11 +610,20 @@ export class PatchEventResponseBody extends $dara.Model {
     if(Array.isArray(this.attendees)) {
       $dara.Model.validateArray(this.attendees);
     }
+    if(Array.isArray(this.cardInstances)) {
+      $dara.Model.validateArray(this.cardInstances);
+    }
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
     if(this.end && typeof (this.end as any).validate === 'function') {
       (this.end as any).validate();
     }
     if(this.location && typeof (this.location as any).validate === 'function') {
       (this.location as any).validate();
+    }
+    if(this.onlineMeetingInfo && typeof (this.onlineMeetingInfo as any).validate === 'function') {
+      (this.onlineMeetingInfo as any).validate();
     }
     if(this.organizer && typeof (this.organizer as any).validate === 'function') {
       (this.organizer as any).validate();
@@ -477,8 +634,14 @@ export class PatchEventResponseBody extends $dara.Model {
     if(Array.isArray(this.reminders)) {
       $dara.Model.validateArray(this.reminders);
     }
+    if(this.richTextDescription && typeof (this.richTextDescription as any).validate === 'function') {
+      (this.richTextDescription as any).validate();
+    }
     if(this.start && typeof (this.start as any).validate === 'function') {
       (this.start as any).validate();
+    }
+    if(Array.isArray(this.uiConfigs)) {
+      $dara.Model.validateArray(this.uiConfigs);
     }
     super.validate();
   }

@@ -49,14 +49,6 @@ export class QueryDentriesInfoRequest extends $dara.Model {
   spaceId?: string;
   tenantContext?: QueryDentriesInfoRequestTenantContext;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * urv3ZIAtcmmIgQzHq08YcAiEiE
-   */
-  unionId?: string;
-  /**
    * @example
    * false
    */
@@ -67,7 +59,6 @@ export class QueryDentriesInfoRequest extends $dara.Model {
       dentryId: 'DentryId',
       spaceId: 'SpaceId',
       tenantContext: 'TenantContext',
-      unionId: 'UnionId',
       withThumbnail: 'WithThumbnail',
     };
   }
@@ -78,7 +69,6 @@ export class QueryDentriesInfoRequest extends $dara.Model {
       dentryId: 'string',
       spaceId: 'string',
       tenantContext: QueryDentriesInfoRequestTenantContext,
-      unionId: 'string',
       withThumbnail: 'boolean',
     };
   }

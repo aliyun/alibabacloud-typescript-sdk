@@ -883,6 +883,7 @@ export class InvokeAssistantRequest extends $dara.Model {
    * assistantId1
    */
   assistantId?: string;
+  clientEnum?: string;
   extLoginUser?: InvokeAssistantRequestExtLoginUser;
   /**
    * @remarks
@@ -917,6 +918,7 @@ export class InvokeAssistantRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
+      clientEnum: 'clientEnum',
       extLoginUser: 'extLoginUser',
       messages: 'messages',
       originalAssistantId: 'originalAssistantId',
@@ -930,6 +932,7 @@ export class InvokeAssistantRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
+      clientEnum: 'string',
       extLoginUser: InvokeAssistantRequestExtLoginUser,
       messages: { 'type': 'array', 'itemType': InvokeAssistantRequestMessages },
       originalAssistantId: 'string',

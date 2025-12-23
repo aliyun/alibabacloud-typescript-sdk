@@ -4475,6 +4475,10 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
+    if (!$dara.isNull(request.clientEnum)) {
+      body["clientEnum"] = request.clientEnum;
+    }
+
     if (!$dara.isNull(request.extLoginUser)) {
       body["extLoginUser"] = request.extLoginUser;
     }
@@ -12853,6 +12857,10 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
+    if (!$dara.isNull(request.clientEnum)) {
+      body["clientEnum"] = request.clientEnum;
+    }
+
     if (!$dara.isNull(request.extLoginUser)) {
       body["extLoginUser"] = request.extLoginUser;
     }
@@ -12934,6 +12942,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.clientEnum)) {
+      body["clientEnum"] = request.clientEnum;
     }
 
     if (!$dara.isNull(request.extLoginUser)) {
@@ -14740,6 +14752,43 @@ export default class Client extends OpenApi {
       request.startShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.start, "Start", "json");
     }
 
+    if (!$dara.isNull(tmpReq.categories)) {
+      request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "categories", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.onlineMeetingInfo)) {
+      request.onlineMeetingInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.onlineMeetingInfo, "onlineMeetingInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.richTextDescription)) {
+      request.richTextDescriptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.richTextDescription, "richTextDescription", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.uiConfigs)) {
+      request.uiConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.uiConfigs, "uiConfigs", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoriesShrink)) {
+      query["categories"] = request.categoriesShrink;
+    }
+
+    if (!$dara.isNull(request.freeBusyStatus)) {
+      query["freeBusyStatus"] = request.freeBusyStatus;
+    }
+
+    if (!$dara.isNull(request.onlineMeetingInfoShrink)) {
+      query["onlineMeetingInfo"] = request.onlineMeetingInfoShrink;
+    }
+
+    if (!$dara.isNull(request.richTextDescriptionShrink)) {
+      query["richTextDescription"] = request.richTextDescriptionShrink;
+    }
+
+    if (!$dara.isNull(request.uiConfigsShrink)) {
+      query["uiConfigs"] = request.uiConfigsShrink;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.attendeesShrink)) {
       body["Attendees"] = request.attendeesShrink;
@@ -14804,6 +14853,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -15323,10 +15373,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tenantContextShrink)) {
       body["TenantContext"] = request.tenantContextShrink;
-    }
-
-    if (!$dara.isNull(request.unionId)) {
-      body["UnionId"] = request.unionId;
     }
 
     if (!$dara.isNull(request.withThumbnail)) {

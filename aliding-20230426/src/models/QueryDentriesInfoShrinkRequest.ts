@@ -22,14 +22,6 @@ export class QueryDentriesInfoShrinkRequest extends $dara.Model {
   spaceId?: string;
   tenantContextShrink?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * urv3ZIAtcmmIgQzHq08YcAiEiE
-   */
-  unionId?: string;
-  /**
    * @example
    * false
    */
@@ -40,7 +32,6 @@ export class QueryDentriesInfoShrinkRequest extends $dara.Model {
       dentryId: 'DentryId',
       spaceId: 'SpaceId',
       tenantContextShrink: 'TenantContext',
-      unionId: 'UnionId',
       withThumbnail: 'WithThumbnail',
     };
   }
@@ -51,7 +42,6 @@ export class QueryDentriesInfoShrinkRequest extends $dara.Model {
       dentryId: 'string',
       spaceId: 'string',
       tenantContextShrink: 'string',
-      unionId: 'string',
       withThumbnail: 'boolean',
     };
   }
