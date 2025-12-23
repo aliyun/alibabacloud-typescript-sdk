@@ -25,6 +25,7 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
    * 2025-07-23T02:11:07Z
    */
   recoveryTime?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       eventCode: 'EventCode',
@@ -33,6 +34,7 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
       instanceDescription: 'InstanceDescription',
       instanceId: 'InstanceId',
       recoveryTime: 'RecoveryTime',
+      regionId: 'RegionId',
     };
   }
 
@@ -44,6 +46,7 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
       instanceDescription: 'string',
       instanceId: 'string',
       recoveryTime: 'string',
+      regionId: 'string',
     };
   }
 

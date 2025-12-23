@@ -4,6 +4,7 @@ export { DescribeAppInstancesResponseBodyInstances } from './DescribeAppInstance
 export { DescribeEventsListResponseBodyEvents } from './DescribeEventsListResponseBody';
 export { DescribeInstanceAuthInfoResponseBodyApiKeys } from './DescribeInstanceAuthInfoResponseBody';
 export { DescribeInstanceAuthInfoResponseBodyConfigList } from './DescribeInstanceAuthInfoResponseBody';
+export { DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints } from './DescribeInstanceEndpointsResponseBody';
 export { DescribeInstanceEndpointsResponseBodyInstanceEndpoints } from './DescribeInstanceEndpointsResponseBody';
 export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './DescribeInstanceIpWhitelistResponseBody';
 export { DescribeInstanceRAGConfigResponseBodyConfigList } from './DescribeInstanceRagconfigResponseBody';

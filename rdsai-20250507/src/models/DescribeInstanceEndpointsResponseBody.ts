@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints extends $dara.Model {
+  connectionString?: string;
+  ipType?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionString: 'ConnectionString',
+      ipType: 'IpType',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionString: 'string',
+      ipType: 'string',
+      port: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dara.Model {
   /**
    * @example
@@ -51,6 +80,7 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
 }
 
 export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
+  DBInstanceEndpoints?: DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints[];
   instanceEndpoints?: DescribeInstanceEndpointsResponseBodyInstanceEndpoints[];
   /**
    * @example
@@ -64,6 +94,7 @@ export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBInstanceEndpoints: 'DBInstanceEndpoints',
       instanceEndpoints: 'InstanceEndpoints',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
@@ -72,6 +103,7 @@ export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBInstanceEndpoints: { 'type': 'array', 'itemType': DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints },
       instanceEndpoints: { 'type': 'array', 'itemType': DescribeInstanceEndpointsResponseBodyInstanceEndpoints },
       instanceName: 'string',
       requestId: 'string',
@@ -79,6 +111,9 @@ export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.DBInstanceEndpoints)) {
+      $dara.Model.validateArray(this.DBInstanceEndpoints);
+    }
     if(Array.isArray(this.instanceEndpoints)) {
       $dara.Model.validateArray(this.instanceEndpoints);
     }
