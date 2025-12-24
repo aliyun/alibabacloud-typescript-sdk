@@ -2,25 +2,22 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetLindormV2StorageUsageRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ld-ufxxxxxxxxxx
-   */
-  instanceId?: string;
+export class GetInstanceSummaryRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -29,9 +26,9 @@ export class GetLindormV2StorageUsageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',

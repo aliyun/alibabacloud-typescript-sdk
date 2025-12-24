@@ -8,6 +8,7 @@ export { GetAutoScalingConfigResponseBodyData } from './GetAutoScalingConfigResp
 export { GetAutoScalingRuleResponseBodyData } from './GetAutoScalingRuleResponseBody';
 export { GetEngineDefaultAuthResponseBodyAuthInfos } from './GetEngineDefaultAuthResponseBody';
 export { GetInstanceIpWhiteListResponseBodyGroupList } from './GetInstanceIpWhiteListResponseBody';
+export { GetInstanceSummaryResponseBodyRegionalSummary } from './GetInstanceSummaryResponseBody';
 export { GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas } from './GetLdpsNamespacedQuotaResponseBody';
 export { GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems } from './GetLindormEngineConfigResponseBody';
 export { GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles } from './GetLindormEngineConfigResponseBody';
@@ -112,6 +113,9 @@ export { GetInstanceIpWhiteListResponse } from './GetInstanceIpWhiteListResponse
 export { GetInstanceSecurityGroupsRequest } from './GetInstanceSecurityGroupsRequest';
 export { GetInstanceSecurityGroupsResponseBody } from './GetInstanceSecurityGroupsResponseBody';
 export { GetInstanceSecurityGroupsResponse } from './GetInstanceSecurityGroupsResponse';
+export { GetInstanceSummaryRequest } from './GetInstanceSummaryRequest';
+export { GetInstanceSummaryResponseBody } from './GetInstanceSummaryResponseBody';
+export { GetInstanceSummaryResponse } from './GetInstanceSummaryResponse';
 export { GetLdpsComputeGroupRequest } from './GetLdpsComputeGroupRequest';
 export { GetLdpsComputeGroupResponseBody } from './GetLdpsComputeGroupResponseBody';
 export { GetLdpsComputeGroupResponse } from './GetLdpsComputeGroupResponse';

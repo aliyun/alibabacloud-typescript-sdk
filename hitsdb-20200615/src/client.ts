@@ -1592,6 +1592,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GetInstanceSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceSummaryResponse
+   */
+  async getInstanceSummaryWithOptions(request: $_model.GetInstanceSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceSummaryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceSummary",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceSummaryResponse({}));
+  }
+
+  /**
+   * @param request - GetInstanceSummaryRequest
+   * @returns GetInstanceSummaryResponse
+   */
+  async getInstanceSummary(request: $_model.GetInstanceSummaryRequest): Promise<$_model.GetInstanceSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceSummaryWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - GetLdpsComputeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLdpsComputeGroupResponse
