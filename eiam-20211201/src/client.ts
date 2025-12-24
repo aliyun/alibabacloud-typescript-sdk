@@ -1206,6 +1206,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建IdP状态检查任务
+   * 
+   * @param request - CreateIdentityProviderStatusCheckJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIdentityProviderStatusCheckJobResponse
+   */
+  async createIdentityProviderStatusCheckJobWithOptions(request: $_model.CreateIdentityProviderStatusCheckJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIdentityProviderStatusCheckJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateIdentityProviderStatusCheckJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateIdentityProviderStatusCheckJobResponse>(await this.callApi(params, req, runtime), new $_model.CreateIdentityProviderStatusCheckJobResponse({}));
+  }
+
+  /**
+   * 创建IdP状态检查任务
+   * 
+   * @param request - CreateIdentityProviderStatusCheckJobRequest
+   * @returns CreateIdentityProviderStatusCheckJobResponse
+   */
+  async createIdentityProviderStatusCheckJob(request: $_model.CreateIdentityProviderStatusCheckJobRequest): Promise<$_model.CreateIdentityProviderStatusCheckJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createIdentityProviderStatusCheckJobWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
    * 
    * @param request - CreateInstanceRequest
@@ -2398,6 +2444,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量删除账号
+   * 
+   * @param request - DeleteUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUsersResponse
+   */
+  async deleteUsersWithOptions(request: $_model.DeleteUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUsersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userIds)) {
+      query["UserIds"] = request.userIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteUsers",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteUsersResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUsersResponse({}));
+  }
+
+  /**
+   * 批量删除账号
+   * 
+   * @param request - DeleteUsersRequest
+   * @returns DeleteUsersResponse
+   */
+  async deleteUsers(request: $_model.DeleteUsersRequest): Promise<$_model.DeleteUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除指定WebAuthn认证器名称
+   * 
+   * @param request - DeleteWebAuthnAuthenticatorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebAuthnAuthenticatorResponse
+   */
+  async deleteWebAuthnAuthenticatorWithOptions(request: $_model.DeleteWebAuthnAuthenticatorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWebAuthnAuthenticatorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authenticatorId)) {
+      query["AuthenticatorId"] = request.authenticatorId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWebAuthnAuthenticator",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWebAuthnAuthenticatorResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWebAuthnAuthenticatorResponse({}));
+  }
+
+  /**
+   * 删除指定WebAuthn认证器名称
+   * 
+   * @param request - DeleteWebAuthnAuthenticatorRequest
+   * @returns DeleteWebAuthnAuthenticatorResponse
+   */
+  async deleteWebAuthnAuthenticator(request: $_model.DeleteWebAuthnAuthenticatorRequest): Promise<$_model.DeleteWebAuthnAuthenticatorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWebAuthnAuthenticatorWithOptions(request, runtime);
+  }
+
+  /**
    * Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
    * 
    * @remarks
@@ -2978,6 +3120,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用高级配置
+   * 
+   * @param request - DisableIdentityProviderAdvancedAbilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableIdentityProviderAdvancedAbilityResponse
+   */
+  async disableIdentityProviderAdvancedAbilityWithOptions(request: $_model.DisableIdentityProviderAdvancedAbilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableIdentityProviderAdvancedAbilityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableIdentityProviderAdvancedAbility",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableIdentityProviderAdvancedAbilityResponse>(await this.callApi(params, req, runtime), new $_model.DisableIdentityProviderAdvancedAbilityResponse({}));
+  }
+
+  /**
+   * 禁用高级配置
+   * 
+   * @param request - DisableIdentityProviderAdvancedAbilityRequest
+   * @returns DisableIdentityProviderAdvancedAbilityResponse
+   */
+  async disableIdentityProviderAdvancedAbility(request: $_model.DisableIdentityProviderAdvancedAbilityRequest): Promise<$_model.DisableIdentityProviderAdvancedAbilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableIdentityProviderAdvancedAbilityWithOptions(request, runtime);
+  }
+
+  /**
    * 禁用认证
    * 
    * @param request - DisableIdentityProviderAuthnRequest
@@ -3109,6 +3297,52 @@ export default class Client extends OpenApi {
   async disableInitDomainAutoRedirect(request: $_model.DisableInitDomainAutoRedirectRequest): Promise<$_model.DisableInitDomainAutoRedirectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableInitDomainAutoRedirectWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用内部认证源
+   * 
+   * @param request - DisableInternalAuthenticationSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableInternalAuthenticationSourceResponse
+   */
+  async disableInternalAuthenticationSourceWithOptions(request: $_model.DisableInternalAuthenticationSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableInternalAuthenticationSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authenticationSourceId)) {
+      query["AuthenticationSourceId"] = request.authenticationSourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableInternalAuthenticationSource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableInternalAuthenticationSourceResponse>(await this.callApi(params, req, runtime), new $_model.DisableInternalAuthenticationSourceResponse({}));
+  }
+
+  /**
+   * 禁用内部认证源
+   * 
+   * @param request - DisableInternalAuthenticationSourceRequest
+   * @returns DisableInternalAuthenticationSourceResponse
+   */
+  async disableInternalAuthenticationSource(request: $_model.DisableInternalAuthenticationSourceRequest): Promise<$_model.DisableInternalAuthenticationSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableInternalAuthenticationSourceWithOptions(request, runtime);
   }
 
   /**
@@ -3732,6 +3966,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用高级配置
+   * 
+   * @param request - EnableIdentityProviderAdvancedAbilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableIdentityProviderAdvancedAbilityResponse
+   */
+  async enableIdentityProviderAdvancedAbilityWithOptions(request: $_model.EnableIdentityProviderAdvancedAbilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableIdentityProviderAdvancedAbilityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableIdentityProviderAdvancedAbility",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableIdentityProviderAdvancedAbilityResponse>(await this.callApi(params, req, runtime), new $_model.EnableIdentityProviderAdvancedAbilityResponse({}));
+  }
+
+  /**
+   * 启用高级配置
+   * 
+   * @param request - EnableIdentityProviderAdvancedAbilityRequest
+   * @returns EnableIdentityProviderAdvancedAbilityResponse
+   */
+  async enableIdentityProviderAdvancedAbility(request: $_model.EnableIdentityProviderAdvancedAbilityRequest): Promise<$_model.EnableIdentityProviderAdvancedAbilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableIdentityProviderAdvancedAbilityWithOptions(request, runtime);
+  }
+
+  /**
    * 启用认证
    * 
    * @param request - EnableIdentityProviderAuthnRequest
@@ -3866,6 +4146,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用内部认证源
+   * 
+   * @param request - EnableInternalAuthenticationSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableInternalAuthenticationSourceResponse
+   */
+  async enableInternalAuthenticationSourceWithOptions(request: $_model.EnableInternalAuthenticationSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableInternalAuthenticationSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authenticationSourceId)) {
+      query["AuthenticationSourceId"] = request.authenticationSourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableInternalAuthenticationSource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableInternalAuthenticationSourceResponse>(await this.callApi(params, req, runtime), new $_model.EnableInternalAuthenticationSourceResponse({}));
+  }
+
+  /**
+   * 启用内部认证源
+   * 
+   * @param request - EnableInternalAuthenticationSourceRequest
+   * @returns EnableInternalAuthenticationSourceResponse
+   */
+  async enableInternalAuthenticationSource(request: $_model.EnableInternalAuthenticationSourceRequest): Promise<$_model.EnableInternalAuthenticationSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableInternalAuthenticationSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
    * 
    * @param request - EnableUserRequest
@@ -3909,6 +4235,148 @@ export default class Client extends OpenApi {
   async enableUser(request: $_model.EnableUserRequest): Promise<$_model.EnableUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 生成文件导入结果下载地址
+   * 
+   * @param request - GenerateDownloadUrlForSynchronizationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateDownloadUrlForSynchronizationJobResponse
+   */
+  async generateDownloadUrlForSynchronizationJobWithOptions(request: $_model.GenerateDownloadUrlForSynchronizationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateDownloadUrlForSynchronizationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.synchronizationJobId)) {
+      query["SynchronizationJobId"] = request.synchronizationJobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateDownloadUrlForSynchronizationJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateDownloadUrlForSynchronizationJobResponse>(await this.callApi(params, req, runtime), new $_model.GenerateDownloadUrlForSynchronizationJobResponse({}));
+  }
+
+  /**
+   * 生成文件导入结果下载地址
+   * 
+   * @param request - GenerateDownloadUrlForSynchronizationJobRequest
+   * @returns GenerateDownloadUrlForSynchronizationJobResponse
+   */
+  async generateDownloadUrlForSynchronizationJob(request: $_model.GenerateDownloadUrlForSynchronizationJobRequest): Promise<$_model.GenerateDownloadUrlForSynchronizationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateDownloadUrlForSynchronizationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 生成文件导入模板
+   * 
+   * @param request - GenerateFileImportTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateFileImportTemplateResponse
+   */
+  async generateFileImportTemplateWithOptions(request: $_model.GenerateFileImportTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateFileImportTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateFileImportTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateFileImportTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GenerateFileImportTemplateResponse({}));
+  }
+
+  /**
+   * 生成文件导入模板
+   * 
+   * @param request - GenerateFileImportTemplateRequest
+   * @returns GenerateFileImportTemplateResponse
+   */
+  async generateFileImportTemplate(request: $_model.GenerateFileImportTemplateRequest): Promise<$_model.GenerateFileImportTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateFileImportTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取上传认证
+   * 
+   * @param request - GenerateUploadAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateUploadAuthResponse
+   */
+  async generateUploadAuthWithOptions(request: $_model.GenerateUploadAuthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateUploadAuthResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.purpose)) {
+      query["Purpose"] = request.purpose;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateUploadAuth",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateUploadAuthResponse>(await this.callApi(params, req, runtime), new $_model.GenerateUploadAuthResponse({}));
+  }
+
+  /**
+   * 获取上传认证
+   * 
+   * @param request - GenerateUploadAuthRequest
+   * @returns GenerateUploadAuthResponse
+   */
+  async generateUploadAuth(request: $_model.GenerateUploadAuthRequest): Promise<$_model.GenerateUploadAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateUploadAuthWithOptions(request, runtime);
   }
 
   /**
@@ -8549,6 +9017,56 @@ export default class Client extends OpenApi {
   async setApplicationProvisioningScope(request: $_model.SetApplicationProvisioningScopeRequest): Promise<$_model.SetApplicationProvisioningScopeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setApplicationProvisioningScopeWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置应用同步用户主组织
+   * 
+   * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+   */
+  async setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request: $_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userPrimaryOrganizationalUnitId)) {
+      query["UserPrimaryOrganizationalUnitId"] = request.userPrimaryOrganizationalUnitId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetApplicationProvisioningUserPrimaryOrganizationalUnit",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new $_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse({}));
+  }
+
+  /**
+   * 配置应用同步用户主组织
+   * 
+   * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+   * @returns SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+   */
+  async setApplicationProvisioningUserPrimaryOrganizationalUnit(request: $_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest): Promise<$_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request, runtime);
   }
 
   /**
