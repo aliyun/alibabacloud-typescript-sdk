@@ -1342,6 +1342,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除网关标签
+   * 
+   * @param tmpReq - DeleteGatewayLabelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayLabelResponse
+   */
+  async deleteGatewayLabelWithOptions(ClusterId: string, GatewayId: string, tmpReq: $_model.DeleteGatewayLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayLabelResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteGatewayLabelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.labelKeys)) {
+      request.labelKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelKeys, "LabelKeys", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.labelKeysShrink)) {
+      query["LabelKeys"] = request.labelKeysShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGatewayLabel",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/label`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGatewayLabelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGatewayLabelResponse({}));
+  }
+
+  /**
+   * 删除网关标签
+   * 
+   * @param request - DeleteGatewayLabelRequest
+   * @returns DeleteGatewayLabelResponse
+   */
+  async deleteGatewayLabel(ClusterId: string, GatewayId: string, request: $_model.DeleteGatewayLabelRequest): Promise<$_model.DeleteGatewayLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteGatewayLabelWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a resource group that contains no resources or instances.
    * 
    * @param headers - map
@@ -4557,6 +4608,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGatewayWithOptions(GatewayId, ClusterId, request, headers, runtime);
+  }
+
+  /**
+   * 修改网关标签
+   * 
+   * @param request - UpdateGatewayLabelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayLabelResponse
+   */
+  async updateGatewayLabelWithOptions(ClusterId: string, GatewayId: string, request: $_model.UpdateGatewayLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayLabelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayLabel",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/label`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayLabelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayLabelResponse({}));
+  }
+
+  /**
+   * 修改网关标签
+   * 
+   * @param request - UpdateGatewayLabelRequest
+   * @returns UpdateGatewayLabelResponse
+   */
+  async updateGatewayLabel(ClusterId: string, GatewayId: string, request: $_model.UpdateGatewayLabelRequest): Promise<$_model.UpdateGatewayLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayLabelWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
