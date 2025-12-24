@@ -88,6 +88,10 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
    * 1
    */
   timeType?: number;
+  /**
+   * @example
+   * 1000
+   */
   totalTokens?: number;
   /**
    * @example
@@ -99,6 +103,21 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
    * http://192.168.1.9:9999/
    */
   workAddr?: string;
+  /**
+   * @example
+   * 100
+   */
+  workflowExecutionId?: string;
+  /**
+   * @example
+   * 10
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * myWorkflow
+   */
+  workflowName?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -121,6 +140,9 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
       totalTokens: 'TotalTokens',
       triggerType: 'TriggerType',
       workAddr: 'WorkAddr',
+      workflowExecutionId: 'WorkflowExecutionId',
+      workflowId: 'WorkflowId',
+      workflowName: 'WorkflowName',
     };
   }
 
@@ -146,6 +168,9 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
       totalTokens: 'number',
       triggerType: 'number',
       workAddr: 'string',
+      workflowExecutionId: 'string',
+      workflowId: 'number',
+      workflowName: 'string',
     };
   }
 

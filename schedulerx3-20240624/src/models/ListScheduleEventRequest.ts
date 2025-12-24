@@ -26,6 +26,10 @@ export class ListScheduleEventRequest extends $dara.Model {
    * INFO
    */
   event?: string;
+  /**
+   * @example
+   * JOB | WORKFLOW
+   */
   eventType?: string;
   /**
    * @example
@@ -62,6 +66,16 @@ export class ListScheduleEventRequest extends $dara.Model {
    * 1581317873000
    */
   startTime?: number;
+  /**
+   * @example
+   * 1450568762586578000
+   */
+  workflowExecutionId?: number;
+  /**
+   * @example
+   * 流程001
+   */
+  workflowName?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -76,6 +90,8 @@ export class ListScheduleEventRequest extends $dara.Model {
       pageSize: 'PageSize',
       reverse: 'Reverse',
       startTime: 'StartTime',
+      workflowExecutionId: 'WorkflowExecutionId',
+      workflowName: 'WorkflowName',
     };
   }
 
@@ -93,6 +109,8 @@ export class ListScheduleEventRequest extends $dara.Model {
       pageSize: 'number',
       reverse: 'boolean',
       startTime: 'number',
+      workflowExecutionId: 'number',
+      workflowName: 'string',
     };
   }
 

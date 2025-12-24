@@ -182,6 +182,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加执行器
+   * 
+   * @param request - CreateExecutorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExecutorsResponse
+   */
+  async createExecutorsWithOptions(request: $_model.CreateExecutorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExecutorsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workerType)) {
+      body["WorkerType"] = request.workerType;
+    }
+
+    if (!$dara.isNull(request.workers)) {
+      body["Workers"] = request.workers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExecutors",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExecutorsResponse>(await this.callApi(params, req, runtime), new $_model.CreateExecutorsResponse({}));
+  }
+
+  /**
+   * 添加执行器
+   * 
+   * @param request - CreateExecutorsRequest
+   * @returns CreateExecutorsResponse
+   */
+  async createExecutors(request: $_model.CreateExecutorsRequest): Promise<$_model.CreateExecutorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createExecutorsWithOptions(request, runtime);
+  }
+
+  /**
    * 创建任务
    * 
    * @param tmpReq - CreateJobRequest
@@ -192,6 +246,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.coordinate)) {
+      request.coordinateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.coordinate, "Coordinate", "json");
+    }
+
     if (!$dara.isNull(tmpReq.noticeConfig)) {
       request.noticeConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.noticeConfig, "NoticeConfig", "json");
     }
@@ -219,6 +277,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.coordinateShrink)) {
+      body["Coordinate"] = request.coordinateShrink;
+    }
+
+    if (!$dara.isNull(request.dependentStrategy)) {
+      body["DependentStrategy"] = request.dependentStrategy;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -275,6 +341,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.startTimeType)) {
+      body["StartTimeType"] = request.startTimeType;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -649,6 +719,52 @@ export default class Client extends OpenApi {
   async getDesigateInfo(request: $_model.GetDesigateInfoRequest): Promise<$_model.GetDesigateInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDesigateInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询执行器配置信息
+   * 
+   * @param request - GetExecutorConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExecutorConfigResponse
+   */
+  async getExecutorConfigWithOptions(request: $_model.GetExecutorConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetExecutorConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetExecutorConfig",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetExecutorConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetExecutorConfigResponse({}));
+  }
+
+  /**
+   * 查询执行器配置信息
+   * 
+   * @param request - GetExecutorConfigRequest
+   * @returns GetExecutorConfigResponse
+   */
+  async getExecutorConfig(request: $_model.GetExecutorConfigRequest): Promise<$_model.GetExecutorConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getExecutorConfigWithOptions(request, runtime);
   }
 
   /**
@@ -1202,7 +1318,51 @@ export default class Client extends OpenApi {
    */
   async listJobExecutionsWithOptions(request: $_model.ListJobExecutionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobExecutionsResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.jobName)) {
+      query["JobName"] = request.jobName;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      query["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1211,7 +1371,7 @@ export default class Client extends OpenApi {
       version: "2024-06-24",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -1298,7 +1458,47 @@ export default class Client extends OpenApi {
    */
   async listJobsWithOptions(request: $_model.ListJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobsResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.jobHandler)) {
+      query["JobHandler"] = request.jobHandler;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.jobName)) {
+      query["JobName"] = request.jobName;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1307,7 +1507,7 @@ export default class Client extends OpenApi {
       version: "2024-06-24",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -1325,6 +1525,64 @@ export default class Client extends OpenApi {
   async listJobs(request: $_model.ListJobsRequest): Promise<$_model.ListJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取k8s资源列表
+   * 
+   * @param request - ListK8sResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListK8sResourceResponse
+   */
+  async listK8sResourceWithOptions(request: $_model.ListK8sResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListK8sResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.k8sClusterId)) {
+      query["K8sClusterId"] = request.k8sClusterId;
+    }
+
+    if (!$dara.isNull(request.k8sNamespace)) {
+      query["K8sNamespace"] = request.k8sNamespace;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListK8sResource",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListK8sResourceResponse>(await this.callApi(params, req, runtime), new $_model.ListK8sResourceResponse({}));
+  }
+
+  /**
+   * 获取k8s资源列表
+   * 
+   * @param request - ListK8sResourceRequest
+   * @returns ListK8sResourceResponse
+   */
+  async listK8sResource(request: $_model.ListK8sResourceRequest): Promise<$_model.ListK8sResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listK8sResourceWithOptions(request, runtime);
   }
 
   /**
@@ -1841,6 +2099,10 @@ export default class Client extends OpenApi {
       query["TaskList"] = request.taskListShrink;
     }
 
+    if (!$dara.isNull(request.triggerChild)) {
+      query["TriggerChild"] = request.triggerChild;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1870,7 +2132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止正在运行的任务实例
+   * 停止运行中的任务实例
    * 
    * @param tmpReq - OperateStopJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1919,7 +2181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止正在运行的任务实例
+   * 停止运行中的任务实例
    * 
    * @param request - OperateStopJobExecutionRequest
    * @returns OperateStopJobExecutionResponse
@@ -1927,6 +2189,70 @@ export default class Client extends OpenApi {
   async operateStopJobExecution(request: $_model.OperateStopJobExecutionRequest): Promise<$_model.OperateStopJobExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateStopJobExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 同步任务
+   * 
+   * @param tmpReq - SyncJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncJobsResponse
+   */
+  async syncJobsWithOptions(tmpReq: $_model.SyncJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncJobsResponse> {
+    tmpReq.validate();
+    let request = new $_model.SyncJobsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.jobIds)) {
+      request.jobIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobIds, "JobIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobIdsShrink)) {
+      body["JobIds"] = request.jobIdsShrink;
+    }
+
+    if (!$dara.isNull(request.originalAppName)) {
+      body["OriginalAppName"] = request.originalAppName;
+    }
+
+    if (!$dara.isNull(request.originalClusterId)) {
+      body["OriginalClusterId"] = request.originalClusterId;
+    }
+
+    if (!$dara.isNull(request.targetAppName)) {
+      body["TargetAppName"] = request.targetAppName;
+    }
+
+    if (!$dara.isNull(request.targetClusterId)) {
+      body["TargetClusterId"] = request.targetClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncJobs",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncJobsResponse>(await this.callApi(params, req, runtime), new $_model.SyncJobsResponse({}));
+  }
+
+  /**
+   * 同步任务
+   * 
+   * @param request - SyncJobsRequest
+   * @returns SyncJobsResponse
+   */
+  async syncJobs(request: $_model.SyncJobsRequest): Promise<$_model.SyncJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncJobsWithOptions(request, runtime);
   }
 
   /**
@@ -2042,6 +2368,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新执行器
+   * 
+   * @param request - UpdateExecutorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExecutorsResponse
+   */
+  async updateExecutorsWithOptions(request: $_model.UpdateExecutorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateExecutorsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workerType)) {
+      body["WorkerType"] = request.workerType;
+    }
+
+    if (!$dara.isNull(request.workers)) {
+      body["Workers"] = request.workers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateExecutors",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateExecutorsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateExecutorsResponse({}));
+  }
+
+  /**
+   * 更新执行器
+   * 
+   * @param request - UpdateExecutorsRequest
+   * @returns UpdateExecutorsResponse
+   */
+  async updateExecutors(request: $_model.UpdateExecutorsRequest): Promise<$_model.UpdateExecutorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateExecutorsWithOptions(request, runtime);
+  }
+
+  /**
    * 更新任务信息
    * 
    * @param tmpReq - UpdateJobRequest
@@ -2079,6 +2459,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.dependentStrategy)) {
+      body["DependentStrategy"] = request.dependentStrategy;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -2135,6 +2519,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.startTimeType)) {
+      body["StartTimeType"] = request.startTimeType;
     }
 
     if (!$dara.isNull(request.timeExpression)) {

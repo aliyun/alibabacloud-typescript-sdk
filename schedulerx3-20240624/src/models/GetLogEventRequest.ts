@@ -28,6 +28,11 @@ export class GetLogEventRequest extends $dara.Model {
   event?: string;
   /**
    * @example
+   * JOB
+   */
+  eventType?: string;
+  /**
+   * @example
    * 101
    */
   jobExecutionId?: number;
@@ -61,12 +66,23 @@ export class GetLogEventRequest extends $dara.Model {
    * 1721268302000
    */
   startTime?: number;
+  /**
+   * @example
+   * 1450568762586578000
+   */
+  workflowExecutionId?: number;
+  /**
+   * @example
+   * 流程001
+   */
+  workflowName?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       clusterId: 'ClusterId',
       endTime: 'EndTime',
       event: 'Event',
+      eventType: 'EventType',
       jobExecutionId: 'JobExecutionId',
       jobName: 'JobName',
       keyword: 'Keyword',
@@ -74,6 +90,8 @@ export class GetLogEventRequest extends $dara.Model {
       pageSize: 'PageSize',
       reverse: 'Reverse',
       startTime: 'StartTime',
+      workflowExecutionId: 'WorkflowExecutionId',
+      workflowName: 'WorkflowName',
     };
   }
 
@@ -83,6 +101,7 @@ export class GetLogEventRequest extends $dara.Model {
       clusterId: 'string',
       endTime: 'number',
       event: 'string',
+      eventType: 'string',
       jobExecutionId: 'number',
       jobName: 'string',
       keyword: 'string',
@@ -90,6 +109,8 @@ export class GetLogEventRequest extends $dara.Model {
       pageSize: 'number',
       reverse: 'boolean',
       startTime: 'number',
+      workflowExecutionId: 'number',
+      workflowName: 'string',
     };
   }
 

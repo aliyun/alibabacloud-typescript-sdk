@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobRequestNoticeConfig extends $dara.Model {
   /**
    * @example
+   * 30
+   */
+  endEarly?: number;
+  endEarlyEnable?: boolean;
+  /**
+   * @example
    * true
    */
   failEnable?: boolean;
@@ -45,6 +51,8 @@ export class UpdateJobRequestNoticeConfig extends $dara.Model {
   timeoutKillEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
+      endEarly: 'EndEarly',
+      endEarlyEnable: 'EndEarlyEnable',
       failEnable: 'FailEnable',
       failLimitTimes: 'FailLimitTimes',
       missWorkerEnable: 'MissWorkerEnable',
@@ -58,6 +66,8 @@ export class UpdateJobRequestNoticeConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endEarly: 'number',
+      endEarlyEnable: 'boolean',
       failEnable: 'boolean',
       failLimitTimes: 'number',
       missWorkerEnable: 'boolean',
@@ -131,6 +141,10 @@ export class UpdateJobRequest extends $dara.Model {
    * workday
    */
   calendar?: string;
+  /**
+   * @example
+   * 1,2
+   */
   childJobId?: string;
   /**
    * @remarks
@@ -140,6 +154,11 @@ export class UpdateJobRequest extends $dara.Model {
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
+  /**
+   * @example
+   * 1
+   */
+  dependentStrategy?: number;
   /**
    * @example
    * test
@@ -195,12 +214,21 @@ export class UpdateJobRequest extends $dara.Model {
    * 1
    */
   routeStrategy?: number;
+  /**
+   * @example
+   * echo "hello world"
+   */
   script?: string;
   /**
    * @example
    * 1716902187
    */
   startTime?: number;
+  /**
+   * @example
+   * 1
+   */
+  startTimeType?: string;
   /**
    * @example
    * 0 0 4 ? * Mon/1
@@ -228,6 +256,7 @@ export class UpdateJobRequest extends $dara.Model {
       calendar: 'Calendar',
       childJobId: 'ChildJobId',
       clusterId: 'ClusterId',
+      dependentStrategy: 'DependentStrategy',
       description: 'Description',
       executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
@@ -242,6 +271,7 @@ export class UpdateJobRequest extends $dara.Model {
       routeStrategy: 'RouteStrategy',
       script: 'Script',
       startTime: 'StartTime',
+      startTimeType: 'StartTimeType',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
       timezone: 'Timezone',
@@ -256,6 +286,7 @@ export class UpdateJobRequest extends $dara.Model {
       calendar: 'string',
       childJobId: 'string',
       clusterId: 'string',
+      dependentStrategy: 'number',
       description: 'string',
       executorBlockStrategy: 'number',
       jobHandler: 'string',
@@ -270,6 +301,7 @@ export class UpdateJobRequest extends $dara.Model {
       routeStrategy: 'number',
       script: 'string',
       startTime: 'number',
+      startTimeType: 'string',
       timeExpression: 'string',
       timeType: 'number',
       timezone: 'string',

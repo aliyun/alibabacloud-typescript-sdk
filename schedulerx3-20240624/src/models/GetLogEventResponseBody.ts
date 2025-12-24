@@ -20,6 +20,11 @@ export class GetLogEventResponseBodyDataRecords extends $dara.Model {
   event?: string;
   /**
    * @example
+   * JOB
+   */
+  eventType?: string;
+  /**
+   * @example
    * 101
    */
   jobExecutionId?: string;
@@ -38,15 +43,28 @@ export class GetLogEventResponseBodyDataRecords extends $dara.Model {
    * 030225016025_9357_60125@127.0.0.1:51363
    */
   workerAddr?: string;
+  /**
+   * @example
+   * 1450568762586578000
+   */
+  workflowExecutionId?: string;
+  /**
+   * @example
+   * 工作流0001
+   */
+  workflowName?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       content: 'Content',
       event: 'Event',
+      eventType: 'EventType',
       jobExecutionId: 'JobExecutionId',
       jobName: 'JobName',
       time: 'Time',
       workerAddr: 'WorkerAddr',
+      workflowExecutionId: 'WorkflowExecutionId',
+      workflowName: 'WorkflowName',
     };
   }
 
@@ -55,10 +73,13 @@ export class GetLogEventResponseBodyDataRecords extends $dara.Model {
       appName: 'string',
       content: 'string',
       event: 'string',
+      eventType: 'string',
       jobExecutionId: 'string',
       jobName: 'string',
       time: 'string',
       workerAddr: 'string',
+      workflowExecutionId: 'string',
+      workflowName: 'string',
     };
   }
 

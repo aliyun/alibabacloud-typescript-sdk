@@ -47,6 +47,11 @@ export class ListJobsRequest extends $dara.Model {
    * 0
    */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
+  workflowId?: number;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -58,6 +63,7 @@ export class ListJobsRequest extends $dara.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       status: 'Status',
+      workflowId: 'WorkflowId',
     };
   }
 
@@ -72,6 +78,7 @@ export class ListJobsRequest extends $dara.Model {
       pageNum: 'number',
       pageSize: 'number',
       status: 'string',
+      workflowId: 'number',
     };
   }
 

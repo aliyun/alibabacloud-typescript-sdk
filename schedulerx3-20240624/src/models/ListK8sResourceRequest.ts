@@ -2,15 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test-app
-   */
-  appName?: string;
+export class ListK8sResourceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -20,32 +12,45 @@ export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @example
+   * cadb451ed7af04b0297f4be396a2196fc
+   */
+  k8sClusterId?: string;
+  /**
+   * @example
+   * default
+   */
+  k8sNamespace?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 1310630367761285120
+   * cluster
    */
-  jobExecutionId?: string;
-  taskListShrink?: string;
-  triggerChild?: boolean;
+  resourceType?: string;
+  /**
+   * @example
+   * vpc-aa1a18236n90rqhuhhnhh
+   */
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      appName: 'AppName',
       clusterId: 'ClusterId',
-      jobExecutionId: 'JobExecutionId',
-      taskListShrink: 'TaskList',
-      triggerChild: 'TriggerChild',
+      k8sClusterId: 'K8sClusterId',
+      k8sNamespace: 'K8sNamespace',
+      resourceType: 'ResourceType',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appName: 'string',
       clusterId: 'string',
-      jobExecutionId: 'string',
-      taskListShrink: 'string',
-      triggerChild: 'boolean',
+      k8sClusterId: 'string',
+      k8sNamespace: 'string',
+      resourceType: 'string',
+      vpcId: 'string',
     };
   }
 

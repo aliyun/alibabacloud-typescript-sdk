@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OperateRetryJobExecutionRequest extends $dara.Model {
+export class CreateExecutorsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -24,18 +24,23 @@ export class OperateRetryJobExecutionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1310630367761285120
+   * k8s_service
    */
-  jobExecutionId?: string;
-  taskList?: string[];
-  triggerChild?: boolean;
+  workerType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
+   */
+  workers?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       clusterId: 'ClusterId',
-      jobExecutionId: 'JobExecutionId',
-      taskList: 'TaskList',
-      triggerChild: 'TriggerChild',
+      workerType: 'WorkerType',
+      workers: 'Workers',
     };
   }
 
@@ -43,16 +48,12 @@ export class OperateRetryJobExecutionRequest extends $dara.Model {
     return {
       appName: 'string',
       clusterId: 'string',
-      jobExecutionId: 'string',
-      taskList: { 'type': 'array', 'itemType': 'string' },
-      triggerChild: 'boolean',
+      workerType: 'string',
+      workers: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.taskList)) {
-      $dara.Model.validateArray(this.taskList);
-    }
     super.validate();
   }
 

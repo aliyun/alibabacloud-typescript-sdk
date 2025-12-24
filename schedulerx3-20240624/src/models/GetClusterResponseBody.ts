@@ -123,6 +123,11 @@ export class GetClusterResponseBodyData extends $dara.Model {
   maxJobNum?: number;
   /**
    * @example
+   * 100
+   */
+  maxWorkflowNum?: number;
+  /**
+   * @example
    * 2
    */
   productType?: number;
@@ -152,6 +157,11 @@ export class GetClusterResponseBodyData extends $dara.Model {
    * 10
    */
   workerNum?: number;
+  /**
+   * @example
+   * 20
+   */
+  workflowNum?: number;
   zones?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -168,6 +178,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       jobNum: 'JobNum',
       kubeConfig: 'KubeConfig',
       maxJobNum: 'MaxJobNum',
+      maxWorkflowNum: 'MaxWorkflowNum',
       productType: 'ProductType',
       spm: 'Spm',
       status: 'Status',
@@ -176,6 +187,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       versionLifecycle: 'VersionLifecycle',
       vpcId: 'VpcId',
       workerNum: 'WorkerNum',
+      workflowNum: 'WorkflowNum',
       zones: 'Zones',
     };
   }
@@ -195,6 +207,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       jobNum: 'number',
       kubeConfig: 'string',
       maxJobNum: 'number',
+      maxWorkflowNum: 'number',
       productType: 'number',
       spm: 'number',
       status: 'number',
@@ -203,6 +216,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       versionLifecycle: 'string',
       vpcId: 'string',
       workerNum: 'number',
+      workflowNum: 'number',
       zones: { 'type': 'array', 'itemType': 'string' },
     };
   }

@@ -2,7 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateJobRequestCoordinate extends $dara.Model {
+  /**
+   * @example
+   * 50.0
+   */
+  height?: number;
+  /**
+   * @example
+   * 100.0
+   */
+  width?: number;
+  /**
+   * @example
+   * 100.0
+   */
+  x?: number;
+  /**
+   * @example
+   * 100.0
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateJobRequestNoticeConfig extends $dara.Model {
+  /**
+   * @example
+   * 30
+   */
+  endEarly?: number;
+  endEarlyEnable?: boolean;
   /**
    * @example
    * true
@@ -45,6 +99,8 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
   timeoutKillEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
+      endEarly: 'EndEarly',
+      endEarlyEnable: 'EndEarlyEnable',
       failEnable: 'FailEnable',
       failLimitTimes: 'FailLimitTimes',
       missWorkerEnable: 'MissWorkerEnable',
@@ -58,6 +114,8 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endEarly: 'number',
+      endEarlyEnable: 'boolean',
       failEnable: 'boolean',
       failLimitTimes: 'number',
       missWorkerEnable: 'boolean',
@@ -131,6 +189,10 @@ export class CreateJobRequest extends $dara.Model {
    * workday
    */
   calendar?: string;
+  /**
+   * @example
+   * 1,2
+   */
   childJobId?: string;
   /**
    * @remarks
@@ -140,6 +202,12 @@ export class CreateJobRequest extends $dara.Model {
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
+  coordinate?: CreateJobRequestCoordinate;
+  /**
+   * @example
+   * 1
+   */
+  dependentStrategy?: number;
   /**
    * @example
    * test
@@ -198,12 +266,21 @@ export class CreateJobRequest extends $dara.Model {
    * 1
    */
   routeStrategy?: number;
+  /**
+   * @example
+   * echo "hello world"
+   */
   script?: string;
   /**
    * @example
    * 1701310327000
    */
   startTime?: number;
+  /**
+   * @example
+   * 1
+   */
+  startTimeType?: number;
   /**
    * @example
    * 1
@@ -239,6 +316,8 @@ export class CreateJobRequest extends $dara.Model {
       calendar: 'Calendar',
       childJobId: 'ChildJobId',
       clusterId: 'ClusterId',
+      coordinate: 'Coordinate',
+      dependentStrategy: 'DependentStrategy',
       description: 'Description',
       executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
@@ -253,6 +332,7 @@ export class CreateJobRequest extends $dara.Model {
       routeStrategy: 'RouteStrategy',
       script: 'Script',
       startTime: 'StartTime',
+      startTimeType: 'StartTimeType',
       status: 'Status',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
@@ -268,6 +348,8 @@ export class CreateJobRequest extends $dara.Model {
       calendar: 'string',
       childJobId: 'string',
       clusterId: 'string',
+      coordinate: CreateJobRequestCoordinate,
+      dependentStrategy: 'number',
       description: 'string',
       executorBlockStrategy: 'number',
       jobHandler: 'string',
@@ -282,6 +364,7 @@ export class CreateJobRequest extends $dara.Model {
       routeStrategy: 'number',
       script: 'string',
       startTime: 'number',
+      startTimeType: 'number',
       status: 'number',
       timeExpression: 'string',
       timeType: 'number',
@@ -291,6 +374,9 @@ export class CreateJobRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.coordinate && typeof (this.coordinate as any).validate === 'function') {
+      (this.coordinate as any).validate();
+    }
     if(this.noticeConfig && typeof (this.noticeConfig as any).validate === 'function') {
       (this.noticeConfig as any).validate();
     }

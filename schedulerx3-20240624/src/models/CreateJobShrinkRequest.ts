@@ -21,6 +21,10 @@ export class CreateJobShrinkRequest extends $dara.Model {
    * workday
    */
   calendar?: string;
+  /**
+   * @example
+   * 1,2
+   */
   childJobId?: string;
   /**
    * @remarks
@@ -30,6 +34,12 @@ export class CreateJobShrinkRequest extends $dara.Model {
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
+  coordinateShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  dependentStrategy?: number;
   /**
    * @example
    * test
@@ -88,12 +98,21 @@ export class CreateJobShrinkRequest extends $dara.Model {
    * 1
    */
   routeStrategy?: number;
+  /**
+   * @example
+   * echo "hello world"
+   */
   script?: string;
   /**
    * @example
    * 1701310327000
    */
   startTime?: number;
+  /**
+   * @example
+   * 1
+   */
+  startTimeType?: number;
   /**
    * @example
    * 1
@@ -129,6 +148,8 @@ export class CreateJobShrinkRequest extends $dara.Model {
       calendar: 'Calendar',
       childJobId: 'ChildJobId',
       clusterId: 'ClusterId',
+      coordinateShrink: 'Coordinate',
+      dependentStrategy: 'DependentStrategy',
       description: 'Description',
       executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
@@ -143,6 +164,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       routeStrategy: 'RouteStrategy',
       script: 'Script',
       startTime: 'StartTime',
+      startTimeType: 'StartTimeType',
       status: 'Status',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
@@ -158,6 +180,8 @@ export class CreateJobShrinkRequest extends $dara.Model {
       calendar: 'string',
       childJobId: 'string',
       clusterId: 'string',
+      coordinateShrink: 'string',
+      dependentStrategy: 'number',
       description: 'string',
       executorBlockStrategy: 'number',
       jobHandler: 'string',
@@ -172,6 +196,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       routeStrategy: 'number',
       script: 'string',
       startTime: 'number',
+      startTimeType: 'number',
       status: 'number',
       timeExpression: 'string',
       timeType: 'number',

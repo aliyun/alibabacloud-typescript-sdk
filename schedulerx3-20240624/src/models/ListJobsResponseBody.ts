@@ -39,6 +39,11 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * 3
    */
   dataOffset?: number;
+  /**
+   * @example
+   * 1
+   */
+  dependentStrategy?: number;
   description?: string;
   executorBlockStrategy?: string;
   /**
@@ -75,6 +80,11 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   name?: string;
   /**
    * @example
+   * 1
+   */
+  nodeType?: number;
+  /**
+   * @example
    * {"failLimitTimes":1,"failEnable":true,"timeoutKillEnable":false,"missWorkerEnable":true,"timeoutEnable":true,"sendChannel":"","timeout":300,"successNotice":false}
    */
   noticeConfig?: string;
@@ -95,6 +105,11 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    */
   routeStrategy?: number;
   script?: string;
+  /**
+   * @example
+   * 1
+   */
+  startTimeType?: number;
   /**
    * @example
    * 1
@@ -130,6 +145,11 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * 1
    */
   weight?: number;
+  /**
+   * @example
+   * 10
+   */
+  workflowId?: number;
   xattrs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -141,6 +161,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       creator: 'Creator',
       currentExecuteStatus: 'CurrentExecuteStatus',
       dataOffset: 'DataOffset',
+      dependentStrategy: 'DependentStrategy',
       description: 'Description',
       executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
@@ -151,12 +172,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       maxAttempt: 'MaxAttempt',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
+      nodeType: 'NodeType',
       noticeConfig: 'NoticeConfig',
       noticeContacts: 'NoticeContacts',
       parameters: 'Parameters',
       priority: 'Priority',
       routeStrategy: 'RouteStrategy',
       script: 'Script',
+      startTimeType: 'StartTimeType',
       status: 'Status',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
@@ -164,6 +187,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       timezone: 'Timezone',
       updater: 'Updater',
       weight: 'Weight',
+      workflowId: 'WorkflowId',
       xattrs: 'Xattrs',
     };
   }
@@ -178,6 +202,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       creator: 'string',
       currentExecuteStatus: 'number',
       dataOffset: 'number',
+      dependentStrategy: 'number',
       description: 'string',
       executorBlockStrategy: 'string',
       jobHandler: 'string',
@@ -188,12 +213,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       maxAttempt: 'number',
       maxConcurrency: 'number',
       name: 'string',
+      nodeType: 'number',
       noticeConfig: 'string',
       noticeContacts: 'string',
       parameters: 'string',
       priority: 'number',
       routeStrategy: 'number',
       script: 'string',
+      startTimeType: 'number',
       status: 'number',
       timeExpression: 'string',
       timeType: 'number',
@@ -201,6 +228,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       timezone: 'string',
       updater: 'string',
       weight: 'number',
+      workflowId: 'number',
       xattrs: 'string',
     };
   }

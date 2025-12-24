@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OperateRetryJobExecutionRequest extends $dara.Model {
+export class GetExecutorConfigRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -16,26 +16,13 @@ export class OperateRetryJobExecutionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxljob-b6ec1xxxx
+   * xxljob-a1804a3226d
    */
   clusterId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1310630367761285120
-   */
-  jobExecutionId?: string;
-  taskList?: string[];
-  triggerChild?: boolean;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       clusterId: 'ClusterId',
-      jobExecutionId: 'JobExecutionId',
-      taskList: 'TaskList',
-      triggerChild: 'TriggerChild',
     };
   }
 
@@ -43,16 +30,10 @@ export class OperateRetryJobExecutionRequest extends $dara.Model {
     return {
       appName: 'string',
       clusterId: 'string',
-      jobExecutionId: 'string',
-      taskList: { 'type': 'array', 'itemType': 'string' },
-      triggerChild: 'boolean',
     };
   }
 
   validate() {
-    if(Array.isArray(this.taskList)) {
-      $dara.Model.validateArray(this.taskList);
-    }
     super.validate();
   }
 
