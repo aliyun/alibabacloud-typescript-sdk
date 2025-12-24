@@ -3452,6 +3452,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeInstanceCreateAndDeleteStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceCreateAndDeleteStatisticsResponse
+   */
+  async describeInstanceCreateAndDeleteStatisticsWithOptions(request: $_model.DescribeInstanceCreateAndDeleteStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceCreateAndDeleteStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceCreateAndDeleteStatistics",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceCreateAndDeleteStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceCreateAndDeleteStatisticsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeInstanceCreateAndDeleteStatisticsRequest
+   * @returns DescribeInstanceCreateAndDeleteStatisticsResponse
+   */
+  async describeInstanceCreateAndDeleteStatistics(request: $_model.DescribeInstanceCreateAndDeleteStatisticsRequest): Promise<$_model.DescribeInstanceCreateAndDeleteStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstanceCreateAndDeleteStatisticsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
    * 
    * @param request - DescribeInstanceRefreshesRequest
@@ -4073,6 +4135,72 @@ export default class Client extends OpenApi {
   async describeScalingActivityDetail(request: $_model.DescribeScalingActivityDetailRequest): Promise<$_model.DescribeScalingActivityDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeScalingActivityDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeScalingActivityStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeScalingActivityStatisticsResponse
+   */
+  async describeScalingActivityStatisticsWithOptions(request: $_model.DescribeScalingActivityStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeScalingActivityStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.metricType)) {
+      query["MetricType"] = request.metricType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeScalingActivityStatistics",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeScalingActivityStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeScalingActivityStatisticsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeScalingActivityStatisticsRequest
+   * @returns DescribeScalingActivityStatisticsResponse
+   */
+  async describeScalingActivityStatistics(request: $_model.DescribeScalingActivityStatisticsRequest): Promise<$_model.DescribeScalingActivityStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeScalingActivityStatisticsWithOptions(request, runtime);
   }
 
   /**
@@ -7283,6 +7411,270 @@ export default class Client extends OpenApi {
   async modifyScheduledTask(request: $_model.ModifyScheduledTaskRequest): Promise<$_model.ModifyScheduledTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyScheduledTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - QueryHistoricalMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHistoricalMetricResponse
+   */
+  async queryHistoricalMetricWithOptions(request: $_model.QueryHistoricalMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryHistoricalMetricResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHistoricalMetric",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryHistoricalMetricResponse>(await this.callApi(params, req, runtime), new $_model.QueryHistoricalMetricResponse({}));
+  }
+
+  /**
+   * @param request - QueryHistoricalMetricRequest
+   * @returns QueryHistoricalMetricResponse
+   */
+  async queryHistoricalMetric(request: $_model.QueryHistoricalMetricRequest): Promise<$_model.QueryHistoricalMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryHistoricalMetricWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - QueryPredictiveMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPredictiveMetricResponse
+   */
+  async queryPredictiveMetricWithOptions(request: $_model.QueryPredictiveMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPredictiveMetricResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPredictiveMetric",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPredictiveMetricResponse>(await this.callApi(params, req, runtime), new $_model.QueryPredictiveMetricResponse({}));
+  }
+
+  /**
+   * @param request - QueryPredictiveMetricRequest
+   * @returns QueryPredictiveMetricResponse
+   */
+  async queryPredictiveMetric(request: $_model.QueryPredictiveMetricRequest): Promise<$_model.QueryPredictiveMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPredictiveMetricWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - QueryPredictiveTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPredictiveTaskInfoResponse
+   */
+  async queryPredictiveTaskInfoWithOptions(request: $_model.QueryPredictiveTaskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPredictiveTaskInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scalingRuleId)) {
+      query["ScalingRuleId"] = request.scalingRuleId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPredictiveTaskInfo",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPredictiveTaskInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryPredictiveTaskInfoResponse({}));
+  }
+
+  /**
+   * @param request - QueryPredictiveTaskInfoRequest
+   * @returns QueryPredictiveTaskInfoResponse
+   */
+  async queryPredictiveTaskInfo(request: $_model.QueryPredictiveTaskInfoRequest): Promise<$_model.QueryPredictiveTaskInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPredictiveTaskInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - QueryPredictiveValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPredictiveValueResponse
+   */
+  async queryPredictiveValueWithOptions(request: $_model.QueryPredictiveValueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPredictiveValueResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scalingGroupId)) {
+      query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPredictiveValue",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPredictiveValueResponse>(await this.callApi(params, req, runtime), new $_model.QueryPredictiveValueResponse({}));
+  }
+
+  /**
+   * @param request - QueryPredictiveValueRequest
+   * @returns QueryPredictiveValueResponse
+   */
+  async queryPredictiveValue(request: $_model.QueryPredictiveValueRequest): Promise<$_model.QueryPredictiveValueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPredictiveValueWithOptions(request, runtime);
   }
 
   /**
