@@ -1,0 +1,272 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DescribeSoarRecordsResponseBodyPage extends $dara.Model {
+  /**
+   * @remarks
+   * The current page number in paginated queries.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of items per page in paginated queries.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The total number of queried items.
+   * 
+   * @example
+   * 22
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSoarRecordsResponseBodySoarExecuteRecordsOutputList extends $dara.Model {
+  actionUuid?: string;
+  content?: string;
+  nodeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionUuid: 'ActionUuid',
+      content: 'Content',
+      nodeName: 'NodeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionUuid: 'string',
+      content: 'string',
+      nodeName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the component execution, in 13-digit timestamp format.
+   * 
+   * @example
+   * 1686294686000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The error message of the playbook task. This field is empty when the task succeeds.
+   * 
+   * @example
+   * stime not match
+   */
+  errorMsg?: string;
+  outputList?: DescribeSoarRecordsResponseBodySoarExecuteRecordsOutputList[];
+  /**
+   * @remarks
+   * The request parameters of the playbook task.
+   * 
+   * @example
+   * {
+   *     "input1": "xx.xx.xx.xx",
+   *     "input2": "7d"
+   * }
+   */
+  rawEventReq?: string;
+  /**
+   * @remarks
+   * The request ID of the playbook task, a unique ID for each task run.
+   * 
+   * @example
+   * ba1ec480-aa90-4bb6-a1a7-9e311ae79321
+   */
+  requestUuid?: string;
+  /**
+   * @remarks
+   * The start time of the task execution, in 13-digit timestamp format.
+   * 
+   * @example
+   * 1675823338433
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * The status of the playbook task. Values:
+   * 
+   * - **success**: Indicates successful execution.
+   * - **fail**: Indicates failed execution.
+   * - **running**: Indicates the task is running
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The name of the playbook task, which is the same as the playbook\\"s UUID.
+   * 
+   * @example
+   * 82848ebc-eaff-4791-acd4-xxxxx
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * The MD5 value of the playbook configuration.
+   * 
+   * @example
+   * dea65a3db87fb9bd84bbxxxxx
+   */
+  taskflowMd5?: string;
+  /**
+   * @remarks
+   * The type of the playbook task. Values:
+   * 
+   * - **debug**: Indicates a debugging task.
+   * - **manual**: Indicates a manual task.
+   * - **siem**: Indicates a task triggered by an event or alert.
+   * 
+   * @example
+   * debug
+   */
+  triggerType?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID that executes the playbook task.
+   * 
+   * @example
+   * 127xxxx4392
+   */
+  triggerUser?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      errorMsg: 'ErrorMsg',
+      outputList: 'OutputList',
+      rawEventReq: 'RawEventReq',
+      requestUuid: 'RequestUuid',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskName: 'TaskName',
+      taskflowMd5: 'TaskflowMd5',
+      triggerType: 'TriggerType',
+      triggerUser: 'TriggerUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      errorMsg: 'string',
+      outputList: { 'type': 'array', 'itemType': DescribeSoarRecordsResponseBodySoarExecuteRecordsOutputList },
+      rawEventReq: 'string',
+      requestUuid: 'string',
+      startTime: 'number',
+      status: 'string',
+      taskName: 'string',
+      taskflowMd5: 'string',
+      triggerType: 'string',
+      triggerUser: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.outputList)) {
+      $dara.Model.validateArray(this.outputList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSoarRecordsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Information displayed on the page.
+   * 
+   * This parameter is required.
+   */
+  page?: DescribeSoarRecordsResponseBodyPage;
+  /**
+   * @remarks
+   * The ID of the current request, generated by Alibaba Cloud as a unique identifier for the request, which can be used for troubleshooting and problem localization.
+   * 
+   * @example
+   * 601C2DAC-6A67-5237-BEE8-5BF1CEE96296
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Execution record result set.
+   */
+  soarExecuteRecords?: DescribeSoarRecordsResponseBodySoarExecuteRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      page: 'Page',
+      requestId: 'RequestId',
+      soarExecuteRecords: 'SoarExecuteRecords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: DescribeSoarRecordsResponseBodyPage,
+      requestId: 'string',
+      soarExecuteRecords: { 'type': 'array', 'itemType': DescribeSoarRecordsResponseBodySoarExecuteRecords },
+    };
+  }
+
+  validate() {
+    if(this.page && typeof (this.page as any).validate === 'function') {
+      (this.page as any).validate();
+    }
+    if(Array.isArray(this.soarExecuteRecords)) {
+      $dara.Model.validateArray(this.soarExecuteRecords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

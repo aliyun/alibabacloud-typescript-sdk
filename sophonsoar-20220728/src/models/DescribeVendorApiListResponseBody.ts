@@ -1,0 +1,281 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DescribeVendorApiListResponseBodyApiList extends $dara.Model {
+  /**
+   * @remarks
+   * Advanced configuration for the API.
+   * 
+   * @example
+   * {
+   *     "cmd": "DescribeAclApiDispatch"
+   * }
+   */
+  advanceConfig?: string;
+  /**
+   * @remarks
+   * The name of the vendor\\"s API.
+   * 
+   * @example
+   * VerifyMobile
+   */
+  apiName?: string;
+  /**
+   * @remarks
+   * The version number of the API.
+   * 
+   * @example
+   * 2017-08-01
+   */
+  apiVersion?: string;
+  /**
+   * @remarks
+   * Request methods: 
+   * - **POST**: POST request method. 
+   * - **GET**: GET request method. 
+   * - **PUT**: PUT request method. 
+   * - **DELETE**: DELETE request method.
+   * 
+   * @example
+   * POST
+   */
+  method?: string;
+  /**
+   * @remarks
+   * Indicates whether advanced configuration is included.
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
+   * @example
+   * true
+   */
+  needAdvanceConfig?: boolean;
+  /**
+   * @remarks
+   * Indicates whether pagination is needed.
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
+   * @example
+   * false
+   */
+  needPageInfo?: boolean;
+  /**
+   * @remarks
+   * Information displayed on the page.
+   * 
+   * @example
+   * {\\"Count\\": 10, \\"TotalCount\\": 23, \\"PageSize\\": 10, \\"CurrentPage\\": 1}
+   */
+  pageInfo?: string;
+  /**
+   * @remarks
+   * Interface request parameter configuration information.
+   * 
+   * @example
+   * [
+   *     {
+   *         "name": "Domain",
+   *         "type": "String",
+   *         "isRequired": true,
+   *         "exampleValue": "www.***.com",
+   *         "description": "www.***.com"
+   *     }
+   * ]
+   */
+  parameter?: string;
+  /**
+   * @remarks
+   * Vendor\\"s product identifier:
+   * - **waf**: Web Application Firewall.
+   * - **cfw**: Cloud Firewall.
+   * 
+   * @example
+   * cfw
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * Default domain of the product.
+   * 
+   * @example
+   * cfw.xxx.com
+   */
+  productDomain?: string;
+  /**
+   * @remarks
+   * Product name.
+   * 
+   * @example
+   * waf
+   */
+  productName?: string;
+  /**
+   * @remarks
+   * Request protocol. Values:
+   * - **http**: HTTP request protocol.
+   * - **https**: HTTPS request protocol.
+   * 
+   * @example
+   * https
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * Vendor code:
+   * - **Tencent**: Tencent.
+   * - **HUAWEICLOUD**: Huawei.
+   * - **Azure**: Microsoft Azure.
+   * - **AWS**: Amazon Web Services.
+   * - **Chaitin**: Chaitin.
+   * 
+   * @example
+   * Azure
+   */
+  vendorCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceConfig: 'AdvanceConfig',
+      apiName: 'ApiName',
+      apiVersion: 'ApiVersion',
+      method: 'Method',
+      needAdvanceConfig: 'NeedAdvanceConfig',
+      needPageInfo: 'NeedPageInfo',
+      pageInfo: 'PageInfo',
+      parameter: 'Parameter',
+      productCode: 'ProductCode',
+      productDomain: 'ProductDomain',
+      productName: 'ProductName',
+      protocol: 'Protocol',
+      vendorCode: 'VendorCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceConfig: 'string',
+      apiName: 'string',
+      apiVersion: 'string',
+      method: 'string',
+      needAdvanceConfig: 'boolean',
+      needPageInfo: 'boolean',
+      pageInfo: 'string',
+      parameter: 'string',
+      productCode: 'string',
+      productDomain: 'string',
+      productName: 'string',
+      protocol: 'string',
+      vendorCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVendorApiListResponseBodyPage extends $dara.Model {
+  /**
+   * @remarks
+   * The current page number in the pagination query.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of items displayed per page in the pagination query.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Total number of items.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVendorApiListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Product information.
+   */
+  apiList?: DescribeVendorApiListResponseBodyApiList[];
+  /**
+   * @remarks
+   * Pagination query information.
+   */
+  page?: DescribeVendorApiListResponseBodyPage;
+  /**
+   * @remarks
+   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request, and can be used to troubleshoot and locate issues.
+   * 
+   * @example
+   * E7698CFB-****-5840-8EC9-691B86729E94
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiList: 'ApiList',
+      page: 'Page',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiList: { 'type': 'array', 'itemType': DescribeVendorApiListResponseBodyApiList },
+      page: DescribeVendorApiListResponseBodyPage,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.apiList)) {
+      $dara.Model.validateArray(this.apiList);
+    }
+    if(this.page && typeof (this.page as any).validate === 'function') {
+      (this.page as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
