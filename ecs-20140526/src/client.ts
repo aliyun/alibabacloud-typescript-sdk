@@ -3011,6 +3011,10 @@ export default class Client extends OpenApi {
       query["ExcessCapacityTerminationPolicy"] = request.excessCapacityTerminationPolicy;
     }
 
+    if (!$dara.isNull(request.executionMode)) {
+      query["ExecutionMode"] = request.executionMode;
+    }
+
     if (!$dara.isNull(request.hibernationOptionsConfigured)) {
       query["HibernationOptionsConfigured"] = request.hibernationOptionsConfigured;
     }

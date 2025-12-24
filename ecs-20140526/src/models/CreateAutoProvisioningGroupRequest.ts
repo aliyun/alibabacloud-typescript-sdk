@@ -1570,6 +1570,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
    * termination
    */
   excessCapacityTerminationPolicy?: string;
+  executionMode?: string;
   /**
    * @remarks
    * >This parameter is in invitational preview and is not publicly available.
@@ -1806,6 +1807,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
       defaultTargetCapacityType: 'DefaultTargetCapacityType',
       description: 'Description',
       excessCapacityTerminationPolicy: 'ExcessCapacityTerminationPolicy',
+      executionMode: 'ExecutionMode',
       hibernationOptionsConfigured: 'HibernationOptionsConfigured',
       launchTemplateConfig: 'LaunchTemplateConfig',
       launchTemplateId: 'LaunchTemplateId',
@@ -1846,6 +1848,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
       defaultTargetCapacityType: 'string',
       description: 'string',
       excessCapacityTerminationPolicy: 'string',
+      executionMode: 'string',
       hibernationOptionsConfigured: 'boolean',
       launchTemplateConfig: { 'type': 'array', 'itemType': CreateAutoProvisioningGroupRequestLaunchTemplateConfig },
       launchTemplateId: 'string',
