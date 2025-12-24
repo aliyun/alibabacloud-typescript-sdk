@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeZonesRequest extends $dara.Model {
+  acceptLanguage?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -19,6 +20,7 @@ export class DescribeZonesRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      acceptLanguage: 'AcceptLanguage',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -29,6 +31,7 @@ export class DescribeZonesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceptLanguage: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
