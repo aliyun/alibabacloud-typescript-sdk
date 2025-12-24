@@ -396,6 +396,9 @@ export { ListLiveRealtimeLogDeliveryDomainsResponseBodyContentDomains } from './
 export { ListLiveRealtimeLogDeliveryDomainsResponseBodyContent } from './ListLiveRealtimeLogDeliveryDomainsResponseBody';
 export { ListLiveRealtimeLogDeliveryInfosResponseBodyContentRealtimeLogDeliveryInfos } from './ListLiveRealtimeLogDeliveryInfosResponseBody';
 export { ListLiveRealtimeLogDeliveryInfosResponseBodyContent } from './ListLiveRealtimeLogDeliveryInfosResponseBody';
+export { ListLiveTagResourcesRequestTag } from './ListLiveTagResourcesRequest';
+export { ListLiveTagResourcesResponseBodyTagResourcesTagResource } from './ListLiveTagResourcesResponseBody';
+export { ListLiveTagResourcesResponseBodyTagResources } from './ListLiveTagResourcesResponseBody';
 export { ListMessageResponseBodyResultMessageList } from './ListMessageResponseBody';
 export { ListMessageResponseBodyResult } from './ListMessageResponseBody';
 export { ListMessageAppResponseBodyResultAppList } from './ListMessageAppResponseBody';
@@ -1437,6 +1440,9 @@ export { ListLiveRealtimeLogDeliveryDomainsResponse } from './ListLiveRealtimeLo
 export { ListLiveRealtimeLogDeliveryInfosRequest } from './ListLiveRealtimeLogDeliveryInfosRequest';
 export { ListLiveRealtimeLogDeliveryInfosResponseBody } from './ListLiveRealtimeLogDeliveryInfosResponseBody';
 export { ListLiveRealtimeLogDeliveryInfosResponse } from './ListLiveRealtimeLogDeliveryInfosResponse';
+export { ListLiveTagResourcesRequest } from './ListLiveTagResourcesRequest';
+export { ListLiveTagResourcesResponseBody } from './ListLiveTagResourcesResponseBody';
+export { ListLiveTagResourcesResponse } from './ListLiveTagResourcesResponse';
 export { ListMessageRequest } from './ListMessageRequest';
 export { ListMessageResponseBody } from './ListMessageResponseBody';
 export { ListMessageResponse } from './ListMessageResponse';

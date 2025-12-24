@@ -10789,6 +10789,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询直播CDN诊断信息
+   * 
    * @param request - DescribeLiveCdnDiagnoseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLiveCdnDiagnoseInfoResponse
@@ -10854,6 +10856,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询直播CDN诊断信息
+   * 
    * @param request - DescribeLiveCdnDiagnoseInfoRequest
    * @returns DescribeLiveCdnDiagnoseInfoResponse
    */
@@ -13511,6 +13515,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询直播域名转码参数
+   * 
    * @param request - DescribeLiveDomainTranscodeParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLiveDomainTranscodeParamsResponse
@@ -13552,6 +13558,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询直播域名转码参数
+   * 
    * @param request - DescribeLiveDomainTranscodeParamsRequest
    * @returns DescribeLiveDomainTranscodeParamsResponse
    */
@@ -13561,6 +13569,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取直播DRM用量数据
+   * 
    * @remarks
    * ### [](#)Usage notes
    * *   You can query data in the previous 90 days.
@@ -13621,6 +13631,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取直播DRM用量数据
+   * 
    * @remarks
    * ### [](#)Usage notes
    * *   You can query data in the previous 90 days.
@@ -18173,6 +18185,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取直播用户标签
+   * 
    * @param request - DescribeLiveUserTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLiveUserTagsResponse
@@ -18206,6 +18220,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取直播用户标签
+   * 
    * @param request - DescribeLiveUserTagsRequest
    * @returns DescribeLiveUserTagsResponse
    */
@@ -20569,6 +20585,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取转码任务状态
+   * 
    * @param request - GetTranscodeTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTranscodeTaskStatusResponse
@@ -20614,6 +20632,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取转码任务状态
+   * 
    * @param request - GetTranscodeTaskStatusRequest
    * @returns GetTranscodeTaskStatusResponse
    */
@@ -21790,6 +21810,76 @@ export default class Client extends OpenApi {
   async listLiveRealtimeLogDeliveryInfos(request: $_model.ListLiveRealtimeLogDeliveryInfosRequest): Promise<$_model.ListLiveRealtimeLogDeliveryInfosResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listLiveRealtimeLogDeliveryInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询符合条件的资源和标签
+   * 
+   * @param request - ListLiveTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveTagResourcesResponse
+   */
+  async listLiveTagResourcesWithOptions(request: $_model.ListLiveTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLiveTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.tagOwnerBid)) {
+      query["TagOwnerBid"] = request.tagOwnerBid;
+    }
+
+    if (!$dara.isNull(request.tagOwnerUid)) {
+      query["TagOwnerUid"] = request.tagOwnerUid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLiveTagResources",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLiveTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListLiveTagResourcesResponse({}));
+  }
+
+  /**
+   * 查询符合条件的资源和标签
+   * 
+   * @param request - ListLiveTagResourcesRequest
+   * @returns ListLiveTagResourcesResponse
+   */
+  async listLiveTagResources(request: $_model.ListLiveTagResourcesRequest): Promise<$_model.ListLiveTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLiveTagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -25031,6 +25121,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重启转码任务
+   * 
    * @param request - RestartTranscodeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartTranscodeTaskResponse
@@ -25076,6 +25168,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重启转码任务
+   * 
    * @param request - RestartTranscodeTaskRequest
    * @returns RestartTranscodeTaskResponse
    */
