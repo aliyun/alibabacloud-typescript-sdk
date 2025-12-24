@@ -16,6 +16,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
    * The cloud computer IDs.
    */
   desktopIds?: string[];
+  displayResultName?: string;
   /**
    * @remarks
    * The ID of the scheduled task group.
@@ -67,6 +68,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
    * SUCCEED
    */
   resultCategory?: string;
+  retryable?: boolean;
   /**
    * @remarks
    * The ID of the searched region. You can specify this parameter to filter cloud computers in specific regions.
@@ -101,11 +103,13 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
     return {
       batchId: 'BatchId',
       desktopIds: 'DesktopIds',
+      displayResultName: 'DisplayResultName',
       groupId: 'GroupId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
       resultCategory: 'ResultCategory',
+      retryable: 'Retryable',
       searchRegionId: 'SearchRegionId',
       timerResult: 'TimerResult',
       timerTypes: 'TimerTypes',
@@ -116,11 +120,13 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
     return {
       batchId: 'string',
       desktopIds: { 'type': 'array', 'itemType': 'string' },
+      displayResultName: 'string',
       groupId: 'string',
       maxResults: 'string',
       nextToken: 'string',
       regionId: 'string',
       resultCategory: 'string',
+      retryable: 'boolean',
       searchRegionId: 'string',
       timerResult: 'string',
       timerTypes: { 'type': 'array', 'itemType': 'string' },

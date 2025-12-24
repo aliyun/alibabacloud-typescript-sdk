@@ -9462,6 +9462,10 @@ export default class Client extends OpenApi {
       query["DesktopIds"] = request.desktopIds;
     }
 
+    if (!$dara.isNull(request.displayResultName)) {
+      query["DisplayResultName"] = request.displayResultName;
+    }
+
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
@@ -9480,6 +9484,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resultCategory)) {
       query["ResultCategory"] = request.resultCategory;
+    }
+
+    if (!$dara.isNull(request.retryable)) {
+      query["Retryable"] = request.retryable;
     }
 
     if (!$dara.isNull(request.searchRegionId)) {

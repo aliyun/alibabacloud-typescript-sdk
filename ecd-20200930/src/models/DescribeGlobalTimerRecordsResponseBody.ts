@@ -37,6 +37,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    * DesktopName
    */
   desktopName?: string;
+  displayResultName?: string;
   /**
    * @remarks
    * The time when the scheduled task ended.
@@ -53,6 +54,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  retryable?: boolean;
   /**
    * @remarks
    * The ID of the scheduled task group.
@@ -61,6 +63,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    * ccg-xxxx
    */
   timerGroupId?: string;
+  timerRecordId?: string;
   /**
    * @remarks
    * The execution result of the scheduled task.
@@ -85,9 +88,12 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
       createTime: 'CreateTime',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
+      displayResultName: 'DisplayResultName',
       finishTime: 'FinishTime',
       regionId: 'RegionId',
+      retryable: 'Retryable',
       timerGroupId: 'TimerGroupId',
+      timerRecordId: 'TimerRecordId',
       timerResult: 'TimerResult',
       timerType: 'TimerType',
     };
@@ -101,9 +107,12 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
       createTime: 'string',
       desktopId: 'string',
       desktopName: 'string',
+      displayResultName: 'string',
       finishTime: 'string',
       regionId: 'string',
+      retryable: 'boolean',
       timerGroupId: 'string',
+      timerRecordId: 'string',
       timerResult: 'string',
       timerType: 'string',
     };
