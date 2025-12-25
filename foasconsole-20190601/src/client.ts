@@ -1,3634 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class ConvertInstanceRequest extends $tea.Model {
-  convertPostpayInstanceRequest?: ConvertInstanceRequestConvertPostpayInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      convertPostpayInstanceRequest: 'ConvertPostpayInstanceRequest',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      convertPostpayInstanceRequest: ConvertInstanceRequestConvertPostpayInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceResponseBody extends $tea.Model {
-  orderId?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ConvertInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ConvertInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertPrepayInstanceRequest extends $tea.Model {
-  convertPrepayInstanceRequest?: ConvertPrepayInstanceRequestConvertPrepayInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      convertPrepayInstanceRequest: 'ConvertPrepayInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      convertPrepayInstanceRequest: ConvertPrepayInstanceRequestConvertPrepayInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertPrepayInstanceResponseBody extends $tea.Model {
-  orderId?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertPrepayInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ConvertPrepayInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ConvertPrepayInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequest extends $tea.Model {
-  createInstanceRequest?: CreateInstanceRequestCreateInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      createInstanceRequest: 'CreateInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createInstanceRequest: CreateInstanceRequestCreateInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponseBody extends $tea.Model {
-  orderInfo?: CreateInstanceResponseBodyOrderInfo;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderInfo: 'OrderInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderInfo: CreateInstanceResponseBodyOrderInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceRequest extends $tea.Model {
-  createNamespaceRequest?: CreateNamespaceRequestCreateNamespaceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      createNamespaceRequest: 'CreateNamespaceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createNamespaceRequest: CreateNamespaceRequestCreateNamespaceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateNamespaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateNamespaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceRequest extends $tea.Model {
-  deleteInstanceRequest?: DeleteInstanceRequestDeleteInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      deleteInstanceRequest: 'DeleteInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteInstanceRequest: DeleteInstanceRequestDeleteInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteNamespaceRequest extends $tea.Model {
-  deleteNamespaceRequest?: DeleteNamespaceRequestDeleteNamespaceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      deleteNamespaceRequest: 'DeleteNamespaceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteNamespaceRequest: DeleteNamespaceRequestDeleteNamespaceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteNamespaceResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteNamespaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteNamespaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteNamespaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesRequest extends $tea.Model {
-  describeInstancesRequest?: DescribeInstancesRequestDescribeInstancesRequest;
-  static names(): { [key: string]: string } {
-    return {
-      describeInstancesRequest: 'DescribeInstancesRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      describeInstancesRequest: DescribeInstancesRequestDescribeInstancesRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBody extends $tea.Model {
-  instances?: DescribeInstancesResponseBodyInstances[];
-  pageIndex?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instances: 'Instances',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instances: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstances },
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesRequest extends $tea.Model {
-  describeNamespacesRequest?: DescribeNamespacesRequestDescribeNamespacesRequest;
-  static names(): { [key: string]: string } {
-    return {
-      describeNamespacesRequest: 'DescribeNamespacesRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      describeNamespacesRequest: DescribeNamespacesRequestDescribeNamespacesRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponseBody extends $tea.Model {
-  namespaces?: DescribeNamespacesResponseBodyNamespaces[];
-  pageIndex?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      namespaces: 'Namespaces',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespaces: { 'type': 'array', 'itemType': DescribeNamespacesResponseBodyNamespaces },
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeNamespacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeNamespacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedRegionsResponseBody extends $tea.Model {
-  regions?: DescribeSupportedRegionsResponseBodyRegions[];
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: { 'type': 'array', 'itemType': DescribeSupportedRegionsResponseBodyRegions },
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSupportedRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSupportedRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedZonesRequest extends $tea.Model {
-  architectureType?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedZonesResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  zoneIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      zoneIds: 'ZoneIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      zoneIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedZonesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSupportedZonesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSupportedZonesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  nextToken?: string;
-  regionId?: string;
-  resourceId?: string[];
-  resourceType?: string;
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  success?: boolean;
-  tagReponseId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      success: 'Success',
-      tagReponseId: 'TagReponseId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      tagReponseId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecRequest extends $tea.Model {
-  modifyPrepayInstanceSpecRequest?: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequest;
-  static names(): { [key: string]: string } {
-    return {
-      modifyPrepayInstanceSpecRequest: 'ModifyPrepayInstanceSpecRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      modifyPrepayInstanceSpecRequest: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecResponseBody extends $tea.Model {
-  orderId?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyPrepayInstanceSpecResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyPrepayInstanceSpecResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecRequest extends $tea.Model {
-  modifyPrepayNamespaceSpecRequest?: ModifyPrepayNamespaceSpecRequestModifyPrepayNamespaceSpecRequest;
-  static names(): { [key: string]: string } {
-    return {
-      modifyPrepayNamespaceSpecRequest: 'ModifyPrepayNamespaceSpecRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      modifyPrepayNamespaceSpecRequest: ModifyPrepayNamespaceSpecRequestModifyPrepayNamespaceSpecRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyPrepayNamespaceSpecResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyPrepayNamespaceSpecResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceRequest extends $tea.Model {
-  convertPostpayInstanceRequest?: QueryConvertInstancePriceRequestConvertPostpayInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      convertPostpayInstanceRequest: 'ConvertPostpayInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      convertPostpayInstanceRequest: QueryConvertInstancePriceRequestConvertPostpayInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryConvertInstancePriceResponseBodyPriceInfo;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryConvertInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryConvertInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryConvertInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceRequest extends $tea.Model {
-  convertPrepayInstanceRequest?: QueryConvertPrepayInstancePriceRequestConvertPrepayInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      convertPrepayInstanceRequest: 'ConvertPrepayInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      convertPrepayInstanceRequest: QueryConvertPrepayInstancePriceRequestConvertPrepayInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryConvertPrepayInstancePriceResponseBodyPriceInfo;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryConvertPrepayInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryConvertPrepayInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryConvertPrepayInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceRequest extends $tea.Model {
-  createInstanceRequest?: QueryCreateInstancePriceRequestCreateInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      createInstanceRequest: 'CreateInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createInstanceRequest: QueryCreateInstancePriceRequestCreateInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryCreateInstancePriceResponseBodyPriceInfo;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryCreateInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryCreateInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryCreateInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceRequest extends $tea.Model {
-  modifyPrepayInstanceSpecRequest?: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequest;
-  static names(): { [key: string]: string } {
-    return {
-      modifyPrepayInstanceSpecRequest: 'ModifyPrepayInstanceSpecRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      modifyPrepayInstanceSpecRequest: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryModifyInstancePriceResponseBodyPriceInfo;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryModifyInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryModifyInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryModifyInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceRequest extends $tea.Model {
-  renewInstanceRequest?: QueryRenewInstancePriceRequestRenewInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      renewInstanceRequest: 'RenewInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      renewInstanceRequest: QueryRenewInstancePriceRequestRenewInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryRenewInstancePriceResponseBodyPriceInfo;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryRenewInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryRenewInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryRenewInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewInstanceRequest extends $tea.Model {
-  renewInstanceRequest?: RenewInstanceRequestRenewInstanceRequest;
-  static names(): { [key: string]: string } {
-    return {
-      renewInstanceRequest: 'RenewInstanceRequest',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      renewInstanceRequest: RenewInstanceRequestRenewInstanceRequest,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewInstanceResponseBody extends $tea.Model {
-  orderId?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RenewInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RenewInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  regionId?: string;
-  resourceId?: string[];
-  resourceType?: string;
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  tagResponseId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      tagResponseId: 'TagResponseId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      tagResponseId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  all?: boolean;
-  regionId?: string;
-  resourceId?: string[];
-  resourceType?: string;
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  tagResponseId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      tagResponseId: 'TagResponseId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      tagResponseId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceRequestConvertPostpayInstanceRequestNamespaceResourceSpecsResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceRequestConvertPostpayInstanceRequestNamespaceResourceSpecs extends $tea.Model {
-  namespace?: string;
-  resourceSpec?: ConvertInstanceRequestConvertPostpayInstanceRequestNamespaceResourceSpecsResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      namespace: 'Namespace',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespace: 'string',
-      resourceSpec: ConvertInstanceRequestConvertPostpayInstanceRequestNamespaceResourceSpecsResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceRequestConvertPostpayInstanceRequest extends $tea.Model {
-  duration?: number;
-  instanceId?: string;
-  isAutoRenew?: boolean;
-  namespaceResourceSpecs?: ConvertInstanceRequestConvertPostpayInstanceRequestNamespaceResourceSpecs[];
-  pricingCycle?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      isAutoRenew: 'IsAutoRenew',
-      namespaceResourceSpecs: 'NamespaceResourceSpecs',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      isAutoRenew: 'boolean',
-      namespaceResourceSpecs: { 'type': 'array', 'itemType': ConvertInstanceRequestConvertPostpayInstanceRequestNamespaceResourceSpecs },
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertPrepayInstanceRequestConvertPrepayInstanceRequest extends $tea.Model {
-  instanceId?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestCreateInstanceRequestHaResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestCreateInstanceRequestResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestCreateInstanceRequestStorageOss extends $tea.Model {
-  bucket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestCreateInstanceRequestStorage extends $tea.Model {
-  oss?: CreateInstanceRequestCreateInstanceRequestStorageOss;
-  static names(): { [key: string]: string } {
-    return {
-      oss: 'Oss',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      oss: CreateInstanceRequestCreateInstanceRequestStorageOss,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestCreateInstanceRequest extends $tea.Model {
-  architectureType?: string;
-  autoRenew?: boolean;
-  chargeType?: string;
-  duration?: number;
-  extra?: string;
-  ha?: boolean;
-  haResourceSpec?: CreateInstanceRequestCreateInstanceRequestHaResourceSpec;
-  haVSwitchIds?: string[];
-  haZoneId?: string;
-  instanceName?: string;
-  monitorType?: string;
-  pricingCycle?: string;
-  promotionCode?: string;
-  region?: string;
-  resourceGroupId?: string;
-  resourceSpec?: CreateInstanceRequestCreateInstanceRequestResourceSpec;
-  storage?: CreateInstanceRequestCreateInstanceRequestStorage;
-  usePromotionCode?: boolean;
-  vSwitchIds?: string[];
-  vpcId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      autoRenew: 'AutoRenew',
-      chargeType: 'ChargeType',
-      duration: 'Duration',
-      extra: 'Extra',
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      haVSwitchIds: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceName: 'InstanceName',
-      monitorType: 'MonitorType',
-      pricingCycle: 'PricingCycle',
-      promotionCode: 'PromotionCode',
-      region: 'Region',
-      resourceGroupId: 'ResourceGroupId',
-      resourceSpec: 'ResourceSpec',
-      storage: 'Storage',
-      usePromotionCode: 'UsePromotionCode',
-      vSwitchIds: 'VSwitchIds',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      autoRenew: 'boolean',
-      chargeType: 'string',
-      duration: 'number',
-      extra: 'string',
-      ha: 'boolean',
-      haResourceSpec: CreateInstanceRequestCreateInstanceRequestHaResourceSpec,
-      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      haZoneId: 'string',
-      instanceName: 'string',
-      monitorType: 'string',
-      pricingCycle: 'string',
-      promotionCode: 'string',
-      region: 'string',
-      resourceGroupId: 'string',
-      resourceSpec: CreateInstanceRequestCreateInstanceRequestResourceSpec,
-      storage: CreateInstanceRequestCreateInstanceRequestStorage,
-      usePromotionCode: 'boolean',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponseBodyOrderInfo extends $tea.Model {
-  instanceId?: string;
-  orderId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      orderId: 'OrderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      orderId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceRequestCreateNamespaceRequestResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceRequestCreateNamespaceRequest extends $tea.Model {
-  ha?: boolean;
-  instanceId?: string;
-  namespace?: string;
-  region?: string;
-  resourceSpec?: CreateNamespaceRequestCreateNamespaceRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-      resourceSpec: CreateNamespaceRequestCreateNamespaceRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceRequestDeleteInstanceRequest extends $tea.Model {
-  instanceId?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteNamespaceRequestDeleteNamespaceRequest extends $tea.Model {
-  instanceId?: string;
-  namespace?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesRequestDescribeInstancesRequestTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesRequestDescribeInstancesRequest extends $tea.Model {
-  architectureType?: string;
-  chargeType?: string;
-  instanceId?: string;
-  pageIndex?: number;
-  pageSize?: number;
-  region?: string;
-  resourceGroupId?: string;
-  tags?: DescribeInstancesRequestDescribeInstancesRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      chargeType: 'ChargeType',
-      instanceId: 'InstanceId',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      region: 'Region',
-      resourceGroupId: 'ResourceGroupId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      chargeType: 'string',
-      instanceId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      region: 'string',
-      resourceGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeInstancesRequestDescribeInstancesRequestTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstancesHostAliases extends $tea.Model {
-  hostNames?: string[];
-  ip?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hostNames: 'HostNames',
-      ip: 'Ip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hostNames: { 'type': 'array', 'itemType': 'string' },
-      ip: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstancesResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstancesStorageOss extends $tea.Model {
-  bucket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstancesStorage extends $tea.Model {
-  oss?: DescribeInstancesResponseBodyInstancesStorageOss;
-  static names(): { [key: string]: string } {
-    return {
-      oss: 'Oss',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      oss: DescribeInstancesResponseBodyInstancesStorageOss,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstancesTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstances extends $tea.Model {
-  architectureType?: string;
-  askClusterId?: string;
-  chargeType?: string;
-  clusterStatus?: string;
-  ha?: boolean;
-  haResourceSpec?: DescribeInstancesResponseBodyInstancesHaResourceSpec;
-  haVSwitchIds?: string[];
-  haZoneId?: string;
-  hostAliases?: DescribeInstancesResponseBodyInstancesHostAliases[];
-  instanceId?: string;
-  instanceName?: string;
-  monitorType?: string;
-  orderState?: string;
-  region?: string;
-  resourceCreateTime?: number;
-  resourceExpiredTime?: number;
-  resourceGroupId?: string;
-  resourceId?: string;
-  resourceSpec?: DescribeInstancesResponseBodyInstancesResourceSpec;
-  storage?: DescribeInstancesResponseBodyInstancesStorage;
-  tags?: DescribeInstancesResponseBodyInstancesTags[];
-  uid?: string;
-  vSwitchIds?: string[];
-  vpcId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      askClusterId: 'AskClusterId',
-      chargeType: 'ChargeType',
-      clusterStatus: 'ClusterStatus',
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      haVSwitchIds: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      hostAliases: 'HostAliases',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      monitorType: 'MonitorType',
-      orderState: 'OrderState',
-      region: 'Region',
-      resourceCreateTime: 'ResourceCreateTime',
-      resourceExpiredTime: 'ResourceExpiredTime',
-      resourceGroupId: 'ResourceGroupId',
-      resourceId: 'ResourceId',
-      resourceSpec: 'ResourceSpec',
-      storage: 'Storage',
-      tags: 'Tags',
-      uid: 'Uid',
-      vSwitchIds: 'VSwitchIds',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      askClusterId: 'string',
-      chargeType: 'string',
-      clusterStatus: 'string',
-      ha: 'boolean',
-      haResourceSpec: DescribeInstancesResponseBodyInstancesHaResourceSpec,
-      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      haZoneId: 'string',
-      hostAliases: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesHostAliases },
-      instanceId: 'string',
-      instanceName: 'string',
-      monitorType: 'string',
-      orderState: 'string',
-      region: 'string',
-      resourceCreateTime: 'number',
-      resourceExpiredTime: 'number',
-      resourceGroupId: 'string',
-      resourceId: 'string',
-      resourceSpec: DescribeInstancesResponseBodyInstancesResourceSpec,
-      storage: DescribeInstancesResponseBodyInstancesStorage,
-      tags: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesTags },
-      uid: 'string',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesRequestDescribeNamespacesRequestTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesRequestDescribeNamespacesRequest extends $tea.Model {
-  ha?: boolean;
-  instanceId?: string;
-  namespace?: string;
-  pageIndex?: number;
-  pageSize?: number;
-  region?: string;
-  tags?: DescribeNamespacesRequestDescribeNamespacesRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      region: 'Region',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      instanceId: 'string',
-      namespace: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      region: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeNamespacesRequestDescribeNamespacesRequestTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $tea.Model {
-  cpu?: number;
-  cu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      cu: 'Cu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      cu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponseBodyNamespacesTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
-  gmtCreate?: number;
-  gmtModified?: number;
-  ha?: boolean;
-  namespace?: string;
-  resourceSpec?: DescribeNamespacesResponseBodyNamespacesResourceSpec;
-  resourceUsed?: DescribeNamespacesResponseBodyNamespacesResourceUsed;
-  status?: string;
-  tags?: DescribeNamespacesResponseBodyNamespacesTags[];
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      ha: 'Ha',
-      namespace: 'Namespace',
-      resourceSpec: 'ResourceSpec',
-      resourceUsed: 'ResourceUsed',
-      status: 'Status',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      ha: 'boolean',
-      namespace: 'string',
-      resourceSpec: DescribeNamespacesResponseBodyNamespacesResourceSpec,
-      resourceUsed: DescribeNamespacesResponseBodyNamespacesResourceUsed,
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeNamespacesResponseBodyNamespacesTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedRegionsResponseBodyRegions extends $tea.Model {
-  region?: string;
-  regionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      regionName: 'RegionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      regionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  resourceId?: string;
-  resourceType?: string;
-  tagKey?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequest extends $tea.Model {
-  ha?: boolean;
-  haResourceSpec?: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec;
-  haVSwitchIds?: string[];
-  haZoneId?: string;
-  instanceId?: string;
-  region?: string;
-  resourceSpec?: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      haVSwitchIds: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceId: 'InstanceId',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      haResourceSpec: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec,
-      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      haZoneId: 'string',
-      instanceId: 'string',
-      region: 'string',
-      resourceSpec: ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecRequestModifyPrepayNamespaceSpecRequestResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecRequestModifyPrepayNamespaceSpecRequest extends $tea.Model {
-  instanceId?: string;
-  namespace?: string;
-  region?: string;
-  resourceSpec?: ModifyPrepayNamespaceSpecRequestModifyPrepayNamespaceSpecRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-      resourceSpec: ModifyPrepayNamespaceSpecRequestModifyPrepayNamespaceSpecRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceRequestConvertPostpayInstanceRequestNamespaceResourceSpecsResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceRequestConvertPostpayInstanceRequestNamespaceResourceSpecs extends $tea.Model {
-  namespace?: string;
-  resourceSpec?: QueryConvertInstancePriceRequestConvertPostpayInstanceRequestNamespaceResourceSpecsResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      namespace: 'Namespace',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespace: 'string',
-      resourceSpec: QueryConvertInstancePriceRequestConvertPostpayInstanceRequestNamespaceResourceSpecsResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceRequestConvertPostpayInstanceRequest extends $tea.Model {
-  duration?: number;
-  instanceId?: string;
-  isAutoRenew?: boolean;
-  namespaceResourceSpecs?: QueryConvertInstancePriceRequestConvertPostpayInstanceRequestNamespaceResourceSpecs[];
-  pricingCycle?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      isAutoRenew: 'IsAutoRenew',
-      namespaceResourceSpecs: 'NamespaceResourceSpecs',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      isAutoRenew: 'boolean',
-      namespaceResourceSpecs: { 'type': 'array', 'itemType': QueryConvertInstancePriceRequestConvertPostpayInstanceRequestNamespaceResourceSpecs },
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
-  cheapRate?: string;
-  cheapStandAmount?: string;
-  isShow?: boolean;
-  monthPrice?: string;
-  originalStandAmount?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cheapRate: 'CheapRate',
-      cheapStandAmount: 'CheapStandAmount',
-      isShow: 'IsShow',
-      monthPrice: 'MonthPrice',
-      originalStandAmount: 'OriginalStandAmount',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cheapRate: 'string',
-      cheapStandAmount: 'string',
-      isShow: 'boolean',
-      monthPrice: 'string',
-      originalStandAmount: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
-  promotionDesc?: string;
-  promotionName?: string;
-  promotionOptionNo?: string;
-  selected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      promotionDesc: 'PromotionDesc',
-      promotionName: 'PromotionName',
-      promotionOptionNo: 'PromotionOptionNo',
-      selected: 'Selected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promotionDesc: 'string',
-      promotionName: 'string',
-      promotionOptionNo: 'string',
-      selected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
-  description?: string;
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponseBodyPriceInfo extends $tea.Model {
-  code?: string;
-  currency?: string;
-  depreciateInfo?: QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo;
-  discountAmount?: number;
-  isContractActivity?: boolean;
-  message?: string;
-  optionalPromotions?: QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions[];
-  originalAmount?: number;
-  rules?: QueryConvertInstancePriceResponseBodyPriceInfoRules[];
-  standDiscountPrice?: string;
-  standPrice?: string;
-  tradeAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      currency: 'Currency',
-      depreciateInfo: 'DepreciateInfo',
-      discountAmount: 'DiscountAmount',
-      isContractActivity: 'IsContractActivity',
-      message: 'Message',
-      optionalPromotions: 'OptionalPromotions',
-      originalAmount: 'OriginalAmount',
-      rules: 'Rules',
-      standDiscountPrice: 'StandDiscountPrice',
-      standPrice: 'StandPrice',
-      tradeAmount: 'TradeAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      currency: 'string',
-      depreciateInfo: QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo,
-      discountAmount: 'number',
-      isContractActivity: 'boolean',
-      message: 'string',
-      optionalPromotions: { 'type': 'array', 'itemType': QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions },
-      originalAmount: 'number',
-      rules: { 'type': 'array', 'itemType': QueryConvertInstancePriceResponseBodyPriceInfoRules },
-      standDiscountPrice: 'string',
-      standPrice: 'string',
-      tradeAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceRequestConvertPrepayInstanceRequest extends $tea.Model {
-  instanceId?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
-  cheapRate?: string;
-  cheapStandAmount?: string;
-  isShow?: boolean;
-  monthPrice?: string;
-  originalStandAmount?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cheapRate: 'CheapRate',
-      cheapStandAmount: 'CheapStandAmount',
-      isShow: 'IsShow',
-      monthPrice: 'MonthPrice',
-      originalStandAmount: 'OriginalStandAmount',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cheapRate: 'string',
-      cheapStandAmount: 'string',
-      isShow: 'boolean',
-      monthPrice: 'string',
-      originalStandAmount: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
-  promotionDesc?: string;
-  promotionName?: string;
-  promotionOptionNo?: string;
-  selected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      promotionDesc: 'PromotionDesc',
-      promotionName: 'PromotionName',
-      promotionOptionNo: 'PromotionOptionNo',
-      selected: 'Selected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promotionDesc: 'string',
-      promotionName: 'string',
-      promotionOptionNo: 'string',
-      selected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
-  description?: string;
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertPrepayInstancePriceResponseBodyPriceInfo extends $tea.Model {
-  code?: string;
-  currency?: string;
-  depreciateInfo?: QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo;
-  discountAmount?: number;
-  isContractActivity?: boolean;
-  message?: string;
-  optionalPromotions?: QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromotions[];
-  originalAmount?: number;
-  rules?: QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules[];
-  standDiscountPrice?: string;
-  standPrice?: string;
-  tradeAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      currency: 'Currency',
-      depreciateInfo: 'DepreciateInfo',
-      discountAmount: 'DiscountAmount',
-      isContractActivity: 'IsContractActivity',
-      message: 'Message',
-      optionalPromotions: 'OptionalPromotions',
-      originalAmount: 'OriginalAmount',
-      rules: 'Rules',
-      standDiscountPrice: 'StandDiscountPrice',
-      standPrice: 'StandPrice',
-      tradeAmount: 'TradeAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      currency: 'string',
-      depreciateInfo: QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo,
-      discountAmount: 'number',
-      isContractActivity: 'boolean',
-      message: 'string',
-      optionalPromotions: { 'type': 'array', 'itemType': QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromotions },
-      originalAmount: 'number',
-      rules: { 'type': 'array', 'itemType': QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules },
-      standDiscountPrice: 'string',
-      standPrice: 'string',
-      tradeAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceRequestCreateInstanceRequestResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceRequestCreateInstanceRequestStorageOss extends $tea.Model {
-  bucket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceRequestCreateInstanceRequestStorage extends $tea.Model {
-  oss?: QueryCreateInstancePriceRequestCreateInstanceRequestStorageOss;
-  static names(): { [key: string]: string } {
-    return {
-      oss: 'Oss',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      oss: QueryCreateInstancePriceRequestCreateInstanceRequestStorageOss,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceRequestCreateInstanceRequest extends $tea.Model {
-  architectureType?: string;
-  autoRenew?: boolean;
-  chargeType?: string;
-  duration?: number;
-  extra?: string;
-  ha?: boolean;
-  haResourceSpec?: QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec;
-  instanceName?: string;
-  pricingCycle?: string;
-  promotionCode?: string;
-  region?: string;
-  resourceSpec?: QueryCreateInstancePriceRequestCreateInstanceRequestResourceSpec;
-  storage?: QueryCreateInstancePriceRequestCreateInstanceRequestStorage;
-  usePromotionCode?: boolean;
-  vSwitchIds?: string[];
-  vpcId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      autoRenew: 'AutoRenew',
-      chargeType: 'ChargeType',
-      duration: 'Duration',
-      extra: 'Extra',
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      instanceName: 'InstanceName',
-      pricingCycle: 'PricingCycle',
-      promotionCode: 'PromotionCode',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-      storage: 'Storage',
-      usePromotionCode: 'UsePromotionCode',
-      vSwitchIds: 'VSwitchIds',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      autoRenew: 'boolean',
-      chargeType: 'string',
-      duration: 'number',
-      extra: 'string',
-      ha: 'boolean',
-      haResourceSpec: QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec,
-      instanceName: 'string',
-      pricingCycle: 'string',
-      promotionCode: 'string',
-      region: 'string',
-      resourceSpec: QueryCreateInstancePriceRequestCreateInstanceRequestResourceSpec,
-      storage: QueryCreateInstancePriceRequestCreateInstanceRequestStorage,
-      usePromotionCode: 'boolean',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
-  cheapRate?: string;
-  cheapStandAmount?: string;
-  isShow?: boolean;
-  monthPrice?: string;
-  originalStandAmount?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cheapRate: 'CheapRate',
-      cheapStandAmount: 'CheapStandAmount',
-      isShow: 'IsShow',
-      monthPrice: 'MonthPrice',
-      originalStandAmount: 'OriginalStandAmount',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cheapRate: 'string',
-      cheapStandAmount: 'string',
-      isShow: 'boolean',
-      monthPrice: 'string',
-      originalStandAmount: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
-  promotionDesc?: string;
-  promotionName?: string;
-  promotionOptionNo?: string;
-  selected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      promotionDesc: 'PromotionDesc',
-      promotionName: 'PromotionName',
-      promotionOptionNo: 'PromotionOptionNo',
-      selected: 'Selected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promotionDesc: 'string',
-      promotionName: 'string',
-      promotionOptionNo: 'string',
-      selected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
-  description?: string;
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
-  code?: string;
-  currency?: string;
-  depreciateInfo?: QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo;
-  discountAmount?: number;
-  isContractActivity?: boolean;
-  message?: string;
-  optionalPromotions?: QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions[];
-  originalAmount?: number;
-  rules?: QueryCreateInstancePriceResponseBodyPriceInfoRules[];
-  standDiscountPrice?: string;
-  standPrice?: string;
-  tradeAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      currency: 'Currency',
-      depreciateInfo: 'DepreciateInfo',
-      discountAmount: 'DiscountAmount',
-      isContractActivity: 'IsContractActivity',
-      message: 'Message',
-      optionalPromotions: 'OptionalPromotions',
-      originalAmount: 'OriginalAmount',
-      rules: 'Rules',
-      standDiscountPrice: 'StandDiscountPrice',
-      standPrice: 'StandPrice',
-      tradeAmount: 'TradeAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      currency: 'string',
-      depreciateInfo: QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo,
-      discountAmount: 'number',
-      isContractActivity: 'boolean',
-      message: 'string',
-      optionalPromotions: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions },
-      originalAmount: 'number',
-      rules: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoRules },
-      standDiscountPrice: 'string',
-      standPrice: 'string',
-      tradeAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec extends $tea.Model {
-  cpu?: number;
-  memoryGB?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memoryGB: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequest extends $tea.Model {
-  ha?: boolean;
-  haResourceSpec?: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec;
-  haVSwitchIds?: string[];
-  haZoneId?: string;
-  instanceId?: string;
-  region?: string;
-  resourceSpec?: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      haVSwitchIds: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceId: 'InstanceId',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      haResourceSpec: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec,
-      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      haZoneId: 'string',
-      instanceId: 'string',
-      region: 'string',
-      resourceSpec: QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
-  cheapRate?: string;
-  cheapStandAmount?: string;
-  isShow?: boolean;
-  monthPrice?: string;
-  originalStandAmount?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cheapRate: 'CheapRate',
-      cheapStandAmount: 'CheapStandAmount',
-      isShow: 'IsShow',
-      monthPrice: 'MonthPrice',
-      originalStandAmount: 'OriginalStandAmount',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cheapRate: 'string',
-      cheapStandAmount: 'string',
-      isShow: 'boolean',
-      monthPrice: 'string',
-      originalStandAmount: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
-  promotionDesc?: string;
-  promotionName?: string;
-  promotionOptionNo?: string;
-  selected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      promotionDesc: 'PromotionDesc',
-      promotionName: 'PromotionName',
-      promotionOptionNo: 'PromotionOptionNo',
-      selected: 'Selected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promotionDesc: 'string',
-      promotionName: 'string',
-      promotionOptionNo: 'string',
-      selected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
-  description?: string;
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponseBodyPriceInfo extends $tea.Model {
-  code?: string;
-  currency?: string;
-  depreciateInfo?: QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo;
-  discountAmount?: number;
-  isContractActivity?: boolean;
-  message?: string;
-  optionalPromotions?: QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions[];
-  originalAmount?: number;
-  rules?: QueryModifyInstancePriceResponseBodyPriceInfoRules[];
-  standDiscountPrice?: string;
-  standPrice?: string;
-  tradeAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      currency: 'Currency',
-      depreciateInfo: 'DepreciateInfo',
-      discountAmount: 'DiscountAmount',
-      isContractActivity: 'IsContractActivity',
-      message: 'Message',
-      optionalPromotions: 'OptionalPromotions',
-      originalAmount: 'OriginalAmount',
-      rules: 'Rules',
-      standDiscountPrice: 'StandDiscountPrice',
-      standPrice: 'StandPrice',
-      tradeAmount: 'TradeAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      currency: 'string',
-      depreciateInfo: QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo,
-      discountAmount: 'number',
-      isContractActivity: 'boolean',
-      message: 'string',
-      optionalPromotions: { 'type': 'array', 'itemType': QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions },
-      originalAmount: 'number',
-      rules: { 'type': 'array', 'itemType': QueryModifyInstancePriceResponseBodyPriceInfoRules },
-      standDiscountPrice: 'string',
-      standPrice: 'string',
-      tradeAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceRequestRenewInstanceRequest extends $tea.Model {
-  duration?: number;
-  instanceId?: string;
-  pricingCycle?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
-  cheapRate?: string;
-  cheapStandAmount?: string;
-  isShow?: boolean;
-  monthPrice?: string;
-  originalStandAmount?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cheapRate: 'CheapRate',
-      cheapStandAmount: 'CheapStandAmount',
-      isShow: 'IsShow',
-      monthPrice: 'MonthPrice',
-      originalStandAmount: 'OriginalStandAmount',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cheapRate: 'string',
-      cheapStandAmount: 'string',
-      isShow: 'boolean',
-      monthPrice: 'string',
-      originalStandAmount: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
-  promotionDesc?: string;
-  promotionName?: string;
-  promotionOptionNo?: string;
-  selected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      promotionDesc: 'PromotionDesc',
-      promotionName: 'PromotionName',
-      promotionOptionNo: 'PromotionOptionNo',
-      selected: 'Selected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promotionDesc: 'string',
-      promotionName: 'string',
-      promotionOptionNo: 'string',
-      selected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
-  description?: string;
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponseBodyPriceInfo extends $tea.Model {
-  code?: string;
-  currency?: string;
-  depreciateInfo?: QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo;
-  discountAmount?: number;
-  isContractActivity?: boolean;
-  message?: string;
-  optionalPromotions?: QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions[];
-  originalAmount?: number;
-  rules?: QueryRenewInstancePriceResponseBodyPriceInfoRules[];
-  standDiscountPrice?: string;
-  standPrice?: string;
-  tradeAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      currency: 'Currency',
-      depreciateInfo: 'DepreciateInfo',
-      discountAmount: 'DiscountAmount',
-      isContractActivity: 'IsContractActivity',
-      message: 'Message',
-      optionalPromotions: 'OptionalPromotions',
-      originalAmount: 'OriginalAmount',
-      rules: 'Rules',
-      standDiscountPrice: 'StandDiscountPrice',
-      standPrice: 'StandPrice',
-      tradeAmount: 'TradeAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      currency: 'string',
-      depreciateInfo: QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo,
-      discountAmount: 'number',
-      isContractActivity: 'boolean',
-      message: 'string',
-      optionalPromotions: { 'type': 'array', 'itemType': QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions },
-      originalAmount: 'number',
-      rules: { 'type': 'array', 'itemType': QueryRenewInstancePriceResponseBodyPriceInfoRules },
-      standDiscountPrice: 'string',
-      standPrice: 'string',
-      tradeAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewInstanceRequestRenewInstanceRequest extends $tea.Model {
-  duration?: number;
-  instanceId?: string;
-  pricingCycle?: string;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -3637,22 +18,29 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async convertInstanceWithOptions(request: ConvertInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConvertInstanceResponse> {
-    Util.validateModel(request);
+  /**
+   * 按量付费转包年包月
+   * 
+   * @param request - ConvertInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConvertInstanceResponse
+   */
+  async convertInstanceWithOptions(request: $_model.ConvertInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.convertPostpayInstanceRequest)) {
+    if (!$dara.isNull(request.convertPostpayInstanceRequest)) {
       bodyFlat["ConvertPostpayInstanceRequest"] = request.convertPostpayInstanceRequest;
     }
 
@@ -3660,10 +48,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConvertInstance",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3674,19 +62,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConvertInstanceResponse>(await this.callApi(params, req, runtime), new ConvertInstanceResponse({}));
+    return $dara.cast<$_model.ConvertInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ConvertInstanceResponse({}));
   }
 
-  async convertInstance(request: ConvertInstanceRequest): Promise<ConvertInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 按量付费转包年包月
+   * 
+   * @param request - ConvertInstanceRequest
+   * @returns ConvertInstanceResponse
+   */
+  async convertInstance(request: $_model.ConvertInstanceRequest): Promise<$_model.ConvertInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.convertInstanceWithOptions(request, runtime);
   }
 
-  async convertPrepayInstanceWithOptions(request: ConvertPrepayInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConvertPrepayInstanceResponse> {
-    Util.validateModel(request);
+  /**
+   * 包年包月转按量付费
+   * 
+   * @param request - ConvertPrepayInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConvertPrepayInstanceResponse
+   */
+  async convertPrepayInstanceWithOptions(request: $_model.ConvertPrepayInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertPrepayInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.convertPrepayInstanceRequest)) {
+    if (!$dara.isNull(request.convertPrepayInstanceRequest)) {
       bodyFlat["ConvertPrepayInstanceRequest"] = request.convertPrepayInstanceRequest;
     }
 
@@ -3694,10 +95,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConvertPrepayInstance",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3708,19 +109,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConvertPrepayInstanceResponse>(await this.callApi(params, req, runtime), new ConvertPrepayInstanceResponse({}));
+    return $dara.cast<$_model.ConvertPrepayInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ConvertPrepayInstanceResponse({}));
   }
 
-  async convertPrepayInstance(request: ConvertPrepayInstanceRequest): Promise<ConvertPrepayInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 包年包月转按量付费
+   * 
+   * @param request - ConvertPrepayInstanceRequest
+   * @returns ConvertPrepayInstanceResponse
+   */
+  async convertPrepayInstance(request: $_model.ConvertPrepayInstanceRequest): Promise<$_model.ConvertPrepayInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.convertPrepayInstanceWithOptions(request, runtime);
   }
 
-  async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
-    Util.validateModel(request);
+  /**
+   * 创建实例
+   * 
+   * @param request - CreateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
+   */
+  async createInstanceWithOptions(request: $_model.CreateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.createInstanceRequest)) {
+    if (!$dara.isNull(request.createInstanceRequest)) {
       bodyFlat["CreateInstanceRequest"] = request.createInstanceRequest;
     }
 
@@ -3728,10 +142,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstance",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3742,19 +156,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    return $dara.cast<$_model.CreateInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateInstanceResponse({}));
   }
 
-  async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 创建实例
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
+   */
+  async createInstance(request: $_model.CreateInstanceRequest): Promise<$_model.CreateInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
-  async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
-    Util.validateModel(request);
+  /**
+   * 创建命名空间
+   * 
+   * @param request - CreateNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNamespaceResponse
+   */
+  async createNamespaceWithOptions(request: $_model.CreateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNamespaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.createNamespaceRequest)) {
+    if (!$dara.isNull(request.createNamespaceRequest)) {
       bodyFlat["CreateNamespaceRequest"] = request.createNamespaceRequest;
     }
 
@@ -3762,10 +189,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateNamespace",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3776,19 +203,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+    return $dara.cast<$_model.CreateNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateNamespaceResponse({}));
   }
 
-  async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 创建命名空间
+   * 
+   * @param request - CreateNamespaceRequest
+   * @returns CreateNamespaceResponse
+   */
+  async createNamespace(request: $_model.CreateNamespaceRequest): Promise<$_model.CreateNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createNamespaceWithOptions(request, runtime);
   }
 
-  async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
-    Util.validateModel(request);
+  /**
+   * 释放按量付费的实例
+   * 
+   * @param request - DeleteInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
+   */
+  async deleteInstanceWithOptions(request: $_model.DeleteInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deleteInstanceRequest)) {
+    if (!$dara.isNull(request.deleteInstanceRequest)) {
       bodyFlat["DeleteInstanceRequest"] = request.deleteInstanceRequest;
     }
 
@@ -3796,10 +236,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstance",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3810,19 +250,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    return $dara.cast<$_model.DeleteInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstanceResponse({}));
   }
 
-  async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 释放按量付费的实例
+   * 
+   * @param request - DeleteInstanceRequest
+   * @returns DeleteInstanceResponse
+   */
+  async deleteInstance(request: $_model.DeleteInstanceRequest): Promise<$_model.DeleteInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
-  async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
-    Util.validateModel(request);
+  /**
+   * 删除namespace
+   * 
+   * @param request - DeleteNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNamespaceResponse
+   */
+  async deleteNamespaceWithOptions(request: $_model.DeleteNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNamespaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deleteNamespaceRequest)) {
+    if (!$dara.isNull(request.deleteNamespaceRequest)) {
       bodyFlat["DeleteNamespaceRequest"] = request.deleteNamespaceRequest;
     }
 
@@ -3830,10 +283,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteNamespace",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3844,21 +297,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+    return $dara.cast<$_model.DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNamespaceResponse({}));
   }
 
-  async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 删除namespace
+   * 
+   * @param request - DeleteNamespaceRequest
+   * @returns DeleteNamespaceResponse
+   */
+  async deleteNamespace(request: $_model.DeleteNamespaceRequest): Promise<$_model.DeleteNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNamespaceWithOptions(request, runtime);
   }
 
-  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  /**
+   * 扩容/缩容
+   * 
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
+   */
+  async describeInstancesWithOptions(request: $_model.DescribeInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstancesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstances",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3869,21 +335,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+    return $dara.cast<$_model.DescribeInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstancesResponse({}));
   }
 
-  async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 扩容/缩容
+   * 
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
+   */
+  async describeInstances(request: $_model.DescribeInstancesRequest): Promise<$_model.DescribeInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
-  async describeNamespacesWithOptions(request: DescribeNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNamespacesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  /**
+   * namespace列表
+   * 
+   * @param request - DescribeNamespacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNamespacesResponse
+   */
+  async describeNamespacesWithOptions(request: $_model.DescribeNamespacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNamespacesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNamespaces",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3894,17 +373,30 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeNamespacesResponse({}));
+    return $dara.cast<$_model.DescribeNamespacesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNamespacesResponse({}));
   }
 
-  async describeNamespaces(request: DescribeNamespacesRequest): Promise<DescribeNamespacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * namespace列表
+   * 
+   * @param request - DescribeNamespacesRequest
+   * @returns DescribeNamespacesResponse
+   */
+  async describeNamespaces(request: $_model.DescribeNamespacesRequest): Promise<$_model.DescribeNamespacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNamespacesWithOptions(request, runtime);
   }
 
-  async describeSupportedRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeSupportedRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  /**
+   * 获取支持的region列表
+   * 
+   * @param request - DescribeSupportedRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupportedRegionsResponse
+   */
+  async describeSupportedRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSupportedRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSupportedRegions",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3915,21 +407,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSupportedRegionsResponse>(await this.callApi(params, req, runtime), new DescribeSupportedRegionsResponse({}));
+    return $dara.cast<$_model.DescribeSupportedRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSupportedRegionsResponse({}));
   }
 
-  async describeSupportedRegions(): Promise<DescribeSupportedRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 获取支持的region列表
+   * @returns DescribeSupportedRegionsResponse
+   */
+  async describeSupportedRegions(): Promise<$_model.DescribeSupportedRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSupportedRegionsWithOptions(runtime);
   }
 
-  async describeSupportedZonesWithOptions(request: DescribeSupportedZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportedZonesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  /**
+   * 获取支持的zoneId列表
+   * 
+   * @param request - DescribeSupportedZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupportedZonesResponse
+   */
+  async describeSupportedZonesWithOptions(request: $_model.DescribeSupportedZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSupportedZonesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSupportedZones",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3940,41 +443,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSupportedZonesResponse>(await this.callApi(params, req, runtime), new DescribeSupportedZonesResponse({}));
+    return $dara.cast<$_model.DescribeSupportedZonesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSupportedZonesResponse({}));
   }
 
-  async describeSupportedZones(request: DescribeSupportedZonesRequest): Promise<DescribeSupportedZonesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 获取支持的zoneId列表
+   * 
+   * @param request - DescribeSupportedZonesRequest
+   * @returns DescribeSupportedZonesResponse
+   */
+  async describeSupportedZones(request: $_model.DescribeSupportedZonesRequest): Promise<$_model.DescribeSupportedZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSupportedZonesWithOptions(request, runtime);
   }
 
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  /**
+   * 列举flinkasi标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -3985,27 +501,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
   }
 
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 列举flinkasi标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
-    *
-    * @param request ModifyPrepayInstanceSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyPrepayInstanceSpecResponse
+   * 扩容/缩容
+   * 
+   * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
+   * 
+   * @param request - ModifyPrepayInstanceSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPrepayInstanceSpecResponse
    */
-  // Deprecated
-  async modifyPrepayInstanceSpecWithOptions(request: ModifyPrepayInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayInstanceSpecResponse> {
-    Util.validateModel(request);
+  async modifyPrepayInstanceSpecWithOptions(request: $_model.ModifyPrepayInstanceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPrepayInstanceSpecResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.modifyPrepayInstanceSpecRequest)) {
+    if (!$dara.isNull(request.modifyPrepayInstanceSpecRequest)) {
       bodyFlat["ModifyPrepayInstanceSpecRequest"] = request.modifyPrepayInstanceSpecRequest;
     }
 
@@ -4013,10 +536,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPrepayInstanceSpec",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4027,34 +550,37 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
+    return $dara.cast<$_model.ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPrepayInstanceSpecResponse({}));
   }
 
   /**
-    * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
-    *
-    * @param request ModifyPrepayInstanceSpecRequest
-    * @return ModifyPrepayInstanceSpecResponse
+   * 扩容/缩容
+   * 
+   * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
+   * 
+   * @param request - ModifyPrepayInstanceSpecRequest
+   * @returns ModifyPrepayInstanceSpecResponse
    */
   // Deprecated
-  async modifyPrepayInstanceSpec(request: ModifyPrepayInstanceSpecRequest): Promise<ModifyPrepayInstanceSpecResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async modifyPrepayInstanceSpec(request: $_model.ModifyPrepayInstanceSpecRequest): Promise<$_model.ModifyPrepayInstanceSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPrepayInstanceSpecWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
-    *
-    * @param request ModifyPrepayNamespaceSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyPrepayNamespaceSpecResponse
+   * 修改namespace资源分配
+   * 
+   * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
+   * 
+   * @param request - ModifyPrepayNamespaceSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPrepayNamespaceSpecResponse
    */
-  // Deprecated
-  async modifyPrepayNamespaceSpecWithOptions(request: ModifyPrepayNamespaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayNamespaceSpecResponse> {
-    Util.validateModel(request);
+  async modifyPrepayNamespaceSpecWithOptions(request: $_model.ModifyPrepayNamespaceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPrepayNamespaceSpecResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.modifyPrepayNamespaceSpecRequest)) {
+    if (!$dara.isNull(request.modifyPrepayNamespaceSpecRequest)) {
       bodyFlat["ModifyPrepayNamespaceSpecRequest"] = request.modifyPrepayNamespaceSpecRequest;
     }
 
@@ -4062,10 +588,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPrepayNamespaceSpec",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4076,26 +602,35 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyPrepayNamespaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayNamespaceSpecResponse({}));
+    return $dara.cast<$_model.ModifyPrepayNamespaceSpecResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPrepayNamespaceSpecResponse({}));
   }
 
   /**
-    * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
-    *
-    * @param request ModifyPrepayNamespaceSpecRequest
-    * @return ModifyPrepayNamespaceSpecResponse
+   * 修改namespace资源分配
+   * 
+   * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
+   * 
+   * @param request - ModifyPrepayNamespaceSpecRequest
+   * @returns ModifyPrepayNamespaceSpecResponse
    */
   // Deprecated
-  async modifyPrepayNamespaceSpec(request: ModifyPrepayNamespaceSpecRequest): Promise<ModifyPrepayNamespaceSpecResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async modifyPrepayNamespaceSpec(request: $_model.ModifyPrepayNamespaceSpecRequest): Promise<$_model.ModifyPrepayNamespaceSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPrepayNamespaceSpecWithOptions(request, runtime);
   }
 
-  async queryConvertInstancePriceWithOptions(request: QueryConvertInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryConvertInstancePriceResponse> {
-    Util.validateModel(request);
+  /**
+   * 按量付费转包年包月询价
+   * 
+   * @param request - QueryConvertInstancePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConvertInstancePriceResponse
+   */
+  async queryConvertInstancePriceWithOptions(request: $_model.QueryConvertInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryConvertInstancePriceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.convertPostpayInstanceRequest)) {
+    if (!$dara.isNull(request.convertPostpayInstanceRequest)) {
       bodyFlat["ConvertPostpayInstanceRequest"] = request.convertPostpayInstanceRequest;
     }
 
@@ -4103,10 +638,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryConvertInstancePrice",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4117,19 +652,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryConvertInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryConvertInstancePriceResponse({}));
+    return $dara.cast<$_model.QueryConvertInstancePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryConvertInstancePriceResponse({}));
   }
 
-  async queryConvertInstancePrice(request: QueryConvertInstancePriceRequest): Promise<QueryConvertInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 按量付费转包年包月询价
+   * 
+   * @param request - QueryConvertInstancePriceRequest
+   * @returns QueryConvertInstancePriceResponse
+   */
+  async queryConvertInstancePrice(request: $_model.QueryConvertInstancePriceRequest): Promise<$_model.QueryConvertInstancePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryConvertInstancePriceWithOptions(request, runtime);
   }
 
-  async queryConvertPrepayInstancePriceWithOptions(request: QueryConvertPrepayInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryConvertPrepayInstancePriceResponse> {
-    Util.validateModel(request);
+  /**
+   * 包年包月转按量付费询价
+   * 
+   * @param request - QueryConvertPrepayInstancePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConvertPrepayInstancePriceResponse
+   */
+  async queryConvertPrepayInstancePriceWithOptions(request: $_model.QueryConvertPrepayInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryConvertPrepayInstancePriceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.convertPrepayInstanceRequest)) {
+    if (!$dara.isNull(request.convertPrepayInstanceRequest)) {
       bodyFlat["ConvertPrepayInstanceRequest"] = request.convertPrepayInstanceRequest;
     }
 
@@ -4137,10 +685,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryConvertPrepayInstancePrice",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4151,19 +699,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryConvertPrepayInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryConvertPrepayInstancePriceResponse({}));
+    return $dara.cast<$_model.QueryConvertPrepayInstancePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryConvertPrepayInstancePriceResponse({}));
   }
 
-  async queryConvertPrepayInstancePrice(request: QueryConvertPrepayInstancePriceRequest): Promise<QueryConvertPrepayInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 包年包月转按量付费询价
+   * 
+   * @param request - QueryConvertPrepayInstancePriceRequest
+   * @returns QueryConvertPrepayInstancePriceResponse
+   */
+  async queryConvertPrepayInstancePrice(request: $_model.QueryConvertPrepayInstancePriceRequest): Promise<$_model.QueryConvertPrepayInstancePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryConvertPrepayInstancePriceWithOptions(request, runtime);
   }
 
-  async queryCreateInstancePriceWithOptions(request: QueryCreateInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryCreateInstancePriceResponse> {
-    Util.validateModel(request);
+  /**
+   * 获取创建实例的价格
+   * 
+   * @param request - QueryCreateInstancePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCreateInstancePriceResponse
+   */
+  async queryCreateInstancePriceWithOptions(request: $_model.QueryCreateInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCreateInstancePriceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.createInstanceRequest)) {
+    if (!$dara.isNull(request.createInstanceRequest)) {
       bodyFlat["CreateInstanceRequest"] = request.createInstanceRequest;
     }
 
@@ -4171,10 +732,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryCreateInstancePrice",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4185,19 +746,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryCreateInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryCreateInstancePriceResponse({}));
+    return $dara.cast<$_model.QueryCreateInstancePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryCreateInstancePriceResponse({}));
   }
 
-  async queryCreateInstancePrice(request: QueryCreateInstancePriceRequest): Promise<QueryCreateInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 获取创建实例的价格
+   * 
+   * @param request - QueryCreateInstancePriceRequest
+   * @returns QueryCreateInstancePriceResponse
+   */
+  async queryCreateInstancePrice(request: $_model.QueryCreateInstancePriceRequest): Promise<$_model.QueryCreateInstancePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCreateInstancePriceWithOptions(request, runtime);
   }
 
-  async queryModifyInstancePriceWithOptions(request: QueryModifyInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryModifyInstancePriceResponse> {
-    Util.validateModel(request);
+  /**
+   * 查询付费类型为包年包月的实例修改资源规格的价格
+   * 
+   * @param request - QueryModifyInstancePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyInstancePriceResponse
+   */
+  async queryModifyInstancePriceWithOptions(request: $_model.QueryModifyInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyInstancePriceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.modifyPrepayInstanceSpecRequest)) {
+    if (!$dara.isNull(request.modifyPrepayInstanceSpecRequest)) {
       bodyFlat["ModifyPrepayInstanceSpecRequest"] = request.modifyPrepayInstanceSpecRequest;
     }
 
@@ -4205,10 +779,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryModifyInstancePrice",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4219,19 +793,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryModifyInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryModifyInstancePriceResponse({}));
+    return $dara.cast<$_model.QueryModifyInstancePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyInstancePriceResponse({}));
   }
 
-  async queryModifyInstancePrice(request: QueryModifyInstancePriceRequest): Promise<QueryModifyInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 查询付费类型为包年包月的实例修改资源规格的价格
+   * 
+   * @param request - QueryModifyInstancePriceRequest
+   * @returns QueryModifyInstancePriceResponse
+   */
+  async queryModifyInstancePrice(request: $_model.QueryModifyInstancePriceRequest): Promise<$_model.QueryModifyInstancePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryModifyInstancePriceWithOptions(request, runtime);
   }
 
-  async queryRenewInstancePriceWithOptions(request: QueryRenewInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryRenewInstancePriceResponse> {
-    Util.validateModel(request);
+  /**
+   * 查询付费类型为包年包月的实例续费价格
+   * 
+   * @param request - QueryRenewInstancePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRenewInstancePriceResponse
+   */
+  async queryRenewInstancePriceWithOptions(request: $_model.QueryRenewInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRenewInstancePriceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.renewInstanceRequest)) {
+    if (!$dara.isNull(request.renewInstanceRequest)) {
       bodyFlat["RenewInstanceRequest"] = request.renewInstanceRequest;
     }
 
@@ -4239,10 +826,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryRenewInstancePrice",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4253,19 +840,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryRenewInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryRenewInstancePriceResponse({}));
+    return $dara.cast<$_model.QueryRenewInstancePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryRenewInstancePriceResponse({}));
   }
 
-  async queryRenewInstancePrice(request: QueryRenewInstancePriceRequest): Promise<QueryRenewInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 查询付费类型为包年包月的实例续费价格
+   * 
+   * @param request - QueryRenewInstancePriceRequest
+   * @returns QueryRenewInstancePriceResponse
+   */
+  async queryRenewInstancePrice(request: $_model.QueryRenewInstancePriceRequest): Promise<$_model.QueryRenewInstancePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryRenewInstancePriceWithOptions(request, runtime);
   }
 
-  async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
-    Util.validateModel(request);
+  /**
+   * 续费
+   * 
+   * @param request - RenewInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewInstanceResponse
+   */
+  async renewInstanceWithOptions(request: $_model.RenewInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.renewInstanceRequest)) {
+    if (!$dara.isNull(request.renewInstanceRequest)) {
       bodyFlat["RenewInstanceRequest"] = request.renewInstanceRequest;
     }
 
@@ -4273,10 +873,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RenewInstance",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4287,37 +887,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
+    return $dara.cast<$_model.RenewInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RenewInstanceResponse({}));
   }
 
-  async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 续费
+   * 
+   * @param request - RenewInstanceRequest
+   * @returns RenewInstanceResponse
+   */
+  async renewInstance(request: $_model.RenewInstanceRequest): Promise<$_model.RenewInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.renewInstanceWithOptions(request, runtime);
   }
 
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  /**
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4328,41 +941,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
   }
 
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  /**
+   * flinkasi去标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2019-06-01",
       protocol: "HTTPS",
@@ -4373,11 +999,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
   }
 
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * flinkasi去标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
