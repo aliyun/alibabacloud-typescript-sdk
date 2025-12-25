@@ -6,6 +6,7 @@ import { AlertRuleTimeSpan } from "./AlertRuleTimeSpan";
 export class AlertRuleNotification extends $dara.Model {
   contacts?: string[];
   customWebhooks?: string[];
+  dingCoolAppWebhooks?: string[];
   dingWebhooks?: string[];
   fsWebhooks?: string[];
   groups?: string[];
@@ -17,6 +18,7 @@ export class AlertRuleNotification extends $dara.Model {
     return {
       contacts: 'contacts',
       customWebhooks: 'customWebhooks',
+      dingCoolAppWebhooks: 'dingCoolAppWebhooks',
       dingWebhooks: 'dingWebhooks',
       fsWebhooks: 'fsWebhooks',
       groups: 'groups',
@@ -31,6 +33,7 @@ export class AlertRuleNotification extends $dara.Model {
     return {
       contacts: { 'type': 'array', 'itemType': 'string' },
       customWebhooks: { 'type': 'array', 'itemType': 'string' },
+      dingCoolAppWebhooks: { 'type': 'array', 'itemType': 'string' },
       dingWebhooks: { 'type': 'array', 'itemType': 'string' },
       fsWebhooks: { 'type': 'array', 'itemType': 'string' },
       groups: { 'type': 'array', 'itemType': 'string' },
@@ -47,6 +50,9 @@ export class AlertRuleNotification extends $dara.Model {
     }
     if(Array.isArray(this.customWebhooks)) {
       $dara.Model.validateArray(this.customWebhooks);
+    }
+    if(Array.isArray(this.dingCoolAppWebhooks)) {
+      $dara.Model.validateArray(this.dingCoolAppWebhooks);
     }
     if(Array.isArray(this.dingWebhooks)) {
       $dara.Model.validateArray(this.dingWebhooks);

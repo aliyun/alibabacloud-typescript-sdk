@@ -289,6 +289,129 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建对话
+   * 
+   * @param request - CreateChatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatResponse
+   */
+  async *createChatWithSSE(request: $_model.CreateChatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CreateChatResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.action)) {
+      body["action"] = request.action;
+    }
+
+    if (!$dara.isNull(request.digitalEmployeeName)) {
+      body["digitalEmployeeName"] = request.digitalEmployeeName;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChat",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.CreateChatResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.CreateChatResponse({}));
+    }
+  }
+
+  /**
+   * 创建对话
+   * 
+   * @param request - CreateChatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatResponse
+   */
+  async createChatWithOptions(request: $_model.CreateChatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateChatResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.action)) {
+      body["action"] = request.action;
+    }
+
+    if (!$dara.isNull(request.digitalEmployeeName)) {
+      body["digitalEmployeeName"] = request.digitalEmployeeName;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChat",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateChatResponse>(await this.callApi(params, req, runtime), new $_model.CreateChatResponse({}));
+  }
+
+  /**
+   * 创建对话
+   * 
+   * @param request - CreateChatRequest
+   * @returns CreateChatResponse
+   */
+  async createChat(request: $_model.CreateChatRequest): Promise<$_model.CreateChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createChatWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建云资源中心
    * 
    * @param headers - map
@@ -321,6 +444,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
+   * 创建DigitalEmployee
+   * 
+   * @param request - CreateDigitalEmployeeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDigitalEmployeeResponse
+   */
+  async createDigitalEmployeeWithOptions(request: $_model.CreateDigitalEmployeeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDigitalEmployeeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.defaultRule)) {
+      body["defaultRule"] = request.defaultRule;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.knowledges)) {
+      body["knowledges"] = request.knowledges;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      body["roleArn"] = request.roleArn;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDigitalEmployee",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digital-employee`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDigitalEmployeeResponse>(await this.callApi(params, req, runtime), new $_model.CreateDigitalEmployeeResponse({}));
+  }
+
+  /**
+   * 创建DigitalEmployee
+   * 
+   * @param request - CreateDigitalEmployeeRequest
+   * @returns CreateDigitalEmployeeResponse
+   */
+  async createDigitalEmployee(request: $_model.CreateDigitalEmployeeRequest): Promise<$_model.CreateDigitalEmployeeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDigitalEmployeeWithOptions(request, headers, runtime);
   }
 
   /**
@@ -726,6 +914,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建会话
+   * 
+   * @param request - CreateThreadRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateThreadResponse
+   */
+  async createThreadWithOptions(name: string, request: $_model.CreateThreadRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateThreadResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateThread",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/thread`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateThreadResponse>(await this.callApi(params, req, runtime), new $_model.CreateThreadResponse({}));
+  }
+
+  /**
+   * 创建会话
+   * 
+   * @param request - CreateThreadRequest
+   * @returns CreateThreadResponse
+   */
+  async createThread(name: string, request: $_model.CreateThreadRequest): Promise<$_model.CreateThreadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createThreadWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * Create Ticket
    * 
    * @param request - CreateTicketRequest
@@ -984,6 +1221,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除DigitalEmployee
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDigitalEmployeeResponse
+   */
+  async deleteDigitalEmployeeWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDigitalEmployeeResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDigitalEmployee",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDigitalEmployeeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDigitalEmployeeResponse({}));
+  }
+
+  /**
+   * 删除DigitalEmployee
+   * @returns DeleteDigitalEmployeeResponse
+   */
+  async deleteDigitalEmployee(name: string): Promise<$_model.DeleteDigitalEmployeeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDigitalEmployeeWithOptions(name, headers, runtime);
+  }
+
+  /**
    * Delete EntityStore related storage
    * 
    * @param headers - map
@@ -1178,6 +1450,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceWithOptions(workspace, serviceId, headers, runtime);
+  }
+
+  /**
+   * 删除会话
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteThreadResponse
+   */
+  async deleteThreadWithOptions(name: string, threadId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteThreadResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteThread",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/thread/${$dara.URL.percentEncode(threadId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteThreadResponse>(await this.callApi(params, req, runtime), new $_model.DeleteThreadResponse({}));
+  }
+
+  /**
+   * 删除会话
+   * @returns DeleteThreadResponse
+   */
+  async deleteThread(name: string, threadId: string): Promise<$_model.DeleteThreadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteThreadWithOptions(name, threadId, headers, runtime);
   }
 
   /**
@@ -1803,6 +2110,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询 DigitalEmployee
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDigitalEmployeeResponse
+   */
+  async getDigitalEmployeeWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDigitalEmployeeResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDigitalEmployee",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDigitalEmployeeResponse>(await this.callApi(params, req, runtime), new $_model.GetDigitalEmployeeResponse({}));
+  }
+
+  /**
+   * 查询 DigitalEmployee
+   * @returns GetDigitalEmployeeResponse
+   */
+  async getDigitalEmployee(name: string): Promise<$_model.GetDigitalEmployeeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDigitalEmployeeWithOptions(name, headers, runtime);
+  }
+
+  /**
    * Get EntityStore related storage information
    * 
    * @param headers - map
@@ -2206,6 +2548,90 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceObservabilityWithOptions(workspace, type, headers, runtime);
+  }
+
+  /**
+   * 获取会话
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetThreadResponse
+   */
+  async getThreadWithOptions(name: string, threadId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetThreadResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetThread",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/thread/${$dara.URL.percentEncode(threadId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetThreadResponse>(await this.callApi(params, req, runtime), new $_model.GetThreadResponse({}));
+  }
+
+  /**
+   * 获取会话
+   * @returns GetThreadResponse
+   */
+  async getThread(name: string, threadId: string): Promise<$_model.GetThreadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getThreadWithOptions(name, threadId, headers, runtime);
+  }
+
+  /**
+   * 获取会话数据
+   * 
+   * @param request - GetThreadDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetThreadDataResponse
+   */
+  async getThreadDataWithOptions(name: string, threadId: string, request: $_model.GetThreadDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetThreadDataResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetThreadData",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/thread/${$dara.URL.percentEncode(threadId)}/data`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetThreadDataResponse>(await this.callApi(params, req, runtime), new $_model.GetThreadDataResponse({}));
+  }
+
+  /**
+   * 获取会话数据
+   * 
+   * @param request - GetThreadDataRequest
+   * @returns GetThreadDataResponse
+   */
+  async getThreadData(name: string, threadId: string, request: $_model.GetThreadDataRequest): Promise<$_model.GetThreadDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getThreadDataWithOptions(name, threadId, request, headers, runtime);
   }
 
   /**
@@ -2685,6 +3111,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBizTracesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出资源DigitalEmployee
+   * 
+   * @param request - ListDigitalEmployeesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDigitalEmployeesResponse
+   */
+  async listDigitalEmployeesWithOptions(request: $_model.ListDigitalEmployeesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDigitalEmployees",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digital-employee`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDigitalEmployeesResponse>(await this.callApi(params, req, runtime), new $_model.ListDigitalEmployeesResponse({}));
+  }
+
+  /**
+   * 列出资源DigitalEmployee
+   * 
+   * @param request - ListDigitalEmployeesRequest
+   * @returns ListDigitalEmployeesResponse
+   */
+  async listDigitalEmployees(request: $_model.ListDigitalEmployeesRequest): Promise<$_model.ListDigitalEmployeesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDigitalEmployeesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3513,6 +3992,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出会话
+   * 
+   * @param tmpReq - ListThreadsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListThreadsResponse
+   */
+  async listThreadsWithOptions(name: string, tmpReq: $_model.ListThreadsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListThreadsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListThreadsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      query["threadId"] = request.threadId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListThreads",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/threads`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListThreadsResponse>(await this.callApi(params, req, runtime), new $_model.ListThreadsResponse({}));
+  }
+
+  /**
+   * 列出会话
+   * 
+   * @param request - ListThreadsRequest
+   * @returns ListThreadsResponse
+   */
+  async listThreads(name: string, request: $_model.ListThreadsRequest): Promise<$_model.ListThreadsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listThreadsWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * Get Workspace List
    * 
    * @param tmpReq - ListWorkspacesRequest
@@ -3894,6 +4440,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新UpdateDigitalEmployee
+   * 
+   * @param request - UpdateDigitalEmployeeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDigitalEmployeeResponse
+   */
+  async updateDigitalEmployeeWithOptions(name: string, request: $_model.UpdateDigitalEmployeeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDigitalEmployeeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.defaultRule)) {
+      body["defaultRule"] = request.defaultRule;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.knowledges)) {
+      body["knowledges"] = request.knowledges;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      body["roleArn"] = request.roleArn;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDigitalEmployee",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDigitalEmployeeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDigitalEmployeeResponse({}));
+  }
+
+  /**
+   * 更新UpdateDigitalEmployee
+   * 
+   * @param request - UpdateDigitalEmployeeRequest
+   * @returns UpdateDigitalEmployeeResponse
+   */
+  async updateDigitalEmployee(name: string, request: $_model.UpdateDigitalEmployeeRequest): Promise<$_model.UpdateDigitalEmployeeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDigitalEmployeeWithOptions(name, request, headers, runtime);
   }
 
   /**
@@ -4311,6 +4918,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+  }
+
+  /**
+   * 更新会话
+   * 
+   * @param request - UpdateThreadRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateThreadResponse
+   */
+  async updateThreadWithOptions(name: string, threadId: string, request: $_model.UpdateThreadRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateThreadResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateThread",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/thread/${$dara.URL.percentEncode(threadId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateThreadResponse>(await this.callApi(params, req, runtime), new $_model.UpdateThreadResponse({}));
+  }
+
+  /**
+   * 更新会话
+   * 
+   * @param request - UpdateThreadRequest
+   * @returns UpdateThreadResponse
+   */
+  async updateThread(name: string, threadId: string, request: $_model.UpdateThreadRequest): Promise<$_model.UpdateThreadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateThreadWithOptions(name, threadId, request, headers, runtime);
   }
 
   /**
