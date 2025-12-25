@@ -393,6 +393,8 @@ export class PushTaskNotificationHmos extends $dara.Model {
   receiptId?: string;
   renderStyle?: string;
   slotType?: string;
+  sound?: string;
+  soundDuration?: number;
   testMessage?: boolean;
   uri?: string;
   static names(): { [key: string]: string } {
@@ -411,6 +413,8 @@ export class PushTaskNotificationHmos extends $dara.Model {
       receiptId: 'ReceiptId',
       renderStyle: 'RenderStyle',
       slotType: 'SlotType',
+      sound: 'Sound',
+      soundDuration: 'SoundDuration',
       testMessage: 'TestMessage',
       uri: 'Uri',
     };
@@ -432,6 +436,8 @@ export class PushTaskNotificationHmos extends $dara.Model {
       receiptId: 'string',
       renderStyle: 'string',
       slotType: 'string',
+      sound: 'string',
+      soundDuration: 'number',
       testMessage: 'boolean',
       uri: 'string',
     };
