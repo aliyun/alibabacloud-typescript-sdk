@@ -6,7 +6,7 @@ export class ModifyRCElasticScalingRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @example
-   * mysql.x2.medium.9cm
+   * rc-3ndh4shwes*
    */
   instanceId?: string;
   /**

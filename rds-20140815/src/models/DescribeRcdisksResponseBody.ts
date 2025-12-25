@@ -44,6 +44,11 @@ export class DescribeRCDisksResponseBodyDisksTag extends $dara.Model {
 
 export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   /**
+   * @example
+   * 2017-12-05T2340:00Z
+   */
+  attachedTime?: string;
+  /**
    * @remarks
    * The category of the disk. Valid values:
    * 
@@ -285,6 +290,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      attachedTime: 'AttachedTime',
       category: 'Category',
       creationTime: 'CreationTime',
       deleteAutoSnapshot: 'DeleteAutoSnapshot',
@@ -316,6 +322,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attachedTime: 'string',
       category: 'string',
       creationTime: 'string',
       deleteAutoSnapshot: 'boolean',

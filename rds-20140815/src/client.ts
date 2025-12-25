@@ -25825,6 +25825,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改RDS用户磁盘付费类型
+   * 
+   * @param request - ModifyRCDiskChargeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCDiskChargeTypeResponse
+   */
+  async modifyRCDiskChargeTypeWithOptions(request: $_model.ModifyRCDiskChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDiskChargeTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!$dara.isNull(request.businessInfo)) {
+      query["BusinessInfo"] = request.businessInfo;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRCDiskChargeType",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyRCDiskChargeTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRCDiskChargeTypeResponse({}));
+  }
+
+  /**
+   * 修改RDS用户磁盘付费类型
+   * 
+   * @param request - ModifyRCDiskChargeTypeRequest
+   * @returns ModifyRCDiskChargeTypeResponse
+   */
+  async modifyRCDiskChargeType(request: $_model.ModifyRCDiskChargeTypeRequest): Promise<$_model.ModifyRCDiskChargeTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRCDiskChargeTypeWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the disk type or performance level (PL) of the cloud disks of an RDS Custom instance.
    * 
    * @remarks
