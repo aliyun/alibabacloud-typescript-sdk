@@ -684,6 +684,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建用户
+   * 
+   * @param request - CreateUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
+   */
+  async createUserWithOptions(request: $_model.CreateUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUser",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUserResponse>(await this.callApi(params, req, runtime), new $_model.CreateUserResponse({}));
+  }
+
+  /**
+   * 创建用户
+   * 
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
+   */
+  async createUser(request: $_model.CreateUserRequest): Promise<$_model.CreateUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createUserWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CreateWarningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWarningConfigResponse
@@ -1805,6 +1851,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取质检结果详情用于复核
+   * 
    * @param request - GetResultToReviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResultToReviewResponse
@@ -1838,6 +1886,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取质检结果详情用于复核
+   * 
    * @param request - GetResultToReviewRequest
    * @returns GetResultToReviewResponse
    */
@@ -3545,6 +3595,52 @@ export default class Client extends OpenApi {
   async submitReviewInfo(request: $_model.SubmitReviewInfoRequest): Promise<$_model.SubmitReviewInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitReviewInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交复核结果v4
+   * 
+   * @param request - SubmitReviewInfoV4Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitReviewInfoV4Response
+   */
+  async submitReviewInfoV4WithOptions(request: $_model.SubmitReviewInfoV4Request, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitReviewInfoV4Response> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitReviewInfoV4",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitReviewInfoV4Response>(await this.callApi(params, req, runtime), new $_model.SubmitReviewInfoV4Response({}));
+  }
+
+  /**
+   * 提交复核结果v4
+   * 
+   * @param request - SubmitReviewInfoV4Request
+   * @returns SubmitReviewInfoV4Response
+   */
+  async submitReviewInfoV4(request: $_model.SubmitReviewInfoV4Request): Promise<$_model.SubmitReviewInfoV4Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitReviewInfoV4WithOptions(request, runtime);
   }
 
   /**

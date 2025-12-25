@@ -423,6 +423,118 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
   }
 }
 
+export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResultsSentenceReviewResults extends $dara.Model {
+  changed?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  cid?: number;
+  /**
+   * @example
+   * 无意见
+   */
+  comment?: string;
+  /**
+   * @example
+   * 1
+   */
+  hitStatus?: number;
+  /**
+   * @example
+   * 122-122-22-333
+   */
+  originTaskId?: string;
+  /**
+   * @example
+   * 1001
+   */
+  originVid?: string;
+  /**
+   * @example
+   * 1
+   */
+  pid?: string;
+  /**
+   * @example
+   * 2
+   */
+  reviewDimensionType?: string;
+  /**
+   * @example
+   * 1
+   */
+  rid?: number;
+  /**
+   * @example
+   * 1
+   */
+  sid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      changed: 'Changed',
+      cid: 'Cid',
+      comment: 'Comment',
+      hitStatus: 'HitStatus',
+      originTaskId: 'OriginTaskId',
+      originVid: 'OriginVid',
+      pid: 'Pid',
+      reviewDimensionType: 'ReviewDimensionType',
+      rid: 'Rid',
+      sid: 'Sid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changed: 'boolean',
+      cid: 'number',
+      comment: 'string',
+      hitStatus: 'number',
+      originTaskId: 'string',
+      originVid: 'string',
+      pid: 'string',
+      reviewDimensionType: 'string',
+      rid: 'number',
+      sid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults extends $dara.Model {
+  sentenceReviewResults?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResultsSentenceReviewResults[];
+  static names(): { [key: string]: string } {
+    return {
+      sentenceReviewResults: 'SentenceReviewResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentenceReviewResults: { 'type': 'array', 'itemType': GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResultsSentenceReviewResults },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentenceReviewResults)) {
+      $dara.Model.validateArray(this.sentenceReviewResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo extends $dara.Model {
   /**
    * @example
@@ -449,6 +561,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
    * 451
    */
   rid?: number;
+  sentenceReviewResults?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults;
   static names(): { [key: string]: string } {
     return {
       hitId: 'HitId',
@@ -456,6 +569,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
       reviewTime: 'ReviewTime',
       reviewer: 'Reviewer',
       rid: 'Rid',
+      sentenceReviewResults: 'SentenceReviewResults',
     };
   }
 
@@ -466,10 +580,14 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
       reviewTime: 'string',
       reviewer: 'string',
       rid: 'number',
+      sentenceReviewResults: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults,
     };
   }
 
   validate() {
+    if(this.sentenceReviewResults && typeof (this.sentenceReviewResults as any).validate === 'function') {
+      (this.sentenceReviewResults as any).validate();
+    }
     super.validate();
   }
 
