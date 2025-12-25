@@ -337,6 +337,11 @@ export class StartRtcCloudRecordingRequestStorageParamsFileInfo extends $dara.Mo
   format?: string;
   /**
    * @example
+   * 30
+   */
+  sliceDuration?: number;
+  /**
+   * @example
    * {AppId}_{ChannelId}_{StartTime}_{Sequence}
    */
   sliceNamePattern?: string;
@@ -345,6 +350,7 @@ export class StartRtcCloudRecordingRequestStorageParamsFileInfo extends $dara.Mo
       fileNamePattern: 'FileNamePattern',
       filePathPrefix: 'FilePathPrefix',
       format: 'Format',
+      sliceDuration: 'SliceDuration',
       sliceNamePattern: 'SliceNamePattern',
     };
   }
@@ -354,6 +360,7 @@ export class StartRtcCloudRecordingRequestStorageParamsFileInfo extends $dara.Mo
       fileNamePattern: 'string',
       filePathPrefix: { 'type': 'array', 'itemType': 'string' },
       format: 'string',
+      sliceDuration: 'number',
       sliceNamePattern: 'string',
     };
   }
