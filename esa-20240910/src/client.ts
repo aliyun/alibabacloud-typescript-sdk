@@ -4288,6 +4288,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+   * 
+   * @param tmpReq - CreateUserWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserWafRulesetResponse
+   */
+  async createUserWafRulesetWithOptions(tmpReq: $_model.CreateUserWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUserWafRulesetResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateUserWafRulesetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.shared)) {
+      request.sharedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shared, "Shared", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expression)) {
+      body["Expression"] = request.expression;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      body["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.rulesShrink)) {
+      body["Rules"] = request.rulesShrink;
+    }
+
+    if (!$dara.isNull(request.sharedShrink)) {
+      body["Shared"] = request.sharedShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUserWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUserWafRulesetResponse>(await this.callApi(params, req, runtime), new $_model.CreateUserWafRulesetResponse({}));
+  }
+
+  /**
+   * 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+   * 
+   * @param request - CreateUserWafRulesetRequest
+   * @returns CreateUserWafRulesetResponse
+   */
+  async createUserWafRuleset(request: $_model.CreateUserWafRulesetRequest): Promise<$_model.CreateUserWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createUserWafRulesetWithOptions(request, runtime);
+  }
+
+  /**
    * Add video processing configurations for a website.
    * 
    * @param request - CreateVideoProcessingRequest
@@ -6797,6 +6901,76 @@ export default class Client extends OpenApi {
   async deleteUserDeliveryTask(request: $_model.DeleteUserDeliveryTaskRequest): Promise<$_model.DeleteUserDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserDeliveryTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于删除实例级别的Web应用防火墙规则集。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+   * 
+   * @param request - DeleteUserWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserWafRulesetResponse
+   */
+  async deleteUserWafRulesetWithOptions(request: $_model.DeleteUserWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUserWafRulesetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteUserWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteUserWafRulesetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUserWafRulesetResponse({}));
+  }
+
+  /**
+   * 用于删除实例级别的Web应用防火墙规则集。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+   * 
+   * @param request - DeleteUserWafRulesetRequest
+   * @returns DeleteUserWafRulesetResponse
+   */
+  async deleteUserWafRuleset(request: $_model.DeleteUserWafRulesetRequest): Promise<$_model.DeleteUserWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteUserWafRulesetWithOptions(request, runtime);
   }
 
   /**
@@ -10106,6 +10280,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Routine默认访问记录访问鉴权token
+   * 
+   * @param request - GetRoutineAccessTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineAccessTokenResponse
+   */
+  async getRoutineAccessTokenWithOptions(request: $_model.GetRoutineAccessTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRoutineAccessTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRoutineAccessToken",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRoutineAccessTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetRoutineAccessTokenResponse({}));
+  }
+
+  /**
+   * 查询Routine默认访问记录访问鉴权token
+   * 
+   * @param request - GetRoutineAccessTokenRequest
+   * @returns GetRoutineAccessTokenResponse
+   */
+  async getRoutineAccessToken(request: $_model.GetRoutineAccessTokenRequest): Promise<$_model.GetRoutineAccessTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRoutineAccessTokenWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about a code version of a routine.
    * 
    * @param request - GetRoutineCodeVersionRequest
@@ -10977,6 +11193,52 @@ export default class Client extends OpenApi {
   async getUserLogDeliveryQuota(request: $_model.GetUserLogDeliveryQuotaRequest): Promise<$_model.GetUserLogDeliveryQuotaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserLogDeliveryQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于获取实例级别的Web应用防火墙规则集详情
+   * 
+   * @param request - GetUserWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserWafRulesetResponse
+   */
+  async getUserWafRulesetWithOptions(request: $_model.GetUserWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserWafRulesetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserWafRulesetResponse>(await this.callApi(params, req, runtime), new $_model.GetUserWafRulesetResponse({}));
+  }
+
+  /**
+   * 用于获取实例级别的Web应用防火墙规则集详情
+   * 
+   * @param request - GetUserWafRulesetRequest
+   * @returns GetUserWafRulesetResponse
+   */
+  async getUserWafRuleset(request: $_model.GetUserWafRulesetRequest): Promise<$_model.GetUserWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserWafRulesetWithOptions(request, runtime);
   }
 
   /**
@@ -13629,6 +13891,70 @@ export default class Client extends OpenApi {
   async listUserRoutines(request: $_model.ListUserRoutinesRequest): Promise<$_model.ListUserRoutinesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserRoutinesWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于列举实例级别的Web应用防火墙规则集。
+   * 
+   * @param tmpReq - ListUserWafRulesetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserWafRulesetsResponse
+   */
+  async listUserWafRulesetsWithOptions(tmpReq: $_model.ListUserWafRulesetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserWafRulesetsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListUserWafRulesetsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryArgs)) {
+      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      query["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.queryArgsShrink)) {
+      query["QueryArgs"] = request.queryArgsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserWafRulesets",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserWafRulesetsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserWafRulesetsResponse({}));
+  }
+
+  /**
+   * 用于列举实例级别的Web应用防火墙规则集。
+   * 
+   * @param request - ListUserWafRulesetsRequest
+   * @returns ListUserWafRulesetsResponse
+   */
+  async listUserWafRulesets(request: $_model.ListUserWafRulesetsRequest): Promise<$_model.ListUserWafRulesetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserWafRulesetsWithOptions(request, runtime);
   }
 
   /**
@@ -18895,6 +19221,114 @@ export default class Client extends OpenApi {
   async updateUserDeliveryTaskStatus(request: $_model.UpdateUserDeliveryTaskStatusRequest): Promise<$_model.UpdateUserDeliveryTaskStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserDeliveryTaskStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+   * 
+   * @param tmpReq - UpdateUserWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserWafRulesetResponse
+   */
+  async updateUserWafRulesetWithOptions(tmpReq: $_model.UpdateUserWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUserWafRulesetResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateUserWafRulesetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.shared)) {
+      request.sharedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shared, "Shared", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expression)) {
+      body["Expression"] = request.expression;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.position)) {
+      body["Position"] = request.position;
+    }
+
+    if (!$dara.isNull(request.rulesShrink)) {
+      body["Rules"] = request.rulesShrink;
+    }
+
+    if (!$dara.isNull(request.sharedShrink)) {
+      body["Shared"] = request.sharedShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUserWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUserWafRulesetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUserWafRulesetResponse({}));
+  }
+
+  /**
+   * 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+   * 
+   * @param request - UpdateUserWafRulesetRequest
+   * @returns UpdateUserWafRulesetResponse
+   */
+  async updateUserWafRuleset(request: $_model.UpdateUserWafRulesetRequest): Promise<$_model.UpdateUserWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUserWafRulesetWithOptions(request, runtime);
   }
 
   /**
