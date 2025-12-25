@@ -136,6 +136,7 @@ export class BatchTranslateRequestExt extends $dara.Model {
    */
   domainHint?: string;
   examples?: BatchTranslateRequestExtExamples[];
+  paramMap?: any;
   sensitives?: string[];
   terminologies?: BatchTranslateRequestExtTerminologies[];
   textTransform?: BatchTranslateRequestExtTextTransform;
@@ -144,6 +145,7 @@ export class BatchTranslateRequestExt extends $dara.Model {
       config: 'config',
       domainHint: 'domainHint',
       examples: 'examples',
+      paramMap: 'paramMap',
       sensitives: 'sensitives',
       terminologies: 'terminologies',
       textTransform: 'textTransform',
@@ -155,6 +157,7 @@ export class BatchTranslateRequestExt extends $dara.Model {
       config: BatchTranslateRequestExtConfig,
       domainHint: 'string',
       examples: { 'type': 'array', 'itemType': BatchTranslateRequestExtExamples },
+      paramMap: 'any',
       sensitives: { 'type': 'array', 'itemType': 'string' },
       terminologies: { 'type': 'array', 'itemType': BatchTranslateRequestExtTerminologies },
       textTransform: BatchTranslateRequestExtTextTransform,

@@ -134,6 +134,7 @@ export class SubmitLongTextTranslateTaskRequestExt extends $dara.Model {
    */
   domainHint?: string;
   examples?: SubmitLongTextTranslateTaskRequestExtExamples[];
+  paramMap?: any;
   sensitives?: string[];
   terminologies?: SubmitLongTextTranslateTaskRequestExtTerminologies[];
   textTransform?: SubmitLongTextTranslateTaskRequestExtTextTransform;
@@ -142,6 +143,7 @@ export class SubmitLongTextTranslateTaskRequestExt extends $dara.Model {
       config: 'config',
       domainHint: 'domainHint',
       examples: 'examples',
+      paramMap: 'paramMap',
       sensitives: 'sensitives',
       terminologies: 'terminologies',
       textTransform: 'textTransform',
@@ -153,6 +155,7 @@ export class SubmitLongTextTranslateTaskRequestExt extends $dara.Model {
       config: SubmitLongTextTranslateTaskRequestExtConfig,
       domainHint: 'string',
       examples: { 'type': 'array', 'itemType': SubmitLongTextTranslateTaskRequestExtExamples },
+      paramMap: 'any',
       sensitives: { 'type': 'array', 'itemType': 'string' },
       terminologies: { 'type': 'array', 'itemType': SubmitLongTextTranslateTaskRequestExtTerminologies },
       textTransform: SubmitLongTextTranslateTaskRequestExtTextTransform,

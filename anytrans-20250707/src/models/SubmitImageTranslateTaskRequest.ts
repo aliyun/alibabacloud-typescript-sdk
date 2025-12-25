@@ -110,6 +110,7 @@ export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
    */
   domainHint?: string;
   examples?: SubmitImageTranslateTaskRequestExtExamples[];
+  paramMap?: any;
   sensitives?: string[];
   terminologies?: SubmitImageTranslateTaskRequestExtTerminologies[];
   textTransform?: SubmitImageTranslateTaskRequestExtTextTransform;
@@ -117,6 +118,7 @@ export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
     return {
       domainHint: 'domainHint',
       examples: 'examples',
+      paramMap: 'paramMap',
       sensitives: 'sensitives',
       terminologies: 'terminologies',
       textTransform: 'textTransform',
@@ -127,6 +129,7 @@ export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
     return {
       domainHint: 'string',
       examples: { 'type': 'array', 'itemType': SubmitImageTranslateTaskRequestExtExamples },
+      paramMap: 'any',
       sensitives: { 'type': 'array', 'itemType': 'string' },
       terminologies: { 'type': 'array', 'itemType': SubmitImageTranslateTaskRequestExtTerminologies },
       textTransform: SubmitImageTranslateTaskRequestExtTextTransform,

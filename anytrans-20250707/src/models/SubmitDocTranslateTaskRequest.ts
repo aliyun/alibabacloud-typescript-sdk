@@ -62,11 +62,13 @@ export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
    * This text comes from a rigorous academic paper. Please provide a translation that complies with academic standards.
    */
   domainHint?: string;
+  paramMap?: any;
   terminologies?: SubmitDocTranslateTaskRequestExtTerminologies[];
   static names(): { [key: string]: string } {
     return {
       config: 'config',
       domainHint: 'domainHint',
+      paramMap: 'paramMap',
       terminologies: 'terminologies',
     };
   }
@@ -75,6 +77,7 @@ export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
     return {
       config: SubmitDocTranslateTaskRequestExtConfig,
       domainHint: 'string',
+      paramMap: 'any',
       terminologies: { 'type': 'array', 'itemType': SubmitDocTranslateTaskRequestExtTerminologies },
     };
   }

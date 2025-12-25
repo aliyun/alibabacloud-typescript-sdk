@@ -2,31 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TermQueryRequestExt extends $dara.Model {
-  paramMap?: any;
-  static names(): { [key: string]: string } {
-    return {
-      paramMap: 'paramMap',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paramMap: 'any',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TermQueryRequest extends $dara.Model {
-  ext?: TermQueryRequestExt;
+export class TermQueryShrinkRequest extends $dara.Model {
+  extShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -62,7 +39,7 @@ export class TermQueryRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      ext: 'ext',
+      extShrink: 'ext',
       scene: 'scene',
       sourceLanguage: 'sourceLanguage',
       targetLanguage: 'targetLanguage',
@@ -73,7 +50,7 @@ export class TermQueryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ext: TermQueryRequestExt,
+      extShrink: 'string',
       scene: 'string',
       sourceLanguage: 'string',
       targetLanguage: 'string',
@@ -83,9 +60,6 @@ export class TermQueryRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.ext && typeof (this.ext as any).validate === 'function') {
-      (this.ext as any).validate();
-    }
     super.validate();
   }
 

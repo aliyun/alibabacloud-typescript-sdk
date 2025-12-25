@@ -135,6 +135,8 @@ export class TextTranslateRequestExt extends $dara.Model {
    */
   domainHint?: string;
   examples?: TextTranslateRequestExtExamples[];
+  paramMap?: any;
+  prefix?: string;
   sensitives?: string[];
   terminologies?: TextTranslateRequestExtTerminologies[];
   textTransform?: TextTranslateRequestExtTextTransform;
@@ -144,6 +146,8 @@ export class TextTranslateRequestExt extends $dara.Model {
       config: 'config',
       domainHint: 'domainHint',
       examples: 'examples',
+      paramMap: 'paramMap',
+      prefix: 'prefix',
       sensitives: 'sensitives',
       terminologies: 'terminologies',
       textTransform: 'textTransform',
@@ -156,6 +160,8 @@ export class TextTranslateRequestExt extends $dara.Model {
       config: TextTranslateRequestExtConfig,
       domainHint: 'string',
       examples: { 'type': 'array', 'itemType': TextTranslateRequestExtExamples },
+      paramMap: 'any',
+      prefix: 'string',
       sensitives: { 'type': 'array', 'itemType': 'string' },
       terminologies: { 'type': 'array', 'itemType': TextTranslateRequestExtTerminologies },
       textTransform: TextTranslateRequestExtTextTransform,

@@ -769,14 +769,24 @@ export default class Client extends OpenApi {
   /**
    * 通义多模态翻译术语查询
    * 
-   * @param request - TermQueryRequest
+   * @param tmpReq - TermQueryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TermQueryResponse
    */
-  async termQueryWithOptions(request: $_model.TermQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TermQueryResponse> {
-    request.validate();
+  async termQueryWithOptions(tmpReq: $_model.TermQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TermQueryResponse> {
+    tmpReq.validate();
+    let request = new $_model.TermQueryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "ext", "json");
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.extShrink)) {
+      body["ext"] = request.extShrink;
+    }
+
     if (!$dara.isNull(request.scene)) {
       body["scene"] = request.scene;
     }

@@ -47,6 +47,7 @@ export class TermEditRequestExtTerms extends $dara.Model {
 }
 
 export class TermEditRequestExt extends $dara.Model {
+  paramMap?: any;
   /**
    * @remarks
    * This parameter is required.
@@ -54,12 +55,14 @@ export class TermEditRequestExt extends $dara.Model {
   terms?: TermEditRequestExtTerms[];
   static names(): { [key: string]: string } {
     return {
+      paramMap: 'paramMap',
       terms: 'terms',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      paramMap: 'any',
       terms: { 'type': 'array', 'itemType': TermEditRequestExtTerms },
     };
   }
