@@ -7,8 +7,6 @@ export class DetachServerGroupsRequestServerGroups extends $dara.Model {
    * @remarks
    * The port used by ECS instances or elastic container instances as backend servers of the server group.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 22
    */
