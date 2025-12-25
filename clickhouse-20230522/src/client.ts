@@ -1840,6 +1840,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列举ClickHouse时区参数枚举值
+   * 
+   * @param request - ListClickHouseDBTimezonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClickHouseDBTimezonesResponse
+   */
+  async listClickHouseDBTimezonesWithOptions(request: $_model.ListClickHouseDBTimezonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListClickHouseDBTimezonesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListClickHouseDBTimezones",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListClickHouseDBTimezonesResponse>(await this.callApi(params, req, runtime), new $_model.ListClickHouseDBTimezonesResponse({}));
+  }
+
+  /**
+   * 列举ClickHouse时区参数枚举值
+   * 
+   * @param request - ListClickHouseDBTimezonesRequest
+   * @returns ListClickHouseDBTimezonesResponse
+   */
+  async listClickHouseDBTimezones(request: $_model.ListClickHouseDBTimezonesRequest): Promise<$_model.ListClickHouseDBTimezonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listClickHouseDBTimezonesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询实例关联的白名单模板清单
    * 
    * @param request - ListInstanceLinkedWhitelistTemplatesRequest

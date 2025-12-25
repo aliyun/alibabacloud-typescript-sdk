@@ -56,6 +56,7 @@ export { GetWhitelistTemplateResponseBodyDataTemplatesDbInstances } from './GetW
 export { GetWhitelistTemplateResponseBodyDataTemplates } from './GetWhitelistTemplateResponseBody';
 export { GetWhitelistTemplateResponseBodyData } from './GetWhitelistTemplateResponseBody';
 export { KillProcessResponseBodyData } from './KillProcessResponseBody';
+export { ListClickHouseDBTimezonesResponseBodyTimeZones } from './ListClickHouseDbtimezonesResponseBody';
 export { ListInstanceLinkedWhitelistTemplatesResponseBodyDataTemplates } from './ListInstanceLinkedWhitelistTemplatesResponseBody';
 export { ListInstanceLinkedWhitelistTemplatesResponseBodyData } from './ListInstanceLinkedWhitelistTemplatesResponseBody';
 export { ListWhitelistTemplatesResponseBodyDataTemplatesDbInstances } from './ListWhitelistTemplatesResponseBody';
@@ -171,6 +172,9 @@ export { GetWhitelistTemplateResponse } from './GetWhitelistTemplateResponse';
 export { KillProcessRequest } from './KillProcessRequest';
 export { KillProcessResponseBody } from './KillProcessResponseBody';
 export { KillProcessResponse } from './KillProcessResponse';
+export { ListClickHouseDBTimezonesRequest } from './ListClickHouseDbtimezonesRequest';
+export { ListClickHouseDBTimezonesResponseBody } from './ListClickHouseDbtimezonesResponseBody';
+export { ListClickHouseDBTimezonesResponse } from './ListClickHouseDbtimezonesResponse';
 export { ListInstanceLinkedWhitelistTemplatesRequest } from './ListInstanceLinkedWhitelistTemplatesRequest';
 export { ListInstanceLinkedWhitelistTemplatesResponseBody } from './ListInstanceLinkedWhitelistTemplatesResponseBody';
 export { ListInstanceLinkedWhitelistTemplatesResponse } from './ListInstanceLinkedWhitelistTemplatesResponse';
