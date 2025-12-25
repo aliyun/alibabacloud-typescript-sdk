@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class InstanceDetailComponents extends $dara.Model {
   cuNum?: number;
   cuType?: string;

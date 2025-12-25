@@ -121,6 +121,7 @@ export class CreateInstanceRequest extends $dara.Model {
    */
   regionId?: string;
   autoBackup?: boolean;
+  autoRenew?: boolean;
   components?: CreateInstanceRequestComponents[];
   configuration?: string;
   /**
@@ -147,7 +148,9 @@ export class CreateInstanceRequest extends $dara.Model {
    * milvus-test
    */
   instanceName?: string;
+  isMultiAzStorage?: boolean;
   kmsKeyId?: string;
+  loadReplicas?: number;
   multiZoneMode?: string;
   /**
    * @example
@@ -167,6 +170,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * PayAsYouGo
    */
   paymentType?: string;
+  promotionNo?: string;
   /**
    * @example
    * rg-xxx
@@ -199,6 +203,7 @@ export class CreateInstanceRequest extends $dara.Model {
     return {
       regionId: 'RegionId',
       autoBackup: 'autoBackup',
+      autoRenew: 'autoRenew',
       components: 'components',
       configuration: 'configuration',
       dbAdminPassword: 'dbAdminPassword',
@@ -206,11 +211,14 @@ export class CreateInstanceRequest extends $dara.Model {
       encrypted: 'encrypted',
       ha: 'ha',
       instanceName: 'instanceName',
+      isMultiAzStorage: 'isMultiAzStorage',
       kmsKeyId: 'kmsKeyId',
+      loadReplicas: 'loadReplicas',
       multiZoneMode: 'multiZoneMode',
       paymentDuration: 'paymentDuration',
       paymentDurationUnit: 'paymentDurationUnit',
       paymentType: 'paymentType',
+      promotionNo: 'promotionNo',
       resourceGroupId: 'resourceGroupId',
       tags: 'tags',
       vSwitchIds: 'vSwitchIds',
@@ -224,6 +232,7 @@ export class CreateInstanceRequest extends $dara.Model {
     return {
       regionId: 'string',
       autoBackup: 'boolean',
+      autoRenew: 'boolean',
       components: { 'type': 'array', 'itemType': CreateInstanceRequestComponents },
       configuration: 'string',
       dbAdminPassword: 'string',
@@ -231,11 +240,14 @@ export class CreateInstanceRequest extends $dara.Model {
       encrypted: 'boolean',
       ha: 'boolean',
       instanceName: 'string',
+      isMultiAzStorage: 'boolean',
       kmsKeyId: 'string',
+      loadReplicas: 'number',
       multiZoneMode: 'string',
       paymentDuration: 'number',
       paymentDurationUnit: 'string',
       paymentType: 'string',
+      promotionNo: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': CreateInstanceRequestTags },
       vSwitchIds: { 'type': 'array', 'itemType': CreateInstanceRequestVSwitchIds },

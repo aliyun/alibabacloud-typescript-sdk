@@ -337,6 +337,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
    */
   sgId?: string;
   tags?: ListInstancesResponseBodyDataTags[];
+  version?: string;
   /**
    * @remarks
    * The virtual private cloud (VPC) ID.
@@ -380,6 +381,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
       runningTime: 'RunningTime',
       sgId: 'SgId',
       tags: 'Tags',
+      version: 'Version',
       vpcId: 'VpcId',
       vswId: 'VswId',
       zoneId: 'ZoneId',
@@ -405,6 +407,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
       runningTime: 'number',
       sgId: 'string',
       tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyDataTags },
+      version: 'string',
       vpcId: 'string',
       vswId: 'string',
       zoneId: 'string',

@@ -149,6 +149,10 @@ export default class Client extends OpenApi {
       body["autoBackup"] = request.autoBackup;
     }
 
+    if (!$dara.isNull(request.autoRenew)) {
+      body["autoRenew"] = request.autoRenew;
+    }
+
     if (!$dara.isNull(request.components)) {
       body["components"] = request.components;
     }
@@ -177,8 +181,16 @@ export default class Client extends OpenApi {
       body["instanceName"] = request.instanceName;
     }
 
+    if (!$dara.isNull(request.isMultiAzStorage)) {
+      body["isMultiAzStorage"] = request.isMultiAzStorage;
+    }
+
     if (!$dara.isNull(request.kmsKeyId)) {
       body["kmsKeyId"] = request.kmsKeyId;
+    }
+
+    if (!$dara.isNull(request.loadReplicas)) {
+      body["loadReplicas"] = request.loadReplicas;
     }
 
     if (!$dara.isNull(request.multiZoneMode)) {
@@ -195,6 +207,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.paymentType)) {
       body["paymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.promotionNo)) {
+      body["promotionNo"] = request.promotionNo;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {

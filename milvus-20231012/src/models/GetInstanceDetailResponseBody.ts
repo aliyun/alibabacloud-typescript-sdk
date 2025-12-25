@@ -55,6 +55,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
    * 2
    */
   replica?: number;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       componentType: 'ComponentType',
@@ -63,6 +64,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
       diskSize: 'DiskSize',
       diskType: 'DiskType',
       replica: 'Replica',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -74,6 +76,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
       diskSize: 'number',
       diskType: 'string',
       replica: 'number',
+      zoneId: 'string',
     };
   }
 
@@ -188,6 +191,38 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
     if(Array.isArray(this.milvusResourceInfoList)) {
       $dara.Model.validateArray(this.milvusResourceInfoList);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceDetailResponseBodyDataHighAvailability extends $dara.Model {
+  currentActiveAZ?: string;
+  mode?: string;
+  primaryZoneId?: string;
+  secondaryZoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentActiveAZ: 'CurrentActiveAZ',
+      mode: 'Mode',
+      primaryZoneId: 'PrimaryZoneId',
+      secondaryZoneId: 'SecondaryZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentActiveAZ: 'string',
+      mode: 'string',
+      primaryZoneId: 'string',
+      secondaryZoneId: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -406,6 +441,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * 1721664000000
    */
   expireTime?: number;
+  highAvailability?: GetInstanceDetailResponseBodyDataHighAvailability;
   /**
    * @remarks
    * The ID of the instance.
@@ -568,6 +604,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       enableHa: 'EnableHa',
       encrypted: 'Encrypted',
       expireTime: 'ExpireTime',
+      highAvailability: 'HighAvailability',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
       kmsKeyId: 'KmsKeyId',
@@ -604,6 +641,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       enableHa: 'boolean',
       encrypted: 'string',
       expireTime: 'number',
+      highAvailability: GetInstanceDetailResponseBodyDataHighAvailability,
       instanceId: 'string',
       instanceStatus: 'string',
       kmsKeyId: 'string',
@@ -632,6 +670,9 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   validate() {
     if(this.clusterInfo && typeof (this.clusterInfo as any).validate === 'function') {
       (this.clusterInfo as any).validate();
+    }
+    if(this.highAvailability && typeof (this.highAvailability as any).validate === 'function') {
+      (this.highAvailability as any).validate();
     }
     if(this.measureConfig && typeof (this.measureConfig as any).validate === 'function') {
       (this.measureConfig as any).validate();
