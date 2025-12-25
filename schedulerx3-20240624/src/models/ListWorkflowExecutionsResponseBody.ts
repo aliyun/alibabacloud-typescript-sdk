@@ -2,15 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAppsResponseBodyDataRecords extends $dara.Model {
-  /**
-   * @remarks
-   * AccessToken
-   * 
-   * @example
-   * 2f4ddeab8e344ed68e0402cf9b8502ffv3
-   */
-  accessToken?: string;
+export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   /**
    * @example
    * test-app
@@ -18,107 +10,76 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @example
-   * 1
+   * 2024-11-12 14:52:42
    */
-  appType?: number;
+  dataTime?: string;
   /**
    * @example
-   * 1827811800555555
+   * 2024-11-12 14:52:42
    */
-  creator?: string;
+  endTime?: string;
   /**
    * @example
-   * true
+   * 1827811800526000
    */
-  enableLog?: boolean;
+  executor?: string;
   /**
    * @example
-   * 1
+   * 2024-11-12 14:52:42
    */
-  executorNum?: number;
+  scheduleTime?: string;
   /**
    * @example
-   * 43885
+   * 2025-11-04 01:09:27
    */
-  id?: number;
+  startTime?: string;
   /**
    * @example
-   * 10
+   * 4
    */
-  jobNum?: number;
-  labelRouteStrategy?: number;
-  /**
-   * @example
-   * http://28.5.128.3:80
-   */
-  leader?: string;
+  status?: number;
   /**
    * @example
    * 100
    */
-  maxConcurrency?: number;
+  workflowExecutionId?: string;
   /**
    * @example
-   * 1000
-   * 
-   * @deprecated
+   * 10
    */
-  maxJobs?: number;
-  title?: string;
+  workflowId?: string;
   /**
    * @example
-   * 1827811800555555
+   * myWorkflow
    */
-  updater?: string;
-  /**
-   * @example
-   * k8s_service
-   */
-  workerRegistry?: string;
-  /**
-   * @example
-   * 3
-   */
-  workflowNum?: number;
+  workflowName?: string;
   static names(): { [key: string]: string } {
     return {
-      accessToken: 'AccessToken',
       appName: 'AppName',
-      appType: 'AppType',
-      creator: 'Creator',
-      enableLog: 'EnableLog',
-      executorNum: 'ExecutorNum',
-      id: 'Id',
-      jobNum: 'JobNum',
-      labelRouteStrategy: 'LabelRouteStrategy',
-      leader: 'Leader',
-      maxConcurrency: 'MaxConcurrency',
-      maxJobs: 'MaxJobs',
-      title: 'Title',
-      updater: 'Updater',
-      workerRegistry: 'WorkerRegistry',
-      workflowNum: 'WorkflowNum',
+      dataTime: 'DataTime',
+      endTime: 'EndTime',
+      executor: 'Executor',
+      scheduleTime: 'ScheduleTime',
+      startTime: 'StartTime',
+      status: 'Status',
+      workflowExecutionId: 'WorkflowExecutionId',
+      workflowId: 'WorkflowId',
+      workflowName: 'WorkflowName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessToken: 'string',
       appName: 'string',
-      appType: 'number',
-      creator: 'string',
-      enableLog: 'boolean',
-      executorNum: 'number',
-      id: 'number',
-      jobNum: 'number',
-      labelRouteStrategy: 'number',
-      leader: 'string',
-      maxConcurrency: 'number',
-      maxJobs: 'number',
-      title: 'string',
-      updater: 'string',
-      workerRegistry: 'string',
-      workflowNum: 'number',
+      dataTime: 'string',
+      endTime: 'string',
+      executor: 'string',
+      scheduleTime: 'string',
+      startTime: 'string',
+      status: 'number',
+      workflowExecutionId: 'string',
+      workflowId: 'string',
+      workflowName: 'string',
     };
   }
 
@@ -131,7 +92,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   }
 }
 
-export class ListAppsResponseBodyData extends $dara.Model {
+export class ListWorkflowExecutionsResponseBodyData extends $dara.Model {
   /**
    * @example
    * 1
@@ -146,10 +107,10 @@ export class ListAppsResponseBodyData extends $dara.Model {
    * @remarks
    * -
    */
-  records?: ListAppsResponseBodyDataRecords[];
+  records?: ListWorkflowExecutionsResponseBodyDataRecords[];
   /**
    * @example
-   * 10
+   * 65
    */
   total?: number;
   static names(): { [key: string]: string } {
@@ -165,7 +126,7 @@ export class ListAppsResponseBodyData extends $dara.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
-      records: { 'type': 'array', 'itemType': ListAppsResponseBodyDataRecords },
+      records: { 'type': 'array', 'itemType': ListWorkflowExecutionsResponseBodyDataRecords },
       total: 'number',
     };
   }
@@ -182,7 +143,7 @@ export class ListAppsResponseBodyData extends $dara.Model {
   }
 }
 
-export class ListAppsResponseBody extends $dara.Model {
+export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -192,15 +153,31 @@ export class ListAppsResponseBody extends $dara.Model {
    * @remarks
    * -
    */
-  data?: ListAppsResponseBodyData;
+  data?: ListWorkflowExecutionsResponseBodyData;
   /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @example
-   * 2C3E52FF-CBE9-5C0E-8252-37ACFF1F5EFF
+   * eCKqVlS5FKF5EWGGOo8EgQ==
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
    */
   requestId?: string;
   /**
@@ -212,7 +189,9 @@ export class ListAppsResponseBody extends $dara.Model {
     return {
       code: 'Code',
       data: 'Data',
+      maxResults: 'MaxResults',
       message: 'Message',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -221,8 +200,10 @@ export class ListAppsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: ListAppsResponseBodyData,
+      data: ListWorkflowExecutionsResponseBodyData,
+      maxResults: 'number',
       message: 'string',
+      nextToken: 'string',
       requestId: 'string',
       success: 'boolean',
     };

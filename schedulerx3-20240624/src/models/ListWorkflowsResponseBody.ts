@@ -2,15 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAppsResponseBodyDataRecords extends $dara.Model {
-  /**
-   * @remarks
-   * AccessToken
-   * 
-   * @example
-   * 2f4ddeab8e344ed68e0402cf9b8502ffv3
-   */
-  accessToken?: string;
+export class ListWorkflowsResponseBodyDataRecords extends $dara.Model {
   /**
    * @example
    * test-app
@@ -23,35 +15,34 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   appType?: number;
   /**
    * @example
-   * 1827811800555555
+   * work-day
+   */
+  calendar?: string;
+  /**
+   * @example
+   * 1963096506470832
    */
   creator?: string;
   /**
    * @example
-   * true
+   * 3
    */
-  enableLog?: boolean;
+  currentExecuteStatus?: number;
   /**
    * @example
-   * 1
+   * my first workflow
    */
-  executorNum?: number;
+  description?: string;
   /**
    * @example
-   * 43885
+   * 2025-06-29 15:56:36
    */
-  id?: number;
+  lastExecuteEndTime?: string;
   /**
    * @example
-   * 10
+   * 4
    */
-  jobNum?: number;
-  labelRouteStrategy?: number;
-  /**
-   * @example
-   * http://28.5.128.3:80
-   */
-  leader?: string;
+  lastExecuteStatus?: number;
   /**
    * @example
    * 100
@@ -59,66 +50,81 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   maxConcurrency?: number;
   /**
    * @example
-   * 1000
-   * 
-   * @deprecated
+   * myWorkflow
    */
-  maxJobs?: number;
-  title?: string;
+  name?: string;
   /**
    * @example
-   * 1827811800555555
+   * 1
+   */
+  status?: number;
+  /**
+   * @example
+   * 0 0 12 * * ?
+   */
+  timeExpression?: string;
+  /**
+   * @example
+   * 1
+   */
+  timeType?: number;
+  /**
+   * @example
+   * HangKong
+   */
+  timezone?: string;
+  /**
+   * @example
+   * 1963096506470832
    */
   updater?: string;
   /**
    * @example
-   * k8s_service
+   * 10
    */
-  workerRegistry?: string;
-  /**
-   * @example
-   * 3
-   */
-  workflowNum?: number;
+  workflowId?: number;
+  xattrs?: string;
   static names(): { [key: string]: string } {
     return {
-      accessToken: 'AccessToken',
       appName: 'AppName',
       appType: 'AppType',
+      calendar: 'Calendar',
       creator: 'Creator',
-      enableLog: 'EnableLog',
-      executorNum: 'ExecutorNum',
-      id: 'Id',
-      jobNum: 'JobNum',
-      labelRouteStrategy: 'LabelRouteStrategy',
-      leader: 'Leader',
+      currentExecuteStatus: 'CurrentExecuteStatus',
+      description: 'Description',
+      lastExecuteEndTime: 'LastExecuteEndTime',
+      lastExecuteStatus: 'LastExecuteStatus',
       maxConcurrency: 'MaxConcurrency',
-      maxJobs: 'MaxJobs',
-      title: 'Title',
+      name: 'Name',
+      status: 'Status',
+      timeExpression: 'TimeExpression',
+      timeType: 'TimeType',
+      timezone: 'Timezone',
       updater: 'Updater',
-      workerRegistry: 'WorkerRegistry',
-      workflowNum: 'WorkflowNum',
+      workflowId: 'WorkflowId',
+      xattrs: 'Xattrs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessToken: 'string',
       appName: 'string',
       appType: 'number',
+      calendar: 'string',
       creator: 'string',
-      enableLog: 'boolean',
-      executorNum: 'number',
-      id: 'number',
-      jobNum: 'number',
-      labelRouteStrategy: 'number',
-      leader: 'string',
+      currentExecuteStatus: 'number',
+      description: 'string',
+      lastExecuteEndTime: 'string',
+      lastExecuteStatus: 'number',
       maxConcurrency: 'number',
-      maxJobs: 'number',
-      title: 'string',
+      name: 'string',
+      status: 'number',
+      timeExpression: 'string',
+      timeType: 'number',
+      timezone: 'string',
       updater: 'string',
-      workerRegistry: 'string',
-      workflowNum: 'number',
+      workflowId: 'number',
+      xattrs: 'string',
     };
   }
 
@@ -131,7 +137,17 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   }
 }
 
-export class ListAppsResponseBodyData extends $dara.Model {
+export class ListWorkflowsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * eCKqVlS5FKF5EWGGOo8EgQ==
+   */
+  nextToken?: string;
   /**
    * @example
    * 1
@@ -142,18 +158,16 @@ export class ListAppsResponseBodyData extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * -
-   */
-  records?: ListAppsResponseBodyDataRecords[];
+  records?: ListWorkflowsResponseBodyDataRecords[];
   /**
    * @example
-   * 10
+   * 64
    */
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       records: 'Records',
@@ -163,9 +177,11 @@ export class ListAppsResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      records: { 'type': 'array', 'itemType': ListAppsResponseBodyDataRecords },
+      records: { 'type': 'array', 'itemType': ListWorkflowsResponseBodyDataRecords },
       total: 'number',
     };
   }
@@ -182,17 +198,13 @@ export class ListAppsResponseBodyData extends $dara.Model {
   }
 }
 
-export class ListAppsResponseBody extends $dara.Model {
+export class ListWorkflowsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * -
-   */
-  data?: ListAppsResponseBodyData;
+  data?: ListWorkflowsResponseBodyData;
   /**
    * @example
    * Parameter error: content is null.
@@ -200,7 +212,7 @@ export class ListAppsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @example
-   * 2C3E52FF-CBE9-5C0E-8252-37ACFF1F5EFF
+   * 39938688-0BAB-5AD8-BF02-F4910FAC7589
    */
   requestId?: string;
   /**
@@ -221,7 +233,7 @@ export class ListAppsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: ListAppsResponseBodyData,
+      data: ListWorkflowsResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

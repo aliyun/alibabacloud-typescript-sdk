@@ -100,6 +100,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建日历
+   * 
+   * @param request - CreateCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCalendarResponse
+   */
+  async createCalendarWithOptions(request: $_model.CreateCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.calendarName)) {
+      body["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.months)) {
+      body["Months"] = request.months;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      body["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCalendar",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCalendarResponse>(await this.callApi(params, req, runtime), new $_model.CreateCalendarResponse({}));
+  }
+
+  /**
+   * 创建日历
+   * 
+   * @param request - CreateCalendarRequest
+   * @returns CreateCalendarResponse
+   */
+  async createCalendar(request: $_model.CreateCalendarRequest): Promise<$_model.CreateCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCalendarWithOptions(request, runtime);
+  }
+
+  /**
    * 创建集群
    * 
    * @param tmpReq - CreateClusterRequest
@@ -396,6 +454,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建应用
+   * 
+   * @param request - CreateWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkflowResponse
+   */
+  async createWorkflowWithOptions(request: $_model.CreateWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkflowResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.calendar)) {
+      body["Calendar"] = request.calendar;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.maxConcurrency)) {
+      body["MaxConcurrency"] = request.maxConcurrency;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.timeExpression)) {
+      body["TimeExpression"] = request.timeExpression;
+    }
+
+    if (!$dara.isNull(request.timeType)) {
+      body["TimeType"] = request.timeType;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      body["Timezone"] = request.timezone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkflow",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkflowResponse({}));
+  }
+
+  /**
+   * 创建应用
+   * 
+   * @param request - CreateWorkflowRequest
+   * @returns CreateWorkflowResponse
+   */
+  async createWorkflow(request: $_model.CreateWorkflowRequest): Promise<$_model.CreateWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWorkflowWithOptions(request, runtime);
+  }
+
+  /**
    * 删除应用分组
    * 
    * @param request - DeleteAppRequest
@@ -439,6 +579,56 @@ export default class Client extends OpenApi {
   async deleteApp(request: $_model.DeleteAppRequest): Promise<$_model.DeleteAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除日历
+   * 
+   * @param request - DeleteCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCalendarResponse
+   */
+  async deleteCalendarWithOptions(request: $_model.DeleteCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.calendarName)) {
+      body["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      body["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCalendar",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCalendarResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCalendarResponse({}));
+  }
+
+  /**
+   * 删除日历
+   * 
+   * @param request - DeleteCalendarRequest
+   * @returns DeleteCalendarResponse
+   */
+  async deleteCalendar(request: $_model.DeleteCalendarRequest): Promise<$_model.DeleteCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCalendarWithOptions(request, runtime);
   }
 
   /**
@@ -540,6 +730,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除工作流
+   * 
+   * @param request - DeleteWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkflowResponse
+   */
+  async deleteWorkflowWithOptions(request: $_model.DeleteWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkflowResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.deleteJobs)) {
+      body["DeleteJobs"] = request.deleteJobs;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkflow",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkflowResponse({}));
+  }
+
+  /**
+   * 删除工作流
+   * 
+   * @param request - DeleteWorkflowRequest
+   * @returns DeleteWorkflowResponse
+   */
+  async deleteWorkflow(request: $_model.DeleteWorkflowRequest): Promise<$_model.DeleteWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWorkflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除工作流
+   * 
+   * @param tmpReq - DeleteWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkflowsResponse
+   */
+  async deleteWorkflowsWithOptions(tmpReq: $_model.DeleteWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkflowsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteWorkflowsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workflowIds)) {
+      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.deleteJobs)) {
+      body["DeleteJobs"] = request.deleteJobs;
+    }
+
+    if (!$dara.isNull(request.workflowIdsShrink)) {
+      body["WorkflowIds"] = request.workflowIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkflows",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkflowsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkflowsResponse({}));
+  }
+
+  /**
+   * 批量删除工作流
+   * 
+   * @param request - DeleteWorkflowsRequest
+   * @returns DeleteWorkflowsResponse
+   */
+  async deleteWorkflows(request: $_model.DeleteWorkflowsRequest): Promise<$_model.DeleteWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWorkflowsWithOptions(request, runtime);
+  }
+
+  /**
    * 批量导出任务信息
    * 
    * @param tmpReq - ExportJobsRequest
@@ -600,6 +904,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量导出工作流信息
+   * 
+   * @param tmpReq - ExportWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportWorkflowsResponse
+   */
+  async exportWorkflowsWithOptions(tmpReq: $_model.ExportWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportWorkflowsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ExportWorkflowsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workflowId)) {
+      request.workflowIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowId, "WorkflowId", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowIdShrink)) {
+      body["WorkflowId"] = request.workflowIdShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportWorkflows",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "byte",
+    });
+    return $dara.cast<$_model.ExportWorkflowsResponse>(await this.callApi(params, req, runtime), new $_model.ExportWorkflowsResponse({}));
+  }
+
+  /**
+   * 批量导出工作流信息
+   * 
+   * @param request - ExportWorkflowsRequest
+   * @returns ExportWorkflowsResponse
+   */
+  async exportWorkflows(request: $_model.ExportWorkflowsRequest): Promise<$_model.ExportWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportWorkflowsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取指定应用
    * 
    * @param request - GetAppRequest
@@ -643,6 +1003,56 @@ export default class Client extends OpenApi {
   async getApp(request: $_model.GetAppRequest): Promise<$_model.GetAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取日历信息
+   * 
+   * @param request - GetCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCalendarResponse
+   */
+  async getCalendarWithOptions(request: $_model.GetCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCalendarResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.calendarName)) {
+      query["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      query["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCalendar",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCalendarResponse>(await this.callApi(params, req, runtime), new $_model.GetCalendarResponse({}));
+  }
+
+  /**
+   * 获取日历信息
+   * 
+   * @param request - GetCalendarRequest
+   * @returns GetCalendarResponse
+   */
+  async getCalendar(request: $_model.GetCalendarRequest): Promise<$_model.GetCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCalendarWithOptions(request, runtime);
   }
 
   /**
@@ -974,6 +1384,210 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取工作流
+   * 
+   * @param request - GetWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowResponse
+   */
+  async getWorkflowWithOptions(request: $_model.GetWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkflowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflow",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkflowResponse({}));
+  }
+
+  /**
+   * 获取工作流
+   * 
+   * @param request - GetWorkflowRequest
+   * @returns GetWorkflowResponse
+   */
+  async getWorkflow(request: $_model.GetWorkflowRequest): Promise<$_model.GetWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取工作流的DAG信息
+   * 
+   * @param request - GetWorkflowDAGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowDAGResponse
+   */
+  async getWorkflowDAGWithOptions(request: $_model.GetWorkflowDAGRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkflowDAGResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflowDAG",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkflowDAGResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkflowDAGResponse({}));
+  }
+
+  /**
+   * 获取工作流的DAG信息
+   * 
+   * @param request - GetWorkflowDAGRequest
+   * @returns GetWorkflowDAGResponse
+   */
+  async getWorkflowDAG(request: $_model.GetWorkflowDAGRequest): Promise<$_model.GetWorkflowDAGResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkflowDAGWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取工作流的DAG信息
+   * 
+   * @param request - GetWorkflowDAGPreviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowDAGPreviewResponse
+   */
+  async getWorkflowDAGPreviewWithOptions(request: $_model.GetWorkflowDAGPreviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkflowDAGPreviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.dagVersion)) {
+      query["DagVersion"] = request.dagVersion;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflowDAGPreview",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkflowDAGPreviewResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkflowDAGPreviewResponse({}));
+  }
+
+  /**
+   * 获取工作流的DAG信息
+   * 
+   * @param request - GetWorkflowDAGPreviewRequest
+   * @returns GetWorkflowDAGPreviewResponse
+   */
+  async getWorkflowDAGPreview(request: $_model.GetWorkflowDAGPreviewRequest): Promise<$_model.GetWorkflowDAGPreviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkflowDAGPreviewWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取工作流实例DAG信息
+   * 
+   * @param request - GetWorkflowExecutionDAGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowExecutionDAGResponse
+   */
+  async getWorkflowExecutionDAGWithOptions(request: $_model.GetWorkflowExecutionDAGRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkflowExecutionDAGResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      query["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflowExecutionDAG",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkflowExecutionDAGResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkflowExecutionDAGResponse({}));
+  }
+
+  /**
+   * 获取工作流实例DAG信息
+   * 
+   * @param request - GetWorkflowExecutionDAGRequest
+   * @returns GetWorkflowExecutionDAGResponse
+   */
+  async getWorkflowExecutionDAG(request: $_model.GetWorkflowExecutionDAGRequest): Promise<$_model.GetWorkflowExecutionDAGResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkflowExecutionDAGWithOptions(request, runtime);
+  }
+
+  /**
    * 导入日历
    * 
    * @param request - ImportCalendarRequest
@@ -1079,6 +1693,60 @@ export default class Client extends OpenApi {
   async importJobs(request: $_model.ImportJobsRequest): Promise<$_model.ImportJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量导入工作流
+   * 
+   * @param request - ImportWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportWorkflowsResponse
+   */
+  async importWorkflowsWithOptions(request: $_model.ImportWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportWorkflowsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoCreateApp)) {
+      body["AutoCreateApp"] = request.autoCreateApp;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.overwrite)) {
+      body["Overwrite"] = request.overwrite;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportWorkflows",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportWorkflowsResponse>(await this.callApi(params, req, runtime), new $_model.ImportWorkflowsResponse({}));
+  }
+
+  /**
+   * 批量导入工作流
+   * 
+   * @param request - ImportWorkflowsRequest
+   * @returns ImportWorkflowsResponse
+   */
+  async importWorkflows(request: $_model.ImportWorkflowsRequest): Promise<$_model.ImportWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importWorkflowsWithOptions(request, runtime);
   }
 
   /**
@@ -1231,6 +1899,68 @@ export default class Client extends OpenApi {
   async listCalendarNames(request: $_model.ListCalendarNamesRequest): Promise<$_model.ListCalendarNamesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCalendarNamesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询日历
+   * 
+   * @param request - ListCalendarsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCalendarsResponse
+   */
+  async listCalendarsWithOptions(request: $_model.ListCalendarsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCalendarsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.calendarName)) {
+      query["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.fetchCalendarDetail)) {
+      query["FetchCalendarDetail"] = request.fetchCalendarDetail;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      query["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCalendars",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCalendarsResponse>(await this.callApi(params, req, runtime), new $_model.ListCalendarsResponse({}));
+  }
+
+  /**
+   * 查询日历
+   * 
+   * @param request - ListCalendarsRequest
+   * @returns ListCalendarsResponse
+   */
+  async listCalendars(request: $_model.ListCalendarsRequest): Promise<$_model.ListCalendarsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCalendarsWithOptions(request, runtime);
   }
 
   /**
@@ -1764,6 +2494,286 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取流程实例列表
+   * 
+   * @param request - ListWorkflowExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowExecutionsResponse
+   */
+  async listWorkflowExecutionsWithOptions(request: $_model.ListWorkflowExecutionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkflowExecutionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      query["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    if (!$dara.isNull(request.workflowName)) {
+      query["WorkflowName"] = request.workflowName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflowExecutions",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkflowExecutionsResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkflowExecutionsResponse({}));
+  }
+
+  /**
+   * 获取流程实例列表
+   * 
+   * @param request - ListWorkflowExecutionsRequest
+   * @returns ListWorkflowExecutionsResponse
+   */
+  async listWorkflowExecutions(request: $_model.ListWorkflowExecutionsRequest): Promise<$_model.ListWorkflowExecutionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkflowExecutionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取当前工作流版本列表
+   * 
+   * @param request - ListWorkflowVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowVersionsResponse
+   */
+  async listWorkflowVersionsWithOptions(request: $_model.ListWorkflowVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkflowVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflowVersions",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkflowVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkflowVersionsResponse({}));
+  }
+
+  /**
+   * 获取当前工作流版本列表
+   * 
+   * @param request - ListWorkflowVersionsRequest
+   * @returns ListWorkflowVersionsResponse
+   */
+  async listWorkflowVersions(request: $_model.ListWorkflowVersionsRequest): Promise<$_model.ListWorkflowVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkflowVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取工作流列表
+   * 
+   * @param request - ListWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowsResponse
+   */
+  async listWorkflowsWithOptions(request: $_model.ListWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkflowsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflows",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkflowsResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkflowsResponse({}));
+  }
+
+  /**
+   * 获取工作流列表
+   * 
+   * @param request - ListWorkflowsRequest
+   * @returns ListWorkflowsResponse
+   */
+  async listWorkflows(request: $_model.ListWorkflowsRequest): Promise<$_model.ListWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkflowsWithOptions(request, runtime);
+  }
+
+  /**
+   * 补数工作流
+   * 
+   * @param request - OperateBackfillWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateBackfillWorkflowResponse
+   */
+  async operateBackfillWorkflowWithOptions(request: $_model.OperateBackfillWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateBackfillWorkflowResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateBackfillWorkflow",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateBackfillWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.OperateBackfillWorkflowResponse({}));
+  }
+
+  /**
+   * 补数工作流
+   * 
+   * @param request - OperateBackfillWorkflowRequest
+   * @returns OperateBackfillWorkflowResponse
+   */
+  async operateBackfillWorkflow(request: $_model.OperateBackfillWorkflowRequest): Promise<$_model.OperateBackfillWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateBackfillWorkflowWithOptions(request, runtime);
+  }
+
+  /**
    * 指定执行器
    * 
    * @param tmpReq - OperateDesignateExecutorsRequest
@@ -1888,6 +2898,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量禁用工作流
+   * 
+   * @param tmpReq - OperateDisableWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateDisableWorkflowsResponse
+   */
+  async operateDisableWorkflowsWithOptions(tmpReq: $_model.OperateDisableWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateDisableWorkflowsResponse> {
+    tmpReq.validate();
+    let request = new $_model.OperateDisableWorkflowsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workflowIds)) {
+      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowIdsShrink)) {
+      body["WorkflowIds"] = request.workflowIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateDisableWorkflows",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateDisableWorkflowsResponse>(await this.callApi(params, req, runtime), new $_model.OperateDisableWorkflowsResponse({}));
+  }
+
+  /**
+   * 批量禁用工作流
+   * 
+   * @param request - OperateDisableWorkflowsRequest
+   * @returns OperateDisableWorkflowsResponse
+   */
+  async operateDisableWorkflows(request: $_model.OperateDisableWorkflowsRequest): Promise<$_model.OperateDisableWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateDisableWorkflowsWithOptions(request, runtime);
+  }
+
+  /**
    * 批量启用任务
    * 
    * @param tmpReq - OperateEnableJobsRequest
@@ -1941,6 +3007,62 @@ export default class Client extends OpenApi {
   async operateEnableJobs(request: $_model.OperateEnableJobsRequest): Promise<$_model.OperateEnableJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateEnableJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量启用工作流
+   * 
+   * @param tmpReq - OperateEnableWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateEnableWorkflowsResponse
+   */
+  async operateEnableWorkflowsWithOptions(tmpReq: $_model.OperateEnableWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateEnableWorkflowsResponse> {
+    tmpReq.validate();
+    let request = new $_model.OperateEnableWorkflowsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workflowIds)) {
+      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowIdsShrink)) {
+      body["WorkflowIds"] = request.workflowIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateEnableWorkflows",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateEnableWorkflowsResponse>(await this.callApi(params, req, runtime), new $_model.OperateEnableWorkflowsResponse({}));
+  }
+
+  /**
+   * 批量启用工作流
+   * 
+   * @param request - OperateEnableWorkflowsRequest
+   * @returns OperateEnableWorkflowsResponse
+   */
+  async operateEnableWorkflows(request: $_model.OperateEnableWorkflowsRequest): Promise<$_model.OperateEnableWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateEnableWorkflowsWithOptions(request, runtime);
   }
 
   /**
@@ -2003,6 +3125,256 @@ export default class Client extends OpenApi {
   async operateExecuteJob(request: $_model.OperateExecuteJobRequest): Promise<$_model.OperateExecuteJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateExecuteJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 运行一次工作流
+   * 
+   * @param request - OperateExecuteWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateExecuteWorkflowResponse
+   */
+  async operateExecuteWorkflowWithOptions(request: $_model.OperateExecuteWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateExecuteWorkflowResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateExecuteWorkflow",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateExecuteWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.OperateExecuteWorkflowResponse({}));
+  }
+
+  /**
+   * 运行一次工作流
+   * 
+   * @param request - OperateExecuteWorkflowRequest
+   * @returns OperateExecuteWorkflowResponse
+   */
+  async operateExecuteWorkflow(request: $_model.OperateExecuteWorkflowRequest): Promise<$_model.OperateExecuteWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateExecuteWorkflowWithOptions(request, runtime);
+  }
+
+  /**
+   * Hold住任务实例
+   * 
+   * @param request - OperateHoldJobExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateHoldJobExecutionResponse
+   */
+  async operateHoldJobExecutionWithOptions(request: $_model.OperateHoldJobExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateHoldJobExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateHoldJobExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateHoldJobExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateHoldJobExecutionResponse({}));
+  }
+
+  /**
+   * Hold住任务实例
+   * 
+   * @param request - OperateHoldJobExecutionRequest
+   * @returns OperateHoldJobExecutionResponse
+   */
+  async operateHoldJobExecution(request: $_model.OperateHoldJobExecutionRequest): Promise<$_model.OperateHoldJobExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateHoldJobExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 将工作流中未开始的节点置为Held状态
+   * 
+   * @param request - OperateHoldWorkflowExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateHoldWorkflowExecutionResponse
+   */
+  async operateHoldWorkflowExecutionWithOptions(request: $_model.OperateHoldWorkflowExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateHoldWorkflowExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      body["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateHoldWorkflowExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateHoldWorkflowExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateHoldWorkflowExecutionResponse({}));
+  }
+
+  /**
+   * 将工作流中未开始的节点置为Held状态
+   * 
+   * @param request - OperateHoldWorkflowExecutionRequest
+   * @returns OperateHoldWorkflowExecutionResponse
+   */
+  async operateHoldWorkflowExecution(request: $_model.OperateHoldWorkflowExecutionRequest): Promise<$_model.OperateHoldWorkflowExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateHoldWorkflowExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 标记任务实例为成功状态
+   * 
+   * @param request - OperateMarkSuccessJobExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateMarkSuccessJobExecutionResponse
+   */
+  async operateMarkSuccessJobExecutionWithOptions(request: $_model.OperateMarkSuccessJobExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateMarkSuccessJobExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateMarkSuccessJobExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateMarkSuccessJobExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateMarkSuccessJobExecutionResponse({}));
+  }
+
+  /**
+   * 标记任务实例为成功状态
+   * 
+   * @param request - OperateMarkSuccessJobExecutionRequest
+   * @returns OperateMarkSuccessJobExecutionResponse
+   */
+  async operateMarkSuccessJobExecution(request: $_model.OperateMarkSuccessJobExecutionRequest): Promise<$_model.OperateMarkSuccessJobExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateMarkSuccessJobExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 将工作流实例标记为成功
+   * 
+   * @param request - OperateMarkSuccessWorkflowExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateMarkSuccessWorkflowExecutionResponse
+   */
+  async operateMarkSuccessWorkflowExecutionWithOptions(request: $_model.OperateMarkSuccessWorkflowExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateMarkSuccessWorkflowExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      body["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateMarkSuccessWorkflowExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateMarkSuccessWorkflowExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateMarkSuccessWorkflowExecutionResponse({}));
+  }
+
+  /**
+   * 将工作流实例标记为成功
+   * 
+   * @param request - OperateMarkSuccessWorkflowExecutionRequest
+   * @returns OperateMarkSuccessWorkflowExecutionResponse
+   */
+  async operateMarkSuccessWorkflowExecution(request: $_model.OperateMarkSuccessWorkflowExecutionRequest): Promise<$_model.OperateMarkSuccessWorkflowExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateMarkSuccessWorkflowExecutionWithOptions(request, runtime);
   }
 
   /**
@@ -2132,6 +3504,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重跑工作流实例
+   * 
+   * @param request - OperateRetryWorkflowExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateRetryWorkflowExecutionResponse
+   */
+  async operateRetryWorkflowExecutionWithOptions(request: $_model.OperateRetryWorkflowExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateRetryWorkflowExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.onlyFailed)) {
+      body["OnlyFailed"] = request.onlyFailed;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      body["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateRetryWorkflowExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateRetryWorkflowExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateRetryWorkflowExecutionResponse({}));
+  }
+
+  /**
+   * 重跑工作流实例
+   * 
+   * @param request - OperateRetryWorkflowExecutionRequest
+   * @returns OperateRetryWorkflowExecutionResponse
+   */
+  async operateRetryWorkflowExecution(request: $_model.OperateRetryWorkflowExecutionRequest): Promise<$_model.OperateRetryWorkflowExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateRetryWorkflowExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 跳过任务实例
+   * 
+   * @param request - OperateSkipJobExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateSkipJobExecutionResponse
+   */
+  async operateSkipJobExecutionWithOptions(request: $_model.OperateSkipJobExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateSkipJobExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateSkipJobExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateSkipJobExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateSkipJobExecutionResponse({}));
+  }
+
+  /**
+   * 跳过任务实例
+   * 
+   * @param request - OperateSkipJobExecutionRequest
+   * @returns OperateSkipJobExecutionResponse
+   */
+  async operateSkipJobExecution(request: $_model.OperateSkipJobExecutionRequest): Promise<$_model.OperateSkipJobExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateSkipJobExecutionWithOptions(request, runtime);
+  }
+
+  /**
    * 停止运行中的任务实例
    * 
    * @param tmpReq - OperateStopJobExecutionRequest
@@ -2189,6 +3665,206 @@ export default class Client extends OpenApi {
   async operateStopJobExecution(request: $_model.OperateStopJobExecutionRequest): Promise<$_model.OperateStopJobExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateStopJobExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止正在运行的工作流实例
+   * 
+   * @param request - OperateStopWorkflowExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateStopWorkflowExecutionResponse
+   */
+  async operateStopWorkflowExecutionWithOptions(request: $_model.OperateStopWorkflowExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateStopWorkflowExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      body["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateStopWorkflowExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateStopWorkflowExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateStopWorkflowExecutionResponse({}));
+  }
+
+  /**
+   * 停止正在运行的工作流实例
+   * 
+   * @param request - OperateStopWorkflowExecutionRequest
+   * @returns OperateStopWorkflowExecutionResponse
+   */
+  async operateStopWorkflowExecution(request: $_model.OperateStopWorkflowExecutionRequest): Promise<$_model.OperateStopWorkflowExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateStopWorkflowExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 将held状态的任务恢复
+   * 
+   * @param request - OperateUnholdJobExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateUnholdJobExecutionResponse
+   */
+  async operateUnholdJobExecutionWithOptions(request: $_model.OperateUnholdJobExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateUnholdJobExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateUnholdJobExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateUnholdJobExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateUnholdJobExecutionResponse({}));
+  }
+
+  /**
+   * 将held状态的任务恢复
+   * 
+   * @param request - OperateUnholdJobExecutionRequest
+   * @returns OperateUnholdJobExecutionResponse
+   */
+  async operateUnholdJobExecution(request: $_model.OperateUnholdJobExecutionRequest): Promise<$_model.OperateUnholdJobExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateUnholdJobExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 将工作流中held状态的节点恢复
+   * 
+   * @param request - OperateUnholdWorkflowExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateUnholdWorkflowExecutionResponse
+   */
+  async operateUnholdWorkflowExecutionWithOptions(request: $_model.OperateUnholdWorkflowExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateUnholdWorkflowExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.workflowExecutionId)) {
+      body["WorkflowExecutionId"] = request.workflowExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateUnholdWorkflowExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateUnholdWorkflowExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateUnholdWorkflowExecutionResponse({}));
+  }
+
+  /**
+   * 将工作流中held状态的节点恢复
+   * 
+   * @param request - OperateUnholdWorkflowExecutionRequest
+   * @returns OperateUnholdWorkflowExecutionResponse
+   */
+  async operateUnholdWorkflowExecution(request: $_model.OperateUnholdWorkflowExecutionRequest): Promise<$_model.OperateUnholdWorkflowExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateUnholdWorkflowExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 将skipped状态的任务恢复
+   * 
+   * @param request - OperateUnskipJobExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateUnskipJobExecutionResponse
+   */
+  async operateUnskipJobExecutionWithOptions(request: $_model.OperateUnskipJobExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateUnskipJobExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateUnskipJobExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateUnskipJobExecutionResponse>(await this.callApi(params, req, runtime), new $_model.OperateUnskipJobExecutionResponse({}));
+  }
+
+  /**
+   * 将skipped状态的任务恢复
+   * 
+   * @param request - OperateUnskipJobExecutionRequest
+   * @returns OperateUnskipJobExecutionResponse
+   */
+  async operateUnskipJobExecution(request: $_model.OperateUnskipJobExecutionRequest): Promise<$_model.OperateUnskipJobExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateUnskipJobExecutionWithOptions(request, runtime);
   }
 
   /**
@@ -2319,6 +3995,68 @@ export default class Client extends OpenApi {
   async updateApp(request: $_model.UpdateAppRequest): Promise<$_model.UpdateAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新日历
+   * 
+   * @param request - UpdateCalendarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCalendarResponse
+   */
+  async updateCalendarWithOptions(request: $_model.UpdateCalendarRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCalendarResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.calendarName)) {
+      body["CalendarName"] = request.calendarName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.incremental)) {
+      body["Incremental"] = request.incremental;
+    }
+
+    if (!$dara.isNull(request.months)) {
+      body["Months"] = request.months;
+    }
+
+    if (!$dara.isNull(request.year)) {
+      body["Year"] = request.year;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCalendar",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCalendarResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCalendarResponse({}));
+  }
+
+  /**
+   * 更新日历
+   * 
+   * @param request - UpdateCalendarRequest
+   * @returns UpdateCalendarResponse
+   */
+  async updateCalendar(request: $_model.UpdateCalendarRequest): Promise<$_model.UpdateCalendarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCalendarWithOptions(request, runtime);
   }
 
   /**
@@ -2625,6 +4363,206 @@ export default class Client extends OpenApi {
   async updateJobScript(request: $_model.UpdateJobScriptRequest): Promise<$_model.UpdateJobScriptResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateJobScriptWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新工作流
+   * 
+   * @param request - UpdateWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkflowResponse
+   */
+  async updateWorkflowWithOptions(request: $_model.UpdateWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkflowResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.calendar)) {
+      body["Calendar"] = request.calendar;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.maxConcurrency)) {
+      body["MaxConcurrency"] = request.maxConcurrency;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.timeExpression)) {
+      body["TimeExpression"] = request.timeExpression;
+    }
+
+    if (!$dara.isNull(request.timeType)) {
+      body["TimeType"] = request.timeType;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      body["Timezone"] = request.timezone;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkflow",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkflowResponse({}));
+  }
+
+  /**
+   * 更新工作流
+   * 
+   * @param request - UpdateWorkflowRequest
+   * @returns UpdateWorkflowResponse
+   */
+  async updateWorkflow(request: $_model.UpdateWorkflowRequest): Promise<$_model.UpdateWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWorkflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新工作流DAG
+   * 
+   * @param tmpReq - UpdateWorkflowDAGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkflowDAGResponse
+   */
+  async updateWorkflowDAGWithOptions(tmpReq: $_model.UpdateWorkflowDAGRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkflowDAGResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateWorkflowDAGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dag)) {
+      request.dagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dag, "Dag", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.dagShrink)) {
+      body["Dag"] = request.dagShrink;
+    }
+
+    if (!$dara.isNull(request.dagVersion)) {
+      body["DagVersion"] = request.dagVersion;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkflowDAG",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkflowDAGResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkflowDAGResponse({}));
+  }
+
+  /**
+   * 更新工作流DAG
+   * 
+   * @param request - UpdateWorkflowDAGRequest
+   * @returns UpdateWorkflowDAGResponse
+   */
+  async updateWorkflowDAG(request: $_model.UpdateWorkflowDAGRequest): Promise<$_model.UpdateWorkflowDAGResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWorkflowDAGWithOptions(request, runtime);
+  }
+
+  /**
+   * 切换工作流DAG版本
+   * 
+   * @param request - UpdateWorkflowDAGVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkflowDAGVersionResponse
+   */
+  async updateWorkflowDAGVersionWithOptions(request: $_model.UpdateWorkflowDAGVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkflowDAGVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.dagVersion)) {
+      body["DagVersion"] = request.dagVersion;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkflowDAGVersion",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkflowDAGVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkflowDAGVersionResponse({}));
+  }
+
+  /**
+   * 切换工作流DAG版本
+   * 
+   * @param request - UpdateWorkflowDAGVersionRequest
+   * @returns UpdateWorkflowDAGVersionResponse
+   */
+  async updateWorkflowDAGVersion(request: $_model.UpdateWorkflowDAGVersionRequest): Promise<$_model.UpdateWorkflowDAGVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWorkflowDAGVersionWithOptions(request, runtime);
   }
 
 }
