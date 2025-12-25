@@ -6,42 +6,75 @@ import { AiServiceConfig } from "./AiServiceConfig";
 
 export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable health checks.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The normal status codes to be returned. This parameter is required if the health check protocol is HTTP.
+   */
   expectedStatuses?: string[];
   /**
+   * @remarks
+   * The healthy threshold.
+   * 
    * @example
    * 2
    */
   healthyThreshold?: number;
   /**
+   * @remarks
+   * The domain name that you want to use for health checks. Optional. This parameter is available if the health check protocol is HTTP.
+   * 
    * @example
    * dev.itemcener.com
    */
   httpHost?: string;
   /**
+   * @remarks
+   * The request path of health checks. This parameter is required if the health check protocol is HTTP.
+   * 
    * @example
    * /healthz
    */
   httpPath?: string;
   /**
+   * @remarks
+   * The health check interval. Unit: seconds
+   * 
    * @example
    * 2
    */
   interval?: number;
   /**
+   * @remarks
+   * The protocol over which the system performs health checks.
+   * 
+   * Valid values:
+   * 
+   * *   TCP
+   * *   HTTP
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The timeout period for a health check response. Unit: seconds
+   * 
    * @example
    * 2
    */
   timeout?: number;
   /**
+   * @remarks
+   * The unhealthy threshold.
+   * 
    * @example
    * 22
    */
@@ -87,10 +120,47 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
 }
 
 export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The initial isolation duration after a node is isolated (e.g., 30 seconds). The isolation time is calculated as: k \\* base_ejection_time (with k initially set to 1). Each subsequent isolation increases the isolation time (k is incremented by 1), while consecutive healthy checks gradually decrease the isolation time (k is decremented by 1).
+   * 
+   * @example
+   * 30
+   */
   baseEjectionTime?: number;
+  /**
+   * @remarks
+   * enable
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The panic threshold.
+   * 
+   * When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally, and requests are only sent to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled, and requests are sent to all nodes, including those that have been ejected nodes.
+   * 
+   * @example
+   * 1
+   */
   failurePercentageMinimumHosts?: number;
+  /**
+   * @remarks
+   * When the request failure rate of a node reaches this threshold, the system triggers the isolation mechanism of the node.
+   * 
+   * @example
+   * 80
+   */
   failurePercentageThreshold?: number;
+  /**
+   * @remarks
+   * The detection interval.
+   * 
+   * @example
+   * 30
+   */
   interval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -122,8 +192,29 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
 }
 
 export class UpdateServiceRequestPorts extends $dara.Model {
+  /**
+   * @remarks
+   * The port name.
+   * 
+   * @example
+   * catalog
+   */
   name?: string;
+  /**
+   * @remarks
+   * The port.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The protocol.
+   * 
+   * @example
+   * TCP|UDP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,15 +242,53 @@ export class UpdateServiceRequestPorts extends $dara.Model {
 }
 
 export class UpdateServiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of domain names or fixed addresses.
+   */
   addresses?: string[];
+  /**
+   * @remarks
+   * The agent service configurations.
+   */
   agentServiceConfig?: AgentServiceConfig;
+  /**
+   * @remarks
+   * The AI service configurations.
+   */
   aiServiceConfig?: AiServiceConfig;
+  /**
+   * @remarks
+   * A DNS service address.
+   */
   dnsServers?: string[];
+  /**
+   * @remarks
+   * The health check configurations.
+   */
   healthCheckConfig?: UpdateServiceRequestHealthCheckConfig;
+  /**
+   * @remarks
+   * The health check threshold.
+   * 
+   * @example
+   * 80
+   */
   healthyPanicThreshold?: number;
+  /**
+   * @remarks
+   * The passive health check configurations.
+   */
   outlierDetectionConfig?: UpdateServiceRequestOutlierDetectionConfig;
+  /**
+   * @remarks
+   * The port information.
+   */
   ports?: UpdateServiceRequestPorts[];
   /**
+   * @remarks
+   * The service protocol.
+   * 
    * @example
    * HTTP
    */

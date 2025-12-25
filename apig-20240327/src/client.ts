@@ -2681,7 +2681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务来源
+   * Obtains the details of a service source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2706,7 +2706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务来源
+   * Obtains the details of a service source.
    * @returns GetSourceResponse
    */
   async getSource(sourceId: string): Promise<$_model.GetSourceResponse> {
@@ -3103,7 +3103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Gateway的Features
+   * Queries the feature parameter configurations of an instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3128,7 +3128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Gateway的Features
+   * Queries the feature parameter configurations of an instance.
    * @returns ListGatewayFeaturesResponse
    */
   async listGatewayFeatures(gatewayId: string): Promise<$_model.ListGatewayFeaturesResponse> {
@@ -4196,6 +4196,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartGatewayWithOptions(gatewayId, headers, runtime);
+  }
+
+  /**
+   * 同步外部MCP server
+   * 
+   * @param request - SyncMCPServersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncMCPServersResponse
+   */
+  async syncMCPServersWithOptions(request: $_model.SyncMCPServersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SyncMCPServersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.domainIds)) {
+      body["domainIds"] = request.domainIds;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.nacosMcpServers)) {
+      body["nacosMcpServers"] = request.nacosMcpServers;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      body["sourceId"] = request.sourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncMCPServers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers/sync-mcp-server`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncMCPServersResponse>(await this.callApi(params, req, runtime), new $_model.SyncMCPServersResponse({}));
+  }
+
+  /**
+   * 同步外部MCP server
+   * 
+   * @param request - SyncMCPServersRequest
+   * @returns SyncMCPServersResponse
+   */
+  async syncMCPServers(request: $_model.SyncMCPServersRequest): Promise<$_model.SyncMCPServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.syncMCPServersWithOptions(request, headers, runtime);
   }
 
   /**

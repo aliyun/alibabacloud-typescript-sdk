@@ -3,9 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of port ranges.
+   */
   portRanges?: string[];
   /**
+   * @remarks
+   * The ID of a security group.
+   * 
    * @example
    * sg-bp14w4fa4j***
    */
@@ -39,8 +50,15 @@ export class CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules exten
 }
 
 export class CreateSourceRequestK8sSourceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The security group rules.
+   */
   authorizeSecurityGroupRules?: CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules[];
   /**
+   * @remarks
+   * The ID of the ACK cluster.
+   * 
    * @example
    * c3fbe6caaaece4062b*****
    */
@@ -73,6 +91,9 @@ export class CreateSourceRequestK8sSourceConfig extends $dara.Model {
 
 export class CreateSourceRequestNacosSourceConfig extends $dara.Model {
   /**
+   * @remarks
+   * The Nacos instance ID.
+   * 
    * @example
    * mse-cn-0dw3w***
    */
@@ -100,14 +121,38 @@ export class CreateSourceRequestNacosSourceConfig extends $dara.Model {
 
 export class CreateSourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-cq7l5s5lhtgi6q***
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The source configuration when the source type is K8S.
+   */
   k8sSourceConfig?: CreateSourceRequestK8sSourceConfig;
+  /**
+   * @remarks
+   * The source configuration when the source type is MSE_NACOS.
+   */
   nacosSourceConfig?: CreateSourceRequestNacosSourceConfig;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-xxx
+   */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The source type. Valid values:
+   * 
+   * *   MSE_NACOS: MSE Nacos
+   * *   K8S: Container Service for Kubernetes (ACK)
+   * 
    * @example
    * MSE_NACOS
    */

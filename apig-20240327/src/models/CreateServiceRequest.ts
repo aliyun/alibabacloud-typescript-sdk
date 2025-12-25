@@ -56,6 +56,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
    * LATEST
    */
   qualifier?: string;
+  sourceId?: string;
   static names(): { [key: string]: string } {
     return {
       addresses: 'addresses',
@@ -66,6 +67,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
       name: 'name',
       namespace: 'namespace',
       qualifier: 'qualifier',
+      sourceId: 'sourceId',
     };
   }
 
@@ -79,6 +81,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
       name: 'string',
       namespace: 'string',
       qualifier: 'string',
+      sourceId: 'string',
     };
   }
 

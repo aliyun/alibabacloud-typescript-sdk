@@ -127,6 +127,7 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
 }
 
 export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
+  intentCode?: string;
   /**
    * @example
    * qwen-max
@@ -149,6 +150,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      intentCode: 'intentCode',
       modelName: 'modelName',
       modelNamePattern: 'modelNamePattern',
       serviceId: 'serviceId',
@@ -158,6 +160,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      intentCode: 'string',
       modelName: 'string',
       modelNamePattern: 'string',
       serviceId: 'string',
