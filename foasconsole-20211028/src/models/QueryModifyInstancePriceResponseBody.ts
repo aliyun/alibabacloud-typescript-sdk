@@ -142,6 +142,11 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $dara.Model {
   isContractActivity?: boolean;
   /**
    * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  lxRequestId?: string;
+  /**
+   * @example
    * 存在未支付订单，请先支付或取消原有订单
    */
   message?: string;
@@ -166,6 +171,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $dara.Model {
       depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
       isContractActivity: 'IsContractActivity',
+      lxRequestId: 'LxRequestId',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
@@ -183,6 +189,7 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $dara.Model {
       depreciateInfo: QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
       isContractActivity: 'boolean',
+      lxRequestId: 'string',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',

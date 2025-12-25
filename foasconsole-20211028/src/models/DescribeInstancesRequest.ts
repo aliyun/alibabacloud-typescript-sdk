@@ -37,6 +37,10 @@ export class DescribeInstancesRequestTags extends $dara.Model {
 }
 
 export class DescribeInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * X86
+   */
   architectureType?: string;
   /**
    * @example
@@ -48,6 +52,16 @@ export class DescribeInstancesRequest extends $dara.Model {
    * f-cn-wwo36qj4g06
    */
   instanceId?: string;
+  /**
+   * @example
+   * e2e-test
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * e2e-test-default
+   */
+  namespaceName?: string;
   /**
    * @example
    * 2
@@ -73,6 +87,8 @@ export class DescribeInstancesRequest extends $dara.Model {
       architectureType: 'ArchitectureType',
       chargeType: 'ChargeType',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      namespaceName: 'NamespaceName',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
       region: 'Region',
@@ -86,6 +102,8 @@ export class DescribeInstancesRequest extends $dara.Model {
       architectureType: 'string',
       chargeType: 'string',
       instanceId: 'string',
+      instanceName: 'string',
+      namespaceName: 'string',
       pageIndex: 'number',
       pageSize: 'number',
       region: 'string',

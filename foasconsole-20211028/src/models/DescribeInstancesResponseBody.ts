@@ -672,6 +672,11 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   clusterUsedResources?: DescribeInstancesResponseBodyInstancesClusterUsedResources;
   clusterUsedStorage?: DescribeInstancesResponseBodyInstancesClusterUsedStorage;
   elastic?: boolean;
+  /**
+   * @example
+   * f-cn-e3afbd321
+   */
+  elasticInstanceId?: string;
   elasticOrderState?: string;
   elasticResourceSpec?: DescribeInstancesResponseBodyInstancesElasticResourceSpec;
   ha?: boolean;
@@ -754,6 +759,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       clusterUsedResources: 'ClusterUsedResources',
       clusterUsedStorage: 'ClusterUsedStorage',
       elastic: 'Elastic',
+      elasticInstanceId: 'ElasticInstanceId',
       elasticOrderState: 'ElasticOrderState',
       elasticResourceSpec: 'ElasticResourceSpec',
       ha: 'Ha',
@@ -795,6 +801,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       clusterUsedResources: DescribeInstancesResponseBodyInstancesClusterUsedResources,
       clusterUsedStorage: DescribeInstancesResponseBodyInstancesClusterUsedStorage,
       elastic: 'boolean',
+      elasticInstanceId: 'string',
       elasticOrderState: 'string',
       elasticResourceSpec: DescribeInstancesResponseBodyInstancesElasticResourceSpec,
       ha: 'boolean',
