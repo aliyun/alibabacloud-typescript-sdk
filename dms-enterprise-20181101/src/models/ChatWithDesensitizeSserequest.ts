@@ -88,6 +88,11 @@ export class ChatWithDesensitizeSSERequest extends $dara.Model {
   needDesensitization?: boolean;
   /**
    * @example
+   * {}
+   */
+  parameters?: string;
+  /**
+   * @example
    * 0.0
    */
   presencePenalty?: string;
@@ -164,6 +169,7 @@ export class ChatWithDesensitizeSSERequest extends $dara.Model {
       modalitiesList: 'ModalitiesList',
       model: 'Model',
       needDesensitization: 'NeedDesensitization',
+      parameters: 'Parameters',
       presencePenalty: 'PresencePenalty',
       responseFormat: 'ResponseFormat',
       searchOptions: 'SearchOptions',
@@ -197,6 +203,7 @@ export class ChatWithDesensitizeSSERequest extends $dara.Model {
       modalitiesList: { 'type': 'array', 'itemType': 'string' },
       model: 'string',
       needDesensitization: 'boolean',
+      parameters: 'string',
       presencePenalty: 'string',
       responseFormat: 'string',
       searchOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },

@@ -1577,6 +1577,10 @@ export default class Client extends OpenApi {
       query["NeedDesensitization"] = request.needDesensitization;
     }
 
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
     if (!$dara.isNull(request.presencePenalty)) {
       query["PresencePenalty"] = request.presencePenalty;
     }
@@ -1750,6 +1754,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.needDesensitization)) {
       query["NeedDesensitization"] = request.needDesensitization;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
     }
 
     if (!$dara.isNull(request.presencePenalty)) {
