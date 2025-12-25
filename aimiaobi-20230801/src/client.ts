@@ -11297,6 +11297,10 @@ export default class Client extends OpenApi {
       body["Content"] = request.content;
     }
 
+    if (!$dara.isNull(request.originContent)) {
+      body["OriginContent"] = request.originContent;
+    }
+
     if (!$dara.isNull(request.prompt)) {
       body["Prompt"] = request.prompt;
     }
@@ -11347,6 +11351,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.content)) {
       body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.originContent)) {
+      body["OriginContent"] = request.originContent;
     }
 
     if (!$dara.isNull(request.prompt)) {

@@ -11,6 +11,7 @@ export class RunTextPolishingRequest extends $dara.Model {
    * 文本内容
    */
   content?: string;
+  originContent?: string;
   prompt?: string;
   /**
    * @remarks
@@ -23,6 +24,7 @@ export class RunTextPolishingRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      originContent: 'OriginContent',
       prompt: 'Prompt',
       workspaceId: 'WorkspaceId',
     };
@@ -31,6 +33,7 @@ export class RunTextPolishingRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      originContent: 'string',
       prompt: 'string',
       workspaceId: 'string',
     };
