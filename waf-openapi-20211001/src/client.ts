@@ -2358,6 +2358,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例信息
+   * 
+   * @param request - DescribeAlarmBannerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAlarmBannerResponse
+   */
+  async describeAlarmBannerWithOptions(request: $_model.DescribeAlarmBannerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAlarmBannerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAlarmBanner",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAlarmBannerResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAlarmBannerResponse({}));
+  }
+
+  /**
+   * 查询实例信息
+   * 
+   * @param request - DescribeAlarmBannerRequest
+   * @returns DescribeAlarmBannerResponse
+   */
+  async describeAlarmBanner(request: $_model.DescribeAlarmBannerRequest): Promise<$_model.DescribeAlarmBannerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAlarmBannerWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例信息
+   * 
+   * @param request - DescribeAlarmListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAlarmListResponse
+   */
+  async describeAlarmListWithOptions(request: $_model.DescribeAlarmListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAlarmListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAlarmList",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAlarmListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAlarmListResponse({}));
+  }
+
+  /**
+   * 查询实例信息
+   * 
+   * @param request - DescribeAlarmListRequest
+   * @returns DescribeAlarmListResponse
+   */
+  async describeAlarmList(request: $_model.DescribeAlarmListRequest): Promise<$_model.DescribeAlarmListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAlarmListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of data export tasks in the API security module.
    * 
    * @param request - DescribeApiExportsRequest
@@ -3867,6 +3967,60 @@ export default class Client extends OpenApi {
   async describeBaseSystemRules(request: $_model.DescribeBaseSystemRulesRequest): Promise<$_model.DescribeBaseSystemRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBaseSystemRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询防护模板
+   * 
+   * @param request - DescribeBotAppKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBotAppKeyResponse
+   */
+  async describeBotAppKeyWithOptions(request: $_model.DescribeBotAppKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBotAppKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyVersion)) {
+      query["KeyVersion"] = request.keyVersion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBotAppKey",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBotAppKeyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBotAppKeyResponse({}));
+  }
+
+  /**
+   * 分页查询防护模板
+   * 
+   * @param request - DescribeBotAppKeyRequest
+   * @returns DescribeBotAppKeyResponse
+   */
+  async describeBotAppKey(request: $_model.DescribeBotAppKeyRequest): Promise<$_model.DescribeBotAppKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBotAppKeyWithOptions(request, runtime);
   }
 
   /**
@@ -10219,6 +10373,130 @@ export default class Client extends OpenApi {
   async describeTemplateResources(request: $_model.DescribeTemplateResourcesRequest): Promise<$_model.DescribeTemplateResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTemplateResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看攻击事件列表
+   * 
+   * @param request - DescribeThreatEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeThreatEventResponse
+   */
+  async describeThreatEventWithOptions(request: $_model.DescribeThreatEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeThreatEventResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeThreatEvent",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeThreatEventResponse>(await this.callApi(params, req, runtime), new $_model.DescribeThreatEventResponse({}));
+  }
+
+  /**
+   * 查看攻击事件列表
+   * 
+   * @param request - DescribeThreatEventRequest
+   * @returns DescribeThreatEventResponse
+   */
+  async describeThreatEvent(request: $_model.DescribeThreatEventRequest): Promise<$_model.DescribeThreatEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeThreatEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看威胁事件详情
+   * 
+   * @param request - DescribeThreatEventDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeThreatEventDetailResponse
+   */
+  async describeThreatEventDetailWithOptions(request: $_model.DescribeThreatEventDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeThreatEventDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeThreatEventDetail",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeThreatEventDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeThreatEventDetailResponse({}));
+  }
+
+  /**
+   * 查看威胁事件详情
+   * 
+   * @param request - DescribeThreatEventDetailRequest
+   * @returns DescribeThreatEventDetailResponse
+   */
+  async describeThreatEventDetail(request: $_model.DescribeThreatEventDetailRequest): Promise<$_model.DescribeThreatEventDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeThreatEventDetailWithOptions(request, runtime);
   }
 
   /**
