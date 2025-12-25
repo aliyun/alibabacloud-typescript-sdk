@@ -35,6 +35,7 @@ export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
    * DIRECT
    */
   exchangeType?: string;
+  internal?: boolean;
   /**
    * @remarks
    * The exchange name.
@@ -57,6 +58,7 @@ export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
       autoDeleteState: 'AutoDeleteState',
       createTime: 'CreateTime',
       exchangeType: 'ExchangeType',
+      internal: 'Internal',
       name: 'Name',
       VHostName: 'VHostName',
     };
@@ -68,6 +70,7 @@ export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
       autoDeleteState: 'boolean',
       createTime: 'number',
       exchangeType: 'string',
+      internal: 'boolean',
       name: 'string',
       VHostName: 'string',
     };
