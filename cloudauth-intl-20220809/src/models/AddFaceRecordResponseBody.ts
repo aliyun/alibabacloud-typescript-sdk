@@ -2,41 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddressCompareIntlResponseBodyResult extends $dara.Model {
+/**
+ */
+export class AddFaceRecordResponseBodyResult extends $dara.Model {
   /**
-   * @remarks
-   * The values of sameLevel include:
-   * - all: Exactly the same
-   * - prov: Provincial level
-   * - city: City level
-   * - district: District level
-   * - town: Town level
-   * - road: Road level
-   * - roadno: Road number
-   * - poi: Point of interest (e.g., residential area)
-   * - roomno: Room number
-   * 
    * @example
    * {
-   *      sameLevel: "city", 
-   *      distance:  5997.34m, -- 地址相差距离
-   *      same_info: {    -- 相同信息
-   *               prov: "浙江省",
-   *               city: "杭州市",
-   *               district: "西湖区"
-   *       } 
+   * "faceQuality": "HIGH"
    * }
    */
-  data?: string;
+  extFaceInfo?: string;
+  /**
+   * @example
+   * Y
+   */
+  passed?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
+      extFaceInfo: 'ExtFaceInfo',
+      passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: 'string',
+      extFaceInfo: 'string',
+      passed: 'string',
     };
   }
 
@@ -49,36 +40,26 @@ export class AddressCompareIntlResponseBodyResult extends $dara.Model {
   }
 }
 
-export class AddressCompareIntlResponseBody extends $dara.Model {
+export class AddFaceRecordResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Return code.
-   * 
    * @example
    * Success
    */
   code?: string;
   /**
-   * @remarks
-   * Return message.
-   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * Id of the request
    * 
    * @example
-   * 86C40EC3-5940-5F47-995C-BFE90B70E540
+   * 7A0D192A-CC0C-5DE5-A3B6-A14CF45508F2
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Return result.
-   */
-  result?: AddressCompareIntlResponseBodyResult;
+  result?: AddFaceRecordResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -93,7 +74,7 @@ export class AddressCompareIntlResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: AddressCompareIntlResponseBodyResult,
+      result: AddFaceRecordResponseBodyResult,
     };
   }
 

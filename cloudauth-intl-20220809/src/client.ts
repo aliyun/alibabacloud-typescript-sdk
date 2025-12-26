@@ -112,6 +112,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 人脸图片入库
+   * 
+   * @param request - AddFaceRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFaceRecordResponse
+   */
+  async addFaceRecordWithOptions(request: $_model.AddFaceRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFaceRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.faceGroupCode)) {
+      body["FaceGroupCode"] = request.faceGroupCode;
+    }
+
+    if (!$dara.isNull(request.facePicture)) {
+      body["FacePicture"] = request.facePicture;
+    }
+
+    if (!$dara.isNull(request.facePictureFile)) {
+      body["FacePictureFile"] = request.facePictureFile;
+    }
+
+    if (!$dara.isNull(request.facePictureUrl)) {
+      body["FacePictureUrl"] = request.facePictureUrl;
+    }
+
+    if (!$dara.isNull(request.faceQualityCheck)) {
+      body["FaceQualityCheck"] = request.faceQualityCheck;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      body["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddFaceRecord",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddFaceRecordResponse>(await this.callApi(params, req, runtime), new $_model.AddFaceRecordResponse({}));
+  }
+
+  /**
+   * 人脸图片入库
+   * 
+   * @param request - AddFaceRecordRequest
+   * @returns AddFaceRecordResponse
+   */
+  async addFaceRecord(request: $_model.AddFaceRecordRequest): Promise<$_model.AddFaceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addFaceRecordWithOptions(request, runtime);
+  }
+
+  async addFaceRecordAdvance(request: $_model.AddFaceRecordAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFaceRecordResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let addFaceRecordReq = new $_model.AddFaceRecordRequest({ });
+    OpenApiUtil.convert(request, addFaceRecordReq);
+    if (!$dara.isNull(request.facePictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.facePictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      addFaceRecordReq.facePictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let addFaceRecordResp = await this.addFaceRecordWithOptions(addFaceRecordReq, runtime);
+    return addFaceRecordResp;
+  }
+
+  /**
    * Address Similarity Comparison
    * 
    * @remarks

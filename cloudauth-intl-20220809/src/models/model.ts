@@ -1,3 +1,4 @@
+export { AddFaceRecordResponseBodyResult } from './AddFaceRecordResponseBody';
 export { AddressCompareIntlResponseBodyResult } from './AddressCompareIntlResponseBody';
 export { AddressVerifyIntlResponseBodyResultObject } from './AddressVerifyIntlResponseBody';
 export { AddressVerifyV2IntlResponseBodyResult } from './AddressVerifyV2intlResponseBody';
@@ -32,6 +33,10 @@ export { QueryFaceGroupResponseBodyItems } from './QueryFaceGroupResponseBody';
 export { QueryFaceRecordResponseBodyItems } from './QueryFaceRecordResponseBody';
 export { TempAccessTokenIntlResponseBodyData } from './TempAccessTokenIntlResponseBody';
 export { TempOssUrlIntlResponseBodyData } from './TempOssUrlIntlResponseBody';
+export { AddFaceRecordRequest } from './AddFaceRecordRequest';
+export { AddFaceRecordAdvanceRequest } from './AddFaceRecordAdvanceRequest';
+export { AddFaceRecordResponseBody } from './AddFaceRecordResponseBody';
+export { AddFaceRecordResponse } from './AddFaceRecordResponse';
 export { AddressCompareIntlRequest } from './AddressCompareIntlRequest';
 export { AddressCompareIntlResponseBody } from './AddressCompareIntlResponseBody';
 export { AddressCompareIntlResponse } from './AddressCompareIntlResponse';
