@@ -623,6 +623,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据ID获取TTS音色
+   * 
+   * @param request - GetTTSVoiceByIdCustomRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTTSVoiceByIdCustomResponse
+   */
+  async getTTSVoiceByIdCustomWithOptions(request: $_model.GetTTSVoiceByIdCustomRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTTSVoiceByIdCustomResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.voiceId)) {
+      query["voiceId"] = request.voiceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTTSVoiceByIdCustom",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/voice/getTTSVoiceById`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTTSVoiceByIdCustomResponse>(await this.callApi(params, req, runtime), new $_model.GetTTSVoiceByIdCustomResponse({}));
+  }
+
+  /**
+   * 根据ID获取TTS音色
+   * 
+   * @param request - GetTTSVoiceByIdCustomRequest
+   * @returns GetTTSVoiceByIdCustomResponse
+   */
+  async getTTSVoiceByIdCustom(request: $_model.GetTTSVoiceByIdCustomRequest): Promise<$_model.GetTTSVoiceByIdCustomResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTTSVoiceByIdCustomWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询图片训练数字人的状态
    * 
    * @param request - GetTrainPicAvatarStatusRequest

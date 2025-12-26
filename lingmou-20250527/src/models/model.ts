@@ -8,6 +8,7 @@ export { CreateChatSessionResponseBodyData } from './CreateChatSessionResponseBo
 export { CreateNoTrainPicAvatarResponseBodyData } from './CreateNoTrainPicAvatarResponseBody';
 export { CreateTTSVoiceCustomResponseBodyData } from './CreateTtsvoiceCustomResponseBody';
 export { CreateTrainPicAvatarResponseBodyData } from './CreateTrainPicAvatarResponseBody';
+export { GetTTSVoiceByIdCustomResponseBodyData } from './GetTtsvoiceByIdCustomResponseBody';
 export { GetTrainPicAvatarStatusResponseBodyData } from './GetTrainPicAvatarStatusResponseBody';
 export { GetUploadPolicyResponseBodyDataOssPolicy } from './GetUploadPolicyResponseBody';
 export { GetUploadPolicyResponseBodyData } from './GetUploadPolicyResponseBody';
@@ -52,6 +53,9 @@ export { CreateTrainPicAvatarResponse } from './CreateTrainPicAvatarResponse';
 export { GetBroadcastTemplateRequest } from './GetBroadcastTemplateRequest';
 export { GetBroadcastTemplateResponseBody } from './GetBroadcastTemplateResponseBody';
 export { GetBroadcastTemplateResponse } from './GetBroadcastTemplateResponse';
+export { GetTTSVoiceByIdCustomRequest } from './GetTtsvoiceByIdCustomRequest';
+export { GetTTSVoiceByIdCustomResponseBody } from './GetTtsvoiceByIdCustomResponseBody';
+export { GetTTSVoiceByIdCustomResponse } from './GetTtsvoiceByIdCustomResponse';
 export { GetTrainPicAvatarStatusRequest } from './GetTrainPicAvatarStatusRequest';
 export { GetTrainPicAvatarStatusResponseBody } from './GetTrainPicAvatarStatusResponseBody';
 export { GetTrainPicAvatarStatusResponse } from './GetTrainPicAvatarStatusResponse';
