@@ -9578,6 +9578,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Key-Value对的某个Key的详情
+   * 
+   * @param request - GetKvDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKvDetailResponse
+   */
+  async getKvDetailWithOptions(request: $_model.GetKvDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKvDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKvDetail",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKvDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetKvDetailResponse({}));
+  }
+
+  /**
+   * 查询Key-Value对的某个Key的详情
+   * 
+   * @param request - GetKvDetailRequest
+   * @returns GetKvDetailResponse
+   */
+  async getKvDetail(request: $_model.GetKvDetailRequest): Promise<$_model.GetKvDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKvDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a namespace in your Alibaba Cloud account.
    * 
    * @param request - GetKvNamespaceRequest
