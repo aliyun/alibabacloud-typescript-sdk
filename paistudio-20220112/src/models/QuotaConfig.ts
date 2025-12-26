@@ -24,6 +24,7 @@ export class QuotaConfig extends $dara.Model {
   defaultGPUDriver?: string;
   enableGPUShare?: boolean;
   enablePreemptSubquotaWorkloads?: boolean;
+  enableSelfQuotaPreemption?: boolean;
   enableSubQuotaPreemption?: boolean;
   eniCacheConfig?: EniCacheConfig;
   oversoldUsageInfo?: OversoldUsageConfig;
@@ -46,6 +47,7 @@ export class QuotaConfig extends $dara.Model {
       defaultGPUDriver: 'DefaultGPUDriver',
       enableGPUShare: 'EnableGPUShare',
       enablePreemptSubquotaWorkloads: 'EnablePreemptSubquotaWorkloads',
+      enableSelfQuotaPreemption: 'EnableSelfQuotaPreemption',
       enableSubQuotaPreemption: 'EnableSubQuotaPreemption',
       eniCacheConfig: 'EniCacheConfig',
       oversoldUsageInfo: 'OversoldUsageInfo',
@@ -67,6 +69,7 @@ export class QuotaConfig extends $dara.Model {
       defaultGPUDriver: 'string',
       enableGPUShare: 'boolean',
       enablePreemptSubquotaWorkloads: 'boolean',
+      enableSelfQuotaPreemption: 'boolean',
       enableSubQuotaPreemption: 'boolean',
       eniCacheConfig: EniCacheConfig,
       oversoldUsageInfo: OversoldUsageConfig,
