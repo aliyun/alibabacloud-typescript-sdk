@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateServiceRequestTags extends $dara.Model {
+  /**
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @example
+   * prod
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
@@ -36,6 +70,11 @@ export class CreateServiceRequest extends $dara.Model {
    */
   pid?: string;
   /**
+   * @example
+   * rg-xxekxxzuad5zzzz
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * Service name
    * 
@@ -63,15 +102,18 @@ export class CreateServiceRequest extends $dara.Model {
    * TRACE
    */
   serviceType?: string;
+  tags?: CreateServiceRequestTags[];
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
       description: 'description',
       displayName: 'displayName',
       pid: 'pid',
+      resourceGroupId: 'resourceGroupId',
       serviceName: 'serviceName',
       serviceStatus: 'serviceStatus',
       serviceType: 'serviceType',
+      tags: 'tags',
     };
   }
 
@@ -81,13 +123,18 @@ export class CreateServiceRequest extends $dara.Model {
       description: 'string',
       displayName: 'string',
       pid: 'string',
+      resourceGroupId: 'string',
       serviceName: 'string',
       serviceStatus: 'string',
       serviceType: 'string',
+      tags: { 'type': 'array', 'itemType': CreateServiceRequestTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

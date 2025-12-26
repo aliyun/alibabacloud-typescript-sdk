@@ -871,6 +871,10 @@ export default class Client extends OpenApi {
       body["pid"] = request.pid;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.serviceName)) {
       body["serviceName"] = request.serviceName;
     }
@@ -881,6 +885,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceType)) {
       body["serviceType"] = request.serviceType;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3941,13 +3949,19 @@ export default class Client extends OpenApi {
   /**
    * List Resource Services
    * 
-   * @param request - ListServicesRequest
+   * @param tmpReq - ListServicesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServicesResponse
    */
-  async listServicesWithOptions(workspace: string, request: $_model.ListServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServicesResponse> {
-    request.validate();
+  async listServicesWithOptions(workspace: string, tmpReq: $_model.ListServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServicesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListServicesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
@@ -3957,8 +3971,20 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["serviceName"] = request.serviceName;
+    }
+
     if (!$dara.isNull(request.serviceType)) {
       query["serviceType"] = request.serviceType;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

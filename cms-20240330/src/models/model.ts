@@ -71,6 +71,7 @@ export { CreatePrometheusInstanceRequestTags } from './CreatePrometheusInstanceR
 export { CreatePrometheusViewRequestPrometheusInstances } from './CreatePrometheusViewRequest';
 export { CreatePrometheusViewRequestTags } from './CreatePrometheusViewRequest';
 export { CreatePrometheusVirtualInstanceResponseBodyInstance } from './CreatePrometheusVirtualInstanceResponseBody';
+export { CreateServiceRequestTags } from './CreateServiceRequest';
 export { CreateThreadRequestVariables } from './CreateThreadRequest';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
 export { GetAddonResponseBodyDataDashboards } from './GetAddonResponseBody';
@@ -111,6 +112,7 @@ export { GetPrometheusInstanceResponseBodyPrometheusInstance } from './GetPromet
 export { GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances } from './GetPrometheusViewResponseBody';
 export { GetPrometheusViewResponseBodyPrometheusViewTags } from './GetPrometheusViewResponseBody';
 export { GetPrometheusViewResponseBodyPrometheusView } from './GetPrometheusViewResponseBody';
+export { GetServiceResponseBodyServiceTags } from './GetServiceResponseBody';
 export { GetServiceResponseBodyService } from './GetServiceResponseBody';
 export { GetServiceObservabilityResponseBodyEntryPointInfo } from './GetServiceObservabilityResponseBody';
 export { GetThreadResponseBodyVariables } from './GetThreadResponseBody';
@@ -187,6 +189,7 @@ export { ListPrometheusViewsRequestTag } from './ListPrometheusViewsRequest';
 export { ListPrometheusViewsResponseBodyPrometheusViewsTags } from './ListPrometheusViewsResponseBody';
 export { ListPrometheusViewsResponseBodyPrometheusViews } from './ListPrometheusViewsResponseBody';
 export { ListPrometheusVirtualInstancesResponseBodyInstances } from './ListPrometheusVirtualInstancesResponseBody';
+export { ListServicesRequestTags } from './ListServicesRequest';
 export { ListServicesResponseBodyServices } from './ListServicesResponseBody';
 export { ListThreadsRequestFilter } from './ListThreadsRequest';
 export { ListThreadsResponseBodyThreadsVariables } from './ListThreadsResponseBody';
@@ -467,6 +470,7 @@ export { ListPrometheusVirtualInstancesRequest } from './ListPrometheusVirtualIn
 export { ListPrometheusVirtualInstancesResponseBody } from './ListPrometheusVirtualInstancesResponseBody';
 export { ListPrometheusVirtualInstancesResponse } from './ListPrometheusVirtualInstancesResponse';
 export { ListServicesRequest } from './ListServicesRequest';
+export { ListServicesShrinkRequest } from './ListServicesShrinkRequest';
 export { ListServicesResponseBody } from './ListServicesResponseBody';
 export { ListServicesResponse } from './ListServicesResponse';
 export { ListThreadsRequest } from './ListThreadsRequest';

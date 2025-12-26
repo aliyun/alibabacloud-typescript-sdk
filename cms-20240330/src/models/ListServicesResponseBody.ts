@@ -44,6 +44,11 @@ export class ListServicesResponseBodyServices extends $dara.Model {
    */
   pid?: string;
   /**
+   * @example
+   * rg-aekxxzuad5zzzz
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * Service ID
    * 
@@ -90,6 +95,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
       description: 'description',
       displayName: 'displayName',
       pid: 'pid',
+      resourceGroupId: 'resourceGroupId',
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       serviceStatus: 'serviceStatus',
@@ -105,6 +111,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
       description: 'string',
       displayName: 'string',
       pid: 'string',
+      resourceGroupId: 'string',
       serviceId: 'string',
       serviceName: 'string',
       serviceStatus: 'string',

@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetServiceResponseBodyServiceTags extends $dara.Model {
+  /**
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @example
+   * prod
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceResponseBodyService extends $dara.Model {
   /**
    * @remarks
@@ -52,6 +86,11 @@ export class GetServiceResponseBodyService extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @example
+   * rg-aekxxzuad5zzzz
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * Service ID.
    * 
@@ -83,6 +122,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
    * TRACE
    */
   serviceType?: string;
+  tags?: GetServiceResponseBodyServiceTags[];
   /**
    * @remarks
    * Workspace name
@@ -99,10 +139,12 @@ export class GetServiceResponseBodyService extends $dara.Model {
       displayName: 'displayName',
       pid: 'pid',
       regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       serviceStatus: 'serviceStatus',
       serviceType: 'serviceType',
+      tags: 'tags',
       workspace: 'workspace',
     };
   }
@@ -115,15 +157,20 @@ export class GetServiceResponseBodyService extends $dara.Model {
       displayName: 'string',
       pid: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       serviceId: 'string',
       serviceName: 'string',
       serviceStatus: 'string',
       serviceType: 'string',
+      tags: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceTags },
       workspace: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

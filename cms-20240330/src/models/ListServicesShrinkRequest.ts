@@ -2,41 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListServicesRequestTags extends $dara.Model {
-  /**
-   * @example
-   * evn
-   */
-  key?: string;
-  /**
-   * @example
-   * prod
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServicesRequest extends $dara.Model {
+export class ListServicesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of records to return in this request.
@@ -75,7 +41,7 @@ export class ListServicesRequest extends $dara.Model {
    * **if can be null:**
    * true
    */
-  tags?: ListServicesRequestTags[];
+  tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'maxResults',
@@ -83,7 +49,7 @@ export class ListServicesRequest extends $dara.Model {
       resourceGroupId: 'resourceGroupId',
       serviceName: 'serviceName',
       serviceType: 'serviceType',
-      tags: 'tags',
+      tagsShrink: 'tags',
     };
   }
 
@@ -94,14 +60,11 @@ export class ListServicesRequest extends $dara.Model {
       resourceGroupId: 'string',
       serviceName: 'string',
       serviceType: 'string',
-      tags: { 'type': 'array', 'itemType': ListServicesRequestTags },
+      tagsShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
     super.validate();
   }
 
