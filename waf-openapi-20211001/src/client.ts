@@ -56,6 +56,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 地址簿添加地址
+   * 
+   * @param request - AddAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAddressResponse
+   */
+  async addAddressWithOptions(request: $_model.AddAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addressList)) {
+      query["AddressList"] = request.addressList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAddress",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAddressResponse>(await this.callApi(params, req, runtime), new $_model.AddAddressResponse({}));
+  }
+
+  /**
+   * 地址簿添加地址
+   * 
+   * @param request - AddAddressRequest
+   * @returns AddAddressResponse
+   */
+  async addAddress(request: $_model.AddAddressRequest): Promise<$_model.AddAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAddressWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the resource group to which a protected object belongs.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -111,6 +165,56 @@ export default class Client extends OpenApi {
   async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 地址簿清空所有地址
+   * 
+   * @param request - ClearAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearAddressResponse
+   */
+  async clearAddressWithOptions(request: $_model.ClearAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClearAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClearAddress",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClearAddressResponse>(await this.callApi(params, req, runtime), new $_model.ClearAddressResponse({}));
+  }
+
+  /**
+   * 地址簿清空所有地址
+   * 
+   * @param request - ClearAddressRequest
+   * @returns ClearAddressResponse
+   */
+  async clearAddress(request: $_model.ClearAddressRequest): Promise<$_model.ClearAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clearAddressWithOptions(request, runtime);
   }
 
   /**
@@ -1442,6 +1546,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 地址簿添加地址
+   * 
+   * @param request - DeleteAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAddressResponse
+   */
+  async deleteAddressWithOptions(request: $_model.DeleteAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addressList)) {
+      query["AddressList"] = request.addressList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAddress",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAddressResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAddressResponse({}));
+  }
+
+  /**
+   * 地址簿添加地址
+   * 
+   * @param request - DeleteAddressRequest
+   * @returns DeleteAddressResponse
+   */
+  async deleteAddress(request: $_model.DeleteAddressRequest): Promise<$_model.DeleteAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAddressWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes multiple risks detected by the API security module at a time.
    * 
    * @param request - DeleteApisecAbnormalsRequest
@@ -2358,6 +2516,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询地址簿IP
+   * 
+   * @param request - DescribeAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAddressesResponse
+   */
+  async describeAddressesWithOptions(request: $_model.DescribeAddressesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAddressesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addressLike)) {
+      query["AddressLike"] = request.addressLike;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAddresses",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAddressesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAddressesResponse({}));
+  }
+
+  /**
+   * 分页查询地址簿IP
+   * 
+   * @param request - DescribeAddressesRequest
+   * @returns DescribeAddressesResponse
+   */
+  async describeAddresses(request: $_model.DescribeAddressesRequest): Promise<$_model.DescribeAddressesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAddressesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询实例信息
    * 
    * @param request - DescribeAlarmBannerRequest
@@ -3163,6 +3387,88 @@ export default class Client extends OpenApi {
   async describeApisecEvents(request: $_model.DescribeApisecEventsRequest): Promise<$_model.DescribeApisecEventsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeApisecEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询API安全样例信息
+   * 
+   * @param request - DescribeApisecExamplesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecExamplesResponse
+   */
+  async describeApisecExamplesWithOptions(request: $_model.DescribeApisecExamplesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApisecExamplesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.abnormalTag)) {
+      query["AbnormalTag"] = request.abnormalTag;
+    }
+
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.exampleType)) {
+      query["ExampleType"] = request.exampleType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.requestSensitiveTypeList)) {
+      query["RequestSensitiveTypeList"] = request.requestSensitiveTypeList;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.responseSensitiveTypeList)) {
+      query["ResponseSensitiveTypeList"] = request.responseSensitiveTypeList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApisecExamples",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApisecExamplesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApisecExamplesResponse({}));
+  }
+
+  /**
+   * 查询API安全样例信息
+   * 
+   * @param request - DescribeApisecExamplesRequest
+   * @returns DescribeApisecExamplesResponse
+   */
+  async describeApisecExamples(request: $_model.DescribeApisecExamplesRequest): Promise<$_model.DescribeApisecExamplesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApisecExamplesWithOptions(request, runtime);
   }
 
   /**
@@ -8299,6 +8605,76 @@ export default class Client extends OpenApi {
   async describePunishedDomains(request: $_model.DescribePunishedDomainsRequest): Promise<$_model.DescribePunishedDomainsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePunishedDomainsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询关联规则
+   * 
+   * @param request - DescribeRelatedDefenseRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRelatedDefenseRulesResponse
+   */
+  async describeRelatedDefenseRulesWithOptions(request: $_model.DescribeRelatedDefenseRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRelatedDefenseRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.defenseScene)) {
+      query["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!$dara.isNull(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRelatedDefenseRules",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRelatedDefenseRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRelatedDefenseRulesResponse({}));
+  }
+
+  /**
+   * 分页查询关联规则
+   * 
+   * @param request - DescribeRelatedDefenseRulesRequest
+   * @returns DescribeRelatedDefenseRulesResponse
+   */
+  async describeRelatedDefenseRules(request: $_model.DescribeRelatedDefenseRulesRequest): Promise<$_model.DescribeRelatedDefenseRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRelatedDefenseRulesWithOptions(request, runtime);
   }
 
   /**
