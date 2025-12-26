@@ -57,6 +57,7 @@ export class SearchInfoRequestKnowledgeBaseFilters extends $dara.Model {
 }
 
 export class SearchInfoRequestWebFilters extends $dara.Model {
+  category?: string;
   includeSites?: string[];
   /**
    * @remarks
@@ -78,6 +79,7 @@ export class SearchInfoRequestWebFilters extends $dara.Model {
   scoreThreshold?: number;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       includeSites: 'IncludeSites',
       query: 'Query',
       resultLimit: 'ResultLimit',
@@ -87,6 +89,7 @@ export class SearchInfoRequestWebFilters extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       includeSites: { 'type': 'array', 'itemType': 'string' },
       query: 'string',
       resultLimit: 'number',
