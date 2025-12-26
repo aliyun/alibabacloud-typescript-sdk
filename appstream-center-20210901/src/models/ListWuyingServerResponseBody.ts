@@ -219,6 +219,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * The list of information about the workstation instance.
    */
   instanceInfoList?: ListWuyingServerResponseBodyWuyingServerListInstanceInfoList[];
+  maxPrice?: number;
   /**
    * @remarks
    * The private IP address.
@@ -273,6 +274,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  subPayType?: string;
   /**
    * @remarks
    * The type of the system disk.
@@ -325,6 +327,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       imageId: 'ImageId',
       imageName: 'ImageName',
       instanceInfoList: 'InstanceInfoList',
+      maxPrice: 'MaxPrice',
       networkInterfaceIp: 'NetworkInterfaceIp',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
@@ -333,6 +336,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       securityGroupIds: 'SecurityGroupIds',
       serverInstanceTypeInfo: 'ServerInstanceTypeInfo',
       status: 'Status',
+      subPayType: 'SubPayType',
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
       systemDiskSize: 'SystemDiskSize',
@@ -353,6 +357,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       imageId: 'string',
       imageName: 'string',
       instanceInfoList: { 'type': 'array', 'itemType': ListWuyingServerResponseBodyWuyingServerListInstanceInfoList },
+      maxPrice: 'number',
       networkInterfaceIp: 'string',
       officeSiteId: 'string',
       officeSiteName: 'string',
@@ -361,6 +366,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       serverInstanceTypeInfo: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo,
       status: 'string',
+      subPayType: 'string',
       systemDiskCategory: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskSize: 'number',

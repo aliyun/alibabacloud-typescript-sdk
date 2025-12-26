@@ -131,6 +131,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * img-bp13mu****
    */
   imageId?: string;
+  maxPrice?: number;
   /**
    * @remarks
    * The type of the network policy (in invitational preview).
@@ -196,6 +197,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    */
   serverInstanceType?: string;
   serverPortRange?: string;
+  subPayType?: string;
   /**
    * @remarks
    * The system disk category.
@@ -254,6 +256,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       hostName: 'HostName',
       idempotenceToken: 'IdempotenceToken',
       imageId: 'ImageId',
+      maxPrice: 'MaxPrice',
       networkStrategyType: 'NetworkStrategyType',
       officeSiteId: 'OfficeSiteId',
       password: 'Password',
@@ -263,6 +266,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       savingPlanId: 'SavingPlanId',
       serverInstanceType: 'ServerInstanceType',
       serverPortRange: 'ServerPortRange',
+      subPayType: 'SubPayType',
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
       systemDiskSize: 'SystemDiskSize',
@@ -284,6 +288,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       hostName: 'string',
       idempotenceToken: 'string',
       imageId: 'string',
+      maxPrice: 'number',
       networkStrategyType: 'string',
       officeSiteId: 'string',
       password: 'string',
@@ -293,6 +298,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       savingPlanId: 'string',
       serverInstanceType: 'string',
       serverPortRange: 'string',
+      subPayType: 'string',
       systemDiskCategory: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskSize: 'number',

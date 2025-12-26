@@ -549,6 +549,10 @@ export default class Client extends OpenApi {
       body["ImageId"] = request.imageId;
     }
 
+    if (!$dara.isNull(request.maxPrice)) {
+      body["MaxPrice"] = request.maxPrice;
+    }
+
     if (!$dara.isNull(request.networkStrategyType)) {
       body["NetworkStrategyType"] = request.networkStrategyType;
     }
@@ -583,6 +587,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serverPortRange)) {
       body["ServerPortRange"] = request.serverPortRange;
+    }
+
+    if (!$dara.isNull(request.subPayType)) {
+      body["SubPayType"] = request.subPayType;
     }
 
     if (!$dara.isNull(request.systemDiskCategory)) {
