@@ -33,6 +33,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
    * Running
    */
   desktopStatus?: string;
+  desktopType?: string;
   /**
    * @example
    * 2021-12-31T15:59Z
@@ -45,11 +46,13 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   imageId?: string;
   localName?: string;
   managementFlags?: string[];
+  memberEniIp?: string;
   /**
    * @example
    * cn-hangzhou+dir-363353****
    */
   officeSiteId?: string;
+  platform?: string;
   /**
    * @example
    * cn-hangzhou
@@ -78,11 +81,14 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
       desktopStatus: 'DesktopStatus',
+      desktopType: 'DesktopType',
       expiredTime: 'ExpiredTime',
       imageId: 'ImageId',
       localName: 'LocalName',
       managementFlags: 'ManagementFlags',
+      memberEniIp: 'MemberEniIp',
       officeSiteId: 'OfficeSiteId',
+      platform: 'Platform',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceGroupName: 'ResourceGroupName',
@@ -98,11 +104,14 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
       desktopId: 'string',
       desktopName: 'string',
       desktopStatus: 'string',
+      desktopType: 'string',
       expiredTime: 'string',
       imageId: 'string',
       localName: 'string',
       managementFlags: { 'type': 'array', 'itemType': 'string' },
+      memberEniIp: 'string',
       officeSiteId: 'string',
+      platform: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceGroupName: 'string',

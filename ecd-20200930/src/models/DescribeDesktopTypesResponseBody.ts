@@ -19,6 +19,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
    * 150
    */
   dataDiskSize?: string;
+  description?: string;
   /**
    * @remarks
    * The ID of the cloud desktop type.
@@ -113,6 +114,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
     return {
       cpuCount: 'CpuCount',
       dataDiskSize: 'DataDiskSize',
+      description: 'Description',
       desktopTypeId: 'DesktopTypeId',
       desktopTypeStatus: 'DesktopTypeStatus',
       gpuCount: 'GpuCount',
@@ -131,6 +133,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
     return {
       cpuCount: 'string',
       dataDiskSize: 'string',
+      description: 'string',
       desktopTypeId: 'string',
       desktopTypeStatus: 'string',
       gpuCount: 'number',
