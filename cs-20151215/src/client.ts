@@ -4641,6 +4641,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为ACK集群节点池安装节点组件
+   * 
+   * @param request - InstallNodePoolComponentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallNodePoolComponentsResponse
+   */
+  async installNodePoolComponentsWithOptions(clusterId: string, nodePoolId: string, request: $_model.InstallNodePoolComponentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallNodePoolComponentsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.components)) {
+      body["components"] = request.components;
+    }
+
+    if (!$dara.isNull(request.nodeNames)) {
+      body["nodeNames"] = request.nodeNames;
+    }
+
+    if (!$dara.isNull(request.rollingPolicy)) {
+      body["rollingPolicy"] = request.rollingPolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallNodePoolComponents",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodePoolId)}/components`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallNodePoolComponentsResponse>(await this.callApi(params, req, runtime), new $_model.InstallNodePoolComponentsResponse({}));
+  }
+
+  /**
+   * 为ACK集群节点池安装节点组件
+   * 
+   * @param request - InstallNodePoolComponentsRequest
+   * @returns InstallNodePoolComponentsResponse
+   */
+  async installNodePoolComponents(clusterId: string, nodePoolId: string, request: $_model.InstallNodePoolComponentsRequest): Promise<$_model.InstallNodePoolComponentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.installNodePoolComponentsWithOptions(clusterId, nodePoolId, request, headers, runtime);
+  }
+
+  /**
    * Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
    * 
    * @param request - ListAddonsRequest
@@ -7027,6 +7080,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  /**
+   * 更新节点组件
+   * 
+   * @param request - UpdateNodePoolComponentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNodePoolComponentResponse
+   */
+  async updateNodePoolComponentWithOptions(clusterId: string, nodepoolId: string, request: $_model.UpdateNodePoolComponentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNodePoolComponentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.disableRolling)) {
+      body["disableRolling"] = request.disableRolling;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nodeNames)) {
+      body["nodeNames"] = request.nodeNames;
+    }
+
+    if (!$dara.isNull(request.rollingPolicy)) {
+      body["rollingPolicy"] = request.rollingPolicy;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNodePoolComponent",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodepoolId)}/component`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNodePoolComponentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNodePoolComponentResponse({}));
+  }
+
+  /**
+   * 更新节点组件
+   * 
+   * @param request - UpdateNodePoolComponentRequest
+   * @returns UpdateNodePoolComponentResponse
+   */
+  async updateNodePoolComponent(clusterId: string, nodepoolId: string, request: $_model.UpdateNodePoolComponentRequest): Promise<$_model.UpdateNodePoolComponentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNodePoolComponentWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
   /**

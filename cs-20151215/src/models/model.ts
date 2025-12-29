@@ -168,6 +168,9 @@ export { GetKubernetesTriggerResponseBody } from './GetKubernetesTriggerResponse
 export { GetUpgradeStatusResponseBodyUpgradeTask } from './GetUpgradeStatusResponseBody';
 export { GrantPermissionsRequestBody } from './GrantPermissionsRequest';
 export { InstallClusterAddonsRequestBody } from './InstallClusterAddonsRequest';
+export { InstallNodePoolComponentsRequestComponentsConfig } from './InstallNodePoolComponentsRequest';
+export { InstallNodePoolComponentsRequestComponents } from './InstallNodePoolComponentsRequest';
+export { InstallNodePoolComponentsRequestRollingPolicy } from './InstallNodePoolComponentsRequest';
 export { ListAddonsResponseBodyAddons } from './ListAddonsResponseBody';
 export { ListClusterAddonInstanceResourcesResponseBodyHelmRelease } from './ListClusterAddonInstanceResourcesResponseBody';
 export { ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects } from './ListClusterAddonInstanceResourcesResponseBody';
@@ -207,6 +210,8 @@ export { ModifyNodePoolNodeConfigRequestRollingPolicy } from './ModifyNodePoolNo
 export { RepairClusterNodePoolRequestOperations } from './RepairClusterNodePoolRequest';
 export { ScaleOutClusterRequestWorkerDataDisks } from './ScaleOutClusterRequest';
 export { UnInstallClusterAddonsRequestAddons } from './UnInstallClusterAddonsRequest';
+export { UpdateNodePoolComponentRequestConfig } from './UpdateNodePoolComponentRequest';
+export { UpdateNodePoolComponentRequestRollingPolicy } from './UpdateNodePoolComponentRequest';
 export { UpdateUserPermissionsRequestBody } from './UpdateUserPermissionsRequest';
 export { UpgradeClusterRequestRollingPolicy } from './UpgradeClusterRequest';
 export { UpgradeClusterAddonsRequestBody } from './UpgradeClusterAddonsRequest';
@@ -421,6 +426,9 @@ export { GrantPermissionsResponse } from './GrantPermissionsResponse';
 export { InstallClusterAddonsRequest } from './InstallClusterAddonsRequest';
 export { InstallClusterAddonsResponseBody } from './InstallClusterAddonsResponseBody';
 export { InstallClusterAddonsResponse } from './InstallClusterAddonsResponse';
+export { InstallNodePoolComponentsRequest } from './InstallNodePoolComponentsRequest';
+export { InstallNodePoolComponentsResponseBody } from './InstallNodePoolComponentsResponseBody';
+export { InstallNodePoolComponentsResponse } from './InstallNodePoolComponentsResponse';
 export { ListAddonsRequest } from './ListAddonsRequest';
 export { ListAddonsResponseBody } from './ListAddonsResponseBody';
 export { ListAddonsResponse } from './ListAddonsResponse';
@@ -535,6 +543,9 @@ export { UpdateControlPlaneLogResponseBody } from './UpdateControlPlaneLogRespon
 export { UpdateControlPlaneLogResponse } from './UpdateControlPlaneLogResponse';
 export { UpdateK8sClusterUserConfigExpireRequest } from './UpdateK8sClusterUserConfigExpireRequest';
 export { UpdateK8sClusterUserConfigExpireResponse } from './UpdateK8sClusterUserConfigExpireResponse';
+export { UpdateNodePoolComponentRequest } from './UpdateNodePoolComponentRequest';
+export { UpdateNodePoolComponentResponseBody } from './UpdateNodePoolComponentResponseBody';
+export { UpdateNodePoolComponentResponse } from './UpdateNodePoolComponentResponse';
 export { UpdateResourcesDeleteProtectionRequest } from './UpdateResourcesDeleteProtectionRequest';
 export { UpdateResourcesDeleteProtectionResponseBody } from './UpdateResourcesDeleteProtectionResponseBody';
 export { UpdateResourcesDeleteProtectionResponse } from './UpdateResourcesDeleteProtectionResponse';
