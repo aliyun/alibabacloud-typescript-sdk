@@ -52,6 +52,32 @@ export class DescribeApplicationInstancesResponseBodyDataInstancesSidecarContain
   }
 }
 
+export class DescribeApplicationInstancesResponseBodyDataInstancesTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara.Model {
   /**
    * @remarks
@@ -182,6 +208,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
    * The status of the sidecar container.
    */
   sidecarContainersStatus?: DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus[];
+  tags?: DescribeApplicationInstancesResponseBodyDataInstancesTags[];
   /**
    * @example
    * 1750061980000
@@ -220,6 +247,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
       mainContainerStatus: 'MainContainerStatus',
       packageVersion: 'PackageVersion',
       sidecarContainersStatus: 'SidecarContainersStatus',
+      tags: 'Tags',
       timestamp: 'Timestamp',
       trafficStatus: 'TrafficStatus',
       unhealthyMessage: 'UnhealthyMessage',
@@ -243,6 +271,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
       mainContainerStatus: 'string',
       packageVersion: 'string',
       sidecarContainersStatus: { 'type': 'array', 'itemType': DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus },
+      tags: { 'type': 'array', 'itemType': DescribeApplicationInstancesResponseBodyDataInstancesTags },
       timestamp: 'number',
       trafficStatus: 'string',
       unhealthyMessage: 'string',
@@ -253,6 +282,9 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
   validate() {
     if(Array.isArray(this.sidecarContainersStatus)) {
       $dara.Model.validateArray(this.sidecarContainersStatus);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

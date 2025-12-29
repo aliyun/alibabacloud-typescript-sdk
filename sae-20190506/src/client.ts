@@ -8348,6 +8348,14 @@ export default class Client extends OpenApi {
       query["Deploy"] = request.deploy;
     }
 
+    if (!$dara.isNull(request.minReadyInstanceRatio)) {
+      query["MinReadyInstanceRatio"] = request.minReadyInstanceRatio;
+    }
+
+    if (!$dara.isNull(request.minReadyInstances)) {
+      query["MinReadyInstances"] = request.minReadyInstances;
+    }
+
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }

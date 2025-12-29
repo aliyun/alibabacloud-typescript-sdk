@@ -14,6 +14,8 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
    */
   appId?: string;
   deploy?: boolean;
+  minReadyInstanceRatio?: number;
+  minReadyInstances?: number;
   /**
    * @remarks
    * The ID of the vSwitch.
@@ -28,6 +30,8 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
     return {
       appId: 'AppId',
       deploy: 'Deploy',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
+      minReadyInstances: 'MinReadyInstances',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -36,6 +40,8 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
     return {
       appId: 'string',
       deploy: 'boolean',
+      minReadyInstanceRatio: 'number',
+      minReadyInstances: 'number',
       vSwitchId: 'string',
     };
   }

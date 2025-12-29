@@ -92,6 +92,7 @@ export { DescribeApplicationConfigResponseBodyData } from './DescribeApplication
 export { DescribeApplicationGroupsResponseBodyData } from './DescribeApplicationGroupsResponseBody';
 export { DescribeApplicationImageResponseBodyData } from './DescribeApplicationImageResponseBody';
 export { DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus } from './DescribeApplicationInstancesResponseBody';
+export { DescribeApplicationInstancesResponseBodyDataInstancesTags } from './DescribeApplicationInstancesResponseBody';
 export { DescribeApplicationInstancesResponseBodyDataInstances } from './DescribeApplicationInstancesResponseBody';
 export { DescribeApplicationInstancesResponseBodyData } from './DescribeApplicationInstancesResponseBody';
 export { DescribeApplicationMseServiceResponseBodyData } from './DescribeApplicationMseServiceResponseBody';
