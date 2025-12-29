@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGitOrganizationsRequest extends $dara.Model {
+  bindType?: string;
   /**
    * @example
    * -
@@ -31,6 +32,7 @@ export class ListGitOrganizationsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      bindType: 'BindType',
       clientToken: 'ClientToken',
       owner: 'Owner',
       platform: 'Platform',
@@ -40,6 +42,7 @@ export class ListGitOrganizationsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bindType: 'string',
       clientToken: 'string',
       owner: 'string',
       platform: 'string',

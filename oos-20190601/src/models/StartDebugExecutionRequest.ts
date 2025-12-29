@@ -2,21 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListGitAccountsRequest extends $dara.Model {
-  bindType?: string;
+export class StartDebugExecutionRequest extends $dara.Model {
   /**
    * @example
-   * -
+   * abcde3OARpx77No54nv6
    */
   clientToken?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * github
+   * {"Service": "ecs", "API": "DescribeRegions"}
    */
-  platform?: string;
+  properties?: string;
   /**
    * @example
    * cn-hangzhou
@@ -24,26 +20,24 @@ export class ListGitAccountsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @example
-   * roleName
+   * ACS::ExecuteAPI
    */
-  roleName?: string;
+  taskType?: string;
   static names(): { [key: string]: string } {
     return {
-      bindType: 'BindType',
       clientToken: 'ClientToken',
-      platform: 'Platform',
+      properties: 'Properties',
       regionId: 'RegionId',
-      roleName: 'RoleName',
+      taskType: 'TaskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bindType: 'string',
       clientToken: 'string',
-      platform: 'string',
+      properties: 'string',
       regionId: 'string',
-      roleName: 'string',
+      taskType: 'string',
     };
   }
 

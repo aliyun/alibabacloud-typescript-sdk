@@ -3301,6 +3301,10 @@ export default class Client extends OpenApi {
   async listGitAccountsWithOptions(request: $_model.ListGitAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGitAccountsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bindType)) {
+      query["BindType"] = request.bindType;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -3421,6 +3425,10 @@ export default class Client extends OpenApi {
   async listGitOrganizationsWithOptions(request: $_model.ListGitOrganizationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGitOrganizationsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bindType)) {
+      query["BindType"] = request.bindType;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -5159,6 +5167,60 @@ export default class Client extends OpenApi {
   async setServiceSettings(request: $_model.SetServiceSettingsRequest): Promise<$_model.SetServiceSettingsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setServiceSettingsWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动一个调试执行
+   * 
+   * @param request - StartDebugExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartDebugExecutionResponse
+   */
+  async startDebugExecutionWithOptions(request: $_model.StartDebugExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartDebugExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartDebugExecution",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartDebugExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StartDebugExecutionResponse({}));
+  }
+
+  /**
+   * 启动一个调试执行
+   * 
+   * @param request - StartDebugExecutionRequest
+   * @returns StartDebugExecutionResponse
+   */
+  async startDebugExecution(request: $_model.StartDebugExecutionRequest): Promise<$_model.StartDebugExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startDebugExecutionWithOptions(request, runtime);
   }
 
   /**
