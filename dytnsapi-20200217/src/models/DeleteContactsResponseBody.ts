@@ -2,28 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribePhoneNumberAnalysisResponseBodyDataList extends $dara.Model {
+export class DeleteContactsResponseBody extends $dara.Model {
   /**
    * @example
-   * NO
+   * OK
    */
   code?: string;
+  data?: boolean;
   /**
    * @example
-   * 18752785620
+   * OK
    */
-  number?: string;
+  message?: string;
+  /**
+   * @example
+   * CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      number: 'Number',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      number: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
     };
   }
 

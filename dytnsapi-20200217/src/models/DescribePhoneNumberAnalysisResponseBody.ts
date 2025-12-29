@@ -1,7 +1,66 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribePhoneNumberAnalysisResponseBodyData } from "./DescribePhoneNumberAnalysisResponseBodyData";
 
+
+export class DescribePhoneNumberAnalysisResponseBodyDataList extends $dara.Model {
+  /**
+   * @example
+   * NO
+   */
+  code?: string;
+  /**
+   * @example
+   * 18752785620
+   */
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      number: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisResponseBodyData extends $dara.Model {
+  list?: DescribePhoneNumberAnalysisResponseBodyDataList[];
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': DescribePhoneNumberAnalysisResponseBodyDataList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribePhoneNumberAnalysisResponseBody extends $dara.Model {
   accessDeniedDetail?: string;

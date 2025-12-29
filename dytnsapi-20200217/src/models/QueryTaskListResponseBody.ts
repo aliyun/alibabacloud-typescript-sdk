@@ -2,36 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribePhoneNumberOperatorAttributeAnnualResponseBodyData extends $dara.Model {
-  basicCarrier?: string;
-  carrier?: string;
-  city?: string;
-  mts?: string;
-  numberPortability?: boolean;
-  province?: string;
+export class QueryTaskListResponseBodyData extends $dara.Model {
+  data?: string[];
+  /**
+   * @example
+   * 62
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 22
+   */
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      basicCarrier: 'BasicCarrier',
-      carrier: 'Carrier',
-      city: 'City',
-      mts: 'Mts',
-      numberPortability: 'NumberPortability',
-      province: 'Province',
+      data: 'Data',
+      pageNo: 'PageNo',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      basicCarrier: 'string',
-      carrier: 'string',
-      city: 'string',
-      mts: 'string',
-      numberPortability: 'boolean',
-      province: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      pageNo: 'number',
+      totalCount: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
     super.validate();
   }
 
@@ -40,29 +42,38 @@ export class DescribePhoneNumberOperatorAttributeAnnualResponseBodyData extends 
   }
 }
 
-export class DescribePhoneNumberOperatorAttributeAnnualResponseBody extends $dara.Model {
+export class QueryTaskListResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
-  data?: DescribePhoneNumberOperatorAttributeAnnualResponseBodyData;
+  data?: QueryTaskListResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 68A40250-50CD-034C-B728-0BD******177
+   */
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: DescribePhoneNumberOperatorAttributeAnnualResponseBodyData,
+      data: QueryTaskListResponseBodyData,
       message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 

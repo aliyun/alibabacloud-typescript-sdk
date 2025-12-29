@@ -390,6 +390,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 预警联系人删除
+   * 
+   * @param request - DeleteContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactsResponse
+   */
+  async deleteContactsWithOptions(request: $_model.DeleteContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContacts",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContactsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactsResponse({}));
+  }
+
+  /**
+   * 预警联系人删除
+   * 
+   * @param request - DeleteContactsRequest
+   * @returns DeleteContactsResponse
+   */
+  async deleteContacts(request: $_model.DeleteContactsRequest): Promise<$_model.DeleteContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContactsWithOptions(request, runtime);
+  }
+
+  /**
    * Predicts whether a phone number is a nonexistent number by using AI algorithms.
    * 
    * @remarks
@@ -822,7 +876,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePhoneNumberAttributeResponse
    */
-  // Deprecated
   async describePhoneNumberAttributeWithOptions(request: $_model.DescribePhoneNumberAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePhoneNumberAttributeResponse> {
     request.validate();
     let query = { };
@@ -1522,6 +1575,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 预警联系人查询
+   * 
+   * @param request - ListContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContactsResponse
+   */
+  async listContactsWithOptions(request: $_model.ListContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContactsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContacts",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContactsResponse>(await this.callApi(params, req, runtime), new $_model.ListContactsResponse({}));
+  }
+
+  /**
+   * 预警联系人查询
+   * 
+   * @param request - ListContactsRequest
+   * @returns ListContactsResponse
+   */
+  async listContacts(request: $_model.ListContactsRequest): Promise<$_model.ListContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContactsWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - PhoneNumberConvertServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PhoneNumberConvertServiceResponse
@@ -2090,6 +2201,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 套餐包类型信息查询
+   * 
+   * @param request - QueryPackageTypeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPackageTypeInfoResponse
+   */
+  async queryPackageTypeInfoWithOptions(request: $_model.QueryPackageTypeInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPackageTypeInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPackageTypeInfo",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPackageTypeInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryPackageTypeInfoResponse({}));
+  }
+
+  /**
+   * 套餐包类型信息查询
+   * 
+   * @param request - QueryPackageTypeInfoRequest
+   * @returns QueryPackageTypeInfoResponse
+   */
+  async queryPackageTypeInfo(request: $_model.QueryPackageTypeInfoRequest): Promise<$_model.QueryPackageTypeInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPackageTypeInfoWithOptions(request, runtime);
+  }
+
+  /**
    * 在网时长专用接口
    * 
    * @param request - QueryPhoneNumberOnlineTimeRequest
@@ -2389,6 +2554,94 @@ export default class Client extends OpenApi {
   async queryTagListPage(request: $_model.QueryTagListPageRequest): Promise<$_model.QueryTagListPageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTagListPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询离线任务列表
+   * 
+   * @param tmpReq - QueryTaskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTaskListResponse
+   */
+  async queryTaskListWithOptions(tmpReq: $_model.QueryTaskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTaskListResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryTaskListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.result)) {
+      request.resultShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.result, "Result", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.taskType)) {
+      request.taskTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskType, "TaskType", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.resultShrink)) {
+      query["Result"] = request.resultShrink;
+    }
+
+    if (!$dara.isNull(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskTypeShrink)) {
+      query["TaskType"] = request.taskTypeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTaskList",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryTaskListResponse>(await this.callApi(params, req, runtime), new $_model.QueryTaskListResponse({}));
+  }
+
+  /**
+   * 查询离线任务列表
+   * 
+   * @param request - QueryTaskListRequest
+   * @returns QueryTaskListResponse
+   */
+  async queryTaskList(request: $_model.QueryTaskListRequest): Promise<$_model.QueryTaskListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryTaskListWithOptions(request, runtime);
   }
 
   /**
@@ -2845,6 +3098,88 @@ export default class Client extends OpenApi {
   async uAIDVerification(request: $_model.UAIDVerificationRequest): Promise<$_model.UAIDVerificationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uAIDVerificationWithOptions(request, runtime);
+  }
+
+  /**
+   * 预警联系人更新
+   * 
+   * @param request - UpdateContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContactsResponse
+   */
+  async updateContactsWithOptions(request: $_model.UpdateContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContactsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactEmail)) {
+      query["ContactEmail"] = request.contactEmail;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.contactPhone)) {
+      query["ContactPhone"] = request.contactPhone;
+    }
+
+    if (!$dara.isNull(request.mailStatus)) {
+      query["MailStatus"] = request.mailStatus;
+    }
+
+    if (!$dara.isNull(request.openStatusWarning)) {
+      query["OpenStatusWarning"] = request.openStatusWarning;
+    }
+
+    if (!$dara.isNull(request.opentAttributionWarning)) {
+      query["OpentAttributionWarning"] = request.opentAttributionWarning;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneStatus)) {
+      query["PhoneStatus"] = request.phoneStatus;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContacts",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContactsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContactsResponse({}));
+  }
+
+  /**
+   * 预警联系人更新
+   * 
+   * @param request - UpdateContactsRequest
+   * @returns UpdateContactsResponse
+   */
+  async updateContacts(request: $_model.UpdateContactsRequest): Promise<$_model.UpdateContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContactsWithOptions(request, runtime);
   }
 
 }

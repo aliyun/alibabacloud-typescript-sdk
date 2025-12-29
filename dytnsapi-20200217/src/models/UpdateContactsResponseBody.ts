@@ -2,34 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryTagInfoBySelectionResponseBodyDataParamListValueDict extends $dara.Model {
+export class UpdateContactsResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The English name.
-   * 
    * @example
-   * Aliyun
+   * OK
    */
   code?: string;
   /**
-   * @remarks
-   * The Chinese name.
-   * 
    * @example
-   * 阿里云
+   * false
    */
-  desc?: string;
+  data?: boolean;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 68A40250-50CD-034C-B728-0BD******177
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      desc: 'Desc',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      desc: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
     };
   }
 
