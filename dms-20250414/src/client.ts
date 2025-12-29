@@ -1026,6 +1026,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeCustomAgent
+   * 
+   * @param request - DescribeCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomAgentResponse
+   */
+  async describeCustomAgentWithOptions(request: $_model.DescribeCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCustomAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCustomAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCustomAgentResponse({}));
+  }
+
+  /**
+   * DescribeCustomAgent
+   * 
+   * @param request - DescribeCustomAgentRequest
+   * @returns DescribeCustomAgentResponse
+   */
+  async describeCustomAgent(request: $_model.DescribeCustomAgentRequest): Promise<$_model.DescribeCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
    * DescribeDataAgentSession
    * 
    * @param request - DescribeDataAgentSessionRequest
@@ -1685,6 +1731,68 @@ export default class Client extends OpenApi {
   async listAirflows(request: $_model.ListAirflowsRequest): Promise<$_model.ListAirflowsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAirflowsWithOptions(request, runtime);
+  }
+
+  /**
+   * ListCustomAgent
+   * 
+   * @param request - ListCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAgentResponse
+   */
+  async listCustomAgentWithOptions(request: $_model.ListCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryAllReleased)) {
+      query["QueryAllReleased"] = request.queryAllReleased;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAgentResponse({}));
+  }
+
+  /**
+   * ListCustomAgent
+   * 
+   * @param request - ListCustomAgentRequest
+   * @returns ListCustomAgentResponse
+   */
+  async listCustomAgent(request: $_model.ListCustomAgentRequest): Promise<$_model.ListCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomAgentWithOptions(request, runtime);
   }
 
   /**
