@@ -2,37 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeShardingNetworkAddressRequest extends $dara.Model {
+export class ModifyBackupExpireTimeRequest extends $dara.Model {
+  /**
+   * @example
+   * 2025-03-29T03:47:12Z
+   */
+  backupExpireTime?: string;
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * dds-bpxxxxxxxx
+   * 260032xxxx
    */
-  DBInstanceId?: string;
-  networkType?: string;
+  backupId?: string;
   /**
    * @remarks
-   * The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
-   * 
-   * >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
+   * This parameter is required.
    * 
    * @example
-   * d-bpxxxxxxxx
+   * dds-bp16cb162771****
    */
-  nodeId?: string;
+  DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      backupExpireTime: 'BackupExpireTime',
+      backupId: 'BackupId',
       DBInstanceId: 'DBInstanceId',
-      networkType: 'NetworkType',
-      nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -42,9 +42,9 @@ export class DescribeShardingNetworkAddressRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backupExpireTime: 'string',
+      backupId: 'string',
       DBInstanceId: 'string',
-      networkType: 'string',
-      nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

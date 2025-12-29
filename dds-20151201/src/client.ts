@@ -20,7 +20,7 @@ export default class Client extends OpenApi {
       'cn-wulanchabu': "mongodb.aliyuncs.com",
       'cn-hangzhou': "mongodb.aliyuncs.com",
       'cn-shanghai': "mongodb.aliyuncs.com",
-      'cn-shenzhen': "mongodb.aliyuncs.com",
+      'cn-shenzhen': "mongodb.cn-shenzhen.aliyuncs.com",
       'cn-heyuan': "mongodb.aliyuncs.com",
       'cn-guangzhou': "mongodb.cn-guangzhou.aliyuncs.com",
       'cn-chengdu': "mongodb.cn-chengdu.aliyuncs.com",
@@ -294,6 +294,64 @@ export default class Client extends OpenApi {
   async allocatePublicNetworkAddress(request: $_model.AllocatePublicNetworkAddressRequest): Promise<$_model.AllocatePublicNetworkAddressResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.allocatePublicNetworkAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CancelActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasksWithOptions(request: $_model.CancelActiveOperationTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelActiveOperationTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelActiveOperationTasks",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new $_model.CancelActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * @param request - CancelActiveOperationTasksRequest
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasks(request: $_model.CancelActiveOperationTasksRequest): Promise<$_model.CancelActiveOperationTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -1165,6 +1223,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CreateNodeRoleTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNodeRoleTagResponse
+   */
+  async createNodeRoleTagWithOptions(request: $_model.CreateNodeRoleTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNodeRoleTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.shardList)) {
+      query["ShardList"] = request.shardList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNodeRoleTag",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNodeRoleTagResponse>(await this.callApi(params, req, runtime), new $_model.CreateNodeRoleTagResponse({}));
+  }
+
+  /**
+   * @param request - CreateNodeRoleTagRequest
+   * @returns CreateNodeRoleTagResponse
+   */
+  async createNodeRoleTag(request: $_model.CreateNodeRoleTagRequest): Promise<$_model.CreateNodeRoleTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNodeRoleTagWithOptions(request, runtime);
+  }
+
+  /**
    * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
    * 
    * @remarks
@@ -1362,6 +1478,68 @@ export default class Client extends OpenApi {
   async createShardingDBInstance(request: $_model.CreateShardingDBInstanceRequest): Promise<$_model.CreateShardingDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createShardingDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除MongoDB备份集
+   * 
+   * @param request - DeleteBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackupWithOptions(request: $_model.DeleteBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBackup",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBackupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBackupResponse({}));
+  }
+
+  /**
+   * 删除MongoDB备份集
+   * 
+   * @param request - DeleteBackupRequest
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackup(request: $_model.DeleteBackupRequest): Promise<$_model.DeleteBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBackupWithOptions(request, runtime);
   }
 
   /**
@@ -2769,7 +2947,35 @@ export default class Client extends OpenApi {
    */
   async describeBackupStorageWithOptions(request: $_model.DescribeBackupStorageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupStorageResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2778,7 +2984,7 @@ export default class Client extends OpenApi {
       version: "2015-12-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -2807,7 +3013,35 @@ export default class Client extends OpenApi {
    */
   async describeBackupTasksWithOptions(request: $_model.DescribeBackupTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupTasksResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.backupJobId)) {
+      query["BackupJobId"] = request.backupJobId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2816,7 +3050,7 @@ export default class Client extends OpenApi {
       version: "2015-12-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -3053,7 +3287,39 @@ export default class Client extends OpenApi {
    */
   async describeClusterRecoverTimeWithOptions(request: $_model.DescribeClusterRecoverTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterRecoverTimeResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.destRegion)) {
+      query["DestRegion"] = request.destRegion;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.srcRegion)) {
+      query["SrcRegion"] = request.srcRegion;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3062,7 +3328,7 @@ export default class Client extends OpenApi {
       version: "2015-12-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -3338,6 +3604,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.roleId)) {
       query["RoleId"] = request.roleId;
+    }
+
+    if (!$dara.isNull(request.searchId)) {
+      query["SearchId"] = request.searchId;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -4063,7 +4333,31 @@ export default class Client extends OpenApi {
    */
   async describeGlobalSecurityIPGroupRelationWithOptions(request: $_model.DescribeGlobalSecurityIPGroupRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGlobalSecurityIPGroupRelationResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4072,7 +4366,7 @@ export default class Client extends OpenApi {
       version: "2015-12-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -4365,7 +4659,43 @@ export default class Client extends OpenApi {
    */
   async describeInstanceRecoverTimeWithOptions(request: $_model.DescribeInstanceRecoverTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceRecoverTimeResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.destRegion)) {
+      query["DestRegion"] = request.destRegion;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.srcRegion)) {
+      query["SrcRegion"] = request.srcRegion;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4374,7 +4704,7 @@ export default class Client extends OpenApi {
       version: "2015-12-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -4887,6 +5217,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeRdsVSwitchsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRdsVSwitchsResponse
+   */
+  async describeRdsVSwitchsWithOptions(request: $_model.DescribeRdsVSwitchsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRdsVSwitchsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRdsVSwitchs",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRdsVSwitchsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRdsVSwitchsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRdsVSwitchsRequest
+   * @returns DescribeRdsVSwitchsResponse
+   */
+  async describeRdsVSwitchs(request: $_model.DescribeRdsVSwitchsRequest): Promise<$_model.DescribeRdsVSwitchsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRdsVSwitchsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeRdsVpcsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRdsVpcsResponse
+   */
+  async describeRdsVpcsWithOptions(request: $_model.DescribeRdsVpcsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRdsVpcsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRdsVpcs",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRdsVpcsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRdsVpcsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRdsVpcsRequest
+   * @returns DescribeRdsVpcsResponse
+   */
+  async describeRdsVpcs(request: $_model.DescribeRdsVpcsRequest): Promise<$_model.DescribeRdsVpcsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRdsVpcsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
@@ -5158,6 +5608,60 @@ export default class Client extends OpenApi {
   async describeRestoreDBInstanceList(request: $_model.DescribeRestoreDBInstanceListRequest): Promise<$_model.DescribeRestoreDBInstanceListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRestoreDBInstanceListWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeRoleTagStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRoleTagStatusResponse
+   */
+  async describeRoleTagStatusWithOptions(request: $_model.DescribeRoleTagStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRoleTagStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRoleTagStatus",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRoleTagStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRoleTagStatusResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRoleTagStatusRequest
+   * @returns DescribeRoleTagStatusResponse
+   */
+  async describeRoleTagStatus(request: $_model.DescribeRoleTagStatusRequest): Promise<$_model.DescribeRoleTagStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRoleTagStatusWithOptions(request, runtime);
   }
 
   /**
@@ -5477,6 +5981,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
     if (!$dara.isNull(request.nodeId)) {
       query["NodeId"] = request.nodeId;
     }
@@ -5774,6 +6282,76 @@ export default class Client extends OpenApi {
   async describeUserEncryptionKeyList(request: $_model.DescribeUserEncryptionKeyListRequest): Promise<$_model.DescribeUserEncryptionKeyListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeVpcsForMongoDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcsForMongoDBResponse
+   */
+  async describeVpcsForMongoDBWithOptions(request: $_model.DescribeVpcsForMongoDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcsForMongoDBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcsForMongoDB",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcsForMongoDBResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcsForMongoDBResponse({}));
+  }
+
+  /**
+   * @param request - DescribeVpcsForMongoDBRequest
+   * @returns DescribeVpcsForMongoDBResponse
+   */
+  async describeVpcsForMongoDB(request: $_model.DescribeVpcsForMongoDBRequest): Promise<$_model.DescribeVpcsForMongoDBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcsForMongoDBWithOptions(request, runtime);
   }
 
   /**
@@ -6279,6 +6857,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ModifyActiveOperationMaintenanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationMaintenanceConfigResponse
+   */
+  async modifyActiveOperationMaintenanceConfigWithOptions(request: $_model.ModifyActiveOperationMaintenanceConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyActiveOperationMaintenanceConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cycleTime)) {
+      query["CycleTime"] = request.cycleTime;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      query["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.maintainEndTime)) {
+      query["MaintainEndTime"] = request.maintainEndTime;
+    }
+
+    if (!$dara.isNull(request.maintainStartTime)) {
+      query["MaintainStartTime"] = request.maintainStartTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyActiveOperationMaintenanceConfig",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyActiveOperationMaintenanceConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyActiveOperationMaintenanceConfigResponse({}));
+  }
+
+  /**
+   * @param request - ModifyActiveOperationMaintenanceConfigRequest
+   * @returns ModifyActiveOperationMaintenanceConfigResponse
+   */
+  async modifyActiveOperationMaintenanceConfig(request: $_model.ModifyActiveOperationMaintenanceConfigRequest): Promise<$_model.ModifyActiveOperationMaintenanceConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyActiveOperationMaintenanceConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifyActiveOperationTasksRequest
@@ -6504,6 +7152,72 @@ export default class Client extends OpenApi {
   async modifyAuditPolicy(request: $_model.ModifyAuditPolicyRequest): Promise<$_model.ModifyAuditPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAuditPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改MongoDB备份集的过期时间
+   * 
+   * @param request - ModifyBackupExpireTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBackupExpireTimeResponse
+   */
+  async modifyBackupExpireTimeWithOptions(request: $_model.ModifyBackupExpireTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBackupExpireTimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupExpireTime)) {
+      query["BackupExpireTime"] = request.backupExpireTime;
+    }
+
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBackupExpireTime",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyBackupExpireTimeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyBackupExpireTimeResponse({}));
+  }
+
+  /**
+   * 修改MongoDB备份集的过期时间
+   * 
+   * @param request - ModifyBackupExpireTimeRequest
+   * @returns ModifyBackupExpireTimeResponse
+   */
+  async modifyBackupExpireTime(request: $_model.ModifyBackupExpireTimeRequest): Promise<$_model.ModifyBackupExpireTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBackupExpireTimeWithOptions(request, runtime);
   }
 
   /**
@@ -7328,6 +8042,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.forceEncryption)) {
+      query["ForceEncryption"] = request.forceEncryption;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {

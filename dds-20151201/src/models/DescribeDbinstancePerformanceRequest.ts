@@ -83,6 +83,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
    * 6025****
    */
   roleId?: string;
+  searchId?: string;
   /**
    * @remarks
    * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
@@ -106,6 +107,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       roleId: 'RoleId',
+      searchId: 'SearchId',
       startTime: 'StartTime',
     };
   }
@@ -123,6 +125,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       roleId: 'string',
+      searchId: 'string',
       startTime: 'string',
     };
   }

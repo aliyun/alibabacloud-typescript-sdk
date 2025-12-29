@@ -2,28 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeShardingNetworkAddressRequest extends $dara.Model {
+export class DescribeRoleTagStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * dds-bpxxxxxxxx
+   * dds-wz9760547de1****
    */
   DBInstanceId?: string;
-  networkType?: string;
-  /**
-   * @remarks
-   * The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
-   * 
-   * >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
-   * 
-   * @example
-   * d-bpxxxxxxxx
-   */
-  nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -31,8 +18,6 @@ export class DescribeShardingNetworkAddressRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
-      networkType: 'NetworkType',
-      nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -43,8 +28,6 @@ export class DescribeShardingNetworkAddressRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
-      networkType: 'string',
-      nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

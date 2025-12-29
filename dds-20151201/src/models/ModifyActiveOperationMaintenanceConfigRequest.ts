@@ -2,53 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeShardingNetworkAddressRequest extends $dara.Model {
+export class ModifyActiveOperationMaintenanceConfigRequest extends $dara.Model {
   /**
-   * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * dds-bpxxxxxxxx
+   * 1,2,3
    */
-  DBInstanceId?: string;
-  networkType?: string;
+  cycleTime?: string;
   /**
-   * @remarks
-   * The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
-   * 
-   * >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
-   * 
    * @example
-   * d-bpxxxxxxxx
+   * Week
    */
-  nodeId?: string;
+  cycleType?: string;
+  /**
+   * @example
+   * 22:00Z
+   */
+  maintainEndTime?: string;
+  /**
+   * @example
+   * 21:00Z
+   */
+  maintainStartTime?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
   static names(): { [key: string]: string } {
     return {
-      DBInstanceId: 'DBInstanceId',
-      networkType: 'NetworkType',
-      nodeId: 'NodeId',
+      cycleTime: 'CycleTime',
+      cycleType: 'CycleType',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DBInstanceId: 'string',
-      networkType: 'string',
-      nodeId: 'string',
+      cycleTime: 'string',
+      cycleType: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      status: 'number',
     };
   }
 

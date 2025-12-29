@@ -2,37 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeShardingNetworkAddressRequest extends $dara.Model {
+export class DeleteBackupRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * dds-bpxxxxxxxx
+   * 5664****
    */
-  DBInstanceId?: string;
-  networkType?: string;
+  backupId?: string;
   /**
    * @remarks
-   * The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
-   * 
-   * >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
+   * This parameter is required.
    * 
    * @example
-   * d-bpxxxxxxxx
+   * dds-bp11483712c1****
    */
-  nodeId?: string;
+  DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      backupId: 'BackupId',
       DBInstanceId: 'DBInstanceId',
-      networkType: 'NetworkType',
-      nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -42,9 +36,8 @@ export class DescribeShardingNetworkAddressRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backupId: 'string',
       DBInstanceId: 'string',
-      networkType: 'string',
-      nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

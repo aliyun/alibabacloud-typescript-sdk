@@ -11,6 +11,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
    * dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com
    */
   certCommonName?: string;
+  forceEncryption?: string;
   /**
    * @remarks
    * The request ID.
@@ -41,6 +42,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       certCommonName: 'CertCommonName',
+      forceEncryption: 'ForceEncryption',
       requestId: 'RequestId',
       SSLExpiredTime: 'SSLExpiredTime',
       SSLStatus: 'SSLStatus',
@@ -50,6 +52,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       certCommonName: 'string',
+      forceEncryption: 'string',
       requestId: 'string',
       SSLExpiredTime: 'string',
       SSLStatus: 'string',

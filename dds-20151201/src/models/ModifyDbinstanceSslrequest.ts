@@ -13,6 +13,7 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
    * dds-bp2235****
    */
   DBInstanceId?: string;
+  forceEncryption?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -35,6 +36,7 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      forceEncryption: 'ForceEncryption',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -47,6 +49,7 @@ export class ModifyDBInstanceSSLRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      forceEncryption: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
