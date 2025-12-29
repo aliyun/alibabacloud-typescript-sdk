@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteThreadResponseBody extends $dara.Model {
-  deleted?: boolean;
   /**
    * @remarks
    * Id of the request
@@ -14,14 +13,12 @@ export class DeleteThreadResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      deleted: 'deleted',
       requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deleted: 'boolean',
       requestId: 'string',
     };
   }
