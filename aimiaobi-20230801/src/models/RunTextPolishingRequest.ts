@@ -14,6 +14,11 @@ export class RunTextPolishingRequest extends $dara.Model {
   originContent?: string;
   prompt?: string;
   /**
+   * @example
+   * taskld-xxxxx
+   */
+  taskId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -26,6 +31,7 @@ export class RunTextPolishingRequest extends $dara.Model {
       content: 'Content',
       originContent: 'OriginContent',
       prompt: 'Prompt',
+      taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -35,6 +41,7 @@ export class RunTextPolishingRequest extends $dara.Model {
       content: 'string',
       originContent: 'string',
       prompt: 'string',
+      taskId: 'string',
       workspaceId: 'string',
     };
   }

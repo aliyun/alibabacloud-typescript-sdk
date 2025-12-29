@@ -11305,6 +11305,10 @@ export default class Client extends OpenApi {
       body["Prompt"] = request.prompt;
     }
 
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -11359,6 +11363,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.prompt)) {
       body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
