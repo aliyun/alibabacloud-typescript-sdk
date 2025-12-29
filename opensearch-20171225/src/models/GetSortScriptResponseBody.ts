@@ -11,6 +11,7 @@ export class GetSortScriptResponseBodyResult extends $dara.Model {
    * 2020-04-02 20:21:14
    */
   createTime?: string;
+  description?: string;
   /**
    * @remarks
    * The time when the script was last modified.
@@ -54,6 +55,7 @@ export class GetSortScriptResponseBodyResult extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
+      description: 'description',
       modifyTime: 'modifyTime',
       scope: 'scope',
       scriptName: 'scriptName',
@@ -65,6 +67,7 @@ export class GetSortScriptResponseBodyResult extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      description: 'string',
       modifyTime: 'string',
       scope: 'string',
       scriptName: 'string',

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSortScriptRequest extends $dara.Model {
+  description?: string;
   /**
    * @remarks
    * The sort phase to which the script applies.
@@ -29,6 +30,7 @@ export class CreateSortScriptRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'description',
       scope: 'scope',
       scriptName: 'scriptName',
       type: 'type',
@@ -37,6 +39,7 @@ export class CreateSortScriptRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       scope: 'string',
       scriptName: 'string',
       type: 'string',

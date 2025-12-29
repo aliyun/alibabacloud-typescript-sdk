@@ -981,6 +981,10 @@ export default class Client extends OpenApi {
   async createSortScriptWithOptions(appGroupIdentity: string, appVersionId: string, request: $_model.CreateSortScriptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSortScriptResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
     if (!$dara.isNull(request.scope)) {
       body["scope"] = request.scope;
     }
@@ -5646,13 +5650,21 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation to modify the description of a sort script.
    * 
+   * @param request - UpdateSortScriptRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSortScriptResponse
    */
-  async updateSortScriptWithOptions(appGroupIdentity: string, appVersionId: string, scriptName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSortScriptResponse> {
+  async updateSortScriptWithOptions(appGroupIdentity: string, appVersionId: string, scriptName: string, request: $_model.UpdateSortScriptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSortScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateSortScript",
@@ -5673,12 +5685,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call this operation to modify the description of a sort script.
+   * 
+   * @param request - UpdateSortScriptRequest
    * @returns UpdateSortScriptResponse
    */
-  async updateSortScript(appGroupIdentity: string, appVersionId: string, scriptName: string): Promise<$_model.UpdateSortScriptResponse> {
+  async updateSortScript(appGroupIdentity: string, appVersionId: string, scriptName: string, request: $_model.UpdateSortScriptRequest): Promise<$_model.UpdateSortScriptResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateSortScriptWithOptions(appGroupIdentity, appVersionId, scriptName, headers, runtime);
+    return await this.updateSortScriptWithOptions(appGroupIdentity, appVersionId, scriptName, request, headers, runtime);
   }
 
   /**

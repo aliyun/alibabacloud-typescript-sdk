@@ -185,6 +185,7 @@ export { ModifyFirstRankResponseBodyResult } from './ModifyFirstRankResponseBody
 export { ModifyQueryProcessorResponseBodyResult } from './ModifyQueryProcessorResponseBody';
 export { ModifySecondRankResponseBodyResult } from './ModifySecondRankResponseBody';
 export { PushUserAnalyzerEntriesRequestEntries } from './PushUserAnalyzerEntriesRequest';
+export { ReleaseSortScriptResponseBodyResult } from './ReleaseSortScriptResponseBody';
 export { RemoveFirstRankResponseBodyResultMeta } from './RemoveFirstRankResponseBody';
 export { RemoveFirstRankResponseBodyResult } from './RemoveFirstRankResponseBody';
 export { RemoveInterventionDictionaryResponseBodyResult } from './RemoveInterventionDictionaryResponseBody';
@@ -547,6 +548,7 @@ export { UpdateFunctionResourceResponse } from './UpdateFunctionResourceResponse
 export { UpdateSearchStrategyRequest } from './UpdateSearchStrategyRequest';
 export { UpdateSearchStrategyResponseBody } from './UpdateSearchStrategyResponseBody';
 export { UpdateSearchStrategyResponse } from './UpdateSearchStrategyResponse';
+export { UpdateSortScriptRequest } from './UpdateSortScriptRequest';
 export { UpdateSortScriptResponseBody } from './UpdateSortScriptResponseBody';
 export { UpdateSortScriptResponse } from './UpdateSortScriptResponse';
 export { UpdateSummariesRequest } from './UpdateSummariesRequest';
