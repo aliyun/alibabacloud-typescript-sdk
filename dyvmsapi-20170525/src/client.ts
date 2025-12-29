@@ -1556,6 +1556,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询服务实例列表
+   * 
+   * @param tmpReq - ListServiceInstanceForPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceInstanceForPageResponse
+   */
+  async listServiceInstanceForPageWithOptions(tmpReq: $_model.ListServiceInstanceForPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceInstanceForPageResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListServiceInstanceForPageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.pager)) {
+      request.pagerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pager, "Pager", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pagerShrink)) {
+      query["Pager"] = request.pagerShrink;
+    }
+
+    if (!$dara.isNull(request.relationNumber)) {
+      query["RelationNumber"] = request.relationNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.usageId)) {
+      query["UsageId"] = request.usageId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceInstanceForPage",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServiceInstanceForPageResponse>(await this.callApi(params, req, runtime), new $_model.ListServiceInstanceForPageResponse({}));
+  }
+
+  /**
+   * 分页查询服务实例列表
+   * 
+   * @param request - ListServiceInstanceForPageRequest
+   * @returns ListServiceInstanceForPageResponse
+   */
+  async listServiceInstanceForPage(request: $_model.ListServiceInstanceForPageRequest): Promise<$_model.ListServiceInstanceForPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceInstanceForPageWithOptions(request, runtime);
+  }
+
+  /**
    * PauseVideoFile
    * 
    * @param request - PauseVideoFileRequest
