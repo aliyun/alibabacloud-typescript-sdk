@@ -28,6 +28,7 @@ export class ListPrivateTTSVoicesCustomResponseBodyDataData extends $dara.Model 
    * Optional for WH managernif no issue will be cancel
    */
   description?: string;
+  errorCode?: string;
   /**
    * @example
    * Error
@@ -81,6 +82,7 @@ export class ListPrivateTTSVoicesCustomResponseBodyDataData extends $dara.Model 
       common: 'common',
       createTime: 'createTime',
       description: 'description',
+      errorCode: 'errorCode',
       errorDetail: 'errorDetail',
       gender: 'gender',
       id: 'id',
@@ -101,6 +103,7 @@ export class ListPrivateTTSVoicesCustomResponseBodyDataData extends $dara.Model 
       common: 'boolean',
       createTime: 'string',
       description: 'string',
+      errorCode: 'string',
       errorDetail: 'string',
       gender: 'string',
       id: 'string',

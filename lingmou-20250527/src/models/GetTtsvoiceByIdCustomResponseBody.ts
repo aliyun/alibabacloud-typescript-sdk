@@ -28,6 +28,7 @@ export class GetTTSVoiceByIdCustomResponseBodyData extends $dara.Model {
    * This is a testTTSVoice。
    */
   description?: string;
+  errorCode?: string;
   errorDetail?: string;
   /**
    * @example
@@ -73,6 +74,7 @@ export class GetTTSVoiceByIdCustomResponseBodyData extends $dara.Model {
       common: 'common',
       createTime: 'createTime',
       description: 'description',
+      errorCode: 'errorCode',
       errorDetail: 'errorDetail',
       gender: 'gender',
       id: 'id',
@@ -93,6 +95,7 @@ export class GetTTSVoiceByIdCustomResponseBodyData extends $dara.Model {
       common: 'boolean',
       createTime: 'string',
       description: 'string',
+      errorCode: 'string',
       errorDetail: 'string',
       gender: 'string',
       id: 'string',
