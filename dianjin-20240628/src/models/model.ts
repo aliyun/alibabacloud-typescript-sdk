@@ -177,6 +177,10 @@ export { CreateVideoCreationTaskHeaders } from './CreateVideoCreationTaskHeaders
 export { CreateVideoCreationTaskRequest } from './CreateVideoCreationTaskRequest';
 export { CreateVideoCreationTaskResponseBody } from './CreateVideoCreationTaskResponseBody';
 export { CreateVideoCreationTaskResponse } from './CreateVideoCreationTaskResponse';
+export { DashscopeAsyncTaskFinishEventHeaders } from './DashscopeAsyncTaskFinishEventHeaders';
+export { DashscopeAsyncTaskFinishEventRequest } from './DashscopeAsyncTaskFinishEventRequest';
+export { DashscopeAsyncTaskFinishEventResponseBody } from './DashscopeAsyncTaskFinishEventResponseBody';
+export { DashscopeAsyncTaskFinishEventResponse } from './DashscopeAsyncTaskFinishEventResponse';
 export { DeleteDocumentRequest } from './DeleteDocumentRequest';
 export { DeleteDocumentResponseBody } from './DeleteDocumentResponseBody';
 export { DeleteDocumentResponse } from './DeleteDocumentResponse';

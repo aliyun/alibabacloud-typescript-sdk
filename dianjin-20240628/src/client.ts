@@ -809,6 +809,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Dashscope异步任务完成事件处理
+   * 
+   * @param request - DashscopeAsyncTaskFinishEventRequest
+   * @param headers - DashscopeAsyncTaskFinishEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DashscopeAsyncTaskFinishEventResponse
+   */
+  async dashscopeAsyncTaskFinishEventWithOptions(workspaceId: string, request: $_model.DashscopeAsyncTaskFinishEventRequest, headers: $_model.DashscopeAsyncTaskFinishEventHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DashscopeAsyncTaskFinishEventResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DashscopeAsyncTaskFinishEvent",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/event/dashscopeAsyncTaskFinish`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DashscopeAsyncTaskFinishEventResponse>(await this.callApi(params, req, runtime), new $_model.DashscopeAsyncTaskFinishEventResponse({}));
+  }
+
+  /**
+   * Dashscope异步任务完成事件处理
+   * 
+   * @param request - DashscopeAsyncTaskFinishEventRequest
+   * @returns DashscopeAsyncTaskFinishEventResponse
+   */
+  async dashscopeAsyncTaskFinishEvent(workspaceId: string, request: $_model.DashscopeAsyncTaskFinishEventRequest): Promise<$_model.DashscopeAsyncTaskFinishEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DashscopeAsyncTaskFinishEventHeaders({ });
+    return await this.dashscopeAsyncTaskFinishEventWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 删除文档
    * 
    * @param request - DeleteDocumentRequest
