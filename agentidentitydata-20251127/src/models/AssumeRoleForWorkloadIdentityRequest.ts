@@ -7,7 +7,7 @@ export class AssumeRoleForWorkloadIdentityRequest extends $dara.Model {
    * @example
    * 3600
    */
-  durationSeconds?: string;
+  durationSeconds?: number;
   /**
    * @example
    * {"Statement": [{"Action": ["*"],"Effect": "Allow","Resource": ["*"]}],"Version":"1"}
@@ -34,7 +34,7 @@ export class AssumeRoleForWorkloadIdentityRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      durationSeconds: 'string',
+      durationSeconds: 'number',
       policy: 'string',
       roleSessionName: 'string',
       workloadAccessToken: 'string',
