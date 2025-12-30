@@ -1070,6 +1070,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于删除特定域名的serverHold状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+   * 
+   * @param request - AddRspDomainServerHoldStatusForGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRspDomainServerHoldStatusForGatewayResponse
+   */
+  async addRspDomainServerHoldStatusForGatewayWithOptions(request: $_model.AddRspDomainServerHoldStatusForGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddRspDomainServerHoldStatusForGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.statusMsg)) {
+      query["StatusMsg"] = request.statusMsg;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddRspDomainServerHoldStatusForGateway",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddRspDomainServerHoldStatusForGatewayResponse>(await this.callApi(params, req, runtime), new $_model.AddRspDomainServerHoldStatusForGatewayResponse({}));
+  }
+
+  /**
+   * 用于删除特定域名的serverHold状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+   * 
+   * @param request - AddRspDomainServerHoldStatusForGatewayRequest
+   * @returns AddRspDomainServerHoldStatusForGatewayResponse
+   */
+  async addRspDomainServerHoldStatusForGateway(request: $_model.AddRspDomainServerHoldStatusForGatewayRequest): Promise<$_model.AddRspDomainServerHoldStatusForGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addRspDomainServerHoldStatusForGatewayWithOptions(request, runtime);
+  }
+
+  /**
    * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
    * 
    * @remarks
