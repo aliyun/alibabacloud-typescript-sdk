@@ -30,6 +30,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改资源所属资源组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/resourcegroup`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 修改资源所属资源组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.changeResourceGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Install the access component, representing a single access attempt
    * 
    * @remarks
@@ -4018,6 +4071,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查标签接口
+   * 
+   * @param tmpReq - ListTagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(tmpReq: $_model.ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListTagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "resourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["resourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
+  }
+
+  /**
+   * 查标签接口
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 列出会话
    * 
    * @param tmpReq - ListThreadsRequest
@@ -4202,6 +4326,126 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putWorkspaceWithOptions(workspaceName, request, headers, runtime);
+  }
+
+  /**
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删标签接口
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(tmpReq: $_model.UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UntagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "resourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagKey)) {
+      request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "tagKey", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["all"] = request.all;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["resourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeyShrink)) {
+      query["tagKey"] = request.tagKeyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * 删标签接口
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   /**
