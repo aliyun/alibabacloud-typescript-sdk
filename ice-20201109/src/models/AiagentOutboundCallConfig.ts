@@ -214,20 +214,90 @@ export class AIAgentOutboundCallConfigAutoSpeechConfig extends $dara.Model {
   }
 }
 
-export class AIAgentOutboundCallConfigInterruptConfig extends $dara.Model {
-  enableVoiceInterrupt?: boolean;
-  interruptWords?: string[];
+export class AIAgentOutboundCallConfigBackChannelingConfigWords extends $dara.Model {
+  probability?: number;
+  text?: string;
   static names(): { [key: string]: string } {
     return {
-      enableVoiceInterrupt: 'EnableVoiceInterrupt',
-      interruptWords: 'InterruptWords',
+      probability: 'Probability',
+      text: 'Text',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentOutboundCallConfigBackChannelingConfig extends $dara.Model {
+  enabled?: boolean;
+  probability?: number;
+  triggerStage?: string;
+  words?: AIAgentOutboundCallConfigBackChannelingConfigWords;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      probability: 'Probability',
+      triggerStage: 'TriggerStage',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      probability: 'number',
+      triggerStage: 'string',
+      words: AIAgentOutboundCallConfigBackChannelingConfigWords,
+    };
+  }
+
+  validate() {
+    if(this.words && typeof (this.words as any).validate === 'function') {
+      (this.words as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentOutboundCallConfigInterruptConfig extends $dara.Model {
+  /**
+   * @deprecated
+   */
+  eagerness?: string;
+  enableVoiceInterrupt?: boolean;
+  interruptWords?: string[];
+  noInterruptMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eagerness: 'Eagerness',
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      interruptWords: 'InterruptWords',
+      noInterruptMode: 'NoInterruptMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eagerness: 'string',
       enableVoiceInterrupt: 'boolean',
       interruptWords: { 'type': 'array', 'itemType': 'string' },
+      noInterruptMode: 'string',
     };
   }
 
@@ -428,11 +498,13 @@ export class AIAgentOutboundCallConfigTtsConfig extends $dara.Model {
 }
 
 export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
+  eagerness?: string;
   mode?: string;
   semanticWaitDuration?: number;
   turnEndWords?: string[];
   static names(): { [key: string]: string } {
     return {
+      eagerness: 'Eagerness',
       mode: 'Mode',
       semanticWaitDuration: 'SemanticWaitDuration',
       turnEndWords: 'TurnEndWords',
@@ -441,6 +513,7 @@ export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eagerness: 'string',
       mode: 'string',
       semanticWaitDuration: 'number',
       turnEndWords: { 'type': 'array', 'itemType': 'string' },
@@ -463,6 +536,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   ambientSoundConfig?: AIAgentOutboundCallConfigAmbientSoundConfig;
   asrConfig?: AIAgentOutboundCallConfigAsrConfig;
   autoSpeechConfig?: AIAgentOutboundCallConfigAutoSpeechConfig;
+  backChannelingConfig?: AIAgentOutboundCallConfigBackChannelingConfig;
   enableIntelligentSegment?: boolean;
   experimentalConfig?: string;
   greeting?: string;
@@ -477,6 +551,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
       ambientSoundConfig: 'AmbientSoundConfig',
       asrConfig: 'AsrConfig',
       autoSpeechConfig: 'AutoSpeechConfig',
+      backChannelingConfig: 'BackChannelingConfig',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       experimentalConfig: 'ExperimentalConfig',
       greeting: 'Greeting',
@@ -494,6 +569,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
       ambientSoundConfig: AIAgentOutboundCallConfigAmbientSoundConfig,
       asrConfig: AIAgentOutboundCallConfigAsrConfig,
       autoSpeechConfig: AIAgentOutboundCallConfigAutoSpeechConfig,
+      backChannelingConfig: AIAgentOutboundCallConfigBackChannelingConfig,
       enableIntelligentSegment: 'boolean',
       experimentalConfig: 'string',
       greeting: 'string',
@@ -515,6 +591,9 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
     }
     if(this.autoSpeechConfig && typeof (this.autoSpeechConfig as any).validate === 'function') {
       (this.autoSpeechConfig as any).validate();
+    }
+    if(this.backChannelingConfig && typeof (this.backChannelingConfig as any).validate === 'function') {
+      (this.backChannelingConfig as any).validate();
     }
     if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
       (this.interruptConfig as any).validate();

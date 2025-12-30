@@ -239,13 +239,76 @@ export class AIAgentConfigAvatarConfig extends $dara.Model {
   }
 }
 
+export class AIAgentConfigBackChannelingConfigWords extends $dara.Model {
+  probability?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigBackChannelingConfig extends $dara.Model {
+  enabled?: boolean;
+  probability?: number;
+  triggerStage?: string;
+  words?: AIAgentConfigBackChannelingConfigWords[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      probability: 'Probability',
+      triggerStage: 'TriggerStage',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      probability: 'number',
+      triggerStage: 'string',
+      words: { 'type': 'array', 'itemType': AIAgentConfigBackChannelingConfigWords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.words)) {
+      $dara.Model.validateArray(this.words);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentConfigInterruptConfig extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   interruptWords?: string[];
+  noInterruptMode?: string;
   static names(): { [key: string]: string } {
     return {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       interruptWords: 'InterruptWords',
+      noInterruptMode: 'NoInterruptMode',
     };
   }
 
@@ -253,6 +316,7 @@ export class AIAgentConfigInterruptConfig extends $dara.Model {
     return {
       enableVoiceInterrupt: 'boolean',
       interruptWords: { 'type': 'array', 'itemType': 'string' },
+      noInterruptMode: 'string',
     };
   }
 
@@ -453,11 +517,13 @@ export class AIAgentConfigTtsConfig extends $dara.Model {
 }
 
 export class AIAgentConfigTurnDetectionConfig extends $dara.Model {
+  eagerness?: string;
   mode?: string;
   semanticWaitDuration?: number;
   turnEndWords?: string[];
   static names(): { [key: string]: string } {
     return {
+      eagerness: 'Eagerness',
       mode: 'Mode',
       semanticWaitDuration: 'SemanticWaitDuration',
       turnEndWords: 'TurnEndWords',
@@ -466,6 +532,7 @@ export class AIAgentConfigTurnDetectionConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eagerness: 'string',
       mode: 'string',
       semanticWaitDuration: 'number',
       turnEndWords: { 'type': 'array', 'itemType': 'string' },
@@ -717,6 +784,7 @@ export class AIAgentConfig extends $dara.Model {
   avatarConfig?: AIAgentConfigAvatarConfig;
   avatarUrl?: string;
   avatarUrlType?: string;
+  backChannelingConfig?: AIAgentConfigBackChannelingConfig[];
   enableIntelligentSegment?: boolean;
   enablePushToTalk?: boolean;
   experimentalConfig?: string;
@@ -742,6 +810,7 @@ export class AIAgentConfig extends $dara.Model {
       avatarConfig: 'AvatarConfig',
       avatarUrl: 'AvatarUrl',
       avatarUrlType: 'AvatarUrlType',
+      backChannelingConfig: 'BackChannelingConfig',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       enablePushToTalk: 'EnablePushToTalk',
       experimentalConfig: 'ExperimentalConfig',
@@ -770,6 +839,7 @@ export class AIAgentConfig extends $dara.Model {
       avatarConfig: AIAgentConfigAvatarConfig,
       avatarUrl: 'string',
       avatarUrlType: 'string',
+      backChannelingConfig: { 'type': 'array', 'itemType': AIAgentConfigBackChannelingConfig },
       enableIntelligentSegment: 'boolean',
       enablePushToTalk: 'boolean',
       experimentalConfig: 'string',
@@ -802,6 +872,9 @@ export class AIAgentConfig extends $dara.Model {
     }
     if(this.avatarConfig && typeof (this.avatarConfig as any).validate === 'function') {
       (this.avatarConfig as any).validate();
+    }
+    if(Array.isArray(this.backChannelingConfig)) {
+      $dara.Model.validateArray(this.backChannelingConfig);
     }
     if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
       (this.interruptConfig as any).validate();

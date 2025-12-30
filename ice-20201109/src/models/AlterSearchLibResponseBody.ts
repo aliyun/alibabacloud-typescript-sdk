@@ -2,29 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSearchLibRequest extends $dara.Model {
-  searchLibConfig?: string;
+export class AlterSearchLibResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The name of the search library. The name can contain letters and digits and must start with a letter.
-   * 
-   * This parameter is required.
-   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
    * @example
    * test1
    */
   searchLibName?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
   static names(): { [key: string]: string } {
     return {
-      searchLibConfig: 'SearchLibConfig',
+      code: 'Code',
+      requestId: 'RequestId',
       searchLibName: 'SearchLibName',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      searchLibConfig: 'string',
+      code: 'string',
+      requestId: 'string',
       searchLibName: 'string',
+      success: 'string',
     };
   }
 

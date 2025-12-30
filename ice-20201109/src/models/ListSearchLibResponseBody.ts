@@ -45,6 +45,7 @@ export class ListSearchLibResponseBodySearchLibInfoListIndexInfo extends $dara.M
 
 export class ListSearchLibResponseBodySearchLibInfoList extends $dara.Model {
   indexInfo?: ListSearchLibResponseBodySearchLibInfoListIndexInfo[];
+  searchLibConfig?: string;
   /**
    * @remarks
    * The search library.
@@ -68,6 +69,7 @@ export class ListSearchLibResponseBodySearchLibInfoList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       indexInfo: 'IndexInfo',
+      searchLibConfig: 'SearchLibConfig',
       searchLibName: 'SearchLibName',
       status: 'Status',
     };
@@ -76,6 +78,7 @@ export class ListSearchLibResponseBodySearchLibInfoList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       indexInfo: { 'type': 'array', 'itemType': ListSearchLibResponseBodySearchLibInfoListIndexInfo },
+      searchLibConfig: 'string',
       searchLibName: 'string',
       status: 'string',
     };

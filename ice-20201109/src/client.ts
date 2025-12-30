@@ -814,6 +814,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改库
+   * 
+   * @param request - AlterSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterSearchLibResponse
+   */
+  async alterSearchLibWithOptions(request: $_model.AlterSearchLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AlterSearchLibResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.searchLibConfig)) {
+      query["SearchLibConfig"] = request.searchLibConfig;
+    }
+
+    if (!$dara.isNull(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AlterSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AlterSearchLibResponse>(await this.callApi(params, req, runtime), new $_model.AlterSearchLibResponse({}));
+  }
+
+  /**
+   * 修改库
+   * 
+   * @param request - AlterSearchLibRequest
+   * @returns AlterSearchLibResponse
+   */
+  async alterSearchLib(request: $_model.AlterSearchLibRequest): Promise<$_model.AlterSearchLibResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.alterSearchLibWithOptions(request, runtime);
+  }
+
+  /**
    * Ingests multiple assets for VOD packaging.
    * 
    * @param tmpReq - BatchCreateVodPackagingAssetRequest
@@ -2881,6 +2927,10 @@ export default class Client extends OpenApi {
   async createSearchLibWithOptions(request: $_model.CreateSearchLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSearchLibResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.searchLibConfig)) {
+      query["SearchLibConfig"] = request.searchLibConfig;
+    }
+
     if (!$dara.isNull(request.searchLibName)) {
       query["SearchLibName"] = request.searchLibName;
     }

@@ -49,6 +49,7 @@ export class QuerySearchLibResponseBody extends $dara.Model {
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  searchLibConfig?: string;
   /**
    * @remarks
    * The name of the search library.
@@ -87,6 +88,7 @@ export class QuerySearchLibResponseBody extends $dara.Model {
       code: 'Code',
       indexInfo: 'IndexInfo',
       requestId: 'RequestId',
+      searchLibConfig: 'SearchLibConfig',
       searchLibName: 'SearchLibName',
       status: 'Status',
       success: 'Success',
@@ -98,6 +100,7 @@ export class QuerySearchLibResponseBody extends $dara.Model {
       code: 'string',
       indexInfo: { 'type': 'array', 'itemType': QuerySearchLibResponseBodyIndexInfo },
       requestId: 'string',
+      searchLibConfig: 'string',
       searchLibName: 'string',
       status: 'string',
       success: 'string',

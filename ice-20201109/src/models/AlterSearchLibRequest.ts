@@ -2,12 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSearchLibRequest extends $dara.Model {
+export class AlterSearchLibRequest extends $dara.Model {
+  /**
+   * @example
+   * {"faceGroupIds":"xxx1,xxx2,xx3"}
+   */
   searchLibConfig?: string;
   /**
    * @remarks
-   * The name of the search library. The name can contain letters and digits and must start with a letter.
-   * 
    * This parameter is required.
    * 
    * @example
