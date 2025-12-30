@@ -940,6 +940,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建业务指标
+   * 
+   * @param tmpReq - CreateBizMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBizMetricResponse
+   */
+  async createBizMetricWithOptions(tmpReq: $_model.CreateBizMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBizMetricResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateBizMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createBizMetricCommand)) {
+      request.createBizMetricCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createBizMetricCommand, "CreateBizMetricCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createBizMetricCommandShrink)) {
+      body["CreateBizMetricCommand"] = request.createBizMetricCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBizMetric",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBizMetricResponse>(await this.callApi(params, req, runtime), new $_model.CreateBizMetricResponse({}));
+  }
+
+  /**
+   * 新建业务指标
+   * 
+   * @param request - CreateBizMetricRequest
+   * @returns CreateBizMetricResponse
+   */
+  async createBizMetric(request: $_model.CreateBizMetricRequest): Promise<$_model.CreateBizMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBizMetricWithOptions(request, runtime);
+  }
+
+  /**
    * 创建数据板块。
    * 
    * @param tmpReq - CreateBizUnitRequest
@@ -1925,6 +1979,60 @@ export default class Client extends OpenApi {
   async deleteBizEntity(request: $_model.DeleteBizEntityRequest): Promise<$_model.DeleteBizEntityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBizEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除业务指标
+   * 
+   * @param tmpReq - DeleteBizMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBizMetricResponse
+   */
+  async deleteBizMetricWithOptions(tmpReq: $_model.DeleteBizMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBizMetricResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteBizMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteBizMetricCommand)) {
+      request.deleteBizMetricCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteBizMetricCommand, "DeleteBizMetricCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteBizMetricCommandShrink)) {
+      body["DeleteBizMetricCommand"] = request.deleteBizMetricCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBizMetric",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBizMetricResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBizMetricResponse({}));
+  }
+
+  /**
+   * 删除业务指标
+   * 
+   * @param request - DeleteBizMetricRequest
+   * @returns DeleteBizMetricResponse
+   */
+  async deleteBizMetric(request: $_model.DeleteBizMetricRequest): Promise<$_model.DeleteBizMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBizMetricWithOptions(request, runtime);
   }
 
   /**
@@ -3184,6 +3292,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询业务指标详情
+   * 
+   * @param tmpReq - GetBizMetricByNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBizMetricByNameResponse
+   */
+  async getBizMetricByNameWithOptions(tmpReq: $_model.GetBizMetricByNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBizMetricByNameResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetBizMetricByNameShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizMetricByNameQuery)) {
+      request.bizMetricByNameQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizMetricByNameQuery, "BizMetricByNameQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizMetricByNameQueryShrink)) {
+      body["BizMetricByNameQuery"] = request.bizMetricByNameQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBizMetricByName",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBizMetricByNameResponse>(await this.callApi(params, req, runtime), new $_model.GetBizMetricByNameResponse({}));
+  }
+
+  /**
+   * 查询业务指标详情
+   * 
+   * @param request - GetBizMetricByNameRequest
+   * @returns GetBizMetricByNameResponse
+   */
+  async getBizMetricByName(request: $_model.GetBizMetricByNameRequest): Promise<$_model.GetBizMetricByNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBizMetricByNameWithOptions(request, runtime);
+  }
+
+  /**
    * 获取数据板块详情。
    * 
    * @param request - GetBizUnitInfoRequest
@@ -3227,6 +3389,52 @@ export default class Client extends OpenApi {
   async getBizUnitInfo(request: $_model.GetBizUnitInfoRequest): Promise<$_model.GetBizUnitInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getBizUnitInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据源连通性检查任务。
+   * 
+   * @param request - GetCheckConnectivityJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCheckConnectivityJobsResponse
+   */
+  async getCheckConnectivityJobsWithOptions(request: $_model.GetCheckConnectivityJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCheckConnectivityJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCheckConnectivityJobs",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCheckConnectivityJobsResponse>(await this.callApi(params, req, runtime), new $_model.GetCheckConnectivityJobsResponse({}));
+  }
+
+  /**
+   * 查询数据源连通性检查任务。
+   * 
+   * @param request - GetCheckConnectivityJobsRequest
+   * @returns GetCheckConnectivityJobsResponse
+   */
+  async getCheckConnectivityJobs(request: $_model.GetCheckConnectivityJobsRequest): Promise<$_model.GetCheckConnectivityJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCheckConnectivityJobsWithOptions(request, runtime);
   }
 
   /**
@@ -9365,6 +9573,60 @@ export default class Client extends OpenApi {
   async updateBizEntity(request: $_model.UpdateBizEntityRequest): Promise<$_model.UpdateBizEntityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateBizEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新业务指标
+   * 
+   * @param tmpReq - UpdateBizMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBizMetricResponse
+   */
+  async updateBizMetricWithOptions(tmpReq: $_model.UpdateBizMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBizMetricResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateBizMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateBizMetricCommand)) {
+      request.updateBizMetricCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateBizMetricCommand, "UpdateBizMetricCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateBizMetricCommandShrink)) {
+      body["UpdateBizMetricCommand"] = request.updateBizMetricCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBizMetric",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBizMetricResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBizMetricResponse({}));
+  }
+
+  /**
+   * 更新业务指标
+   * 
+   * @param request - UpdateBizMetricRequest
+   * @returns UpdateBizMetricResponse
+   */
+  async updateBizMetric(request: $_model.UpdateBizMetricRequest): Promise<$_model.UpdateBizMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBizMetricWithOptions(request, runtime);
   }
 
   /**
