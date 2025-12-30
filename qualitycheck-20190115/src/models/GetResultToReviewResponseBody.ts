@@ -536,6 +536,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
 }
 
 export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo extends $dara.Model {
+  comment?: string;
   /**
    * @example
    * 013c68142fec4f0899fa6ee0exxx
@@ -564,6 +565,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
   sentenceReviewResults?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults;
   static names(): { [key: string]: string } {
     return {
+      comment: 'Comment',
       hitId: 'HitId',
       reviewResult: 'ReviewResult',
       reviewTime: 'ReviewTime',
@@ -575,6 +577,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
 
   static types(): { [key: string]: any } {
     return {
+      comment: 'string',
       hitId: 'string',
       reviewResult: 'number',
       reviewTime: 'string',
