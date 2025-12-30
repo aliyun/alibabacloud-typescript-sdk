@@ -44,6 +44,47 @@ export class UpdateResolverRuleRequestForwardIp extends $dara.Model {
   }
 }
 
+export class UpdateResolverRuleRequestPriorityForwardConfigs extends $dara.Model {
+  alidnsServiceAddresses?: string[];
+  customAddresses?: string[];
+  enableStatus?: string;
+  priority?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alidnsServiceAddresses: 'AlidnsServiceAddresses',
+      customAddresses: 'CustomAddresses',
+      enableStatus: 'EnableStatus',
+      priority: 'Priority',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alidnsServiceAddresses: { 'type': 'array', 'itemType': 'string' },
+      customAddresses: { 'type': 'array', 'itemType': 'string' },
+      enableStatus: 'string',
+      priority: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.alidnsServiceAddresses)) {
+      $dara.Model.validateArray(this.alidnsServiceAddresses);
+    }
+    if(Array.isArray(this.customAddresses)) {
+      $dara.Model.validateArray(this.customAddresses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateResolverRuleRequest extends $dara.Model {
   /**
    * @remarks
@@ -81,6 +122,7 @@ export class UpdateResolverRuleRequest extends $dara.Model {
    * forward rule-test
    */
   name?: string;
+  priorityForwardConfigs?: UpdateResolverRuleRequestPriorityForwardConfigs[];
   /**
    * @remarks
    * The ID of the forwarding rule.
@@ -97,6 +139,7 @@ export class UpdateResolverRuleRequest extends $dara.Model {
       forwardIp: 'ForwardIp',
       lang: 'Lang',
       name: 'Name',
+      priorityForwardConfigs: 'PriorityForwardConfigs',
       ruleId: 'RuleId',
     };
   }
@@ -107,6 +150,7 @@ export class UpdateResolverRuleRequest extends $dara.Model {
       forwardIp: { 'type': 'array', 'itemType': UpdateResolverRuleRequestForwardIp },
       lang: 'string',
       name: 'string',
+      priorityForwardConfigs: { 'type': 'array', 'itemType': UpdateResolverRuleRequestPriorityForwardConfigs },
       ruleId: 'string',
     };
   }
@@ -114,6 +158,9 @@ export class UpdateResolverRuleRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.forwardIp)) {
       $dara.Model.validateArray(this.forwardIp);
+    }
+    if(Array.isArray(this.priorityForwardConfigs)) {
+      $dara.Model.validateArray(this.priorityForwardConfigs);
     }
     super.validate();
   }

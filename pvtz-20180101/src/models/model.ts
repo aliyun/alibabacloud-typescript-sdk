@@ -23,6 +23,7 @@ export { DescribeResolverRuleResponseBodyForwardIps } from './DescribeResolverRu
 export { DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters } from './DescribeResolverRulesResponseBody';
 export { DescribeResolverRulesResponseBodyRulesBindVpcs } from './DescribeResolverRulesResponseBody';
 export { DescribeResolverRulesResponseBodyRulesForwardIps } from './DescribeResolverRulesResponseBody';
+export { DescribeResolverRulesResponseBodyRulesPriorityForwardConfigs } from './DescribeResolverRulesResponseBody';
 export { DescribeResolverRulesResponseBodyRules } from './DescribeResolverRulesResponseBody';
 export { DescribeStatisticSummaryResponseBodyVpcRequestTopsVpcRequestTop } from './DescribeStatisticSummaryResponseBody';
 export { DescribeStatisticSummaryResponseBodyVpcRequestTops } from './DescribeStatisticSummaryResponseBody';
@@ -57,6 +58,7 @@ export { SearchCustomLinesResponseBodyCustomLines } from './SearchCustomLinesRes
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { UpdateResolverEndpointRequestIpConfig } from './UpdateResolverEndpointRequest';
 export { UpdateResolverRuleRequestForwardIp } from './UpdateResolverRuleRequest';
+export { UpdateResolverRuleRequestPriorityForwardConfigs } from './UpdateResolverRuleRequest';
 export { UpdateSyncEcsHostTaskRequestRegion } from './UpdateSyncEcsHostTaskRequest';
 export { AddCustomLineRequest } from './AddCustomLineRequest';
 export { AddCustomLineResponseBody } from './AddCustomLineResponseBody';

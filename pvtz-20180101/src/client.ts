@@ -2749,6 +2749,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.priorityForwardConfigs)) {
+      query["PriorityForwardConfigs"] = request.priorityForwardConfigs;
+    }
+
     if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }

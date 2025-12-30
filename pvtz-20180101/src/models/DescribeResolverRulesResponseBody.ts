@@ -154,6 +154,47 @@ export class DescribeResolverRulesResponseBodyRulesForwardIps extends $dara.Mode
   }
 }
 
+export class DescribeResolverRulesResponseBodyRulesPriorityForwardConfigs extends $dara.Model {
+  alidnsServiceAddresses?: string[];
+  customAddresses?: string[];
+  enableStatus?: string;
+  priority?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alidnsServiceAddresses: 'AlidnsServiceAddresses',
+      customAddresses: 'CustomAddresses',
+      enableStatus: 'EnableStatus',
+      priority: 'Priority',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alidnsServiceAddresses: { 'type': 'array', 'itemType': 'string' },
+      customAddresses: { 'type': 'array', 'itemType': 'string' },
+      enableStatus: 'string',
+      priority: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.alidnsServiceAddresses)) {
+      $dara.Model.validateArray(this.alidnsServiceAddresses);
+    }
+    if(Array.isArray(this.customAddresses)) {
+      $dara.Model.validateArray(this.customAddresses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   bindEdgeDnsClusters?: DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters[];
   /**
@@ -214,6 +255,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
    * forward rule-test
    */
   name?: string;
+  priorityForwardConfigs?: DescribeResolverRulesResponseBodyRulesPriorityForwardConfigs[];
   /**
    * @remarks
    * The type of the forwarding rule.
@@ -259,6 +301,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
       forwardIps: 'ForwardIps',
       id: 'Id',
       name: 'Name',
+      priorityForwardConfigs: 'PriorityForwardConfigs',
       type: 'Type',
       updateTime: 'UpdateTime',
       updateTimestamp: 'UpdateTimestamp',
@@ -277,6 +320,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
       forwardIps: { 'type': 'array', 'itemType': DescribeResolverRulesResponseBodyRulesForwardIps },
       id: 'string',
       name: 'string',
+      priorityForwardConfigs: { 'type': 'array', 'itemType': DescribeResolverRulesResponseBodyRulesPriorityForwardConfigs },
       type: 'string',
       updateTime: 'string',
       updateTimestamp: 'number',
@@ -293,6 +337,9 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
     }
     if(Array.isArray(this.forwardIps)) {
       $dara.Model.validateArray(this.forwardIps);
+    }
+    if(Array.isArray(this.priorityForwardConfigs)) {
+      $dara.Model.validateArray(this.priorityForwardConfigs);
     }
     super.validate();
   }
