@@ -221,6 +221,7 @@ export { ListOfficeSiteOverviewResponseBodyOfficeSiteOverviewResults } from './L
 export { ListOfficeSiteUsersResponseBodyUsers } from './ListOfficeSiteUsersResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ListTransferFileDownloadUrlResponseBodyUrls } from './ListTransferFileDownloadUrlResponseBody';
 export { ListTransferFilesResponseBodyFiles } from './ListTransferFilesResponseBody';
 export { ListUserAdOrganizationUnitsResponseBodyOUNames } from './ListUserAdOrganizationUnitsResponseBody';
 export { ModifyCenterPolicyRequestAuthorizeAccessPolicyRule } from './ModifyCenterPolicyRequest';
@@ -847,6 +848,9 @@ export { ListOfficeSiteUsersResponse } from './ListOfficeSiteUsersResponse';
 export { ListTagResourcesRequest } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBody } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponse } from './ListTagResourcesResponse';
+export { ListTransferFileDownloadUrlRequest } from './ListTransferFileDownloadUrlRequest';
+export { ListTransferFileDownloadUrlResponseBody } from './ListTransferFileDownloadUrlResponseBody';
+export { ListTransferFileDownloadUrlResponse } from './ListTransferFileDownloadUrlResponse';
 export { ListTransferFilesRequest } from './ListTransferFilesRequest';
 export { ListTransferFilesResponseBody } from './ListTransferFilesResponseBody';
 export { ListTransferFilesResponse } from './ListTransferFilesResponse';

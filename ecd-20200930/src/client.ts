@@ -13619,6 +13619,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文件列表
+   * 
+   * @param request - ListTransferFileDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTransferFileDownloadUrlResponse
+   */
+  async listTransferFileDownloadUrlWithOptions(request: $_model.ListTransferFileDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTransferFileDownloadUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileIds)) {
+      query["FileIds"] = request.fileIds;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTransferFileDownloadUrl",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTransferFileDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.ListTransferFileDownloadUrlResponse({}));
+  }
+
+  /**
+   * 获取文件列表
+   * 
+   * @param request - ListTransferFileDownloadUrlRequest
+   * @returns ListTransferFileDownloadUrlResponse
+   */
+  async listTransferFileDownloadUrl(request: $_model.ListTransferFileDownloadUrlRequest): Promise<$_model.ListTransferFileDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTransferFileDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the file information of a file transmission task.
    * 
    * @param request - ListTransferFilesRequest
