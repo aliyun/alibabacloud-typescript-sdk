@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitIntentionForPartnerResponseBody extends $dara.Model {
   errorMsg?: string;
+  extInfo?: string;
   /**
    * @example
    * I20211223101045000001
@@ -25,6 +26,7 @@ export class SubmitIntentionForPartnerResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       errorMsg: 'ErrorMsg',
+      extInfo: 'ExtInfo',
       intentionBizId: 'IntentionBizId',
       requestId: 'RequestId',
       success: 'Success',
@@ -34,6 +36,7 @@ export class SubmitIntentionForPartnerResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       errorMsg: 'string',
+      extInfo: 'string',
       intentionBizId: 'string',
       requestId: 'string',
       success: 'boolean',
