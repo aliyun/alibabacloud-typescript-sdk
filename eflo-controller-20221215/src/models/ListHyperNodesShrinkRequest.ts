@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListHyperNodesRequestTags extends $dara.Model {
+export class ListHyperNodesShrinkRequestTags extends $dara.Model {
   /**
    * @example
    * alarm_xdc
@@ -36,7 +36,7 @@ export class ListHyperNodesRequestTags extends $dara.Model {
   }
 }
 
-export class ListHyperNodesRequest extends $dara.Model {
+export class ListHyperNodesShrinkRequest extends $dara.Model {
   /**
    * @example
    * Standard_Cluster
@@ -73,13 +73,13 @@ export class ListHyperNodesRequest extends $dara.Model {
    * emr-default
    */
   nodeGroupName?: string;
-  operatingStates?: string[];
+  operatingStatesShrink?: string;
   /**
    * @example
    * rg-acfmwfm33rlt6zi
    */
   resourceGroupId?: string;
-  tags?: ListHyperNodesRequestTags[];
+  tags?: ListHyperNodesShrinkRequestTags[];
   /**
    * @example
    * cn-hangzhou-i
@@ -95,7 +95,7 @@ export class ListHyperNodesRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       nodeGroupName: 'NodeGroupName',
-      operatingStates: 'OperatingStates',
+      operatingStatesShrink: 'OperatingStates',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       zoneId: 'ZoneId',
@@ -112,17 +112,14 @@ export class ListHyperNodesRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       nodeGroupName: 'string',
-      operatingStates: { 'type': 'array', 'itemType': 'string' },
+      operatingStatesShrink: 'string',
       resourceGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': ListHyperNodesRequestTags },
+      tags: { 'type': 'array', 'itemType': ListHyperNodesShrinkRequestTags },
       zoneId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.operatingStates)) {
-      $dara.Model.validateArray(this.operatingStates);
-    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

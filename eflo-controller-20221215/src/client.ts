@@ -1968,12 +1968,27 @@ export default class Client extends OpenApi {
   /**
    * 机器列表
    * 
-   * @param request - ListHyperNodesRequest
+   * @param tmpReq - ListHyperNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHyperNodesResponse
    */
-  async listHyperNodesWithOptions(request: $_model.ListHyperNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHyperNodesResponse> {
-    request.validate();
+  async listHyperNodesWithOptions(tmpReq: $_model.ListHyperNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHyperNodesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListHyperNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.operatingStates)) {
+      request.operatingStatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operatingStates, "OperatingStates", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.operatingStatesShrink)) {
+      query["OperatingStates"] = request.operatingStatesShrink;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clusterName)) {
       body["ClusterName"] = request.clusterName;
@@ -2016,6 +2031,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
