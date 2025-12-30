@@ -65,6 +65,7 @@ export class CreateNodesShrinkRequest extends $dara.Model {
    * demo
    */
   hostnameSuffix?: string;
+  hostnamesShrink?: string;
   /**
    * @remarks
    * Specifies whether to enable deletion protection for the added compute nodes.
@@ -114,6 +115,7 @@ export class CreateNodesShrinkRequest extends $dara.Model {
       HPCInterConnect: 'HPCInterConnect',
       hostnamePrefix: 'HostnamePrefix',
       hostnameSuffix: 'HostnameSuffix',
+      hostnamesShrink: 'Hostnames',
       keepAlive: 'KeepAlive',
       queueName: 'QueueName',
       ramRole: 'RamRole',
@@ -131,6 +133,7 @@ export class CreateNodesShrinkRequest extends $dara.Model {
       HPCInterConnect: 'string',
       hostnamePrefix: 'string',
       hostnameSuffix: 'string',
+      hostnamesShrink: 'string',
       keepAlive: 'string',
       queueName: 'string',
       ramRole: 'string',

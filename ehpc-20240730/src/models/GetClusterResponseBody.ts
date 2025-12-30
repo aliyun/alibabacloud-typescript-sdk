@@ -481,6 +481,7 @@ export class GetClusterResponseBodyMonitorSpec extends $dara.Model {
 }
 
 export class GetClusterResponseBodySchedulerSpec extends $dara.Model {
+  enablePowerSaving?: boolean;
   /**
    * @remarks
    * Indicates whether the topology awareness feature is enabled for the cluster. Valid values:
@@ -494,12 +495,14 @@ export class GetClusterResponseBodySchedulerSpec extends $dara.Model {
   enableTopologyAwareness?: boolean;
   static names(): { [key: string]: string } {
     return {
+      enablePowerSaving: 'EnablePowerSaving',
       enableTopologyAwareness: 'EnableTopologyAwareness',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enablePowerSaving: 'boolean',
       enableTopologyAwareness: 'boolean',
     };
   }

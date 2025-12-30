@@ -66,6 +66,7 @@ export class CreateNodesRequest extends $dara.Model {
    * demo
    */
   hostnameSuffix?: string;
+  hostnames?: string[];
   /**
    * @remarks
    * Specifies whether to enable deletion protection for the added compute nodes.
@@ -115,6 +116,7 @@ export class CreateNodesRequest extends $dara.Model {
       HPCInterConnect: 'HPCInterConnect',
       hostnamePrefix: 'HostnamePrefix',
       hostnameSuffix: 'HostnameSuffix',
+      hostnames: 'Hostnames',
       keepAlive: 'KeepAlive',
       queueName: 'QueueName',
       ramRole: 'RamRole',
@@ -132,6 +134,7 @@ export class CreateNodesRequest extends $dara.Model {
       HPCInterConnect: 'string',
       hostnamePrefix: 'string',
       hostnameSuffix: 'string',
+      hostnames: { 'type': 'array', 'itemType': 'string' },
       keepAlive: 'string',
       queueName: 'string',
       ramRole: 'string',
@@ -143,6 +146,9 @@ export class CreateNodesRequest extends $dara.Model {
   validate() {
     if(this.computeNode && typeof (this.computeNode as any).validate === 'function') {
       (this.computeNode as any).validate();
+    }
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
     }
     super.validate();
   }

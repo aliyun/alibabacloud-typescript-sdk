@@ -415,6 +415,10 @@ export default class Client extends OpenApi {
       request.computeNodeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.computeNode, "ComputeNode", "json");
     }
 
+    if (!$dara.isNull(tmpReq.hostnames)) {
+      request.hostnamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hostnames, "Hostnames", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
@@ -442,6 +446,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.hostnameSuffix)) {
       query["HostnameSuffix"] = request.hostnameSuffix;
+    }
+
+    if (!$dara.isNull(request.hostnamesShrink)) {
+      query["Hostnames"] = request.hostnamesShrink;
     }
 
     if (!$dara.isNull(request.keepAlive)) {
