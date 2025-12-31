@@ -2715,6 +2715,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 预警联系人保存
+   * 
+   * @param request - SaveContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveContactsResponse
+   */
+  async saveContactsWithOptions(request: $_model.SaveContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveContactsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.contactEmail)) {
+      query["ContactEmail"] = request.contactEmail;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.contactPhone)) {
+      query["ContactPhone"] = request.contactPhone;
+    }
+
+    if (!$dara.isNull(request.mailStatus)) {
+      query["MailStatus"] = request.mailStatus;
+    }
+
+    if (!$dara.isNull(request.openStatusWarning)) {
+      query["OpenStatusWarning"] = request.openStatusWarning;
+    }
+
+    if (!$dara.isNull(request.opentAttributionWarning)) {
+      query["OpentAttributionWarning"] = request.opentAttributionWarning;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneStatus)) {
+      query["PhoneStatus"] = request.phoneStatus;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveContacts",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveContactsResponse>(await this.callApi(params, req, runtime), new $_model.SaveContactsResponse({}));
+  }
+
+  /**
+   * 预警联系人保存
+   * 
+   * @param request - SaveContactsRequest
+   * @returns SaveContactsResponse
+   */
+  async saveContacts(request: $_model.SaveContactsRequest): Promise<$_model.SaveContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveContactsWithOptions(request, runtime);
+  }
+
+  /**
    * Verifies whether the name, phone number, and ID card number entered by a user belong to the same user.
    * 
    * @remarks
