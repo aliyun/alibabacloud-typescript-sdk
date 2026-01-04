@@ -2,7 +2,16 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListProjectsResponseBodyListProject extends $dara.Model {
+export class ListSubscriptionsResponseBodyListSubscription extends $dara.Model {
+  /**
+   * @example
+   * test_application_name
+   */
+  application?: string;
+  /**
+   * @example
+   * test_comment
+   */
   comment?: string;
   /**
    * @example
@@ -16,9 +25,29 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   creator?: string;
   /**
    * @example
-   * poc_test
+   * test_project
    */
   projectName?: string;
+  /**
+   * @example
+   * 1
+   */
+  state?: number;
+  /**
+   * @example
+   * 1745824636429WZ2EE
+   */
+  subscriptionId?: string;
+  /**
+   * @example
+   * test_topic
+   */
+  topicName?: string;
+  /**
+   * @example
+   * USER
+   */
+  type?: string;
   /**
    * @example
    * 1708171905000
@@ -26,20 +55,30 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      application: 'Application',
       comment: 'Comment',
       createTime: 'CreateTime',
       creator: 'Creator',
       projectName: 'ProjectName',
+      state: 'State',
+      subscriptionId: 'SubscriptionId',
+      topicName: 'TopicName',
+      type: 'Type',
       updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      application: 'string',
       comment: 'string',
       createTime: 'number',
       creator: 'string',
       projectName: 'string',
+      state: 'number',
+      subscriptionId: 'string',
+      topicName: 'string',
+      type: 'string',
       updateTime: 'number',
     };
   }
@@ -53,23 +92,23 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   }
 }
 
-export class ListProjectsResponseBodyList extends $dara.Model {
-  project?: ListProjectsResponseBodyListProject[];
+export class ListSubscriptionsResponseBodyList extends $dara.Model {
+  subscription?: ListSubscriptionsResponseBodyListSubscription[];
   static names(): { [key: string]: string } {
     return {
-      project: 'Project',
+      subscription: 'Subscription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      project: { 'type': 'array', 'itemType': ListProjectsResponseBodyListProject },
+      subscription: { 'type': 'array', 'itemType': ListSubscriptionsResponseBodyListSubscription },
     };
   }
 
   validate() {
-    if(Array.isArray(this.project)) {
-      $dara.Model.validateArray(this.project);
+    if(Array.isArray(this.subscription)) {
+      $dara.Model.validateArray(this.subscription);
     }
     super.validate();
   }
@@ -79,11 +118,11 @@ export class ListProjectsResponseBodyList extends $dara.Model {
   }
 }
 
-export class ListProjectsResponseBody extends $dara.Model {
-  list?: ListProjectsResponseBodyList;
+export class ListSubscriptionsResponseBody extends $dara.Model {
+  list?: ListSubscriptionsResponseBodyList;
   /**
    * @example
-   * 1
+   * 20
    */
   maxResults?: number;
   /**
@@ -93,7 +132,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @example
-   * 20250401102332e68e3d0b04ab4904
+   * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
@@ -119,7 +158,7 @@ export class ListProjectsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      list: ListProjectsResponseBodyList,
+      list: ListSubscriptionsResponseBodyList,
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',

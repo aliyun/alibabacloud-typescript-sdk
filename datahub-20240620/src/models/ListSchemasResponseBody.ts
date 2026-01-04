@@ -2,8 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListProjectsResponseBodyListProject extends $dara.Model {
-  comment?: string;
+export class ListSchemasResponseBodyList extends $dara.Model {
   /**
    * @example
    * 1708171905000
@@ -16,31 +15,43 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   creator?: string;
   /**
    * @example
-   * poc_test
+   * test_project
    */
   projectName?: string;
   /**
    * @example
-   * 1708171905000
+   * [{\\"Type\\":\\"STRING\\",\\"AllowNull\\":true,\\"Name\\":\\"context\\"}]
    */
-  updateTime?: number;
+  recordSchema?: string;
+  /**
+   * @example
+   * test_topic
+   */
+  topicName?: string;
+  /**
+   * @example
+   * 0
+   */
+  versionId?: number;
   static names(): { [key: string]: string } {
     return {
-      comment: 'Comment',
       createTime: 'CreateTime',
       creator: 'Creator',
       projectName: 'ProjectName',
-      updateTime: 'UpdateTime',
+      recordSchema: 'RecordSchema',
+      topicName: 'TopicName',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      comment: 'string',
       createTime: 'number',
       creator: 'string',
       projectName: 'string',
-      updateTime: 'number',
+      recordSchema: 'string',
+      topicName: 'string',
+      versionId: 'number',
     };
   }
 
@@ -53,37 +64,11 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   }
 }
 
-export class ListProjectsResponseBodyList extends $dara.Model {
-  project?: ListProjectsResponseBodyListProject[];
-  static names(): { [key: string]: string } {
-    return {
-      project: 'Project',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      project: { 'type': 'array', 'itemType': ListProjectsResponseBodyListProject },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.project)) {
-      $dara.Model.validateArray(this.project);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectsResponseBody extends $dara.Model {
-  list?: ListProjectsResponseBodyList;
+export class ListSchemasResponseBody extends $dara.Model {
+  list?: ListSchemasResponseBodyList[];
   /**
    * @example
-   * 1
+   * 20
    */
   maxResults?: number;
   /**
@@ -119,7 +104,7 @@ export class ListProjectsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      list: ListProjectsResponseBodyList,
+      list: { 'type': 'array', 'itemType': ListSchemasResponseBodyList },
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
@@ -129,8 +114,8 @@ export class ListProjectsResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.list && typeof (this.list as any).validate === 'function') {
-      (this.list as any).validate();
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
     }
     super.validate();
   }

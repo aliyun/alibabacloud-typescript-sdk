@@ -2,7 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListProjectsResponseBodyListProject extends $dara.Model {
+export class ListGroupsResponseBodyList extends $dara.Model {
+  /**
+   * @example
+   * test_comment
+   */
   comment?: string;
   /**
    * @example
@@ -11,14 +15,20 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   createTime?: number;
   /**
    * @example
-   * 1048133943212399
+   * 276887103073464052
    */
   creator?: string;
   /**
    * @example
-   * poc_test
+   * test_group
+   */
+  groupName?: string;
+  /**
+   * @example
+   * test_project
    */
   projectName?: string;
+  topicList?: string[];
   /**
    * @example
    * 1708171905000
@@ -29,7 +39,9 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
       comment: 'Comment',
       createTime: 'CreateTime',
       creator: 'Creator',
+      groupName: 'GroupName',
       projectName: 'ProjectName',
+      topicList: 'TopicList',
       updateTime: 'UpdateTime',
     };
   }
@@ -39,37 +51,16 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
       comment: 'string',
       createTime: 'number',
       creator: 'string',
+      groupName: 'string',
       projectName: 'string',
+      topicList: { 'type': 'array', 'itemType': 'string' },
       updateTime: 'number',
     };
   }
 
   validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectsResponseBodyList extends $dara.Model {
-  project?: ListProjectsResponseBodyListProject[];
-  static names(): { [key: string]: string } {
-    return {
-      project: 'Project',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      project: { 'type': 'array', 'itemType': ListProjectsResponseBodyListProject },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.project)) {
-      $dara.Model.validateArray(this.project);
+    if(Array.isArray(this.topicList)) {
+      $dara.Model.validateArray(this.topicList);
     }
     super.validate();
   }
@@ -79,11 +70,11 @@ export class ListProjectsResponseBodyList extends $dara.Model {
   }
 }
 
-export class ListProjectsResponseBody extends $dara.Model {
-  list?: ListProjectsResponseBodyList;
+export class ListGroupsResponseBody extends $dara.Model {
+  list?: ListGroupsResponseBodyList[];
   /**
    * @example
-   * 1
+   * 5
    */
   maxResults?: number;
   /**
@@ -93,7 +84,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @example
-   * 20250401102332e68e3d0b04ab4904
+   * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
@@ -119,7 +110,7 @@ export class ListProjectsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      list: ListProjectsResponseBodyList,
+      list: { 'type': 'array', 'itemType': ListGroupsResponseBodyList },
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
@@ -129,8 +120,8 @@ export class ListProjectsResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.list && typeof (this.list as any).validate === 'function') {
-      (this.list as any).validate();
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
     }
     super.validate();
   }

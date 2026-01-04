@@ -2,18 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListProjectsResponseBodyListProject extends $dara.Model {
+export class ListTopicsResponseBodyListTopic extends $dara.Model {
   comment?: string;
   /**
    * @example
-   * 1708171905000
+   * 1753346106000
    */
   createTime?: number;
   /**
    * @example
-   * 1048133943212399
+   * 276887103073464052
    */
   creator?: string;
+  /**
+   * @example
+   * false
+   */
+  enableSchemaRegistry?: string;
+  /**
+   * @example
+   * true
+   */
+  expandMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  lifecycle?: number;
   /**
    * @example
    * poc_test
@@ -21,7 +36,32 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   projectName?: string;
   /**
    * @example
-   * 1708171905000
+   * [{\\"Type\\":\\"STRING\\",\\"AllowNull\\":true,\\"Name\\":\\"str\\"},{\\"Type\\":\\"STRING\\",\\"AllowNull\\":true,\\"Name\\":\\"dt\\"}]
+   */
+  recordSchema?: string;
+  /**
+   * @example
+   * TUPLE
+   */
+  recordType?: string;
+  /**
+   * @example
+   * 1
+   */
+  shardCount?: number;
+  /**
+   * @example
+   * 10000
+   */
+  storage?: number;
+  /**
+   * @example
+   * ods_bio_safety_env_disinfection
+   */
+  topicName?: string;
+  /**
+   * @example
+   * 1753346106000
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -29,7 +69,15 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
       comment: 'Comment',
       createTime: 'CreateTime',
       creator: 'Creator',
+      enableSchemaRegistry: 'EnableSchemaRegistry',
+      expandMode: 'ExpandMode',
+      lifecycle: 'Lifecycle',
       projectName: 'ProjectName',
+      recordSchema: 'RecordSchema',
+      recordType: 'RecordType',
+      shardCount: 'ShardCount',
+      storage: 'Storage',
+      topicName: 'TopicName',
       updateTime: 'UpdateTime',
     };
   }
@@ -39,7 +87,15 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
       comment: 'string',
       createTime: 'number',
       creator: 'string',
+      enableSchemaRegistry: 'string',
+      expandMode: 'string',
+      lifecycle: 'number',
       projectName: 'string',
+      recordSchema: 'string',
+      recordType: 'string',
+      shardCount: 'number',
+      storage: 'number',
+      topicName: 'string',
       updateTime: 'number',
     };
   }
@@ -53,23 +109,23 @@ export class ListProjectsResponseBodyListProject extends $dara.Model {
   }
 }
 
-export class ListProjectsResponseBodyList extends $dara.Model {
-  project?: ListProjectsResponseBodyListProject[];
+export class ListTopicsResponseBodyList extends $dara.Model {
+  topic?: ListTopicsResponseBodyListTopic[];
   static names(): { [key: string]: string } {
     return {
-      project: 'Project',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      project: { 'type': 'array', 'itemType': ListProjectsResponseBodyListProject },
+      topic: { 'type': 'array', 'itemType': ListTopicsResponseBodyListTopic },
     };
   }
 
   validate() {
-    if(Array.isArray(this.project)) {
-      $dara.Model.validateArray(this.project);
+    if(Array.isArray(this.topic)) {
+      $dara.Model.validateArray(this.topic);
     }
     super.validate();
   }
@@ -79,8 +135,8 @@ export class ListProjectsResponseBodyList extends $dara.Model {
   }
 }
 
-export class ListProjectsResponseBody extends $dara.Model {
-  list?: ListProjectsResponseBodyList;
+export class ListTopicsResponseBody extends $dara.Model {
+  list?: ListTopicsResponseBodyList;
   /**
    * @example
    * 1
@@ -93,7 +149,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @example
-   * 20250401102332e68e3d0b04ab4904
+   * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
@@ -119,7 +175,7 @@ export class ListProjectsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      list: ListProjectsResponseBodyList,
+      list: ListTopicsResponseBodyList,
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
