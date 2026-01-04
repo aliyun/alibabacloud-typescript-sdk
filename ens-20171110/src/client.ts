@@ -12014,6 +12014,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询可用的组件列表
+   * 
+   * @param request - ListAddonsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAddonsResponse
+   */
+  async listAddonsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListAddonsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAddons",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAddonsResponse>(await this.callApi(params, req, runtime), new $_model.ListAddonsResponse({}));
+  }
+
+  /**
+   * 查询可用的组件列表
+   * @returns ListAddonsResponse
+   */
+  async listAddons(): Promise<$_model.ListAddonsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAddonsWithOptions(runtime);
+  }
+
+  /**
    * Queries the created applications.
    * 
    * @param request - ListApplicationsRequest
@@ -12131,6 +12163,48 @@ export default class Client extends OpenApi {
   async listBuckets(request: $_model.ListBucketsRequest): Promise<$_model.ListBucketsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBucketsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询集群已安装的组件实例列表
+   * 
+   * @param request - ListClusterAddonInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterAddonInstancesResponse
+   */
+  async listClusterAddonInstancesWithOptions(request: $_model.ListClusterAddonInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterAddonInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListClusterAddonInstances",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListClusterAddonInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListClusterAddonInstancesResponse({}));
+  }
+
+  /**
+   * 查询集群已安装的组件实例列表
+   * 
+   * @param request - ListClusterAddonInstancesRequest
+   * @returns ListClusterAddonInstancesResponse
+   */
+  async listClusterAddonInstances(request: $_model.ListClusterAddonInstancesRequest): Promise<$_model.ListClusterAddonInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listClusterAddonInstancesWithOptions(request, runtime);
   }
 
   /**
