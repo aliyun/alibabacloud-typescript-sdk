@@ -7103,6 +7103,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create Route Target Group
+   * 
+   * @remarks
+   * - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
+   *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
+   *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has been created.
+   * - **Active-Standby Mode**: When creating a route target group, you need to configure primary and standby instances that are located in different availability zones and have the same type.
+   * - **Primary Instance**: The weight is 100. Under normal circumstances, it carries all traffic and takes effect when the health check is normal.
+   * - **Standby Instance**: The weight is 0. It takes over the traffic after the primary instance fails, serving as a disaster recovery backup.
+   * 
+   * @param request - CreateRouteTargetGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRouteTargetGroupResponse
+   */
+  async createRouteTargetGroupWithOptions(request: $_model.CreateRouteTargetGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRouteTargetGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configMode)) {
+      query["ConfigMode"] = request.configMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupDescription)) {
+      query["RouteTargetGroupDescription"] = request.routeTargetGroupDescription;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupName)) {
+      query["RouteTargetGroupName"] = request.routeTargetGroupName;
+    }
+
+    if (!$dara.isNull(request.routeTargetMemberList)) {
+      query["RouteTargetMemberList"] = request.routeTargetMemberList;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRouteTargetGroup",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRouteTargetGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateRouteTargetGroupResponse({}));
+  }
+
+  /**
+   * Create Route Target Group
+   * 
+   * @remarks
+   * - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
+   *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
+   *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has been created.
+   * - **Active-Standby Mode**: When creating a route target group, you need to configure primary and standby instances that are located in different availability zones and have the same type.
+   * - **Primary Instance**: The weight is 100. Under normal circumstances, it carries all traffic and takes effect when the health check is normal.
+   * - **Standby Instance**: The weight is 0. It takes over the traffic after the primary instance fails, serving as a disaster recovery backup.
+   * 
+   * @param request - CreateRouteTargetGroupRequest
+   * @returns CreateRouteTargetGroupResponse
+   */
+  async createRouteTargetGroup(request: $_model.CreateRouteTargetGroupRequest): Promise<$_model.CreateRouteTargetGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRouteTargetGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a router interface.
    * 
    * @remarks
@@ -12482,6 +12572,70 @@ export default class Client extends OpenApi {
   async deleteRouteTable(request: $_model.DeleteRouteTableRequest): Promise<$_model.DeleteRouteTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRouteTableWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Route Target Group
+   * 
+   * @remarks
+   * - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+   *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
+   *     - If you cannot find the specified route target group, it means the route target group has been successfully deleted.
+   * 
+   * @param request - DeleteRouteTargetGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRouteTargetGroupResponse
+   */
+  async deleteRouteTargetGroupWithOptions(request: $_model.DeleteRouteTargetGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRouteTargetGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupId)) {
+      query["RouteTargetGroupId"] = request.routeTargetGroupId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRouteTargetGroup",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRouteTargetGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRouteTargetGroupResponse({}));
+  }
+
+  /**
+   * Delete Route Target Group
+   * 
+   * @remarks
+   * - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+   *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
+   *     - If you cannot find the specified route target group, it means the route target group has been successfully deleted.
+   * 
+   * @param request - DeleteRouteTargetGroupRequest
+   * @returns DeleteRouteTargetGroupResponse
+   */
+  async deleteRouteTargetGroup(request: $_model.DeleteRouteTargetGroupRequest): Promise<$_model.DeleteRouteTargetGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRouteTargetGroupWithOptions(request, runtime);
   }
 
   /**
@@ -21811,6 +21965,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get the route target group
+   * 
+   * @remarks
+   * Get the information of the route target group instance.
+   * 
+   * @param request - GetRouteTargetGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRouteTargetGroupResponse
+   */
+  async getRouteTargetGroupWithOptions(request: $_model.GetRouteTargetGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRouteTargetGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupId)) {
+      query["RouteTargetGroupId"] = request.routeTargetGroupId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRouteTargetGroup",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRouteTargetGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetRouteTargetGroupResponse({}));
+  }
+
+  /**
+   * Get the route target group
+   * 
+   * @remarks
+   * Get the information of the route target group instance.
+   * 
+   * @param request - GetRouteTargetGroupRequest
+   * @returns GetRouteTargetGroupResponse
+   */
+  async getRouteTargetGroup(request: $_model.GetRouteTargetGroupRequest): Promise<$_model.GetRouteTargetGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRouteTargetGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the status of the traffic mirror feature.
    * 
    * @param request - GetTrafficMirrorServiceStatusRequest
@@ -23648,6 +23862,86 @@ export default class Client extends OpenApi {
   async listPublicIpAddressPools(request: $_model.ListPublicIpAddressPoolsRequest): Promise<$_model.ListPublicIpAddressPoolsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPublicIpAddressPoolsWithOptions(request, runtime);
+  }
+
+  /**
+   * Batch query for route target groups
+   * 
+   * @remarks
+   * Lists the route target groups.
+   * 
+   * @param request - ListRouteTargetGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRouteTargetGroupsResponse
+   */
+  async listRouteTargetGroupsWithOptions(request: $_model.ListRouteTargetGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRouteTargetGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupIds)) {
+      query["RouteTargetGroupIds"] = request.routeTargetGroupIds;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRouteTargetGroups",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRouteTargetGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListRouteTargetGroupsResponse({}));
+  }
+
+  /**
+   * Batch query for route target groups
+   * 
+   * @remarks
+   * Lists the route target groups.
+   * 
+   * @param request - ListRouteTargetGroupsRequest
+   * @returns ListRouteTargetGroupsResponse
+   */
+  async listRouteTargetGroups(request: $_model.ListRouteTargetGroupsRequest): Promise<$_model.ListRouteTargetGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRouteTargetGroupsWithOptions(request, runtime);
   }
 
   /**
@@ -31523,6 +31817,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Switch Active and Standby For RouteTargetGroup.
+   * 
+   * @remarks
+   * Switch Active and Standby For RouteTargetGroup.
+   * 
+   * @param request - SwitchActiveRouteTargetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchActiveRouteTargetResponse
+   */
+  async switchActiveRouteTargetWithOptions(request: $_model.SwitchActiveRouteTargetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SwitchActiveRouteTargetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupId)) {
+      query["RouteTargetGroupId"] = request.routeTargetGroupId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SwitchActiveRouteTarget",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SwitchActiveRouteTargetResponse>(await this.callApi(params, req, runtime), new $_model.SwitchActiveRouteTargetResponse({}));
+  }
+
+  /**
+   * Switch Active and Standby For RouteTargetGroup.
+   * 
+   * @remarks
+   * Switch Active and Standby For RouteTargetGroup.
+   * 
+   * @param request - SwitchActiveRouteTargetRequest
+   * @returns SwitchActiveRouteTargetResponse
+   */
+  async switchActiveRouteTarget(request: $_model.SwitchActiveRouteTargetRequest): Promise<$_model.SwitchActiveRouteTargetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.switchActiveRouteTargetWithOptions(request, runtime);
+  }
+
+  /**
    * Creates and adds tags to resources.
    * 
    * @remarks
@@ -33409,6 +33763,78 @@ export default class Client extends OpenApi {
   async updatePublicIpAddressPoolAttribute(request: $_model.UpdatePublicIpAddressPoolAttributeRequest): Promise<$_model.UpdatePublicIpAddressPoolAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePublicIpAddressPoolAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Update Route Target Group
+   * 
+   * @remarks
+   * - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
+   *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
+   *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has completed its update.
+   * 
+   * @param request - UpdateRouteTargetGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRouteTargetGroupResponse
+   */
+  async updateRouteTargetGroupWithOptions(request: $_model.UpdateRouteTargetGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRouteTargetGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupDescription)) {
+      query["RouteTargetGroupDescription"] = request.routeTargetGroupDescription;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupId)) {
+      query["RouteTargetGroupId"] = request.routeTargetGroupId;
+    }
+
+    if (!$dara.isNull(request.routeTargetGroupName)) {
+      query["RouteTargetGroupName"] = request.routeTargetGroupName;
+    }
+
+    if (!$dara.isNull(request.routeTargetMemberList)) {
+      query["RouteTargetMemberList"] = request.routeTargetMemberList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRouteTargetGroup",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRouteTargetGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRouteTargetGroupResponse({}));
+  }
+
+  /**
+   * Update Route Target Group
+   * 
+   * @remarks
+   * - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
+   *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
+   *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has completed its update.
+   * 
+   * @param request - UpdateRouteTargetGroupRequest
+   * @returns UpdateRouteTargetGroupResponse
+   */
+  async updateRouteTargetGroup(request: $_model.UpdateRouteTargetGroupRequest): Promise<$_model.UpdateRouteTargetGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRouteTargetGroupWithOptions(request, runtime);
   }
 
   /**
