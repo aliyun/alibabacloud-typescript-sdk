@@ -264,8 +264,6 @@ export class CreateListenerShrinkRequest extends $dara.Model {
    * >  *   If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
    * >  *   If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
    * 
-   * This parameter is required.
-   * 
    * @example
    * sgp-ppdpc14gdm3x4o****
    */
