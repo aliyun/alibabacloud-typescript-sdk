@@ -15,6 +15,11 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    */
   apiInvokeStatus?: string;
   /**
+   * @example
+   * user_custom
+   */
+  applicationCreationType?: string;
+  /**
    * @remarks
    * The ID of the application.
    * 
@@ -143,6 +148,11 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    */
   resourceServerIdentifier?: string;
   /**
+   * @example
+   * urn:cloud:idaas:resourceserver:source:custom
+   */
+  resourceServerSourceType?: string;
+  /**
    * @remarks
    * Resource server status.
    * 
@@ -191,6 +201,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiInvokeStatus: 'ApiInvokeStatus',
+      applicationCreationType: 'ApplicationCreationType',
       applicationId: 'ApplicationId',
       applicationName: 'ApplicationName',
       applicationSourceType: 'ApplicationSourceType',
@@ -207,6 +218,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       m2MClientStatus: 'M2MClientStatus',
       managedServiceCode: 'ManagedServiceCode',
       resourceServerIdentifier: 'ResourceServerIdentifier',
+      resourceServerSourceType: 'ResourceServerSourceType',
       resourceServerStatus: 'ResourceServerStatus',
       serviceManaged: 'ServiceManaged',
       ssoType: 'SsoType',
@@ -218,6 +230,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiInvokeStatus: 'string',
+      applicationCreationType: 'string',
       applicationId: 'string',
       applicationName: 'string',
       applicationSourceType: 'string',
@@ -234,6 +247,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       m2MClientStatus: 'string',
       managedServiceCode: 'string',
       resourceServerIdentifier: 'string',
+      resourceServerSourceType: 'string',
       resourceServerStatus: 'string',
       serviceManaged: 'boolean',
       ssoType: 'string',

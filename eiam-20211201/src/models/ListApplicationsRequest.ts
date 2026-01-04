@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApplicationsRequest extends $dara.Model {
   /**
+   * @example
+   * system_init
+   */
+  applicationCreationType?: string;
+  /**
    * @remarks
    * The IDs of the applications.
    * 
@@ -100,6 +105,7 @@ export class ListApplicationsRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationCreationType: 'ApplicationCreationType',
       applicationIds: 'ApplicationIds',
       applicationName: 'ApplicationName',
       authorizationType: 'AuthorizationType',
@@ -115,6 +121,7 @@ export class ListApplicationsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationCreationType: 'string',
       applicationIds: { 'type': 'array', 'itemType': 'string' },
       applicationName: 'string',
       authorizationType: 'string',

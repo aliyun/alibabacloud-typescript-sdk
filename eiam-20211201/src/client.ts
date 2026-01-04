@@ -6161,6 +6161,10 @@ export default class Client extends OpenApi {
   async listApplicationsWithOptions(request: $_model.ListApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.applicationCreationType)) {
+      query["ApplicationCreationType"] = request.applicationCreationType;
+    }
+
     if (!$dara.isNull(request.applicationIds)) {
       query["ApplicationIds"] = request.applicationIds;
     }

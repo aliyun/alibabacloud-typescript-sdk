@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApplicationsResponseBodyApplications extends $dara.Model {
   /**
+   * @example
+   * user_created
+   */
+  applicationCreationType?: string;
+  /**
    * @remarks
    * The ID of the application.
    * 
@@ -103,6 +108,21 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
    */
   managedServiceCode?: string;
   /**
+   * @example
+   * test
+   */
+  resourceServerIdentifier?: string;
+  /**
+   * @example
+   * urn:cloud:idaas:resourceserver:source:custom
+   */
+  resourceServerSourceType?: string;
+  /**
+   * @example
+   * enabled
+   */
+  resourceServerStatus?: string;
+  /**
    * @remarks
    * Indicates whether the application template is managed by a cloud service.
    * 
@@ -144,6 +164,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      applicationCreationType: 'ApplicationCreationType',
       applicationId: 'ApplicationId',
       applicationName: 'ApplicationName',
       applicationSourceType: 'ApplicationSourceType',
@@ -155,6 +176,9 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
       instanceId: 'InstanceId',
       logoUrl: 'LogoUrl',
       managedServiceCode: 'ManagedServiceCode',
+      resourceServerIdentifier: 'ResourceServerIdentifier',
+      resourceServerSourceType: 'ResourceServerSourceType',
+      resourceServerStatus: 'ResourceServerStatus',
       serviceManaged: 'ServiceManaged',
       ssoType: 'SsoType',
       status: 'Status',
@@ -164,6 +188,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationCreationType: 'string',
       applicationId: 'string',
       applicationName: 'string',
       applicationSourceType: 'string',
@@ -175,6 +200,9 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
       instanceId: 'string',
       logoUrl: 'string',
       managedServiceCode: 'string',
+      resourceServerIdentifier: 'string',
+      resourceServerSourceType: 'string',
+      resourceServerStatus: 'string',
       serviceManaged: 'boolean',
       ssoType: 'string',
       status: 'string',
