@@ -3484,6 +3484,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeDomainCcProtectSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainCcProtectSwitchResponse
+   */
+  async describeDomainCcProtectSwitchWithOptions(request: $_model.DescribeDomainCcProtectSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDomainCcProtectSwitchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domains)) {
+      query["Domains"] = request.domains;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDomainCcProtectSwitch",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDomainCcProtectSwitchResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDomainCcProtectSwitchResponse({}));
+  }
+
+  /**
+   * @param request - DescribeDomainCcProtectSwitchRequest
+   * @returns DescribeDomainCcProtectSwitchResponse
+   */
+  async describeDomainCcProtectSwitch(request: $_model.DescribeDomainCcProtectSwitchRequest): Promise<$_model.DescribeDomainCcProtectSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDomainCcProtectSwitchWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about HTTP/2 fingerprints of a website.
    * 
    * @param request - DescribeDomainH2FingerprintRequest

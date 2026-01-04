@@ -24,6 +24,7 @@ export { DescribeDefenseRecordsResponseBodyDefenseRecords } from './DescribeDefe
 export { DescribeDestinationPortEventResponseBodyPortList } from './DescribeDestinationPortEventResponseBody';
 export { DescribeDomainAttackEventsResponseBodyDomainAttackEvents } from './DescribeDomainAttackEventsResponseBody';
 export { DescribeDomainBpsResponseBodyDomainBps } from './DescribeDomainBpsResponseBody';
+export { DescribeDomainCcProtectSwitchResponseBodyProtectSwitchList } from './DescribeDomainCcProtectSwitchResponseBody';
 export { DescribeDomainH2FingerprintResponseBodyDomainH2Fp } from './DescribeDomainH2fingerprintResponseBody';
 export { DescribeDomainQPSListResponseBodyDomainQPSList } from './DescribeDomainQpslistResponseBody';
 export { DescribeDomainResourceResponseBodyWebRulesProxyTypes } from './DescribeDomainResourceResponseBody';
@@ -311,6 +312,9 @@ export { DescribeDomainAttackEventsResponse } from './DescribeDomainAttackEvents
 export { DescribeDomainBpsRequest } from './DescribeDomainBpsRequest';
 export { DescribeDomainBpsResponseBody } from './DescribeDomainBpsResponseBody';
 export { DescribeDomainBpsResponse } from './DescribeDomainBpsResponse';
+export { DescribeDomainCcProtectSwitchRequest } from './DescribeDomainCcProtectSwitchRequest';
+export { DescribeDomainCcProtectSwitchResponseBody } from './DescribeDomainCcProtectSwitchResponseBody';
+export { DescribeDomainCcProtectSwitchResponse } from './DescribeDomainCcProtectSwitchResponse';
 export { DescribeDomainH2FingerprintRequest } from './DescribeDomainH2fingerprintRequest';
 export { DescribeDomainH2FingerprintResponseBody } from './DescribeDomainH2fingerprintResponseBody';
 export { DescribeDomainH2FingerprintResponse } from './DescribeDomainH2fingerprintResponse';
