@@ -671,6 +671,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建APP-ICP备案对客openAPI
+   * 
+   * @param request - CreateSmsAppIcpRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSmsAppIcpRecordResponse
+   */
+  async createSmsAppIcpRecordWithOptions(request: $_model.CreateSmsAppIcpRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSmsAppIcpRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appApprovalDate)) {
+      query["AppApprovalDate"] = request.appApprovalDate;
+    }
+
+    if (!$dara.isNull(request.appIcpLicenseNumber)) {
+      query["AppIcpLicenseNumber"] = request.appIcpLicenseNumber;
+    }
+
+    if (!$dara.isNull(request.appIcpRecordPic)) {
+      query["AppIcpRecordPic"] = request.appIcpRecordPic;
+    }
+
+    if (!$dara.isNull(request.appPrincipalUnitName)) {
+      query["AppPrincipalUnitName"] = request.appPrincipalUnitName;
+    }
+
+    if (!$dara.isNull(request.appServiceName)) {
+      query["AppServiceName"] = request.appServiceName;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSmsAppIcpRecord",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSmsAppIcpRecordResponse>(await this.callApi(params, req, runtime), new $_model.CreateSmsAppIcpRecordResponse({}));
+  }
+
+  /**
+   * 创建APP-ICP备案对客openAPI
+   * 
+   * @param request - CreateSmsAppIcpRecordRequest
+   * @returns CreateSmsAppIcpRecordResponse
+   */
+  async createSmsAppIcpRecord(request: $_model.CreateSmsAppIcpRecordRequest): Promise<$_model.CreateSmsAppIcpRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSmsAppIcpRecordWithOptions(request, runtime);
+  }
+
+  /**
    * 创建委托授权书
    * 
    * @param tmpReq - CreateSmsAuthorizationLetterRequest
@@ -976,6 +1050,76 @@ export default class Client extends OpenApi {
   async createSmsTemplate(request: $_model.CreateSmsTemplateRequest): Promise<$_model.CreateSmsTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSmsTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建商标对客openAPI
+   * 
+   * @param request - CreateSmsTrademarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSmsTrademarkResponse
+   */
+  async createSmsTrademarkWithOptions(request: $_model.CreateSmsTrademarkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSmsTrademarkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.trademarkApplicantName)) {
+      query["TrademarkApplicantName"] = request.trademarkApplicantName;
+    }
+
+    if (!$dara.isNull(request.trademarkEffExpDate)) {
+      query["TrademarkEffExpDate"] = request.trademarkEffExpDate;
+    }
+
+    if (!$dara.isNull(request.trademarkName)) {
+      query["TrademarkName"] = request.trademarkName;
+    }
+
+    if (!$dara.isNull(request.trademarkPic)) {
+      query["TrademarkPic"] = request.trademarkPic;
+    }
+
+    if (!$dara.isNull(request.trademarkRegistrationNumber)) {
+      query["TrademarkRegistrationNumber"] = request.trademarkRegistrationNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSmsTrademark",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSmsTrademarkResponse>(await this.callApi(params, req, runtime), new $_model.CreateSmsTrademarkResponse({}));
+  }
+
+  /**
+   * 创建商标对客openAPI
+   * 
+   * @param request - CreateSmsTrademarkRequest
+   * @returns CreateSmsTrademarkResponse
+   */
+  async createSmsTrademark(request: $_model.CreateSmsTrademarkRequest): Promise<$_model.CreateSmsTrademarkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSmsTrademarkWithOptions(request, runtime);
   }
 
   /**
@@ -1861,6 +2005,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询模板列表详情（新接口）
+   * 
+   * @param tmpReq - GetSmsTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmsTemplateListResponse
+   */
+  async getSmsTemplateListWithOptions(tmpReq: $_model.GetSmsTemplateListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSmsTemplateListResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetSmsTemplateListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.usableStateList)) {
+      request.usableStateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.usableStateList, "UsableStateList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!$dara.isNull(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.templateTag)) {
+      query["TemplateTag"] = request.templateTag;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    if (!$dara.isNull(request.usableStateListShrink)) {
+      query["UsableStateList"] = request.usableStateListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSmsTemplateList",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSmsTemplateListResponse>(await this.callApi(params, req, runtime), new $_model.GetSmsTemplateListResponse({}));
+  }
+
+  /**
+   * 查询模板列表详情（新接口）
+   * 
+   * @param request - GetSmsTemplateListRequest
+   * @returns GetSmsTemplateListResponse
+   */
+  async getSmsTemplateList(request: $_model.GetSmsTemplateListRequest): Promise<$_model.GetSmsTemplateListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSmsTemplateListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the tags of a message template.
    * 
    * @remarks
@@ -2712,6 +2948,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询APP-ICP备案对客openAPI
+   * 
+   * @param tmpReq - QuerySmsAppIcpRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsAppIcpRecordResponse
+   */
+  async querySmsAppIcpRecordWithOptions(tmpReq: $_model.QuerySmsAppIcpRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySmsAppIcpRecordResponse> {
+    tmpReq.validate();
+    let request = new $_model.QuerySmsAppIcpRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.appIcpRecordIdList)) {
+      request.appIcpRecordIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appIcpRecordIdList, "AppIcpRecordIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appIcpRecordIdListShrink)) {
+      query["AppIcpRecordIdList"] = request.appIcpRecordIdListShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySmsAppIcpRecord",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySmsAppIcpRecordResponse>(await this.callApi(params, req, runtime), new $_model.QuerySmsAppIcpRecordResponse({}));
+  }
+
+  /**
+   * 查询APP-ICP备案对客openAPI
+   * 
+   * @param request - QuerySmsAppIcpRecordRequest
+   * @returns QuerySmsAppIcpRecordResponse
+   */
+  async querySmsAppIcpRecord(request: $_model.QuerySmsAppIcpRecordRequest): Promise<$_model.QuerySmsAppIcpRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySmsAppIcpRecordWithOptions(request, runtime);
+  }
+
+  /**
    * 查询委托授权书
    * 
    * @param tmpReq - QuerySmsAuthorizationLetterRequest
@@ -3136,6 +3432,66 @@ export default class Client extends OpenApi {
   async querySmsTemplateList(request: $_model.QuerySmsTemplateListRequest): Promise<$_model.QuerySmsTemplateListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.querySmsTemplateListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询商标对客openAPI
+   * 
+   * @param tmpReq - QuerySmsTrademarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsTrademarkResponse
+   */
+  async querySmsTrademarkWithOptions(tmpReq: $_model.QuerySmsTrademarkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySmsTrademarkResponse> {
+    tmpReq.validate();
+    let request = new $_model.QuerySmsTrademarkShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.trademarkIdList)) {
+      request.trademarkIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trademarkIdList, "TrademarkIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.trademarkIdListShrink)) {
+      query["TrademarkIdList"] = request.trademarkIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySmsTrademark",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySmsTrademarkResponse>(await this.callApi(params, req, runtime), new $_model.QuerySmsTrademarkResponse({}));
+  }
+
+  /**
+   * 查询商标对客openAPI
+   * 
+   * @param request - QuerySmsTrademarkRequest
+   * @returns QuerySmsTrademarkResponse
+   */
+  async querySmsTrademark(request: $_model.QuerySmsTrademarkRequest): Promise<$_model.QuerySmsTrademarkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySmsTrademarkWithOptions(request, runtime);
   }
 
   /**
