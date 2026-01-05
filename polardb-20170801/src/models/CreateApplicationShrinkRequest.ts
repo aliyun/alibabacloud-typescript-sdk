@@ -19,6 +19,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * x86
    */
   architecture?: string;
+  autoCreatePolarFs?: boolean;
   /**
    * @example
    * true
@@ -92,6 +93,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
     return {
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
+      autoCreatePolarFs: 'AutoCreatePolarFs',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
       componentsShrink: 'Components',
@@ -116,6 +118,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
     return {
       applicationType: 'string',
       architecture: 'string',
+      autoCreatePolarFs: 'boolean',
       autoRenew: 'boolean',
       autoUseCoupon: 'boolean',
       componentsShrink: 'string',

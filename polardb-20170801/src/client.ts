@@ -1656,6 +1656,10 @@ export default class Client extends OpenApi {
       query["Architecture"] = request.architecture;
     }
 
+    if (!$dara.isNull(request.autoCreatePolarFs)) {
+      query["AutoCreatePolarFs"] = request.autoCreatePolarFs;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }

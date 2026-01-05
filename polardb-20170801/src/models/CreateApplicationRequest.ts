@@ -135,6 +135,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * x86
    */
   architecture?: string;
+  autoCreatePolarFs?: boolean;
   /**
    * @example
    * true
@@ -208,6 +209,7 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
+      autoCreatePolarFs: 'AutoCreatePolarFs',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
       components: 'Components',
@@ -232,6 +234,7 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       applicationType: 'string',
       architecture: 'string',
+      autoCreatePolarFs: 'boolean',
       autoRenew: 'boolean',
       autoUseCoupon: 'boolean',
       components: { 'type': 'array', 'itemType': CreateApplicationRequestComponents },
