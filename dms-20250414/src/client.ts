@@ -1026,6 +1026,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteFileUpload
+   * 
+   * @param request - DeleteFileUploadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileUploadResponse
+   */
+  async deleteFileUploadWithOptions(request: $_model.DeleteFileUploadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFileUploadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callFrom)) {
+      query["CallFrom"] = request.callFrom;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFileUpload",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFileUploadResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFileUploadResponse({}));
+  }
+
+  /**
+   * DeleteFileUpload
+   * 
+   * @param request - DeleteFileUploadRequest
+   * @returns DeleteFileUploadResponse
+   */
+  async deleteFileUpload(request: $_model.DeleteFileUploadRequest): Promise<$_model.DeleteFileUploadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFileUploadWithOptions(request, runtime);
+  }
+
+  /**
    * DescribeCustomAgent
    * 
    * @param request - DescribeCustomAgentRequest
@@ -1119,6 +1169,110 @@ export default class Client extends OpenApi {
   async describeDataAgentSession(request: $_model.DescribeDataAgentSessionRequest): Promise<$_model.DescribeDataAgentSessionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeFileUploadSignature
+   * 
+   * @param request - DescribeFileUploadSignatureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFileUploadSignatureResponse
+   */
+  async describeFileUploadSignatureWithOptions(request: $_model.DescribeFileUploadSignatureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFileUploadSignatureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callFrom)) {
+      query["CallFrom"] = request.callFrom;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFileUploadSignature",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFileUploadSignatureResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFileUploadSignatureResponse({}));
+  }
+
+  /**
+   * DescribeFileUploadSignature
+   * 
+   * @param request - DescribeFileUploadSignatureRequest
+   * @returns DescribeFileUploadSignatureResponse
+   */
+  async describeFileUploadSignature(request: $_model.DescribeFileUploadSignatureRequest): Promise<$_model.DescribeFileUploadSignatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFileUploadSignatureWithOptions(request, runtime);
+  }
+
+  /**
+   * FileUploadCallback
+   * 
+   * @param request - FileUploadCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileUploadCallbackResponse
+   */
+  async fileUploadCallbackWithOptions(request: $_model.FileUploadCallbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FileUploadCallbackResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callFrom)) {
+      query["CallFrom"] = request.callFrom;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.fileSize)) {
+      query["FileSize"] = request.fileSize;
+    }
+
+    if (!$dara.isNull(request.filename)) {
+      query["Filename"] = request.filename;
+    }
+
+    if (!$dara.isNull(request.uploadLocation)) {
+      query["UploadLocation"] = request.uploadLocation;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FileUploadCallback",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FileUploadCallbackResponse>(await this.callApi(params, req, runtime), new $_model.FileUploadCallbackResponse({}));
+  }
+
+  /**
+   * FileUploadCallback
+   * 
+   * @param request - FileUploadCallbackRequest
+   * @returns FileUploadCallbackResponse
+   */
+  async fileUploadCallback(request: $_model.FileUploadCallbackRequest): Promise<$_model.FileUploadCallbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.fileUploadCallbackWithOptions(request, runtime);
   }
 
   /**
