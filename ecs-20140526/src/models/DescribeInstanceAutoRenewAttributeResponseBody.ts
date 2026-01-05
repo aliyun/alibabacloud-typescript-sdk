@@ -19,6 +19,7 @@ export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttribut
    * 1
    */
   duration?: number;
+  enableExpectedRenewDay?: boolean;
   /**
    * @remarks
    * The ID of the instance.
@@ -51,6 +52,7 @@ export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttribut
     return {
       autoRenewEnabled: 'AutoRenewEnabled',
       duration: 'Duration',
+      enableExpectedRenewDay: 'EnableExpectedRenewDay',
       instanceId: 'InstanceId',
       periodUnit: 'PeriodUnit',
       renewalStatus: 'RenewalStatus',
@@ -61,6 +63,7 @@ export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttribut
     return {
       autoRenewEnabled: 'boolean',
       duration: 'number',
+      enableExpectedRenewDay: 'boolean',
       instanceId: 'string',
       periodUnit: 'string',
       renewalStatus: 'string',

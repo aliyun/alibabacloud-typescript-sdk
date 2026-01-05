@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableNetworkInterfaceQoSRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the ENI.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +17,8 @@ export class DisableNetworkInterfaceQoSRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example

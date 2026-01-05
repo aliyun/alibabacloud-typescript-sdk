@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DisableNetworkInterfaceQoSResponseBody extends $dara.Model {
+export class UnlockSnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 745CEC9F-0DD7-4451-9FE7-8B752F39****
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

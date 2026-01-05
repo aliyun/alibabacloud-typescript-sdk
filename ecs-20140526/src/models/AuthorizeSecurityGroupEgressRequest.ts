@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model {
   /**
    * @remarks
-   * The description of the security group rule. The description must be 1 to 512 characters in length.
+   * The description of the security group rule. The description can be up to 1 to 512 characters in length.
    * 
    * @example
    * This is description.
@@ -21,7 +21,7 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   destCidrIp?: string;
   /**
    * @remarks
-   * The ID of the destination security group.
+   * The ID of the destination security group that is specified in the security group rule.
    * 
    * *   You must specify at least one of the following parameters: `DestGroupId`, `DestCidrIp`, `Ipv6DestCidrIp`, and `DestPrefixListId`.
    * *   If you specify `DestGroupId` but do not specify `DestCidrIp`, you must set `NicType` to intranet.
@@ -57,9 +57,9 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
    * @remarks
    * The ID of the destination prefix list. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
    * 
-   * When you specify this parameter, take note of the following items:
+   * Notes:
    * 
-   * *   If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas" topic.
+   * *   If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security groups](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas on ECS" topic.
    * *   If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, this parameter is ignored.
    * 
    * @example
@@ -68,14 +68,25 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   destPrefixListId?: string;
   /**
    * @remarks
-   * The protocol. The values of this parameter are case-insensitive. Specifies whether to check that the CPU tag set of the source host is the subset of the CPU tag set of the destination host. Valid values:
+   * Network Layer /transport layer protocol. Two types of assignments are supported:
    * 
-   * *   TCP.
-   * *   UDP.
-   * *   ICMP.
-   * *   ICMPv6.
-   * *   GRE.
-   * *   ALL: All protocols are supported.
+   * 1.  The case-insensitive protocol name. Valid value:
+   * 
+   * *   ICMP
+   * *   GRE
+   * *   TCP
+   * *   UDP
+   * *   ALL: supports all protocols.
+   * 
+   * 2.  The value of the IANA-compliant protocol number, which is an integer from 0 to 255. List of regions currently available:
+   * 
+   * *   Philippines (Manila)
+   * *   UK (London)
+   * *   Malaysia (Kuala Lumpur)
+   * *   China (Hohhot)
+   * *   China (Qingdao)
+   * *   US (Silicon Valley)
+   * *   Singapore
    * 
    * @example
    * ALL
@@ -85,7 +96,7 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
    * @remarks
    * The destination IPv6 CIDR block of the security group rule. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
-   * >  This parameter is valid only for ECS instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify this parameter and `DestCidrIp` in the same request.
+   * >  This parameter is valid only for VPC-type ECS instances that support IPv6. This parameter and the `DestCidrIp` parameter cannot be set at the same time.
    * 
    * @example
    * 2001:db8:1233:1a00::***
@@ -93,11 +104,11 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * The source IPv6 CIDR block or IPv6 address.
+   * The source IPv6 CIDR block of the security group rule. or IPv6 address.
    * 
-   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This property is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
-   * >  This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify this parameter and `DestCidrIp` in the same request.
+   * >  This parameter is valid only for ECS instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify this parameter and `DestCidrIp` in the same request.
    * 
    * @example
    * 2001:db8:1234:1a00::***
@@ -105,7 +116,7 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The network interface controller (NIC) type of the security group rule if the security group resides in the classic network. Specifies whether to check that the CPU tag set of the source host is the subset of the CPU tag set of the destination host. Valid values:
+   * The network interface controller (NIC) type of the security group rule if the security group resides in the classic network. Valid values:
    * 
    * *   internet: public NIC.
    * 
@@ -122,7 +133,7 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   nicType?: string;
   /**
    * @remarks
-   * The action of the security group rule. Specifies whether to check that the CPU tag set of the source host is the subset of the CPU tag set of the destination host. Valid values:
+   * The action of the security group rule. Valid values:
    * 
    * *   accept: allows outbound access.
    * *   drop: denies outbound access and returns no responses. In this case, the request times out or the connection cannot be established.
@@ -135,25 +146,31 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   policy?: string;
   /**
    * @remarks
-   * The range of destination port numbers for the protocols specified in the security group rule. Specifies whether to check that the CPU tag set of the source host is the subset of the CPU tag set of the destination host. Valid values:
+   * The destination port range of the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-   * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-   * *   If the IpProtocol parameter is set to GRE, the port number range is -1/-1, which indicates all ports.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   TCP/UDP: Valid values: 1 to 65535. Use a forward slash (/) to separate the start and end ports. Example: 1/200.
+   * *   ICMP:-1/-1.
+   * *   GRE:-1/-1.
+   * *   ALL:-1/-1.
    * 
    * @example
    * 80/80
    */
   portRange?: string;
   /**
+   * @remarks
+   * The ID of the port list. You can call the `DescribePortRangeLists` operation to query the IDs of available prefix lists.
+   * 
+   * *   If you specify `Permissions.N.PortRange`, this parameter is ignored.
+   * *   If a security group resides in the classic network, you cannot reference port lists in the rules of the security group. For more information about limits on security groups and ports, see [Limits on security groups](~~25412#SecurityGroupQuota1~~).
+   * 
    * @example
    * prl-2ze9743****
    */
   portRangeListId?: string;
   /**
    * @remarks
-   * The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
+   * The priority of security group rule N. A smaller value specifies a higher priority. Valid values: 1 to 100.
    * 
    * Default value: 1.
    * 
@@ -163,9 +180,9 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   priority?: string;
   /**
    * @remarks
-   * The source IPv4 CIDR blocks and IPv4 addresses are supported.
+   * The source IPv4 CIDR block of the security group rule. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
-   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This property is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * @example
    * 10.0.0.0/8
@@ -173,12 +190,12 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $dara.Model 
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The range of source port numbers for the protocols specified in the security group rule. Specifies whether to check that the CPU tag set of the source host is the subset of the CPU tag set of the destination host. Valid values:
+   * The source port range of the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-   * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-   * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   TCP/UDP protocol: 1 to 65535. Use a forward slash (/) to separate the start and end ports. Example: 1/200.
+   * *   ICMP protocol:-1/-1.
+   * *   GRE protocol:-1/-1.
+   * *   ALL:-1/-1.
    * 
    * This property is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
@@ -350,7 +367,7 @@ export class AuthorizeSecurityGroupEgressRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The security group rules. You can specify 1 to 100 security group rules.
+   * An array of security group rules. You can specify 1 to 100 security group rules.
    */
   permissions?: AuthorizeSecurityGroupEgressRequestPermissions[];
   /**

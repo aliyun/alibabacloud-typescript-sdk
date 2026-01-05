@@ -16692,6 +16692,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the lock information of a snapshot, such as snapshot lock status and lock configuration.
+   * 
+   * @param request - DescribeLockedSnapshotsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLockedSnapshotsResponse
+   */
+  async describeLockedSnapshotsWithOptions(request: $_model.DescribeLockedSnapshotsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLockedSnapshotsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.lockStatus)) {
+      query["LockStatus"] = request.lockStatus;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.snapshotIds)) {
+      query["SnapshotIds"] = request.snapshotIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLockedSnapshots",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLockedSnapshotsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLockedSnapshotsResponse({}));
+  }
+
+  /**
+   * Queries the lock information of a snapshot, such as snapshot lock status and lock configuration.
+   * 
+   * @param request - DescribeLockedSnapshotsRequest
+   * @returns DescribeLockedSnapshotsResponse
+   */
+  async describeLockedSnapshots(request: $_model.DescribeLockedSnapshotsRequest): Promise<$_model.DescribeLockedSnapshotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLockedSnapshotsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries managed instances.
    * 
    * @remarks
@@ -21923,7 +22001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用弹性网卡QoS限速设置
+   * Disables Elastic Network Interface (ENI) QoS speed setting.
    * 
    * @param request - DisableNetworkInterfaceQoSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21978,7 +22056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用弹性网卡QoS限速设置
+   * Disables Elastic Network Interface (ENI) QoS speed setting.
    * 
    * @param request - DisableNetworkInterfaceQoSRequest
    * @returns DisableNetworkInterfaceQoSResponse
@@ -23784,6 +23862,100 @@ export default class Client extends OpenApi {
   async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lock the snapshot in compliance mode to prevent it from being accidentally or maliciously deleted. During the snapshot lock period, no user can delete it.
+   * 
+   * @remarks
+   * You can also use this operation to reconfigure locked snapshots. The configurable items depend on the lock mode and lock status:
+   * *   If a snapshot is locked in compliance mode and is in a cooling-off period, you can extend or shorten the cooling-off period and extend or shorten the lock duration.
+   * *   If the snapshot is locked in compliance mode and the cooling-off period has expired, you can only extend the lock duration.
+   * >  If you reconfigure a locked snapshot during the cooling-off period, the system will be regarded as a relock operation, and all lock parameters will be reset instead of individual adjustments.
+   * 
+   * @param request - LockSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LockSnapshotResponse
+   */
+  async lockSnapshotWithOptions(request: $_model.LockSnapshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LockSnapshotResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.coolOffPeriod)) {
+      query["CoolOffPeriod"] = request.coolOffPeriod;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.lockDuration)) {
+      query["LockDuration"] = request.lockDuration;
+    }
+
+    if (!$dara.isNull(request.lockMode)) {
+      query["LockMode"] = request.lockMode;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LockSnapshot",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LockSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.LockSnapshotResponse({}));
+  }
+
+  /**
+   * Lock the snapshot in compliance mode to prevent it from being accidentally or maliciously deleted. During the snapshot lock period, no user can delete it.
+   * 
+   * @remarks
+   * You can also use this operation to reconfigure locked snapshots. The configurable items depend on the lock mode and lock status:
+   * *   If a snapshot is locked in compliance mode and is in a cooling-off period, you can extend or shorten the cooling-off period and extend or shorten the lock duration.
+   * *   If the snapshot is locked in compliance mode and the cooling-off period has expired, you can only extend the lock duration.
+   * >  If you reconfigure a locked snapshot during the cooling-off period, the system will be regarded as a relock operation, and all lock parameters will be reset instead of individual adjustments.
+   * 
+   * @param request - LockSnapshotRequest
+   * @returns LockSnapshotResponse
+   */
+  async lockSnapshot(request: $_model.LockSnapshotRequest): Promise<$_model.LockSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.lockSnapshotWithOptions(request, runtime);
   }
 
   /**
@@ -34844,6 +35016,76 @@ export default class Client extends OpenApi {
   async unassociateHaVip(request: $_model.UnassociateHaVipRequest): Promise<$_model.UnassociateHaVipResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unassociateHaVipWithOptions(request, runtime);
+  }
+
+  /**
+   * Unlock snapshots that are locked in compliance mode but are still in a cooling-off period. If the snapshot is locked in compliance mode and the cooling-off period has ended, it cannot be unlocked.
+   * 
+   * @param request - UnlockSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnlockSnapshotResponse
+   */
+  async unlockSnapshotWithOptions(request: $_model.UnlockSnapshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnlockSnapshotResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnlockSnapshot",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnlockSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.UnlockSnapshotResponse({}));
+  }
+
+  /**
+   * Unlock snapshots that are locked in compliance mode but are still in a cooling-off period. If the snapshot is locked in compliance mode and the cooling-off period has ended, it cannot be unlocked.
+   * 
+   * @param request - UnlockSnapshotRequest
+   * @returns UnlockSnapshotResponse
+   */
+  async unlockSnapshot(request: $_model.UnlockSnapshotRequest): Promise<$_model.UnlockSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unlockSnapshotWithOptions(request, runtime);
   }
 
   /**

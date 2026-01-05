@@ -57,6 +57,10 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
    * 4ECEEE12-56F1-4FBC-9AB1-890F7494****
    */
   activationId?: string;
+  /**
+   * @example
+   * true
+   */
   connected?: string;
   /**
    * @remarks

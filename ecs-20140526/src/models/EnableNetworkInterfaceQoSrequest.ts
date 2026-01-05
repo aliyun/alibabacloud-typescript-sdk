@@ -4,26 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
   /**
+   * @remarks
+   * The maximum inbound internal bandwidth.
+   * 
+   * Unit: kbit/s, step size: 1000 (1Mbps), value range: [50000, +♾️)
+   * 
    * @example
    * 50000
    */
   bandwidthRx?: number;
   /**
+   * @remarks
+   * The maximum outbound internal bandwidth.
+   * 
+   * Unit: kbit/s, step size: 1000 (1Mbps), value range: [50000, +♾️)
+   * 
    * @example
    * 50000
    */
   bandwidthTx?: number;
   /**
+   * @remarks
+   * Maximum Number of Sessions
+   * 
+   * Step size: 10000, value range: [10000, +♾️)
+   * 
    * @example
    * 50000
    */
   concurrentConnections?: number;
   /**
+   * @remarks
+   * The inbound packet forwarding rate over the internal network.
+   * 
+   * Unit: pps, step size: 10000, value range: [10000, +♾️)
+   * 
    * @example
    * 50000
    */
   ppsRx?: number;
   /**
+   * @remarks
+   * The outbound packet forwarding rate over the internal network.
+   * 
+   * Unit: pps, step size: 10000, value range: [10000, +♾️)
+   * 
    * @example
    * 50000
    */
@@ -68,6 +93,10 @@ export class EnableNetworkInterfaceQoSRequest extends $dara.Model {
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * QoS Speed Limit Settings
+   */
   qoS?: EnableNetworkInterfaceQoSRequestQoS;
   /**
    * @remarks

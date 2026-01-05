@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySnapshotCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the snapshot. Valid value:
+   * The type of the snapshot.
    * 
    * *   Archive: archive snapshot
    * 

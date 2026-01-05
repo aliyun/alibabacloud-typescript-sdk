@@ -696,26 +696,41 @@ export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets extends 
 
 export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $dara.Model {
   /**
+   * @remarks
+   * maximum inbound internal bandwidth
+   * 
    * @example
    * 50000
    */
   bandwidthRx?: number;
   /**
+   * @remarks
+   * Maximum outbound internal bandwidth
+   * 
    * @example
    * 50000
    */
   bandwidthTx?: number;
   /**
+   * @remarks
+   * Maximum number of sessions
+   * 
    * @example
    * 50000
    */
   concurrentConnections?: number;
   /**
+   * @remarks
+   * Inbound packet forwarding rate over the internal network
+   * 
    * @example
    * 50000
    */
   ppsRx?: number;
   /**
+   * @remarks
+   * Outbound packet forwarding rate over the internal network
+   * 
    * @example
    * 50000
    */
@@ -750,7 +765,15 @@ export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable QoS speed limit settings
+   */
   enableQoS?: boolean;
+  /**
+   * @remarks
+   * QoS Speed Limit Settings
+   */
   qoS?: DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS;
   static names(): { [key: string]: string } {
     return {
@@ -1065,6 +1088,10 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * The private IP addresses of the ENI.
    */
   privateIpSets?: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets;
+  /**
+   * @remarks
+   * QoS Speed Limit Settings
+   */
   qoSConfig?: DescribeNetworkInterfaceAttributeResponseBodyQoSConfig;
   /**
    * @remarks
