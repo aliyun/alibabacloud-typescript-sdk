@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime extends $dara.Model {
   /**
    * @remarks
-   * The command.
+   * Command
    * 
    * @example
    * WORKFLOW
@@ -35,12 +35,14 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScript extends $dara.Model {
   /**
    * @remarks
-   * The script ID.
+   * The ID of the script.
+   * 
+   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK; parameters are still returned according to the type defined in the SDK. Compilation failures due to the type change may occur only when upgrading the SDK across version 8.0.0, in which case users need to manually correct the data type.
    * 
    * @example
    * 698002781368644XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The script path.
@@ -51,7 +53,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
   path?: string;
   /**
    * @remarks
-   * The runtime.
+   * Runtime
    */
   runtime?: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime;
   static names(): { [key: string]: string } {
@@ -64,7 +66,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      id: 'string',
       path: 'string',
       runtime: ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScriptRuntime,
     };
@@ -85,7 +87,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
 export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions extends $dara.Model {
   /**
    * @remarks
-   * The time when the workflow was created. This value is a UNIX timestamp.
+   * The timestamp when the workflow was created.
    * 
    * @example
    * 1698057323000
@@ -93,7 +95,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   createTime?: number;
   /**
    * @remarks
-   * The description of the workflow.
+   * Description
    * 
    * @example
    * Workflow description
@@ -101,15 +103,17 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   description?: string;
   /**
    * @remarks
-   * The ID of the workflow.
+   * The unique identifier of the workflow.
+   * 
+   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK; parameters are still returned according to the type defined in the SDK. Compilation failures due to the type change may occur only when upgrading the SDK across version 8.0.0, in which case users need to manually correct the data type.
    * 
    * @example
    * 463497880880954XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
-   * The time when the workflow was last modified. This value is a UNIX timestamp.
+   * The timestamp when the workflow was last modified.
    * 
    * @example
    * 1698057323000
@@ -125,7 +129,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   name?: string;
   /**
    * @remarks
-   * The owner.
+   * Owner
    * 
    * @example
    * 110755000425XXXX
@@ -177,7 +181,7 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
     return {
       createTime: 'number',
       description: 'string',
-      id: 'number',
+      id: 'string',
       modifyTime: 'number',
       name: 'string',
       owner: 'string',

@@ -6,14 +6,16 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceAdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file resource.
+   * The unique identifier of the Data Studio file resource.
+   * 
+   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK; parameters are still returned according to the type defined in the SDK. Compilation failures due to the type change may occur only when upgrading the SDK across version 8.0.0, in which case users need to manually correct the data type.
    * 
    * This parameter is required.
    * 
    * @example
    * 543217824470354XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
@@ -24,6 +26,15 @@ export class UpdateResourceAdvanceRequest extends $dara.Model {
    * 10000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The specific file stream or OSS download link contained in the resource.
+   * 
+   * >  This field allows users to provide a file stream or an OSS download link. When providing an OSS download link, ensure that the OSS link is publicly accessible. A presigned URL is recommended.
+   * 
+   * @example
+   * http://bucketname1.oss-cn-shanghai.aliyuncs.com/example
+   */
   resourceFileObject?: Readable;
   /**
    * @remarks
@@ -71,7 +82,7 @@ export class UpdateResourceAdvanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      id: 'string',
       projectId: 'number',
       resourceFileObject: 'Readable',
       spec: 'string',

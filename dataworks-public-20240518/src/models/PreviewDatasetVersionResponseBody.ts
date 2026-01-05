@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class PreviewDatasetVersionResponseBodyPreviewResult extends $dara.Model {
   /**
+   * @remarks
+   * Content
+   * 
    * @example
    * this is content
    */
   content?: string;
   /**
+   * @remarks
+   * File name
+   * 
    * @example
    * parth/data.csv
    */
   fileName?: string;
   /**
+   * @remarks
+   * The MIME type
+   * 
    * @example
    * text/plain
    */
   mimeType?: string;
   /**
+   * @remarks
+   * Preview availability
+   * 
    * @example
    * true
    */
@@ -51,6 +63,10 @@ export class PreviewDatasetVersionResponseBodyPreviewResult extends $dara.Model 
 }
 
 export class PreviewDatasetVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Preview results
+   */
   previewResult?: PreviewDatasetVersionResponseBodyPreviewResult;
   /**
    * @remarks
@@ -61,6 +77,9 @@ export class PreviewDatasetVersionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

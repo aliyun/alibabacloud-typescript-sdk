@@ -12,6 +12,9 @@ export class UpdateDatasetResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the update is successful.
+   * 
    * @example
    * true
    */

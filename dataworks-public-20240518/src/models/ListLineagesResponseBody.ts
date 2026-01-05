@@ -5,20 +5,8 @@ import { LineageRelationship } from "./LineageRelationship";
 
 
 export class ListLineagesResponseBodyPagingInfoLineages extends $dara.Model {
-  /**
-   * @remarks
-   * The destination entity.
-   */
   dstEntity?: LineageEntity;
-  /**
-   * @remarks
-   * The lineage details.
-   */
   relationships?: LineageRelationship[];
-  /**
-   * @remarks
-   * The source entity.
-   */
   srcEntity?: LineageEntity;
   static names(): { [key: string]: string } {
     return {
@@ -55,31 +43,18 @@ export class ListLineagesResponseBodyPagingInfoLineages extends $dara.Model {
 }
 
 export class ListLineagesResponseBodyPagingInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The lineage information list.
-   */
   lineages?: ListLineagesResponseBodyPagingInfoLineages[];
   /**
-   * @remarks
-   * The requested page number for pagination.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The page size. Default value: 10.
-   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
-   * @remarks
-   * Total record count.
-   * 
    * @example
    * 12
    */
@@ -115,23 +90,13 @@ export class ListLineagesResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListLineagesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The pagination result.
-   */
   pagingInfo?: ListLineagesResponseBodyPagingInfo;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 0000-ABCD-EFG****
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
    * @example
    * true
    */

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the file resource. Supports fuzzy search.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   /**
    * @remarks
@@ -14,7 +21,7 @@ export class ListResourcesRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the data to retrieve, used for pagination.
    * 
    * @example
    * 1

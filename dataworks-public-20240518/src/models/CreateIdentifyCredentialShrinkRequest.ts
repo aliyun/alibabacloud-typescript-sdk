@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateIdentifyCredentialShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The user credential object.
+   */
   identifyCredentialShrink?: string;
   static names(): { [key: string]: string } {
     return {

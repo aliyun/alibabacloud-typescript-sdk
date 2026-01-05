@@ -82,6 +82,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
    * 
    * *   Scheduler
    * *   Manual
+   * *   TriggerWorkflow
    * 
    * @example
    * Scheduler

@@ -116,6 +116,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the workflow owner.
+   * 
    * @example
    * 1000
    */
@@ -173,6 +176,10 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * Normal
    */
   type?: string;
+  /**
+   * @example
+   * 1234
+   */
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
@@ -188,6 +195,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    */
   workflowParameters?: string;
   /**
+   * @remarks
+   * The task instance ID corresponding to the workflow instance.
+   * 
    * @example
    * 1234
    */
@@ -315,7 +325,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfo extends $dara.Model {
 export class ListWorkflowInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * Pagination information.
    */
   pagingInfo?: ListWorkflowInstancesResponseBodyPagingInfo;
   /**

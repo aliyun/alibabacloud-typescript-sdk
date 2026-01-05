@@ -381,6 +381,10 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * Scheduler
    */
   triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
@@ -602,7 +606,7 @@ export class ListTaskInstancesResponseBodyPagingInfo extends $dara.Model {
 export class ListTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * Pagination information.
    */
   pagingInfo?: ListTaskInstancesResponseBodyPagingInfo;
   /**

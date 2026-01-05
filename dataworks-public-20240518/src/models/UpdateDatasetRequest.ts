@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDatasetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset description. Length not exceeding 1024.
+   * 
    * @example
    * new comment
    */
   comment?: string;
   /**
    * @remarks
+   * The dataset ID. Only DataWorks datasets are supported for update.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class UpdateDatasetRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The dataset name. A non-empty string, length not exceeding 128.
+   * 
    * @example
    * test_oss_dataset_new
    */
   name?: string;
   /**
+   * @remarks
+   * The user guide, supports Markdown formatted rich text.
+   * 
    * @example
    * ## introduction
    */

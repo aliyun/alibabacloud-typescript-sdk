@@ -4,16 +4,23 @@ import { Dataset } from "./Dataset";
 
 
 export class GetDatasetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset information.
+   */
   dataset?: Dataset;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 204EAF68-CCE3-5112-8DA0-E7A60F02XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

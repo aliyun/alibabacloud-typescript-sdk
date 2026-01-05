@@ -4,18 +4,31 @@ import { Dataset } from "./Dataset";
 
 
 export class ListDatasetsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset list.
+   */
   datasets?: Dataset[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on this page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -51,6 +64,10 @@ export class ListDatasetsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListDatasetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDatasetsResponseBodyPagingInfo;
   /**
    * @remarks
@@ -61,6 +78,9 @@ export class ListDatasetsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

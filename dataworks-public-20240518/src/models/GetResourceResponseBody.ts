@@ -13,12 +13,14 @@ export class GetResourceResponseBodyResource extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the file resource.
+   * The unique identifier of the file resource.
+   * 
+   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK; parameters are still returned according to the type defined in the SDK. Compilation failures due to the type change may occur only when upgrading the SDK across version 8.0.0, in which case users need to manually correct the data type.
    * 
    * @example
    * 860438872620113XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The time when the file resource was last modified. This value is a UNIX timestamp.
@@ -103,7 +105,7 @@ export class GetResourceResponseBodyResource extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
-      id: 'number',
+      id: 'string',
       modifyTime: 'number',
       name: 'string',
       owner: 'string',
@@ -132,7 +134,7 @@ export class GetResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the file resource.
+   * File resource details
    */
   resource?: GetResourceResponseBodyResource;
   static names(): { [key: string]: string } {

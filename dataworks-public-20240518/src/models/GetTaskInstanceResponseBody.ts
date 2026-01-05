@@ -673,13 +673,23 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * Scheduler
    */
   triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
   unifiedWorkflowInstanceId?: number;
   /**
+   * @remarks
+   * The timestamp for when it started waiting for resources.
+   * 
    * @example
    * 1710239005403
    */
   waitingResourceTime?: number;
   /**
+   * @remarks
+   * The timestamp for when it started waiting for the scheduled time.
+   * 
    * @example
    * 1710239005403
    */

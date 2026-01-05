@@ -13,6 +13,13 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    * 1710239005403
    */
   bizDate?: number;
+  /**
+   * @example
+   * {   
+   *     "status": "Success",
+   *     "executionDate": "1763481600000"
+   * }
+   */
   filter?: string;
   /**
    * @remarks
@@ -93,6 +100,10 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    * Normal
    */
   type?: string;
+  /**
+   * @example
+   * 1234
+   */
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks

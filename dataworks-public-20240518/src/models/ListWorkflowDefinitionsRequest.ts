@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkflowDefinitionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the workflow. Fuzzy search is supported.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   /**
    * @remarks
@@ -14,7 +21,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the data to retrieve, used for pagination.
    * 
    * @example
    * 1
@@ -42,7 +49,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The workflow type. This parameter specifies a filter condition.
+   * Filter condition: The type of the workflow. The default value is CycleWorkflow.
    * 
    * Valid values:
    * 

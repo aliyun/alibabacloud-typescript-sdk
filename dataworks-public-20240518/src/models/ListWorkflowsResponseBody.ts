@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWorkflowsResponseBodyPagingInfoWorkflowsTags extends $dara.Model {
   /**
+   * @remarks
+   * The key of a tag.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of a tag.
+   * 
    * @example
    * value1
    */
@@ -339,7 +345,7 @@ export class ListWorkflowsResponseBodyPagingInfo extends $dara.Model {
 export class ListWorkflowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * Pagination information.
    */
   pagingInfo?: ListWorkflowsResponseBodyPagingInfo;
   /**

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatasetRequest extends $dara.Model {
   /**
    * @remarks
+   * The dataset ID. Only DataWorks datasets are supported.
+   * 
    * This parameter is required.
    * 
    * @example

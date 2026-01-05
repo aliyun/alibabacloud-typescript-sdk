@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDatasetVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset version description. Maximum length: 1024 characters.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
   /**
    * @remarks
+   * The dataset version ID. Only DataWorks datasets can be updated.
+   * 
    * This parameter is required.
    * 
    * @example

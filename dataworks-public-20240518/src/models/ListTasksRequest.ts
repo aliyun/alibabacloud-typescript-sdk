@@ -42,12 +42,12 @@ export class ListTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The environment of the workspace.
+   * The workspace environment.
    * 
    * Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -118,7 +118,7 @@ export class ListTasksRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+   * The run mode when triggered. Valid only if TriggerType is Scheduler.
    * 
    * Valid values:
    * 
@@ -136,8 +136,8 @@ export class ListTasksRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * *   Scheduler: Triggered by schedule.
+   * *   Manual: Triggered manually.
    * 
    * @example
    * Scheduler

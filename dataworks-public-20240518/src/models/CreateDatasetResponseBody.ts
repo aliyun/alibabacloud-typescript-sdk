@@ -20,6 +20,9 @@ export class CreateDatasetResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the creation was successful.
+   * 
    * @example
    * true
    */

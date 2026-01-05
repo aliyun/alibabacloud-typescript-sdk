@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcesResponseBodyPagingInfoResourcesDataSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * odps_first
@@ -45,7 +45,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesDataSource extends $dar
 export class ListResourcesResponseBodyPagingInfoResourcesScriptRuntime extends $dara.Model {
   /**
    * @remarks
-   * The command used to distinguish file resource types.
+   * Command. This parameter indicates the file type.
    * 
    * @example
    * ODPS_PYTHON
@@ -75,12 +75,14 @@ export class ListResourcesResponseBodyPagingInfoResourcesScriptRuntime extends $
 export class ListResourcesResponseBodyPagingInfoResourcesScript extends $dara.Model {
   /**
    * @remarks
-   * The script ID.
+   * Script ID.
+   * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 123348864897630XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The script path.
@@ -91,7 +93,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesScript extends $dara.Mo
   path?: string;
   /**
    * @remarks
-   * The runtime.
+   * Runtime
    */
   runtime?: ListResourcesResponseBodyPagingInfoResourcesScriptRuntime;
   static names(): { [key: string]: string } {
@@ -104,7 +106,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesScript extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      id: 'string',
       path: 'string',
       runtime: ListResourcesResponseBodyPagingInfoResourcesScriptRuntime,
     };
@@ -133,20 +135,22 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The information about the data source.
+   * The data source.
    */
   dataSource?: ListResourcesResponseBodyPagingInfoResourcesDataSource;
   /**
    * @remarks
-   * The ID of the file resource.
+   * The unique identifier of the file resource.
+   * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 631478864897630XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
-   * The times when the file resource was last modified. This value is a UNIX timestamp.
+   * The timestamp when the file resource was last modified.
    * 
    * @example
    * 1724505917000
@@ -154,7 +158,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The name of the file resource.
+   * The resource name.
    * 
    * @example
    * math.py
@@ -170,7 +174,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
+   * The ID of the DataWorks workspace. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
    * 
    * @example
    * 344247
@@ -183,7 +187,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   script?: ListResourcesResponseBodyPagingInfoResourcesScript;
   /**
    * @remarks
-   * The path of the source of the file resource. If the SourecType parameter is set to Local, this parameter is left empty.
+   * Source path of the file resource. This parameter is empty if the type is Local.
    * 
    * @example
    * XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
@@ -191,12 +195,12 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The storage type of the source of the file resource.
+   * The source storage type of the file resource.
    * 
    * Valid values:
    * 
-   * *   Local
-   * *   Oss
+   * *   Local: Local storage
+   * *   OSS: Object Storage Service
    * 
    * @example
    * local
@@ -204,7 +208,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The storage path of the destination of the file resource.
+   * The destination storage path
    * 
    * @example
    * XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
@@ -212,13 +216,13 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   targetPath?: string;
   /**
    * @remarks
-   * The storage type of the destination of the file resource.
+   * The destination storage type.
    * 
    * Valid values:
    * 
    * *   Gateway
-   * *   Oss
-   * *   Hdfs
+   * *   OSS
+   * *   HDFS
    * 
    * @example
    * oss
@@ -226,7 +230,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The type of the file resource.
+   * The resource type.
    * 
    * Valid values:
    * 
@@ -261,7 +265,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
     return {
       createTime: 'number',
       dataSource: ListResourcesResponseBodyPagingInfoResourcesDataSource,
-      id: 'number',
+      id: 'string',
       modifyTime: 'number',
       name: 'string',
       owner: 'string',
@@ -309,7 +313,7 @@ export class ListResourcesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The queried file resources.
+   * The returned resource list.
    */
   resources?: ListResourcesResponseBodyPagingInfoResources[];
   /**

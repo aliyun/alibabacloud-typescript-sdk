@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteComputeResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The computing resource ID, the unique identifier of the data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteComputeResourceRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

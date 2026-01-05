@@ -4,26 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDatasetVersionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description for this dataset version. Maximum length: 1,024 characters.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
   /**
    * @remarks
+   * The dataset ID. Currently supports DataWorks datasets only.
+   * 
    * This parameter is required.
    * 
    * @example
    * dataworks-dataset:3pXXXb8o0ngr07njhps1
    */
   datasetId?: string;
+  /**
+   * @remarks
+   * The storage import configuration for the dataset. Required configuration varies by storage type.
+   * 
+   * **NAS**
+   * 
+   * For valid values, see the response from the file storage API DescribeFileSystems.
+   * 
+   * ```JSON
+   * {
+   * "fileSystemId": "3b6XXX89c9", // The file system ID.
+   * "fileSystemStorageType":  "Performance" // The file system storage type.
+   * "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID for the mount point.
+   * }
+   * ```
+   */
   importInfoShrink?: string;
   /**
+   * @remarks
+   * The mount path, which must start with /mnt/. Default value: /mnt/data.
+   * 
    * @example
    * /mnt/data
    */
   mountPath?: string;
   /**
    * @remarks
+   * URL
+   * 
    * This parameter is required.
    * 
    * @example

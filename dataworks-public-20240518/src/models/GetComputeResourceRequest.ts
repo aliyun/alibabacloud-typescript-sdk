@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class GetComputeResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The computing resource ID, which is the unique identifier for the resource.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 11792
    */
   id?: number;
   /**
    * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 10003
    */
   projectId?: number;
   static names(): { [key: string]: string } {

@@ -29,6 +29,10 @@ export class GetCreateWorkflowInstancesResultResponseBodyResult extends $dara.Mo
    * The workflow instance IDs. This parameter is returned only if the creation is successful.
    */
   workflowInstanceIds?: number[];
+  /**
+   * @remarks
+   * The list of task instance IDs corresponding to the workflow instance. This field is returned after successful creation.
+   */
   workflowTaskInstanceIds?: number[];
   static names(): { [key: string]: string } {
     return {

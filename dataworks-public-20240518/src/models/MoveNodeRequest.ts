@@ -12,7 +12,7 @@ export class MoveNodeRequest extends $dara.Model {
    * @example
    * 652567824470354XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The path to which you want to move the node. You do not need to specify a node name in the path.
@@ -47,7 +47,7 @@ export class MoveNodeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      id: 'string',
       path: 'string',
       projectId: 'number',
     };

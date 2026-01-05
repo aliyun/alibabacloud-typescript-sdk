@@ -12,6 +12,9 @@ export class DeleteDatasetVersionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the deletion succeeded.
+   * 
    * @example
    * true
    */

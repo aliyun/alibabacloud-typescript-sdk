@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDatasetRequest extends $dara.Model {
   /**
    * @remarks
+   * The dataset ID.
+   * 
    * This parameter is required.
    * 
    * @example

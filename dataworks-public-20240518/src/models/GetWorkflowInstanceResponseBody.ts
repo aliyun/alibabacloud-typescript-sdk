@@ -119,6 +119,9 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the workflow owner.
+   * 
    * @example
    * 1000
    */
@@ -176,6 +179,10 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * Normal
    */
   type?: string;
+  /**
+   * @example
+   * 1234
+   */
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
@@ -191,6 +198,9 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    */
   workflowParameters?: string;
   /**
+   * @remarks
+   * The task instance ID corresponding to the workflow instance.
+   * 
    * @example
    * 1234
    */

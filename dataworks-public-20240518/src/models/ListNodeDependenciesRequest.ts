@@ -5,14 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeDependenciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The unique identifier of the Data Studio node.
+   * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * This parameter is required.
    * 
    * @example
    * 860438872620113XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The page number, starting from 1. Default value: 1.
@@ -52,7 +54,7 @@ export class ListNodeDependenciesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      id: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'number',

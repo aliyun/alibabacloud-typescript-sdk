@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFunctionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter criteria: UDF name. Supports fuzzy search.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   /**
    * @remarks

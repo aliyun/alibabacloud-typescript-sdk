@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PreviewDatasetVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The dataset version ID
+   * 
    * This parameter is required.
    * 
    * @example

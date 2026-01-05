@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourceGroupMetricDataResponseBodyMetricDataMetrics extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 1761184929633
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The value of the metric data.
+   * 
    * @example
    * 1.0
    */
@@ -38,18 +44,21 @@ export class ListResourceGroupMetricDataResponseBodyMetricDataMetrics extends $d
 
 export class ListResourceGroupMetricDataResponseBodyMetricData extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier for the resource group.
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   id?: string;
   /**
    * @remarks
-   * The metric name. Available metrics include:
+   * The metric name. Valid values:
    * 
    * *   CUSpec: Maximum CU capacity of the resource group, in CUs.
    * *   CUUsage: CU usage of the resource group, in CUs.
    * *   CUUtilization: CU utilization of the resource group, in %.
-   * *   SlotSpec: Maximum concurrency for resource group scheduling, in slots.
+   * *   SlotSpec: Maximum number of concurrent slots for resource group scheduling, in slots.
    * *   SlotUsage: Used concurrency for resource group scheduling, in slots.
    * *   SchedulerCUMaxSpec: Maximum CU quota for data computing, in CUs.
    * *   SchedulerCUUsage: CU usage for data computing, in CUs.
@@ -68,8 +77,15 @@ export class ListResourceGroupMetricDataResponseBodyMetricData extends $dara.Mod
    * CUSpec
    */
   metricName?: string;
+  /**
+   * @remarks
+   * The list of metric data.
+   */
   metrics?: ListResourceGroupMetricDataResponseBodyMetricDataMetrics[];
   /**
+   * @remarks
+   * The pagination cursor.
+   * 
    * @example
    * tSBOXZcAmk+akxRkwRuXnGQEsIDODyd5ulPqgytNTbLp4bhb7fuvz13FXtm87Kfl
    */
@@ -111,11 +127,17 @@ export class ListResourceGroupMetricDataResponseBody extends $dara.Model {
    */
   metricData?: ListResourceGroupMetricDataResponseBodyMetricData;
   /**
+   * @remarks
+   * The request ID, used for locating logs and troubleshooting.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

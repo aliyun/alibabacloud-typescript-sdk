@@ -18,7 +18,7 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
    * @example
    * 463497880880954XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The time when the workflow was last modified. This value is a UNIX timestamp.
@@ -156,7 +156,7 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
-      id: 'number',
+      id: 'string',
       modifyTime: 'number',
       name: 'string',
       owner: 'string',

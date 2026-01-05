@@ -12,7 +12,7 @@ export class GetWorkflowDefinitionRequest extends $dara.Model {
    * @example
    * 860438872620113XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * 查询结果是否包含工作流内部节点的脚本内容（对于内容较多的节点，可能存在较长的网络传输延时）。
@@ -41,7 +41,7 @@ export class GetWorkflowDefinitionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      id: 'string',
       includeScriptContent: 'boolean',
       projectId: 'number',
     };

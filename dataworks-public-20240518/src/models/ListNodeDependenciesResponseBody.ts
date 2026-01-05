@@ -145,10 +145,12 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
    * @remarks
    * The variable ID.
    * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * 
    * @example
    * 543218872620113XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The variable name.
@@ -212,7 +214,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   static types(): { [key: string]: any } {
     return {
       artifactType: 'string',
-      id: 'number',
+      id: 'string',
       name: 'string',
       node: ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariablesNode,
       scope: 'string',
@@ -386,10 +388,12 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
    * @remarks
    * The variable ID.
    * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * 
    * @example
    * 543217824470354XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The variable name.
@@ -453,7 +457,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   static types(): { [key: string]: any } {
     return {
       artifactType: 'string',
-      id: 'number',
+      id: 'string',
       name: 'string',
       node: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariablesNode,
       scope: 'string',
@@ -587,12 +591,14 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScriptRuntime extend
 export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $dara.Model {
   /**
    * @remarks
-   * The script ID.
+   * The ID of the script.
+   * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 853573334108680XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The script path.
@@ -616,7 +622,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $dara
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      id: 'string',
       path: 'string',
       runtime: ListNodeDependenciesResponseBodyPagingInfoNodesScriptRuntime,
     };
@@ -772,10 +778,12 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
    * @remarks
    * The unique identifier of the trigger.
    * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * 
    * @example
    * 543680677872062XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
    * The effective start time of the schedule, in the format yyyy-MM-dd HH:mm:ss.
@@ -821,7 +829,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
     return {
       cron: 'string',
       endTime: 'string',
-      id: 'number',
+      id: 'string',
       startTime: 'string',
       timezone: 'string',
       type: 'string',
@@ -861,15 +869,17 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The unique identifier of the Data Studio node.
+   * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 723932906364267XXXX
    */
-  id?: number;
+  id?: string;
   /**
    * @remarks
-   * The input of the node.
+   * The node input.
    */
   inputs?: ListNodeDependenciesResponseBodyPagingInfoNodesInputs;
   /**
@@ -983,7 +993,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
       createTime: 'number',
       dataSource: ListNodeDependenciesResponseBodyPagingInfoNodesDataSource,
       description: 'string',
-      id: 'number',
+      id: 'string',
       inputs: ListNodeDependenciesResponseBodyPagingInfoNodesInputs,
       modifyTime: 'number',
       name: 'string',

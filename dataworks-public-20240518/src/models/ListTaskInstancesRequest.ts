@@ -13,6 +13,17 @@ export class ListTaskInstancesRequest extends $dara.Model {
    * 1710239005403
    */
   bizdate?: number;
+  /**
+   * @example
+   * {
+   *     "startedTimeStart": "1763481600000",
+   *     "startedTimeEnd": "1763481600000",
+   *     "finishedTimeStart": "1763481600000",
+   *     "finishedTimeEnd": "1763481600000",
+   *     "createTimeStart": "1763481600000",
+   *     "createTimeEnd": "1763481600000"
+   * }
+   */
   filter?: string;
   /**
    * @remarks
@@ -167,6 +178,10 @@ export class ListTaskInstancesRequest extends $dara.Model {
    * Normal
    */
   triggerType?: string;
+  /**
+   * @example
+   * 1234
+   */
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
@@ -193,6 +208,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
    * *   SupplementData: Data backfill
    * *   ManualWorkflow: Manually triggered workflow
    * *   Normal: Scheduled execution
+   * *   TriggerWorkflow: Triggered Workflow
    * 
    * @example
    * Normal

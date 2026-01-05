@@ -4,6 +4,10 @@ import { DatasetVersion } from "./DatasetVersion";
 
 
 export class GetDatasetVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset version.
+   */
   datasetVersion?: DatasetVersion;
   /**
    * @remarks
@@ -14,6 +18,9 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
