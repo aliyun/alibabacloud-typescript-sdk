@@ -2903,6 +2903,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询消费者授权规则列表
+   * 
+   * @param request - ListConsumerAuthorizationRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumerAuthorizationRulesResponse
+   */
+  async listConsumerAuthorizationRulesWithOptions(consumerId: string, request: $_model.ListConsumerAuthorizationRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerAuthorizationRulesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiNameLike)) {
+      query["apiNameLike"] = request.apiNameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumerAuthorizationRules",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}/authorization-rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumerAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumerAuthorizationRulesResponse({}));
+  }
+
+  /**
+   * 查询消费者授权规则列表
+   * 
+   * @param request - ListConsumerAuthorizationRulesRequest
+   * @returns ListConsumerAuthorizationRulesResponse
+   */
+  async listConsumerAuthorizationRules(consumerId: string, request: $_model.ListConsumerAuthorizationRulesRequest): Promise<$_model.ListConsumerAuthorizationRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumerAuthorizationRulesWithOptions(consumerId, request, headers, runtime);
+  }
+
+  /**
    * Queries a list of consumers.
    * 
    * @param request - ListConsumersRequest
@@ -3668,6 +3721,91 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListPluginClasses
+   * 
+   * @param request - ListPluginClassesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPluginClassesResponse
+   */
+  async listPluginClassesWithOptions(request: $_model.ListPluginClassesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPluginClassesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliasLike)) {
+      query["aliasLike"] = request.aliasLike;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.excludeBuiltinAiProxy)) {
+      query["excludeBuiltinAiProxy"] = request.excludeBuiltinAiProxy;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      query["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.installed)) {
+      query["installed"] = request.installed;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPluginClasses",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-classes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPluginClassesResponse>(await this.callApi(params, req, runtime), new $_model.ListPluginClassesResponse({}));
+  }
+
+  /**
+   * ListPluginClasses
+   * 
+   * @param request - ListPluginClassesRequest
+   * @returns ListPluginClassesResponse
+   */
+  async listPluginClasses(request: $_model.ListPluginClassesRequest): Promise<$_model.ListPluginClassesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPluginClassesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries plug-ins.
    * 
    * @param request - ListPluginsRequest
@@ -4199,7 +4337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步外部MCP server
+   * Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
    * 
    * @param request - SyncMCPServersRequest
    * @param headers - map
@@ -4248,7 +4386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步外部MCP server
+   * Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
    * 
    * @param request - SyncMCPServersRequest
    * @returns SyncMCPServersResponse

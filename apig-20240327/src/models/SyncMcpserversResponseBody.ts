@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SyncMCPServersResponseBodyDataFailedMcpServers extends $dara.Model {
   /**
+   * @remarks
+   * The name of the MCP server.
+   * 
    * @example
    * mcp-fail
    */
   mcpServerName?: string;
+  /**
+   * @remarks
+   * The protocol.
+   */
   protocols?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37,10 +44,17 @@ export class SyncMCPServersResponseBodyDataFailedMcpServers extends $dara.Model 
 
 export class SyncMCPServersResponseBodyDataSucceedMcpServers extends $dara.Model {
   /**
+   * @remarks
+   * The name of the MCP server.
+   * 
    * @example
    * mcp-success
    */
   mcpServerName?: string;
+  /**
+   * @remarks
+   * The protocol.
+   */
   protocols?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -69,7 +83,15 @@ export class SyncMCPServersResponseBodyDataSucceedMcpServers extends $dara.Model
 }
 
 export class SyncMCPServersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of MCP servers that failed to synchronize.
+   */
   failedMcpServers?: SyncMCPServersResponseBodyDataFailedMcpServers[];
+  /**
+   * @remarks
+   * The list of MCP servers successfully synchronized.
+   */
   succeedMcpServers?: SyncMCPServersResponseBodyDataSucceedMcpServers[];
   static names(): { [key: string]: string } {
     return {
@@ -102,19 +124,29 @@ export class SyncMCPServersResponseBodyData extends $dara.Model {
 
 export class SyncMCPServersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: SyncMCPServersResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2F46B9E7-67EF-5C8A-BA52-D38D5B32AF2C
