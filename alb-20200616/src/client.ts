@@ -1839,6 +1839,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资源预留
+   * 
+   * @param request - DescribeCapacityReservationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCapacityReservationResponse
+   */
+  async describeCapacityReservationWithOptions(request: $_model.DescribeCapacityReservationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCapacityReservationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCapacityReservation",
+      version: "2020-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCapacityReservationResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCapacityReservationResponse({}));
+  }
+
+  /**
+   * 查询资源预留
+   * 
+   * @param request - DescribeCapacityReservationRequest
+   * @returns DescribeCapacityReservationResponse
+   */
+  async describeCapacityReservation(request: $_model.DescribeCapacityReservationRequest): Promise<$_model.DescribeCapacityReservationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCapacityReservationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries available regions.
    * 
    * @param request - DescribeRegionsRequest
@@ -3850,6 +3892,64 @@ export default class Client extends OpenApi {
   async loadBalancerLeaveSecurityGroup(request: $_model.LoadBalancerLeaveSecurityGroupRequest): Promise<$_model.LoadBalancerLeaveSecurityGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.loadBalancerLeaveSecurityGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改资源预留
+   * 
+   * @param request - ModifyCapacityReservationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCapacityReservationResponse
+   */
+  async modifyCapacityReservationWithOptions(request: $_model.ModifyCapacityReservationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCapacityReservationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!$dara.isNull(request.minimumLoadBalancerCapacity)) {
+      query["MinimumLoadBalancerCapacity"] = request.minimumLoadBalancerCapacity;
+    }
+
+    if (!$dara.isNull(request.resetCapacityReservation)) {
+      query["ResetCapacityReservation"] = request.resetCapacityReservation;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCapacityReservation",
+      version: "2020-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCapacityReservationResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCapacityReservationResponse({}));
+  }
+
+  /**
+   * 修改资源预留
+   * 
+   * @param request - ModifyCapacityReservationRequest
+   * @returns ModifyCapacityReservationResponse
+   */
+  async modifyCapacityReservation(request: $_model.ModifyCapacityReservationRequest): Promise<$_model.ModifyCapacityReservationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCapacityReservationWithOptions(request, runtime);
   }
 
   /**

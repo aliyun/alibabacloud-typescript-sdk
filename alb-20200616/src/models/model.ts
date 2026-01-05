@@ -82,6 +82,8 @@ export { CreateServerGroupRequestSlowStartConfig } from './CreateServerGroupRequ
 export { CreateServerGroupRequestStickySessionConfig } from './CreateServerGroupRequest';
 export { CreateServerGroupRequestTag } from './CreateServerGroupRequest';
 export { CreateServerGroupRequestUchConfig } from './CreateServerGroupRequest';
+export { DescribeCapacityReservationResponseBodyCapacityReservationState } from './DescribeCapacityReservationResponseBody';
+export { DescribeCapacityReservationResponseBodyMinimumLoadBalancerCapacity } from './DescribeCapacityReservationResponseBody';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
 export { DescribeZonesResponseBodyZones } from './DescribeZonesResponseBody';
 export { DissociateAdditionalCertificatesFromListenerRequestCertificates } from './DissociateAdditionalCertificatesFromListenerRequest';
@@ -192,6 +194,7 @@ export { ListSystemSecurityPoliciesResponseBodySecurityPolicies } from './ListSy
 export { ListTagKeysResponseBodyTagKeys } from './ListTagKeysResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ModifyCapacityReservationRequestMinimumLoadBalancerCapacity } from './ModifyCapacityReservationRequest';
 export { RemoveServersFromServerGroupRequestServers } from './RemoveServersFromServerGroupRequest';
 export { ReplaceServersInServerGroupRequestAddedServers } from './ReplaceServersInServerGroupRequest';
 export { ReplaceServersInServerGroupRequestRemovedServers } from './ReplaceServersInServerGroupRequest';
@@ -345,6 +348,9 @@ export { DeleteSecurityPolicyResponse } from './DeleteSecurityPolicyResponse';
 export { DeleteServerGroupRequest } from './DeleteServerGroupRequest';
 export { DeleteServerGroupResponseBody } from './DeleteServerGroupResponseBody';
 export { DeleteServerGroupResponse } from './DeleteServerGroupResponse';
+export { DescribeCapacityReservationRequest } from './DescribeCapacityReservationRequest';
+export { DescribeCapacityReservationResponseBody } from './DescribeCapacityReservationResponseBody';
+export { DescribeCapacityReservationResponse } from './DescribeCapacityReservationResponse';
 export { DescribeRegionsRequest } from './DescribeRegionsRequest';
 export { DescribeRegionsResponseBody } from './DescribeRegionsResponseBody';
 export { DescribeRegionsResponse } from './DescribeRegionsResponse';
@@ -449,6 +455,9 @@ export { LoadBalancerJoinSecurityGroupResponse } from './LoadBalancerJoinSecurit
 export { LoadBalancerLeaveSecurityGroupRequest } from './LoadBalancerLeaveSecurityGroupRequest';
 export { LoadBalancerLeaveSecurityGroupResponseBody } from './LoadBalancerLeaveSecurityGroupResponseBody';
 export { LoadBalancerLeaveSecurityGroupResponse } from './LoadBalancerLeaveSecurityGroupResponse';
+export { ModifyCapacityReservationRequest } from './ModifyCapacityReservationRequest';
+export { ModifyCapacityReservationResponseBody } from './ModifyCapacityReservationResponseBody';
+export { ModifyCapacityReservationResponse } from './ModifyCapacityReservationResponse';
 export { MoveResourceGroupRequest } from './MoveResourceGroupRequest';
 export { MoveResourceGroupResponseBody } from './MoveResourceGroupResponseBody';
 export { MoveResourceGroupResponse } from './MoveResourceGroupResponse';
