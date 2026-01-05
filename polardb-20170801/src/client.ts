@@ -1117,6 +1117,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 支持基础版支持clone文件或目录快照
+   * 
+   * @param request - ClonePolarFsBasicSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClonePolarFsBasicSnapshotResponse
+   */
+  async clonePolarFsBasicSnapshotWithOptions(request: $_model.ClonePolarFsBasicSnapshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClonePolarFsBasicSnapshotResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.sourcePath)) {
+      query["SourcePath"] = request.sourcePath;
+    }
+
+    if (!$dara.isNull(request.targetPath)) {
+      query["TargetPath"] = request.targetPath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClonePolarFsBasicSnapshot",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClonePolarFsBasicSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.ClonePolarFsBasicSnapshotResponse({}));
+  }
+
+  /**
+   * 支持基础版支持clone文件或目录快照
+   * 
+   * @param request - ClonePolarFsBasicSnapshotRequest
+   * @returns ClonePolarFsBasicSnapshotResponse
+   */
+  async clonePolarFsBasicSnapshot(request: $_model.ClonePolarFsBasicSnapshotRequest): Promise<$_model.ClonePolarFsBasicSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clonePolarFsBasicSnapshotWithOptions(request, runtime);
+  }
+
+  /**
    * 关闭DB4AI
    * 
    * @param request - CloseAITaskRequest
