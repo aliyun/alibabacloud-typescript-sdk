@@ -288,6 +288,9 @@ export { DescribeLiveStreamsPublishListResponseBodyPublishInfoLiveStreamPublishI
 export { DescribeLiveStreamsPublishListResponseBodyPublishInfo } from './DescribeLiveStreamsPublishListResponseBody';
 export { DescribeLiveStreamsTotalCountResponseBodyStreamCountListStreamCountInfos } from './DescribeLiveStreamsTotalCountResponseBody';
 export { DescribeLiveStreamsTotalCountResponseBodyStreamCountList } from './DescribeLiveStreamsTotalCountResponseBody';
+export { DescribeLiveTagResourcesRequestTag } from './DescribeLiveTagResourcesRequest';
+export { DescribeLiveTagResourcesResponseBodyTagResourcesTag } from './DescribeLiveTagResourcesResponseBody';
+export { DescribeLiveTagResourcesResponseBodyTagResources } from './DescribeLiveTagResourcesResponseBody';
 export { DescribeLiveTopDomainsByFlowResponseBodyTopDomainsTopDomain } from './DescribeLiveTopDomainsByFlowResponseBody';
 export { DescribeLiveTopDomainsByFlowResponseBodyTopDomains } from './DescribeLiveTopDomainsByFlowResponseBody';
 export { DescribeLiveTrafficDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail } from './DescribeLiveTrafficDomainLogResponseBody';
@@ -1249,6 +1252,9 @@ export { DescribeLiveStreamsPublishListResponse } from './DescribeLiveStreamsPub
 export { DescribeLiveStreamsTotalCountRequest } from './DescribeLiveStreamsTotalCountRequest';
 export { DescribeLiveStreamsTotalCountResponseBody } from './DescribeLiveStreamsTotalCountResponseBody';
 export { DescribeLiveStreamsTotalCountResponse } from './DescribeLiveStreamsTotalCountResponse';
+export { DescribeLiveTagResourcesRequest } from './DescribeLiveTagResourcesRequest';
+export { DescribeLiveTagResourcesResponseBody } from './DescribeLiveTagResourcesResponseBody';
+export { DescribeLiveTagResourcesResponse } from './DescribeLiveTagResourcesResponse';
 export { DescribeLiveTopDomainsByFlowRequest } from './DescribeLiveTopDomainsByFlowRequest';
 export { DescribeLiveTopDomainsByFlowResponseBody } from './DescribeLiveTopDomainsByFlowResponseBody';
 export { DescribeLiveTopDomainsByFlowResponse } from './DescribeLiveTopDomainsByFlowResponse';

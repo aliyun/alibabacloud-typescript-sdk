@@ -17737,6 +17737,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the tags of domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
+   * 
+   * @param request - DescribeLiveTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLiveTagResourcesResponse
+   */
+  async describeLiveTagResourcesWithOptions(request: $_model.DescribeLiveTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLiveTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLiveTagResources",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLiveTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLiveTagResourcesResponse({}));
+  }
+
+  /**
+   * Queries the tags of domain names.
+   * 
+   * @remarks
+   * You can call this operation up to 10 times per second per account.
+   * 
+   * @param request - DescribeLiveTagResourcesRequest
+   * @returns DescribeLiveTagResourcesResponse
+   */
+  async describeLiveTagResources(request: $_model.DescribeLiveTagResourcesRequest): Promise<$_model.DescribeLiveTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLiveTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the top domain names ranked by traffic.
    * 
    * @remarks
