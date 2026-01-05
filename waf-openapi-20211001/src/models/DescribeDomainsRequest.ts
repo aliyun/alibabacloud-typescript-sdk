@@ -59,6 +59,7 @@ export class DescribeDomainsRequest extends $dara.Model {
    * www.aliyundoc.com
    */
   domain?: string;
+  domainId?: string;
   /**
    * @remarks
    * The page number of the page to return. Default value: 1.
@@ -113,6 +114,7 @@ export class DescribeDomainsRequest extends $dara.Model {
     return {
       backend: 'Backend',
       domain: 'Domain',
+      domainId: 'DomainId',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -126,6 +128,7 @@ export class DescribeDomainsRequest extends $dara.Model {
     return {
       backend: 'string',
       domain: 'string',
+      domainId: 'string',
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

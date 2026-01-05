@@ -6391,6 +6391,10 @@ export default class Client extends OpenApi {
       query["Domain"] = request.domain;
     }
 
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
