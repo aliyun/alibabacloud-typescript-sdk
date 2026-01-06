@@ -173,6 +173,8 @@ export { DescribeGlobalDatabaseNetworksResponseBodyItems } from './DescribeGloba
 export { DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './DescribeGlobalSecurityIpgroupResponseBody';
 export { DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel } from './DescribeGlobalSecurityIpgroupRelationResponseBody';
 export { DescribeHALogsResponseBodyHaLogItems } from './DescribeHalogsResponseBody';
+export { DescribeHistoryEventsResponseBodyItemsData } from './DescribeHistoryEventsResponseBody';
+export { DescribeHistoryEventsResponseBodyItems } from './DescribeHistoryEventsResponseBody';
 export { DescribeHistoryTasksResponseBodyItems } from './DescribeHistoryTasksResponseBody';
 export { DescribeHistoryTasksStatResponseBodyItems } from './DescribeHistoryTasksStatResponseBody';
 export { DescribeLicenseOrdersResponseBodyItems } from './DescribeLicenseOrdersResponseBody';
@@ -676,6 +678,9 @@ export { DescribeGlobalSecurityIPGroupRelationResponse } from './DescribeGlobalS
 export { DescribeHALogsRequest } from './DescribeHalogsRequest';
 export { DescribeHALogsResponseBody } from './DescribeHalogsResponseBody';
 export { DescribeHALogsResponse } from './DescribeHalogsResponse';
+export { DescribeHistoryEventsRequest } from './DescribeHistoryEventsRequest';
+export { DescribeHistoryEventsResponseBody } from './DescribeHistoryEventsResponseBody';
+export { DescribeHistoryEventsResponse } from './DescribeHistoryEventsResponse';
 export { DescribeHistoryTasksRequest } from './DescribeHistoryTasksRequest';
 export { DescribeHistoryTasksResponseBody } from './DescribeHistoryTasksResponseBody';
 export { DescribeHistoryTasksResponse } from './DescribeHistoryTasksResponse';

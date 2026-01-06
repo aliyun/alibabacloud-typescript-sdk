@@ -10431,6 +10431,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 事件中心事件列表
+   * 
+   * @param request - DescribeHistoryEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHistoryEventsResponse
+   */
+  async describeHistoryEventsWithOptions(request: $_model.DescribeHistoryEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHistoryEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.archiveStatus)) {
+      query["ArchiveStatus"] = request.archiveStatus;
+    }
+
+    if (!$dara.isNull(request.eventCategory)) {
+      query["EventCategory"] = request.eventCategory;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventLevel)) {
+      query["EventLevel"] = request.eventLevel;
+    }
+
+    if (!$dara.isNull(request.eventStatus)) {
+      query["EventStatus"] = request.eventStatus;
+    }
+
+    if (!$dara.isNull(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.fromStartTime)) {
+      query["FromStartTime"] = request.fromStartTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.toStartTime)) {
+      query["ToStartTime"] = request.toStartTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHistoryEvents",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHistoryEventsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHistoryEventsResponse({}));
+  }
+
+  /**
+   * 事件中心事件列表
+   * 
+   * @param request - DescribeHistoryEventsRequest
+   * @returns DescribeHistoryEventsResponse
+   */
+  async describeHistoryEvents(request: $_model.DescribeHistoryEventsRequest): Promise<$_model.DescribeHistoryEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHistoryEventsWithOptions(request, runtime);
+  }
+
+  /**
    * 任务中心任务列表
    * 
    * @param request - DescribeHistoryTasksRequest
