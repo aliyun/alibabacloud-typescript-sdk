@@ -70,7 +70,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
    * rg-aekzbvctytru7ua
    */
   resourceGroupId?: string;
-  resourceOwnerAccount?: number;
+  resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
   /**
@@ -158,7 +158,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
-      resourceOwnerAccount: 'number',
+      resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
       status: 'string',

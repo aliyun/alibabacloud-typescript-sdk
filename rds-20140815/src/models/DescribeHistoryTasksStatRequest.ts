@@ -48,7 +48,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
    * rg-acfmy*****
    */
   resourceGroupId?: string;
-  resourceOwnerAccount?: number;
+  resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
   /**
@@ -130,7 +130,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
       ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
-      resourceOwnerAccount: 'number',
+      resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
       status: 'string',
