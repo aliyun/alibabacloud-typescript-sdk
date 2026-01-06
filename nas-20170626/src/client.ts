@@ -5395,6 +5395,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询特定智能目录
+   * 
+   * @param request - GetFilesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFilesetResponse
+   */
+  async getFilesetWithOptions(request: $_model.GetFilesetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFilesetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.fsetId)) {
+      query["FsetId"] = request.fsetId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileset",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFilesetResponse>(await this.callApi(params, req, runtime), new $_model.GetFilesetResponse({}));
+  }
+
+  /**
+   * 查询特定智能目录
+   * 
+   * @param request - GetFilesetRequest
+   * @returns GetFilesetResponse
+   */
+  async getFileset(request: $_model.GetFilesetRequest): Promise<$_model.GetFilesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFilesetWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询协议机挂载点
+   * 
+   * @param request - GetProtocolMountTargetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProtocolMountTargetResponse
+   */
+  async getProtocolMountTargetWithOptions(request: $_model.GetProtocolMountTargetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProtocolMountTargetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.exportId)) {
+      query["ExportId"] = request.exportId;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.protocolServiceId)) {
+      query["ProtocolServiceId"] = request.protocolServiceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProtocolMountTarget",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProtocolMountTargetResponse>(await this.callApi(params, req, runtime), new $_model.GetProtocolMountTargetResponse({}));
+  }
+
+  /**
+   * 查询协议机挂载点
+   * 
+   * @param request - GetProtocolMountTargetRequest
+   * @returns GetProtocolMountTargetResponse
+   */
+  async getProtocolMountTarget(request: $_model.GetProtocolMountTargetRequest): Promise<$_model.GetProtocolMountTargetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProtocolMountTargetWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the recycle bin configurations of a General-purpose NAS file system.
    * 
    * @remarks
