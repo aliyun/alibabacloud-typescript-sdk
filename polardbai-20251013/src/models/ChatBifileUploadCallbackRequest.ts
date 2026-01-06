@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatBIFileUploadCallbackRequest extends $dara.Model {
+  authMessage?: string;
+  authType?: string;
   /**
    * @example
    * gbk, utf-8
@@ -50,6 +52,8 @@ export class ChatBIFileUploadCallbackRequest extends $dara.Model {
   tableType?: string;
   static names(): { [key: string]: string } {
     return {
+      authMessage: 'AuthMessage',
+      authType: 'AuthType',
       characterSetName: 'CharacterSetName',
       dbName: 'DbName',
       fileName: 'FileName',
@@ -61,6 +65,8 @@ export class ChatBIFileUploadCallbackRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authMessage: 'string',
+      authType: 'string',
       characterSetName: 'string',
       dbName: 'string',
       fileName: 'string',

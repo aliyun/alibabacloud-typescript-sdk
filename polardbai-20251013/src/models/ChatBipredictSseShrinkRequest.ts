@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatBIPredictSseShrinkRequest extends $dara.Model {
+  authMessage?: string;
+  authType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -53,8 +55,15 @@ export class ChatBIPredictSseShrinkRequest extends $dara.Model {
    * true
    */
   selectData?: boolean;
+  /**
+   * @example
+   * false
+   */
+  thinkingMode?: boolean;
   static names(): { [key: string]: string } {
     return {
+      authMessage: 'AuthMessage',
+      authType: 'AuthType',
       dbName: 'DbName',
       generateChart: 'GenerateChart',
       generateSummary: 'GenerateSummary',
@@ -64,11 +73,14 @@ export class ChatBIPredictSseShrinkRequest extends $dara.Model {
       question: 'Question',
       schemaIndexTableName: 'SchemaIndexTableName',
       selectData: 'SelectData',
+      thinkingMode: 'ThinkingMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      authMessage: 'string',
+      authType: 'string',
       dbName: 'string',
       generateChart: 'boolean',
       generateSummary: 'boolean',
@@ -78,6 +90,7 @@ export class ChatBIPredictSseShrinkRequest extends $dara.Model {
       question: 'string',
       schemaIndexTableName: 'string',
       selectData: 'boolean',
+      thinkingMode: 'boolean',
     };
   }
 

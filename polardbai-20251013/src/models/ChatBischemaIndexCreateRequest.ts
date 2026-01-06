@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatBISchemaIndexCreateRequest extends $dara.Model {
+  authMessage?: string;
+  authType?: string;
   /**
    * @example
    * 空字符串, \"graph_info.time,text_info.ext\"
@@ -41,6 +43,8 @@ export class ChatBISchemaIndexCreateRequest extends $dara.Model {
   toSample?: number;
   static names(): { [key: string]: string } {
     return {
+      authMessage: 'AuthMessage',
+      authType: 'AuthType',
       columnsExcluded: 'ColumnsExcluded',
       dbName: 'DbName',
       instanceName: 'InstanceName',
@@ -52,6 +56,8 @@ export class ChatBISchemaIndexCreateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authMessage: 'string',
+      authType: 'string',
       columnsExcluded: 'string',
       dbName: 'string',
       instanceName: 'string',

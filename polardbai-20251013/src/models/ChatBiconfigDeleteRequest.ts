@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatBIConfigDeleteRequest extends $dara.Model {
+  authMessage?: string;
+  authType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -21,6 +23,8 @@ export class ChatBIConfigDeleteRequest extends $dara.Model {
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {
+      authMessage: 'AuthMessage',
+      authType: 'AuthType',
       dbName: 'DbName',
       instanceName: 'InstanceName',
     };
@@ -28,6 +32,8 @@ export class ChatBIConfigDeleteRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authMessage: 'string',
+      authType: 'string',
       dbName: 'string',
       instanceName: 'string',
     };

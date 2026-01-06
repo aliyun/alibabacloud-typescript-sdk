@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatBIConfigUpdateEntryRequest extends $dara.Model {
+  authMessage?: string;
+  authType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -84,6 +86,8 @@ export class ChatBIConfigUpdateEntryRequest extends $dara.Model {
   textCondition?: string;
   static names(): { [key: string]: string } {
     return {
+      authMessage: 'AuthMessage',
+      authType: 'AuthType',
       dbName: 'DbName',
       formulaFunction: 'FormulaFunction',
       id: 'Id',
@@ -98,6 +102,8 @@ export class ChatBIConfigUpdateEntryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authMessage: 'string',
+      authType: 'string',
       dbName: 'string',
       formulaFunction: 'string',
       id: 'number',

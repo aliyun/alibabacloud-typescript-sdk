@@ -39,6 +39,14 @@ export default class Client extends OpenApi {
   async chatBIConfigCreateWithOptions(request: $_model.ChatBIConfigCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIConfigCreateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -85,6 +93,14 @@ export default class Client extends OpenApi {
   async chatBIConfigDeleteWithOptions(request: $_model.ChatBIConfigDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIConfigDeleteResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -131,6 +147,14 @@ export default class Client extends OpenApi {
   async chatBIConfigDeleteEntryWithOptions(request: $_model.ChatBIConfigDeleteEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIConfigDeleteEntryResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -181,6 +205,14 @@ export default class Client extends OpenApi {
   async chatBIConfigQueryEntriesWithOptions(request: $_model.ChatBIConfigQueryEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIConfigQueryEntriesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -239,6 +271,14 @@ export default class Client extends OpenApi {
   async chatBIConfigQueryTablesWithOptions(request: $_model.ChatBIConfigQueryTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIConfigQueryTablesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -289,6 +329,14 @@ export default class Client extends OpenApi {
   async chatBIConfigUpdateEntryWithOptions(request: $_model.ChatBIConfigUpdateEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIConfigUpdateEntryResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -363,6 +411,14 @@ export default class Client extends OpenApi {
   async chatBIFileTemplateDownloadWithOptions(request: $_model.ChatBIFileTemplateDownloadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIFileTemplateDownloadResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -409,6 +465,14 @@ export default class Client extends OpenApi {
   async chatBIFileUploadWithOptions(request: $_model.ChatBIFileUploadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIFileUploadResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.fileName)) {
       query["FileName"] = request.fileName;
     }
@@ -455,6 +519,14 @@ export default class Client extends OpenApi {
   async chatBIFileUploadCallbackWithOptions(request: $_model.ChatBIFileUploadCallbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIFileUploadCallbackResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.characterSetName)) {
       query["CharacterSetName"] = request.characterSetName;
     }
@@ -517,6 +589,14 @@ export default class Client extends OpenApi {
   async chatBIPatternCreateWithOptions(request: $_model.ChatBIPatternCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternCreateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -567,6 +647,14 @@ export default class Client extends OpenApi {
   async chatBIPatternDeleteWithOptions(request: $_model.ChatBIPatternDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternDeleteResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -617,6 +705,14 @@ export default class Client extends OpenApi {
   async chatBIPatternDeleteEntryWithOptions(request: $_model.ChatBIPatternDeleteEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternDeleteEntryResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -671,6 +767,14 @@ export default class Client extends OpenApi {
   async chatBIPatternIndexCreateWithOptions(request: $_model.ChatBIPatternIndexCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternIndexCreateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -725,6 +829,14 @@ export default class Client extends OpenApi {
   async chatBIPatternIndexDeleteWithOptions(request: $_model.ChatBIPatternIndexDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternIndexDeleteResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -775,6 +887,14 @@ export default class Client extends OpenApi {
   async chatBIPatternIndexQueryTablesWithOptions(request: $_model.ChatBIPatternIndexQueryTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternIndexQueryTablesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -833,6 +953,14 @@ export default class Client extends OpenApi {
   async chatBIPatternQueryEntriesWithOptions(request: $_model.ChatBIPatternQueryEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternQueryEntriesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -895,6 +1023,14 @@ export default class Client extends OpenApi {
   async chatBIPatternQueryTablesWithOptions(request: $_model.ChatBIPatternQueryTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternQueryTablesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -953,6 +1089,14 @@ export default class Client extends OpenApi {
   async chatBIPatternUpdateEntryWithOptions(request: $_model.ChatBIPatternUpdateEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIPatternUpdateEntryResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -1029,6 +1173,14 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -1063,6 +1215,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.selectData)) {
       query["SelectData"] = request.selectData;
+    }
+
+    if (!$dara.isNull(request.thinkingMode)) {
+      query["ThinkingMode"] = request.thinkingMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1111,6 +1267,14 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -1145,6 +1309,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.selectData)) {
       query["SelectData"] = request.selectData;
+    }
+
+    if (!$dara.isNull(request.thinkingMode)) {
+      query["ThinkingMode"] = request.thinkingMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1185,6 +1353,14 @@ export default class Client extends OpenApi {
   async chatBISchemaIndexCreateWithOptions(request: $_model.ChatBISchemaIndexCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBISchemaIndexCreateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.columnsExcluded)) {
       query["ColumnsExcluded"] = request.columnsExcluded;
     }
@@ -1247,6 +1423,14 @@ export default class Client extends OpenApi {
   async chatBISchemaIndexDeleteWithOptions(request: $_model.ChatBISchemaIndexDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBISchemaIndexDeleteResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -1297,6 +1481,14 @@ export default class Client extends OpenApi {
   async chatBISchemaIndexQueryTablesWithOptions(request: $_model.ChatBISchemaIndexQueryTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBISchemaIndexQueryTablesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -1355,6 +1547,14 @@ export default class Client extends OpenApi {
   async chatBIUpdateTableValidationColumnsWithOptions(request: $_model.ChatBIUpdateTableValidationColumnsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatBIUpdateTableValidationColumnsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
@@ -1706,6 +1906,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获得鉴权token
+   * 
+   * @param request - GetUserTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserTokenResponse
+   */
+  async getUserTokenWithOptions(request: $_model.GetUserTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserToken",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetUserTokenResponse({}));
+  }
+
+  /**
+   * 获得鉴权token
+   * 
+   * @param request - GetUserTokenRequest
+   * @returns GetUserTokenResponse
+   */
+  async getUserToken(request: $_model.GetUserTokenRequest): Promise<$_model.GetUserTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserTokenWithOptions(request, runtime);
+  }
+
+  /**
    * 查询多模态数据集列表
    * 
    * @param request - ListMultimodalDatasetRequest
@@ -1860,6 +2110,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询search task结果列表
+   * 
+   * @param request - ListMultimodalSearchTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultimodalSearchTaskResultResponse
+   */
+  async listMultimodalSearchTaskResultWithOptions(request: $_model.ListMultimodalSearchTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultimodalSearchTaskResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMultimodalSearchTaskResult",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMultimodalSearchTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.ListMultimodalSearchTaskResultResponse({}));
+  }
+
+  /**
+   * 查询search task结果列表
+   * 
+   * @param request - ListMultimodalSearchTaskResultRequest
+   * @returns ListMultimodalSearchTaskResultResponse
+   */
+  async listMultimodalSearchTaskResult(request: $_model.ListMultimodalSearchTaskResultRequest): Promise<$_model.ListMultimodalSearchTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMultimodalSearchTaskResultWithOptions(request, runtime);
+  }
+
+  /**
    * 更新数据集信息
    * 
    * @param request - UpdateMultimodalDatasetRequest
@@ -1961,6 +2265,110 @@ export default class Client extends OpenApi {
   async uploadOSSMultimodalDataset(request: $_model.UploadOSSMultimodalDatasetRequest): Promise<$_model.UploadOSSMultimodalDatasetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadOSSMultimodalDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 预检验鉴权token
+   * 
+   * @param request - ValidateDatabaseUserTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateDatabaseUserTokenResponse
+   */
+  async validateDatabaseUserTokenWithOptions(request: $_model.ValidateDatabaseUserTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateDatabaseUserTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateDatabaseUserToken",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateDatabaseUserTokenResponse>(await this.callApi(params, req, runtime), new $_model.ValidateDatabaseUserTokenResponse({}));
+  }
+
+  /**
+   * 预检验鉴权token
+   * 
+   * @param request - ValidateDatabaseUserTokenRequest
+   * @returns ValidateDatabaseUserTokenResponse
+   */
+  async validateDatabaseUserToken(request: $_model.ValidateDatabaseUserTokenRequest): Promise<$_model.ValidateDatabaseUserTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.validateDatabaseUserTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 预检验鉴权token
+   * 
+   * @param request - ValidateUserTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateUserTokenResponse
+   */
+  async validateUserTokenWithOptions(request: $_model.ValidateUserTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateUserTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authMessage)) {
+      query["AuthMessage"] = request.authMessage;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateUserToken",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateUserTokenResponse>(await this.callApi(params, req, runtime), new $_model.ValidateUserTokenResponse({}));
+  }
+
+  /**
+   * 预检验鉴权token
+   * 
+   * @param request - ValidateUserTokenRequest
+   * @returns ValidateUserTokenResponse
+   */
+  async validateUserToken(request: $_model.ValidateUserTokenRequest): Promise<$_model.ValidateUserTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.validateUserTokenWithOptions(request, runtime);
   }
 
 }

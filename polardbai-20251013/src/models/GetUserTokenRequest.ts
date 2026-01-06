@@ -2,22 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ChatBIConfigQueryTablesRequest extends $dara.Model {
-  authMessage?: string;
-  authType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * db_test
-   */
-  dbName?: string;
-  /**
-   * @example
-   * polar
-   */
-  inputField?: string;
+export class GetUserTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -25,24 +10,36 @@ export class ChatBIConfigQueryTablesRequest extends $dara.Model {
    * @example
    * pc-2ze454l20me07****
    */
-  instanceName?: string;
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****
+   */
+  password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_test
+   */
+  username?: string;
   static names(): { [key: string]: string } {
     return {
-      authMessage: 'AuthMessage',
-      authType: 'AuthType',
-      dbName: 'DbName',
-      inputField: 'InputField',
-      instanceName: 'InstanceName',
+      DBClusterId: 'DBClusterId',
+      password: 'Password',
+      username: 'Username',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      authMessage: 'string',
-      authType: 'string',
-      dbName: 'string',
-      inputField: 'string',
-      instanceName: 'string',
+      DBClusterId: 'string',
+      password: 'string',
+      username: 'string',
     };
   }
 

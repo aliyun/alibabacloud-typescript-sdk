@@ -2,22 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ChatBIPatternQueryTablesRequest extends $dara.Model {
-  authMessage?: string;
-  authType?: string;
+export class ValidateDatabaseUserTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * db_test
+   * yEtNjzuM21NVLVJTuL9Trw****
    */
-  dbName?: string;
+  authMessage?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * pattern
+   * token
    */
-  inputField?: string;
+  authType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -25,26 +26,21 @@ export class ChatBIPatternQueryTablesRequest extends $dara.Model {
    * @example
    * pc-2ze454l20me07****
    */
-  instanceName?: string;
+  DBClusterId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 1
+   * ai_test
    */
-  pageNumber?: number;
-  /**
-   * @example
-   * 50
-   */
-  pageSize?: number;
+  DBName?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
       authType: 'AuthType',
-      dbName: 'DbName',
-      inputField: 'InputField',
-      instanceName: 'InstanceName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
+      DBClusterId: 'DBClusterId',
+      DBName: 'DBName',
     };
   }
 
@@ -52,11 +48,8 @@ export class ChatBIPatternQueryTablesRequest extends $dara.Model {
     return {
       authMessage: 'string',
       authType: 'string',
-      dbName: 'string',
-      inputField: 'string',
-      instanceName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
+      DBClusterId: 'string',
+      DBName: 'string',
     };
   }
 

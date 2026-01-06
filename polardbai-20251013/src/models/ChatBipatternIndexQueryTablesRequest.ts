@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatBIPatternIndexQueryTablesRequest extends $dara.Model {
+  authMessage?: string;
+  authType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -36,6 +38,8 @@ export class ChatBIPatternIndexQueryTablesRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      authMessage: 'AuthMessage',
+      authType: 'AuthType',
       dbName: 'DbName',
       inputField: 'InputField',
       instanceName: 'InstanceName',
@@ -46,6 +50,8 @@ export class ChatBIPatternIndexQueryTablesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authMessage: 'string',
+      authType: 'string',
       dbName: 'string',
       inputField: 'string',
       instanceName: 'string',

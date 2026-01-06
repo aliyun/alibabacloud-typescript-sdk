@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatBIFileUploadRequest extends $dara.Model {
+  authMessage?: string;
+  authType?: string;
   /**
    * @example
    * pattern_test.csv
@@ -18,6 +20,8 @@ export class ChatBIFileUploadRequest extends $dara.Model {
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {
+      authMessage: 'AuthMessage',
+      authType: 'AuthType',
       fileName: 'FileName',
       instanceName: 'InstanceName',
     };
@@ -25,6 +29,8 @@ export class ChatBIFileUploadRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authMessage: 'string',
+      authType: 'string',
       fileName: 'string',
       instanceName: 'string',
     };
