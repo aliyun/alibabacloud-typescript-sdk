@@ -100,6 +100,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
    * test
    */
   displayName?: string;
+  employeeType?: string;
   knowledges?: GetDigitalEmployeeResponseBodyKnowledges;
   /**
    * @example
@@ -135,6 +136,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       defaultRule: 'defaultRule',
       description: 'description',
       displayName: 'displayName',
+      employeeType: 'employeeType',
       knowledges: 'knowledges',
       name: 'name',
       regionId: 'regionId',
@@ -150,6 +152,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       defaultRule: 'string',
       description: 'string',
       displayName: 'string',
+      employeeType: 'string',
       knowledges: GetDigitalEmployeeResponseBodyKnowledges,
       name: 'string',
       regionId: 'string',

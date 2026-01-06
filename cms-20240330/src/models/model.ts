@@ -306,6 +306,8 @@ export { CreatePrometheusVirtualInstanceResponse } from './CreatePrometheusVirtu
 export { CreateServiceRequest } from './CreateServiceRequest';
 export { CreateServiceResponseBody } from './CreateServiceResponseBody';
 export { CreateServiceResponse } from './CreateServiceResponse';
+export { CreateServiceObservabilityResponseBody } from './CreateServiceObservabilityResponseBody';
+export { CreateServiceObservabilityResponse } from './CreateServiceObservabilityResponse';
 export { CreateThreadRequest } from './CreateThreadRequest';
 export { CreateThreadResponseBody } from './CreateThreadResponseBody';
 export { CreateThreadResponse } from './CreateThreadResponse';

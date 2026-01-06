@@ -975,6 +975,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建应用可观测实例
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceObservabilityResponse
+   */
+  async createServiceObservabilityWithOptions(workspace: string, type: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceObservabilityResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceObservability",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service-observability/${$dara.URL.percentEncode(type)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceObservabilityResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceObservabilityResponse({}));
+  }
+
+  /**
+   * 创建应用可观测实例
+   * @returns CreateServiceObservabilityResponse
+   */
+  async createServiceObservability(workspace: string, type: string): Promise<$_model.CreateServiceObservabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceObservabilityWithOptions(workspace, type, headers, runtime);
+  }
+
+  /**
    * 创建会话
    * 
    * @param request - CreateThreadRequest
@@ -3185,6 +3220,10 @@ export default class Client extends OpenApi {
   async listDigitalEmployeesWithOptions(request: $_model.ListDigitalEmployeesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.employeeType)) {
+      query["employeeType"] = request.employeeType;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }

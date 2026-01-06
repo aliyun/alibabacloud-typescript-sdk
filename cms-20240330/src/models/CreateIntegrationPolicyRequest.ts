@@ -19,6 +19,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
    * na61prod3-na61cloudhdfsssd
    */
   clusterId?: string;
+  clusterNamespace?: string;
   /**
    * @remarks
    * Whether to disable the unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
@@ -55,6 +56,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
     return {
       clusterEntityType: 'clusterEntityType',
       clusterId: 'clusterId',
+      clusterNamespace: 'clusterNamespace',
       disablePolicyShare: 'disablePolicyShare',
       entityGroupId: 'entityGroupId',
       entityUserId: 'entityUserId',
@@ -66,6 +68,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
     return {
       clusterEntityType: 'string',
       clusterId: 'string',
+      clusterNamespace: 'string',
       disablePolicyShare: 'boolean',
       entityGroupId: 'string',
       entityUserId: 'string',

@@ -100,6 +100,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
    * test
    */
   displayName?: string;
+  employeeType?: string;
   knowledges?: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges;
   /**
    * @example
@@ -125,6 +126,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
       defaultRule: 'defaultRule',
       description: 'description',
       displayName: 'displayName',
+      employeeType: 'employeeType',
       knowledges: 'knowledges',
       name: 'name',
       roleArn: 'roleArn',
@@ -138,6 +140,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
       defaultRule: 'string',
       description: 'string',
       displayName: 'string',
+      employeeType: 'string',
       knowledges: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges,
       name: 'string',
       roleArn: 'string',

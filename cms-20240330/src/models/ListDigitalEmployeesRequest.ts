@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDigitalEmployeesRequest extends $dara.Model {
+  employeeType?: string;
   /**
    * @example
    * 10
@@ -20,6 +21,7 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
+      employeeType: 'employeeType',
       maxResults: 'maxResults',
       name: 'name',
       nextToken: 'nextToken',
@@ -28,6 +30,7 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      employeeType: 'string',
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',
