@@ -3,21 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAutoRenewalAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster IDs.
+   */
   DBClusterId?: string[];
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. A positive integer greater than 0 and not exceeding the maximum value of the Integer data type. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned on each page. Valid values:
+   * 
+   * *   **30**(Default)
+   * *   **50**
+   * *   **100**
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +41,9 @@ export class DescribeAutoRenewalAttributeRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-4690g37929****
    */

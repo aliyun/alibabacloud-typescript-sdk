@@ -26,6 +26,8 @@ export class DescribeDownloadRecordsRequest extends $dara.Model {
    * 
    * @example
    * zh
+   * 
+   * @deprecated
    */
   lang?: string;
   /**

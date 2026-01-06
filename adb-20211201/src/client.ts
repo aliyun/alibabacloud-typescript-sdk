@@ -4674,7 +4674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自动续费参数
+   * Queries the auto-renewal status of a subscription cluster.
    * 
    * @param tmpReq - DescribeAutoRenewalAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4743,7 +4743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自动续费参数
+   * Queries the auto-renewal status of a subscription cluster.
    * 
    * @param request - DescribeAutoRenewalAttributeRequest
    * @returns DescribeAutoRenewalAttributeResponse
@@ -13301,7 +13301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改自动续费配置
+   * Configures auto-renewal for a subscription cluster.
    * 
    * @param request - ModifyAutoRenewalAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13364,7 +13364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改自动续费配置
+   * Configures auto-renewal for a subscription cluster.
    * 
    * @param request - ModifyAutoRenewalAttributeRequest
    * @returns ModifyAutoRenewalAttributeResponse
