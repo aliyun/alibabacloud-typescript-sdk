@@ -7941,6 +7941,620 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取钉钉会议信息
+   * 
+   * @param tmpReq - GetDingtalkMeetingInfoRequest
+   * @param tmpHeader - GetDingtalkMeetingInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDingtalkMeetingInfoResponse
+   */
+  async getDingtalkMeetingInfoWithOptions(tmpReq: $_model.GetDingtalkMeetingInfoRequest, tmpHeader: $_model.GetDingtalkMeetingInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDingtalkMeetingInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDingtalkMeetingInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetDingtalkMeetingInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["orgId"] = request.orgId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDingtalkMeetingInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getDingtalkMeetingInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDingtalkMeetingInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetDingtalkMeetingInfoResponse({}));
+  }
+
+  /**
+   * 获取钉钉会议信息
+   * 
+   * @param request - GetDingtalkMeetingInfoRequest
+   * @returns GetDingtalkMeetingInfoResponse
+   */
+  async getDingtalkMeetingInfo(request: $_model.GetDingtalkMeetingInfoRequest): Promise<$_model.GetDingtalkMeetingInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDingtalkMeetingInfoHeaders({ });
+    return await this.getDingtalkMeetingInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取钉钉会议列表
+   * 
+   * @param tmpReq - GetDingtalkMeetingListRequest
+   * @param tmpHeader - GetDingtalkMeetingListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDingtalkMeetingListResponse
+   */
+  async getDingtalkMeetingListWithOptions(tmpReq: $_model.GetDingtalkMeetingListRequest, tmpHeader: $_model.GetDingtalkMeetingListHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDingtalkMeetingListResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDingtalkMeetingListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetDingtalkMeetingListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      body["currentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["orgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.roomCode)) {
+      body["roomCode"] = request.roomCode;
+    }
+
+    if (!$dara.isNull(request.roomName)) {
+      body["roomName"] = request.roomName;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.workNo)) {
+      body["workNo"] = request.workNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDingtalkMeetingList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getDingtalkMeetingList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDingtalkMeetingListResponse>(await this.callApi(params, req, runtime), new $_model.GetDingtalkMeetingListResponse({}));
+  }
+
+  /**
+   * 获取钉钉会议列表
+   * 
+   * @param request - GetDingtalkMeetingListRequest
+   * @returns GetDingtalkMeetingListResponse
+   */
+  async getDingtalkMeetingList(request: $_model.GetDingtalkMeetingListRequest): Promise<$_model.GetDingtalkMeetingListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDingtalkMeetingListHeaders({ });
+    return await this.getDingtalkMeetingListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取钉钉会议成员事件
+   * 
+   * @param tmpReq - GetDingtalkMeetingMemberEventRequest
+   * @param tmpHeader - GetDingtalkMeetingMemberEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDingtalkMeetingMemberEventResponse
+   */
+  async getDingtalkMeetingMemberEventWithOptions(tmpReq: $_model.GetDingtalkMeetingMemberEventRequest, tmpHeader: $_model.GetDingtalkMeetingMemberEventHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDingtalkMeetingMemberEventResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDingtalkMeetingMemberEventShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetDingtalkMeetingMemberEventShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.beginTime)) {
+      body["beginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["orgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.workNo)) {
+      body["workNo"] = request.workNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDingtalkMeetingMemberEvent",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getDingtalkMeetingMemberEvent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDingtalkMeetingMemberEventResponse>(await this.callApi(params, req, runtime), new $_model.GetDingtalkMeetingMemberEventResponse({}));
+  }
+
+  /**
+   * 获取钉钉会议成员事件
+   * 
+   * @param request - GetDingtalkMeetingMemberEventRequest
+   * @returns GetDingtalkMeetingMemberEventResponse
+   */
+  async getDingtalkMeetingMemberEvent(request: $_model.GetDingtalkMeetingMemberEventRequest): Promise<$_model.GetDingtalkMeetingMemberEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDingtalkMeetingMemberEventHeaders({ });
+    return await this.getDingtalkMeetingMemberEventWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取钉钉会议成员列表
+   * 
+   * @param tmpReq - GetDingtalkMeetingMemberListRequest
+   * @param tmpHeader - GetDingtalkMeetingMemberListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDingtalkMeetingMemberListResponse
+   */
+  async getDingtalkMeetingMemberListWithOptions(tmpReq: $_model.GetDingtalkMeetingMemberListRequest, tmpHeader: $_model.GetDingtalkMeetingMemberListHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDingtalkMeetingMemberListResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDingtalkMeetingMemberListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetDingtalkMeetingMemberListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.clusterName)) {
+      body["clusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      body["currentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["orgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDingtalkMeetingMemberList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getDingtalkMeetingMemberList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDingtalkMeetingMemberListResponse>(await this.callApi(params, req, runtime), new $_model.GetDingtalkMeetingMemberListResponse({}));
+  }
+
+  /**
+   * 获取钉钉会议成员列表
+   * 
+   * @param request - GetDingtalkMeetingMemberListRequest
+   * @returns GetDingtalkMeetingMemberListResponse
+   */
+  async getDingtalkMeetingMemberList(request: $_model.GetDingtalkMeetingMemberListRequest): Promise<$_model.GetDingtalkMeetingMemberListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDingtalkMeetingMemberListHeaders({ });
+    return await this.getDingtalkMeetingMemberListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取会议指标数据
+   * 
+   * @param tmpReq - GetDingtalkMeetingMetricDataRequest
+   * @param tmpHeader - GetDingtalkMeetingMetricDataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDingtalkMeetingMetricDataResponse
+   */
+  async getDingtalkMeetingMetricDataWithOptions(tmpReq: $_model.GetDingtalkMeetingMetricDataRequest, tmpHeader: $_model.GetDingtalkMeetingMetricDataHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDingtalkMeetingMetricDataResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDingtalkMeetingMetricDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetDingtalkMeetingMetricDataShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.beginTime)) {
+      body["beginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["orgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.typeName)) {
+      body["typeName"] = request.typeName;
+    }
+
+    if (!$dara.isNull(request.workNo)) {
+      body["workNo"] = request.workNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDingtalkMeetingMetricData",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getDingtalkMeetingMetricData`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDingtalkMeetingMetricDataResponse>(await this.callApi(params, req, runtime), new $_model.GetDingtalkMeetingMetricDataResponse({}));
+  }
+
+  /**
+   * 获取会议指标数据
+   * 
+   * @param request - GetDingtalkMeetingMetricDataRequest
+   * @returns GetDingtalkMeetingMetricDataResponse
+   */
+  async getDingtalkMeetingMetricData(request: $_model.GetDingtalkMeetingMetricDataRequest): Promise<$_model.GetDingtalkMeetingMetricDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDingtalkMeetingMetricDataHeaders({ });
+    return await this.getDingtalkMeetingMetricDataWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取钉钉投屏信息
+   * 
+   * @param tmpReq - GetDingtalkProjectionInfoRequest
+   * @param tmpHeader - GetDingtalkProjectionInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDingtalkProjectionInfoResponse
+   */
+  async getDingtalkProjectionInfoWithOptions(tmpReq: $_model.GetDingtalkProjectionInfoRequest, tmpHeader: $_model.GetDingtalkProjectionInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDingtalkProjectionInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDingtalkProjectionInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetDingtalkProjectionInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.client)) {
+      body["client"] = request.client;
+    }
+
+    if (!$dara.isNull(request.endTs)) {
+      body["endTs"] = request.endTs;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["orgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.pubWorkNo)) {
+      body["pubWorkNo"] = request.pubWorkNo;
+    }
+
+    if (!$dara.isNull(request.roomId)) {
+      body["roomId"] = request.roomId;
+    }
+
+    if (!$dara.isNull(request.startTs)) {
+      body["startTs"] = request.startTs;
+    }
+
+    if (!$dara.isNull(request.subUid)) {
+      body["subUid"] = request.subUid;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDingtalkProjectionInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getDingtalkProjectionInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDingtalkProjectionInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetDingtalkProjectionInfoResponse({}));
+  }
+
+  /**
+   * 获取钉钉投屏信息
+   * 
+   * @param request - GetDingtalkProjectionInfoRequest
+   * @returns GetDingtalkProjectionInfoResponse
+   */
+  async getDingtalkProjectionInfo(request: $_model.GetDingtalkProjectionInfoRequest): Promise<$_model.GetDingtalkProjectionInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDingtalkProjectionInfoHeaders({ });
+    return await this.getDingtalkProjectionInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取钉钉投屏列表
+   * 
+   * @param tmpReq - GetDingtalkProjectionListRequest
+   * @param tmpHeader - GetDingtalkProjectionListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDingtalkProjectionListResponse
+   */
+  async getDingtalkProjectionListWithOptions(tmpReq: $_model.GetDingtalkProjectionListRequest, tmpHeader: $_model.GetDingtalkProjectionListHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDingtalkProjectionListResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDingtalkProjectionListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetDingtalkProjectionListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      body["code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      body["currentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["orgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectorWorkNo)) {
+      body["projectorWorkNo"] = request.projectorWorkNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDingtalkProjectionList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getDingtalkProjectionList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDingtalkProjectionListResponse>(await this.callApi(params, req, runtime), new $_model.GetDingtalkProjectionListResponse({}));
+  }
+
+  /**
+   * 获取钉钉投屏列表
+   * 
+   * @param request - GetDingtalkProjectionListRequest
+   * @returns GetDingtalkProjectionListResponse
+   */
+  async getDingtalkProjectionList(request: $_model.GetDingtalkProjectionListRequest): Promise<$_model.GetDingtalkProjectionListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDingtalkProjectionListHeaders({ });
+    return await this.getDingtalkProjectionListWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 委托权限获取文档内容
    * 
    * @param tmpReq - GetDocContentRequest
@@ -16600,6 +17214,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.QueryReportDetailHeaders({ });
     return await this.queryReportDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分页查询钉钉机器人退订工号
+   * 
+   * @param request - QueryRobotUnsubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRobotUnsubscriptionResponse
+   */
+  async queryRobotUnsubscriptionWithOptions(request: $_model.QueryRobotUnsubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRobotUnsubscriptionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.robotCode)) {
+      body["RobotCode"] = request.robotCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      body["SceneCode"] = request.sceneCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRobotUnsubscription",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/aliding/v1/robot/queryRobotUnsubscription`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRobotUnsubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.QueryRobotUnsubscriptionResponse({}));
+  }
+
+  /**
+   * 分页查询钉钉机器人退订工号
+   * 
+   * @param request - QueryRobotUnsubscriptionRequest
+   * @returns QueryRobotUnsubscriptionResponse
+   */
+  async queryRobotUnsubscription(request: $_model.QueryRobotUnsubscriptionRequest): Promise<$_model.QueryRobotUnsubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryRobotUnsubscriptionWithOptions(request, headers, runtime);
   }
 
   /**
