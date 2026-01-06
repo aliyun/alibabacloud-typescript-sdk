@@ -50,6 +50,7 @@ export class DecryptRequest extends $dara.Model {
    * Base64
    */
   messageType?: string;
+  warehouseId?: number;
   static names(): { [key: string]: string } {
     return {
       algorithm: 'Algorithm',
@@ -57,6 +58,7 @@ export class DecryptRequest extends $dara.Model {
       ciphertextBlob: 'CiphertextBlob',
       customIdentifier: 'CustomIdentifier',
       messageType: 'MessageType',
+      warehouseId: 'WarehouseId',
     };
   }
 
@@ -67,6 +69,7 @@ export class DecryptRequest extends $dara.Model {
       ciphertextBlob: 'string',
       customIdentifier: 'string',
       messageType: 'string',
+      warehouseId: 'number',
     };
   }
 

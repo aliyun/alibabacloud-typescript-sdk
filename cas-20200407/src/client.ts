@@ -597,6 +597,10 @@ export default class Client extends OpenApi {
       query["MessageType"] = request.messageType;
     }
 
+    if (!$dara.isNull(request.warehouseId)) {
+      query["WarehouseId"] = request.warehouseId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1159,6 +1163,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.plaintext)) {
       query["Plaintext"] = request.plaintext;
+    }
+
+    if (!$dara.isNull(request.warehouseId)) {
+      query["WarehouseId"] = request.warehouseId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2109,6 +2117,10 @@ export default class Client extends OpenApi {
       query["SigningAlgorithm"] = request.signingAlgorithm;
     }
 
+    if (!$dara.isNull(request.warehouseId)) {
+      query["WarehouseId"] = request.warehouseId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2513,6 +2525,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.signingAlgorithm)) {
       query["SigningAlgorithm"] = request.signingAlgorithm;
+    }
+
+    if (!$dara.isNull(request.warehouseId)) {
+      query["WarehouseId"] = request.warehouseId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

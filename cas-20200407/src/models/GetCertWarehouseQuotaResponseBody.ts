@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCertWarehouseQuotaResponseBody extends $dara.Model {
+  appTotalQuota?: number;
+  appUseCount?: number;
   /**
    * @remarks
    * The ID of the request, which is used to locate and troubleshoot issues.
@@ -29,6 +31,8 @@ export class GetCertWarehouseQuotaResponseBody extends $dara.Model {
   useCount?: number;
   static names(): { [key: string]: string } {
     return {
+      appTotalQuota: 'AppTotalQuota',
+      appUseCount: 'AppUseCount',
       requestId: 'RequestId',
       totalQuota: 'TotalQuota',
       useCount: 'UseCount',
@@ -37,6 +41,8 @@ export class GetCertWarehouseQuotaResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appTotalQuota: 'number',
+      appUseCount: 'number',
       requestId: 'string',
       totalQuota: 'number',
       useCount: 'number',

@@ -54,6 +54,7 @@ export class EncryptRequest extends $dara.Model {
    * 1234***
    */
   plaintext?: string;
+  warehouseId?: number;
   static names(): { [key: string]: string } {
     return {
       algorithm: 'Algorithm',
@@ -61,6 +62,7 @@ export class EncryptRequest extends $dara.Model {
       customIdentifier: 'CustomIdentifier',
       messageType: 'MessageType',
       plaintext: 'Plaintext',
+      warehouseId: 'WarehouseId',
     };
   }
 
@@ -71,6 +73,7 @@ export class EncryptRequest extends $dara.Model {
       customIdentifier: 'string',
       messageType: 'string',
       plaintext: 'string',
+      warehouseId: 'number',
     };
   }
 

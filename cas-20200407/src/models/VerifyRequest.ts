@@ -67,6 +67,7 @@ export class VerifyRequest extends $dara.Model {
    * SHA256withRSA
    */
   signingAlgorithm?: string;
+  warehouseId?: string;
   static names(): { [key: string]: string } {
     return {
       certIdentifier: 'CertIdentifier',
@@ -75,6 +76,7 @@ export class VerifyRequest extends $dara.Model {
       messageType: 'MessageType',
       signatureValue: 'SignatureValue',
       signingAlgorithm: 'SigningAlgorithm',
+      warehouseId: 'WarehouseId',
     };
   }
 
@@ -86,6 +88,7 @@ export class VerifyRequest extends $dara.Model {
       messageType: 'string',
       signatureValue: 'string',
       signingAlgorithm: 'string',
+      warehouseId: 'string',
     };
   }
 
