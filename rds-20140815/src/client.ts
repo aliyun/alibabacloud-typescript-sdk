@@ -25834,6 +25834,10 @@ export default class Client extends OpenApi {
   async modifyRCDiskChargeTypeWithOptions(request: $_model.ModifyRCDiskChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDiskChargeTypeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -30512,6 +30516,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.stoppedMode)) {
+      query["StoppedMode"] = request.stoppedMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -30578,6 +30586,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.stoppedMode)) {
+      query["StoppedMode"] = request.stoppedMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -35,12 +35,14 @@ export class StopRCInstancesShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  stoppedMode?: string;
   static names(): { [key: string]: string } {
     return {
       batchOptimization: 'BatchOptimization',
       forceStop: 'ForceStop',
       instanceIdsShrink: 'InstanceIds',
       regionId: 'RegionId',
+      stoppedMode: 'StoppedMode',
     };
   }
 
@@ -50,6 +52,7 @@ export class StopRCInstancesShrinkRequest extends $dara.Model {
       forceStop: 'boolean',
       instanceIdsShrink: 'string',
       regionId: 'string',
+      stoppedMode: 'string',
     };
   }
 

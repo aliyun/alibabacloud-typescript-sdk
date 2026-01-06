@@ -129,6 +129,11 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * test
    */
   description?: string;
+  /**
+   * @example
+   * testHostName
+   */
+  ecsHostName?: string;
   expiredTime?: string;
   /**
    * @remarks
@@ -173,6 +178,16 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   instanceTypeFamily?: string;
   memory?: number;
   nodeType?: string;
+  /**
+   * @example
+   * CentOS  7.4 64 位
+   */
+  OSName?: string;
+  /**
+   * @example
+   * linux
+   */
+  OSType?: string;
   publicIp?: string;
   /**
    * @remarks
@@ -184,6 +199,11 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   regionId?: string;
   securityGroupId?: string;
   spotStrategy?: string;
+  /**
+   * @example
+   * 2017-12-10T04:04Z
+   */
+  startTime?: string;
   /**
    * @remarks
    * The instance status. Valid values:
@@ -200,6 +220,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * Running
    */
   status?: string;
+  stoppedMode?: string;
   tagResources?: DescribeRCInstancesResponseBodyRCInstancesTagResources[];
   tags?: DescribeRCInstancesResponseBodyRCInstancesTags[];
   /**
@@ -224,6 +245,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       dbType: 'DbType',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
+      ecsHostName: 'EcsHostName',
       expiredTime: 'ExpiredTime',
       gmtCreated: 'GmtCreated',
       hostIp: 'HostIp',
@@ -236,11 +258,15 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       instanceTypeFamily: 'InstanceTypeFamily',
       memory: 'Memory',
       nodeType: 'NodeType',
+      OSName: 'OSName',
+      OSType: 'OSType',
       publicIp: 'PublicIp',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
+      startTime: 'StartTime',
       status: 'Status',
+      stoppedMode: 'StoppedMode',
       tagResources: 'TagResources',
       tags: 'Tags',
       vpcAttributes: 'VpcAttributes',
@@ -257,6 +283,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       dbType: 'string',
       deploymentSetId: 'string',
       description: 'string',
+      ecsHostName: 'string',
       expiredTime: 'string',
       gmtCreated: 'string',
       hostIp: 'string',
@@ -269,11 +296,15 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       instanceTypeFamily: 'string',
       memory: 'number',
       nodeType: 'string',
+      OSName: 'string',
+      OSType: 'string',
       publicIp: 'string',
       regionId: 'string',
       securityGroupId: 'string',
       spotStrategy: 'string',
+      startTime: 'string',
       status: 'string',
+      stoppedMode: 'string',
       tagResources: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTagResources },
       tags: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTags },
       vpcAttributes: DescribeRCInstancesResponseBodyRCInstancesVpcAttributes,

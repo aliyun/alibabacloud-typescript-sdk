@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
+  autoPay?: boolean;
   /**
    * @example
    * true
@@ -28,9 +29,6 @@ export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * Postpaid
    */
@@ -53,6 +51,7 @@ export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
       businessInfo: 'BusinessInfo',
@@ -66,6 +65,7 @@ export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       autoRenew: 'string',
       autoUseCoupon: 'boolean',
       businessInfo: 'string',
