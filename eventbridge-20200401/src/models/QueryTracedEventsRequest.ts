@@ -75,6 +75,7 @@ export class QueryTracedEventsRequest extends $dara.Model {
    * 1661773509000
    */
   startTime?: number;
+  subject?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
@@ -85,6 +86,7 @@ export class QueryTracedEventsRequest extends $dara.Model {
       matchedRule: 'MatchedRule',
       nextToken: 'NextToken',
       startTime: 'StartTime',
+      subject: 'Subject',
     };
   }
 
@@ -98,6 +100,7 @@ export class QueryTracedEventsRequest extends $dara.Model {
       matchedRule: 'string',
       nextToken: 'string',
       startTime: 'number',
+      subject: 'string',
     };
   }
 
