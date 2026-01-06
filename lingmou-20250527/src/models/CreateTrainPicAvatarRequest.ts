@@ -30,9 +30,6 @@ export class CreateTrainPicAvatarRequest extends $dara.Model {
    */
   name?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * M16vSG46Pby9HWOrFSZ7QaQA
    */
