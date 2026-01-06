@@ -15,6 +15,14 @@ export class RevokeApplicationFromUsersRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * 应用角色ID。
+   * 
+   * @example
+   * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
+   */
+  applicationRoleId?: string;
+  /**
+   * @remarks
    * The ID of the instance.
    * 
    * This parameter is required.
@@ -36,6 +44,7 @@ export class RevokeApplicationFromUsersRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      applicationRoleId: 'ApplicationRoleId',
       instanceId: 'InstanceId',
       userIds: 'UserIds',
     };
@@ -44,6 +53,7 @@ export class RevokeApplicationFromUsersRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      applicationRoleId: 'string',
       instanceId: 'string',
       userIds: { 'type': 'array', 'itemType': 'string' },
     };

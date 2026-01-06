@@ -15,6 +15,14 @@ export class ListUsersForApplicationRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * 应用角色ID。
+   * 
+   * @example
+   * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
+   */
+  applicationRoleId?: string;
+  /**
+   * @remarks
    * The ID of the instance.
    * 
    * This parameter is required.
@@ -50,6 +58,7 @@ export class ListUsersForApplicationRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      applicationRoleId: 'ApplicationRoleId',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -60,6 +69,7 @@ export class ListUsersForApplicationRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      applicationRoleId: 'string',
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

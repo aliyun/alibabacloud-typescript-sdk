@@ -15,6 +15,14 @@ export class AuthorizeApplicationToGroupsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * 应用角色ID。
+   * 
+   * @example
+   * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
+   */
+  applicationRoleId?: string;
+  /**
+   * @remarks
    * The group IDs. You can specify up to 100 group IDs at a time.
    * 
    * This parameter is required.
@@ -36,6 +44,7 @@ export class AuthorizeApplicationToGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      applicationRoleId: 'ApplicationRoleId',
       groupIds: 'GroupIds',
       instanceId: 'InstanceId',
     };
@@ -44,6 +53,7 @@ export class AuthorizeApplicationToGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      applicationRoleId: 'string',
       groupIds: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
     };

@@ -154,10 +154,13 @@ export { ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFe
 export { ListApplicationSupportedProvisionProtocolTypesResponseBodyApplicationSupportedProvisionProtocolType } from './ListApplicationSupportedProvisionProtocolTypesResponseBody';
 export { ListApplicationTokensResponseBodyApplicationTokens } from './ListApplicationTokensResponseBody';
 export { ListApplicationsResponseBodyApplications } from './ListApplicationsResponseBody';
+export { ListApplicationsForGroupResponseBodyApplicationsApplicationRoles } from './ListApplicationsForGroupResponseBody';
 export { ListApplicationsForGroupResponseBodyApplications } from './ListApplicationsForGroupResponseBody';
 export { ListApplicationsForNetworkAccessEndpointResponseBodyApplicationsForNetworkAccessEndpoint } from './ListApplicationsForNetworkAccessEndpointResponseBody';
 export { ListApplicationsForNetworkZoneResponseBodyApplications } from './ListApplicationsForNetworkZoneResponseBody';
+export { ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles } from './ListApplicationsForOrganizationalUnitResponseBody';
 export { ListApplicationsForOrganizationalUnitResponseBodyApplications } from './ListApplicationsForOrganizationalUnitResponseBody';
+export { ListApplicationsForUserResponseBodyApplicationsApplicationRoles } from './ListApplicationsForUserResponseBody';
 export { ListApplicationsForUserResponseBodyApplications } from './ListApplicationsForUserResponseBody';
 export { ListBrandsResponseBodyBrands } from './ListBrandsResponseBody';
 export { ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications } from './ListConditionalAccessPoliciesResponseBody';
@@ -200,6 +203,7 @@ export { ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvider
 export { ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfig } from './ListFederatedCredentialProvidersResponseBody';
 export { ListFederatedCredentialProvidersResponseBodyFederatedCredentialProviders } from './ListFederatedCredentialProvidersResponseBody';
 export { ListGroupsResponseBodyGroups } from './ListGroupsResponseBody';
+export { ListGroupsForApplicationResponseBodyGroupsApplicationRoles } from './ListGroupsForApplicationResponseBody';
 export { ListGroupsForApplicationResponseBodyGroups } from './ListGroupsForApplicationResponseBody';
 export { ListGroupsForUserResponseBodyGroups } from './ListGroupsForUserResponseBody';
 export { ListIdentityProvidersResponseBodyIdentityProviders } from './ListIdentityProvidersResponseBody';
@@ -213,6 +217,7 @@ export { ListNetworkAccessPathsResponseBodyNetworkAccessPaths } from './ListNetw
 export { ListNetworkZonesResponseBodyNetworkZones } from './ListNetworkZonesResponseBody';
 export { ListOrganizationalUnitParentsResponseBodyParents } from './ListOrganizationalUnitParentsResponseBody';
 export { ListOrganizationalUnitsResponseBodyOrganizationalUnits } from './ListOrganizationalUnitsResponseBody';
+export { ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles } from './ListOrganizationalUnitsForApplicationResponseBody';
 export { ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits } from './ListOrganizationalUnitsForApplicationResponseBody';
 export { ListRegionsResponseBodyRegions } from './ListRegionsResponseBody';
 export { ListSynchronizationJobsRequestFilters } from './ListSynchronizationJobsRequest';
@@ -249,6 +254,7 @@ export { ListSynchronizationJobsResponseBodySynchronizationJobsResult } from './
 export { ListSynchronizationJobsResponseBodySynchronizationJobs } from './ListSynchronizationJobsResponseBody';
 export { ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings } from './ListUserAuthnSourceMappingsResponseBody';
 export { ListUsersResponseBodyUsers } from './ListUsersResponseBody';
+export { ListUsersForApplicationResponseBodyUsersApplicationRoles } from './ListUsersForApplicationResponseBody';
 export { ListUsersForApplicationResponseBodyUsers } from './ListUsersForApplicationResponseBody';
 export { ListUsersForGroupResponseBodyUsers } from './ListUsersForGroupResponseBody';
 export { ObtainApplicationClientSecretResponseBodyApplicationClientSecret } from './ObtainApplicationClientSecretResponseBody';

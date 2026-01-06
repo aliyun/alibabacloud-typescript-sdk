@@ -2,7 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles extends $dara.Model {
+  /**
+   * @remarks
+   * 应用角色标识。
+   * 
+   * @example
+   * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
+   */
+  applicationRoleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationRoleId: 'ApplicationRoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationRoleId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits extends $dara.Model {
+  /**
+   * @remarks
+   * 应用角色列表。
+   */
+  applicationRoles?: ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles[];
   /**
    * @remarks
    * The ID of the organization that is allowed to access the application.
@@ -13,17 +48,22 @@ export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnit
   organizationalUnitId?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationRoles: 'ApplicationRoles',
       organizationalUnitId: 'OrganizationalUnitId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationRoles: { 'type': 'array', 'itemType': ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles },
       organizationalUnitId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.applicationRoles)) {
+      $dara.Model.validateArray(this.applicationRoles);
+    }
     super.validate();
   }
 

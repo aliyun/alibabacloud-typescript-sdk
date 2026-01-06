@@ -2,7 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListGroupsForApplicationResponseBodyGroupsApplicationRoles extends $dara.Model {
+  /**
+   * @remarks
+   * 应用角色标识。
+   * 
+   * @example
+   * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
+   */
+  applicationRoleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationRoleId: 'ApplicationRoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationRoleId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupsForApplicationResponseBodyGroups extends $dara.Model {
+  /**
+   * @remarks
+   * 应用角色列表。
+   */
+  applicationRoles?: ListGroupsForApplicationResponseBodyGroupsApplicationRoles[];
   /**
    * @remarks
    * The group ID.
@@ -13,17 +48,22 @@ export class ListGroupsForApplicationResponseBodyGroups extends $dara.Model {
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationRoles: 'ApplicationRoles',
       groupId: 'GroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationRoles: { 'type': 'array', 'itemType': ListGroupsForApplicationResponseBodyGroupsApplicationRoles },
       groupId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.applicationRoles)) {
+      $dara.Model.validateArray(this.applicationRoles);
+    }
     super.validate();
   }
 

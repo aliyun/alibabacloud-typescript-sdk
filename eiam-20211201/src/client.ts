@@ -247,6 +247,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
     if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
@@ -297,6 +301,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -345,6 +353,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.applicationId)) {
       query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -7215,6 +7227,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
     if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
@@ -7845,6 +7861,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -8179,6 +8199,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.applicationId)) {
       query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -8651,6 +8675,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
     if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
@@ -8701,6 +8729,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -8749,6 +8781,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.applicationId)) {
       query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
     }
 
     if (!$dara.isNull(request.instanceId)) {
