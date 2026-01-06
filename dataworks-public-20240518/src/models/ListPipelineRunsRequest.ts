@@ -11,6 +11,7 @@ export class ListPipelineRunsRequest extends $dara.Model {
    * 110755000425****
    */
   creator?: string;
+  objectId?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -59,6 +60,7 @@ export class ListPipelineRunsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       creator: 'Creator',
+      objectId: 'ObjectId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
@@ -69,6 +71,7 @@ export class ListPipelineRunsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       creator: 'string',
+      objectId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'number',

@@ -26,10 +26,10 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
+   * The project environment.
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -45,6 +45,16 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The instance generation mode.
+   * 
+   * *   T+1: the next day
+   * *   Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
+   * 
+   * @example
+   * T+1
+   */
   instanceMode?: string;
   /**
    * @remarks
@@ -86,7 +96,7 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The tasks.
+   * Details about tasks.
    */
   tasksShrink?: string;
   /**

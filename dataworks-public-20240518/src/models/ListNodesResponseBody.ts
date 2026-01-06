@@ -45,7 +45,7 @@ export class ListNodesResponseBodyPagingInfoNodesDataSource extends $dara.Model 
 export class ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The output of the node.
    * 
    * @example
    * 623731286945488XXXX
@@ -105,7 +105,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsTables extends $dara.Mode
 export class ListNodesResponseBodyPagingInfoNodesInputsVariablesNode extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The output of the node.
    * 
    * @example
    * 623731286945488XXXX
@@ -288,7 +288,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputs extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The output of the node.
    * 
    * @example
    * 860438872620113XXXX
@@ -348,7 +348,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsTables extends $dara.Mod
 export class ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The output of the node.
    * 
    * @example
    * 860438872620113XXXX
@@ -603,7 +603,7 @@ export class ListNodesResponseBodyPagingInfoNodesScript extends $dara.Model {
    * @remarks
    * The ID of the script.
    * 
-   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 853573334108680XXXX
@@ -770,7 +770,7 @@ export class ListNodesResponseBodyPagingInfoNodesTags extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for scheduling
+   * The cron expression for scheduling.
    * 
    * @example
    * 00 00 00 * * ?
@@ -816,9 +816,9 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Scheduler: periodic scheduling
-   * *   Manual: manual trigger
-   * *   Streaming: streaming task
+   * *   Scheduler: Periodic scheduling
+   * *   Manual: Manual trigger
+   * *   Streaming: Streaming task
    * 
    * @example
    * Scheduler
@@ -858,7 +858,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the node in DataStudio was created.
+   * The timestamp when the node in Data Studio was created.
    * 
    * @example
    * 1722910655000
@@ -881,7 +881,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
    * @remarks
    * The unique identifier of the Data Studio node.
    * 
-   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >  This field is of the Long type in SDK versions prior to 8.0.0, and of the String type in SDK versions 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 860438872620113XXXX
@@ -915,7 +915,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   outputs?: ListNodesResponseBodyPagingInfoNodesOutputs;
   /**
    * @remarks
-   * The owner of nodes in DataStudio.
+   * The owner of nodes in Data Studio.
    * 
    * @example
    * 110755000425XXXX
@@ -965,7 +965,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   tags?: ListNodesResponseBodyPagingInfoNodesTags[];
   /**
    * @remarks
-   * The scheduling task ID.
+   * The ID of the scheduling task.
    * 
    * @example
    * 88888888888

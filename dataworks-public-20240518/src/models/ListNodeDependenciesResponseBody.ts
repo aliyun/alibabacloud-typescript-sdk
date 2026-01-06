@@ -45,7 +45,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesDataSource extends $
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsNodeOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The output of the node.
    * 
    * @example
    * 860438872620113XXXX
@@ -153,7 +153,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   id?: string;
   /**
    * @remarks
-   * The variable name.
+   * The name of the variable.
    * 
    * @example
    * input
@@ -179,7 +179,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   scope?: string;
   /**
    * @remarks
-   * The type of the variable. Valid values:
+   * The type of the variable.
    * 
    * *   NoKvVariableExpression
    * *   Constant
@@ -238,7 +238,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputs extends $dara.Model {
   /**
    * @remarks
-   * The list of node outputs.
+   * The node output list.
    */
   nodeOutputs?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsNodeOutputs[];
   /**
@@ -436,7 +436,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable name.
    * 
    * @example
    * 111
@@ -481,7 +481,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputs extends $dara.Model {
   /**
    * @remarks
-   * The list of node outputs.
+   * The node output list.
    */
   nodeOutputs?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsNodeOutputs[];
   /**
@@ -491,7 +491,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputs extends $dar
   tables?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsTables[];
   /**
    * @remarks
-   * The variable list.
+   * The variables.
    */
   variables?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -593,7 +593,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $dara
    * @remarks
    * The ID of the script.
    * 
-   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 853573334108680XXXX
@@ -609,7 +609,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $dara
   path?: string;
   /**
    * @remarks
-   * The runtime.
+   * Runtime
    */
   runtime?: ListNodeDependenciesResponseBodyPagingInfoNodesScriptRuntime;
   static names(): { [key: string]: string } {
@@ -643,7 +643,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $dara
 export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   /**
    * @remarks
-   * The instance generation mode. Valid values:
+   * The instance generation mode.
    * 
    * *   T+1
    * *   Immediately
@@ -662,7 +662,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $da
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode. Valid values:
+   * The rerun mode.
    * 
    * *   Allowed
    * *   Denied
@@ -806,9 +806,9 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
    * 
    * Valid values:
    * 
-   * *   Scheduler: periodic scheduling.
-   * *   Manual: manual scheduling.
-   * *   Streaming: streaming scheduler.
+   * *   Scheduler: Periodic scheduling.
+   * *   Manual: Manual scheduling.
+   * *   Streaming: Streaming scheduler.
    * 
    * @example
    * Scheduler
@@ -955,7 +955,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
   tags?: ListNodeDependenciesResponseBodyPagingInfoNodesTags[];
   /**
    * @remarks
-   * The scheduling task ID.
+   * The ID of the scheduling task.
    * 
    * @example
    * 580667964888595XXXX

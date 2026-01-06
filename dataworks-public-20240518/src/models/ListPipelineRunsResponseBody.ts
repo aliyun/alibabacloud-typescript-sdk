@@ -137,6 +137,11 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
    */
   creator?: string;
   /**
+   * @example
+   * 发布流程描述信息
+   */
+  description?: string;
+  /**
    * @remarks
    * The process ID.
    * 
@@ -194,6 +199,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
     return {
       createTime: 'CreateTime',
       creator: 'Creator',
+      description: 'Description',
       id: 'Id',
       message: 'Message',
       modifyTime: 'ModifyTime',
@@ -207,6 +213,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
     return {
       createTime: 'number',
       creator: 'string',
+      description: 'string',
       id: 'string',
       message: 'string',
       modifyTime: 'number',

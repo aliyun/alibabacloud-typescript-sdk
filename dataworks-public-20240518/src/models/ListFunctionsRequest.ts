@@ -29,7 +29,7 @@ export class ListFunctionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The page number. Default value: 1. Minimum value: 1.
    * 
    * @example
    * 10

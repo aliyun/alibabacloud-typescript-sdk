@@ -13,7 +13,12 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page.
+   * Filter condition: The type of the workflow. The default value is CycleWorkflow.
+   * 
+   * Valid values:
+   * 
+   * *   CycleWorkflow
+   * *   ManualWorkflow
    * 
    * @example
    * 110755000425XXXX
@@ -29,7 +34,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The page number of the data to retrieve, used for pagination.
    * 
    * @example
    * 10

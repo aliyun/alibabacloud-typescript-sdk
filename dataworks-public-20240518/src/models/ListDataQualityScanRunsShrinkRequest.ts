@@ -27,6 +27,17 @@ export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
    * 10001
    */
   dataQualityScanId?: number;
+  /**
+   * @remarks
+   * The extended query filter. Supported parameters:
+   * 
+   * *   TaskInstanceId
+   * 
+   * @example
+   * {
+   *     "TaskInstanceId": 111L
+   * }
+   */
   filterShrink?: string;
   /**
    * @remarks

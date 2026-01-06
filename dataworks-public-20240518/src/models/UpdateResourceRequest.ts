@@ -37,7 +37,9 @@ export class UpdateResourceRequest extends $dara.Model {
   resourceFile?: string;
   /**
    * @remarks
-   * The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * The unique identifier of the Data Studio file resource.
+   * 
+   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * This parameter is required.
    * 
