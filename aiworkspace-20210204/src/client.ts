@@ -3762,6 +3762,10 @@ export default class Client extends OpenApi {
       query["QueryType"] = request.queryType;
     }
 
+    if (!$dara.isNull(request.queryVideo)) {
+      query["QueryVideo"] = request.queryVideo;
+    }
+
     if (!$dara.isNull(request.scoreThreshold)) {
       query["ScoreThreshold"] = request.scoreThreshold;
     }

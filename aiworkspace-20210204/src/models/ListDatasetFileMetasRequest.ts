@@ -104,6 +104,7 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
    * TAG
    */
   queryType?: string;
+  queryVideo?: string;
   /**
    * @remarks
    * The similarity score. Only dataset files whose similarity score is greater than the value of ScoreThreshold are returned. This parameter is valid only when QueryType is set to VECTOR.
@@ -185,6 +186,7 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
       queryTagsIncludeAny: 'QueryTagsIncludeAny',
       queryText: 'QueryText',
       queryType: 'QueryType',
+      queryVideo: 'QueryVideo',
       scoreThreshold: 'ScoreThreshold',
       sortBy: 'SortBy',
       startFileUpdateTime: 'StartFileUpdateTime',
@@ -216,6 +218,7 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
       queryTagsIncludeAny: { 'type': 'array', 'itemType': 'string' },
       queryText: 'string',
       queryType: 'string',
+      queryVideo: 'string',
       scoreThreshold: 'number',
       sortBy: 'string',
       startFileUpdateTime: 'string',
