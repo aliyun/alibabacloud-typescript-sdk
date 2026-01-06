@@ -28,6 +28,11 @@ export class DescribeCrossAccountsResponseBodyCrossAccountsCrossAccount extends 
    */
   crossAccountRoleName?: string;
   /**
+   * @example
+   * CROSS_ACCOUNT
+   */
+  crossAccountType?: string;
+  /**
    * @remarks
    * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
    * 
@@ -64,6 +69,7 @@ export class DescribeCrossAccountsResponseBodyCrossAccountsCrossAccount extends 
       alias: 'Alias',
       createdTime: 'CreatedTime',
       crossAccountRoleName: 'CrossAccountRoleName',
+      crossAccountType: 'CrossAccountType',
       crossAccountUserId: 'CrossAccountUserId',
       id: 'Id',
       ownerId: 'OwnerId',
@@ -76,6 +82,7 @@ export class DescribeCrossAccountsResponseBodyCrossAccountsCrossAccount extends 
       alias: 'string',
       createdTime: 'number',
       crossAccountRoleName: 'string',
+      crossAccountType: 'string',
       crossAccountUserId: 'number',
       id: 'number',
       ownerId: 'number',

@@ -1823,6 +1823,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除客户端
+   * 
    * @param request - DeleteClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteClientResponse
@@ -1860,6 +1862,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除客户端
+   * 
    * @param request - DeleteClientRequest
    * @returns DeleteClientResponse
    */
