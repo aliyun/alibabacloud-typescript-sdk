@@ -103,7 +103,6 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * rg-4690g37929****
    */
   resourceGroupId?: string;
-  resourceOwnerId?: number;
   tag?: DescribeDBInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -114,7 +113,6 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
     };
   }
@@ -128,7 +126,6 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
-      resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeDBInstancesRequestTag },
     };
   }

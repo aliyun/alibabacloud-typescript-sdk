@@ -69,7 +69,6 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
    * rg-4690g37929****
    */
   resourceGroupId?: string;
-  resourceOwnerId?: number;
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -80,7 +79,6 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      resourceOwnerId: 'ResourceOwnerId',
       tagShrink: 'Tag',
     };
   }
@@ -94,7 +92,6 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
-      resourceOwnerId: 'number',
       tagShrink: 'string',
     };
   }
