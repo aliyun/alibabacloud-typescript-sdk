@@ -3482,6 +3482,10 @@ export default class Client extends OpenApi {
       query["Sort"] = request.sort;
     }
 
+    if (!$dara.isNull(request.zone)) {
+      query["Zone"] = request.zone;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3768,8 +3772,16 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.quotaId)) {
+      query["QuotaId"] = request.quotaId;
+    }
+
     if (!$dara.isNull(request.replicaName)) {
       query["ReplicaName"] = request.replicaName;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
     }
 
     if (!$dara.isNull(request.resourceType)) {
@@ -3882,6 +3894,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoscalerEnabled)) {
       query["AutoscalerEnabled"] = request.autoscalerEnabled;
+    }
+
+    if (!$dara.isNull(request.callerUid)) {
+      query["CallerUid"] = request.callerUid;
     }
 
     if (!$dara.isNull(request.cronscalerEnabled)) {

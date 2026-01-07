@@ -111,7 +111,9 @@ export class ListServiceInstancesRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  quotaId?: string;
   replicaName?: string;
+  resource?: string;
   /**
    * @remarks
    * The type of the resource group to which the instance belongs.
@@ -238,7 +240,9 @@ export class ListServiceInstancesRequest extends $dara.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      quotaId: 'QuotaId',
       replicaName: 'ReplicaName',
+      resource: 'Resource',
       resourceType: 'ResourceType',
       role: 'Role',
       sort: 'Sort',
@@ -259,7 +263,9 @@ export class ListServiceInstancesRequest extends $dara.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      quotaId: 'string',
       replicaName: 'string',
+      resource: 'string',
       resourceType: 'string',
       role: 'string',
       sort: 'string',

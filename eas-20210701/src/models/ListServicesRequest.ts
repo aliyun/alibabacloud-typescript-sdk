@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListServicesRequest extends $dara.Model {
   autoscalerEnabled?: boolean;
+  /**
+   * @example
+   * 19989224166xxxxxxx
+   */
+  callerUid?: string;
   cronscalerEnabled?: boolean;
   /**
    * @remarks
@@ -349,6 +354,7 @@ export class ListServicesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoscalerEnabled: 'AutoscalerEnabled',
+      callerUid: 'CallerUid',
       cronscalerEnabled: 'CronscalerEnabled',
       filter: 'Filter',
       gateway: 'Gateway',
@@ -379,6 +385,7 @@ export class ListServicesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoscalerEnabled: 'boolean',
+      callerUid: 'string',
       cronscalerEnabled: 'boolean',
       filter: 'string',
       gateway: 'string',

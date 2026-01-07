@@ -265,6 +265,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
    * CreateTime
    */
   sort?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
@@ -278,6 +279,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       sort: 'Sort',
+      zone: 'Zone',
     };
   }
 
@@ -294,6 +296,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       sort: 'string',
+      zone: 'string',
     };
   }
 
