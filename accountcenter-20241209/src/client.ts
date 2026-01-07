@@ -30,6 +30,386 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加私有联系人
+   * 
+   * @param request - AccountContactAddRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccountContactAddResponse
+   */
+  async accountContactAddWithOptions(request: $_model.AccountContactAddRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AccountContactAddResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.asyncEmailVerify)) {
+      body["AsyncEmailVerify"] = request.asyncEmailVerify;
+    }
+
+    if (!$dara.isNull(request.asyncMobileVerify)) {
+      body["AsyncMobileVerify"] = request.asyncMobileVerify;
+    }
+
+    if (!$dara.isNull(request.contactEmail)) {
+      body["ContactEmail"] = request.contactEmail;
+    }
+
+    if (!$dara.isNull(request.contactMobile)) {
+      body["ContactMobile"] = request.contactMobile;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.contactPosition)) {
+      body["ContactPosition"] = request.contactPosition;
+    }
+
+    if (!$dara.isNull(request.emailCode)) {
+      body["EmailCode"] = request.emailCode;
+    }
+
+    if (!$dara.isNull(request.mobileCode)) {
+      body["MobileCode"] = request.mobileCode;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.sharedContact)) {
+      body["SharedContact"] = request.sharedContact;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AccountContactAdd",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AccountContactAddResponse>(await this.callApi(params, req, runtime), new $_model.AccountContactAddResponse({}));
+  }
+
+  /**
+   * 添加私有联系人
+   * 
+   * @param request - AccountContactAddRequest
+   * @returns AccountContactAddResponse
+   */
+  async accountContactAdd(request: $_model.AccountContactAddRequest): Promise<$_model.AccountContactAddResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.accountContactAddWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除私有联系人
+   * 
+   * @param request - AccountContactDeleteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccountContactDeleteResponse
+   */
+  async accountContactDeleteWithOptions(request: $_model.AccountContactDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AccountContactDeleteResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      body["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AccountContactDelete",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AccountContactDeleteResponse>(await this.callApi(params, req, runtime), new $_model.AccountContactDeleteResponse({}));
+  }
+
+  /**
+   * 删除私有联系人
+   * 
+   * @param request - AccountContactDeleteRequest
+   * @returns AccountContactDeleteResponse
+   */
+  async accountContactDelete(request: $_model.AccountContactDeleteRequest): Promise<$_model.AccountContactDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.accountContactDeleteWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改私有联系人
+   * 
+   * @param request - AccountContactEditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccountContactEditResponse
+   */
+  async accountContactEditWithOptions(request: $_model.AccountContactEditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AccountContactEditResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.asyncEmailVerify)) {
+      body["AsyncEmailVerify"] = request.asyncEmailVerify;
+    }
+
+    if (!$dara.isNull(request.asyncMobileVerify)) {
+      body["AsyncMobileVerify"] = request.asyncMobileVerify;
+    }
+
+    if (!$dara.isNull(request.contactEmail)) {
+      body["ContactEmail"] = request.contactEmail;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      body["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.contactMobile)) {
+      body["ContactMobile"] = request.contactMobile;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.contactPosition)) {
+      body["ContactPosition"] = request.contactPosition;
+    }
+
+    if (!$dara.isNull(request.emailCode)) {
+      body["EmailCode"] = request.emailCode;
+    }
+
+    if (!$dara.isNull(request.mobileCode)) {
+      body["MobileCode"] = request.mobileCode;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.sharedContact)) {
+      body["SharedContact"] = request.sharedContact;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AccountContactEdit",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AccountContactEditResponse>(await this.callApi(params, req, runtime), new $_model.AccountContactEditResponse({}));
+  }
+
+  /**
+   * 修改私有联系人
+   * 
+   * @param request - AccountContactEditRequest
+   * @returns AccountContactEditResponse
+   */
+  async accountContactEdit(request: $_model.AccountContactEditRequest): Promise<$_model.AccountContactEditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.accountContactEditWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询联系人详情
+   * 
+   * @param request - AccountContactQueryDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccountContactQueryDetailResponse
+   */
+  async accountContactQueryDetailWithOptions(request: $_model.AccountContactQueryDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AccountContactQueryDetailResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      body["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AccountContactQueryDetail",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AccountContactQueryDetailResponse>(await this.callApi(params, req, runtime), new $_model.AccountContactQueryDetailResponse({}));
+  }
+
+  /**
+   * 查询联系人详情
+   * 
+   * @param request - AccountContactQueryDetailRequest
+   * @returns AccountContactQueryDetailResponse
+   */
+  async accountContactQueryDetail(request: $_model.AccountContactQueryDetailRequest): Promise<$_model.AccountContactQueryDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.accountContactQueryDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询联系人列表
+   * 
+   * @param request - AccountContactQueryPageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccountContactQueryPageListResponse
+   */
+  async accountContactQueryPageListWithOptions(request: $_model.AccountContactQueryPageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AccountContactQueryPageListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.showCompleteInfo)) {
+      query["ShowCompleteInfo"] = request.showCompleteInfo;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.privateContact)) {
+      body["PrivateContact"] = request.privateContact;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sharedContact)) {
+      body["SharedContact"] = request.sharedContact;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AccountContactQueryPageList",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AccountContactQueryPageListResponse>(await this.callApi(params, req, runtime), new $_model.AccountContactQueryPageListResponse({}));
+  }
+
+  /**
+   * 查询联系人列表
+   * 
+   * @param request - AccountContactQueryPageListRequest
+   * @returns AccountContactQueryPageListResponse
+   */
+  async accountContactQueryPageList(request: $_model.AccountContactQueryPageListRequest): Promise<$_model.AccountContactQueryPageListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.accountContactQueryPageListWithOptions(request, runtime);
+  }
+
+  /**
    * 修改登录密码
    * 
    * @param request - EnterpriseAccountChangeLoginPasswordRequest
@@ -994,6 +1374,386 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加企业联系人
+   * 
+   * @param request - EnterpriseContactAddRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseContactAddResponse
+   */
+  async enterpriseContactAddWithOptions(request: $_model.EnterpriseContactAddRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseContactAddResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.asyncEmailVerify)) {
+      body["AsyncEmailVerify"] = request.asyncEmailVerify;
+    }
+
+    if (!$dara.isNull(request.asyncMobileVerify)) {
+      body["AsyncMobileVerify"] = request.asyncMobileVerify;
+    }
+
+    if (!$dara.isNull(request.contactEmail)) {
+      body["ContactEmail"] = request.contactEmail;
+    }
+
+    if (!$dara.isNull(request.contactMobile)) {
+      body["ContactMobile"] = request.contactMobile;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.contactPosition)) {
+      body["ContactPosition"] = request.contactPosition;
+    }
+
+    if (!$dara.isNull(request.emailCode)) {
+      body["EmailCode"] = request.emailCode;
+    }
+
+    if (!$dara.isNull(request.mobileCode)) {
+      body["MobileCode"] = request.mobileCode;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.sharedContact)) {
+      body["SharedContact"] = request.sharedContact;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseContactAdd",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseContactAddResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseContactAddResponse({}));
+  }
+
+  /**
+   * 增加企业联系人
+   * 
+   * @param request - EnterpriseContactAddRequest
+   * @returns EnterpriseContactAddResponse
+   */
+  async enterpriseContactAdd(request: $_model.EnterpriseContactAddRequest): Promise<$_model.EnterpriseContactAddResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseContactAddWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除企业联系人
+   * 
+   * @param request - EnterpriseContactDeleteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseContactDeleteResponse
+   */
+  async enterpriseContactDeleteWithOptions(request: $_model.EnterpriseContactDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseContactDeleteResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      body["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseContactDelete",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseContactDeleteResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseContactDeleteResponse({}));
+  }
+
+  /**
+   * 删除企业联系人
+   * 
+   * @param request - EnterpriseContactDeleteRequest
+   * @returns EnterpriseContactDeleteResponse
+   */
+  async enterpriseContactDelete(request: $_model.EnterpriseContactDeleteRequest): Promise<$_model.EnterpriseContactDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseContactDeleteWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改私企业联系人
+   * 
+   * @param request - EnterpriseContactEditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseContactEditResponse
+   */
+  async enterpriseContactEditWithOptions(request: $_model.EnterpriseContactEditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseContactEditResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.asyncEmailVerify)) {
+      body["AsyncEmailVerify"] = request.asyncEmailVerify;
+    }
+
+    if (!$dara.isNull(request.asyncMobileVerify)) {
+      body["AsyncMobileVerify"] = request.asyncMobileVerify;
+    }
+
+    if (!$dara.isNull(request.contactEmail)) {
+      body["ContactEmail"] = request.contactEmail;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      body["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.contactMobile)) {
+      body["ContactMobile"] = request.contactMobile;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.contactPosition)) {
+      body["ContactPosition"] = request.contactPosition;
+    }
+
+    if (!$dara.isNull(request.emailCode)) {
+      body["EmailCode"] = request.emailCode;
+    }
+
+    if (!$dara.isNull(request.mobileCode)) {
+      body["MobileCode"] = request.mobileCode;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.sharedContact)) {
+      body["SharedContact"] = request.sharedContact;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseContactEdit",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseContactEditResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseContactEditResponse({}));
+  }
+
+  /**
+   * 修改私企业联系人
+   * 
+   * @param request - EnterpriseContactEditRequest
+   * @returns EnterpriseContactEditResponse
+   */
+  async enterpriseContactEdit(request: $_model.EnterpriseContactEditRequest): Promise<$_model.EnterpriseContactEditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseContactEditWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询联系人详情
+   * 
+   * @param request - EnterpriseContactQueryDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseContactQueryDetailResponse
+   */
+  async enterpriseContactQueryDetailWithOptions(request: $_model.EnterpriseContactQueryDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseContactQueryDetailResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      body["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseContactQueryDetail",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseContactQueryDetailResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseContactQueryDetailResponse({}));
+  }
+
+  /**
+   * 查询联系人详情
+   * 
+   * @param request - EnterpriseContactQueryDetailRequest
+   * @returns EnterpriseContactQueryDetailResponse
+   */
+  async enterpriseContactQueryDetail(request: $_model.EnterpriseContactQueryDetailRequest): Promise<$_model.EnterpriseContactQueryDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseContactQueryDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询联系人列表
+   * 
+   * @param request - EnterpriseContactQueryPageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseContactQueryPageListResponse
+   */
+  async enterpriseContactQueryPageListWithOptions(request: $_model.EnterpriseContactQueryPageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseContactQueryPageListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.showCompleteInfo)) {
+      query["ShowCompleteInfo"] = request.showCompleteInfo;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.privateContact)) {
+      body["PrivateContact"] = request.privateContact;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sharedContact)) {
+      body["SharedContact"] = request.sharedContact;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseContactQueryPageList",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseContactQueryPageListResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseContactQueryPageListResponse({}));
+  }
+
+  /**
+   * 查询联系人列表
+   * 
+   * @param request - EnterpriseContactQueryPageListRequest
+   * @returns EnterpriseContactQueryPageListResponse
+   */
+  async enterpriseContactQueryPageList(request: $_model.EnterpriseContactQueryPageListRequest): Promise<$_model.EnterpriseContactQueryPageListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseContactQueryPageListWithOptions(request, runtime);
+  }
+
+  /**
    * 组织目录树查询
    * 
    * @param request - EnterpriseOrgQueryLoadTreeRequest
@@ -1879,6 +2639,106 @@ export default class Client extends OpenApi {
   async enterpriseUninvitedAdminInviteJoinEnterprise(request: $_model.EnterpriseUninvitedAdminInviteJoinEnterpriseRequest): Promise<$_model.EnterpriseUninvitedAdminInviteJoinEnterpriseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enterpriseUninvitedAdminInviteJoinEnterpriseWithOptions(request, runtime);
+  }
+
+  /**
+   * 账号中心发送异步验证邮件
+   * 
+   * @param request - SendAsyncEmailCaptchaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendAsyncEmailCaptchaResponse
+   */
+  async sendAsyncEmailCaptchaWithOptions(request: $_model.SendAsyncEmailCaptchaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendAsyncEmailCaptchaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.contactInfo)) {
+      body["ContactInfo"] = request.contactInfo;
+    }
+
+    if (!$dara.isNull(request.contactorId)) {
+      body["ContactorId"] = request.contactorId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendAsyncEmailCaptcha",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendAsyncEmailCaptchaResponse>(await this.callApi(params, req, runtime), new $_model.SendAsyncEmailCaptchaResponse({}));
+  }
+
+  /**
+   * 账号中心发送异步验证邮件
+   * 
+   * @param request - SendAsyncEmailCaptchaRequest
+   * @returns SendAsyncEmailCaptchaResponse
+   */
+  async sendAsyncEmailCaptcha(request: $_model.SendAsyncEmailCaptchaRequest): Promise<$_model.SendAsyncEmailCaptchaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendAsyncEmailCaptchaWithOptions(request, runtime);
+  }
+
+  /**
+   * 账号中心发送异步验证短信
+   * 
+   * @param request - SendAsyncMobileCaptchaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendAsyncMobileCaptchaResponse
+   */
+  async sendAsyncMobileCaptchaWithOptions(request: $_model.SendAsyncMobileCaptchaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendAsyncMobileCaptchaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.contactInfo)) {
+      body["ContactInfo"] = request.contactInfo;
+    }
+
+    if (!$dara.isNull(request.contactorId)) {
+      body["ContactorId"] = request.contactorId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendAsyncMobileCaptcha",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendAsyncMobileCaptchaResponse>(await this.callApi(params, req, runtime), new $_model.SendAsyncMobileCaptchaResponse({}));
+  }
+
+  /**
+   * 账号中心发送异步验证短信
+   * 
+   * @param request - SendAsyncMobileCaptchaRequest
+   * @returns SendAsyncMobileCaptchaResponse
+   */
+  async sendAsyncMobileCaptcha(request: $_model.SendAsyncMobileCaptchaRequest): Promise<$_model.SendAsyncMobileCaptchaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendAsyncMobileCaptchaWithOptions(request, runtime);
   }
 
 }
