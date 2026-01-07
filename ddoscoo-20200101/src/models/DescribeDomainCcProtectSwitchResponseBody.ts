@@ -33,6 +33,7 @@ export class DescribeDomainCcProtectSwitchResponseBodyProtectSwitchList extends 
    * 1
    */
   ccEnable?: number;
+  ccGlobalSwitch?: string;
   /**
    * @example
    * default
@@ -61,6 +62,7 @@ export class DescribeDomainCcProtectSwitchResponseBodyProtectSwitchList extends 
       blackWhiteListEnable: 'BlackWhiteListEnable',
       ccCustomRuleEnable: 'CcCustomRuleEnable',
       ccEnable: 'CcEnable',
+      ccGlobalSwitch: 'CcGlobalSwitch',
       ccTemplate: 'CcTemplate',
       domain: 'Domain',
       preciseRuleEnable: 'PreciseRuleEnable',
@@ -76,6 +78,7 @@ export class DescribeDomainCcProtectSwitchResponseBodyProtectSwitchList extends 
       blackWhiteListEnable: 'number',
       ccCustomRuleEnable: 'number',
       ccEnable: 'number',
+      ccGlobalSwitch: 'string',
       ccTemplate: 'string',
       domain: 'string',
       preciseRuleEnable: 'number',
