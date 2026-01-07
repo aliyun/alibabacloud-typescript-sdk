@@ -8,6 +8,7 @@ export class SubmitEssayCorrectionTaskRequestTasks extends $dara.Model {
    * xxx
    */
   answer?: string;
+  customId?: string;
   /**
    * @example
    * 高中二年级
@@ -36,6 +37,7 @@ export class SubmitEssayCorrectionTaskRequestTasks extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       answer: 'answer',
+      customId: 'customId',
       grade: 'grade',
       otherReviewPoints: 'otherReviewPoints',
       question: 'question',
@@ -47,6 +49,7 @@ export class SubmitEssayCorrectionTaskRequestTasks extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       answer: 'string',
+      customId: 'string',
       grade: 'string',
       otherReviewPoints: 'string',
       question: 'string',
