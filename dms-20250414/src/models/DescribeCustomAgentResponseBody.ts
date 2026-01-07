@@ -3,20 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
+  skipAskHuman?: boolean;
   /**
    * @example
    * true
    */
   skipPlan?: boolean;
+  skipSqlConfirm?: boolean;
+  skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
+      skipAskHuman: 'SkipAskHuman',
       skipPlan: 'SkipPlan',
+      skipSqlConfirm: 'SkipSqlConfirm',
+      skipWebReportConfirm: 'SkipWebReportConfirm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      skipAskHuman: 'boolean',
       skipPlan: 'boolean',
+      skipSqlConfirm: 'boolean',
+      skipWebReportConfirm: 'boolean',
     };
   }
 
