@@ -2467,8 +2467,16 @@ export default class Client extends OpenApi {
       body["requestId"] = request.requestId;
     }
 
+    if (!$dara.isNull(request.scriptContentPlayed)) {
+      body["scriptContentPlayed"] = request.scriptContentPlayed;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.userVad)) {
+      body["userVad"] = request.userVad;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

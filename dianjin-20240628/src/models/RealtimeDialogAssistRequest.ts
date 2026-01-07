@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class RealtimeDialogAssistRequestConversationModel extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  begin?: number;
+  /**
+   * @example
+   * 2025-12-12 09:00:00
+   */
+  beginTime?: string;
+  /**
    * @remarks
    * This parameter is required.
    */
@@ -24,6 +34,11 @@ export class RealtimeDialogAssistRequestConversationModel extends $dara.Model {
    */
   customerServiceType?: string;
   /**
+   * @example
+   * 1
+   */
+  end?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -38,10 +53,13 @@ export class RealtimeDialogAssistRequestConversationModel extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      begin: 'begin',
+      beginTime: 'beginTime',
       content: 'content',
       customerId: 'customerId',
       customerServiceId: 'customerServiceId',
       customerServiceType: 'customerServiceType',
+      end: 'end',
       role: 'role',
       type: 'type',
     };
@@ -49,10 +67,13 @@ export class RealtimeDialogAssistRequestConversationModel extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      begin: 'number',
+      beginTime: 'string',
       content: 'string',
       customerId: 'string',
       customerServiceId: 'string',
       customerServiceType: 'string',
+      end: 'number',
       role: 'number',
       type: 'string',
     };
@@ -110,6 +131,11 @@ export class RealtimeDialogAssistRequest extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @example
+   * 你好
+   */
+  scriptContentPlayed?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -117,6 +143,7 @@ export class RealtimeDialogAssistRequest extends $dara.Model {
    * 1915593248420413441
    */
   sessionId?: string;
+  userVad?: boolean;
   static names(): { [key: string]: string } {
     return {
       analysis: 'analysis',
@@ -126,7 +153,9 @@ export class RealtimeDialogAssistRequest extends $dara.Model {
       hangUpDialog: 'hangUpDialog',
       metaData: 'metaData',
       requestId: 'requestId',
+      scriptContentPlayed: 'scriptContentPlayed',
       sessionId: 'sessionId',
+      userVad: 'userVad',
     };
   }
 
@@ -139,7 +168,9 @@ export class RealtimeDialogAssistRequest extends $dara.Model {
       hangUpDialog: 'boolean',
       metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
+      scriptContentPlayed: 'string',
       sessionId: 'string',
+      userVad: 'boolean',
     };
   }
 

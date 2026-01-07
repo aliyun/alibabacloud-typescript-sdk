@@ -152,6 +152,7 @@ export class RealtimeDialogAssistResponseBodyData extends $dara.Model {
   assistScripts?: RealtimeDialogAssistResponseBodyDataAssistScripts[];
   assistSop?: RealtimeDialogAssistResponseBodyDataAssistSop[];
   conversationModel?: RealtimeDialogAssistResponseBodyDataConversationModel[];
+  interrupt?: boolean;
   /**
    * @example
    * 0FC6636E-380A-5369-AE01-D1C15BB9B254
@@ -168,6 +169,7 @@ export class RealtimeDialogAssistResponseBodyData extends $dara.Model {
       assistScripts: 'assistScripts',
       assistSop: 'assistSop',
       conversationModel: 'conversationModel',
+      interrupt: 'interrupt',
       requestId: 'requestId',
       sessionId: 'sessionId',
     };
@@ -179,6 +181,7 @@ export class RealtimeDialogAssistResponseBodyData extends $dara.Model {
       assistScripts: { 'type': 'array', 'itemType': RealtimeDialogAssistResponseBodyDataAssistScripts },
       assistSop: { 'type': 'array', 'itemType': RealtimeDialogAssistResponseBodyDataAssistSop },
       conversationModel: { 'type': 'array', 'itemType': RealtimeDialogAssistResponseBodyDataConversationModel },
+      interrupt: 'boolean',
       requestId: 'string',
       sessionId: 'string',
     };
