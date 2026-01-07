@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterKubeconfigStatesRequest extends $dara.Model {
+  cloudServiceKubeConfig?: boolean;
   /**
    * @remarks
    * The page number.
@@ -27,6 +28,7 @@ export class ListClusterKubeconfigStatesRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      cloudServiceKubeConfig: 'cloudServiceKubeConfig',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
     };
@@ -34,6 +36,7 @@ export class ListClusterKubeconfigStatesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudServiceKubeConfig: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
     };

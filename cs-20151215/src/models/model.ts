@@ -179,6 +179,7 @@ export { ListClusterChecksResponseBodyChecks } from './ListClusterChecksResponse
 export { ListClusterInspectReportsResponseBodyReportsSummary } from './ListClusterInspectReportsResponseBody';
 export { ListClusterInspectReportsResponseBodyReports } from './ListClusterInspectReportsResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyPage } from './ListClusterKubeconfigStatesResponseBody';
+export { ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyStates } from './ListClusterKubeconfigStatesResponseBody';
 export { ListOperationPlansResponseBodyPlans } from './ListOperationPlansResponseBody';
 export { ListOperationPlansForRegionResponseBodyPlansStateReason } from './ListOperationPlansForRegionResponseBody';

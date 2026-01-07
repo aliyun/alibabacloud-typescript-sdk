@@ -4941,6 +4941,10 @@ export default class Client extends OpenApi {
   async listClusterKubeconfigStatesWithOptions(ClusterId: string, request: $_model.ListClusterKubeconfigStatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterKubeconfigStatesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cloudServiceKubeConfig)) {
+      query["cloudServiceKubeConfig"] = request.cloudServiceKubeConfig;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }

@@ -52,6 +52,38 @@ export class ListClusterKubeconfigStatesResponseBodyPage extends $dara.Model {
   }
 }
 
+export class ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles extends $dara.Model {
+  isDefaultTemplate?: boolean;
+  roleName?: string;
+  roleNamespace?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isDefaultTemplate: 'is_default_template',
+      roleName: 'role_name',
+      roleNamespace: 'role_namespace',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isDefaultTemplate: 'boolean',
+      roleName: 'string',
+      roleNamespace: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   /**
    * @remarks
@@ -121,6 +153,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
    * Expired
    */
   certState?: string;
+  cloudServiceRoles?: ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles[];
   /**
    * @remarks
    * Indicates whether the client certificate for the kubeconfig file can be revoked.
@@ -138,6 +171,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
       accountType: 'account_type',
       certExpireTime: 'cert_expire_time',
       certState: 'cert_state',
+      cloudServiceRoles: 'cloud_service_roles',
       revokable: 'revokable',
     };
   }
@@ -151,11 +185,15 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
       accountType: 'string',
       certExpireTime: 'string',
       certState: 'string',
+      cloudServiceRoles: { 'type': 'array', 'itemType': ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles },
       revokable: 'boolean',
     };
   }
 
   validate() {
+    if(Array.isArray(this.cloudServiceRoles)) {
+      $dara.Model.validateArray(this.cloudServiceRoles);
+    }
     super.validate();
   }
 
