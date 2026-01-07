@@ -30,6 +30,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为空间添加用户
+   * 
+   * @param request - AddUserToDataAgentWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUserToDataAgentWorkspaceResponse
+   */
+  async addUserToDataAgentWorkspaceWithOptions(request: $_model.AddUserToDataAgentWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddUserToDataAgentWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddUserToDataAgentWorkspace",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddUserToDataAgentWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.AddUserToDataAgentWorkspaceResponse({}));
+  }
+
+  /**
+   * 为空间添加用户
+   * 
+   * @param request - AddUserToDataAgentWorkspaceRequest
+   * @returns AddUserToDataAgentWorkspaceResponse
+   */
+  async addUserToDataAgentWorkspace(request: $_model.AddUserToDataAgentWorkspaceRequest): Promise<$_model.AddUserToDataAgentWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addUserToDataAgentWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * 批量新建湖仓表分区
    * 
    * @param tmpReq - BatchCreateDataLakePartitionsRequest
@@ -452,6 +506,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建DataAgent工作空间
+   * 
+   * @param request - CreateDataAgentWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataAgentWorkspaceResponse
+   */
+  async createDataAgentWorkspaceWithOptions(request: $_model.CreateDataAgentWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.workspaceDesc)) {
+      query["WorkspaceDesc"] = request.workspaceDesc;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataAgentWorkspace",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataAgentWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataAgentWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建DataAgent工作空间
+   * 
+   * @param request - CreateDataAgentWorkspaceRequest
+   * @returns CreateDataAgentWorkspaceResponse
+   */
+  async createDataAgentWorkspace(request: $_model.CreateDataAgentWorkspaceRequest): Promise<$_model.CreateDataAgentWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataAgentWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * 新建湖仓数据库
    * 
    * @param tmpReq - CreateDataLakeDatabaseRequest
@@ -781,6 +885,52 @@ export default class Client extends OpenApi {
   async deleteAirflow(request: $_model.DeleteAirflowRequest): Promise<$_model.DeleteAirflowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAirflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除DataAgent工作空间
+   * 
+   * @param request - DeleteDataAgentWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataAgentWorkspaceResponse
+   */
+  async deleteDataAgentWorkspaceWithOptions(request: $_model.DeleteDataAgentWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataAgentWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataAgentWorkspace",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataAgentWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataAgentWorkspaceResponse({}));
+  }
+
+  /**
+   * 删除DataAgent工作空间
+   * 
+   * @param request - DeleteDataAgentWorkspaceRequest
+   * @returns DeleteDataAgentWorkspaceResponse
+   */
+  async deleteDataAgentWorkspace(request: $_model.DeleteDataAgentWorkspaceRequest): Promise<$_model.DeleteDataAgentWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataAgentWorkspaceWithOptions(request, runtime);
   }
 
   /**
@@ -1432,6 +1582,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取主账号下的子账号信息
+   * 
+   * @param request - GetDataAgentSubAccountInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataAgentSubAccountInfoResponse
+   */
+  async getDataAgentSubAccountInfoWithOptions(request: $_model.GetDataAgentSubAccountInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentSubAccountInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.subAccountId)) {
+      query["SubAccountId"] = request.subAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataAgentSubAccountInfo",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataAgentSubAccountInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetDataAgentSubAccountInfoResponse({}));
+  }
+
+  /**
+   * 获取主账号下的子账号信息
+   * 
+   * @param request - GetDataAgentSubAccountInfoRequest
+   * @returns GetDataAgentSubAccountInfoResponse
+   */
+  async getDataAgentSubAccountInfo(request: $_model.GetDataAgentSubAccountInfoRequest): Promise<$_model.GetDataAgentSubAccountInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataAgentSubAccountInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取空间信息
+   * 
+   * @param request - GetDataAgentWorkspaceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataAgentWorkspaceInfoResponse
+   */
+  async getDataAgentWorkspaceInfoWithOptions(request: $_model.GetDataAgentWorkspaceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentWorkspaceInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataAgentWorkspaceInfo",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataAgentWorkspaceInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetDataAgentWorkspaceInfoResponse({}));
+  }
+
+  /**
+   * 获取空间信息
+   * 
+   * @param request - GetDataAgentWorkspaceInfoRequest
+   * @returns GetDataAgentWorkspaceInfoResponse
+   */
+  async getDataAgentWorkspaceInfo(request: $_model.GetDataAgentWorkspaceInfoRequest): Promise<$_model.GetDataAgentWorkspaceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataAgentWorkspaceInfoWithOptions(request, runtime);
+  }
+
+  /**
    * 获取uc的数据库目录
    * 
    * @param request - GetDataLakeCatalogRequest
@@ -1947,6 +2189,158 @@ export default class Client extends OpenApi {
   async listCustomAgent(request: $_model.ListCustomAgentRequest): Promise<$_model.ListCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取主账号下的空间（分页）
+   * 
+   * @param request - ListDataAgentWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentWorkspaceResponse
+   */
+  async listDataAgentWorkspaceWithOptions(request: $_model.ListDataAgentWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    if (!$dara.isNull(request.workspaceType)) {
+      query["WorkspaceType"] = request.workspaceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentWorkspace",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentWorkspaceResponse({}));
+  }
+
+  /**
+   * 获取主账号下的空间（分页）
+   * 
+   * @param request - ListDataAgentWorkspaceRequest
+   * @returns ListDataAgentWorkspaceResponse
+   */
+  async listDataAgentWorkspace(request: $_model.ListDataAgentWorkspaceRequest): Promise<$_model.ListDataAgentWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取空间所有成员
+   * 
+   * @param request - ListDataAgentWorkspaceMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentWorkspaceMemberResponse
+   */
+  async listDataAgentWorkspaceMemberWithOptions(request: $_model.ListDataAgentWorkspaceMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentWorkspaceMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchMemberId)) {
+      query["SearchMemberId"] = request.searchMemberId;
+    }
+
+    if (!$dara.isNull(request.searchRoleName)) {
+      query["SearchRoleName"] = request.searchRoleName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentWorkspaceMember",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentWorkspaceMemberResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentWorkspaceMemberResponse({}));
+  }
+
+  /**
+   * 获取空间所有成员
+   * 
+   * @param request - ListDataAgentWorkspaceMemberRequest
+   * @returns ListDataAgentWorkspaceMemberResponse
+   */
+  async listDataAgentWorkspaceMember(request: $_model.ListDataAgentWorkspaceMemberRequest): Promise<$_model.ListDataAgentWorkspaceMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentWorkspaceMemberWithOptions(request, runtime);
   }
 
   /**
@@ -2686,6 +3080,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 从空间中移除用户
+   * 
+   * @param request - RemoveUserToDataAgentWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUserToDataAgentWorkspaceResponse
+   */
+  async removeUserToDataAgentWorkspaceWithOptions(request: $_model.RemoveUserToDataAgentWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveUserToDataAgentWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveUserToDataAgentWorkspace",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveUserToDataAgentWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.RemoveUserToDataAgentWorkspaceResponse({}));
+  }
+
+  /**
+   * 从空间中移除用户
+   * 
+   * @param request - RemoveUserToDataAgentWorkspaceRequest
+   * @returns RemoveUserToDataAgentWorkspaceResponse
+   */
+  async removeUserToDataAgentWorkspace(request: $_model.RemoveUserToDataAgentWorkspaceRequest): Promise<$_model.RemoveUserToDataAgentWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeUserToDataAgentWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * SendChatMessage
    * 
    * @param tmpReq - SendChatMessageRequest
@@ -2853,6 +3297,114 @@ export default class Client extends OpenApi {
   async updateAirflow(request: $_model.UpdateAirflowRequest): Promise<$_model.UpdateAirflowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAirflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新空间的信息
+   * 
+   * @param request - UpdateDataAgentSpaceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataAgentSpaceInfoResponse
+   */
+  async updateDataAgentSpaceInfoWithOptions(request: $_model.UpdateDataAgentSpaceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataAgentSpaceInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.workspaceDesc)) {
+      query["WorkspaceDesc"] = request.workspaceDesc;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataAgentSpaceInfo",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataAgentSpaceInfoResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataAgentSpaceInfoResponse({}));
+  }
+
+  /**
+   * 更新空间的信息
+   * 
+   * @param request - UpdateDataAgentSpaceInfoRequest
+   * @returns UpdateDataAgentSpaceInfoResponse
+   */
+  async updateDataAgentSpaceInfo(request: $_model.UpdateDataAgentSpaceInfoRequest): Promise<$_model.UpdateDataAgentSpaceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataAgentSpaceInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 调整空间成员的角色
+   * 
+   * @param request - UpdateDataAgentWorkspaceMemberRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataAgentWorkspaceMemberRoleResponse
+   */
+  async updateDataAgentWorkspaceMemberRoleWithOptions(request: $_model.UpdateDataAgentWorkspaceMemberRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataAgentWorkspaceMemberRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataAgentWorkspaceMemberRole",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataAgentWorkspaceMemberRoleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataAgentWorkspaceMemberRoleResponse({}));
+  }
+
+  /**
+   * 调整空间成员的角色
+   * 
+   * @param request - UpdateDataAgentWorkspaceMemberRoleRequest
+   * @returns UpdateDataAgentWorkspaceMemberRoleResponse
+   */
+  async updateDataAgentWorkspaceMemberRole(request: $_model.UpdateDataAgentWorkspaceMemberRoleRequest): Promise<$_model.UpdateDataAgentWorkspaceMemberRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataAgentWorkspaceMemberRoleWithOptions(request, runtime);
   }
 
   /**
