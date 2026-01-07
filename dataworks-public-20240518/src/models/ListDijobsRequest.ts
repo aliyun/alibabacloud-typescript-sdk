@@ -69,6 +69,7 @@ export class ListDIJobsRequest extends $dara.Model {
    * MySQL
    */
   sourceDataSourceType?: string;
+  specType?: string;
   static names(): { [key: string]: string } {
     return {
       destinationDataSourceType: 'DestinationDataSourceType',
@@ -78,6 +79,7 @@ export class ListDIJobsRequest extends $dara.Model {
       pageSize: 'PageSize',
       projectId: 'ProjectId',
       sourceDataSourceType: 'SourceDataSourceType',
+      specType: 'SpecType',
     };
   }
 
@@ -90,6 +92,7 @@ export class ListDIJobsRequest extends $dara.Model {
       pageSize: 'number',
       projectId: 'number',
       sourceDataSourceType: 'string',
+      specType: 'string',
     };
   }
 
