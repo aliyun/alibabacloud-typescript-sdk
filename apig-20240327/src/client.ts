@@ -1192,6 +1192,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建密钥
+   * 
+   * @param request - CreateSecretRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecretResponse
+   */
+  async createSecretWithOptions(request: $_model.CreateSecretRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecretResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      body["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.kmsConfig)) {
+      body["kmsConfig"] = request.kmsConfig;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.secretData)) {
+      body["secretData"] = request.secretData;
+    }
+
+    if (!$dara.isNull(request.secretSource)) {
+      body["secretSource"] = request.secretSource;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecret",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/secrets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecretResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecretResponse({}));
+  }
+
+  /**
+   * 创建密钥
+   * 
+   * @param request - CreateSecretRequest
+   * @returns CreateSecretResponse
+   */
+  async createSecret(request: $_model.CreateSecretRequest): Promise<$_model.CreateSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSecretWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a service.
    * 
    * @remarks
@@ -1832,6 +1897,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deletePolicyAttachmentWithOptions(policyAttachmentId, headers, runtime);
+  }
+
+  /**
+   * 删除密钥
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecretResponse
+   */
+  async deleteSecretWithOptions(secretId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecretResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecret",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/secrets/${$dara.URL.percentEncode(secretId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecretResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecretResponse({}));
+  }
+
+  /**
+   * 删除密钥
+   * @returns DeleteSecretResponse
+   */
+  async deleteSecret(secretId: string): Promise<$_model.DeleteSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSecretWithOptions(secretId, headers, runtime);
   }
 
   /**
@@ -2643,6 +2743,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceOverviewWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询密钥值
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecretValueResponse
+   */
+  async getSecretValueWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecretValueResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecretValue",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/secrets/name/${$dara.URL.percentEncode(name)}/value`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecretValueResponse>(await this.callApi(params, req, runtime), new $_model.GetSecretValueResponse({}));
+  }
+
+  /**
+   * 查询密钥值
+   * @returns GetSecretValueResponse
+   */
+  async getSecretValue(name: string): Promise<$_model.GetSecretValueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSecretValueWithOptions(name, headers, runtime);
   }
 
   /**
@@ -4021,6 +4156,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询密钥的引用详情
+   * 
+   * @param request - ListSecretReferencesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecretReferencesResponse
+   */
+  async listSecretReferencesWithOptions(secretId: string, request: $_model.ListSecretReferencesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSecretReferencesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSecretReferences",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/secrets/${$dara.URL.percentEncode(secretId)}/references`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSecretReferencesResponse>(await this.callApi(params, req, runtime), new $_model.ListSecretReferencesResponse({}));
+  }
+
+  /**
+   * 查询密钥的引用详情
+   * 
+   * @param request - ListSecretReferencesRequest
+   * @returns ListSecretReferencesResponse
+   */
+  async listSecretReferences(secretId: string, request: $_model.ListSecretReferencesRequest): Promise<$_model.ListSecretReferencesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSecretReferencesWithOptions(secretId, request, headers, runtime);
+  }
+
+  /**
+   * 查询密钥列表
+   * 
+   * @param request - ListSecretsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecretsResponse
+   */
+  async listSecretsWithOptions(request: $_model.ListSecretsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSecretsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayType)) {
+      query["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSecrets",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/secrets`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSecretsResponse>(await this.callApi(params, req, runtime), new $_model.ListSecretsResponse({}));
+  }
+
+  /**
+   * 查询密钥列表
+   * 
+   * @param request - ListSecretsRequest
+   * @returns ListSecretsResponse
+   */
+  async listSecrets(request: $_model.ListSecretsRequest): Promise<$_model.ListSecretsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSecretsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a list of services.
    * 
    * @param request - ListServicesRequest
@@ -5338,6 +5579,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePolicyWithOptions(policyId, request, headers, runtime);
+  }
+
+  /**
+   * 更新消费者
+   * 
+   * @param request - UpdateSecretRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecretResponse
+   */
+  async updateSecretWithOptions(secretId: string, request: $_model.UpdateSecretRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecretResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.secretData)) {
+      body["secretData"] = request.secretData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecret",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/secrets/${$dara.URL.percentEncode(secretId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecretResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecretResponse({}));
+  }
+
+  /**
+   * 更新消费者
+   * 
+   * @param request - UpdateSecretRequest
+   * @returns UpdateSecretResponse
+   */
+  async updateSecret(secretId: string, request: $_model.UpdateSecretRequest): Promise<$_model.UpdateSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSecretWithOptions(secretId, request, headers, runtime);
   }
 
   /**
