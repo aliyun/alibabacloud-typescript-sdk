@@ -53,6 +53,7 @@ export class ListHyperNodesRequest extends $dara.Model {
    * e01-cn-zvp2tgykr08
    */
   hyperNodeId?: string;
+  hyperNodeIds?: string[];
   /**
    * @example
    * efg1.nvga1
@@ -91,6 +92,7 @@ export class ListHyperNodesRequest extends $dara.Model {
       commodityCode: 'CommodityCode',
       hpnZone: 'HpnZone',
       hyperNodeId: 'HyperNodeId',
+      hyperNodeIds: 'HyperNodeIds',
       machineType: 'MachineType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -108,6 +110,7 @@ export class ListHyperNodesRequest extends $dara.Model {
       commodityCode: 'string',
       hpnZone: 'string',
       hyperNodeId: 'string',
+      hyperNodeIds: { 'type': 'array', 'itemType': 'string' },
       machineType: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -120,6 +123,9 @@ export class ListHyperNodesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.hyperNodeIds)) {
+      $dara.Model.validateArray(this.hyperNodeIds);
+    }
     if(Array.isArray(this.operatingStates)) {
       $dara.Model.validateArray(this.operatingStates);
     }

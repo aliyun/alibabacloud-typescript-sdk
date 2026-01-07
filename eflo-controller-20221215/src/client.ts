@@ -1976,6 +1976,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListHyperNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.hyperNodeIds)) {
+      request.hyperNodeIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hyperNodeIds, "HyperNodeIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.operatingStates)) {
       request.operatingStatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operatingStates, "OperatingStates", "json");
     }
@@ -1983,6 +1987,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.commodityCode)) {
       query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.hyperNodeIdsShrink)) {
+      query["HyperNodeIds"] = request.hyperNodeIdsShrink;
     }
 
     if (!$dara.isNull(request.operatingStatesShrink)) {

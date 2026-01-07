@@ -53,6 +53,7 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
    * e01-cn-zvp2tgykr08
    */
   hyperNodeId?: string;
+  hyperNodeIdsShrink?: string;
   /**
    * @example
    * efg1.nvga1
@@ -91,6 +92,7 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
       commodityCode: 'CommodityCode',
       hpnZone: 'HpnZone',
       hyperNodeId: 'HyperNodeId',
+      hyperNodeIdsShrink: 'HyperNodeIds',
       machineType: 'MachineType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -108,6 +110,7 @@ export class ListHyperNodesShrinkRequest extends $dara.Model {
       commodityCode: 'string',
       hpnZone: 'string',
       hyperNodeId: 'string',
+      hyperNodeIdsShrink: 'string',
       machineType: 'string',
       maxResults: 'number',
       nextToken: 'string',
