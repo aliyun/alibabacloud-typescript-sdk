@@ -11,6 +11,7 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
    * sha43d9cabd52d370d9f4cca9468f71e
    */
   certifyId?: string;
+  guardRiskScore?: number;
   /**
    * @remarks
    * Extended information, in JSON format. (Customized return based on tenant requirements)
@@ -43,6 +44,7 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       certifyId: 'CertifyId',
+      guardRiskScore: 'GuardRiskScore',
       riskExtends: 'RiskExtends',
       riskTags: 'RiskTags',
     };
@@ -51,6 +53,7 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       certifyId: 'string',
+      guardRiskScore: 'number',
       riskExtends: 'string',
       riskTags: 'string',
     };
