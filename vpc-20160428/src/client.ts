@@ -23460,6 +23460,10 @@ export default class Client extends OpenApi {
       query["IpOrigin"] = request.ipOrigin;
     }
 
+    if (!$dara.isNull(request.ipv4Prefix)) {
+      query["Ipv4Prefix"] = request.ipv4Prefix;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
