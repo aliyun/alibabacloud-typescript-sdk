@@ -166,6 +166,7 @@ export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyDatasets extends $dara.Model {
+  actualMountAccess?: string;
   /**
    * @remarks
    * The dataset ID.
@@ -236,6 +237,7 @@ export class GetInstanceResponseBodyDatasets extends $dara.Model {
   uri?: string;
   static names(): { [key: string]: string } {
     return {
+      actualMountAccess: 'ActualMountAccess',
       datasetId: 'DatasetId',
       datasetVersion: 'DatasetVersion',
       dynamic: 'Dynamic',
@@ -249,6 +251,7 @@ export class GetInstanceResponseBodyDatasets extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      actualMountAccess: 'string',
       datasetId: 'string',
       datasetVersion: 'string',
       dynamic: 'boolean',
