@@ -112,6 +112,55 @@ export class TextModerationPlusResponseBodyDataAttackResult extends $dara.Model 
   }
 }
 
+export class TextModerationPlusResponseBodyDataExtLlmContent extends $dara.Model {
+  outputText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputText: 'OutputText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponseBodyDataExt extends $dara.Model {
+  llmContent?: TextModerationPlusResponseBodyDataExtLlmContent;
+  static names(): { [key: string]: string } {
+    return {
+      llmContent: 'LlmContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      llmContent: TextModerationPlusResponseBodyDataExtLlmContent,
+    };
+  }
+
+  validate() {
+    if(this.llmContent && typeof (this.llmContent as any).validate === 'function') {
+      (this.llmContent as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $dara.Model {
   /**
    * @remarks
@@ -311,6 +360,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
    */
   dataId?: string;
   detectedLanguage?: string;
+  ext?: TextModerationPlusResponseBodyDataExt;
   manualTaskId?: string;
   /**
    * @remarks
@@ -355,6 +405,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
       attackResult: 'AttackResult',
       dataId: 'DataId',
       detectedLanguage: 'DetectedLanguage',
+      ext: 'Ext',
       manualTaskId: 'ManualTaskId',
       result: 'Result',
       riskLevel: 'RiskLevel',
@@ -373,6 +424,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
       attackResult: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataAttackResult },
       dataId: 'string',
       detectedLanguage: 'string',
+      ext: TextModerationPlusResponseBodyDataExt,
       manualTaskId: 'string',
       result: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResult },
       riskLevel: 'string',
@@ -389,6 +441,9 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.attackResult)) {
       $dara.Model.validateArray(this.attackResult);
+    }
+    if(this.ext && typeof (this.ext as any).validate === 'function') {
+      (this.ext as any).validate();
     }
     if(Array.isArray(this.result)) {
       $dara.Model.validateArray(this.result);

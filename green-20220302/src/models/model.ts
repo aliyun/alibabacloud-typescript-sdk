@@ -84,9 +84,13 @@ export { MultiModalGuardForBase64ResponseBodyDataDetailResult } from './MultiMod
 export { MultiModalGuardForBase64ResponseBodyDataDetail } from './MultiModalGuardForBase64responseBody';
 export { MultiModalGuardForBase64ResponseBodyData } from './MultiModalGuardForBase64responseBody';
 export { MultimodalAsyncModerationResponseBodyData } from './MultimodalAsyncModerationResponseBody';
+export { TextModerationResponseBodyDataExtLlmContent } from './TextModerationResponseBody';
+export { TextModerationResponseBodyDataExt } from './TextModerationResponseBody';
 export { TextModerationResponseBodyData } from './TextModerationResponseBody';
 export { TextModerationPlusResponseBodyDataAdvice } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataAttackResult } from './TextModerationPlusResponseBody';
+export { TextModerationPlusResponseBodyDataExtLlmContent } from './TextModerationPlusResponseBody';
+export { TextModerationPlusResponseBodyDataExt } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataResultCustomizedHit } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataResult } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataSensitiveResult } from './TextModerationPlusResponseBody';

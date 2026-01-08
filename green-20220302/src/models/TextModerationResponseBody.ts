@@ -2,6 +2,55 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class TextModerationResponseBodyDataExtLlmContent extends $dara.Model {
+  outputText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputText: 'outputText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationResponseBodyDataExt extends $dara.Model {
+  llmContent?: TextModerationResponseBodyDataExtLlmContent;
+  static names(): { [key: string]: string } {
+    return {
+      llmContent: 'llmContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      llmContent: TextModerationResponseBodyDataExtLlmContent,
+    };
+  }
+
+  validate() {
+    if(this.llmContent && typeof (this.llmContent as any).validate === 'function') {
+      (this.llmContent as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -35,6 +84,7 @@ export class TextModerationResponseBodyData extends $dara.Model {
    * xxxxxx
    */
   deviceId?: string;
+  ext?: TextModerationResponseBodyDataExt;
   /**
    * @remarks
    * The labels. Multiple labels are separated by commas (,). Valid values: ad: ad violation profanity: abuse contraband: contraband sexual_content: pornography violence: violence nonsense: irrigation spam: spam negative_content: undesirable content cyberbullying: cyberbullying C_customized: custom library that is hit
@@ -58,6 +108,7 @@ export class TextModerationResponseBodyData extends $dara.Model {
       dataId: 'dataId',
       descriptions: 'descriptions',
       deviceId: 'deviceId',
+      ext: 'ext',
       labels: 'labels',
       manualTaskId: 'manualTaskId',
       reason: 'reason',
@@ -70,6 +121,7 @@ export class TextModerationResponseBodyData extends $dara.Model {
       dataId: 'string',
       descriptions: 'string',
       deviceId: 'string',
+      ext: TextModerationResponseBodyDataExt,
       labels: 'string',
       manualTaskId: 'string',
       reason: 'string',
@@ -77,6 +129,9 @@ export class TextModerationResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.ext && typeof (this.ext as any).validate === 'function') {
+      (this.ext as any).validate();
+    }
     super.validate();
   }
 
