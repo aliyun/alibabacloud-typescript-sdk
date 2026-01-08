@@ -70,6 +70,9 @@ export { QueryRenewInstancePriceResponseBodyPriceInfoRules } from './QueryRenewI
 export { QueryRenewInstancePriceResponseBodyPriceInfo } from './QueryRenewInstancePriceResponseBody';
 export { RenewInstanceRequestRenewInstanceRequest } from './RenewInstanceRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
+export { ChangeResourceGroupRequest } from './ChangeResourceGroupRequest';
+export { ChangeResourceGroupResponseBody } from './ChangeResourceGroupResponseBody';
+export { ChangeResourceGroupResponse } from './ChangeResourceGroupResponse';
 export { ConvertInstanceRequest } from './ConvertInstanceRequest';
 export { ConvertInstanceResponseBody } from './ConvertInstanceResponseBody';
 export { ConvertInstanceResponse } from './ConvertInstanceResponse';
