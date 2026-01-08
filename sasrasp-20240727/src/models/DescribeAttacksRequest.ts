@@ -36,6 +36,7 @@ export class DescribeAttacksRequest extends $dara.Model {
    * 1737216000000
    */
   endTimestamp?: number;
+  handleStatus?: number;
   /**
    * @example
    * block
@@ -104,6 +105,7 @@ export class DescribeAttacksRequest extends $dara.Model {
       attackType: 'AttackType',
       attackUrl: 'AttackUrl',
       endTimestamp: 'EndTimestamp',
+      handleStatus: 'HandleStatus',
       handlerType: 'HandlerType',
       hostname: 'Hostname',
       ip: 'Ip',
@@ -128,6 +130,7 @@ export class DescribeAttacksRequest extends $dara.Model {
       attackType: 'string',
       attackUrl: 'string',
       endTimestamp: 'number',
+      handleStatus: 'number',
       handlerType: 'string',
       hostname: 'string',
       ip: 'string',

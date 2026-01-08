@@ -113,6 +113,10 @@ export default class Client extends OpenApi {
       query["EndTimestamp"] = request.endTimestamp;
     }
 
+    if (!$dara.isNull(request.handleStatus)) {
+      query["HandleStatus"] = request.handleStatus;
+    }
+
     if (!$dara.isNull(request.handlerType)) {
       query["HandlerType"] = request.handlerType;
     }
