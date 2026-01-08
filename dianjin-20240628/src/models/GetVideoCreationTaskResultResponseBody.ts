@@ -247,6 +247,11 @@ export class GetVideoCreationTaskResultResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @example
+   * 1
+   */
+  statusReason?: string;
+  /**
+   * @example
    * xxx
    */
   taskId?: string;
@@ -267,6 +272,7 @@ export class GetVideoCreationTaskResultResponseBodyData extends $dara.Model {
       finishTime: 'finishTime',
       mediaDetectionTaskResult: 'mediaDetectionTaskResult',
       startTime: 'startTime',
+      statusReason: 'statusReason',
       taskId: 'taskId',
       taskStatus: 'taskStatus',
       videoUrl: 'videoUrl',
@@ -280,6 +286,7 @@ export class GetVideoCreationTaskResultResponseBodyData extends $dara.Model {
       finishTime: 'string',
       mediaDetectionTaskResult: GetVideoCreationTaskResultResponseBodyDataMediaDetectionTaskResult,
       startTime: 'string',
+      statusReason: 'string',
       taskId: 'string',
       taskStatus: 'string',
       videoUrl: 'string',
