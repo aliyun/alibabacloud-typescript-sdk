@@ -284,6 +284,61 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   }
 }
 
+export class DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInternalDnsConfig extends $dara.Model {
+  bindVpcs?: string[];
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bindVpcs: 'bind_vpcs',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindVpcs: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.bindVpcs)) {
+      $dara.Model.validateArray(this.bindVpcs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig extends $dara.Model {
+  internalDnsConfig?: DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInternalDnsConfig;
+  static names(): { [key: string]: string } {
+    return {
+      internalDnsConfig: 'internal_dns_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internalDnsConfig: DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInternalDnsConfig,
+    };
+  }
+
+  validate() {
+    if(this.internalDnsConfig && typeof (this.internalDnsConfig as any).validate === 'function') {
+      (this.internalDnsConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade extends $dara.Model {
   /**
    * @remarks
@@ -458,6 +513,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * The control plane configurations in an ACK dedicated cluster.
    */
   controlPlaneConfig?: DescribeClusterDetailResponseBodyControlPlaneConfig;
+  controlPlaneEndpointsConfig?: DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig;
   /**
    * @remarks
    * The time when the cluster was created.
@@ -778,6 +834,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       clusterType: 'cluster_type',
       containerCidr: 'container_cidr',
       controlPlaneConfig: 'control_plane_config',
+      controlPlaneEndpointsConfig: 'control_plane_endpoints_config',
       created: 'created',
       currentVersion: 'current_version',
       deletionProtection: 'deletion_protection',
@@ -826,6 +883,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       clusterType: 'string',
       containerCidr: 'string',
       controlPlaneConfig: DescribeClusterDetailResponseBodyControlPlaneConfig,
+      controlPlaneEndpointsConfig: DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig,
       created: 'string',
       currentVersion: 'string',
       deletionProtection: 'boolean',
@@ -871,6 +929,9 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
     }
     if(this.controlPlaneConfig && typeof (this.controlPlaneConfig as any).validate === 'function') {
       (this.controlPlaneConfig as any).validate();
+    }
+    if(this.controlPlaneEndpointsConfig && typeof (this.controlPlaneEndpointsConfig as any).validate === 'function') {
+      (this.controlPlaneEndpointsConfig as any).validate();
     }
     if(Array.isArray(this.extraSans)) {
       $dara.Model.validateArray(this.extraSans);

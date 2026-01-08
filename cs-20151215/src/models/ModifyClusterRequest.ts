@@ -363,6 +363,61 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   }
 }
 
+export class ModifyClusterRequestControlPlaneEndpointsConfigInternalDnsConfig extends $dara.Model {
+  bindVpcs?: string[];
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bindVpcs: 'bind_vpcs',
+      enabled: 'enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindVpcs: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.bindVpcs)) {
+      $dara.Model.validateArray(this.bindVpcs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClusterRequestControlPlaneEndpointsConfig extends $dara.Model {
+  internalDnsConfig?: ModifyClusterRequestControlPlaneEndpointsConfigInternalDnsConfig;
+  static names(): { [key: string]: string } {
+    return {
+      internalDnsConfig: 'internal_dns_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internalDnsConfig: ModifyClusterRequestControlPlaneEndpointsConfigInternalDnsConfig,
+    };
+  }
+
+  validate() {
+    if(this.internalDnsConfig && typeof (this.internalDnsConfig as any).validate === 'function') {
+      (this.internalDnsConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterRequestOperationPolicyClusterAutoUpgrade extends $dara.Model {
   /**
    * @remarks
@@ -526,6 +581,7 @@ export class ModifyClusterRequest extends $dara.Model {
    * The control plane configurations of an ACK dedicated cluster.
    */
   controlPlaneConfig?: ModifyClusterRequestControlPlaneConfig;
+  controlPlaneEndpointsConfig?: ModifyClusterRequestControlPlaneEndpointsConfig;
   /**
    * @remarks
    * Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
@@ -670,6 +726,7 @@ export class ModifyClusterRequest extends $dara.Model {
       apiServerEipId: 'api_server_eip_id',
       clusterName: 'cluster_name',
       controlPlaneConfig: 'control_plane_config',
+      controlPlaneEndpointsConfig: 'control_plane_endpoints_config',
       deletionProtection: 'deletion_protection',
       enableRrsa: 'enable_rrsa',
       ingressDomainRebinding: 'ingress_domain_rebinding',
@@ -693,6 +750,7 @@ export class ModifyClusterRequest extends $dara.Model {
       apiServerEipId: 'string',
       clusterName: 'string',
       controlPlaneConfig: ModifyClusterRequestControlPlaneConfig,
+      controlPlaneEndpointsConfig: ModifyClusterRequestControlPlaneEndpointsConfig,
       deletionProtection: 'boolean',
       enableRrsa: 'boolean',
       ingressDomainRebinding: 'boolean',
@@ -717,6 +775,9 @@ export class ModifyClusterRequest extends $dara.Model {
     }
     if(this.controlPlaneConfig && typeof (this.controlPlaneConfig as any).validate === 'function') {
       (this.controlPlaneConfig as any).validate();
+    }
+    if(this.controlPlaneEndpointsConfig && typeof (this.controlPlaneEndpointsConfig as any).validate === 'function') {
+      (this.controlPlaneEndpointsConfig as any).validate();
     }
     if(this.maintenanceWindow && typeof (this.maintenanceWindow as any).validate === 'function') {
       (this.maintenanceWindow as any).validate();

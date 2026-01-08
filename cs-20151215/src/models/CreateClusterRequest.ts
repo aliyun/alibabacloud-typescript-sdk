@@ -324,6 +324,58 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   }
 }
 
+export class CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig extends $dara.Model {
+  bindVpcs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      bindVpcs: 'bind_vpcs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindVpcs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.bindVpcs)) {
+      $dara.Model.validateArray(this.bindVpcs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestControlPlaneEndpointsConfig extends $dara.Model {
+  internalDnsConfig?: CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig;
+  static names(): { [key: string]: string } {
+    return {
+      internalDnsConfig: 'internal_dns_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internalDnsConfig: CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig,
+    };
+  }
+
+  validate() {
+    if(this.internalDnsConfig && typeof (this.internalDnsConfig as any).validate === 'function') {
+      (this.internalDnsConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestOperationPolicyClusterAutoUpgrade extends $dara.Model {
   /**
    * @remarks
@@ -673,6 +725,7 @@ export class CreateClusterRequest extends $dara.Model {
    * The control plane configurations of an ACK dedicated cluster.
    */
   controlPlaneConfig?: CreateClusterRequestControlPlaneConfig;
+  controlPlaneEndpointsConfig?: CreateClusterRequestControlPlaneEndpointsConfig;
   /**
    * @remarks
    * The control plane components for which you want to enable log collection.
@@ -1763,6 +1816,7 @@ export class CreateClusterRequest extends $dara.Model {
       clusterType: 'cluster_type',
       containerCidr: 'container_cidr',
       controlPlaneConfig: 'control_plane_config',
+      controlPlaneEndpointsConfig: 'control_plane_endpoints_config',
       controlplaneLogComponents: 'controlplane_log_components',
       controlplaneLogProject: 'controlplane_log_project',
       controlplaneLogTtl: 'controlplane_log_ttl',
@@ -1870,6 +1924,7 @@ export class CreateClusterRequest extends $dara.Model {
       clusterType: 'string',
       containerCidr: 'string',
       controlPlaneConfig: CreateClusterRequestControlPlaneConfig,
+      controlPlaneEndpointsConfig: CreateClusterRequestControlPlaneEndpointsConfig,
       controlplaneLogComponents: { 'type': 'array', 'itemType': 'string' },
       controlplaneLogProject: 'string',
       controlplaneLogTtl: 'string',
@@ -1975,6 +2030,9 @@ export class CreateClusterRequest extends $dara.Model {
     }
     if(this.controlPlaneConfig && typeof (this.controlPlaneConfig as any).validate === 'function') {
       (this.controlPlaneConfig as any).validate();
+    }
+    if(this.controlPlaneEndpointsConfig && typeof (this.controlPlaneEndpointsConfig as any).validate === 'function') {
+      (this.controlPlaneEndpointsConfig as any).validate();
     }
     if(Array.isArray(this.controlplaneLogComponents)) {
       $dara.Model.validateArray(this.controlplaneLogComponents);

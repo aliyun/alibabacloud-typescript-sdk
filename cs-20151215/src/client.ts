@@ -748,6 +748,10 @@ export default class Client extends OpenApi {
       body["control_plane_config"] = request.controlPlaneConfig;
     }
 
+    if (!$dara.isNull(request.controlPlaneEndpointsConfig)) {
+      body["control_plane_endpoints_config"] = request.controlPlaneEndpointsConfig;
+    }
+
     if (!$dara.isNull(request.controlplaneLogComponents)) {
       body["controlplane_log_components"] = request.controlplaneLogComponents;
     }
@@ -5297,6 +5301,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.controlPlaneConfig)) {
       body["control_plane_config"] = request.controlPlaneConfig;
+    }
+
+    if (!$dara.isNull(request.controlPlaneEndpointsConfig)) {
+      body["control_plane_endpoints_config"] = request.controlPlaneEndpointsConfig;
     }
 
     if (!$dara.isNull(request.deletionProtection)) {

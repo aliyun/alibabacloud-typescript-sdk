@@ -24,6 +24,8 @@ export { CheckServiceRoleResponseBodyRoles } from './CheckServiceRoleResponseBod
 export { CreateClusterRequestAuditLogConfig } from './CreateClusterRequest';
 export { CreateClusterRequestAutoMode } from './CreateClusterRequest';
 export { CreateClusterRequestControlPlaneConfig } from './CreateClusterRequest';
+export { CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig } from './CreateClusterRequest';
+export { CreateClusterRequestControlPlaneEndpointsConfig } from './CreateClusterRequest';
 export { CreateClusterRequestOperationPolicyClusterAutoUpgrade } from './CreateClusterRequest';
 export { CreateClusterRequestOperationPolicy } from './CreateClusterRequest';
 export { CreateClusterRequestRrsaConfig } from './CreateClusterRequest';
@@ -57,6 +59,8 @@ export { DescribeAddonsResponseBodyComponentGroupsItems } from './DescribeAddons
 export { DescribeAddonsResponseBodyComponentGroups } from './DescribeAddonsResponseBody';
 export { DescribeClusterDetailResponseBodyAutoMode } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyControlPlaneConfig } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInternalDnsConfig } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyOperationPolicy } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyRrsaConfig } from './DescribeClusterDetailResponseBody';
@@ -190,6 +194,8 @@ export { ListUserKubeConfigStatesResponseBodyPage } from './ListUserKubeConfigSt
 export { ListUserKubeConfigStatesResponseBodyStates } from './ListUserKubeConfigStatesResponseBody';
 export { ModifyClusterRequestApiServerCustomCertSans } from './ModifyClusterRequest';
 export { ModifyClusterRequestControlPlaneConfig } from './ModifyClusterRequest';
+export { ModifyClusterRequestControlPlaneEndpointsConfigInternalDnsConfig } from './ModifyClusterRequest';
+export { ModifyClusterRequestControlPlaneEndpointsConfig } from './ModifyClusterRequest';
 export { ModifyClusterRequestOperationPolicyClusterAutoUpgrade } from './ModifyClusterRequest';
 export { ModifyClusterRequestOperationPolicy } from './ModifyClusterRequest';
 export { ModifyClusterRequestSystemEventsLogging } from './ModifyClusterRequest';
