@@ -53,6 +53,7 @@ export { ListBindInfoResponseBodyBindInfoModels } from './ListBindInfoResponseBo
 export { ListImageRequestTagList } from './ListImageRequest';
 export { ListImageResponseBodyDataAppList } from './ListImageResponseBody';
 export { ListImageResponseBodyDataImageRegionDistributeList } from './ListImageResponseBody';
+export { ListImageResponseBodyDataTagList } from './ListImageResponseBody';
 export { ListImageResponseBodyData } from './ListImageResponseBody';
 export { ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels } from './ListNodeInstanceTypeResponseBody';
 export { ListNodesResponseBodyNodeModels } from './ListNodesResponseBody';
