@@ -2,7 +2,80 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateLifecyclePolicyRequestRetrieveRules extends $dara.Model {
+  /**
+   * @example
+   * RetrieveType
+   */
+  attribute?: string;
+  /**
+   * @example
+   * All
+   */
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLifecyclePolicyRequestTransitRules extends $dara.Model {
+  /**
+   * @example
+   * Atime
+   */
+  attribute?: string;
+  /**
+   * @example
+   * 3
+   */
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLifecyclePolicyRequest extends $dara.Model {
+  /**
+   * @example
+   * 描述
+   */
+  description?: string;
   /**
    * @remarks
    * The ID of the file system.
@@ -17,12 +90,15 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * @remarks
    * The name of the lifecycle policy. The name must be 3 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
    * 
-   * This parameter is required.
-   * 
    * @example
    * lifecyclepolicy_01
    */
   lifecyclePolicyName?: string;
+  /**
+   * @example
+   * Auto
+   */
+  lifecyclePolicyType?: string;
   /**
    * @remarks
    * The management rule that is associated with the lifecycle policy.
@@ -60,6 +136,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * "/path1", "/path2"
    */
   paths?: string[];
+  retrieveRules?: CreateLifecyclePolicyRequestRetrieveRules[];
   /**
    * @remarks
    * The storage type of the data that is dumped to the IA storage medium.
@@ -72,31 +149,46 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * InfrequentAccess
    */
   storageType?: string;
+  transitRules?: CreateLifecyclePolicyRequestTransitRules[];
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       fileSystemId: 'FileSystemId',
       lifecyclePolicyName: 'LifecyclePolicyName',
+      lifecyclePolicyType: 'LifecyclePolicyType',
       lifecycleRuleName: 'LifecycleRuleName',
       path: 'Path',
       paths: 'Paths',
+      retrieveRules: 'RetrieveRules',
       storageType: 'StorageType',
+      transitRules: 'TransitRules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       fileSystemId: 'string',
       lifecyclePolicyName: 'string',
+      lifecyclePolicyType: 'string',
       lifecycleRuleName: 'string',
       path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
+      retrieveRules: { 'type': 'array', 'itemType': CreateLifecyclePolicyRequestRetrieveRules },
       storageType: 'string',
+      transitRules: { 'type': 'array', 'itemType': CreateLifecyclePolicyRequestTransitRules },
     };
   }
 
   validate() {
     if(Array.isArray(this.paths)) {
       $dara.Model.validateArray(this.paths);
+    }
+    if(Array.isArray(this.retrieveRules)) {
+      $dara.Model.validateArray(this.retrieveRules);
+    }
+    if(Array.isArray(this.transitRules)) {
+      $dara.Model.validateArray(this.transitRules);
     }
     super.validate();
   }

@@ -14,12 +14,15 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
    */
   fileSystemId?: string;
   /**
+   * @example
+   * lc-xxx
+   */
+  lifecyclePolicyId?: string;
+  /**
    * @remarks
    * The name of the lifecycle policy.
    * 
    * The name must be 3 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
-   * 
-   * This parameter is required.
    * 
    * @example
    * lifecyclepolicy_01
@@ -63,6 +66,7 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
+      lifecyclePolicyId: 'LifecyclePolicyId',
       lifecyclePolicyName: 'LifecyclePolicyName',
       lifecycleRuleName: 'LifecycleRuleName',
       path: 'Path',
@@ -73,6 +77,7 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
+      lifecyclePolicyId: 'string',
       lifecyclePolicyName: 'string',
       lifecycleRuleName: 'string',
       path: 'string',

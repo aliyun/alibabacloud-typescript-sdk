@@ -2,6 +2,74 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules extends $dara.Model {
+  /**
+   * @example
+   * RetrieveType
+   */
+  attribute?: string;
+  /**
+   * @example
+   * All
+   */
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules extends $dara.Model {
+  /**
+   * @example
+   * Atime
+   */
+  attribute?: string;
+  /**
+   * @example
+   * 3
+   */
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dara.Model {
   /**
    * @remarks
@@ -14,6 +82,11 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    */
   createTime?: string;
   /**
+   * @example
+   * 描述
+   */
+  description?: string;
+  /**
    * @remarks
    * The ID of the file system.
    * 
@@ -22,6 +95,11 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    */
   fileSystemId?: string;
   /**
+   * @example
+   * lc-xxx
+   */
+  lifecyclePolicyId?: string;
+  /**
    * @remarks
    * The name of the lifecycle policy.
    * 
@@ -29,6 +107,11 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * lifecyclepolicy_01
    */
   lifecyclePolicyName?: string;
+  /**
+   * @example
+   * Auto
+   */
+  lifecyclePolicyType?: string;
   /**
    * @remarks
    * The management rule that is associated with the lifecycle policy.
@@ -57,6 +140,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * The absolute paths to multiple directories associated with the lifecycle policy.
    */
   paths?: string[];
+  retrieveRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules[];
   /**
    * @remarks
    * The storage type of the data that is dumped to the IA storage medium.
@@ -67,33 +151,50 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * InfrequentAccess
    */
   storageType?: string;
+  transitRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules[];
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      description: 'Description',
       fileSystemId: 'FileSystemId',
+      lifecyclePolicyId: 'LifecyclePolicyId',
       lifecyclePolicyName: 'LifecyclePolicyName',
+      lifecyclePolicyType: 'LifecyclePolicyType',
       lifecycleRuleName: 'LifecycleRuleName',
       path: 'Path',
       paths: 'Paths',
+      retrieveRules: 'RetrieveRules',
       storageType: 'StorageType',
+      transitRules: 'TransitRules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      description: 'string',
       fileSystemId: 'string',
+      lifecyclePolicyId: 'string',
       lifecyclePolicyName: 'string',
+      lifecyclePolicyType: 'string',
       lifecycleRuleName: 'string',
       path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
+      retrieveRules: { 'type': 'array', 'itemType': DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules },
       storageType: 'string',
+      transitRules: { 'type': 'array', 'itemType': DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules },
     };
   }
 
   validate() {
     if(Array.isArray(this.paths)) {
       $dara.Model.validateArray(this.paths);
+    }
+    if(Array.isArray(this.retrieveRules)) {
+      $dara.Model.validateArray(this.retrieveRules);
+    }
+    if(Array.isArray(this.transitRules)) {
+      $dara.Model.validateArray(this.transitRules);
     }
     super.validate();
   }

@@ -2033,12 +2033,20 @@ export default class Client extends OpenApi {
   async createLifecyclePolicyWithOptions(request: $_model.CreateLifecyclePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLifecyclePolicyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
     if (!$dara.isNull(request.lifecyclePolicyName)) {
       query["LifecyclePolicyName"] = request.lifecyclePolicyName;
+    }
+
+    if (!$dara.isNull(request.lifecyclePolicyType)) {
+      query["LifecyclePolicyType"] = request.lifecyclePolicyType;
     }
 
     if (!$dara.isNull(request.lifecycleRuleName)) {
@@ -2053,8 +2061,16 @@ export default class Client extends OpenApi {
       query["Paths"] = request.paths;
     }
 
+    if (!$dara.isNull(request.retrieveRules)) {
+      query["RetrieveRules"] = request.retrieveRules;
+    }
+
     if (!$dara.isNull(request.storageType)) {
       query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.transitRules)) {
+      query["TransitRules"] = request.transitRules;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3107,6 +3123,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.lifecyclePolicyId)) {
+      query["LifecyclePolicyId"] = request.lifecyclePolicyId;
     }
 
     if (!$dara.isNull(request.lifecyclePolicyName)) {
@@ -6488,6 +6508,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.lifecyclePolicyId)) {
+      query["LifecyclePolicyId"] = request.lifecyclePolicyId;
     }
 
     if (!$dara.isNull(request.lifecyclePolicyName)) {

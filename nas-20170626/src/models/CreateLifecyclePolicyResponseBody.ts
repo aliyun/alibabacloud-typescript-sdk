@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLifecyclePolicyResponseBody extends $dara.Model {
   /**
+   * @example
+   * lc-xxx
+   */
+  lifecyclePolicyId?: string;
+  /**
    * @remarks
    * The request ID.
    * 
@@ -26,6 +31,7 @@ export class CreateLifecyclePolicyResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      lifecyclePolicyId: 'LifecyclePolicyId',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -33,6 +39,7 @@ export class CreateLifecyclePolicyResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      lifecyclePolicyId: 'string',
       requestId: 'string',
       success: 'boolean',
     };

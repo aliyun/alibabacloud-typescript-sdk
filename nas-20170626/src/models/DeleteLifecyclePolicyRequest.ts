@@ -14,10 +14,13 @@ export class DeleteLifecyclePolicyRequest extends $dara.Model {
    */
   fileSystemId?: string;
   /**
+   * @example
+   * lc-xxx
+   */
+  lifecyclePolicyId?: string;
+  /**
    * @remarks
    * The name of the lifecycle policy.
-   * 
-   * This parameter is required.
    * 
    * @example
    * lifecyclepolicy1
@@ -26,6 +29,7 @@ export class DeleteLifecyclePolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
+      lifecyclePolicyId: 'LifecyclePolicyId',
       lifecyclePolicyName: 'LifecyclePolicyName',
     };
   }
@@ -33,6 +37,7 @@ export class DeleteLifecyclePolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
+      lifecyclePolicyId: 'string',
       lifecyclePolicyName: 'string',
     };
   }

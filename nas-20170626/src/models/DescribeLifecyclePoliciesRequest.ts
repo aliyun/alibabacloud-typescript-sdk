@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   /**
+   * @example
+   * 描述
+   */
+  description?: string;
+  /**
    * @remarks
    * The ID of the file system.
    * 
@@ -11,6 +16,11 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    * 31a8e4****
    */
   fileSystemId?: string;
+  /**
+   * @example
+   * lc-xxx
+   */
+  lifecyclePolicyId?: string;
   /**
    * @remarks
    * The name of the lifecycle policy. The name must meet the following conventions:
@@ -21,6 +31,11 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    * lifecyclepolicy_01
    */
   lifecyclePolicyName?: string;
+  /**
+   * @example
+   * Auto
+   */
+  lifecyclePolicyType?: string;
   /**
    * @remarks
    * The page number.
@@ -44,6 +59,11 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * /abc/
+   */
+  path?: string;
+  /**
    * @remarks
    * The storage class.
    * 
@@ -61,20 +81,28 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       fileSystemId: 'FileSystemId',
+      lifecyclePolicyId: 'LifecyclePolicyId',
       lifecyclePolicyName: 'LifecyclePolicyName',
+      lifecyclePolicyType: 'LifecyclePolicyType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      path: 'Path',
       storageType: 'StorageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       fileSystemId: 'string',
+      lifecyclePolicyId: 'string',
       lifecyclePolicyName: 'string',
+      lifecyclePolicyType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      path: 'string',
       storageType: 'string',
     };
   }
