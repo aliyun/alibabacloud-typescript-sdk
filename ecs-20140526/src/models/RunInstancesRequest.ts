@@ -997,6 +997,7 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
    * 8192
    */
   rxQueueSize?: number;
+  secondaryPrivateIpAddressCount?: number;
   /**
    * @remarks
    * The ID of the security group to which to assign ENI N.
@@ -1087,6 +1088,7 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
       queueNumber: 'QueueNumber',
       queuePairNumber: 'QueuePairNumber',
       rxQueueSize: 'RxQueueSize',
+      secondaryPrivateIpAddressCount: 'SecondaryPrivateIpAddressCount',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
       sourceDestCheck: 'SourceDestCheck',
@@ -1110,6 +1112,7 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
       queueNumber: 'number',
       queuePairNumber: 'number',
       rxQueueSize: 'number',
+      secondaryPrivateIpAddressCount: 'number',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       sourceDestCheck: 'boolean',
