@@ -1214,6 +1214,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用公网信息。
+   * 
+   * @param request - UpdatePrivateNetwrokRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePrivateNetwrokResponse
+   */
+  async updatePrivateNetwrokWithOptions(appName: string, request: $_model.UpdatePrivateNetwrokRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePrivateNetwrokResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.toArray(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePrivateNetwrok",
+      version: "2023-06-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/es-serverless/instances/${$dara.URL.percentEncode(appName)}/private-networks`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePrivateNetwrokResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePrivateNetwrokResponse({}));
+  }
+
+  /**
+   * 修改应用公网信息。
+   * 
+   * @param request - UpdatePrivateNetwrokRequest
+   * @returns UpdatePrivateNetwrokResponse
+   */
+  async updatePrivateNetwrok(appName: string, request: $_model.UpdatePrivateNetwrokRequest): Promise<$_model.UpdatePrivateNetwrokResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePrivateNetwrokWithOptions(appName, request, headers, runtime);
+  }
+
+  /**
    * 修改自动备份配置
    * 
    * @param request - UpdateSnapshotSettingRequest
