@@ -130,6 +130,11 @@ export class SendChatappMessageRequestProductAction extends $dara.Model {
 
 export class SendChatappMessageRequest extends $dara.Model {
   /**
+   * @example
+   * 示例值示例值
+   */
+  adAccountId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -182,6 +187,8 @@ export class SendChatappMessageRequest extends $dara.Model {
   /**
    * @example
    * 示例值示例值
+   * 
+   * @deprecated
    */
   custWabaId?: string;
   /**
@@ -212,6 +219,8 @@ export class SendChatappMessageRequest extends $dara.Model {
   /**
    * @example
    * 示例值
+   * 
+   * @deprecated
    */
   isvCode?: string;
   /**
@@ -224,6 +233,11 @@ export class SendChatappMessageRequest extends $dara.Model {
    * 示例值示例值示例值
    */
   language?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  messageCampaignId?: string;
   /**
    * @example
    * 示例值
@@ -277,6 +291,11 @@ export class SendChatappMessageRequest extends $dara.Model {
   to?: string;
   /**
    * @example
+   * 示例值
+   */
+  tokenType?: string;
+  /**
+   * @example
    * 示例值示例值
    */
   trackingData?: string;
@@ -291,6 +310,7 @@ export class SendChatappMessageRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      adAccountId: 'AdAccountId',
       channelType: 'ChannelType',
       content: 'Content',
       contextMessageId: 'ContextMessageId',
@@ -305,6 +325,7 @@ export class SendChatappMessageRequest extends $dara.Model {
       isvCode: 'IsvCode',
       label: 'Label',
       language: 'Language',
+      messageCampaignId: 'MessageCampaignId',
       messageType: 'MessageType',
       ownerId: 'OwnerId',
       payload: 'Payload',
@@ -318,6 +339,7 @@ export class SendChatappMessageRequest extends $dara.Model {
       templateName: 'TemplateName',
       templateParams: 'TemplateParams',
       to: 'To',
+      tokenType: 'TokenType',
       trackingData: 'TrackingData',
       ttl: 'Ttl',
       type: 'Type',
@@ -326,6 +348,7 @@ export class SendChatappMessageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adAccountId: 'string',
       channelType: 'string',
       content: 'string',
       contextMessageId: 'string',
@@ -340,6 +363,7 @@ export class SendChatappMessageRequest extends $dara.Model {
       isvCode: 'string',
       label: 'string',
       language: 'string',
+      messageCampaignId: 'string',
       messageType: 'string',
       ownerId: 'number',
       payload: { 'type': 'array', 'itemType': 'string' },
@@ -353,6 +377,7 @@ export class SendChatappMessageRequest extends $dara.Model {
       templateName: 'string',
       templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       to: 'string',
+      tokenType: 'string',
       trackingData: 'string',
       ttl: 'number',
       type: 'string',

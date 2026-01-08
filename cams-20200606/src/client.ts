@@ -30,6 +30,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 申请：变更目的地/恢复/暂停
+   * 
+   * @param tmpReq - AddAddressRecoverSuspendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAddressRecoverSuspendResponse
+   */
+  async addAddressRecoverSuspendWithOptions(tmpReq: $_model.AddAddressRecoverSuspendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAddressRecoverSuspendResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddAddressRecoverSuspendShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.auditRecord)) {
+      request.auditRecordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.auditRecord, "AuditRecord", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.auditRecordShrink)) {
+      query["AuditRecord"] = request.auditRecordShrink;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.requestType)) {
+      query["RequestType"] = request.requestType;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAddressRecoverSuspend",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAddressRecoverSuspendResponse>(await this.callApi(params, req, runtime), new $_model.AddAddressRecoverSuspendResponse({}));
+  }
+
+  /**
+   * 申请：变更目的地/恢复/暂停
+   * 
+   * @param request - AddAddressRecoverSuspendRequest
+   * @returns AddAddressRecoverSuspendResponse
+   */
+  async addAddressRecoverSuspend(request: $_model.AddAddressRecoverSuspendRequest): Promise<$_model.AddAddressRecoverSuspendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAddressRecoverSuspendWithOptions(request, runtime);
+  }
+
+  /**
+   * 注册viber账号，开户
+   * 
+   * @param tmpReq - AddAuditViberOpenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAuditViberOpenResponse
+   */
+  async addAuditViberOpenWithOptions(tmpReq: $_model.AddAuditViberOpenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAuditViberOpenResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddAuditViberOpenShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.auditRecord)) {
+      request.auditRecordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.auditRecord, "AuditRecord", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.auditRecordShrink)) {
+      query["AuditRecord"] = request.auditRecordShrink;
+    }
+
+    if (!$dara.isNull(request.auditResult)) {
+      query["AuditResult"] = request.auditResult;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAuditViberOpen",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAuditViberOpenResponse>(await this.callApi(params, req, runtime), new $_model.AddAuditViberOpenResponse({}));
+  }
+
+  /**
+   * 注册viber账号，开户
+   * 
+   * @param request - AddAuditViberOpenRequest
+   * @returns AddAuditViberOpenResponse
+   */
+  async addAuditViberOpen(request: $_model.AddAuditViberOpenRequest): Promise<$_model.AddAuditViberOpenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAuditViberOpenWithOptions(request, runtime);
+  }
+
+  /**
    * AddChatGroup
    * 
    * @param request - AddChatGroupRequest
@@ -236,6 +372,632 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑联系人-新增联系人
+   * 
+   * @param tmpReq - AddContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddContactsResponse
+   */
+  async addContactsWithOptions(tmpReq: $_model.AddContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddContactsResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddContactsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.contactDetails)) {
+      query["ContactDetails"] = request.contactDetails;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.groups)) {
+      query["Groups"] = request.groups;
+    }
+
+    if (!$dara.isNull(request.needUpdate)) {
+      query["NeedUpdate"] = request.needUpdate;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddContacts",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddContactsResponse>(await this.callApi(params, req, runtime), new $_model.AddContactsResponse({}));
+  }
+
+  /**
+   * 编辑联系人-新增联系人
+   * 
+   * @param request - AddContactsRequest
+   * @returns AddContactsResponse
+   */
+  async addContacts(request: $_model.AddContactsRequest): Promise<$_model.AddContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addContactsWithOptions(request, runtime);
+  }
+
+  /**
+   * 增加自定义受众(这个接口需要从镇元直接配置）
+   * 
+   * @param tmpReq - AddCustomAudienceUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCustomAudienceUserResponse
+   */
+  async addCustomAudienceUserWithOptions(tmpReq: $_model.AddCustomAudienceUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddCustomAudienceUserResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddCustomAudienceUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.users)) {
+      request.usersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.users, "Users", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.batchLastFlag)) {
+      query["BatchLastFlag"] = request.batchLastFlag;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.customAudienceId)) {
+      query["CustomAudienceId"] = request.customAudienceId;
+    }
+
+    if (!$dara.isNull(request.estimatedNumTotal)) {
+      query["EstimatedNumTotal"] = request.estimatedNumTotal;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.usersShrink)) {
+      query["Users"] = request.usersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddCustomAudienceUser",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddCustomAudienceUserResponse>(await this.callApi(params, req, runtime), new $_model.AddCustomAudienceUserResponse({}));
+  }
+
+  /**
+   * 增加自定义受众(这个接口需要从镇元直接配置）
+   * 
+   * @param request - AddCustomAudienceUserRequest
+   * @returns AddCustomAudienceUserResponse
+   */
+  async addCustomAudienceUser(request: $_model.AddCustomAudienceUserRequest): Promise<$_model.AddCustomAudienceUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addCustomAudienceUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加群组
+   * 
+   * @param tmpReq - AddGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGroupResponse
+   */
+  async addGroupWithOptions(tmpReq: $_model.AddGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.contactDetails)) {
+      query["ContactDetails"] = request.contactDetails;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddGroupResponse>(await this.callApi(params, req, runtime), new $_model.AddGroupResponse({}));
+  }
+
+  /**
+   * 添加群组
+   * 
+   * @param request - AddGroupRequest
+   * @returns AddGroupResponse
+   */
+  async addGroup(request: $_model.AddGroupRequest): Promise<$_model.AddGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 新增营销活动
+   * 
+   * @param tmpReq - AddMarketingFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMarketingFlowResponse
+   */
+  async addMarketingFlowWithOptions(tmpReq: $_model.AddMarketingFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddMarketingFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddMarketingFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.activityDesc)) {
+      query["ActivityDesc"] = request.activityDesc;
+    }
+
+    if (!$dara.isNull(request.activityName)) {
+      query["ActivityName"] = request.activityName;
+    }
+
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.executionType)) {
+      query["ExecutionType"] = request.executionType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.paramFlag)) {
+      query["ParamFlag"] = request.paramFlag;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      query["Params"] = request.paramsShrink;
+    }
+
+    if (!$dara.isNull(request.relatedFlowCode)) {
+      query["RelatedFlowCode"] = request.relatedFlowCode;
+    }
+
+    if (!$dara.isNull(request.relatedFlowName)) {
+      query["RelatedFlowName"] = request.relatedFlowName;
+    }
+
+    if (!$dara.isNull(request.relatedGroupId)) {
+      query["RelatedGroupId"] = request.relatedGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddMarketingFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddMarketingFlowResponse>(await this.callApi(params, req, runtime), new $_model.AddMarketingFlowResponse({}));
+  }
+
+  /**
+   * 新增营销活动
+   * 
+   * @param request - AddMarketingFlowRequest
+   * @returns AddMarketingFlowResponse
+   */
+  async addMarketingFlow(request: $_model.AddMarketingFlowRequest): Promise<$_model.AddMarketingFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addMarketingFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 绑定DM账号
+   * 
+   * @param tmpReq - BindDmAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindDmAccountResponse
+   */
+  async bindDmAccountWithOptions(tmpReq: $_model.BindDmAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindDmAccountResponse> {
+    tmpReq.validate();
+    let request = new $_model.BindDmAccountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.extendAttr)) {
+      request.extendAttrShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendAttr, "ExtendAttr", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.accountCode)) {
+      query["AccountCode"] = request.accountCode;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.extendAttrShrink)) {
+      query["ExtendAttr"] = request.extendAttrShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindDmAccount",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindDmAccountResponse>(await this.callApi(params, req, runtime), new $_model.BindDmAccountResponse({}));
+  }
+
+  /**
+   * 绑定DM账号
+   * 
+   * @param request - BindDmAccountRequest
+   * @returns BindDmAccountResponse
+   */
+  async bindDmAccount(request: $_model.BindDmAccountRequest): Promise<$_model.BindDmAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindDmAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 绑定ins的page
+   * 
+   * @param request - BindInstagramPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindInstagramPageResponse
+   */
+  async bindInstagramPageWithOptions(request: $_model.BindInstagramPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindInstagramPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindInstagramPage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindInstagramPageResponse>(await this.callApi(params, req, runtime), new $_model.BindInstagramPageResponse({}));
+  }
+
+  /**
+   * 绑定ins的page
+   * 
+   * @param request - BindInstagramPageRequest
+   * @returns BindInstagramPageResponse
+   */
+  async bindInstagramPage(request: $_model.BindInstagramPageRequest): Promise<$_model.BindInstagramPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindInstagramPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 绑定选择的pageId
+   * 
+   * @param request - BindMessengerPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindMessengerPageResponse
+   */
+  async bindMessengerPageWithOptions(request: $_model.BindMessengerPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindMessengerPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindMessengerPage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindMessengerPageResponse>(await this.callApi(params, req, runtime), new $_model.BindMessengerPageResponse({}));
+  }
+
+  /**
+   * 绑定选择的pageId
+   * 
+   * @param request - BindMessengerPageRequest
+   * @returns BindMessengerPageResponse
+   */
+  async bindMessengerPage(request: $_model.BindMessengerPageRequest): Promise<$_model.BindMessengerPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindMessengerPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Binds the WhatsApp Business account with ChatApp.
    * 
    * @remarks
@@ -293,66 +1055,6 @@ export default class Client extends OpenApi {
   async chatappBindWaba(request: $_model.ChatappBindWabaRequest): Promise<$_model.ChatappBindWabaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappBindWabaWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries WhatsApp Business account (WABA) information after embedded signup. You do not need to call this API operation if you use Version 2 of WhatsApp embedded signup.
-   * 
-   * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   * 
-   * @param request - ChatappEmbedSignUpRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ChatappEmbedSignUpResponse
-   */
-  async chatappEmbedSignUpWithOptions(request: $_model.ChatappEmbedSignUpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatappEmbedSignUpResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.inputToken)) {
-      query["InputToken"] = request.inputToken;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ChatappEmbedSignUp",
-      version: "2020-06-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ChatappEmbedSignUpResponse>(await this.callApi(params, req, runtime), new $_model.ChatappEmbedSignUpResponse({}));
-  }
-
-  /**
-   * Queries WhatsApp Business account (WABA) information after embedded signup. You do not need to call this API operation if you use Version 2 of WhatsApp embedded signup.
-   * 
-   * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   * 
-   * @param request - ChatappEmbedSignUpRequest
-   * @returns ChatappEmbedSignUpResponse
-   */
-  async chatappEmbedSignUp(request: $_model.ChatappEmbedSignUpRequest): Promise<$_model.ChatappEmbedSignUpResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.chatappEmbedSignUpWithOptions(request, runtime);
   }
 
   /**
@@ -744,6 +1446,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 复制模板
+   * 
+   * @param request - CopyTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyTemplateResponse
+   */
+  async copyTemplateWithOptions(request: $_model.CopyTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CopyTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sceneTemplateCode)) {
+      query["SceneTemplateCode"] = request.sceneTemplateCode;
+    }
+
+    if (!$dara.isNull(request.sceneTemplateName)) {
+      query["SceneTemplateName"] = request.sceneTemplateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CopyTemplate",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CopyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CopyTemplateResponse({}));
+  }
+
+  /**
+   * 复制模板
+   * 
+   * @param request - CopyTemplateRequest
+   * @returns CopyTemplateResponse
+   */
+  async copyTemplate(request: $_model.CopyTemplateRequest): Promise<$_model.CopyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.copyTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Create Chatflow
    * 
    * @param tmpReq - CreateChatFlowRequest
@@ -1126,6 +1894,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建自定义受众
+   * 
+   * @param request - CreateCustomAudienceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomAudienceResponse
+   */
+  async createCustomAudienceWithOptions(request: $_model.CreateCustomAudienceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomAudienceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.uploadType)) {
+      query["UploadType"] = request.uploadType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomAudience",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomAudienceResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomAudienceResponse({}));
+  }
+
+  /**
+   * 创建自定义受众
+   * 
+   * @param request - CreateCustomAudienceRequest
+   * @returns CreateCustomAudienceResponse
+   */
+  async createCustomAudience(request: $_model.CreateCustomAudienceRequest): Promise<$_model.CreateCustomAudienceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomAudienceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Flow.
    * 
    * @remarks
@@ -1276,6 +2122,246 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建实例
+   * 
+   * @param request - CreateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
+   */
+  async createInstanceWithOptions(request: $_model.CreateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.contactMail)) {
+      query["ContactMail"] = request.contactMail;
+    }
+
+    if (!$dara.isNull(request.countryId)) {
+      query["CountryId"] = request.countryId;
+    }
+
+    if (!$dara.isNull(request.facebookBmId)) {
+      query["FacebookBmId"] = request.facebookBmId;
+    }
+
+    if (!$dara.isNull(request.instanceDescription)) {
+      query["InstanceDescription"] = request.instanceDescription;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.isConfirmAudit)) {
+      query["IsConfirmAudit"] = request.isConfirmAudit;
+    }
+
+    if (!$dara.isNull(request.isvTerms)) {
+      query["IsvTerms"] = request.isvTerms;
+    }
+
+    if (!$dara.isNull(request.officeAddress)) {
+      query["OfficeAddress"] = request.officeAddress;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInstance",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateInstanceResponse({}));
+  }
+
+  /**
+   * 新建实例
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
+   */
+  async createInstance(request: $_model.CreateInstanceRequest): Promise<$_model.CreateInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建预算
+   * 
+   * @param request - CreateMessageCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMessageCampaignResponse
+   */
+  async createMessageCampaignWithOptions(request: $_model.CreateMessageCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMessageCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.budget)) {
+      query["Budget"] = request.budget;
+    }
+
+    if (!$dara.isNull(request.budgetType)) {
+      query["BudgetType"] = request.budgetType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMessageCampaign",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMessageCampaignResponse>(await this.callApi(params, req, runtime), new $_model.CreateMessageCampaignResponse({}));
+  }
+
+  /**
+   * 创建预算
+   * 
+   * @param request - CreateMessageCampaignRequest
+   * @returns CreateMessageCampaignResponse
+   */
+  async createMessageCampaign(request: $_model.CreateMessageCampaignRequest): Promise<$_model.CreateMessageCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMessageCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * 嵌入式授权messenger
+   * 
+   * @param tmpReq - CreateMessengerPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMessengerPageResponse
+   */
+  async createMessengerPageWithOptions(tmpReq: $_model.CreateMessengerPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMessengerPageResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMessengerPageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.adAccountIds)) {
+      request.adAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.adAccountIds, "AdAccountIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.adAccountIdsShrink)) {
+      query["AdAccountIds"] = request.adAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.authenticationCode)) {
+      query["AuthenticationCode"] = request.authenticationCode;
+    }
+
+    if (!$dara.isNull(request.businessId)) {
+      query["BusinessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMessengerPage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMessengerPageResponse>(await this.callApi(params, req, runtime), new $_model.CreateMessengerPageResponse({}));
+  }
+
+  /**
+   * 嵌入式授权messenger
+   * 
+   * @param request - CreateMessengerPageRequest
+   * @returns CreateMessengerPageResponse
+   */
+  async createMessengerPage(request: $_model.CreateMessengerPageRequest): Promise<$_model.CreateMessengerPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMessengerPageWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a quick-response (QR) code that contains a message.
    * 
    * @param request - CreatePhoneMessageQrdlRequest
@@ -1339,6 +2425,74 @@ export default class Client extends OpenApi {
   async createPhoneMessageQrdl(request: $_model.CreatePhoneMessageQrdlRequest): Promise<$_model.CreatePhoneMessageQrdlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPhoneMessageQrdlWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据嵌入式code获取pageId入库
+   * 
+   * @param tmpReq - CreateWhatsappConversionApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWhatsappConversionApiResponse
+   */
+  async createWhatsappConversionApiWithOptions(tmpReq: $_model.CreateWhatsappConversionApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWhatsappConversionApiResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWhatsappConversionApiShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.permissionsShrink)) {
+      query["Permissions"] = request.permissionsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWhatsappConversionApi",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWhatsappConversionApiResponse>(await this.callApi(params, req, runtime), new $_model.CreateWhatsappConversionApiResponse({}));
+  }
+
+  /**
+   * 根据嵌入式code获取pageId入库
+   * 
+   * @param request - CreateWhatsappConversionApiRequest
+   * @returns CreateWhatsappConversionApiResponse
+   */
+  async createWhatsappConversionApi(request: $_model.CreateWhatsappConversionApiRequest): Promise<$_model.CreateWhatsappConversionApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWhatsappConversionApiWithOptions(request, runtime);
   }
 
   /**
@@ -1704,6 +2858,140 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑联系人-删除联系人
+   * 
+   * @param tmpReq - DeleteContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactsResponse
+   */
+  async deleteContactsWithOptions(tmpReq: $_model.DeleteContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteContactsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.contactDetails)) {
+      query["ContactDetails"] = request.contactDetails;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContacts",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContactsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactsResponse({}));
+  }
+
+  /**
+   * 编辑联系人-删除联系人
+   * 
+   * @param request - DeleteContactsRequest
+   * @returns DeleteContactsResponse
+   */
+  async deleteContacts(request: $_model.DeleteContactsRequest): Promise<$_model.DeleteContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContactsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除联系人(选择后删除)
+   * 
+   * @param request - DeleteContactsByIdsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactsByIdsResponse
+   */
+  async deleteContactsByIdsWithOptions(request: $_model.DeleteContactsByIdsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactsByIdsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contacts)) {
+      query["Contacts"] = request.contacts;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContactsByIds",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContactsByIdsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactsByIdsResponse({}));
+  }
+
+  /**
+   * 删除联系人(选择后删除)
+   * 
+   * @param request - DeleteContactsByIdsRequest
+   * @returns DeleteContactsByIdsResponse
+   */
+  async deleteContactsByIds(request: $_model.DeleteContactsByIdsRequest): Promise<$_model.DeleteContactsByIdsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContactsByIdsWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a Flow. Only Flows in the DRAFT state can be deleted.
    * 
    * @remarks
@@ -1837,6 +3125,354 @@ export default class Client extends OpenApi {
   async deleteFlowVersion(request: $_model.DeleteFlowVersionRequest): Promise<$_model.DeleteFlowVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除群组
+   * 
+   * @param request - DeleteGroupByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGroupByIdResponse
+   */
+  async deleteGroupByIdWithOptions(request: $_model.DeleteGroupByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGroupByIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGroupById",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGroupByIdResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGroupByIdResponse({}));
+  }
+
+  /**
+   * 删除群组
+   * 
+   * @param request - DeleteGroupByIdRequest
+   * @returns DeleteGroupByIdResponse
+   */
+  async deleteGroupById(request: $_model.DeleteGroupByIdRequest): Promise<$_model.DeleteGroupByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteGroupByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除ins的page
+   * 
+   * @param request - DeleteInstagramPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstagramPageResponse
+   */
+  async deleteInstagramPageWithOptions(request: $_model.DeleteInstagramPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstagramPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInstagramPage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInstagramPageResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstagramPageResponse({}));
+  }
+
+  /**
+   * 删除ins的page
+   * 
+   * @param request - DeleteInstagramPageRequest
+   * @returns DeleteInstagramPageResponse
+   */
+  async deleteInstagramPage(request: $_model.DeleteInstagramPageRequest): Promise<$_model.DeleteInstagramPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteInstagramPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除实例
+   * 
+   * @param request - DeleteInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
+   */
+  async deleteInstanceWithOptions(request: $_model.DeleteInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInstance",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstanceResponse({}));
+  }
+
+  /**
+   * 删除实例
+   * 
+   * @param request - DeleteInstanceRequest
+   * @returns DeleteInstanceResponse
+   */
+  async deleteInstance(request: $_model.DeleteInstanceRequest): Promise<$_model.DeleteInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除营销活动
+   * 
+   * @param request - DeleteMarketingFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMarketingFlowResponse
+   */
+  async deleteMarketingFlowWithOptions(request: $_model.DeleteMarketingFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMarketingFlowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.activityCode)) {
+      query["ActivityCode"] = request.activityCode;
+    }
+
+    if (!$dara.isNull(request.activityId)) {
+      query["ActivityId"] = request.activityId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMarketingFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMarketingFlowResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMarketingFlowResponse({}));
+  }
+
+  /**
+   * 删除营销活动
+   * 
+   * @param request - DeleteMarketingFlowRequest
+   * @returns DeleteMarketingFlowResponse
+   */
+  async deleteMarketingFlow(request: $_model.DeleteMarketingFlowRequest): Promise<$_model.DeleteMarketingFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMarketingFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除预算
+   * 
+   * @param request - DeleteMessageCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMessageCampaignResponse
+   */
+  async deleteMessageCampaignWithOptions(request: $_model.DeleteMessageCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMessageCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMessageCampaign",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMessageCampaignResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMessageCampaignResponse({}));
+  }
+
+  /**
+   * 删除预算
+   * 
+   * @param request - DeleteMessageCampaignRequest
+   * @returns DeleteMessageCampaignResponse
+   */
+  async deleteMessageCampaign(request: $_model.DeleteMessageCampaignRequest): Promise<$_model.DeleteMessageCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMessageCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除messenger的page
+   * 
+   * @param request - DeleteMessengerPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMessengerPageResponse
+   */
+  async deleteMessengerPageWithOptions(request: $_model.DeleteMessengerPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMessengerPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMessengerPage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMessengerPageResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMessengerPageResponse({}));
+  }
+
+  /**
+   * 删除messenger的page
+   * 
+   * @param request - DeleteMessengerPageRequest
+   * @returns DeleteMessengerPageResponse
+   */
+  async deleteMessengerPage(request: $_model.DeleteMessengerPageRequest): Promise<$_model.DeleteMessengerPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMessengerPageWithOptions(request, runtime);
   }
 
   /**
@@ -2256,6 +3892,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取临时的URL
+   * 
+   * @param request - GeneratePresignedUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GeneratePresignedUrlResponse
+   */
+  async generatePresignedUrlWithOptions(request: $_model.GeneratePresignedUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GeneratePresignedUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GeneratePresignedUrl",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GeneratePresignedUrlResponse>(await this.callApi(params, req, runtime), new $_model.GeneratePresignedUrlResponse({}));
+  }
+
+  /**
+   * 获取临时的URL
+   * 
+   * @param request - GeneratePresignedUrlRequest
+   * @returns GeneratePresignedUrlResponse
+   */
+  async generatePresignedUrl(request: $_model.GeneratePresignedUrlRequest): Promise<$_model.GeneratePresignedUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generatePresignedUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过类型查询出个人待审核的单子
+   * 
+   * @param request - GetAuditRequestByTypeUnAuditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuditRequestByTypeUnAuditResponse
+   */
+  async getAuditRequestByTypeUnAuditWithOptions(request: $_model.GetAuditRequestByTypeUnAuditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuditRequestByTypeUnAuditResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.requestType)) {
+      query["RequestType"] = request.requestType;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAuditRequestByTypeUnAudit",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAuditRequestByTypeUnAuditResponse>(await this.callApi(params, req, runtime), new $_model.GetAuditRequestByTypeUnAuditResponse({}));
+  }
+
+  /**
+   * 通过类型查询出个人待审核的单子
+   * 
+   * @param request - GetAuditRequestByTypeUnAuditRequest
+   * @returns GetAuditRequestByTypeUnAuditResponse
+   */
+  async getAuditRequestByTypeUnAudit(request: $_model.GetAuditRequestByTypeUnAuditRequest): Promise<$_model.GetAuditRequestByTypeUnAuditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAuditRequestByTypeUnAuditWithOptions(request, runtime);
+  }
+
+  /**
    * Get ChatFlow Runtime Data
    * 
    * @param tmpReq - GetChatFlowMetricRequest
@@ -2406,6 +4154,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询ChatApp开通状态
+   * 
+   * @param request - GetChatappOpenStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatappOpenStatusResponse
+   */
+  async getChatappOpenStatusWithOptions(request: $_model.GetChatappOpenStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChatappOpenStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatappOpenStatus",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChatappOpenStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetChatappOpenStatusResponse({}));
+  }
+
+  /**
+   * 查询ChatApp开通状态
+   * 
+   * @param request - GetChatappOpenStatusRequest
+   * @returns GetChatappOpenStatusResponse
+   */
+  async getChatappOpenStatus(request: $_model.GetChatappOpenStatusRequest): Promise<$_model.GetChatappOpenStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChatappOpenStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the number of messages that are sent by using a phone number by a specific metric.
    * 
    * @remarks
@@ -2483,6 +4281,64 @@ export default class Client extends OpenApi {
   async getChatappPhoneNumberMetric(request: $_model.GetChatappPhoneNumberMetricRequest): Promise<$_model.GetChatappPhoneNumberMetricResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getChatappPhoneNumberMetricWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Chatapp号码其它控制
+   * 
+   * @param request - GetChatappPhoneNumberSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatappPhoneNumberSettingResponse
+   */
+  async getChatappPhoneNumberSettingWithOptions(request: $_model.GetChatappPhoneNumberSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChatappPhoneNumberSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatappPhoneNumberSetting",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChatappPhoneNumberSettingResponse>(await this.callApi(params, req, runtime), new $_model.GetChatappPhoneNumberSettingResponse({}));
+  }
+
+  /**
+   * 获取Chatapp号码其它控制
+   * 
+   * @param request - GetChatappPhoneNumberSettingRequest
+   * @returns GetChatappPhoneNumberSettingResponse
+   */
+  async getChatappPhoneNumberSetting(request: $_model.GetChatappPhoneNumberSettingRequest): Promise<$_model.GetChatappPhoneNumberSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChatappPhoneNumberSettingWithOptions(request, runtime);
   }
 
   /**
@@ -2912,6 +4768,268 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询客户来源站点
+   * 
+   * @param request - GetCustomerSiteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomerSiteResponse
+   */
+  async getCustomerSiteWithOptions(request: $_model.GetCustomerSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomerSiteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomerSite",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomerSiteResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomerSiteResponse({}));
+  }
+
+  /**
+   * 查询客户来源站点
+   * 
+   * @param request - GetCustomerSiteRequest
+   * @returns GetCustomerSiteResponse
+   */
+  async getCustomerSite(request: $_model.GetCustomerSiteRequest): Promise<$_model.GetCustomerSiteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomerSiteWithOptions(request, runtime);
+  }
+
+  /**
+   * 下载excel数据
+   * 
+   * @param tmpReq - GetDownloadExcelListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDownloadExcelListResponse
+   */
+  async getDownloadExcelListWithOptions(tmpReq: $_model.GetDownloadExcelListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDownloadExcelListResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDownloadExcelListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.countryNames)) {
+      request.countryNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.countryNames, "CountryNames", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.groupIds)) {
+      request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.condition)) {
+      query["Condition"] = request.condition;
+    }
+
+    if (!$dara.isNull(request.countryNamesShrink)) {
+      query["CountryNames"] = request.countryNamesShrink;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupIdsShrink)) {
+      query["GroupIds"] = request.groupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDownloadExcelList",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDownloadExcelListResponse>(await this.callApi(params, req, runtime), new $_model.GetDownloadExcelListResponse({}));
+  }
+
+  /**
+   * 下载excel数据
+   * 
+   * @param request - GetDownloadExcelListRequest
+   * @returns GetDownloadExcelListResponse
+   */
+  async getDownloadExcelList(request: $_model.GetDownloadExcelListRequest): Promise<$_model.GetDownloadExcelListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDownloadExcelListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取ins的page列表
+   * 
+   * @param request - GetFbInstagramPagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFbInstagramPagesResponse
+   */
+  async getFbInstagramPagesWithOptions(request: $_model.GetFbInstagramPagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFbInstagramPagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFbInstagramPages",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFbInstagramPagesResponse>(await this.callApi(params, req, runtime), new $_model.GetFbInstagramPagesResponse({}));
+  }
+
+  /**
+   * 获取ins的page列表
+   * 
+   * @param request - GetFbInstagramPagesRequest
+   * @returns GetFbInstagramPagesResponse
+   */
+  async getFbInstagramPages(request: $_model.GetFbInstagramPagesRequest): Promise<$_model.GetFbInstagramPagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFbInstagramPagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取facebook的pageId列表
+   * 
+   * @param request - GetFbMessengerPagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFbMessengerPagesResponse
+   */
+  async getFbMessengerPagesWithOptions(request: $_model.GetFbMessengerPagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFbMessengerPagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFbMessengerPages",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFbMessengerPagesResponse>(await this.callApi(params, req, runtime), new $_model.GetFbMessengerPagesResponse({}));
+  }
+
+  /**
+   * 获取facebook的pageId列表
+   * 
+   * @param request - GetFbMessengerPagesRequest
+   * @returns GetFbMessengerPagesResponse
+   */
+  async getFbMessengerPages(request: $_model.GetFbMessengerPagesRequest): Promise<$_model.GetFbMessengerPagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFbMessengerPagesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a Flow.
    * 
    * @remarks
@@ -3095,6 +5213,140 @@ export default class Client extends OpenApi {
   async getFlowPreviewUrl(request: $_model.GetFlowPreviewUrlRequest): Promise<$_model.GetFlowPreviewUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFlowPreviewUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询群组是否重名
+   * 
+   * @param tmpReq - GetGroupExistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGroupExistResponse
+   */
+  async getGroupExistWithOptions(tmpReq: $_model.GetGroupExistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGroupExistResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetGroupExistShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGroupExist",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGroupExistResponse>(await this.callApi(params, req, runtime), new $_model.GetGroupExistResponse({}));
+  }
+
+  /**
+   * 查询群组是否重名
+   * 
+   * @param request - GetGroupExistRequest
+   * @returns GetGroupExistResponse
+   */
+  async getGroupExist(request: $_model.GetGroupExistRequest): Promise<$_model.GetGroupExistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGroupExistWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询预算指标
+   * 
+   * @param request - GetMessageCampaignInsightsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMessageCampaignInsightsResponse
+   */
+  async getMessageCampaignInsightsWithOptions(request: $_model.GetMessageCampaignInsightsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMessageCampaignInsightsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMessageCampaignInsights",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMessageCampaignInsightsResponse>(await this.callApi(params, req, runtime), new $_model.GetMessageCampaignInsightsResponse({}));
+  }
+
+  /**
+   * 查询预算指标
+   * 
+   * @param request - GetMessageCampaignInsightsRequest
+   * @returns GetMessageCampaignInsightsResponse
+   */
+  async getMessageCampaignInsights(request: $_model.GetMessageCampaignInsightsRequest): Promise<$_model.GetMessageCampaignInsightsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMessageCampaignInsightsWithOptions(request, runtime);
   }
 
   /**
@@ -3360,6 +5612,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下载保证函模板的地址
+   * 
+   * @param request - GetPledgeTemplateAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPledgeTemplateAddressResponse
+   */
+  async getPledgeTemplateAddressWithOptions(request: $_model.GetPledgeTemplateAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPledgeTemplateAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.industryType)) {
+      query["IndustryType"] = request.industryType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPledgeTemplateAddress",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPledgeTemplateAddressResponse>(await this.callApi(params, req, runtime), new $_model.GetPledgeTemplateAddressResponse({}));
+  }
+
+  /**
+   * 下载保证函模板的地址
+   * 
+   * @param request - GetPledgeTemplateAddressRequest
+   * @returns GetPledgeTemplateAddressResponse
+   */
+  async getPledgeTemplateAddress(request: $_model.GetPledgeTemplateAddressRequest): Promise<$_model.GetPledgeTemplateAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPledgeTemplateAddressWithOptions(request, runtime);
+  }
+
+  /**
    * Obtains the ID of a pre-registered phone number used for embedded signup without the need to re-obtain a verification code.
    * 
    * @remarks
@@ -3409,6 +5719,118 @@ export default class Client extends OpenApi {
   async getPreValidatePhoneId(request: $_model.GetPreValidatePhoneIdRequest): Promise<$_model.GetPreValidatePhoneIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPreValidatePhoneIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过requestNo查询申请单
+   * 
+   * @param request - GetViberByRequestNoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetViberByRequestNoResponse
+   */
+  async getViberByRequestNoWithOptions(request: $_model.GetViberByRequestNoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetViberByRequestNoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.requestNo)) {
+      query["RequestNo"] = request.requestNo;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetViberByRequestNo",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetViberByRequestNoResponse>(await this.callApi(params, req, runtime), new $_model.GetViberByRequestNoResponse({}));
+  }
+
+  /**
+   * 通过requestNo查询申请单
+   * 
+   * @param request - GetViberByRequestNoRequest
+   * @returns GetViberByRequestNoResponse
+   */
+  async getViberByRequestNo(request: $_model.GetViberByRequestNoRequest): Promise<$_model.GetViberByRequestNoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getViberByRequestNoWithOptions(request, runtime);
+  }
+
+  /**
+   * 可以申请暂停的次数
+   * 
+   * @param request - GetViberPauseTimesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetViberPauseTimesResponse
+   */
+  async getViberPauseTimesWithOptions(request: $_model.GetViberPauseTimesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetViberPauseTimesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetViberPauseTimes",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetViberPauseTimesResponse>(await this.callApi(params, req, runtime), new $_model.GetViberPauseTimesResponse({}));
+  }
+
+  /**
+   * 可以申请暂停的次数
+   * 
+   * @param request - GetViberPauseTimesRequest
+   * @returns GetViberPauseTimesResponse
+   */
+  async getViberPauseTimes(request: $_model.GetViberPauseTimesRequest): Promise<$_model.GetViberPauseTimesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getViberPauseTimesWithOptions(request, runtime);
   }
 
   /**
@@ -3473,6 +5895,60 @@ export default class Client extends OpenApi {
   async getWhatsappConnectionCatalog(request: $_model.GetWhatsappConnectionCatalogRequest): Promise<$_model.GetWhatsappConnectionCatalogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWhatsappConnectionCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取嵌入式授权page
+   * 
+   * @param request - GetWhatsappConversionApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWhatsappConversionApiResponse
+   */
+  async getWhatsappConversionApiWithOptions(request: $_model.GetWhatsappConversionApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWhatsappConversionApiResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWhatsappConversionApi",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWhatsappConversionApiResponse>(await this.callApi(params, req, runtime), new $_model.GetWhatsappConversionApiResponse({}));
+  }
+
+  /**
+   * 获取嵌入式授权page
+   * 
+   * @param request - GetWhatsappConversionApiRequest
+   * @returns GetWhatsappConversionApiResponse
+   */
+  async getWhatsappConversionApi(request: $_model.GetWhatsappConversionApiRequest): Promise<$_model.GetWhatsappConversionApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWhatsappConversionApiWithOptions(request, runtime);
   }
 
   /**
@@ -3625,6 +6101,124 @@ export default class Client extends OpenApi {
   async isvGetAppId(request: $_model.IsvGetAppIdRequest): Promise<$_model.IsvGetAppIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.isvGetAppIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询群组列表
+   * 
+   * @param tmpReq - ListAllGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAllGroupsResponse
+   */
+  async listAllGroupsWithOptions(tmpReq: $_model.ListAllGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAllGroupsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAllGroupsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAllGroups",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAllGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListAllGroupsResponse({}));
+  }
+
+  /**
+   * 查询群组列表
+   * 
+   * @param request - ListAllGroupsRequest
+   * @returns ListAllGroupsResponse
+   */
+  async listAllGroups(request: $_model.ListAllGroupsRequest): Promise<$_model.ListAllGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAllGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询绑定的dm账号
+   * 
+   * @param request - ListBindDmAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBindDmAccountResponse
+   */
+  async listBindDmAccountWithOptions(request: $_model.ListBindDmAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBindDmAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBindDmAccount",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBindDmAccountResponse>(await this.callApi(params, req, runtime), new $_model.ListBindDmAccountResponse({}));
+  }
+
+  /**
+   * 查询绑定的dm账号
+   * 
+   * @param request - ListBindDmAccountRequest
+   * @returns ListBindDmAccountResponse
+   */
+  async listBindDmAccount(request: $_model.ListBindDmAccountRequest): Promise<$_model.ListBindDmAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBindDmAccountWithOptions(request, runtime);
   }
 
   /**
@@ -4045,6 +6639,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.endTimeStr)) {
+      query["EndTimeStr"] = request.endTimeStr;
+    }
+
     if (!$dara.isNull(request.eventAction)) {
       query["EventAction"] = request.eventAction;
     }
@@ -4075,6 +6673,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.startTimeStr)) {
+      query["StartTimeStr"] = request.startTimeStr;
     }
 
     if (!$dara.isNull(request.templateCode)) {
@@ -4218,6 +6820,272 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询自定义受众组列表
+   * 
+   * @param tmpReq - ListCustomAudienceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAudienceResponse
+   */
+  async listCustomAudienceWithOptions(tmpReq: $_model.ListCustomAudienceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAudienceResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListCustomAudienceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.customAudienceId)) {
+      query["CustomAudienceId"] = request.customAudienceId;
+    }
+
+    if (!$dara.isNull(request.customAudienceName)) {
+      query["CustomAudienceName"] = request.customAudienceName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageShrink)) {
+      query["Page"] = request.pageShrink;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tokenType)) {
+      query["TokenType"] = request.tokenType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAudience",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAudienceResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAudienceResponse({}));
+  }
+
+  /**
+   * 查询自定义受众组列表
+   * 
+   * @param request - ListCustomAudienceRequest
+   * @returns ListCustomAudienceResponse
+   */
+  async listCustomAudience(request: $_model.ListCustomAudienceRequest): Promise<$_model.ListCustomAudienceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomAudienceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询账号下的Dm账号
+   * 
+   * @param request - ListDmAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDmAccountResponse
+   */
+  async listDmAccountWithOptions(request: $_model.ListDmAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDmAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sendType)) {
+      query["SendType"] = request.sendType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDmAccount",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDmAccountResponse>(await this.callApi(params, req, runtime), new $_model.ListDmAccountResponse({}));
+  }
+
+  /**
+   * 查询账号下的Dm账号
+   * 
+   * @param request - ListDmAccountRequest
+   * @returns ListDmAccountResponse
+   */
+  async listDmAccount(request: $_model.ListDmAccountRequest): Promise<$_model.ListDmAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDmAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询DM的tag
+   * 
+   * @param request - ListDmTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDmTagResponse
+   */
+  async listDmTagWithOptions(request: $_model.ListDmTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDmTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDmTag",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDmTagResponse>(await this.callApi(params, req, runtime), new $_model.ListDmTagResponse({}));
+  }
+
+  /**
+   * 查询DM的tag
+   * 
+   * @param request - ListDmTagRequest
+   * @returns ListDmTagResponse
+   */
+  async listDmTag(request: $_model.ListDmTagRequest): Promise<$_model.ListDmTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDmTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询facebook帖子列表
+   * 
+   * @param request - ListFacebookPostsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFacebookPostsResponse
+   */
+  async listFacebookPostsWithOptions(request: $_model.ListFacebookPostsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFacebookPostsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFacebookPosts",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFacebookPostsResponse>(await this.callApi(params, req, runtime), new $_model.ListFacebookPostsResponse({}));
+  }
+
+  /**
+   * 查询facebook帖子列表
+   * 
+   * @param request - ListFacebookPostsRequest
+   * @returns ListFacebookPostsResponse
+   */
+  async listFacebookPosts(request: $_model.ListFacebookPostsRequest): Promise<$_model.ListFacebookPostsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFacebookPostsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of Flows.
    * 
    * @remarks
@@ -4289,6 +7157,64 @@ export default class Client extends OpenApi {
   async listFlow(request: $_model.ListFlowRequest): Promise<$_model.ListFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * ListFlowNodeGroup
+   * 
+   * @param request - ListFlowNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowNodeGroupResponse
+   */
+  async listFlowNodeGroupWithOptions(request: $_model.ListFlowNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowNodeGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlowNodeGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowNodeGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowNodeGroupResponse({}));
+  }
+
+  /**
+   * ListFlowNodeGroup
+   * 
+   * @param request - ListFlowNodeGroupRequest
+   * @returns ListFlowNodeGroupResponse
+   */
+  async listFlowNodeGroup(request: $_model.ListFlowNodeGroupRequest): Promise<$_model.ListFlowNodeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlowNodeGroupWithOptions(request, runtime);
   }
 
   /**
@@ -4439,6 +7365,504 @@ export default class Client extends OpenApi {
   async listFlowVersion(request: $_model.ListFlowVersionRequest): Promise<$_model.ListFlowVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取ins的page
+   * 
+   * @param request - ListInstagramPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstagramPageResponse
+   */
+  async listInstagramPageWithOptions(request: $_model.ListInstagramPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstagramPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstagramPage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstagramPageResponse>(await this.callApi(params, req, runtime), new $_model.ListInstagramPageResponse({}));
+  }
+
+  /**
+   * 获取ins的page
+   * 
+   * @param request - ListInstagramPageRequest
+   * @returns ListInstagramPageResponse
+   */
+  async listInstagramPage(request: $_model.ListInstagramPageRequest): Promise<$_model.ListInstagramPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstagramPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询instagram帖子列表
+   * 
+   * @param request - ListInstagramPostsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstagramPostsResponse
+   */
+  async listInstagramPostsWithOptions(request: $_model.ListInstagramPostsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstagramPostsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstagramPosts",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstagramPostsResponse>(await this.callApi(params, req, runtime), new $_model.ListInstagramPostsResponse({}));
+  }
+
+  /**
+   * 查询instagram帖子列表
+   * 
+   * @param request - ListInstagramPostsRequest
+   * @returns ListInstagramPostsResponse
+   */
+  async listInstagramPosts(request: $_model.ListInstagramPostsRequest): Promise<$_model.ListInstagramPostsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstagramPostsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例列表
+   * 
+   * @param request - ListInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceResponse
+   */
+  async listInstanceWithOptions(request: $_model.ListInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.filterStr)) {
+      query["FilterStr"] = request.filterStr;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.submitTime)) {
+      query["SubmitTime"] = request.submitTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstance",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceResponse({}));
+  }
+
+  /**
+   * 查询实例列表
+   * 
+   * @param request - ListInstanceRequest
+   * @returns ListInstanceResponse
+   */
+  async listInstance(request: $_model.ListInstanceRequest): Promise<$_model.ListInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询活动列表
+   * 
+   * @param tmpReq - ListMarketingFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMarketingFlowResponse
+   */
+  async listMarketingFlowWithOptions(tmpReq: $_model.ListMarketingFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMarketingFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMarketingFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.activityCode)) {
+      query["ActivityCode"] = request.activityCode;
+    }
+
+    if (!$dara.isNull(request.activityName)) {
+      query["ActivityName"] = request.activityName;
+    }
+
+    if (!$dara.isNull(request.activityStatus)) {
+      query["ActivityStatus"] = request.activityStatus;
+    }
+
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.relatedFlowCode)) {
+      query["RelatedFlowCode"] = request.relatedFlowCode;
+    }
+
+    if (!$dara.isNull(request.relatedGroupId)) {
+      query["RelatedGroupId"] = request.relatedGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMarketingFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMarketingFlowResponse>(await this.callApi(params, req, runtime), new $_model.ListMarketingFlowResponse({}));
+  }
+
+  /**
+   * 查询活动列表
+   * 
+   * @param request - ListMarketingFlowRequest
+   * @returns ListMarketingFlowResponse
+   */
+  async listMarketingFlow(request: $_model.ListMarketingFlowRequest): Promise<$_model.ListMarketingFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMarketingFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询预算列表
+   * 
+   * @param tmpReq - ListMessageCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMessageCampaignResponse
+   */
+  async listMessageCampaignWithOptions(tmpReq: $_model.ListMessageCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMessageCampaignResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMessageCampaignShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.campaignName)) {
+      query["CampaignName"] = request.campaignName;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageShrink)) {
+      query["Page"] = request.pageShrink;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMessageCampaign",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMessageCampaignResponse>(await this.callApi(params, req, runtime), new $_model.ListMessageCampaignResponse({}));
+  }
+
+  /**
+   * 查询预算列表
+   * 
+   * @param request - ListMessageCampaignRequest
+   * @returns ListMessageCampaignResponse
+   */
+  async listMessageCampaign(request: $_model.ListMessageCampaignRequest): Promise<$_model.ListMessageCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMessageCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询订阅token
+   * 
+   * @param request - ListMessengerSubscriptionTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMessengerSubscriptionTokenResponse
+   */
+  async listMessengerSubscriptionTokenWithOptions(request: $_model.ListMessengerSubscriptionTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMessengerSubscriptionTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.customAudienceId)) {
+      query["CustomAudienceId"] = request.customAudienceId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.pageKey)) {
+      query["PageKey"] = request.pageKey;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tokenType)) {
+      query["TokenType"] = request.tokenType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMessengerSubscriptionToken",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMessengerSubscriptionTokenResponse>(await this.callApi(params, req, runtime), new $_model.ListMessengerSubscriptionTokenResponse({}));
+  }
+
+  /**
+   * 查询订阅token
+   * 
+   * @param request - ListMessengerSubscriptionTokenRequest
+   * @returns ListMessengerSubscriptionTokenResponse
+   */
+  async listMessengerSubscriptionToken(request: $_model.ListMessengerSubscriptionTokenRequest): Promise<$_model.ListMessengerSubscriptionTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMessengerSubscriptionTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Page绑定的广告账户列表
+   * 
+   * @param request - ListPageAdAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPageAdAccountResponse
+   */
+  async listPageAdAccountWithOptions(request: $_model.ListPageAdAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPageAdAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPageAdAccount",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPageAdAccountResponse>(await this.callApi(params, req, runtime), new $_model.ListPageAdAccountResponse({}));
+  }
+
+  /**
+   * 查询Page绑定的广告账户列表
+   * 
+   * @param request - ListPageAdAccountRequest
+   * @returns ListPageAdAccountResponse
+   */
+  async listPageAdAccount(request: $_model.ListPageAdAccountRequest): Promise<$_model.ListPageAdAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPageAdAccountWithOptions(request, runtime);
   }
 
   /**
@@ -4661,6 +8085,60 @@ export default class Client extends OpenApi {
   async listProductCatalog(request: $_model.ListProductCatalogRequest): Promise<$_model.ListProductCatalogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listProductCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * 展示viber申请单服务号卡片
+   * 
+   * @param request - ListViberServiceMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListViberServiceMessageResponse
+   */
+  async listViberServiceMessageWithOptions(request: $_model.ListViberServiceMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListViberServiceMessageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListViberServiceMessage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListViberServiceMessageResponse>(await this.callApi(params, req, runtime), new $_model.ListViberServiceMessageResponse({}));
+  }
+
+  /**
+   * 展示viber申请单服务号卡片
+   * 
+   * @param request - ListViberServiceMessageRequest
+   * @returns ListViberServiceMessageResponse
+   */
+  async listViberServiceMessage(request: $_model.ListViberServiceMessageRequest): Promise<$_model.ListViberServiceMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listViberServiceMessageWithOptions(request, runtime);
   }
 
   /**
@@ -5016,6 +8494,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 联系人变更群组
+   * 
+   * @param tmpReq - MoveContactToGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveContactToGroupResponse
+   */
+  async moveContactToGroupWithOptions(tmpReq: $_model.MoveContactToGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveContactToGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.MoveContactToGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.contacts)) {
+      query["Contacts"] = request.contacts;
+    }
+
+    if (!$dara.isNull(request.linkExistGroups)) {
+      query["LinkExistGroups"] = request.linkExistGroups;
+    }
+
+    if (!$dara.isNull(request.linkNewGroups)) {
+      query["LinkNewGroups"] = request.linkNewGroups;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MoveContactToGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MoveContactToGroupResponse>(await this.callApi(params, req, runtime), new $_model.MoveContactToGroupResponse({}));
+  }
+
+  /**
+   * 联系人变更群组
+   * 
+   * @param request - MoveContactToGroupRequest
+   * @returns MoveContactToGroupResponse
+   */
+  async moveContactToGroup(request: $_model.MoveContactToGroupRequest): Promise<$_model.MoveContactToGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.moveContactToGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Offline Flow Version
    * 
    * @param tmpReq - OfflineFlowVersionRequest
@@ -5165,6 +8719,114 @@ export default class Client extends OpenApi {
   async onlineFlowVersion(request: $_model.OnlineFlowVersionRequest): Promise<$_model.OnlineFlowVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.onlineFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 开通Chatapp服务
+   * 
+   * @param request - OpenChatappServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenChatappServiceResponse
+   */
+  async openChatappServiceWithOptions(request: $_model.OpenChatappServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenChatappServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenChatappService",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenChatappServiceResponse>(await this.callApi(params, req, runtime), new $_model.OpenChatappServiceResponse({}));
+  }
+
+  /**
+   * 开通Chatapp服务
+   * 
+   * @param request - OpenChatappServiceRequest
+   * @returns OpenChatappServiceResponse
+   */
+  async openChatappService(request: $_model.OpenChatappServiceRequest): Promise<$_model.OpenChatappServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openChatappServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 暂停服务
+   * 
+   * @param request - PauseMarketingFLowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseMarketingFLowResponse
+   */
+  async pauseMarketingFLowWithOptions(request: $_model.PauseMarketingFLowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PauseMarketingFLowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.activityCode)) {
+      query["ActivityCode"] = request.activityCode;
+    }
+
+    if (!$dara.isNull(request.activityId)) {
+      query["ActivityId"] = request.activityId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PauseMarketingFLow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PauseMarketingFLowResponse>(await this.callApi(params, req, runtime), new $_model.PauseMarketingFLowResponse({}));
+  }
+
+  /**
+   * 暂停服务
+   * 
+   * @param request - PauseMarketingFLowRequest
+   * @returns PauseMarketingFLowResponse
+   */
+  async pauseMarketingFLow(request: $_model.PauseMarketingFLowRequest): Promise<$_model.PauseMarketingFLowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pauseMarketingFLowWithOptions(request, runtime);
   }
 
   /**
@@ -5361,6 +9023,114 @@ export default class Client extends OpenApi {
   async queryChatappPhoneNumbers(request: $_model.QueryChatappPhoneNumbersRequest): Promise<$_model.QueryChatappPhoneNumbersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryChatappPhoneNumbersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例
+   * 
+   * @param request - QueryInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInstanceResponse
+   */
+  async queryInstanceWithOptions(request: $_model.QueryInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryInstance",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryInstanceResponse>(await this.callApi(params, req, runtime), new $_model.QueryInstanceResponse({}));
+  }
+
+  /**
+   * 查询实例
+   * 
+   * @param request - QueryInstanceRequest
+   * @returns QueryInstanceResponse
+   */
+  async queryInstance(request: $_model.QueryInstanceRequest): Promise<$_model.QueryInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询营销消息是否生效
+   * 
+   * @param request - QueryMMLActiveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMMLActiveResponse
+   */
+  async queryMMLActiveWithOptions(request: $_model.QueryMMLActiveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMMLActiveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMMLActive",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMMLActiveResponse>(await this.callApi(params, req, runtime), new $_model.QueryMMLActiveResponse({}));
+  }
+
+  /**
+   * 查询营销消息是否生效
+   * 
+   * @param request - QueryMMLActiveRequest
+   * @returns QueryMMLActiveResponse
+   */
+  async queryMMLActive(request: $_model.QueryMMLActiveRequest): Promise<$_model.QueryMMLActiveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMMLActiveWithOptions(request, runtime);
   }
 
   /**
@@ -5690,6 +9460,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 当前群组移除单个联系人
+   * 
+   * @param request - RemoveContactByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveContactByIdResponse
+   */
+  async removeContactByIdWithOptions(request: $_model.RemoveContactByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveContactByIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveContactById",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveContactByIdResponse>(await this.callApi(params, req, runtime), new $_model.RemoveContactByIdResponse({}));
+  }
+
+  /**
+   * 当前群组移除单个联系人
+   * 
+   * @param request - RemoveContactByIdRequest
+   * @returns RemoveContactByIdResponse
+   */
+  async removeContactById(request: $_model.RemoveContactByIdRequest): Promise<$_model.RemoveContactByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeContactByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 请求Whatsapp Conversion api
+   * 
+   * @param tmpReq - RequestWhatsappConversionApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RequestWhatsappConversionApiResponse
+   */
+  async requestWhatsappConversionApiWithOptions(tmpReq: $_model.RequestWhatsappConversionApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RequestWhatsappConversionApiResponse> {
+    tmpReq.validate();
+    let request = new $_model.RequestWhatsappConversionApiShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.requestData)) {
+      request.requestDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requestData, "RequestData", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.requestDataShrink)) {
+      query["RequestData"] = request.requestDataShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RequestWhatsappConversionApi",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RequestWhatsappConversionApiResponse>(await this.callApi(params, req, runtime), new $_model.RequestWhatsappConversionApiResponse({}));
+  }
+
+  /**
+   * 请求Whatsapp Conversion api
+   * 
+   * @param request - RequestWhatsappConversionApiRequest
+   * @returns RequestWhatsappConversionApiResponse
+   */
+  async requestWhatsappConversionApi(request: $_model.RequestWhatsappConversionApiRequest): Promise<$_model.RequestWhatsappConversionApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.requestWhatsappConversionApiWithOptions(request, runtime);
+  }
+
+  /**
    * Sends a message to multiple phone numbers by using ChatAPP at a time.
    * 
    * @remarks
@@ -5852,6 +9748,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
     if (!$dara.isNull(request.channelType)) {
       query["ChannelType"] = request.channelType;
     }
@@ -5908,6 +9808,10 @@ export default class Client extends OpenApi {
       query["Language"] = request.language;
     }
 
+    if (!$dara.isNull(request.messageCampaignId)) {
+      query["MessageCampaignId"] = request.messageCampaignId;
+    }
+
     if (!$dara.isNull(request.messageType)) {
       query["MessageType"] = request.messageType;
     }
@@ -5960,6 +9864,10 @@ export default class Client extends OpenApi {
       query["To"] = request.to;
     }
 
+    if (!$dara.isNull(request.tokenType)) {
+      query["TokenType"] = request.tokenType;
+    }
+
     if (!$dara.isNull(request.trackingData)) {
       query["TrackingData"] = request.trackingData;
     }
@@ -6004,45 +9912,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the agreement information for independent software vendor (ISV) customers.
+   * 同步flow
    * 
-   * @remarks
-   *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
-   * 
-   * @param request - SubmitIsvCustomerTermsRequest
+   * @param request - SyncFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns SubmitIsvCustomerTermsResponse
+   * @returns SyncFlowResponse
    */
-  async submitIsvCustomerTermsWithOptions(request: $_model.SubmitIsvCustomerTermsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitIsvCustomerTermsResponse> {
+  async syncFlowWithOptions(request: $_model.SyncFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncFlowResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.businessDesc)) {
-      query["BusinessDesc"] = request.businessDesc;
-    }
-
-    if (!$dara.isNull(request.contactMail)) {
-      query["ContactMail"] = request.contactMail;
-    }
-
-    if (!$dara.isNull(request.countryId)) {
-      query["CountryId"] = request.countryId;
-    }
-
-    if (!$dara.isNull(request.custName)) {
-      query["CustName"] = request.custName;
-    }
-
     if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
-    }
-
-    if (!$dara.isNull(request.isvTerms)) {
-      query["IsvTerms"] = request.isvTerms;
-    }
-
-    if (!$dara.isNull(request.officeAddress)) {
-      query["OfficeAddress"] = request.officeAddress;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -6061,7 +9941,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
-      action: "SubmitIsvCustomerTerms",
+      action: "SyncFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
       pathname: "/",
@@ -6071,22 +9951,142 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.SubmitIsvCustomerTermsResponse>(await this.callApi(params, req, runtime), new $_model.SubmitIsvCustomerTermsResponse({}));
+    return $dara.cast<$_model.SyncFlowResponse>(await this.callApi(params, req, runtime), new $_model.SyncFlowResponse({}));
   }
 
   /**
-   * Submits the agreement information for independent software vendor (ISV) customers.
+   * 同步flow
    * 
-   * @remarks
-   *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
-   * 
-   * @param request - SubmitIsvCustomerTermsRequest
-   * @returns SubmitIsvCustomerTermsResponse
+   * @param request - SyncFlowRequest
+   * @returns SyncFlowResponse
    */
-  async submitIsvCustomerTerms(request: $_model.SubmitIsvCustomerTermsRequest): Promise<$_model.SubmitIsvCustomerTermsResponse> {
+  async syncFlow(request: $_model.SyncFlowRequest): Promise<$_model.SyncFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.submitIsvCustomerTermsWithOptions(request, runtime);
+    return await this.syncFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 同步查询预算
+   * 
+   * @param request - SyncMessageCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncMessageCampaignResponse
+   */
+  async syncMessageCampaignWithOptions(request: $_model.SyncMessageCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncMessageCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adAccountId)) {
+      query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncMessageCampaign",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncMessageCampaignResponse>(await this.callApi(params, req, runtime), new $_model.SyncMessageCampaignResponse({}));
+  }
+
+  /**
+   * 同步查询预算
+   * 
+   * @param request - SyncMessageCampaignRequest
+   * @returns SyncMessageCampaignResponse
+   */
+  async syncMessageCampaign(request: $_model.SyncMessageCampaignRequest): Promise<$_model.SyncMessageCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncMessageCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Messenger订阅token
+   * 
+   * @param request - SyncMessengerSubscriptionTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncMessengerSubscriptionTokenResponse
+   */
+  async syncMessengerSubscriptionTokenWithOptions(request: $_model.SyncMessengerSubscriptionTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncMessengerSubscriptionTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.customAudienceId)) {
+      query["CustomAudienceId"] = request.customAudienceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tokenType)) {
+      query["TokenType"] = request.tokenType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncMessengerSubscriptionToken",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncMessengerSubscriptionTokenResponse>(await this.callApi(params, req, runtime), new $_model.SyncMessengerSubscriptionTokenResponse({}));
+  }
+
+  /**
+   * 查询Messenger订阅token
+   * 
+   * @param request - SyncMessengerSubscriptionTokenRequest
+   * @returns SyncMessengerSubscriptionTokenResponse
+   */
+  async syncMessengerSubscriptionToken(request: $_model.SyncMessengerSubscriptionTokenRequest): Promise<$_model.SyncMessengerSubscriptionTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncMessengerSubscriptionTokenWithOptions(request, runtime);
   }
 
   /**
@@ -6176,6 +10176,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑邮件账号
+   * 
+   * @param request - UnbindDmAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindDmAccountResponse
+   */
+  async unbindDmAccountWithOptions(request: $_model.UnbindDmAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindDmAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindDmAccount",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindDmAccountResponse>(await this.callApi(params, req, runtime), new $_model.UnbindDmAccountResponse({}));
+  }
+
+  /**
+   * 解绑邮件账号
+   * 
+   * @param request - UnbindDmAccountRequest
+   * @returns UnbindDmAccountResponse
+   */
+  async unbindDmAccount(request: $_model.UnbindDmAccountRequest): Promise<$_model.UnbindDmAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unbindDmAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the callback URL of an account.
    * 
    * @remarks
@@ -6245,6 +10299,78 @@ export default class Client extends OpenApi {
   async updateAccountWebhook(request: $_model.UpdateAccountWebhookRequest): Promise<$_model.UpdateAccountWebhookResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAccountWebhookWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改viber申请单
+   * 
+   * @param tmpReq - UpdateAuditRequestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuditRequestResponse
+   */
+  async updateAuditRequestWithOptions(tmpReq: $_model.UpdateAuditRequestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuditRequestResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAuditRequestShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.auditRecord)) {
+      request.auditRecordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.auditRecord, "AuditRecord", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.auditRecordShrink)) {
+      query["AuditRecord"] = request.auditRecordShrink;
+    }
+
+    if (!$dara.isNull(request.auditResult)) {
+      query["AuditResult"] = request.auditResult;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.requestNo)) {
+      query["RequestNo"] = request.requestNo;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuditRequest",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuditRequestResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuditRequestResponse({}));
+  }
+
+  /**
+   * 修改viber申请单
+   * 
+   * @param request - UpdateAuditRequestRequest
+   * @returns UpdateAuditRequestResponse
+   */
+  async updateAuditRequest(request: $_model.UpdateAuditRequestRequest): Promise<$_model.UpdateAuditRequestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAuditRequestWithOptions(request, runtime);
   }
 
   /**
@@ -6536,6 +10662,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改联系人
+   * 
+   * @param tmpReq - UpdateContactByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContactByIdResponse
+   */
+  async updateContactByIdWithOptions(tmpReq: $_model.UpdateContactByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContactByIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateContactByIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.contactDetails)) {
+      query["ContactDetails"] = request.contactDetails;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContactById",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContactByIdResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContactByIdResponse({}));
+  }
+
+  /**
+   * 修改联系人
+   * 
+   * @param request - UpdateContactByIdRequest
+   * @returns UpdateContactByIdResponse
+   */
+  async updateContactById(request: $_model.UpdateContactByIdRequest): Promise<$_model.UpdateContactByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContactByIdWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies welcoming messages, opening remarks, and commands for a phone number.
    * 
    * @remarks
@@ -6768,6 +10982,258 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 群组改名
+   * 
+   * @param request - UpdateGroupNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGroupNameResponse
+   */
+  async updateGroupNameWithOptions(request: $_model.UpdateGroupNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGroupNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGroupName",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGroupNameResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGroupNameResponse({}));
+  }
+
+  /**
+   * 群组改名
+   * 
+   * @param request - UpdateGroupNameRequest
+   * @returns UpdateGroupNameResponse
+   */
+  async updateGroupName(request: $_model.UpdateGroupNameRequest): Promise<$_model.UpdateGroupNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateGroupNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例
+   * 
+   * @param request - UpdateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceResponse
+   */
+  async updateInstanceWithOptions(request: $_model.UpdateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactMail)) {
+      query["ContactMail"] = request.contactMail;
+    }
+
+    if (!$dara.isNull(request.countryId)) {
+      query["CountryId"] = request.countryId;
+    }
+
+    if (!$dara.isNull(request.facebookBmId)) {
+      query["FacebookBmId"] = request.facebookBmId;
+    }
+
+    if (!$dara.isNull(request.instanceDescription)) {
+      query["InstanceDescription"] = request.instanceDescription;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.isConfirmAudit)) {
+      query["IsConfirmAudit"] = request.isConfirmAudit;
+    }
+
+    if (!$dara.isNull(request.isvTerms)) {
+      query["IsvTerms"] = request.isvTerms;
+    }
+
+    if (!$dara.isNull(request.officeAddress)) {
+      query["OfficeAddress"] = request.officeAddress;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstance",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceResponse({}));
+  }
+
+  /**
+   * 修改实例
+   * 
+   * @param request - UpdateInstanceRequest
+   * @returns UpdateInstanceResponse
+   */
+  async updateInstance(request: $_model.UpdateInstanceRequest): Promise<$_model.UpdateInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改营销活动
+   * 
+   * @param tmpReq - UpdateMarketingFLowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMarketingFLowResponse
+   */
+  async updateMarketingFLowWithOptions(tmpReq: $_model.UpdateMarketingFLowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMarketingFLowResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMarketingFLowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.activityCode)) {
+      query["ActivityCode"] = request.activityCode;
+    }
+
+    if (!$dara.isNull(request.activityDesc)) {
+      query["ActivityDesc"] = request.activityDesc;
+    }
+
+    if (!$dara.isNull(request.activityId)) {
+      query["ActivityId"] = request.activityId;
+    }
+
+    if (!$dara.isNull(request.activityName)) {
+      query["ActivityName"] = request.activityName;
+    }
+
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.executionType)) {
+      query["ExecutionType"] = request.executionType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.paramFlag)) {
+      query["ParamFlag"] = request.paramFlag;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      query["Params"] = request.paramsShrink;
+    }
+
+    if (!$dara.isNull(request.relatedFlowCode)) {
+      query["RelatedFlowCode"] = request.relatedFlowCode;
+    }
+
+    if (!$dara.isNull(request.relatedFlowName)) {
+      query["RelatedFlowName"] = request.relatedFlowName;
+    }
+
+    if (!$dara.isNull(request.relatedGroupId)) {
+      query["RelatedGroupId"] = request.relatedGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMarketingFLow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMarketingFLowResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMarketingFLowResponse({}));
+  }
+
+  /**
+   * 修改营销活动
+   * 
+   * @param request - UpdateMarketingFLowRequest
+   * @returns UpdateMarketingFLowResponse
+   */
+  async updateMarketingFLow(request: $_model.UpdateMarketingFLowRequest): Promise<$_model.UpdateMarketingFLowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMarketingFLowWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the encryption public key of a phone number.
    * 
    * @param request - UpdatePhoneEncryptionPublicKeyRequest
@@ -6981,6 +11447,68 @@ export default class Client extends OpenApi {
   async updatePhoneWebhook(request: $_model.UpdatePhoneWebhookRequest): Promise<$_model.UpdatePhoneWebhookResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePhoneWebhookWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新waba的mml状态
+   * 
+   * @param request - UpdateWabaMmlStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWabaMmlStatusResponse
+   */
+  async updateWabaMmlStatusWithOptions(request: $_model.UpdateWabaMmlStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWabaMmlStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.wabaId)) {
+      query["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWabaMmlStatus",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWabaMmlStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWabaMmlStatusResponse({}));
+  }
+
+  /**
+   * 更新waba的mml状态
+   * 
+   * @param request - UpdateWabaMmlStatusRequest
+   * @returns UpdateWabaMmlStatusResponse
+   */
+  async updateWabaMmlStatus(request: $_model.UpdateWabaMmlStatusRequest): Promise<$_model.UpdateWabaMmlStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWabaMmlStatusWithOptions(request, runtime);
   }
 
 }

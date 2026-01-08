@@ -35,6 +35,7 @@ export class FlowUnbindPhoneResponseBody extends $dara.Model {
    * false
    */
   model?: boolean;
+  requestId?: string;
   /**
    * @remarks
    * Whether the operation was successful. Values: true: success; false: failure.
@@ -49,6 +50,7 @@ export class FlowUnbindPhoneResponseBody extends $dara.Model {
       code: 'Code',
       message: 'Message',
       model: 'Model',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -59,6 +61,7 @@ export class FlowUnbindPhoneResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       model: 'boolean',
+      requestId: 'string',
       success: 'boolean',
     };
   }

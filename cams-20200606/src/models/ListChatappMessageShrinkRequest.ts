@@ -39,6 +39,11 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @example
+   * 2024-01-30 00:00:00
+   */
+  endTimeStr?: string;
+  /**
+   * @example
    * UP
    */
   eventAction?: string;
@@ -67,6 +72,11 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @example
+   * 2024-01-01 00:00:00
+   */
+  startTimeStr?: string;
+  /**
+   * @example
    * 9938***
    */
   templateCode?: string;
@@ -82,6 +92,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
       clientAcceptStatus: 'ClientAcceptStatus',
       custSpaceId: 'CustSpaceId',
       endTime: 'EndTime',
+      endTimeStr: 'EndTimeStr',
       eventAction: 'EventAction',
       groupMessageId: 'GroupMessageId',
       messageStatus: 'MessageStatus',
@@ -90,6 +101,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       startTime: 'StartTime',
+      startTimeStr: 'StartTimeStr',
       templateCode: 'TemplateCode',
       userNumber: 'UserNumber',
     };
@@ -102,6 +114,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
       clientAcceptStatus: 'string',
       custSpaceId: 'string',
       endTime: 'number',
+      endTimeStr: 'string',
       eventAction: 'string',
       groupMessageId: 'string',
       messageStatus: 'string',
@@ -110,6 +123,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       startTime: 'number',
+      startTimeStr: 'string',
       templateCode: 'string',
       userNumber: 'string',
     };

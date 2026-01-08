@@ -196,6 +196,8 @@ export class SendChatappMassMessageRequest extends $dara.Model {
   /**
    * @example
    * 示例值示例值示例值
+   * 
+   * @deprecated
    */
   custWabaId?: string;
   /**
@@ -225,6 +227,8 @@ export class SendChatappMassMessageRequest extends $dara.Model {
   /**
    * @example
    * 示例值示例值
+   * 
+   * @deprecated
    */
   isvCode?: string;
   /**

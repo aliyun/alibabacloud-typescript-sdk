@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendChatappMessageShrinkRequest extends $dara.Model {
   /**
+   * @example
+   * 示例值示例值
+   */
+  adAccountId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -56,6 +61,8 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
   /**
    * @example
    * 示例值示例值
+   * 
+   * @deprecated
    */
   custWabaId?: string;
   /**
@@ -86,6 +93,8 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
   /**
    * @example
    * 示例值
+   * 
+   * @deprecated
    */
   isvCode?: string;
   /**
@@ -98,6 +107,11 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
    * 示例值示例值示例值
    */
   language?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  messageCampaignId?: string;
   /**
    * @example
    * 示例值
@@ -151,6 +165,11 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
   to?: string;
   /**
    * @example
+   * 示例值
+   */
+  tokenType?: string;
+  /**
+   * @example
    * 示例值示例值
    */
   trackingData?: string;
@@ -165,6 +184,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      adAccountId: 'AdAccountId',
       channelType: 'ChannelType',
       content: 'Content',
       contextMessageId: 'ContextMessageId',
@@ -179,6 +199,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
       isvCode: 'IsvCode',
       label: 'Label',
       language: 'Language',
+      messageCampaignId: 'MessageCampaignId',
       messageType: 'MessageType',
       ownerId: 'OwnerId',
       payloadShrink: 'Payload',
@@ -192,6 +213,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
       templateName: 'TemplateName',
       templateParamsShrink: 'TemplateParams',
       to: 'To',
+      tokenType: 'TokenType',
       trackingData: 'TrackingData',
       ttl: 'Ttl',
       type: 'Type',
@@ -200,6 +222,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adAccountId: 'string',
       channelType: 'string',
       content: 'string',
       contextMessageId: 'string',
@@ -214,6 +237,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
       isvCode: 'string',
       label: 'string',
       language: 'string',
+      messageCampaignId: 'string',
       messageType: 'string',
       ownerId: 'number',
       payloadShrink: 'string',
@@ -227,6 +251,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
       templateName: 'string',
       templateParamsShrink: 'string',
       to: 'string',
+      tokenType: 'string',
       trackingData: 'string',
       ttl: 'number',
       type: 'string',
