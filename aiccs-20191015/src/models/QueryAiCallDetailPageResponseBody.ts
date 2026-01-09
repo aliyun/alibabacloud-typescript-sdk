@@ -65,6 +65,11 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   options?: string;
   /**
    * @example
+   * outId
+   */
+  outId?: string;
+  /**
+   * @example
    * https://*******
    */
   recordingFilePath?: string;
@@ -92,6 +97,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       importedTime: 'ImportedTime',
       majorIntent: 'MajorIntent',
       options: 'Options',
+      outId: 'OutId',
       recordingFilePath: 'RecordingFilePath',
       status: 'Status',
       taskId: 'TaskId',
@@ -112,6 +118,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       importedTime: 'number',
       majorIntent: 'string',
       options: 'string',
+      outId: 'string',
       recordingFilePath: 'string',
       status: 'number',
       taskId: 'string',

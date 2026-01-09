@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCallDialogContentRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 2025-06-06
    */
   callDate?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 123456^123478
    */

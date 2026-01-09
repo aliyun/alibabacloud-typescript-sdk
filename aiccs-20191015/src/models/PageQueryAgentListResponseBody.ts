@@ -62,6 +62,11 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    * @example
    * false
    */
+  withActivePrompt?: boolean;
+  /**
+   * @example
+   * false
+   */
   withConfig?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -76,6 +81,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
       lastOnlineTime: 'LastOnlineTime',
       modifyTime: 'ModifyTime',
       status: 'Status',
+      withActivePrompt: 'WithActivePrompt',
       withConfig: 'WithConfig',
     };
   }
@@ -93,6 +99,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
       lastOnlineTime: 'string',
       modifyTime: 'string',
       status: 'number',
+      withActivePrompt: 'boolean',
       withConfig: 'boolean',
     };
   }
