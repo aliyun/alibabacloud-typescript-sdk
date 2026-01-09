@@ -201,6 +201,9 @@ export { DescribeVpcFirewallDetailResponseBodyLocalVpc } from './DescribeVpcFire
 export { DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableListRouteEntryList } from './DescribeVpcFirewallDetailResponseBody';
 export { DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableList } from './DescribeVpcFirewallDetailResponseBody';
 export { DescribeVpcFirewallDetailResponseBodyPeerVpc } from './DescribeVpcFirewallDetailResponseBody';
+export { DescribeVpcFirewallDomainListResponseBodyDataList } from './DescribeVpcFirewallDomainListResponseBody';
+export { DescribeVpcFirewallDomainRelationListResponseBodyDataList } from './DescribeVpcFirewallDomainRelationListResponseBody';
+export { DescribeVpcFirewallDomainRelationListResponseBodyDstVpcList } from './DescribeVpcFirewallDomainRelationListResponseBody';
 export { DescribeVpcFirewallDropTrafficTrendResponseBodyDataList } from './DescribeVpcFirewallDropTrafficTrendResponseBody';
 export { DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists } from './DescribeVpcFirewallIpswhitelistResponseBody';
 export { DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig } from './DescribeVpcFirewallListResponseBody';
@@ -216,6 +219,7 @@ export { DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList } from './D
 export { DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroupsPrecheckEntities } from './DescribeVpcFirewallPrecheckDetailResponseBody';
 export { DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroups } from './DescribeVpcFirewallPrecheckDetailResponseBody';
 export { DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail } from './DescribeVpcFirewallPrecheckDetailResponseBody';
+export { DescribeVpcFirewallTrafficAssetListResponseBodyDataList } from './DescribeVpcFirewallTrafficAssetListResponseBody';
 export { DescribeVpcFirewallZoneResponseBodyZoneList } from './DescribeVpcFirewallZoneResponseBody';
 export { DescribeVpcListLiteResponseBodyVpcList } from './DescribeVpcListLiteResponseBody';
 export { DescribeVpcZoneResponseBodyZoneList } from './DescribeVpcZoneResponseBody';
@@ -832,6 +836,12 @@ export { DescribeVpcFirewallDefaultIPSConfigResponse } from './DescribeVpcFirewa
 export { DescribeVpcFirewallDetailRequest } from './DescribeVpcFirewallDetailRequest';
 export { DescribeVpcFirewallDetailResponseBody } from './DescribeVpcFirewallDetailResponseBody';
 export { DescribeVpcFirewallDetailResponse } from './DescribeVpcFirewallDetailResponse';
+export { DescribeVpcFirewallDomainListRequest } from './DescribeVpcFirewallDomainListRequest';
+export { DescribeVpcFirewallDomainListResponseBody } from './DescribeVpcFirewallDomainListResponseBody';
+export { DescribeVpcFirewallDomainListResponse } from './DescribeVpcFirewallDomainListResponse';
+export { DescribeVpcFirewallDomainRelationListRequest } from './DescribeVpcFirewallDomainRelationListRequest';
+export { DescribeVpcFirewallDomainRelationListResponseBody } from './DescribeVpcFirewallDomainRelationListResponseBody';
+export { DescribeVpcFirewallDomainRelationListResponse } from './DescribeVpcFirewallDomainRelationListResponse';
 export { DescribeVpcFirewallDropTrafficTrendRequest } from './DescribeVpcFirewallDropTrafficTrendRequest';
 export { DescribeVpcFirewallDropTrafficTrendResponseBody } from './DescribeVpcFirewallDropTrafficTrendResponseBody';
 export { DescribeVpcFirewallDropTrafficTrendResponse } from './DescribeVpcFirewallDropTrafficTrendResponse';
@@ -853,6 +863,9 @@ export { DescribeVpcFirewallPrecheckDetailResponse } from './DescribeVpcFirewall
 export { DescribeVpcFirewallSummaryInfoRequest } from './DescribeVpcFirewallSummaryInfoRequest';
 export { DescribeVpcFirewallSummaryInfoResponseBody } from './DescribeVpcFirewallSummaryInfoResponseBody';
 export { DescribeVpcFirewallSummaryInfoResponse } from './DescribeVpcFirewallSummaryInfoResponse';
+export { DescribeVpcFirewallTrafficAssetListRequest } from './DescribeVpcFirewallTrafficAssetListRequest';
+export { DescribeVpcFirewallTrafficAssetListResponseBody } from './DescribeVpcFirewallTrafficAssetListResponseBody';
+export { DescribeVpcFirewallTrafficAssetListResponse } from './DescribeVpcFirewallTrafficAssetListResponse';
 export { DescribeVpcFirewallZoneRequest } from './DescribeVpcFirewallZoneRequest';
 export { DescribeVpcFirewallZoneResponseBody } from './DescribeVpcFirewallZoneResponseBody';
 export { DescribeVpcFirewallZoneResponse } from './DescribeVpcFirewallZoneResponse';

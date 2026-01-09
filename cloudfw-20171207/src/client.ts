@@ -12556,6 +12556,174 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询VPC互访的域名信息
+   * 
+   * @param request - DescribeVpcFirewallDomainListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcFirewallDomainListResponse
+   */
+  async describeVpcFirewallDomainListWithOptions(request: $_model.DescribeVpcFirewallDomainListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcFirewallDomainListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.isAITraffic)) {
+      query["IsAITraffic"] = request.isAITraffic;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.srcIP)) {
+      query["SrcIP"] = request.srcIP;
+    }
+
+    if (!$dara.isNull(request.srcVpcId)) {
+      query["SrcVpcId"] = request.srcVpcId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcFirewallDomainList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcFirewallDomainListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcFirewallDomainListResponse({}));
+  }
+
+  /**
+   * 查询VPC互访的域名信息
+   * 
+   * @param request - DescribeVpcFirewallDomainListRequest
+   * @returns DescribeVpcFirewallDomainListResponse
+   */
+  async describeVpcFirewallDomainList(request: $_model.DescribeVpcFirewallDomainListRequest): Promise<$_model.DescribeVpcFirewallDomainListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcFirewallDomainListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询VPC互访的域名信息
+   * 
+   * @param request - DescribeVpcFirewallDomainRelationListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcFirewallDomainRelationListResponse
+   */
+  async describeVpcFirewallDomainRelationListWithOptions(request: $_model.DescribeVpcFirewallDomainRelationListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcFirewallDomainRelationListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.domainList)) {
+      query["DomainList"] = request.domainList;
+    }
+
+    if (!$dara.isNull(request.dstIP)) {
+      query["DstIP"] = request.dstIP;
+    }
+
+    if (!$dara.isNull(request.dstVpcId)) {
+      query["DstVpcId"] = request.dstVpcId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.srcIP)) {
+      query["SrcIP"] = request.srcIP;
+    }
+
+    if (!$dara.isNull(request.srcVpcId)) {
+      query["SrcVpcId"] = request.srcVpcId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcFirewallDomainRelationList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcFirewallDomainRelationListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcFirewallDomainRelationListResponse({}));
+  }
+
+  /**
+   * 查询VPC互访的域名信息
+   * 
+   * @param request - DescribeVpcFirewallDomainRelationListRequest
+   * @returns DescribeVpcFirewallDomainRelationListResponse
+   */
+  async describeVpcFirewallDomainRelationList(request: $_model.DescribeVpcFirewallDomainRelationListRequest): Promise<$_model.DescribeVpcFirewallDomainRelationListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcFirewallDomainRelationListWithOptions(request, runtime);
+  }
+
+  /**
    * 概览页-vpc防火墙拦截趋势
    * 
    * @param request - DescribeVpcFirewallDropTrafficTrendRequest
@@ -12975,6 +13143,88 @@ export default class Client extends OpenApi {
   async describeVpcFirewallSummaryInfo(request: $_model.DescribeVpcFirewallSummaryInfoRequest): Promise<$_model.DescribeVpcFirewallSummaryInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVpcFirewallSummaryInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询VPC互访的资产信息
+   * 
+   * @param request - DescribeVpcFirewallTrafficAssetListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcFirewallTrafficAssetListResponse
+   */
+  async describeVpcFirewallTrafficAssetListWithOptions(request: $_model.DescribeVpcFirewallTrafficAssetListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcFirewallTrafficAssetListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.IP)) {
+      query["IP"] = request.IP;
+    }
+
+    if (!$dara.isNull(request.isAITraffic)) {
+      query["IsAITraffic"] = request.isAITraffic;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcFirewallTrafficAssetList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcFirewallTrafficAssetListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcFirewallTrafficAssetListResponse({}));
+  }
+
+  /**
+   * 查询VPC互访的资产信息
+   * 
+   * @param request - DescribeVpcFirewallTrafficAssetListRequest
+   * @returns DescribeVpcFirewallTrafficAssetListResponse
+   */
+  async describeVpcFirewallTrafficAssetList(request: $_model.DescribeVpcFirewallTrafficAssetListRequest): Promise<$_model.DescribeVpcFirewallTrafficAssetListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcFirewallTrafficAssetListWithOptions(request, runtime);
   }
 
   /**
