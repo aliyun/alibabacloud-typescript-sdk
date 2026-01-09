@@ -723,6 +723,10 @@ export default class Client extends OpenApi {
       query["CheckFileName"] = request.checkFileName;
     }
 
+    if (!$dara.isNull(request.deviceRiskPlus)) {
+      query["DeviceRiskPlus"] = request.deviceRiskPlus;
+    }
+
     if (!$dara.isNull(request.miniProgramName)) {
       query["MiniProgramName"] = request.miniProgramName;
     }
@@ -5944,6 +5948,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 手机号二次放号核验
+   * 
+   * @param request - MobileRecycledMetaVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MobileRecycledMetaVerifyResponse
+   */
+  async mobileRecycledMetaVerifyWithOptions(request: $_model.MobileRecycledMetaVerifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MobileRecycledMetaVerifyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!$dara.isNull(request.registerDate)) {
+      query["RegisterDate"] = request.registerDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MobileRecycledMetaVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MobileRecycledMetaVerifyResponse>(await this.callApi(params, req, runtime), new $_model.MobileRecycledMetaVerifyResponse({}));
+  }
+
+  /**
+   * 手机号二次放号核验
+   * 
+   * @param request - MobileRecycledMetaVerifyRequest
+   * @returns MobileRecycledMetaVerifyResponse
+   */
+  async mobileRecycledMetaVerify(request: $_model.MobileRecycledMetaVerifyRequest): Promise<$_model.MobileRecycledMetaVerifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.mobileRecycledMetaVerifyWithOptions(request, runtime);
+  }
+
+  /**
    * Modify Black and White List Policy
    * 
    * @remarks
@@ -6744,6 +6798,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.checkFileName)) {
       query["CheckFileName"] = request.checkFileName;
+    }
+
+    if (!$dara.isNull(request.deviceRiskPlus)) {
+      query["DeviceRiskPlus"] = request.deviceRiskPlus;
     }
 
     if (!$dara.isNull(request.miniProgramName)) {

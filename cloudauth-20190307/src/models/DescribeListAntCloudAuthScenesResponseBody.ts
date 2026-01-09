@@ -37,6 +37,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
    * 189884094677xxxx
    */
   creator?: string;
+  deviceRiskPlus?: string;
   /**
    * @remarks
    * Bound domain.
@@ -122,6 +123,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
       bindMiniProgram: 'BindMiniProgram',
       createTime: 'CreateTime',
       creator: 'Creator',
+      deviceRiskPlus: 'DeviceRiskPlus',
       domain: 'Domain',
       miniProgramName: 'MiniProgramName',
       modifier: 'Modifier',
@@ -142,6 +144,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
       bindMiniProgram: 'string',
       createTime: 'string',
       creator: 'string',
+      deviceRiskPlus: 'string',
       domain: 'string',
       miniProgramName: 'string',
       modifier: 'string',

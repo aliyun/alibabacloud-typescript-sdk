@@ -30,6 +30,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
    * 测试.txt
    */
   checkFileName?: string;
+  deviceRiskPlus?: string;
   /**
    * @remarks
    * Mini program name.
@@ -92,6 +93,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
       bindMiniProgram: 'BindMiniProgram',
       checkFileBody: 'CheckFileBody',
       checkFileName: 'CheckFileName',
+      deviceRiskPlus: 'DeviceRiskPlus',
       miniProgramName: 'MiniProgramName',
       platform: 'Platform',
       returnPicCount: 'ReturnPicCount',
@@ -108,6 +110,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
       bindMiniProgram: 'string',
       checkFileBody: 'string',
       checkFileName: 'string',
+      deviceRiskPlus: 'string',
       miniProgramName: 'string',
       platform: 'string',
       returnPicCount: 'number',
