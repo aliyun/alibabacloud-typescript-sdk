@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTokenRequest extends $dara.Model {
   /**
+   * @example
+   * Aliyun
+   */
+  audience?: string;
+  /**
    * @remarks
    * The validity period. Unit: seconds.
    * 
@@ -21,17 +26,26 @@ export class GetTokenRequest extends $dara.Model {
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
+  /**
+   * @example
+   * Access
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
+      audience: 'Audience',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      audience: 'string',
       expireTime: 'number',
       instanceId: 'string',
+      type: 'string',
     };
   }
 

@@ -1198,12 +1198,20 @@ export default class Client extends OpenApi {
   async getTokenWithOptions(request: $_model.GetTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTokenResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audience)) {
+      query["Audience"] = request.audience;
+    }
+
     if (!$dara.isNull(request.expireTime)) {
       query["ExpireTime"] = request.expireTime;
     }
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
