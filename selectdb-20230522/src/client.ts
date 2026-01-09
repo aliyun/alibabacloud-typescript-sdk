@@ -1467,6 +1467,10 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     if (!$dara.isNull(request.tagShrink)) {
       query["Tag"] = request.tagShrink;
     }
