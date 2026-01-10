@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
   appUuid?: string;
   createdTime?: string;
+  /**
+   * @example
+   * 实例描述
+   */
+  description?: string;
   edition?: string;
   enterpriseInternetUrl?: string;
   enterpriseIntranetUrl?: string;
@@ -13,7 +18,17 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
   internetUrl?: string;
   intranetUrl?: string;
   majorVersion?: string;
+  /**
+   * @example
+   * 地域信息
+   */
+  regionCode?: string;
   securityGroupId?: string;
+  /**
+   * @example
+   * running
+   */
+  status?: string;
   vSwitchId?: string;
   vpcId?: string;
   workspaceId?: string;
@@ -22,6 +37,7 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
     return {
       appUuid: 'AppUuid',
       createdTime: 'CreatedTime',
+      description: 'Description',
       edition: 'Edition',
       enterpriseInternetUrl: 'EnterpriseInternetUrl',
       enterpriseIntranetUrl: 'EnterpriseIntranetUrl',
@@ -30,7 +46,9 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
       internetUrl: 'InternetUrl',
       intranetUrl: 'IntranetUrl',
       majorVersion: 'MajorVersion',
+      regionCode: 'RegionCode',
       securityGroupId: 'SecurityGroupId',
+      status: 'Status',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       workspaceId: 'WorkspaceId',
@@ -42,6 +60,7 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
     return {
       appUuid: 'string',
       createdTime: 'string',
+      description: 'string',
       edition: 'string',
       enterpriseInternetUrl: 'string',
       enterpriseIntranetUrl: 'string',
@@ -50,7 +69,9 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
       internetUrl: 'string',
       intranetUrl: 'string',
       majorVersion: 'string',
+      regionCode: 'string',
       securityGroupId: 'string',
+      status: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
       workspaceId: 'string',

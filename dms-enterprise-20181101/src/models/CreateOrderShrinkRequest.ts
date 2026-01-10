@@ -41,6 +41,7 @@ export class CreateOrderShrinkRequest extends $dara.Model {
    * DATA_EXPORT
    */
   pluginType?: string;
+  realLoginUserUid?: string;
   /**
    * @remarks
    * The IDs of the stakeholders that are involved in the ticket. Separate multiple IDs with commas (,).
@@ -63,6 +64,7 @@ export class CreateOrderShrinkRequest extends $dara.Model {
       comment: 'Comment',
       pluginParamShrink: 'PluginParam',
       pluginType: 'PluginType',
+      realLoginUserUid: 'RealLoginUserUid',
       relatedUserList: 'RelatedUserList',
       tid: 'Tid',
     };
@@ -74,6 +76,7 @@ export class CreateOrderShrinkRequest extends $dara.Model {
       comment: 'string',
       pluginParamShrink: 'string',
       pluginType: 'string',
+      realLoginUserUid: 'string',
       relatedUserList: 'string',
       tid: 'number',
     };

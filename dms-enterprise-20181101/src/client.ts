@@ -3574,6 +3574,10 @@ export default class Client extends OpenApi {
       query["PluginType"] = request.pluginType;
     }
 
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.relatedUserList)) {
       query["RelatedUserList"] = request.relatedUserList;
     }
