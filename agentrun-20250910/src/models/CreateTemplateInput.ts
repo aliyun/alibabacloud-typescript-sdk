@@ -9,6 +9,11 @@ import { OssConfiguration } from "./OssConfiguration";
 
 
 export class CreateTemplateInput extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  allowAnonymousManage?: boolean;
   armsConfiguration?: ArmsConfiguration;
   /**
    * @remarks
@@ -72,6 +77,7 @@ export class CreateTemplateInput extends $dara.Model {
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      allowAnonymousManage: 'allowAnonymousManage',
       armsConfiguration: 'armsConfiguration',
       containerConfiguration: 'containerConfiguration',
       cpu: 'cpu',
@@ -94,6 +100,7 @@ export class CreateTemplateInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowAnonymousManage: 'boolean',
       armsConfiguration: ArmsConfiguration,
       containerConfiguration: ContainerConfiguration,
       cpu: 'number',

@@ -70,6 +70,7 @@ export class TemplateMcpState extends $dara.Model {
 }
 
 export class Template extends $dara.Model {
+  allowAnonymousManage?: boolean;
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
@@ -117,6 +118,7 @@ export class Template extends $dara.Model {
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      allowAnonymousManage: 'allowAnonymousManage',
       containerConfiguration: 'containerConfiguration',
       cpu: 'cpu',
       createdAt: 'createdAt',
@@ -148,6 +150,7 @@ export class Template extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowAnonymousManage: 'boolean',
       containerConfiguration: ContainerConfiguration,
       cpu: 'number',
       createdAt: 'string',

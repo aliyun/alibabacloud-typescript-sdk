@@ -1,8 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { NASConfig } from "./Nasconfig";
+import { OSSMountConfig } from "./OssmountConfig";
 
 
 export class CreateSandboxInput extends $dara.Model {
+  nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
   sandboxId?: string;
   /**
    * @remarks
@@ -18,6 +22,8 @@ export class CreateSandboxInput extends $dara.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
       sandboxId: 'sandboxId',
       sandboxIdleTimeoutSeconds: 'sandboxIdleTimeoutSeconds',
       templateName: 'templateName',
@@ -26,6 +32,8 @@ export class CreateSandboxInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
       sandboxId: 'string',
       sandboxIdleTimeoutSeconds: 'number',
       templateName: 'string',
@@ -33,6 +41,12 @@ export class CreateSandboxInput extends $dara.Model {
   }
 
   validate() {
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
+    }
+    if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
+      (this.ossMountConfig as any).validate();
+    }
     super.validate();
   }
 

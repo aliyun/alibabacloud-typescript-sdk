@@ -1,24 +1,16 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ListCustomDomainsOutput } from "./ListCustomDomainsOutput";
 
 
-export class DeleteMemoryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
+export class ListCustomDomainsResult extends $dara.Model {
   code?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 970F08C9-EB28-5A3D-A228-D541AEC4C807
-   */
+  data?: ListCustomDomainsOutput;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      data: 'data',
       requestId: 'requestId',
     };
   }
@@ -26,11 +18,15 @@ export class DeleteMemoryResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: ListCustomDomainsOutput,
       requestId: 'string',
     };
   }
 
   validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
     super.validate();
   }
 

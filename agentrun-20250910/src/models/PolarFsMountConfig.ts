@@ -2,35 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetMemorySessionRequest extends $dara.Model {
-  /**
-   * @example
-   * 1736558346
-   */
-  from?: number;
-  /**
-   * @example
-   * 20
-   */
-  size?: number;
-  /**
-   * @example
-   * 1736561898
-   */
-  to?: number;
+export class PolarFsMountConfig extends $dara.Model {
+  instanceId?: string;
+  mountDir?: string;
+  remoteDir?: string;
   static names(): { [key: string]: string } {
     return {
-      from: 'from',
-      size: 'size',
-      to: 'to',
+      instanceId: 'instanceId',
+      mountDir: 'mountDir',
+      remoteDir: 'remoteDir',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      from: 'number',
-      size: 'number',
-      to: 'number',
+      instanceId: 'string',
+      mountDir: 'string',
+      remoteDir: 'string',
     };
   }
 

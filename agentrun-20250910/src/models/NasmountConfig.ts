@@ -2,31 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMemoryEventResponseBody extends $dara.Model {
+export class NASMountConfig extends $dara.Model {
+  enableTLS?: boolean;
   /**
    * @example
-   * SUCCESS
+   * /home/test
    */
-  code?: string;
+  mountDir?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
-   * A8B33FA2-43F2-5E56-9032-51283F08018E
+   * ***-uni85.cn-hangzhou.nas.com:/
    */
-  requestId?: string;
+  serverAddr?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
-      requestId: 'requestId',
+      enableTLS: 'enableTLS',
+      mountDir: 'mountDir',
+      serverAddr: 'serverAddr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      requestId: 'string',
+      enableTLS: 'boolean',
+      mountDir: 'string',
+      serverAddr: 'string',
     };
   }
 

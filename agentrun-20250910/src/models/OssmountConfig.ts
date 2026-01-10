@@ -1,33 +1,26 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { OSSMountPoint } from "./OssmountPoint";
 
 
-export class GetMemoryEventRequest extends $dara.Model {
-  /**
-   * @example
-   * 1758273080
-   */
-  from?: number;
-  /**
-   * @example
-   * 1758273680
-   */
-  to?: number;
+export class OSSMountConfig extends $dara.Model {
+  mountPoints?: OSSMountPoint[];
   static names(): { [key: string]: string } {
     return {
-      from: 'from',
-      to: 'to',
+      mountPoints: 'mountPoints',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      from: 'number',
-      to: 'number',
+      mountPoints: { 'type': 'array', 'itemType': OSSMountPoint },
     };
   }
 
   validate() {
+    if(Array.isArray(this.mountPoints)) {
+      $dara.Model.validateArray(this.mountPoints);
+    }
     super.validate();
   }
 

@@ -1,47 +1,31 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CustomDomain } from "./CustomDomain";
 
 
-export class CreateMemoryResponseBodyData extends $dara.Model {
+export class CustomDomainResult extends $dara.Model {
   /**
-   * @example
-   * default_workspace
-   */
-  cmsWorkspaceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cmsWorkspaceName: 'cmsWorkspaceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cmsWorkspaceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMemoryResponseBody extends $dara.Model {
-  /**
+   * @remarks
+   * SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
-  data?: CreateMemoryResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * 自定义域名的详细信息
    * 
    * @example
-   * 0FB1162C-D50B-5DA7-AD04-3417ABBF133A
+   * {}
+   */
+  data?: CustomDomain;
+  /**
+   * @remarks
+   * 唯一的请求标识符，用于问题追踪
+   * 
+   * @example
+   * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +39,7 @@ export class CreateMemoryResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: CreateMemoryResponseBodyData,
+      data: CustomDomain,
       requestId: 'string',
     };
   }
