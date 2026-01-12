@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAddonsResponseBodyAddonsConfigSchema extends $dara.Model {
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * 859e9d595b2974ed79c444658d1dea89
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The version of the configuration file.
+   * 
    * @example
    * 4155709cd12a09bdb8cbaca71bf03233
    */
   configVersion?: string;
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The custom configurations of the component.
+   * 
    * @example
    * {"key1":"val1"}
    */
@@ -55,17 +67,30 @@ export class ListAddonsResponseBodyAddonsConfigSchema extends $dara.Model {
 
 export class ListAddonsResponseBodyAddons extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to clear resources.
+   * 
    * @example
    * true
    */
   cleanupCloudResources?: boolean;
+  /**
+   * @remarks
+   * The schema of the custom parameters of the component.
+   */
   configSchema?: ListAddonsResponseBodyAddonsConfigSchema[];
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * edge-csi-lite
    */
   name?: string;
   /**
+   * @remarks
+   * The component version.
+   * 
    * @example
    * v2
    */
@@ -101,10 +126,14 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
 }
 
 export class ListAddonsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of component information.
+   */
   addons?: ListAddonsResponseBodyAddons[];
   /**
    * @remarks
-   * Id of the request
+   * Id of the request.
    * 
    * @example
    * C0003E8B-B930-4F59-ADC0-0E209A9012A8

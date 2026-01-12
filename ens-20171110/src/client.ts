@@ -5872,6 +5872,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询集群列表
+   * 
+   * @param request - DescribeClustersV1Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClustersV1Response
+   */
+  async describeClustersV1WithOptions(request: $_model.DescribeClustersV1Request, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClustersV1Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClustersV1",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClustersV1Response>(await this.callApi(params, req, runtime), new $_model.DescribeClustersV1Response({}));
+  }
+
+  /**
+   * 查询集群列表
+   * 
+   * @param request - DescribeClustersV1Request
+   * @returns DescribeClustersV1Response
+   */
+  async describeClustersV1(request: $_model.DescribeClustersV1Request): Promise<$_model.DescribeClustersV1Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClustersV1WithOptions(request, runtime);
+  }
+
+  /**
    * Queries the results of creating an instance.
    * 
    * @param request - DescribeCreatePrePaidInstanceResultRequest
@@ -12014,7 +12064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询可用的组件列表
+   * Querying the details of a cluster component
    * 
    * @param request - ListAddonsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12037,7 +12087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询可用的组件列表
+   * Querying the details of a cluster component
    * @returns ListAddonsResponse
    */
   async listAddons(): Promise<$_model.ListAddonsResponse> {
@@ -12166,7 +12216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群已安装的组件实例列表
+   * List of Installed Addon Instances in the Cluster
    * 
    * @param request - ListClusterAddonInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12197,7 +12247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群已安装的组件实例列表
+   * List of Installed Addon Instances in the Cluster
    * 
    * @param request - ListClusterAddonInstancesRequest
    * @returns ListClusterAddonInstancesResponse

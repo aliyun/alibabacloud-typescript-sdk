@@ -80,6 +80,8 @@ export { DescribeCloudDiskAvailableResourceInfoResponseBodySupportResources } fr
 export { DescribeCloudDiskTypesResponseBodySupportResourcesSupportResource } from './DescribeCloudDiskTypesResponseBody';
 export { DescribeCloudDiskTypesResponseBodySupportResources } from './DescribeCloudDiskTypesResponseBody';
 export { DescribeClusterResponseBodyClusters } from './DescribeClusterResponseBody';
+export { DescribeClustersV1ResponseBodyClustersControlPlaneConfig } from './DescribeClustersV1responseBody';
+export { DescribeClustersV1ResponseBodyClusters } from './DescribeClustersV1responseBody';
 export { DescribeCreatePrePaidInstanceResultResponseBodyInstanceCreateResult } from './DescribeCreatePrePaidInstanceResultResponseBody';
 export { DescribeDataDistResultResponseBodyDistResultsDistResultStatusStatsStatusStatInstancesInstance } from './DescribeDataDistResultResponseBody';
 export { DescribeDataDistResultResponseBodyDistResultsDistResultStatusStatsStatusStatInstances } from './DescribeDataDistResultResponseBody';
@@ -748,6 +750,9 @@ export { DescribeClusterResponse } from './DescribeClusterResponse';
 export { DescribeClusterKubeConfigRequest } from './DescribeClusterKubeConfigRequest';
 export { DescribeClusterKubeConfigResponseBody } from './DescribeClusterKubeConfigResponseBody';
 export { DescribeClusterKubeConfigResponse } from './DescribeClusterKubeConfigResponse';
+export { DescribeClustersV1Request } from './DescribeClustersV1request';
+export { DescribeClustersV1ResponseBody } from './DescribeClustersV1responseBody';
+export { DescribeClustersV1Response } from './DescribeClustersV1response';
 export { DescribeCreatePrePaidInstanceResultRequest } from './DescribeCreatePrePaidInstanceResultRequest';
 export { DescribeCreatePrePaidInstanceResultResponseBody } from './DescribeCreatePrePaidInstanceResultResponseBody';
 export { DescribeCreatePrePaidInstanceResultResponse } from './DescribeCreatePrePaidInstanceResultResponse';

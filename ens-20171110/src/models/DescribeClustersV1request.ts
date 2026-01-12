@@ -2,26 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListClusterAddonInstancesRequest extends $dara.Model {
+export class DescribeClustersV1Request extends $dara.Model {
   /**
-   * @remarks
-   * Cluster ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
+  /**
+   * @example
+   * cn-hangzhou-58
+   */
+  ensRegionId?: string;
+  /**
+   * @example
+   * test-eck-name
+   */
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      ensRegionId: 'EnsRegionId',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      ensRegionId: 'string',
+      name: 'string',
     };
   }
 
