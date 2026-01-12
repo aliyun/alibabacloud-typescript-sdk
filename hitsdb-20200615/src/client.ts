@@ -2860,6 +2860,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取计算引擎资源组列表
+   * 
    * @param request - ListLdpsComputeGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLdpsComputeGroupsResponse
@@ -2913,6 +2915,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取计算引擎资源组列表
+   * 
    * @param request - ListLdpsComputeGroupsRequest
    * @returns ListLdpsComputeGroupsResponse
    */

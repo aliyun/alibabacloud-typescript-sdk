@@ -7,6 +7,8 @@ export class ListLdpsComputeGroupsResponseBodyGroupList extends $dara.Model {
   groupName?: string;
   isDefault?: boolean;
   properties?: { [key: string]: any };
+  rayInteractiveAccessAddr?: string;
+  rayVpcWebUIAddr?: string;
   state?: string;
   webUI?: string;
   static names(): { [key: string]: string } {
@@ -15,6 +17,8 @@ export class ListLdpsComputeGroupsResponseBodyGroupList extends $dara.Model {
       groupName: 'GroupName',
       isDefault: 'IsDefault',
       properties: 'Properties',
+      rayInteractiveAccessAddr: 'RayInteractiveAccessAddr',
+      rayVpcWebUIAddr: 'RayVpcWebUIAddr',
       state: 'State',
       webUI: 'WebUI',
     };
@@ -26,6 +30,8 @@ export class ListLdpsComputeGroupsResponseBodyGroupList extends $dara.Model {
       groupName: 'string',
       isDefault: 'boolean',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      rayInteractiveAccessAddr: 'string',
+      rayVpcWebUIAddr: 'string',
       state: 'string',
       webUI: 'string',
     };
