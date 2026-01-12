@@ -142,6 +142,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 整机备份
+   * 
+   * @param request - BackupAndroidInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BackupAndroidInstanceResponse
+   */
+  async backupAndroidInstanceWithOptions(request: $_model.BackupAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BackupAndroidInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.androidInstanceIdList)) {
+      query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!$dara.isNull(request.backupFileName)) {
+      query["BackupFileName"] = request.backupFileName;
+    }
+
+    if (!$dara.isNull(request.backupFilePath)) {
+      query["BackupFilePath"] = request.backupFilePath;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.uploadEndpoint)) {
+      query["UploadEndpoint"] = request.uploadEndpoint;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BackupAndroidInstance",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BackupAndroidInstanceResponse>(await this.callApi(params, req, runtime), new $_model.BackupAndroidInstanceResponse({}));
+  }
+
+  /**
+   * 整机备份
+   * 
+   * @param request - BackupAndroidInstanceRequest
+   * @returns BackupAndroidInstanceResponse
+   */
+  async backupAndroidInstance(request: $_model.BackupAndroidInstanceRequest): Promise<$_model.BackupAndroidInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.backupAndroidInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 应用备份
+   * 
+   * @param request - BackupAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BackupAppResponse
+   */
+  async backupAppWithOptions(request: $_model.BackupAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BackupAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.androidInstanceIdList)) {
+      query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!$dara.isNull(request.backupFileName)) {
+      query["BackupFileName"] = request.backupFileName;
+    }
+
+    if (!$dara.isNull(request.backupFilePath)) {
+      query["BackupFilePath"] = request.backupFilePath;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.sourceAppList)) {
+      query["SourceAppList"] = request.sourceAppList;
+    }
+
+    if (!$dara.isNull(request.uploadEndpoint)) {
+      query["UploadEndpoint"] = request.uploadEndpoint;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BackupApp",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BackupAppResponse>(await this.callApi(params, req, runtime), new $_model.BackupAppResponse({}));
+  }
+
+  /**
+   * 应用备份
+   * 
+   * @param request - BackupAppRequest
+   * @returns BackupAppResponse
+   */
+  async backupApp(request: $_model.BackupAppRequest): Promise<$_model.BackupAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.backupAppWithOptions(request, runtime);
+  }
+
+  /**
    * Generates and uploads backup files.
    * 
    * @remarks
@@ -4373,6 +4493,122 @@ export default class Client extends OpenApi {
   async rebootAndroidInstancesInGroup(request: $_model.RebootAndroidInstancesInGroupRequest): Promise<$_model.RebootAndroidInstancesInGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rebootAndroidInstancesInGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 整机恢复
+   * 
+   * @param request - RecoverAndroidInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoverAndroidInstanceResponse
+   */
+  async recoverAndroidInstanceWithOptions(request: $_model.RecoverAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecoverAndroidInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.androidInstanceIdList)) {
+      query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!$dara.isNull(request.backupFileId)) {
+      query["BackupFileId"] = request.backupFileId;
+    }
+
+    if (!$dara.isNull(request.backupFilePath)) {
+      query["BackupFilePath"] = request.backupFilePath;
+    }
+
+    if (!$dara.isNull(request.uploadEndpoint)) {
+      query["UploadEndpoint"] = request.uploadEndpoint;
+    }
+
+    if (!$dara.isNull(request.uploadType)) {
+      query["UploadType"] = request.uploadType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RecoverAndroidInstance",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RecoverAndroidInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RecoverAndroidInstanceResponse({}));
+  }
+
+  /**
+   * 整机恢复
+   * 
+   * @param request - RecoverAndroidInstanceRequest
+   * @returns RecoverAndroidInstanceResponse
+   */
+  async recoverAndroidInstance(request: $_model.RecoverAndroidInstanceRequest): Promise<$_model.RecoverAndroidInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.recoverAndroidInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 恢复应用
+   * 
+   * @param request - RecoverAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoverAppResponse
+   */
+  async recoverAppWithOptions(request: $_model.RecoverAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecoverAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.androidInstanceIdList)) {
+      query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!$dara.isNull(request.backupFileId)) {
+      query["BackupFileId"] = request.backupFileId;
+    }
+
+    if (!$dara.isNull(request.backupFilePath)) {
+      query["BackupFilePath"] = request.backupFilePath;
+    }
+
+    if (!$dara.isNull(request.uploadEndpoint)) {
+      query["UploadEndpoint"] = request.uploadEndpoint;
+    }
+
+    if (!$dara.isNull(request.uploadType)) {
+      query["UploadType"] = request.uploadType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RecoverApp",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RecoverAppResponse>(await this.callApi(params, req, runtime), new $_model.RecoverAppResponse({}));
+  }
+
+  /**
+   * 恢复应用
+   * 
+   * @param request - RecoverAppRequest
+   * @returns RecoverAppResponse
+   */
+  async recoverApp(request: $_model.RecoverAppRequest): Promise<$_model.RecoverAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.recoverAppWithOptions(request, runtime);
   }
 
   /**
