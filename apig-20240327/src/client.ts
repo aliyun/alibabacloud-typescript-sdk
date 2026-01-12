@@ -5354,6 +5354,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.policyConfigs)) {
+      body["policyConfigs"] = request.policyConfigs;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
