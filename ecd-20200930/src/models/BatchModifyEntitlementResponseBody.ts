@@ -61,6 +61,10 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
 }
 
 export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model {
+  /**
+   * @remarks
+   * The assignment results.
+   */
   assignModels?: BatchModifyEntitlementResponseBodyEntitlementsAssignModels[];
   /**
    * @remarks
@@ -115,6 +119,10 @@ export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model 
 }
 
 export class BatchModifyEntitlementResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The results.
+   */
   entitlements?: BatchModifyEntitlementResponseBodyEntitlements;
   /**
    * @remarks

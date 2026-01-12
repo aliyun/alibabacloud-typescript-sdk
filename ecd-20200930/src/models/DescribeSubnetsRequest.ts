@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSubnetsRequest extends $dara.Model {
+  eid?: string;
   maxResults?: number;
   name?: string;
   nextToken?: string;
@@ -15,6 +16,7 @@ export class DescribeSubnetsRequest extends $dara.Model {
   subnetId?: string;
   static names(): { [key: string]: string } {
     return {
+      eid: 'Eid',
       maxResults: 'MaxResults',
       name: 'Name',
       nextToken: 'NextToken',
@@ -26,6 +28,7 @@ export class DescribeSubnetsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eid: 'string',
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',

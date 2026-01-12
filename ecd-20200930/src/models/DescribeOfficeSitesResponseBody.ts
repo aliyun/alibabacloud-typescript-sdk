@@ -392,6 +392,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * Administrator
    */
   domainUserName?: string;
+  eid?: string;
   /**
    * @remarks
    * Indicates whether the local administrator permissions are granted to users that are authorized to use cloud computers in the office network.
@@ -429,6 +430,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * false
    */
   enableServiceRoute?: boolean;
+  envType?: string;
   /**
    * @remarks
    * An array of File Storage NAS (NAS) file system IDs.
@@ -737,10 +739,12 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       domainName: 'DomainName',
       domainPassword: 'DomainPassword',
       domainUserName: 'DomainUserName',
+      eid: 'Eid',
       enableAdminAccess: 'EnableAdminAccess',
       enableCrossDesktopAccess: 'EnableCrossDesktopAccess',
       enableInternetAccess: 'EnableInternetAccess',
       enableServiceRoute: 'EnableServiceRoute',
+      envType: 'EnvType',
       fileSystemIds: 'FileSystemIds',
       isLdap: 'IsLdap',
       ldapUrl: 'LdapUrl',
@@ -805,10 +809,12 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       domainName: 'string',
       domainPassword: 'string',
       domainUserName: 'string',
+      eid: 'string',
       enableAdminAccess: 'boolean',
       enableCrossDesktopAccess: 'boolean',
       enableInternetAccess: 'boolean',
       enableServiceRoute: 'boolean',
+      envType: 'string',
       fileSystemIds: { 'type': 'array', 'itemType': 'string' },
       isLdap: 'boolean',
       ldapUrl: 'string',

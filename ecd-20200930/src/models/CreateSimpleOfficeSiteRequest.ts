@@ -85,6 +85,7 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
    */
   desktopAccessType?: string;
   domainName?: string;
+  eid?: string;
   /**
    * @remarks
    * Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
@@ -190,6 +191,7 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
       cloudBoxOfficeSite: 'CloudBoxOfficeSite',
       desktopAccessType: 'DesktopAccessType',
       domainName: 'DomainName',
+      eid: 'Eid',
       enableAdminAccess: 'EnableAdminAccess',
       enableInternetAccess: 'EnableInternetAccess',
       needVerifyZeroDevice: 'NeedVerifyZeroDevice',
@@ -215,6 +217,7 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
       cloudBoxOfficeSite: 'boolean',
       desktopAccessType: 'string',
       domainName: 'string',
+      eid: 'string',
       enableAdminAccess: 'boolean',
       enableInternetAccess: 'boolean',
       needVerifyZeroDevice: 'boolean',

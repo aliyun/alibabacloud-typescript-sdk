@@ -984,6 +984,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Assigns multiple cloud computers to users in a batch.
+   * 
    * @remarks
    *   The cloud computers for which you want to change their policies must be in the Running state.
    * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
@@ -1042,6 +1044,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Assigns multiple cloud computers to users in a batch.
+   * 
    * @remarks
    *   The cloud computers for which you want to change their policies must be in the Running state.
    * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
@@ -4933,6 +4937,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.eid)) {
+      query["Eid"] = request.eid;
     }
 
     if (!$dara.isNull(request.enableAdminAccess)) {
@@ -11472,6 +11480,10 @@ export default class Client extends OpenApi {
   async describeSubnetsWithOptions(request: $_model.DescribeSubnetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSubnetsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.eid)) {
+      query["Eid"] = request.eid;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
