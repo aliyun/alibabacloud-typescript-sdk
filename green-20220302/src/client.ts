@@ -704,6 +704,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 多模态AgentAPI同步检测接口
+   * 
+   * @param request - MultiModalAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalAgentResponse
+   */
+  async multiModalAgentWithOptions(request: $_model.MultiModalAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MultiModalAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appID)) {
+      body["AppID"] = request.appID;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalAgent",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultiModalAgentResponse>(await this.callApi(params, req, runtime), new $_model.MultiModalAgentResponse({}));
+  }
+
+  /**
+   * 多模态AgentAPI同步检测接口
+   * 
+   * @param request - MultiModalAgentRequest
+   * @returns MultiModalAgentResponse
+   */
+  async multiModalAgent(request: $_model.MultiModalAgentRequest): Promise<$_model.MultiModalAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multiModalAgentWithOptions(request, runtime);
+  }
+
+  /**
    * 同步检测接口
    * 
    * @param request - MultiModalGuardRequest
