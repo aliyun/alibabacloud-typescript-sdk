@@ -218,7 +218,7 @@ export class JobItem extends $dara.Model {
    * 1
    */
   jobMaxRunningTimeMinutes?: number;
-  jobReplicaStatuses?: JobReplicaStatus;
+  jobReplicaStatuses?: JobReplicaStatus[];
   jobSpecs?: JobSpec[];
   /**
    * @example
@@ -443,7 +443,7 @@ export class JobItem extends $dara.Model {
       isDeleted: 'boolean',
       jobId: 'string',
       jobMaxRunningTimeMinutes: 'number',
-      jobReplicaStatuses: JobReplicaStatus,
+      jobReplicaStatuses: { 'type': 'array', 'itemType': JobReplicaStatus },
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       jobType: 'string',
       nodeCount: 'string',
@@ -497,8 +497,8 @@ export class JobItem extends $dara.Model {
     if(this.envs) {
       $dara.Model.validateMap(this.envs);
     }
-    if(this.jobReplicaStatuses && typeof (this.jobReplicaStatuses as any).validate === 'function') {
-      (this.jobReplicaStatuses as any).validate();
+    if(Array.isArray(this.jobReplicaStatuses)) {
+      $dara.Model.validateArray(this.jobReplicaStatuses);
     }
     if(Array.isArray(this.jobSpecs)) {
       $dara.Model.validateArray(this.jobSpecs);
