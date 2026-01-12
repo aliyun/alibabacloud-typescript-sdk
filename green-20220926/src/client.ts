@@ -3815,6 +3815,10 @@ export default class Client extends OpenApi {
   async *llmStreamChatWithSSE(request: $_model.LlmStreamChatRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.LlmStreamChatResponse, any, unknown> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channel)) {
+      body["Channel"] = request.channel;
+    }
+
     if (!$dara.isNull(request.messages)) {
       body["Messages"] = request.messages;
     }
@@ -3871,6 +3875,10 @@ export default class Client extends OpenApi {
   async llmStreamChatWithOptions(request: $_model.LlmStreamChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LlmStreamChatResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channel)) {
+      body["Channel"] = request.channel;
+    }
+
     if (!$dara.isNull(request.messages)) {
       body["Messages"] = request.messages;
     }

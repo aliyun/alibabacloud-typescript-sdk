@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class LlmStreamChatRequest extends $dara.Model {
   /**
+   * @example
+   * guardCustomTest
+   */
+  channel?: string;
+  /**
    * @remarks
    * Conversation information
    * 
@@ -37,6 +42,7 @@ export class LlmStreamChatRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      channel: 'Channel',
       messages: 'Messages',
       temperature: 'Temperature',
       topP: 'TopP',
@@ -46,6 +52,7 @@ export class LlmStreamChatRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      channel: 'string',
       messages: 'any',
       temperature: 'number',
       topP: 'number',

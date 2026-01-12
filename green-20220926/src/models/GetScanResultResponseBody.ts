@@ -95,6 +95,11 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    */
   apiTaskId?: string;
   /**
+   * @example
+   * agent_01
+   */
+  appId?: string;
+  /**
    * @remarks
    * Attack level, returned based on the set high and low risk scores. The return values include:
    * 
@@ -197,6 +202,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * https://www.aliyuncs.com/xxx.png
    */
   imageUrl?: string;
+  imageUrls?: string[];
   /**
    * @remarks
    * Labels.
@@ -479,6 +485,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       apiRiskLevel: 'ApiRiskLevel',
       apiService: 'ApiService',
       apiTaskId: 'ApiTaskId',
+      appId: 'AppId',
       attackLevel: 'AttackLevel',
       content: 'Content',
       dataId: 'DataId',
@@ -492,6 +499,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       imageLabels: 'ImageLabels',
       imageService: 'ImageService',
       imageUrl: 'ImageUrl',
+      imageUrls: 'ImageUrls',
       labels: 'Labels',
       liveId: 'LiveId',
       maliciousFileLevel: 'MaliciousFileLevel',
@@ -538,6 +546,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       apiRiskLevel: 'string',
       apiService: 'string',
       apiTaskId: 'string',
+      appId: 'string',
       attackLevel: 'string',
       content: 'string',
       dataId: 'string',
@@ -551,6 +560,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       imageLabels: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       imageService: 'string',
       imageUrl: 'string',
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
       labels: 'string',
       liveId: 'string',
       maliciousFileLevel: 'string',
@@ -601,6 +611,9 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
     }
     if(Array.isArray(this.imageLabels)) {
       $dara.Model.validateArray(this.imageLabels);
+    }
+    if(Array.isArray(this.imageUrls)) {
+      $dara.Model.validateArray(this.imageUrls);
     }
     if(Array.isArray(this.noLabels)) {
       $dara.Model.validateArray(this.noLabels);
