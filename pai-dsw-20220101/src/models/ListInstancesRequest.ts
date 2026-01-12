@@ -65,6 +65,8 @@ export class ListInstancesRequest extends $dara.Model {
    * PRIVATE
    */
   accessibility?: string;
+  createTimeAfter?: string;
+  createTimeBefore?: string;
   /**
    * @remarks
    * The UID of the creator.
@@ -290,6 +292,8 @@ export class ListInstancesRequest extends $dara.Model {
     return {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
+      createTimeAfter: 'CreateTimeAfter',
+      createTimeBefore: 'CreateTimeBefore',
       createUserId: 'CreateUserId',
       gpuType: 'GpuType',
       imageName: 'ImageName',
@@ -322,6 +326,8 @@ export class ListInstancesRequest extends $dara.Model {
     return {
       acceleratorType: 'string',
       accessibility: 'string',
+      createTimeAfter: 'string',
+      createTimeBefore: 'string',
       createUserId: 'string',
       gpuType: 'string',
       imageName: 'string',

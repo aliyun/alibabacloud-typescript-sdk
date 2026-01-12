@@ -1524,6 +1524,14 @@ export default class Client extends OpenApi {
       query["Accessibility"] = request.accessibility;
     }
 
+    if (!$dara.isNull(request.createTimeAfter)) {
+      query["CreateTimeAfter"] = request.createTimeAfter;
+    }
+
+    if (!$dara.isNull(request.createTimeBefore)) {
+      query["CreateTimeBefore"] = request.createTimeBefore;
+    }
+
     if (!$dara.isNull(request.createUserId)) {
       query["CreateUserId"] = request.createUserId;
     }
