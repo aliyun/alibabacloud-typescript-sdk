@@ -73,6 +73,7 @@ export class DescribeTransferHistoryResponseBodyHistoryDetailsHistoryDetail exte
    * SubJob
    */
   subJob?: string;
+  subJobMessage?: string;
   /**
    * @remarks
    * The subtask status.
@@ -123,6 +124,7 @@ export class DescribeTransferHistoryResponseBodyHistoryDetailsHistoryDetail exte
       sourceDBCluster: 'SourceDBCluster',
       status: 'Status',
       subJob: 'SubJob',
+      subJobMessage: 'SubJobMessage',
       subJobStatus: 'SubJobStatus',
       targetControlVersion: 'TargetControlVersion',
       targetDBCluster: 'TargetDBCluster',
@@ -141,6 +143,7 @@ export class DescribeTransferHistoryResponseBodyHistoryDetailsHistoryDetail exte
       sourceDBCluster: 'string',
       status: 'string',
       subJob: 'string',
+      subJobMessage: 'string',
       subJobStatus: 'string',
       targetControlVersion: 'string',
       targetDBCluster: 'string',
