@@ -784,6 +784,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 对包年实例升降配，对按量实例修改resource quota
+   * 
+   * @param tmpReq - ModifyInstanceSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceSpecResponse
+   */
+  async modifyInstanceSpecWithOptions(tmpReq: $_model.ModifyInstanceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceSpecResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyInstanceSpecShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.haResourceSpec)) {
+      request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.haVSwitchIds)) {
+      request.haVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds, "HaVSwitchIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resourceSpec)) {
+      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ha)) {
+      body["Ha"] = request.ha;
+    }
+
+    if (!$dara.isNull(request.haResourceSpecShrink)) {
+      body["HaResourceSpec"] = request.haResourceSpecShrink;
+    }
+
+    if (!$dara.isNull(request.haVSwitchIdsShrink)) {
+      body["HaVSwitchIds"] = request.haVSwitchIdsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      body["PromotionCode"] = request.promotionCode;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.resourceSpecShrink)) {
+      body["ResourceSpec"] = request.resourceSpecShrink;
+    }
+
+    if (!$dara.isNull(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceSpec",
+      version: "2021-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceSpecResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceSpecResponse({}));
+  }
+
+  /**
+   * 对包年实例升降配，对按量实例修改resource quota
+   * 
+   * @param request - ModifyInstanceSpecRequest
+   * @returns ModifyInstanceSpecResponse
+   */
+  async modifyInstanceSpec(request: $_model.ModifyInstanceSpecRequest): Promise<$_model.ModifyInstanceSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceSpecWithOptions(request, runtime);
+  }
+
+  /**
    * 修改集群交换机
    * 
    * @deprecated OpenAPI ModifyInstanceVswitch is deprecated

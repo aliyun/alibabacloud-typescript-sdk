@@ -40,6 +40,8 @@ export { DescribeSupportedRegionsResponseBodyRegions } from './DescribeSupported
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ModifyElasticResourceSpecRequestResourceSpec } from './ModifyElasticResourceSpecRequest';
+export { ModifyInstanceSpecRequestHaResourceSpec } from './ModifyInstanceSpecRequest';
+export { ModifyInstanceSpecRequestResourceSpec } from './ModifyInstanceSpecRequest';
 export { ModifyNamespaceSpecV2RequestElasticResourceSpec } from './ModifyNamespaceSpecV2request';
 export { ModifyNamespaceSpecV2RequestGuaranteedResourceSpec } from './ModifyNamespaceSpecV2request';
 export { ModifyPrepayInstanceSpecRequestHaResourceSpec } from './ModifyPrepayInstanceSpecRequest';
@@ -124,6 +126,10 @@ export { ModifyElasticResourceSpecRequest } from './ModifyElasticResourceSpecReq
 export { ModifyElasticResourceSpecShrinkRequest } from './ModifyElasticResourceSpecShrinkRequest';
 export { ModifyElasticResourceSpecResponseBody } from './ModifyElasticResourceSpecResponseBody';
 export { ModifyElasticResourceSpecResponse } from './ModifyElasticResourceSpecResponse';
+export { ModifyInstanceSpecRequest } from './ModifyInstanceSpecRequest';
+export { ModifyInstanceSpecShrinkRequest } from './ModifyInstanceSpecShrinkRequest';
+export { ModifyInstanceSpecResponseBody } from './ModifyInstanceSpecResponseBody';
+export { ModifyInstanceSpecResponse } from './ModifyInstanceSpecResponse';
 export { ModifyInstanceVswitchRequest } from './ModifyInstanceVswitchRequest';
 export { ModifyInstanceVswitchShrinkRequest } from './ModifyInstanceVswitchShrinkRequest';
 export { ModifyInstanceVswitchResponseBody } from './ModifyInstanceVswitchResponseBody';

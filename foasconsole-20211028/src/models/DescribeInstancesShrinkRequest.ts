@@ -15,6 +15,11 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @example
+   * true
+   */
+  elastic?: boolean;
+  /**
+   * @example
    * f-cn-wwo36qj4g06
    */
   instanceId?: string;
@@ -52,6 +57,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
     return {
       architectureType: 'ArchitectureType',
       chargeType: 'ChargeType',
+      elastic: 'Elastic',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       namespaceName: 'NamespaceName',
@@ -67,6 +73,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
     return {
       architectureType: 'string',
       chargeType: 'string',
+      elastic: 'boolean',
       instanceId: 'string',
       instanceName: 'string',
       namespaceName: 'string',

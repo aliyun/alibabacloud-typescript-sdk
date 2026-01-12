@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/foasconsole20211028",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
