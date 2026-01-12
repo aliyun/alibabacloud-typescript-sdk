@@ -343,6 +343,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加记忆存储
+   * 
+   * @param request - CreateMemoryCollectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemoryCollectionResponse
+   */
+  async createMemoryCollectionWithOptions(request: $_model.CreateMemoryCollectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMemoryCollectionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMemoryCollection",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/memory-collections`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMemoryCollectionResponse>(await this.callApi(params, req, runtime), new $_model.CreateMemoryCollectionResponse({}));
+  }
+
+  /**
+   * 添加记忆存储
+   * 
+   * @param request - CreateMemoryCollectionRequest
+   * @returns CreateMemoryCollectionResponse
+   */
+  async createMemoryCollection(request: $_model.CreateMemoryCollectionRequest): Promise<$_model.CreateMemoryCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMemoryCollectionWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新增模型
    * 
    * @param request - CreateModelProxyRequest
@@ -740,6 +780,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
+  }
+
+  /**
+   * 删除记忆存储
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryCollectionResponse
+   */
+  async deleteMemoryCollectionWithOptions(memoryCollectionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryCollectionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemoryCollection",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/memory-collections/${$dara.URL.percentEncode(memoryCollectionName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemoryCollectionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMemoryCollectionResponse({}));
+  }
+
+  /**
+   * 删除记忆存储
+   * @returns DeleteMemoryCollectionResponse
+   */
+  async deleteMemoryCollection(memoryCollectionName: string): Promise<$_model.DeleteMemoryCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemoryCollectionWithOptions(memoryCollectionName, headers, runtime);
   }
 
   /**
@@ -1177,6 +1252,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
+  }
+
+  /**
+   * 查询记忆存储详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryCollectionResponse
+   */
+  async getMemoryCollectionWithOptions(memoryCollectionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryCollectionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryCollection",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/memory-collections/${$dara.URL.percentEncode(memoryCollectionName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryCollectionResponse>(await this.callApi(params, req, runtime), new $_model.GetMemoryCollectionResponse({}));
+  }
+
+  /**
+   * 查询记忆存储详情
+   * @returns GetMemoryCollectionResponse
+   */
+  async getMemoryCollection(memoryCollectionName: string): Promise<$_model.GetMemoryCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryCollectionWithOptions(memoryCollectionName, headers, runtime);
   }
 
   /**
@@ -1752,6 +1862,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listKnowledgeBasesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询记忆存储列表
+   * 
+   * @param request - ListMemoryCollectionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemoryCollectionsResponse
+   */
+  async listMemoryCollectionsWithOptions(request: $_model.ListMemoryCollectionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemoryCollectionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.memoryCollectionName)) {
+      query["memoryCollectionName"] = request.memoryCollectionName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMemoryCollections",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/memory-collections`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMemoryCollectionsResponse>(await this.callApi(params, req, runtime), new $_model.ListMemoryCollectionsResponse({}));
+  }
+
+  /**
+   * 查询记忆存储列表
+   * 
+   * @param request - ListMemoryCollectionsRequest
+   * @returns ListMemoryCollectionsResponse
+   */
+  async listMemoryCollections(request: $_model.ListMemoryCollectionsRequest): Promise<$_model.ListMemoryCollectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemoryCollectionsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2353,6 +2524,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateKnowledgeBaseWithOptions(knowledgeBaseName, request, headers, runtime);
+  }
+
+  /**
+   * 修改记忆存储信息
+   * 
+   * @param request - UpdateMemoryCollectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryCollectionResponse
+   */
+  async updateMemoryCollectionWithOptions(memoryCollectionName: string, request: $_model.UpdateMemoryCollectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryCollectionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemoryCollection",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/memory-collections/${$dara.URL.percentEncode(memoryCollectionName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemoryCollectionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMemoryCollectionResponse({}));
+  }
+
+  /**
+   * 修改记忆存储信息
+   * 
+   * @param request - UpdateMemoryCollectionRequest
+   * @returns UpdateMemoryCollectionResponse
+   */
+  async updateMemoryCollection(memoryCollectionName: string, request: $_model.UpdateMemoryCollectionRequest): Promise<$_model.UpdateMemoryCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryCollectionWithOptions(memoryCollectionName, request, headers, runtime);
   }
 
   /**
