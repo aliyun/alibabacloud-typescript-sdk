@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * AgentId。
+   * The operation that you want to perform. Set the value to **DeleteCustomAgent**.
    * 
    * @example
    * ebe44453-3b41-4c74-94d1-01d088d7****

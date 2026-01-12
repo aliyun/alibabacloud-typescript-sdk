@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **StartInstance**.
+   * 
    * @example
    * cn-beijing
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class StopInstanceRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **StopInstance**.
+   * 
    * @example
    * cn-beijing
    */

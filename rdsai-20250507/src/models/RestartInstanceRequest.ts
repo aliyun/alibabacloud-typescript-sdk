@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class RestartInstanceRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **RestartInstance**.
+   * 
    * @example
    * cn-beijing
    */

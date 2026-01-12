@@ -4,22 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The description in English.
+   * 
    * @example
    * Queries RDS instances.
    */
   en?: string;
+  /**
+   * @remarks
+   * The description in Japanese.
+   */
   ja?: string;
   /**
+   * @remarks
+   * The tool name.
+   * 
    * @example
    * describe_db_instances
    */
   name?: string;
+  /**
+   * @remarks
+   * The description in Traditional Chinese.
+   */
   tc?: string;
   /**
+   * @remarks
+   * The read/write type of the tool.
+   * 
    * @example
    * get
    */
   type?: string;
+  /**
+   * @remarks
+   * The description in Simplified Chinese.
+   */
   zh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,8 +74,15 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
 }
 
 export class ListCustomAgentToolsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListCustomAgentToolsResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32DEFB4A-861F-5D1D-ADD5-918E4FD7****
    */

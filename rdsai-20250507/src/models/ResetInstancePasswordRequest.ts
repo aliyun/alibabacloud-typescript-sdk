@@ -4,13 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetInstancePasswordRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * @example
    * test_Password
    */
   dashboardPassword?: string;
+  /**
+   * @remarks
+   * The Supabase Dashboard password.
+   * 
+   * The password must be 8 to 32 characters in length and must contain at least three of the following types: uppercase letters, lowercase letters, digits, and underscores (_).
+   * 
+   * @example
+   * test_Password
+   */
   databasePassword?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +32,9 @@ export class ResetInstancePasswordRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **ResetInstancePassword**.
+   * 
    * @example
    * cn-beijing
    */

@@ -38,13 +38,25 @@ export class ModifyInstanceRAGConfigRequestConfigList extends $dara.Model {
 
 export class ModifyInstanceRAGConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the RAG agent. If you do not configure this parameter, the RAG agent state remains unchanged. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   */
   configList?: ModifyInstanceRAGConfigRequestConfigList[];
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,11 +64,17 @@ export class ModifyInstanceRAGConfigRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **ModifyInstanceRAGConfig**.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * @example
    * true
    */

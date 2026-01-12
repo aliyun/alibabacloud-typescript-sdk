@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChatMessagesTaskStopRequest extends $dara.Model {
   /**
    * @remarks
+   * The operation that you want to perform. Set the value to **ChatMessagesTaskStop**.
+   * 
    * This parameter is required.
    * 
    * @example

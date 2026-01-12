@@ -37,13 +37,23 @@ export class ModifyInstanceAuthConfigRequestConfigList extends $dara.Model {
 }
 
 export class ModifyInstanceAuthConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   */
   configList?: ModifyInstanceAuthConfigRequestConfigList[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **ModifyInstanceAuthConfig**.
+   * 
    * @example
    * cn-beijing
    */

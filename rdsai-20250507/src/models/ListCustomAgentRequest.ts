@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomAgentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **ListCustomAgent**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 10
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups extends $dara.Model {
   /**
+   * @remarks
+   * The IP address whitelist name.
+   * 
    * @example
    * default
    */
   groupName?: string;
   /**
+   * @remarks
+   * The IP addresses or CIDR blocks in the whitelist.
+   * 
    * @example
    * 192.168.XXX.XXX/24,10.0.XXX.XXX/24
    */
@@ -38,12 +44,22 @@ export class DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups extends $d
 
 export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
   ipWhiteListGroups?: DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32DEFB4A-861F-5D1D-ADD5-918E4FD7AB8C
    */

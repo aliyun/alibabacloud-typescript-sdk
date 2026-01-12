@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * AgentId。
+   * The operation that you want to perform. Set the value to **UpdateCustomAgent**.
    * 
    * This parameter is required.
    * 
@@ -14,12 +14,27 @@ export class UpdateCustomAgentRequest extends $dara.Model {
    */
   customAgentId?: string;
   /**
+   * @remarks
+   * The system prompts.
+   * 
    * @example
    * true
    */
   enableTools?: boolean;
+  /**
+   * @remarks
+   * The ID of the agent.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the agent.
+   */
   systemPrompt?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable tools.
+   */
   tools?: string[];
   static names(): { [key: string]: string } {
     return {

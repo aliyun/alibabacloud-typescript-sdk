@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyMessagesFeedbacksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned results.
+   * 
    * @example
    * success
    */

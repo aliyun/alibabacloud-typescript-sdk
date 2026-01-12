@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceEndpointsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **DescribeInstanceEndpoints**.
+   * 
    * @example
    * cn-beijing
    */

@@ -38,13 +38,22 @@ export class ModifyInstanceStorageConfigRequestConfigList extends $dara.Model {
 
 export class ModifyInstanceStorageConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   */
   configList?: ModifyInstanceStorageConfigRequestConfigList[];
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +61,9 @@ export class ModifyInstanceStorageConfigRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **ModifyInstanceStorageConfig**.
+   * 
    * @example
    * cn-beijing
    */

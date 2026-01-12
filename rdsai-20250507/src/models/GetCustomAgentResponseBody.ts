@@ -4,29 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCustomAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the agent.
+   * 
    * @example
    * 2025-06-04T02:25:43Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * Indicates whether tools are enabled.
+   * 
    * @example
    * true
    */
   enableTools?: boolean;
   /**
+   * @remarks
+   * The ID of the backup set.
+   * 
    * @example
    * 17053
    */
   id?: string;
+  /**
+   * @remarks
+   * The name of the dedicated agent.
+   */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The system prompts.
+   */
   systemPrompt?: string;
+  /**
+   * @remarks
+   * The details of the tools.
+   */
   tools?: string[];
   /**
+   * @remarks
+   * The modification time of the agent.
+   * 
    * @example
    * 2020-11-27 16:02:28
    */

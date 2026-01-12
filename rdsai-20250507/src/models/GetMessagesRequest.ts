@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMessagesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **GetMessages**.
+   * 
    * @example
    * 941c6f59-acf5-4e11-9adc-31e52e1f****
    */
   conversationId?: string;
   /**
+   * @remarks
+   * The ID of the conversation.
+   * 
    * @example
    * 038866af-a050-4bc5-bfad-b7bfc838****
    */
   firstId?: string;
   /**
+   * @remarks
+   * The ID of the first message.
+   * 
    * @example
    * 10
    */

@@ -4,27 +4,48 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomAgentResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the agent.
+   * 
    * @example
    * 2020-11-27 16:01:28
    */
   createdAt?: string;
   /**
+   * @remarks
+   * Indicates whether tools are enabled.
+   * 
    * @example
    * true
    */
   enableTools?: boolean;
   /**
    * @remarks
-   * AgentId。
+   * The ID of the agent.
    * 
    * @example
    * d1b7d639-f34e-44c7-8231-987da14d****
    */
   id?: string;
+  /**
+   * @remarks
+   * The name of the dedicated agent.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The system prompts.
+   */
   systemPrompt?: string;
+  /**
+   * @remarks
+   * The information about the tool.
+   */
   tools?: string[];
   /**
+   * @remarks
+   * The modification time of the agent.
+   * 
    * @example
    * 2020-11-27 16:02:28
    */
@@ -66,23 +87,39 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
 }
 
 export class ListCustomAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListCustomAgentResponseBodyData[];
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned. By default, this parameter is not returned.
+   * 
    * @example
    * 20
    */

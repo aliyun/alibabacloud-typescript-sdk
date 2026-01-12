@@ -4,23 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEventsListResponseBodyEvents extends $dara.Model {
   /**
+   * @remarks
+   * The event code.
+   * 
    * @example
    * ExceptionEvent
    */
   eventCode?: string;
   /**
+   * @remarks
+   * The state of the event.
+   * 
    * @example
    * None
    */
   eventStatus?: string;
+  /**
+   * @remarks
+   * The event.
+   */
   eventTimeList?: string[];
+  /**
+   * @remarks
+   * The description of the instance.
+   */
   instanceDescription?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rm-2zecnb327gp36e7lh
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The recovery time.
+   * 
    * @example
    * 2025-07-23T02:11:07Z
    */
@@ -64,37 +84,62 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
 
 export class DescribeEventsListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of events.
+   * 
    * @example
    * OtherException:3,MysqlIOException:1
    */
   eventCodeCounts?: string;
+  /**
+   * @remarks
+   * The information about the events.
+   */
   events?: DescribeEventsListResponseBodyEvents[];
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */
   pageCount?: number;
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 20
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

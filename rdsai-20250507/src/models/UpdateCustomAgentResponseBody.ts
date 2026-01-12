@@ -4,25 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCustomAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether tools are enabled.
+   * 
    * @example
    * true
    */
   enableTools?: string;
   /**
    * @remarks
-   * AgentId。
+   * The ID of the agent.
    * 
    * @example
    * 82cf3d62-0add-47bd-869f-877131f7****
    */
   id?: string;
+  /**
+   * @remarks
+   * The name of the agent.
+   */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The system prompts.
+   */
   systemPrompt?: string;
+  /**
+   * @remarks
+   * The information about the tool.
+   */
   tools?: string[];
   static names(): { [key: string]: string } {
     return {
