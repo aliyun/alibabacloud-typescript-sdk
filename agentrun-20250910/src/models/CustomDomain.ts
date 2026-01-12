@@ -35,6 +35,7 @@ export class CustomDomain extends $dara.Model {
    * example.com
    */
   domainName?: string;
+  domainType?: string;
   /**
    * @remarks
    * 域名支持的协议类型：● HTTP：仅支持 HTTP 协议。● HTTPS：仅支持 HTTPS 协议。● HTTP,HTTPS：支持 HTTP 及 HTTPS 协议。
@@ -73,6 +74,7 @@ export class CustomDomain extends $dara.Model {
       createdAt: 'createdAt',
       description: 'description',
       domainName: 'domainName',
+      domainType: 'domainType',
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
@@ -86,6 +88,7 @@ export class CustomDomain extends $dara.Model {
       createdAt: 'string',
       description: 'string',
       domainName: 'string',
+      domainType: 'string',
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,

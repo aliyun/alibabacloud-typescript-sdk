@@ -303,6 +303,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建知识库
+   * 
+   * @param request - CreateKnowledgeBaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBaseWithOptions(request: $_model.CreateKnowledgeBaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeBaseResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeBase",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/knowledgebases`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 创建知识库
+   * 
+   * @param request - CreateKnowledgeBaseRequest
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBase(request: $_model.CreateKnowledgeBaseRequest): Promise<$_model.CreateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createKnowledgeBaseWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新增模型
    * 
    * @param request - CreateModelProxyRequest
@@ -665,6 +705,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCredentialWithOptions(credentialName, headers, runtime);
+  }
+
+  /**
+   * 删除知识库
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBaseWithOptions(knowledgeBaseName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeBase",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/knowledgebases/${$dara.URL.percentEncode(knowledgeBaseName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 删除知识库
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBase(knowledgeBaseName: string): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
   }
 
   /**
@@ -1067,6 +1142,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCredentialWithOptions(credentialName, headers, runtime);
+  }
+
+  /**
+   * 获取知识库
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeBaseResponse
+   */
+  async getKnowledgeBaseWithOptions(knowledgeBaseName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeBaseResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeBase",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/knowledgebases/${$dara.URL.percentEncode(knowledgeBaseName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 获取知识库
+   * @returns GetKnowledgeBaseResponse
+   */
+  async getKnowledgeBase(knowledgeBaseName: string): Promise<$_model.GetKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
   }
 
   /**
@@ -1589,6 +1699,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCredentialsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出知识库
+   * 
+   * @param request - ListKnowledgeBasesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBasesResponse
+   */
+  async listKnowledgeBasesWithOptions(request: $_model.ListKnowledgeBasesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBasesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBases",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/knowledgebases`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBasesResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBasesResponse({}));
+  }
+
+  /**
+   * 列出知识库
+   * 
+   * @param request - ListKnowledgeBasesRequest
+   * @returns ListKnowledgeBasesResponse
+   */
+  async listKnowledgeBases(request: $_model.ListKnowledgeBasesRequest): Promise<$_model.ListKnowledgeBasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listKnowledgeBasesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2150,6 +2313,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCredentialWithOptions(credentialName, request, headers, runtime);
+  }
+
+  /**
+   * 更新知识库
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBaseWithOptions(knowledgeBaseName: string, request: $_model.UpdateKnowledgeBaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBase",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/knowledgebases/${$dara.URL.percentEncode(knowledgeBaseName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 更新知识库
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBase(knowledgeBaseName: string, request: $_model.UpdateKnowledgeBaseRequest): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateKnowledgeBaseWithOptions(knowledgeBaseName, request, headers, runtime);
   }
 
   /**
