@@ -16,6 +16,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
    * DemoComputer
    */
   desktopName?: string;
+  desktopStatusList?: string[];
   /**
    * @remarks
    * The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by the cloud computer.
@@ -42,6 +43,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
    * TestUser
    */
   endUserId?: string;
+  excludeDesktopStatusList?: string[];
   /**
    * @remarks
    * The office network IDs.
@@ -145,9 +147,11 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
     return {
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
+      desktopStatusList: 'DesktopStatusList',
       desktopType: 'DesktopType',
       endTime: 'EndTime',
       endUserId: 'EndUserId',
+      excludeDesktopStatusList: 'ExcludeDesktopStatusList',
       officeSiteId: 'OfficeSiteId',
       orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
@@ -165,9 +169,11 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
     return {
       desktopId: { 'type': 'array', 'itemType': 'string' },
       desktopName: 'string',
+      desktopStatusList: { 'type': 'array', 'itemType': 'string' },
       desktopType: 'string',
       endTime: 'string',
       endUserId: 'string',
+      excludeDesktopStatusList: { 'type': 'array', 'itemType': 'string' },
       officeSiteId: 'string',
       orderBy: 'string',
       pageNumber: 'number',
@@ -184,6 +190,12 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.desktopId)) {
       $dara.Model.validateArray(this.desktopId);
+    }
+    if(Array.isArray(this.desktopStatusList)) {
+      $dara.Model.validateArray(this.desktopStatusList);
+    }
+    if(Array.isArray(this.excludeDesktopStatusList)) {
+      $dara.Model.validateArray(this.excludeDesktopStatusList);
     }
     super.validate();
   }

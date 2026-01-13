@@ -620,6 +620,8 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    */
   endUserIds?: string[];
   entraDomainName?: string;
+  envId?: string;
+  envType?: string;
   /**
    * @remarks
    * The time when a subscription cloud computer expired.
@@ -1005,6 +1007,8 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       downgradedTimes: 'DowngradedTimes',
       endUserIds: 'EndUserIds',
       entraDomainName: 'EntraDomainName',
+      envId: 'EnvId',
+      envType: 'EnvType',
       expiredTime: 'ExpiredTime',
       fotaUpdate: 'FotaUpdate',
       gpuCategory: 'GpuCategory',
@@ -1078,6 +1082,8 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       downgradedTimes: 'number',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       entraDomainName: 'string',
+      envId: 'string',
+      envType: 'string',
       expiredTime: 'string',
       fotaUpdate: DescribeDesktopsResponseBodyDesktopsFotaUpdate,
       gpuCategory: 'number',

@@ -136,6 +136,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * 4
    */
   memorySize?: number;
+  officeSiteId?: string;
   /**
    * @remarks
    * The sorting field. If this parameter is not provided, results are sorted by creation time in descending order.
@@ -223,6 +224,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       gpuMemory: 'GpuMemory',
       instanceTypeFamily: 'InstanceTypeFamily',
       memorySize: 'MemorySize',
+      officeSiteId: 'OfficeSiteId',
       orderBy: 'OrderBy',
       orderType: 'OrderType',
       regionId: 'RegionId',
@@ -247,6 +249,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       gpuMemory: 'number',
       instanceTypeFamily: 'string',
       memorySize: 'number',
+      officeSiteId: 'string',
       orderBy: 'string',
       orderType: 'string',
       regionId: 'string',

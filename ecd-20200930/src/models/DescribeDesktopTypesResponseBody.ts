@@ -36,6 +36,8 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
    * SUFFICIENT
    */
   desktopTypeStatus?: string;
+  envId?: string;
+  envType?: string;
   /**
    * @remarks
    * The number of GPUs.
@@ -117,6 +119,8 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
       description: 'Description',
       desktopTypeId: 'DesktopTypeId',
       desktopTypeStatus: 'DesktopTypeStatus',
+      envId: 'EnvId',
+      envType: 'EnvType',
       gpuCount: 'GpuCount',
       gpuMemory: 'GpuMemory',
       gpuSpec: 'GpuSpec',
@@ -136,6 +140,8 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
       description: 'string',
       desktopTypeId: 'string',
       desktopTypeStatus: 'string',
+      envId: 'string',
+      envType: 'string',
       gpuCount: 'number',
       gpuMemory: 'number',
       gpuSpec: 'string',

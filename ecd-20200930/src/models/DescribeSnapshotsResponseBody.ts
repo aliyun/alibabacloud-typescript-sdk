@@ -75,6 +75,8 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * Available
    */
   diskStatus?: string;
+  envId?: string;
+  envType?: string;
   /**
    * @example
    * Windows
@@ -276,6 +278,8 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       desktopName: 'DesktopName',
       desktopStatus: 'DesktopStatus',
       diskStatus: 'DiskStatus',
+      envId: 'EnvId',
+      envType: 'EnvType',
       osType: 'OsType',
       progress: 'Progress',
       protocolType: 'ProtocolType',
@@ -303,6 +307,8 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       desktopName: 'string',
       desktopStatus: 'string',
       diskStatus: 'string',
+      envId: 'string',
+      envType: 'string',
       osType: 'string',
       progress: 'string',
       protocolType: 'string',

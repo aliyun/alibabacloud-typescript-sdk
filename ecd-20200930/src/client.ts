@@ -8369,6 +8369,10 @@ export default class Client extends OpenApi {
       query["MemorySize"] = request.memorySize;
     }
 
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
     if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
@@ -9304,6 +9308,10 @@ export default class Client extends OpenApi {
       query["DesktopName"] = request.desktopName;
     }
 
+    if (!$dara.isNull(request.desktopStatusList)) {
+      query["DesktopStatusList"] = request.desktopStatusList;
+    }
+
     if (!$dara.isNull(request.desktopType)) {
       query["DesktopType"] = request.desktopType;
     }
@@ -9314,6 +9322,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.excludeDesktopStatusList)) {
+      query["ExcludeDesktopStatusList"] = request.excludeDesktopStatusList;
     }
 
     if (!$dara.isNull(request.officeSiteId)) {
