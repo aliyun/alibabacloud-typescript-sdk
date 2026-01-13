@@ -1,0 +1,16 @@
+export { DescribeCustomerModuleBasicInfoResponseBodyResultObject } from './DescribeCustomerModuleBasicInfoResponseBody';
+export { CreateCustomerModuleBasicInfoRequest } from './CreateCustomerModuleBasicInfoRequest';
+export { CreateCustomerModuleBasicInfoResponseBody } from './CreateCustomerModuleBasicInfoResponseBody';
+export { CreateCustomerModuleBasicInfoResponse } from './CreateCustomerModuleBasicInfoResponse';
+export { CreateCustomerModuleMetaInfoRequest } from './CreateCustomerModuleMetaInfoRequest';
+export { CreateCustomerModuleMetaInfoResponseBody } from './CreateCustomerModuleMetaInfoResponseBody';
+export { CreateCustomerModuleMetaInfoResponse } from './CreateCustomerModuleMetaInfoResponse';
+export { CreateCustomerModuleOutputInfoRequest } from './CreateCustomerModuleOutputInfoRequest';
+export { CreateCustomerModuleOutputInfoResponseBody } from './CreateCustomerModuleOutputInfoResponseBody';
+export { CreateCustomerModuleOutputInfoResponse } from './CreateCustomerModuleOutputInfoResponse';
+export { DeleteModelRequest } from './DeleteModelRequest';
+export { DeleteModelResponseBody } from './DeleteModelResponseBody';
+export { DeleteModelResponse } from './DeleteModelResponse';
+export { DescribeCustomerModuleBasicInfoRequest } from './DescribeCustomerModuleBasicInfoRequest';
+export { DescribeCustomerModuleBasicInfoResponseBody } from './DescribeCustomerModuleBasicInfoResponseBody';
+export { DescribeCustomerModuleBasicInfoResponse } from './DescribeCustomerModuleBasicInfoResponse';
