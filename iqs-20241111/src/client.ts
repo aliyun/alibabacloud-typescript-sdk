@@ -311,6 +311,10 @@ export default class Client extends OpenApi {
   async getIqsUsageWithOptions(request: $_model.GetIqsUsageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIqsUsageResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callerId)) {
+      query["callerId"] = request.callerId;
+    }
+
     if (!$dara.isNull(request.endDate)) {
       query["endDate"] = request.endDate;
     }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetIqsUsageRequest extends $dara.Model {
+  callerId?: string;
   /**
    * @example
    * 20241017
@@ -15,6 +16,7 @@ export class GetIqsUsageRequest extends $dara.Model {
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      callerId: 'callerId',
       endDate: 'endDate',
       startDate: 'startDate',
     };
@@ -22,6 +24,7 @@ export class GetIqsUsageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callerId: 'string',
       endDate: 'string',
       startDate: 'string',
     };
