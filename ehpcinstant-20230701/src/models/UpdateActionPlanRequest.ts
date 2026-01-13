@@ -35,11 +35,17 @@ export class UpdateActionPlanRequest extends $dara.Model {
    * true
    */
   enabled?: string;
+  /**
+   * @example
+   * 60
+   */
+  intervalMinutes?: number;
   static names(): { [key: string]: string } {
     return {
       actionPlanId: 'ActionPlanId',
       desiredCapacity: 'DesiredCapacity',
       enabled: 'Enabled',
+      intervalMinutes: 'IntervalMinutes',
     };
   }
 
@@ -48,6 +54,7 @@ export class UpdateActionPlanRequest extends $dara.Model {
       actionPlanId: 'string',
       desiredCapacity: 'number',
       enabled: 'string',
+      intervalMinutes: 'number',
     };
   }
 

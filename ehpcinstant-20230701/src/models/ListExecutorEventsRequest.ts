@@ -3,23 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListExecutorEventsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The list of executor IDs. A maximum of 100 IDs are supported.
+   */
   executorIds?: string[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * job-xxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The level of the running event. Valid value:
+   * 
+   * *   Normal
+   * *   Warning
+   * *   Error
+   * 
    * @example
    * Normal
    */
   level?: string;
   /**
+   * @remarks
+   * For jobs submitted after this time, the time in the region is converted into a Unix timestamp (UI8 regionfor Aliyun sites).
+   * 
    * @example
    * 1703820113
    */
   timeAfter?: number;
   /**
+   * @remarks
+   * For jobs submitted before this time, the time in the region is converted into a Unix timestamp (UI8 regionfor Aliyun sites).
+   * 
    * @example
    * 1703819914
    */
@@ -57,13 +77,25 @@ export class ListExecutorEventsRequestFilter extends $dara.Model {
 }
 
 export class ListExecutorEventsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Queries the Executor filter conditions.
+   */
   filter?: ListExecutorEventsRequestFilter;
   /**
+   * @remarks
+   * The current page number.\\
+   * Starting value: 1\\
+   * Default value: 1
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on the current page. Default value: 50. Maximum value: 100.
+   * 
    * @example
    * 50
    */

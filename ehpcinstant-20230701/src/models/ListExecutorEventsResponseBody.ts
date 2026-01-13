@@ -4,26 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model {
   /**
+   * @remarks
+   * The content of the running event.
+   * 
    * @example
    * Executor created successfully
    */
   content?: string;
   /**
+   * @remarks
+   * The ID of the executor. The format is JobId-TaskName-ArrayIndex.
+   * 
    * @example
    * job-xxxx-Task0-1
    */
   executorId?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * job-xxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The level of the running event. Valid values:
+   * 
+   * *   Normal
+   * *   Warning
+   * *   Error
+   * 
    * @example
    * Normal
    */
   level?: string;
   /**
+   * @remarks
+   * The event of the running event.
+   * 
    * @example
    * 2024-02-20 10:04:13
    */
@@ -58,23 +77,39 @@ export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model
 }
 
 export class ListExecutorEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of the running event.
+   */
   executorEventList?: ListExecutorEventsResponseBodyExecutorEventList[];
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 40
    */

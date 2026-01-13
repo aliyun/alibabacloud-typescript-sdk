@@ -140,6 +140,10 @@ export default class Client extends OpenApi {
       query["DesiredCapacity"] = request.desiredCapacity;
     }
 
+    if (!$dara.isNull(request.intervalMinutes)) {
+      query["IntervalMinutes"] = request.intervalMinutes;
+    }
+
     if (!$dara.isNull(request.level)) {
       query["Level"] = request.level;
     }
@@ -1002,7 +1006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Executor的事件信息
+   * Queries the running event list of one or more executers.
+   * 
+   * @remarks
+   * Queries job executor information.
    * 
    * @param tmpReq - ListExecutorEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1047,7 +1054,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Executor的事件信息
+   * Queries the running event list of one or more executers.
+   * 
+   * @remarks
+   * Queries job executor information.
    * 
    * @param request - ListExecutorEventsRequest
    * @returns ListExecutorEventsResponse
@@ -1649,6 +1659,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enabled)) {
       query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.intervalMinutes)) {
+      query["IntervalMinutes"] = request.intervalMinutes;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

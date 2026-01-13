@@ -40,6 +40,11 @@ export class CreateActionPlanShrinkRequest extends $dara.Model {
    */
   desiredCapacity?: number;
   /**
+   * @example
+   * 60
+   */
+  intervalMinutes?: number;
+  /**
    * @remarks
    * The computing power level. This value is valid only when the resource type is Economic. The following disk categories are supported:
    * 
@@ -98,6 +103,7 @@ export class CreateActionPlanShrinkRequest extends $dara.Model {
       allocationSpec: 'AllocationSpec',
       appId: 'AppId',
       desiredCapacity: 'DesiredCapacity',
+      intervalMinutes: 'IntervalMinutes',
       level: 'Level',
       prologScript: 'PrologScript',
       regionsShrink: 'Regions',
@@ -113,6 +119,7 @@ export class CreateActionPlanShrinkRequest extends $dara.Model {
       allocationSpec: 'string',
       appId: 'string',
       desiredCapacity: 'number',
+      intervalMinutes: 'number',
       level: 'string',
       prologScript: 'string',
       regionsShrink: 'string',

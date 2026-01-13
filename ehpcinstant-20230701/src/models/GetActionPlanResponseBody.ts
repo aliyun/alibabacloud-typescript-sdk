@@ -142,6 +142,11 @@ export class GetActionPlanResponseBody extends $dara.Model {
    */
   desiredCapacity?: number;
   /**
+   * @example
+   * 60
+   */
+  intervalMinutes?: number;
+  /**
    * @remarks
    * The computing power level.
    * 
@@ -222,6 +227,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
       appId: 'AppId',
       createTime: 'CreateTime',
       desiredCapacity: 'DesiredCapacity',
+      intervalMinutes: 'IntervalMinutes',
       level: 'Level',
       prologScript: 'PrologScript',
       regions: 'Regions',
@@ -242,6 +248,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
       appId: 'string',
       createTime: 'string',
       desiredCapacity: 'number',
+      intervalMinutes: 'number',
       level: 'string',
       prologScript: 'string',
       regions: { 'type': 'array', 'itemType': GetActionPlanResponseBodyRegions },
