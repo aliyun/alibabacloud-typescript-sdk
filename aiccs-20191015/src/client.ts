@@ -7168,6 +7168,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询呼入CallId
+   * 
+   * @param request - QueryInboundCallIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInboundCallIdResponse
+   */
+  async queryInboundCallIdWithOptions(request: $_model.QueryInboundCallIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryInboundCallIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callDate)) {
+      query["CallDate"] = request.callDate;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryInboundCallId",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryInboundCallIdResponse>(await this.callApi(params, req, runtime), new $_model.QueryInboundCallIdResponse({}));
+  }
+
+  /**
+   * 查询呼入CallId
+   * 
+   * @param request - QueryInboundCallIdRequest
+   * @returns QueryInboundCallIdResponse
+   */
+  async queryInboundCallId(request: $_model.QueryInboundCallIdRequest): Promise<$_model.QueryInboundCallIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryInboundCallIdWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryOutboundTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryOutboundTaskResponse
