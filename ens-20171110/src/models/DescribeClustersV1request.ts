@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeClustersV1Request extends $dara.Model {
   /**
+   * @remarks
+   * The name of the ECS instance.
+   * 
    * @example
    * eck-xxxxxxxx
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cn-hangzhou-58
    */
   ensRegionId?: string;
   /**
+   * @remarks
+   * System specified parameters. Set the value to **DescribeClustersV1**.
+   * 
    * @example
    * test-eck-name
    */

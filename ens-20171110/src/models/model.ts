@@ -1081,6 +1081,8 @@ export { ImportImageResponse } from './ImportImageResponse';
 export { ImportKeyPairRequest } from './ImportKeyPairRequest';
 export { ImportKeyPairResponseBody } from './ImportKeyPairResponseBody';
 export { ImportKeyPairResponse } from './ImportKeyPairResponse';
+export { InitializeENSECKServiceRoleResponseBody } from './InitializeEnseckserviceRoleResponseBody';
+export { InitializeENSECKServiceRoleResponse } from './InitializeEnseckserviceRoleResponse';
 export { JoinPublicIpsToEpnInstanceRequest } from './JoinPublicIpsToEpnInstanceRequest';
 export { JoinPublicIpsToEpnInstanceResponseBody } from './JoinPublicIpsToEpnInstanceResponseBody';
 export { JoinPublicIpsToEpnInstanceResponse } from './JoinPublicIpsToEpnInstanceResponse';

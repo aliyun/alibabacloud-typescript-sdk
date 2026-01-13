@@ -5872,7 +5872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群列表
+   * Queries a list of clusters.
    * 
    * @param request - DescribeClustersV1Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5911,7 +5911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群列表
+   * Queries a list of clusters.
    * 
    * @param request - DescribeClustersV1Request
    * @returns DescribeClustersV1Response
@@ -11731,6 +11731,38 @@ export default class Client extends OpenApi {
   async importKeyPair(request: $_model.ImportKeyPairRequest): Promise<$_model.ImportKeyPairResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importKeyPairWithOptions(request, runtime);
+  }
+
+  /**
+   * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+   * 
+   * @param request - InitializeENSECKServiceRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitializeENSECKServiceRoleResponse
+   */
+  async initializeENSECKServiceRoleWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.InitializeENSECKServiceRoleResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "InitializeENSECKServiceRole",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitializeENSECKServiceRoleResponse>(await this.callApi(params, req, runtime), new $_model.InitializeENSECKServiceRoleResponse({}));
+  }
+
+  /**
+   * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+   * @returns InitializeENSECKServiceRoleResponse
+   */
+  async initializeENSECKServiceRole(): Promise<$_model.InitializeENSECKServiceRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initializeENSECKServiceRoleWithOptions(runtime);
   }
 
   /**
