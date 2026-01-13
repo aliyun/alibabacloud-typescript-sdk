@@ -30,6 +30,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定vpc
+   * 
+   * @param request - BindInstance2VpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindInstance2VpcResponse
+   */
+  async bindInstance2VpcWithOptions(request: $_model.BindInstance2VpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BindInstance2VpcResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.instanceVpcName)) {
+      body["InstanceVpcName"] = request.instanceVpcName;
+    }
+
+    if (!$dara.isNull(request.virtualSwitchId)) {
+      body["VirtualSwitchId"] = request.virtualSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindInstance2Vpc",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/bindinstance2vpc`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindInstance2VpcResponse>(await this.callApi(params, req, runtime), new $_model.BindInstance2VpcResponse({}));
+  }
+
+  /**
+   * 绑定vpc
+   * 
+   * @param request - BindInstance2VpcRequest
+   * @returns BindInstance2VpcResponse
+   */
+  async bindInstance2Vpc(request: $_model.BindInstance2VpcRequest): Promise<$_model.BindInstance2VpcResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.bindInstance2VpcWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Changes the resource group to which an instance belongs.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -416,6 +473,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除VCU实例
+   * 
+   * @param request - DeleteVCUInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVCUInstanceResponse
+   */
+  async deleteVCUInstanceWithOptions(request: $_model.DeleteVCUInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVCUInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVCUInstance",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/deletevcuinstance`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVCUInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVCUInstanceResponse({}));
+  }
+
+  /**
+   * 删除VCU实例
+   * 
+   * @param request - DeleteVCUInstanceRequest
+   * @returns DeleteVCUInstanceResponse
+   */
+  async deleteVCUInstance(request: $_model.DeleteVCUInstanceRequest): Promise<$_model.DeleteVCUInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteVCUInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries supported regions.
    * 
    * @param request - DescribeRegionsRequest
@@ -503,6 +605,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列举集群类型
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterTypeResponse
+   */
+  async listClusterTypeWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterTypeResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListClusterType",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/listclustertype`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListClusterTypeResponse>(await this.callApi(params, req, runtime), new $_model.ListClusterTypeResponse({}));
+  }
+
+  /**
+   * 列举集群类型
+   * @returns ListClusterTypeResponse
+   */
+  async listClusterType(): Promise<$_model.ListClusterTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listClusterTypeWithOptions(headers, runtime);
   }
 
   /**
@@ -656,6 +793,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例的vpcInfo列表
+   * 
+   * @param request - ListVpcInfoByInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpcInfoByInstanceResponse
+   */
+  async listVpcInfoByInstanceWithOptions(request: $_model.ListVpcInfoByInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVpcInfoByInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVpcInfoByInstance",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/listvpcinfobyinstance`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVpcInfoByInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ListVpcInfoByInstanceResponse({}));
+  }
+
+  /**
+   * 获取实例的vpcInfo列表
+   * 
+   * @param request - ListVpcInfoByInstanceRequest
+   * @returns ListVpcInfoByInstanceResponse
+   */
+  async listVpcInfoByInstance(request: $_model.ListVpcInfoByInstanceRequest): Promise<$_model.ListVpcInfoByInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVpcInfoByInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取实例的vpcInfo列表
+   * 
+   * @param request - ListVpcInfoByVpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpcInfoByVpcResponse
+   */
+  async listVpcInfoByVpcWithOptions(request: $_model.ListVpcInfoByVpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVpcInfoByVpcResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVpcInfoByVpc",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/listvpcinfobyvpc`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVpcInfoByVpcResponse>(await this.callApi(params, req, runtime), new $_model.ListVpcInfoByVpcResponse({}));
+  }
+
+  /**
+   * 获取实例的vpcInfo列表
+   * 
+   * @param request - ListVpcInfoByVpcRequest
+   * @returns ListVpcInfoByVpcResponse
+   */
+  async listVpcInfoByVpc(request: $_model.ListVpcInfoByVpcRequest): Promise<$_model.ListVpcInfoByVpcResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVpcInfoByVpcWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Adds tags to instances.
    * 
    * @param request - TagResourcesRequest
@@ -706,6 +949,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 解绑vpc
+   * 
+   * @param request - UnbindInstance2VpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindInstance2VpcResponse
+   */
+  async unbindInstance2VpcWithOptions(request: $_model.UnbindInstance2VpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindInstance2VpcResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.instanceVpcName)) {
+      body["InstanceVpcName"] = request.instanceVpcName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindInstance2Vpc",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/unbindinstance2vpc`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindInstance2VpcResponse>(await this.callApi(params, req, runtime), new $_model.UnbindInstance2VpcResponse({}));
+  }
+
+  /**
+   * 解绑vpc
+   * 
+   * @param request - UnbindInstance2VpcRequest
+   * @returns UnbindInstance2VpcResponse
+   */
+  async unbindInstance2Vpc(request: $_model.UnbindInstance2VpcRequest): Promise<$_model.UnbindInstance2VpcResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unbindInstance2VpcWithOptions(request, headers, runtime);
   }
 
   /**

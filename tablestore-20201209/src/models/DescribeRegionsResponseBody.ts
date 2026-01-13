@@ -48,18 +48,11 @@ export class DescribeRegionsResponseBody extends $dara.Model {
    * The regions.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
-  /**
-   * @remarks
-   * The request ID, which can be used to troubleshoot issues.
-   * 
-   * @example
-   * B37BBA04-D827-55C8-B901-5264B904E8C6
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       regions: 'Regions',
-      requestId: 'requestId',
+      requestId: 'RequestId',
     };
   }
 
