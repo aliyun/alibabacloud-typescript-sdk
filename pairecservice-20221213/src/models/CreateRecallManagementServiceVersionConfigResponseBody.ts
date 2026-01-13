@@ -2,23 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SplitTrafficControlTargetResponseBody extends $dara.Model {
+export class CreateRecallManagementServiceVersionConfigResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Id of the request。
-   * 
+   * @example
+   * 1
+   */
+  recallManagementServiceVersionConfigId?: string;
+  /**
    * @example
    * F8F613A9-DF1C-551A-88E1-397A3981A785
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      recallManagementServiceVersionConfigId: 'RecallManagementServiceVersionConfigId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      recallManagementServiceVersionConfigId: 'string',
       requestId: 'string',
     };
   }

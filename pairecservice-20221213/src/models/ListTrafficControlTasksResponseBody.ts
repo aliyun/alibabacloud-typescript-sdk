@@ -144,6 +144,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   startTime?: string;
   statisBahaviorConditionExpress?: string;
   statisBehaviorConditionArray?: string;
+  statisBehaviorConditionExpress?: string;
   statisBehaviorConditionType?: string;
   trafficControlTargets?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets[];
   trafficControlTaskId?: string;
@@ -185,6 +186,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       startTime: 'StartTime',
       statisBahaviorConditionExpress: 'StatisBahaviorConditionExpress',
       statisBehaviorConditionArray: 'StatisBehaviorConditionArray',
+      statisBehaviorConditionExpress: 'StatisBehaviorConditionExpress',
       statisBehaviorConditionType: 'StatisBehaviorConditionType',
       trafficControlTargets: 'TrafficControlTargets',
       trafficControlTaskId: 'TrafficControlTaskId',
@@ -229,6 +231,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       startTime: 'string',
       statisBahaviorConditionExpress: 'string',
       statisBehaviorConditionArray: 'string',
+      statisBehaviorConditionExpress: 'string',
       statisBehaviorConditionType: 'string',
       trafficControlTargets: { 'type': 'array', 'itemType': ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets },
       trafficControlTaskId: 'string',

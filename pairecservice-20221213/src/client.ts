@@ -160,6 +160,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更改召回管理服务的版本
+   * 
+   * @param request - ChangeRecallManagementServiceVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeRecallManagementServiceVersionResponse
+   */
+  async changeRecallManagementServiceVersionWithOptions(RecallManagementServiceId: string, request: $_model.ChangeRecallManagementServiceVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeRecallManagementServiceVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.recallManagementServiceVersionId)) {
+      body["RecallManagementServiceVersionId"] = request.recallManagementServiceVersionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeRecallManagementServiceVersion",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/action/changeversion`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeRecallManagementServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.ChangeRecallManagementServiceVersionResponse({}));
+  }
+
+  /**
+   * 更改召回管理服务的版本
+   * 
+   * @param request - ChangeRecallManagementServiceVersionRequest
+   * @returns ChangeRecallManagementServiceVersionResponse
+   */
+  async changeRecallManagementServiceVersion(RecallManagementServiceId: string, request: $_model.ChangeRecallManagementServiceVersionRequest): Promise<$_model.ChangeRecallManagementServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.changeRecallManagementServiceVersionWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
    * 检测实例下配置的资源的连接状态。
    * 
    * @param request - CheckInstanceResourcesRequest
@@ -1678,6 +1727,331 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建召回管理初始化配置。
+   * 
+   * @param request - CreateRecallManagementConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecallManagementConfigResponse
+   */
+  async createRecallManagementConfigWithOptions(request: $_model.CreateRecallManagementConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecallManagementConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkConfigs)) {
+      body["NetworkConfigs"] = request.networkConfigs;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecallManagementConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementconfigs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecallManagementConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecallManagementConfigResponse({}));
+  }
+
+  /**
+   * 创建召回管理初始化配置。
+   * 
+   * @param request - CreateRecallManagementConfigRequest
+   * @returns CreateRecallManagementConfigResponse
+   */
+  async createRecallManagementConfig(request: $_model.CreateRecallManagementConfigRequest): Promise<$_model.CreateRecallManagementConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRecallManagementConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建召回管理服务
+   * 
+   * @param request - CreateRecallManagementServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecallManagementServiceResponse
+   */
+  async createRecallManagementServiceWithOptions(request: $_model.CreateRecallManagementServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecallManagementServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecallManagementService",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecallManagementServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecallManagementServiceResponse({}));
+  }
+
+  /**
+   * 创建召回管理服务
+   * 
+   * @param request - CreateRecallManagementServiceRequest
+   * @returns CreateRecallManagementServiceResponse
+   */
+  async createRecallManagementService(request: $_model.CreateRecallManagementServiceRequest): Promise<$_model.CreateRecallManagementServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRecallManagementServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建召回管理版本
+   * 
+   * @param request - CreateRecallManagementServiceVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecallManagementServiceVersionResponse
+   */
+  async createRecallManagementServiceVersionWithOptions(RecallManagementServiceId: string, request: $_model.CreateRecallManagementServiceVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecallManagementServiceVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configs)) {
+      body["Configs"] = request.configs;
+    }
+
+    if (!$dara.isNull(request.sourceRecallManagementServiceVersionId)) {
+      body["SourceRecallManagementServiceVersionId"] = request.sourceRecallManagementServiceVersionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecallManagementServiceVersion",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecallManagementServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecallManagementServiceVersionResponse({}));
+  }
+
+  /**
+   * 创建召回管理版本
+   * 
+   * @param request - CreateRecallManagementServiceVersionRequest
+   * @returns CreateRecallManagementServiceVersionResponse
+   */
+  async createRecallManagementServiceVersion(RecallManagementServiceId: string, request: $_model.CreateRecallManagementServiceVersionRequest): Promise<$_model.CreateRecallManagementServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRecallManagementServiceVersionWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建召回管理服务版本配置
+   * 
+   * @param request - CreateRecallManagementServiceVersionConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecallManagementServiceVersionConfigResponse
+   */
+  async createRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, request: $_model.CreateRecallManagementServiceVersionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecallManagementServiceVersionConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configType)) {
+      body["ConfigType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mergeConfig)) {
+      body["MergeConfig"] = request.mergeConfig;
+    }
+
+    if (!$dara.isNull(request.recallConfig)) {
+      body["RecallConfig"] = request.recallConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecallManagementServiceVersionConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions/${$dara.URL.percentEncode(RecallManagementServiceVersionId)}/configs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecallManagementServiceVersionConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecallManagementServiceVersionConfigResponse({}));
+  }
+
+  /**
+   * 创建召回管理服务版本配置
+   * 
+   * @param request - CreateRecallManagementServiceVersionConfigRequest
+   * @returns CreateRecallManagementServiceVersionConfigResponse
+   */
+  async createRecallManagementServiceVersionConfig(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, request: $_model.CreateRecallManagementServiceVersionConfigRequest): Promise<$_model.CreateRecallManagementServiceVersionConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, request, headers, runtime);
+  }
+
+  /**
+   * 创建召回管理表。
+   * 
+   * @param request - CreateRecallManagementTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecallManagementTableResponse
+   */
+  async createRecallManagementTableWithOptions(request: $_model.CreateRecallManagementTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecallManagementTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.dataSource)) {
+      body["DataSource"] = request.dataSource;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableDataSizeFluctuationThreshold)) {
+      body["EnableDataSizeFluctuationThreshold"] = request.enableDataSizeFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.enableRowCountFluctuationThreshold)) {
+      body["EnableRowCountFluctuationThreshold"] = request.enableRowCountFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxDataSizeFluctuationThreshold)) {
+      body["MaxDataSizeFluctuationThreshold"] = request.maxDataSizeFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.maxRowCountFluctuationThreshold)) {
+      body["MaxRowCountFluctuationThreshold"] = request.maxRowCountFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.maxcomputeProjectName)) {
+      body["MaxcomputeProjectName"] = request.maxcomputeProjectName;
+    }
+
+    if (!$dara.isNull(request.maxcomputeSchema)) {
+      body["MaxcomputeSchema"] = request.maxcomputeSchema;
+    }
+
+    if (!$dara.isNull(request.maxcomputeTableName)) {
+      body["MaxcomputeTableName"] = request.maxcomputeTableName;
+    }
+
+    if (!$dara.isNull(request.minDataSizeFluctuationThreshold)) {
+      body["MinDataSizeFluctuationThreshold"] = request.minDataSizeFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.minRowCountFluctuationThreshold)) {
+      body["MinRowCountFluctuationThreshold"] = request.minRowCountFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.recallType)) {
+      body["RecallType"] = request.recallType;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecallManagementTable",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecallManagementTableResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecallManagementTableResponse({}));
+  }
+
+  /**
+   * 创建召回管理表。
+   * 
+   * @param request - CreateRecallManagementTableRequest
+   * @returns CreateRecallManagementTableResponse
+   */
+  async createRecallManagementTable(request: $_model.CreateRecallManagementTableRequest): Promise<$_model.CreateRecallManagementTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRecallManagementTableWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建资源规则
    * 
    * @param request - CreateResourceRuleRequest
@@ -2841,6 +3215,186 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定召回管理服务
+   * 
+   * @param request - DeleteRecallManagementServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecallManagementServiceResponse
+   */
+  async deleteRecallManagementServiceWithOptions(RecallManagementServiceId: string, request: $_model.DeleteRecallManagementServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecallManagementServiceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecallManagementService",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecallManagementServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecallManagementServiceResponse({}));
+  }
+
+  /**
+   * 删除指定召回管理服务
+   * 
+   * @param request - DeleteRecallManagementServiceRequest
+   * @returns DeleteRecallManagementServiceResponse
+   */
+  async deleteRecallManagementService(RecallManagementServiceId: string, request: $_model.DeleteRecallManagementServiceRequest): Promise<$_model.DeleteRecallManagementServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
+   * 删除指定召回管理服务版本
+   * 
+   * @param request - DeleteRecallManagementServiceVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecallManagementServiceVersionResponse
+   */
+  async deleteRecallManagementServiceVersionWithOptions(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, request: $_model.DeleteRecallManagementServiceVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecallManagementServiceVersionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecallManagementServiceVersion",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions/${$dara.URL.percentEncode(RecallManagementServiceVersionId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecallManagementServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecallManagementServiceVersionResponse({}));
+  }
+
+  /**
+   * 删除指定召回管理服务版本
+   * 
+   * @param request - DeleteRecallManagementServiceVersionRequest
+   * @returns DeleteRecallManagementServiceVersionResponse
+   */
+  async deleteRecallManagementServiceVersion(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, request: $_model.DeleteRecallManagementServiceVersionRequest): Promise<$_model.DeleteRecallManagementServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRecallManagementServiceVersionWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, request, headers, runtime);
+  }
+
+  /**
+   * 删除召回管理服务版本配置
+   * 
+   * @param request - DeleteRecallManagementServiceVersionConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecallManagementServiceVersionConfigResponse
+   */
+  async deleteRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, RecallManagementServiceVersionConfigId: string, request: $_model.DeleteRecallManagementServiceVersionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecallManagementServiceVersionConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecallManagementServiceVersionConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions/${$dara.URL.percentEncode(RecallManagementServiceVersionId)}/configs/${$dara.URL.percentEncode(RecallManagementServiceVersionConfigId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecallManagementServiceVersionConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecallManagementServiceVersionConfigResponse({}));
+  }
+
+  /**
+   * 删除召回管理服务版本配置
+   * 
+   * @param request - DeleteRecallManagementServiceVersionConfigRequest
+   * @returns DeleteRecallManagementServiceVersionConfigResponse
+   */
+  async deleteRecallManagementServiceVersionConfig(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, RecallManagementServiceVersionConfigId: string, request: $_model.DeleteRecallManagementServiceVersionConfigRequest): Promise<$_model.DeleteRecallManagementServiceVersionConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, RecallManagementServiceVersionConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 删除指定召回管理表。
+   * 
+   * @param request - DeleteRecallManagementTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecallManagementTableResponse
+   */
+  async deleteRecallManagementTableWithOptions(RecallManagementTableId: string, request: $_model.DeleteRecallManagementTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecallManagementTableResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecallManagementTable",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables/${$dara.URL.percentEncode(RecallManagementTableId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecallManagementTableResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecallManagementTableResponse({}));
+  }
+
+  /**
+   * 删除指定召回管理表。
+   * 
+   * @param request - DeleteRecallManagementTableRequest
+   * @returns DeleteRecallManagementTableResponse
+   */
+  async deleteRecallManagementTable(RecallManagementTableId: string, request: $_model.DeleteRecallManagementTableRequest): Promise<$_model.DeleteRecallManagementTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+  }
+
+  /**
    * 删除资源规则
    * 
    * @param request - DeleteResourceRuleRequest
@@ -3903,6 +4457,276 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取召回管理初始化配置。
+   * 
+   * @param request - GetRecallManagementConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecallManagementConfigResponse
+   */
+  async getRecallManagementConfigWithOptions(request: $_model.GetRecallManagementConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecallManagementConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecallManagementConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementconfigs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecallManagementConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetRecallManagementConfigResponse({}));
+  }
+
+  /**
+   * 获取召回管理初始化配置。
+   * 
+   * @param request - GetRecallManagementConfigRequest
+   * @returns GetRecallManagementConfigResponse
+   */
+  async getRecallManagementConfig(request: $_model.GetRecallManagementConfigRequest): Promise<$_model.GetRecallManagementConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRecallManagementConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取召回管理任务详情。
+   * 
+   * @param request - GetRecallManagementJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecallManagementJobResponse
+   */
+  async getRecallManagementJobWithOptions(RecallManagementJobId: string, request: $_model.GetRecallManagementJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecallManagementJobResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecallManagementJob",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementjobs/${$dara.URL.percentEncode(RecallManagementJobId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecallManagementJobResponse>(await this.callApi(params, req, runtime), new $_model.GetRecallManagementJobResponse({}));
+  }
+
+  /**
+   * 获取召回管理任务详情。
+   * 
+   * @param request - GetRecallManagementJobRequest
+   * @returns GetRecallManagementJobResponse
+   */
+  async getRecallManagementJob(RecallManagementJobId: string, request: $_model.GetRecallManagementJobRequest): Promise<$_model.GetRecallManagementJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRecallManagementJobWithOptions(RecallManagementJobId, request, headers, runtime);
+  }
+
+  /**
+   * 获取指定召回管理服务详细信息
+   * 
+   * @param request - GetRecallManagementServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecallManagementServiceResponse
+   */
+  async getRecallManagementServiceWithOptions(RecallManagementServiceId: string, request: $_model.GetRecallManagementServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecallManagementServiceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecallManagementService",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecallManagementServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetRecallManagementServiceResponse({}));
+  }
+
+  /**
+   * 获取指定召回管理服务详细信息
+   * 
+   * @param request - GetRecallManagementServiceRequest
+   * @returns GetRecallManagementServiceResponse
+   */
+  async getRecallManagementService(RecallManagementServiceId: string, request: $_model.GetRecallManagementServiceRequest): Promise<$_model.GetRecallManagementServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取指定召回管理版本详细信息
+   * 
+   * @param request - GetRecallManagementServiceVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecallManagementServiceVersionResponse
+   */
+  async getRecallManagementServiceVersionWithOptions(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, request: $_model.GetRecallManagementServiceVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecallManagementServiceVersionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecallManagementServiceVersion",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions/${$dara.URL.percentEncode(RecallManagementServiceVersionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecallManagementServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetRecallManagementServiceVersionResponse({}));
+  }
+
+  /**
+   * 获取指定召回管理版本详细信息
+   * 
+   * @param request - GetRecallManagementServiceVersionRequest
+   * @returns GetRecallManagementServiceVersionResponse
+   */
+  async getRecallManagementServiceVersion(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, request: $_model.GetRecallManagementServiceVersionRequest): Promise<$_model.GetRecallManagementServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRecallManagementServiceVersionWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, request, headers, runtime);
+  }
+
+  /**
+   * 获取召回管理服务版本配置详细信息
+   * 
+   * @param request - GetRecallManagementServiceVersionConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecallManagementServiceVersionConfigResponse
+   */
+  async getRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, RecallManagementServiceVersionConfigId: string, request: $_model.GetRecallManagementServiceVersionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecallManagementServiceVersionConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecallManagementServiceVersionConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions/${$dara.URL.percentEncode(RecallManagementServiceVersionId)}/configs/${$dara.URL.percentEncode(RecallManagementServiceVersionConfigId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecallManagementServiceVersionConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetRecallManagementServiceVersionConfigResponse({}));
+  }
+
+  /**
+   * 获取召回管理服务版本配置详细信息
+   * 
+   * @param request - GetRecallManagementServiceVersionConfigRequest
+   * @returns GetRecallManagementServiceVersionConfigResponse
+   */
+  async getRecallManagementServiceVersionConfig(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, RecallManagementServiceVersionConfigId: string, request: $_model.GetRecallManagementServiceVersionConfigRequest): Promise<$_model.GetRecallManagementServiceVersionConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, RecallManagementServiceVersionConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 获取指定召回管理表详细信息。
+   * 
+   * @param request - GetRecallManagementTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecallManagementTableResponse
+   */
+  async getRecallManagementTableWithOptions(RecallManagementTableId: string, request: $_model.GetRecallManagementTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecallManagementTableResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecallManagementTable",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables/${$dara.URL.percentEncode(RecallManagementTableId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecallManagementTableResponse>(await this.callApi(params, req, runtime), new $_model.GetRecallManagementTableResponse({}));
+  }
+
+  /**
+   * 获取指定召回管理表详细信息。
+   * 
+   * @param request - GetRecallManagementTableRequest
+   * @returns GetRecallManagementTableResponse
+   */
+  async getRecallManagementTable(RecallManagementTableId: string, request: $_model.GetRecallManagementTableRequest): Promise<$_model.GetRecallManagementTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+  }
+
+  /**
    * 获取资源规则详细信息
    * 
    * @param request - GetResourceRuleRequest
@@ -4035,6 +4859,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSceneWithOptions(SceneId, request, headers, runtime);
+  }
+
+  /**
+   * 获取服务详细信息。
+   * 
+   * @param request - GetServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceResponse
+   */
+  async getServiceWithOptions(ServiceId: string, request: $_model.GetServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetService",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/services/${$dara.URL.percentEncode(ServiceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceResponse({}));
+  }
+
+  /**
+   * 获取服务详细信息。
+   * 
+   * @param request - GetServiceRequest
+   * @returns GetServiceResponse
+   */
+  async getService(ServiceId: string, request: $_model.GetServiceRequest): Promise<$_model.GetServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceWithOptions(ServiceId, request, headers, runtime);
   }
 
   /**
@@ -5298,6 +6167,351 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取召回管理任务列表。
+   * 
+   * @param request - ListRecallManagementJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecallManagementJobsResponse
+   */
+  async listRecallManagementJobsWithOptions(request: $_model.ListRecallManagementJobsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecallManagementJobsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.condition)) {
+      query["Condition"] = request.condition;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecallManagementJobs",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementjobs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecallManagementJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListRecallManagementJobsResponse({}));
+  }
+
+  /**
+   * 获取召回管理任务列表。
+   * 
+   * @param request - ListRecallManagementJobsRequest
+   * @returns ListRecallManagementJobsResponse
+   */
+  async listRecallManagementJobs(request: $_model.ListRecallManagementJobsRequest): Promise<$_model.ListRecallManagementJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRecallManagementJobsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取召回管理服务下的版本列表
+   * 
+   * @param request - ListRecallManagementServiceVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecallManagementServiceVersionsResponse
+   */
+  async listRecallManagementServiceVersionsWithOptions(RecallManagementServiceId: string, request: $_model.ListRecallManagementServiceVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecallManagementServiceVersionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecallManagementServiceVersions",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecallManagementServiceVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListRecallManagementServiceVersionsResponse({}));
+  }
+
+  /**
+   * 获取召回管理服务下的版本列表
+   * 
+   * @param request - ListRecallManagementServiceVersionsRequest
+   * @returns ListRecallManagementServiceVersionsResponse
+   */
+  async listRecallManagementServiceVersions(RecallManagementServiceId: string, request: $_model.ListRecallManagementServiceVersionsRequest): Promise<$_model.ListRecallManagementServiceVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRecallManagementServiceVersionsWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取召回管理服务列表
+   * 
+   * @param request - ListRecallManagementServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecallManagementServicesResponse
+   */
+  async listRecallManagementServicesWithOptions(request: $_model.ListRecallManagementServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecallManagementServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecallManagementServices",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecallManagementServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListRecallManagementServicesResponse({}));
+  }
+
+  /**
+   * 获取召回管理服务列表
+   * 
+   * @param request - ListRecallManagementServicesRequest
+   * @returns ListRecallManagementServicesResponse
+   */
+  async listRecallManagementServices(request: $_model.ListRecallManagementServicesRequest): Promise<$_model.ListRecallManagementServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRecallManagementServicesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取召回管理表版本列表。
+   * 
+   * @param request - ListRecallManagementTableVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecallManagementTableVersionsResponse
+   */
+  async listRecallManagementTableVersionsWithOptions(RecallManagementTableId: string, request: $_model.ListRecallManagementTableVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecallManagementTableVersionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecallManagementTableVersions",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables/${$dara.URL.percentEncode(RecallManagementTableId)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecallManagementTableVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListRecallManagementTableVersionsResponse({}));
+  }
+
+  /**
+   * 获取召回管理表版本列表。
+   * 
+   * @param request - ListRecallManagementTableVersionsRequest
+   * @returns ListRecallManagementTableVersionsResponse
+   */
+  async listRecallManagementTableVersions(RecallManagementTableId: string, request: $_model.ListRecallManagementTableVersionsRequest): Promise<$_model.ListRecallManagementTableVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRecallManagementTableVersionsWithOptions(RecallManagementTableId, request, headers, runtime);
+  }
+
+  /**
+   * 获取召回管理表列表。
+   * 
+   * @param request - ListRecallManagementTablesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecallManagementTablesResponse
+   */
+  async listRecallManagementTablesWithOptions(request: $_model.ListRecallManagementTablesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecallManagementTablesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecallManagementTables",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecallManagementTablesResponse>(await this.callApi(params, req, runtime), new $_model.ListRecallManagementTablesResponse({}));
+  }
+
+  /**
+   * 获取召回管理表列表。
+   * 
+   * @param request - ListRecallManagementTablesRequest
+   * @returns ListRecallManagementTablesResponse
+   */
+  async listRecallManagementTables(request: $_model.ListRecallManagementTablesRequest): Promise<$_model.ListRecallManagementTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRecallManagementTablesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取资源规则列表
    * 
    * @param request - ListResourceRulesRequest
@@ -5892,6 +7106,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下线召回管理服务
+   * 
+   * @param request - OfflineRecallManagementServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineRecallManagementServiceResponse
+   */
+  async offlineRecallManagementServiceWithOptions(RecallManagementServiceId: string, request: $_model.OfflineRecallManagementServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OfflineRecallManagementServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OfflineRecallManagementService",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/action/offline`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OfflineRecallManagementServiceResponse>(await this.callApi(params, req, runtime), new $_model.OfflineRecallManagementServiceResponse({}));
+  }
+
+  /**
+   * 下线召回管理服务
+   * 
+   * @param request - OfflineRecallManagementServiceRequest
+   * @returns OfflineRecallManagementServiceResponse
+   */
+  async offlineRecallManagementService(RecallManagementServiceId: string, request: $_model.OfflineRecallManagementServiceRequest): Promise<$_model.OfflineRecallManagementServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.offlineRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
    * 上线实验
    * 
    * @param request - OnlineExperimentRequest
@@ -6024,6 +7283,108 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.onlineLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
+  }
+
+  /**
+   * 上线召回管理服务
+   * 
+   * @param request - OnlineRecallManagementServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OnlineRecallManagementServiceResponse
+   */
+  async onlineRecallManagementServiceWithOptions(RecallManagementServiceId: string, request: $_model.OnlineRecallManagementServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OnlineRecallManagementServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OnlineRecallManagementService",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/action/online`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OnlineRecallManagementServiceResponse>(await this.callApi(params, req, runtime), new $_model.OnlineRecallManagementServiceResponse({}));
+  }
+
+  /**
+   * 上线召回管理服务
+   * 
+   * @param request - OnlineRecallManagementServiceRequest
+   * @returns OnlineRecallManagementServiceResponse
+   */
+  async onlineRecallManagementService(RecallManagementServiceId: string, request: $_model.OnlineRecallManagementServiceRequest): Promise<$_model.OnlineRecallManagementServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.onlineRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
+   * 将maxcompute的表同步到召回引擎中。
+   * 
+   * @param request - PublishRecallManagementTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishRecallManagementTableResponse
+   */
+  async publishRecallManagementTableWithOptions(RecallManagementTableId: string, request: $_model.PublishRecallManagementTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishRecallManagementTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.partition)) {
+      body["Partition"] = request.partition;
+    }
+
+    if (!$dara.isNull(request.skipThresholdCheck)) {
+      body["SkipThresholdCheck"] = request.skipThresholdCheck;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishRecallManagementTable",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables/${$dara.URL.percentEncode(RecallManagementTableId)}/action/publish`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishRecallManagementTableResponse>(await this.callApi(params, req, runtime), new $_model.PublishRecallManagementTableResponse({}));
+  }
+
+  /**
+   * 将maxcompute的表同步到召回引擎中。
+   * 
+   * @param request - PublishRecallManagementTableRequest
+   * @returns PublishRecallManagementTableResponse
+   */
+  async publishRecallManagementTable(RecallManagementTableId: string, request: $_model.PublishRecallManagementTableRequest): Promise<$_model.PublishRecallManagementTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.publishRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
   }
 
   /**
@@ -7741,6 +9102,244 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新召回管理初始化配置。
+   * 
+   * @param request - UpdateRecallManagementConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecallManagementConfigResponse
+   */
+  async updateRecallManagementConfigWithOptions(request: $_model.UpdateRecallManagementConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecallManagementConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkConfigs)) {
+      body["NetworkConfigs"] = request.networkConfigs;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecallManagementConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementconfigs`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecallManagementConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecallManagementConfigResponse({}));
+  }
+
+  /**
+   * 更新召回管理初始化配置。
+   * 
+   * @param request - UpdateRecallManagementConfigRequest
+   * @returns UpdateRecallManagementConfigResponse
+   */
+  async updateRecallManagementConfig(request: $_model.UpdateRecallManagementConfigRequest): Promise<$_model.UpdateRecallManagementConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRecallManagementConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新召回管理服务信息
+   * 
+   * @param request - UpdateRecallManagementServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecallManagementServiceResponse
+   */
+  async updateRecallManagementServiceWithOptions(RecallManagementServiceId: string, request: $_model.UpdateRecallManagementServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecallManagementServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecallManagementService",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecallManagementServiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecallManagementServiceResponse({}));
+  }
+
+  /**
+   * 更新召回管理服务信息
+   * 
+   * @param request - UpdateRecallManagementServiceRequest
+   * @returns UpdateRecallManagementServiceResponse
+   */
+  async updateRecallManagementService(RecallManagementServiceId: string, request: $_model.UpdateRecallManagementServiceRequest): Promise<$_model.UpdateRecallManagementServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRecallManagementServiceWithOptions(RecallManagementServiceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新召回管理服务版本配置
+   * 
+   * @param request - UpdateRecallManagementServiceVersionConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecallManagementServiceVersionConfigResponse
+   */
+  async updateRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, RecallManagementServiceVersionConfigId: string, request: $_model.UpdateRecallManagementServiceVersionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecallManagementServiceVersionConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configType)) {
+      body["ConfigType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mergeConfig)) {
+      body["MergeConfig"] = request.mergeConfig;
+    }
+
+    if (!$dara.isNull(request.recallConfig)) {
+      body["RecallConfig"] = request.recallConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecallManagementServiceVersionConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementservices/${$dara.URL.percentEncode(RecallManagementServiceId)}/versions/${$dara.URL.percentEncode(RecallManagementServiceVersionId)}/configs/${$dara.URL.percentEncode(RecallManagementServiceVersionConfigId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecallManagementServiceVersionConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecallManagementServiceVersionConfigResponse({}));
+  }
+
+  /**
+   * 更新召回管理服务版本配置
+   * 
+   * @param request - UpdateRecallManagementServiceVersionConfigRequest
+   * @returns UpdateRecallManagementServiceVersionConfigResponse
+   */
+  async updateRecallManagementServiceVersionConfig(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, RecallManagementServiceVersionConfigId: string, request: $_model.UpdateRecallManagementServiceVersionConfigRequest): Promise<$_model.UpdateRecallManagementServiceVersionConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId, RecallManagementServiceVersionId, RecallManagementServiceVersionConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 更新召回管理表。
+   * 
+   * @param request - UpdateRecallManagementTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecallManagementTableResponse
+   */
+  async updateRecallManagementTableWithOptions(RecallManagementTableId: string, request: $_model.UpdateRecallManagementTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecallManagementTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enableDataSizeFluctuationThreshold)) {
+      body["EnableDataSizeFluctuationThreshold"] = request.enableDataSizeFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.enableRowCountFluctuationThreshold)) {
+      body["EnableRowCountFluctuationThreshold"] = request.enableRowCountFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.indexVersionId)) {
+      body["IndexVersionId"] = request.indexVersionId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxDataSizeFluctuationThreshold)) {
+      body["MaxDataSizeFluctuationThreshold"] = request.maxDataSizeFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.maxRowCountFluctuationThreshold)) {
+      body["MaxRowCountFluctuationThreshold"] = request.maxRowCountFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.minDataSizeFluctuationThreshold)) {
+      body["MinDataSizeFluctuationThreshold"] = request.minDataSizeFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.minRowCountFluctuationThreshold)) {
+      body["MinRowCountFluctuationThreshold"] = request.minRowCountFluctuationThreshold;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecallManagementTable",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables/${$dara.URL.percentEncode(RecallManagementTableId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecallManagementTableResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecallManagementTableResponse({}));
+  }
+
+  /**
+   * 更新召回管理表。
+   * 
+   * @param request - UpdateRecallManagementTableRequest
+   * @returns UpdateRecallManagementTableResponse
+   */
+  async updateRecallManagementTable(RecallManagementTableId: string, request: $_model.UpdateRecallManagementTableRequest): Promise<$_model.UpdateRecallManagementTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+  }
+
+  /**
    * 获取资源规则列表
    * 
    * @param request - UpdateResourceRuleRequest
@@ -8196,6 +9795,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.statisBaeaviorConditionArray)) {
       body["StatisBaeaviorConditionArray"] = request.statisBaeaviorConditionArray;
+    }
+
+    if (!$dara.isNull(request.statisBehaviorConditionArray)) {
+      body["StatisBehaviorConditionArray"] = request.statisBehaviorConditionArray;
     }
 
     if (!$dara.isNull(request.statisBehaviorConditionExpress)) {

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SplitTrafficControlTargetRequest extends $dara.Model {
+  /**
+   * @example
+   * Prod
+   */
   environment?: string;
+  /**
+   * @example
+   * learn-pairec-xxx
+   */
   instanceId?: string;
   setPoints?: number[];
   setValues?: number[];

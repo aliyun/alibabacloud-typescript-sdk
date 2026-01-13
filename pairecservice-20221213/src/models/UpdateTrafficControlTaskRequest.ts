@@ -84,6 +84,7 @@ export class UpdateTrafficControlTaskRequest extends $dara.Model {
   serviceIds?: number[];
   startTime?: string;
   statisBaeaviorConditionArray?: string;
+  statisBehaviorConditionArray?: string;
   statisBehaviorConditionExpress?: string;
   statisBehaviorConditionType?: string;
   trafficControlTargets?: UpdateTrafficControlTaskRequestTrafficControlTargets[];
@@ -115,6 +116,7 @@ export class UpdateTrafficControlTaskRequest extends $dara.Model {
       serviceIds: 'ServiceIds',
       startTime: 'StartTime',
       statisBaeaviorConditionArray: 'StatisBaeaviorConditionArray',
+      statisBehaviorConditionArray: 'StatisBehaviorConditionArray',
       statisBehaviorConditionExpress: 'StatisBehaviorConditionExpress',
       statisBehaviorConditionType: 'StatisBehaviorConditionType',
       trafficControlTargets: 'TrafficControlTargets',
@@ -149,6 +151,7 @@ export class UpdateTrafficControlTaskRequest extends $dara.Model {
       serviceIds: { 'type': 'array', 'itemType': 'number' },
       startTime: 'string',
       statisBaeaviorConditionArray: 'string',
+      statisBehaviorConditionArray: 'string',
       statisBehaviorConditionExpress: 'string',
       statisBehaviorConditionType: 'string',
       trafficControlTargets: { 'type': 'array', 'itemType': UpdateTrafficControlTaskRequestTrafficControlTargets },

@@ -6,18 +6,18 @@ import { TrafficControlTaskTrafficInfoTargetTrafficsDataValue } from "./TrafficC
 
 export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics extends $dara.Model {
   data?: { [key: string]: TrafficControlTaskTrafficInfoTargetTrafficsDataValue };
-  trafficContorlTargetId?: string;
+  trafficControlTargetId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      trafficContorlTargetId: 'TrafficContorlTargetId',
+      trafficControlTargetId: 'TrafficControlTargetId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       data: { 'type': 'map', 'keyType': 'string', 'valueType': TrafficControlTaskTrafficInfoTargetTrafficsDataValue },
-      trafficContorlTargetId: 'string',
+      trafficControlTargetId: 'string',
     };
   }
 
@@ -66,6 +66,10 @@ export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficIn
 }
 
 export class GetTrafficControlTaskTrafficResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 6CF1E160-3F36-5E73-A170-C75504F05BBC
+   */
   requestId?: string;
   trafficControlTaskTrafficInfo?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo;
   static names(): { [key: string]: string } {

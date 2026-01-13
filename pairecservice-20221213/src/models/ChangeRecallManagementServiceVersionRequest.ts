@@ -2,21 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TrafficControlTaskTrafficInfoTaskTrafficsValue extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
-  traffic?: number;
+export class ChangeRecallManagementServiceVersionRequest extends $dara.Model {
+  instanceId?: string;
+  recallManagementServiceVersionId?: string;
   static names(): { [key: string]: string } {
     return {
-      traffic: 'Traffic',
+      instanceId: 'InstanceId',
+      recallManagementServiceVersionId: 'RecallManagementServiceVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      traffic: 'number',
+      instanceId: 'string',
+      recallManagementServiceVersionId: 'string',
     };
   }
 

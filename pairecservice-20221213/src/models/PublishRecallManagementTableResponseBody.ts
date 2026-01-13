@@ -2,21 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TrafficControlTaskTrafficInfoTaskTrafficsValue extends $dara.Model {
+export class PublishRecallManagementTableResponseBody extends $dara.Model {
   /**
    * @example
-   * 100
+   * 1
    */
-  traffic?: number;
+  recallManagementJobId?: string;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      traffic: 'Traffic',
+      recallManagementJobId: 'RecallManagementJobId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      traffic: 'number',
+      recallManagementJobId: 'string',
+      requestId: 'string',
     };
   }
 

@@ -2,28 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetTrafficControlTaskTrafficRequest extends $dara.Model {
+export class CreateRecallManagementServiceRequest extends $dara.Model {
   /**
    * @example
-   * Pre
+   * this is a test recall
    */
-  environment?: string;
+  description?: string;
   /**
    * @example
-   * pairec-test-xxx
+   * pairec-cn-test123
    */
   instanceId?: string;
+  /**
+   * @example
+   * hot_global_recall
+   */
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      environment: 'Environment',
+      description: 'Description',
       instanceId: 'InstanceId',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      environment: 'string',
+      description: 'string',
       instanceId: 'string',
+      name: 'string',
     };
   }
 

@@ -3,19 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends $dara.Model {
+  /**
+   * @example
+   * 80
+   */
   traffic?: number;
-  recordTime?: number;
+  recorfTime?: number;
   static names(): { [key: string]: string } {
     return {
       traffic: 'Traffic',
-      recordTime: 'RecordTime',
+      recorfTime: 'RecorfTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       traffic: 'number',
-      recordTime: 'number',
+      recorfTime: 'number',
     };
   }
 

@@ -2,28 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetTrafficControlTaskTrafficRequest extends $dara.Model {
+export class ListRecallManagementTableVersionsRequest extends $dara.Model {
   /**
-   * @example
-   * Pre
-   */
-  environment?: string;
-  /**
-   * @example
-   * pairec-test-xxx
+   * @remarks
+   * This parameter is required.
    */
   instanceId?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: string;
   static names(): { [key: string]: string } {
     return {
-      environment: 'Environment',
       instanceId: 'InstanceId',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      environment: 'string',
       instanceId: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
     };
   }
 
