@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCatalogsResponseBodyCatalogs extends $dara.Model {
   /**
+   * @example
+   * alias
+   */
+  alias?: string;
+  /**
    * @remarks
    * regionId。
    * 
@@ -48,6 +53,7 @@ export class ListCatalogsResponseBodyCatalogs extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      alias: 'alias',
       catalogId: 'catalogId',
       catalogProvider: 'catalogProvider',
       catalogType: 'catalogType',
@@ -62,6 +68,7 @@ export class ListCatalogsResponseBodyCatalogs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alias: 'string',
       catalogId: 'string',
       catalogProvider: 'string',
       catalogType: 'string',

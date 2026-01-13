@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { RunLog } from "./RunLog";
+import { Tag } from "./Tag";
 
 
 export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.Model {
@@ -88,6 +89,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    * STARTING
    */
   state?: string;
+  tags?: Tag[];
   /**
    * @remarks
    * The total number of CPU cores allocated to the job multiplied by the running duration (seconds).
@@ -115,6 +117,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       runLog: 'runLog',
       startTime: 'startTime',
       state: 'state',
+      tags: 'tags',
       vcoreSeconds: 'vcoreSeconds',
       webUI: 'webUI',
     };
@@ -134,6 +137,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       runLog: RunLog,
       startTime: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
       vcoreSeconds: 'number',
       webUI: 'string',
     };
@@ -142,6 +146,9 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   validate() {
     if(this.runLog && typeof (this.runLog as any).validate === 'function') {
       (this.runLog as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

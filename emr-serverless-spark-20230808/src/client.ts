@@ -1492,6 +1492,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取任务配置
+   * 
+   * @param request - GetRunConfigurationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRunConfigurationResponse
+   */
+  async getRunConfigurationWithOptions(workspaceId: string, runId: string, request: $_model.GetRunConfigurationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRunConfigurationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRunConfiguration",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/runs/${$dara.URL.percentEncode(runId)}/action/getRunConfiguration`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRunConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.GetRunConfigurationResponse({}));
+  }
+
+  /**
+   * 获取任务配置
+   * 
+   * @param request - GetRunConfigurationRequest
+   * @returns GetRunConfigurationResponse
+   */
+  async getRunConfiguration(workspaceId: string, runId: string, request: $_model.GetRunConfigurationRequest): Promise<$_model.GetRunConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRunConfigurationWithOptions(workspaceId, runId, request, headers, runtime);
+  }
+
+  /**
    * Queries the information about a session.
    * 
    * @param request - GetSessionClusterRequest
