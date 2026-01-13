@@ -2,38 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DetachRCDiskRequest extends $dara.Model {
+export class ModifyRCDiskAttributeRequest extends $dara.Model {
   /**
-   * @remarks
-   * The reserved parameter. This parameter is not supported.
-   * 
    * @example
-   * true
+   * false
+   */
+  burstingEnabled?: boolean;
+  /**
+   * @example
+   * false
    */
   deleteWithInstance?: boolean;
   /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
    * @remarks
-   * The ID of the disk that you want to detach.
-   * 
    * This parameter is required.
    * 
    * @example
-   * rcd-f8zh55g5gbk1byjr****
+   * rcd-wz9c8isqly8637zw****
    */
   diskId?: string;
   /**
-   * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * rc-dh2jf9n6j4s14926****
+   * testDisk
    */
-  instanceId?: string;
+  diskName?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * This parameter is required.
    * 
    * @example
    * cn-hangzhou
@@ -41,18 +41,22 @@ export class DetachRCDiskRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       deleteWithInstance: 'DeleteWithInstance',
+      description: 'Description',
       diskId: 'DiskId',
-      instanceId: 'InstanceId',
+      diskName: 'DiskName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       deleteWithInstance: 'boolean',
+      description: 'string',
       diskId: 'string',
-      instanceId: 'string',
+      diskName: 'string',
       regionId: 'string',
     };
   }

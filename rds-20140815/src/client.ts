@@ -17057,6 +17057,10 @@ export default class Client extends OpenApi {
       query["DiskId"] = request.diskId;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -25822,6 +25826,68 @@ export default class Client extends OpenApi {
   async modifyParameterGroup(request: $_model.ModifyParameterGroupRequest): Promise<$_model.ModifyParameterGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改块存储属性
+   * 
+   * @param request - ModifyRCDiskAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCDiskAttributeResponse
+   */
+  async modifyRCDiskAttributeWithOptions(request: $_model.ModifyRCDiskAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDiskAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.burstingEnabled)) {
+      query["BurstingEnabled"] = request.burstingEnabled;
+    }
+
+    if (!$dara.isNull(request.deleteWithInstance)) {
+      query["DeleteWithInstance"] = request.deleteWithInstance;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!$dara.isNull(request.diskName)) {
+      query["DiskName"] = request.diskName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRCDiskAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyRCDiskAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRCDiskAttributeResponse({}));
+  }
+
+  /**
+   * 修改块存储属性
+   * 
+   * @param request - ModifyRCDiskAttributeRequest
+   * @returns ModifyRCDiskAttributeResponse
+   */
+  async modifyRCDiskAttribute(request: $_model.ModifyRCDiskAttributeRequest): Promise<$_model.ModifyRCDiskAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRCDiskAttributeWithOptions(request, runtime);
   }
 
   /**
