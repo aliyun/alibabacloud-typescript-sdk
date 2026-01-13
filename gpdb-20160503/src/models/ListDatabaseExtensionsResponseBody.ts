@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDatabaseExtensionsResponseBodyExtensions extends $dara.Model {
   /**
+   * @remarks
+   * The description of the extension.
+   * 
    * @example
    * zhparser
    */
   description?: string;
   /**
+   * @remarks
+   * The extension name.
+   * 
    * @example
    * zhparser
    */
   extensionName?: string;
   /**
+   * @remarks
+   * The status of the extension.
+   * 
    * @example
    * installed
    */
@@ -44,8 +53,15 @@ export class ListDatabaseExtensionsResponseBodyExtensions extends $dara.Model {
 }
 
 export class ListDatabaseExtensionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Extension list.
+   */
   extensions?: ListDatabaseExtensionsResponseBodyExtensions[];
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */

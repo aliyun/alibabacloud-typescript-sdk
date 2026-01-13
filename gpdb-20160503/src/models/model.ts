@@ -17,7 +17,6 @@ export { ChatWithKnowledgeBaseResponseBodyChatCompletionChoices } from './ChatWi
 export { ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDetails } from './ChatWithKnowledgeBaseResponseBody';
 export { ChatWithKnowledgeBaseResponseBodyChatCompletionUsage } from './ChatWithKnowledgeBaseResponseBody';
 export { ChatWithKnowledgeBaseResponseBodyChatCompletion } from './ChatWithKnowledgeBaseResponseBody';
-export { ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatchesMetadata } from './ChatWithKnowledgeBaseResponseBody';
 export { ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches } from './ChatWithKnowledgeBaseResponseBody';
 export { ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage } from './ChatWithKnowledgeBaseResponseBody';
 export { ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult } from './ChatWithKnowledgeBaseResponseBody';
@@ -39,7 +38,6 @@ export { ChatWithKnowledgeBaseStreamResponseBodyChatCompletionChoices } from './
 export { ChatWithKnowledgeBaseStreamResponseBodyChatCompletionUsagePromptTokensDetails } from './ChatWithKnowledgeBaseStreamResponseBody';
 export { ChatWithKnowledgeBaseStreamResponseBodyChatCompletionUsage } from './ChatWithKnowledgeBaseStreamResponseBody';
 export { ChatWithKnowledgeBaseStreamResponseBodyChatCompletion } from './ChatWithKnowledgeBaseStreamResponseBody';
-export { ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultMatchesMetadata } from './ChatWithKnowledgeBaseStreamResponseBody';
 export { ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultMatches } from './ChatWithKnowledgeBaseStreamResponseBody';
 export { ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultUsage } from './ChatWithKnowledgeBaseStreamResponseBody';
 export { ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResult } from './ChatWithKnowledgeBaseStreamResponseBody';

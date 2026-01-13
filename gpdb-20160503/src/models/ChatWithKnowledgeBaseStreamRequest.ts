@@ -447,6 +447,8 @@ export class ChatWithKnowledgeBaseStreamRequestModelParamsMessages extends $dara
   /**
    * @remarks
    * The message content.
+   * 
+   * This parameter is required.
    */
   content?: string;
   /**
@@ -456,6 +458,8 @@ export class ChatWithKnowledgeBaseStreamRequestModelParamsMessages extends $dara
    * *   system
    * *   user
    * *   assistant
+   * 
+   * This parameter is required.
    * 
    * @example
    * user
@@ -727,6 +731,8 @@ export class ChatWithKnowledgeBaseStreamRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the instance.
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-hangzhou

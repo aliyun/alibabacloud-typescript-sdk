@@ -363,36 +363,6 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletion extends $dara.Model
   }
 }
 
-export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatchesMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The source of the document.
-   * 
-   * @example
-   * 1
-   */
-  source?: number;
-  static names(): { [key: string]: string } {
-    return {
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      source: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches extends $dara.Model {
   /**
    * @remarks
@@ -437,7 +407,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
    * @remarks
    * The metadata.
    */
-  metadata?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatchesMetadata;
+  metadata?: { [key: string]: any };
   /**
    * @remarks
    * The rerank score.
@@ -489,7 +459,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
       fileURL: 'string',
       id: 'string',
       loaderMetadata: 'any',
-      metadata: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatchesMetadata,
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       rerankScore: 'number',
       retrievalSource: 'number',
       score: 'number',
@@ -498,8 +468,8 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   }
 
   validate() {
-    if(this.metadata && typeof (this.metadata as any).validate === 'function') {
-      (this.metadata as any).validate();
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
     }
     if(Array.isArray(this.vector)) {
       $dara.Model.validateArray(this.vector);

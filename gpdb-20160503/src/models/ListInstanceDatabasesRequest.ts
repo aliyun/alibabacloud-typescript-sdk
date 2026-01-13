@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceDatabasesRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +16,23 @@ export class ListInstanceDatabasesRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * 
+   * *   **20**
+   * *   **50**
+   * *   **100**
+   * 
+   * Default value: **20**.
+   * 
    * @example
    * 30
    */

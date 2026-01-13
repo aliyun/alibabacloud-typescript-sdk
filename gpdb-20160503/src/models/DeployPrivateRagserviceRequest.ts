@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeployPrivateRAGServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class DeployPrivateRAGServiceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The vSwitch ID.
+   * 
+   * >   The zone where the **vSwitch** resides must be the same as the zone that is specified by **ZoneId**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,10 @@ export class DeployPrivateRAGServiceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
+   * The zone ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available regions and zones.
+   * 
    * This parameter is required.
    * 
    * @example

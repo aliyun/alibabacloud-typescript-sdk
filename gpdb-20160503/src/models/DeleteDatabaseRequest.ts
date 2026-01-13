@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatabaseRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +17,12 @@ export class DeleteDatabaseRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The name of the queried database.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test01
    */
   databaseName?: string;
   static names(): { [key: string]: string } {

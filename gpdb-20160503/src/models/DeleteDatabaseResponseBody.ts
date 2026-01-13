@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDatabaseResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 07F6177E-6DE4-408A-BB4F-0723301340F3
    */

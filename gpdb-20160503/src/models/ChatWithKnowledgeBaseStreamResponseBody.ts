@@ -363,36 +363,6 @@ export class ChatWithKnowledgeBaseStreamResponseBodyChatCompletion extends $dara
   }
 }
 
-export class ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultMatchesMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The source of the retrieved results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
-   * 
-   * @example
-   * 1
-   */
-  source?: number;
-  static names(): { [key: string]: string } {
-    return {
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      source: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultMatches extends $dara.Model {
   /**
    * @remarks
@@ -439,7 +409,7 @@ export class ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultM
    * @remarks
    * Metadata.
    */
-  metadata?: ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultMatchesMetadata;
+  metadata?: { [key: string]: any };
   /**
    * @remarks
    * The rerank score.
@@ -491,7 +461,7 @@ export class ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultM
       fileURL: 'string',
       id: 'string',
       loaderMetadata: 'any',
-      metadata: ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultMatchesMetadata,
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       rerankScore: 'number',
       retrievalSource: 'number',
       score: 'number',
@@ -500,8 +470,8 @@ export class ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResultM
   }
 
   validate() {
-    if(this.metadata && typeof (this.metadata as any).validate === 'function') {
-      (this.metadata as any).validate();
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
     }
     if(Array.isArray(this.vector)) {
       $dara.Model.validateArray(this.vector);

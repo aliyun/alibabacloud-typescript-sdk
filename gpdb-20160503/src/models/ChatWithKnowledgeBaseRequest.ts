@@ -447,6 +447,8 @@ export class ChatWithKnowledgeBaseRequestModelParamsMessages extends $dara.Model
   /**
    * @remarks
    * The message content.
+   * 
+   * This parameter is required.
    */
   content?: string;
   /**
@@ -456,6 +458,8 @@ export class ChatWithKnowledgeBaseRequestModelParamsMessages extends $dara.Model
    * *   system
    * *   user
    * *   assistant
+   * 
+   * This parameter is required.
    * 
    * @example
    * user
@@ -727,6 +731,8 @@ export class ChatWithKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
    * 实例所在的地域ID
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-hangzhou

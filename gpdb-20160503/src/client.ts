@@ -3530,7 +3530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除IP分组
+   * Deletes an IP whitelist group from an instance.
    * 
    * @param request - DeleteDBInstanceIPArrayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3565,7 +3565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除IP分组
+   * Deletes an IP whitelist group from an instance.
    * 
    * @param request - DeleteDBInstanceIPArrayRequest
    * @returns DeleteDBInstanceIPArrayResponse
@@ -3686,7 +3686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据库
+   * Deletes a database from an instance.
    * 
    * @param request - DeleteDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3721,7 +3721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据库
+   * Deletes a database from an instance.
    * 
    * @param request - DeleteDatabaseRequest
    * @returns DeleteDatabaseResponse
@@ -4252,7 +4252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭私有RAG服务
+   * Deletes a private RAG service.
    * 
    * @param request - DeletePrivateRAGServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4283,7 +4283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭私有RAG服务
+   * Deletes a private RAG service.
    * 
    * @param request - DeletePrivateRAGServiceRequest
    * @returns DeletePrivateRAGServiceResponse
@@ -4678,7 +4678,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 部署私有RAG服务
+   * Deploy a private RAG service.
+   * 
+   * @remarks
+   * 1.  Before you deploy the private RAG service, create an initial account.
+   * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
    * 
    * @param request - DeployPrivateRAGServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4717,7 +4721,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 部署私有RAG服务
+   * Deploy a private RAG service.
+   * 
+   * @remarks
+   * 1.  Before you deploy the private RAG service, create an initial account.
+   * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
    * 
    * @param request - DeployPrivateRAGServiceRequest
    * @returns DeployPrivateRAGServiceResponse
@@ -6572,7 +6580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述数据库
+   * Describes the basic information about an AnalyticDB for PostgreSQL database.
    * 
    * @param request - DescribeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6607,7 +6615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述数据库
+   * Describes the basic information about an AnalyticDB for PostgreSQL database.
    * 
    * @param request - DescribeDatabaseRequest
    * @returns DescribeDatabaseResponse
@@ -7050,7 +7058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安装在某个数据库上的插件信息
+   * Describes the extension information.
    * 
    * @param request - DescribeExtensionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7089,7 +7097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安装在某个数据库上的插件信息
+   * Describes the extension information.
    * 
    * @param request - DescribeExtensionRequest
    * @returns DescribeExtensionResponse
@@ -7806,7 +7814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取私有RAG服务详情
+   * Obtains the details of a private RAG service.
    * 
    * @param request - DescribePrivateRAGServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7837,7 +7845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取私有RAG服务详情
+   * Obtains the details of a private RAG service.
    * 
    * @param request - DescribePrivateRAGServiceRequest
    * @returns DescribePrivateRAGServiceResponse
@@ -9050,7 +9058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取私有RAG服务可部署可用区
+   * Obtains the deployable zone of the private RAG service.
    * 
    * @param request - DescribeZonesPrivateRAGServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9085,7 +9093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取私有RAG服务可部署可用区
+   * Obtains the deployable zone of the private RAG service.
    * 
    * @param request - DescribeZonesPrivateRAGServiceRequest
    * @returns DescribeZonesPrivateRAGServiceResponse
@@ -10564,7 +10572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安装在某个数据库上的所有插件信息
+   * List all extensions installed in the instance.
    * 
    * @param request - ListDatabaseExtensionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10599,7 +10607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安装在某个数据库上的所有插件信息
+   * List all extensions installed in the instance.
    * 
    * @param request - ListDatabaseExtensionsRequest
    * @returns ListDatabaseExtensionsResponse
@@ -10978,7 +10986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举数据库
+   * List all databases in an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - ListInstanceDatabasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11017,7 +11025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举数据库
+   * List all databases in an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - ListInstanceDatabasesRequest
    * @returns ListInstanceDatabasesResponse

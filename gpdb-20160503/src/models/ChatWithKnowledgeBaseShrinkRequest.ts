@@ -45,6 +45,8 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
    * @remarks
    * 实例所在的地域ID
    * 
+   * This parameter is required.
+   * 
    * @example
    * cn-hangzhou
    */

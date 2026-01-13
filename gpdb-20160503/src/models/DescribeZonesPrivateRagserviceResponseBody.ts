@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeZonesPrivateRAGServiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of zones.
+   */
   zoneIds?: string[];
   static names(): { [key: string]: string } {
     return {
