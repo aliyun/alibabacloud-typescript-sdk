@@ -303,6 +303,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建自定义域名
+   * 
+   * @param request - CreateCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomDomainResponse
+   */
+  async createCustomDomainWithOptions(request: $_model.CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomDomainResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomDomain",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/custom-domains`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomDomainResponse({}));
+  }
+
+  /**
+   * 创建自定义域名
+   * 
+   * @param request - CreateCustomDomainRequest
+   * @returns CreateCustomDomainResponse
+   */
+  async createCustomDomain(request: $_model.CreateCustomDomainRequest): Promise<$_model.CreateCustomDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCustomDomainWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建知识库
    * 
    * @param request - CreateKnowledgeBaseRequest
@@ -745,6 +785,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCredentialWithOptions(credentialName, headers, runtime);
+  }
+
+  /**
+   * Delete a custom domain
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomDomainResponse
+   */
+  async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomDomainResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomDomain",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/custom-domains/${$dara.URL.percentEncode(domainName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomDomainResponse({}));
+  }
+
+  /**
+   * Delete a custom domain
+   * @returns DeleteCustomDomainResponse
+   */
+  async deleteCustomDomain(domainName: string): Promise<$_model.DeleteCustomDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteCustomDomainWithOptions(domainName, headers, runtime);
   }
 
   /**
@@ -1217,6 +1292,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCredentialWithOptions(credentialName, headers, runtime);
+  }
+
+  /**
+   * 获取自定义域名详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomDomainResponse
+   */
+  async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomDomainResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomDomain",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/custom-domains/${$dara.URL.percentEncode(domainName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomDomainResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomDomainResponse({}));
+  }
+
+  /**
+   * 获取自定义域名详情
+   * @returns GetCustomDomainResponse
+   */
+  async getCustomDomain(domainName: string): Promise<$_model.GetCustomDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCustomDomainWithOptions(domainName, headers, runtime);
   }
 
   /**
@@ -1809,6 +1919,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCredentialsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 自定义域名列表
+   * 
+   * @param request - ListCustomDomainsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomDomainsResponse
+   */
+  async listCustomDomainsWithOptions(request: $_model.ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomDomainsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.domainName)) {
+      query["domainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceName)) {
+      query["resourceName"] = request.resourceName;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomDomains",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/custom-domains`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomDomainsResponse({}));
+  }
+
+  /**
+   * 自定义域名列表
+   * 
+   * @param request - ListCustomDomainsRequest
+   * @returns ListCustomDomainsResponse
+   */
+  async listCustomDomains(request: $_model.ListCustomDomainsRequest): Promise<$_model.ListCustomDomainsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCustomDomainsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2484,6 +2655,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCredentialWithOptions(credentialName, request, headers, runtime);
+  }
+
+  /**
+   * 更新自定义域名
+   * 
+   * @param request - UpdateCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomDomainResponse
+   */
+  async updateCustomDomainWithOptions(domainName: string, request: $_model.UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomDomainResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustomDomain",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/custom-domains/${$dara.URL.percentEncode(domainName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomDomainResponse({}));
+  }
+
+  /**
+   * 更新自定义域名
+   * 
+   * @param request - UpdateCustomDomainRequest
+   * @returns UpdateCustomDomainResponse
+   */
+  async updateCustomDomain(domainName: string, request: $_model.UpdateCustomDomainRequest): Promise<$_model.UpdateCustomDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCustomDomainWithOptions(domainName, request, headers, runtime);
   }
 
   /**
