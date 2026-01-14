@@ -2,121 +2,57 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class PageResponseBodyModelList extends $dara.Model {
+export class AgentGroupPageResponseBodyModelRecords extends $dara.Model {
   /**
    * @remarks
-   * 添加时间
+   * 坐席组ID
    * 
    * @example
-   * 2020-03-06 10:10:10
+   * 1
+   */
+  agentGroupId?: number;
+  /**
+   * @remarks
+   * 坐席组名称
+   * 
+   * @example
+   * a
+   */
+  agentGroupName?: string;
+  /**
+   * @remarks
+   * 坐席组下的坐席id列表
+   */
+  agentIds?: number[];
+  /**
+   * @remarks
+   * 创建坐席组的时间
+   * 
+   * @example
+   * 2026-01-01 11:11:11
    */
   createTime?: string;
-  /**
-   * @remarks
-   * 过期时间
-   * 
-   * @example
-   * 1
-   */
-  expirationTime?: string;
-  /**
-   * @remarks
-   * 手机号码
-   * 
-   * @example
-   * 13314206082
-   */
-  number?: string;
-  /**
-   * @remarks
-   * 手机号MD5
-   * 
-   * @example
-   * e10adc3949ba59abbe56e057f20f883e
-   */
-  numberMD5?: string;
-  /**
-   * @remarks
-   * 备注
-   * 
-   * @example
-   * 示例值
-   */
-  remark?: string;
   static names(): { [key: string]: string } {
     return {
+      agentGroupId: 'AgentGroupId',
+      agentGroupName: 'AgentGroupName',
+      agentIds: 'AgentIds',
       createTime: 'CreateTime',
-      expirationTime: 'ExpirationTime',
-      number: 'Number',
-      numberMD5: 'NumberMD5',
-      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentGroupId: 'number',
+      agentGroupName: 'string',
+      agentIds: { 'type': 'array', 'itemType': 'number' },
       createTime: 'string',
-      expirationTime: 'string',
-      number: 'string',
-      numberMD5: 'string',
-      remark: 'string',
     };
   }
 
   validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageResponseBodyModel extends $dara.Model {
-  list?: PageResponseBodyModelList[];
-  /**
-   * @example
-   * 1
-   */
-  pageNo?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 97
-   */
-  totalCount?: number;
-  /**
-   * @example
-   * 5
-   */
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': PageResponseBodyModelList },
-      pageNo: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.list)) {
-      $dara.Model.validateArray(this.list);
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
     }
     super.validate();
   }
@@ -126,35 +62,95 @@ export class PageResponseBodyModel extends $dara.Model {
   }
 }
 
-export class PageResponseBody extends $dara.Model {
+export class AgentGroupPageResponseBodyModel extends $dara.Model {
   /**
    * @example
-   * 0
+   * 62
    */
-  code?: number;
+  current?: number;
   /**
    * @example
-   * 示例值示例值示例值
+   * 82
+   */
+  pages?: number;
+  records?: AgentGroupPageResponseBodyModelRecords[];
+  /**
+   * @example
+   * 15
+   */
+  size?: number;
+  /**
+   * @example
+   * 12
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      pages: 'Pages',
+      records: 'Records',
+      size: 'Size',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      pages: 'number',
+      records: { 'type': 'array', 'itemType': AgentGroupPageResponseBodyModelRecords },
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AgentGroupPageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  code?: string;
+  /**
+   * @example
+   * a
    */
   message?: string;
-  model?: PageResponseBodyModel;
+  model?: AgentGroupPageResponseBodyModel;
   /**
    * @example
-   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   * 12345
    */
   requestId?: string;
   /**
    * @example
-   * true
+   * false
    */
-  success?: string;
+  success?: boolean;
   /**
    * @example
-   * 1683440860035
+   * 71
    */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       model: 'Model',
@@ -166,11 +162,12 @@ export class PageResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      accessDeniedDetail: 'string',
+      code: 'string',
       message: 'string',
-      model: PageResponseBodyModel,
+      model: AgentGroupPageResponseBodyModel,
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
       timestamp: 'number',
     };
   }

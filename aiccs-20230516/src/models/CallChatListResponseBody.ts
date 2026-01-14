@@ -2,13 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TaskCallChatsResponseBodyModel extends $dara.Model {
+export class CallChatListResponseBodyModel extends $dara.Model {
+  /**
+   * @remarks
+   * 聊天内容id
+   * 
+   * @example
+   * 79
+   */
+  chatId?: number;
   /**
    * @remarks
    * 说话内容
    * 
    * @example
-   * 示例值示例值
+   * 1
    */
   content?: string;
   /**
@@ -16,30 +24,32 @@ export class TaskCallChatsResponseBodyModel extends $dara.Model {
    * 说话时间
    * 
    * @example
-   * 2022-01-13 14:56:46.604
+   * 2019-01-09 14:14:19
    */
   createTime?: string;
   /**
    * @remarks
-   * 说话号码
+   * 说话号码，其中0为AI,1-用户,2-坐席
    * 
    * @example
-   * 138*****265
+   * 4
    */
-  fromNumber?: string;
+  fromType?: number;
   static names(): { [key: string]: string } {
     return {
+      chatId: 'ChatId',
       content: 'Content',
       createTime: 'CreateTime',
-      fromNumber: 'FromNumber',
+      fromType: 'FromType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chatId: 'number',
       content: 'string',
       createTime: 'string',
-      fromNumber: 'string',
+      fromType: 'number',
     };
   }
 
@@ -52,21 +62,26 @@ export class TaskCallChatsResponseBodyModel extends $dara.Model {
   }
 }
 
-export class TaskCallChatsResponseBody extends $dara.Model {
+export class CallChatListResponseBody extends $dara.Model {
   /**
    * @example
-   * 200
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 0
    */
   code?: number;
   /**
    * @example
-   * 示例值示例值
+   * 示例值示例值示例值
    */
   message?: string;
-  model?: TaskCallChatsResponseBodyModel[];
+  model?: CallChatListResponseBodyModel[];
   /**
    * @example
-   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   * 示例值
    */
   requestId?: string;
   /**
@@ -76,11 +91,12 @@ export class TaskCallChatsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @example
-   * 1683440860035
+   * 81
    */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       model: 'Model',
@@ -92,9 +108,10 @@ export class TaskCallChatsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       message: 'string',
-      model: { 'type': 'array', 'itemType': TaskCallChatsResponseBodyModel },
+      model: { 'type': 'array', 'itemType': CallChatListResponseBodyModel },
       requestId: 'string',
       success: 'boolean',
       timestamp: 'number',

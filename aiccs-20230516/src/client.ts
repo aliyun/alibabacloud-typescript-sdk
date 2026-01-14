@@ -30,6 +30,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建坐席
+   * 
+   * @param request - AddAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAgentResponse
+   */
+  async addAgentWithOptions(request: $_model.AddAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.account)) {
+      query["Account"] = request.account;
+    }
+
+    if (!$dara.isNull(request.agentTag)) {
+      query["AgentTag"] = request.agentTag;
+    }
+
+    if (!$dara.isNull(request.extensionPwd)) {
+      query["ExtensionPwd"] = request.extensionPwd;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAgent",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAgentResponse>(await this.callApi(params, req, runtime), new $_model.AddAgentResponse({}));
+  }
+
+  /**
+   * 创建坐席
+   * 
+   * @param request - AddAgentRequest
+   * @returns AddAgentResponse
+   */
+  async addAgent(request: $_model.AddAgentRequest): Promise<$_model.AddAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建坐席组接口
+   * 
+   * @param request - AddAgentGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAgentGroupResponse
+   */
+  async addAgentGroupWithOptions(request: $_model.AddAgentGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAgentGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentGroupName)) {
+      query["AgentGroupName"] = request.agentGroupName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAgentGroup",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAgentGroupResponse>(await this.callApi(params, req, runtime), new $_model.AddAgentGroupResponse({}));
+  }
+
+  /**
+   * 创建坐席组接口
+   * 
+   * @param request - AddAgentGroupRequest
+   * @returns AddAgentGroupResponse
+   */
+  async addAgentGroup(request: $_model.AddAgentGroupRequest): Promise<$_model.AddAgentGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAgentGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 添加黑名单接口
    * 
    * @param tmpReq - AddBlacklistRequest
@@ -242,6 +366,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 坐席外呼查询外呼记录
+   * 
+   * @param tmpReq - AgentCallListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AgentCallListResponse
+   */
+  async agentCallListWithOptions(tmpReq: $_model.AgentCallListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AgentCallListResponse> {
+    tmpReq.validate();
+    let request = new $_model.AgentCallListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.numberMD5s)) {
+      request.numberMD5sShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.numberMD5s, "NumberMD5s", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.numbers)) {
+      request.numbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.numbers, "Numbers", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentTag)) {
+      query["AgentTag"] = request.agentTag;
+    }
+
+    if (!$dara.isNull(request.callDate)) {
+      query["CallDate"] = request.callDate;
+    }
+
+    if (!$dara.isNull(request.endCallDate)) {
+      query["EndCallDate"] = request.endCallDate;
+    }
+
+    if (!$dara.isNull(request.numberMD5sShrink)) {
+      query["NumberMD5s"] = request.numberMD5sShrink;
+    }
+
+    if (!$dara.isNull(request.numbersShrink)) {
+      query["Numbers"] = request.numbersShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AgentCallList",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AgentCallListResponse>(await this.callApi(params, req, runtime), new $_model.AgentCallListResponse({}));
+  }
+
+  /**
+   * 坐席外呼查询外呼记录
+   * 
+   * @param request - AgentCallListRequest
+   * @returns AgentCallListResponse
+   */
+  async agentCallList(request: $_model.AgentCallListRequest): Promise<$_model.AgentCallListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.agentCallListWithOptions(request, runtime);
+  }
+
+  /**
    * 坐席取消号码外呼
    * 
    * @param tmpReq - AgentCancelCallRequest
@@ -315,6 +539,152 @@ export default class Client extends OpenApi {
   async agentCancelCall(request: $_model.AgentCancelCallRequest): Promise<$_model.AgentCancelCallResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.agentCancelCallWithOptions(request, runtime);
+  }
+
+  /**
+   * 坐席组分页查询
+   * 
+   * @param request - AgentGroupPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AgentGroupPageResponse
+   */
+  async agentGroupPageWithOptions(request: $_model.AgentGroupPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AgentGroupPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentGroupId)) {
+      query["AgentGroupId"] = request.agentGroupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AgentGroupPage",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AgentGroupPageResponse>(await this.callApi(params, req, runtime), new $_model.AgentGroupPageResponse({}));
+  }
+
+  /**
+   * 坐席组分页查询
+   * 
+   * @param request - AgentGroupPageRequest
+   * @returns AgentGroupPageResponse
+   */
+  async agentGroupPage(request: $_model.AgentGroupPageRequest): Promise<$_model.AgentGroupPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.agentGroupPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 坐席外呼导入号码
+   * 
+   * @param tmpReq - AgentImportNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AgentImportNumberResponse
+   */
+  async agentImportNumberWithOptions(tmpReq: $_model.AgentImportNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AgentImportNumberResponse> {
+    tmpReq.validate();
+    let request = new $_model.AgentImportNumberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.customers)) {
+      request.customersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customers, "Customers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentTag)) {
+      query["AgentTag"] = request.agentTag;
+    }
+
+    if (!$dara.isNull(request.callType)) {
+      query["CallType"] = request.callType;
+    }
+
+    if (!$dara.isNull(request.customersShrink)) {
+      query["Customers"] = request.customersShrink;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AgentImportNumber",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AgentImportNumberResponse>(await this.callApi(params, req, runtime), new $_model.AgentImportNumberResponse({}));
+  }
+
+  /**
+   * 坐席外呼导入号码
+   * 
+   * @param request - AgentImportNumberRequest
+   * @returns AgentImportNumberResponse
+   */
+  async agentImportNumber(request: $_model.AgentImportNumberRequest): Promise<$_model.AgentImportNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.agentImportNumberWithOptions(request, runtime);
   }
 
   /**
@@ -399,6 +769,122 @@ export default class Client extends OpenApi {
   async agentRecoverCall(request: $_model.AgentRecoverCallRequest): Promise<$_model.AgentRecoverCallResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.agentRecoverCallWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取聊天内容
+   * 
+   * @param request - CallChatListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CallChatListResponse
+   */
+  async callChatListWithOptions(request: $_model.CallChatListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CallChatListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CallChatList",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CallChatListResponse>(await this.callApi(params, req, runtime), new $_model.CallChatListResponse({}));
+  }
+
+  /**
+   * 获取聊天内容
+   * 
+   * @param request - CallChatListRequest
+   * @returns CallChatListResponse
+   */
+  async callChatList(request: $_model.CallChatListRequest): Promise<$_model.CallChatListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.callChatListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取号码外呼详情
+   * 
+   * @param request - CallNumberDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CallNumberDetailResponse
+   */
+  async callNumberDetailWithOptions(request: $_model.CallNumberDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CallNumberDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CallNumberDetail",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CallNumberDetailResponse>(await this.callApi(params, req, runtime), new $_model.CallNumberDetailResponse({}));
+  }
+
+  /**
+   * 获取号码外呼详情
+   * 
+   * @param request - CallNumberDetailRequest
+   * @returns CallNumberDetailResponse
+   */
+  async callNumberDetail(request: $_model.CallNumberDetailRequest): Promise<$_model.CallNumberDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.callNumberDetailWithOptions(request, runtime);
   }
 
   /**
@@ -780,6 +1266,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定坐席组
+   * 
+   * @param tmpReq - JoinAgentGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns JoinAgentGroupResponse
+   */
+  async joinAgentGroupWithOptions(tmpReq: $_model.JoinAgentGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.JoinAgentGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.JoinAgentGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentIds)) {
+      request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentGroupId)) {
+      query["AgentGroupId"] = request.agentGroupId;
+    }
+
+    if (!$dara.isNull(request.agentIdsShrink)) {
+      query["AgentIds"] = request.agentIdsShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "JoinAgentGroup",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.JoinAgentGroupResponse>(await this.callApi(params, req, runtime), new $_model.JoinAgentGroupResponse({}));
+  }
+
+  /**
+   * 绑定坐席组
+   * 
+   * @param request - JoinAgentGroupRequest
+   * @returns JoinAgentGroupResponse
+   */
+  async joinAgentGroup(request: $_model.JoinAgentGroupRequest): Promise<$_model.JoinAgentGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.joinAgentGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 查询企业黑名单
    * 
    * @param tmpReq - PageRequest
@@ -845,6 +1395,216 @@ export default class Client extends OpenApi {
   async page(request: $_model.PageRequest): Promise<$_model.PageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询坐席具体信息
+   * 
+   * @param request - QueryAgentInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAgentInfoResponse
+   */
+  async queryAgentInfoWithOptions(request: $_model.QueryAgentInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAgentInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentTag)) {
+      query["AgentTag"] = request.agentTag;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAgentInfo",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAgentInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryAgentInfoResponse({}));
+  }
+
+  /**
+   * 查询坐席具体信息
+   * 
+   * @param request - QueryAgentInfoRequest
+   * @returns QueryAgentInfoResponse
+   */
+  async queryAgentInfo(request: $_model.QueryAgentInfoRequest): Promise<$_model.QueryAgentInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAgentInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 快速创建任务接口
+   * 
+   * @param tmpReq - QuickAddTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuickAddTaskResponse
+   */
+  async quickAddTaskWithOptions(tmpReq: $_model.QuickAddTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuickAddTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.QuickAddTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callTimeList)) {
+      request.callTimeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTimeList, "CallTimeList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentGroupId)) {
+      query["AgentGroupId"] = request.agentGroupId;
+    }
+
+    if (!$dara.isNull(request.callTimeListShrink)) {
+      query["CallTimeList"] = request.callTimeListShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.referenceTaskId)) {
+      query["ReferenceTaskId"] = request.referenceTaskId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.smsTemplateId)) {
+      query["SmsTemplateId"] = request.smsTemplateId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuickAddTask",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuickAddTaskResponse>(await this.callApi(params, req, runtime), new $_model.QuickAddTaskResponse({}));
+  }
+
+  /**
+   * 快速创建任务接口
+   * 
+   * @param request - QuickAddTaskRequest
+   * @returns QuickAddTaskResponse
+   */
+  async quickAddTask(request: $_model.QuickAddTaskRequest): Promise<$_model.QuickAddTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.quickAddTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 解绑坐席组
+   * 
+   * @param tmpReq - QuitAgentGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuitAgentGroupResponse
+   */
+  async quitAgentGroupWithOptions(tmpReq: $_model.QuitAgentGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuitAgentGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.QuitAgentGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentIds)) {
+      request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentGroupId)) {
+      query["AgentGroupId"] = request.agentGroupId;
+    }
+
+    if (!$dara.isNull(request.agentIdsShrink)) {
+      query["AgentIds"] = request.agentIdsShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuitAgentGroup",
+      version: "2023-05-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuitAgentGroupResponse>(await this.callApi(params, req, runtime), new $_model.QuitAgentGroupResponse({}));
+  }
+
+  /**
+   * 解绑坐席组
+   * 
+   * @param request - QuitAgentGroupRequest
+   * @returns QuitAgentGroupResponse
+   */
+  async quitAgentGroup(request: $_model.QuitAgentGroupRequest): Promise<$_model.QuitAgentGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.quitAgentGroupWithOptions(request, runtime);
   }
 
   /**

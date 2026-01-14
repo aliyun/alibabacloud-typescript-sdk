@@ -1,8 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { EditTaskRequestCallTimeList } from "./EditTaskRequestCallTimeList";
-import { EditTaskRequestSendSmsPlan } from "./EditTaskRequestSendSmsPlan";
 
+
+export class EditTaskRequestCallTimeList extends $dara.Model {
+  callTime?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      callTime: 'CallTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callTime: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.callTime)) {
+      $dara.Model.validateArray(this.callTime);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditTaskRequestSendSmsPlan extends $dara.Model {
+  /**
+   * @remarks
+   * 意向标签
+   */
+  intentTags?: string[];
+  /**
+   * @remarks
+   * 短信模板ID
+   * 
+   * @example
+   * 1
+   */
+  smsTemplateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      intentTags: 'IntentTags',
+      smsTemplateId: 'SmsTemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intentTags: { 'type': 'array', 'itemType': 'string' },
+      smsTemplateId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.intentTags)) {
+      $dara.Model.validateArray(this.intentTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class EditTaskRequest extends $dara.Model {
   /**

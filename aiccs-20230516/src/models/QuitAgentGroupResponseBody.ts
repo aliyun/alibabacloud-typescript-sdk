@@ -2,62 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddTaskResponseBodyModel extends $dara.Model {
+export class QuitAgentGroupResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * 任务ID
-   * 
    * @example
-   * 47
+   * None
    */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTaskResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
-   * 0
+   * 示例值示例值示例值
    */
-  code?: number;
+  code?: string;
   /**
    * @example
-   * 示例值
+   * 示例值示例值示例值
    */
   message?: string;
-  model?: AddTaskResponseBodyModel;
+  model?: { [key: string]: any };
   /**
    * @example
-   * 5453cc9b-02bc-4dbb-9527-f28a9100b912
+   * 示例值示例值
    */
   requestId?: string;
   /**
    * @example
-   * false
+   * true
    */
   success?: boolean;
   /**
    * @example
-   * 1686225227338
+   * 15
    */
   timestamp?: number;
   static names(): { [key: string]: string } {
@@ -75,9 +49,9 @@ export class AddTaskResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
-      code: 'number',
+      code: 'string',
       message: 'string',
-      model: AddTaskResponseBodyModel,
+      model: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       success: 'boolean',
       timestamp: 'number',
@@ -85,8 +59,8 @@ export class AddTaskResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.model && typeof (this.model as any).validate === 'function') {
-      (this.model as any).validate();
+    if(this.model) {
+      $dara.Model.validateMap(this.model);
     }
     super.validate();
   }

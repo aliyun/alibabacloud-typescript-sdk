@@ -2,53 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TaskCallListResponseBodyModelList extends $dara.Model {
-  /**
-   * @remarks
-   * 加微
-   * 
-   * @example
-   * 0
-   */
-  addWx?: number;
-  /**
-   * @remarks
-   * 加微进度
-   * 
-   * @example
-   * 示例值示例值
-   */
-  addWxStatus?: string;
+export class AgentCallListResponseBodyModelList extends $dara.Model {
   /**
    * @remarks
    * 坐席分机
    * 
    * @example
-   * 112
+   * a
    */
   agentExtension?: string;
   /**
    * @remarks
-   * 坐席ID
+   * 分配坐席ID
    * 
    * @example
-   * 87
+   * 1
    */
   agentId?: number;
   /**
    * @remarks
-   * 人工通话时长
+   * 坐席通话时长，单位：秒
    * 
    * @example
-   * 98
+   * 1
    */
   agentSpeakingDuration?: number;
   /**
    * @remarks
-   * 人工通话时长
+   * 坐席通话时长，单位：大于1分钟，显示分钟秒，小于1分钟，显示秒
    * 
    * @example
-   * 示例值示例值
+   * 1
    */
   agentSpeakingTime?: string;
   /**
@@ -56,28 +40,20 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 坐席标签
    * 
    * @example
-   * A
+   * a
    */
   agentTag?: string;
   /**
    * @remarks
-   * 是否接通重呼
+   * 接通时间 格式：2019-11-23 14:47:06
    * 
    * @example
-   * 24
-   */
-  answerRecall?: number;
-  /**
-   * @remarks
-   * 接通时间
-   * 
-   * @example
-   * 2022-01-26 18:58:25
+   * 2019-11-23 14:47:06
    */
   answerTime?: string;
   /**
    * @remarks
-   * 批次ID
+   * 导入号码时返回的批次号
    * 
    * @example
    * 1
@@ -85,10 +61,10 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * 开始通话时间
+   * 开始通话时间, 格式：2019-11-23 14:47:06
    * 
    * @example
-   * 2022-01-26 18:58:25
+   * 2019-11-23 14:47:06
    */
   callBeginTime?: string;
   /**
@@ -96,20 +72,12 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 外呼ID
    * 
    * @example
-   * 9197ed9e-ceda-42a5-b683-823b23ef208e
+   * 1
    */
   callId?: string;
   /**
    * @remarks
-   * 呼叫次数
-   * 
-   * @example
-   * 1
-   */
-  callTimes?: string;
-  /**
-   * @remarks
-   * 外呼类型
+   * 可选项：1001：坐席-人工外呼，1002：坐席-AI外呼-不转人工，1003：坐席-AI外呼-接通转人工，1004：坐席-AI外呼-智能转人工；
    * 
    * @example
    * 1001
@@ -120,28 +88,20 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 对话录音
    * 
    * @example
-   * 示例值示例值
+   * URL
    */
   chatRecord?: string;
   /**
    * @remarks
-   * 外呼网关
+   * 挂断时间 格式：2019-11-23 14:47:06
    * 
    * @example
-   * 123
-   */
-  gateway?: string;
-  /**
-   * @remarks
-   * 挂断时间
-   * 
-   * @example
-   * 2022-01-26 18:58:25
+   * 2019-11-23 14:47:06
    */
   hangupTime?: string;
   /**
    * @remarks
-   * 挂机方式
+   * 挂机方式  AI挂机1，坐席挂机2，客户挂机3
    * 
    * @example
    * 1
@@ -149,10 +109,10 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
   hangupType?: number;
   /**
    * @remarks
-   * 导入时间
+   * 导入时间,格式：2019-11-23 14:47:06
    * 
    * @example
-   * 2022-01-26 18:58:25
+   * 2019-11-23 14:47:06
    */
   importTime?: string;
   /**
@@ -160,31 +120,31 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 个性标签
    * 
    * @example
-   * A
+   * 如投诉,非本人
    */
   individualTag?: string;
   /**
    * @remarks
-   * 意向说明
+   * 意向说明 如：确认本人,未承诺还款
    * 
    * @example
-   * 示例值示例值示例值
+   * 如：确认本人
    */
   intentDescription?: string;
   /**
    * @remarks
-   * 意向标签
+   * 意向标签, 如“C”
    * 
    * @example
-   * “C”
+   * C
    */
   intentTag?: string;
   /**
    * @remarks
-   * 拦截原因
+   * 拦截原因 当状态为已拦截时，可选值：黑名单拦截，灰名单拦截，异常号码拦截
    * 
    * @example
-   * 示例值
+   * 黑名单拦截
    */
   interceptReason?: string;
   /**
@@ -192,7 +152,7 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 回复关键词
    * 
    * @example
-   * 示例值示例值
+   * 如链接,利息
    */
   keywords?: string;
   /**
@@ -200,7 +160,7 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 外呼号码
    * 
    * @example
-   * 138*****123
+   * 1
    */
   number?: string;
   /**
@@ -208,55 +168,55 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 外呼号码MD5
    * 
    * @example
-   * 75916b635568954583783d
+   * 1
    */
   numberMD5?: string;
   /**
    * @remarks
-   * 参数
+   * 导入号码时的参数值
    * 
    * @example
-   * 示例值示例值
+   * {"电话号码":"13100000000"}
    */
   properties?: string;
   /**
    * @remarks
-   * 备注
+   * 人工备注信息
    * 
    * @example
-   * 示例值示例值
+   * abcd
    */
   remark?: string;
   /**
    * @remarks
-   * 振铃时长
+   * 振铃时长 单位：毫秒
    * 
    * @example
-   * 66
+   * 1
    */
   ringTime?: number;
   /**
    * @remarks
-   * 挂机短信
+   * 挂机短信 1:发送，2:不发送
    * 
    * @example
-   * 示例值
+   * 1
    */
   sms?: string;
   /**
    * @remarks
-   * AI通话时长
+   * 通话时长 单位：秒
    * 
    * @example
-   * 45
+   * 1
    */
   speakingDuration?: number;
   /**
    * @remarks
-   * AI通话时长
+   * 通话时长 单位：大于1分钟，显示分钟秒，小于1分钟，显示秒
    * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   speakingTime?: string;
   /**
@@ -264,17 +224,9 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 对话轮次
    * 
    * @example
-   * 0
+   * 1
    */
   speakingTurns?: string;
-  /**
-   * @remarks
-   * 外呼状态
-   * 
-   * @example
-   * 示例值示例值示例值
-   */
-  status?: string;
   /**
    * @remarks
    * 外呼状态编码
@@ -285,10 +237,10 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
   statusCode?: number;
   /**
    * @remarks
-   * 外呼状态描述
+   * 外呼状态，如“已接听”“拒接”，转外呼状态编码与描述对应 1-已接听,2-关机
    * 
    * @example
-   * 示例值示例值
+   * 已接听
    */
   statusDescription?: string;
   /**
@@ -296,7 +248,7 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 用户自定义标签
    * 
    * @example
-   * 示例值
+   * 1
    */
   tag?: string;
   /**
@@ -304,7 +256,7 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 外呼任务ID
    * 
    * @example
-   * 70
+   * 1
    */
   taskId?: number;
   /**
@@ -312,15 +264,15 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * AI话术ID
    * 
    * @example
-   * 66
+   * 1
    */
   templateId?: number;
   /**
    * @remarks
-   * 转人工状态
+   * 转人工状态 0-未触发
    * 
    * @example
-   * 示例值
+   * 未触发
    */
   transferStatus?: string;
   /**
@@ -328,27 +280,30 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
    * 转人工状态编码
    * 
    * @example
-   * 1
+   * 0
    */
   transferStatusCode?: number;
+  /**
+   * @remarks
+   * 转接人工时间
+   * 
+   * @example
+   * 2019-01-09 14:14:19
+   */
+  transferTime?: string;
   static names(): { [key: string]: string } {
     return {
-      addWx: 'AddWx',
-      addWxStatus: 'AddWxStatus',
       agentExtension: 'AgentExtension',
       agentId: 'AgentId',
       agentSpeakingDuration: 'AgentSpeakingDuration',
       agentSpeakingTime: 'AgentSpeakingTime',
       agentTag: 'AgentTag',
-      answerRecall: 'AnswerRecall',
       answerTime: 'AnswerTime',
       batchId: 'BatchId',
       callBeginTime: 'CallBeginTime',
       callId: 'CallId',
-      callTimes: 'CallTimes',
       callType: 'CallType',
       chatRecord: 'ChatRecord',
-      gateway: 'Gateway',
       hangupTime: 'HangupTime',
       hangupType: 'HangupType',
       importTime: 'ImportTime',
@@ -366,7 +321,6 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
       speakingDuration: 'SpeakingDuration',
       speakingTime: 'SpeakingTime',
       speakingTurns: 'SpeakingTurns',
-      status: 'Status',
       statusCode: 'StatusCode',
       statusDescription: 'StatusDescription',
       tag: 'Tag',
@@ -374,27 +328,23 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
       templateId: 'TemplateId',
       transferStatus: 'TransferStatus',
       transferStatusCode: 'TransferStatusCode',
+      transferTime: 'TransferTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      addWx: 'number',
-      addWxStatus: 'string',
       agentExtension: 'string',
       agentId: 'number',
       agentSpeakingDuration: 'number',
       agentSpeakingTime: 'string',
       agentTag: 'string',
-      answerRecall: 'number',
       answerTime: 'string',
       batchId: 'string',
       callBeginTime: 'string',
       callId: 'string',
-      callTimes: 'string',
       callType: 'number',
       chatRecord: 'string',
-      gateway: 'string',
       hangupTime: 'string',
       hangupType: 'number',
       importTime: 'string',
@@ -412,7 +362,6 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
       speakingDuration: 'number',
       speakingTime: 'string',
       speakingTurns: 'string',
-      status: 'string',
       statusCode: 'number',
       statusDescription: 'string',
       tag: 'string',
@@ -420,6 +369,7 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
       templateId: 'number',
       transferStatus: 'string',
       transferStatusCode: 'number',
+      transferTime: 'string',
     };
   }
 
@@ -432,26 +382,26 @@ export class TaskCallListResponseBodyModelList extends $dara.Model {
   }
 }
 
-export class TaskCallListResponseBodyModel extends $dara.Model {
-  list?: TaskCallListResponseBodyModelList[];
+export class AgentCallListResponseBodyModel extends $dara.Model {
+  list?: AgentCallListResponseBodyModelList[];
   /**
    * @example
-   * 62
+   * 44
    */
   pageNo?: number;
   /**
    * @example
-   * 95
+   * 40
    */
   pageSize?: number;
   /**
    * @example
-   * 80
+   * 27
    */
   totalCount?: number;
   /**
    * @example
-   * 39
+   * 49
    */
   totalPage?: number;
   static names(): { [key: string]: string } {
@@ -466,7 +416,7 @@ export class TaskCallListResponseBodyModel extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      list: { 'type': 'array', 'itemType': TaskCallListResponseBodyModelList },
+      list: { 'type': 'array', 'itemType': AgentCallListResponseBodyModelList },
       pageNo: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -486,35 +436,41 @@ export class TaskCallListResponseBodyModel extends $dara.Model {
   }
 }
 
-export class TaskCallListResponseBody extends $dara.Model {
+export class AgentCallListResponseBody extends $dara.Model {
   /**
    * @example
-   * 200
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 60
    */
   code?: number;
   /**
    * @example
-   * 示例值示例值
+   * 示例值
    */
   message?: string;
-  model?: TaskCallListResponseBodyModel;
+  model?: AgentCallListResponseBodyModel;
   /**
    * @example
-   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   * 示例值
    */
   requestId?: string;
   /**
    * @example
-   * true
+   * false
    */
-  success?: string;
+  success?: boolean;
   /**
    * @example
-   * 1683440860035
+   * 89
    */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       model: 'Model',
@@ -526,11 +482,12 @@ export class TaskCallListResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       message: 'string',
-      model: TaskCallListResponseBodyModel,
+      model: AgentCallListResponseBodyModel,
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
       timestamp: 'number',
     };
   }
