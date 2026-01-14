@@ -3615,6 +3615,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除黑白名单
+   * 
+   * @param request - DeleteBlackWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBlackWhiteListResponse
+   */
+  async deleteBlackWhiteListWithOptions(request: $_model.DeleteBlackWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBlackWhiteListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBlackWhiteList",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBlackWhiteListResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBlackWhiteListResponse({}));
+  }
+
+  /**
+   * 删除黑白名单
+   * 
+   * @param request - DeleteBlackWhiteListRequest
+   * @returns DeleteBlackWhiteListResponse
+   */
+  async deleteBlackWhiteList(request: $_model.DeleteBlackWhiteListRequest): Promise<$_model.DeleteBlackWhiteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBlackWhiteListWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes circuit breaking rules.
    * 
    * @param tmpReq - DeleteCircuitBreakerRulesRequest
@@ -3882,6 +3936,56 @@ export default class Client extends OpenApi {
   async deleteGateway(request: $_model.DeleteGatewayRequest): Promise<$_model.DeleteGatewayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteGatewayWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除网关认证
+   * 
+   * @param request - DeleteGatewayAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayAuthResponse
+   */
+  async deleteGatewayAuthWithOptions(request: $_model.DeleteGatewayAuthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayAuthResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGatewayAuth",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGatewayAuthResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGatewayAuthResponse({}));
+  }
+
+  /**
+   * 删除网关认证
+   * 
+   * @param request - DeleteGatewayAuthRequest
+   * @returns DeleteGatewayAuthResponse
+   */
+  async deleteGatewayAuth(request: $_model.DeleteGatewayAuthRequest): Promise<$_model.DeleteGatewayAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteGatewayAuthWithOptions(request, runtime);
   }
 
   /**
@@ -9105,6 +9209,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询网关认证
+   * 
+   * @param tmpReq - ListGatewayAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayAuthResponse
+   */
+  async listGatewayAuthWithOptions(tmpReq: $_model.ListGatewayAuthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayAuthResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListGatewayAuthShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterParams)) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.descSort)) {
+      query["DescSort"] = request.descSort;
+    }
+
+    if (!$dara.isNull(request.filterParamsShrink)) {
+      query["FilterParams"] = request.filterParamsShrink;
+    }
+
+    if (!$dara.isNull(request.orderItem)) {
+      query["OrderItem"] = request.orderItem;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayAuth",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayAuthResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayAuthResponse({}));
+  }
+
+  /**
+   * 查询网关认证
+   * 
+   * @param request - ListGatewayAuthRequest
+   * @returns ListGatewayAuthResponse
+   */
+  async listGatewayAuth(request: $_model.ListGatewayAuthRequest): Promise<$_model.ListGatewayAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGatewayAuthWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of consumers on which a gateway performs authentication operations.
    * 
    * @param request - ListGatewayAuthConsumerRequest
@@ -13374,6 +13546,162 @@ export default class Client extends OpenApi {
   async updateFlowRule(request: $_model.UpdateFlowRuleRequest): Promise<$_model.UpdateFlowRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFlowRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新网关认证
+   * 
+   * @param tmpReq - UpdateGatewayAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayAuthResponse
+   */
+  async updateGatewayAuthWithOptions(tmpReq: $_model.UpdateGatewayAuthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayAuthResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateGatewayAuthShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.authResourceList)) {
+      request.authResourceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.authResourceList, "AuthResourceList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.deleteResourceIdList)) {
+      request.deleteResourceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteResourceIdList, "DeleteResourceIdList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.externalAuthZJSON)) {
+      request.externalAuthZJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalAuthZJSON, "ExternalAuthZJSON", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scopesList)) {
+      request.scopesListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scopesList, "ScopesList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.authResourceConfig)) {
+      query["AuthResourceConfig"] = request.authResourceConfig;
+    }
+
+    if (!$dara.isNull(request.authResourceListShrink)) {
+      query["AuthResourceList"] = request.authResourceListShrink;
+    }
+
+    if (!$dara.isNull(request.authResourceMode)) {
+      query["AuthResourceMode"] = request.authResourceMode;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientSecret)) {
+      query["ClientSecret"] = request.clientSecret;
+    }
+
+    if (!$dara.isNull(request.cookieDomain)) {
+      query["CookieDomain"] = request.cookieDomain;
+    }
+
+    if (!$dara.isNull(request.deleteResourceIdListShrink)) {
+      query["DeleteResourceIdList"] = request.deleteResourceIdListShrink;
+    }
+
+    if (!$dara.isNull(request.externalAuthZJSONShrink)) {
+      query["ExternalAuthZJSON"] = request.externalAuthZJSONShrink;
+    }
+
+    if (!$dara.isNull(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.isWhite)) {
+      query["IsWhite"] = request.isWhite;
+    }
+
+    if (!$dara.isNull(request.issuer)) {
+      query["Issuer"] = request.issuer;
+    }
+
+    if (!$dara.isNull(request.jwks)) {
+      query["Jwks"] = request.jwks;
+    }
+
+    if (!$dara.isNull(request.loginUrl)) {
+      query["LoginUrl"] = request.loginUrl;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.redirectUrl)) {
+      query["RedirectUrl"] = request.redirectUrl;
+    }
+
+    if (!$dara.isNull(request.scopesListShrink)) {
+      query["ScopesList"] = request.scopesListShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.sub)) {
+      query["Sub"] = request.sub;
+    }
+
+    if (!$dara.isNull(request.tokenName)) {
+      query["TokenName"] = request.tokenName;
+    }
+
+    if (!$dara.isNull(request.tokenNamePrefix)) {
+      query["TokenNamePrefix"] = request.tokenNamePrefix;
+    }
+
+    if (!$dara.isNull(request.tokenPass)) {
+      query["TokenPass"] = request.tokenPass;
+    }
+
+    if (!$dara.isNull(request.tokenPosition)) {
+      query["TokenPosition"] = request.tokenPosition;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayAuth",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayAuthResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayAuthResponse({}));
+  }
+
+  /**
+   * 更新网关认证
+   * 
+   * @param request - UpdateGatewayAuthRequest
+   * @returns UpdateGatewayAuthResponse
+   */
+  async updateGatewayAuth(request: $_model.UpdateGatewayAuthRequest): Promise<$_model.UpdateGatewayAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateGatewayAuthWithOptions(request, runtime);
   }
 
   /**
