@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChatStreamRequest extends $dara.Model {
+  documentIds?: number[];
   /**
    * @remarks
    * Q&A content.
@@ -27,6 +28,7 @@ export class ChatStreamRequest extends $dara.Model {
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
+      documentIds: 'documentIds',
       question: 'question',
       sessionId: 'sessionId',
     };
@@ -34,12 +36,16 @@ export class ChatStreamRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      documentIds: { 'type': 'array', 'itemType': 'number' },
       question: 'string',
       sessionId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.documentIds)) {
+      $dara.Model.validateArray(this.documentIds);
+    }
     super.validate();
   }
 
