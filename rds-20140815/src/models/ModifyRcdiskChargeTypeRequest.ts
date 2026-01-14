@@ -35,6 +35,11 @@ export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
   payType?: string;
   /**
    * @example
+   * Month
+   */
+  period?: string;
+  /**
+   * @example
    * 72802442****
    */
   promotionCode?: string;
@@ -49,6 +54,11 @@ export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
    * true
    */
   regionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  usedTime?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -58,8 +68,10 @@ export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
       clientToken: 'ClientToken',
       instanceId: 'InstanceId',
       payType: 'PayType',
+      period: 'Period',
       promotionCode: 'PromotionCode',
       regionId: 'RegionId',
+      usedTime: 'UsedTime',
     };
   }
 
@@ -72,8 +84,10 @@ export class ModifyRCDiskChargeTypeRequest extends $dara.Model {
       clientToken: 'string',
       instanceId: 'string',
       payType: 'string',
+      period: 'string',
       promotionCode: 'string',
       regionId: 'string',
+      usedTime: 'number',
     };
   }
 
