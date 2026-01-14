@@ -23,6 +23,7 @@ export class ListRegistryModulesRequest extends $dara.Model {
    * NFzbQCa7/yd7rAuSo5xZb54dD+2BRJj42DLT6GrZysw=
    */
   nextToken?: string;
+  status?: string;
   /**
    * @example
    * system
@@ -34,6 +35,7 @@ export class ListRegistryModulesRequest extends $dara.Model {
       maxResults: 'maxResults',
       namespaceName: 'namespaceName',
       nextToken: 'nextToken',
+      status: 'status',
       type: 'type',
     };
   }
@@ -44,6 +46,7 @@ export class ListRegistryModulesRequest extends $dara.Model {
       maxResults: 'number',
       namespaceName: 'string',
       nextToken: 'string',
+      status: 'string',
       type: 'string',
     };
   }
