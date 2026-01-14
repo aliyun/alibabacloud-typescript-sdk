@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRulesResponseBodyItems extends $dara.Model {
   /**
+   * @example
+   * 0
+   */
+  auditMode?: number;
+  /**
    * @remarks
    * The content type of the sensitive data detection rule. Valid values:
    * 
@@ -242,6 +247,11 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
    */
   templateRuleIds?: string;
   /**
+   * @example
+   * 0
+   */
+  threatAnalysisStatus?: number;
+  /**
    * @remarks
    * The ID of the account that is used to create the sensitive data detection rule.
    * 
@@ -263,6 +273,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
+      auditMode: 'AuditMode',
       category: 'Category',
       categoryName: 'CategoryName',
       content: 'Content',
@@ -289,6 +300,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
       supportForm: 'SupportForm',
       target: 'Target',
       templateRuleIds: 'TemplateRuleIds',
+      threatAnalysisStatus: 'ThreatAnalysisStatus',
       userId: 'UserId',
       warnLevel: 'WarnLevel',
     };
@@ -296,6 +308,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      auditMode: 'number',
       category: 'number',
       categoryName: 'string',
       content: 'string',
@@ -322,6 +335,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
       supportForm: 'number',
       target: 'string',
       templateRuleIds: 'string',
+      threatAnalysisStatus: 'number',
       userId: 'number',
       warnLevel: 'number',
     };
