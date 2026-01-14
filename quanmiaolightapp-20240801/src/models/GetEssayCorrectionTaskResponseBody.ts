@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ModelUsage } from "./ModelUsage";
 
 
 export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
@@ -17,11 +18,13 @@ export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
    * 58
    */
   score?: number;
+  usage?: ModelUsage;
   static names(): { [key: string]: string } {
     return {
       customId: 'customId',
       result: 'result',
       score: 'score',
+      usage: 'usage',
     };
   }
 
@@ -30,10 +33,14 @@ export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
       customId: 'string',
       result: 'string',
       score: 'number',
+      usage: ModelUsage,
     };
   }
 
   validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
     super.validate();
   }
 
@@ -50,11 +57,13 @@ export class GetEssayCorrectionTaskResponseBodyData extends $dara.Model {
    * PENDING
    */
   status?: string;
+  totalUsage?: ModelUsage;
   static names(): { [key: string]: string } {
     return {
       errorMessage: 'errorMessage',
       results: 'results',
       status: 'status',
+      totalUsage: 'totalUsage',
     };
   }
 
@@ -63,12 +72,16 @@ export class GetEssayCorrectionTaskResponseBodyData extends $dara.Model {
       errorMessage: 'string',
       results: { 'type': 'array', 'itemType': GetEssayCorrectionTaskResponseBodyDataResults },
       status: 'string',
+      totalUsage: ModelUsage,
     };
   }
 
   validate() {
     if(Array.isArray(this.results)) {
       $dara.Model.validateArray(this.results);
+    }
+    if(this.totalUsage && typeof (this.totalUsage as any).validate === 'function') {
+      (this.totalUsage as any).validate();
     }
     super.validate();
   }

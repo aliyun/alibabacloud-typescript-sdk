@@ -202,6 +202,7 @@ export { SubmitVideoDetectShotTaskResponseBodyData } from './SubmitVideoDetectSh
 export { UpdateVideoAnalysisTaskResponseBodyData } from './UpdateVideoAnalysisTaskResponseBody';
 export { UpdateVideoAnalysisTasksResponseBodyData } from './UpdateVideoAnalysisTasksResponseBody';
 export { UpdateVideoDetectShotTaskResponseBodyData } from './UpdateVideoDetectShotTaskResponseBody';
+export { ModelUsage } from './ModelUsage';
 export { CancelAsyncTaskRequest } from './CancelAsyncTaskRequest';
 export { CancelAsyncTaskResponseBody } from './CancelAsyncTaskResponseBody';
 export { CancelAsyncTaskResponse } from './CancelAsyncTaskResponse';
