@@ -169,6 +169,9 @@ export { GetAvailableParserTypesResponse } from './GetAvailableParserTypesRespon
 export { GetIndexJobStatusRequest } from './GetIndexJobStatusRequest';
 export { GetIndexJobStatusResponseBody } from './GetIndexJobStatusResponseBody';
 export { GetIndexJobStatusResponse } from './GetIndexJobStatusResponse';
+export { GetIndexMonitorRequest } from './GetIndexMonitorRequest';
+export { GetIndexMonitorResponseBody } from './GetIndexMonitorResponseBody';
+export { GetIndexMonitorResponse } from './GetIndexMonitorResponse';
 export { GetMemoryResponseBody } from './GetMemoryResponseBody';
 export { GetMemoryResponse } from './GetMemoryResponse';
 export { GetMemoryNodeResponseBody } from './GetMemoryNodeResponseBody';

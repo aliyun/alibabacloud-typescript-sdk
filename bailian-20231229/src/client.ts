@@ -30,7 +30,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加类目
+   * Creates a category in the specified workspace to categorize and manage documents. You can create up to 1,000 categories in each workspace.
+   * 
+   * @remarks
+   *   You cannot use API to create structured table. To create a table, go to [Data Management](https://bailian.console.alibabacloud.com/#/data-center) in the console. You can associate a knowledge base with ApsaraDB for RDS to automatically update structured knowledge base. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
+   * *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:AddCategory) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+   * *   You can create up to 1,000 categories in each workspace.
+   * *   This interface is not idempotent.
+   * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
    * 
    * @param request - AddCategoryRequest
    * @param headers - map
@@ -71,7 +78,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加类目
+   * Creates a category in the specified workspace to categorize and manage documents. You can create up to 1,000 categories in each workspace.
+   * 
+   * @remarks
+   *   You cannot use API to create structured table. To create a table, go to [Data Management](https://bailian.console.alibabacloud.com/#/data-center) in the console. You can associate a knowledge base with ApsaraDB for RDS to automatically update structured knowledge base. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
+   * *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:AddCategory) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+   * *   You can create up to 1,000 categories in each workspace.
+   * *   This interface is not idempotent.
+   * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
    * 
    * @param request - AddCategoryRequest
    * @returns AddCategoryResponse
@@ -320,7 +334,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请临时文件存储上传许可
+   * This interface is intended for pro-code deployment only; other scenarios are currently not supported. It is used to apply for a temporary file upload lease. After obtaining the lease, you must upload the file manually.
+   * 
+   * @remarks
+   * 1\\. This interface is intended for pro-code deployment only; other scenarios are currently not supported. 2. After obtaining the temporary file upload lease via this interface, upload the file manually.
    * 
    * @param request - ApplyTempStorageLeaseRequest
    * @param headers - map
@@ -357,7 +374,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请临时文件存储上传许可
+   * This interface is intended for pro-code deployment only; other scenarios are currently not supported. It is used to apply for a temporary file upload lease. After obtaining the lease, you must upload the file manually.
+   * 
+   * @remarks
+   * 1\\. This interface is intended for pro-code deployment only; other scenarios are currently not supported. 2. After obtaining the temporary file upload lease via this interface, upload the file manually.
    * 
    * @param request - ApplyTempStorageLeaseRequest
    * @returns ApplyTempStorageLeaseResponse
@@ -1502,6 +1522,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIndexJobStatusWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取索引监控情况
+   * 
+   * @param request - GetIndexMonitorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIndexMonitorResponse
+   */
+  async getIndexMonitorWithOptions(WorkspaceId: string, request: $_model.GetIndexMonitorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIndexMonitorResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    if (!$dara.isNull(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIndexMonitor",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/rag/index/monitor`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIndexMonitorResponse>(await this.callApi(params, req, runtime), new $_model.GetIndexMonitorResponse({}));
+  }
+
+  /**
+   * 获取索引监控情况
+   * 
+   * @param request - GetIndexMonitorRequest
+   * @returns GetIndexMonitorResponse
+   */
+  async getIndexMonitor(WorkspaceId: string, request: $_model.GetIndexMonitorRequest): Promise<$_model.GetIndexMonitorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIndexMonitorWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**

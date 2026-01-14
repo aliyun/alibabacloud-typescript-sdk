@@ -2,38 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ApplyTempStorageLeaseRequest extends $dara.Model {
+export class GetIndexMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The file name, including the file extension.
-   * 
    * This parameter is required.
    * 
    * @example
-   * example.txt
+   * 1767604500
    */
-  fileName?: string;
+  endTimestamp?: number;
   /**
    * @remarks
-   * The size of the file, in bytes.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 1024
+   * kb-123456xxxx
    */
-  sizeInBytes?: number;
+  indexId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1767604500
+   */
+  startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      fileName: 'FileName',
-      sizeInBytes: 'SizeInBytes',
+      endTimestamp: 'EndTimestamp',
+      indexId: 'IndexId',
+      startTimestamp: 'StartTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileName: 'string',
-      sizeInBytes: 'number',
+      endTimestamp: 'number',
+      indexId: 'string',
+      startTimestamp: 'number',
     };
   }
 
