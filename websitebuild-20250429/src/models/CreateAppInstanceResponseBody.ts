@@ -18,11 +18,13 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
    * 250822465990301
    */
   orderId?: string;
+  siteHost?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
       instanceId: 'InstanceId',
       orderId: 'OrderId',
+      siteHost: 'SiteHost',
     };
   }
 
@@ -31,6 +33,7 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
       bizId: 'string',
       instanceId: 'string',
       orderId: 'string',
+      siteHost: 'string',
     };
   }
 
