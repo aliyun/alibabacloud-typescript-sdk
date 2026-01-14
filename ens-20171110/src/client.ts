@@ -3926,6 +3926,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除集群
+   * 
+   * @param request - DeleteClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClusterResponse
+   */
+  async deleteClusterWithOptions(request: $_model.DeleteClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCluster",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteClusterResponse({}));
+  }
+
+  /**
+   * 删除集群
+   * 
+   * @param request - DeleteClusterRequest
+   * @returns DeleteClusterResponse
+   */
+  async deleteCluster(request: $_model.DeleteClusterRequest): Promise<$_model.DeleteClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a disk.
    * 
    * @remarks
