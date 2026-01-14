@@ -52,6 +52,8 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * 
    * @example
    * {\\"1717498320\\":500,\\"1717498380\\":529,\\"1717498440\\":20,\\"1717498260\\":518,\\"1717498200\\":481,\\"1717498140\\":52}
+   * 
+   * @deprecated
    */
   attackCntInfo?: string;
   /**
@@ -60,6 +62,8 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * 
    * @example
    * 104.234.140.33
+   * 
+   * @deprecated
    */
   attackIp?: string;
   /**
@@ -73,11 +77,15 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * 
    * @example
    * [{\\"ip\\":\\"72.*.*.119\\",\\"country_id\\":\\"US\\",\\"region_id\\":\\"\\",\\"cnt\\":\\"2100\\"}]
+   * 
+   * @deprecated
    */
   attackIpInfo?: string;
   /**
    * @remarks
    * The source IP addresses of the attacks.
+   * 
+   * @deprecated
    */
   attackIps?: string[];
   attackerList?: string[];
@@ -107,6 +115,8 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * 
    * @example
    * {}
+   * 
+   * @deprecated
    */
   eventInfo?: string;
   /**
@@ -191,6 +201,8 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * 
    * @example
    * {}
+   * 
+   * @deprecated
    */
   requestData?: string;
   /**
@@ -199,6 +211,8 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * 
    * @example
    * {}
+   * 
+   * @deprecated
    */
   responseData?: string;
   /**

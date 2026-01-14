@@ -24,6 +24,8 @@ export class DescribeApiExportsRequest extends $dara.Model {
    * 
    * @example
    * zh
+   * 
+   * @deprecated
    */
   lang?: string;
   /**

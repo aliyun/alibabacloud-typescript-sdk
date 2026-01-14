@@ -38,6 +38,8 @@ export class DescribeUserAssetRequest extends $dara.Model {
    * 
    * @example
    * 1723435200
+   * 
+   * @deprecated
    */
   days?: string;
   /**

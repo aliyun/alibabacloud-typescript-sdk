@@ -99,6 +99,8 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The risk-related samples.
+   * 
+   * @deprecated
    */
   examples?: string[];
   /**

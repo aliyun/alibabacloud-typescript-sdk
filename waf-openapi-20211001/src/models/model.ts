@@ -48,6 +48,7 @@ export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCert
 export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders } from './DescribeCloudResourceAccessPortDetailsResponseBody';
 export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails } from './DescribeCloudResourceAccessPortDetailsResponseBody';
 export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails } from './DescribeCloudResourceAccessPortDetailsResponseBody';
+export { DescribeCloudResourceListResponseBodyCloudResourceList } from './DescribeCloudResourceListResponseBody';
 export { DescribeCloudResourcesResponseBodyCloudResources } from './DescribeCloudResourcesResponseBody';
 export { DescribeCnameCountResponseBodyCnameCount } from './DescribeCnameCountResponseBody';
 export { DescribeCommonLogFieldsResponseBodyLogFieldList } from './DescribeCommonLogFieldsResponseBody';
@@ -177,6 +178,7 @@ export { DescribeSensitiveStatisticResponseBodyData } from './DescribeSensitiveS
 export { DescribeTemplateResourceCountResponseBodyResourceCount } from './DescribeTemplateResourceCountResponseBody';
 export { DescribeThreatEventResponseBodyThreatEvents } from './DescribeThreatEventResponseBody';
 export { DescribeThreatEventDetailResponseBodyThreatEventDetail } from './DescribeThreatEventDetailResponseBody';
+export { DescribeThreatEventTopMetricResponseBodyTopMetrics } from './DescribeThreatEventTopMetricResponseBody';
 export { DescribeUserAbnormalTrendResponseBodyTrend } from './DescribeUserAbnormalTrendResponseBody';
 export { DescribeUserAbnormalTypeResponseBodyAbnormal } from './DescribeUserAbnormalTypeResponseBody';
 export { DescribeUserApiRequestResponseBodyRequests } from './DescribeUserApiRequestResponseBody';
@@ -420,6 +422,9 @@ export { DescribeCloudResourceAccessPortDetailsResponse } from './DescribeCloudR
 export { DescribeCloudResourceAccessedPortsRequest } from './DescribeCloudResourceAccessedPortsRequest';
 export { DescribeCloudResourceAccessedPortsResponseBody } from './DescribeCloudResourceAccessedPortsResponseBody';
 export { DescribeCloudResourceAccessedPortsResponse } from './DescribeCloudResourceAccessedPortsResponse';
+export { DescribeCloudResourceListRequest } from './DescribeCloudResourceListRequest';
+export { DescribeCloudResourceListResponseBody } from './DescribeCloudResourceListResponseBody';
+export { DescribeCloudResourceListResponse } from './DescribeCloudResourceListResponse';
 export { DescribeCloudResourcesRequest } from './DescribeCloudResourcesRequest';
 export { DescribeCloudResourcesResponseBody } from './DescribeCloudResourcesResponseBody';
 export { DescribeCloudResourcesResponse } from './DescribeCloudResourcesResponse';
@@ -720,6 +725,9 @@ export { DescribeThreatEventResponse } from './DescribeThreatEventResponse';
 export { DescribeThreatEventDetailRequest } from './DescribeThreatEventDetailRequest';
 export { DescribeThreatEventDetailResponseBody } from './DescribeThreatEventDetailResponseBody';
 export { DescribeThreatEventDetailResponse } from './DescribeThreatEventDetailResponse';
+export { DescribeThreatEventTopMetricRequest } from './DescribeThreatEventTopMetricRequest';
+export { DescribeThreatEventTopMetricResponseBody } from './DescribeThreatEventTopMetricResponseBody';
+export { DescribeThreatEventTopMetricResponse } from './DescribeThreatEventTopMetricResponse';
 export { DescribeUserAbnormalTrendRequest } from './DescribeUserAbnormalTrendRequest';
 export { DescribeUserAbnormalTrendResponseBody } from './DescribeUserAbnormalTrendResponseBody';
 export { DescribeUserAbnormalTrendResponse } from './DescribeUserAbnormalTrendResponse';

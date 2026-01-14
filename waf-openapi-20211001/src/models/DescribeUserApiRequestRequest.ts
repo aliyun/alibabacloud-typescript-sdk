@@ -10,6 +10,8 @@ export class DescribeUserApiRequestRequest extends $dara.Model {
    * 
    * @example
    * /api/v1/know
+   * 
+   * @deprecated
    */
   apiFormat?: string;
   /**
@@ -38,6 +40,8 @@ export class DescribeUserApiRequestRequest extends $dara.Model {
    * 
    * @example
    * c.***.com
+   * 
+   * @deprecated
    */
   domain?: string;
   /**

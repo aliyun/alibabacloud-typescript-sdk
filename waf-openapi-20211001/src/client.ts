@@ -4752,6 +4752,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询云产品接入资源列表
+   * 
+   * @param request - DescribeCloudResourceListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudResourceListResponse
+   */
+  async describeCloudResourceListWithOptions(request: $_model.DescribeCloudResourceListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCloudResourceListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerUserId)) {
+      query["OwnerUserId"] = request.ownerUserId;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceInstanceId)) {
+      query["ResourceInstanceId"] = request.resourceInstanceId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceProduct)) {
+      query["ResourceProduct"] = request.resourceProduct;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCloudResourceList",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCloudResourceListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCloudResourceListResponse({}));
+  }
+
+  /**
+   * 查询云产品接入资源列表
+   * 
+   * @param request - DescribeCloudResourceListRequest
+   * @returns DescribeCloudResourceListResponse
+   */
+  async describeCloudResourceList(request: $_model.DescribeCloudResourceListRequest): Promise<$_model.DescribeCloudResourceListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCloudResourceListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries cloud service resources that are added to Web Application Firewall (WAF).
    * 
    * @param request - DescribeCloudResourcesRequest
@@ -10877,6 +10955,64 @@ export default class Client extends OpenApi {
   async describeThreatEventDetail(request: $_model.DescribeThreatEventDetailRequest): Promise<$_model.DescribeThreatEventDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeThreatEventDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询安全事件Top攻击统计数据
+   * 
+   * @param request - DescribeThreatEventTopMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeThreatEventTopMetricResponse
+   */
+  async describeThreatEventTopMetricWithOptions(request: $_model.DescribeThreatEventTopMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeThreatEventTopMetricResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeThreatEventTopMetric",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeThreatEventTopMetricResponse>(await this.callApi(params, req, runtime), new $_model.DescribeThreatEventTopMetricResponse({}));
+  }
+
+  /**
+   * 查询安全事件Top攻击统计数据
+   * 
+   * @param request - DescribeThreatEventTopMetricRequest
+   * @returns DescribeThreatEventTopMetricResponse
+   */
+  async describeThreatEventTopMetric(request: $_model.DescribeThreatEventTopMetricRequest): Promise<$_model.DescribeThreatEventTopMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeThreatEventTopMetricWithOptions(request, runtime);
   }
 
   /**

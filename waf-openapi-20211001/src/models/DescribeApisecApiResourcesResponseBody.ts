@@ -177,6 +177,8 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The sample APIs.
+   * 
+   * @deprecated
    */
   examples?: string[];
   /**
