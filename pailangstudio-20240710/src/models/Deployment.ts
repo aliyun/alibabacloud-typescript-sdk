@@ -247,6 +247,82 @@ export class DeploymentDataSources extends $dara.Model {
   }
 }
 
+export class DeploymentDeploymentStages extends $dara.Model {
+  /**
+   * @remarks
+   * 描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * 结束时间
+   */
+  gmtEndTime?: string;
+  /**
+   * @remarks
+   * 开始时间
+   */
+  gmtStartTime?: string;
+  /**
+   * @remarks
+   * 阶段
+   */
+  stage?: number;
+  /**
+   * @remarks
+   * 阶段信息
+   */
+  stageInfo?: string;
+  /**
+   * @remarks
+   * 阶段名称
+   */
+  stageName?: string;
+  /**
+   * @remarks
+   * 阶段状态
+   */
+  stageStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      errorMessage: 'ErrorMessage',
+      gmtEndTime: 'GmtEndTime',
+      gmtStartTime: 'GmtStartTime',
+      stage: 'Stage',
+      stageInfo: 'StageInfo',
+      stageName: 'StageName',
+      stageStatus: 'StageStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      errorMessage: 'string',
+      gmtEndTime: 'string',
+      gmtStartTime: 'string',
+      stage: 'number',
+      stageInfo: 'string',
+      stageName: 'string',
+      stageStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeploymentEcsSpecComputingInstanceConfigComputingInstances extends $dara.Model {
   /**
    * @remarks
@@ -557,6 +633,7 @@ export class DeploymentUserVpc extends $dara.Model {
 
 export class Deployment extends $dara.Model {
   accessibility?: string;
+  autoApproval?: boolean;
   chatHistoryConfig?: DeploymentChatHistoryConfig;
   contentModerationConfig?: DeploymentContentModerationConfig;
   creator?: string;
@@ -564,7 +641,7 @@ export class Deployment extends $dara.Model {
   dataSources?: DeploymentDataSources[];
   deploymentConfig?: string;
   deploymentId?: string;
-  deploymentStages?: string;
+  deploymentStages?: DeploymentDeploymentStages[];
   deploymentStatus?: string;
   description?: string;
   ecsSpec?: DeploymentEcsSpec;
@@ -586,6 +663,7 @@ export class Deployment extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      autoApproval: 'AutoApproval',
       chatHistoryConfig: 'ChatHistoryConfig',
       contentModerationConfig: 'ContentModerationConfig',
       creator: 'Creator',
@@ -618,6 +696,7 @@ export class Deployment extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      autoApproval: 'boolean',
       chatHistoryConfig: DeploymentChatHistoryConfig,
       contentModerationConfig: DeploymentContentModerationConfig,
       creator: 'string',
@@ -625,7 +704,7 @@ export class Deployment extends $dara.Model {
       dataSources: { 'type': 'array', 'itemType': DeploymentDataSources },
       deploymentConfig: 'string',
       deploymentId: 'string',
-      deploymentStages: 'string',
+      deploymentStages: { 'type': 'array', 'itemType': DeploymentDeploymentStages },
       deploymentStatus: 'string',
       description: 'string',
       ecsSpec: DeploymentEcsSpec,
@@ -659,6 +738,9 @@ export class Deployment extends $dara.Model {
     }
     if(Array.isArray(this.dataSources)) {
       $dara.Model.validateArray(this.dataSources);
+    }
+    if(Array.isArray(this.deploymentStages)) {
+      $dara.Model.validateArray(this.deploymentStages);
     }
     if(this.ecsSpec && typeof (this.ecsSpec as any).validate === 'function') {
       (this.ecsSpec as any).validate();

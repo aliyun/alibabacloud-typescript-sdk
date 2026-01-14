@@ -384,6 +384,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取知识库切片列表
+   * 
+   * @param request - ListKnowledgeBaseChunksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBaseChunksResponse
+   */
+  async listKnowledgeBaseChunksWithOptions(KnowledgeBaseId: string, request: $_model.ListKnowledgeBaseChunksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBaseChunksResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunkStatus)) {
+      query["ChunkStatus"] = request.chunkStatus;
+    }
+
+    if (!$dara.isNull(request.metaData)) {
+      query["MetaData"] = request.metaData;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBaseChunks",
+      version: "2024-07-10",
+      protocol: "HTTPS",
+      pathname: `/api/v1/langstudio/knowledgebases/${$dara.URL.percentEncode(KnowledgeBaseId)}/knowledgebasechunks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBaseChunksResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBaseChunksResponse({}));
+  }
+
+  /**
+   * 获取知识库切片列表
+   * 
+   * @param request - ListKnowledgeBaseChunksRequest
+   * @returns ListKnowledgeBaseChunksResponse
+   */
+  async listKnowledgeBaseChunks(KnowledgeBaseId: string, request: $_model.ListKnowledgeBaseChunksRequest): Promise<$_model.ListKnowledgeBaseChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listKnowledgeBaseChunksWithOptions(KnowledgeBaseId, request, headers, runtime);
+  }
+
+  /**
    * 获取知识库任务列表
    * 
    * @param request - ListKnowledgeBaseJobsRequest
@@ -693,6 +754,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateKnowledgeBaseWithOptions(KnowledgeBaseId, request, headers, runtime);
+  }
+
+  /**
+   * 更新知识库切片
+   * 
+   * @param request - UpdateKnowledgeBaseChunkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseChunkResponse
+   */
+  async updateKnowledgeBaseChunkWithOptions(KnowledgeBaseId: string, KnowledgeBaseChunkId: string, request: $_model.UpdateKnowledgeBaseChunkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseChunkResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunkContent)) {
+      body["ChunkContent"] = request.chunkContent;
+    }
+
+    if (!$dara.isNull(request.chunkStatus)) {
+      body["ChunkStatus"] = request.chunkStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBaseChunk",
+      version: "2024-07-10",
+      protocol: "HTTPS",
+      pathname: `/api/v1/langstudio/knowledgebases/${$dara.URL.percentEncode(KnowledgeBaseId)}/knowledgebasechunks/${$dara.URL.percentEncode(KnowledgeBaseChunkId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseChunkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseChunkResponse({}));
+  }
+
+  /**
+   * 更新知识库切片
+   * 
+   * @param request - UpdateKnowledgeBaseChunkRequest
+   * @returns UpdateKnowledgeBaseChunkResponse
+   */
+  async updateKnowledgeBaseChunk(KnowledgeBaseId: string, KnowledgeBaseChunkId: string, request: $_model.UpdateKnowledgeBaseChunkRequest): Promise<$_model.UpdateKnowledgeBaseChunkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateKnowledgeBaseChunkWithOptions(KnowledgeBaseId, KnowledgeBaseChunkId, request, headers, runtime);
   }
 
   /**

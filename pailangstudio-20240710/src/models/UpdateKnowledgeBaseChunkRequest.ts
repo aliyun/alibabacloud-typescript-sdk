@@ -2,21 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateKnowledgeBaseResponseBody extends $dara.Model {
+export class UpdateKnowledgeBaseChunkRequest extends $dara.Model {
   /**
    * @example
-   * 963BD7F9-0C02-5594-9550-BCC6DD43E3C0
+   * content
    */
-  requestId?: string;
+  chunkContent?: string;
+  /**
+   * @example
+   * Enable
+   */
+  chunkStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      chunkContent: 'ChunkContent',
+      chunkStatus: 'ChunkStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      chunkContent: 'string',
+      chunkStatus: 'string',
     };
   }
 

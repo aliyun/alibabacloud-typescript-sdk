@@ -5,13 +5,25 @@ import { KnowledgeBase } from "./KnowledgeBase";
 
 export class ListKnowledgeBasesResponseBody extends $dara.Model {
   knowledgeBases?: KnowledgeBase[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 11
+   */
   nextToken?: string;
   /**
    * @example
    * 35686626-8D83-5ADE-B400-08A6613A6057
    */
   requestId?: string;
+  /**
+   * @example
+   * 25
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

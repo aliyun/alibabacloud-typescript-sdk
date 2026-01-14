@@ -5,13 +5,25 @@ import { KnowledgeBaseJob } from "./KnowledgeBaseJob";
 
 export class ListKnowledgeBaseJobsResponseBody extends $dara.Model {
   knowledgeBaseJobs?: KnowledgeBaseJob[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 11
+   */
   nextToken?: string;
   /**
    * @example
    * 963BD7F9-0C02-5594-9550-BCC6DD43E3C0
    */
   requestId?: string;
+  /**
+   * @example
+   * 25
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
