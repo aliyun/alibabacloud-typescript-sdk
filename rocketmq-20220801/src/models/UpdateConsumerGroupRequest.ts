@@ -90,10 +90,10 @@ export class UpdateConsumerGroupRequest extends $dara.Model {
    * *   Concurrently: concurrent delivery
    * *   Orderly: ordered delivery
    * 
-   * This parameter is required.
-   * 
    * @example
    * Concurrently
+   * 
+   * @deprecated
    */
   deliveryOrderType?: string;
   /**

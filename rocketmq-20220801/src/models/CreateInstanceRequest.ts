@@ -304,6 +304,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
    * xxx
    */
   storageSecretKey?: string;
+  traceOn?: boolean;
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
@@ -314,6 +315,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
       sendReceiveRatio: 'sendReceiveRatio',
       storageEncryption: 'storageEncryption',
       storageSecretKey: 'storageSecretKey',
+      traceOn: 'traceOn',
     };
   }
 
@@ -327,6 +329,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
       sendReceiveRatio: 'number',
       storageEncryption: 'boolean',
       storageSecretKey: 'string',
+      traceOn: 'boolean',
     };
   }
 
