@@ -9,6 +9,7 @@ export { DeleteAirflowResponseBodyRootResponses } from './DeleteAirflowResponseB
 export { DeleteAirflowResponseBodyRoot } from './DeleteAirflowResponseBody';
 export { DeleteFileUploadResponseBodyData } from './DeleteFileUploadResponseBody';
 export { DescribeCustomAgentResponseBodyDataExecutionConfig } from './DescribeCustomAgentResponseBody';
+export { DescribeCustomAgentResponseBodyDataKnowledgeConfigList } from './DescribeCustomAgentResponseBody';
 export { DescribeCustomAgentResponseBodyData } from './DescribeCustomAgentResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataChatHistoryLocations } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataSessionConfig } from './DescribeDataAgentSessionResponseBody';
@@ -22,6 +23,7 @@ export { GetNotebookTaskStatusResponseBodyData } from './GetNotebookTaskStatusRe
 export { ListAirflowsResponseBodyRootList } from './ListAirflowsResponseBody';
 export { ListAirflowsResponseBodyRoot } from './ListAirflowsResponseBody';
 export { ListCustomAgentResponseBodyDataContentExecutionConfig } from './ListCustomAgentResponseBody';
+export { ListCustomAgentResponseBodyDataContentKnowledgeConfigList } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponseBodyDataContent } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponseBodyData } from './ListCustomAgentResponseBody';
 export { ListDataAgentWorkspaceResponseBodyDataContent } from './ListDataAgentWorkspaceResponseBody';

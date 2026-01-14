@@ -38,6 +38,32 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
   }
 }
 
+export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.Model {
+  accessType?: string;
+  mcpServerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      mcpServerId: 'McpServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      mcpServerId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -79,6 +105,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   gmtModified?: string;
   instruction?: string;
   knowledge?: string;
+  knowledgeConfigList?: DescribeCustomAgentResponseBodyDataKnowledgeConfigList[];
   /**
    * @example
    * 20372822********
@@ -131,6 +158,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       gmtModified: 'GmtModified',
       instruction: 'Instruction',
       knowledge: 'Knowledge',
+      knowledgeConfigList: 'KnowledgeConfigList',
       modifier: 'Modifier',
       modifierUserName: 'ModifierUserName',
       name: 'Name',
@@ -158,6 +186,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       gmtModified: 'string',
       instruction: 'string',
       knowledge: 'string',
+      knowledgeConfigList: { 'type': 'array', 'itemType': DescribeCustomAgentResponseBodyDataKnowledgeConfigList },
       modifier: 'string',
       modifierUserName: 'string',
       name: 'string',
@@ -174,6 +203,9 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   validate() {
     if(this.executionConfig && typeof (this.executionConfig as any).validate === 'function') {
       (this.executionConfig as any).validate();
+    }
+    if(Array.isArray(this.knowledgeConfigList)) {
+      $dara.Model.validateArray(this.knowledgeConfigList);
     }
     super.validate();
   }
