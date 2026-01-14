@@ -63,10 +63,12 @@ export class ListAICoachTaskPageResponseBody extends $dara.Model {
    */
   requestId?: string;
   taskList?: ListAICoachTaskPageResponseBodyTaskList[];
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
       taskList: 'taskList',
+      total: 'total',
     };
   }
 
@@ -74,6 +76,7 @@ export class ListAICoachTaskPageResponseBody extends $dara.Model {
     return {
       requestId: 'string',
       taskList: { 'type': 'array', 'itemType': ListAICoachTaskPageResponseBodyTaskList },
+      total: 'number',
     };
   }
 
