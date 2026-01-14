@@ -294,6 +294,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $dara.Model {
    * The configurations of health checks.
    */
   healthCheck?: ListServerGroupsResponseBodyServerGroupsHealthCheck;
+  ipVersionAffinityMode?: string;
   /**
    * @remarks
    * Indicates whether client IP preservation is enabled. Valid values:
@@ -418,6 +419,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $dara.Model {
       connectionDrainEnabled: 'ConnectionDrainEnabled',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
       healthCheck: 'HealthCheck',
+      ipVersionAffinityMode: 'IpVersionAffinityMode',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
       protocol: 'Protocol',
       regionId: 'RegionId',
@@ -442,6 +444,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $dara.Model {
       connectionDrainEnabled: 'boolean',
       connectionDrainTimeout: 'number',
       healthCheck: ListServerGroupsResponseBodyServerGroupsHealthCheck,
+      ipVersionAffinityMode: 'string',
       preserveClientIpEnabled: 'boolean',
       protocol: 'string',
       regionId: 'string',

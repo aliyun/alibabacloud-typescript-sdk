@@ -235,6 +235,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * Health check configurations.
    */
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
+  ipVersionAffinityMode?: string;
   /**
    * @remarks
    * Specifies whether to enable client IP preservation. Valid values:
@@ -302,6 +303,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
       connectionDrainTimeout: 'ConnectionDrainTimeout',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
+      ipVersionAffinityMode: 'IpVersionAffinityMode',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
       regionId: 'RegionId',
       scheduler: 'Scheduler',
@@ -317,6 +319,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
       connectionDrainTimeout: 'number',
       dryRun: 'boolean',
       healthCheckConfig: UpdateServerGroupAttributeRequestHealthCheckConfig,
+      ipVersionAffinityMode: 'string',
       preserveClientIpEnabled: 'boolean',
       regionId: 'string',
       scheduler: 'string',

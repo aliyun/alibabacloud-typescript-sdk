@@ -313,6 +313,7 @@ export class CreateServerGroupRequest extends $dara.Model {
    * The configurations of health checks.
    */
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
+  ipVersionAffinityMode?: string;
   /**
    * @remarks
    * Specifies whether to enable client IP preservation. Valid values:
@@ -433,6 +434,7 @@ export class CreateServerGroupRequest extends $dara.Model {
       connectionDrainTimeout: 'ConnectionDrainTimeout',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
+      ipVersionAffinityMode: 'IpVersionAffinityMode',
       preserveClientIpEnabled: 'PreserveClientIpEnabled',
       protocol: 'Protocol',
       regionId: 'RegionId',
@@ -454,6 +456,7 @@ export class CreateServerGroupRequest extends $dara.Model {
       connectionDrainTimeout: 'number',
       dryRun: 'boolean',
       healthCheckConfig: CreateServerGroupRequestHealthCheckConfig,
+      ipVersionAffinityMode: 'string',
       preserveClientIpEnabled: 'boolean',
       protocol: 'string',
       regionId: 'string',

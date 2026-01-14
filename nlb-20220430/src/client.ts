@@ -647,6 +647,10 @@ export default class Client extends OpenApi {
       bodyFlat["HealthCheckConfig"] = request.healthCheckConfig;
     }
 
+    if (!$dara.isNull(request.ipVersionAffinityMode)) {
+      body["IpVersionAffinityMode"] = request.ipVersionAffinityMode;
+    }
+
     if (!$dara.isNull(request.preserveClientIpEnabled)) {
       body["PreserveClientIpEnabled"] = request.preserveClientIpEnabled;
     }
@@ -3240,6 +3244,10 @@ export default class Client extends OpenApi {
     let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.healthCheckConfig)) {
       bodyFlat["HealthCheckConfig"] = request.healthCheckConfig;
+    }
+
+    if (!$dara.isNull(request.ipVersionAffinityMode)) {
+      body["IpVersionAffinityMode"] = request.ipVersionAffinityMode;
     }
 
     if (!$dara.isNull(request.preserveClientIpEnabled)) {
