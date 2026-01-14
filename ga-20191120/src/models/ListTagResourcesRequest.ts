@@ -1,0 +1,159 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the GA resource. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * You can specify up to 20 tag keys.
+   * 
+   * @example
+   * KeyTest
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the GA resource. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * You can specify up to 20 tag values.
+   * 
+   * @example
+   * valueTest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The token that determines the start point of the next query. Valid values:
+   * 
+   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
+   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the resources whose tag information you want to query.
+   * 
+   * *   If you set **ResourceType** to **accelerator**, set the value of ResourceId to the ID of a standard GA instance.
+   * *   If you set **ResourceType** to **basicaccelerator**, set the value of ResourceId to the ID of a basic GA instance.
+   * *   If you set **ResourceType** to **bandwidthpackage**, set the value of ResourceId to the ID of a bandwidth plan.
+   * *   If you set **ResourceType** to **acl**, set the value of ResourceId to the ID of an ACL.
+   * *   If you set **ResourceType** to **endpointgroup**, set the value of ResourceId to the ID of an endpoint group.
+   * 
+   * You can specify up to 50 GA resource IDs.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource whose tag information you want to query. Valid values:
+   * 
+   * *   **accelerator**: a standard GA instance
+   * *   **basicaccelerator**: a basic GA instance
+   * *   **bandwidthpackage**: a bandwidth plan
+   * *   **acl**: an access control list (ACL).
+   * *   **endpointgroup**: an endpoint group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * accelerator
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * An array of tags of GA resources.
+   * 
+   * You can specify up to 20 tags.
+   */
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
