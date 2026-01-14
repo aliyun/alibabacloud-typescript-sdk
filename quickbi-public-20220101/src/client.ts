@@ -2075,6 +2075,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取订阅任务列表信息
+   * 
+   * @param request - GetMailTaskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMailTaskListResponse
+   */
+  async getMailTaskListWithOptions(request: $_model.GetMailTaskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMailTaskListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.paused)) {
+      query["Paused"] = request.paused;
+    }
+
+    if (!$dara.isNull(request.userNick)) {
+      query["UserNick"] = request.userNick;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMailTaskList",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMailTaskListResponse>(await this.callApi(params, req, runtime), new $_model.GetMailTaskListResponse({}));
+  }
+
+  /**
+   * 获取订阅任务列表信息
+   * 
+   * @param request - GetMailTaskListRequest
+   * @returns GetMailTaskListResponse
+   */
+  async getMailTaskList(request: $_model.GetMailTaskListRequest): Promise<$_model.GetMailTaskListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMailTaskListWithOptions(request, runtime);
+  }
+
+  /**
    * Check the running status of mail tasks within an organization
    * 
    * @param request - GetMailTaskStatusRequest
@@ -2956,6 +3010,48 @@ export default class Client extends OpenApi {
   async listUserGroupsByUserId(request: $_model.ListUserGroupsByUserIdRequest): Promise<$_model.ListUserGroupsByUserIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserGroupsByUserIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据门户菜单的白名单列表
+   * 
+   * @param request - ListWhitePortalMenuRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWhitePortalMenuResponse
+   */
+  async listWhitePortalMenuWithOptions(request: $_model.ListWhitePortalMenuRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWhitePortalMenuResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataportalId)) {
+      query["DataportalId"] = request.dataportalId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWhitePortalMenu",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWhitePortalMenuResponse>(await this.callApi(params, req, runtime), new $_model.ListWhitePortalMenuResponse({}));
+  }
+
+  /**
+   * 获取数据门户菜单的白名单列表
+   * 
+   * @param request - ListWhitePortalMenuRequest
+   * @returns ListWhitePortalMenuResponse
+   */
+  async listWhitePortalMenu(request: $_model.ListWhitePortalMenuRequest): Promise<$_model.ListWhitePortalMenuResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWhitePortalMenuWithOptions(request, runtime);
   }
 
   /**
@@ -4816,6 +4912,52 @@ export default class Client extends OpenApi {
   async queryTicketInfo(request: $_model.QueryTicketInfoRequest): Promise<$_model.QueryTicketInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTicketInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据绑定的第三方账号ID查询UserId
+   * 
+   * @param request - QueryUserByMobileAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserByMobileAccountResponse
+   */
+  async queryUserByMobileAccountWithOptions(request: $_model.QueryUserByMobileAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUserByMobileAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mobileType)) {
+      query["MobileType"] = request.mobileType;
+    }
+
+    if (!$dara.isNull(request.mobileUserId)) {
+      query["MobileUserId"] = request.mobileUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryUserByMobileAccount",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryUserByMobileAccountResponse>(await this.callApi(params, req, runtime), new $_model.QueryUserByMobileAccountResponse({}));
+  }
+
+  /**
+   * 根据绑定的第三方账号ID查询UserId
+   * 
+   * @param request - QueryUserByMobileAccountRequest
+   * @returns QueryUserByMobileAccountResponse
+   */
+  async queryUserByMobileAccount(request: $_model.QueryUserByMobileAccountRequest): Promise<$_model.QueryUserByMobileAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryUserByMobileAccountWithOptions(request, runtime);
   }
 
   /**

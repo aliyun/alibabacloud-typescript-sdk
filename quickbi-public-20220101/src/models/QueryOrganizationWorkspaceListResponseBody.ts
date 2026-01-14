@@ -98,6 +98,11 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
    */
   ownerAccountName?: string;
   /**
+   * @example
+   * test
+   */
+  realOwnerAccountName?: string;
+  /**
    * @remarks
    * Workspace description.
    * 
@@ -134,6 +139,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
       organizationId: 'OrganizationId',
       owner: 'Owner',
       ownerAccountName: 'OwnerAccountName',
+      realOwnerAccountName: 'RealOwnerAccountName',
       workspaceDescription: 'WorkspaceDescription',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
@@ -153,6 +159,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
       organizationId: 'string',
       owner: 'string',
       ownerAccountName: 'string',
+      realOwnerAccountName: 'string',
       workspaceDescription: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
