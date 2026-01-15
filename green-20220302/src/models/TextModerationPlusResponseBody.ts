@@ -201,6 +201,35 @@ export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $dara
   }
 }
 
+export class TextModerationPlusResponseBodyDataResultRiskPositions extends $dara.Model {
+  endPos?: number;
+  riskWord?: string;
+  startPos?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endPos: 'EndPos',
+      riskWord: 'RiskWord',
+      startPos: 'StartPos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endPos: 'number',
+      riskWord: 'string',
+      startPos: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
@@ -231,6 +260,7 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
    * porn
    */
   label?: string;
+  riskPositions?: TextModerationPlusResponseBodyDataResultRiskPositions[];
   /**
    * @remarks
    * The term hit by the moderated content.
@@ -245,6 +275,7 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
       customizedHit: 'CustomizedHit',
       description: 'Description',
       label: 'Label',
+      riskPositions: 'RiskPositions',
       riskWords: 'RiskWords',
     };
   }
@@ -255,6 +286,7 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
       customizedHit: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResultCustomizedHit },
       description: 'string',
       label: 'string',
+      riskPositions: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResultRiskPositions },
       riskWords: 'string',
     };
   }
@@ -262,6 +294,9 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
   validate() {
     if(Array.isArray(this.customizedHit)) {
       $dara.Model.validateArray(this.customizedHit);
+    }
+    if(Array.isArray(this.riskPositions)) {
+      $dara.Model.validateArray(this.riskPositions);
     }
     super.validate();
   }

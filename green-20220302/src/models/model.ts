@@ -95,6 +95,7 @@ export { TextModerationPlusResponseBodyDataAttackResult } from './TextModeration
 export { TextModerationPlusResponseBodyDataExtLlmContent } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataExt } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataResultCustomizedHit } from './TextModerationPlusResponseBody';
+export { TextModerationPlusResponseBodyDataResultRiskPositions } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataResult } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyDataSensitiveResult } from './TextModerationPlusResponseBody';
 export { TextModerationPlusResponseBodyData } from './TextModerationPlusResponseBody';
