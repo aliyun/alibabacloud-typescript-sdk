@@ -32,6 +32,7 @@ export { ListAppInstanceDomainsResponseBodyModuleNext } from './ListAppInstanceD
 export { ListAppInstanceDomainsResponseBodyModule } from './ListAppInstanceDomainsResponseBody';
 export { ModifyAppInstanceSpecResponseBodyModule } from './ModifyAppInstanceSpecResponseBody';
 export { RefreshAppInstanceTicketResponseBodyModule } from './RefreshAppInstanceTicketResponseBody';
+export { RefundAppInstanceForPartnerResponseBodyModule } from './RefundAppInstanceForPartnerResponseBody';
 export { RenewAppInstanceResponseBodyModule } from './RenewAppInstanceResponseBody';
 export { SearchImageResponseBodyImageResponseImageList } from './SearchImageResponseBody';
 export { SearchImageResponseBodyImageResponse } from './SearchImageResponseBody';
@@ -115,6 +116,9 @@ export { OperateAppServiceForPartnerResponse } from './OperateAppServiceForPartn
 export { RefreshAppInstanceTicketRequest } from './RefreshAppInstanceTicketRequest';
 export { RefreshAppInstanceTicketResponseBody } from './RefreshAppInstanceTicketResponseBody';
 export { RefreshAppInstanceTicketResponse } from './RefreshAppInstanceTicketResponse';
+export { RefundAppInstanceForPartnerRequest } from './RefundAppInstanceForPartnerRequest';
+export { RefundAppInstanceForPartnerResponseBody } from './RefundAppInstanceForPartnerResponseBody';
+export { RefundAppInstanceForPartnerResponse } from './RefundAppInstanceForPartnerResponse';
 export { RenewAppInstanceRequest } from './RenewAppInstanceRequest';
 export { RenewAppInstanceResponseBody } from './RenewAppInstanceResponseBody';
 export { RenewAppInstanceResponse } from './RenewAppInstanceResponse';

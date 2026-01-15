@@ -1170,6 +1170,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 渠道业务退款接口
+   * 
+   * @param request - RefundAppInstanceForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefundAppInstanceForPartnerResponse
+   */
+  async refundAppInstanceForPartnerWithOptions(request: $_model.RefundAppInstanceForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefundAppInstanceForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.refundReason)) {
+      query["RefundReason"] = request.refundReason;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefundAppInstanceForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefundAppInstanceForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.RefundAppInstanceForPartnerResponse({}));
+  }
+
+  /**
+   * 渠道业务退款接口
+   * 
+   * @param request - RefundAppInstanceForPartnerRequest
+   * @returns RefundAppInstanceForPartnerResponse
+   */
+  async refundAppInstanceForPartner(request: $_model.RefundAppInstanceForPartnerRequest): Promise<$_model.RefundAppInstanceForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.refundAppInstanceForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * 建站实例续费
    * 
    * @param request - RenewAppInstanceRequest
