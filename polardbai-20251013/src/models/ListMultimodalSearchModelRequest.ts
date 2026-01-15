@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMultimodalDatasetEmbeddingRequest extends $dara.Model {
+export class ListMultimodalSearchModelRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -12,38 +12,28 @@ export class CreateMultimodalDatasetEmbeddingRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * ds-3h6bm*****af60
+   * 1
    */
-  datasetId?: string;
+  pageNumber?: number;
   /**
    * @example
-   * default
+   * 50
    */
-  model?: string;
-  /**
-   * @example
-   * flash
-   */
-  modelMode?: string;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
-      datasetId: 'DatasetId',
-      model: 'Model',
-      modelMode: 'ModelMode',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
-      datasetId: 'string',
-      model: 'string',
-      modelMode: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 

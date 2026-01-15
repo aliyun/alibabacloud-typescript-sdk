@@ -23,6 +23,11 @@ export class CreateMultimodalSearchTaskRequest extends $dara.Model {
   embeddingModel?: string;
   /**
    * @example
+   * flash
+   */
+  modelMode?: string;
+  /**
+   * @example
    * 指示牌
    */
   query?: string;
@@ -41,6 +46,7 @@ export class CreateMultimodalSearchTaskRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       datasetIds: 'DatasetIds',
       embeddingModel: 'EmbeddingModel',
+      modelMode: 'ModelMode',
       query: 'Query',
       searchModel: 'SearchModel',
       topK: 'TopK',
@@ -52,6 +58,7 @@ export class CreateMultimodalSearchTaskRequest extends $dara.Model {
       DBClusterId: 'string',
       datasetIds: { 'type': 'array', 'itemType': 'string' },
       embeddingModel: 'string',
+      modelMode: 'string',
       query: 'string',
       searchModel: 'string',
       topK: 'number',

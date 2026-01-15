@@ -23,6 +23,11 @@ export class CreateMultimodalSearchTaskShrinkRequest extends $dara.Model {
   embeddingModel?: string;
   /**
    * @example
+   * flash
+   */
+  modelMode?: string;
+  /**
+   * @example
    * 指示牌
    */
   query?: string;
@@ -41,6 +46,7 @@ export class CreateMultimodalSearchTaskShrinkRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       datasetIdsShrink: 'DatasetIds',
       embeddingModel: 'EmbeddingModel',
+      modelMode: 'ModelMode',
       query: 'Query',
       searchModel: 'SearchModel',
       topK: 'TopK',
@@ -52,6 +58,7 @@ export class CreateMultimodalSearchTaskShrinkRequest extends $dara.Model {
       DBClusterId: 'string',
       datasetIdsShrink: 'string',
       embeddingModel: 'string',
+      modelMode: 'string',
       query: 'string',
       searchModel: 'string',
       topK: 'number',

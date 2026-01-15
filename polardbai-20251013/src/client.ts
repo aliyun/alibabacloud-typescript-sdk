@@ -1671,6 +1671,10 @@ export default class Client extends OpenApi {
       query["Model"] = request.model;
     }
 
+    if (!$dara.isNull(request.modelMode)) {
+      query["ModelMode"] = request.modelMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1725,6 +1729,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.embeddingModel)) {
       query["EmbeddingModel"] = request.embeddingModel;
+    }
+
+    if (!$dara.isNull(request.modelMode)) {
+      query["ModelMode"] = request.modelMode;
     }
 
     if (!$dara.isNull(request.query)) {
@@ -2057,6 +2065,98 @@ export default class Client extends OpenApi {
   async listMultimodalEmbeddingModel(request: $_model.ListMultimodalEmbeddingModelRequest): Promise<$_model.ListMultimodalEmbeddingModelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listMultimodalEmbeddingModelWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型mode可选列表
+   * 
+   * @param request - ListMultimodalEmbeddingModelModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultimodalEmbeddingModelModeResponse
+   */
+  async listMultimodalEmbeddingModelModeWithOptions(request: $_model.ListMultimodalEmbeddingModelModeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultimodalEmbeddingModelModeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMultimodalEmbeddingModelMode",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMultimodalEmbeddingModelModeResponse>(await this.callApi(params, req, runtime), new $_model.ListMultimodalEmbeddingModelModeResponse({}));
+  }
+
+  /**
+   * 查询模型mode可选列表
+   * 
+   * @param request - ListMultimodalEmbeddingModelModeRequest
+   * @returns ListMultimodalEmbeddingModelModeResponse
+   */
+  async listMultimodalEmbeddingModelMode(request: $_model.ListMultimodalEmbeddingModelModeRequest): Promise<$_model.ListMultimodalEmbeddingModelModeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMultimodalEmbeddingModelModeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询search模型列表
+   * 
+   * @param request - ListMultimodalSearchModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultimodalSearchModelResponse
+   */
+  async listMultimodalSearchModelWithOptions(request: $_model.ListMultimodalSearchModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultimodalSearchModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMultimodalSearchModel",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMultimodalSearchModelResponse>(await this.callApi(params, req, runtime), new $_model.ListMultimodalSearchModelResponse({}));
+  }
+
+  /**
+   * 查询search模型列表
+   * 
+   * @param request - ListMultimodalSearchModelRequest
+   * @returns ListMultimodalSearchModelResponse
+   */
+  async listMultimodalSearchModel(request: $_model.ListMultimodalSearchModelRequest): Promise<$_model.ListMultimodalSearchModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMultimodalSearchModelWithOptions(request, runtime);
   }
 
   /**
