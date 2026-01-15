@@ -2197,6 +2197,10 @@ export default class Client extends OpenApi {
   async exportCustomSourceAnalysisTaskWithOptions(request: $_model.ExportCustomSourceAnalysisTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportCustomSourceAnalysisTaskResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.exportType)) {
+      body["ExportType"] = request.exportType;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
@@ -13186,6 +13190,10 @@ export default class Client extends OpenApi {
       request.newsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.news, "News", "json");
     }
 
+    if (!$dara.isNull(tmpReq.topics)) {
+      request.topicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topics, "Topics", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.analysisTypesShrink)) {
       body["AnalysisTypes"] = request.analysisTypesShrink;
@@ -13205,6 +13213,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.newsShrink)) {
       body["News"] = request.newsShrink;
+    }
+
+    if (!$dara.isNull(request.topicsShrink)) {
+      body["Topics"] = request.topicsShrink;
+    }
+
+    if (!$dara.isNull(request.topicsFileUrl)) {
+      body["TopicsFileUrl"] = request.topicsFileUrl;
     }
 
     if (!$dara.isNull(request.workspaceId)) {

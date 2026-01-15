@@ -20,6 +20,12 @@ export class SubmitCustomSourceTopicAnalysisShrinkRequest extends $dara.Model {
    */
   maxTopicSize?: number;
   newsShrink?: string;
+  topicsShrink?: string;
+  /**
+   * @example
+   * http://www.example.com/xxx.jsonline
+   */
+  topicsFileUrl?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -35,6 +41,8 @@ export class SubmitCustomSourceTopicAnalysisShrinkRequest extends $dara.Model {
       fileUrl: 'FileUrl',
       maxTopicSize: 'MaxTopicSize',
       newsShrink: 'News',
+      topicsShrink: 'Topics',
+      topicsFileUrl: 'TopicsFileUrl',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -46,6 +54,8 @@ export class SubmitCustomSourceTopicAnalysisShrinkRequest extends $dara.Model {
       fileUrl: 'string',
       maxTopicSize: 'number',
       newsShrink: 'string',
+      topicsShrink: 'string',
+      topicsFileUrl: 'string',
       workspaceId: 'string',
     };
   }

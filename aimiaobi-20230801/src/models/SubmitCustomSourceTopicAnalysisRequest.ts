@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { HottopicNews } from "./HottopicNews";
 
 
 export class SubmitCustomSourceTopicAnalysisRequestNewsComments extends $dara.Model {
@@ -74,6 +75,39 @@ export class SubmitCustomSourceTopicAnalysisRequestNews extends $dara.Model {
   }
 }
 
+export class SubmitCustomSourceTopicAnalysisRequestTopics extends $dara.Model {
+  news?: HottopicNews[];
+  /**
+   * @example
+   * 话题名称
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      news: 'News',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      news: { 'type': 'array', 'itemType': HottopicNews },
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.news)) {
+      $dara.Model.validateArray(this.news);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
   analysisTypes?: string[];
   /**
@@ -92,6 +126,12 @@ export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
    */
   maxTopicSize?: number;
   news?: SubmitCustomSourceTopicAnalysisRequestNews[];
+  topics?: SubmitCustomSourceTopicAnalysisRequestTopics[];
+  /**
+   * @example
+   * http://www.example.com/xxx.jsonline
+   */
+  topicsFileUrl?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -107,6 +147,8 @@ export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
       fileUrl: 'FileUrl',
       maxTopicSize: 'MaxTopicSize',
       news: 'News',
+      topics: 'Topics',
+      topicsFileUrl: 'TopicsFileUrl',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -118,6 +160,8 @@ export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
       fileUrl: 'string',
       maxTopicSize: 'number',
       news: { 'type': 'array', 'itemType': SubmitCustomSourceTopicAnalysisRequestNews },
+      topics: { 'type': 'array', 'itemType': SubmitCustomSourceTopicAnalysisRequestTopics },
+      topicsFileUrl: 'string',
       workspaceId: 'string',
     };
   }
@@ -128,6 +172,9 @@ export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
     }
     if(Array.isArray(this.news)) {
       $dara.Model.validateArray(this.news);
+    }
+    if(Array.isArray(this.topics)) {
+      $dara.Model.validateArray(this.topics);
     }
     super.validate();
   }

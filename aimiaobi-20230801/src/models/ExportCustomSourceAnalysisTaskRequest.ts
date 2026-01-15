@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportCustomSourceAnalysisTaskRequest extends $dara.Model {
   /**
+   * @example
+   * jsonLine
+   */
+  exportType?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -21,6 +26,7 @@ export class ExportCustomSourceAnalysisTaskRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      exportType: 'ExportType',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
     };
@@ -28,6 +34,7 @@ export class ExportCustomSourceAnalysisTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      exportType: 'string',
       taskId: 'string',
       workspaceId: 'string',
     };

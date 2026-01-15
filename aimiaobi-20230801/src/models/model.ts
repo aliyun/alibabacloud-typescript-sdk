@@ -1,4 +1,5 @@
 export { GenerateTraceabilityNews } from './GenerateTraceability';
+export { HottopicNewsComments } from './HottopicNews';
 export { TopicSelectionOutlines } from './TopicSelection';
 export { WritingStyleTemplateDefineExample } from './WritingStyleTemplateDefine';
 export { WritingStyleTemplateFieldEnums } from './WritingStyleTemplateField';
@@ -555,6 +556,7 @@ export { SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfig } from '
 export { SubmitCustomHotTopicBroadcastJobResponseBodyData } from './SubmitCustomHotTopicBroadcastJobResponseBody';
 export { SubmitCustomSourceTopicAnalysisRequestNewsComments } from './SubmitCustomSourceTopicAnalysisRequest';
 export { SubmitCustomSourceTopicAnalysisRequestNews } from './SubmitCustomSourceTopicAnalysisRequest';
+export { SubmitCustomSourceTopicAnalysisRequestTopics } from './SubmitCustomSourceTopicAnalysisRequest';
 export { SubmitCustomSourceTopicAnalysisResponseBodyData } from './SubmitCustomSourceTopicAnalysisResponseBody';
 export { SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments } from './SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest';
 export { SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData } from './SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBody';
@@ -612,6 +614,7 @@ export { UploadDocRequestDocs } from './UploadDocRequest';
 export { UploadDocResponseBodyData } from './UploadDocResponseBody';
 export { ValidateUploadTemplateResponseBodyData } from './ValidateUploadTemplateResponseBody';
 export { GenerateTraceability } from './GenerateTraceability';
+export { HottopicNews } from './HottopicNews';
 export { OutlineSearchResult } from './OutlineSearchResult';
 export { OutlineWritingArticle } from './OutlineWritingArticle';
 export { TopicSelection } from './TopicSelection';
