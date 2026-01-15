@@ -32,12 +32,14 @@ export class ContainerConfiguration extends $dara.Model {
    * ACR
    */
   imageRegistryType?: string;
+  port?: number;
   static names(): { [key: string]: string } {
     return {
       acrInstanceId: 'acrInstanceId',
       command: 'command',
       image: 'image',
       imageRegistryType: 'imageRegistryType',
+      port: 'port',
     };
   }
 
@@ -47,6 +49,7 @@ export class ContainerConfiguration extends $dara.Model {
       command: { 'type': 'array', 'itemType': 'string' },
       image: 'string',
       imageRegistryType: 'string',
+      port: 'number',
     };
   }
 
