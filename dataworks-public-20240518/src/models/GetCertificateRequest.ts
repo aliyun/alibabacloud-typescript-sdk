@@ -17,6 +17,8 @@ export class GetCertificateRequest extends $dara.Model {
    * @remarks
    * The ID of the workspace to which the certificate file belongs.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1065601
    */

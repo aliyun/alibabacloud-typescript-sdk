@@ -69,6 +69,13 @@ export class ListDIJobsRequest extends $dara.Model {
    * MySQL
    */
   sourceDataSourceType?: string;
+  /**
+   * @remarks
+   * The task configuration specification type. Valid values: FILESPEC, CLASSIC, ALL. FILESPEC: New-style task based on structured filespec; CLASSIC: Task using traditional configuration mode.
+   * 
+   * @example
+   * FILESPEC
+   */
   specType?: string;
   static names(): { [key: string]: string } {
     return {
