@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInstanceGroupInspectReportDetailRequest extends $dara.Model {
+  agentId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -13,12 +14,14 @@ export class GetInstanceGroupInspectReportDetailRequest extends $dara.Model {
   reportId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentId: 'AgentId',
       reportId: 'ReportId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentId: 'string',
       reportId: 'string',
     };
   }

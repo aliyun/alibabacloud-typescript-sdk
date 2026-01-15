@@ -5025,12 +5025,18 @@ export default class Client extends OpenApi {
    */
   async getInstanceGroupInspectReportDetailWithOptions(request: $_model.GetInstanceGroupInspectReportDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceGroupInspectReportDetailResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.reportId)) {
       body["ReportId"] = request.reportId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
