@@ -22,6 +22,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
    */
   instanceId?: string;
   persistentAppInstanceId?: string;
+  port?: number;
   /**
    * @remarks
    * The ID of the task.
@@ -53,6 +54,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
       errorCode: 'ErrorCode',
       instanceId: 'InstanceId',
       persistentAppInstanceId: 'PersistentAppInstanceId',
+      port: 'Port',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
       ticket: 'Ticket',
@@ -66,6 +68,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
       errorCode: 'string',
       instanceId: 'string',
       persistentAppInstanceId: 'string',
+      port: 'number',
       taskId: 'string',
       taskStatus: 'string',
       ticket: 'string',

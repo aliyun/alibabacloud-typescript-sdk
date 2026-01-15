@@ -43,6 +43,7 @@ export class BatchGetAcpConnectionTicketRequestInstanceTasks extends $dara.Model
 }
 
 export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
+  connectionMode?: string;
   /**
    * @remarks
    * The ID of the user to whom the cloud phone instance is assigned.
@@ -71,6 +72,7 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
   instanceTasks?: BatchGetAcpConnectionTicketRequestInstanceTasks[];
   static names(): { [key: string]: string } {
     return {
+      connectionMode: 'ConnectionMode',
       endUserId: 'EndUserId',
       instanceGroupId: 'InstanceGroupId',
       instanceIds: 'InstanceIds',
@@ -80,6 +82,7 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionMode: 'string',
       endUserId: 'string',
       instanceGroupId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },

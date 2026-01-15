@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateInstanceImageRequest extends $dara.Model {
+  ignoreParamValidation?: boolean;
   /**
    * @example
    * imgc-075cllfeuazh0****
@@ -12,6 +13,7 @@ export class UpdateInstanceImageRequest extends $dara.Model {
   reset?: boolean;
   static names(): { [key: string]: string } {
     return {
+      ignoreParamValidation: 'IgnoreParamValidation',
       imageId: 'ImageId',
       instanceIdList: 'InstanceIdList',
       reset: 'Reset',
@@ -20,6 +22,7 @@ export class UpdateInstanceImageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ignoreParamValidation: 'boolean',
       imageId: 'string',
       instanceIdList: { 'type': 'array', 'itemType': 'string' },
       reset: 'boolean',

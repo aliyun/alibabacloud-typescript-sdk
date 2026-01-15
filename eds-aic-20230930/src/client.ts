@@ -355,6 +355,10 @@ export default class Client extends OpenApi {
   async batchGetAcpConnectionTicketWithOptions(request: $_model.BatchGetAcpConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetAcpConnectionTicketResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.connectionMode)) {
+      query["ConnectionMode"] = request.connectionMode;
+    }
+
     if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
     }
@@ -4460,6 +4464,10 @@ export default class Client extends OpenApi {
       query["ForceStop"] = request.forceStop;
     }
 
+    if (!$dara.isNull(request.ignoreParamValidation)) {
+      query["IgnoreParamValidation"] = request.ignoreParamValidation;
+    }
+
     if (!$dara.isNull(request.saleMode)) {
       query["SaleMode"] = request.saleMode;
     }
@@ -4816,6 +4824,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
       query["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!$dara.isNull(request.ignoreParamValidation)) {
+      query["IgnoreParamValidation"] = request.ignoreParamValidation;
     }
 
     if (!$dara.isNull(request.saleMode)) {
@@ -5597,6 +5609,10 @@ export default class Client extends OpenApi {
   async updateInstanceImageWithOptions(request: $_model.UpdateInstanceImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceImageResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ignoreParamValidation)) {
+      query["IgnoreParamValidation"] = request.ignoreParamValidation;
+    }
+
     if (!$dara.isNull(request.imageId)) {
       query["ImageId"] = request.imageId;
     }

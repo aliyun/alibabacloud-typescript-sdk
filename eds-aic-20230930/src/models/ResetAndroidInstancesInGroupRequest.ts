@@ -8,11 +8,13 @@ export class ResetAndroidInstancesInGroupRequest extends $dara.Model {
    * The IDs of the cloud phone instances.
    */
   androidInstanceIds?: string[];
+  ignoreParamValidation?: boolean;
   saleMode?: string;
   settingResetType?: number;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
+      ignoreParamValidation: 'IgnoreParamValidation',
       saleMode: 'SaleMode',
       settingResetType: 'SettingResetType',
     };
@@ -21,6 +23,7 @@ export class ResetAndroidInstancesInGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      ignoreParamValidation: 'boolean',
       saleMode: 'string',
       settingResetType: 'number',
     };

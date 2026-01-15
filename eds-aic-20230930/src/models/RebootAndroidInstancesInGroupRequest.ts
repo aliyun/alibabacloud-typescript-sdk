@@ -21,11 +21,13 @@ export class RebootAndroidInstancesInGroupRequest extends $dara.Model {
    * false
    */
   forceStop?: boolean;
+  ignoreParamValidation?: boolean;
   saleMode?: string;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       forceStop: 'ForceStop',
+      ignoreParamValidation: 'IgnoreParamValidation',
       saleMode: 'SaleMode',
     };
   }
@@ -34,6 +36,7 @@ export class RebootAndroidInstancesInGroupRequest extends $dara.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       forceStop: 'boolean',
+      ignoreParamValidation: 'boolean',
       saleMode: 'string',
     };
   }
