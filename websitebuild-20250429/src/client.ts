@@ -84,7 +84,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建建站实例
+   * Create a website instance
    * 
    * @param request - CreateAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -151,7 +151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建建站实例
+   * Create a website instance
    * 
    * @param request - CreateAppInstanceRequest
    * @returns CreateAppInstanceResponse

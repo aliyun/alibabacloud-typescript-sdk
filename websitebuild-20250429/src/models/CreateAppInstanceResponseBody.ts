@@ -4,20 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppInstanceResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250915163734000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * idaas-cn-7mz2uc8v902
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Order ID
+   * 
    * @example
    * 250822465990301
    */
   orderId?: string;
+  /**
+   * @remarks
+   * siteId
+   * 
+   * @example
+   * abcd.scd.wanwang.xin
+   */
   siteHost?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,47 +64,84 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
 
 export class CreateAppInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name, query this application by name
+   * 
    * @example
    * ish-intelligence-store-platform-admin-web
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input parameter **DtsJobId** is invalid.
+   * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/gl3d6l3817id8p1/gl3d6l3817id8p1.diff.zip?Expires=1750392068&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=Bcj3eohy8nmlSQ7AAGdq7JZoLjM%3D
+   * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: CreateAppInstanceResponseBodyModule;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Exception message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

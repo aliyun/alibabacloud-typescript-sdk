@@ -4,53 +4,83 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application type
+   * 
    * @example
-   * PC_WEBSITE
+   * PC_WebSite
    */
   applicationType?: string;
   /**
+   * @remarks
+   * Whether to enable auto-renewal upon expiration
+   * 
    * @example
    * false
    */
   autoRenew?: boolean;
   /**
+   * @remarks
+   * Ensures idempotence of the request. Generate a unique value from your client to ensure that it is unique across different requests. ClientToken only supports ASCII characters and cannot exceed 64 characters
+   * 
    * @example
    * 210713a117660695309606626a
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Deployment area
+   * 
    * @example
    * ChineseMainland
    */
   deployArea?: string;
   /**
+   * @remarks
+   * Required. The number of subscription periods
+   * 
    * @example
-   * 3
+   * 1
    */
   duration?: number;
   /**
+   * @remarks
+   * Extended information
+   * 
    * @example
    * {}
    */
   extend?: string;
   /**
+   * @remarks
+   * Payment type
+   * 
    * @example
    * AUTO_PAY
    */
   paymentType?: string;
   /**
+   * @remarks
+   * Required. The unit of the subscription period, Year: Year, Month: Month, Day: Day, Hour: Hour
+   * 
    * @example
    * Year
    */
   pricingCycle?: string;
   /**
+   * @remarks
+   * Required. The quantity of instances to be ordered.
+   * 
    * @example
    * 1
    */
   quantity?: number;
   /**
+   * @remarks
+   * Site version
+   * 
    * @example
-   * 7
+   * Basic_Edition
    */
   siteVersion?: string;
   static names(): { [key: string]: string } {
