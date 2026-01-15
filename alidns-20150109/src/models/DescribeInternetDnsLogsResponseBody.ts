@@ -37,6 +37,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $dara.Model {
    * 3583
    */
   dnsMsgId?: string;
+  flags?: string;
   /**
    * @remarks
    * Parse timestamp.
@@ -58,6 +59,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $dara.Model {
    * UDP
    */
   protocol?: string;
+  queryFlags?: string;
   /**
    * @remarks
    * The domain name for which you want to query Domain Name System (DNS) records.
@@ -74,6 +76,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $dara.Model {
    * A
    */
   queryType?: string;
+  responseTimestamp?: string;
   /**
    * @remarks
    * Parse response time.
@@ -130,10 +133,13 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dnsMsgId: 'DnsMsgId',
+      flags: 'Flags',
       logTime: 'LogTime',
       protocol: 'Protocol',
+      queryFlags: 'QueryFlags',
       queryName: 'QueryName',
       queryType: 'QueryType',
+      responseTimestamp: 'ResponseTimestamp',
       rt: 'Rt',
       serverIp: 'ServerIp',
       sourceIp: 'SourceIp',
@@ -147,10 +153,13 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dnsMsgId: 'string',
+      flags: 'string',
       logTime: 'number',
       protocol: 'string',
+      queryFlags: 'string',
       queryName: 'string',
       queryType: 'string',
+      responseTimestamp: 'string',
       rt: 'number',
       serverIp: 'string',
       sourceIp: 'string',

@@ -51,12 +51,18 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig exten
    * true
    */
   smsNotice?: boolean;
+  /**
+   * @example
+   * 50
+   */
+  threshold?: number;
   static names(): { [key: string]: string } {
     return {
       dingtalkNotice: 'DingtalkNotice',
       emailNotice: 'EmailNotice',
       noticeType: 'NoticeType',
       smsNotice: 'SmsNotice',
+      threshold: 'Threshold',
     };
   }
 
@@ -66,6 +72,7 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig exten
       emailNotice: 'boolean',
       noticeType: 'string',
       smsNotice: 'boolean',
+      threshold: 'number',
     };
   }
 

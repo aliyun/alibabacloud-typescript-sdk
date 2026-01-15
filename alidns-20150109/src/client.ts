@@ -2918,6 +2918,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询全局流量管理告警配置
+   * 
    * @param request - DescribeCloudGtmGlobalAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmGlobalAlertResponse
@@ -2951,6 +2953,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询全局流量管理告警配置
+   * 
    * @param request - DescribeCloudGtmGlobalAlertRequest
    * @returns DescribeCloudGtmGlobalAlertResponse
    */
@@ -11125,6 +11129,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新全局流量管理告警设置
+   * 
    * @param tmpReq - UpdateCloudGtmGlobalAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudGtmGlobalAlertResponse
@@ -11176,6 +11182,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新全局流量管理告警设置
+   * 
    * @param request - UpdateCloudGtmGlobalAlertRequest
    * @returns UpdateCloudGtmGlobalAlertResponse
    */

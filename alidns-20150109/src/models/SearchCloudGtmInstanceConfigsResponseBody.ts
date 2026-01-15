@@ -320,6 +320,11 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceCon
    */
   configId?: string;
   /**
+   * @example
+   * ENABLE
+   */
+  configLoggingSwitchStatus?: string;
+  /**
    * @remarks
    * Domain instance creation time.
    * 
@@ -472,6 +477,7 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceCon
       availableStatus: 'AvailableStatus',
       commodityCode: 'CommodityCode',
       configId: 'ConfigId',
+      configLoggingSwitchStatus: 'ConfigLoggingSwitchStatus',
       createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
       enableStatus: 'EnableStatus',
@@ -498,6 +504,7 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceCon
       availableStatus: 'string',
       commodityCode: 'string',
       configId: 'string',
+      configLoggingSwitchStatus: 'string',
       createTime: 'string',
       createTimestamp: 'number',
       enableStatus: 'string',
