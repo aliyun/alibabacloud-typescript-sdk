@@ -17,6 +17,7 @@ export class QuotaConfig extends $dara.Model {
    * ceeb37xxxx
    */
   clusterId?: string;
+  controlPlaneClusterId?: string;
   /**
    * @example
    * 470.199.02
@@ -27,7 +28,7 @@ export class QuotaConfig extends $dara.Model {
   enableSelfQuotaPreemption?: boolean;
   enableSubQuotaPreemption?: boolean;
   eniCacheConfig?: EniCacheConfig;
-  oversoldUsageInfo?: OversoldUsageConfig;
+  oversoldUsageConfig?: OversoldUsageConfig;
   resourceSpecs?: WorkspaceSpecs[];
   sandboxCacheConfig?: SandboxCacheConfig;
   selfQuotaPreemptionConfig?: SelfQuotaPreemptionConfig;
@@ -44,13 +45,14 @@ export class QuotaConfig extends $dara.Model {
     return {
       ACS: 'ACS',
       clusterId: 'ClusterId',
+      controlPlaneClusterId: 'ControlPlaneClusterId',
       defaultGPUDriver: 'DefaultGPUDriver',
       enableGPUShare: 'EnableGPUShare',
       enablePreemptSubquotaWorkloads: 'EnablePreemptSubquotaWorkloads',
       enableSelfQuotaPreemption: 'EnableSelfQuotaPreemption',
       enableSubQuotaPreemption: 'EnableSubQuotaPreemption',
       eniCacheConfig: 'EniCacheConfig',
-      oversoldUsageInfo: 'OversoldUsageInfo',
+      oversoldUsageConfig: 'OversoldUsageConfig',
       resourceSpecs: 'ResourceSpecs',
       sandboxCacheConfig: 'SandboxCacheConfig',
       selfQuotaPreemptionConfig: 'SelfQuotaPreemptionConfig',
@@ -66,13 +68,14 @@ export class QuotaConfig extends $dara.Model {
     return {
       ACS: ACS,
       clusterId: 'string',
+      controlPlaneClusterId: 'string',
       defaultGPUDriver: 'string',
       enableGPUShare: 'boolean',
       enablePreemptSubquotaWorkloads: 'boolean',
       enableSelfQuotaPreemption: 'boolean',
       enableSubQuotaPreemption: 'boolean',
       eniCacheConfig: EniCacheConfig,
-      oversoldUsageInfo: OversoldUsageConfig,
+      oversoldUsageConfig: OversoldUsageConfig,
       resourceSpecs: { 'type': 'array', 'itemType': WorkspaceSpecs },
       sandboxCacheConfig: SandboxCacheConfig,
       selfQuotaPreemptionConfig: SelfQuotaPreemptionConfig,
@@ -91,8 +94,8 @@ export class QuotaConfig extends $dara.Model {
     if(this.eniCacheConfig && typeof (this.eniCacheConfig as any).validate === 'function') {
       (this.eniCacheConfig as any).validate();
     }
-    if(this.oversoldUsageInfo && typeof (this.oversoldUsageInfo as any).validate === 'function') {
-      (this.oversoldUsageInfo as any).validate();
+    if(this.oversoldUsageConfig && typeof (this.oversoldUsageConfig as any).validate === 'function') {
+      (this.oversoldUsageConfig as any).validate();
     }
     if(Array.isArray(this.resourceSpecs)) {
       $dara.Model.validateArray(this.resourceSpecs);
