@@ -145,6 +145,7 @@ export { GetResourceOverviewResponseBodyDataGateway } from './GetResourceOvervie
 export { GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails } from './GetResourceOverviewResponseBody';
 export { GetResourceOverviewResponseBodyDataRiskOverview } from './GetResourceOverviewResponseBody';
 export { GetResourceOverviewResponseBodyData } from './GetResourceOverviewResponseBody';
+export { GetSecretResponseBodyData } from './GetSecretResponseBody';
 export { GetSecretValueResponseBodyData } from './GetSecretValueResponseBody';
 export { GetSourceResponseBodyDataK8SSourceInfo } from './GetSourceResponseBody';
 export { GetSourceResponseBodyDataNacosSourceInfo } from './GetSourceResponseBody';
@@ -461,6 +462,8 @@ export { GetPolicyAttachmentResponse } from './GetPolicyAttachmentResponse';
 export { GetResourceOverviewRequest } from './GetResourceOverviewRequest';
 export { GetResourceOverviewResponseBody } from './GetResourceOverviewResponseBody';
 export { GetResourceOverviewResponse } from './GetResourceOverviewResponse';
+export { GetSecretResponseBody } from './GetSecretResponseBody';
+export { GetSecretResponse } from './GetSecretResponse';
 export { GetSecretValueResponseBody } from './GetSecretValueResponseBody';
 export { GetSecretValueResponse } from './GetSecretValueResponse';
 export { GetServiceResponseBody } from './GetServiceResponseBody';

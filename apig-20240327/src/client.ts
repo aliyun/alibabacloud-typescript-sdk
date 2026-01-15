@@ -2746,6 +2746,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询密钥
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecretResponse
+   */
+  async getSecretWithOptions(secretId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecretResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecret",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/secrets/${$dara.URL.percentEncode(secretId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecretResponse>(await this.callApi(params, req, runtime), new $_model.GetSecretResponse({}));
+  }
+
+  /**
+   * 查询密钥
+   * @returns GetSecretResponse
+   */
+  async getSecret(secretId: string): Promise<$_model.GetSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSecretWithOptions(secretId, headers, runtime);
+  }
+
+  /**
    * 查询密钥值
    * 
    * @param headers - map

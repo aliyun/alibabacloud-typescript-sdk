@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { GatewayInfo } from "./GatewayInfo";
 import { HttpApiMockContract } from "./HttpApiMockContract";
 import { Backend } from "./Backend";
+import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 
 
 export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
@@ -488,6 +489,7 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
 
 export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   intentCode?: string;
+  match?: HttpApiBackendMatchConditions;
   /**
    * @example
    * qwen-max
@@ -511,6 +513,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       intentCode: 'intentCode',
+      match: 'match',
       modelName: 'modelName',
       modelNamePattern: 'modelNamePattern',
       serviceId: 'serviceId',
@@ -521,6 +524,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       intentCode: 'string',
+      match: HttpApiBackendMatchConditions,
       modelName: 'string',
       modelNamePattern: 'string',
       serviceId: 'string',
@@ -529,6 +533,9 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   }
 
   validate() {
+    if(this.match && typeof (this.match as any).validate === 'function') {
+      (this.match as any).validate();
+    }
     super.validate();
   }
 
