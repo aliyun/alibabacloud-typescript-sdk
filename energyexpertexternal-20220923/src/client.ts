@@ -161,10 +161,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Document Results
+   * Obtains the real-time parsing result of the Qwen VL model.
    * 
    * @remarks
-   * Users obtain real-time VL results by uploading a document URL.
+   * You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
    * 
    * @param request - AnalyzeVlRealtimeRequest
    * @param headers - map
@@ -174,6 +174,10 @@ export default class Client extends OpenApi {
   async analyzeVlRealtimeWithOptions(request: $_model.AnalyzeVlRealtimeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AnalyzeVlRealtimeResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
     if (!$dara.isNull(request.fileUrl)) {
       query["fileUrl"] = request.fileUrl;
     }
@@ -205,10 +209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Document Results
+   * Obtains the real-time parsing result of the Qwen VL model.
    * 
    * @remarks
-   * Users obtain real-time VL results by uploading a document URL.
+   * You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
    * 
    * @param request - AnalyzeVlRealtimeRequest
    * @returns AnalyzeVlRealtimeResponse

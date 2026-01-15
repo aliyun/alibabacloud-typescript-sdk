@@ -6,7 +6,7 @@ import { ContentItem } from "./ContentItem";
 export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
   /**
    * @remarks
-   * Key confidence
+   * The confidence level of the key.
    * 
    * @example
    * 0.9994202852249146
@@ -14,7 +14,7 @@ export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence extend
   keyConfidence?: number;
   /**
    * @remarks
-   * Value confidence
+   * The confidence level of the value.
    * 
    * @example
    * 0.9794202852249146
@@ -46,17 +46,17 @@ export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence extend
 export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContext extends $dara.Model {
   /**
    * @remarks
-   * Confidence
+   * The confidence level.
    */
   confidence?: AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence;
   /**
    * @remarks
-   * Key recall information details
+   * The details of the recalled key information.
    */
   key?: ContentItem[];
   /**
    * @remarks
-   * Value recall information details
+   * The details of the recalled value information.
    */
   value?: ContentItem[];
   static names(): { [key: string]: string } {
@@ -96,12 +96,12 @@ export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContext extends $dara.Mo
 export class AnalyzeVlRealtimeResponseBodyDataKvListInfo extends $dara.Model {
   /**
    * @remarks
-   * Recall content
+   * The recalled content.
    */
   context?: AnalyzeVlRealtimeResponseBodyDataKvListInfoContext;
   /**
    * @remarks
-   * Field Key name
+   * The name of the key.
    * 
    * @example
    * username
@@ -109,7 +109,7 @@ export class AnalyzeVlRealtimeResponseBodyDataKvListInfo extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * Field key value
+   * The value of the key.
    * 
    * @example
    * bob
@@ -146,7 +146,7 @@ export class AnalyzeVlRealtimeResponseBodyDataKvListInfo extends $dara.Model {
 export class AnalyzeVlRealtimeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Document parsing result details
+   * The details of the document extraction result.
    */
   kvListInfo?: AnalyzeVlRealtimeResponseBodyDataKvListInfo[];
   static names(): { [key: string]: string } {
@@ -176,12 +176,12 @@ export class AnalyzeVlRealtimeResponseBodyData extends $dara.Model {
 export class AnalyzeVlRealtimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    */
   data?: AnalyzeVlRealtimeResponseBodyData;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 83A5A7DD-8974-5769-952E-590A97BEA34E
