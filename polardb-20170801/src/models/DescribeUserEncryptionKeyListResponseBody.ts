@@ -17,6 +17,21 @@ export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
    */
   keyList?: string[];
   /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageRecordCount?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
    * @remarks
    * The ID of the request.
    * 
@@ -24,11 +39,20 @@ export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******
    */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       keyList: 'KeyList',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
     };
   }
 
@@ -36,7 +60,11 @@ export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
     return {
       DBClusterId: 'string',
       keyList: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageRecordCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
+      totalRecordCount: 'number',
     };
   }
 

@@ -16,6 +16,16 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
    * @remarks
    * The ID of the region.
    * 
@@ -40,6 +50,8 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -52,6 +64,8 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
