@@ -43,6 +43,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
    * pdf
    */
   fileType?: string;
+  parseResultDownloadUrl?: string;
   /**
    * @remarks
    * The parser that is used to parse the document. Valid value:
@@ -86,6 +87,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
       fileId: 'FileId',
       fileName: 'FileName',
       fileType: 'FileType',
+      parseResultDownloadUrl: 'ParseResultDownloadUrl',
       parser: 'Parser',
       sizeInBytes: 'SizeInBytes',
       status: 'Status',
@@ -100,6 +102,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
       fileId: 'string',
       fileName: 'string',
       fileType: 'string',
+      parseResultDownloadUrl: 'string',
       parser: 'string',
       sizeInBytes: 'number',
       status: 'string',
