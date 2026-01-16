@@ -8,6 +8,7 @@ export class LogConfig extends $dara.Model {
    * true
    */
   enableInstanceMetrics?: boolean;
+  enableLlmMetrics?: boolean;
   /**
    * @example
    * true
@@ -31,6 +32,7 @@ export class LogConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enableInstanceMetrics: 'enableInstanceMetrics',
+      enableLlmMetrics: 'enableLlmMetrics',
       enableRequestMetrics: 'enableRequestMetrics',
       logBeginRule: 'logBeginRule',
       logstore: 'logstore',
@@ -41,6 +43,7 @@ export class LogConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enableInstanceMetrics: 'boolean',
+      enableLlmMetrics: 'boolean',
       enableRequestMetrics: 'boolean',
       logBeginRule: 'string',
       logstore: 'string',
