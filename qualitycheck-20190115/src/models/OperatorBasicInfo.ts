@@ -3,6 +3,38 @@ import * as $dara from '@darabonba/typescript';
 import { JudgeNodeMetaDesc } from "./JudgeNodeMetaDesc";
 
 
+export class OperatorBasicInfoParamDimensions extends $dara.Model {
+  desc?: string;
+  dimension?: string;
+  excludeCondition?: string;
+  includeCondition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      dimension: 'Dimension',
+      excludeCondition: 'ExcludeCondition',
+      includeCondition: 'IncludeCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      dimension: 'string',
+      excludeCondition: 'string',
+      includeCondition: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OperatorBasicInfoParam extends $dara.Model {
   answerThreshold?: string;
   antModelInfo?: { [key: string]: string };
@@ -18,10 +50,12 @@ export class OperatorBasicInfoParam extends $dara.Model {
   customerParam?: JudgeNodeMetaDesc;
   delayTime?: number;
   differentRole?: boolean;
+  dimensions?: OperatorBasicInfoParamDimensions[];
   endType?: string;
   excludes?: string[];
   from?: number;
   fromEnd?: boolean;
+  hitCondition?: string;
   hitTime?: number;
   inSentence?: boolean;
   interval?: number;
@@ -34,7 +68,9 @@ export class OperatorBasicInfoParam extends $dara.Model {
   knowledgeTargetId?: string;
   knowledgeTargetName?: string;
   knowledgeTargetType?: number;
+  knowledges?: string;
   lgfSentences?: string[];
+  llmModelCode?: string;
   maxEmotionChangeValue?: number;
   minWordSize?: number;
   nearDialogue?: boolean;
@@ -47,6 +83,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   references?: string[];
   regex?: string;
   roleId?: number;
+  sceneName?: string;
   score?: number;
   similarityThreshold?: number;
   similarlySentences?: string[];
@@ -73,10 +110,12 @@ export class OperatorBasicInfoParam extends $dara.Model {
       customerParam: 'CustomerParam',
       delayTime: 'DelayTime',
       differentRole: 'Different_role',
+      dimensions: 'Dimensions',
       endType: 'EndType',
       excludes: 'Excludes',
       from: 'From',
       fromEnd: 'From_end',
+      hitCondition: 'HitCondition',
       hitTime: 'Hit_time',
       inSentence: 'In_sentence',
       interval: 'Interval',
@@ -89,7 +128,9 @@ export class OperatorBasicInfoParam extends $dara.Model {
       knowledgeTargetId: 'KnowledgeTargetId',
       knowledgeTargetName: 'KnowledgeTargetName',
       knowledgeTargetType: 'KnowledgeTargetType',
+      knowledges: 'Knowledges',
       lgfSentences: 'LgfSentences',
+      llmModelCode: 'LlmModelCode',
       maxEmotionChangeValue: 'MaxEmotionChangeValue',
       minWordSize: 'MinWordSize',
       nearDialogue: 'Near_dialogue',
@@ -102,6 +143,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
       references: 'References',
       regex: 'Regex',
       roleId: 'RoleId',
+      sceneName: 'SceneName',
       score: 'Score',
       similarityThreshold: 'Similarity_threshold',
       similarlySentences: 'SimilarlySentences',
@@ -131,10 +173,12 @@ export class OperatorBasicInfoParam extends $dara.Model {
       customerParam: JudgeNodeMetaDesc,
       delayTime: 'number',
       differentRole: 'boolean',
+      dimensions: { 'type': 'array', 'itemType': OperatorBasicInfoParamDimensions },
       endType: 'string',
       excludes: { 'type': 'array', 'itemType': 'string' },
       from: 'number',
       fromEnd: 'boolean',
+      hitCondition: 'string',
       hitTime: 'number',
       inSentence: 'boolean',
       interval: 'number',
@@ -147,7 +191,9 @@ export class OperatorBasicInfoParam extends $dara.Model {
       knowledgeTargetId: 'string',
       knowledgeTargetName: 'string',
       knowledgeTargetType: 'number',
+      knowledges: 'string',
       lgfSentences: { 'type': 'array', 'itemType': 'string' },
+      llmModelCode: 'string',
       maxEmotionChangeValue: 'number',
       minWordSize: 'number',
       nearDialogue: 'boolean',
@@ -160,6 +206,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
       references: { 'type': 'array', 'itemType': 'string' },
       regex: 'string',
       roleId: 'number',
+      sceneName: 'string',
       score: 'number',
       similarityThreshold: 'number',
       similarlySentences: { 'type': 'array', 'itemType': 'string' },
@@ -179,6 +226,9 @@ export class OperatorBasicInfoParam extends $dara.Model {
     }
     if(this.customerParam && typeof (this.customerParam as any).validate === 'function') {
       (this.customerParam as any).validate();
+    }
+    if(Array.isArray(this.dimensions)) {
+      $dara.Model.validateArray(this.dimensions);
     }
     if(Array.isArray(this.excludes)) {
       $dara.Model.validateArray(this.excludes);

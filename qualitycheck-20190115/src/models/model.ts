@@ -5,6 +5,7 @@ export { GraphFlowNodeNextNodes } from './GraphFlowNode';
 export { GraphFlowNodeProperties } from './GraphFlowNode';
 export { JudgeNodeMetaDescExpressionMetaDesc } from './JudgeNodeMetaDesc';
 export { NextNodeSituationsConditionGroup } from './NextNodeSituations';
+export { OperatorBasicInfoParamDimensions } from './OperatorBasicInfo';
 export { OperatorBasicInfoParam } from './OperatorBasicInfo';
 export { RuleTestDialogueContent } from './RuleTestDialogue';
 export { SchemeCheckTypeSchemeScoreInfoList } from './SchemeCheckType';

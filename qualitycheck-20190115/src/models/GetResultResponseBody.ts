@@ -1123,8 +1123,23 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultHits extends $
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $dara.Model {
+  /**
+   * @example
+   * turn
+   */
+  artificialRule?: string;
   conditions?: GetResultResponseBodyDataResultInfoHitResultHitResultConditions;
+  /**
+   * @example
+   * 1
+   */
+  finalHitResult?: string;
   hits?: GetResultResponseBodyDataResultInfoHitResultHitResultHits;
+  /**
+   * @example
+   * 1
+   */
+  machineHitResult?: string;
   name?: string;
   /**
    * @example
@@ -1150,8 +1165,11 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $dara
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      artificialRule: 'ArtificialRule',
       conditions: 'Conditions',
+      finalHitResult: 'FinalHitResult',
       hits: 'Hits',
+      machineHitResult: 'MachineHitResult',
       name: 'Name',
       reviewResult: 'ReviewResult',
       rid: 'Rid',
@@ -1164,8 +1182,11 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $dara
 
   static types(): { [key: string]: any } {
     return {
+      artificialRule: 'string',
       conditions: GetResultResponseBodyDataResultInfoHitResultHitResultConditions,
+      finalHitResult: 'string',
       hits: GetResultResponseBodyDataResultInfoHitResultHitResultHits,
+      machineHitResult: 'string',
       name: 'string',
       reviewResult: 'number',
       rid: 'string',

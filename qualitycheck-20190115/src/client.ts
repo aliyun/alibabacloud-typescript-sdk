@@ -1809,6 +1809,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取质检结果
+   * 
    * @param request - GetResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResultResponse
@@ -1842,6 +1844,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取质检结果
+   * 
    * @param request - GetResultRequest
    * @returns GetResultResponse
    */
