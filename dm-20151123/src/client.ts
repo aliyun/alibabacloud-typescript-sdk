@@ -241,6 +241,10 @@ export default class Client extends OpenApi {
       query["ClickTrace"] = request.clickTrace;
     }
 
+    if (!$dara.isNull(request.domainAuth)) {
+      query["DomainAuth"] = request.domainAuth;
+    }
+
     if (!$dara.isNull(request.headers)) {
       query["Headers"] = request.headers;
     }
@@ -4268,6 +4272,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clickTrace)) {
       body["ClickTrace"] = request.clickTrace;
+    }
+
+    if (!$dara.isNull(request.domainAuth)) {
+      body["DomainAuth"] = request.domainAuth;
     }
 
     if (!$dara.isNull(request.fromAlias)) {

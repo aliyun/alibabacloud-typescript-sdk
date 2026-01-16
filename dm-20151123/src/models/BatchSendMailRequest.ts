@@ -33,6 +33,7 @@ export class BatchSendMailRequest extends $dara.Model {
    * 0
    */
   clickTrace?: string;
+  domainAuth?: boolean;
   /**
    * @remarks
    * Currently, the standard fields that can be added to the email header are Message-ID, List-Unsubscribe, and List-Unsubscribe-Post. Standard fields will overwrite the existing values in the email header, while non-standard fields must start with X-User- and will be appended to the email header. Currently, up to 10 headers can be passed in JSON format, and both standard and non-standard fields must comply with the syntax requirements for headers.
@@ -132,6 +133,7 @@ export class BatchSendMailRequest extends $dara.Model {
       accountName: 'AccountName',
       addressType: 'AddressType',
       clickTrace: 'ClickTrace',
+      domainAuth: 'DomainAuth',
       headers: 'Headers',
       ipPoolId: 'IpPoolId',
       ownerId: 'OwnerId',
@@ -152,6 +154,7 @@ export class BatchSendMailRequest extends $dara.Model {
       accountName: 'string',
       addressType: 'number',
       clickTrace: 'string',
+      domainAuth: 'boolean',
       headers: 'string',
       ipPoolId: 'string',
       ownerId: 'number',

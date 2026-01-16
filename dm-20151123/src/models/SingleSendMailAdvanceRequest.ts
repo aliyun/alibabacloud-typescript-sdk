@@ -83,6 +83,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
    */
   bccAddress?: string;
   clickTrace?: string;
+  domainAuth?: boolean;
   fromAlias?: string;
   headers?: string;
   htmlBody?: string;
@@ -119,6 +120,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
       attachments: 'Attachments',
       bccAddress: 'BccAddress',
       clickTrace: 'ClickTrace',
+      domainAuth: 'DomainAuth',
       fromAlias: 'FromAlias',
       headers: 'Headers',
       htmlBody: 'HtmlBody',
@@ -146,6 +148,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
       attachments: { 'type': 'array', 'itemType': SingleSendMailAdvanceRequestAttachments },
       bccAddress: 'string',
       clickTrace: 'string',
+      domainAuth: 'boolean',
       fromAlias: 'string',
       headers: 'string',
       htmlBody: 'string',
