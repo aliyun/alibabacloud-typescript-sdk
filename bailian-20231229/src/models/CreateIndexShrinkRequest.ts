@@ -196,6 +196,8 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    * regex
    */
   chunkMode?: string;
+  database?: string;
+  datasourceCode?: string;
   /**
    * @remarks
    * Whether to treat the first row of all .xlsx and .xls files as headers and concatenate them into each text chunk. This prevents the models from mistakenly interpreting headers as regular data rows.
@@ -233,6 +235,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    * downgrade
    */
   pipelineRetrieveRateLimitStrategy?: string;
+  table?: string;
   static names(): { [key: string]: string } {
     return {
       categoryIdsShrink: 'CategoryIds',
@@ -256,11 +259,14 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       structureType: 'StructureType',
       tableIdsShrink: 'TableIds',
       chunkMode: 'chunkMode',
+      database: 'database',
+      datasourceCode: 'datasourceCode',
       enableHeaders: 'enableHeaders',
       metaExtractColumnsShrink: 'metaExtractColumns',
       pipelineCommercialCu: 'pipelineCommercialCu',
       pipelineCommercialType: 'pipelineCommercialType',
       pipelineRetrieveRateLimitStrategy: 'pipelineRetrieveRateLimitStrategy',
+      table: 'table',
     };
   }
 
@@ -287,11 +293,14 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       structureType: 'string',
       tableIdsShrink: 'string',
       chunkMode: 'string',
+      database: 'string',
+      datasourceCode: 'string',
       enableHeaders: 'boolean',
       metaExtractColumnsShrink: 'string',
       pipelineCommercialCu: 'number',
       pipelineCommercialType: 'string',
       pipelineRetrieveRateLimitStrategy: 'string',
+      table: 'string',
     };
   }
 

@@ -653,6 +653,14 @@ export default class Client extends OpenApi {
       query["chunkMode"] = request.chunkMode;
     }
 
+    if (!$dara.isNull(request.database)) {
+      query["database"] = request.database;
+    }
+
+    if (!$dara.isNull(request.datasourceCode)) {
+      query["datasourceCode"] = request.datasourceCode;
+    }
+
     if (!$dara.isNull(request.enableHeaders)) {
       query["enableHeaders"] = request.enableHeaders;
     }
@@ -671,6 +679,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pipelineRetrieveRateLimitStrategy)) {
       query["pipelineRetrieveRateLimitStrategy"] = request.pipelineRetrieveRateLimitStrategy;
+    }
+
+    if (!$dara.isNull(request.table)) {
+      query["table"] = request.table;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
