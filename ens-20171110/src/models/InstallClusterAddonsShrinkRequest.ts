@@ -2,24 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeENSECKServiceRoleResponseBody extends $dara.Model {
+export class InstallClusterAddonsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * This parameter is required.
+   */
+  addonsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
    * 
    * @example
-   * F3B261DD-3858-4D3C-877D-303ADF374600
+   * eck-xxxxxxxx
    */
-  requestId?: string;
+  clusterId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      addonsShrink: 'Addons',
+      clusterId: 'ClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      addonsShrink: 'string',
+      clusterId: 'string',
     };
   }
 

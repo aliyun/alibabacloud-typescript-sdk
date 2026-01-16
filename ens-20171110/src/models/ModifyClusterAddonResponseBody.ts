@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeENSECKServiceRoleResponseBody extends $dara.Model {
+export class ModifyClusterAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
-   * F3B261DD-3858-4D3C-877D-303ADF374600
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
    */
   requestId?: string;
   static names(): { [key: string]: string } {

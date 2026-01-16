@@ -1446,6 +1446,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建集群节点池
+   * 
+   * @param tmpReq - CreateClusterNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClusterNodePoolResponse
+   */
+  async createClusterNodePoolWithOptions(tmpReq: $_model.CreateClusterNodePoolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateClusterNodePoolResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateClusterNodePoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.kubernetesConfig)) {
+      request.kubernetesConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.kubernetesConfig, "KubernetesConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.nodepoolInfo)) {
+      request.nodepoolInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodepoolInfo, "NodepoolInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scalingGroup)) {
+      request.scalingGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scalingGroup, "ScalingGroup", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.kubernetesConfigShrink)) {
+      query["KubernetesConfig"] = request.kubernetesConfigShrink;
+    }
+
+    if (!$dara.isNull(request.nodepoolInfoShrink)) {
+      query["NodepoolInfo"] = request.nodepoolInfoShrink;
+    }
+
+    if (!$dara.isNull(request.scalingGroupShrink)) {
+      query["ScalingGroup"] = request.scalingGroupShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateClusterNodePool",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateClusterNodePoolResponse>(await this.callApi(params, req, runtime), new $_model.CreateClusterNodePoolResponse({}));
+  }
+
+  /**
+   * 创建集群节点池
+   * 
+   * @param request - CreateClusterNodePoolRequest
+   * @returns CreateClusterNodePoolResponse
+   */
+  async createClusterNodePool(request: $_model.CreateClusterNodePoolRequest): Promise<$_model.CreateClusterNodePoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createClusterNodePoolWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a pay-as-you-go or subscription data disk.
    * 
    * @param request - CreateDiskRequest
@@ -3968,6 +4036,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除节点池
+   * 
+   * @param request - DeleteClusterNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClusterNodePoolResponse
+   */
+  async deleteClusterNodePoolWithOptions(request: $_model.DeleteClusterNodePoolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteClusterNodePoolResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.nodepoolId)) {
+      query["NodepoolId"] = request.nodepoolId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteClusterNodePool",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteClusterNodePoolResponse>(await this.callApi(params, req, runtime), new $_model.DeleteClusterNodePoolResponse({}));
+  }
+
+  /**
+   * 删除节点池
+   * 
+   * @param request - DeleteClusterNodePoolRequest
+   * @returns DeleteClusterNodePoolResponse
+   */
+  async deleteClusterNodePool(request: $_model.DeleteClusterNodePoolRequest): Promise<$_model.DeleteClusterNodePoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteClusterNodePoolWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除节点池指定节点
+   * 
+   * @param tmpReq - DeleteClusterNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClusterNodesResponse
+   */
+  async deleteClusterNodesWithOptions(tmpReq: $_model.DeleteClusterNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteClusterNodesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteClusterNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "Body", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      query["Body"] = request.bodyShrink;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteClusterNodes",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteClusterNodesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteClusterNodesResponse({}));
+  }
+
+  /**
+   * 删除节点池指定节点
+   * 
+   * @param request - DeleteClusterNodesRequest
+   * @returns DeleteClusterNodesResponse
+   */
+  async deleteClusterNodes(request: $_model.DeleteClusterNodesRequest): Promise<$_model.DeleteClusterNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteClusterNodesWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a disk.
    * 
    * @remarks
@@ -5534,6 +5700,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定组件的信息
+   * 
+   * @param request - DescribeAddonRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAddonResponse
+   */
+  async describeAddonWithOptions(request: $_model.DescribeAddonRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAddonResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addonName)) {
+      query["AddonName"] = request.addonName;
+    }
+
+    if (!$dara.isNull(request.addonVersion)) {
+      query["AddonVersion"] = request.addonVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAddon",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAddonResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAddonResponse({}));
+  }
+
+  /**
+   * 查询指定组件的信息
+   * 
+   * @param request - DescribeAddonRequest
+   * @returns DescribeAddonResponse
+   */
+  async describeAddon(request: $_model.DescribeAddonRequest): Promise<$_model.DescribeAddonResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAddonWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the basic properties, resources, and container status of an application.
    * 
    * @param request - DescribeApplicationRequest
@@ -5866,6 +6078,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询集群详细信息
+   * 
+   * @param request - DescribeClusterDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterDetailResponse
+   */
+  async describeClusterDetailWithOptions(request: $_model.DescribeClusterDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClusterDetail",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClusterDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClusterDetailResponse({}));
+  }
+
+  /**
+   * 查询集群详细信息
+   * 
+   * @param request - DescribeClusterDetailRequest
+   * @returns DescribeClusterDetailResponse
+   */
+  async describeClusterDetail(request: $_model.DescribeClusterDetailRequest): Promise<$_model.DescribeClusterDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClusterDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
    * 
    * @remarks
@@ -5911,6 +6165,152 @@ export default class Client extends OpenApi {
   async describeClusterKubeConfig(request: $_model.DescribeClusterKubeConfigRequest): Promise<$_model.DescribeClusterKubeConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeClusterKubeConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询集群节点池信息
+   * 
+   * @param request - DescribeClusterNodePoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterNodePoolsResponse
+   */
+  async describeClusterNodePoolsWithOptions(request: $_model.DescribeClusterNodePoolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterNodePoolsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClusterNodePools",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClusterNodePoolsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClusterNodePoolsResponse({}));
+  }
+
+  /**
+   * 查询集群节点池信息
+   * 
+   * @param request - DescribeClusterNodePoolsRequest
+   * @returns DescribeClusterNodePoolsResponse
+   */
+  async describeClusterNodePools(request: $_model.DescribeClusterNodePoolsRequest): Promise<$_model.DescribeClusterNodePoolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClusterNodePoolsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询节点池节点
+   * 
+   * @param request - DescribeClusterNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterNodesResponse
+   */
+  async describeClusterNodesWithOptions(request: $_model.DescribeClusterNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterNodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.nodepoolId)) {
+      query["NodepoolId"] = request.nodepoolId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClusterNodes",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClusterNodesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClusterNodesResponse({}));
+  }
+
+  /**
+   * 查询节点池节点
+   * 
+   * @param request - DescribeClusterNodesRequest
+   * @returns DescribeClusterNodesResponse
+   */
+  async describeClusterNodes(request: $_model.DescribeClusterNodesRequest): Promise<$_model.DescribeClusterNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClusterNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询集群KubeConfig
+   * 
+   * @param request - DescribeClusterUserKubeconfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterUserKubeconfigResponse
+   */
+  async describeClusterUserKubeconfigWithOptions(request: $_model.DescribeClusterUserKubeconfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterUserKubeconfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClusterUserKubeconfig",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClusterUserKubeconfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClusterUserKubeconfigResponse({}));
+  }
+
+  /**
+   * 查询集群KubeConfig
+   * 
+   * @param request - DescribeClusterUserKubeconfigRequest
+   * @returns DescribeClusterUserKubeconfigResponse
+   */
+  async describeClusterUserKubeconfig(request: $_model.DescribeClusterUserKubeconfigRequest): Promise<$_model.DescribeClusterUserKubeconfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClusterUserKubeconfigWithOptions(request, runtime);
   }
 
   /**
@@ -11544,6 +11944,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询集群内指定组件实例信息
+   * 
+   * @param request - GetClusterAddonInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterAddonInstanceResponse
+   */
+  async getClusterAddonInstanceWithOptions(request: $_model.GetClusterAddonInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClusterAddonInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetClusterAddonInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetClusterAddonInstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetClusterAddonInstanceResponse({}));
+  }
+
+  /**
+   * 查询集群内指定组件实例信息
+   * 
+   * @param request - GetClusterAddonInstanceRequest
+   * @returns GetClusterAddonInstanceResponse
+   */
+  async getClusterAddonInstance(request: $_model.GetClusterAddonInstanceRequest): Promise<$_model.GetClusterAddonInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getClusterAddonInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
    * 
    * @param request - GetOssStorageAndAccByBucketsRequest
@@ -11805,6 +12251,58 @@ export default class Client extends OpenApi {
   async initializeENSECKServiceRole(): Promise<$_model.InitializeENSECKServiceRoleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.initializeENSECKServiceRoleWithOptions(runtime);
+  }
+
+  /**
+   * 安装集群组件
+   * 
+   * @param tmpReq - InstallClusterAddonsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallClusterAddonsResponse
+   */
+  async installClusterAddonsWithOptions(tmpReq: $_model.InstallClusterAddonsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallClusterAddonsResponse> {
+    tmpReq.validate();
+    let request = new $_model.InstallClusterAddonsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addons)) {
+      request.addonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addons, "Addons", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.addonsShrink)) {
+      query["Addons"] = request.addonsShrink;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallClusterAddons",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new $_model.InstallClusterAddonsResponse({}));
+  }
+
+  /**
+   * 安装集群组件
+   * 
+   * @param request - InstallClusterAddonsRequest
+   * @returns InstallClusterAddonsResponse
+   */
+  async installClusterAddons(request: $_model.InstallClusterAddonsRequest): Promise<$_model.InstallClusterAddonsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.installClusterAddonsWithOptions(request, runtime);
   }
 
   /**
@@ -12535,6 +13033,130 @@ export default class Client extends OpenApi {
   async manageAICLogin(request: $_model.ManageAICLoginRequest): Promise<$_model.ManageAICLoginResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.manageAICLoginWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改集群组件实例配置
+   * 
+   * @param tmpReq - ModifyClusterAddonRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyClusterAddonResponse
+   */
+  async modifyClusterAddonWithOptions(tmpReq: $_model.ModifyClusterAddonRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyClusterAddonResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyClusterAddonShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addon)) {
+      request.addonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addon, "Addon", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.addonShrink)) {
+      query["Addon"] = request.addonShrink;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.componentName)) {
+      query["ComponentName"] = request.componentName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyClusterAddon",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyClusterAddonResponse>(await this.callApi(params, req, runtime), new $_model.ModifyClusterAddonResponse({}));
+  }
+
+  /**
+   * 修改集群组件实例配置
+   * 
+   * @param request - ModifyClusterAddonRequest
+   * @returns ModifyClusterAddonResponse
+   */
+  async modifyClusterAddon(request: $_model.ModifyClusterAddonRequest): Promise<$_model.ModifyClusterAddonResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyClusterAddonWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新集群节点池
+   * 
+   * @param tmpReq - ModifyClusterNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyClusterNodePoolResponse
+   */
+  async modifyClusterNodePoolWithOptions(tmpReq: $_model.ModifyClusterNodePoolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyClusterNodePoolResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyClusterNodePoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.kubernetesConfig)) {
+      request.kubernetesConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.kubernetesConfig, "KubernetesConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.nodepoolInfo)) {
+      request.nodepoolInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodepoolInfo, "NodepoolInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scalingGroup)) {
+      request.scalingGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scalingGroup, "ScalingGroup", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.kubernetesConfigShrink)) {
+      query["KubernetesConfig"] = request.kubernetesConfigShrink;
+    }
+
+    if (!$dara.isNull(request.nodepoolInfoShrink)) {
+      query["NodepoolInfo"] = request.nodepoolInfoShrink;
+    }
+
+    if (!$dara.isNull(request.scalingGroupShrink)) {
+      query["ScalingGroup"] = request.scalingGroupShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyClusterNodePool",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyClusterNodePoolResponse>(await this.callApi(params, req, runtime), new $_model.ModifyClusterNodePoolResponse({}));
+  }
+
+  /**
+   * 更新集群节点池
+   * 
+   * @param request - ModifyClusterNodePoolRequest
+   * @returns ModifyClusterNodePoolResponse
+   */
+  async modifyClusterNodePool(request: $_model.ModifyClusterNodePoolRequest): Promise<$_model.ModifyClusterNodePoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyClusterNodePoolWithOptions(request, runtime);
   }
 
   /**
@@ -15926,6 +16548,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 调整节点池节点数
+   * 
+   * @param tmpReq - ScaleClusterNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScaleClusterNodePoolResponse
+   */
+  async scaleClusterNodePoolWithOptions(tmpReq: $_model.ScaleClusterNodePoolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ScaleClusterNodePoolResponse> {
+    tmpReq.validate();
+    let request = new $_model.ScaleClusterNodePoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "Body", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      query["Body"] = request.bodyShrink;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.nodepoolId)) {
+      query["NodepoolId"] = request.nodepoolId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ScaleClusterNodePool",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ScaleClusterNodePoolResponse>(await this.callApi(params, req, runtime), new $_model.ScaleClusterNodePoolResponse({}));
+  }
+
+  /**
+   * 调整节点池节点数
+   * 
+   * @param request - ScaleClusterNodePoolRequest
+   * @returns ScaleClusterNodePoolResponse
+   */
+  async scaleClusterNodePool(request: $_model.ScaleClusterNodePoolRequest): Promise<$_model.ScaleClusterNodePoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.scaleClusterNodePoolWithOptions(request, runtime);
+  }
+
+  /**
    * Sets the weights of backend servers.
    * 
    * @remarks
@@ -17126,6 +17804,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 卸载集群组件
+   * 
+   * @param tmpReq - UnInstallClusterAddonsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnInstallClusterAddonsResponse
+   */
+  async unInstallClusterAddonsWithOptions(tmpReq: $_model.UnInstallClusterAddonsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnInstallClusterAddonsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UnInstallClusterAddonsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addons)) {
+      request.addonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addons, "Addons", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.addonsShrink)) {
+      query["Addons"] = request.addonsShrink;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnInstallClusterAddons",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnInstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new $_model.UnInstallClusterAddonsResponse({}));
+  }
+
+  /**
+   * 卸载集群组件
+   * 
+   * @param request - UnInstallClusterAddonsRequest
+   * @returns UnInstallClusterAddonsResponse
+   */
+  async unInstallClusterAddons(request: $_model.UnInstallClusterAddonsRequest): Promise<$_model.UnInstallClusterAddonsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unInstallClusterAddonsWithOptions(request, runtime);
+  }
+
+  /**
    * Unassigns secondary private IP addresses from an elastic network interface (ENI).
    * 
    * @param request - UnassignPrivateIpAddressesRequest
@@ -17581,6 +18311,58 @@ export default class Client extends OpenApi {
   async upgradeApplication(request: $_model.UpgradeApplicationRequest): Promise<$_model.UpgradeApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 升级集群实例组件
+   * 
+   * @param tmpReq - UpgradeClusterAddonsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeClusterAddonsResponse
+   */
+  async upgradeClusterAddonsWithOptions(tmpReq: $_model.UpgradeClusterAddonsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeClusterAddonsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpgradeClusterAddonsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addons)) {
+      request.addonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addons, "Addons", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.addonsShrink)) {
+      query["Addons"] = request.addonsShrink;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeClusterAddons",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeClusterAddonsResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeClusterAddonsResponse({}));
+  }
+
+  /**
+   * 升级集群实例组件
+   * 
+   * @param request - UpgradeClusterAddonsRequest
+   * @returns UpgradeClusterAddonsResponse
+   */
+  async upgradeClusterAddons(request: $_model.UpgradeClusterAddonsRequest): Promise<$_model.UpgradeClusterAddonsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeClusterAddonsWithOptions(request, runtime);
   }
 
   /**

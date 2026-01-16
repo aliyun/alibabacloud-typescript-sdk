@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeENSECKServiceRoleResponseBody extends $dara.Model {
+export class DeleteClusterNodePoolRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * This parameter is required.
    * 
    * @example
-   * F3B261DD-3858-4D3C-877D-303ADF374600
+   * eck-xxxxxxxx
    */
-  requestId?: string;
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np68mi5y1dd748ky37ojo2kqdrz
+   */
+  nodepoolId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      clusterId: 'ClusterId',
+      nodepoolId: 'NodepoolId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      clusterId: 'string',
+      nodepoolId: 'string',
     };
   }
 

@@ -2,24 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeENSECKServiceRoleResponseBody extends $dara.Model {
+export class DeleteClusterNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * This parameter is required.
+   */
+  bodyShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
    * 
    * @example
-   * F3B261DD-3858-4D3C-877D-303ADF374600
+   * eck-xxxxxxxx
    */
-  requestId?: string;
+  clusterId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      bodyShrink: 'Body',
+      clusterId: 'ClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      bodyShrink: 'string',
+      clusterId: 'string',
     };
   }
 

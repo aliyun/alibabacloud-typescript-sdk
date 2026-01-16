@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeENSECKServiceRoleResponseBody extends $dara.Model {
+export class DescribeClusterUserKubeconfigRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * This parameter is required.
    * 
    * @example
-   * F3B261DD-3858-4D3C-877D-303ADF374600
+   * eck-xxxxxxxxx
    */
-  requestId?: string;
+  clusterId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      clusterId: 'ClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      clusterId: 'string',
     };
   }
 

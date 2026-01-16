@@ -2,24 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeENSECKServiceRoleResponseBody extends $dara.Model {
+export class DescribeAddonRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * This parameter is required.
    * 
    * @example
-   * F3B261DD-3858-4D3C-877D-303ADF374600
+   * edge-csi-lite
    */
-  requestId?: string;
+  addonName?: string;
+  /**
+   * @example
+   * v1
+   */
+  addonVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      addonName: 'AddonName',
+      addonVersion: 'AddonVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      addonName: 'string',
+      addonVersion: 'string',
     };
   }
 
