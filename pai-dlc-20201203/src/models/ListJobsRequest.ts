@@ -39,6 +39,7 @@ export class ListJobsRequest extends $dara.Model {
    */
   displayName?: string;
   displayNameSearchMode?: string;
+  enableAssignNode?: string;
   /**
    * @remarks
    * The end time of the query. Use the job creation time to filter data. The default value is the current time.
@@ -55,6 +56,7 @@ export class ListJobsRequest extends $dara.Model {
    * false
    */
   fromAllWorkspaces?: boolean;
+  imageSearch?: string;
   /**
    * @remarks
    * The job ID. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. The default value null indicates any job ID.
@@ -78,6 +80,9 @@ export class ListJobsRequest extends $dara.Model {
    * TFJob
    */
   jobType?: string;
+  numericRangeField?: string;
+  numericRangeMax?: number;
+  numericRangeMin?: number;
   /**
    * @remarks
    * The sorting order. Valid values:
@@ -138,6 +143,7 @@ export class ListJobsRequest extends $dara.Model {
    * flow-*******
    */
   pipelineId?: string;
+  reasonSearch?: string;
   /**
    * @remarks
    * The resource group ID. For information about how to obtain the ID of a dedicated resource group, see [Manage resource quota](https://help.aliyun.com/document_detail/2651299.html).
@@ -211,6 +217,8 @@ export class ListJobsRequest extends $dara.Model {
    * The tags.
    */
   tags?: { [key: string]: string };
+  timeRangeField?: string;
+  userCommandSearch?: string;
   /**
    * @remarks
    * The user ID used to filter jobs.
@@ -242,17 +250,23 @@ export class ListJobsRequest extends $dara.Model {
       caller: 'Caller',
       displayName: 'DisplayName',
       displayNameSearchMode: 'DisplayNameSearchMode',
+      enableAssignNode: 'EnableAssignNode',
       endTime: 'EndTime',
       fromAllWorkspaces: 'FromAllWorkspaces',
+      imageSearch: 'ImageSearch',
       jobId: 'JobId',
       jobIds: 'JobIds',
       jobType: 'JobType',
+      numericRangeField: 'NumericRangeField',
+      numericRangeMax: 'NumericRangeMax',
+      numericRangeMin: 'NumericRangeMin',
       order: 'Order',
       oversoldInfo: 'OversoldInfo',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       paymentType: 'PaymentType',
       pipelineId: 'PipelineId',
+      reasonSearch: 'ReasonSearch',
       resourceId: 'ResourceId',
       resourceQuotaName: 'ResourceQuotaName',
       showOwn: 'ShowOwn',
@@ -260,6 +274,8 @@ export class ListJobsRequest extends $dara.Model {
       startTime: 'StartTime',
       status: 'Status',
       tags: 'Tags',
+      timeRangeField: 'TimeRangeField',
+      userCommandSearch: 'UserCommandSearch',
       userIdForFilter: 'UserIdForFilter',
       username: 'Username',
       workspaceId: 'WorkspaceId',
@@ -273,17 +289,23 @@ export class ListJobsRequest extends $dara.Model {
       caller: 'string',
       displayName: 'string',
       displayNameSearchMode: 'string',
+      enableAssignNode: 'string',
       endTime: 'string',
       fromAllWorkspaces: 'boolean',
+      imageSearch: 'string',
       jobId: 'string',
       jobIds: 'string',
       jobType: 'string',
+      numericRangeField: 'string',
+      numericRangeMax: 'number',
+      numericRangeMin: 'number',
       order: 'string',
       oversoldInfo: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       paymentType: 'string',
       pipelineId: 'string',
+      reasonSearch: 'string',
       resourceId: 'string',
       resourceQuotaName: 'string',
       showOwn: 'boolean',
@@ -291,6 +313,8 @@ export class ListJobsRequest extends $dara.Model {
       startTime: 'string',
       status: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      timeRangeField: 'string',
+      userCommandSearch: 'string',
       userIdForFilter: 'string',
       username: 'string',
       workspaceId: 'string',

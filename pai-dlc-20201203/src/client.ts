@@ -1197,12 +1197,20 @@ export default class Client extends OpenApi {
       query["DisplayNameSearchMode"] = request.displayNameSearchMode;
     }
 
+    if (!$dara.isNull(request.enableAssignNode)) {
+      query["EnableAssignNode"] = request.enableAssignNode;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
     if (!$dara.isNull(request.fromAllWorkspaces)) {
       query["FromAllWorkspaces"] = request.fromAllWorkspaces;
+    }
+
+    if (!$dara.isNull(request.imageSearch)) {
+      query["ImageSearch"] = request.imageSearch;
     }
 
     if (!$dara.isNull(request.jobId)) {
@@ -1215,6 +1223,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.jobType)) {
       query["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.numericRangeField)) {
+      query["NumericRangeField"] = request.numericRangeField;
+    }
+
+    if (!$dara.isNull(request.numericRangeMax)) {
+      query["NumericRangeMax"] = request.numericRangeMax;
+    }
+
+    if (!$dara.isNull(request.numericRangeMin)) {
+      query["NumericRangeMin"] = request.numericRangeMin;
     }
 
     if (!$dara.isNull(request.order)) {
@@ -1239,6 +1259,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pipelineId)) {
       query["PipelineId"] = request.pipelineId;
+    }
+
+    if (!$dara.isNull(request.reasonSearch)) {
+      query["ReasonSearch"] = request.reasonSearch;
     }
 
     if (!$dara.isNull(request.resourceId)) {
@@ -1267,6 +1291,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.timeRangeField)) {
+      query["TimeRangeField"] = request.timeRangeField;
+    }
+
+    if (!$dara.isNull(request.userCommandSearch)) {
+      query["UserCommandSearch"] = request.userCommandSearch;
     }
 
     if (!$dara.isNull(request.userIdForFilter)) {
