@@ -49,7 +49,7 @@ export class ListCertResponseBodyList extends $dara.Model {
    * @example
    * 1806958
    */
-  id?: string;
+  id?: number;
   /**
    * @example
    * 1ef539a8-1e1f-6b88-8c11-21cf01a203e9
@@ -114,7 +114,7 @@ export class ListCertResponseBodyList extends $dara.Model {
       commonName: 'string',
       customIdentifier: 'string',
       extra: 'string',
-      id: 'string',
+      id: 'number',
       identifier: 'string',
       keyExportable: 'boolean',
       organization: 'string',

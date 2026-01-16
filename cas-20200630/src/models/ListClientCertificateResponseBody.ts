@@ -23,6 +23,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * RSA
    */
   algorithm?: string;
+  aliasName?: string;
   /**
    * @remarks
    * The issuance date of the certificate. This value is a UNIX timestamp. Unit: milliseconds.
@@ -69,6 +70,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * 365
    */
   days?: number;
+  id?: number;
   /**
    * @remarks
    * The unique identifier of the certificate.
@@ -215,12 +217,14 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
     return {
       afterDate: 'AfterDate',
       algorithm: 'Algorithm',
+      aliasName: 'AliasName',
       beforeDate: 'BeforeDate',
       certificateType: 'CertificateType',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
       customIdentifier: 'CustomIdentifier',
       days: 'Days',
+      id: 'Id',
       identifier: 'Identifier',
       keySize: 'KeySize',
       locality: 'Locality',
@@ -244,12 +248,14 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
     return {
       afterDate: 'number',
       algorithm: 'string',
+      aliasName: 'string',
       beforeDate: 'number',
       certificateType: 'string',
       commonName: 'string',
       countryCode: 'string',
       customIdentifier: 'string',
       days: 'number',
+      id: 'number',
       identifier: 'string',
       keySize: 'number',
       locality: 'string',
@@ -292,6 +298,7 @@ export class ListClientCertificateResponseBody extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  maxResults?: number;
   /**
    * @remarks
    * The total number of pages returned.
@@ -328,6 +335,7 @@ export class ListClientCertificateResponseBody extends $dara.Model {
     return {
       certificateList: 'CertificateList',
       currentPage: 'CurrentPage',
+      maxResults: 'MaxResults',
       pageCount: 'PageCount',
       requestId: 'RequestId',
       showSize: 'ShowSize',
@@ -339,6 +347,7 @@ export class ListClientCertificateResponseBody extends $dara.Model {
     return {
       certificateList: { 'type': 'array', 'itemType': ListClientCertificateResponseBodyCertificateList },
       currentPage: 'number',
+      maxResults: 'number',
       pageCount: 'number',
       requestId: 'string',
       showSize: 'number',

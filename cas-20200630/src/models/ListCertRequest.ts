@@ -33,6 +33,7 @@ export class ListCertRequest extends $dara.Model {
    * 1d2db86sca4384811e0b5e8707e68181f
    */
   nextToken?: string;
+  parentIdentifier?: string;
   /**
    * @example
    * 50
@@ -56,6 +57,7 @@ export class ListCertRequest extends $dara.Model {
       instanceUuid: 'InstanceUuid',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      parentIdentifier: 'ParentIdentifier',
       showSize: 'ShowSize',
       status: 'Status',
       type: 'Type',
@@ -70,6 +72,7 @@ export class ListCertRequest extends $dara.Model {
       instanceUuid: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      parentIdentifier: 'string',
       showSize: 'number',
       status: 'string',
       type: 'string',

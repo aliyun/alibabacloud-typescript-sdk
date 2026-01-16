@@ -151,6 +151,10 @@ export default class Client extends OpenApi {
       query["Algorithm"] = request.algorithm;
     }
 
+    if (!$dara.isNull(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
     if (!$dara.isNull(request.beforeTime)) {
       query["BeforeTime"] = request.beforeTime;
     }
@@ -223,8 +227,14 @@ export default class Client extends OpenApi {
       query["Years"] = request.years;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateClientCertificate",
@@ -1832,6 +1842,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.parentIdentifier)) {
+      query["ParentIdentifier"] = request.parentIdentifier;
     }
 
     if (!$dara.isNull(request.showSize)) {

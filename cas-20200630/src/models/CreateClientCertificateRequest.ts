@@ -61,6 +61,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
    * RSA_2048
    */
   algorithm?: string;
+  aliasName?: string;
   /**
    * @remarks
    * The issuance time of the client certificate. This value is a UNIX timestamp. The default value is the time when you call this operation. Unit: seconds.
@@ -71,6 +72,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
    * 1634283958
    */
   beforeTime?: number;
+  clientToken?: string;
   /**
    * @remarks
    * The name of the client certificate user. In most cases, the user of a client certificate is an individual, a company, an organization, or an application. We recommend that you enter the common name of a user. Examples: Bob, Alibaba, Alibaba Cloud password platform, and Tmall Genie.
@@ -211,7 +213,9 @@ export class CreateClientCertificateRequest extends $dara.Model {
     return {
       afterTime: 'AfterTime',
       algorithm: 'Algorithm',
+      aliasName: 'AliasName',
       beforeTime: 'BeforeTime',
+      clientToken: 'ClientToken',
       commonName: 'CommonName',
       country: 'Country',
       customIdentifier: 'CustomIdentifier',
@@ -236,7 +240,9 @@ export class CreateClientCertificateRequest extends $dara.Model {
     return {
       afterTime: 'number',
       algorithm: 'string',
+      aliasName: 'string',
       beforeTime: 'number',
+      clientToken: 'string',
       commonName: 'string',
       country: 'string',
       customIdentifier: 'string',

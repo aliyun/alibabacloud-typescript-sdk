@@ -49,6 +49,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * RSA
    */
   algorithm?: string;
+  aliasName?: string;
   /**
    * @remarks
    * The issuance date of the certificate. This value is a UNIX timestamp. Unit: milliseconds.
@@ -96,6 +97,8 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * 365
    */
   days?: number;
+  fullAlgorithm?: string;
+  id?: number;
   /**
    * @remarks
    * The unique identifier of the certificate.
@@ -231,6 +234,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    */
   subjectDN?: string;
   tags?: DescribeClientCertificateResponseBodyCertificateTags[];
+  uploadFlag?: number;
   /**
    * @remarks
    * The content of the certificate.
@@ -243,6 +247,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
     return {
       afterDate: 'AfterDate',
       algorithm: 'Algorithm',
+      aliasName: 'AliasName',
       beforeDate: 'BeforeDate',
       certChain: 'CertChain',
       certificateType: 'CertificateType',
@@ -250,6 +255,8 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       countryCode: 'CountryCode',
       customIdentifier: 'CustomIdentifier',
       days: 'Days',
+      fullAlgorithm: 'FullAlgorithm',
+      id: 'Id',
       identifier: 'Identifier',
       keySize: 'KeySize',
       locality: 'Locality',
@@ -266,6 +273,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       status: 'Status',
       subjectDN: 'SubjectDN',
       tags: 'Tags',
+      uploadFlag: 'UploadFlag',
       x509Certificate: 'X509Certificate',
     };
   }
@@ -274,6 +282,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
     return {
       afterDate: 'number',
       algorithm: 'string',
+      aliasName: 'string',
       beforeDate: 'number',
       certChain: 'string',
       certificateType: 'string',
@@ -281,6 +290,8 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       countryCode: 'string',
       customIdentifier: 'string',
       days: 'number',
+      fullAlgorithm: 'string',
+      id: 'number',
       identifier: 'string',
       keySize: 'number',
       locality: 'string',
@@ -297,6 +308,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       status: 'string',
       subjectDN: 'string',
       tags: { 'type': 'array', 'itemType': DescribeClientCertificateResponseBodyCertificateTags },
+      uploadFlag: 'number',
       x509Certificate: 'string',
     };
   }
