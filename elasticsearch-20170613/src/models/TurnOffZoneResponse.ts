@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateApmResponseBody } from "./UpdateApmResponseBody";
+import { TurnOffZoneResponseBody } from "./TurnOffZoneResponseBody";
 
 
-export class UpdateApmResponse extends $dara.Model {
+export class TurnOffZoneResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: UpdateApmResponseBody;
+  body?: TurnOffZoneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class UpdateApmResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: UpdateApmResponseBody,
+      body: TurnOffZoneResponseBody,
     };
   }
 

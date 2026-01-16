@@ -234,6 +234,47 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
   }
 }
 
+export class DescribeInstanceResponseBodyResultEndpoints extends $dara.Model {
+  /**
+   * @example
+   * es-cn-xx-cn-hangzhou-h.elasticsearch.aliyuncs.com
+   */
+  endpoint?: string;
+  /**
+   * @example
+   * vsw-xxx
+   */
+  vswitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      vswitchId: 'vswitchId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      vswitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceResponseBodyResultIkHotDicts extends $dara.Model {
   /**
    * @example
@@ -751,6 +792,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
    */
   enablePublic?: boolean;
   endTime?: number;
+  endpoints?: DescribeInstanceResponseBodyResultEndpoints[];
   /**
    * @example
    * {"http.cors.allow-credentials":"false"}
@@ -901,6 +943,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
       enableKibanaPublicNetwork: 'enableKibanaPublicNetwork',
       enablePublic: 'enablePublic',
       endTime: 'endTime',
+      endpoints: 'endpoints',
       esConfig: 'esConfig',
       esIPBlacklist: 'esIPBlacklist',
       esIPWhitelist: 'esIPWhitelist',
@@ -962,6 +1005,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
       enableKibanaPublicNetwork: 'boolean',
       enablePublic: 'boolean',
       endTime: 'number',
+      endpoints: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultEndpoints },
       esConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       esIPBlacklist: { 'type': 'array', 'itemType': 'string' },
       esIPWhitelist: { 'type': 'array', 'itemType': 'string' },
@@ -1021,6 +1065,9 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
     }
     if(this.elasticDataNodeConfiguration && typeof (this.elasticDataNodeConfiguration as any).validate === 'function') {
       (this.elasticDataNodeConfiguration as any).validate();
+    }
+    if(Array.isArray(this.endpoints)) {
+      $dara.Model.validateArray(this.endpoints);
     }
     if(this.esConfig) {
       $dara.Model.validateMap(this.esConfig);

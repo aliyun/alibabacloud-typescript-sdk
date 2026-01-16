@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableKibanaPvlNetworkRequestVSwitchIdsZone extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * vsw-xxxx
    */
   vswitchId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * cn-hangzhou-h
    */
@@ -44,9 +38,6 @@ export class EnableKibanaPvlNetworkRequestVSwitchIdsZone extends $dara.Model {
 
 export class EnableKibanaPvlNetworkRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * es-cn-27a3mul6l000xxx-kibana-endpoint
    */
@@ -56,25 +47,24 @@ export class EnableKibanaPvlNetworkRequest extends $dara.Model {
    * This parameter is required.
    */
   securityGroups?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   vSwitchIdsZone?: EnableKibanaPvlNetworkRequestVSwitchIdsZone[];
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * vpc-xxx
    */
   vpcId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       endpointName: 'endpointName',
       securityGroups: 'securityGroups',
       vSwitchIdsZone: 'vSwitchIdsZone',
       vpcId: 'vpcId',
+      clientToken: 'clientToken',
     };
   }
 
@@ -84,6 +74,7 @@ export class EnableKibanaPvlNetworkRequest extends $dara.Model {
       securityGroups: { 'type': 'array', 'itemType': 'string' },
       vSwitchIdsZone: { 'type': 'array', 'itemType': EnableKibanaPvlNetworkRequestVSwitchIdsZone },
       vpcId: 'string',
+      clientToken: 'string',
     };
   }
 

@@ -1659,41 +1659,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describe APM
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeApmResponse
-   */
-  async describeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApmResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${$dara.URL.percentEncode(instanceId)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeApmResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApmResponse({}));
-  }
-
-  /**
-   * Describe APM
-   * @returns DescribeApmResponse
-   */
-  async describeApm(instanceId: string): Promise<$_model.DescribeApmResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.describeApmWithOptions(instanceId, headers, runtime);
-  }
-
-  /**
    * Queries the details of a shipper.
    * 
    * @param headers - map
@@ -2491,6 +2456,11 @@ export default class Client extends OpenApi {
    */
   async enableKibanaPvlNetworkWithOptions(InstanceId: string, request: $_model.EnableKibanaPvlNetworkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableKibanaPvlNetworkResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.endpointName)) {
       body["endpointName"] = request.endpointName;
@@ -2510,6 +2480,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -3760,67 +3731,6 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAlternativeSnapshotReposWithOptions(InstanceId, request, headers, runtime);
-  }
-
-  /**
-   * ListApm
-   * 
-   * @param request - ListApmRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListApmResponse
-   */
-  async listApmWithOptions(request: $_model.ListApmRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApmResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.description)) {
-      query["description"] = request.description;
-    }
-
-    if (!$dara.isNull(request.instanceId)) {
-      query["instanceId"] = request.instanceId;
-    }
-
-    if (!$dara.isNull(request.output)) {
-      query["output"] = request.output;
-    }
-
-    if (!$dara.isNull(request.page)) {
-      query["page"] = request.page;
-    }
-
-    if (!$dara.isNull(request.size)) {
-      query["size"] = request.size;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ListApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ListApmResponse>(await this.callApi(params, req, runtime), new $_model.ListApmResponse({}));
-  }
-
-  /**
-   * ListApm
-   * 
-   * @param request - ListApmRequest
-   * @returns ListApmResponse
-   */
-  async listApm(request: $_model.ListApmRequest): Promise<$_model.ListApmResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listApmWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6350,41 +6260,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * RemoveApm
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns RemoveApmResponse
-   */
-  async removeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveApmResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "RemoveApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${$dara.URL.percentEncode(instanceId)}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.RemoveApmResponse>(await this.callApi(params, req, runtime), new $_model.RemoveApmResponse({}));
-  }
-
-  /**
-   * RemoveApm
-   * @returns RemoveApmResponse
-   */
-  async removeApm(instanceId: string): Promise<$_model.RemoveApmResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.removeApmWithOptions(instanceId, headers, runtime);
-  }
-
-  /**
    * Call RenewInstance to renew a subscription instance.
    * 
    * @param request - RenewInstanceRequest
@@ -6884,41 +6759,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * StartApm
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns StartApmResponse
-   */
-  async startApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartApmResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "StartApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${$dara.URL.percentEncode(instanceId)}/actions/start`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.StartApmResponse>(await this.callApi(params, req, runtime), new $_model.StartApmResponse({}));
-  }
-
-  /**
-   * StartApm
-   * @returns StartApmResponse
-   */
-  async startApm(instanceId: string): Promise<$_model.StartApmResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.startApmWithOptions(instanceId, headers, runtime);
-  }
-
-  /**
    * Starts a collector to collect data.
    * 
    * @param request - StartCollectorRequest
@@ -6961,41 +6801,6 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startCollectorWithOptions(ResId, request, headers, runtime);
-  }
-
-  /**
-   * StopApm
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns StopApmResponse
-   */
-  async stopApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopApmResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "StopApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${$dara.URL.percentEncode(instanceId)}/actions/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.StopApmResponse>(await this.callApi(params, req, runtime), new $_model.StopApmResponse({}));
-  }
-
-  /**
-   * StopApm
-   * @returns StopApmResponse
-   */
-  async stopApm(instanceId: string): Promise<$_model.StopApmResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.stopApmWithOptions(instanceId, headers, runtime);
   }
 
   /**
@@ -7249,6 +7054,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.triggerNetworkWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 可用区关机
+   * 
+   * @param request - TurnOffZoneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TurnOffZoneResponse
+   */
+  async turnOffZoneWithOptions(instanceId: string, request: $_model.TurnOffZoneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TurnOffZoneResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.zone)) {
+      query["zone"] = request.zone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TurnOffZone",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(instanceId)}/actions/turnOff-zone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TurnOffZoneResponse>(await this.callApi(params, req, runtime), new $_model.TurnOffZoneResponse({}));
+  }
+
+  /**
+   * 可用区关机
+   * 
+   * @param request - TurnOffZoneRequest
+   * @returns TurnOffZoneResponse
+   */
+  async turnOffZone(instanceId: string, request: $_model.TurnOffZoneRequest): Promise<$_model.TurnOffZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.turnOffZoneWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 可用区开机
+   * 
+   * @param request - TurnOnZoneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TurnOnZoneResponse
+   */
+  async turnOnZoneWithOptions(instanceId: string, request: $_model.TurnOnZoneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TurnOnZoneResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.zone)) {
+      query["zone"] = request.zone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TurnOnZone",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(instanceId)}/actions/turnOn-zone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TurnOnZoneResponse>(await this.callApi(params, req, runtime), new $_model.TurnOnZoneResponse({}));
+  }
+
+  /**
+   * 可用区开机
+   * 
+   * @param request - TurnOnZoneRequest
+   * @returns TurnOnZoneResponse
+   */
+  async turnOnZone(instanceId: string, request: $_model.TurnOnZoneRequest): Promise<$_model.TurnOnZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.turnOnZoneWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -7625,67 +7520,6 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAliwsDictWithOptions(InstanceId, request, headers, runtime);
-  }
-
-  /**
-   * 修改APM实规格配置
-   * 
-   * @param request - UpdateApmRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateApmResponse
-   */
-  async updateApmWithOptions(instanceId: string, request: $_model.UpdateApmRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApmResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.description)) {
-      body["description"] = request.description;
-    }
-
-    if (!$dara.isNull(request.outputES)) {
-      body["outputES"] = request.outputES;
-    }
-
-    if (!$dara.isNull(request.outputESPassword)) {
-      body["outputESPassword"] = request.outputESPassword;
-    }
-
-    if (!$dara.isNull(request.outputESUserName)) {
-      body["outputESUserName"] = request.outputESUserName;
-    }
-
-    if (!$dara.isNull(request.token)) {
-      body["token"] = request.token;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "UpdateApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${$dara.URL.percentEncode(instanceId)}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.UpdateApmResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApmResponse({}));
-  }
-
-  /**
-   * 修改APM实规格配置
-   * 
-   * @param request - UpdateApmRequest
-   * @returns UpdateApmResponse
-   */
-  async updateApm(instanceId: string, request: $_model.UpdateApmRequest): Promise<$_model.UpdateApmResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateApmWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -8387,6 +8221,10 @@ export default class Client extends OpenApi {
       body["nodeSpec"] = request.nodeSpec;
     }
 
+    if (!$dara.isNull(request.updateType)) {
+      body["updateType"] = request.updateType;
+    }
+
     if (!$dara.isNull(request.warmNodeConfiguration)) {
       body["warmNodeConfiguration"] = request.warmNodeConfiguration;
     }
@@ -8440,10 +8278,19 @@ export default class Client extends OpenApi {
       query["clientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.paymentInfo)) {
+      body["paymentInfo"] = request.paymentInfo;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      body["paymentType"] = request.paymentType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceChargeType",
@@ -8498,10 +8345,15 @@ export default class Client extends OpenApi {
       query["updateStrategy"] = request.updateStrategy;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.esConfig)) {
+      body["esConfig"] = request.esConfig;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceSettings",
@@ -8544,6 +8396,10 @@ export default class Client extends OpenApi {
   async updateKibanaPvlNetworkWithOptions(InstanceId: string, request: $_model.UpdateKibanaPvlNetworkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKibanaPvlNetworkResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.pvlId)) {
       query["pvlId"] = request.pvlId;
     }

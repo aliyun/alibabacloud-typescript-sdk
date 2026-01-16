@@ -10,9 +10,11 @@ export class UpdateKibanaPvlNetworkRequest extends $dara.Model {
   endpointName?: string;
   securityGroups?: string[];
   /**
-   * @remarks
-   * This parameter is required.
-   * 
+   * @example
+   * xxxx
+   */
+  clientToken?: string;
+  /**
    * @example
    * es-cn-27a3mul6l0***-kibana-internal
    */
@@ -21,6 +23,7 @@ export class UpdateKibanaPvlNetworkRequest extends $dara.Model {
     return {
       endpointName: 'endpointName',
       securityGroups: 'securityGroups',
+      clientToken: 'clientToken',
       pvlId: 'pvlId',
     };
   }
@@ -29,6 +32,7 @@ export class UpdateKibanaPvlNetworkRequest extends $dara.Model {
     return {
       endpointName: 'string',
       securityGroups: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
       pvlId: 'string',
     };
   }

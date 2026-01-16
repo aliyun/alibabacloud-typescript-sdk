@@ -24,6 +24,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    */
   nodeAmount?: number;
   nodeSpec?: NodeSpec;
+  updateType?: string;
   warmNodeConfiguration?: WarmNodeConfiguration;
   /**
    * @remarks
@@ -55,6 +56,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       masterConfiguration: 'masterConfiguration',
       nodeAmount: 'nodeAmount',
       nodeSpec: 'nodeSpec',
+      updateType: 'updateType',
       warmNodeConfiguration: 'warmNodeConfiguration',
       clientToken: 'clientToken',
       force: 'force',
@@ -71,6 +73,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       masterConfiguration: MasterNodeConfiguration,
       nodeAmount: 'number',
       nodeSpec: NodeSpec,
+      updateType: 'string',
       warmNodeConfiguration: WarmNodeConfiguration,
       clientToken: 'string',
       force: 'boolean',

@@ -2,28 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveApmResponseBody extends $dara.Model {
+export class TurnOnZoneRequest extends $dara.Model {
   /**
    * @example
-   * 29A879FB-86BF-54CA-9426-B769A099E1A1
+   * cn-hangzhou-i
    */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  result?: boolean;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      result: 'Result',
+      zone: 'zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      result: 'boolean',
+      zone: 'string',
     };
   }
 
