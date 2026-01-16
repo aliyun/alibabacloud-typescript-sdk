@@ -11,6 +11,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
    * yourAccessKeyID
    */
   accessKeyId?: string;
+  assetRoleAuthed?: boolean;
   /**
    * @remarks
    * Indicates whether the SQL Explorer feature can be disabled. Valid values:
@@ -193,6 +194,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessKeyId: 'AccessKeyId',
+      assetRoleAuthed: 'AssetRoleAuthed',
       auditClosable: 'AuditClosable',
       auditReleasable: 'AuditReleasable',
       authed: 'Authed',
@@ -218,6 +220,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessKeyId: 'string',
+      assetRoleAuthed: 'boolean',
       auditClosable: 'boolean',
       auditReleasable: 'boolean',
       authed: 'boolean',

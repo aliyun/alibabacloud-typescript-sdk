@@ -22,6 +22,7 @@ export class CreateSlrRoleRequest extends $dara.Model {
    * zh_cn
    */
   lang?: string;
+  serviceName?: string;
   /**
    * @remarks
    * This parameter is deprecated.
@@ -34,6 +35,7 @@ export class CreateSlrRoleRequest extends $dara.Model {
     return {
       featureType: 'FeatureType',
       lang: 'Lang',
+      serviceName: 'ServiceName',
       sourceIp: 'SourceIp',
     };
   }
@@ -42,6 +44,7 @@ export class CreateSlrRoleRequest extends $dara.Model {
     return {
       featureType: 'number',
       lang: 'string',
+      serviceName: 'string',
       sourceIp: 'string',
     };
   }

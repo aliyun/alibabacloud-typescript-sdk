@@ -461,6 +461,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
