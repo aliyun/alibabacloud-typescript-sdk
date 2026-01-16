@@ -3835,6 +3835,26 @@ export default class Client extends OpenApi {
       query["ProductCode"] = request.productCode;
     }
 
+    if (!$dara.isNull(request.riskBizScenario)) {
+      query["RiskBizScenario"] = request.riskBizScenario;
+    }
+
+    if (!$dara.isNull(request.riskDevice)) {
+      query["RiskDevice"] = request.riskDevice;
+    }
+
+    if (!$dara.isNull(request.riskDeviceToken)) {
+      query["RiskDeviceToken"] = request.riskDeviceToken;
+    }
+
+    if (!$dara.isNull(request.riskGeneric)) {
+      query["RiskGeneric"] = request.riskGeneric;
+    }
+
+    if (!$dara.isNull(request.riskModelMining)) {
+      query["RiskModelMining"] = request.riskModelMining;
+    }
+
     if (!$dara.isNull(request.root)) {
       query["Root"] = request.root;
     }

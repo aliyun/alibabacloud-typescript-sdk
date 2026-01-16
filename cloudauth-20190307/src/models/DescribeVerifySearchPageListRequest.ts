@@ -89,6 +89,11 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
    * ID_PRO
    */
   productCode?: string;
+  riskBizScenario?: number;
+  riskDevice?: number;
+  riskDeviceToken?: number;
+  riskGeneric?: number;
+  riskModelMining?: number;
   /**
    * @remarks
    * Whether it is rooted (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
@@ -157,6 +162,11 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
       pageSize: 'PageSize',
       passed: 'Passed',
       productCode: 'ProductCode',
+      riskBizScenario: 'RiskBizScenario',
+      riskDevice: 'RiskDevice',
+      riskDeviceToken: 'RiskDeviceToken',
+      riskGeneric: 'RiskGeneric',
+      riskModelMining: 'RiskModelMining',
       root: 'Root',
       sceneId: 'SceneId',
       simulator: 'Simulator',
@@ -179,6 +189,11 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
       pageSize: 'string',
       passed: 'string',
       productCode: 'string',
+      riskBizScenario: 'number',
+      riskDevice: 'number',
+      riskDeviceToken: 'number',
+      riskGeneric: 'number',
+      riskModelMining: 'number',
       root: 'number',
       sceneId: 'string',
       simulator: 'number',
