@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatStockOssCheckTaskRequest extends $dara.Model {
+  bucketPrefixFilterConfig?: string;
   /**
    * @remarks
    * OSS buckets
@@ -229,6 +230,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      bucketPrefixFilterConfig: 'BucketPrefixFilterConfig',
       buckets: 'Buckets',
       callbackId: 'CallbackId',
       distinctHistoryTasks: 'DistinctHistoryTasks',
@@ -262,6 +264,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bucketPrefixFilterConfig: 'string',
       buckets: 'string',
       callbackId: 'string',
       distinctHistoryTasks: 'boolean',

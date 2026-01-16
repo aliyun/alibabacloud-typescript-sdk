@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ConfigBucketPrefixFilterConfigValue } from "./ConfigBucketPrefixFilterConfigValue";
 
 
 export class GetOssCheckTaskInfoResponseBodyConfigScanServiceInfos extends $dara.Model {
@@ -81,6 +82,7 @@ export class GetOssCheckTaskInfoResponseBodyConfigUserFreezeConfig extends $dara
 }
 
 export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
+  bucketPrefixFilterConfig?: { [key: string]: ConfigBucketPrefixFilterConfigValue };
   /**
    * @example
    * 188
@@ -190,6 +192,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   userFreezeConfig?: GetOssCheckTaskInfoResponseBodyConfigUserFreezeConfig;
   static names(): { [key: string]: string } {
     return {
+      bucketPrefixFilterConfig: 'BucketPrefixFilterConfig',
       callbackId: 'CallbackId',
       distinctHistoryTasks: 'DistinctHistoryTasks',
       endTime: 'EndTime',
@@ -219,6 +222,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bucketPrefixFilterConfig: { 'type': 'map', 'keyType': 'string', 'valueType': ConfigBucketPrefixFilterConfigValue },
       callbackId: 'number',
       distinctHistoryTasks: 'boolean',
       endTime: 'string',
@@ -247,6 +251,9 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   }
 
   validate() {
+    if(this.bucketPrefixFilterConfig) {
+      $dara.Model.validateMap(this.bucketPrefixFilterConfig);
+    }
     if(Array.isArray(this.prefixFilters)) {
       $dara.Model.validateArray(this.prefixFilters);
     }

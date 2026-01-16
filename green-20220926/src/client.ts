@@ -491,6 +491,10 @@ export default class Client extends OpenApi {
   async creatStockOssCheckTaskWithOptions(request: $_model.CreatStockOssCheckTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatStockOssCheckTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bucketPrefixFilterConfig)) {
+      query["BucketPrefixFilterConfig"] = request.bucketPrefixFilterConfig;
+    }
+
     if (!$dara.isNull(request.buckets)) {
       query["Buckets"] = request.buckets;
     }
@@ -820,6 +824,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bucketPrefixFilterConfig)) {
+      body["BucketPrefixFilterConfig"] = request.bucketPrefixFilterConfig;
+    }
+
     if (!$dara.isNull(request.buckets)) {
       body["Buckets"] = request.buckets;
     }

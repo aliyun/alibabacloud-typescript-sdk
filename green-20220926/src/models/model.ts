@@ -70,6 +70,7 @@ export { QueryAnswerSampleByPageResponseBodyItems } from './QueryAnswerSampleByP
 export { QueryCallbackByPageResponseBodyItems } from './QueryCallbackByPageResponseBody';
 export { UpdateOssCheckResultsFreezeResponseBodyData } from './UpdateOssCheckResultsFreezeResponseBody';
 export { UpdateOssCheckResultsUnfreezeResponseBodyData } from './UpdateOssCheckResultsUnfreezeResponseBody';
+export { ConfigBucketPrefixFilterConfigValue } from './ConfigBucketPrefixFilterConfigValue';
 export { AddAnswerSampleRequest } from './AddAnswerSampleRequest';
 export { AddAnswerSampleResponseBody } from './AddAnswerSampleResponseBody';
 export { AddAnswerSampleResponse } from './AddAnswerSampleResponse';

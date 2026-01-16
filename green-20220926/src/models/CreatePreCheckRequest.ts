@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePreCheckRequest extends $dara.Model {
+  bucketPrefixFilterConfig?: string;
   /**
    * @remarks
    * Buckets.
@@ -117,6 +118,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
+      bucketPrefixFilterConfig: 'BucketPrefixFilterConfig',
       buckets: 'Buckets',
       distinctHistoryTasks: 'DistinctHistoryTasks',
       endTime: 'EndTime',
@@ -136,6 +138,7 @@ export class CreatePreCheckRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bucketPrefixFilterConfig: 'string',
       buckets: 'string',
       distinctHistoryTasks: 'boolean',
       endTime: 'string',
