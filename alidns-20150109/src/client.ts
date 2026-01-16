@@ -9897,6 +9897,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置全局流量管理实例配置日志开关
+   * 
+   * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetCloudGtmInstanceConfigLogSwitchResponse
+   */
+  async setCloudGtmInstanceConfigLogSwitchWithOptions(request: $_model.SetCloudGtmInstanceConfigLogSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetCloudGtmInstanceConfigLogSwitchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetCloudGtmInstanceConfigLogSwitch",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetCloudGtmInstanceConfigLogSwitchResponse>(await this.callApi(params, req, runtime), new $_model.SetCloudGtmInstanceConfigLogSwitchResponse({}));
+  }
+
+  /**
+   * 设置全局流量管理实例配置日志开关
+   * 
+   * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
+   * @returns SetCloudGtmInstanceConfigLogSwitchResponse
+   */
+  async setCloudGtmInstanceConfigLogSwitch(request: $_model.SetCloudGtmInstanceConfigLogSwitchRequest): Promise<$_model.SetCloudGtmInstanceConfigLogSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setCloudGtmInstanceConfigLogSwitchWithOptions(request, runtime);
+  }
+
+  /**
    * Enables or disables weighted round-robin based on the specified parameters.
    * 
    * @param request - SetDNSSLBStatusRequest
