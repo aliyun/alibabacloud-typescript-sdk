@@ -2,33 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAppInstanceRequestTags extends $dara.Model {
-  tagKey?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppInstanceRequest extends $dara.Model {
+export class CreateAppInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Application type
@@ -110,7 +84,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * Basic_Edition
    */
   siteVersion?: string;
-  tags?: CreateAppInstanceRequestTags[];
+  tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       applicationType: 'ApplicationType',
@@ -124,7 +98,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       quantity: 'Quantity',
       resourceGroupId: 'ResourceGroupId',
       siteVersion: 'SiteVersion',
-      tags: 'Tags',
+      tagsShrink: 'Tags',
     };
   }
 
@@ -141,14 +115,11 @@ export class CreateAppInstanceRequest extends $dara.Model {
       quantity: 'number',
       resourceGroupId: 'string',
       siteVersion: 'string',
-      tags: { 'type': 'array', 'itemType': CreateAppInstanceRequestTags },
+      tagsShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
     super.validate();
   }
 

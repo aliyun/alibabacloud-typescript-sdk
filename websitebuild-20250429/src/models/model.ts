@@ -1,4 +1,8 @@
+export { AppInstanceAggregatePartnerDetailBindData } from './AppInstanceAggregate';
+export { AppInstanceAggregatePartnerDetail } from './AppInstanceAggregate';
+export { AppInstanceAggregateTags } from './AppInstanceAggregate';
 export { BindAppDomainResponseBodyModule } from './BindAppDomainResponseBody';
+export { CreateAppInstanceRequestTags } from './CreateAppInstanceRequest';
 export { CreateAppInstanceResponseBodyModule } from './CreateAppInstanceResponseBody';
 export { CreateAppInstanceTicketResponseBodyModule } from './CreateAppInstanceTicketResponseBody';
 export { DeleteAppDomainCertificateResponseBodyModule } from './DeleteAppDomainCertificateResponseBody';
@@ -56,6 +60,7 @@ export { BindAppDomainRequest } from './BindAppDomainRequest';
 export { BindAppDomainResponseBody } from './BindAppDomainResponseBody';
 export { BindAppDomainResponse } from './BindAppDomainResponse';
 export { CreateAppInstanceRequest } from './CreateAppInstanceRequest';
+export { CreateAppInstanceShrinkRequest } from './CreateAppInstanceShrinkRequest';
 export { CreateAppInstanceResponseBody } from './CreateAppInstanceResponseBody';
 export { CreateAppInstanceResponse } from './CreateAppInstanceResponse';
 export { CreateAppInstanceTicketRequest } from './CreateAppInstanceTicketRequest';

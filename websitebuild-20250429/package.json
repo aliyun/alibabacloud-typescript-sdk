@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/websitebuild20250429",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

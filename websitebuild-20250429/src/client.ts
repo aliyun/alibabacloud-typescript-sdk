@@ -86,12 +86,18 @@ export default class Client extends OpenApi {
   /**
    * Create a website instance
    * 
-   * @param request - CreateAppInstanceRequest
+   * @param tmpReq - CreateAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppInstanceResponse
    */
-  async createAppInstanceWithOptions(request: $_model.CreateAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppInstanceResponse> {
-    request.validate();
+  async createAppInstanceWithOptions(tmpReq: $_model.CreateAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAppInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.applicationType)) {
       query["ApplicationType"] = request.applicationType;
@@ -133,8 +139,18 @@ export default class Client extends OpenApi {
       query["SiteVersion"] = request.siteVersion;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateAppInstance",
