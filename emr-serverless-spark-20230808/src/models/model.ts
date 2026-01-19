@@ -66,6 +66,7 @@ export { ListKyuubiTokenResponseBodyDataTokens } from './ListKyuubiTokenResponse
 export { ListKyuubiTokenResponseBodyData } from './ListKyuubiTokenResponseBody';
 export { ListLivyComputeResponseBodyDataLivyComputes } from './ListLivyComputeResponseBody';
 export { ListLivyComputeResponseBodyData } from './ListLivyComputeResponseBody';
+export { ListLivyComputeSessionsResponseBodySessions } from './ListLivyComputeSessionsResponseBody';
 export { ListLivyComputeTokenResponseBodyDataTokens } from './ListLivyComputeTokenResponseBody';
 export { ListLivyComputeTokenResponseBodyData } from './ListLivyComputeTokenResponseBody';
 export { ListLogContentsResponseBodyListLogContentContents } from './ListLogContentsResponseBody';
@@ -228,6 +229,9 @@ export { ListKyuubiTokenResponse } from './ListKyuubiTokenResponse';
 export { ListLivyComputeRequest } from './ListLivyComputeRequest';
 export { ListLivyComputeResponseBody } from './ListLivyComputeResponseBody';
 export { ListLivyComputeResponse } from './ListLivyComputeResponse';
+export { ListLivyComputeSessionsRequest } from './ListLivyComputeSessionsRequest';
+export { ListLivyComputeSessionsResponseBody } from './ListLivyComputeSessionsResponseBody';
+export { ListLivyComputeSessionsResponse } from './ListLivyComputeSessionsResponse';
 export { ListLivyComputeTokenRequest } from './ListLivyComputeTokenRequest';
 export { ListLivyComputeTokenResponseBody } from './ListLivyComputeTokenResponseBody';
 export { ListLivyComputeTokenResponse } from './ListLivyComputeTokenResponse';

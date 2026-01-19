@@ -2184,6 +2184,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取livy gateway历史session
+   * 
+   * @param request - ListLivyComputeSessionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLivyComputeSessionsResponse
+   */
+  async listLivyComputeSessionsWithOptions(workspaceId: string, livyComputeId: string, request: $_model.ListLivyComputeSessionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListLivyComputeSessionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNum)) {
+      query["pageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLivyComputeSessions",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/session`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLivyComputeSessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListLivyComputeSessionsResponse({}));
+  }
+
+  /**
+   * 获取livy gateway历史session
+   * 
+   * @param request - ListLivyComputeSessionsRequest
+   * @returns ListLivyComputeSessionsResponse
+   */
+  async listLivyComputeSessions(workspaceId: string, livyComputeId: string, request: $_model.ListLivyComputeSessionsRequest): Promise<$_model.ListLivyComputeSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLivyComputeSessionsWithOptions(workspaceId, livyComputeId, request, headers, runtime);
+  }
+
+  /**
    * 列出livy compute token
    * 
    * @param request - ListLivyComputeTokenRequest
