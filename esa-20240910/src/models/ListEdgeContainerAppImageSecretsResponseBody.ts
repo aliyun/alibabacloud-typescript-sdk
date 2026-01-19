@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListEdgeContainerAppImageSecretsResponseBodyImageSecretList extends $dara.Model {
   /**
+   * @remarks
+   * Name of the image secret.
+   * 
    * @example
    * reg-123****
    */
   name?: string;
   /**
+   * @remarks
+   * Registry address.
+   * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
    */
   registry?: string;
   /**
+   * @remarks
+   * Username for the image repository
+   * 
    * @example
    * admin
    */
@@ -44,8 +53,15 @@ export class ListEdgeContainerAppImageSecretsResponseBodyImageSecretList extends
 }
 
 export class ListEdgeContainerAppImageSecretsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of image secrets.
+   */
   imageSecretList?: ListEdgeContainerAppImageSecretsResponseBodyImageSecretList[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 3558df77-8a7a-4060-a900-2d7949403836
    */

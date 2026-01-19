@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetKvDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The key name for the query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetKvDetailRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

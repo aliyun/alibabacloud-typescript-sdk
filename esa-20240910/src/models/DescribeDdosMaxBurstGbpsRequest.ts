@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SetHttpDDoSAttackRuleStatusResponseBody extends $dara.Model {
+export class DescribeDdosMaxBurstGbpsRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * This parameter is required.
    * 
    * @example
-   * F7B84CF8-F8A4-53F8-9B91-2643FD72042B
+   * esa-site-a71k7bw19dz4
    */
-  requestId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      instanceId: 'string',
     };
   }
 

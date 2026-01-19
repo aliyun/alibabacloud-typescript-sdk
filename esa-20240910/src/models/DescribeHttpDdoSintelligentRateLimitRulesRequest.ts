@@ -2,38 +2,48 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEdgeContainerAppImageSecretRequest extends $dara.Model {
+export class DescribeHttpDDoSIntelligentRateLimitRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Application ID, which can be obtained using the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) API.
-   * 
    * This parameter is required.
    * 
    * @example
-   * app-88068867578379****
+   * 1
    */
-  appId?: string;
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cc
+   */
+  ruleType?: string;
   /**
    * @remarks
-   * Name of the image secret.
-   * 
    * This parameter is required.
    * 
    * @example
-   * reg-123*****
+   * 123456****
    */
-  name?: string;
+  siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      ruleType: 'RuleType',
+      siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      ruleType: 'string',
+      siteId: 'number',
     };
   }
 

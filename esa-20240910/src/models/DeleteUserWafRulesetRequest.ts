@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
+   * WAF ruleset ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteUserWafRulesetRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

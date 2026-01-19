@@ -2,23 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SetHttpDDoSAttackRuleStatusResponseBody extends $dara.Model {
+export class DescribeDdosMaxBurstGbpsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * esa-site-a71k7bw19dz4
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 300
+   */
+  maxBurstGbps?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
-   * F7B84CF8-F8A4-53F8-9B91-2643FD72042B
+   * B5D71671-B074-5702-A0F5-B923920FDDD4
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
+      maxBurstGbps: 'MaxBurstGbps',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
+      maxBurstGbps: 'string',
       requestId: 'string',
     };
   }
