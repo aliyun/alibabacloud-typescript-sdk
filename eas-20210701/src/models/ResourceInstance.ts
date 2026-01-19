@@ -43,6 +43,7 @@ export class ResourceInstance extends $dara.Model {
   instanceIp?: string;
   instanceMemory?: string;
   instanceName?: string;
+  instancePhase?: string;
   instanceStatus?: string;
   instanceSystemDiskSize?: number;
   instanceTenantIp?: string;
@@ -69,6 +70,7 @@ export class ResourceInstance extends $dara.Model {
       instanceIp: 'InstanceIp',
       instanceMemory: 'InstanceMemory',
       instanceName: 'InstanceName',
+      instancePhase: 'InstancePhase',
       instanceStatus: 'InstanceStatus',
       instanceSystemDiskSize: 'InstanceSystemDiskSize',
       instanceTenantIp: 'InstanceTenantIp',
@@ -98,6 +100,7 @@ export class ResourceInstance extends $dara.Model {
       instanceIp: 'string',
       instanceMemory: 'string',
       instanceName: 'string',
+      instancePhase: 'string',
       instanceStatus: 'string',
       instanceSystemDiskSize: 'number',
       instanceTenantIp: 'string',

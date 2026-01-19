@@ -17,15 +17,18 @@ export class UpdateResourceInstanceRequest extends $dara.Model {
    * Cordon
    */
   action?: string;
+  newDiskSize?: string;
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
+      newDiskSize: 'NewDiskSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       action: 'string',
+      newDiskSize: 'string',
     };
   }
 

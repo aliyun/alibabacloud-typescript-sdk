@@ -4837,6 +4837,10 @@ export default class Client extends OpenApi {
       body["Action"] = request.action;
     }
 
+    if (!$dara.isNull(request.newDiskSize)) {
+      body["NewDiskSize"] = request.newDiskSize;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
