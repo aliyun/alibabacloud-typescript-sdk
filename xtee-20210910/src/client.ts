@@ -7309,6 +7309,14 @@ export default class Client extends OpenApi {
       query["RegId"] = request.regId;
     }
 
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      query["TaskStatus"] = request.taskStatus;
+    }
+
     if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }

@@ -37,6 +37,8 @@ export class DescribeListPocRequest extends $dara.Model {
    * cn-hangzhou
    */
   regId?: string;
+  taskName?: string;
+  taskStatus?: string;
   /**
    * @remarks
    * Type
@@ -51,6 +53,8 @@ export class DescribeListPocRequest extends $dara.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       regId: 'RegId',
+      taskName: 'TaskName',
+      taskStatus: 'TaskStatus',
       type: 'Type',
     };
   }
@@ -61,6 +65,8 @@ export class DescribeListPocRequest extends $dara.Model {
       lang: 'string',
       pageSize: 'number',
       regId: 'string',
+      taskName: 'string',
+      taskStatus: 'string',
       type: 'string',
     };
   }
