@@ -711,6 +711,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * Basic
    */
   vpcType?: string;
+  vplVersion?: string;
   static names(): { [key: string]: string } {
     return {
       ADConnectors: 'ADConnectors',
@@ -778,6 +779,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
       vpcType: 'VpcType',
+      vplVersion: 'VplVersion',
     };
   }
 
@@ -848,6 +850,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       vpcType: 'string',
+      vplVersion: 'string',
     };
   }
 
