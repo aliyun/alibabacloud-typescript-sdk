@@ -396,6 +396,284 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 授权指定ResourceServer下的Scope给Client
+   * 
+   * @param request - AuthorizeResourceServerScopesToClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeResourceServerScopesToClientResponse
+   */
+  async authorizeResourceServerScopesToClientWithOptions(request: $_model.AuthorizeResourceServerScopesToClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeResourceServerScopesToClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientApplicationId)) {
+      query["ClientApplicationId"] = request.clientApplicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerApplicationId)) {
+      query["ResourceServerApplicationId"] = request.resourceServerApplicationId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeResourceServerScopesToClient",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeResourceServerScopesToClientResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeResourceServerScopesToClientResponse({}));
+  }
+
+  /**
+   * 授权指定ResourceServer下的Scope给Client
+   * 
+   * @param request - AuthorizeResourceServerScopesToClientRequest
+   * @returns AuthorizeResourceServerScopesToClientResponse
+   */
+  async authorizeResourceServerScopesToClient(request: $_model.AuthorizeResourceServerScopesToClientRequest): Promise<$_model.AuthorizeResourceServerScopesToClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeResourceServerScopesToClientWithOptions(request, runtime);
+  }
+
+  /**
+   * 授予组ResourceServerScope权限
+   * 
+   * @param request - AuthorizeResourceServerScopesToGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeResourceServerScopesToGroupResponse
+   */
+  async authorizeResourceServerScopesToGroupWithOptions(request: $_model.AuthorizeResourceServerScopesToGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeResourceServerScopesToGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeResourceServerScopesToGroup",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeResourceServerScopesToGroupResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeResourceServerScopesToGroupResponse({}));
+  }
+
+  /**
+   * 授予组ResourceServerScope权限
+   * 
+   * @param request - AuthorizeResourceServerScopesToGroupRequest
+   * @returns AuthorizeResourceServerScopesToGroupResponse
+   */
+  async authorizeResourceServerScopesToGroup(request: $_model.AuthorizeResourceServerScopesToGroupRequest): Promise<$_model.AuthorizeResourceServerScopesToGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeResourceServerScopesToGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 授予组织ResourceServerScope权限
+   * 
+   * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeResourceServerScopesToOrganizationalUnitResponse
+   */
+  async authorizeResourceServerScopesToOrganizationalUnitWithOptions(request: $_model.AuthorizeResourceServerScopesToOrganizationalUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeResourceServerScopesToOrganizationalUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.organizationalUnitId)) {
+      query["OrganizationalUnitId"] = request.organizationalUnitId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeResourceServerScopesToOrganizationalUnit",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeResourceServerScopesToOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeResourceServerScopesToOrganizationalUnitResponse({}));
+  }
+
+  /**
+   * 授予组织ResourceServerScope权限
+   * 
+   * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
+   * @returns AuthorizeResourceServerScopesToOrganizationalUnitResponse
+   */
+  async authorizeResourceServerScopesToOrganizationalUnit(request: $_model.AuthorizeResourceServerScopesToOrganizationalUnitRequest): Promise<$_model.AuthorizeResourceServerScopesToOrganizationalUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeResourceServerScopesToOrganizationalUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 授予用户ResourceServerScope权限
+   * 
+   * @param request - AuthorizeResourceServerScopesToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeResourceServerScopesToUserResponse
+   */
+  async authorizeResourceServerScopesToUserWithOptions(request: $_model.AuthorizeResourceServerScopesToUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeResourceServerScopesToUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeResourceServerScopesToUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeResourceServerScopesToUserResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeResourceServerScopesToUserResponse({}));
+  }
+
+  /**
+   * 授予用户ResourceServerScope权限
+   * 
+   * @param request - AuthorizeResourceServerScopesToUserRequest
+   * @returns AuthorizeResourceServerScopesToUserResponse
+   */
+  async authorizeResourceServerScopesToUser(request: $_model.AuthorizeResourceServerScopesToUserRequest): Promise<$_model.AuthorizeResourceServerScopesToUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeResourceServerScopesToUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 授权指定ResourceServer给Client
+   * 
+   * @param request - AuthorizeResourceServerToClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeResourceServerToClientResponse
+   */
+  async authorizeResourceServerToClientWithOptions(request: $_model.AuthorizeResourceServerToClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeResourceServerToClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientApplicationId)) {
+      query["ClientApplicationId"] = request.clientApplicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerApplicationId)) {
+      query["ResourceServerApplicationId"] = request.resourceServerApplicationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeResourceServerToClient",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeResourceServerToClientResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeResourceServerToClientResponse({}));
+  }
+
+  /**
+   * 授权指定ResourceServer给Client
+   * 
+   * @param request - AuthorizeResourceServerToClientRequest
+   * @returns AuthorizeResourceServerToClientResponse
+   */
+  async authorizeResourceServerToClient(request: $_model.AuthorizeResourceServerToClientRequest): Promise<$_model.AuthorizeResourceServerToClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeResourceServerToClientWithOptions(request, runtime);
+  }
+
+  /**
    * 绑定三方登录账户
    * 
    * @param request - BindUserAuthnSourceMappingRequest
@@ -642,6 +920,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建应用角色
+   * 
+   * @param request - CreateApplicationRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationRoleResponse
+   */
+  async createApplicationRoleWithOptions(request: $_model.CreateApplicationRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleName)) {
+      query["ApplicationRoleName"] = request.applicationRoleName;
+    }
+
+    if (!$dara.isNull(request.applicationRoleValue)) {
+      query["ApplicationRoleValue"] = request.applicationRoleValue;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationRoleResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationRoleResponse({}));
+  }
+
+  /**
+   * 创建应用角色
+   * 
+   * @param request - CreateApplicationRoleRequest
+   * @returns CreateApplicationRoleResponse
+   */
+  async createApplicationRole(request: $_model.CreateApplicationRoleRequest): Promise<$_model.CreateApplicationRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationRoleWithOptions(request, runtime);
+  }
+
+  /**
    * 创建应用Token
    * 
    * @param request - CreateApplicationTokenRequest
@@ -739,6 +1075,192 @@ export default class Client extends OpenApi {
   async createBrand(request: $_model.CreateBrandRequest): Promise<$_model.CreateBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建应用ClientPublicKey
+   * 
+   * @param request - CreateClientPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClientPublicKeyResponse
+   */
+  async createClientPublicKeyWithOptions(request: $_model.CreateClientPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateClientPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithmType)) {
+      query["AlgorithmType"] = request.algorithmType;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.publicKey)) {
+      query["PublicKey"] = request.publicKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateClientPublicKey",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateClientPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateClientPublicKeyResponse({}));
+  }
+
+  /**
+   * 创建应用ClientPublicKey
+   * 
+   * @param request - CreateClientPublicKeyRequest
+   * @returns CreateClientPublicKeyResponse
+   */
+  async createClientPublicKey(request: $_model.CreateClientPublicKeyRequest): Promise<$_model.CreateClientPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createClientPublicKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建云账号
+   * 
+   * @param request - CreateCloudAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudAccountResponse
+   */
+  async createCloudAccountWithOptions(request: $_model.CreateCloudAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountExternalId)) {
+      query["CloudAccountExternalId"] = request.cloudAccountExternalId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountName)) {
+      query["CloudAccountName"] = request.cloudAccountName;
+    }
+
+    if (!$dara.isNull(request.cloudAccountProviderName)) {
+      query["CloudAccountProviderName"] = request.cloudAccountProviderName;
+    }
+
+    if (!$dara.isNull(request.cloudAccountVendorType)) {
+      query["CloudAccountVendorType"] = request.cloudAccountVendorType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudAccount",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloudAccountResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudAccountResponse({}));
+  }
+
+  /**
+   * 创建云账号
+   * 
+   * @param request - CreateCloudAccountRequest
+   * @returns CreateCloudAccountResponse
+   */
+  async createCloudAccount(request: $_model.CreateCloudAccountRequest): Promise<$_model.CreateCloudAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloudAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建云角色
+   * 
+   * @param request - CreateCloudAccountRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudAccountRoleResponse
+   */
+  async createCloudAccountRoleWithOptions(request: $_model.CreateCloudAccountRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudAccountRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountRoleName)) {
+      query["CloudAccountRoleName"] = request.cloudAccountRoleName;
+    }
+
+    if (!$dara.isNull(request.cloudAccountRoleType)) {
+      query["CloudAccountRoleType"] = request.cloudAccountRoleType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudAccountRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloudAccountRoleResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudAccountRoleResponse({}));
+  }
+
+  /**
+   * 创建云角色
+   * 
+   * @param request - CreateCloudAccountRoleRequest
+   * @returns CreateCloudAccountRoleResponse
+   */
+  async createCloudAccountRole(request: $_model.CreateCloudAccountRoleRequest): Promise<$_model.CreateCloudAccountRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloudAccountRoleWithOptions(request, runtime);
   }
 
   /**
@@ -1496,6 +2018,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建指定ResourceServer下的Scope
+   * 
+   * @param request - CreateResourceServerScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceServerScopeResponse
+   */
+  async createResourceServerScopeWithOptions(request: $_model.CreateResourceServerScopeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceServerScopeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.authorizationType)) {
+      query["AuthorizationType"] = request.authorizationType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeName)) {
+      query["ResourceServerScopeName"] = request.resourceServerScopeName;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeType)) {
+      query["ResourceServerScopeType"] = request.resourceServerScopeType;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeValue)) {
+      query["ResourceServerScopeValue"] = request.resourceServerScopeValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateResourceServerScope",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateResourceServerScopeResponse>(await this.callApi(params, req, runtime), new $_model.CreateResourceServerScopeResponse({}));
+  }
+
+  /**
+   * 创建指定ResourceServer下的Scope
+   * 
+   * @param request - CreateResourceServerScopeRequest
+   * @returns CreateResourceServerScopeResponse
+   */
+  async createResourceServerScope(request: $_model.CreateResourceServerScopeRequest): Promise<$_model.CreateResourceServerScopeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createResourceServerScopeWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
    * 
    * @param request - CreateUserRequest
@@ -1750,6 +2334,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除应用角色
+   * 
+   * @param request - DeleteApplicationRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationRoleResponse
+   */
+  async deleteApplicationRoleWithOptions(request: $_model.DeleteApplicationRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationRoleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationRoleResponse({}));
+  }
+
+  /**
+   * 删除应用角色
+   * 
+   * @param request - DeleteApplicationRoleRequest
+   * @returns DeleteApplicationRoleResponse
+   */
+  async deleteApplicationRole(request: $_model.DeleteApplicationRoleRequest): Promise<$_model.DeleteApplicationRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationRoleWithOptions(request, runtime);
+  }
+
+  /**
    * 删除ApplicationToken
    * 
    * @param request - DeleteApplicationTokenRequest
@@ -1843,6 +2477,152 @@ export default class Client extends OpenApi {
   async deleteBrand(request: $_model.DeleteBrandRequest): Promise<$_model.DeleteBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除指定的应用ClientPublicKey
+   * 
+   * @param request - DeleteClientPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClientPublicKeyResponse
+   */
+  async deleteClientPublicKeyWithOptions(request: $_model.DeleteClientPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteClientPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientPublicKeyId)) {
+      query["ClientPublicKeyId"] = request.clientPublicKeyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteClientPublicKey",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteClientPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteClientPublicKeyResponse({}));
+  }
+
+  /**
+   * 删除指定的应用ClientPublicKey
+   * 
+   * @param request - DeleteClientPublicKeyRequest
+   * @returns DeleteClientPublicKeyResponse
+   */
+  async deleteClientPublicKey(request: $_model.DeleteClientPublicKeyRequest): Promise<$_model.DeleteClientPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteClientPublicKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除云账号
+   * 
+   * @param request - DeleteCloudAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudAccountResponse
+   */
+  async deleteCloudAccountWithOptions(request: $_model.DeleteCloudAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloudAccount",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloudAccountResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloudAccountResponse({}));
+  }
+
+  /**
+   * 删除云账号
+   * 
+   * @param request - DeleteCloudAccountRequest
+   * @returns DeleteCloudAccountResponse
+   */
+  async deleteCloudAccount(request: $_model.DeleteCloudAccountRequest): Promise<$_model.DeleteCloudAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloudAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除云角色
+   * 
+   * @param request - DeleteCloudAccountRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudAccountRoleResponse
+   */
+  async deleteCloudAccountRoleWithOptions(request: $_model.DeleteCloudAccountRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudAccountRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountRoleId)) {
+      query["CloudAccountRoleId"] = request.cloudAccountRoleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloudAccountRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloudAccountRoleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloudAccountRoleResponse({}));
+  }
+
+  /**
+   * 删除云角色
+   * 
+   * @param request - DeleteCloudAccountRoleRequest
+   * @returns DeleteCloudAccountRoleResponse
+   */
+  async deleteCloudAccountRole(request: $_model.DeleteCloudAccountRoleRequest): Promise<$_model.DeleteCloudAccountRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloudAccountRoleWithOptions(request, runtime);
   }
 
   /**
@@ -2410,6 +3190,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定ResourceServer下的Scope
+   * 
+   * @param request - DeleteResourceServerScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceServerScopeResponse
+   */
+  async deleteResourceServerScopeWithOptions(request: $_model.DeleteResourceServerScopeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceServerScopeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeId)) {
+      query["ResourceServerScopeId"] = request.resourceServerScopeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteResourceServerScope",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteResourceServerScopeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteResourceServerScopeResponse({}));
+  }
+
+  /**
+   * 删除指定ResourceServer下的Scope
+   * 
+   * @param request - DeleteResourceServerScopeRequest
+   * @returns DeleteResourceServerScopeResponse
+   */
+  async deleteResourceServerScope(request: $_model.DeleteResourceServerScopeRequest): Promise<$_model.DeleteResourceServerScopeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteResourceServerScopeWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
    * 
    * @param request - DeleteUserRequest
@@ -2750,6 +3580,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用M2M Client 能力
+   * 
+   * @param request - DisableApplicationM2MClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableApplicationM2MClientResponse
+   */
+  async disableApplicationM2MClientWithOptions(request: $_model.DisableApplicationM2MClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableApplicationM2MClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableApplicationM2MClient",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableApplicationM2MClientResponse>(await this.callApi(params, req, runtime), new $_model.DisableApplicationM2MClientResponse({}));
+  }
+
+  /**
+   * 禁用M2M Client 能力
+   * 
+   * @param request - DisableApplicationM2MClientRequest
+   * @returns DisableApplicationM2MClientResponse
+   */
+  async disableApplicationM2MClient(request: $_model.DisableApplicationM2MClientRequest): Promise<$_model.DisableApplicationM2MClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableApplicationM2MClientWithOptions(request, runtime);
+  }
+
+  /**
    * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - DisableApplicationProvisioningRequest
@@ -2793,6 +3669,52 @@ export default class Client extends OpenApi {
   async disableApplicationProvisioning(request: $_model.DisableApplicationProvisioningRequest): Promise<$_model.DisableApplicationProvisioningResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableApplicationProvisioningWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用ResourceServer能力
+   * 
+   * @param request - DisableApplicationResourceServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableApplicationResourceServerResponse
+   */
+  async disableApplicationResourceServerWithOptions(request: $_model.DisableApplicationResourceServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableApplicationResourceServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableApplicationResourceServer",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableApplicationResourceServerResponse>(await this.callApi(params, req, runtime), new $_model.DisableApplicationResourceServerResponse({}));
+  }
+
+  /**
+   * 禁用ResourceServer能力
+   * 
+   * @param request - DisableApplicationResourceServerRequest
+   * @returns DisableApplicationResourceServerResponse
+   */
+  async disableApplicationResourceServer(request: $_model.DisableApplicationResourceServerRequest): Promise<$_model.DisableApplicationResourceServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableApplicationResourceServerWithOptions(request, runtime);
   }
 
   /**
@@ -2935,6 +3857,114 @@ export default class Client extends OpenApi {
   async disableBrand(request: $_model.DisableBrandRequest): Promise<$_model.DisableBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用指定的应用ClientPublicKey
+   * 
+   * @param request - DisableClientPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableClientPublicKeyResponse
+   */
+  async disableClientPublicKeyWithOptions(request: $_model.DisableClientPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableClientPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientPublicKeyId)) {
+      query["ClientPublicKeyId"] = request.clientPublicKeyId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableClientPublicKey",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableClientPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.DisableClientPublicKeyResponse({}));
+  }
+
+  /**
+   * 禁用指定的应用ClientPublicKey
+   * 
+   * @param request - DisableClientPublicKeyRequest
+   * @returns DisableClientPublicKeyResponse
+   */
+  async disableClientPublicKey(request: $_model.DisableClientPublicKeyRequest): Promise<$_model.DisableClientPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableClientPublicKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用云角色
+   * 
+   * @param request - DisableCloudAccountRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableCloudAccountRoleResponse
+   */
+  async disableCloudAccountRoleWithOptions(request: $_model.DisableCloudAccountRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCloudAccountRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountRoleId)) {
+      query["CloudAccountRoleId"] = request.cloudAccountRoleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableCloudAccountRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableCloudAccountRoleResponse>(await this.callApi(params, req, runtime), new $_model.DisableCloudAccountRoleResponse({}));
+  }
+
+  /**
+   * 禁用云角色
+   * 
+   * @param request - DisableCloudAccountRoleRequest
+   * @returns DisableCloudAccountRoleResponse
+   */
+  async disableCloudAccountRole(request: $_model.DisableCloudAccountRoleRequest): Promise<$_model.DisableCloudAccountRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableCloudAccountRoleWithOptions(request, runtime);
   }
 
   /**
@@ -3358,6 +4388,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用资源服务器自定义主体
+   * 
+   * @param request - DisableResourceServerCustomSubjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableResourceServerCustomSubjectResponse
+   */
+  async disableResourceServerCustomSubjectWithOptions(request: $_model.DisableResourceServerCustomSubjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableResourceServerCustomSubjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableResourceServerCustomSubject",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableResourceServerCustomSubjectResponse>(await this.callApi(params, req, runtime), new $_model.DisableResourceServerCustomSubjectResponse({}));
+  }
+
+  /**
+   * 禁用资源服务器自定义主体
+   * 
+   * @param request - DisableResourceServerCustomSubjectRequest
+   * @returns DisableResourceServerCustomSubjectResponse
+   */
+  async disableResourceServerCustomSubject(request: $_model.DisableResourceServerCustomSubjectRequest): Promise<$_model.DisableResourceServerCustomSubjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableResourceServerCustomSubjectWithOptions(request, runtime);
+  }
+
+  /**
    * Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
    * 
    * @param request - DisableUserRequest
@@ -3596,6 +4672,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用M2M Client 能力
+   * 
+   * @param request - EnableApplicationM2MClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableApplicationM2MClientResponse
+   */
+  async enableApplicationM2MClientWithOptions(request: $_model.EnableApplicationM2MClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableApplicationM2MClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableApplicationM2MClient",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableApplicationM2MClientResponse>(await this.callApi(params, req, runtime), new $_model.EnableApplicationM2MClientResponse({}));
+  }
+
+  /**
+   * 启用M2M Client 能力
+   * 
+   * @param request - EnableApplicationM2MClientRequest
+   * @returns EnableApplicationM2MClientResponse
+   */
+  async enableApplicationM2MClient(request: $_model.EnableApplicationM2MClientRequest): Promise<$_model.EnableApplicationM2MClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableApplicationM2MClientWithOptions(request, runtime);
+  }
+
+  /**
    * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - EnableApplicationProvisioningRequest
@@ -3639,6 +4761,52 @@ export default class Client extends OpenApi {
   async enableApplicationProvisioning(request: $_model.EnableApplicationProvisioningRequest): Promise<$_model.EnableApplicationProvisioningResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableApplicationProvisioningWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用ResourceServer能力
+   * 
+   * @param request - EnableApplicationResourceServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableApplicationResourceServerResponse
+   */
+  async enableApplicationResourceServerWithOptions(request: $_model.EnableApplicationResourceServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableApplicationResourceServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableApplicationResourceServer",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableApplicationResourceServerResponse>(await this.callApi(params, req, runtime), new $_model.EnableApplicationResourceServerResponse({}));
+  }
+
+  /**
+   * 启用ResourceServer能力
+   * 
+   * @param request - EnableApplicationResourceServerRequest
+   * @returns EnableApplicationResourceServerResponse
+   */
+  async enableApplicationResourceServer(request: $_model.EnableApplicationResourceServerRequest): Promise<$_model.EnableApplicationResourceServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableApplicationResourceServerWithOptions(request, runtime);
   }
 
   /**
@@ -3781,6 +4949,114 @@ export default class Client extends OpenApi {
   async enableBrand(request: $_model.EnableBrandRequest): Promise<$_model.EnableBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用指定的应用ClientPublicKey
+   * 
+   * @param request - EnableClientPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableClientPublicKeyResponse
+   */
+  async enableClientPublicKeyWithOptions(request: $_model.EnableClientPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableClientPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientPublicKeyId)) {
+      query["ClientPublicKeyId"] = request.clientPublicKeyId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableClientPublicKey",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableClientPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.EnableClientPublicKeyResponse({}));
+  }
+
+  /**
+   * 启用指定的应用ClientPublicKey
+   * 
+   * @param request - EnableClientPublicKeyRequest
+   * @returns EnableClientPublicKeyResponse
+   */
+  async enableClientPublicKey(request: $_model.EnableClientPublicKeyRequest): Promise<$_model.EnableClientPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableClientPublicKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用云角色
+   * 
+   * @param request - EnableCloudAccountRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCloudAccountRoleResponse
+   */
+  async enableCloudAccountRoleWithOptions(request: $_model.EnableCloudAccountRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCloudAccountRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountRoleId)) {
+      query["CloudAccountRoleId"] = request.cloudAccountRoleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCloudAccountRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCloudAccountRoleResponse>(await this.callApi(params, req, runtime), new $_model.EnableCloudAccountRoleResponse({}));
+  }
+
+  /**
+   * 启用云角色
+   * 
+   * @param request - EnableCloudAccountRoleRequest
+   * @returns EnableCloudAccountRoleResponse
+   */
+  async enableCloudAccountRole(request: $_model.EnableCloudAccountRoleRequest): Promise<$_model.EnableCloudAccountRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableCloudAccountRoleWithOptions(request, runtime);
   }
 
   /**
@@ -4201,6 +5477,52 @@ export default class Client extends OpenApi {
   async enableInternalAuthenticationSource(request: $_model.EnableInternalAuthenticationSourceRequest): Promise<$_model.EnableInternalAuthenticationSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableInternalAuthenticationSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用资源服务器自定义主体
+   * 
+   * @param request - EnableResourceServerCustomSubjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableResourceServerCustomSubjectResponse
+   */
+  async enableResourceServerCustomSubjectWithOptions(request: $_model.EnableResourceServerCustomSubjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableResourceServerCustomSubjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableResourceServerCustomSubject",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableResourceServerCustomSubjectResponse>(await this.callApi(params, req, runtime), new $_model.EnableResourceServerCustomSubjectResponse({}));
+  }
+
+  /**
+   * 启用资源服务器自定义主体
+   * 
+   * @param request - EnableResourceServerCustomSubjectRequest
+   * @returns EnableResourceServerCustomSubjectResponse
+   */
+  async enableResourceServerCustomSubject(request: $_model.EnableResourceServerCustomSubjectRequest): Promise<$_model.EnableResourceServerCustomSubjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableResourceServerCustomSubjectWithOptions(request, runtime);
   }
 
   /**
@@ -4672,6 +5994,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取角色信息
+   * 
+   * @param request - GetApplicationRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationRoleResponse
+   */
+  async getApplicationRoleWithOptions(request: $_model.GetApplicationRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApplicationRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApplicationRoleResponse>(await this.callApi(params, req, runtime), new $_model.GetApplicationRoleResponse({}));
+  }
+
+  /**
+   * 获取角色信息
+   * 
+   * @param request - GetApplicationRoleRequest
+   * @returns GetApplicationRoleResponse
+   */
+  async getApplicationRole(request: $_model.GetApplicationRoleRequest): Promise<$_model.GetApplicationRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApplicationRoleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - GetApplicationSsoConfigRequest
@@ -4803,6 +6175,152 @@ export default class Client extends OpenApi {
   async getBrand(request: $_model.GetBrandRequest): Promise<$_model.GetBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定应用ClientPublicKey
+   * 
+   * @param request - GetClientPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClientPublicKeyResponse
+   */
+  async getClientPublicKeyWithOptions(request: $_model.GetClientPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClientPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientPublicKeyId)) {
+      query["ClientPublicKeyId"] = request.clientPublicKeyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetClientPublicKey",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetClientPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.GetClientPublicKeyResponse({}));
+  }
+
+  /**
+   * 查询指定应用ClientPublicKey
+   * 
+   * @param request - GetClientPublicKeyRequest
+   * @returns GetClientPublicKeyResponse
+   */
+  async getClientPublicKey(request: $_model.GetClientPublicKeyRequest): Promise<$_model.GetClientPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getClientPublicKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取云账号
+   * 
+   * @param request - GetCloudAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCloudAccountResponse
+   */
+  async getCloudAccountWithOptions(request: $_model.GetCloudAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCloudAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCloudAccount",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCloudAccountResponse>(await this.callApi(params, req, runtime), new $_model.GetCloudAccountResponse({}));
+  }
+
+  /**
+   * 获取云账号
+   * 
+   * @param request - GetCloudAccountRequest
+   * @returns GetCloudAccountResponse
+   */
+  async getCloudAccount(request: $_model.GetCloudAccountRequest): Promise<$_model.GetCloudAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCloudAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取云角色
+   * 
+   * @param request - GetCloudAccountRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCloudAccountRoleResponse
+   */
+  async getCloudAccountRoleWithOptions(request: $_model.GetCloudAccountRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCloudAccountRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountRoleId)) {
+      query["CloudAccountRoleId"] = request.cloudAccountRoleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCloudAccountRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCloudAccountRoleResponse>(await this.callApi(params, req, runtime), new $_model.GetCloudAccountRoleResponse({}));
+  }
+
+  /**
+   * 获取云角色
+   * 
+   * @param request - GetCloudAccountRoleRequest
+   * @returns GetCloudAccountRoleResponse
+   */
+  async getCloudAccountRole(request: $_model.GetCloudAccountRoleRequest): Promise<$_model.GetCloudAccountRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCloudAccountRoleWithOptions(request, runtime);
   }
 
   /**
@@ -5664,6 +7182,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定ResourceServer下的Scope
+   * 
+   * @param request - GetResourceServerScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceServerScopeResponse
+   */
+  async getResourceServerScopeWithOptions(request: $_model.GetResourceServerScopeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceServerScopeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeId)) {
+      query["ResourceServerScopeId"] = request.resourceServerScopeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceServerScope",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceServerScopeResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceServerScopeResponse({}));
+  }
+
+  /**
+   * 查询指定ResourceServer下的Scope
+   * 
+   * @param request - GetResourceServerScopeRequest
+   * @returns GetResourceServerScopeResponse
+   */
+  async getResourceServerScope(request: $_model.GetResourceServerScopeRequest): Promise<$_model.GetResourceServerScopeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getResourceServerScopeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - GetRootOrganizationalUnitRequest
@@ -6065,6 +7633,64 @@ export default class Client extends OpenApi {
   async listApplicationFederatedCredentialsForProvider(request: $_model.ListApplicationFederatedCredentialsForProviderRequest): Promise<$_model.ListApplicationFederatedCredentialsForProviderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationFederatedCredentialsForProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 游标分页查询应用角色
+   * 
+   * @param request - ListApplicationRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationRolesResponse
+   */
+  async listApplicationRolesWithOptions(request: $_model.ListApplicationRolesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationRolesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationRoles",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationRolesResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationRolesResponse({}));
+  }
+
+  /**
+   * 游标分页查询应用角色
+   * 
+   * @param request - ListApplicationRolesRequest
+   * @returns ListApplicationRolesResponse
+   */
+  async listApplicationRoles(request: $_model.ListApplicationRolesRequest): Promise<$_model.ListApplicationRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationRolesWithOptions(request, runtime);
   }
 
   /**
@@ -6593,6 +8219,172 @@ export default class Client extends OpenApi {
   async listBrands(request: $_model.ListBrandsRequest): Promise<$_model.ListBrandsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBrandsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定应用所属的全部ClientPublicKey
+   * 
+   * @param request - ListClientPublicKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClientPublicKeysResponse
+   */
+  async listClientPublicKeysWithOptions(request: $_model.ListClientPublicKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListClientPublicKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListClientPublicKeys",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListClientPublicKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListClientPublicKeysResponse({}));
+  }
+
+  /**
+   * 查询指定应用所属的全部ClientPublicKey
+   * 
+   * @param request - ListClientPublicKeysRequest
+   * @returns ListClientPublicKeysResponse
+   */
+  async listClientPublicKeys(request: $_model.ListClientPublicKeysRequest): Promise<$_model.ListClientPublicKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listClientPublicKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云角色列表
+   * 
+   * @param request - ListCloudAccountRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudAccountRolesResponse
+   */
+  async listCloudAccountRolesWithOptions(request: $_model.ListCloudAccountRolesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAccountRolesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudAccountRoles",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudAccountRolesResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudAccountRolesResponse({}));
+  }
+
+  /**
+   * 查询云角色列表
+   * 
+   * @param request - ListCloudAccountRolesRequest
+   * @returns ListCloudAccountRolesResponse
+   */
+  async listCloudAccountRoles(request: $_model.ListCloudAccountRolesRequest): Promise<$_model.ListCloudAccountRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudAccountRolesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云账号列表
+   * 
+   * @param request - ListCloudAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudAccountsResponse
+   */
+  async listCloudAccountsWithOptions(request: $_model.ListCloudAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAccountsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudAccounts",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudAccountsResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudAccountsResponse({}));
+  }
+
+  /**
+   * 查询云账号列表
+   * 
+   * @param request - ListCloudAccountsRequest
+   * @returns ListCloudAccountsResponse
+   */
+  async listCloudAccounts(request: $_model.ListCloudAccountsRequest): Promise<$_model.ListCloudAccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudAccountsWithOptions(request, runtime);
   }
 
   /**
@@ -7276,6 +9068,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询ResourceServer授权的组和Scope权限
+   * 
+   * @param request - ListGroupsForResourceServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupsForResourceServerResponse
+   */
+  async listGroupsForResourceServerWithOptions(request: $_model.ListGroupsForResourceServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGroupsForResourceServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGroupsForResourceServer",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGroupsForResourceServerResponse>(await this.callApi(params, req, runtime), new $_model.ListGroupsForResourceServerResponse({}));
+  }
+
+  /**
+   * 查询ResourceServer授权的组和Scope权限
+   * 
+   * @param request - ListGroupsForResourceServerRequest
+   * @returns ListGroupsForResourceServerResponse
+   */
+  async listGroupsForResourceServer(request: $_model.ListGroupsForResourceServerRequest): Promise<$_model.ListGroupsForResourceServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGroupsForResourceServerWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
    * 
    * @param request - ListGroupsForUserRequest
@@ -7910,6 +9760,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询被授权到组织的ResourceServers和Scopes权限
+   * 
+   * @param request - ListOrganizationalUnitsForResourceServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOrganizationalUnitsForResourceServerResponse
+   */
+  async listOrganizationalUnitsForResourceServerWithOptions(request: $_model.ListOrganizationalUnitsForResourceServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOrganizationalUnitsForResourceServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOrganizationalUnitsForResourceServer",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOrganizationalUnitsForResourceServerResponse>(await this.callApi(params, req, runtime), new $_model.ListOrganizationalUnitsForResourceServerResponse({}));
+  }
+
+  /**
+   * 查询被授权到组织的ResourceServers和Scopes权限
+   * 
+   * @param request - ListOrganizationalUnitsForResourceServerRequest
+   * @returns ListOrganizationalUnitsForResourceServerResponse
+   */
+  async listOrganizationalUnitsForResourceServer(request: $_model.ListOrganizationalUnitsForResourceServerRequest): Promise<$_model.ListOrganizationalUnitsForResourceServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOrganizationalUnitsForResourceServerWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the supported Alibaba Cloud regions.
    * 
    * @param request - ListRegionsRequest
@@ -7939,6 +9847,64 @@ export default class Client extends OpenApi {
   async listRegions(): Promise<$_model.ListRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listRegionsWithOptions(runtime);
+  }
+
+  /**
+   * 查询用户的被授予ResourceServers和Scopes的权限
+   * 
+   * @param request - ListResourceServersForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceServersForUserResponse
+   */
+  async listResourceServersForUserWithOptions(request: $_model.ListResourceServersForUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceServersForUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResourceServersForUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListResourceServersForUserResponse>(await this.callApi(params, req, runtime), new $_model.ListResourceServersForUserResponse({}));
+  }
+
+  /**
+   * 查询用户的被授予ResourceServers和Scopes的权限
+   * 
+   * @param request - ListResourceServersForUserRequest
+   * @returns ListResourceServersForUserResponse
+   */
+  async listResourceServersForUser(request: $_model.ListResourceServersForUserRequest): Promise<$_model.ListResourceServersForUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listResourceServersForUserWithOptions(request, runtime);
   }
 
   /**
@@ -8305,6 +10271,64 @@ export default class Client extends OpenApi {
   async listUsersForGroup(request: $_model.ListUsersForGroupRequest): Promise<$_model.ListUsersForGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUsersForGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询ResourceServer授权的用户和Scope权限
+   * 
+   * @param request - ListUsersForResourceServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersForResourceServerResponse
+   */
+  async listUsersForResourceServerWithOptions(request: $_model.ListUsersForResourceServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUsersForResourceServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUsersForResourceServer",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUsersForResourceServerResponse>(await this.callApi(params, req, runtime), new $_model.ListUsersForResourceServerResponse({}));
+  }
+
+  /**
+   * 查询ResourceServer授权的用户和Scope权限
+   * 
+   * @param request - ListUsersForResourceServerRequest
+   * @returns ListUsersForResourceServerResponse
+   */
+  async listUsersForResourceServer(request: $_model.ListUsersForResourceServerRequest): Promise<$_model.ListUsersForResourceServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUsersForResourceServerWithOptions(request, runtime);
   }
 
   /**
@@ -8824,6 +10848,272 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解除指定ResourceServer到Client的授权
+   * 
+   * @param request - RevokeResourceServerFromClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeResourceServerFromClientResponse
+   */
+  async revokeResourceServerFromClientWithOptions(request: $_model.RevokeResourceServerFromClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeResourceServerFromClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientApplicationId)) {
+      query["ClientApplicationId"] = request.clientApplicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerApplicationId)) {
+      query["ResourceServerApplicationId"] = request.resourceServerApplicationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeResourceServerFromClient",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeResourceServerFromClientResponse>(await this.callApi(params, req, runtime), new $_model.RevokeResourceServerFromClientResponse({}));
+  }
+
+  /**
+   * 解除指定ResourceServer到Client的授权
+   * 
+   * @param request - RevokeResourceServerFromClientRequest
+   * @returns RevokeResourceServerFromClientResponse
+   */
+  async revokeResourceServerFromClient(request: $_model.RevokeResourceServerFromClientRequest): Promise<$_model.RevokeResourceServerFromClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeResourceServerFromClientWithOptions(request, runtime);
+  }
+
+  /**
+   * 解除指定ResourceServer下的Scope给Client
+   * 
+   * @param request - RevokeResourceServerScopesFromClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeResourceServerScopesFromClientResponse
+   */
+  async revokeResourceServerScopesFromClientWithOptions(request: $_model.RevokeResourceServerScopesFromClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeResourceServerScopesFromClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientApplicationId)) {
+      query["ClientApplicationId"] = request.clientApplicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerApplicationId)) {
+      query["ResourceServerApplicationId"] = request.resourceServerApplicationId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeResourceServerScopesFromClient",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeResourceServerScopesFromClientResponse>(await this.callApi(params, req, runtime), new $_model.RevokeResourceServerScopesFromClientResponse({}));
+  }
+
+  /**
+   * 解除指定ResourceServer下的Scope给Client
+   * 
+   * @param request - RevokeResourceServerScopesFromClientRequest
+   * @returns RevokeResourceServerScopesFromClientResponse
+   */
+  async revokeResourceServerScopesFromClient(request: $_model.RevokeResourceServerScopesFromClientRequest): Promise<$_model.RevokeResourceServerScopesFromClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeResourceServerScopesFromClientWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消被授予到组的ResourceServerScope权限
+   * 
+   * @param request - RevokeResourceServerScopesFromGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeResourceServerScopesFromGroupResponse
+   */
+  async revokeResourceServerScopesFromGroupWithOptions(request: $_model.RevokeResourceServerScopesFromGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeResourceServerScopesFromGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeResourceServerScopesFromGroup",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeResourceServerScopesFromGroupResponse>(await this.callApi(params, req, runtime), new $_model.RevokeResourceServerScopesFromGroupResponse({}));
+  }
+
+  /**
+   * 取消被授予到组的ResourceServerScope权限
+   * 
+   * @param request - RevokeResourceServerScopesFromGroupRequest
+   * @returns RevokeResourceServerScopesFromGroupResponse
+   */
+  async revokeResourceServerScopesFromGroup(request: $_model.RevokeResourceServerScopesFromGroupRequest): Promise<$_model.RevokeResourceServerScopesFromGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeResourceServerScopesFromGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消被授予到组织的ResourceServerScope权限
+   * 
+   * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeResourceServerScopesFromOrganizationalUnitResponse
+   */
+  async revokeResourceServerScopesFromOrganizationalUnitWithOptions(request: $_model.RevokeResourceServerScopesFromOrganizationalUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeResourceServerScopesFromOrganizationalUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.organizationalUnitId)) {
+      query["OrganizationalUnitId"] = request.organizationalUnitId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeResourceServerScopesFromOrganizationalUnit",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeResourceServerScopesFromOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new $_model.RevokeResourceServerScopesFromOrganizationalUnitResponse({}));
+  }
+
+  /**
+   * 取消被授予到组织的ResourceServerScope权限
+   * 
+   * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
+   * @returns RevokeResourceServerScopesFromOrganizationalUnitResponse
+   */
+  async revokeResourceServerScopesFromOrganizationalUnit(request: $_model.RevokeResourceServerScopesFromOrganizationalUnitRequest): Promise<$_model.RevokeResourceServerScopesFromOrganizationalUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeResourceServerScopesFromOrganizationalUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消被授予用户的ResourceServerScope权限
+   * 
+   * @param request - RevokeResourceServerScopesFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeResourceServerScopesFromUserResponse
+   */
+  async revokeResourceServerScopesFromUserWithOptions(request: $_model.RevokeResourceServerScopesFromUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeResourceServerScopesFromUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeResourceServerScopesFromUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeResourceServerScopesFromUserResponse>(await this.callApi(params, req, runtime), new $_model.RevokeResourceServerScopesFromUserResponse({}));
+  }
+
+  /**
+   * 取消被授予用户的ResourceServerScope权限
+   * 
+   * @param request - RevokeResourceServerScopesFromUserRequest
+   * @returns RevokeResourceServerScopesFromUserResponse
+   */
+  async revokeResourceServerScopesFromUser(request: $_model.RevokeResourceServerScopesFromUserRequest): Promise<$_model.RevokeResourceServerScopesFromUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeResourceServerScopesFromUserWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a synchronization job and immediately runs the job.
    * 
    * @param request - RunSynchronizationJobRequest
@@ -9107,6 +11397,60 @@ export default class Client extends OpenApi {
   async setApplicationProvisioningUserPrimaryOrganizationalUnit(request: $_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest): Promise<$_model.SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置ResourceServer的Identifier
+   * 
+   * @param request - SetApplicationResourceServerIdentifierRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetApplicationResourceServerIdentifierResponse
+   */
+  async setApplicationResourceServerIdentifierWithOptions(request: $_model.SetApplicationResourceServerIdentifierRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetApplicationResourceServerIdentifierResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerIdentifier)) {
+      query["ResourceServerIdentifier"] = request.resourceServerIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetApplicationResourceServerIdentifier",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetApplicationResourceServerIdentifierResponse>(await this.callApi(params, req, runtime), new $_model.SetApplicationResourceServerIdentifierResponse({}));
+  }
+
+  /**
+   * 设置ResourceServer的Identifier
+   * 
+   * @param request - SetApplicationResourceServerIdentifierRequest
+   * @returns SetApplicationResourceServerIdentifierResponse
+   */
+  async setApplicationResourceServerIdentifier(request: $_model.SetApplicationResourceServerIdentifierRequest): Promise<$_model.SetApplicationResourceServerIdentifierResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setApplicationResourceServerIdentifierWithOptions(request, runtime);
   }
 
   /**
@@ -9631,6 +11975,60 @@ export default class Client extends OpenApi {
   async setPasswordInitializationConfiguration(request: $_model.SetPasswordInitializationConfigurationRequest): Promise<$_model.SetPasswordInitializationConfigurationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setPasswordInitializationConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置指定的应用ClientPublicKey优先启用状态
+   * 
+   * @param request - SetPrimaryClientPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPrimaryClientPublicKeyResponse
+   */
+  async setPrimaryClientPublicKeyWithOptions(request: $_model.SetPrimaryClientPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetPrimaryClientPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.clientPublicKeyId)) {
+      query["ClientPublicKeyId"] = request.clientPublicKeyId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetPrimaryClientPublicKey",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetPrimaryClientPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.SetPrimaryClientPublicKeyResponse({}));
+  }
+
+  /**
+   * 设置指定的应用ClientPublicKey优先启用状态
+   * 
+   * @param request - SetPrimaryClientPublicKeyRequest
+   * @returns SetPrimaryClientPublicKeyResponse
+   */
+  async setPrimaryClientPublicKey(request: $_model.SetPrimaryClientPublicKeyRequest): Promise<$_model.SetPrimaryClientPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setPrimaryClientPublicKeyWithOptions(request, runtime);
   }
 
   /**
@@ -10162,6 +12560,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用角色
+   * 
+   * @param request - UpdateApplicationRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationRoleResponse
+   */
+  async updateApplicationRoleWithOptions(request: $_model.UpdateApplicationRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleName)) {
+      query["ApplicationRoleName"] = request.applicationRoleName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationRole",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationRoleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationRoleResponse({}));
+  }
+
+  /**
+   * 修改应用角色
+   * 
+   * @param request - UpdateApplicationRoleRequest
+   * @returns UpdateApplicationRoleResponse
+   */
+  async updateApplicationRole(request: $_model.UpdateApplicationRoleRequest): Promise<$_model.UpdateApplicationRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationRoleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用角色描述
+   * 
+   * @param request - UpdateApplicationRoleDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationRoleDescriptionResponse
+   */
+  async updateApplicationRoleDescriptionWithOptions(request: $_model.UpdateApplicationRoleDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationRoleDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationRoleId)) {
+      query["ApplicationRoleId"] = request.applicationRoleId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationRoleDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationRoleDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationRoleDescriptionResponse({}));
+  }
+
+  /**
+   * 修改应用角色描述
+   * 
+   * @param request - UpdateApplicationRoleDescriptionRequest
+   * @returns UpdateApplicationRoleDescriptionResponse
+   */
+  async updateApplicationRoleDescription(request: $_model.UpdateApplicationRoleDescriptionRequest): Promise<$_model.UpdateApplicationRoleDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationRoleDescriptionWithOptions(request, runtime);
+  }
+
+  /**
    * 更新模板应用的SSO参数
    * 
    * @param request - UpdateApplicationSsoFormParamsRequest
@@ -10313,6 +12823,172 @@ export default class Client extends OpenApi {
   async updateBrand(request: $_model.UpdateBrandRequest): Promise<$_model.UpdateBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新云账号
+   * 
+   * @param request - UpdateCloudAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudAccountResponse
+   */
+  async updateCloudAccountWithOptions(request: $_model.UpdateCloudAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloudAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountName)) {
+      query["CloudAccountName"] = request.cloudAccountName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCloudAccount",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCloudAccountResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCloudAccountResponse({}));
+  }
+
+  /**
+   * 更新云账号
+   * 
+   * @param request - UpdateCloudAccountRequest
+   * @returns UpdateCloudAccountResponse
+   */
+  async updateCloudAccount(request: $_model.UpdateCloudAccountRequest): Promise<$_model.UpdateCloudAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCloudAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新云账号描述
+   * 
+   * @param request - UpdateCloudAccountDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudAccountDescriptionResponse
+   */
+  async updateCloudAccountDescriptionWithOptions(request: $_model.UpdateCloudAccountDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloudAccountDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCloudAccountDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCloudAccountDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCloudAccountDescriptionResponse({}));
+  }
+
+  /**
+   * 更新云账号描述
+   * 
+   * @param request - UpdateCloudAccountDescriptionRequest
+   * @returns UpdateCloudAccountDescriptionResponse
+   */
+  async updateCloudAccountDescription(request: $_model.UpdateCloudAccountDescriptionRequest): Promise<$_model.UpdateCloudAccountDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCloudAccountDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新云角色描述
+   * 
+   * @param request - UpdateCloudAccountRoleDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudAccountRoleDescriptionResponse
+   */
+  async updateCloudAccountRoleDescriptionWithOptions(request: $_model.UpdateCloudAccountRoleDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloudAccountRoleDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountRoleId)) {
+      query["CloudAccountRoleId"] = request.cloudAccountRoleId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCloudAccountRoleDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCloudAccountRoleDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCloudAccountRoleDescriptionResponse({}));
+  }
+
+  /**
+   * 更新云角色描述
+   * 
+   * @param request - UpdateCloudAccountRoleDescriptionRequest
+   * @returns UpdateCloudAccountRoleDescriptionResponse
+   */
+  async updateCloudAccountRoleDescription(request: $_model.UpdateCloudAccountRoleDescriptionRequest): Promise<$_model.UpdateCloudAccountRoleDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCloudAccountRoleDescriptionWithOptions(request, runtime);
   }
 
   /**
@@ -11279,6 +13955,60 @@ export default class Client extends OpenApi {
   async updateOrganizationalUnitParentId(request: $_model.UpdateOrganizationalUnitParentIdRequest): Promise<$_model.UpdateOrganizationalUnitParentIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateOrganizationalUnitParentIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新指定ResourceServer下的Scope
+   * 
+   * @param request - UpdateResourceServerScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceServerScopeResponse
+   */
+  async updateResourceServerScopeWithOptions(request: $_model.UpdateResourceServerScopeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateResourceServerScopeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeId)) {
+      query["ResourceServerScopeId"] = request.resourceServerScopeId;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeName)) {
+      query["ResourceServerScopeName"] = request.resourceServerScopeName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateResourceServerScope",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateResourceServerScopeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateResourceServerScopeResponse({}));
+  }
+
+  /**
+   * 更新指定ResourceServer下的Scope
+   * 
+   * @param request - UpdateResourceServerScopeRequest
+   * @returns UpdateResourceServerScopeResponse
+   */
+  async updateResourceServerScope(request: $_model.UpdateResourceServerScopeRequest): Promise<$_model.UpdateResourceServerScopeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateResourceServerScopeWithOptions(request, runtime);
   }
 
   /**
