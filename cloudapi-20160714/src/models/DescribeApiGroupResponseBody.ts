@@ -51,6 +51,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $dara.M
    * 1689043476000
    */
   certificateValidStart?: number;
+  clientCertSDnPassThrough?: boolean;
   /**
    * @remarks
    * The type of the custom domain name.
@@ -124,6 +125,9 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $dara.M
    * false
    */
   isHttpRedirectToHttps?: boolean;
+  sslOcspCacheEnable?: boolean;
+  sslOcspEnable?: boolean;
+  sslVerifyDepth?: number;
   /**
    * @remarks
    * The wildcard domain name mode.
@@ -140,6 +144,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $dara.M
       certificateName: 'CertificateName',
       certificateValidEnd: 'CertificateValidEnd',
       certificateValidStart: 'CertificateValidStart',
+      clientCertSDnPassThrough: 'ClientCertSDnPassThrough',
       customDomainType: 'CustomDomainType',
       domainBindingStatus: 'DomainBindingStatus',
       domainCNAMEStatus: 'DomainCNAMEStatus',
@@ -148,6 +153,9 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $dara.M
       domainRemark: 'DomainRemark',
       domainWebSocketStatus: 'DomainWebSocketStatus',
       isHttpRedirectToHttps: 'IsHttpRedirectToHttps',
+      sslOcspCacheEnable: 'SslOcspCacheEnable',
+      sslOcspEnable: 'SslOcspEnable',
+      sslVerifyDepth: 'SslVerifyDepth',
       wildcardDomainPatterns: 'WildcardDomainPatterns',
     };
   }
@@ -160,6 +168,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $dara.M
       certificateName: 'string',
       certificateValidEnd: 'number',
       certificateValidStart: 'number',
+      clientCertSDnPassThrough: 'boolean',
       customDomainType: 'string',
       domainBindingStatus: 'string',
       domainCNAMEStatus: 'string',
@@ -168,6 +177,9 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $dara.M
       domainRemark: 'string',
       domainWebSocketStatus: 'string',
       isHttpRedirectToHttps: 'boolean',
+      sslOcspCacheEnable: 'boolean',
+      sslOcspEnable: 'boolean',
+      sslVerifyDepth: 'number',
       wildcardDomainPatterns: 'string',
     };
   }
