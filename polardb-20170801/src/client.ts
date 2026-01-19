@@ -5561,6 +5561,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询模型算子日志
+   * 
+   * @param request - DescribeAIDBClusterTaskLogFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClusterTaskLogFilesResponse
+   */
+  async describeAIDBClusterTaskLogFilesWithOptions(request: $_model.DescribeAIDBClusterTaskLogFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterTaskLogFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.relativeDBClusterId)) {
+      query["RelativeDBClusterId"] = request.relativeDBClusterId;
+    }
+
+    if (!$dara.isNull(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusterTaskLogFiles",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClusterTaskLogFilesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterTaskLogFilesResponse({}));
+  }
+
+  /**
+   * 查询模型算子日志
+   * 
+   * @param request - DescribeAIDBClusterTaskLogFilesRequest
+   * @returns DescribeAIDBClusterTaskLogFilesResponse
+   */
+  async describeAIDBClusterTaskLogFiles(request: $_model.DescribeAIDBClusterTaskLogFilesRequest): Promise<$_model.DescribeAIDBClusterTaskLogFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClusterTaskLogFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型算子指标
+   * 
+   * @param request - DescribeAIDBClusterTaskMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClusterTaskMetricsResponse
+   */
+  async describeAIDBClusterTaskMetricsWithOptions(request: $_model.DescribeAIDBClusterTaskMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterTaskMetricsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.metricType)) {
+      query["MetricType"] = request.metricType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.relativeDBClusterId)) {
+      query["RelativeDBClusterId"] = request.relativeDBClusterId;
+    }
+
+    if (!$dara.isNull(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusterTaskMetrics",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClusterTaskMetricsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterTaskMetricsResponse({}));
+  }
+
+  /**
+   * 查询模型算子指标
+   * 
+   * @param request - DescribeAIDBClusterTaskMetricsRequest
+   * @returns DescribeAIDBClusterTaskMetricsResponse
+   */
+  async describeAIDBClusterTaskMetrics(request: $_model.DescribeAIDBClusterTaskMetricsRequest): Promise<$_model.DescribeAIDBClusterTaskMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClusterTaskMetricsWithOptions(request, runtime);
+  }
+
+  /**
    * 查看custom集群列表
    * 
    * @param request - DescribeAIDBClustersRequest

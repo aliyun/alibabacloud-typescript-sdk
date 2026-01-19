@@ -17,6 +17,10 @@ export { DescribeAIDBClusterAttributeResponseBodyEndpointList } from './Describe
 export { DescribeAIDBClusterAttributeResponseBodyVolumes } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints } from './DescribeAidbclusterPerformanceResponseBody';
 export { DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys } from './DescribeAidbclusterPerformanceResponseBody';
+export { DescribeAIDBClusterTaskLogFilesResponseBodyItemsSlsLogItems } from './DescribeAidbclusterTaskLogFilesResponseBody';
+export { DescribeAIDBClusterTaskLogFilesResponseBodyItems } from './DescribeAidbclusterTaskLogFilesResponseBody';
+export { DescribeAIDBClusterTaskMetricsResponseBodyItemsSlsMetricsItems } from './DescribeAidbclusterTaskMetricsResponseBody';
+export { DescribeAIDBClusterTaskMetricsResponseBodyItems } from './DescribeAidbclusterTaskMetricsResponseBody';
 export { DescribeAIDBClustersRequestTag } from './DescribeAidbclustersRequest';
 export { DescribeAIDBClustersResponseBodyItemsDBClusterTagsTag } from './DescribeAidbclustersResponseBody';
 export { DescribeAIDBClustersResponseBodyItemsDBClusterTags } from './DescribeAidbclustersResponseBody';
@@ -464,6 +468,12 @@ export { DescribeAIDBClusterAttributeResponse } from './DescribeAidbclusterAttri
 export { DescribeAIDBClusterPerformanceRequest } from './DescribeAidbclusterPerformanceRequest';
 export { DescribeAIDBClusterPerformanceResponseBody } from './DescribeAidbclusterPerformanceResponseBody';
 export { DescribeAIDBClusterPerformanceResponse } from './DescribeAidbclusterPerformanceResponse';
+export { DescribeAIDBClusterTaskLogFilesRequest } from './DescribeAidbclusterTaskLogFilesRequest';
+export { DescribeAIDBClusterTaskLogFilesResponseBody } from './DescribeAidbclusterTaskLogFilesResponseBody';
+export { DescribeAIDBClusterTaskLogFilesResponse } from './DescribeAidbclusterTaskLogFilesResponse';
+export { DescribeAIDBClusterTaskMetricsRequest } from './DescribeAidbclusterTaskMetricsRequest';
+export { DescribeAIDBClusterTaskMetricsResponseBody } from './DescribeAidbclusterTaskMetricsResponseBody';
+export { DescribeAIDBClusterTaskMetricsResponse } from './DescribeAidbclusterTaskMetricsResponse';
 export { DescribeAIDBClustersRequest } from './DescribeAidbclustersRequest';
 export { DescribeAIDBClustersResponseBody } from './DescribeAidbclustersResponseBody';
 export { DescribeAIDBClustersResponse } from './DescribeAidbclustersResponse';
