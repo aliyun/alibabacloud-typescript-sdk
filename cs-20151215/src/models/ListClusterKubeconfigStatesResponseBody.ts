@@ -153,6 +153,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
    * Expired
    */
   certState?: string;
+  cloudServiceName?: string;
   cloudServiceRoles?: ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles[];
   /**
    * @remarks
@@ -171,6 +172,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
       accountType: 'account_type',
       certExpireTime: 'cert_expire_time',
       certState: 'cert_state',
+      cloudServiceName: 'cloud_service_name',
       cloudServiceRoles: 'cloud_service_roles',
       revokable: 'revokable',
     };
@@ -185,6 +187,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
       accountType: 'string',
       certExpireTime: 'string',
       certState: 'string',
+      cloudServiceName: 'string',
       cloudServiceRoles: { 'type': 'array', 'itemType': ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles },
       revokable: 'boolean',
     };
