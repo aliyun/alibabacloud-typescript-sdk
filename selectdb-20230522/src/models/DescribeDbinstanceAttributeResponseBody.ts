@@ -383,6 +383,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * Prepaid
    */
   chargeType?: string;
+  configPatternType?: string;
   /**
    * @remarks
    * The time when the instance was created.
@@ -606,6 +607,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
     return {
       canUpgradeVersions: 'CanUpgradeVersions',
       chargeType: 'ChargeType',
+      configPatternType: 'ConfigPatternType',
       createTime: 'CreateTime',
       DBClusterList: 'DBClusterList',
       DBInstanceId: 'DBInstanceId',
@@ -643,6 +645,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
     return {
       canUpgradeVersions: { 'type': 'array', 'itemType': 'string' },
       chargeType: 'string',
+      configPatternType: 'string',
       createTime: 'string',
       DBClusterList: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBClusterList },
       DBInstanceId: 'string',

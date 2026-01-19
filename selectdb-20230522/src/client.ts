@@ -557,6 +557,10 @@ export default class Client extends OpenApi {
       query["ClusterNodeType"] = request.clusterNodeType;
     }
 
+    if (!$dara.isNull(request.configPatternType)) {
+      query["ConfigPatternType"] = request.configPatternType;
+    }
+
     if (!$dara.isNull(request.connectionString)) {
       query["ConnectionString"] = request.connectionString;
     }

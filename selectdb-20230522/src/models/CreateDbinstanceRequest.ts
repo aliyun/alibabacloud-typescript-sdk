@@ -127,6 +127,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   clusterNodeCount?: number;
   clusterNodeType?: string;
+  configPatternType?: string;
   /**
    * @remarks
    * The instance endpoint.
@@ -289,6 +290,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       clientToken: 'ClientToken',
       clusterNodeCount: 'ClusterNodeCount',
       clusterNodeType: 'ClusterNodeType',
+      configPatternType: 'ConfigPatternType',
       connectionString: 'ConnectionString',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
@@ -319,6 +321,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       clientToken: 'string',
       clusterNodeCount: 'number',
       clusterNodeType: 'string',
+      configPatternType: 'string',
       connectionString: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
