@@ -8,6 +8,7 @@ export class RefundAppInstanceForPartnerRequest extends $dara.Model {
    * WD20250703155602000001
    */
   bizId?: string;
+  clientToken?: string;
   refundReason?: string;
   /**
    * @example
@@ -17,6 +18,7 @@ export class RefundAppInstanceForPartnerRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      clientToken: 'ClientToken',
       refundReason: 'RefundReason',
       userId: 'UserId',
     };
@@ -25,6 +27,7 @@ export class RefundAppInstanceForPartnerRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      clientToken: 'string',
       refundReason: 'string',
       userId: 'string',
     };

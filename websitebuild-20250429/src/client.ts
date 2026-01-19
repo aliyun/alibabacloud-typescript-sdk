@@ -1199,6 +1199,10 @@ export default class Client extends OpenApi {
       query["BizId"] = request.bizId;
     }
 
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.refundReason)) {
       query["RefundReason"] = request.refundReason;
     }
