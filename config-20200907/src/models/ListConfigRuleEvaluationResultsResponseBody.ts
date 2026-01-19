@@ -235,6 +235,11 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
   invokingEventMessageType?: string;
   /**
    * @example
+   * 1768788515725
+   */
+  lastCompliantFixedTimestamp?: number;
+  /**
+   * @example
    * 1744696665000
    */
   lastNonCompliantRecordTimestamp?: number;
@@ -277,6 +282,7 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
       evaluationId: 'EvaluationId',
       evaluationResultIdentifier: 'EvaluationResultIdentifier',
       invokingEventMessageType: 'InvokingEventMessageType',
+      lastCompliantFixedTimestamp: 'LastCompliantFixedTimestamp',
       lastNonCompliantRecordTimestamp: 'LastNonCompliantRecordTimestamp',
       remediationEnabled: 'RemediationEnabled',
       resultRecordedTimestamp: 'ResultRecordedTimestamp',
@@ -292,6 +298,7 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
       evaluationId: 'string',
       evaluationResultIdentifier: ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier,
       invokingEventMessageType: 'string',
+      lastCompliantFixedTimestamp: 'number',
       lastNonCompliantRecordTimestamp: 'number',
       remediationEnabled: 'boolean',
       resultRecordedTimestamp: 'number',

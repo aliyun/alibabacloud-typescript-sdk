@@ -2110,6 +2110,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除合规报告模版
+   * 
+   * @param request - DeleteReportTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReportTemplateResponse
+   */
+  async deleteReportTemplateWithOptions(request: $_model.DeleteReportTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteReportTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportTemplateId)) {
+      body["ReportTemplateId"] = request.reportTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteReportTemplate",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteReportTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteReportTemplateResponse({}));
+  }
+
+  /**
+   * 删除合规报告模版
+   * 
+   * @param request - DeleteReportTemplateRequest
+   * @returns DeleteReportTemplateResponse
+   */
+  async deleteReportTemplate(request: $_model.DeleteReportTemplateRequest): Promise<$_model.DeleteReportTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteReportTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * 批量获取资源详情
    * 
    * @param request - DescribeDiscoveredResourceBatchRequest
@@ -2751,6 +2793,48 @@ export default class Client extends OpenApi {
   async generateConfigRulesReport(request: $_model.GenerateConfigRulesReportRequest): Promise<$_model.GenerateConfigRulesReportResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateConfigRulesReportWithOptions(request, runtime);
+  }
+
+  /**
+   * 基于报告模版生成报告Id
+   * 
+   * @param request - GenerateReportFromTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateReportFromTemplateResponse
+   */
+  async generateReportFromTemplateWithOptions(request: $_model.GenerateReportFromTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateReportFromTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportTemplateId)) {
+      body["ReportTemplateId"] = request.reportTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateReportFromTemplate",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateReportFromTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GenerateReportFromTemplateResponse({}));
+  }
+
+  /**
+   * 基于报告模版生成报告Id
+   * 
+   * @param request - GenerateReportFromTemplateRequest
+   * @returns GenerateReportFromTemplateResponse
+   */
+  async generateReportFromTemplate(request: $_model.GenerateReportFromTemplateRequest): Promise<$_model.GenerateReportFromTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateReportFromTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -4632,6 +4716,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取基于报告模版生成的报告
+   * 
+   * @param request - GetReportFromTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReportFromTemplateResponse
+   */
+  async getReportFromTemplateWithOptions(request: $_model.GetReportFromTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetReportFromTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.reportTemplateId)) {
+      query["ReportTemplateId"] = request.reportTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetReportFromTemplate",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetReportFromTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetReportFromTemplateResponse({}));
+  }
+
+  /**
+   * 获取基于报告模版生成的报告
+   * 
+   * @param request - GetReportFromTemplateRequest
+   * @returns GetReportFromTemplateResponse
+   */
+  async getReportFromTemplate(request: $_model.GetReportFromTemplateRequest): Promise<$_model.GetReportFromTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getReportFromTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the compliance summary based on the compliance evaluation result of a rule.
    * 
    * @remarks
@@ -6335,7 +6461,39 @@ export default class Client extends OpenApi {
    */
   async listConfigRuleEvaluationResultsWithOptions(request: $_model.ListConfigRuleEvaluationResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListConfigRuleEvaluationResultsResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
+    if (!$dara.isNull(request.complianceType)) {
+      query["ComplianceType"] = request.complianceType;
+    }
+
+    if (!$dara.isNull(request.configRuleId)) {
+      query["ConfigRuleId"] = request.configRuleId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regions)) {
+      query["Regions"] = request.regions;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIds)) {
+      query["ResourceGroupIds"] = request.resourceGroupIds;
+    }
+
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6344,7 +6502,7 @@ export default class Client extends OpenApi {
       version: "2020-09-07",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -7947,6 +8105,48 @@ export default class Client extends OpenApi {
   async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 实时测试通知
+   * 
+   * @param request - TriggerReportSendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerReportSendResponse
+   */
+  async triggerReportSendWithOptions(request: $_model.TriggerReportSendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TriggerReportSendResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportTemplateId)) {
+      body["ReportTemplateId"] = request.reportTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TriggerReportSend",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TriggerReportSendResponse>(await this.callApi(params, req, runtime), new $_model.TriggerReportSendResponse({}));
+  }
+
+  /**
+   * 实时测试通知
+   * 
+   * @param request - TriggerReportSendRequest
+   * @returns TriggerReportSendResponse
+   */
+  async triggerReportSend(request: $_model.TriggerReportSendRequest): Promise<$_model.TriggerReportSendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.triggerReportSendWithOptions(request, runtime);
   }
 
   /**
