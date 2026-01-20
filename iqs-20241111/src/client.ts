@@ -78,6 +78,7 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
+      if (!resp.event.data) continue;
       let data = JSON.parse(resp.event.data);
       yield $dara.cast<$_model.AiSearchResponse>({
         statusCode: resp.statusCode,
