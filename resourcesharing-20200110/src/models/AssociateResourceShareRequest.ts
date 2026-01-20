@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class AssociateResourceShareRequestResourceProperties extends $dara.Model {
+  /**
+   * @example
+   * {"sharePrincipals":true,"shareTagOptions":false}
+   */
+  property?: string;
+  /**
+   * @example
+   * acs:vpc:cn-shanghai:103755469187****:vswitch/vsw-uf62b11ue4m8oz2di****
+   */
+  resourceArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+      resourceArn: 'ResourceArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: 'string',
+      resourceArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssociateResourceShareRequestResources extends $dara.Model {
   /**
    * @remarks
@@ -113,6 +147,7 @@ export class AssociateResourceShareRequest extends $dara.Model {
    */
   permissionNames?: string[];
   resourceArns?: string[];
+  resourceProperties?: AssociateResourceShareRequestResourceProperties[];
   /**
    * @remarks
    * The ID of the resource share.
@@ -147,6 +182,7 @@ export class AssociateResourceShareRequest extends $dara.Model {
     return {
       permissionNames: 'PermissionNames',
       resourceArns: 'ResourceArns',
+      resourceProperties: 'ResourceProperties',
       resourceShareId: 'ResourceShareId',
       resources: 'Resources',
       targetProperties: 'TargetProperties',
@@ -158,6 +194,7 @@ export class AssociateResourceShareRequest extends $dara.Model {
     return {
       permissionNames: { 'type': 'array', 'itemType': 'string' },
       resourceArns: { 'type': 'array', 'itemType': 'string' },
+      resourceProperties: { 'type': 'array', 'itemType': AssociateResourceShareRequestResourceProperties },
       resourceShareId: 'string',
       resources: { 'type': 'array', 'itemType': AssociateResourceShareRequestResources },
       targetProperties: { 'type': 'array', 'itemType': AssociateResourceShareRequestTargetProperties },
@@ -171,6 +208,9 @@ export class AssociateResourceShareRequest extends $dara.Model {
     }
     if(Array.isArray(this.resourceArns)) {
       $dara.Model.validateArray(this.resourceArns);
+    }
+    if(Array.isArray(this.resourceProperties)) {
+      $dara.Model.validateArray(this.resourceProperties);
     }
     if(Array.isArray(this.resources)) {
       $dara.Model.validateArray(this.resources);

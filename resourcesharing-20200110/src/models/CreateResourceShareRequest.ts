@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateResourceShareRequestResourceProperties extends $dara.Model {
+  /**
+   * @example
+   * {"sharePrincipals":true,"shareTagOptions":false}
+   */
+  property?: string;
+  /**
+   * @example
+   * acs:vpc:cn-shanghai:103755469187****:vswitch/vsw-uf62b11ue4m8oz2di****
+   */
+  resourceArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+      resourceArn: 'ResourceArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: 'string',
+      resourceArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateResourceShareRequestResources extends $dara.Model {
   /**
    * @remarks
@@ -176,6 +210,7 @@ export class CreateResourceShareRequest extends $dara.Model {
    * rg-aekz5nlvlak****
    */
   resourceGroupId?: string;
+  resourceProperties?: CreateResourceShareRequestResourceProperties[];
   /**
    * @remarks
    * The name of the resource share.
@@ -221,6 +256,7 @@ export class CreateResourceShareRequest extends $dara.Model {
       permissionNames: 'PermissionNames',
       resourceArns: 'ResourceArns',
       resourceGroupId: 'ResourceGroupId',
+      resourceProperties: 'ResourceProperties',
       resourceShareName: 'ResourceShareName',
       resources: 'Resources',
       tag: 'Tag',
@@ -235,6 +271,7 @@ export class CreateResourceShareRequest extends $dara.Model {
       permissionNames: { 'type': 'array', 'itemType': 'string' },
       resourceArns: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
+      resourceProperties: { 'type': 'array', 'itemType': CreateResourceShareRequestResourceProperties },
       resourceShareName: 'string',
       resources: { 'type': 'array', 'itemType': CreateResourceShareRequestResources },
       tag: { 'type': 'array', 'itemType': CreateResourceShareRequestTag },
@@ -249,6 +286,9 @@ export class CreateResourceShareRequest extends $dara.Model {
     }
     if(Array.isArray(this.resourceArns)) {
       $dara.Model.validateArray(this.resourceArns);
+    }
+    if(Array.isArray(this.resourceProperties)) {
+      $dara.Model.validateArray(this.resourceProperties);
     }
     if(Array.isArray(this.resources)) {
       $dara.Model.validateArray(this.resources);

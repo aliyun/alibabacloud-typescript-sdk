@@ -207,6 +207,11 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
   external?: boolean;
   resourceArn?: string;
   /**
+   * @example
+   * {"sharePrincipals":true,"shareTagOptions":false}
+   */
+  resourceProperty?: string;
+  /**
    * @remarks
    * The ID of the resource share.
    * 
@@ -264,6 +269,7 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
       entityType: 'EntityType',
       external: 'External',
       resourceArn: 'ResourceArn',
+      resourceProperty: 'ResourceProperty',
       resourceShareId: 'ResourceShareId',
       resourceShareName: 'ResourceShareName',
       targetProperty: 'TargetProperty',
@@ -282,6 +288,7 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
       entityType: 'string',
       external: 'boolean',
       resourceArn: 'string',
+      resourceProperty: 'string',
       resourceShareId: 'string',
       resourceShareName: 'string',
       targetProperty: 'string',

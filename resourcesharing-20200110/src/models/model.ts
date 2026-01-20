@@ -1,8 +1,10 @@
 export { AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails } from './AcceptResourceShareInvitationResponseBody';
 export { AcceptResourceShareInvitationResponseBodyResourceShareInvitation } from './AcceptResourceShareInvitationResponseBody';
+export { AssociateResourceShareRequestResourceProperties } from './AssociateResourceShareRequest';
 export { AssociateResourceShareRequestResources } from './AssociateResourceShareRequest';
 export { AssociateResourceShareRequestTargetProperties } from './AssociateResourceShareRequest';
 export { AssociateResourceShareResponseBodyResourceShareAssociations } from './AssociateResourceShareResponseBody';
+export { CreateResourceShareRequestResourceProperties } from './CreateResourceShareRequest';
 export { CreateResourceShareRequestResources } from './CreateResourceShareRequest';
 export { CreateResourceShareRequestTag } from './CreateResourceShareRequest';
 export { CreateResourceShareRequestTargetProperties } from './CreateResourceShareRequest';

@@ -73,6 +73,11 @@ export class AssociateResourceShareResponseBodyResourceShareAssociations extends
   entityType?: string;
   resourceArn?: string;
   /**
+   * @example
+   * {"sharePrincipals":true,"shareTagOptions":false}
+   */
+  resourceProperty?: string;
+  /**
    * @remarks
    * The ID of the resource share.
    * 
@@ -125,6 +130,7 @@ export class AssociateResourceShareResponseBodyResourceShareAssociations extends
       entityId: 'EntityId',
       entityType: 'EntityType',
       resourceArn: 'ResourceArn',
+      resourceProperty: 'ResourceProperty',
       resourceShareId: 'ResourceShareId',
       resourceShareName: 'ResourceShareName',
       targetProperty: 'TargetProperty',
@@ -141,6 +147,7 @@ export class AssociateResourceShareResponseBodyResourceShareAssociations extends
       entityId: 'string',
       entityType: 'string',
       resourceArn: 'string',
+      resourceProperty: 'string',
       resourceShareId: 'string',
       resourceShareName: 'string',
       targetProperty: 'string',

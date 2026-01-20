@@ -104,6 +104,10 @@ export default class Client extends OpenApi {
       query["ResourceArns"] = request.resourceArns;
     }
 
+    if (!$dara.isNull(request.resourceProperties)) {
+      query["ResourceProperties"] = request.resourceProperties;
+    }
+
     if (!$dara.isNull(request.resourceShareId)) {
       query["ResourceShareId"] = request.resourceShareId;
     }
@@ -317,6 +321,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceProperties)) {
+      query["ResourceProperties"] = request.resourceProperties;
     }
 
     if (!$dara.isNull(request.resourceShareName)) {
