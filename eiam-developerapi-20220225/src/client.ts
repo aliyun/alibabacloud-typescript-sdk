@@ -1584,6 +1584,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取云角色（CloudAccountRole）的临时访问凭证
+   * 
+   * @param request - ObtainCloudAccountRoleAccessCredentialRequest
+   * @param headers - ObtainCloudAccountRoleAccessCredentialHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ObtainCloudAccountRoleAccessCredentialResponse
+   */
+  async obtainCloudAccountRoleAccessCredentialWithOptions(instanceId: string, request: $_model.ObtainCloudAccountRoleAccessCredentialRequest, headers: $_model.ObtainCloudAccountRoleAccessCredentialHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ObtainCloudAccountRoleAccessCredentialResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cloudAccountRoleExternalId)) {
+      query["cloudAccountRoleExternalId"] = request.cloudAccountRoleExternalId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ObtainCloudAccountRoleAccessCredential",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/cloudAccountRoles/_/actions/obtainAccessCredential`,
+      method: "GET",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ObtainCloudAccountRoleAccessCredentialResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ObtainCloudAccountRoleAccessCredentialResponse({}));
+  }
+
+  /**
+   * 获取云角色（CloudAccountRole）的临时访问凭证
+   * 
+   * @param request - ObtainCloudAccountRoleAccessCredentialRequest
+   * @returns ObtainCloudAccountRoleAccessCredentialResponse
+   */
+  async obtainCloudAccountRoleAccessCredential(instanceId: string, request: $_model.ObtainCloudAccountRoleAccessCredentialRequest): Promise<$_model.ObtainCloudAccountRoleAccessCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ObtainCloudAccountRoleAccessCredentialHeaders({ });
+    return await this.obtainCloudAccountRoleAccessCredentialWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Modifies information about an Employee Identity and Access Management (EIAM) group.
    * 
    * @param request - PatchGroupRequest
