@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveRspDomainServerHoldStatusForGatewayRequest extends $dara.Model {
+export class AddRspDomainServerHoldStatusForGatewayOteRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * asdf
+   * qwoefasdf
    */
   clientToken?: string;
   /**
@@ -16,9 +16,13 @@ export class RemoveRspDomainServerHoldStatusForGatewayRequest extends $dara.Mode
    * This parameter is required.
    * 
    * @example
-   * example.com
+   * dns-example.top
    */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   statusMsg?: string;
   static names(): { [key: string]: string } {
     return {

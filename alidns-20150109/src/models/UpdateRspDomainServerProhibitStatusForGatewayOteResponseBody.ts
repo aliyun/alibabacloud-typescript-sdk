@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail extends $dara.Model {
+export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @example
    * CreateUser
@@ -25,7 +25,7 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDe
   authPrincipalType?: string;
   /**
    * @example
-   * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
+   * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
    */
   encodedDiagnosticMessage?: string;
   /**
@@ -71,24 +71,31 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDe
   }
 }
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyData extends $dara.Model {
+export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyDataStatusList extends $dara.Model {
   /**
    * @example
-   * example.com
+   * uptp.test.abchina.com.cn
    */
   domainName?: string;
-  serverHoldStatus?: string;
+  /**
+   * @example
+   * serverUpdateProhibited
+   */
+  status?: string;
+  statusMsg?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      serverHoldStatus: 'ServerHoldStatus',
+      status: 'Status',
+      statusMsg: 'StatusMsg',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      serverHoldStatus: 'string',
+      status: 'string',
+      statusMsg: 'string',
     };
   }
 
@@ -101,9 +108,42 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyData extends $
   }
 }
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends $dara.Model {
-  accessDeniedDetail?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail;
-  data?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData;
+export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  statusList?: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyDataStatusList[];
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      statusList: 'StatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      statusList: { 'type': 'array', 'itemType': UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyDataStatusList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.statusList)) {
+      $dara.Model.validateArray(this.statusList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody extends $dara.Model {
+  accessDeniedDetail?: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyAccessDeniedDetail;
+  data?: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyData;
   /**
    * @example
    * true
@@ -131,8 +171,8 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends $dara
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail,
-      data: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData,
+      accessDeniedDetail: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyAccessDeniedDetail,
+      data: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyData,
       recoverableError: 'boolean',
       requestId: 'string',
       success: 'boolean',

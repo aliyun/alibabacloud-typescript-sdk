@@ -1070,11 +1070,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * 用于添加特定域名的serverHold状态信息。
    * 
    * @remarks
    * ## 请求说明
-   * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
    * 
    * @param request - AddRspDomainServerHoldStatusForGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1113,11 +1117,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * 用于添加特定域名的serverHold状态信息。
    * 
    * @remarks
    * ## 请求说明
-   * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
    * 
    * @param request - AddRspDomainServerHoldStatusForGatewayRequest
    * @returns AddRspDomainServerHoldStatusForGatewayResponse
@@ -1125,6 +1133,72 @@ export default class Client extends OpenApi {
   async addRspDomainServerHoldStatusForGateway(request: $_model.AddRspDomainServerHoldStatusForGatewayRequest): Promise<$_model.AddRspDomainServerHoldStatusForGatewayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addRspDomainServerHoldStatusForGatewayWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于删除特定域名的serverHold状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRspDomainServerHoldStatusForGatewayOteResponse
+   */
+  async addRspDomainServerHoldStatusForGatewayOteWithOptions(request: $_model.AddRspDomainServerHoldStatusForGatewayOteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddRspDomainServerHoldStatusForGatewayOteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.statusMsg)) {
+      query["StatusMsg"] = request.statusMsg;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddRspDomainServerHoldStatusForGatewayOte",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddRspDomainServerHoldStatusForGatewayOteResponse>(await this.callApi(params, req, runtime), new $_model.AddRspDomainServerHoldStatusForGatewayOteResponse({}));
+  }
+
+  /**
+   * 用于删除特定域名的serverHold状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
+   * @returns AddRspDomainServerHoldStatusForGatewayOteResponse
+   */
+  async addRspDomainServerHoldStatusForGatewayOte(request: $_model.AddRspDomainServerHoldStatusForGatewayOteRequest): Promise<$_model.AddRspDomainServerHoldStatusForGatewayOteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addRspDomainServerHoldStatusForGatewayOteWithOptions(request, runtime);
   }
 
   /**
@@ -9069,6 +9143,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于删除特定域名的serverHold状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveRspDomainServerHoldStatusForGatewayOteResponse
+   */
+  async removeRspDomainServerHoldStatusForGatewayOteWithOptions(request: $_model.RemoveRspDomainServerHoldStatusForGatewayOteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveRspDomainServerHoldStatusForGatewayOteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.statusMsg)) {
+      query["StatusMsg"] = request.statusMsg;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveRspDomainServerHoldStatusForGatewayOte",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveRspDomainServerHoldStatusForGatewayOteResponse>(await this.callApi(params, req, runtime), new $_model.RemoveRspDomainServerHoldStatusForGatewayOteResponse({}));
+  }
+
+  /**
+   * 用于删除特定域名的serverHold状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
+   * @returns RemoveRspDomainServerHoldStatusForGatewayOteResponse
+   */
+  async removeRspDomainServerHoldStatusForGatewayOte(request: $_model.RemoveRspDomainServerHoldStatusForGatewayOteRequest): Promise<$_model.RemoveRspDomainServerHoldStatusForGatewayOteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeRspDomainServerHoldStatusForGatewayOteWithOptions(request, runtime);
+  }
+
+  /**
    * Replaces the addresses referenced by an address pool.
    * 
    * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
@@ -13422,6 +13562,76 @@ export default class Client extends OpenApi {
   async updateRspDomainServerProhibitStatusForGateway(request: $_model.UpdateRspDomainServerProhibitStatusForGatewayRequest): Promise<$_model.UpdateRspDomainServerProhibitStatusForGatewayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRspDomainServerProhibitStatusForGatewayWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于更新特定域名的状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRspDomainServerProhibitStatusForGatewayOteResponse
+   */
+  async updateRspDomainServerProhibitStatusForGatewayOteWithOptions(request: $_model.UpdateRspDomainServerProhibitStatusForGatewayOteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRspDomainServerProhibitStatusForGatewayOteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addStatusList)) {
+      query["AddStatusList"] = request.addStatusList;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deleteStatusList)) {
+      query["DeleteStatusList"] = request.deleteStatusList;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRspDomainServerProhibitStatusForGatewayOte",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRspDomainServerProhibitStatusForGatewayOteResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRspDomainServerProhibitStatusForGatewayOteResponse({}));
+  }
+
+  /**
+   * 用于更新特定域名的状态信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
+   * @returns UpdateRspDomainServerProhibitStatusForGatewayOteResponse
+   */
+  async updateRspDomainServerProhibitStatusForGatewayOte(request: $_model.UpdateRspDomainServerProhibitStatusForGatewayOteRequest): Promise<$_model.UpdateRspDomainServerProhibitStatusForGatewayOteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRspDomainServerProhibitStatusForGatewayOteWithOptions(request, runtime);
   }
 
   /**

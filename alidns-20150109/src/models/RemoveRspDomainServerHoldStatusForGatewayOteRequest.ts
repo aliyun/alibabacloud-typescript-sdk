@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveRspDomainServerHoldStatusForGatewayRequest extends $dara.Model {
+export class RemoveRspDomainServerHoldStatusForGatewayOteRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * asdf
+   * qwoefasdf
    */
   clientToken?: string;
   /**

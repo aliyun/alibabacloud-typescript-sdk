@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail extends $dara.Model {
+export class RemoveRspDomainServerHoldStatusForGatewayOteResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @example
    * CreateUser
@@ -71,24 +71,21 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDe
   }
 }
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyData extends $dara.Model {
+export class RemoveRspDomainServerHoldStatusForGatewayOteResponseBodyData extends $dara.Model {
   /**
    * @example
    * example.com
    */
   domainName?: string;
-  serverHoldStatus?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      serverHoldStatus: 'ServerHoldStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      serverHoldStatus: 'string',
     };
   }
 
@@ -101,9 +98,9 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyData extends $
   }
 }
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends $dara.Model {
-  accessDeniedDetail?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail;
-  data?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData;
+export class RemoveRspDomainServerHoldStatusForGatewayOteResponseBody extends $dara.Model {
+  accessDeniedDetail?: RemoveRspDomainServerHoldStatusForGatewayOteResponseBodyAccessDeniedDetail;
+  data?: RemoveRspDomainServerHoldStatusForGatewayOteResponseBodyData;
   /**
    * @example
    * true
@@ -131,8 +128,8 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends $dara
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail,
-      data: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData,
+      accessDeniedDetail: RemoveRspDomainServerHoldStatusForGatewayOteResponseBodyAccessDeniedDetail,
+      data: RemoveRspDomainServerHoldStatusForGatewayOteResponseBodyData,
       recoverableError: 'boolean',
       requestId: 'string',
       success: 'boolean',

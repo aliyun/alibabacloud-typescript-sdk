@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail extends $dara.Model {
+export class AddRspDomainServerHoldStatusForGatewayOteResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @example
    * CreateUser
@@ -25,7 +25,7 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDe
   authPrincipalType?: string;
   /**
    * @example
-   * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
+   * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
    */
   encodedDiagnosticMessage?: string;
   /**
@@ -71,24 +71,21 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDe
   }
 }
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyData extends $dara.Model {
+export class AddRspDomainServerHoldStatusForGatewayOteResponseBodyData extends $dara.Model {
   /**
    * @example
    * example.com
    */
   domainName?: string;
-  serverHoldStatus?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      serverHoldStatus: 'ServerHoldStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      serverHoldStatus: 'string',
     };
   }
 
@@ -101,9 +98,9 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyData extends $
   }
 }
 
-export class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends $dara.Model {
-  accessDeniedDetail?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail;
-  data?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData;
+export class AddRspDomainServerHoldStatusForGatewayOteResponseBody extends $dara.Model {
+  accessDeniedDetail?: AddRspDomainServerHoldStatusForGatewayOteResponseBodyAccessDeniedDetail;
+  data?: AddRspDomainServerHoldStatusForGatewayOteResponseBodyData;
   /**
    * @example
    * true
@@ -131,8 +128,8 @@ export class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends $dara
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail,
-      data: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData,
+      accessDeniedDetail: AddRspDomainServerHoldStatusForGatewayOteResponseBodyAccessDeniedDetail,
+      data: AddRspDomainServerHoldStatusForGatewayOteResponseBodyData,
       recoverableError: 'boolean',
       requestId: 'string',
       success: 'boolean',
