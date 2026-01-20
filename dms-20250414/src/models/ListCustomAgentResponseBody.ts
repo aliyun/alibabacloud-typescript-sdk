@@ -64,6 +64,35 @@ export class ListCustomAgentResponseBodyDataContentKnowledgeConfigList extends $
   }
 }
 
+export class ListCustomAgentResponseBodyDataContentScheduleTaskConfig extends $dara.Model {
+  cronExpression?: string;
+  query?: string;
+  relatedSessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'CronExpression',
+      query: 'Query',
+      relatedSessionId: 'RelatedSessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+      query: 'string',
+      relatedSessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   /**
    * @example
@@ -85,7 +114,13 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * ca-4y3ca4khkcu**********ysf
    */
   customAgentId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  DMSUnit?: string;
   dataJson?: string;
+  defaultAgent?: number;
   description?: string;
   /**
    * @example
@@ -104,6 +139,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    */
   gmtModified?: string;
   instruction?: string;
+  isScheduleTask?: boolean;
   knowledge?: string;
   knowledgeConfigList?: ListCustomAgentResponseBodyDataContentKnowledgeConfigList[];
   /**
@@ -117,6 +153,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    */
   modifierUserName?: string;
   name?: string;
+  nextRuntime?: number;
   /**
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -132,6 +169,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * 2025-12-11T14:04:32.000+00:00
    */
   releaseTime?: string;
+  scheduleTaskConfig?: ListCustomAgentResponseBodyDataContentScheduleTaskConfig;
   /**
    * @example
    * RELEASED
@@ -150,21 +188,26 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       aliyunUid: 'AliyunUid',
       creatorUserName: 'CreatorUserName',
       customAgentId: 'CustomAgentId',
+      DMSUnit: 'DMSUnit',
       dataJson: 'DataJson',
+      defaultAgent: 'DefaultAgent',
       description: 'Description',
       dmsUnit: 'DmsUnit',
       executionConfig: 'ExecutionConfig',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       instruction: 'Instruction',
+      isScheduleTask: 'IsScheduleTask',
       knowledge: 'Knowledge',
       knowledgeConfigList: 'KnowledgeConfigList',
       modifier: 'Modifier',
       modifierUserName: 'ModifierUserName',
       name: 'Name',
+      nextRuntime: 'NextRuntime',
       offlineTime: 'OfflineTime',
       region: 'Region',
       releaseTime: 'ReleaseTime',
+      scheduleTaskConfig: 'ScheduleTaskConfig',
       status: 'Status',
       textReportConfig: 'TextReportConfig',
       webReportConfig: 'WebReportConfig',
@@ -178,21 +221,26 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       aliyunUid: 'string',
       creatorUserName: 'string',
       customAgentId: 'string',
+      DMSUnit: 'string',
       dataJson: 'string',
+      defaultAgent: 'number',
       description: 'string',
       dmsUnit: 'string',
       executionConfig: ListCustomAgentResponseBodyDataContentExecutionConfig,
       gmtCreated: 'string',
       gmtModified: 'string',
       instruction: 'string',
+      isScheduleTask: 'boolean',
       knowledge: 'string',
       knowledgeConfigList: { 'type': 'array', 'itemType': ListCustomAgentResponseBodyDataContentKnowledgeConfigList },
       modifier: 'string',
       modifierUserName: 'string',
       name: 'string',
+      nextRuntime: 'number',
       offlineTime: 'string',
       region: 'string',
       releaseTime: 'string',
+      scheduleTaskConfig: ListCustomAgentResponseBodyDataContentScheduleTaskConfig,
       status: 'string',
       textReportConfig: 'string',
       webReportConfig: 'string',
@@ -206,6 +254,9 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
     }
     if(Array.isArray(this.knowledgeConfigList)) {
       $dara.Model.validateArray(this.knowledgeConfigList);
+    }
+    if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
+      (this.scheduleTaskConfig as any).validate();
     }
     super.validate();
   }
