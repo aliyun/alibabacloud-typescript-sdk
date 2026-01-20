@@ -21,6 +21,10 @@ export class CreateLLMConfigRequest extends $dara.Model {
    * 8
    */
   batchSize?: number;
+  /**
+   * @example
+   * 8192
+   */
   maxTokens?: number;
   /**
    * @remarks

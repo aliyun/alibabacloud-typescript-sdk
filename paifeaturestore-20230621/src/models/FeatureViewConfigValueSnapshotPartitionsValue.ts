@@ -2,22 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class FeatureViewConfigValuePartitionsValue extends $dara.Model {
+export class FeatureViewConfigValueSnapshotPartitionsValue extends $dara.Model {
   /**
    * @example
-   * 20250101
+   * 20260101
    */
   value?: string;
   values?: string[];
-  /**
-   * @example
-   * 20250101
-   */
   startValue?: string;
-  /**
-   * @example
-   * 20250201
-   */
   endValue?: string;
   static names(): { [key: string]: string } {
     return {

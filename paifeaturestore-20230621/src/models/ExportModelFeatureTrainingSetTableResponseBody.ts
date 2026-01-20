@@ -8,6 +8,10 @@ export class ExportModelFeatureTrainingSetTableResponseBody extends $dara.Model 
    * 0FBBE454-9BD1-5D8F-9129-D14DB7FAFE0B
    */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFeatureViewResponseBodyFieldsTransformInput extends $dara.Model {
+  /**
+   * @example
+   * f1
+   */
   name?: string;
+  /**
+   * @example
+   * STRING
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,7 +38,15 @@ export class GetFeatureViewResponseBodyFieldsTransformInput extends $dara.Model 
 
 export class GetFeatureViewResponseBodyFieldsTransform extends $dara.Model {
   input?: GetFeatureViewResponseBodyFieldsTransformInput[];
+  /**
+   * @example
+   * 1
+   */
   LLMConfigId?: number;
+  /**
+   * @example
+   * LLMEmbedding
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

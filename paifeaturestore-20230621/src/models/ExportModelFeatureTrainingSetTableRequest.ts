@@ -65,7 +65,15 @@ export class ExportModelFeatureTrainingSetTableRequestTrainingSetConfig extends 
 export class ExportModelFeatureTrainingSetTableRequest extends $dara.Model {
   featureViewConfig?: { [key: string]: FeatureViewConfigValue };
   labelInputConfig?: ExportModelFeatureTrainingSetTableRequestLabelInputConfig;
+  /**
+   * @example
+   * 1
+   */
   realTimeIterateInterval?: number;
+  /**
+   * @example
+   * 5
+   */
   realTimePartitionCountValue?: number;
   trainingSetConfig?: ExportModelFeatureTrainingSetTableRequestTrainingSetConfig;
   static names(): { [key: string]: string } {

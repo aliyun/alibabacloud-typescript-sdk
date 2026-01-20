@@ -1,3 +1,4 @@
+export { FeatureViewConfigValueSnapshot } from './FeatureViewConfigValue';
 export { CheckModelFeatureFGFeatureResponseBodyFGCheckResults } from './CheckModelFeatureFgfeatureResponseBody';
 export { CreateFeatureViewRequestFieldsTransformInput } from './CreateFeatureViewRequest';
 export { CreateFeatureViewRequestFieldsTransform } from './CreateFeatureViewRequest';
@@ -54,6 +55,7 @@ export { UpdateModelFeatureFGFeatureRequestSequenceFeatures } from './UpdateMode
 export { WriteFeatureViewTableRequestUrlDatasource } from './WriteFeatureViewTableRequest';
 export { FeatureViewConfigValue } from './FeatureViewConfigValue';
 export { FeatureViewConfigValuePartitionsValue } from './FeatureViewConfigValuePartitionsValue';
+export { FeatureViewConfigValueSnapshotPartitionsValue } from './FeatureViewConfigValueSnapshotPartitionsValue';
 export { CheckInstanceDatasourceRequest } from './CheckInstanceDatasourceRequest';
 export { CheckInstanceDatasourceResponseBody } from './CheckInstanceDatasourceResponseBody';
 export { CheckInstanceDatasourceResponse } from './CheckInstanceDatasourceResponse';
