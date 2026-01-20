@@ -3,7 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OversoldUsageConfig extends $dara.Model {
-  disabled?: string;
+  disabled?: boolean;
   disabledBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14,7 +14,7 @@ export class OversoldUsageConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      disabled: 'string',
+      disabled: 'boolean',
       disabledBy: 'string',
     };
   }
