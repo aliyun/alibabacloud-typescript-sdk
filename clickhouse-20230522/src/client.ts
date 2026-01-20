@@ -1393,6 +1393,10 @@ export default class Client extends OpenApi {
   async describeEndpointsWithOptions(request: $_model.DescribeEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEndpointsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }

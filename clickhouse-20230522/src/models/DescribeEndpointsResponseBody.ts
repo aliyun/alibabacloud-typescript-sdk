@@ -65,6 +65,11 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
    */
   connectionString?: string;
   /**
+   * @example
+   * cc-*****-clickhouse
+   */
+  endpointName?: string;
+  /**
    * @remarks
    * The IP address.
    * 
@@ -124,6 +129,7 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
     return {
       computingGroupId: 'ComputingGroupId',
       connectionString: 'ConnectionString',
+      endpointName: 'EndpointName',
       IPAddress: 'IPAddress',
       netType: 'NetType',
       ports: 'Ports',
@@ -138,6 +144,7 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
     return {
       computingGroupId: 'string',
       connectionString: 'string',
+      endpointName: 'string',
       IPAddress: 'string',
       netType: 'string',
       ports: { 'type': 'array', 'itemType': DescribeEndpointsResponseBodyDataEndpointsPorts },

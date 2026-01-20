@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEndpointsRequest extends $dara.Model {
   /**
+   * @example
+   * cc-*****-clickhouse
+   */
+  computingGroupId?: string;
+  /**
    * @remarks
    * The cluster ID.
    * 
@@ -23,6 +28,7 @@ export class DescribeEndpointsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       DBInstanceId: 'DBInstanceId',
       regionId: 'RegionId',
     };
@@ -30,6 +36,7 @@ export class DescribeEndpointsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       DBInstanceId: 'string',
       regionId: 'string',
     };
