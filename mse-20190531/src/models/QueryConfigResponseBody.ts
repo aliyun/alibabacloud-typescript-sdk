@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryConfigResponseBodyDataNacosRunningEnvFencePolicy extends $dara.Model {
   enabledModules?: string[];
   interceptPolicy?: { [key: string]: string };
+  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
       enabledModules: 'enabledModules',
       interceptPolicy: 'interceptPolicy',
+      serviceName: 'serviceName',
     };
   }
 
@@ -16,6 +18,7 @@ export class QueryConfigResponseBodyDataNacosRunningEnvFencePolicy extends $dara
     return {
       enabledModules: { 'type': 'array', 'itemType': 'string' },
       interceptPolicy: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      serviceName: 'string',
     };
   }
 
