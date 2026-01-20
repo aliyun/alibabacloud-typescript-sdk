@@ -2,106 +2,103 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetThreadDataResponseBodyMessages extends $dara.Model {
-  /**
-   * @example
-   * 205190712643664705
-   */
-  callerUid?: string;
-  /**
-   * @example
-   * test
-   */
-  digitalEmployeeName?: string;
-  items?: { [key: string]: any }[];
-  /**
-   * @example
-   * 7F0000012B1B668BC3D59A7EF8A00063
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 1560138499250147
-   */
-  ownerUid?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  parentMessageId?: string;
-  /**
-   * @example
-   * cn-qingdao
-   */
-  region?: string;
-  /**
-   * @example
-   * user
-   */
+export class GetThreadDataResponseBodyDataMessages extends $dara.Model {
+  agents?: { [key: string]: any }[];
+  artifacts?: { [key: string]: any }[];
+  callId?: string;
+  contents?: { [key: string]: any }[];
+  detail?: string;
+  events?: { [key: string]: any }[];
+  parentCallId?: string;
   role?: string;
-  /**
-   * @example
-   * jr-c2b000da0e41b543
-   */
-  runId?: string;
-  /**
-   * @example
-   * 98958d65-6cdb-4f40-8f46-f5e49f13c860
-   */
-  threadId?: string;
-  /**
-   * @example
-   * 1765359068
-   */
+  seq?: number;
   timestamp?: string;
-  /**
-   * @example
-   * 3b5287ba17572104610774286d0096
-   */
-  traceId?: string;
-  variables?: { [key: string]: string };
+  tools?: { [key: string]: any }[];
+  type?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      callerUid: 'callerUid',
-      digitalEmployeeName: 'digitalEmployeeName',
-      items: 'items',
-      messageId: 'messageId',
-      ownerUid: 'ownerUid',
-      parentMessageId: 'parentMessageId',
-      region: 'region',
+      agents: 'agents',
+      artifacts: 'artifacts',
+      callId: 'callId',
+      contents: 'contents',
+      detail: 'detail',
+      events: 'events',
+      parentCallId: 'parentCallId',
       role: 'role',
-      runId: 'runId',
-      threadId: 'threadId',
+      seq: 'seq',
       timestamp: 'timestamp',
-      traceId: 'traceId',
-      variables: 'variables',
+      tools: 'tools',
+      type: 'type',
+      version: 'version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      callerUid: 'string',
-      digitalEmployeeName: 'string',
-      items: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      messageId: 'string',
-      ownerUid: 'string',
-      parentMessageId: 'string',
-      region: 'string',
+      agents: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      artifacts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      callId: 'string',
+      contents: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      detail: 'string',
+      events: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      parentCallId: 'string',
       role: 'string',
-      runId: 'string',
-      threadId: 'string',
+      seq: 'number',
       timestamp: 'string',
-      traceId: 'string',
-      variables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      tools: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      type: 'string',
+      version: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.items)) {
-      $dara.Model.validateArray(this.items);
+    if(Array.isArray(this.agents)) {
+      $dara.Model.validateArray(this.agents);
     }
-    if(this.variables) {
-      $dara.Model.validateMap(this.variables);
+    if(Array.isArray(this.artifacts)) {
+      $dara.Model.validateArray(this.artifacts);
+    }
+    if(Array.isArray(this.contents)) {
+      $dara.Model.validateArray(this.contents);
+    }
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    if(Array.isArray(this.tools)) {
+      $dara.Model.validateArray(this.tools);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetThreadDataResponseBodyData extends $dara.Model {
+  messages?: GetThreadDataResponseBodyDataMessages[];
+  requestId?: string;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'messages',
+      requestId: 'requestId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': GetThreadDataResponseBodyDataMessages },
+      requestId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
     }
     super.validate();
   }
@@ -112,6 +109,7 @@ export class GetThreadDataResponseBodyMessages extends $dara.Model {
 }
 
 export class GetThreadDataResponseBody extends $dara.Model {
+  data?: GetThreadDataResponseBodyData[];
   /**
    * @example
    * test
@@ -122,7 +120,6 @@ export class GetThreadDataResponseBody extends $dara.Model {
    * 2
    */
   maxResults?: number;
-  messages?: GetThreadDataResponseBodyMessages[];
   /**
    * @example
    * xxxxxxxxx
@@ -143,9 +140,9 @@ export class GetThreadDataResponseBody extends $dara.Model {
   threadId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'data',
       digitalEmployeeName: 'digitalEmployeeName',
       maxResults: 'maxResults',
-      messages: 'messages',
       nextToken: 'nextToken',
       requestId: 'requestId',
       threadId: 'threadId',
@@ -154,9 +151,9 @@ export class GetThreadDataResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      data: { 'type': 'array', 'itemType': GetThreadDataResponseBodyData },
       digitalEmployeeName: 'string',
       maxResults: 'number',
-      messages: { 'type': 'array', 'itemType': GetThreadDataResponseBodyMessages },
       nextToken: 'string',
       requestId: 'string',
       threadId: 'string',
@@ -164,8 +161,8 @@ export class GetThreadDataResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.messages)) {
-      $dara.Model.validateArray(this.messages);
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
     }
     super.validate();
   }

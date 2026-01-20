@@ -3220,6 +3220,10 @@ export default class Client extends OpenApi {
   async listDigitalEmployeesWithOptions(request: $_model.ListDigitalEmployeesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayName)) {
+      query["displayName"] = request.displayName;
+    }
+
     if (!$dara.isNull(request.employeeType)) {
       query["employeeType"] = request.employeeType;
     }

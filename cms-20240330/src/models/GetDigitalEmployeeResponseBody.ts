@@ -52,21 +52,27 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
 
 export class GetDigitalEmployeeResponseBodyKnowledges extends $dara.Model {
   bailian?: GetDigitalEmployeeResponseBodyKnowledgesBailian[];
+  sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       bailian: 'bailian',
+      sop: 'sop',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bailian: { 'type': 'array', 'itemType': GetDigitalEmployeeResponseBodyKnowledgesBailian },
+      sop: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
   validate() {
     if(Array.isArray(this.bailian)) {
       $dara.Model.validateArray(this.bailian);
+    }
+    if(Array.isArray(this.sop)) {
+      $dara.Model.validateArray(this.sop);
     }
     super.validate();
   }

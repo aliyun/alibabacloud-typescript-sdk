@@ -52,21 +52,27 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
 
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends $dara.Model {
   bailian?: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian[];
+  sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       bailian: 'bailian',
+      sop: 'sop',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bailian: { 'type': 'array', 'itemType': ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian },
+      sop: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
   validate() {
     if(Array.isArray(this.bailian)) {
       $dara.Model.validateArray(this.bailian);
+    }
+    if(Array.isArray(this.sop)) {
+      $dara.Model.validateArray(this.sop);
     }
     super.validate();
   }
