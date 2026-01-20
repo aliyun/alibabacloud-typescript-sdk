@@ -119,6 +119,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
    * 994007
    */
   ruleID?: string;
+  ruleId?: string;
   ruleName?: string;
   /**
    * @example
@@ -161,6 +162,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       ruleAggQuery: 'RuleAggQuery',
       ruleCategory: 'RuleCategory',
       ruleID: 'RuleID',
+      ruleId: 'RuleId',
       ruleName: 'RuleName',
       sqlText: 'SqlText',
       startTime: 'StartTime',
@@ -194,6 +196,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       ruleAggQuery: 'boolean',
       ruleCategory: 'string',
       ruleID: 'string',
+      ruleId: 'string',
       ruleName: 'string',
       sqlText: 'string',
       startTime: 'number',
