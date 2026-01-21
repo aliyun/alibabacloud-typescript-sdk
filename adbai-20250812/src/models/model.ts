@@ -1,9 +1,14 @@
+export { CreateAgentPlatformRequestAiPlatformConfig } from './CreateAgentPlatformRequest';
 export { CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups } from './CreateEmbodiedAiplatformRequest';
 export { CreateEmbodiedAIPlatformRequestRayConfig } from './CreateEmbodiedAiplatformRequest';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsEapConfig } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfigWorkerGroups } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatforms } from './DescribeEmbodiedAiplatformsResponseBody';
+export { CreateAgentPlatformRequest } from './CreateAgentPlatformRequest';
+export { CreateAgentPlatformShrinkRequest } from './CreateAgentPlatformShrinkRequest';
+export { CreateAgentPlatformResponseBody } from './CreateAgentPlatformResponseBody';
+export { CreateAgentPlatformResponse } from './CreateAgentPlatformResponse';
 export { CreateEmbodiedAIPlatformRequest } from './CreateEmbodiedAiplatformRequest';
 export { CreateEmbodiedAIPlatformShrinkRequest } from './CreateEmbodiedAiplatformShrinkRequest';
 export { CreateEmbodiedAIPlatformResponseBody } from './CreateEmbodiedAiplatformResponseBody';

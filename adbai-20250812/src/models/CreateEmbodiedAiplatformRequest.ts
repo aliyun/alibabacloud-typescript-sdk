@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups extends $dara.Model {
   /**
    * @example

@@ -30,6 +30,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建指标平台
+   * 
+   * @param tmpReq - CreateAgentPlatformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentPlatformResponse
+   */
+  async createAgentPlatformWithOptions(tmpReq: $_model.CreateAgentPlatformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentPlatformResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAgentPlatformShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.aiPlatformConfig)) {
+      request.aiPlatformConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aiPlatformConfig, "AiPlatformConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.aiPlatformConfigShrink)) {
+      query["AiPlatformConfig"] = request.aiPlatformConfigShrink;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgentPlatform",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentPlatformResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentPlatformResponse({}));
+  }
+
+  /**
+   * 创建指标平台
+   * 
+   * @param request - CreateAgentPlatformRequest
+   * @returns CreateAgentPlatformResponse
+   */
+  async createAgentPlatform(request: $_model.CreateAgentPlatformRequest): Promise<$_model.CreateAgentPlatformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentPlatformWithOptions(request, runtime);
+  }
+
+  /**
    * 创建具身智能平台
    * 
    * @param tmpReq - CreateEmbodiedAIPlatformRequest
