@@ -161,6 +161,7 @@ export class ListVpcEndpointsRequest extends $dara.Model {
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
    */
   serviceName?: string;
+  serviceRegionId?: string;
   /**
    * @remarks
    * The tags.
@@ -187,6 +188,7 @@ export class ListVpcEndpointsRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       serviceName: 'ServiceName',
+      serviceRegionId: 'ServiceRegionId',
       tag: 'Tag',
       vpcId: 'VpcId',
     };
@@ -205,6 +207,7 @@ export class ListVpcEndpointsRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       serviceName: 'string',
+      serviceRegionId: 'string',
       tag: { 'type': 'array', 'itemType': ListVpcEndpointsRequestTag },
       vpcId: 'string',
     };

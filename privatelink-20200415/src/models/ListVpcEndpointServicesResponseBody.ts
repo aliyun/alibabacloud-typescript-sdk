@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListVpcEndpointServicesResponseBodyServicesSupportedRegionSet extends $dara.Model {
+  regionBusinessStatus?: string;
+  regionServiceStatus?: string;
+  serviceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionBusinessStatus: 'RegionBusinessStatus',
+      regionServiceStatus: 'RegionServiceStatus',
+      serviceRegionId: 'ServiceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionBusinessStatus: 'string',
+      regionServiceStatus: 'string',
+      serviceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpcEndpointServicesResponseBodyServicesTags extends $dara.Model {
   /**
    * @remarks
@@ -215,6 +244,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
    * Interface
    */
   serviceType?: string;
+  supportedRegionSet?: ListVpcEndpointServicesResponseBodyServicesSupportedRegionSet[];
   /**
    * @remarks
    * The tags added to the resource.
@@ -251,6 +281,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
       serviceStatus: 'ServiceStatus',
       serviceSupportIPv6: 'ServiceSupportIPv6',
       serviceType: 'ServiceType',
+      supportedRegionSet: 'SupportedRegionSet',
       tags: 'Tags',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
@@ -276,12 +307,16 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
       serviceStatus: 'string',
       serviceSupportIPv6: 'boolean',
       serviceType: 'string',
+      supportedRegionSet: { 'type': 'array', 'itemType': ListVpcEndpointServicesResponseBodyServicesSupportedRegionSet },
       tags: { 'type': 'array', 'itemType': ListVpcEndpointServicesResponseBodyServicesTags },
       zoneAffinityEnabled: 'boolean',
     };
   }
 
   validate() {
+    if(Array.isArray(this.supportedRegionSet)) {
+      $dara.Model.validateArray(this.supportedRegionSet);
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

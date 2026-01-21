@@ -45,6 +45,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
    * 2022-01-02T19:11:12Z
    */
   createTime?: string;
+  crossRegionBandwidth?: number;
   /**
    * @remarks
    * The service state of the endpoint. Valid values:
@@ -125,6 +126,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
    */
   serviceName?: string;
+  serviceRegionId?: string;
   /**
    * @remarks
    * The ID of the VPC to which the endpoint belongs.
@@ -140,6 +142,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
       bandwidth: 'Bandwidth',
       connectionStatus: 'ConnectionStatus',
       createTime: 'CreateTime',
+      crossRegionBandwidth: 'CrossRegionBandwidth',
       endpointBusinessStatus: 'EndpointBusinessStatus',
       endpointDescription: 'EndpointDescription',
       endpointDomain: 'EndpointDomain',
@@ -149,6 +152,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
       requestId: 'RequestId',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceRegionId: 'ServiceRegionId',
       vpcId: 'VpcId',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
@@ -160,6 +164,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
       bandwidth: 'number',
       connectionStatus: 'string',
       createTime: 'string',
+      crossRegionBandwidth: 'number',
       endpointBusinessStatus: 'string',
       endpointDescription: 'string',
       endpointDomain: 'string',
@@ -169,6 +174,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
       requestId: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceRegionId: 'string',
       vpcId: 'string',
       zoneAffinityEnabled: 'boolean',
     };

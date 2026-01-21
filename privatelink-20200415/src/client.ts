@@ -446,6 +446,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.crossRegionBandwidth)) {
+      query["CrossRegionBandwidth"] = request.crossRegionBandwidth;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
@@ -492,6 +496,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -609,6 +617,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceSupportIPv6)) {
       query["ServiceSupportIPv6"] = request.serviceSupportIPv6;
+    }
+
+    if (!$dara.isNull(request.supportedRegionList)) {
+      query["SupportedRegionList"] = request.supportedRegionList;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -1945,6 +1957,10 @@ export default class Client extends OpenApi {
       query["ServiceName"] = request.serviceName;
     }
 
+    if (!$dara.isNull(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
     if (!$dara.isNull(request.serviceType)) {
       query["ServiceType"] = request.serviceType;
     }
@@ -2095,6 +2111,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -2492,6 +2512,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.crossRegionBandwidth)) {
+      query["CrossRegionBandwidth"] = request.crossRegionBandwidth;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
@@ -2648,6 +2672,10 @@ export default class Client extends OpenApi {
   async updateVpcEndpointServiceAttributeWithOptions(request: $_model.UpdateVpcEndpointServiceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVpcEndpointServiceAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.addSupportedRegionSet)) {
+      query["AddSupportedRegionSet"] = request.addSupportedRegionSet;
+    }
+
     if (!$dara.isNull(request.addressIpVersion)) {
       query["AddressIpVersion"] = request.addressIpVersion;
     }
@@ -2662,6 +2690,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.connectBandwidth)) {
       query["ConnectBandwidth"] = request.connectBandwidth;
+    }
+
+    if (!$dara.isNull(request.deleteSupportedRegionSet)) {
+      query["DeleteSupportedRegionSet"] = request.deleteSupportedRegionSet;
     }
 
     if (!$dara.isNull(request.dryRun)) {

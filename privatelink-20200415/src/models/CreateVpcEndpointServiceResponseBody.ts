@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateVpcEndpointServiceResponseBodySupportedRegionSet extends $dara.Model {
+  regionBusinessStatus?: string;
+  regionServiceStatus?: string;
+  serviceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionBusinessStatus: 'RegionBusinessStatus',
+      regionServiceStatus: 'RegionServiceStatus',
+      serviceRegionId: 'ServiceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionBusinessStatus: 'string',
+      regionServiceStatus: 'string',
+      serviceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -118,6 +147,7 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
    * @deprecated
    */
   serviceSupportIPv6?: boolean;
+  supportedRegionSet?: CreateVpcEndpointServiceResponseBodySupportedRegionSet[];
   /**
    * @remarks
    * Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
@@ -143,6 +173,7 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
       serviceName: 'ServiceName',
       serviceStatus: 'ServiceStatus',
       serviceSupportIPv6: 'ServiceSupportIPv6',
+      supportedRegionSet: 'SupportedRegionSet',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -161,11 +192,15 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
       serviceName: 'string',
       serviceStatus: 'string',
       serviceSupportIPv6: 'boolean',
+      supportedRegionSet: { 'type': 'array', 'itemType': CreateVpcEndpointServiceResponseBodySupportedRegionSet },
       zoneAffinityEnabled: 'boolean',
     };
   }
 
   validate() {
+    if(Array.isArray(this.supportedRegionSet)) {
+      $dara.Model.validateArray(this.supportedRegionSet);
+    }
     super.validate();
   }
 

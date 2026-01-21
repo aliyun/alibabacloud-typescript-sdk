@@ -153,6 +153,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
    * 25346073170691****
    */
   endpointOwnerId?: number;
+  endpointRegionId?: string;
   /**
    * @remarks
    * The ID of the virtual private cloud (VPC) to which the endpoint belongs.
@@ -196,6 +197,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
    * epsrv-hp3vpx8yqxblby3i****
    */
   serviceId?: string;
+  serviceRegionId?: string;
   trafficControlMode?: string;
   /**
    * @remarks
@@ -208,11 +210,13 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
       connectionStatus: 'ConnectionStatus',
       endpointId: 'EndpointId',
       endpointOwnerId: 'EndpointOwnerId',
+      endpointRegionId: 'EndpointRegionId',
       endpointVpcId: 'EndpointVpcId',
       modifiedTime: 'ModifiedTime',
       resourceGroupId: 'ResourceGroupId',
       resourceOwner: 'ResourceOwner',
       serviceId: 'ServiceId',
+      serviceRegionId: 'ServiceRegionId',
       trafficControlMode: 'TrafficControlMode',
       zones: 'Zones',
     };
@@ -224,11 +228,13 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
       connectionStatus: 'string',
       endpointId: 'string',
       endpointOwnerId: 'number',
+      endpointRegionId: 'string',
       endpointVpcId: 'string',
       modifiedTime: 'string',
       resourceGroupId: 'string',
       resourceOwner: 'boolean',
       serviceId: 'string',
+      serviceRegionId: 'string',
       trafficControlMode: 'string',
       zones: { 'type': 'array', 'itemType': ListVpcEndpointConnectionsResponseBodyConnectionsZones },
     };

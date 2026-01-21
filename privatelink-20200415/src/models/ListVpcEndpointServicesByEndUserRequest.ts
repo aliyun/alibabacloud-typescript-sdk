@@ -102,6 +102,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $dara.Model {
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
    */
   serviceName?: string;
+  serviceRegionId?: string;
   /**
    * @remarks
    * The type of the endpoint service.
@@ -125,6 +126,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceRegionId: 'ServiceRegionId',
       serviceType: 'ServiceType',
       tag: 'Tag',
     };
@@ -138,6 +140,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $dara.Model {
       resourceGroupId: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceRegionId: 'string',
       serviceType: 'string',
       tag: { 'type': 'array', 'itemType': ListVpcEndpointServicesByEndUserRequestTag },
     };

@@ -26,6 +26,7 @@ export class UpdateVpcEndpointAttributeRequest extends $dara.Model {
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
    */
   clientToken?: string;
+  crossRegionBandwidth?: number;
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -108,6 +109,7 @@ export class UpdateVpcEndpointAttributeRequest extends $dara.Model {
     return {
       addressIpVersion: 'AddressIpVersion',
       clientToken: 'ClientToken',
+      crossRegionBandwidth: 'CrossRegionBandwidth',
       dryRun: 'DryRun',
       endpointDescription: 'EndpointDescription',
       endpointId: 'EndpointId',
@@ -123,6 +125,7 @@ export class UpdateVpcEndpointAttributeRequest extends $dara.Model {
     return {
       addressIpVersion: 'string',
       clientToken: 'string',
+      crossRegionBandwidth: 'number',
       dryRun: 'boolean',
       endpointDescription: 'string',
       endpointId: 'string',

@@ -86,6 +86,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
    * 2021-09-24T18:00:07Z
    */
   createTime?: string;
+  crossRegionBandwidth?: number;
   /**
    * @remarks
    * The service state of the endpoint. Valid values:
@@ -204,6 +205,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
    */
   serviceName?: string;
+  serviceRegionId?: string;
   /**
    * @remarks
    * The tags added to the resource.
@@ -234,6 +236,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
       bandwidth: 'Bandwidth',
       connectionStatus: 'ConnectionStatus',
       createTime: 'CreateTime',
+      crossRegionBandwidth: 'CrossRegionBandwidth',
       endpointBusinessStatus: 'EndpointBusinessStatus',
       endpointDescription: 'EndpointDescription',
       endpointDomain: 'EndpointDomain',
@@ -247,6 +250,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
       resourceOwner: 'ResourceOwner',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceRegionId: 'ServiceRegionId',
       tags: 'Tags',
       vpcId: 'VpcId',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
@@ -259,6 +263,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
       bandwidth: 'number',
       connectionStatus: 'string',
       createTime: 'string',
+      crossRegionBandwidth: 'number',
       endpointBusinessStatus: 'string',
       endpointDescription: 'string',
       endpointDomain: 'string',
@@ -272,6 +277,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
       resourceOwner: 'boolean',
       serviceId: 'string',
       serviceName: 'string',
+      serviceRegionId: 'string',
       tags: { 'type': 'array', 'itemType': ListVpcEndpointsResponseBodyEndpointsTags },
       vpcId: 'string',
       zoneAffinityEnabled: 'boolean',

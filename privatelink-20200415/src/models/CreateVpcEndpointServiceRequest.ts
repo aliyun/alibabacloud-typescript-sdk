@@ -219,6 +219,7 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
    * @deprecated
    */
   serviceSupportIPv6?: boolean;
+  supportedRegionList?: string[];
   /**
    * @remarks
    * The tags to add to the resource.
@@ -248,6 +249,7 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
       serviceDescription: 'ServiceDescription',
       serviceResourceType: 'ServiceResourceType',
       serviceSupportIPv6: 'ServiceSupportIPv6',
+      supportedRegionList: 'SupportedRegionList',
       tag: 'Tag',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
@@ -266,6 +268,7 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
       serviceDescription: 'string',
       serviceResourceType: 'string',
       serviceSupportIPv6: 'boolean',
+      supportedRegionList: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': CreateVpcEndpointServiceRequestTag },
       zoneAffinityEnabled: 'boolean',
     };
@@ -274,6 +277,9 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.resource)) {
       $dara.Model.validateArray(this.resource);
+    }
+    if(Array.isArray(this.supportedRegionList)) {
+      $dara.Model.validateArray(this.supportedRegionList);
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);

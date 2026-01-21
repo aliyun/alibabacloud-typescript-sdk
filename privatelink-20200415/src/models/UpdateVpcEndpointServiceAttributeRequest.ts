@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
+  addSupportedRegionSet?: string[];
   /**
    * @remarks
    * The protocol. Valid values:
@@ -49,6 +50,7 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
    * 200
    */
   connectBandwidth?: number;
+  deleteSupportedRegionSet?: string[];
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -116,10 +118,12 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
+      addSupportedRegionSet: 'AddSupportedRegionSet',
       addressIpVersion: 'AddressIpVersion',
       autoAcceptEnabled: 'AutoAcceptEnabled',
       clientToken: 'ClientToken',
       connectBandwidth: 'ConnectBandwidth',
+      deleteSupportedRegionSet: 'DeleteSupportedRegionSet',
       dryRun: 'DryRun',
       regionId: 'RegionId',
       serviceDescription: 'ServiceDescription',
@@ -131,10 +135,12 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addSupportedRegionSet: { 'type': 'array', 'itemType': 'string' },
       addressIpVersion: 'string',
       autoAcceptEnabled: 'boolean',
       clientToken: 'string',
       connectBandwidth: 'number',
+      deleteSupportedRegionSet: { 'type': 'array', 'itemType': 'string' },
       dryRun: 'boolean',
       regionId: 'string',
       serviceDescription: 'string',
@@ -145,6 +151,12 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.addSupportedRegionSet)) {
+      $dara.Model.validateArray(this.addSupportedRegionSet);
+    }
+    if(Array.isArray(this.deleteSupportedRegionSet)) {
+      $dara.Model.validateArray(this.deleteSupportedRegionSet);
+    }
     super.validate();
   }
 

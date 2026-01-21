@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetVpcEndpointServiceAttributeResponseBodySupportedRegionSet extends $dara.Model {
+  regionBusinessStatus?: string;
+  regionServiceStatus?: string;
+  serviceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionBusinessStatus: 'RegionBusinessStatus',
+      regionServiceStatus: 'RegionServiceStatus',
+      serviceRegionId: 'ServiceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionBusinessStatus: 'string',
+      regionServiceStatus: 'string',
+      serviceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -183,6 +212,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
    * Interface
    */
   serviceType?: string;
+  supportedRegionSet?: GetVpcEndpointServiceAttributeResponseBodySupportedRegionSet[];
   /**
    * @remarks
    * Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
@@ -220,6 +250,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
       serviceStatus: 'ServiceStatus',
       serviceSupportIPv6: 'ServiceSupportIPv6',
       serviceType: 'ServiceType',
+      supportedRegionSet: 'SupportedRegionSet',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
       zones: 'Zones',
     };
@@ -246,12 +277,16 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
       serviceStatus: 'string',
       serviceSupportIPv6: 'boolean',
       serviceType: 'string',
+      supportedRegionSet: { 'type': 'array', 'itemType': GetVpcEndpointServiceAttributeResponseBodySupportedRegionSet },
       zoneAffinityEnabled: 'boolean',
       zones: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.supportedRegionSet)) {
+      $dara.Model.validateArray(this.supportedRegionSet);
+    }
     if(Array.isArray(this.zones)) {
       $dara.Model.validateArray(this.zones);
     }

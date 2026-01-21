@@ -132,6 +132,7 @@ export class CreateVpcEndpointRequest extends $dara.Model {
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
    */
   clientToken?: string;
+  crossRegionBandwidth?: number;
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -256,6 +257,7 @@ export class CreateVpcEndpointRequest extends $dara.Model {
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
    */
   serviceName?: string;
+  serviceRegionId?: string;
   /**
    * @remarks
    * The tags to add to the resource.
@@ -289,6 +291,7 @@ export class CreateVpcEndpointRequest extends $dara.Model {
     return {
       addressIpVersion: 'AddressIpVersion',
       clientToken: 'ClientToken',
+      crossRegionBandwidth: 'CrossRegionBandwidth',
       dryRun: 'DryRun',
       endpointDescription: 'EndpointDescription',
       endpointName: 'EndpointName',
@@ -300,6 +303,7 @@ export class CreateVpcEndpointRequest extends $dara.Model {
       securityGroupId: 'SecurityGroupId',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceRegionId: 'ServiceRegionId',
       tag: 'Tag',
       vpcId: 'VpcId',
       zone: 'Zone',
@@ -312,6 +316,7 @@ export class CreateVpcEndpointRequest extends $dara.Model {
     return {
       addressIpVersion: 'string',
       clientToken: 'string',
+      crossRegionBandwidth: 'number',
       dryRun: 'boolean',
       endpointDescription: 'string',
       endpointName: 'string',
@@ -323,6 +328,7 @@ export class CreateVpcEndpointRequest extends $dara.Model {
       securityGroupId: { 'type': 'array', 'itemType': 'string' },
       serviceId: 'string',
       serviceName: 'string',
+      serviceRegionId: 'string',
       tag: { 'type': 'array', 'itemType': CreateVpcEndpointRequestTag },
       vpcId: 'string',
       zone: { 'type': 'array', 'itemType': CreateVpcEndpointRequestZone },
