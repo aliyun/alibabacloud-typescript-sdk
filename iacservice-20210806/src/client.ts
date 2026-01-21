@@ -3062,6 +3062,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 支持状态文件的资源导入和移除
+   * 
+   * @param request - ManageTerraformStateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManageTerraformStateResponse
+   */
+  async manageTerraformStateWithOptions(request: $_model.ManageTerraformStateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ManageTerraformStateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.action)) {
+      body["action"] = request.action;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.identifier)) {
+      body["identifier"] = request.identifier;
+    }
+
+    if (!$dara.isNull(request.importResourceId)) {
+      body["importResourceId"] = request.importResourceId;
+    }
+
+    if (!$dara.isNull(request.resourceIdentifier)) {
+      body["resourceIdentifier"] = request.resourceIdentifier;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManageTerraformState",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/manage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ManageTerraformStateResponse>(await this.callApi(params, req, runtime), new $_model.ManageTerraformStateResponse({}));
+  }
+
+  /**
+   * 支持状态文件的资源导入和移除
+   * 
+   * @param request - ManageTerraformStateRequest
+   * @returns ManageTerraformStateResponse
+   */
+  async manageTerraformState(request: $_model.ManageTerraformStateRequest): Promise<$_model.ManageTerraformStateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.manageTerraformStateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 控制作业
    * 
    * @param request - OperateJobRequest
