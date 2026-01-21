@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDingtalkMeetingMemberEventResponseBodyData extends $dara.Model {
+  confModule?: string;
   /**
    * @example
    * event123
@@ -25,6 +26,7 @@ export class GetDingtalkMeetingMemberEventResponseBodyData extends $dara.Model {
   ts?: number;
   static names(): { [key: string]: string } {
     return {
+      confModule: 'confModule',
       eventId: 'eventId',
       eventName: 'eventName',
       eventType: 'eventType',
@@ -34,6 +36,7 @@ export class GetDingtalkMeetingMemberEventResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      confModule: 'string',
       eventId: 'string',
       eventName: 'string',
       eventType: 'string',

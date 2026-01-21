@@ -473,6 +473,7 @@ export class CreateEventResponseBody extends $dara.Model {
    */
   createTime?: string;
   description?: string;
+  encryptedId?: string;
   end?: CreateEventResponseBodyEnd;
   /**
    * @example
@@ -511,6 +512,7 @@ export class CreateEventResponseBody extends $dara.Model {
       attendees: 'attendees',
       createTime: 'createTime',
       description: 'description',
+      encryptedId: 'encryptedId',
       end: 'end',
       id: 'id',
       isAllDay: 'isAllDay',
@@ -533,6 +535,7 @@ export class CreateEventResponseBody extends $dara.Model {
       attendees: { 'type': 'array', 'itemType': CreateEventResponseBodyAttendees },
       createTime: 'string',
       description: 'string',
+      encryptedId: 'string',
       end: CreateEventResponseBodyEnd,
       id: 'string',
       isAllDay: 'boolean',
