@@ -12,6 +12,16 @@ export class ModifyUserSlsLogStorageTimeRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 1
+   */
+  logVersion?: number;
+  /**
+   * @example
+   * ap-southeast-1
+   */
+  slsRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -22,6 +32,8 @@ export class ModifyUserSlsLogStorageTimeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      logVersion: 'LogVersion',
+      slsRegionId: 'SlsRegionId',
       storageTime: 'StorageTime',
     };
   }
@@ -29,6 +41,8 @@ export class ModifyUserSlsLogStorageTimeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      logVersion: 'number',
+      slsRegionId: 'string',
       storageTime: 'number',
     };
   }

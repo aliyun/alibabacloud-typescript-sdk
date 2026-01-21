@@ -23,12 +23,18 @@ export class ModifySlsDispatchStatusRequest extends $dara.Model {
    * cn-shanghai
    */
   newRegionId?: string;
+  /**
+   * @example
+   * cn
+   */
+  site?: string;
   static names(): { [key: string]: string } {
     return {
       dispatchValue: 'DispatchValue',
       enableStatus: 'EnableStatus',
       filterKeys: 'FilterKeys',
       newRegionId: 'NewRegionId',
+      site: 'Site',
     };
   }
 
@@ -38,6 +44,7 @@ export class ModifySlsDispatchStatusRequest extends $dara.Model {
       enableStatus: 'boolean',
       filterKeys: 'string',
       newRegionId: 'string',
+      site: 'string',
     };
   }
 

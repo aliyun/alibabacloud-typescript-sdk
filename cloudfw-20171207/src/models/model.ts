@@ -36,6 +36,8 @@ export { DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalG
 export { DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic } from './DescribeAssetStatisticResponseBody';
 export { DescribeAssetStatisticResponseBodyResourceSpecStatistic } from './DescribeAssetStatisticResponseBody';
 export { DescribeAttackAppCategoryResponseBodyAppCategories } from './DescribeAttackAppCategoryResponseBody';
+export { DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList } from './DescribeBatchSlsDispatchStatusResponseBody';
+export { DescribeBatchSlsDispatchStatusResponseBodyInfoList } from './DescribeBatchSlsDispatchStatusResponseBody';
 export { DescribeBatchSlsDispatchStatusResponseBodyItemList } from './DescribeBatchSlsDispatchStatusResponseBody';
 export { DescribeCfwRiskLevelSummaryResponseBodyRiskList } from './DescribeCfwRiskLevelSummaryResponseBody';
 export { DescribeConfiguredDestinationIPResponseBodyDestinations } from './DescribeConfiguredDestinationIpresponseBody';
@@ -85,6 +87,7 @@ export { DescribeLocationInfoResponseBodyCnList } from './DescribeLocationInfoRe
 export { DescribeLocationInfoResponseBodyCnProvinceListCities } from './DescribeLocationInfoResponseBody';
 export { DescribeLocationInfoResponseBodyCnProvinceList } from './DescribeLocationInfoResponseBody';
 export { DescribeLocationInfoResponseBodyOverseasList } from './DescribeLocationInfoResponseBody';
+export { DescribeLogStoreInfoResponseBodyInfoList } from './DescribeLogStoreInfoResponseBody';
 export { DescribeNatFirewallAclGroupListResponseBodyNatFirewalls } from './DescribeNatFirewallAclGroupListResponseBody';
 export { DescribeNatFirewallControlPolicyResponseBodyPolicys } from './DescribeNatFirewallControlPolicyResponseBody';
 export { DescribeNatFirewallDropTrafficTrendResponseBodyDataList } from './DescribeNatFirewallDropTrafficTrendResponseBody';
@@ -269,6 +272,7 @@ export { BatchCopyVpcFirewallControlPolicyResponse } from './BatchCopyVpcFirewal
 export { BatchDeleteVpcFirewallControlPolicyRequest } from './BatchDeleteVpcFirewallControlPolicyRequest';
 export { BatchDeleteVpcFirewallControlPolicyResponseBody } from './BatchDeleteVpcFirewallControlPolicyResponseBody';
 export { BatchDeleteVpcFirewallControlPolicyResponse } from './BatchDeleteVpcFirewallControlPolicyResponse';
+export { ClearLogStoreStorageRequest } from './ClearLogStoreStorageRequest';
 export { ClearLogStoreStorageResponseBody } from './ClearLogStoreStorageResponseBody';
 export { ClearLogStoreStorageResponse } from './ClearLogStoreStorageResponse';
 export { CreateAckClusterConnectorRequest } from './CreateAckClusterConnectorRequest';
@@ -702,6 +706,9 @@ export { DescribePrivateDnsStatisticsResponse } from './DescribePrivateDnsStatis
 export { DescribeRegionInfoRequest } from './DescribeRegionInfoRequest';
 export { DescribeRegionInfoResponseBody } from './DescribeRegionInfoResponseBody';
 export { DescribeRegionInfoResponse } from './DescribeRegionInfoResponse';
+export { DescribeRegionResourceTypeAutoEnableRequest } from './DescribeRegionResourceTypeAutoEnableRequest';
+export { DescribeRegionResourceTypeAutoEnableResponseBody } from './DescribeRegionResourceTypeAutoEnableResponseBody';
+export { DescribeRegionResourceTypeAutoEnableResponse } from './DescribeRegionResourceTypeAutoEnableResponse';
 export { DescribeResourceTypeAutoEnableRequest } from './DescribeResourceTypeAutoEnableRequest';
 export { DescribeResourceTypeAutoEnableResponseBody } from './DescribeResourceTypeAutoEnableResponseBody';
 export { DescribeResourceTypeAutoEnableResponse } from './DescribeResourceTypeAutoEnableResponse';
@@ -1020,6 +1027,9 @@ export { ResetRuleHitCountResponse } from './ResetRuleHitCountResponse';
 export { ResetVpcFirewallRuleHitCountRequest } from './ResetVpcFirewallRuleHitCountRequest';
 export { ResetVpcFirewallRuleHitCountResponseBody } from './ResetVpcFirewallRuleHitCountResponseBody';
 export { ResetVpcFirewallRuleHitCountResponse } from './ResetVpcFirewallRuleHitCountResponse';
+export { SetAutoProtectNewAssetsRequest } from './SetAutoProtectNewAssetsRequest';
+export { SetAutoProtectNewAssetsResponseBody } from './SetAutoProtectNewAssetsResponseBody';
+export { SetAutoProtectNewAssetsResponse } from './SetAutoProtectNewAssetsResponse';
 export { SwitchSecurityProxyRequest } from './SwitchSecurityProxyRequest';
 export { SwitchSecurityProxyResponseBody } from './SwitchSecurityProxyResponseBody';
 export { SwitchSecurityProxyResponse } from './SwitchSecurityProxyResponse';

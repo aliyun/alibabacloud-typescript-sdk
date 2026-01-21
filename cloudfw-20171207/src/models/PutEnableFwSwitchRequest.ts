@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class PutEnableFwSwitchRequest extends $dara.Model {
   /**
+   * @example
+   * 4
+   */
+  ipVersion?: string;
+  /**
    * @remarks
    * The IP addresses.
    * 
@@ -24,6 +29,11 @@ export class PutEnableFwSwitchRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  /**
+   * @example
+   * 1234
+   */
+  memberUid?: string;
   /**
    * @remarks
    * The regions.
@@ -70,8 +80,10 @@ export class PutEnableFwSwitchRequest extends $dara.Model {
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      ipVersion: 'IpVersion',
       ipaddrList: 'IpaddrList',
       lang: 'Lang',
+      memberUid: 'MemberUid',
       regionList: 'RegionList',
       resourceTypeList: 'ResourceTypeList',
       sourceIp: 'SourceIp',
@@ -80,8 +92,10 @@ export class PutEnableFwSwitchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipVersion: 'string',
       ipaddrList: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
+      memberUid: 'string',
       regionList: { 'type': 'array', 'itemType': 'string' },
       resourceTypeList: { 'type': 'array', 'itemType': 'string' },
       sourceIp: 'string',

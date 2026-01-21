@@ -697,8 +697,16 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ClearLogStoreStorageResponse
    */
-  async clearLogStoreStorageWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ClearLogStoreStorageResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async clearLogStoreStorageWithOptions(request: $_model.ClearLogStoreStorageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClearLogStoreStorageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.site)) {
+      query["Site"] = request.site;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "ClearLogStoreStorage",
       version: "2017-12-07",
@@ -715,11 +723,13 @@ export default class Client extends OpenApi {
 
   /**
    * 清空防火墙日志
+   * 
+   * @param request - ClearLogStoreStorageRequest
    * @returns ClearLogStoreStorageResponse
    */
-  async clearLogStoreStorage(): Promise<$_model.ClearLogStoreStorageResponse> {
+  async clearLogStoreStorage(request: $_model.ClearLogStoreStorageRequest): Promise<$_model.ClearLogStoreStorageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.clearLogStoreStorageWithOptions(runtime);
+    return await this.clearLogStoreStorageWithOptions(request, runtime);
   }
 
   /**
@@ -9499,6 +9509,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询地域和资产类型引流设置
+   * 
+   * @param request - DescribeRegionResourceTypeAutoEnableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionResourceTypeAutoEnableResponse
+   */
+  async describeRegionResourceTypeAutoEnableWithOptions(request: $_model.DescribeRegionResourceTypeAutoEnableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionResourceTypeAutoEnableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegionResourceTypeAutoEnable",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRegionResourceTypeAutoEnableResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionResourceTypeAutoEnableResponse({}));
+  }
+
+  /**
+   * 查询地域和资产类型引流设置
+   * 
+   * @param request - DescribeRegionResourceTypeAutoEnableRequest
+   * @returns DescribeRegionResourceTypeAutoEnableResponse
+   */
+  async describeRegionResourceTypeAutoEnable(request: $_model.DescribeRegionResourceTypeAutoEnableRequest): Promise<$_model.DescribeRegionResourceTypeAutoEnableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRegionResourceTypeAutoEnableWithOptions(request, runtime);
+  }
+
+  /**
    * 查询资产类型默认引流
    * 
    * @param request - DescribeResourceTypeAutoEnableRequest
@@ -14894,6 +14946,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
     if (!$dara.isNull(request.resourceTypeAutoEnable)) {
       query["ResourceTypeAutoEnable"] = request.resourceTypeAutoEnable;
     }
@@ -15000,6 +15056,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.newRegionId)) {
       query["NewRegionId"] = request.newRegionId;
+    }
+
+    if (!$dara.isNull(request.site)) {
+      query["Site"] = request.site;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -15346,6 +15406,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logVersion)) {
+      query["LogVersion"] = request.logVersion;
+    }
+
+    if (!$dara.isNull(request.slsRegionId)) {
+      query["SlsRegionId"] = request.slsRegionId;
     }
 
     if (!$dara.isNull(request.storageTime)) {
@@ -16123,12 +16191,20 @@ export default class Client extends OpenApi {
   async putDisableFwSwitchWithOptions(request: $_model.PutDisableFwSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutDisableFwSwitchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
     if (!$dara.isNull(request.ipaddrList)) {
       query["IpaddrList"] = request.ipaddrList;
     }
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
     }
 
     if (!$dara.isNull(request.regionList)) {
@@ -16251,12 +16327,20 @@ export default class Client extends OpenApi {
   async putEnableFwSwitchWithOptions(request: $_model.PutEnableFwSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutEnableFwSwitchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
     if (!$dara.isNull(request.ipaddrList)) {
       query["IpaddrList"] = request.ipaddrList;
     }
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
     }
 
     if (!$dara.isNull(request.regionList)) {
@@ -16542,6 +16626,56 @@ export default class Client extends OpenApi {
   async resetVpcFirewallRuleHitCount(request: $_model.ResetVpcFirewallRuleHitCountRequest): Promise<$_model.ResetVpcFirewallRuleHitCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetVpcFirewallRuleHitCountWithOptions(request, runtime);
+  }
+
+  /**
+   * 开启自动保护新入资产
+   * 
+   * @param request - SetAutoProtectNewAssetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAutoProtectNewAssetsResponse
+   */
+  async setAutoProtectNewAssetsWithOptions(request: $_model.SetAutoProtectNewAssetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAutoProtectNewAssetsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoProtect)) {
+      query["AutoProtect"] = request.autoProtect;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAutoProtectNewAssets",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAutoProtectNewAssetsResponse>(await this.callApi(params, req, runtime), new $_model.SetAutoProtectNewAssetsResponse({}));
+  }
+
+  /**
+   * 开启自动保护新入资产
+   * 
+   * @param request - SetAutoProtectNewAssetsRequest
+   * @returns SetAutoProtectNewAssetsResponse
+   */
+  async setAutoProtectNewAssets(request: $_model.SetAutoProtectNewAssetsRequest): Promise<$_model.SetAutoProtectNewAssetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAutoProtectNewAssetsWithOptions(request, runtime);
   }
 
   /**
