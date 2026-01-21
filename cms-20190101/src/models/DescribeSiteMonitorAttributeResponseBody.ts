@@ -1423,6 +1423,11 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    */
   port?: number;
   /**
+   * @example
+   * cert.pem
+   */
+  privateCrtFileName?: string;
+  /**
    * @remarks
    * The protocol that is used to send the request.
    * 
@@ -1543,6 +1548,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * The traffic hijacking whitelist. When redirection occurs, if the URL of the resource loaded by the browser does not match any expression in the whitelist, traffic hijacking is considered to have occurred.
    */
   trafficHijackElementWhitelist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist;
+  usePrivateCrt?: boolean;
   /**
    * @remarks
    * The username of the FTP, SMTP, or POP3 protocol.
@@ -1599,6 +1605,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       pingPort: 'ping_port',
       pingType: 'ping_type',
       port: 'port',
+      privateCrtFileName: 'private_crt_file_name',
       protocol: 'protocol',
       quicEnabled: 'quic_enabled',
       quicTarget: 'quic_target',
@@ -1618,6 +1625,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       trafficHijackElementBlacklist: 'traffic_hijack_element_blacklist',
       trafficHijackElementCount: 'traffic_hijack_element_count',
       trafficHijackElementWhitelist: 'traffic_hijack_element_whitelist',
+      usePrivateCrt: 'use_private_crt',
       username: 'username',
       waitTimeAfterCompletion: 'waitTime_after_completion',
     };
@@ -1663,6 +1671,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       pingPort: 'number',
       pingType: 'string',
       port: 'number',
+      privateCrtFileName: 'string',
       protocol: 'string',
       quicEnabled: 'boolean',
       quicTarget: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonQuicTarget,
@@ -1682,6 +1691,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       trafficHijackElementBlacklist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist,
       trafficHijackElementCount: 'number',
       trafficHijackElementWhitelist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist,
+      usePrivateCrt: 'boolean',
       username: 'string',
       waitTimeAfterCompletion: 'number',
     };
