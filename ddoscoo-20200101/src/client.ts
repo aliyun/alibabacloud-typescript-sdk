@@ -7594,6 +7594,10 @@ export default class Client extends OpenApi {
       query["Domains"] = request.domains;
     }
 
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }

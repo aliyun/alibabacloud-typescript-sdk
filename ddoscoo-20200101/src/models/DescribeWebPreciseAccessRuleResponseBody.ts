@@ -88,6 +88,7 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRule
    * The match conditions.
    */
   conditionList?: DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleListConditionList[];
+  expirePeriod?: number;
   /**
    * @remarks
    * The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. The value **0** indicates that the whitelist takes effect all the time.
@@ -119,6 +120,7 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRule
     return {
       action: 'Action',
       conditionList: 'ConditionList',
+      expirePeriod: 'ExpirePeriod',
       expires: 'Expires',
       name: 'Name',
       owner: 'Owner',
@@ -129,6 +131,7 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRule
     return {
       action: 'string',
       conditionList: { 'type': 'array', 'itemType': DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleListConditionList },
+      expirePeriod: 'number',
       expires: 'number',
       name: 'string',
       owner: 'string',

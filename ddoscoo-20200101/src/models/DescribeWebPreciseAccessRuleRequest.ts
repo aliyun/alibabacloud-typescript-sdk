@@ -15,6 +15,7 @@ export class DescribeWebPreciseAccessRuleRequest extends $dara.Model {
    * www.aliyun.com
    */
   domains?: string[];
+  owner?: string;
   /**
    * @remarks
    * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
@@ -26,6 +27,7 @@ export class DescribeWebPreciseAccessRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       domains: 'Domains',
+      owner: 'Owner',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -33,6 +35,7 @@ export class DescribeWebPreciseAccessRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       domains: { 'type': 'array', 'itemType': 'string' },
+      owner: 'string',
       resourceGroupId: 'string',
     };
   }
