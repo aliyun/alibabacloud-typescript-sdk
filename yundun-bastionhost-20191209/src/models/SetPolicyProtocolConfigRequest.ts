@@ -43,6 +43,16 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model
    */
   diskRedirection?: string;
   /**
+   * @example
+   * Enable
+   */
+  diskRedirectionDownload?: string;
+  /**
+   * @example
+   * Enable
+   */
+  diskRedirectionUpload?: string;
+  /**
    * @remarks
    * Specifies whether to enable keyboard operation recording. Valid values:
    * 
@@ -60,6 +70,8 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model
       clipboardDownload: 'ClipboardDownload',
       clipboardUpload: 'ClipboardUpload',
       diskRedirection: 'DiskRedirection',
+      diskRedirectionDownload: 'DiskRedirectionDownload',
+      diskRedirectionUpload: 'DiskRedirectionUpload',
       recordKeyboard: 'RecordKeyboard',
     };
   }
@@ -69,6 +81,8 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model
       clipboardDownload: 'string',
       clipboardUpload: 'string',
       diskRedirection: 'string',
+      diskRedirectionDownload: 'string',
+      diskRedirectionUpload: 'string',
       recordKeyboard: 'string',
     };
   }
@@ -83,6 +97,16 @@ export class SetPolicyProtocolConfigRequestProtocolConfigRDP extends $dara.Model
 }
 
 export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model {
+  /**
+   * @example
+   * Enable
+   */
+  allowDirectTcp?: string;
+  /**
+   * @example
+   * Enable
+   */
+  allowTcpForwarding?: string;
   /**
    * @remarks
    * Specifies whether to enable remote command execution. Valid values:
@@ -227,6 +251,8 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
   x11Forwarding?: string;
   static names(): { [key: string]: string } {
     return {
+      allowDirectTcp: 'AllowDirectTcp',
+      allowTcpForwarding: 'AllowTcpForwarding',
       execCommand: 'ExecCommand',
       SFTPChannel: 'SFTPChannel',
       SFTPDownloadFile: 'SFTPDownloadFile',
@@ -242,6 +268,8 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      allowDirectTcp: 'string',
+      allowTcpForwarding: 'string',
       execCommand: 'string',
       SFTPChannel: 'string',
       SFTPDownloadFile: 'string',

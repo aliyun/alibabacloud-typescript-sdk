@@ -102,6 +102,9 @@ export class GenerateAssetOperationTokenRequest extends $dara.Model {
    * 
    * @example
    * SID
+   * 
+   * **if can be null:**
+   * true
    */
   loginAttribute?: string;
   /**

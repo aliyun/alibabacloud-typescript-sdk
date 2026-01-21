@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNetworkDomainRequest extends $dara.Model {
+  checkProxyState?: string;
   /**
    * @remarks
    * The bastion host ID.
@@ -37,6 +38,7 @@ export class GetNetworkDomainRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      checkProxyState: 'CheckProxyState',
       instanceId: 'InstanceId',
       networkDomainId: 'NetworkDomainId',
       regionId: 'RegionId',
@@ -45,6 +47,7 @@ export class GetNetworkDomainRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      checkProxyState: 'string',
       instanceId: 'string',
       networkDomainId: 'string',
       regionId: 'string',

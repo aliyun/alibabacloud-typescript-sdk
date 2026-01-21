@@ -1064,6 +1064,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建导出配置的任务
+   * 
    * @param request - CreateExportConfigJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateExportConfigJobResponse
@@ -1097,6 +1099,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建导出配置的任务
+   * 
    * @param request - CreateExportConfigJobRequest
    * @returns CreateExportConfigJobResponse
    */
@@ -1452,6 +1456,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建运维审批工单
+   * 
    * @param request - CreateOperationTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateOperationTicketResponse
@@ -1513,6 +1519,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建运维审批工单
+   * 
    * @param request - CreateOperationTicketRequest
    * @returns CreateOperationTicketResponse
    */
@@ -3474,6 +3482,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取导出配置任务进度
+   * 
    * @param request - GetExportConfigJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetExportConfigJobResponse
@@ -3511,6 +3521,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取导出配置任务进度
+   * 
    * @param request - GetExportConfigJobRequest
    * @returns GetExportConfigJobResponse
    */
@@ -3824,6 +3836,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取堡垒机实例存储信息
+   * 
    * @param request - GetInstanceStoreInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceStoreInfoResponse
@@ -3857,6 +3871,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取堡垒机实例存储信息
+   * 
    * @param request - GetInstanceStoreInfoRequest
    * @returns GetInstanceStoreInfoResponse
    */
@@ -3931,6 +3947,10 @@ export default class Client extends OpenApi {
   async getNetworkDomainWithOptions(request: $_model.GetNetworkDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNetworkDomainResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.checkProxyState)) {
+      query["CheckProxyState"] = request.checkProxyState;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
