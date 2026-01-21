@@ -130,12 +130,19 @@ export default class Client extends OpenApi {
       query["ServerGroupId"] = request.serverGroupId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.servers)) {
-      query["Servers"] = request.servers;
+      bodyFlat["Servers"] = request.servers;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "AddServersToServerGroup",
@@ -4157,10 +4164,6 @@ export default class Client extends OpenApi {
   async replaceServersInServerGroupWithOptions(request: $_model.ReplaceServersInServerGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReplaceServersInServerGroupResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.addedServers)) {
-      query["AddedServers"] = request.addedServers;
-    }
-
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -4177,8 +4180,19 @@ export default class Client extends OpenApi {
       query["ServerGroupId"] = request.serverGroupId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addedServers)) {
+      bodyFlat["AddedServers"] = request.addedServers;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "ReplaceServersInServerGroup",
@@ -5530,12 +5544,19 @@ export default class Client extends OpenApi {
       query["ServerGroupId"] = request.serverGroupId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.servers)) {
-      query["Servers"] = request.servers;
+      bodyFlat["Servers"] = request.servers;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateServerGroupServersAttribute",
