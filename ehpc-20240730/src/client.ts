@@ -456,6 +456,10 @@ export default class Client extends OpenApi {
       query["KeepAlive"] = request.keepAlive;
     }
 
+    if (!$dara.isNull(request.minCount)) {
+      query["MinCount"] = request.minCount;
+    }
+
     if (!$dara.isNull(request.queueName)) {
       query["QueueName"] = request.queueName;
     }

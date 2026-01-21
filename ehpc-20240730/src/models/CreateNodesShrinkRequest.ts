@@ -75,6 +75,11 @@ export class CreateNodesShrinkRequest extends $dara.Model {
    */
   keepAlive?: string;
   /**
+   * @example
+   * 10
+   */
+  minCount?: number;
+  /**
    * @remarks
    * The name of the queue for which you want to create compute nodes.
    * 
@@ -117,6 +122,7 @@ export class CreateNodesShrinkRequest extends $dara.Model {
       hostnameSuffix: 'HostnameSuffix',
       hostnamesShrink: 'Hostnames',
       keepAlive: 'KeepAlive',
+      minCount: 'MinCount',
       queueName: 'QueueName',
       ramRole: 'RamRole',
       reservedNodePoolId: 'ReservedNodePoolId',
@@ -135,6 +141,7 @@ export class CreateNodesShrinkRequest extends $dara.Model {
       hostnameSuffix: 'string',
       hostnamesShrink: 'string',
       keepAlive: 'string',
+      minCount: 'number',
       queueName: 'string',
       ramRole: 'string',
       reservedNodePoolId: 'string',
