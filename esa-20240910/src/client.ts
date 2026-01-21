@@ -13684,6 +13684,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询站点回源客户端证书列表
+   * 
+   * @param request - ListSiteOriginClientCertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSiteOriginClientCertificatesResponse
+   */
+  async listSiteOriginClientCertificatesWithOptions(request: $_model.ListSiteOriginClientCertificatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSiteOriginClientCertificatesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSiteOriginClientCertificates",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSiteOriginClientCertificatesResponse>(await this.callApi(params, req, runtime), new $_model.ListSiteOriginClientCertificatesResponse({}));
+  }
+
+  /**
+   * 查询站点回源客户端证书列表
+   * 
+   * @param request - ListSiteOriginClientCertificatesRequest
+   * @returns ListSiteOriginClientCertificatesResponse
+   */
+  async listSiteOriginClientCertificates(request: $_model.ListSiteOriginClientCertificatesRequest): Promise<$_model.ListSiteOriginClientCertificatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSiteOriginClientCertificatesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the edge function routes for a website.
    * 
    * @param request - ListSiteRoutesRequest

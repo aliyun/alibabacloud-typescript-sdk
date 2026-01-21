@@ -261,6 +261,7 @@ export { ListRoutineRoutesResponseBodyConfigs } from './ListRoutineRoutesRespons
 export { ListScheduledPreloadExecutionsResponseBodyExecutions } from './ListScheduledPreloadExecutionsResponseBody';
 export { ListScheduledPreloadJobsResponseBodyJobs } from './ListScheduledPreloadJobsResponseBody';
 export { ListSiteDeliveryTasksResponseBodyTasks } from './ListSiteDeliveryTasksResponseBody';
+export { ListSiteOriginClientCertificatesResponseBodyResult } from './ListSiteOriginClientCertificatesResponseBody';
 export { ListSiteRoutesResponseBodyConfigs } from './ListSiteRoutesResponseBody';
 export { ListSitesRequestTagFilter } from './ListSitesRequest';
 export { ListSitesResponseBodySites } from './ListSitesResponseBody';
@@ -1159,6 +1160,9 @@ export { ListScheduledPreloadJobsResponse } from './ListScheduledPreloadJobsResp
 export { ListSiteDeliveryTasksRequest } from './ListSiteDeliveryTasksRequest';
 export { ListSiteDeliveryTasksResponseBody } from './ListSiteDeliveryTasksResponseBody';
 export { ListSiteDeliveryTasksResponse } from './ListSiteDeliveryTasksResponse';
+export { ListSiteOriginClientCertificatesRequest } from './ListSiteOriginClientCertificatesRequest';
+export { ListSiteOriginClientCertificatesResponseBody } from './ListSiteOriginClientCertificatesResponseBody';
+export { ListSiteOriginClientCertificatesResponse } from './ListSiteOriginClientCertificatesResponse';
 export { ListSiteRoutesRequest } from './ListSiteRoutesRequest';
 export { ListSiteRoutesResponseBody } from './ListSiteRoutesResponseBody';
 export { ListSiteRoutesResponse } from './ListSiteRoutesResponse';
