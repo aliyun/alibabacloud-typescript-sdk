@@ -257,6 +257,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
    * global
    */
   clipboardScope?: string;
+  clipboardSizeUnit?: string;
   /**
    * @remarks
    * The maximum number of characters allowed when copying to the clipboard.
@@ -315,6 +316,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
       clipboard: 'Clipboard',
       clipboardReadLimit: 'ClipboardReadLimit',
       clipboardScope: 'ClipboardScope',
+      clipboardSizeUnit: 'ClipboardSizeUnit',
       clipboardWriteLimit: 'ClipboardWriteLimit',
       fileClipboard: 'FileClipboard',
       richTextClipboard: 'RichTextClipboard',
@@ -327,6 +329,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
       clipboard: 'string',
       clipboardReadLimit: 'number',
       clipboardScope: 'string',
+      clipboardSizeUnit: 'string',
       clipboardWriteLimit: 'number',
       fileClipboard: 'string',
       richTextClipboard: 'string',
