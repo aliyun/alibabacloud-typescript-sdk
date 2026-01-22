@@ -656,6 +656,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询作业输出
+   * 
+   * @param request - DescribeJobResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeJobResultsResponse
+   */
+  async describeJobResultsWithOptions(request: $_model.DescribeJobResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeJobResultsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.arrayIndex)) {
+      query["ArrayIndex"] = request.arrayIndex;
+    }
+
+    if (!$dara.isNull(request.contentEncoding)) {
+      query["ContentEncoding"] = request.contentEncoding;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.limitBytes)) {
+      query["LimitBytes"] = request.limitBytes;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeJobResults",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeJobResultsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeJobResultsResponse({}));
+  }
+
+  /**
+   * 查询作业输出
+   * 
+   * @param request - DescribeJobResultsRequest
+   * @returns DescribeJobResultsResponse
+   */
+  async describeJobResults(request: $_model.DescribeJobResultsRequest): Promise<$_model.DescribeJobResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeJobResultsWithOptions(request, runtime);
+  }
+
+  /**
    * Querying Execution Plan Details
    * 
    * @param request - GetActionPlanRequest
