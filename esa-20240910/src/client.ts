@@ -200,7 +200,19 @@ export default class Client extends OpenApi {
    */
   async applyCertificateWithOptions(request: $_model.ApplyCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyCertificateResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.domains)) {
+      query["Domains"] = request.domains;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -209,7 +221,7 @@ export default class Client extends OpenApi {
       version: "2024-09-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -8568,7 +8580,15 @@ export default class Client extends OpenApi {
    */
   async getCertificateWithOptions(request: $_model.GetCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCertificateResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8577,7 +8597,7 @@ export default class Client extends OpenApi {
       version: "2024-09-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -11824,7 +11844,27 @@ export default class Client extends OpenApi {
    */
   async listCertificatesWithOptions(request: $_model.ListCertificatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCertificatesResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.validOnly)) {
+      query["ValidOnly"] = request.validOnly;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11833,7 +11873,7 @@ export default class Client extends OpenApi {
       version: "2024-09-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -11862,7 +11902,23 @@ export default class Client extends OpenApi {
    */
   async listCertificatesByRecordWithOptions(request: $_model.ListCertificatesByRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCertificatesByRecordResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!$dara.isNull(request.recordName)) {
+      query["RecordName"] = request.recordName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.validOnly)) {
+      query["ValidOnly"] = request.validOnly;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11871,7 +11927,7 @@ export default class Client extends OpenApi {
       version: "2024-09-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -15727,6 +15783,10 @@ export default class Client extends OpenApi {
   async setCertificateWithOptions(request: $_model.SetCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetCertificateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.keyServerId)) {
+      query["KeyServerId"] = request.keyServerId;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }

@@ -150,6 +150,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
    * DigiCert Global Root CA
    */
   issuerCN?: string;
+  keyServerId?: string;
   /**
    * @remarks
    * Certificate name.
@@ -250,6 +251,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
       id: 'Id',
       issuer: 'Issuer',
       issuerCN: 'IssuerCN',
+      keyServerId: 'KeyServerId',
       name: 'Name',
       notAfter: 'NotAfter',
       notBefore: 'NotBefore',
@@ -276,6 +278,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
       id: 'string',
       issuer: 'string',
       issuerCN: 'string',
+      keyServerId: 'string',
       name: 'string',
       notAfter: 'string',
       notBefore: 'string',

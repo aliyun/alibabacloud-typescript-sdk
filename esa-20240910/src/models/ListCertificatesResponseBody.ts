@@ -150,6 +150,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
    * GlobalSign Organization Validation CA - SHA256 - G3
    */
   issuerCN?: string;
+  keyServerId?: string;
   /**
    * @remarks
    * The certificate name.
@@ -262,6 +263,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
       id: 'Id',
       issuer: 'Issuer',
       issuerCN: 'IssuerCN',
+      keyServerId: 'KeyServerId',
       name: 'Name',
       notAfter: 'NotAfter',
       notBefore: 'NotBefore',
@@ -288,6 +290,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
       id: 'string',
       issuer: 'string',
       issuerCN: 'string',
+      keyServerId: 'string',
       name: 'string',
       notAfter: 'string',
       notBefore: 'string',

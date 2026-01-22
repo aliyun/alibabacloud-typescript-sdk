@@ -59,6 +59,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
    * GlobalSign Organization Validation CA - SHA256 - G3
    */
   issuerCN?: string;
+  keyServerId?: string;
   /**
    * @remarks
    * The certificate name.
@@ -156,6 +157,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
       id: 'Id',
       issuer: 'Issuer',
       issuerCN: 'IssuerCN',
+      keyServerId: 'KeyServerId',
       name: 'Name',
       notAfter: 'NotAfter',
       notBefore: 'NotBefore',
@@ -179,6 +181,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
       id: 'string',
       issuer: 'string',
       issuerCN: 'string',
+      keyServerId: 'string',
       name: 'string',
       notAfter: 'string',
       notBefore: 'string',

@@ -27,6 +27,7 @@ export class SetCertificateRequest extends $dara.Model {
    * 30001303
    */
   id?: string;
+  keyServerId?: string;
   /**
    * @remarks
    * The certificate name.
@@ -81,6 +82,7 @@ export class SetCertificateRequest extends $dara.Model {
       casId: 'CasId',
       certificate: 'Certificate',
       id: 'Id',
+      keyServerId: 'KeyServerId',
       name: 'Name',
       ownerId: 'OwnerId',
       privateKey: 'PrivateKey',
@@ -96,6 +98,7 @@ export class SetCertificateRequest extends $dara.Model {
       casId: 'number',
       certificate: 'string',
       id: 'string',
+      keyServerId: 'string',
       name: 'string',
       ownerId: 'number',
       privateKey: 'string',
