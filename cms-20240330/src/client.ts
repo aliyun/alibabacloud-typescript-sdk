@@ -281,6 +281,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Webhook
+   * 
+   * @param request - CreateAlertWebhookRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlertWebhookResponse
+   */
+  async createAlertWebhookWithOptions(request: $_model.CreateAlertWebhookRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertWebhookResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentType)) {
+      body["contentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.headers)) {
+      body["headers"] = request.headers;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.method)) {
+      body["method"] = request.method;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    if (!$dara.isNull(request.webhookId)) {
+      body["webhookId"] = request.webhookId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAlertWebhook",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/webhook`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAlertWebhookResponse>(await this.callApi(params, req, runtime), new $_model.CreateAlertWebhookResponse({}));
+  }
+
+  /**
+   * 创建Webhook
+   * 
+   * @param request - CreateAlertWebhookRequest
+   * @returns CreateAlertWebhookResponse
+   */
+  async createAlertWebhook(request: $_model.CreateAlertWebhookRequest): Promise<$_model.CreateAlertWebhookResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAlertWebhookWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建业务链路
    * 
    * @param request - CreateBizTraceRequest
@@ -1244,6 +1313,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+  }
+
+  /**
+   * 删除Webhook
+   * 
+   * @param tmpReq - DeleteAlertWebhooksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlertWebhooksResponse
+   */
+  async deleteAlertWebhooksWithOptions(tmpReq: $_model.DeleteAlertWebhooksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertWebhooksResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAlertWebhooksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.webhookIds)) {
+      request.webhookIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.webhookIds, "webhookIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.webhookIdsShrink)) {
+      query["webhookIds"] = request.webhookIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAlertWebhooks",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/webhooks`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAlertWebhooksResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAlertWebhooksResponse({}));
+  }
+
+  /**
+   * 删除Webhook
+   * 
+   * @param request - DeleteAlertWebhooksRequest
+   * @returns DeleteAlertWebhooksResponse
+   */
+  async deleteAlertWebhooks(request: $_model.DeleteAlertWebhooksRequest): Promise<$_model.DeleteAlertWebhooksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertWebhooksWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3157,6 +3277,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Webhook
+   * 
+   * @param tmpReq - ListAlertWebhooksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertWebhooksResponse
+   */
+  async listAlertWebhooksWithOptions(tmpReq: $_model.ListAlertWebhooksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertWebhooksResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAlertWebhooksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.webhookIds)) {
+      request.webhookIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.webhookIds, "webhookIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.webhookIdsShrink)) {
+      query["webhookIds"] = request.webhookIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAlertWebhooks",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/webhooks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAlertWebhooksResponse>(await this.callApi(params, req, runtime), new $_model.ListAlertWebhooksResponse({}));
+  }
+
+  /**
+   * 查询Webhook
+   * 
+   * @param request - ListAlertWebhooksRequest
+   * @returns ListAlertWebhooksResponse
+   */
+  async listAlertWebhooks(request: $_model.ListAlertWebhooksRequest): Promise<$_model.ListAlertWebhooksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlertWebhooksWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 业务链路列表
    * 
    * @param request - ListBizTracesRequest
@@ -4696,6 +4879,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAggTaskGroupStatusWithOptions(instanceId, groupId, request, headers, runtime);
+  }
+
+  /**
+   * 更新Webhook
+   * 
+   * @param request - UpdateAlertWebhookRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertWebhookResponse
+   */
+  async updateAlertWebhookWithOptions(webhookId: string, request: $_model.UpdateAlertWebhookRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertWebhookResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentType)) {
+      body["contentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.headers)) {
+      body["headers"] = request.headers;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.method)) {
+      body["method"] = request.method;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlertWebhook",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/webhook/${$dara.URL.percentEncode(webhookId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertWebhookResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertWebhookResponse({}));
+  }
+
+  /**
+   * 更新Webhook
+   * 
+   * @param request - UpdateAlertWebhookRequest
+   * @returns UpdateAlertWebhookResponse
+   */
+  async updateAlertWebhook(webhookId: string, request: $_model.UpdateAlertWebhookRequest): Promise<$_model.UpdateAlertWebhookResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertWebhookWithOptions(webhookId, request, headers, runtime);
   }
 
   /**
