@@ -27,6 +27,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
    * false
    */
   passwordResetRequired?: boolean;
+  passwordStatus?: string;
   /**
    * @remarks
    * Indicates whether to enable password-based logons to the console.
@@ -56,6 +57,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
       autoDisableLoginStatus: 'AutoDisableLoginStatus',
       MFABindRequired: 'MFABindRequired',
       passwordResetRequired: 'PasswordResetRequired',
+      passwordStatus: 'PasswordStatus',
       status: 'Status',
       updateDate: 'UpdateDate',
       userPrincipalName: 'UserPrincipalName',
@@ -67,6 +69,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
       autoDisableLoginStatus: 'string',
       MFABindRequired: 'boolean',
       passwordResetRequired: 'boolean',
+      passwordStatus: 'string',
       status: 'string',
       updateDate: 'string',
       userPrincipalName: 'string',

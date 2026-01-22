@@ -108,6 +108,8 @@ export class SetSecurityPreferenceShrinkRequest extends $dara.Model {
    * adaptive
    */
   MFAOperationForLogin?: string;
+  maxIdleDaysForAccessKeys?: number;
+  maxIdleDaysForUsers?: number;
   /**
    * @remarks
    * Specifies whether to enable MFA for RAM users who initiated unusual logons. Valid values:
@@ -137,6 +139,8 @@ export class SetSecurityPreferenceShrinkRequest extends $dara.Model {
       loginNetworkMasks: 'LoginNetworkMasks',
       loginSessionDuration: 'LoginSessionDuration',
       MFAOperationForLogin: 'MFAOperationForLogin',
+      maxIdleDaysForAccessKeys: 'MaxIdleDaysForAccessKeys',
+      maxIdleDaysForUsers: 'MaxIdleDaysForUsers',
       operationForRiskLogin: 'OperationForRiskLogin',
       verificationTypesShrink: 'VerificationTypes',
     };
@@ -153,6 +157,8 @@ export class SetSecurityPreferenceShrinkRequest extends $dara.Model {
       loginNetworkMasks: 'string',
       loginSessionDuration: 'number',
       MFAOperationForLogin: 'string',
+      maxIdleDaysForAccessKeys: 'number',
+      maxIdleDaysForUsers: 'number',
       operationForRiskLogin: 'string',
       verificationTypesShrink: 'string',
     };

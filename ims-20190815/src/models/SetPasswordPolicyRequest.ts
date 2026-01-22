@@ -14,6 +14,7 @@ export class SetPasswordPolicyRequest extends $dara.Model {
    * false
    */
   hardExpire?: boolean;
+  initialPasswordAge?: number;
   /**
    * @remarks
    * The maximum number of password retries. If you enter the wrong passwords for the specified consecutive times, the account is locked for one hour.
@@ -130,6 +131,7 @@ export class SetPasswordPolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       hardExpire: 'HardExpire',
+      initialPasswordAge: 'InitialPasswordAge',
       maxLoginAttemps: 'MaxLoginAttemps',
       maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
@@ -146,6 +148,7 @@ export class SetPasswordPolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       hardExpire: 'boolean',
+      initialPasswordAge: 'number',
       maxLoginAttemps: 'number',
       maxPasswordAge: 'number',
       minimumPasswordDifferentCharacter: 'number',

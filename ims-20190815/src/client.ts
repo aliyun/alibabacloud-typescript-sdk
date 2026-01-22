@@ -3795,6 +3795,10 @@ export default class Client extends OpenApi {
       query["HardExpire"] = request.hardExpire;
     }
 
+    if (!$dara.isNull(request.initialPasswordAge)) {
+      query["InitialPasswordAge"] = request.initialPasswordAge;
+    }
+
     if (!$dara.isNull(request.maxLoginAttemps)) {
       query["MaxLoginAttemps"] = request.maxLoginAttemps;
     }
@@ -3917,6 +3921,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.MFAOperationForLogin)) {
       query["MFAOperationForLogin"] = request.MFAOperationForLogin;
+    }
+
+    if (!$dara.isNull(request.maxIdleDaysForAccessKeys)) {
+      query["MaxIdleDaysForAccessKeys"] = request.maxIdleDaysForAccessKeys;
+    }
+
+    if (!$dara.isNull(request.maxIdleDaysForUsers)) {
+      query["MaxIdleDaysForUsers"] = request.maxIdleDaysForUsers;
     }
 
     if (!$dara.isNull(request.operationForRiskLogin)) {

@@ -11,6 +11,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
    * false
    */
   hardExpire?: boolean;
+  initialPasswordAge?: number;
   /**
    * @remarks
    * The maximum number of password retries.
@@ -94,6 +95,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       hardExpire: 'HardExpire',
+      initialPasswordAge: 'InitialPasswordAge',
       maxLoginAttemps: 'MaxLoginAttemps',
       maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
@@ -110,6 +112,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       hardExpire: 'boolean',
+      initialPasswordAge: 'number',
       maxLoginAttemps: 'number',
       maxPasswordAge: 'number',
       minimumPasswordDifferentCharacter: 'number',

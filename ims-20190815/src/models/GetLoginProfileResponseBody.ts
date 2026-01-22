@@ -41,6 +41,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
    * false
    */
   passwordResetRequired?: boolean;
+  passwordStatus?: string;
   /**
    * @remarks
    * Indicates whether console logon is enabled. Valid values:
@@ -74,6 +75,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
       lastLoginTime: 'LastLoginTime',
       MFABindRequired: 'MFABindRequired',
       passwordResetRequired: 'PasswordResetRequired',
+      passwordStatus: 'PasswordStatus',
       status: 'Status',
       updateDate: 'UpdateDate',
       userPrincipalName: 'UserPrincipalName',
@@ -86,6 +88,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
       lastLoginTime: 'string',
       MFABindRequired: 'boolean',
       passwordResetRequired: 'boolean',
+      passwordStatus: 'string',
       status: 'string',
       updateDate: 'string',
       userPrincipalName: 'string',
