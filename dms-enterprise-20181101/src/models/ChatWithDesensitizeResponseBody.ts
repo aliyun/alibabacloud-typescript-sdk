@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChatWithDesensitizeResponseBodyDataChoicesMessage extends $dara.Model {
   /**
+   * @remarks
+   * The content of the model\\"s response.
+   * 
    * @example
    * 你好呀！
    */
   content?: string;
   /**
+   * @remarks
+   * The internal reasoning content of the model.
+   * 
    * @example
    * 嗯，用户发了个“你好”，看起来是想打招呼...
    */
   reasoningContent?: string;
   /**
+   * @remarks
+   * Message role.
+   * 
    * @example
    * system
    */
@@ -45,15 +54,25 @@ export class ChatWithDesensitizeResponseBodyDataChoicesMessage extends $dara.Mod
 
 export class ChatWithDesensitizeResponseBodyDataChoices extends $dara.Model {
   /**
+   * @remarks
+   * Finish reason: ● stop: The model reached a natural stop point or a specified stop sequence. ● length: Generation ended because the maximum number of tokens was reached. ● tool_calls: The model stopped because it needs to call a tool to proceed.
+   * 
    * @example
    * stop
    */
   finishReason?: string;
   /**
+   * @remarks
+   * Token probability information of model output.
+   * 
    * @example
    * {}
    */
   logprobs?: { [key: string]: any };
+  /**
+   * @remarks
+   * The message body output by the model.
+   */
   message?: ChatWithDesensitizeResponseBodyDataChoicesMessage;
   static names(): { [key: string]: string } {
     return {
@@ -88,26 +107,41 @@ export class ChatWithDesensitizeResponseBodyDataChoices extends $dara.Model {
 
 export class ChatWithDesensitizeResponseBodyDataUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of output tokens.
+   * 
    * @example
    * 10
    */
   completionTokens?: string;
   /**
+   * @remarks
+   * Fine-grained classification of output tokens when using the Qwen-VL model.
+   * 
    * @example
    * {}
    */
   completionTokensDetails?: { [key: string]: string };
   /**
+   * @remarks
+   * The number of input tokens.
+   * 
    * @example
    * 9
    */
   promptTokens?: string;
   /**
+   * @remarks
+   * Fine-grained classification of input tokens.
+   * 
    * @example
    * {}
    */
   promptTokensDetails?: { [key: string]: string };
   /**
+   * @remarks
+   * The total number of tokens consumed.
+   * 
    * @example
    * 19
    */
@@ -148,24 +182,55 @@ export class ChatWithDesensitizeResponseBodyDataUsage extends $dara.Model {
 }
 
 export class ChatWithDesensitizeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The candidate array for model-generated content.
+   */
   choices?: ChatWithDesensitizeResponseBodyDataChoices[];
   /**
+   * @remarks
+   * The Unix timestamp (in seconds) when the request was created.
+   * 
    * @example
    * 1763710100
    */
   created?: string;
+  /**
+   * @remarks
+   * Error message, provided when StatusCode is not 200.
+   * 
+   * @example
+   * InvalidParameter
+   */
   message?: string;
   /**
+   * @remarks
+   * The model used for this request.
+   * 
    * @example
    * qwen-plus
    */
   model?: string;
   /**
+   * @remarks
+   * Error code, 200 for normal calls, others for exceptions.
+   * 
    * @example
    * 200
    */
   statusCode?: string;
+  /**
+   * @remarks
+   * Error type.
+   * 
+   * @example
+   * invalid_request_error
+   */
   type?: string;
+  /**
+   * @remarks
+   * The token consumption information of this request.
+   */
   usage?: ChatWithDesensitizeResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
@@ -207,26 +272,42 @@ export class ChatWithDesensitizeResponseBodyData extends $dara.Model {
 }
 
 export class ChatWithDesensitizeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ChatWithDesensitizeResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
    * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request fails.
+   * 
    * @example
    * true
    */

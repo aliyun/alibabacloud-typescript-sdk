@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDifyInstanceRequest extends $dara.Model {
   adbpgInstanceMode?: string;
+  autoRenew?: boolean;
   backupVSwitchId?: string;
   clientToken?: string;
   /**
@@ -97,6 +98,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       adbpgInstanceMode: 'AdbpgInstanceMode',
+      autoRenew: 'AutoRenew',
       backupVSwitchId: 'BackupVSwitchId',
       clientToken: 'ClientToken',
       dataRegion: 'DataRegion',
@@ -161,6 +163,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       adbpgInstanceMode: 'string',
+      autoRenew: 'boolean',
       backupVSwitchId: 'string',
       clientToken: 'string',
       dataRegion: 'string',

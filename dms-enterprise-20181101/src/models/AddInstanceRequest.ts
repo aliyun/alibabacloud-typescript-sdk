@@ -232,6 +232,7 @@ export class AddInstanceRequest extends $dara.Model {
    * 7200
    */
   queryTimeout?: number;
+  roleArn?: string;
   /**
    * @remarks
    * The name of the security rule set for the database instance. This parameter is required if Security Collaboration is enabled. You can call the[ListStandardGroups](https://help.aliyun.com/document_detail/465940.html) or [GetInstance](https://help.aliyun.com/document_detail/465826.html) operation to obtain the name of the security rule set from GroupName.
@@ -347,6 +348,7 @@ export class AddInstanceRequest extends $dara.Model {
       networkType: 'NetworkType',
       port: 'Port',
       queryTimeout: 'QueryTimeout',
+      roleArn: 'RoleArn',
       safeRule: 'SafeRule',
       sid: 'Sid',
       skipTest: 'SkipTest',
@@ -381,6 +383,7 @@ export class AddInstanceRequest extends $dara.Model {
       networkType: 'string',
       port: 'number',
       queryTimeout: 'number',
+      roleArn: 'string',
       safeRule: 'string',
       sid: 'string',
       skipTest: 'boolean',

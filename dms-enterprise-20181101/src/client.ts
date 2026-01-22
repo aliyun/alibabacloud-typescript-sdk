@@ -247,6 +247,10 @@ export default class Client extends OpenApi {
       query["QueryTimeout"] = request.queryTimeout;
     }
 
+    if (!$dara.isNull(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
     if (!$dara.isNull(request.safeRule)) {
       query["SafeRule"] = request.safeRule;
     }
@@ -1331,10 +1335,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 带有DMS脱敏能力的聊天API接口
+   * Chat API with DMS Data Masking capabilities.
    * 
    * @remarks
-   * 带有DMS脱敏能力的聊天API接口
+   * Chat API with DMS Data Masking capabilities.
    * 
    * @param tmpReq - ChatWithDesensitizeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1477,10 +1481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 带有DMS脱敏能力的聊天API接口
+   * Chat API with DMS Data Masking capabilities.
    * 
    * @remarks
-   * 带有DMS脱敏能力的聊天API接口
+   * Chat API with DMS Data Masking capabilities.
    * 
    * @param request - ChatWithDesensitizeRequest
    * @returns ChatWithDesensitizeResponse
@@ -1491,10 +1495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 带有DMS脱敏能力的聊天SSE API接口
+   * Chat SSE API with DMS Data Masking capability.
    * 
    * @remarks
-   * 带有DMS脱敏能力的聊天SSE API接口
+   * Chat SSE API with DMS Data Masking capability.
    * 
    * @param tmpReq - ChatWithDesensitizeSSERequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1670,10 +1674,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 带有DMS脱敏能力的聊天SSE API接口
+   * Chat SSE API with DMS Data Masking capability.
    * 
    * @remarks
-   * 带有DMS脱敏能力的聊天SSE API接口
+   * Chat SSE API with DMS Data Masking capability.
    * 
    * @param tmpReq - ChatWithDesensitizeSSERequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1836,10 +1840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 带有DMS脱敏能力的聊天SSE API接口
+   * Chat SSE API with DMS Data Masking capability.
    * 
    * @remarks
-   * 带有DMS脱敏能力的聊天SSE API接口
+   * Chat SSE API with DMS Data Masking capability.
    * 
    * @param request - ChatWithDesensitizeSSERequest
    * @returns ChatWithDesensitizeSSEResponse
@@ -1850,7 +1854,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量校验是否有表访问权限
+   * Batch verify table permissions.
+   * 
+   * @remarks
+   * Verify the permissions on multiple tables at a time.
    * 
    * @param tmpReq - CheckBatchTableAccessPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1903,7 +1910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量校验是否有表访问权限
+   * Batch verify table permissions.
+   * 
+   * @remarks
+   * Verify the permissions on multiple tables at a time.
    * 
    * @param request - CheckBatchTableAccessPermissionRequest
    * @returns CheckBatchTableAccessPermissionResponse
@@ -2985,6 +2995,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.adbpgInstanceMode)) {
       query["AdbpgInstanceMode"] = request.adbpgInstanceMode;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
     }
 
     if (!$dara.isNull(request.backupVSwitchId)) {
