@@ -38,6 +38,8 @@ export { BrowserStreams } from './BrowserStreams';
 export { BrowserViewPort } from './BrowserViewPort';
 export { CAPConfig } from './Capconfig';
 export { CertConfig } from './CertConfig';
+export { ChangeResourceGroupInput } from './ChangeResourceGroupInput';
+export { ChangeResourceGroupOutput } from './ChangeResourceGroupOutput';
 export { CodeConfiguration } from './CodeConfiguration';
 export { CodeInfo } from './CodeInfo';
 export { CodeInterpreter } from './CodeInterpreter';

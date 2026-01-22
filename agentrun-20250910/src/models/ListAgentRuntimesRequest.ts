@@ -27,6 +27,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  resourceGroupId?: string;
   /**
    * @remarks
    * 查询模式，支持精确查询和模糊查询
@@ -48,6 +49,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       agentRuntimeName: 'agentRuntimeName',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
       searchMode: 'searchMode',
       status: 'status',
     };
@@ -58,6 +60,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       agentRuntimeName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       searchMode: 'string',
       status: 'string',
     };

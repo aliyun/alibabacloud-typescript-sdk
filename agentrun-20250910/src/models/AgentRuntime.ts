@@ -169,6 +169,7 @@ export class AgentRuntime extends $dara.Model {
    * {}
    */
   protocolConfiguration?: ProtocolConfiguration;
+  resourceGroupId?: string;
   /**
    * @remarks
    * 每个运行时实例允许的最大并发会话数
@@ -223,6 +224,7 @@ export class AgentRuntime extends $dara.Model {
       networkConfiguration: 'networkConfiguration',
       port: 'port',
       protocolConfiguration: 'protocolConfiguration',
+      resourceGroupId: 'resourceGroupId',
       sessionConcurrencyLimitPerInstance: 'sessionConcurrencyLimitPerInstance',
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
       status: 'status',
@@ -252,6 +254,7 @@ export class AgentRuntime extends $dara.Model {
       networkConfiguration: NetworkConfiguration,
       port: 'number',
       protocolConfiguration: ProtocolConfiguration,
+      resourceGroupId: 'string',
       sessionConcurrencyLimitPerInstance: 'number',
       sessionIdleTimeoutSeconds: 'number',
       status: 'string',

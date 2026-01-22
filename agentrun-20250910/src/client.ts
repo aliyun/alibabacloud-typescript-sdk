@@ -1689,6 +1689,10 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.searchMode)) {
       query["searchMode"] = request.searchMode;
     }
