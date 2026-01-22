@@ -39,6 +39,11 @@ export class RealTimeDialogRequestConversationModel extends $dara.Model {
    */
   end?: number;
   /**
+   * @example
+   * 1983746378992743
+   */
+  intentionCode?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -63,6 +68,7 @@ export class RealTimeDialogRequestConversationModel extends $dara.Model {
       customerServiceId: 'customerServiceId',
       customerServiceType: 'customerServiceType',
       end: 'end',
+      intentionCode: 'intentionCode',
       role: 'role',
       type: 'type',
     };
@@ -77,6 +83,7 @@ export class RealTimeDialogRequestConversationModel extends $dara.Model {
       customerServiceId: 'string',
       customerServiceType: 'string',
       end: 'number',
+      intentionCode: 'string',
       role: 'number',
       type: 'string',
     };
