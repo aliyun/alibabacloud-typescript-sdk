@@ -331,6 +331,8 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
    * true
    */
   enableCompute?: boolean;
+  enableFs?: string;
+  enableStoreTDE?: string;
   engineList?: GetLindormV2InstanceDetailsResponseBodyEngineList[];
   /**
    * @example
@@ -454,6 +456,8 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
       diskThreshold: 'DiskThreshold',
       diskUsage: 'DiskUsage',
       enableCompute: 'EnableCompute',
+      enableFs: 'EnableFs',
+      enableStoreTDE: 'EnableStoreTDE',
       engineList: 'EngineList',
       expiredMilliseconds: 'ExpiredMilliseconds',
       initialRootPassword: 'InitialRootPassword',
@@ -496,6 +500,8 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
       diskThreshold: 'string',
       diskUsage: 'string',
       enableCompute: 'boolean',
+      enableFs: 'string',
+      enableStoreTDE: 'string',
       engineList: { 'type': 'array', 'itemType': GetLindormV2InstanceDetailsResponseBodyEngineList },
       expiredMilliseconds: 'number',
       initialRootPassword: 'string',
