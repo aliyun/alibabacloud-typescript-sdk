@@ -32,6 +32,7 @@ export class MassPushRequestPushTask extends $dara.Model {
    */
   androidExtParameters?: string;
   androidHonorTargetUserType?: number;
+  androidHuaweiBusinessType?: number;
   androidHuaweiLiveNotificationPayload?: string;
   /**
    * @example
@@ -139,8 +140,17 @@ export class MassPushRequestPushTask extends $dara.Model {
   androidOppoDeleteIntentData?: string;
   androidOppoIntelligentIntent?: string;
   androidOppoIntentEnv?: number;
+  /**
+   * @deprecated
+   */
   androidOppoPrivateContentParameters?: { [key: string]: string };
+  /**
+   * @deprecated
+   */
   androidOppoPrivateMsgTemplateId?: string;
+  /**
+   * @deprecated
+   */
   androidOppoPrivateTitleParameters?: { [key: string]: string };
   /**
    * @example
@@ -388,6 +398,7 @@ export class MassPushRequestPushTask extends $dara.Model {
       androidBigTitle: 'AndroidBigTitle',
       androidExtParameters: 'AndroidExtParameters',
       androidHonorTargetUserType: 'AndroidHonorTargetUserType',
+      androidHuaweiBusinessType: 'AndroidHuaweiBusinessType',
       androidHuaweiLiveNotificationPayload: 'AndroidHuaweiLiveNotificationPayload',
       androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
       androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
@@ -501,6 +512,7 @@ export class MassPushRequestPushTask extends $dara.Model {
       androidBigTitle: 'string',
       androidExtParameters: 'string',
       androidHonorTargetUserType: 'number',
+      androidHuaweiBusinessType: 'number',
       androidHuaweiLiveNotificationPayload: 'string',
       androidHuaweiReceiptId: 'string',
       androidHuaweiTargetUserType: 'number',

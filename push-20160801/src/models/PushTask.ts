@@ -95,6 +95,7 @@ export class PushTaskNotificationAndroidOptionsHonor extends $dara.Model {
 }
 
 export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
+  businessType?: number;
   category?: string;
   importance?: number;
   liveNotificationPayload?: string;
@@ -102,6 +103,7 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   urgency?: string;
   static names(): { [key: string]: string } {
     return {
+      businessType: 'BusinessType',
       category: 'Category',
       importance: 'Importance',
       liveNotificationPayload: 'LiveNotificationPayload',
@@ -112,6 +114,7 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessType: 'number',
       category: 'string',
       importance: 'number',
       liveNotificationPayload: 'string',

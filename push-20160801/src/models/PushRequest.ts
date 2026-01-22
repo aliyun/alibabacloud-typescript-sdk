@@ -24,6 +24,7 @@ export class PushRequest extends $dara.Model {
    */
   androidExtParameters?: string;
   androidHonorTargetUserType?: number;
+  androidHuaweiBusinessType?: number;
   androidHuaweiLiveNotificationPayload?: string;
   /**
    * @example
@@ -406,6 +407,7 @@ export class PushRequest extends $dara.Model {
       androidBigTitle: 'AndroidBigTitle',
       androidExtParameters: 'AndroidExtParameters',
       androidHonorTargetUserType: 'AndroidHonorTargetUserType',
+      androidHuaweiBusinessType: 'AndroidHuaweiBusinessType',
       androidHuaweiLiveNotificationPayload: 'AndroidHuaweiLiveNotificationPayload',
       androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
       androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
@@ -526,6 +528,7 @@ export class PushRequest extends $dara.Model {
       androidBigTitle: 'string',
       androidExtParameters: 'string',
       androidHonorTargetUserType: 'number',
+      androidHuaweiBusinessType: 'number',
       androidHuaweiLiveNotificationPayload: 'string',
       androidHuaweiReceiptId: 'string',
       androidHuaweiTargetUserType: 'number',

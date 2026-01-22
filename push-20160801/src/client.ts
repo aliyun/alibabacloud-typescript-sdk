@@ -764,6 +764,10 @@ export default class Client extends OpenApi {
       query["AndroidHonorTargetUserType"] = request.androidHonorTargetUserType;
     }
 
+    if (!$dara.isNull(request.androidHuaweiBusinessType)) {
+      query["AndroidHuaweiBusinessType"] = request.androidHuaweiBusinessType;
+    }
+
     if (!$dara.isNull(request.androidHuaweiLiveNotificationPayload)) {
       query["AndroidHuaweiLiveNotificationPayload"] = request.androidHuaweiLiveNotificationPayload;
     }
