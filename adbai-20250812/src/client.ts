@@ -231,4 +231,116 @@ export default class Client extends OpenApi {
     return await this.describeEmbodiedAIPlatformsWithOptions(request, runtime);
   }
 
+  /**
+   * 查询具身智能平台资源用量
+   * 
+   * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEmbodiedAIPlatformResourceUsageInfoResponse
+   */
+  async getEmbodiedAIPlatformResourceUsageInfoWithOptions(request: $_model.GetEmbodiedAIPlatformResourceUsageInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEmbodiedAIPlatformResourceUsageInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.platformName)) {
+      query["PlatformName"] = request.platformName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEmbodiedAIPlatformResourceUsageInfo",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetEmbodiedAIPlatformResourceUsageInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetEmbodiedAIPlatformResourceUsageInfoResponse({}));
+  }
+
+  /**
+   * 查询具身智能平台资源用量
+   * 
+   * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
+   * @returns GetEmbodiedAIPlatformResourceUsageInfoResponse
+   */
+  async getEmbodiedAIPlatformResourceUsageInfo(request: $_model.GetEmbodiedAIPlatformResourceUsageInfoRequest): Promise<$_model.GetEmbodiedAIPlatformResourceUsageInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEmbodiedAIPlatformResourceUsageInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 重置具身智能平台密码
+   * 
+   * @param request - ResetEmbodiedAIPlatformPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetEmbodiedAIPlatformPasswordResponse
+   */
+  async resetEmbodiedAIPlatformPasswordWithOptions(request: $_model.ResetEmbodiedAIPlatformPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetEmbodiedAIPlatformPasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.platformName)) {
+      query["PlatformName"] = request.platformName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetEmbodiedAIPlatformPassword",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetEmbodiedAIPlatformPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetEmbodiedAIPlatformPasswordResponse({}));
+  }
+
+  /**
+   * 重置具身智能平台密码
+   * 
+   * @param request - ResetEmbodiedAIPlatformPasswordRequest
+   * @returns ResetEmbodiedAIPlatformPasswordResponse
+   */
+  async resetEmbodiedAIPlatformPassword(request: $_model.ResetEmbodiedAIPlatformPasswordRequest): Promise<$_model.ResetEmbodiedAIPlatformPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetEmbodiedAIPlatformPasswordWithOptions(request, runtime);
+  }
+
 }

@@ -5,6 +5,11 @@ export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsEapConfig } from './Des
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfigWorkerGroups } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatforms } from './DescribeEmbodiedAiplatformsResponseBody';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageOss } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { CreateAgentPlatformRequest } from './CreateAgentPlatformRequest';
 export { CreateAgentPlatformShrinkRequest } from './CreateAgentPlatformShrinkRequest';
 export { CreateAgentPlatformResponseBody } from './CreateAgentPlatformResponseBody';
@@ -16,3 +21,9 @@ export { CreateEmbodiedAIPlatformResponse } from './CreateEmbodiedAiplatformResp
 export { DescribeEmbodiedAIPlatformsRequest } from './DescribeEmbodiedAiplatformsRequest';
 export { DescribeEmbodiedAIPlatformsResponseBody } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponse } from './DescribeEmbodiedAiplatformsResponse';
+export { GetEmbodiedAIPlatformResourceUsageInfoRequest } from './GetEmbodiedAiplatformResourceUsageInfoRequest';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponseBody } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponse } from './GetEmbodiedAiplatformResourceUsageInfoResponse';
+export { ResetEmbodiedAIPlatformPasswordRequest } from './ResetEmbodiedAiplatformPasswordRequest';
+export { ResetEmbodiedAIPlatformPasswordResponseBody } from './ResetEmbodiedAiplatformPasswordResponseBody';
+export { ResetEmbodiedAIPlatformPasswordResponse } from './ResetEmbodiedAiplatformPasswordResponse';
