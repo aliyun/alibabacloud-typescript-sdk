@@ -3090,6 +3090,10 @@ export default class Client extends OpenApi {
       query["DbVersion"] = request.dbVersion;
     }
 
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

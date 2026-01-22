@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBInstancesRequest extends $dara.Model {
   dbVersion?: string;
+  description?: string;
   /**
    * @example
    * dinga93c84f4d***
@@ -46,6 +47,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dbVersion: 'DbVersion',
+      description: 'Description',
       instanceId: 'InstanceId',
       mustHasCdc: 'MustHasCdc',
       pageNumber: 'PageNumber',
@@ -60,6 +62,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dbVersion: 'string',
+      description: 'string',
       instanceId: 'string',
       mustHasCdc: 'boolean',
       pageNumber: 'number',
