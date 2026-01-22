@@ -1,3 +1,4 @@
+export { DimItemPageInfo } from './DimItem';
 export { DataModuleMapListSpnTypeMapListValueFilterModules } from './DataModuleMapListSpnTypeMapListValue';
 export { DataModuleMapListSpnTypeMapListValueShowModules } from './DataModuleMapListSpnTypeMapListValue';
 export { AddCouponDeductTagRequestEcIdAccountIds } from './AddCouponDeductTagRequest';
@@ -85,6 +86,10 @@ export { SaveCostCenterShareRuleRequestCreateShareRuleList } from './SaveCostCen
 export { SaveCostCenterShareRuleRequestModifyShareRuleList } from './SaveCostCenterShareRuleRequest';
 export { SetSavingPlanUserDeductRuleRequestEcIdAccountIds } from './SetSavingPlanUserDeductRuleRequest';
 export { SetSavingPlanUserDeductRuleRequestUserDeductRules } from './SetSavingPlanUserDeductRuleRequest';
+export { DimItem } from './DimItem';
+export { EcIdAccountId } from './EcIdAccountId';
+export { FieldOption } from './FieldOption';
+export { ItemValues } from './ItemValues';
 export { DataModuleMapListSpnTypeMapListValue } from './DataModuleMapListSpnTypeMapListValue';
 export { DataStepPriceMapValue } from './DataStepPriceMapValue';
 export { AddCouponDeductTagRequest } from './AddCouponDeductTagRequest';

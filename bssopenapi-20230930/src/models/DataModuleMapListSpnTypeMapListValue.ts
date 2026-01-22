@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class DataModuleMapListSpnTypeMapListValueFilterModules extends $dara.Model {
   moduleId?: number;
   moduleCode?: string;

@@ -5,6 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extends $dara.Model {
   /**
    * @example
+   * AUTO_ALLOCATE
+   */
+  addStrategy?: string;
+  /**
+   * @example
+   * 自动分配
+   */
+  addStrategyName?: string;
+  /**
+   * @example
+   * 3
+   */
+  applicablePeriodNum?: number;
+  /**
+   * @example
    * test
    */
   apportionItemCode?: string;
@@ -44,12 +59,31 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
    * 2025-05-18 16:12:25
    */
   costCenterUpdateTime?: string;
+  /**
+   * @example
+   * 3
+   */
+  financeUnitRuleVersion?: number;
   instanceId?: string;
+  /**
+   * @example
+   * ecs
+   */
+  masterCommodityCode?: string;
+  /**
+   * @example
+   * i-xxxxx
+   */
+  masterInstanceId?: string;
   /**
    * @example
    * 1234567812345678
    */
   ownerAccountId?: number;
+  /**
+   * @example
+   * XXX公司
+   */
   ownerAccountName?: string;
   /**
    * @example
@@ -62,6 +96,21 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
    */
   pipCode?: string;
   pipName?: string;
+  /**
+   * @example
+   * 202509
+   */
+  recentBillingMonth?: number;
+  /**
+   * @example
+   * 上海
+   */
+  regionName?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionNo?: string;
   resourceGroup?: string;
   /**
    * @example
@@ -108,8 +157,16 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
    * -1
    */
   rootCostCenterId?: number;
+  /**
+   * @example
+   * 202509
+   */
+  startBillingMonth?: number;
   static names(): { [key: string]: string } {
     return {
+      addStrategy: 'AddStrategy',
+      addStrategyName: 'AddStrategyName',
+      applicablePeriodNum: 'ApplicablePeriodNum',
       apportionItemCode: 'ApportionItemCode',
       apportionItemName: 'ApportionItemName',
       commodityCode: 'CommodityCode',
@@ -119,12 +176,18 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
       costCenterId: 'CostCenterId',
       costCenterName: 'CostCenterName',
       costCenterUpdateTime: 'CostCenterUpdateTime',
+      financeUnitRuleVersion: 'FinanceUnitRuleVersion',
       instanceId: 'InstanceId',
+      masterCommodityCode: 'MasterCommodityCode',
+      masterInstanceId: 'MasterInstanceId',
       ownerAccountId: 'OwnerAccountId',
       ownerAccountName: 'OwnerAccountName',
       parentCostCenterId: 'ParentCostCenterId',
       pipCode: 'PipCode',
       pipName: 'PipName',
+      recentBillingMonth: 'RecentBillingMonth',
+      regionName: 'RegionName',
+      regionNo: 'RegionNo',
       resourceGroup: 'ResourceGroup',
       resourceId: 'ResourceId',
       resourceNick: 'ResourceNick',
@@ -135,11 +198,15 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
       resourceUserId: 'ResourceUserId',
       resourceUserName: 'ResourceUserName',
       rootCostCenterId: 'RootCostCenterId',
+      startBillingMonth: 'StartBillingMonth',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addStrategy: 'string',
+      addStrategyName: 'string',
+      applicablePeriodNum: 'number',
       apportionItemCode: 'string',
       apportionItemName: 'string',
       commodityCode: 'string',
@@ -149,12 +216,18 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
       costCenterId: 'number',
       costCenterName: 'string',
       costCenterUpdateTime: 'string',
+      financeUnitRuleVersion: 'number',
       instanceId: 'string',
+      masterCommodityCode: 'string',
+      masterInstanceId: 'string',
       ownerAccountId: 'number',
       ownerAccountName: 'string',
       parentCostCenterId: 'number',
       pipCode: 'string',
       pipName: 'string',
+      recentBillingMonth: 'number',
+      regionName: 'string',
+      regionNo: 'string',
       resourceGroup: 'string',
       resourceId: 'string',
       resourceNick: 'string',
@@ -165,6 +238,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
       resourceUserId: 'number',
       resourceUserName: 'string',
       rootCostCenterId: 'number',
+      startBillingMonth: 'number',
     };
   }
 

@@ -171,6 +171,11 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   fromCostCenterShareRuleDetails?: QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDetails[];
   /**
    * @example
+   * 2026-01-01 00:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
    * 1529600453335198
    */
   ownerAccountId?: number;
@@ -193,6 +198,7 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fromCostCenterShareRuleDetails: 'FromCostCenterShareRuleDetails',
+      gmtModified: 'GmtModified',
       ownerAccountId: 'OwnerAccountId',
       shareRuleId: 'ShareRuleId',
       shareRuleName: 'ShareRuleName',
@@ -204,6 +210,7 @@ export class QueryCostCenterShareRuleResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fromCostCenterShareRuleDetails: { 'type': 'array', 'itemType': QueryCostCenterShareRuleResponseBodyDataFromCostCenterShareRuleDetails },
+      gmtModified: 'string',
       ownerAccountId: 'number',
       shareRuleId: 'number',
       shareRuleName: 'string',
