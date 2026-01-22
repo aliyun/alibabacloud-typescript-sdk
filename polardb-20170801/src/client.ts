@@ -11783,6 +11783,140 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定会话明细
+   * 
+   * @param request - DescribePolarAgentChatRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarAgentChatRecordsResponse
+   */
+  async describePolarAgentChatRecordsWithOptions(request: $_model.DescribePolarAgentChatRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarAgentChatRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarAgentChatRecords",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarAgentChatRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarAgentChatRecordsResponse({}));
+  }
+
+  /**
+   * 查询指定会话明细
+   * 
+   * @param request - DescribePolarAgentChatRecordsRequest
+   * @returns DescribePolarAgentChatRecordsResponse
+   */
+  async describePolarAgentChatRecords(request: $_model.DescribePolarAgentChatRecordsRequest): Promise<$_model.DescribePolarAgentChatRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarAgentChatRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询会话状态
+   * 
+   * @param request - DescribePolarAgentSessionStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarAgentSessionStatusResponse
+   */
+  async describePolarAgentSessionStatusWithOptions(request: $_model.DescribePolarAgentSessionStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarAgentSessionStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarAgentSessionStatus",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarAgentSessionStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarAgentSessionStatusResponse({}));
+  }
+
+  /**
+   * 查询会话状态
+   * 
+   * @param request - DescribePolarAgentSessionStatusRequest
+   * @returns DescribePolarAgentSessionStatusResponse
+   */
+  async describePolarAgentSessionStatus(request: $_model.DescribePolarAgentSessionStatusRequest): Promise<$_model.DescribePolarAgentSessionStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarAgentSessionStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看历史会话记录
+   * 
+   * @param request - DescribePolarAgentUserSessionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarAgentUserSessionsResponse
+   */
+  async describePolarAgentUserSessionsWithOptions(request: $_model.DescribePolarAgentUserSessionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarAgentUserSessionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarAgentUserSessions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarAgentUserSessionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarAgentUserSessionsResponse({}));
+  }
+
+  /**
+   * 查看历史会话记录
+   * 
+   * @param request - DescribePolarAgentUserSessionsRequest
+   * @returns DescribePolarAgentUserSessionsResponse
+   */
+  async describePolarAgentUserSessions(request: $_model.DescribePolarAgentUserSessionsRequest): Promise<$_model.DescribePolarAgentUserSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarAgentUserSessionsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取PolarFS实例详情
    * 
    * @param request - DescribePolarFsAttributeRequest
@@ -13818,6 +13952,116 @@ export default class Client extends OpenApi {
   async generateUpgradeReportForSyncClone(request: $_model.GenerateUpgradeReportForSyncCloneRequest): Promise<$_model.GenerateUpgradeReportForSyncCloneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateUpgradeReportForSyncCloneWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建聊天记录
+   * 
+   * @param request - GetPolarAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolarAgentResponse
+   */
+  async *getPolarAgentWithSSE(request: $_model.GetPolarAgentRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GetPolarAgentResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extraInfo)) {
+      query["ExtraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPolarAgent",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.GetPolarAgentResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.GetPolarAgentResponse({}));
+    }
+  }
+
+  /**
+   * 创建聊天记录
+   * 
+   * @param request - GetPolarAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolarAgentResponse
+   */
+  async getPolarAgentWithOptions(request: $_model.GetPolarAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPolarAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extraInfo)) {
+      query["ExtraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPolarAgent",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPolarAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetPolarAgentResponse({}));
+  }
+
+  /**
+   * 创建聊天记录
+   * 
+   * @param request - GetPolarAgentRequest
+   * @returns GetPolarAgentResponse
+   */
+  async getPolarAgent(request: $_model.GetPolarAgentRequest): Promise<$_model.GetPolarAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPolarAgentWithOptions(request, runtime);
   }
 
   /**

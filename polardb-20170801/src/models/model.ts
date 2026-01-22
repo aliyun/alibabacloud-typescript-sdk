@@ -195,6 +195,8 @@ export { DescribeParameterTemplatesResponseBodyParametersTemplateRecord } from '
 export { DescribeParameterTemplatesResponseBodyParameters } from './DescribeParameterTemplatesResponseBody';
 export { DescribePendingMaintenanceActionResponseBodyItems } from './DescribePendingMaintenanceActionResponseBody';
 export { DescribePendingMaintenanceActionsResponseBodyTypeList } from './DescribePendingMaintenanceActionsResponseBody';
+export { DescribePolarAgentChatRecordsResponseBodyData } from './DescribePolarAgentChatRecordsResponseBody';
+export { DescribePolarAgentUserSessionsResponseBodyData } from './DescribePolarAgentUserSessionsResponseBody';
 export { DescribePolarFsAttributeResponseBodyMountInfo } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsQuotaResponseBodyPolicyItems } from './DescribePolarFsQuotaResponseBody';
 export { DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch } from './DescribeRdsVswitchsResponseBody';
@@ -225,6 +227,8 @@ export { DescribeVSwitchesResponseBodyVSwitchs } from './DescribeVswitchesRespon
 export { DescribeVpcsResponseBodyVpcsVSwitchs } from './DescribeVpcsResponseBody';
 export { DescribeVpcsResponseBodyVpcs } from './DescribeVpcsResponseBody';
 export { DescribeZonesResponseBodyZones } from './DescribeZonesResponseBody';
+export { GetPolarAgentResponseBodyFunctionCall } from './GetPolarAgentResponseBody';
+export { GetPolarAgentResponseBodyUiFunctionCall } from './GetPolarAgentResponseBody';
 export { ListOrdersResponseBodyOrderList } from './ListOrdersResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBody';
@@ -736,6 +740,15 @@ export { DescribePendingMaintenanceActionResponse } from './DescribePendingMaint
 export { DescribePendingMaintenanceActionsRequest } from './DescribePendingMaintenanceActionsRequest';
 export { DescribePendingMaintenanceActionsResponseBody } from './DescribePendingMaintenanceActionsResponseBody';
 export { DescribePendingMaintenanceActionsResponse } from './DescribePendingMaintenanceActionsResponse';
+export { DescribePolarAgentChatRecordsRequest } from './DescribePolarAgentChatRecordsRequest';
+export { DescribePolarAgentChatRecordsResponseBody } from './DescribePolarAgentChatRecordsResponseBody';
+export { DescribePolarAgentChatRecordsResponse } from './DescribePolarAgentChatRecordsResponse';
+export { DescribePolarAgentSessionStatusRequest } from './DescribePolarAgentSessionStatusRequest';
+export { DescribePolarAgentSessionStatusResponseBody } from './DescribePolarAgentSessionStatusResponseBody';
+export { DescribePolarAgentSessionStatusResponse } from './DescribePolarAgentSessionStatusResponse';
+export { DescribePolarAgentUserSessionsRequest } from './DescribePolarAgentUserSessionsRequest';
+export { DescribePolarAgentUserSessionsResponseBody } from './DescribePolarAgentUserSessionsResponseBody';
+export { DescribePolarAgentUserSessionsResponse } from './DescribePolarAgentUserSessionsResponse';
 export { DescribePolarFsAttributeRequest } from './DescribePolarFsAttributeRequest';
 export { DescribePolarFsAttributeResponseBody } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsAttributeResponse } from './DescribePolarFsAttributeResponse';
@@ -822,6 +835,9 @@ export { FailoverDBClusterZonalResponse } from './FailoverDbclusterZonalResponse
 export { GenerateUpgradeReportForSyncCloneRequest } from './GenerateUpgradeReportForSyncCloneRequest';
 export { GenerateUpgradeReportForSyncCloneResponseBody } from './GenerateUpgradeReportForSyncCloneResponseBody';
 export { GenerateUpgradeReportForSyncCloneResponse } from './GenerateUpgradeReportForSyncCloneResponse';
+export { GetPolarAgentRequest } from './GetPolarAgentRequest';
+export { GetPolarAgentResponseBody } from './GetPolarAgentResponseBody';
+export { GetPolarAgentResponse } from './GetPolarAgentResponse';
 export { GrantAccountPrivilegeRequest } from './GrantAccountPrivilegeRequest';
 export { GrantAccountPrivilegeResponseBody } from './GrantAccountPrivilegeResponseBody';
 export { GrantAccountPrivilegeResponse } from './GrantAccountPrivilegeResponse';
