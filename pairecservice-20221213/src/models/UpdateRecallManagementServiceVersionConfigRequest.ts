@@ -212,6 +212,16 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig extends $dara.Model {
   description?: string;
   extendedConfig?: string;
+  /**
+   * @example
+   * ["type":"equal"]
+   */
+  itemConditionArray?: string;
+  /**
+   * @example
+   * age>20
+   */
+  itemConditionExpression?: string;
   itemVectorField?: string;
   itemVectorRecallManagementTableId?: string;
   name?: string;
@@ -225,6 +235,8 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
     return {
       description: 'Description',
       extendedConfig: 'ExtendedConfig',
+      itemConditionArray: 'ItemConditionArray',
+      itemConditionExpression: 'ItemConditionExpression',
       itemVectorField: 'ItemVectorField',
       itemVectorRecallManagementTableId: 'ItemVectorRecallManagementTableId',
       name: 'Name',
@@ -241,6 +253,8 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
     return {
       description: 'string',
       extendedConfig: 'string',
+      itemConditionArray: 'string',
+      itemConditionExpression: 'string',
       itemVectorField: 'string',
       itemVectorRecallManagementTableId: 'string',
       name: 'string',

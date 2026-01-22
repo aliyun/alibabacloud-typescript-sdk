@@ -294,6 +294,11 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs e
   itemConditionArray?: string;
   /**
    * @example
+   * age>20
+   */
+  itemConditionExpression?: string;
+  /**
+   * @example
    * item_embedding
    */
   itemVectorField?: string;
@@ -343,6 +348,7 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs e
       description: 'Description',
       extendedConfig: 'ExtendedConfig',
       itemConditionArray: 'ItemConditionArray',
+      itemConditionExpression: 'ItemConditionExpression',
       itemVectorField: 'ItemVectorField',
       itemVectorRecallManagementTableId: 'ItemVectorRecallManagementTableId',
       name: 'Name',
@@ -361,6 +367,7 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs e
       description: 'string',
       extendedConfig: 'string',
       itemConditionArray: 'string',
+      itemConditionExpression: 'string',
       itemVectorField: 'string',
       itemVectorRecallManagementTableId: 'string',
       name: 'string',
@@ -435,6 +442,7 @@ export class GetRecallManagementServiceVersionResponseBody extends $dara.Model {
    * false
    */
   isDefault?: string;
+  isEffective?: boolean;
   /**
    * @example
    * V1
@@ -459,6 +467,7 @@ export class GetRecallManagementServiceVersionResponseBody extends $dara.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       isDefault: 'IsDefault',
+      isEffective: 'IsEffective',
       name: 'Name',
       recallManagementServiceVersionId: 'RecallManagementServiceVersionId',
       requestId: 'RequestId',
@@ -471,6 +480,7 @@ export class GetRecallManagementServiceVersionResponseBody extends $dara.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       isDefault: 'string',
+      isEffective: 'boolean',
       name: 'string',
       recallManagementServiceVersionId: 'string',
       requestId: 'string',

@@ -294,6 +294,11 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfig exten
   itemConditionArray?: string;
   /**
    * @example
+   * age>20
+   */
+  itemConditionExpression?: string;
+  /**
+   * @example
    * item_embedding
    */
   itemVectorField?: string;
@@ -338,6 +343,7 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfig exten
       description: 'Description',
       extendedConfig: 'ExtendedConfig',
       itemConditionArray: 'ItemConditionArray',
+      itemConditionExpression: 'ItemConditionExpression',
       itemVectorField: 'ItemVectorField',
       itemVectorRecallManagementTableId: 'ItemVectorRecallManagementTableId',
       name: 'Name',
@@ -355,6 +361,7 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfig exten
       description: 'string',
       extendedConfig: 'string',
       itemConditionArray: 'string',
+      itemConditionExpression: 'string',
       itemVectorField: 'string',
       itemVectorRecallManagementTableId: 'string',
       name: 'string',
