@@ -3007,6 +3007,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新索引任务
+   * 
+   * @param request - UpdateIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIndexResponse
+   */
+  async updateIndexWithOptions(WorkspaceId: string, request: $_model.UpdateIndexRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateIndexResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.denseSimilarityTopK)) {
+      query["DenseSimilarityTopK"] = request.denseSimilarityTopK;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pipelineCommercialCu)) {
+      query["PipelineCommercialCu"] = request.pipelineCommercialCu;
+    }
+
+    if (!$dara.isNull(request.pipelineCommercialType)) {
+      query["PipelineCommercialType"] = request.pipelineCommercialType;
+    }
+
+    if (!$dara.isNull(request.rerankMinScore)) {
+      query["RerankMinScore"] = request.rerankMinScore;
+    }
+
+    if (!$dara.isNull(request.sparseSimilarityTopK)) {
+      query["SparseSimilarityTopK"] = request.sparseSimilarityTopK;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateIndex",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/index/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateIndexResponse>(await this.callApi(params, req, runtime), new $_model.UpdateIndexResponse({}));
+  }
+
+  /**
+   * 更新索引任务
+   * 
+   * @param request - UpdateIndexRequest
+   * @returns UpdateIndexResponse
+   */
+  async updateIndex(WorkspaceId: string, request: $_model.UpdateIndexRequest): Promise<$_model.UpdateIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateIndexWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * 更新memory
    * 
    * @param request - UpdateMemoryRequest

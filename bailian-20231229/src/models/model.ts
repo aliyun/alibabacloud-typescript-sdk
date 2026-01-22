@@ -94,6 +94,7 @@ export { UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows } from 
 export { UpdateAndPublishAgentSelectiveRequestApplicationConfig } from './UpdateAndPublishAgentSelectiveRequest';
 export { UpdateAndPublishAgentSelectiveRequestSampleLibrary } from './UpdateAndPublishAgentSelectiveRequest';
 export { UpdateFileTagResponseBodyData } from './UpdateFileTagResponseBody';
+export { UpdateIndexResponseBodyData } from './UpdateIndexResponseBody';
 export { AddCategoryRequest } from './AddCategoryRequest';
 export { AddCategoryResponseBody } from './AddCategoryResponseBody';
 export { AddCategoryResponse } from './AddCategoryResponse';
@@ -242,6 +243,9 @@ export { UpdateFileTagRequest } from './UpdateFileTagRequest';
 export { UpdateFileTagShrinkRequest } from './UpdateFileTagShrinkRequest';
 export { UpdateFileTagResponseBody } from './UpdateFileTagResponseBody';
 export { UpdateFileTagResponse } from './UpdateFileTagResponse';
+export { UpdateIndexRequest } from './UpdateIndexRequest';
+export { UpdateIndexResponseBody } from './UpdateIndexResponseBody';
+export { UpdateIndexResponse } from './UpdateIndexResponse';
 export { UpdateMemoryRequest } from './UpdateMemoryRequest';
 export { UpdateMemoryResponseBody } from './UpdateMemoryResponseBody';
 export { UpdateMemoryResponse } from './UpdateMemoryResponse';
