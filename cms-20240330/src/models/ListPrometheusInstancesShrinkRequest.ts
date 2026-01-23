@@ -93,6 +93,11 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    * true
    */
   version?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
       filterRegionIds: 'filterRegionIds',
@@ -104,6 +109,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
       resourceType: 'resourceType',
       tagShrink: 'tag',
       version: 'version',
+      workspace: 'workspace',
     };
   }
 
@@ -118,6 +124,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
       resourceType: 'string',
       tagShrink: 'string',
       version: 'string',
+      workspace: 'string',
     };
   }
 

@@ -4048,6 +4048,10 @@ export default class Client extends OpenApi {
       query["version"] = request.version;
     }
 
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),

@@ -602,46 +602,6 @@ export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends 
   }
 }
 
-export class ListIntegrationPoliciesResponseBodyPoliciesTags extends $dara.Model {
-  /**
-   * @remarks
-   * Tag key
-   * 
-   * @example
-   * key
-   */
-  key?: string;
-  /**
-   * @remarks
-   * Match value.
-   * 
-   * @example
-   * value
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
@@ -721,11 +681,6 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   subAddonRelease?: ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease;
   /**
    * @remarks
-   * Resource tag key values.
-   */
-  tags?: ListIntegrationPoliciesResponseBodyPoliciesTags[];
-  /**
-   * @remarks
    * User ID
    * 
    * @example
@@ -753,7 +708,6 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
       regionId: 'regionId',
       resourceGroupId: 'resourceGroupId',
       subAddonRelease: 'subAddonRelease',
-      tags: 'tags',
       userId: 'userId',
       workspace: 'workspace',
     };
@@ -772,7 +726,6 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       subAddonRelease: ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease,
-      tags: { 'type': 'array', 'itemType': ListIntegrationPoliciesResponseBodyPoliciesTags },
       userId: 'string',
       workspace: 'string',
     };
@@ -790,9 +743,6 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
     }
     if(this.subAddonRelease && typeof (this.subAddonRelease as any).validate === 'function') {
       (this.subAddonRelease as any).validate();
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

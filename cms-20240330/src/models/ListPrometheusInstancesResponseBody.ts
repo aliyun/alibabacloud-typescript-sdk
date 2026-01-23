@@ -2,46 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListPrometheusInstancesResponseBodyPrometheusInstancesTags extends $dara.Model {
-  /**
-   * @remarks
-   * Tag key
-   * 
-   * @example
-   * testKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * Tag value.
-   * 
-   * @example
-   * testValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dara.Model {
   /**
    * @remarks
@@ -113,14 +73,6 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
-   * 
-   * @example
-   * rg-aek2bhocin5e2na
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
    * Resource type.
    * 
    * @example
@@ -140,11 +92,6 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
    * Supported authentication types.
    */
   supportAuthTypes?: string[];
-  /**
-   * @remarks
-   * Tags key.
-   */
-  tags?: ListPrometheusInstancesResponseBodyPrometheusInstancesTags[];
   /**
    * @remarks
    * User ID.
@@ -179,11 +126,9 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
       prometheusInstanceId: 'prometheusInstanceId',
       prometheusInstanceName: 'prometheusInstanceName',
       regionId: 'regionId',
-      resourceGroupId: 'resourceGroupId',
       resourceType: 'resourceType',
       status: 'status',
       supportAuthTypes: 'supportAuthTypes',
-      tags: 'tags',
       userId: 'userId',
       version: 'version',
       workspace: 'workspace',
@@ -200,11 +145,9 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
       prometheusInstanceId: 'string',
       prometheusInstanceName: 'string',
       regionId: 'string',
-      resourceGroupId: 'string',
       resourceType: 'string',
       status: 'string',
       supportAuthTypes: { 'type': 'array', 'itemType': 'string' },
-      tags: { 'type': 'array', 'itemType': ListPrometheusInstancesResponseBodyPrometheusInstancesTags },
       userId: 'string',
       version: 'string',
       workspace: 'string',
@@ -214,9 +157,6 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   validate() {
     if(Array.isArray(this.supportAuthTypes)) {
       $dara.Model.validateArray(this.supportAuthTypes);
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

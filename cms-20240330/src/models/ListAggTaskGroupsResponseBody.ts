@@ -2,46 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAggTaskGroupsResponseBodyAggTaskGroupsTags extends $dara.Model {
-  /**
-   * @remarks
-   * Key of the resource group tag.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * Value of the resource group tag.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   /**
    * @remarks
@@ -165,11 +125,6 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Resource group tags
-   */
-  tags?: ListAggTaskGroupsResponseBodyAggTaskGroupsTags[];
-  /**
-   * @remarks
    * The target Prometheus instance ID of the aggregation task group.
    * 
    * @example
@@ -209,7 +164,6 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
       scheduleTimeExpr: 'scheduleTimeExpr',
       sourcePrometheusId: 'sourcePrometheusId',
       status: 'status',
-      tags: 'tags',
       targetPrometheusId: 'targetPrometheusId',
       toTime: 'toTime',
       updateTime: 'updateTime',
@@ -233,7 +187,6 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
       scheduleTimeExpr: 'string',
       sourcePrometheusId: 'string',
       status: 'string',
-      tags: { 'type': 'array', 'itemType': ListAggTaskGroupsResponseBodyAggTaskGroupsTags },
       targetPrometheusId: 'string',
       toTime: 'number',
       updateTime: 'string',
@@ -241,9 +194,6 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
     super.validate();
   }
 

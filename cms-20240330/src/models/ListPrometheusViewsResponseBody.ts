@@ -2,46 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListPrometheusViewsResponseBodyPrometheusViewsTags extends $dara.Model {
-  /**
-   * @remarks
-   * Tag key
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * Match value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model {
   /**
    * @remarks
@@ -111,14 +71,6 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
-   * 
-   * @example
-   * rg-acfm3gn5i6bigbi
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
    * Fixed value: PrometheusView.
    * 
    * @example
@@ -133,11 +85,6 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
    * Running
    */
   status?: string;
-  /**
-   * @remarks
-   * Tag values.
-   */
-  tags?: ListPrometheusViewsResponseBodyPrometheusViewsTags[];
   /**
    * @remarks
    * User ID.
@@ -172,10 +119,8 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
       prometheusViewId: 'prometheusViewId',
       prometheusViewName: 'prometheusViewName',
       regionId: 'regionId',
-      resourceGroupId: 'resourceGroupId',
       resourceType: 'resourceType',
       status: 'status',
-      tags: 'tags',
       userId: 'userId',
       version: 'version',
       workspace: 'workspace',
@@ -192,10 +137,8 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
       prometheusViewId: 'string',
       prometheusViewName: 'string',
       regionId: 'string',
-      resourceGroupId: 'string',
       resourceType: 'string',
       status: 'string',
-      tags: { 'type': 'array', 'itemType': ListPrometheusViewsResponseBodyPrometheusViewsTags },
       userId: 'string',
       version: 'string',
       workspace: 'string',
@@ -203,9 +146,6 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   }
 
   validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
     super.validate();
   }
 

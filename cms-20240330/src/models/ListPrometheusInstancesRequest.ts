@@ -133,6 +133,11 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
    * true
    */
   version?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
       filterRegionIds: 'filterRegionIds',
@@ -144,6 +149,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
       resourceType: 'resourceType',
       tag: 'tag',
       version: 'version',
+      workspace: 'workspace',
     };
   }
 
@@ -158,6 +164,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': ListPrometheusInstancesRequestTag },
       version: 'string',
+      workspace: 'string',
     };
   }
 
