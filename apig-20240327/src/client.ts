@@ -958,6 +958,10 @@ export default class Client extends OpenApi {
       body["match"] = request.match;
     }
 
+    if (!$dara.isNull(request.mcpServerConfig)) {
+      body["mcpServerConfig"] = request.mcpServerConfig;
+    }
+
     if (!$dara.isNull(request.mcpStatisticsEnable)) {
       body["mcpStatisticsEnable"] = request.mcpStatisticsEnable;
     }
@@ -5467,6 +5471,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.match)) {
       body["match"] = request.match;
+    }
+
+    if (!$dara.isNull(request.mcpServerConfig)) {
+      body["mcpServerConfig"] = request.mcpServerConfig;
     }
 
     if (!$dara.isNull(request.mcpStatisticsEnable)) {

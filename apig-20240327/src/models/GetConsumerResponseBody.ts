@@ -10,7 +10,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
    * @remarks
    * The AK/SK authentication configurations.
    */
-  akSkIdentityConfigs?: AkSkIdentityConfig;
+  akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
    * @remarks
    * The API key authentication configurations.
@@ -94,7 +94,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      akSkIdentityConfigs: AkSkIdentityConfig,
+      akSkIdentityConfigs: { 'type': 'array', 'itemType': AkSkIdentityConfig },
       apiKeyIdentityConfig: ApiKeyIdentityConfig,
       consumerId: 'string',
       createTimestamp: 'number',
@@ -108,8 +108,8 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   }
 
   validate() {
-    if(this.akSkIdentityConfigs && typeof (this.akSkIdentityConfigs as any).validate === 'function') {
-      (this.akSkIdentityConfigs as any).validate();
+    if(Array.isArray(this.akSkIdentityConfigs)) {
+      $dara.Model.validateArray(this.akSkIdentityConfigs);
     }
     if(this.apiKeyIdentityConfig && typeof (this.apiKeyIdentityConfig as any).validate === 'function') {
       (this.apiKeyIdentityConfig as any).validate();

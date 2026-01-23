@@ -265,6 +265,32 @@ export class CreateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
   }
 }
 
+export class CreateMcpServerRequestMcpServerConfig extends $dara.Model {
+  mcpServerSpec?: string;
+  swaggerConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mcpServerSpec: 'mcpServerSpec',
+      swaggerConfig: 'swaggerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mcpServerSpec: 'string',
+      swaggerConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
@@ -318,6 +344,7 @@ export class CreateMcpServerRequest extends $dara.Model {
    * The route match rule.
    */
   match?: HttpRouteMatch;
+  mcpServerConfig?: CreateMcpServerRequestMcpServerConfig;
   /**
    * @remarks
    * Specifies whether MCP observability is enabled. Default: false.
@@ -367,6 +394,7 @@ export class CreateMcpServerRequest extends $dara.Model {
       gatewayId: 'gatewayId',
       grayMcpServerConfigs: 'grayMcpServerConfigs',
       match: 'match',
+      mcpServerConfig: 'mcpServerConfig',
       mcpStatisticsEnable: 'mcpStatisticsEnable',
       name: 'name',
       protocol: 'protocol',
@@ -385,6 +413,7 @@ export class CreateMcpServerRequest extends $dara.Model {
       gatewayId: 'string',
       grayMcpServerConfigs: { 'type': 'array', 'itemType': CreateMcpServerRequestGrayMcpServerConfigs },
       match: HttpRouteMatch,
+      mcpServerConfig: CreateMcpServerRequestMcpServerConfig,
       mcpStatisticsEnable: 'boolean',
       name: 'string',
       protocol: 'string',
@@ -407,6 +436,9 @@ export class CreateMcpServerRequest extends $dara.Model {
     }
     if(this.match && typeof (this.match as any).validate === 'function') {
       (this.match as any).validate();
+    }
+    if(this.mcpServerConfig && typeof (this.mcpServerConfig as any).validate === 'function') {
+      (this.mcpServerConfig as any).validate();
     }
     super.validate();
   }
