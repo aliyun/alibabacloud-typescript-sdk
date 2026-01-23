@@ -6,6 +6,8 @@ import { RouteItem } from "./RouteItem";
 export class UpdateStorageDomainRoutingRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,11 +16,15 @@ export class UpdateStorageDomainRoutingRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The route list
+   * 
    * This parameter is required.
    */
   routes?: RouteItem[];
   /**
    * @remarks
+   * The rule ID.
+   * 
    * This parameter is required.
    * 
    * @example

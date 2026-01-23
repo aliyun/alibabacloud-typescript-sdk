@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteScanRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code
+   * 
    * @example
    * success
    */

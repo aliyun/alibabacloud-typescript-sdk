@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateStorageDomainRoutingRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * success
    */
   code?: string;
   /**
+   * @remarks
+   * The request ID
+   * 
    * @example
    * C8E90AB5-0A96-5D12-9E59-11EE463*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * crsdr-n6pbhgjx*****
    */
   ruleId?: string;
   /**
+   * @remarks
+   * Identification of whether the request is successful or not
+   * 
    * @example
    * true
    */

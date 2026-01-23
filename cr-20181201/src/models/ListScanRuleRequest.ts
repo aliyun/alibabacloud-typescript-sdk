@@ -4,21 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListScanRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cri-upoulewerx*****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The type of the vulnerability. Valid values:
+   * 
+   * *   `VUL`: Products Cloud Security Scanner.
+   * *   `SBOM`: Product Content Analysis.
+   * 
+   * Default value: `VUL`
+   * 
    * @example
    * SBOM
    */

@@ -12,6 +12,7 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
    * crbr-khys0nd3asbe****
    */
   buildRuleId?: string;
+  destArtifactType?: string;
   /**
    * @remarks
    * The directory of the Dockerfile.
@@ -60,6 +61,7 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
     return {
       buildArgs: 'BuildArgs',
       buildRuleId: 'BuildRuleId',
+      destArtifactType: 'DestArtifactType',
       dockerfileLocation: 'DockerfileLocation',
       dockerfileName: 'DockerfileName',
       imageTag: 'ImageTag',
@@ -73,6 +75,7 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
     return {
       buildArgs: { 'type': 'array', 'itemType': 'string' },
       buildRuleId: 'string',
+      destArtifactType: 'string',
       dockerfileLocation: 'string',
       dockerfileName: 'string',
       imageTag: 'string',

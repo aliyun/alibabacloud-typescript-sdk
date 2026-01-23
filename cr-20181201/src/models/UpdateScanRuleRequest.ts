@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScanRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,31 @@ export class UpdateScanRuleRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The list of namespaces.
+   * 
+   * *   When the scan scope is NAMESPACE, this parameter cannot be empty.
+   * *   If the scan scope is REPO, you must specify a unique Namespace for this parameter.
+   * 
    * **if can be null:**
    * true
    */
   namespaces?: string[];
   /**
+   * @remarks
+   * The list of repositories.
+   * 
+   * *   When the scan scope is NAMESPACE, this parameter must be empty.
+   * *   When the scan scope is REPO, this parameter cannot be empty.
+   * 
    * **if can be null:**
    * true
    */
   repoNames?: string[];
   /**
    * @remarks
+   * The tag filtering rules.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +47,8 @@ export class UpdateScanRuleRequest extends $dara.Model {
   repoTagFilterPattern?: string;
   /**
    * @remarks
+   * The rule name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +57,8 @@ export class UpdateScanRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
+   * The rule ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +67,13 @@ export class UpdateScanRuleRequest extends $dara.Model {
   scanRuleId?: string;
   /**
    * @remarks
+   * The scan scope.
+   * 
+   * Valid values:
+   * 
+   * *   NAMESPACE: namespace.
+   * *   REPO: repository.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +82,13 @@ export class UpdateScanRuleRequest extends $dara.Model {
   scanScope?: string;
   /**
    * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   AUTO: automatically triggers.
+   * *   MANUAL: manually triggers.
+   * 
    * This parameter is required.
    * 
    * @example

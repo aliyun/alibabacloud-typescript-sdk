@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateScanRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned HTTP or HTTPS status code.
+   * 
    * @example
    * success
    */
@@ -17,6 +20,9 @@ export class CreateScanRuleResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * crscnr-k3gdm5vrn2nzf5hw
    */

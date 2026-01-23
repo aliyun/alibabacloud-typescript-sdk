@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScanRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,31 @@ export class CreateScanRuleRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The list of namespaces.
+   * 
+   * *   When the scan scope is NAMESPACE, this parameter cannot be empty.
+   * *   If the scan scope is REPO, you must specify a unique Namespace for this parameter.
+   * 
    * **if can be null:**
    * true
    */
   namespaces?: string[];
   /**
+   * @remarks
+   * The list of repositories.
+   * 
+   * *   When the scan scope is NAMESPACE, this parameter must be empty.
+   * *   When the scan scope is REPO, this parameter cannot be empty.
+   * 
    * **if can be null:**
    * true
    */
   repoNames?: string[];
   /**
    * @remarks
+   * The tag that triggers the scan matches the regular expression
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +47,8 @@ export class CreateScanRuleRequest extends $dara.Model {
   repoTagFilterPattern?: string;
   /**
    * @remarks
+   * The rule name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +57,13 @@ export class CreateScanRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
+   * The scan scope
+   * 
+   * Valid values:
+   * 
+   * *   NAMESPACE: namespace.
+   * *   REPO: repository.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,12 +71,27 @@ export class CreateScanRuleRequest extends $dara.Model {
    */
   scanScope?: string;
   /**
+   * @remarks
+   * The scan type. Valid values:
+   * 
+   * *   `VUL`: Products Cloud Security Scanner
+   * *   `SBOM`: Product Content Analysis
+   * 
+   * Default value: `VUL`
+   * 
    * @example
    * VUL
    */
   scanType?: string;
   /**
    * @remarks
+   * Trigger type
+   * 
+   * Valid values:
+   * 
+   * *   AUTO: automatically trigger.
+   * *   MANUAL: manually trigger.
+   * 
    * This parameter is required.
    * 
    * @example

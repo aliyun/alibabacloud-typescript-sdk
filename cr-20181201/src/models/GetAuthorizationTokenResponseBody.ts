@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The temporary password returned after you call this API operation is a Security Token Service (STS) token whose validity period is 1 hour. Take note of the following items when you log on to Container Registry instances by using an STS token:
-   * 
-   * *   If the STS token belongs to an Alibaba Cloud account, you can use the STS token to log on to all Container Registry instances that belong to the Alibaba Cloud account.
-   * *   If the STS token belongs to a Resource Access Management (RAM) user, you can use the STS token to log on to all Container Registry instances that belong to the RAM user.
-   * *   You can use an STS token to access only Container Registry instances to which the STS token is scoped.
+   * The password that you use to log on to the registry.
    * 
    * @example
    * shaunadadakks:uuczxnjcyeyhdjadkkajsjdjadhyucb
@@ -17,10 +13,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   authorizationToken?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful.
-   * 
-   * *   `true`: successful
-   * *   `false`: failed
+   * The HTTP status code.
    * 
    * @example
    * success
@@ -28,7 +21,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return value.
+   * The timestamp when the temporary token expired. Unit: milliseconds.
    * 
    * @example
    * 1571242083000
@@ -36,7 +29,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The username that is used to log on to the Container Registry instance.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -44,7 +37,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The timestamp when the temporary password expires. Unit: milliseconds.
+   * The request ID
    * 
    * @example
    * E069EB86-E6AD-4A98-ADDE-0E993390239A
@@ -52,7 +45,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The password that is used to log on to the Container Registry instance.
+   * The username that you use to log on to the registry.
    * 
    * @example
    * temp_user_cr

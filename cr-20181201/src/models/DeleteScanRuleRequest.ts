@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteScanRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID
+   * 
    * @example
    * cri-kmsiwlxxdcva****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The rule ID
+   * 
    * @example
    * crscnr-aemytkwad2h7fyhb
    */

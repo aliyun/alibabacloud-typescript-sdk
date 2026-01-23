@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetScanRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetScanRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The scan rule ID.
+   * 
    * This parameter is required.
    * 
    * @example
