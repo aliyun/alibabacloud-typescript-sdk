@@ -30,6 +30,11 @@ export class ListCouponUsageRequest extends $dara.Model {
   status?: string;
   /**
    * @example
+   * 123456768
+   */
+  t2PartnerUid?: number;
+  /**
+   * @example
    * 1133166938931507
    */
   uid?: number;
@@ -40,6 +45,7 @@ export class ListCouponUsageRequest extends $dara.Model {
       page: 'Page',
       pageSize: 'PageSize',
       status: 'Status',
+      t2PartnerUid: 'T2PartnerUid',
       uid: 'Uid',
     };
   }
@@ -51,6 +57,7 @@ export class ListCouponUsageRequest extends $dara.Model {
       page: 'number',
       pageSize: 'number',
       status: 'string',
+      t2PartnerUid: 'number',
       uid: 'number',
     };
   }

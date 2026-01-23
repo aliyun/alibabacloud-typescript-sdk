@@ -1425,6 +1425,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!$dara.isNull(request.applicationReason)) {
+      query["ApplicationReason"] = request.applicationReason;
+    }
+
     if (!$dara.isNull(request.couponTemplateId)) {
       query["CouponTemplateId"] = request.couponTemplateId;
     }
@@ -1531,6 +1535,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.t2PartnerUid)) {
+      query["T2PartnerUid"] = request.t2PartnerUid;
     }
 
     if (!$dara.isNull(request.uid)) {
