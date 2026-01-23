@@ -882,6 +882,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * off
    */
   gpuAcceleration?: string;
+  hoverConfigMsg?: string;
   /**
    * @remarks
    * Specifies whether to allow web client access.
@@ -1052,6 +1053,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   mobileWyAssistant?: string;
   modelLibrary?: string;
+  multiScreen?: string;
   /**
    * @remarks
    * The name of the cloud computer policy.
@@ -1338,6 +1340,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * null
    */
   resetDesktop?: string;
+  resolutionDpi?: number;
   resolutionHeight?: number;
   resolutionModel?: string;
   resolutionWidth?: number;
@@ -1723,6 +1726,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
+      hoverConfigMsg: 'HoverConfigMsg',
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
@@ -1742,6 +1746,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       mobileWuyingKeeper: 'MobileWuyingKeeper',
       mobileWyAssistant: 'MobileWyAssistant',
       modelLibrary: 'ModelLibrary',
+      multiScreen: 'MultiScreen',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
@@ -1771,6 +1776,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
       remoteCoordinate: 'RemoteCoordinate',
       resetDesktop: 'ResetDesktop',
+      resolutionDpi: 'ResolutionDpi',
       resolutionHeight: 'ResolutionHeight',
       resolutionModel: 'ResolutionModel',
       resolutionWidth: 'ResolutionWidth',
@@ -1855,6 +1861,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
+      hoverConfigMsg: 'string',
       html5Access: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
@@ -1874,6 +1881,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       mobileWuyingKeeper: 'string',
       mobileWyAssistant: 'string',
       modelLibrary: 'string',
+      multiScreen: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule },
@@ -1903,6 +1911,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       recordingUserNotifyMessage: 'string',
       remoteCoordinate: 'string',
       resetDesktop: 'string',
+      resolutionDpi: 'number',
       resolutionHeight: 'number',
       resolutionModel: 'string',
       resolutionWidth: 'number',

@@ -666,6 +666,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   gpuAcceleration?: string;
+  hoverConfigMsg?: string;
   /**
    * @remarks
    * The web client access policy.
@@ -968,6 +969,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * fullControl
    */
   remoteCoordinate?: string;
+  resolutionDpi?: number;
   /**
    * @remarks
    * The height of the resolution. Unit: pixel.
@@ -1265,6 +1267,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
+      hoverConfigMsg: 'HoverConfigMsg',
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
@@ -1304,6 +1307,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       recordingUserNotify: 'RecordingUserNotify',
       recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
       remoteCoordinate: 'RemoteCoordinate',
+      resolutionDpi: 'ResolutionDpi',
       resolutionHeight: 'ResolutionHeight',
       resolutionModel: 'ResolutionModel',
       resolutionWidth: 'ResolutionWidth',
@@ -1377,6 +1381,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
+      hoverConfigMsg: 'string',
       html5Access: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
@@ -1416,6 +1421,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       recordingUserNotify: 'string',
       recordingUserNotifyMessage: 'string',
       remoteCoordinate: 'string',
+      resolutionDpi: 'number',
       resolutionHeight: 'number',
       resolutionModel: 'string',
       resolutionWidth: 'number',

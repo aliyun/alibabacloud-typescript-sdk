@@ -2599,6 +2599,10 @@ export default class Client extends OpenApi {
       query["GpuAcceleration"] = request.gpuAcceleration;
     }
 
+    if (!$dara.isNull(request.hoverConfigMsg)) {
+      query["HoverConfigMsg"] = request.hoverConfigMsg;
+    }
+
     if (!$dara.isNull(request.html5FileTransfer)) {
       query["Html5FileTransfer"] = request.html5FileTransfer;
     }
@@ -2669,6 +2673,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modelLibrary)) {
       query["ModelLibrary"] = request.modelLibrary;
+    }
+
+    if (!$dara.isNull(request.multiScreen)) {
+      query["MultiScreen"] = request.multiScreen;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -2773,6 +2781,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resetDesktop)) {
       query["ResetDesktop"] = request.resetDesktop;
+    }
+
+    if (!$dara.isNull(request.resolutionDpi)) {
+      query["ResolutionDpi"] = request.resolutionDpi;
     }
 
     if (!$dara.isNull(request.resolutionHeight)) {
@@ -14684,6 +14696,10 @@ export default class Client extends OpenApi {
       query["GpuAcceleration"] = request.gpuAcceleration;
     }
 
+    if (!$dara.isNull(request.hoverConfigMsg)) {
+      query["HoverConfigMsg"] = request.hoverConfigMsg;
+    }
+
     if (!$dara.isNull(request.html5FileTransfer)) {
       query["Html5FileTransfer"] = request.html5FileTransfer;
     }
@@ -14754,6 +14770,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modelLibrary)) {
       query["ModelLibrary"] = request.modelLibrary;
+    }
+
+    if (!$dara.isNull(request.multiScreen)) {
+      query["MultiScreen"] = request.multiScreen;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -14862,6 +14882,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resetDesktop)) {
       query["ResetDesktop"] = request.resetDesktop;
+    }
+
+    if (!$dara.isNull(request.resolutionDpi)) {
+      query["ResolutionDpi"] = request.resolutionDpi;
     }
 
     if (!$dara.isNull(request.resolutionHeight)) {

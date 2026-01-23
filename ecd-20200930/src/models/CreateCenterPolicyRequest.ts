@@ -219,12 +219,20 @@ export class CreateCenterPolicyRequestClipboardGraineds extends $dara.Model {
   clipboardSizeUnit?: string;
   clipboardType?: string;
   grainedType?: string;
+  inClipboardSize?: number;
+  inClipboardSizeUnit?: string;
+  outClipboardSize?: number;
+  outClipboardSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
       clipboardSize: 'ClipboardSize',
       clipboardSizeUnit: 'ClipboardSizeUnit',
       clipboardType: 'ClipboardType',
       grainedType: 'GrainedType',
+      inClipboardSize: 'InClipboardSize',
+      inClipboardSizeUnit: 'InClipboardSizeUnit',
+      outClipboardSize: 'OutClipboardSize',
+      outClipboardSizeUnit: 'OutClipboardSizeUnit',
     };
   }
 
@@ -234,6 +242,10 @@ export class CreateCenterPolicyRequestClipboardGraineds extends $dara.Model {
       clipboardSizeUnit: 'string',
       clipboardType: 'string',
       grainedType: 'string',
+      inClipboardSize: 'number',
+      inClipboardSizeUnit: 'string',
+      outClipboardSize: 'number',
+      outClipboardSizeUnit: 'string',
     };
   }
 
@@ -927,6 +939,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * off
    */
   gpuAcceleration?: string;
+  hoverConfigMsg?: string;
   /**
    * @remarks
    * The file transfer feature on the web client.
@@ -1077,6 +1090,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    */
   mobileWyAssistant?: string;
   modelLibrary?: string;
+  multiScreen?: string;
   /**
    * @remarks
    * The policy name.
@@ -1306,6 +1320,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * off
    */
   resetDesktop?: string;
+  resolutionDpi?: number;
   /**
    * @remarks
    * The resolution height. Unit: pixel. Valid values for cloud applications: 500 to 50000. Valid values for cloud computers: 480 to 4096.
@@ -1742,6 +1757,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
+      hoverConfigMsg: 'HoverConfigMsg',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
       internetPrinter: 'InternetPrinter',
@@ -1760,6 +1776,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       mobileWuyingKeeper: 'MobileWuyingKeeper',
       mobileWyAssistant: 'MobileWyAssistant',
       modelLibrary: 'ModelLibrary',
+      multiScreen: 'MultiScreen',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
@@ -1786,6 +1803,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       regionId: 'RegionId',
       remoteCoordinate: 'RemoteCoordinate',
       resetDesktop: 'ResetDesktop',
+      resolutionDpi: 'ResolutionDpi',
       resolutionHeight: 'ResolutionHeight',
       resolutionModel: 'ResolutionModel',
       resolutionWidth: 'ResolutionWidth',
@@ -1873,6 +1891,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
+      hoverConfigMsg: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
       internetPrinter: 'string',
@@ -1891,6 +1910,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       mobileWuyingKeeper: 'string',
       mobileWyAssistant: 'string',
       modelLibrary: 'string',
+      multiScreen: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestNetRedirectRule },
@@ -1917,6 +1937,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       regionId: 'string',
       remoteCoordinate: 'string',
       resetDesktop: 'string',
+      resolutionDpi: 'number',
       resolutionHeight: 'number',
       resolutionModel: 'string',
       resolutionWidth: 'number',
