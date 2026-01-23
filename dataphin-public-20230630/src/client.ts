@@ -478,6 +478,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 指定质量规则和调度设置进行绑定。
+   * 
+   * @param tmpReq - AssignQualityRuleOfAllRuleScopeSchedulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignQualityRuleOfAllRuleScopeSchedulesResponse
+   */
+  async assignQualityRuleOfAllRuleScopeSchedulesWithOptions(tmpReq: $_model.AssignQualityRuleOfAllRuleScopeSchedulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssignQualityRuleOfAllRuleScopeSchedulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assignCommand)) {
+      request.assignCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assignCommand, "AssignCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assignCommandShrink)) {
+      body["AssignCommand"] = request.assignCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssignQualityRuleOfAllRuleScopeSchedules",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssignQualityRuleOfAllRuleScopeSchedulesResponse>(await this.callApi(params, req, runtime), new $_model.AssignQualityRuleOfAllRuleScopeSchedulesResponse({}));
+  }
+
+  /**
+   * 指定质量规则和调度设置进行绑定。
+   * 
+   * @param request - AssignQualityRuleOfAllRuleScopeSchedulesRequest
+   * @returns AssignQualityRuleOfAllRuleScopeSchedulesResponse
+   */
+  async assignQualityRuleOfAllRuleScopeSchedules(request: $_model.AssignQualityRuleOfAllRuleScopeSchedulesRequest): Promise<$_model.AssignQualityRuleOfAllRuleScopeSchedulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.assignQualityRuleOfAllRuleScopeSchedulesWithOptions(request, runtime);
+  }
+
+  /**
    * 项目计算源连通性检查。
    * 
    * @param tmpReq - CheckComputeSourceConnectivityRequest
@@ -1662,6 +1716,600 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建数据分类。
+   * 
+   * @param tmpReq - CreateSecurityClassifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityClassifyResponse
+   */
+  async createSecurityClassifyWithOptions(tmpReq: $_model.CreateSecurityClassifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityClassifyResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSecurityClassifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecurityClassify",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecurityClassifyResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecurityClassifyResponse({}));
+  }
+
+  /**
+   * 新建数据分类。
+   * 
+   * @param request - CreateSecurityClassifyRequest
+   * @returns CreateSecurityClassifyResponse
+   */
+  async createSecurityClassify(request: $_model.CreateSecurityClassifyRequest): Promise<$_model.CreateSecurityClassifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSecurityClassifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建数据分类目录。
+   * 
+   * @param tmpReq - CreateSecurityClassifyCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityClassifyCatalogResponse
+   */
+  async createSecurityClassifyCatalogWithOptions(tmpReq: $_model.CreateSecurityClassifyCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityClassifyCatalogResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSecurityClassifyCatalogShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecurityClassifyCatalog",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecurityClassifyCatalogResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecurityClassifyCatalogResponse({}));
+  }
+
+  /**
+   * 新建数据分类目录。
+   * 
+   * @param request - CreateSecurityClassifyCatalogRequest
+   * @returns CreateSecurityClassifyCatalogResponse
+   */
+  async createSecurityClassifyCatalog(request: $_model.CreateSecurityClassifyCatalogRequest): Promise<$_model.CreateSecurityClassifyCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSecurityClassifyCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建安全识别结果。
+   * 
+   * @param tmpReq - CreateSecurityIdentifyResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityIdentifyResultResponse
+   */
+  async createSecurityIdentifyResultWithOptions(tmpReq: $_model.CreateSecurityIdentifyResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityIdentifyResultResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSecurityIdentifyResultShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecurityIdentifyResult",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecurityIdentifyResultResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecurityIdentifyResultResponse({}));
+  }
+
+  /**
+   * 新建安全识别结果。
+   * 
+   * @param request - CreateSecurityIdentifyResultRequest
+   * @returns CreateSecurityIdentifyResultResponse
+   */
+  async createSecurityIdentifyResult(request: $_model.CreateSecurityIdentifyResultRequest): Promise<$_model.CreateSecurityIdentifyResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSecurityIdentifyResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建数据分级。
+   * 
+   * @param tmpReq - CreateSecurityLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityLevelResponse
+   */
+  async createSecurityLevelWithOptions(tmpReq: $_model.CreateSecurityLevelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityLevelResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSecurityLevelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecurityLevel",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecurityLevelResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecurityLevelResponse({}));
+  }
+
+  /**
+   * 新建数据分级。
+   * 
+   * @param request - CreateSecurityLevelRequest
+   * @returns CreateSecurityLevelResponse
+   */
+  async createSecurityLevel(request: $_model.CreateSecurityLevelRequest): Promise<$_model.CreateSecurityLevelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSecurityLevelWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建标准。
+   * 
+   * @param tmpReq - CreateStandardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStandardResponse
+   */
+  async createStandardWithOptions(tmpReq: $_model.CreateStandardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStandardResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStandardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStandard",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStandardResponse>(await this.callApi(params, req, runtime), new $_model.CreateStandardResponse({}));
+  }
+
+  /**
+   * 创建标准。
+   * 
+   * @param request - CreateStandardRequest
+   * @returns CreateStandardResponse
+   */
+  async createStandard(request: $_model.CreateStandardRequest): Promise<$_model.CreateStandardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStandardWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据标准码表。
+   * 
+   * @param tmpReq - CreateStandardLookupTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStandardLookupTableResponse
+   */
+  async createStandardLookupTableWithOptions(tmpReq: $_model.CreateStandardLookupTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStandardLookupTableResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStandardLookupTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStandardLookupTable",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStandardLookupTableResponse>(await this.callApi(params, req, runtime), new $_model.CreateStandardLookupTableResponse({}));
+  }
+
+  /**
+   * 创建数据标准码表。
+   * 
+   * @param request - CreateStandardLookupTableRequest
+   * @returns CreateStandardLookupTableResponse
+   */
+  async createStandardLookupTable(request: $_model.CreateStandardLookupTableRequest): Promise<$_model.CreateStandardLookupTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStandardLookupTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建标准映射关系, 包括有效映射和无效映射。
+   * 
+   * @param tmpReq - CreateStandardMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStandardMappingResponse
+   */
+  async createStandardMappingWithOptions(tmpReq: $_model.CreateStandardMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStandardMappingResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStandardMappingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStandardMapping",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStandardMappingResponse>(await this.callApi(params, req, runtime), new $_model.CreateStandardMappingResponse({}));
+  }
+
+  /**
+   * 创建标准映射关系, 包括有效映射和无效映射。
+   * 
+   * @param request - CreateStandardMappingRequest
+   * @returns CreateStandardMappingResponse
+   */
+  async createStandardMapping(request: $_model.CreateStandardMappingRequest): Promise<$_model.CreateStandardMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStandardMappingWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建标准关联关系。
+   * 
+   * @param tmpReq - CreateStandardRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStandardRelationsResponse
+   */
+  async createStandardRelationsWithOptions(tmpReq: $_model.CreateStandardRelationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStandardRelationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStandardRelationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStandardRelations",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStandardRelationsResponse>(await this.callApi(params, req, runtime), new $_model.CreateStandardRelationsResponse({}));
+  }
+
+  /**
+   * 创建标准关联关系。
+   * 
+   * @param request - CreateStandardRelationsRequest
+   * @returns CreateStandardRelationsResponse
+   */
+  async createStandardRelations(request: $_model.CreateStandardRelationsRequest): Promise<$_model.CreateStandardRelationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStandardRelationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建标准集。
+   * 
+   * @param tmpReq - CreateStandardSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStandardSetResponse
+   */
+  async createStandardSetWithOptions(tmpReq: $_model.CreateStandardSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStandardSetResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStandardSetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStandardSet",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStandardSetResponse>(await this.callApi(params, req, runtime), new $_model.CreateStandardSetResponse({}));
+  }
+
+  /**
+   * 创建标准集。
+   * 
+   * @param request - CreateStandardSetRequest
+   * @returns CreateStandardSetResponse
+   */
+  async createStandardSet(request: $_model.CreateStandardSetRequest): Promise<$_model.CreateStandardSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStandardSetWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据标准模板。
+   * 
+   * @param tmpReq - CreateStandardTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStandardTemplateResponse
+   */
+  async createStandardTemplateWithOptions(tmpReq: $_model.CreateStandardTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStandardTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStandardTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStandardTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStandardTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateStandardTemplateResponse({}));
+  }
+
+  /**
+   * 创建数据标准模板。
+   * 
+   * @param request - CreateStandardTemplateRequest
+   * @returns CreateStandardTemplateResponse
+   */
+  async createStandardTemplate(request: $_model.CreateStandardTemplateRequest): Promise<$_model.CreateStandardTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStandardTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据标准词根。
+   * 
+   * @param tmpReq - CreateStandardWordRootRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStandardWordRootResponse
+   */
+  async createStandardWordRootWithOptions(tmpReq: $_model.CreateStandardWordRootRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStandardWordRootResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStandardWordRootShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStandardWordRoot",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStandardWordRootResponse>(await this.callApi(params, req, runtime), new $_model.CreateStandardWordRootResponse({}));
+  }
+
+  /**
+   * 创建数据标准词根。
+   * 
+   * @param request - CreateStandardWordRootRequest
+   * @returns CreateStandardWordRootResponse
+   */
+  async createStandardWordRoot(request: $_model.CreateStandardWordRootRequest): Promise<$_model.CreateStandardWordRootResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStandardWordRootWithOptions(request, runtime);
+  }
+
+  /**
    * 创建流批一体任务
    * 
    * @param tmpReq - CreateStreamBatchJobMappingRequest
@@ -2282,6 +2930,222 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量删除质量规则对象。
+   * 
+   * @param tmpReq - DeleteQualityRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQualityRulesResponse
+   */
+  async deleteQualityRulesWithOptions(tmpReq: $_model.DeleteQualityRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteQualityRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteQualityRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteQualityRules",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteQualityRulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteQualityRulesResponse({}));
+  }
+
+  /**
+   * 批量删除质量规则对象。
+   * 
+   * @param request - DeleteQualityRulesRequest
+   * @returns DeleteQualityRulesResponse
+   */
+  async deleteQualityRules(request: $_model.DeleteQualityRulesRequest): Promise<$_model.DeleteQualityRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteQualityRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除质量调度对象。
+   * 
+   * @param tmpReq - DeleteQualitySchedulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQualitySchedulesResponse
+   */
+  async deleteQualitySchedulesWithOptions(tmpReq: $_model.DeleteQualitySchedulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteQualitySchedulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteQualitySchedulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteQualitySchedules",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteQualitySchedulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteQualitySchedulesResponse({}));
+  }
+
+  /**
+   * 批量删除质量调度对象。
+   * 
+   * @param request - DeleteQualitySchedulesRequest
+   * @returns DeleteQualitySchedulesResponse
+   */
+  async deleteQualitySchedules(request: $_model.DeleteQualitySchedulesRequest): Promise<$_model.DeleteQualitySchedulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteQualitySchedulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除质量模板对象。
+   * 
+   * @param tmpReq - DeleteQualityTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQualityTemplatesResponse
+   */
+  async deleteQualityTemplatesWithOptions(tmpReq: $_model.DeleteQualityTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteQualityTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteQualityTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteQualityTemplates",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteQualityTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteQualityTemplatesResponse({}));
+  }
+
+  /**
+   * 批量删除质量模板对象。
+   * 
+   * @param request - DeleteQualityTemplatesRequest
+   * @returns DeleteQualityTemplatesResponse
+   */
+  async deleteQualityTemplates(request: $_model.DeleteQualityTemplatesRequest): Promise<$_model.DeleteQualityTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteQualityTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除质量监控对象。
+   * 
+   * @param tmpReq - DeleteQualityWatchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQualityWatchesResponse
+   */
+  async deleteQualityWatchesWithOptions(tmpReq: $_model.DeleteQualityWatchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteQualityWatchesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteQualityWatchesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteQualityWatches",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteQualityWatchesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteQualityWatchesResponse({}));
+  }
+
+  /**
+   * 批量删除质量监控对象。
+   * 
+   * @param request - DeleteQualityWatchesRequest
+   * @returns DeleteQualityWatchesResponse
+   */
+  async deleteQualityWatches(request: $_model.DeleteQualityWatchesRequest): Promise<$_model.DeleteQualityWatchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteQualityWatchesWithOptions(request, runtime);
+  }
+
+  /**
    * 删除注册血缘。
    * 
    * @param tmpReq - DeleteRegisterLineageRequest
@@ -2441,6 +3305,576 @@ export default class Client extends OpenApi {
   async deleteRowPermission(request: $_model.DeleteRowPermissionRequest): Promise<$_model.DeleteRowPermissionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRowPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据分类。
+   * 
+   * @param tmpReq - DeleteSecurityClassifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityClassifyResponse
+   */
+  async deleteSecurityClassifyWithOptions(tmpReq: $_model.DeleteSecurityClassifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecurityClassifyResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteSecurityClassifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecurityClassify",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecurityClassifyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecurityClassifyResponse({}));
+  }
+
+  /**
+   * 删除数据分类。
+   * 
+   * @param request - DeleteSecurityClassifyRequest
+   * @returns DeleteSecurityClassifyResponse
+   */
+  async deleteSecurityClassify(request: $_model.DeleteSecurityClassifyRequest): Promise<$_model.DeleteSecurityClassifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSecurityClassifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据分类目录。
+   * 
+   * @param tmpReq - DeleteSecurityClassifyCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityClassifyCatalogResponse
+   */
+  async deleteSecurityClassifyCatalogWithOptions(tmpReq: $_model.DeleteSecurityClassifyCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecurityClassifyCatalogResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteSecurityClassifyCatalogShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecurityClassifyCatalog",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecurityClassifyCatalogResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecurityClassifyCatalogResponse({}));
+  }
+
+  /**
+   * 删除数据分类目录。
+   * 
+   * @param request - DeleteSecurityClassifyCatalogRequest
+   * @returns DeleteSecurityClassifyCatalogResponse
+   */
+  async deleteSecurityClassifyCatalog(request: $_model.DeleteSecurityClassifyCatalogRequest): Promise<$_model.DeleteSecurityClassifyCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSecurityClassifyCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除安全识别结果。
+   * 
+   * @param tmpReq - DeleteSecurityIdentifyResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityIdentifyResultsResponse
+   */
+  async deleteSecurityIdentifyResultsWithOptions(tmpReq: $_model.DeleteSecurityIdentifyResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecurityIdentifyResultsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteSecurityIdentifyResultsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecurityIdentifyResults",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecurityIdentifyResultsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecurityIdentifyResultsResponse({}));
+  }
+
+  /**
+   * 批量删除安全识别结果。
+   * 
+   * @param request - DeleteSecurityIdentifyResultsRequest
+   * @returns DeleteSecurityIdentifyResultsResponse
+   */
+  async deleteSecurityIdentifyResults(request: $_model.DeleteSecurityIdentifyResultsRequest): Promise<$_model.DeleteSecurityIdentifyResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSecurityIdentifyResultsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据分级。
+   * 
+   * @param tmpReq - DeleteSecurityLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityLevelResponse
+   */
+  async deleteSecurityLevelWithOptions(tmpReq: $_model.DeleteSecurityLevelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecurityLevelResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteSecurityLevelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecurityLevel",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecurityLevelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecurityLevelResponse({}));
+  }
+
+  /**
+   * 删除数据分级。
+   * 
+   * @param request - DeleteSecurityLevelRequest
+   * @returns DeleteSecurityLevelResponse
+   */
+  async deleteSecurityLevel(request: $_model.DeleteSecurityLevelRequest): Promise<$_model.DeleteSecurityLevelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSecurityLevelWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除标准。
+   * 
+   * @param tmpReq - DeleteStandardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStandardResponse
+   */
+  async deleteStandardWithOptions(tmpReq: $_model.DeleteStandardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStandardResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteStandardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStandard",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStandardResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStandardResponse({}));
+  }
+
+  /**
+   * 删除标准。
+   * 
+   * @param request - DeleteStandardRequest
+   * @returns DeleteStandardResponse
+   */
+  async deleteStandard(request: $_model.DeleteStandardRequest): Promise<$_model.DeleteStandardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStandardWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除无效映射关系。
+   * 
+   * @param tmpReq - DeleteStandardInValidMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStandardInValidMappingResponse
+   */
+  async deleteStandardInValidMappingWithOptions(tmpReq: $_model.DeleteStandardInValidMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStandardInValidMappingResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteStandardInValidMappingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStandardInValidMapping",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStandardInValidMappingResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStandardInValidMappingResponse({}));
+  }
+
+  /**
+   * 删除无效映射关系。
+   * 
+   * @param request - DeleteStandardInValidMappingRequest
+   * @returns DeleteStandardInValidMappingResponse
+   */
+  async deleteStandardInValidMapping(request: $_model.DeleteStandardInValidMappingRequest): Promise<$_model.DeleteStandardInValidMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStandardInValidMappingWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据标准码表。
+   * 
+   * @param request - DeleteStandardLookupTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStandardLookupTableResponse
+   */
+  async deleteStandardLookupTableWithOptions(request: $_model.DeleteStandardLookupTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStandardLookupTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStandardLookupTable",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStandardLookupTableResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStandardLookupTableResponse({}));
+  }
+
+  /**
+   * 删除数据标准码表。
+   * 
+   * @param request - DeleteStandardLookupTableRequest
+   * @returns DeleteStandardLookupTableResponse
+   */
+  async deleteStandardLookupTable(request: $_model.DeleteStandardLookupTableRequest): Promise<$_model.DeleteStandardLookupTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStandardLookupTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除标准关联关系。
+   * 
+   * @param tmpReq - DeleteStandardRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStandardRelationsResponse
+   */
+  async deleteStandardRelationsWithOptions(tmpReq: $_model.DeleteStandardRelationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStandardRelationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteStandardRelationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStandardRelations",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStandardRelationsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStandardRelationsResponse({}));
+  }
+
+  /**
+   * 批量删除标准关联关系。
+   * 
+   * @param request - DeleteStandardRelationsRequest
+   * @returns DeleteStandardRelationsResponse
+   */
+  async deleteStandardRelations(request: $_model.DeleteStandardRelationsRequest): Promise<$_model.DeleteStandardRelationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStandardRelationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除标准集。
+   * 
+   * @param request - DeleteStandardSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStandardSetResponse
+   */
+  async deleteStandardSetWithOptions(request: $_model.DeleteStandardSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStandardSetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStandardSet",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStandardSetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStandardSetResponse({}));
+  }
+
+  /**
+   * 删除标准集。
+   * 
+   * @param request - DeleteStandardSetRequest
+   * @returns DeleteStandardSetResponse
+   */
+  async deleteStandardSet(request: $_model.DeleteStandardSetRequest): Promise<$_model.DeleteStandardSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStandardSetWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除有效映射关系。
+   * 
+   * @param tmpReq - DeleteStandardValidMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStandardValidMappingResponse
+   */
+  async deleteStandardValidMappingWithOptions(tmpReq: $_model.DeleteStandardValidMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStandardValidMappingResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteStandardValidMappingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteCommand)) {
+      request.deleteCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand, "DeleteCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteCommandShrink)) {
+      body["DeleteCommand"] = request.deleteCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStandardValidMapping",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStandardValidMappingResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStandardValidMappingResponse({}));
+  }
+
+  /**
+   * 删除有效映射关系。
+   * 
+   * @param request - DeleteStandardValidMappingRequest
+   * @returns DeleteStandardValidMappingResponse
+   */
+  async deleteStandardValidMapping(request: $_model.DeleteStandardValidMappingRequest): Promise<$_model.DeleteStandardValidMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStandardValidMappingWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据标准词根。
+   * 
+   * @param request - DeleteStandardWordRootRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStandardWordRootResponse
+   */
+  async deleteStandardWordRootWithOptions(request: $_model.DeleteStandardWordRootRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStandardWordRootResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStandardWordRoot",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStandardWordRootResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStandardWordRootResponse({}));
+  }
+
+  /**
+   * 删除数据标准词根。
+   * 
+   * @param request - DeleteStandardWordRootRequest
+   * @returns DeleteStandardWordRootResponse
+   */
+  async deleteStandardWordRoot(request: $_model.DeleteStandardWordRootRequest): Promise<$_model.DeleteStandardWordRootResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStandardWordRootWithOptions(request, runtime);
   }
 
   /**
@@ -2653,6 +4087,68 @@ export default class Client extends OpenApi {
   async executeManualNode(request: $_model.ExecuteManualNodeRequest): Promise<$_model.ExecuteManualNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeManualNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 运行触发式节点。
+   * 
+   * @param request - ExecuteTriggerNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteTriggerNodeResponse
+   */
+  async executeTriggerNodeWithOptions(request: $_model.ExecuteTriggerNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteTriggerNodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizDate)) {
+      query["BizDate"] = request.bizDate;
+    }
+
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.index)) {
+      query["Index"] = request.index;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteTriggerNode",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteTriggerNodeResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteTriggerNodeResponse({}));
+  }
+
+  /**
+   * 运行触发式节点。
+   * 
+   * @param request - ExecuteTriggerNodeRequest
+   * @returns ExecuteTriggerNodeResponse
+   */
+  async executeTriggerNode(request: $_model.ExecuteTriggerNodeRequest): Promise<$_model.ExecuteTriggerNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeTriggerNodeWithOptions(request, runtime);
   }
 
   /**
@@ -2976,6 +4472,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据资产对象GUID查询映射关系。
+   * 
+   * @param tmpReq - GetAssetMappingRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAssetMappingRelationsResponse
+   */
+  async getAssetMappingRelationsWithOptions(tmpReq: $_model.GetAssetMappingRelationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAssetMappingRelationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAssetMappingRelationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assetMappingQuery)) {
+      request.assetMappingQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetMappingQuery, "AssetMappingQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assetMappingQueryShrink)) {
+      body["AssetMappingQuery"] = request.assetMappingQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAssetMappingRelations",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAssetMappingRelationsResponse>(await this.callApi(params, req, runtime), new $_model.GetAssetMappingRelationsResponse({}));
+  }
+
+  /**
+   * 根据资产对象GUID查询映射关系。
+   * 
+   * @param request - GetAssetMappingRelationsRequest
+   * @returns GetAssetMappingRelationsResponse
+   */
+  async getAssetMappingRelations(request: $_model.GetAssetMappingRelationsRequest): Promise<$_model.GetAssetMappingRelationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAssetMappingRelationsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取离线计算任务详情。
    * 
    * @param request - GetBatchTaskInfoRequest
@@ -3185,6 +4735,60 @@ export default class Client extends OpenApi {
   async getBatchTaskVersions(request: $_model.GetBatchTaskVersionsRequest): Promise<$_model.GetBatchTaskVersionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getBatchTaskVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据归属资产GUID查询映射关系。
+   * 
+   * @param tmpReq - GetBelongAssetMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBelongAssetMappingResponse
+   */
+  async getBelongAssetMappingWithOptions(tmpReq: $_model.GetBelongAssetMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBelongAssetMappingResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetBelongAssetMappingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assetMappingQuery)) {
+      request.assetMappingQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetMappingQuery, "AssetMappingQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assetMappingQueryShrink)) {
+      body["AssetMappingQuery"] = request.assetMappingQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBelongAssetMapping",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBelongAssetMappingResponse>(await this.callApi(params, req, runtime), new $_model.GetBelongAssetMappingResponse({}));
+  }
+
+  /**
+   * 根据归属资产GUID查询映射关系。
+   * 
+   * @param request - GetBelongAssetMappingRequest
+   * @returns GetBelongAssetMappingResponse
+   */
+  async getBelongAssetMapping(request: $_model.GetBelongAssetMappingRequest): Promise<$_model.GetBelongAssetMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBelongAssetMappingWithOptions(request, runtime);
   }
 
   /**
@@ -5398,6 +7002,516 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过监控对象ID获取告警设置。
+   * 
+   * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityAlertOfAllRuleScopeByWatchIdResponse
+   */
+  async getQualityAlertOfAllRuleScopeByWatchIdWithOptions(request: $_model.GetQualityAlertOfAllRuleScopeByWatchIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityAlertOfAllRuleScopeByWatchIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.watchId)) {
+      query["WatchId"] = request.watchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityAlertOfAllRuleScopeByWatchId",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityAlertOfAllRuleScopeByWatchIdResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityAlertOfAllRuleScopeByWatchIdResponse({}));
+  }
+
+  /**
+   * 通过监控对象ID获取告警设置。
+   * 
+   * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
+   * @returns GetQualityAlertOfAllRuleScopeByWatchIdResponse
+   */
+  async getQualityAlertOfAllRuleScopeByWatchId(request: $_model.GetQualityAlertOfAllRuleScopeByWatchIdRequest): Promise<$_model.GetQualityAlertOfAllRuleScopeByWatchIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityAlertOfAllRuleScopeByWatchIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取质量规则对象。
+   * 
+   * @param request - GetQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityRuleResponse
+   */
+  async getQualityRuleWithOptions(request: $_model.GetQualityRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityRule",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityRuleResponse({}));
+  }
+
+  /**
+   * 获取质量规则对象。
+   * 
+   * @param request - GetQualityRuleRequest
+   * @returns GetQualityRuleResponse
+   */
+  async getQualityRule(request: $_model.GetQualityRuleRequest): Promise<$_model.GetQualityRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取质量任务对象详情。
+   * 
+   * @param request - GetQualityRuleTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityRuleTaskResponse
+   */
+  async getQualityRuleTaskWithOptions(request: $_model.GetQualityRuleTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityRuleTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.ruleTaskId)) {
+      query["RuleTaskId"] = request.ruleTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityRuleTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityRuleTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityRuleTaskResponse({}));
+  }
+
+  /**
+   * 获取质量任务对象详情。
+   * 
+   * @param request - GetQualityRuleTaskRequest
+   * @returns GetQualityRuleTaskResponse
+   */
+  async getQualityRuleTask(request: $_model.GetQualityRuleTaskRequest): Promise<$_model.GetQualityRuleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityRuleTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取质量任务对象日志内容。
+   * 
+   * @param request - GetQualityRuleTaskLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityRuleTaskLogResponse
+   */
+  async getQualityRuleTaskLogWithOptions(request: $_model.GetQualityRuleTaskLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityRuleTaskLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.ruleTaskId)) {
+      query["RuleTaskId"] = request.ruleTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityRuleTaskLog",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityRuleTaskLogResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityRuleTaskLogResponse({}));
+  }
+
+  /**
+   * 获取质量任务对象日志内容。
+   * 
+   * @param request - GetQualityRuleTaskLogRequest
+   * @returns GetQualityRuleTaskLogResponse
+   */
+  async getQualityRuleTaskLog(request: $_model.GetQualityRuleTaskLogRequest): Promise<$_model.GetQualityRuleTaskLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityRuleTaskLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取质量调度对象。
+   * 
+   * @param request - GetQualityScheduleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityScheduleResponse
+   */
+  async getQualityScheduleWithOptions(request: $_model.GetQualityScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityScheduleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualitySchedule",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityScheduleResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityScheduleResponse({}));
+  }
+
+  /**
+   * 获取质量调度对象。
+   * 
+   * @param request - GetQualityScheduleRequest
+   * @returns GetQualityScheduleResponse
+   */
+  async getQualitySchedule(request: $_model.GetQualityScheduleRequest): Promise<$_model.GetQualityScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityScheduleWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过监控对象ID获取调度设置列表。
+   * 
+   * @param request - GetQualitySchedulesByWatchIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualitySchedulesByWatchIdResponse
+   */
+  async getQualitySchedulesByWatchIdWithOptions(request: $_model.GetQualitySchedulesByWatchIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualitySchedulesByWatchIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.watchId)) {
+      query["WatchId"] = request.watchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualitySchedulesByWatchId",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualitySchedulesByWatchIdResponse>(await this.callApi(params, req, runtime), new $_model.GetQualitySchedulesByWatchIdResponse({}));
+  }
+
+  /**
+   * 通过监控对象ID获取调度设置列表。
+   * 
+   * @param request - GetQualitySchedulesByWatchIdRequest
+   * @returns GetQualitySchedulesByWatchIdResponse
+   */
+  async getQualitySchedulesByWatchId(request: $_model.GetQualitySchedulesByWatchIdRequest): Promise<$_model.GetQualitySchedulesByWatchIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualitySchedulesByWatchIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取质量模板对象。
+   * 
+   * @param request - GetQualityTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityTemplateResponse
+   */
+  async getQualityTemplateWithOptions(request: $_model.GetQualityTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityTemplateResponse({}));
+  }
+
+  /**
+   * 获取质量模板对象。
+   * 
+   * @param request - GetQualityTemplateRequest
+   * @returns GetQualityTemplateResponse
+   */
+  async getQualityTemplate(request: $_model.GetQualityTemplateRequest): Promise<$_model.GetQualityTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取质量监控对象。
+   * 
+   * @param request - GetQualityWatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityWatchResponse
+   */
+  async getQualityWatchWithOptions(request: $_model.GetQualityWatchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityWatchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityWatch",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityWatchResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityWatchResponse({}));
+  }
+
+  /**
+   * 获取质量监控对象。
+   * 
+   * @param request - GetQualityWatchRequest
+   * @returns GetQualityWatchResponse
+   */
+  async getQualityWatch(request: $_model.GetQualityWatchRequest): Promise<$_model.GetQualityWatchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityWatchWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+   * 
+   * @param request - GetQualityWatchByObjectIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityWatchByObjectIdResponse
+   */
+  async getQualityWatchByObjectIdWithOptions(request: $_model.GetQualityWatchByObjectIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityWatchByObjectIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.watchObjectId)) {
+      query["WatchObjectId"] = request.watchObjectId;
+    }
+
+    if (!$dara.isNull(request.watchType)) {
+      query["WatchType"] = request.watchType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityWatchByObjectId",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityWatchByObjectIdResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityWatchByObjectIdResponse({}));
+  }
+
+  /**
+   * 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+   * 
+   * @param request - GetQualityWatchByObjectIdRequest
+   * @returns GetQualityWatchByObjectIdResponse
+   */
+  async getQualityWatchByObjectId(request: $_model.GetQualityWatchByObjectIdRequest): Promise<$_model.GetQualityWatchByObjectIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityWatchByObjectIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取监控任务对象。
+   * 
+   * @param request - GetQualityWatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityWatchTaskResponse
+   */
+  async getQualityWatchTaskWithOptions(request: $_model.GetQualityWatchTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityWatchTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.watchTaskId)) {
+      query["WatchTaskId"] = request.watchTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityWatchTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityWatchTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityWatchTaskResponse({}));
+  }
+
+  /**
+   * 获取监控任务对象。
+   * 
+   * @param request - GetQualityWatchTaskRequest
+   * @returns GetQualityWatchTaskResponse
+   */
+  async getQualityWatchTask(request: $_model.GetQualityWatchTaskRequest): Promise<$_model.GetQualityWatchTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityWatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取监控任务对象的日志内容。
+   * 
+   * @param request - GetQualityWatchTaskLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityWatchTaskLogResponse
+   */
+  async getQualityWatchTaskLogWithOptions(request: $_model.GetQualityWatchTaskLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityWatchTaskLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.watchTaskId)) {
+      query["WatchTaskId"] = request.watchTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityWatchTaskLog",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityWatchTaskLogResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityWatchTaskLogResponse({}));
+  }
+
+  /**
+   * 获取监控任务对象的日志内容。
+   * 
+   * @param request - GetQualityWatchTaskLogRequest
+   * @returns GetQualityWatchTaskLogResponse
+   */
+  async getQualityWatchTaskLog(request: $_model.GetQualityWatchTaskLogRequest): Promise<$_model.GetQualityWatchTaskLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityWatchTaskLogWithOptions(request, runtime);
+  }
+
+  /**
    * 根据集群ID获取集群版本
    * 
    * @param request - GetQueueEngineVersionByEnvRequest
@@ -5564,6 +7678,190 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据分类详情。
+   * 
+   * @param request - GetSecurityClassifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityClassifyResponse
+   */
+  async getSecurityClassifyWithOptions(request: $_model.GetSecurityClassifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecurityClassifyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecurityClassify",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecurityClassifyResponse>(await this.callApi(params, req, runtime), new $_model.GetSecurityClassifyResponse({}));
+  }
+
+  /**
+   * 获取数据分类详情。
+   * 
+   * @param request - GetSecurityClassifyRequest
+   * @returns GetSecurityClassifyResponse
+   */
+  async getSecurityClassify(request: $_model.GetSecurityClassifyRequest): Promise<$_model.GetSecurityClassifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecurityClassifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取识别结果详情。
+   * 
+   * @param request - GetSecurityIdentifyResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityIdentifyResultResponse
+   */
+  async getSecurityIdentifyResultWithOptions(request: $_model.GetSecurityIdentifyResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecurityIdentifyResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecurityIdentifyResult",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecurityIdentifyResultResponse>(await this.callApi(params, req, runtime), new $_model.GetSecurityIdentifyResultResponse({}));
+  }
+
+  /**
+   * 获取识别结果详情。
+   * 
+   * @param request - GetSecurityIdentifyResultRequest
+   * @returns GetSecurityIdentifyResultResponse
+   */
+  async getSecurityIdentifyResult(request: $_model.GetSecurityIdentifyResultRequest): Promise<$_model.GetSecurityIdentifyResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecurityIdentifyResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据分级详情。
+   * 
+   * @param request - GetSecurityLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityLevelResponse
+   */
+  async getSecurityLevelWithOptions(request: $_model.GetSecurityLevelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecurityLevelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.index)) {
+      query["Index"] = request.index;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecurityLevel",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecurityLevelResponse>(await this.callApi(params, req, runtime), new $_model.GetSecurityLevelResponse({}));
+  }
+
+  /**
+   * 获取数据分级详情。
+   * 
+   * @param request - GetSecurityLevelRequest
+   * @returns GetSecurityLevelResponse
+   */
+  async getSecurityLevel(request: $_model.GetSecurityLevelRequest): Promise<$_model.GetSecurityLevelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecurityLevelWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过密钥名称获取密钥值。
+   * 
+   * @param request - GetSecuritySecretKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecuritySecretKeyResponse
+   */
+  async getSecuritySecretKeyWithOptions(request: $_model.GetSecuritySecretKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecuritySecretKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecuritySecretKey",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecuritySecretKeyResponse>(await this.callApi(params, req, runtime), new $_model.GetSecuritySecretKeyResponse({}));
+  }
+
+  /**
+   * 通过密钥名称获取密钥值。
+   * 
+   * @param request - GetSecuritySecretKeyRequest
+   * @returns GetSecuritySecretKeyResponse
+   */
+  async getSecuritySecretKey(request: $_model.GetSecuritySecretKeyRequest): Promise<$_model.GetSecuritySecretKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecuritySecretKeyWithOptions(request, runtime);
+  }
+
+  /**
    * 获取计算源对应集群的spark客户信息
    * 
    * @param request - GetSparkLocalClientInfoRequest
@@ -5611,6 +7909,326 @@ export default class Client extends OpenApi {
   async getSparkLocalClientInfo(request: $_model.GetSparkLocalClientInfoRequest): Promise<$_model.GetSparkLocalClientInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSparkLocalClientInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取标准详情。
+   * 
+   * @param tmpReq - GetStandardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStandardResponse
+   */
+  async getStandardWithOptions(tmpReq: $_model.GetStandardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStandardResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetStandardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.standardGetQuery)) {
+      request.standardGetQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.standardGetQuery, "StandardGetQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.standardGetQueryShrink)) {
+      body["StandardGetQuery"] = request.standardGetQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStandard",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStandardResponse>(await this.callApi(params, req, runtime), new $_model.GetStandardResponse({}));
+  }
+
+  /**
+   * 获取标准详情。
+   * 
+   * @param request - GetStandardRequest
+   * @returns GetStandardResponse
+   */
+  async getStandard(request: $_model.GetStandardRequest): Promise<$_model.GetStandardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStandardWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据标准码表详情。
+   * 
+   * @param request - GetStandardLookupTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStandardLookupTableResponse
+   */
+  async getStandardLookupTableWithOptions(request: $_model.GetStandardLookupTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStandardLookupTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.nullable)) {
+      query["Nullable"] = request.nullable;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStandardLookupTable",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStandardLookupTableResponse>(await this.callApi(params, req, runtime), new $_model.GetStandardLookupTableResponse({}));
+  }
+
+  /**
+   * 获取数据标准码表详情。
+   * 
+   * @param request - GetStandardLookupTableRequest
+   * @returns GetStandardLookupTableResponse
+   */
+  async getStandardLookupTable(request: $_model.GetStandardLookupTableRequest): Promise<$_model.GetStandardLookupTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStandardLookupTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取标准集详情。
+   * 
+   * @param request - GetStandardSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStandardSetResponse
+   */
+  async getStandardSetWithOptions(request: $_model.GetStandardSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStandardSetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.nullable)) {
+      query["Nullable"] = request.nullable;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStandardSet",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStandardSetResponse>(await this.callApi(params, req, runtime), new $_model.GetStandardSetResponse({}));
+  }
+
+  /**
+   * 获取标准集详情。
+   * 
+   * @param request - GetStandardSetRequest
+   * @returns GetStandardSetResponse
+   */
+  async getStandardSet(request: $_model.GetStandardSetRequest): Promise<$_model.GetStandardSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStandardSetWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询目录下按照标准类型统计标准数目。
+   * 
+   * @param tmpReq - GetStandardStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStandardStatisticsResponse
+   */
+  async getStandardStatisticsWithOptions(tmpReq: $_model.GetStandardStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStandardStatisticsResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetStandardStatisticsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.statisticsQuery)) {
+      request.statisticsQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statisticsQuery, "StatisticsQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.statisticsQueryShrink)) {
+      body["StatisticsQuery"] = request.statisticsQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStandardStatistics",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStandardStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.GetStandardStatisticsResponse({}));
+  }
+
+  /**
+   * 查询目录下按照标准类型统计标准数目。
+   * 
+   * @param request - GetStandardStatisticsRequest
+   * @returns GetStandardStatisticsResponse
+   */
+  async getStandardStatistics(request: $_model.GetStandardStatisticsRequest): Promise<$_model.GetStandardStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStandardStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据标准模板详情。
+   * 
+   * @param tmpReq - GetStandardTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStandardTemplateResponse
+   */
+  async getStandardTemplateWithOptions(tmpReq: $_model.GetStandardTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStandardTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetStandardTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterQuery)) {
+      request.filterQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterQuery, "FilterQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.nullable)) {
+      query["Nullable"] = request.nullable;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filterQueryShrink)) {
+      body["FilterQuery"] = request.filterQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStandardTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStandardTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetStandardTemplateResponse({}));
+  }
+
+  /**
+   * 获取数据标准模板详情。
+   * 
+   * @param request - GetStandardTemplateRequest
+   * @returns GetStandardTemplateResponse
+   */
+  async getStandardTemplate(request: $_model.GetStandardTemplateRequest): Promise<$_model.GetStandardTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStandardTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据标准词根详情。
+   * 
+   * @param request - GetStandardWordRootRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStandardWordRootResponse
+   */
+  async getStandardWordRootWithOptions(request: $_model.GetStandardWordRootRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStandardWordRootResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nullable)) {
+      query["Nullable"] = request.nullable;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStandardWordRoot",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStandardWordRootResponse>(await this.callApi(params, req, runtime), new $_model.GetStandardWordRootResponse({}));
+  }
+
+  /**
+   * 获取数据标准词根详情。
+   * 
+   * @param request - GetStandardWordRootRequest
+   * @returns GetStandardWordRootResponse
+   */
+  async getStandardWordRoot(request: $_model.GetStandardWordRootRequest): Promise<$_model.GetStandardWordRootResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStandardWordRootWithOptions(request, runtime);
   }
 
   /**
@@ -5818,6 +8436,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资产表字段血缘信息。
+   * 
+   * @param tmpReq - GetTableColumnLineagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableColumnLineagesResponse
+   */
+  async getTableColumnLineagesWithOptions(tmpReq: $_model.GetTableColumnLineagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableColumnLineagesResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetTableColumnLineagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterQuery)) {
+      request.filterQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterQuery, "FilterQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filterQueryShrink)) {
+      body["FilterQuery"] = request.filterQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableColumnLineages",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableColumnLineagesResponse>(await this.callApi(params, req, runtime), new $_model.GetTableColumnLineagesResponse({}));
+  }
+
+  /**
+   * 查询资产表字段血缘信息。
+   * 
+   * @param request - GetTableColumnLineagesRequest
+   * @returns GetTableColumnLineagesResponse
+   */
+  async getTableColumnLineages(request: $_model.GetTableColumnLineagesRequest): Promise<$_model.GetTableColumnLineagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableColumnLineagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资产清单中Dataphin表的字段。
+   * 
+   * @param request - GetTableColumnsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableColumnsResponse
+   */
+  async getTableColumnsWithOptions(request: $_model.GetTableColumnsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableColumnsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableColumns",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableColumnsResponse>(await this.callApi(params, req, runtime), new $_model.GetTableColumnsResponse({}));
+  }
+
+  /**
+   * 查询资产清单中Dataphin表的字段。
+   * 
+   * @param request - GetTableColumnsRequest
+   * @returns GetTableColumnsResponse
+   */
+  async getTableColumns(request: $_model.GetTableColumnsRequest): Promise<$_model.GetTableColumnsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableColumnsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询表血缘信息
    * 
    * @param tmpReq - GetTableLineageByTaskIdRequest
@@ -5869,6 +8595,64 @@ export default class Client extends OpenApi {
   async getTableLineageByTaskId(request: $_model.GetTableLineageByTaskIdRequest): Promise<$_model.GetTableLineageByTaskIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTableLineageByTaskIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资产表血缘信息。
+   * 
+   * @param tmpReq - GetTableLineagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableLineagesResponse
+   */
+  async getTableLineagesWithOptions(tmpReq: $_model.GetTableLineagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableLineagesResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetTableLineagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterQuery)) {
+      request.filterQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterQuery, "FilterQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filterQueryShrink)) {
+      body["FilterQuery"] = request.filterQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableLineages",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableLineagesResponse>(await this.callApi(params, req, runtime), new $_model.GetTableLineagesResponse({}));
+  }
+
+  /**
+   * 查询资产表血缘信息。
+   * 
+   * @param request - GetTableLineagesRequest
+   * @returns GetTableLineagesResponse
+   */
+  async getTableLineages(request: $_model.GetTableLineagesRequest): Promise<$_model.GetTableLineagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableLineagesWithOptions(request, runtime);
   }
 
   /**
@@ -7650,6 +10434,276 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询质量规则任务。
+   * 
+   * @param tmpReq - ListQualityRuleTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQualityRuleTasksResponse
+   */
+  async listQualityRuleTasksWithOptions(tmpReq: $_model.ListQualityRuleTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQualityRuleTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListQualityRuleTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQualityRuleTasks",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQualityRuleTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListQualityRuleTasksResponse({}));
+  }
+
+  /**
+   * 分页查询质量规则任务。
+   * 
+   * @param request - ListQualityRuleTasksRequest
+   * @returns ListQualityRuleTasksResponse
+   */
+  async listQualityRuleTasks(request: $_model.ListQualityRuleTasksRequest): Promise<$_model.ListQualityRuleTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQualityRuleTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询质量规则。
+   * 
+   * @param tmpReq - ListQualityRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQualityRulesResponse
+   */
+  async listQualityRulesWithOptions(tmpReq: $_model.ListQualityRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQualityRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListQualityRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQualityRules",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQualityRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListQualityRulesResponse({}));
+  }
+
+  /**
+   * 分页查询质量规则。
+   * 
+   * @param request - ListQualityRulesRequest
+   * @returns ListQualityRulesResponse
+   */
+  async listQualityRules(request: $_model.ListQualityRulesRequest): Promise<$_model.ListQualityRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQualityRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询质量模板。
+   * 
+   * @param tmpReq - ListQualityTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQualityTemplatesResponse
+   */
+  async listQualityTemplatesWithOptions(tmpReq: $_model.ListQualityTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQualityTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListQualityTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQualityTemplates",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQualityTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListQualityTemplatesResponse({}));
+  }
+
+  /**
+   * 分页查询质量模板。
+   * 
+   * @param request - ListQualityTemplatesRequest
+   * @returns ListQualityTemplatesResponse
+   */
+  async listQualityTemplates(request: $_model.ListQualityTemplatesRequest): Promise<$_model.ListQualityTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQualityTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询质量监控任务。
+   * 
+   * @param tmpReq - ListQualityWatchTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQualityWatchTasksResponse
+   */
+  async listQualityWatchTasksWithOptions(tmpReq: $_model.ListQualityWatchTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQualityWatchTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListQualityWatchTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQualityWatchTasks",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQualityWatchTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListQualityWatchTasksResponse({}));
+  }
+
+  /**
+   * 分页查询质量监控任务。
+   * 
+   * @param request - ListQualityWatchTasksRequest
+   * @returns ListQualityWatchTasksResponse
+   */
+  async listQualityWatchTasks(request: $_model.ListQualityWatchTasksRequest): Promise<$_model.ListQualityWatchTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQualityWatchTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询质量监控对象。
+   * 
+   * @param tmpReq - ListQualityWatchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQualityWatchesResponse
+   */
+  async listQualityWatchesWithOptions(tmpReq: $_model.ListQualityWatchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQualityWatchesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListQualityWatchesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQualityWatches",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQualityWatchesResponse>(await this.callApi(params, req, runtime), new $_model.ListQualityWatchesResponse({}));
+  }
+
+  /**
+   * 分页查询质量监控对象。
+   * 
+   * @param request - ListQualityWatchesRequest
+   * @returns ListQualityWatchesResponse
+   */
+  async listQualityWatches(request: $_model.ListQualityWatchesRequest): Promise<$_model.ListQualityWatchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQualityWatchesWithOptions(request, runtime);
+  }
+
+  /**
    * 分页获取权限操作列表
    * 
    * @param tmpReq - ListResourcePermissionOperationLogRequest
@@ -7866,6 +10920,168 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询安全识别结果的识别记录。
+   * 
+   * @param tmpReq - ListSecurityIdentifyRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecurityIdentifyRecordsResponse
+   */
+  async listSecurityIdentifyRecordsWithOptions(tmpReq: $_model.ListSecurityIdentifyRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSecurityIdentifyRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListSecurityIdentifyRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSecurityIdentifyRecords",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSecurityIdentifyRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListSecurityIdentifyRecordsResponse({}));
+  }
+
+  /**
+   * 分页查询安全识别结果的识别记录。
+   * 
+   * @param request - ListSecurityIdentifyRecordsRequest
+   * @returns ListSecurityIdentifyRecordsResponse
+   */
+  async listSecurityIdentifyRecords(request: $_model.ListSecurityIdentifyRecordsRequest): Promise<$_model.ListSecurityIdentifyRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSecurityIdentifyRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询安全识别结果。
+   * 
+   * @param tmpReq - ListSecurityIdentifyResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecurityIdentifyResultsResponse
+   */
+  async listSecurityIdentifyResultsWithOptions(tmpReq: $_model.ListSecurityIdentifyResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSecurityIdentifyResultsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListSecurityIdentifyResultsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSecurityIdentifyResults",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSecurityIdentifyResultsResponse>(await this.callApi(params, req, runtime), new $_model.ListSecurityIdentifyResultsResponse({}));
+  }
+
+  /**
+   * 分页查询安全识别结果。
+   * 
+   * @param request - ListSecurityIdentifyResultsRequest
+   * @returns ListSecurityIdentifyResultsResponse
+   */
+  async listSecurityIdentifyResults(request: $_model.ListSecurityIdentifyResultsRequest): Promise<$_model.ListSecurityIdentifyResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSecurityIdentifyResultsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询标准列表。
+   * 
+   * @param tmpReq - ListStandardsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStandardsResponse
+   */
+  async listStandardsWithOptions(tmpReq: $_model.ListStandardsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListStandardsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListStandardsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStandards",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStandardsResponse>(await this.callApi(params, req, runtime), new $_model.ListStandardsResponse({}));
+  }
+
+  /**
+   * 分页查询标准列表。
+   * 
+   * @param request - ListStandardsRequest
+   * @returns ListStandardsResponse
+   */
+  async listStandards(request: $_model.ListStandardsRequest): Promise<$_model.ListStandardsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listStandardsWithOptions(request, runtime);
+  }
+
+  /**
    * 分页获取待发布记录列表
    * 
    * @param tmpReq - ListSubmitRecordsRequest
@@ -7917,6 +11133,60 @@ export default class Client extends OpenApi {
   async listSubmitRecords(request: $_model.ListSubmitRecordsRequest): Promise<$_model.ListSubmitRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSubmitRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询查询资产表元数据。
+   * 
+   * @param tmpReq - ListTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablesResponse
+   */
+  async listTablesWithOptions(tmpReq: $_model.ListTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTablesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListTablesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTables",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTablesResponse>(await this.callApi(params, req, runtime), new $_model.ListTablesResponse({}));
+  }
+
+  /**
+   * 分页查询查询资产表元数据。
+   * 
+   * @param request - ListTablesRequest
+   * @returns ListTablesResponse
+   */
+  async listTables(request: $_model.ListTablesRequest): Promise<$_model.ListTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTablesWithOptions(request, runtime);
   }
 
   /**
@@ -8314,6 +11584,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下线标准。
+   * 
+   * @param tmpReq - OfflineStandardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineStandardResponse
+   */
+  async offlineStandardWithOptions(tmpReq: $_model.OfflineStandardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OfflineStandardResponse> {
+    tmpReq.validate();
+    let request = new $_model.OfflineStandardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.offlineCommand)) {
+      request.offlineCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand, "OfflineCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.offlineCommandShrink)) {
+      body["OfflineCommand"] = request.offlineCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OfflineStandard",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OfflineStandardResponse>(await this.callApi(params, req, runtime), new $_model.OfflineStandardResponse({}));
+  }
+
+  /**
+   * 下线标准。
+   * 
+   * @param request - OfflineStandardRequest
+   * @returns OfflineStandardResponse
+   */
+  async offlineStandard(request: $_model.OfflineStandardRequest): Promise<$_model.OfflineStandardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.offlineStandardWithOptions(request, runtime);
+  }
+
+  /**
    * 上线业务实体。
    * 
    * @param tmpReq - OnlineBizEntityRequest
@@ -8646,6 +11970,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发布标准。
+   * 
+   * @param tmpReq - PublishStandardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishStandardResponse
+   */
+  async publishStandardWithOptions(tmpReq: $_model.PublishStandardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PublishStandardResponse> {
+    tmpReq.validate();
+    let request = new $_model.PublishStandardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.publishCommand)) {
+      request.publishCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.publishCommand, "PublishCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.publishCommandShrink)) {
+      body["PublishCommand"] = request.publishCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishStandard",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishStandardResponse>(await this.callApi(params, req, runtime), new $_model.PublishStandardResponse({}));
+  }
+
+  /**
+   * 发布标准。
+   * 
+   * @param request - PublishStandardRequest
+   * @returns PublishStandardResponse
+   */
+  async publishStandard(request: $_model.PublishStandardRequest): Promise<$_model.PublishStandardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.publishStandardWithOptions(request, runtime);
+  }
+
+  /**
    * 删除项目成员。
    * 
    * @param tmpReq - RemoveProjectMemberRequest
@@ -8701,6 +12079,60 @@ export default class Client extends OpenApi {
   async removeProjectMember(request: $_model.RemoveProjectMemberRequest): Promise<$_model.RemoveProjectMemberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeProjectMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除质量规则和调度的绑定关系。
+   * 
+   * @param tmpReq - RemoveQualityRuleSchedulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveQualityRuleSchedulesResponse
+   */
+  async removeQualityRuleSchedulesWithOptions(tmpReq: $_model.RemoveQualityRuleSchedulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveQualityRuleSchedulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.RemoveQualityRuleSchedulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.removeCommand)) {
+      request.removeCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.removeCommand, "RemoveCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.removeCommandShrink)) {
+      body["RemoveCommand"] = request.removeCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveQualityRuleSchedules",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveQualityRuleSchedulesResponse>(await this.callApi(params, req, runtime), new $_model.RemoveQualityRuleSchedulesResponse({}));
+  }
+
+  /**
+   * 批量删除质量规则和调度的绑定关系。
+   * 
+   * @param request - RemoveQualityRuleSchedulesRequest
+   * @returns RemoveQualityRuleSchedulesResponse
+   */
+  async removeQualityRuleSchedules(request: $_model.RemoveQualityRuleSchedulesRequest): Promise<$_model.RemoveQualityRuleSchedulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeQualityRuleSchedulesWithOptions(request, runtime);
   }
 
   /**
@@ -9195,6 +12627,114 @@ export default class Client extends OpenApi {
   async submitBatchTask(request: $_model.SubmitBatchTaskRequest): Promise<$_model.SubmitBatchTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量提交规则任务,支持试跑。
+   * 
+   * @param tmpReq - SubmitQualityRuleTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitQualityRuleTasksResponse
+   */
+  async submitQualityRuleTasksWithOptions(tmpReq: $_model.SubmitQualityRuleTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitQualityRuleTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitQualityRuleTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.submitCommand)) {
+      request.submitCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitCommand, "SubmitCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.submitCommandShrink)) {
+      body["SubmitCommand"] = request.submitCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitQualityRuleTasks",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitQualityRuleTasksResponse>(await this.callApi(params, req, runtime), new $_model.SubmitQualityRuleTasksResponse({}));
+  }
+
+  /**
+   * 批量提交规则任务,支持试跑。
+   * 
+   * @param request - SubmitQualityRuleTasksRequest
+   * @returns SubmitQualityRuleTasksResponse
+   */
+  async submitQualityRuleTasks(request: $_model.SubmitQualityRuleTasksRequest): Promise<$_model.SubmitQualityRuleTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitQualityRuleTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量提交监控对象校验任务。
+   * 
+   * @param tmpReq - SubmitQualityWatchTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitQualityWatchTasksResponse
+   */
+  async submitQualityWatchTasksWithOptions(tmpReq: $_model.SubmitQualityWatchTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitQualityWatchTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitQualityWatchTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.submitCommand)) {
+      request.submitCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitCommand, "SubmitCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.submitCommandShrink)) {
+      body["SubmitCommand"] = request.submitCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitQualityWatchTasks",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitQualityWatchTasksResponse>(await this.callApi(params, req, runtime), new $_model.SubmitQualityWatchTasksResponse({}));
+  }
+
+  /**
+   * 批量提交监控对象校验任务。
+   * 
+   * @param request - SubmitQualityWatchTasksRequest
+   * @returns SubmitQualityWatchTasksResponse
+   */
+  async submitQualityWatchTasks(request: $_model.SubmitQualityWatchTasksRequest): Promise<$_model.SubmitQualityWatchTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitQualityWatchTasksWithOptions(request, runtime);
   }
 
   /**
@@ -10190,6 +13730,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量开启或关闭质量规则。
+   * 
+   * @param tmpReq - UpdateQualityRuleSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateQualityRuleSwitchResponse
+   */
+  async updateQualityRuleSwitchWithOptions(tmpReq: $_model.UpdateQualityRuleSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateQualityRuleSwitchResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateQualityRuleSwitchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateQualityRuleSwitch",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateQualityRuleSwitchResponse>(await this.callApi(params, req, runtime), new $_model.UpdateQualityRuleSwitchResponse({}));
+  }
+
+  /**
+   * 批量开启或关闭质量规则。
+   * 
+   * @param request - UpdateQualityRuleSwitchRequest
+   * @returns UpdateQualityRuleSwitchResponse
+   */
+  async updateQualityRuleSwitch(request: $_model.UpdateQualityRuleSwitchRequest): Promise<$_model.UpdateQualityRuleSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateQualityRuleSwitchWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量开启或关闭质量监控对象。
+   * 
+   * @param tmpReq - UpdateQualityWatchSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateQualityWatchSwitchResponse
+   */
+  async updateQualityWatchSwitchWithOptions(tmpReq: $_model.UpdateQualityWatchSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateQualityWatchSwitchResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateQualityWatchSwitchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateQualityWatchSwitch",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateQualityWatchSwitchResponse>(await this.callApi(params, req, runtime), new $_model.UpdateQualityWatchSwitchResponse({}));
+  }
+
+  /**
+   * 批量开启或关闭质量监控对象。
+   * 
+   * @param request - UpdateQualityWatchSwitchRequest
+   * @returns UpdateQualityWatchSwitchResponse
+   */
+  async updateQualityWatchSwitch(request: $_model.UpdateQualityWatchSwitchRequest): Promise<$_model.UpdateQualityWatchSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateQualityWatchSwitchWithOptions(request, runtime);
+  }
+
+  /**
    * 编辑资源文件。
    * 
    * @param tmpReq - UpdateResourceRequest
@@ -10295,6 +13943,546 @@ export default class Client extends OpenApi {
   async updateRowPermission(request: $_model.UpdateRowPermissionRequest): Promise<$_model.UpdateRowPermissionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRowPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据分类。
+   * 
+   * @param tmpReq - UpdateSecurityClassifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityClassifyResponse
+   */
+  async updateSecurityClassifyWithOptions(tmpReq: $_model.UpdateSecurityClassifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecurityClassifyResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSecurityClassifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecurityClassify",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecurityClassifyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecurityClassifyResponse({}));
+  }
+
+  /**
+   * 更新数据分类。
+   * 
+   * @param request - UpdateSecurityClassifyRequest
+   * @returns UpdateSecurityClassifyResponse
+   */
+  async updateSecurityClassify(request: $_model.UpdateSecurityClassifyRequest): Promise<$_model.UpdateSecurityClassifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSecurityClassifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据分类目录。
+   * 
+   * @param tmpReq - UpdateSecurityClassifyCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityClassifyCatalogResponse
+   */
+  async updateSecurityClassifyCatalogWithOptions(tmpReq: $_model.UpdateSecurityClassifyCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecurityClassifyCatalogResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSecurityClassifyCatalogShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecurityClassifyCatalog",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecurityClassifyCatalogResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecurityClassifyCatalogResponse({}));
+  }
+
+  /**
+   * 更新数据分类目录。
+   * 
+   * @param request - UpdateSecurityClassifyCatalogRequest
+   * @returns UpdateSecurityClassifyCatalogResponse
+   */
+  async updateSecurityClassifyCatalog(request: $_model.UpdateSecurityClassifyCatalogRequest): Promise<$_model.UpdateSecurityClassifyCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSecurityClassifyCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新安全识别结果的生效状态。
+   * 
+   * @param tmpReq - UpdateSecurityIdentifyResultStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityIdentifyResultStatusResponse
+   */
+  async updateSecurityIdentifyResultStatusWithOptions(tmpReq: $_model.UpdateSecurityIdentifyResultStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecurityIdentifyResultStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSecurityIdentifyResultStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecurityIdentifyResultStatus",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecurityIdentifyResultStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecurityIdentifyResultStatusResponse({}));
+  }
+
+  /**
+   * 更新安全识别结果的生效状态。
+   * 
+   * @param request - UpdateSecurityIdentifyResultStatusRequest
+   * @returns UpdateSecurityIdentifyResultStatusResponse
+   */
+  async updateSecurityIdentifyResultStatus(request: $_model.UpdateSecurityIdentifyResultStatusRequest): Promise<$_model.UpdateSecurityIdentifyResultStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSecurityIdentifyResultStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过分级顺序更新数据分级。
+   * 
+   * @param tmpReq - UpdateSecurityLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityLevelResponse
+   */
+  async updateSecurityLevelWithOptions(tmpReq: $_model.UpdateSecurityLevelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecurityLevelResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSecurityLevelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecurityLevel",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecurityLevelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecurityLevelResponse({}));
+  }
+
+  /**
+   * 通过分级顺序更新数据分级。
+   * 
+   * @param request - UpdateSecurityLevelRequest
+   * @returns UpdateSecurityLevelResponse
+   */
+  async updateSecurityLevel(request: $_model.UpdateSecurityLevelRequest): Promise<$_model.UpdateSecurityLevelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSecurityLevelWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新标准。
+   * 
+   * @param tmpReq - UpdateStandardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStandardResponse
+   */
+  async updateStandardWithOptions(tmpReq: $_model.UpdateStandardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStandardResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateStandardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStandard",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStandardResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStandardResponse({}));
+  }
+
+  /**
+   * 更新标准。
+   * 
+   * @param request - UpdateStandardRequest
+   * @returns UpdateStandardResponse
+   */
+  async updateStandard(request: $_model.UpdateStandardRequest): Promise<$_model.UpdateStandardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateStandardWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据标准码表。
+   * 
+   * @param tmpReq - UpdateStandardLookupTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStandardLookupTableResponse
+   */
+  async updateStandardLookupTableWithOptions(tmpReq: $_model.UpdateStandardLookupTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStandardLookupTableResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateStandardLookupTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStandardLookupTable",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStandardLookupTableResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStandardLookupTableResponse({}));
+  }
+
+  /**
+   * 更新数据标准码表。
+   * 
+   * @param request - UpdateStandardLookupTableRequest
+   * @returns UpdateStandardLookupTableResponse
+   */
+  async updateStandardLookupTable(request: $_model.UpdateStandardLookupTableRequest): Promise<$_model.UpdateStandardLookupTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateStandardLookupTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 将标准映射关系置为无效映射。
+   * 
+   * @param tmpReq - UpdateStandardMappingToInvalidRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStandardMappingToInvalidResponse
+   */
+  async updateStandardMappingToInvalidWithOptions(tmpReq: $_model.UpdateStandardMappingToInvalidRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStandardMappingToInvalidResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateStandardMappingToInvalidShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStandardMappingToInvalid",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStandardMappingToInvalidResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStandardMappingToInvalidResponse({}));
+  }
+
+  /**
+   * 将标准映射关系置为无效映射。
+   * 
+   * @param request - UpdateStandardMappingToInvalidRequest
+   * @returns UpdateStandardMappingToInvalidResponse
+   */
+  async updateStandardMappingToInvalid(request: $_model.UpdateStandardMappingToInvalidRequest): Promise<$_model.UpdateStandardMappingToInvalidResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateStandardMappingToInvalidWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新标准集。
+   * 
+   * @param tmpReq - UpdateStandardSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStandardSetResponse
+   */
+  async updateStandardSetWithOptions(tmpReq: $_model.UpdateStandardSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStandardSetResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateStandardSetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStandardSet",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStandardSetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStandardSetResponse({}));
+  }
+
+  /**
+   * 更新标准集。
+   * 
+   * @param request - UpdateStandardSetRequest
+   * @returns UpdateStandardSetResponse
+   */
+  async updateStandardSet(request: $_model.UpdateStandardSetRequest): Promise<$_model.UpdateStandardSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateStandardSetWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据标准模板。
+   * 
+   * @param tmpReq - UpdateStandardTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStandardTemplateResponse
+   */
+  async updateStandardTemplateWithOptions(tmpReq: $_model.UpdateStandardTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStandardTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateStandardTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStandardTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStandardTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStandardTemplateResponse({}));
+  }
+
+  /**
+   * 更新数据标准模板。
+   * 
+   * @param request - UpdateStandardTemplateRequest
+   * @returns UpdateStandardTemplateResponse
+   */
+  async updateStandardTemplate(request: $_model.UpdateStandardTemplateRequest): Promise<$_model.UpdateStandardTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateStandardTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据标准词根。
+   * 
+   * @param tmpReq - UpdateStandardWordRootRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStandardWordRootResponse
+   */
+  async updateStandardWordRootWithOptions(tmpReq: $_model.UpdateStandardWordRootRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStandardWordRootResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateStandardWordRootShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStandardWordRoot",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStandardWordRootResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStandardWordRootResponse({}));
+  }
+
+  /**
+   * 更新数据标准词根。
+   * 
+   * @param request - UpdateStandardWordRootRequest
+   * @returns UpdateStandardWordRootResponse
+   */
+  async updateStandardWordRoot(request: $_model.UpdateStandardWordRootRequest): Promise<$_model.UpdateStandardWordRootResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateStandardWordRootWithOptions(request, runtime);
   }
 
   /**
@@ -10561,6 +14749,276 @@ export default class Client extends OpenApi {
   async updateUserGroupSwitch(request: $_model.UpdateUserGroupSwitchRequest): Promise<$_model.UpdateUserGroupSwitchResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserGroupSwitchWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建或者修改质量规则。
+   * 
+   * @param tmpReq - UpsertQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertQualityRuleResponse
+   */
+  async upsertQualityRuleWithOptions(tmpReq: $_model.UpsertQualityRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertQualityRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpsertQualityRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.upsertCommand)) {
+      request.upsertCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upsertCommand, "UpsertCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.upsertCommandShrink)) {
+      body["UpsertCommand"] = request.upsertCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertQualityRule",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertQualityRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpsertQualityRuleResponse({}));
+  }
+
+  /**
+   * 新建或者修改质量规则。
+   * 
+   * @param request - UpsertQualityRuleRequest
+   * @returns UpsertQualityRuleResponse
+   */
+  async upsertQualityRule(request: $_model.UpsertQualityRuleRequest): Promise<$_model.UpsertQualityRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upsertQualityRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建或者修改调度设置。
+   * 
+   * @param tmpReq - UpsertQualityScheduleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertQualityScheduleResponse
+   */
+  async upsertQualityScheduleWithOptions(tmpReq: $_model.UpsertQualityScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertQualityScheduleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpsertQualityScheduleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.upsertCommand)) {
+      request.upsertCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upsertCommand, "UpsertCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.upsertCommandShrink)) {
+      body["UpsertCommand"] = request.upsertCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertQualitySchedule",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertQualityScheduleResponse>(await this.callApi(params, req, runtime), new $_model.UpsertQualityScheduleResponse({}));
+  }
+
+  /**
+   * 新建或者修改调度设置。
+   * 
+   * @param request - UpsertQualityScheduleRequest
+   * @returns UpsertQualityScheduleResponse
+   */
+  async upsertQualitySchedule(request: $_model.UpsertQualityScheduleRequest): Promise<$_model.UpsertQualityScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upsertQualityScheduleWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建或者修改质量模板。
+   * 
+   * @param tmpReq - UpsertQualityTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertQualityTemplateResponse
+   */
+  async upsertQualityTemplateWithOptions(tmpReq: $_model.UpsertQualityTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertQualityTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpsertQualityTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.upsertCommand)) {
+      request.upsertCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upsertCommand, "UpsertCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.upsertCommandShrink)) {
+      body["UpsertCommand"] = request.upsertCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertQualityTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertQualityTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpsertQualityTemplateResponse({}));
+  }
+
+  /**
+   * 新建或者修改质量模板。
+   * 
+   * @param request - UpsertQualityTemplateRequest
+   * @returns UpsertQualityTemplateResponse
+   */
+  async upsertQualityTemplate(request: $_model.UpsertQualityTemplateRequest): Promise<$_model.UpsertQualityTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upsertQualityTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+   * 
+   * @param tmpReq - UpsertQualityWatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertQualityWatchResponse
+   */
+  async upsertQualityWatchWithOptions(tmpReq: $_model.UpsertQualityWatchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertQualityWatchResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpsertQualityWatchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.upsertCommand)) {
+      request.upsertCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upsertCommand, "UpsertCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.upsertCommandShrink)) {
+      body["UpsertCommand"] = request.upsertCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertQualityWatch",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertQualityWatchResponse>(await this.callApi(params, req, runtime), new $_model.UpsertQualityWatchResponse({}));
+  }
+
+  /**
+   * 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+   * 
+   * @param request - UpsertQualityWatchRequest
+   * @returns UpsertQualityWatchResponse
+   */
+  async upsertQualityWatch(request: $_model.UpsertQualityWatchRequest): Promise<$_model.UpsertQualityWatchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upsertQualityWatchWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建或者修改监控对象告警设置。
+   * 
+   * @param tmpReq - UpsertQualityWatchAlertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertQualityWatchAlertResponse
+   */
+  async upsertQualityWatchAlertWithOptions(tmpReq: $_model.UpsertQualityWatchAlertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertQualityWatchAlertResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpsertQualityWatchAlertShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.upsertCommand)) {
+      request.upsertCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upsertCommand, "UpsertCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.upsertCommandShrink)) {
+      body["UpsertCommand"] = request.upsertCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertQualityWatchAlert",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertQualityWatchAlertResponse>(await this.callApi(params, req, runtime), new $_model.UpsertQualityWatchAlertResponse({}));
+  }
+
+  /**
+   * 新建或者修改监控对象告警设置。
+   * 
+   * @param request - UpsertQualityWatchAlertRequest
+   * @returns UpsertQualityWatchAlertResponse
+   */
+  async upsertQualityWatchAlert(request: $_model.UpsertQualityWatchAlertRequest): Promise<$_model.UpsertQualityWatchAlertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upsertQualityWatchAlertWithOptions(request, runtime);
   }
 
 }
