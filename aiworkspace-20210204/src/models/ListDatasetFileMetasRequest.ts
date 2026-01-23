@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDatasetFileMetasRequest extends $dara.Model {
+  datasetFileMetaIds?: string[];
   /**
    * @remarks
    * The dataset version.
@@ -168,6 +169,7 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      datasetFileMetaIds: 'DatasetFileMetaIds',
       datasetVersion: 'DatasetVersion',
       endFileUpdateTime: 'EndFileUpdateTime',
       endTagUpdateTime: 'EndTagUpdateTime',
@@ -200,6 +202,7 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      datasetFileMetaIds: { 'type': 'array', 'itemType': 'string' },
       datasetVersion: 'string',
       endFileUpdateTime: 'string',
       endTagUpdateTime: 'string',
@@ -231,6 +234,9 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.datasetFileMetaIds)) {
+      $dara.Model.validateArray(this.datasetFileMetaIds);
+    }
     if(Array.isArray(this.queryContentTypeIncludeAny)) {
       $dara.Model.validateArray(this.queryContentTypeIncludeAny);
     }

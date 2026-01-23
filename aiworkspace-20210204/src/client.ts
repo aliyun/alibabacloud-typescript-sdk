@@ -3669,6 +3669,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListDatasetFileMetasShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.datasetFileMetaIds)) {
+      request.datasetFileMetaIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetFileMetaIds, "DatasetFileMetaIds", "simple");
+    }
+
     if (!$dara.isNull(tmpReq.queryContentTypeIncludeAny)) {
       request.queryContentTypeIncludeAnyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryContentTypeIncludeAny, "QueryContentTypeIncludeAny", "simple");
     }
@@ -3690,6 +3694,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetFileMetaIdsShrink)) {
+      query["DatasetFileMetaIds"] = request.datasetFileMetaIdsShrink;
+    }
+
     if (!$dara.isNull(request.datasetVersion)) {
       query["DatasetVersion"] = request.datasetVersion;
     }

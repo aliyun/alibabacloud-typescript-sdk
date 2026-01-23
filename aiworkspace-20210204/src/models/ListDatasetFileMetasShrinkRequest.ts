@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
+  datasetFileMetaIdsShrink?: string;
   /**
    * @remarks
    * The dataset version.
@@ -168,6 +169,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      datasetFileMetaIdsShrink: 'DatasetFileMetaIds',
       datasetVersion: 'DatasetVersion',
       endFileUpdateTime: 'EndFileUpdateTime',
       endTagUpdateTime: 'EndTagUpdateTime',
@@ -200,6 +202,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      datasetFileMetaIdsShrink: 'string',
       datasetVersion: 'string',
       endFileUpdateTime: 'string',
       endTagUpdateTime: 'string',
