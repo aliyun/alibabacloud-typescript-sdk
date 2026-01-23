@@ -56,7 +56,7 @@ export class RuleInfo extends $dara.Model {
   modifyType?: number;
   name?: string;
   operationMode?: number;
-  preqRule?: RuleInfoPreqRule[];
+  preqRule?: RuleInfoPreqRule;
   qualityCheckType?: number;
   rid?: string;
   ruleCategoryName?: string;
@@ -175,7 +175,7 @@ export class RuleInfo extends $dara.Model {
       modifyType: 'number',
       name: 'string',
       operationMode: 'number',
-      preqRule: { 'type': 'array', 'itemType': RuleInfoPreqRule },
+      preqRule: RuleInfoPreqRule,
       qualityCheckType: 'number',
       rid: 'string',
       ruleCategoryName: 'string',
@@ -213,8 +213,8 @@ export class RuleInfo extends $dara.Model {
     if(Array.isArray(this.dialogues)) {
       $dara.Model.validateArray(this.dialogues);
     }
-    if(Array.isArray(this.preqRule)) {
-      $dara.Model.validateArray(this.preqRule);
+    if(this.preqRule && typeof (this.preqRule as any).validate === 'function') {
+      (this.preqRule as any).validate();
     }
     if(this.schemeCheckType && typeof (this.schemeCheckType as any).validate === 'function') {
       (this.schemeCheckType as any).validate();
