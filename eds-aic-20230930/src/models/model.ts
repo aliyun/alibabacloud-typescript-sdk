@@ -76,6 +76,7 @@ export { DescribeTasksResponseBodyData } from './DescribeTasksResponseBody';
 export { DetachKeyPairResponseBodyData } from './DetachKeyPairResponseBody';
 export { FetchFileResponseBodyData } from './FetchFileResponseBody';
 export { GetInstancePropertiesResponseBodyPropertyTemplateModel } from './GetInstancePropertiesResponseBody';
+export { GetNetworkBlacklistResponseBodyNetworkBlacklistModel } from './GetNetworkBlacklistResponseBody';
 export { ImportKeyPairResponseBodyData } from './ImportKeyPairResponseBody';
 export { InstanceHealerResponseBodyInstanceHealerModel } from './InstanceHealerResponseBody';
 export { ListInstanceAdbAttributesResponseBodyData } from './ListInstanceAdbAttributesResponseBody';
@@ -259,6 +260,9 @@ export { GenerateCoordinationCodeResponse } from './GenerateCoordinationCodeResp
 export { GetInstancePropertiesRequest } from './GetInstancePropertiesRequest';
 export { GetInstancePropertiesResponseBody } from './GetInstancePropertiesResponseBody';
 export { GetInstancePropertiesResponse } from './GetInstancePropertiesResponse';
+export { GetNetworkBlacklistRequest } from './GetNetworkBlacklistRequest';
+export { GetNetworkBlacklistResponseBody } from './GetNetworkBlacklistResponseBody';
+export { GetNetworkBlacklistResponse } from './GetNetworkBlacklistResponse';
 export { ImportImageRequest } from './ImportImageRequest';
 export { ImportImageResponseBody } from './ImportImageResponseBody';
 export { ImportImageResponse } from './ImportImageResponse';
@@ -349,6 +353,9 @@ export { SendSystemPropertyTemplateResponse } from './SendSystemPropertyTemplate
 export { SetAdbSecureRequest } from './SetAdbSecureRequest';
 export { SetAdbSecureResponseBody } from './SetAdbSecureResponseBody';
 export { SetAdbSecureResponse } from './SetAdbSecureResponse';
+export { SetNetworkBlacklistRequest } from './SetNetworkBlacklistRequest';
+export { SetNetworkBlacklistResponseBody } from './SetNetworkBlacklistResponseBody';
+export { SetNetworkBlacklistResponse } from './SetNetworkBlacklistResponse';
 export { StartAndroidInstanceRequest } from './StartAndroidInstanceRequest';
 export { StartAndroidInstanceResponseBody } from './StartAndroidInstanceResponseBody';
 export { StartAndroidInstanceResponse } from './StartAndroidInstanceResponse';

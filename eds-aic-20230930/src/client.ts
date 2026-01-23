@@ -2125,6 +2125,10 @@ export default class Client extends OpenApi {
       query["NodeName"] = request.nodeName;
     }
 
+    if (!$dara.isNull(request.nodeNameList)) {
+      query["NodeNameList"] = request.nodeNameList;
+    }
+
     if (!$dara.isNull(request.serverType)) {
       query["ServerType"] = request.serverType;
     }
@@ -3409,6 +3413,48 @@ export default class Client extends OpenApi {
   async getInstanceProperties(request: $_model.GetInstancePropertiesRequest): Promise<$_model.GetInstancePropertiesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstancePropertiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 网络黑名单列表查询
+   * 
+   * @param request - GetNetworkBlacklistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkBlacklistResponse
+   */
+  async getNetworkBlacklistWithOptions(request: $_model.GetNetworkBlacklistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNetworkBlacklistResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNetworkBlacklist",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNetworkBlacklistResponse>(await this.callApi(params, req, runtime), new $_model.GetNetworkBlacklistResponse({}));
+  }
+
+  /**
+   * 网络黑名单列表查询
+   * 
+   * @param request - GetNetworkBlacklistRequest
+   * @returns GetNetworkBlacklistResponse
+   */
+  async getNetworkBlacklist(request: $_model.GetNetworkBlacklistRequest): Promise<$_model.GetNetworkBlacklistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNetworkBlacklistWithOptions(request, runtime);
   }
 
   /**
@@ -5101,6 +5147,52 @@ export default class Client extends OpenApi {
   async setAdbSecure(request: $_model.SetAdbSecureRequest): Promise<$_model.SetAdbSecureResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setAdbSecureWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置网络黑名单
+   * 
+   * @param request - SetNetworkBlacklistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetNetworkBlacklistResponse
+   */
+  async setNetworkBlacklistWithOptions(request: $_model.SetNetworkBlacklistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetNetworkBlacklistResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainBlacklist)) {
+      query["DomainBlacklist"] = request.domainBlacklist;
+    }
+
+    if (!$dara.isNull(request.ipBlacklist)) {
+      query["IpBlacklist"] = request.ipBlacklist;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetNetworkBlacklist",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetNetworkBlacklistResponse>(await this.callApi(params, req, runtime), new $_model.SetNetworkBlacklistResponse({}));
+  }
+
+  /**
+   * 设置网络黑名单
+   * 
+   * @param request - SetNetworkBlacklistRequest
+   * @returns SetNetworkBlacklistResponse
+   */
+  async setNetworkBlacklist(request: $_model.SetNetworkBlacklistRequest): Promise<$_model.SetNetworkBlacklistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setNetworkBlacklistWithOptions(request, runtime);
   }
 
   /**

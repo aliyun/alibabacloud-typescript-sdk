@@ -49,6 +49,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
    * node_name
    */
   nodeName?: string;
+  nodeNameList?: string[];
   /**
    * @remarks
    * The matrix specification.
@@ -87,6 +88,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
       nextToken: 'NextToken',
       nodeIds: 'NodeIds',
       nodeName: 'NodeName',
+      nodeNameList: 'NodeNameList',
       serverType: 'ServerType',
       status: 'Status',
     };
@@ -101,6 +103,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
       nextToken: 'string',
       nodeIds: { 'type': 'array', 'itemType': 'string' },
       nodeName: 'string',
+      nodeNameList: { 'type': 'array', 'itemType': 'string' },
       serverType: 'string',
       status: 'string',
     };
@@ -109,6 +112,9 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.nodeIds)) {
       $dara.Model.validateArray(this.nodeIds);
+    }
+    if(Array.isArray(this.nodeNameList)) {
+      $dara.Model.validateArray(this.nodeNameList);
     }
     super.validate();
   }
