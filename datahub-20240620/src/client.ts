@@ -168,6 +168,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 读取Topic数据
+   * 
+   * @param request - GetRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecordsResponse
+   */
+  async getRecordsWithOptions(request: $_model.GetRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.shardId)) {
+      query["ShardId"] = request.shardId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRecords",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRecordsResponse>(await this.callApi(params, req, runtime), new $_model.GetRecordsResponse({}));
+  }
+
+  /**
+   * 读取Topic数据
+   * 
+   * @param request - GetRecordsRequest
+   * @returns GetRecordsResponse
+   */
+  async getRecords(request: $_model.GetRecordsRequest): Promise<$_model.GetRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询Schema信息
    * 
    * @param request - GetSchemaRequest
@@ -679,6 +733,66 @@ export default class Client extends OpenApi {
   async listTopics(request: $_model.ListTopicsRequest): Promise<$_model.ListTopicsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTopicsWithOptions(request, runtime);
+  }
+
+  /**
+   * 写入数据
+   * 
+   * @param tmpReq - PutRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutRecordsResponse
+   */
+  async putRecordsWithOptions(tmpReq: $_model.PutRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.PutRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.records)) {
+      request.recordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.records, "Records", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.recordsShrink)) {
+      query["Records"] = request.recordsShrink;
+    }
+
+    if (!$dara.isNull(request.shardId)) {
+      query["ShardId"] = request.shardId;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutRecords",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PutRecordsResponse>(await this.callApi(params, req, runtime), new $_model.PutRecordsResponse({}));
+  }
+
+  /**
+   * 写入数据
+   * 
+   * @param request - PutRecordsRequest
+   * @returns PutRecordsResponse
+   */
+  async putRecords(request: $_model.PutRecordsRequest): Promise<$_model.PutRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.putRecordsWithOptions(request, runtime);
   }
 
 }

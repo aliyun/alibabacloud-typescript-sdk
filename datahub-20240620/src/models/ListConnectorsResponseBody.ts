@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class ListConnectorsResponseBodyListConnector extends $dara.Model {
   /**
    * @example
