@@ -4,6 +4,29 @@ import { RuleTestDialogue } from "./RuleTestDialogue";
 import { SchemeCheckType } from "./SchemeCheckType";
 
 
+export class RuleInfoPreqRule extends $dara.Model {
+  rid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rid: 'Rid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RuleInfo extends $dara.Model {
   autoReview?: number;
   businessCategoryNameList?: string[];
@@ -33,6 +56,7 @@ export class RuleInfo extends $dara.Model {
   modifyType?: number;
   name?: string;
   operationMode?: number;
+  preqRule?: RuleInfoPreqRule[];
   qualityCheckType?: number;
   rid?: string;
   ruleCategoryName?: string;
@@ -90,6 +114,7 @@ export class RuleInfo extends $dara.Model {
       modifyType: 'ModifyType',
       name: 'Name',
       operationMode: 'OperationMode',
+      preqRule: 'PreqRule',
       qualityCheckType: 'QualityCheckType',
       rid: 'Rid',
       ruleCategoryName: 'RuleCategoryName',
@@ -150,6 +175,7 @@ export class RuleInfo extends $dara.Model {
       modifyType: 'number',
       name: 'string',
       operationMode: 'number',
+      preqRule: { 'type': 'array', 'itemType': RuleInfoPreqRule },
       qualityCheckType: 'number',
       rid: 'string',
       ruleCategoryName: 'string',
@@ -186,6 +212,9 @@ export class RuleInfo extends $dara.Model {
     }
     if(Array.isArray(this.dialogues)) {
       $dara.Model.validateArray(this.dialogues);
+    }
+    if(Array.isArray(this.preqRule)) {
+      $dara.Model.validateArray(this.preqRule);
     }
     if(this.schemeCheckType && typeof (this.schemeCheckType as any).validate === 'function') {
       (this.schemeCheckType as any).validate();

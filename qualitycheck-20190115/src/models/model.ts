@@ -7,6 +7,7 @@ export { JudgeNodeMetaDescExpressionMetaDesc } from './JudgeNodeMetaDesc';
 export { NextNodeSituationsConditionGroup } from './NextNodeSituations';
 export { OperatorBasicInfoParamDimensions } from './OperatorBasicInfo';
 export { OperatorBasicInfoParam } from './OperatorBasicInfo';
+export { RuleInfoPreqRule } from './RuleInfo';
 export { RuleTestDialogueContent } from './RuleTestDialogue';
 export { SchemeCheckTypeSchemeScoreInfoList } from './SchemeCheckType';
 export { SchemeCheckTypeTaskFlowScoreInfoListSchemeScoreInfoList } from './SchemeCheckType';
