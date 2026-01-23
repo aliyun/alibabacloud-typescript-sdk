@@ -15808,6 +15808,10 @@ export default class Client extends OpenApi {
   async modifyDBClusterAndNodesParametersWithOptions(request: $_model.ModifyDBClusterAndNodesParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterAndNodesParametersResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clearBinlog)) {
+      query["ClearBinlog"] = request.clearBinlog;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -16711,6 +16715,10 @@ export default class Client extends OpenApi {
   async modifyDBClusterParametersWithOptions(request: $_model.ModifyDBClusterParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterParametersResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clearBinlog)) {
+      query["ClearBinlog"] = request.clearBinlog;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }

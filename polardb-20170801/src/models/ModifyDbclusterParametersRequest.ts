@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBClusterParametersRequest extends $dara.Model {
+  clearBinlog?: boolean;
   /**
    * @remarks
    * The ID of the cluster.
@@ -90,6 +91,7 @@ export class ModifyDBClusterParametersRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clearBinlog: 'ClearBinlog',
       DBClusterId: 'DBClusterId',
       fromTimeService: 'FromTimeService',
       ownerAccount: 'OwnerAccount',
@@ -105,6 +107,7 @@ export class ModifyDBClusterParametersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clearBinlog: 'boolean',
       DBClusterId: 'string',
       fromTimeService: 'boolean',
       ownerAccount: 'string',

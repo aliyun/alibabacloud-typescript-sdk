@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBClusterAndNodesParametersRequest extends $dara.Model {
+  clearBinlog?: boolean;
   /**
    * @remarks
    * The ID of the cluster.
@@ -92,6 +93,7 @@ export class ModifyDBClusterAndNodesParametersRequest extends $dara.Model {
   standbyClusterIdListNeedToSync?: string;
   static names(): { [key: string]: string } {
     return {
+      clearBinlog: 'ClearBinlog',
       DBClusterId: 'DBClusterId',
       DBNodeIds: 'DBNodeIds',
       fromTimeService: 'FromTimeService',
@@ -109,6 +111,7 @@ export class ModifyDBClusterAndNodesParametersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clearBinlog: 'boolean',
       DBClusterId: 'string',
       DBNodeIds: 'string',
       fromTimeService: 'boolean',
