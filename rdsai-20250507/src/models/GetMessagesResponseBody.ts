@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetMessagesResponseBodyDataEvents extends $dara.Model {
+  answer?: string;
+  event?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'answer',
+      event: 'event',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      event: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMessagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -24,6 +50,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    * 1763986004
    */
   createdAt?: string;
+  events?: GetMessagesResponseBodyDataEvents[];
   /**
    * @remarks
    * The feedback.
@@ -55,6 +82,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
       answer: 'Answer',
       conversationId: 'ConversationId',
       createdAt: 'CreatedAt',
+      events: 'Events',
       feedback: 'Feedback',
       id: 'Id',
       query: 'Query',
@@ -67,6 +95,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
       answer: 'string',
       conversationId: 'string',
       createdAt: 'string',
+      events: { 'type': 'array', 'itemType': GetMessagesResponseBodyDataEvents },
       feedback: 'string',
       id: 'string',
       query: 'string',
@@ -75,6 +104,9 @@ export class GetMessagesResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
     if(Array.isArray(this.retrieverResources)) {
       $dara.Model.validateArray(this.retrieverResources);
     }

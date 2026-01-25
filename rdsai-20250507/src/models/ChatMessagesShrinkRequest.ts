@@ -11,6 +11,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
    * fea7bdca-e848-44dd-b1ae-852472b8****
    */
   conversationId?: string;
+  eventMode?: string;
   /**
    * @remarks
    * The ID of the parent message.
@@ -34,6 +35,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       conversationId: 'ConversationId',
+      eventMode: 'EventMode',
       inputsShrink: 'Inputs',
       parentMessageId: 'ParentMessageId',
       query: 'Query',
@@ -43,6 +45,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       conversationId: 'string',
+      eventMode: 'string',
       inputsShrink: 'string',
       parentMessageId: 'string',
       query: 'string',

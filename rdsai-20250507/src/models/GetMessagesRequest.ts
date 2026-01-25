@@ -11,6 +11,7 @@ export class GetMessagesRequest extends $dara.Model {
    * 941c6f59-acf5-4e11-9adc-31e52e1f****
    */
   conversationId?: string;
+  eventMode?: string;
   /**
    * @remarks
    * The ID of the conversation.
@@ -30,6 +31,7 @@ export class GetMessagesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       conversationId: 'ConversationId',
+      eventMode: 'EventMode',
       firstId: 'FirstId',
       limit: 'Limit',
     };
@@ -38,6 +40,7 @@ export class GetMessagesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       conversationId: 'string',
+      eventMode: 'string',
       firstId: 'string',
       limit: 'number',
     };

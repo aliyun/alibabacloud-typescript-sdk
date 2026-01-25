@@ -49,6 +49,10 @@ export default class Client extends OpenApi {
       query["ConversationId"] = request.conversationId;
     }
 
+    if (!$dara.isNull(request.eventMode)) {
+      query["EventMode"] = request.eventMode;
+    }
+
     if (!$dara.isNull(request.inputsShrink)) {
       query["Inputs"] = request.inputsShrink;
     }
@@ -109,6 +113,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.conversationId)) {
       query["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.eventMode)) {
+      query["EventMode"] = request.eventMode;
     }
 
     if (!$dara.isNull(request.inputsShrink)) {
@@ -1121,6 +1129,10 @@ export default class Client extends OpenApi {
       query["ConversationId"] = request.conversationId;
     }
 
+    if (!$dara.isNull(request.eventMode)) {
+      query["EventMode"] = request.eventMode;
+    }
+
     if (!$dara.isNull(request.firstId)) {
       query["FirstId"] = request.firstId;
     }
@@ -1645,6 +1657,74 @@ export default class Client extends OpenApi {
   async modifyInstanceStorageConfig(request: $_model.ModifyInstanceStorageConfigRequest): Promise<$_model.ModifyInstanceStorageConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceStorageConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量修改实例的SSL配置
+   * 
+   * @param tmpReq - ModifyInstancesSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstancesSSLResponse
+   */
+  async modifyInstancesSSLWithOptions(tmpReq: $_model.ModifyInstancesSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstancesSSLResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyInstancesSSLShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceNames)) {
+      request.instanceNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceNames, "InstanceNames", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.CAType)) {
+      query["CAType"] = request.CAType;
+    }
+
+    if (!$dara.isNull(request.instanceNamesShrink)) {
+      query["InstanceNames"] = request.instanceNamesShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.SSLEnabled)) {
+      query["SSLEnabled"] = request.SSLEnabled;
+    }
+
+    if (!$dara.isNull(request.serverCert)) {
+      query["ServerCert"] = request.serverCert;
+    }
+
+    if (!$dara.isNull(request.serverKey)) {
+      query["ServerKey"] = request.serverKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstancesSSL",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstancesSSLResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstancesSSLResponse({}));
+  }
+
+  /**
+   * 批量修改实例的SSL配置
+   * 
+   * @param request - ModifyInstancesSSLRequest
+   * @returns ModifyInstancesSSLResponse
+   */
+  async modifyInstancesSSL(request: $_model.ModifyInstancesSSLRequest): Promise<$_model.ModifyInstancesSSLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstancesSSLWithOptions(request, runtime);
   }
 
   /**

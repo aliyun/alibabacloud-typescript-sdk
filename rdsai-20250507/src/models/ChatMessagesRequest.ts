@@ -61,6 +61,7 @@ export class ChatMessagesRequest extends $dara.Model {
    * fea7bdca-e848-44dd-b1ae-852472b8****
    */
   conversationId?: string;
+  eventMode?: string;
   /**
    * @remarks
    * The ID of the parent message.
@@ -84,6 +85,7 @@ export class ChatMessagesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       conversationId: 'ConversationId',
+      eventMode: 'EventMode',
       inputs: 'Inputs',
       parentMessageId: 'ParentMessageId',
       query: 'Query',
@@ -93,6 +95,7 @@ export class ChatMessagesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       conversationId: 'string',
+      eventMode: 'string',
       inputs: ChatMessagesRequestInputs,
       parentMessageId: 'string',
       query: 'string',

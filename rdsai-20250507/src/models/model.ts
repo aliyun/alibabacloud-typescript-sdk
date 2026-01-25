@@ -10,6 +10,7 @@ export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './Desc
 export { DescribeInstanceRAGConfigResponseBodyConfigList } from './DescribeInstanceRagconfigResponseBody';
 export { DescribeInstanceStorageConfigResponseBodyConfigList } from './DescribeInstanceStorageConfigResponseBody';
 export { GetConversationsResponseBodyData } from './GetConversationsResponseBody';
+export { GetMessagesResponseBodyDataEvents } from './GetMessagesResponseBody';
 export { GetMessagesResponseBodyData } from './GetMessagesResponseBody';
 export { ListCustomAgentResponseBodyData } from './ListCustomAgentResponseBody';
 export { ListCustomAgentToolsResponseBodyData } from './ListCustomAgentToolsResponseBody';
@@ -99,6 +100,10 @@ export { ModifyInstanceStorageConfigRequest } from './ModifyInstanceStorageConfi
 export { ModifyInstanceStorageConfigShrinkRequest } from './ModifyInstanceStorageConfigShrinkRequest';
 export { ModifyInstanceStorageConfigResponseBody } from './ModifyInstanceStorageConfigResponseBody';
 export { ModifyInstanceStorageConfigResponse } from './ModifyInstanceStorageConfigResponse';
+export { ModifyInstancesSSLRequest } from './ModifyInstancesSslrequest';
+export { ModifyInstancesSSLShrinkRequest } from './ModifyInstancesSslshrinkRequest';
+export { ModifyInstancesSSLResponseBody } from './ModifyInstancesSslresponseBody';
+export { ModifyInstancesSSLResponse } from './ModifyInstancesSslresponse';
 export { ModifyMessagesFeedbacksRequest } from './ModifyMessagesFeedbacksRequest';
 export { ModifyMessagesFeedbacksResponseBody } from './ModifyMessagesFeedbacksResponseBody';
 export { ModifyMessagesFeedbacksResponse } from './ModifyMessagesFeedbacksResponse';
