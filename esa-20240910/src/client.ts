@@ -242,6 +242,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景
+   * 
+   * @param request - ApplyCustomHostnameCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyCustomHostnameCertificateResponse
+   */
+  async applyCustomHostnameCertificateWithOptions(request: $_model.ApplyCustomHostnameCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyCustomHostnameCertificateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hostnameId)) {
+      query["HostnameId"] = request.hostnameId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApplyCustomHostnameCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApplyCustomHostnameCertificateResponse>(await this.callApi(params, req, runtime), new $_model.ApplyCustomHostnameCertificateResponse({}));
+  }
+
+  /**
+   * 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景
+   * 
+   * @param request - ApplyCustomHostnameCertificateRequest
+   * @returns ApplyCustomHostnameCertificateResponse
+   */
+  async applyCustomHostnameCertificate(request: $_model.ApplyCustomHostnameCertificateRequest): Promise<$_model.ApplyCustomHostnameCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.applyCustomHostnameCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Adds DNS records of different record types at a time..
    * 
    * @remarks
@@ -1597,6 +1639,80 @@ export default class Client extends OpenApi {
   async createCompressionRule(request: $_model.CreateCompressionRuleRequest): Promise<$_model.CreateCompressionRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCompressionRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建自定义主机名
+   * 
+   * @param request - CreateCustomHostnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomHostnameResponse
+   */
+  async createCustomHostnameWithOptions(request: $_model.CreateCustomHostnameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomHostnameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.casId)) {
+      query["CasId"] = request.casId;
+    }
+
+    if (!$dara.isNull(request.casRegion)) {
+      query["CasRegion"] = request.casRegion;
+    }
+
+    if (!$dara.isNull(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!$dara.isNull(request.certificate)) {
+      query["Certificate"] = request.certificate;
+    }
+
+    if (!$dara.isNull(request.hostname)) {
+      query["Hostname"] = request.hostname;
+    }
+
+    if (!$dara.isNull(request.privateKey)) {
+      query["PrivateKey"] = request.privateKey;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.sslFlag)) {
+      query["SslFlag"] = request.sslFlag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomHostname",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomHostnameResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomHostnameResponse({}));
+  }
+
+  /**
+   * 创建自定义主机名
+   * 
+   * @param request - CreateCustomHostnameRequest
+   * @returns CreateCustomHostnameResponse
+   */
+  async createCustomHostname(request: $_model.CreateCustomHostnameRequest): Promise<$_model.CreateCustomHostnameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomHostnameWithOptions(request, runtime);
   }
 
   /**
@@ -5151,6 +5267,48 @@ export default class Client extends OpenApi {
   async deleteCompressionRule(request: $_model.DeleteCompressionRuleRequest): Promise<$_model.DeleteCompressionRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCompressionRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除自定义主机名
+   * 
+   * @param request - DeleteCustomHostnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomHostnameResponse
+   */
+  async deleteCustomHostnameWithOptions(request: $_model.DeleteCustomHostnameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomHostnameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hostnameId)) {
+      query["HostnameId"] = request.hostnameId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomHostname",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomHostnameResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomHostnameResponse({}));
+  }
+
+  /**
+   * 删除自定义主机名
+   * 
+   * @param request - DeleteCustomHostnameRequest
+   * @returns DeleteCustomHostnameResponse
+   */
+  async deleteCustomHostname(request: $_model.DeleteCustomHostnameRequest): Promise<$_model.DeleteCustomHostnameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomHostnameWithOptions(request, runtime);
   }
 
   /**
@@ -8884,6 +9042,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询单个自定义主机名的信息
+   * 
+   * @param request - GetCustomHostnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomHostnameResponse
+   */
+  async getCustomHostnameWithOptions(request: $_model.GetCustomHostnameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomHostnameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hostnameId)) {
+      query["HostnameId"] = request.hostnameId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomHostname",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomHostnameResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomHostnameResponse({}));
+  }
+
+  /**
+   * 查询单个自定义主机名的信息
+   * 
+   * @param request - GetCustomHostnameRequest
+   * @returns GetCustomHostnameResponse
+   */
+  async getCustomHostname(request: $_model.GetCustomHostnameRequest): Promise<$_model.GetCustomHostnameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomHostnameWithOptions(request, runtime);
+  }
+
+  /**
    * Query Site Developer Mode Configuration
    * 
    * @param request - GetDevelopmentModeRequest
@@ -12097,6 +12297,72 @@ export default class Client extends OpenApi {
   async listCompressionRules(request: $_model.ListCompressionRulesRequest): Promise<$_model.ListCompressionRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCompressionRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询站点下的自定义主机名列表
+   * 
+   * @param request - ListCustomHostnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomHostnamesResponse
+   */
+  async listCustomHostnamesWithOptions(request: $_model.ListCustomHostnamesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomHostnamesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hostname)) {
+      query["Hostname"] = request.hostname;
+    }
+
+    if (!$dara.isNull(request.nameMatchType)) {
+      query["NameMatchType"] = request.nameMatchType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomHostnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomHostnamesResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomHostnamesResponse({}));
+  }
+
+  /**
+   * 查询站点下的自定义主机名列表
+   * 
+   * @param request - ListCustomHostnamesRequest
+   * @returns ListCustomHostnamesResponse
+   */
+  async listCustomHostnames(request: $_model.ListCustomHostnamesRequest): Promise<$_model.ListCustomHostnamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomHostnamesWithOptions(request, runtime);
   }
 
   /**
@@ -16854,6 +17120,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新自定义主机名
+   * 
+   * @param request - UpdateCustomHostnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomHostnameResponse
+   */
+  async updateCustomHostnameWithOptions(request: $_model.UpdateCustomHostnameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomHostnameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.casId)) {
+      query["CasId"] = request.casId;
+    }
+
+    if (!$dara.isNull(request.casRegion)) {
+      query["CasRegion"] = request.casRegion;
+    }
+
+    if (!$dara.isNull(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!$dara.isNull(request.certificate)) {
+      query["Certificate"] = request.certificate;
+    }
+
+    if (!$dara.isNull(request.hostnameId)) {
+      query["HostnameId"] = request.hostnameId;
+    }
+
+    if (!$dara.isNull(request.privateKey)) {
+      query["PrivateKey"] = request.privateKey;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.sslFlag)) {
+      query["SslFlag"] = request.sslFlag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustomHostname",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustomHostnameResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomHostnameResponse({}));
+  }
+
+  /**
+   * 更新自定义主机名
+   * 
+   * @param request - UpdateCustomHostnameRequest
+   * @returns UpdateCustomHostnameResponse
+   */
+  async updateCustomHostname(request: $_model.UpdateCustomHostnameRequest): Promise<$_model.UpdateCustomHostnameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCustomHostnameWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configurations of a custom scenario-specific policy.
    * 
    * @param request - UpdateCustomScenePolicyRequest
@@ -20573,6 +20909,48 @@ export default class Client extends OpenApi {
   async uploadSiteOriginClientCertificate(request: $_model.UploadSiteOriginClientCertificateRequest): Promise<$_model.UploadSiteOriginClientCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadSiteOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证自定义主机名
+   * 
+   * @param request - VerifyCustomHostnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyCustomHostnameResponse
+   */
+  async verifyCustomHostnameWithOptions(request: $_model.VerifyCustomHostnameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyCustomHostnameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hostnameId)) {
+      query["HostnameId"] = request.hostnameId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyCustomHostname",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyCustomHostnameResponse>(await this.callApi(params, req, runtime), new $_model.VerifyCustomHostnameResponse({}));
+  }
+
+  /**
+   * 验证自定义主机名
+   * 
+   * @param request - VerifyCustomHostnameRequest
+   * @returns VerifyCustomHostnameResponse
+   */
+  async verifyCustomHostname(request: $_model.VerifyCustomHostnameRequest): Promise<$_model.VerifyCustomHostnameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyCustomHostnameWithOptions(request, runtime);
   }
 
   /**
