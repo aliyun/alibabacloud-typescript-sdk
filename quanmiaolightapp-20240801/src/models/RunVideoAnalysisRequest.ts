@@ -326,6 +326,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
    * http://xxxx.mp4
    */
   videoUrl?: string;
+  videoUrls?: string[];
   static names(): { [key: string]: string } {
     return {
       addDocumentParam: 'addDocumentParam',
@@ -351,6 +352,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       videoRoles: 'videoRoles',
       videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
+      videoUrls: 'videoUrls',
     };
   }
 
@@ -379,6 +381,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       videoRoles: { 'type': 'array', 'itemType': RunVideoAnalysisRequestVideoRoles },
       videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
+      videoUrls: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -403,6 +406,9 @@ export class RunVideoAnalysisRequest extends $dara.Model {
     }
     if(Array.isArray(this.videoRoles)) {
       $dara.Model.validateArray(this.videoRoles);
+    }
+    if(Array.isArray(this.videoUrls)) {
+      $dara.Model.validateArray(this.videoUrls);
     }
     super.validate();
   }

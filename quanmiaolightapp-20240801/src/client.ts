@@ -2734,6 +2734,10 @@ export default class Client extends OpenApi {
       request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
     }
 
+    if (!$dara.isNull(tmpReq.videoUrls)) {
+      request.videoUrlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoUrls, "videoUrls", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addDocumentParamShrink)) {
       body["addDocumentParam"] = request.addDocumentParamShrink;
@@ -2825,6 +2829,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.videoUrl)) {
       body["videoUrl"] = request.videoUrl;
+    }
+
+    if (!$dara.isNull(request.videoUrlsShrink)) {
+      body["videoUrls"] = request.videoUrlsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2898,6 +2906,10 @@ export default class Client extends OpenApi {
       request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
     }
 
+    if (!$dara.isNull(tmpReq.videoUrls)) {
+      request.videoUrlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoUrls, "videoUrls", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addDocumentParamShrink)) {
       body["addDocumentParam"] = request.addDocumentParamShrink;
@@ -2989,6 +3001,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.videoUrl)) {
       body["videoUrl"] = request.videoUrl;
+    }
+
+    if (!$dara.isNull(request.videoUrlsShrink)) {
+      body["videoUrls"] = request.videoUrlsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3537,6 +3553,10 @@ export default class Client extends OpenApi {
       request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
     }
 
+    if (!$dara.isNull(tmpReq.videoUrls)) {
+      request.videoUrlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoUrls, "videoUrls", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addDocumentParamShrink)) {
       body["addDocumentParam"] = request.addDocumentParamShrink;
@@ -3624,6 +3644,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.videoUrl)) {
       body["videoUrl"] = request.videoUrl;
+    }
+
+    if (!$dara.isNull(request.videoUrlsShrink)) {
+      body["videoUrls"] = request.videoUrlsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

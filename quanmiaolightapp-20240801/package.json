@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/quanmiaolightapp20240801",
-  "version": "2.12.4",
+  "version": "2.12.5",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

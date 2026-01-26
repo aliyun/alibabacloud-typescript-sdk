@@ -57,13 +57,11 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
   videoRolesShrink?: string;
   videoShotFaceIdentityCount?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * http://xxxx.mp4
    */
   videoUrl?: string;
+  videoUrlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       addDocumentParamShrink: 'addDocumentParam',
@@ -88,6 +86,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       videoRolesShrink: 'videoRoles',
       videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
+      videoUrlsShrink: 'videoUrls',
     };
   }
 
@@ -115,6 +114,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       videoRolesShrink: 'string',
       videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
+      videoUrlsShrink: 'string',
     };
   }
 

@@ -62,6 +62,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
    * http://xxxx.mp4
    */
   videoUrl?: string;
+  videoUrlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       addDocumentParamShrink: 'addDocumentParam',
@@ -87,6 +88,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
       videoRolesShrink: 'videoRoles',
       videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
+      videoUrlsShrink: 'videoUrls',
     };
   }
 
@@ -115,6 +117,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
       videoRolesShrink: 'string',
       videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
+      videoUrlsShrink: 'string',
     };
   }
 

@@ -333,13 +333,11 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   videoRoles?: SubmitVideoAnalysisTaskRequestVideoRoles[];
   videoShotFaceIdentityCount?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * http://xxxx.mp4
    */
   videoUrl?: string;
+  videoUrls?: string[];
   static names(): { [key: string]: string } {
     return {
       addDocumentParam: 'addDocumentParam',
@@ -364,6 +362,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       videoRoles: 'videoRoles',
       videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
+      videoUrls: 'videoUrls',
     };
   }
 
@@ -391,6 +390,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       videoRoles: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestVideoRoles },
       videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
+      videoUrls: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -415,6 +415,9 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
     }
     if(Array.isArray(this.videoRoles)) {
       $dara.Model.validateArray(this.videoRoles);
+    }
+    if(Array.isArray(this.videoUrls)) {
+      $dara.Model.validateArray(this.videoUrls);
     }
     super.validate();
   }
