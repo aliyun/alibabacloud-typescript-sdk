@@ -4,23 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateEnvDropMetricsRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * success
    */
   data?: string;
   /**
+   * @remarks
+   * The error message returned if the call failed.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6A9AEA84-7186-4D8D-B498-4585C6A2****

@@ -353,7 +353,7 @@ export class DescribeAddonReleaseResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * ID of the request.
    * 
    * @example
    * 78901766-3806-4E96-8E47-CFEF59E4****

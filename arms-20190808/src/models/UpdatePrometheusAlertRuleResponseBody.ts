@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRuleAnnotations extends $dara.Model {
   /**
+   * @remarks
+   * The name of the annotation.
+   * 
    * @example
    * message
    */
   name?: string;
+  /**
+   * @remarks
+   * The value of the annotation.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} exceeds 80%. Current value: {{$value}}%
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,11 +44,17 @@ export class UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRuleAnnotations
 
 export class UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRuleLabels extends $dara.Model {
   /**
+   * @remarks
+   * The name of the tag.
+   * 
    * @example
    * severity
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * critical
    */
@@ -68,48 +84,100 @@ export class UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRuleLabels exte
 
 export class UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the alert rule.
+   * 
    * @example
    * 3888704
    */
   alertId?: number;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * Prometheus_Alert
    */
   alertName?: string;
+  /**
+   * @remarks
+   * The annotation of the alert rule.
+   */
   annotations?: UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRuleAnnotations[];
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * c0bad479465464e1d8c1e641b0afb****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The ID of the notification policy.
+   * 
    * @example
    * 10282
    */
   dispatchRuleId?: number;
   /**
+   * @remarks
+   * The duration. The value ranges from 1 to 1440 minutes.
+   * 
    * @example
    * 1
    */
   duration?: string;
   /**
+   * @remarks
+   * The expression of the alert rule.
+   * 
    * @example
    * 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \\"pod_name\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (pod_name))>75
    */
   expression?: string;
+  /**
+   * @remarks
+   * The tags of the alert rule.
+   */
   labels?: UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRuleLabels[];
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} exceeds 80%. Current value: {{$value}}%
+   */
   message?: string;
   /**
+   * @remarks
+   * The method of that is used to send alert notifications. Valid values:
+   * 
+   * *   `ALERT_MANAGER`: Alert notifications are sent by Operation Center.
+   * *   `DISPATCH_RULE`: Alert notifications are sent based on the specified notification policy.
+   * 
    * @example
    * ALERT_MANAGER
    */
   notifyType?: string;
   /**
+   * @remarks
+   * Indicates whether the alert rule is enabled. Valid values:
+   * 
+   * - `1`: The alert rule is enabled.
+   * - `0`: The alert rule is disabled.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The type of the alert rule.
+   * 
+   * @example
+   * Kubernetes component alert
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,7 +231,7 @@ export class UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule extends $d
 export class UpdatePrometheusAlertRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * The status code. The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -177,8 +245,15 @@ export class UpdatePrometheusAlertRuleResponseBody extends $dara.Model {
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The returned struct.
+   */
   prometheusAlertRule?: UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9FEA6D00-317F-45E3-9004-7FB8B0B7****
    */

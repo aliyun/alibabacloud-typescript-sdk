@@ -4,12 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateEnvDropMetricsRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language. Valid values:
+   * 
+   * *   zh (default)
+   * *   en
+   * 
    * @example
    * zh
    */
   aliyunLang?: string;
   /**
    * @remarks
+   * The metric to be discarded. Separate multiple metrics with line feeds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +28,8 @@ export class UpdateEnvDropMetricsRuleRequest extends $dara.Model {
   dropMetrics?: string;
   /**
    * @remarks
+   * The environment ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +38,8 @@ export class UpdateEnvDropMetricsRuleRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

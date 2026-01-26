@@ -1961,6 +1961,10 @@ export default class Client extends OpenApi {
       body["Tags"] = request.tags;
     }
 
+    if (!$dara.isNull(request.aliyunLang)) {
+      body["aliyunLang"] = request.aliyunLang;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -5489,7 +5493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定环境实例的废弃指标列表
+   * Queries the list of discarded metrics of a specified environment instance.
    * 
    * @param request - DescribeEnvDropMetricsRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5524,7 +5528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定环境实例的废弃指标列表
+   * Queries the list of discarded metrics of a specified environment instance.
    * 
    * @param request - DescribeEnvDropMetricsRuleRequest
    * @returns DescribeEnvDropMetricsRuleResponse
@@ -12579,6 +12583,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动报警
+   * 
    * @param request - StartAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartAlertResponse
@@ -12612,6 +12618,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动报警
+   * 
    * @param request - StartAlertRequest
    * @returns StartAlertResponse
    */
@@ -13389,7 +13397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新环境实例的废弃指标列表
+   * Updates a discarded metric rule in the environment.
    * 
    * @param request - UpdateEnvDropMetricsRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13434,7 +13442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新环境实例的废弃指标列表
+   * Updates a discarded metric rule in the environment.
    * 
    * @param request - UpdateEnvDropMetricsRuleRequest
    * @returns UpdateEnvDropMetricsRuleResponse
@@ -13906,7 +13914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Prometheus告警规则
+   * Updates a Prometheus alert rule.
    * 
    * @param request - UpdatePrometheusAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13985,7 +13993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Prometheus告警规则
+   * Updates a Prometheus alert rule.
    * 
    * @param request - UpdatePrometheusAlertRuleRequest
    * @returns UpdatePrometheusAlertRuleResponse

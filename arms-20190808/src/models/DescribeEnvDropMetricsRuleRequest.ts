@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnvDropMetricsRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The environment ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeEnvDropMetricsRuleRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

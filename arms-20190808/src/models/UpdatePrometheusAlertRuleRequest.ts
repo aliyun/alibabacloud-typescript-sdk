@@ -45,6 +45,8 @@ export class UpdatePrometheusAlertRuleRequestTags extends $dara.Model {
 export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +55,8 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
   alertId?: number;
   /**
    * @remarks
+   * The name of the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,12 +64,17 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
    */
   alertName?: string;
   /**
+   * @remarks
+   * The annotations that are described in a JSON string. You must specify the name and value of each annotation.
+   * 
    * @example
    * [{"Value": "xxx","Name": "description"}]
    */
   annotations?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,12 +82,17 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The ID of the notification policy. This parameter is required if the NotifyType parameter is set to `DISPATCH_RULE`.
+   * 
    * @example
    * 10282
    */
   dispatchRuleId?: number;
   /**
    * @remarks
+   * The duration. The value ranges from 1 to 1440 minutes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,6 +101,8 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
+   * The expression of the alert rule. The expression must follow the PromQL syntax.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -94,22 +110,38 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
    */
   expression?: string;
   /**
+   * @remarks
+   * The tags that are described in a JSON string. You must specify the name and value of each tag.
+   * 
    * @example
    * [{"Value": "critical","Name": "severity"}]
    */
   labels?: string;
   /**
    * @remarks
+   * The alert message. Tags can be referenced in the {{$labels.xxx}} format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} exceeds 80%. Current value: {{$value}}%
    */
   message?: string;
   /**
+   * @remarks
+   * The method that is used to send alert notifications. Valid values:
+   * 
+   * - `ALERT_MANAGER`: Alert notifications are sent by Operation Center. This is the default value.
+   * - `DISPATCH_RULE`: Alert notifications are sent based on the specified notification policy.
+   * 
    * @example
    * ALERT_MANAGER
    */
   notifyType?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -121,6 +153,13 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
    * The tags.
    */
   tags?: UpdatePrometheusAlertRuleRequestTags[];
+  /**
+   * @remarks
+   * The type of the alert rule.
+   * 
+   * @example
+   * Kubernetes component alert
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

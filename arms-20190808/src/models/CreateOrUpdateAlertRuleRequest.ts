@@ -415,6 +415,7 @@ export class CreateOrUpdateAlertRuleRequest extends $dara.Model {
    * The list of tags.
    */
   tags?: CreateOrUpdateAlertRuleRequestTags[];
+  aliyunLang?: string;
   static names(): { [key: string]: string } {
     return {
       alertCheckType: 'AlertCheckType',
@@ -447,6 +448,7 @@ export class CreateOrUpdateAlertRuleRequest extends $dara.Model {
       promQL: 'PromQL',
       regionId: 'RegionId',
       tags: 'Tags',
+      aliyunLang: 'aliyunLang',
     };
   }
 
@@ -482,6 +484,7 @@ export class CreateOrUpdateAlertRuleRequest extends $dara.Model {
       promQL: 'string',
       regionId: 'string',
       tags: { 'type': 'array', 'itemType': CreateOrUpdateAlertRuleRequestTags },
+      aliyunLang: 'string',
     };
   }
 
