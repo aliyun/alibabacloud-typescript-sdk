@@ -13,6 +13,14 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   agentRuntimeName?: string;
   /**
    * @remarks
+   * 用于服务发现的资源组标识符
+   * 
+   * @example
+   * rg-123456
+   */
+  discoveryResourceGroupId?: string;
+  /**
+   * @remarks
    * 当前页码，从1开始计数
    * 
    * @example
@@ -47,6 +55,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
+      discoveryResourceGroupId: 'discoveryResourceGroupId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
@@ -58,6 +67,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentRuntimeName: 'string',
+      discoveryResourceGroupId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',

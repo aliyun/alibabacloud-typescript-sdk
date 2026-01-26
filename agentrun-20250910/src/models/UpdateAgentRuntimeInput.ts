@@ -4,7 +4,9 @@ import { CodeConfiguration } from "./CodeConfiguration";
 import { ContainerConfiguration } from "./ContainerConfiguration";
 import { HealthCheckConfiguration } from "./HealthCheckConfiguration";
 import { LogConfiguration } from "./LogConfiguration";
+import { NASConfig } from "./Nasconfig";
 import { NetworkConfiguration } from "./NetworkConfiguration";
+import { OSSMountConfig } from "./OssmountConfig";
 import { ProtocolConfiguration } from "./ProtocolConfiguration";
 
 
@@ -74,6 +76,14 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   executionRoleArn?: string;
   /**
    * @remarks
+   * 外部注册类型的智能体访问端点地址，用于连接已部署在外部的智能体服务
+   * 
+   * @example
+   * https://external-agent.example.com/api
+   */
+  externalAgentEndpointUrl?: string;
+  /**
+   * @remarks
    * 智能体运行时的健康检查配置，用于监控运行时实例的健康状态
    * 
    * @example
@@ -95,12 +105,28 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   memory?: number;
   /**
    * @remarks
+   * 文件存储NAS的配置信息，用于挂载NAS文件系统到智能体运行时
+   * 
+   * @example
+   * {}
+   */
+  nasConfig?: NASConfig;
+  /**
+   * @remarks
    * 智能体运行时的网络配置，包括VPC、安全组等网络访问设置
    * 
    * @example
    * {}
    */
   networkConfiguration?: NetworkConfiguration;
+  /**
+   * @remarks
+   * 对象存储OSS的挂载配置信息，用于挂载OSS存储桶到智能体运行时
+   * 
+   * @example
+   * {}
+   */
+  ossMountConfig?: OSSMountConfig;
   /**
    * @example
    * 8080
@@ -141,10 +167,13 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       description: 'description',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
+      externalAgentEndpointUrl: 'externalAgentEndpointUrl',
       healthCheckConfiguration: 'healthCheckConfiguration',
       logConfiguration: 'logConfiguration',
       memory: 'memory',
+      nasConfig: 'nasConfig',
       networkConfiguration: 'networkConfiguration',
+      ossMountConfig: 'ossMountConfig',
       port: 'port',
       protocolConfiguration: 'protocolConfiguration',
       sessionConcurrencyLimitPerInstance: 'sessionConcurrencyLimitPerInstance',
@@ -163,10 +192,13 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
+      externalAgentEndpointUrl: 'string',
       healthCheckConfiguration: HealthCheckConfiguration,
       logConfiguration: LogConfiguration,
       memory: 'number',
+      nasConfig: NASConfig,
       networkConfiguration: NetworkConfiguration,
+      ossMountConfig: OSSMountConfig,
       port: 'number',
       protocolConfiguration: ProtocolConfiguration,
       sessionConcurrencyLimitPerInstance: 'number',
@@ -190,8 +222,14 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
     if(this.logConfiguration && typeof (this.logConfiguration as any).validate === 'function') {
       (this.logConfiguration as any).validate();
     }
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
+    }
     if(this.networkConfiguration && typeof (this.networkConfiguration as any).validate === 'function') {
       (this.networkConfiguration as any).validate();
+    }
+    if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
+      (this.ossMountConfig as any).validate();
     }
     if(this.protocolConfiguration && typeof (this.protocolConfiguration as any).validate === 'function') {
       (this.protocolConfiguration as any).validate();

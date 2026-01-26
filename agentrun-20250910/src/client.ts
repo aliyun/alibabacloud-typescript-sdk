@@ -1681,6 +1681,10 @@ export default class Client extends OpenApi {
       query["agentRuntimeName"] = request.agentRuntimeName;
     }
 
+    if (!$dara.isNull(request.discoveryResourceGroupId)) {
+      query["discoveryResourceGroupId"] = request.discoveryResourceGroupId;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
