@@ -347,6 +347,11 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy extends $dara.Model {
   approvalRequired?: boolean;
   /**
+   * @example
+   * r-xxxxxxxxxx
+   */
+  autoRepairPolicyId?: string;
+  /**
    * @remarks
    * Whether to allow restarting nodes.
    * 
@@ -357,6 +362,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy
   static names(): { [key: string]: string } {
     return {
       approvalRequired: 'approval_required',
+      autoRepairPolicyId: 'auto_repair_policy_id',
       restartNode: 'restart_node',
     };
   }
@@ -364,6 +370,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy
   static types(): { [key: string]: any } {
     return {
       approvalRequired: 'boolean',
+      autoRepairPolicyId: 'string',
       restartNode: 'boolean',
     };
   }

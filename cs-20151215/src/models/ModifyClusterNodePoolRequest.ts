@@ -280,6 +280,11 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
 export class ModifyClusterNodePoolRequestManagementAutoRepairPolicy extends $dara.Model {
   approvalRequired?: boolean;
   /**
+   * @example
+   * r-xxxxxxxxxx
+   */
+  autoRepairPolicyId?: string;
+  /**
    * @remarks
    * Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
    * 
@@ -293,6 +298,7 @@ export class ModifyClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   static names(): { [key: string]: string } {
     return {
       approvalRequired: 'approval_required',
+      autoRepairPolicyId: 'auto_repair_policy_id',
       restartNode: 'restart_node',
     };
   }
@@ -300,6 +306,7 @@ export class ModifyClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   static types(): { [key: string]: any } {
     return {
       approvalRequired: 'boolean',
+      autoRepairPolicyId: 'string',
       restartNode: 'boolean',
     };
   }

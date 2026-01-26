@@ -3680,6 +3680,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询地域列表
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["acceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.clusterType)) {
+      query["clusterType"] = request.clusterType;
+    }
+
+    if (!$dara.isNull(request.profile)) {
+      query["profile"] = request.profile;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
+  }
+
+  /**
+   * 查询地域列表
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
    * 
    * @param request - DescribeResourcesDeleteProtectionRequest

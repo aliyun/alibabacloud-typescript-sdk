@@ -151,6 +151,7 @@ export { DescribePolicyGovernanceInClusterResponseBodyAdmitLog } from './Describ
 export { DescribePolicyGovernanceInClusterResponseBodyOnState } from './DescribePolicyGovernanceInClusterResponseBody';
 export { DescribePolicyInstancesResponseBody } from './DescribePolicyInstancesResponse';
 export { DescribePolicyInstancesStatusResponseBodyPolicyInstances } from './DescribePolicyInstancesStatusResponseBody';
+export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
 export { DescribeResourcesDeleteProtectionResponseBody } from './DescribeResourcesDeleteProtectionResponse';
 export { DescribeTaskInfoResponseBodyError } from './DescribeTaskInfoResponseBody';
 export { DescribeTaskInfoResponseBodyEvents } from './DescribeTaskInfoResponseBody';
@@ -386,6 +387,9 @@ export { DescribePolicyInstancesRequest } from './DescribePolicyInstancesRequest
 export { DescribePolicyInstancesResponse } from './DescribePolicyInstancesResponse';
 export { DescribePolicyInstancesStatusResponseBody } from './DescribePolicyInstancesStatusResponseBody';
 export { DescribePolicyInstancesStatusResponse } from './DescribePolicyInstancesStatusResponse';
+export { DescribeRegionsRequest } from './DescribeRegionsRequest';
+export { DescribeRegionsResponseBody } from './DescribeRegionsResponseBody';
+export { DescribeRegionsResponse } from './DescribeRegionsResponse';
 export { DescribeResourcesDeleteProtectionRequest } from './DescribeResourcesDeleteProtectionRequest';
 export { DescribeResourcesDeleteProtectionResponse } from './DescribeResourcesDeleteProtectionResponse';
 export { DescribeSubaccountK8sClusterUserConfigRequest } from './DescribeSubaccountK8sClusterUserConfigRequest';
