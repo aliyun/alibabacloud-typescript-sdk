@@ -18,7 +18,7 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition exten
    * @example
    * ["2","3","ad"]
    */
-  contentList?: string;
+  contentList?: string[];
   /**
    * @remarks
    * The match field.
@@ -58,7 +58,7 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition exten
   static types(): { [key: string]: any } {
     return {
       content: 'string',
-      contentList: 'string',
+      contentList: { 'type': 'array', 'itemType': 'string' },
       field: 'string',
       headerName: 'string',
       matchMethod: 'string',
@@ -66,6 +66,9 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition exten
   }
 
   validate() {
+    if(Array.isArray(this.contentList)) {
+      $dara.Model.validateArray(this.contentList);
+    }
     super.validate();
   }
 
@@ -305,6 +308,9 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail extends $dara.
   /**
    * @remarks
    * The parameter is deprecated.
+   * 
+   * @example
+   * 废弃
    */
   count?: number;
   /**
@@ -318,6 +324,9 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail extends $dara.
   /**
    * @remarks
    * The parameter is deprecated.
+   * 
+   * @example
+   * 废弃
    */
   mode?: string;
   /**
