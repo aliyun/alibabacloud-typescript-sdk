@@ -17,6 +17,7 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
    */
   mode?: string;
   partition?: { [key: string]: string };
+  partitions?: { [key: string]: string };
   /**
    * @example
    * false
@@ -27,6 +28,7 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
       instanceId: 'InstanceId',
       mode: 'Mode',
       partition: 'Partition',
+      partitions: 'Partitions',
       skipThresholdCheck: 'SkipThresholdCheck',
     };
   }
@@ -36,6 +38,7 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
       instanceId: 'string',
       mode: 'string',
       partition: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      partitions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       skipThresholdCheck: 'boolean',
     };
   }
@@ -43,6 +46,9 @@ export class PublishRecallManagementTableRequest extends $dara.Model {
   validate() {
     if(this.partition) {
       $dara.Model.validateMap(this.partition);
+    }
+    if(this.partitions) {
+      $dara.Model.validateMap(this.partitions);
     }
     super.validate();
   }

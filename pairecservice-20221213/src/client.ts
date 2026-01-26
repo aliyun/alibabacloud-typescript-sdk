@@ -7353,6 +7353,10 @@ export default class Client extends OpenApi {
       body["Partition"] = request.partition;
     }
 
+    if (!$dara.isNull(request.partitions)) {
+      body["Partitions"] = request.partitions;
+    }
+
     if (!$dara.isNull(request.skipThresholdCheck)) {
       body["SkipThresholdCheck"] = request.skipThresholdCheck;
     }
