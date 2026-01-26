@@ -104,11 +104,17 @@ export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission exte
 
 export class DescribeAccessPointsResponseBodyAccessPointsTags extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value
+   * 
    * @example
    * TestValue
    */
@@ -158,7 +164,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
    * The ID of the access point.
    * 
    * @example
-   * ap-ie15yd****
+   * ap-ie15y*****
    */
   accessPointId?: string;
   /**
@@ -258,10 +264,14 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
    * Active
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the access point.
+   */
   tags?: DescribeAccessPointsResponseBodyAccessPointsTags[];
   /**
    * @remarks
-   * The vSwitch ID.
+   * Switch ID.
    * 
    * @example
    * vsw-2zevmwkwyztjuoffg****
@@ -345,7 +355,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   accessPoints?: DescribeAccessPointsResponseBodyAccessPoints[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
    * 
    * @example
    * MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****
@@ -353,7 +363,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * This parameter is required.
    * 

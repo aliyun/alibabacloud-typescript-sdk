@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules extends $dara.Model {
   /**
+   * @remarks
+   * Attribute of the rule.
+   * 
    * @example
    * RetrieveType
    */
   attribute?: string;
   /**
+   * @remarks
+   * Threshold for the rule.
+   * 
    * @example
    * All
    */
@@ -38,11 +44,17 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules
 
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules extends $dara.Model {
   /**
+   * @remarks
+   * Attribute of the rule.
+   * 
    * @example
    * Atime
    */
   attribute?: string;
   /**
+   * @remarks
+   * Threshold for the rule.
+   * 
    * @example
    * 3
    */
@@ -82,8 +94,11 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    */
   createTime?: string;
   /**
+   * @remarks
+   * Description
+   * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
@@ -95,6 +110,9 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The ID of the lifecycle policy.
+   * 
    * @example
    * lc-xxx
    */
@@ -108,6 +126,9 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    */
   lifecyclePolicyName?: string;
   /**
+   * @remarks
+   * The type of the lifecycle policy.
+   * 
    * @example
    * Auto
    */
@@ -118,10 +139,10 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * 
    * Valid values:
    * 
-   * *   DEFAULT_ATIME_14: Files that are not accessed in the last 14 days are dumped to the IA storage medium.
-   * *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days are dumped to the IA storage medium.
-   * *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days are dumped to the IA storage medium.
-   * *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days are dumped to the IA storage medium.
+   * *   DEFAULT_ATIME_14: Files that are not accessed in the last 14 days.
+   * *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days.
+   * *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days.
+   * *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days.
    * 
    * @example
    * DEFAULT_ATIME_14
@@ -137,20 +158,29 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   path?: string;
   /**
    * @remarks
-   * The absolute paths to multiple directories associated with the lifecycle policy.
+   * The absolute paths of directories with which the lifecycle policy is associated.
    */
   paths?: string[];
+  /**
+   * @remarks
+   * File data retrieval rules.
+   */
   retrieveRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules[];
   /**
    * @remarks
-   * The storage type of the data that is dumped to the IA storage medium.
+   * The storage class.
    * 
-   * Default value: InfrequentAccess (IA).
+   * *   InfrequentAccess: the IA storage class.
+   * *   Archive: the Archive storage class.
    * 
    * @example
    * InfrequentAccess
    */
   storageType?: string;
+  /**
+   * @remarks
+   * Data transition rules.
+   */
   transitRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules[];
   static names(): { [key: string]: string } {
     return {

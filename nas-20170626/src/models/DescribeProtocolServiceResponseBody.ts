@@ -131,11 +131,17 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    */
   status?: string;
   /**
+   * @remarks
+   * The VSW ID associated with the protocol service.
+   * 
    * @example
    * vsw-123xxx
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The VPC ID associated with the protocol service.
+   * 
    * @example
    * vpc-123xxx
    */
@@ -200,7 +206,7 @@ export class DescribeProtocolServiceResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about protocol services.
+   * The information about protocol service list.
    */
   protocolServices?: DescribeProtocolServiceResponseBodyProtocolServices[];
   /**

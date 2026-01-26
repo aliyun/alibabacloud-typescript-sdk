@@ -4,11 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAccessPointRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The key of a tag. Limits:
+   * 
+   * *   Cannot be null or an empty string.
+   * *   Can be up to 128 characters in length.
+   * *   Cannot start with aliyun or acs:.
+   * *   Cannot contain http:// or https://.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The value of a tag. Limits:
+   * 
+   * *   Cannot be null or an empty string.
+   * *   Can be up to 128 characters in length.
+   * *   Cannot contain http:// or https://.
+   * 
    * @example
    * TestValue
    */
@@ -144,6 +159,10 @@ export class CreateAccessPointRequest extends $dara.Model {
    * /
    */
   rootDirectory?: string;
+  /**
+   * @remarks
+   * The tags of the access point.
+   */
   tag?: CreateAccessPointRequestTag[];
   /**
    * @remarks

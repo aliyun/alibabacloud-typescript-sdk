@@ -91,6 +91,10 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
    * vsw-2vc3c2lybvdllxyq4****
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * A list of IDs for the zone-redundant vSwitches.
+   */
   vSwitchIds?: string[];
   /**
    * @remarks

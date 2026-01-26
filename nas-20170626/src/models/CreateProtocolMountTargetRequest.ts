@@ -108,7 +108,9 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
   protocolServiceId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the export directory for the protocol service.
+   * The vSwitch ID of the export directory.
+   * 
+   * If the storage redundancy type of the file system is not zone-redundant (ZRS) and the VpcId is set, this field is required.
    * 
    * @example
    * vsw-123****
@@ -118,13 +120,16 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The list of vSwitch IDs of the export directory.
+   * 
    * **if can be null:**
    * true
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID of the export directory for the protocol service.
+   * The VPC ID of the export directory.
    * 
    * @example
    * vpc-123****

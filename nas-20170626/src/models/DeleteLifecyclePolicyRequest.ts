@@ -14,13 +14,18 @@ export class DeleteLifecyclePolicyRequest extends $dara.Model {
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The ID of the lifecycle policy. Required for the CPFS for Lingjun file systems.
+   * 
    * @example
    * lc-xxx
    */
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The name of the lifecycle policy.
+   * The name of the lifecycle policy. The name must be 3 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * 
+   * >  Optional for General-purpose NAS file systems. If this parameter is provided, it takes precedence over LifecyclePolicyId. If left empty, LifecyclePolicyId is used.
    * 
    * @example
    * lifecyclepolicy1

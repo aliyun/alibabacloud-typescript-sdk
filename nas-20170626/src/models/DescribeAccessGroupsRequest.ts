@@ -22,9 +22,9 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
-   * *   extreme: Extreme NAS file system.
-   * *   cpfs: CPFS file system.
+   * *   standard: General-purpose NAS
+   * *   extreme: Extreme NAS
+   * *   cpfs: CPFS
    * 
    * @example
    * standard
@@ -54,7 +54,7 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to display the creation time of the permission group in UTC.
+   * Specifies whether the time to return is displayed in UTC.
    * 
    * Valid values:
    * 

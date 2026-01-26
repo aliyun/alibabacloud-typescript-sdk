@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileSystemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system that is created.
+   * The ID of the created file system.
    * 
    * @example
    * 1ca404****

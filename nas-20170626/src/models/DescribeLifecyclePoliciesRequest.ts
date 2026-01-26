@@ -4,8 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * >  Only CPFS for Lingjun supports this parameter.
+   * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
@@ -17,21 +22,36 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The ID of the lifecycle policy.
+   * 
    * @example
    * lc-xxx
    */
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The name of the lifecycle policy. The name must meet the following conventions:
+   * The name of the lifecycle policy. The naming rules are as follows:
    * 
    * The name must be 3 to 64 characters in length and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
+   * 
+   * >  Optional for General-purpose NAS file systems. If this parameter is provided, it takes precedence over LifecyclePolicyId. If left empty, LifecyclePolicyId is used.
    * 
    * @example
    * lifecyclepolicy_01
    */
   lifecyclePolicyName?: string;
   /**
+   * @remarks
+   * The type of the lifecycle policy.
+   * 
+   * Valid values:
+   * 
+   * *   Auto: The job is automatically triggered.
+   * *   OnDemand: On-demand execution.
+   * 
+   * >  Only CPFS for Lingjun supports this parameter.
+   * 
    * @example
    * Auto
    */
@@ -59,6 +79,11 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filter by path.
+   * 
+   * >  Only CPFS for Lingjun supports this parameter.
+   * 
    * @example
    * /abc/
    */
@@ -70,7 +95,7 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    * *   InfrequentAccess: the Infrequent Access (IA) storage class.
    * *   Archive: the Archive storage class.
    * 
-   * >  If the StorageType parameter is not specified, data retrieval tasks of all types are returned.
+   * >  If StorageType is not specified, all lifecycle policies are returned.
    * 
    * @example
    * InfrequentAccess

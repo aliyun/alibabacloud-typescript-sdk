@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetFilesetRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the file system.
+   * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+   * *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,10 @@ export class GetFilesetRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
+   * The fileset ID.
+   * 
+   * >  This parameter is required for CPFS file systems.
+   * 
    * This parameter is required.
    * 
    * @example

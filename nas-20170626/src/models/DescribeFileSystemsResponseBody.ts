@@ -723,11 +723,12 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
    * @remarks
    * The file system type.
    * 
-   * The following information is displayed:
+   * Valid values:
    * 
-   * *   standard: General-purpose NAS file system.
-   * *   extreme: Extreme NAS file system.
-   * *   cpfs: CPFS file system.
+   * *   standard: General-purpose NAS
+   * *   extreme: Extreme NAS
+   * *   cpfs: CPFS (locally redundant storage)
+   * *   cpfsse: CPFS SE (zone-redundant storage)
    * 
    * @example
    * standard
@@ -797,7 +798,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
    * @remarks
    * The protocol type of the file system.
    * 
-   * The following information is displayed:
+   * Valid values:
    * 
    * *   NFS: Network File System.
    * *   SMB: Server Message Block.
@@ -816,10 +817,17 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
    */
   quorumVswId?: string;
   /**
+   * @remarks
+   * Storage redundancy type. Returned only for CPFS SE.
+   * 
    * @example
    * LRS
    */
   redundancyType?: string;
+  /**
+   * @remarks
+   * A list of IDs for the zone-redundant vSwitches.
+   */
   redundancyVSwitchIds?: DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds;
   /**
    * @remarks
@@ -853,13 +861,14 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
   status?: string;
   /**
    * @remarks
-   * The type of the storage.
+   * The storage type.
    * 
-   * The following information is displayed:
+   * Valid values:
    * 
-   * *   Valid values for General-purpose NAS file systems: Capacity, Performance, and Premium
-   * *   Valid values for Extreme NAS file systems: standard and advance
-   * *   Valid values for Cloud Parallel File Storage (CPFS) file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline)
+   * *   General-purpose NAS: Capacity, Performance, Premium
+   * *   Extreme NAS: standard, advance
+   * *   CPFS: advance_100 (100 MB/s/TiB Baseline), advance_200 (200 MB/s/TiB Baseline), economic
+   * *   CPFS SE: advance_100 (100 MB/s/TiB Baseline)
    * 
    * @example
    * Performance

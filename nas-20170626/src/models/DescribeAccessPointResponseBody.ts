@@ -104,11 +104,17 @@ export class DescribeAccessPointResponseBodyAccessPointRootPathPermission extend
 
 export class DescribeAccessPointResponseBodyAccessPointTags extends $dara.Model {
   /**
+   * @remarks
+   * The key of a tag.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The value of a tag.
+   * 
    * @example
    * TestValue
    */
@@ -264,6 +270,10 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
    * Active
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the access point.
+   */
   tags?: DescribeAccessPointResponseBodyAccessPointTags[];
   /**
    * @remarks

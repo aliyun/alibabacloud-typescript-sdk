@@ -41,9 +41,9 @@ export class DescribeAccessGroupsResponseBodyAccessGroupsAccessGroup extends $da
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
-   * *   extreme: Extreme NAS file system.
-   * *   cpfs: CPFS file system.
+   * *   standard: General-purpose NAS
+   * *   extreme: Extreme NAS
+   * *   cpfs: CPFS
    * 
    * @example
    * standard
@@ -59,7 +59,7 @@ export class DescribeAccessGroupsResponseBodyAccessGroupsAccessGroup extends $da
   mountTargetCount?: number;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
