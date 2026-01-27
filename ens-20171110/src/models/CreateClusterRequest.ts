@@ -84,14 +84,6 @@ export class CreateClusterRequest extends $dara.Model {
    */
   clusterType?: string;
   /**
-   * @remarks
-   * The version of the cluster.
-   * 
-   * @example
-   * 1.18.8
-   */
-  clusterVersion?: string;
-  /**
    * @example
    * 172.20.0.0/16
    */
@@ -152,7 +144,6 @@ export class CreateClusterRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterType: 'ClusterType',
-      clusterVersion: 'ClusterVersion',
       containerCidr: 'ContainerCidr',
       controlPlaneConfig: 'ControlPlaneConfig',
       ensRegionId: 'EnsRegionId',
@@ -171,7 +162,6 @@ export class CreateClusterRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterType: 'string',
-      clusterVersion: 'string',
       containerCidr: 'string',
       controlPlaneConfig: CreateClusterRequestControlPlaneConfig,
       ensRegionId: 'string',

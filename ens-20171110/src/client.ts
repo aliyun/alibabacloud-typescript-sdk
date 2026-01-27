@@ -1361,10 +1361,6 @@ export default class Client extends OpenApi {
       query["ClusterType"] = request.clusterType;
     }
 
-    if (!$dara.isNull(request.clusterVersion)) {
-      query["ClusterVersion"] = request.clusterVersion;
-    }
-
     if (!$dara.isNull(request.containerCidr)) {
       query["ContainerCidr"] = request.containerCidr;
     }
