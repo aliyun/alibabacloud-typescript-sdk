@@ -118,6 +118,47 @@ export class CreateApplicationRequestEndpoints extends $dara.Model {
   }
 }
 
+export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
+  dbName?: string;
+  dbPassword?: string;
+  dbUser?: string;
+  embedderModel?: string;
+  llmModel?: string;
+  projectName?: string;
+  rerankerModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbName: 'DbName',
+      dbPassword: 'DbPassword',
+      dbUser: 'DbUser',
+      embedderModel: 'EmbedderModel',
+      llmModel: 'LlmModel',
+      projectName: 'ProjectName',
+      rerankerModel: 'RerankerModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbName: 'string',
+      dbPassword: 'string',
+      dbUser: 'string',
+      embedderModel: 'string',
+      llmModel: 'string',
+      projectName: 'string',
+      rerankerModel: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
@@ -159,6 +200,7 @@ export class CreateApplicationRequest extends $dara.Model {
    */
   dryRun?: boolean;
   endpoints?: CreateApplicationRequestEndpoints[];
+  memApplicationSpec?: CreateApplicationRequestMemApplicationSpec;
   /**
    * @example
    * Postpaid
@@ -189,6 +231,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * rg-********************
    */
   resourceGroupId?: string;
+  securityGroupId?: string;
   /**
    * @example
    * 1
@@ -217,12 +260,14 @@ export class CreateApplicationRequest extends $dara.Model {
       description: 'Description',
       dryRun: 'DryRun',
       endpoints: 'Endpoints',
+      memApplicationSpec: 'MemApplicationSpec',
       payType: 'PayType',
       period: 'Period',
       polarFSInstanceId: 'PolarFSInstanceId',
       promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -242,12 +287,14 @@ export class CreateApplicationRequest extends $dara.Model {
       description: 'string',
       dryRun: 'boolean',
       endpoints: { 'type': 'array', 'itemType': CreateApplicationRequestEndpoints },
+      memApplicationSpec: CreateApplicationRequestMemApplicationSpec,
       payType: 'string',
       period: 'string',
       polarFSInstanceId: 'string',
       promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      securityGroupId: 'string',
       usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -261,6 +308,9 @@ export class CreateApplicationRequest extends $dara.Model {
     }
     if(Array.isArray(this.endpoints)) {
       $dara.Model.validateArray(this.endpoints);
+    }
+    if(this.memApplicationSpec && typeof (this.memApplicationSpec as any).validate === 'function') {
+      (this.memApplicationSpec as any).validate();
     }
     super.validate();
   }

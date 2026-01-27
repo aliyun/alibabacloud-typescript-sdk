@@ -2,6 +2,7 @@ export { AddPolarFsQuotaRequestQuotas } from './AddPolarFsQuotaRequest';
 export { CreateAINodesRequestDBNodes } from './CreateAinodesRequest';
 export { CreateApplicationRequestComponents } from './CreateApplicationRequest';
 export { CreateApplicationRequestEndpoints } from './CreateApplicationRequest';
+export { CreateApplicationRequestMemApplicationSpec } from './CreateApplicationRequest';
 export { CreateApplicationResponseBodyComponents } from './CreateApplicationResponseBody';
 export { CreateDBClusterRequestTag } from './CreateDbclusterRequest';
 export { CreateDBEndpointAddressRequestZoneInfo } from './CreateDbendpointAddressRequest';
@@ -38,6 +39,7 @@ export { DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays } fr
 export { DescribeApplicationAttributeResponseBodyComponentsTopology } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyComponents } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyEndpoints } from './DescribeApplicationAttributeResponseBody';
+export { DescribeApplicationAttributeResponseBodyMemApplicationAttribute } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityGroups } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityIPArrays } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationParametersResponseBodyParameterTemplatesComponentParameterTemplatesParameters } from './DescribeApplicationParametersResponseBody';

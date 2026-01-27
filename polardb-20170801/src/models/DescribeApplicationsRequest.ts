@@ -8,6 +8,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
    * pa-**************
    */
   applicationIds?: string;
+  applicationTypes?: string;
   /**
    * @example
    * pc-**************
@@ -34,6 +35,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationIds: 'ApplicationIds',
+      applicationTypes: 'ApplicationTypes',
       DBClusterId: 'DBClusterId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -44,6 +46,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationIds: 'string',
+      applicationTypes: 'string',
       DBClusterId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

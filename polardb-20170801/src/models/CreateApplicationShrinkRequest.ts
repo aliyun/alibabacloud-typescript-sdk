@@ -43,6 +43,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    */
   dryRun?: boolean;
   endpointsShrink?: string;
+  memApplicationSpecShrink?: string;
   /**
    * @example
    * Postpaid
@@ -73,6 +74,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * rg-********************
    */
   resourceGroupId?: string;
+  securityGroupId?: string;
   /**
    * @example
    * 1
@@ -101,12 +103,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       description: 'Description',
       dryRun: 'DryRun',
       endpointsShrink: 'Endpoints',
+      memApplicationSpecShrink: 'MemApplicationSpec',
       payType: 'PayType',
       period: 'Period',
       polarFSInstanceId: 'PolarFSInstanceId',
       promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -126,12 +130,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       description: 'string',
       dryRun: 'boolean',
       endpointsShrink: 'string',
+      memApplicationSpecShrink: 'string',
       payType: 'string',
       period: 'string',
       polarFSInstanceId: 'string',
       promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      securityGroupId: 'string',
       usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',

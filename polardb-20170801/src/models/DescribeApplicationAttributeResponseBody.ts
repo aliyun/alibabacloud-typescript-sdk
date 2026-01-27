@@ -296,6 +296,44 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   }
 }
 
+export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute extends $dara.Model {
+  dbName?: string;
+  embedderModelName?: string;
+  llmModelName?: string;
+  projectName?: string;
+  rerankerModelName?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbName: 'DbName',
+      embedderModelName: 'EmbedderModelName',
+      llmModelName: 'LlmModelName',
+      projectName: 'ProjectName',
+      rerankerModelName: 'RerankerModelName',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbName: 'string',
+      embedderModelName: 'string',
+      llmModelName: 'string',
+      projectName: 'string',
+      rerankerModelName: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationAttributeResponseBodySecurityGroups extends $dara.Model {
   /**
    * @example
@@ -457,6 +495,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * 18:00Z
    */
   maintainStartTime?: string;
+  memApplicationAttribute?: DescribeApplicationAttributeResponseBodyMemApplicationAttribute;
   /**
    * @example
    * Postpaid
@@ -531,6 +570,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       lockMode: 'LockMode',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
+      memApplicationAttribute: 'MemApplicationAttribute',
       payType: 'PayType',
       polarFSInstanceId: 'PolarFSInstanceId',
       regionId: 'RegionId',
@@ -562,6 +602,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       lockMode: 'string',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
+      memApplicationAttribute: DescribeApplicationAttributeResponseBodyMemApplicationAttribute,
       payType: 'string',
       polarFSInstanceId: 'string',
       regionId: 'string',
@@ -584,6 +625,9 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.endpoints)) {
       $dara.Model.validateArray(this.endpoints);
+    }
+    if(this.memApplicationAttribute && typeof (this.memApplicationAttribute as any).validate === 'function') {
+      (this.memApplicationAttribute as any).validate();
     }
     if(Array.isArray(this.securityGroups)) {
       $dara.Model.validateArray(this.securityGroups);

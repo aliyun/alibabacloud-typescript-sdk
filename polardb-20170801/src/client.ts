@@ -1701,6 +1701,10 @@ export default class Client extends OpenApi {
       request.endpointsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoints, "Endpoints", "json");
     }
 
+    if (!$dara.isNull(tmpReq.memApplicationSpec)) {
+      request.memApplicationSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memApplicationSpec, "MemApplicationSpec", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.applicationType)) {
       query["ApplicationType"] = request.applicationType;
@@ -1742,6 +1746,10 @@ export default class Client extends OpenApi {
       query["Endpoints"] = request.endpointsShrink;
     }
 
+    if (!$dara.isNull(request.memApplicationSpecShrink)) {
+      query["MemApplicationSpec"] = request.memApplicationSpecShrink;
+    }
+
     if (!$dara.isNull(request.payType)) {
       query["PayType"] = request.payType;
     }
@@ -1764,6 +1772,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
     }
 
     if (!$dara.isNull(request.usedTime)) {
@@ -6432,6 +6444,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.applicationIds)) {
       query["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!$dara.isNull(request.applicationTypes)) {
+      query["ApplicationTypes"] = request.applicationTypes;
     }
 
     if (!$dara.isNull(request.DBClusterId)) {
