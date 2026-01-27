@@ -2754,6 +2754,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 您可以通过OperateNode对节点进行操作
+   * 
+   * @param request - OperateNodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateNodeResponse
+   */
+  async operateNodeWithOptions(NodeId: string, request: $_model.OperateNodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OperateNodeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.operation)) {
+      body["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.operationParameters)) {
+      body["OperationParameters"] = request.operationParameters;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateNode",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v1/nodes/${$dara.URL.percentEncode(NodeId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateNodeResponse>(await this.callApi(params, req, runtime), new $_model.OperateNodeResponse({}));
+  }
+
+  /**
+   * 您可以通过OperateNode对节点进行操作
+   * 
+   * @param request - OperateNodeRequest
+   * @returns OperateNodeResponse
+   */
+  async operateNode(NodeId: string, request: $_model.OperateNodeRequest): Promise<$_model.OperateNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.operateNodeWithOptions(NodeId, request, headers, runtime);
+  }
+
+  /**
    * 扩缩容Quota
    * 
    * @param request - ScaleQuotaRequest
