@@ -12,6 +12,21 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
    */
   accountName?: string;
   /**
+   * @example
+   * ["col1"]
+   */
+  affectColumns?: string;
+  /**
+   * @example
+   * 10.0.0.1xx
+   */
+  clientIp?: string;
+  /**
+   * @example
+   * 3306
+   */
+  clientPort?: number;
+  /**
    * @remarks
    * A reserved parameter.
    * 
@@ -19,6 +34,11 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
    * None
    */
   collection?: string;
+  /**
+   * @example
+   * ld-******
+   */
+  connectionId?: string;
   /**
    * @remarks
    * The amount of time that is consumed to execute the SQL statement. Unit: millisecond.
@@ -124,6 +144,11 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
    */
   parallelQueueTime?: string;
   /**
+   * @example
+   * [1, "das"]
+   */
+  params?: string;
+  /**
    * @remarks
    * The number of physical asynchronous reads.
    * 
@@ -148,6 +173,11 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
    */
   physicSyncRead?: number;
   /**
+   * @example
+   * MySQL
+   */
+  protocol?: string;
+  /**
    * @remarks
    * The number of rows returned by the SQL statement.
    * 
@@ -155,6 +185,11 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
    * 0
    */
   returnRows?: number;
+  /**
+   * @example
+   * 23
+   */
+  rowKey?: string;
   /**
    * @remarks
    * The total number of rows that are updated or returned by the compute nodes of the PolarDB-X 2.0 instance.
@@ -214,6 +249,10 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
    * 0
    */
   state?: string;
+  /**
+   * @example
+   * das
+   */
   tableName?: string;
   /**
    * @remarks
@@ -277,7 +316,11 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      affectColumns: 'AffectColumns',
+      clientIp: 'ClientIp',
+      clientPort: 'ClientPort',
       collection: 'Collection',
+      connectionId: 'ConnectionId',
       consume: 'Consume',
       cpuTime: 'CpuTime',
       DBName: 'DBName',
@@ -291,10 +334,13 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
       originTime: 'OriginTime',
       parallelDegree: 'ParallelDegree',
       parallelQueueTime: 'ParallelQueueTime',
+      params: 'Params',
       physicAsyncRead: 'PhysicAsyncRead',
       physicRead: 'PhysicRead',
       physicSyncRead: 'PhysicSyncRead',
+      protocol: 'Protocol',
       returnRows: 'ReturnRows',
+      rowKey: 'RowKey',
       rows: 'Rows',
       scanRows: 'ScanRows',
       scnt: 'Scnt',
@@ -316,7 +362,11 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      affectColumns: 'string',
+      clientIp: 'string',
+      clientPort: 'number',
       collection: 'string',
+      connectionId: 'string',
       consume: 'number',
       cpuTime: 'number',
       DBName: 'string',
@@ -330,10 +380,13 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
       originTime: 'number',
       parallelDegree: 'string',
       parallelQueueTime: 'string',
+      params: 'string',
       physicAsyncRead: 'number',
       physicRead: 'number',
       physicSyncRead: 'number',
+      protocol: 'string',
       returnRows: 'number',
+      rowKey: 'string',
       rows: 'number',
       scanRows: 'number',
       scnt: 'number',

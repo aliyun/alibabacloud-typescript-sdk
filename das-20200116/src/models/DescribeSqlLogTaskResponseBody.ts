@@ -53,7 +53,27 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
    * testname
    */
   accountName?: string;
+  /**
+   * @example
+   * ["col1"]
+   */
+  affectColumns?: string;
+  /**
+   * @example
+   * 10.0.0.1xx
+   */
+  clientIp?: string;
+  /**
+   * @example
+   * 3306
+   */
+  clientPort?: number;
   collection?: string;
+  /**
+   * @example
+   * ld-******
+   */
+  connectionId?: string;
   /**
    * @remarks
    * The execution duration. Unit: millisecond.
@@ -159,6 +179,11 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
    */
   parallelQueueTime?: string;
   /**
+   * @example
+   * [1, "das"]
+   */
+  params?: string;
+  /**
    * @remarks
    * The number of physical asynchronous reads.
    * 
@@ -183,6 +208,11 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
    */
   physicSyncRead?: number;
   /**
+   * @example
+   * MySQL
+   */
+  protected?: string;
+  /**
    * @remarks
    * The number of rows returned.
    * 
@@ -190,6 +220,11 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
    * 0
    */
   returnRows?: number;
+  /**
+   * @example
+   * 23
+   */
+  rowKey?: string;
   /**
    * @remarks
    * The total number of rows updated or returned by the CNs of the PolarDB-X 2.0 instance.
@@ -214,6 +249,10 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
    * 10
    */
   scnt?: number;
+  /**
+   * @example
+   * sql
+   */
   sqlCommand?: number;
   /**
    * @remarks
@@ -254,6 +293,11 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
    * 0
    */
   state?: string;
+  /**
+   * @example
+   * das
+   */
+  tableName?: string;
   /**
    * @remarks
    * The thread ID.
@@ -316,7 +360,11 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      affectColumns: 'AffectColumns',
+      clientIp: 'ClientIp',
+      clientPort: 'ClientPort',
       collection: 'Collection',
+      connectionId: 'ConnectionId',
       consume: 'Consume',
       cpuTime: 'CpuTime',
       DBName: 'DBName',
@@ -330,10 +378,13 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
       originTime: 'OriginTime',
       parallelDegree: 'ParallelDegree',
       parallelQueueTime: 'ParallelQueueTime',
+      params: 'Params',
       physicAsyncRead: 'PhysicAsyncRead',
       physicRead: 'PhysicRead',
       physicSyncRead: 'PhysicSyncRead',
+      protected: 'Protected',
       returnRows: 'ReturnRows',
+      rowKey: 'RowKey',
       rows: 'Rows',
       scanRows: 'ScanRows',
       scnt: 'Scnt',
@@ -342,6 +393,7 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
       sqlText: 'SqlText',
       sqlType: 'SqlType',
       state: 'State',
+      tableName: 'TableName',
       threadId: 'ThreadId',
       traceId: 'TraceId',
       trxId: 'TrxId',
@@ -355,7 +407,11 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      affectColumns: 'string',
+      clientIp: 'string',
+      clientPort: 'number',
       collection: 'string',
+      connectionId: 'string',
       consume: 'number',
       cpuTime: 'number',
       DBName: 'string',
@@ -369,10 +425,13 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
       originTime: 'number',
       parallelDegree: 'string',
       parallelQueueTime: 'string',
+      params: 'string',
       physicAsyncRead: 'number',
       physicRead: 'number',
       physicSyncRead: 'number',
+      protected: 'string',
       returnRows: 'number',
+      rowKey: 'string',
       rows: 'number',
       scanRows: 'number',
       scnt: 'number',
@@ -381,6 +440,7 @@ export class DescribeSqlLogTaskResponseBodyDataQueries extends $dara.Model {
       sqlText: 'string',
       sqlType: 'string',
       state: 'string',
+      tableName: 'string',
       threadId: 'number',
       traceId: 'string',
       trxId: 'string',
