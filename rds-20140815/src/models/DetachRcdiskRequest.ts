@@ -35,6 +35,8 @@ export class DetachRCDiskRequest extends $dara.Model {
    * @remarks
    * The region ID. You can call the DescribeRegions operation to query the most recent region list.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cn-hangzhou
    */

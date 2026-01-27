@@ -87,7 +87,6 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * none
    */
   instantAccess?: boolean;
-  lastModifiedTime?: string;
   /**
    * @remarks
    * The progress of the snapshot creation task in percentage.
@@ -204,7 +203,6 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
       description: 'Description',
       encrypted: 'Encrypted',
       instantAccess: 'InstantAccess',
-      lastModifiedTime: 'LastModifiedTime',
       progress: 'Progress',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -229,7 +227,6 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
       description: 'string',
       encrypted: 'boolean',
       instantAccess: 'boolean',
-      lastModifiedTime: 'string',
       progress: 'string',
       regionId: 'string',
       resourceGroupId: 'string',

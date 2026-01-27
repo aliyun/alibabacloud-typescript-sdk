@@ -32,13 +32,11 @@ export class StopRCInstanceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  stoppedMode?: string;
   static names(): { [key: string]: string } {
     return {
       forceStop: 'ForceStop',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
-      stoppedMode: 'StoppedMode',
     };
   }
 
@@ -47,7 +45,6 @@ export class StopRCInstanceRequest extends $dara.Model {
       forceStop: 'boolean',
       instanceId: 'string',
       regionId: 'string',
-      stoppedMode: 'string',
     };
   }
 

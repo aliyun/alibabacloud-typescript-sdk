@@ -17,6 +17,8 @@ export class DeleteRCDiskRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cn-hangzhou
    */

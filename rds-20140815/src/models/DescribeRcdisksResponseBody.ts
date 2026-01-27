@@ -48,7 +48,6 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
    * 2017-12-05T2340:00Z
    */
   attachedTime?: string;
-  burstingEnabled?: boolean;
   /**
    * @remarks
    * The category of the disk. Valid values:
@@ -192,7 +191,6 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
    * PL0
    */
   performanceLevel?: string;
-  portable?: boolean;
   /**
    * @remarks
    * The region ID.
@@ -293,7 +291,6 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attachedTime: 'AttachedTime',
-      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       creationTime: 'CreationTime',
       deleteAutoSnapshot: 'DeleteAutoSnapshot',
@@ -309,7 +306,6 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
       imageId: 'ImageId',
       instanceId: 'InstanceId',
       performanceLevel: 'PerformanceLevel',
-      portable: 'Portable',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       serialNumber: 'SerialNumber',
@@ -327,7 +323,6 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attachedTime: 'string',
-      burstingEnabled: 'boolean',
       category: 'string',
       creationTime: 'string',
       deleteAutoSnapshot: 'boolean',
@@ -343,7 +338,6 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
       imageId: 'string',
       instanceId: 'string',
       performanceLevel: 'string',
-      portable: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
       serialNumber: 'string',

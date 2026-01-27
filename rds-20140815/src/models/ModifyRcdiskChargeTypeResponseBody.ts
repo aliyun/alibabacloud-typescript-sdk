@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRCDiskChargeTypeResponseBody extends $dara.Model {
   /**
    * @example
-   * Prepaid
+   * POSTPAY
    */
   chargeType?: string;
   expiredTime?: string[];

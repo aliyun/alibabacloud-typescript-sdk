@@ -98,6 +98,8 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
    * * **Prepaid**: subscription.
    * * **Postpaid**: pay-as-you-go.
    * 
+   * This parameter is required.
+   * 
    * @example
    * Postpaid
    */

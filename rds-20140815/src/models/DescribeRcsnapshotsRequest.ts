@@ -37,7 +37,6 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
    * rcd-wz9c8isqly8637zw****
    */
   diskId?: string;
-  instanceId?: string;
   /**
    * @remarks
    * The page number.
@@ -58,6 +57,8 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
    * @remarks
    * The region ID. You can call the DescribeRegions operation to query the most recent region list.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -76,7 +77,6 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       diskId: 'DiskId',
-      instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -88,7 +88,6 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       diskId: 'string',
-      instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',

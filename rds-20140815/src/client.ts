@@ -4627,82 +4627,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom image for an RDS Custom instance.
-   * 
-   * @remarks
-   * ### [](#)Supported database engines
-   * *   RDS MySQL
-   * *   RDS SQL Server
-   * ### [](#)References
-   * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
-   * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
-   * ### [](#)Usage
-   * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
-   * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
-   * 
-   * @param request - CreateRCImageRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateRCImageResponse
-   */
-  async createRCImageWithOptions(request: $_model.CreateRCImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRCImageResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.imageName)) {
-      query["ImageName"] = request.imageName;
-    }
-
-    if (!$dara.isNull(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.snapshotId)) {
-      query["SnapshotId"] = request.snapshotId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CreateRCImage",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CreateRCImageResponse>(await this.callApi(params, req, runtime), new $_model.CreateRCImageResponse({}));
-  }
-
-  /**
-   * Creates a custom image for an RDS Custom instance.
-   * 
-   * @remarks
-   * ### [](#)Supported database engines
-   * *   RDS MySQL
-   * *   RDS SQL Server
-   * ### [](#)References
-   * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
-   * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
-   * ### [](#)Usage
-   * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
-   * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
-   * 
-   * @param request - CreateRCImageRequest
-   * @returns CreateRCImageResponse
-   */
-  async createRCImage(request: $_model.CreateRCImageRequest): Promise<$_model.CreateRCImageResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.createRCImageWithOptions(request, runtime);
-  }
-
-  /**
    * Creates an edge node pool in the Container Service for Kubernetes (ACK) Edge cluster to which the RDS Custom instance belongs.
    * 
    * @param tmpReq - CreateRCNodePoolRequest
@@ -17133,10 +17057,6 @@ export default class Client extends OpenApi {
       query["DiskId"] = request.diskId;
     }
 
-    if (!$dara.isNull(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -24157,52 +24077,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例向量支持状态
-   * 
-   * @param request - ModifyDBInstanceVectorSupportStatusRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ModifyDBInstanceVectorSupportStatusResponse
-   */
-  async modifyDBInstanceVectorSupportStatusWithOptions(request: $_model.ModifyDBInstanceVectorSupportStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceVectorSupportStatusResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!$dara.isNull(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ModifyDBInstanceVectorSupportStatus",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ModifyDBInstanceVectorSupportStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBInstanceVectorSupportStatusResponse({}));
-  }
-
-  /**
-   * 修改实例向量支持状态
-   * 
-   * @param request - ModifyDBInstanceVectorSupportStatusRequest
-   * @returns ModifyDBInstanceVectorSupportStatusResponse
-   */
-  async modifyDBInstanceVectorSupportStatus(request: $_model.ModifyDBInstanceVectorSupportStatusRequest): Promise<$_model.ModifyDBInstanceVectorSupportStatusResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.modifyDBInstanceVectorSupportStatusWithOptions(request, runtime);
-  }
-
-  /**
    * Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
    * 
    * @remarks
@@ -25951,68 +25825,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改块存储属性
-   * 
-   * @param request - ModifyRCDiskAttributeRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ModifyRCDiskAttributeResponse
-   */
-  async modifyRCDiskAttributeWithOptions(request: $_model.ModifyRCDiskAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDiskAttributeResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.burstingEnabled)) {
-      query["BurstingEnabled"] = request.burstingEnabled;
-    }
-
-    if (!$dara.isNull(request.deleteWithInstance)) {
-      query["DeleteWithInstance"] = request.deleteWithInstance;
-    }
-
-    if (!$dara.isNull(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!$dara.isNull(request.diskId)) {
-      query["DiskId"] = request.diskId;
-    }
-
-    if (!$dara.isNull(request.diskName)) {
-      query["DiskName"] = request.diskName;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ModifyRCDiskAttribute",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ModifyRCDiskAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRCDiskAttributeResponse({}));
-  }
-
-  /**
-   * 修改块存储属性
-   * 
-   * @param request - ModifyRCDiskAttributeRequest
-   * @returns ModifyRCDiskAttributeResponse
-   */
-  async modifyRCDiskAttribute(request: $_model.ModifyRCDiskAttributeRequest): Promise<$_model.ModifyRCDiskAttributeResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.modifyRCDiskAttributeWithOptions(request, runtime);
-  }
-
-  /**
    * 修改RDS用户磁盘付费类型
    * 
    * @param request - ModifyRCDiskChargeTypeRequest
@@ -26022,10 +25834,6 @@ export default class Client extends OpenApi {
   async modifyRCDiskChargeTypeWithOptions(request: $_model.ModifyRCDiskChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDiskChargeTypeResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.autoPay)) {
-      query["AutoPay"] = request.autoPay;
-    }
-
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -26050,20 +25858,12 @@ export default class Client extends OpenApi {
       query["PayType"] = request.payType;
     }
 
-    if (!$dara.isNull(request.period)) {
-      query["Period"] = request.period;
-    }
-
     if (!$dara.isNull(request.promotionCode)) {
       query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.usedTime)) {
-      query["UsedTime"] = request.usedTime;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30712,10 +30512,6 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.stoppedMode)) {
-      query["StoppedMode"] = request.stoppedMode;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -30782,10 +30578,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.stoppedMode)) {
-      query["StoppedMode"] = request.stoppedMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
