@@ -82,6 +82,7 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
    * The kubelet configurations.
    */
   kubeletConfig?: KubeletConfig;
+  nodeNames?: string[];
   /**
    * @remarks
    * The OS configuration.
@@ -96,6 +97,7 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
     return {
       containerdConfig: 'containerd_config',
       kubeletConfig: 'kubelet_config',
+      nodeNames: 'node_names',
       osConfig: 'os_config',
       rollingPolicy: 'rolling_policy',
     };
@@ -105,6 +107,7 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
     return {
       containerdConfig: ContainerdConfig,
       kubeletConfig: KubeletConfig,
+      nodeNames: { 'type': 'array', 'itemType': 'string' },
       osConfig: ModifyNodePoolNodeConfigRequestOsConfig,
       rollingPolicy: ModifyNodePoolNodeConfigRequestRollingPolicy,
     };
@@ -116,6 +119,9 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
     }
     if(this.kubeletConfig && typeof (this.kubeletConfig as any).validate === 'function') {
       (this.kubeletConfig as any).validate();
+    }
+    if(Array.isArray(this.nodeNames)) {
+      $dara.Model.validateArray(this.nodeNames);
     }
     if(this.osConfig && typeof (this.osConfig as any).validate === 'function') {
       (this.osConfig as any).validate();

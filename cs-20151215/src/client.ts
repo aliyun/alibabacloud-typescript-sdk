@@ -5841,6 +5841,10 @@ export default class Client extends OpenApi {
       body["kubelet_config"] = request.kubeletConfig;
     }
 
+    if (!$dara.isNull(request.nodeNames)) {
+      body["node_names"] = request.nodeNames;
+    }
+
     if (!$dara.isNull(request.osConfig)) {
       body["os_config"] = request.osConfig;
     }
