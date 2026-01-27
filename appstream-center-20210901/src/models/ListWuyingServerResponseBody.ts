@@ -299,6 +299,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * 100
    */
   systemDiskSize?: number;
+  virtualKubeletIp?: string;
   virtualNodePoolId?: string;
   /**
    * @remarks
@@ -340,6 +341,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
       systemDiskSize: 'SystemDiskSize',
+      virtualKubeletIp: 'VirtualKubeletIp',
       virtualNodePoolId: 'VirtualNodePoolId',
       wuyingServerId: 'WuyingServerId',
       wuyingServerName: 'WuyingServerName',
@@ -370,6 +372,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       systemDiskCategory: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskSize: 'number',
+      virtualKubeletIp: 'string',
       virtualNodePoolId: 'string',
       wuyingServerId: 'string',
       wuyingServerName: 'string',
