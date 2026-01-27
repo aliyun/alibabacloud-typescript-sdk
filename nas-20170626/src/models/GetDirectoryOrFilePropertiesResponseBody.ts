@@ -85,6 +85,8 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
    * file.txt
    */
   name?: string;
+  offlineDuration?: number;
+  offlineUnchangedDuration?: number;
   /**
    * @remarks
    * The time when the last data retrieval task was run.
@@ -146,6 +148,8 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
       inode: 'Inode',
       MTime: 'MTime',
       name: 'Name',
+      offlineDuration: 'OfflineDuration',
+      offlineUnchangedDuration: 'OfflineUnchangedDuration',
       retrieveTime: 'RetrieveTime',
       size: 'Size',
       storageType: 'StorageType',
@@ -162,6 +166,8 @@ export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $dara.Model {
       inode: 'string',
       MTime: 'string',
       name: 'string',
+      offlineDuration: 'number',
+      offlineUnchangedDuration: 'number',
       retrieveTime: 'string',
       size: 'number',
       storageType: 'string',

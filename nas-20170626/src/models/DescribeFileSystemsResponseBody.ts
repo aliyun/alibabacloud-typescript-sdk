@@ -343,6 +343,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets ex
 }
 
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions extends $dara.Model {
+  enableABE?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the oplock feature. Valid values:
@@ -358,12 +359,14 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions extends
   enableOplock?: boolean;
   static names(): { [key: string]: string } {
     return {
+      enableABE: 'EnableABE',
       enableOplock: 'EnableOplock',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enableABE: 'boolean',
       enableOplock: 'boolean',
     };
   }

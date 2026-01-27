@@ -93,6 +93,8 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
    * file.txt
    */
   name?: string;
+  offlineDuration?: number;
+  offlineUnchangedDuration?: number;
   /**
    * @remarks
    * The ID of the portable account. This parameter is returned and valid only if the value of the ProtocolType parameter is SMB and RAM-based access control is enabled.
@@ -163,6 +165,8 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
       inode: 'Inode',
       mtime: 'Mtime',
       name: 'Name',
+      offlineDuration: 'OfflineDuration',
+      offlineUnchangedDuration: 'OfflineUnchangedDuration',
       owner: 'Owner',
       retrieveTime: 'RetrieveTime',
       size: 'Size',
@@ -181,6 +185,8 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
       inode: 'string',
       mtime: 'string',
       name: 'string',
+      offlineDuration: 'number',
+      offlineUnchangedDuration: 'number',
       owner: 'string',
       retrieveTime: 'string',
       size: 'number',
