@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetConnectionTicketRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. If you specify the `Tag` parameter, you must also specify the `Key` parameter. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun` and contain only spaces.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify an empty string as a tag value. A tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,6 +58,18 @@ export class GetConnectionTicketRequest extends $dara.Model {
    */
   clientOS?: string;
   /**
+   * @remarks
+   * The type of the client.
+   * 
+   * Valid values:
+   * 
+   * *   html5: web client
+   * *   Linux: self-developed hardware terminal
+   * *   android: Android client
+   * *   windows: Windows client
+   * *   ios: iOS client
+   * *   macos: macOS client
+   * 
    * @example
    * windows
    */
@@ -53,8 +79,29 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * 2.1.0-R-20210731.151756
    */
   clientVersion?: string;
+  /**
+   * @example
+   * {
+   *       "startApplication": {
+   *             "startApplicationList": [
+   *                   {
+   *                         "sessionName": "",
+   *                         "appList": [
+   *                               {
+   *                                     "appPath": "C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+   *                                     "appParameter": "www.example.com www.example1.com"
+   *                               }
+   *                         ]
+   *                   }
+   *             ]
+   *       }
+   * }
+   */
   commandContent?: string;
   /**
+   * @remarks
+   * The cloud compute ID.
+   * 
    * @example
    * ecd-gx2x1dhsmucyy****
    */
@@ -70,6 +117,8 @@ export class GetConnectionTicketRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,12 +132,25 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * cd45e873-650d-4d70-acb9-f996187a****
    */
   sessionId?: string;
+  /**
+   * @remarks
+   * The tags. You can specify 1 to 20 tags.
+   */
   tag?: GetConnectionTicketRequestTag[];
   /**
+   * @remarks
+   * The ID of the cloud computer connection task.\\
+   * The first time you call the GetConnectionTicket operation, you do not need to configure this parameter. When you call the GetConnectionTicket operation later, set this parameter to the value of the `TaskId` parameter returned from the previous invocation.
+   * 
    * @example
    * 2afbad19-778a-4fc5-9674-1f19c638****
    */
   taskId?: string;
+  ticketBlackList?: string[];
+  /**
+   * @example
+   * 28c80e90-f71e-4c23-93d6-1225329cf949
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,6 +169,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       sessionId: 'SessionId',
       tag: 'Tag',
       taskId: 'TaskId',
+      ticketBlackList: 'TicketBlackList',
       uuid: 'Uuid',
     };
   }
@@ -128,6 +191,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       sessionId: 'string',
       tag: { 'type': 'array', 'itemType': GetConnectionTicketRequestTag },
       taskId: 'string',
+      ticketBlackList: { 'type': 'array', 'itemType': 'string' },
       uuid: 'string',
     };
   }
@@ -135,6 +199,9 @@ export class GetConnectionTicketRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
+    }
+    if(Array.isArray(this.ticketBlackList)) {
+      $dara.Model.validateArray(this.ticketBlackList);
     }
     super.validate();
   }

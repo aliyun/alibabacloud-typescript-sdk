@@ -19,11 +19,17 @@ export class GetCloudDriveServiceMountTokenResponseBodyToken extends $dara.Model
    */
   status?: string;
   /**
+   * @remarks
+   * The token.
+   * 
    * @example
    * 7836fa6eced7dc8d54c775k34iu3h4i2kh534f****
    */
   token?: string;
   /**
+   * @remarks
+   * The total capacity of the enterprise drive. Unit: GiB
+   * 
    * @example
    * 6050416754750
    */
@@ -70,6 +76,10 @@ export class GetCloudDriveServiceMountTokenResponseBody extends $dara.Model {
    * DC27288A-F9E1-5092-9B5B-71C27D15****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The tokens.
+   */
   token?: GetCloudDriveServiceMountTokenResponseBodyToken;
   static names(): { [key: string]: string } {
     return {

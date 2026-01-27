@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFingerPrintTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DeleteFingerPrintTemplateRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The client token to ensure the idempotence of the request. You can use the client to generate the value, but you ensure sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
    * @example
    * 40401e62-5caf-4508-8de7-bf98af12****
    */
   clientToken?: string;
   /**
    * @remarks
+   * The index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DeleteFingerPrintTemplateRequest extends $dara.Model {
   index?: number;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class DeleteFingerPrintTemplateRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,8 @@ export class DeleteFingerPrintTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetFingerPrintTemplateDescriptionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BBD7DFD1-A5DE-51D9-8FD6-3BF54EF4****
    */

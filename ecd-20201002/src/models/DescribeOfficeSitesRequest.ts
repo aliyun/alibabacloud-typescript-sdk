@@ -20,11 +20,20 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * uuid
+   * 
+   * @example
+   * ASDASD
+   */
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
       officeSiteId: 'OfficeSiteId',
       regionId: 'RegionId',
+      uuid: 'Uuid',
     };
   }
 
@@ -33,6 +42,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
       clientId: 'string',
       officeSiteId: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      uuid: 'string',
     };
   }
 

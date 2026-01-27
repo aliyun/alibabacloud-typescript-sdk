@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class VerifyCredentialResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D5F0BDFB-A229-5F1D-B790-33709D43****
    */

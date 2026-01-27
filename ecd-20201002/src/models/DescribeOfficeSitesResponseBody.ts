@@ -4,6 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   /**
+   * @remarks
+   * aliuid
+   * 
+   * @example
+   * 125552
+   */
+  aliUid?: number;
+  /**
+   * @remarks
+   * biztype
+   * 
+   * @example
+   * ENTERPRISE
+   */
+  bizType?: number;
+  /**
    * @example
    * VPC
    */
@@ -35,6 +51,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   ssoServiceUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      aliUid: 'AliUid',
+      bizType: 'BizType',
       desktopAccessType: 'DesktopAccessType',
       desktopVpcEndpoint: 'DesktopVpcEndpoint',
       officeSiteId: 'OfficeSiteId',
@@ -46,6 +64,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliUid: 'number',
+      bizType: 'number',
       desktopAccessType: 'string',
       desktopVpcEndpoint: 'string',
       officeSiteId: 'string',
@@ -65,6 +85,10 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
 }
 
 export class DescribeOfficeSitesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The office networks.
+   */
   officeSites?: DescribeOfficeSitesResponseBodyOfficeSites[];
   /**
    * @example

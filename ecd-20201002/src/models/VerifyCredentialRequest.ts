@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyCredentialRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class VerifyCredentialRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
+   * The credential.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,31 @@ export class VerifyCredentialRequest extends $dara.Model {
    */
   credential?: string;
   /**
+   * @remarks
+   * The type of the logon credential that you want to clear.
+   * 
+   * Valid values:
+   * 
+   * *   MfaPasscode: the multi-factor verification code.
+   * *   FingerPrint: the fingerprint.
+   * *   Password: the password.
+   * 
    * @example
    * Password
    */
   credentialType?: string;
   /**
+   * @remarks
+   * The ID of the key that you want to encrypt.
+   * 
    * @example
    * drjfs****
    */
   encryptedKey?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +57,8 @@ export class VerifyCredentialRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The office network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +67,8 @@ export class VerifyCredentialRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +76,9 @@ export class VerifyCredentialRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * eb17af2e-1dd6-4cc4-a3ee-3a14d0d7****
    */

@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 允许桌面FOTA升级
+   * Enables OTA updates for cloud computers.
    * 
    * @param request - ApproveFotaUpdateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 允许桌面FOTA升级
+   * Enables OTA updates for cloud computers.
    * 
    * @param request - ApproveFotaUpdateRequest
    * @returns ApproveFotaUpdateResponse
@@ -332,6 +332,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+   * 
+   * @remarks
+   *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
+   * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+   * 
    * @param request - DescribeGlobalDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGlobalDesktopsResponse
@@ -437,6 +443,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+   * 
+   * @remarks
+   *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
+   * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+   * 
    * @param request - DescribeGlobalDesktopsRequest
    * @returns DescribeGlobalDesktopsResponse
    */
@@ -446,6 +458,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries office networks.
+   * 
    * @param request - DescribeOfficeSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOfficeSitesResponse
@@ -463,6 +477,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -483,6 +501,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries office networks.
+   * 
    * @param request - DescribeOfficeSitesRequest
    * @returns DescribeOfficeSitesResponse
    */
@@ -534,7 +554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举快照
+   * Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
    * 
    * @param request - DescribeSnapshotsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -593,7 +613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举快照
+   * Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
    * 
    * @param request - DescribeSnapshotsRequest
    * @returns DescribeSnapshotsResponse
@@ -604,7 +624,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户资源列表
+   * Queries user resources.
+   * 
+   * @remarks
+   * Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
    * 
    * @param request - DescribeUserResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -743,7 +766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户资源列表
+   * Queries user resources.
+   * 
+   * @remarks
+   * Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
    * 
    * @param request - DescribeUserResourcesRequest
    * @returns DescribeUserResourcesResponse
@@ -820,7 +846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取无影云盘的免密token
+   * Retrieves the logon tokens for enterprise drives.
    * 
    * @param request - GetCloudDriveServiceMountTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -867,7 +893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取无影云盘的免密token
+   * Retrieves the logon tokens for enterprise drives.
    * 
    * @param request - GetCloudDriveServiceMountTokenRequest
    * @returns GetCloudDriveServiceMountTokenResponse
@@ -878,7 +904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得连接凭证
+   * Retrieves the credential that is used to connect to a cloud computer.
+   * 
+   * @remarks
+   * The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
    * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -947,6 +976,10 @@ export default class Client extends OpenApi {
       query["TaskId"] = request.taskId;
     }
 
+    if (!$dara.isNull(request.ticketBlackList)) {
+      query["TicketBlackList"] = request.ticketBlackList;
+    }
+
     if (!$dara.isNull(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
@@ -969,7 +1002,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得连接凭证
+   * Retrieves the credential that is used to connect to a cloud computer.
+   * 
+   * @remarks
+   * The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
    * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
@@ -1104,7 +1140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 是否保持登录判断接口
+   * Verifies whether the client\\"s logon session is still active.
    * 
    * @param request - IsKeepAliveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1143,7 +1179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 是否保持登录判断接口
+   * Verifies whether the client\\"s logon session is still active.
    * 
    * @param request - IsKeepAliveRequest
    * @returns IsKeepAliveResponse
@@ -2160,6 +2196,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Validates credentials to lock on-premises sessions on clients.
+   * 
    * @param request - VerifyCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifyCredentialResponse
@@ -2217,6 +2255,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Validates credentials to lock on-premises sessions on clients.
+   * 
    * @param request - VerifyCredentialRequest
    * @returns VerifyCredentialResponse
    */

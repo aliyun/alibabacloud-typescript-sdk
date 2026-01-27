@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The cloud computer ID.
+   * 
    * @example
    * ecd-gx2x1dhsmucyy****
    */
   desktopId?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,17 +32,25 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    */
   loginToken?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,11 +58,17 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * a99b9aca-bac5-4da2-819e-400ce98f****
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The snapshot ID.
+   * 
    * @example
    * s-2ze81owrnv9pity4****
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class IsKeepAliveRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class IsKeepAliveRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-hangzhou+dir-885351****
    */
   officeSiteId?: string;
   /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * @example
    * cn-hangzhou
    */

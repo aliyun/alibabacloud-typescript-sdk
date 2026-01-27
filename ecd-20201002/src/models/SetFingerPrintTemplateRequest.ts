@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetFingerPrintTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,32 +14,49 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The client token to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the node.
+   * 
    * @example
    * testDescription
    */
   description?: string;
   /**
+   * @remarks
+   * The encrypted fingerprint template.
+   * 
    * @example
    * AAAAAAAAAAAAAA
    */
   encryptedFingerPrintTemplate?: string;
   /**
+   * @remarks
+   * The encryption key.
+   * 
    * @example
    * drjfspchj
    */
   encryptedKey?: string;
   /**
+   * @remarks
+   * The fingerprint template.
+   * 
    * @example
    * goG3gG8AAABhujtscn
    */
   fingerPrintTemplate?: string;
   /**
    * @remarks
+   * The logon credentials.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,6 +65,8 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The password that you want to encrypt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +75,8 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +85,8 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
