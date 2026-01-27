@@ -514,6 +514,40 @@ export class ListInstanceResponseBodyResultTags extends $dara.Model {
   }
 }
 
+export class ListInstanceResponseBodyResultZoneInfos extends $dara.Model {
+  /**
+   * @example
+   * NORMAL
+   */
+  status?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
@@ -688,6 +722,12 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
    * vpc-bp1uag5jj38c****
    */
   vpcInstanceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  zoneCount?: number;
+  zoneInfos?: ListInstanceResponseBodyResultZoneInfos[];
   static names(): { [key: string]: string } {
     return {
       advancedDedicateMaster: 'advancedDedicateMaster',
@@ -722,6 +762,8 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
       tags: 'tags',
       updatedAt: 'updatedAt',
       vpcInstanceId: 'vpcInstanceId',
+      zoneCount: 'zoneCount',
+      zoneInfos: 'zoneInfos',
     };
   }
 
@@ -759,6 +801,8 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
       tags: { 'type': 'array', 'itemType': ListInstanceResponseBodyResultTags },
       updatedAt: 'string',
       vpcInstanceId: 'string',
+      zoneCount: 'number',
+      zoneInfos: { 'type': 'array', 'itemType': ListInstanceResponseBodyResultZoneInfos },
     };
   }
 
@@ -798,6 +842,9 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.zoneInfos)) {
+      $dara.Model.validateArray(this.zoneInfos);
     }
     super.validate();
   }

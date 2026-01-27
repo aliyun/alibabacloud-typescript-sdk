@@ -181,6 +181,7 @@ export { ListInstanceResponseBodyResultNetworkConfigWhiteIpGroupList } from './L
 export { ListInstanceResponseBodyResultNetworkConfig } from './ListInstanceResponseBody';
 export { ListInstanceResponseBodyResultNodeSpec } from './ListInstanceResponseBody';
 export { ListInstanceResponseBodyResultTags } from './ListInstanceResponseBody';
+export { ListInstanceResponseBodyResultZoneInfos } from './ListInstanceResponseBody';
 export { ListInstanceResponseBodyResult } from './ListInstanceResponseBody';
 export { ListInstanceHistoryEventsRequestBody } from './ListInstanceHistoryEventsRequest';
 export { ListInstanceHistoryEventsShrinkRequestBody } from './ListInstanceHistoryEventsShrinkRequest';
