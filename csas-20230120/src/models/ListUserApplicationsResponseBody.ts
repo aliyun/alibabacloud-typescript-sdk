@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AddressGroup } from "./AddressGroup";
 
 
 export class ListUserApplicationsResponseBodyApplicationsPortRanges extends $dara.Model {
@@ -42,12 +43,14 @@ export class ListUserApplicationsResponseBodyApplications extends $dara.Model {
    * Block
    */
   action?: string;
+  addressGroups?: AddressGroup[];
   addresses?: string[];
   /**
    * @example
    * pa-application-b927baf3e592****
    */
   applicationId?: string;
+  configMode?: string;
   /**
    * @example
    * private_access_application_name
@@ -62,8 +65,10 @@ export class ListUserApplicationsResponseBodyApplications extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
+      addressGroups: 'AddressGroups',
       addresses: 'Addresses',
       applicationId: 'ApplicationId',
+      configMode: 'ConfigMode',
       name: 'Name',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
@@ -73,8 +78,10 @@ export class ListUserApplicationsResponseBodyApplications extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       action: 'string',
+      addressGroups: { 'type': 'array', 'itemType': AddressGroup },
       addresses: { 'type': 'array', 'itemType': 'string' },
       applicationId: 'string',
+      configMode: 'string',
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': ListUserApplicationsResponseBodyApplicationsPortRanges },
       protocol: 'string',
@@ -82,6 +89,9 @@ export class ListUserApplicationsResponseBodyApplications extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.addressGroups)) {
+      $dara.Model.validateArray(this.addressGroups);
+    }
     if(Array.isArray(this.addresses)) {
       $dara.Model.validateArray(this.addresses);
     }

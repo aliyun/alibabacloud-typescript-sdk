@@ -135,6 +135,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
    * Cover
    */
   modifyType?: string;
+  name?: string;
   /**
    * @remarks
    * Action of the private access policy. Values:
@@ -264,6 +265,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
       deviceAttributeAction: 'DeviceAttributeAction',
       deviceAttributeId: 'DeviceAttributeId',
       modifyType: 'ModifyType',
+      name: 'Name',
       policyAction: 'PolicyAction',
       policyId: 'PolicyId',
       priority: 'Priority',
@@ -290,6 +292,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
       deviceAttributeAction: 'string',
       deviceAttributeId: 'string',
       modifyType: 'string',
+      name: 'string',
       policyAction: 'string',
       policyId: 'string',
       priority: 'number',

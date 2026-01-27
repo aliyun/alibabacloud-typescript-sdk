@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AddressGroup } from "./AddressGroup";
 
 
 export class CreatePrivateAccessApplicationShrinkRequestPortRanges extends $dara.Model {
@@ -47,11 +48,10 @@ export class CreatePrivateAccessApplicationShrinkRequestPortRanges extends $dara
 }
 
 export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
+  addressGroups?: AddressGroup[];
   /**
    * @remarks
    * The addresses of the office applications. You can enter up to 1,000 addresses of office applications.
-   * 
-   * This parameter is required.
    */
   addresses?: string[];
   /**
@@ -65,6 +65,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
    * Disabled
    */
   browserAccessStatus?: string;
+  configMode?: string;
   /**
    * @remarks
    * The description of the office application. The value must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
@@ -104,8 +105,6 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The port ranges of the office applications. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicated or overlapped.
-   * 
-   * This parameter is required.
    */
   portRanges?: CreatePrivateAccessApplicationShrinkRequestPortRanges[];
   /**
@@ -142,8 +141,10 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      addressGroups: 'AddressGroups',
       addresses: 'Addresses',
       browserAccessStatus: 'BrowserAccessStatus',
+      configMode: 'ConfigMode',
       description: 'Description',
       l7ConfigShrink: 'L7Config',
       l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
@@ -158,8 +159,10 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addressGroups: { 'type': 'array', 'itemType': AddressGroup },
       addresses: { 'type': 'array', 'itemType': 'string' },
       browserAccessStatus: 'string',
+      configMode: 'string',
       description: 'string',
       l7ConfigShrink: 'string',
       l7ProxyDomainAutomaticPrefix: 'string',
@@ -173,6 +176,9 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.addressGroups)) {
+      $dara.Model.validateArray(this.addressGroups);
+    }
     if(Array.isArray(this.addresses)) {
       $dara.Model.validateArray(this.addresses);
     }

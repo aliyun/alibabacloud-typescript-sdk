@@ -536,12 +536,20 @@ export default class Client extends OpenApi {
 
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addressGroups)) {
+      bodyFlat["AddressGroups"] = request.addressGroups;
+    }
+
     if (!$dara.isNull(request.addresses)) {
       bodyFlat["Addresses"] = request.addresses;
     }
 
     if (!$dara.isNull(request.browserAccessStatus)) {
       body["BrowserAccessStatus"] = request.browserAccessStatus;
+    }
+
+    if (!$dara.isNull(request.configMode)) {
+      body["ConfigMode"] = request.configMode;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -5183,12 +5191,20 @@ export default class Client extends OpenApi {
 
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addressGroups)) {
+      bodyFlat["AddressGroups"] = request.addressGroups;
+    }
+
     if (!$dara.isNull(request.addresses)) {
       bodyFlat["Addresses"] = request.addresses;
     }
 
     if (!$dara.isNull(request.applicationId)) {
       body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.configMode)) {
+      body["ConfigMode"] = request.configMode;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -5213,6 +5229,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modifyType)) {
       body["ModifyType"] = request.modifyType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
     }
 
     if (!$dara.isNull(request.portRanges)) {
@@ -5300,6 +5320,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modifyType)) {
       body["ModifyType"] = request.modifyType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
     }
 
     if (!$dara.isNull(request.policyAction)) {

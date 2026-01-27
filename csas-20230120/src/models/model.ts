@@ -1,8 +1,12 @@
+export { AddressGroupPorts } from './AddressGroup';
 export { CommonConfigIdpDingtalk } from './CommonConfig';
 export { CommonConfigIdpFeishu } from './CommonConfig';
 export { CommonConfigIdpIdaas2 } from './CommonConfig';
 export { CommonConfigIdpSaml } from './CommonConfig';
 export { CommonConfigIdp } from './CommonConfig';
+export { ExecutePeriodEffectDay } from './ExecutePeriod';
+export { ExecutePeriodEffectTime } from './ExecutePeriod';
+export { ExecutePeriodScheduleEffect } from './ExecutePeriod';
 export { IdpSyncConfigIdpDepartmentInfos } from './IdpSyncConfig';
 export { OpenStructSaseUserUserTags } from './OpenStructSaseUser';
 export { OpenStructSaseUserSimpleDepartments } from './OpenStructSaseUserSimple';
@@ -268,10 +272,12 @@ export { UpdateUserDevicesSharingStatusResponseBodyDevices } from './UpdateUserD
 export { UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo } from './UpdateUserDevicesStatusResponseBody';
 export { UpdateUserDevicesStatusResponseBodyDevices } from './UpdateUserDevicesStatusResponseBody';
 export { UpdateUserGroupRequestAttributes } from './UpdateUserGroupRequest';
+export { AddressGroup } from './AddressGroup';
 export { AuthReportInterval } from './AuthReportInterval';
 export { CommonConfig } from './CommonConfig';
 export { DeviceGroupDynamicRule } from './DeviceGroupDynamicRule';
 export { DisposalContent } from './DisposalContent';
+export { ExecutePeriod } from './ExecutePeriod';
 export { IdpAttrMapConfig } from './IdpAttrMapConfig';
 export { IdpAttrMapConfigItem } from './IdpAttrMapConfigItem';
 export { IdpConfig } from './IdpConfig';

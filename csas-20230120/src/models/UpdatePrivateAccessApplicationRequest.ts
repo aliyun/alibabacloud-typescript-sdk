@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AddressGroup } from "./AddressGroup";
 import { PAL7Config } from "./Pal7config";
 
 
@@ -44,6 +45,7 @@ export class UpdatePrivateAccessApplicationRequestPortRanges extends $dara.Model
 }
 
 export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
+  addressGroups?: AddressGroup[];
   /**
    * @remarks
    * The addresses of the office applications. You can enter up to 1,000 addresses of office applications.
@@ -62,6 +64,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
    * pa-application-e12860ef6c48****
    */
   applicationId?: string;
+  configMode?: string;
   /**
    * @remarks
    * The description of the office application. The value must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
@@ -112,6 +115,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
    * Cover
    */
   modifyType?: string;
+  name?: string;
   /**
    * @remarks
    * The port ranges of the office applications. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicated or overlapped.
@@ -150,14 +154,17 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      addressGroups: 'AddressGroups',
       addresses: 'Addresses',
       applicationId: 'ApplicationId',
+      configMode: 'ConfigMode',
       description: 'Description',
       l7Config: 'L7Config',
       l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
       l7ProxyDomainCustom: 'L7ProxyDomainCustom',
       l7ProxyDomainPrivate: 'L7ProxyDomainPrivate',
       modifyType: 'ModifyType',
+      name: 'Name',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
       status: 'Status',
@@ -167,14 +174,17 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addressGroups: { 'type': 'array', 'itemType': AddressGroup },
       addresses: { 'type': 'array', 'itemType': 'string' },
       applicationId: 'string',
+      configMode: 'string',
       description: 'string',
       l7Config: PAL7Config,
       l7ProxyDomainAutomaticPrefix: 'string',
       l7ProxyDomainCustom: 'string',
       l7ProxyDomainPrivate: 'string',
       modifyType: 'string',
+      name: 'string',
       portRanges: { 'type': 'array', 'itemType': UpdatePrivateAccessApplicationRequestPortRanges },
       protocol: 'string',
       status: 'string',
@@ -183,6 +193,9 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.addressGroups)) {
+      $dara.Model.validateArray(this.addressGroups);
+    }
     if(Array.isArray(this.addresses)) {
       $dara.Model.validateArray(this.addresses);
     }
