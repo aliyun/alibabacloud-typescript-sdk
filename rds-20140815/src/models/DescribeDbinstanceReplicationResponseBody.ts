@@ -16,6 +16,11 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
   externalReplication?: string;
   gtidExecuted?: string;
   /**
+   * @example
+   * COMPLETED
+   */
+  importStatus?: string;
+  /**
    * @remarks
    * The replication latency. Unit: seconds.
    * 
@@ -69,6 +74,7 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
     return {
       externalReplication: 'ExternalReplication',
       gtidExecuted: 'GtidExecuted',
+      importStatus: 'ImportStatus',
       replicationDelay: 'ReplicationDelay',
       replicationErrorMessage: 'ReplicationErrorMessage',
       replicationIp: 'ReplicationIp',
@@ -83,6 +89,7 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
     return {
       externalReplication: 'string',
       gtidExecuted: 'string',
+      importStatus: 'string',
       replicationDelay: 'string',
       replicationErrorMessage: 'string',
       replicationIp: 'string',

@@ -3837,6 +3837,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据导入任务
+   * 
+   * @param request - CreateImportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImportTaskResponse
+   */
+  async createImportTaskWithOptions(request: $_model.CreateImportTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImportTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!$dara.isNull(request.estimatedSize)) {
+      query["EstimatedSize"] = request.estimatedSize;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sourceInstanceId)) {
+      query["SourceInstanceId"] = request.sourceInstanceId;
+    }
+
+    if (!$dara.isNull(request.sourcePlatform)) {
+      query["SourcePlatform"] = request.sourcePlatform;
+    }
+
+    if (!$dara.isNull(request.streamPort)) {
+      query["StreamPort"] = request.streamPort;
+    }
+
+    if (!$dara.isNull(request.user)) {
+      query["User"] = request.user;
+    }
+
+    if (!$dara.isNull(request.xtrabackupPath)) {
+      query["XtrabackupPath"] = request.xtrabackupPath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateImportTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateImportTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateImportTaskResponse({}));
+  }
+
+  /**
+   * 创建数据导入任务
+   * 
+   * @param request - CreateImportTaskRequest
+   * @returns CreateImportTaskResponse
+   */
+  async createImportTask(request: $_model.CreateImportTaskRequest): Promise<$_model.CreateImportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createImportTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 创建全密态规则
    * 
    * @param tmpReq - CreateMaskingRulesRequest
@@ -4624,6 +4710,82 @@ export default class Client extends OpenApi {
   async createRCDisk(request: $_model.CreateRCDiskRequest): Promise<$_model.CreateRCDiskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRCDiskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a custom image for an RDS Custom instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+   * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+   * ### [](#)Usage
+   * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+   * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+   * 
+   * @param request - CreateRCImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRCImageResponse
+   */
+  async createRCImageWithOptions(request: $_model.CreateRCImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRCImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRCImage",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRCImageResponse>(await this.callApi(params, req, runtime), new $_model.CreateRCImageResponse({}));
+  }
+
+  /**
+   * Creates a custom image for an RDS Custom instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * *   RDS MySQL
+   * *   RDS SQL Server
+   * ### [](#)References
+   * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+   * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+   * ### [](#)Usage
+   * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+   * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+   * 
+   * @param request - CreateRCImageRequest
+   * @returns CreateRCImageResponse
+   */
+  async createRCImage(request: $_model.CreateRCImageRequest): Promise<$_model.CreateRCImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRCImageWithOptions(request, runtime);
   }
 
   /**
@@ -13712,6 +13874,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询原生复制上云任务详情
+   * 
+   * @param request - DescribeImportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeImportTaskResponse
+   */
+  async describeImportTaskWithOptions(request: $_model.DescribeImportTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeImportTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeImportTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeImportTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribeImportTaskResponse({}));
+  }
+
+  /**
+   * 查询原生复制上云任务详情
+   * 
+   * @param request - DescribeImportTaskRequest
+   * @returns DescribeImportTaskResponse
+   */
+  async describeImportTask(request: $_model.DescribeImportTaskRequest): Promise<$_model.DescribeImportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeImportTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看数据导入预检查状态
+   * 
+   * @param request - DescribeImportTaskValidationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeImportTaskValidationResponse
+   */
+  async describeImportTaskValidationWithOptions(request: $_model.DescribeImportTaskValidationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeImportTaskValidationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeImportTaskValidation",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeImportTaskValidationResponse>(await this.callApi(params, req, runtime), new $_model.DescribeImportTaskValidationResponse({}));
+  }
+
+  /**
+   * 查看数据导入预检查状态
+   * 
+   * @param request - DescribeImportTaskValidationRequest
+   * @returns DescribeImportTaskValidationResponse
+   */
+  async describeImportTaskValidation(request: $_model.DescribeImportTaskValidationRequest): Promise<$_model.DescribeImportTaskValidationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeImportTaskValidationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the automatic renewal status of an instance.
    * 
    * @remarks
@@ -15857,6 +16123,14 @@ export default class Client extends OpenApi {
   async describeRCClusterNodesWithOptions(request: $_model.DescribeRCClusterNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRCClusterNodesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.nodePoolId)) {
+      query["NodePoolId"] = request.nodePoolId;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -17055,6 +17329,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.diskId)) {
       query["DiskId"] = request.diskId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -20254,6 +20532,64 @@ export default class Client extends OpenApi {
   async listClasses(request: $_model.ListClassesRequest): Promise<$_model.ListClassesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listClassesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询上云任务列表
+   * 
+   * @param request - ListImportTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImportTasksResponse
+   */
+  async listImportTasksWithOptions(request: $_model.ListImportTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImportTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImportTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImportTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListImportTasksResponse({}));
+  }
+
+  /**
+   * 查询上云任务列表
+   * 
+   * @param request - ListImportTasksRequest
+   * @returns ListImportTasksResponse
+   */
+  async listImportTasks(request: $_model.ListImportTasksRequest): Promise<$_model.ListImportTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImportTasksWithOptions(request, runtime);
   }
 
   /**
@@ -24077,6 +24413,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例向量支持状态
+   * 
+   * @param request - ModifyDBInstanceVectorSupportStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstanceVectorSupportStatusResponse
+   */
+  async modifyDBInstanceVectorSupportStatusWithOptions(request: $_model.ModifyDBInstanceVectorSupportStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceVectorSupportStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBInstanceVectorSupportStatus",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBInstanceVectorSupportStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBInstanceVectorSupportStatusResponse({}));
+  }
+
+  /**
+   * 修改实例向量支持状态
+   * 
+   * @param request - ModifyDBInstanceVectorSupportStatusRequest
+   * @returns ModifyDBInstanceVectorSupportStatusResponse
+   */
+  async modifyDBInstanceVectorSupportStatus(request: $_model.ModifyDBInstanceVectorSupportStatusRequest): Promise<$_model.ModifyDBInstanceVectorSupportStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBInstanceVectorSupportStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
    * 
    * @remarks
@@ -25243,6 +25625,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改上云任务
+   * 
+   * @param request - ModifyImportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyImportTaskResponse
+   */
+  async modifyImportTaskWithOptions(request: $_model.ModifyImportTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyImportTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyImportTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyImportTaskResponse>(await this.callApi(params, req, runtime), new $_model.ModifyImportTaskResponse({}));
+  }
+
+  /**
+   * 修改上云任务
+   * 
+   * @param request - ModifyImportTaskRequest
+   * @returns ModifyImportTaskResponse
+   */
+  async modifyImportTask(request: $_model.ModifyImportTaskRequest): Promise<$_model.ModifyImportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyImportTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the auto-renewal settings of an instance.
    * 
    * @remarks
@@ -25825,6 +26265,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改块存储属性
+   * 
+   * @param request - ModifyRCDiskAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCDiskAttributeResponse
+   */
+  async modifyRCDiskAttributeWithOptions(request: $_model.ModifyRCDiskAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDiskAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.burstingEnabled)) {
+      query["BurstingEnabled"] = request.burstingEnabled;
+    }
+
+    if (!$dara.isNull(request.deleteWithInstance)) {
+      query["DeleteWithInstance"] = request.deleteWithInstance;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!$dara.isNull(request.diskName)) {
+      query["DiskName"] = request.diskName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRCDiskAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyRCDiskAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRCDiskAttributeResponse({}));
+  }
+
+  /**
+   * 修改块存储属性
+   * 
+   * @param request - ModifyRCDiskAttributeRequest
+   * @returns ModifyRCDiskAttributeResponse
+   */
+  async modifyRCDiskAttribute(request: $_model.ModifyRCDiskAttributeRequest): Promise<$_model.ModifyRCDiskAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRCDiskAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * 修改RDS用户磁盘付费类型
    * 
    * @param request - ModifyRCDiskChargeTypeRequest
@@ -25834,6 +26336,10 @@ export default class Client extends OpenApi {
   async modifyRCDiskChargeTypeWithOptions(request: $_model.ModifyRCDiskChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDiskChargeTypeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -25858,12 +26364,20 @@ export default class Client extends OpenApi {
       query["PayType"] = request.payType;
     }
 
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
     if (!$dara.isNull(request.promotionCode)) {
       query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27908,6 +28422,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.rebootTime)) {
+      query["RebootTime"] = request.rebootTime;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -27970,6 +28488,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.rebootTime)) {
+      query["RebootTime"] = request.rebootTime;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -30512,6 +31034,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.stoppedMode)) {
+      query["StoppedMode"] = request.stoppedMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -30578,6 +31104,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.stoppedMode)) {
+      query["StoppedMode"] = request.stoppedMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32290,6 +32820,92 @@ export default class Client extends OpenApi {
   async upgradeDBProxyInstanceKernelVersion(request: $_model.UpgradeDBProxyInstanceKernelVersionRequest): Promise<$_model.UpgradeDBProxyInstanceKernelVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeDBProxyInstanceKernelVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 预检验数据导入任务参数
+   * 
+   * @param request - ValidateImportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateImportTaskResponse
+   */
+  async validateImportTaskWithOptions(request: $_model.ValidateImportTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateImportTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!$dara.isNull(request.estimatedSize)) {
+      query["EstimatedSize"] = request.estimatedSize;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sourceInstanceId)) {
+      query["SourceInstanceId"] = request.sourceInstanceId;
+    }
+
+    if (!$dara.isNull(request.sourcePlatform)) {
+      query["SourcePlatform"] = request.sourcePlatform;
+    }
+
+    if (!$dara.isNull(request.streamPort)) {
+      query["StreamPort"] = request.streamPort;
+    }
+
+    if (!$dara.isNull(request.user)) {
+      query["User"] = request.user;
+    }
+
+    if (!$dara.isNull(request.xtrabackupPath)) {
+      query["XtrabackupPath"] = request.xtrabackupPath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateImportTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateImportTaskResponse>(await this.callApi(params, req, runtime), new $_model.ValidateImportTaskResponse({}));
+  }
+
+  /**
+   * 预检验数据导入任务参数
+   * 
+   * @param request - ValidateImportTaskRequest
+   * @returns ValidateImportTaskResponse
+   */
+  async validateImportTask(request: $_model.ValidateImportTaskRequest): Promise<$_model.ValidateImportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.validateImportTaskWithOptions(request, runtime);
   }
 
 }

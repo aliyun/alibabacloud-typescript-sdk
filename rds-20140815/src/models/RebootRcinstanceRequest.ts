@@ -38,6 +38,11 @@ export class RebootRCInstanceRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 2018-01-01T12:05Z
+   */
+  rebootTime?: string;
+  /**
    * @remarks
    * The region ID.
    * 
@@ -50,6 +55,7 @@ export class RebootRCInstanceRequest extends $dara.Model {
       dryRun: 'DryRun',
       forceStop: 'ForceStop',
       instanceId: 'InstanceId',
+      rebootTime: 'RebootTime',
       regionId: 'RegionId',
     };
   }
@@ -59,6 +65,7 @@ export class RebootRCInstanceRequest extends $dara.Model {
       dryRun: 'boolean',
       forceStop: 'boolean',
       instanceId: 'string',
+      rebootTime: 'string',
       regionId: 'string',
     };
   }

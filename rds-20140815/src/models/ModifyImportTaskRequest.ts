@@ -2,52 +2,57 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StopRCInstanceRequest extends $dara.Model {
+export class ModifyImportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to forcefully stop the instance. Valid values:
-   * 
-   * *   **true**
-   * *   **false** (default)
-   * 
-   * @example
-   * false
-   */
-  forceStop?: boolean;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * rc-m5sc1271fv344a1r****
+   * rm-2ze63v2p3o3k****
    */
-  instanceId?: string;
+  DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * This parameter is required.
+   * 
+   * @example
+   * CANCEL
+   */
+  operation?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
-  stoppedMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567
+   */
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      forceStop: 'ForceStop',
-      instanceId: 'InstanceId',
+      DBInstanceId: 'DBInstanceId',
+      operation: 'Operation',
+      ownerId: 'OwnerId',
       regionId: 'RegionId',
-      stoppedMode: 'StoppedMode',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      forceStop: 'boolean',
-      instanceId: 'string',
+      DBInstanceId: 'string',
+      operation: 'string',
+      ownerId: 'number',
       regionId: 'string',
-      stoppedMode: 'string',
+      taskId: 'string',
     };
   }
 

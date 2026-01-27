@@ -92,6 +92,11 @@ export class DescribeRCClusterNodesResponseBodyNodes extends $dara.Model {
    */
   nodeStatus?: string;
   /**
+   * @example
+   * 1
+   */
+  podCount?: number;
+  /**
    * @remarks
    * The runtime of the ACK cluster.
    * 
@@ -125,6 +130,7 @@ export class DescribeRCClusterNodesResponseBodyNodes extends $dara.Model {
       nodeName: 'NodeName',
       nodePoolId: 'NodePoolId',
       nodeStatus: 'NodeStatus',
+      podCount: 'PodCount',
       runtimeVersion: 'RuntimeVersion',
       state: 'State',
     };
@@ -142,6 +148,7 @@ export class DescribeRCClusterNodesResponseBodyNodes extends $dara.Model {
       nodeName: 'string',
       nodePoolId: 'string',
       nodeStatus: 'string',
+      podCount: 'number',
       runtimeVersion: 'string',
       state: 'string',
     };

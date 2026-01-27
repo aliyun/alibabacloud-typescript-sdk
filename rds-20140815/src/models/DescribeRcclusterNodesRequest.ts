@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRCClusterNodesRequest extends $dara.Model {
   /**
+   * @example
+   * c919424d85a644078ab1575c3a02c****
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * rcnpf5e3ee4a65104cf0801f94850d37****
+   */
+  nodePoolId?: string;
+  /**
    * @remarks
    * The page number.
    * 
@@ -41,6 +51,8 @@ export class DescribeRCClusterNodesRequest extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
+      nodePoolId: 'NodePoolId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -50,6 +62,8 @@ export class DescribeRCClusterNodesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
+      nodePoolId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',

@@ -2,36 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteRCDiskRequest extends $dara.Model {
+export class ModifyDBInstanceVectorSupportStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk that you want to release.
-   * 
    * This parameter is required.
    * 
    * @example
-   * rcd-wz9c8isqly8637zw****
+   * rm-2vc2bn5c5b7g6****
    */
-  diskId?: string;
+  DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * This parameter is required.
    * 
    * @example
-   * cn-hangzhou
+   * Scheduled
    */
-  regionId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      diskId: 'DiskId',
-      regionId: 'RegionId',
+      DBInstanceId: 'DBInstanceId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      diskId: 'string',
-      regionId: 'string',
+      DBInstanceId: 'string',
+      status: 'string',
     };
   }
 

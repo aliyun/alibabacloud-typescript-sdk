@@ -28,6 +28,11 @@ export class RebootRCInstancesShrinkRequest extends $dara.Model {
    */
   instanceIdsShrink?: string;
   /**
+   * @example
+   * 2018-01-01T12:05Z
+   */
+  rebootTime?: string;
+  /**
    * @remarks
    * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
    * 
@@ -40,6 +45,7 @@ export class RebootRCInstancesShrinkRequest extends $dara.Model {
       batchOptimization: 'BatchOptimization',
       forceReboot: 'ForceReboot',
       instanceIdsShrink: 'InstanceIds',
+      rebootTime: 'RebootTime',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +55,7 @@ export class RebootRCInstancesShrinkRequest extends $dara.Model {
       batchOptimization: 'string',
       forceReboot: 'boolean',
       instanceIdsShrink: 'string',
+      rebootTime: 'string',
       regionId: 'string',
     };
   }
