@@ -392,6 +392,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 中心化角色：创建App
+   * 
+   * @param request - CreateAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppResponse
+   */
+  async createAppWithOptions(request: $_model.CreateAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.appTags)) {
+      query["AppTags"] = request.appTags;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reportSendEnabled)) {
+      query["ReportSendEnabled"] = request.reportSendEnabled;
+    }
+
+    if (!$dara.isNull(request.subscribePeriod)) {
+      query["SubscribePeriod"] = request.subscribePeriod;
+    }
+
+    if (!$dara.isNull(request.subscribeStatus)) {
+      query["SubscribeStatus"] = request.subscribeStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApp",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppResponse({}));
+  }
+
+  /**
+   * 中心化角色：创建App
+   * 
+   * @param request - CreateAppRequest
+   * @returns CreateAppResponse
+   */
+  async createApp(request: $_model.CreateAppRequest): Promise<$_model.CreateAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a dedicated block storage cluster. When you call this operation, you can specify parameters, such as Azone, Capacity, Type, and PeriodUnit, in the request.
    * 
    * @remarks
@@ -821,6 +895,60 @@ export default class Client extends OpenApi {
   async createEnterpriseSnapshotPolicy(request: $_model.CreateEnterpriseSnapshotPolicyRequest): Promise<$_model.CreateEnterpriseSnapshotPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEnterpriseSnapshotPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 中心化角色：删除App
+   * 
+   * @param request - DeleteAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppResponse
+   */
+  async deleteAppWithOptions(request: $_model.DeleteAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApp",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppResponse({}));
+  }
+
+  /**
+   * 中心化角色：删除App
+   * 
+   * @param request - DeleteAppRequest
+   * @returns DeleteAppResponse
+   */
+  async deleteApp(request: $_model.DeleteAppRequest): Promise<$_model.DeleteAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppWithOptions(request, runtime);
   }
 
   /**

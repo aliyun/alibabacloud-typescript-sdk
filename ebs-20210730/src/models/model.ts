@@ -1,3 +1,4 @@
+export { CreateAppRequestAppTags } from './CreateAppRequest';
 export { CreateDedicatedBlockStorageClusterRequestTag } from './CreateDedicatedBlockStorageClusterRequest';
 export { CreateDiskReplicaGroupRequestTag } from './CreateDiskReplicaGroupRequest';
 export { CreateDiskReplicaPairRequestTag } from './CreateDiskReplicaPairRequest';
@@ -82,6 +83,9 @@ export { ClearPairDrillResponse } from './ClearPairDrillResponse';
 export { ClearReplicaGroupDrillRequest } from './ClearReplicaGroupDrillRequest';
 export { ClearReplicaGroupDrillResponseBody } from './ClearReplicaGroupDrillResponseBody';
 export { ClearReplicaGroupDrillResponse } from './ClearReplicaGroupDrillResponse';
+export { CreateAppRequest } from './CreateAppRequest';
+export { CreateAppResponseBody } from './CreateAppResponseBody';
+export { CreateAppResponse } from './CreateAppResponse';
 export { CreateDedicatedBlockStorageClusterRequest } from './CreateDedicatedBlockStorageClusterRequest';
 export { CreateDedicatedBlockStorageClusterResponseBody } from './CreateDedicatedBlockStorageClusterResponseBody';
 export { CreateDedicatedBlockStorageClusterResponse } from './CreateDedicatedBlockStorageClusterResponse';
@@ -95,6 +99,9 @@ export { CreateEnterpriseSnapshotPolicyRequest } from './CreateEnterpriseSnapsho
 export { CreateEnterpriseSnapshotPolicyShrinkRequest } from './CreateEnterpriseSnapshotPolicyShrinkRequest';
 export { CreateEnterpriseSnapshotPolicyResponseBody } from './CreateEnterpriseSnapshotPolicyResponseBody';
 export { CreateEnterpriseSnapshotPolicyResponse } from './CreateEnterpriseSnapshotPolicyResponse';
+export { DeleteAppRequest } from './DeleteAppRequest';
+export { DeleteAppResponseBody } from './DeleteAppResponseBody';
+export { DeleteAppResponse } from './DeleteAppResponse';
 export { DeleteDiskReplicaGroupRequest } from './DeleteDiskReplicaGroupRequest';
 export { DeleteDiskReplicaGroupResponseBody } from './DeleteDiskReplicaGroupResponseBody';
 export { DeleteDiskReplicaGroupResponse } from './DeleteDiskReplicaGroupResponse';
