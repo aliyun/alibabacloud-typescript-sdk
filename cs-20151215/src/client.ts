@@ -564,6 +564,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询自愈规则
+   * 
+   * @param request - CreateAutoRepairPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAutoRepairPolicyResponse
+   */
+  async createAutoRepairPolicyWithOptions(clusterId: string, request: $_model.CreateAutoRepairPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAutoRepairPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.resourceSubType)) {
+      body["resource_sub_type"] = request.resourceSubType;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resource_type"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.rules)) {
+      body["rules"] = request.rules;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAutoRepairPolicy",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/auto_repair_policies`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAutoRepairPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateAutoRepairPolicyResponse({}));
+  }
+
+  /**
+   * 查询自愈规则
+   * 
+   * @param request - CreateAutoRepairPolicyRequest
+   * @returns CreateAutoRepairPolicyResponse
+   */
+  async createAutoRepairPolicy(clusterId: string, request: $_model.CreateAutoRepairPolicyRequest): Promise<$_model.CreateAutoRepairPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAutoRepairPolicyWithOptions(clusterId, request, headers, runtime);
+  }
+
+  /**
    * Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
    * 
    * @param request - CreateAutoscalingConfigRequest
@@ -1629,6 +1686,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询自愈规则
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAutoRepairPolicyResponse
+   */
+  async deleteAutoRepairPolicyWithOptions(clusterId: string, policyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAutoRepairPolicyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAutoRepairPolicy",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/auto_repair_policies/${$dara.URL.percentEncode(policyId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAutoRepairPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAutoRepairPolicyResponse({}));
+  }
+
+  /**
+   * 查询自愈规则
+   * @returns DeleteAutoRepairPolicyResponse
+   */
+  async deleteAutoRepairPolicy(clusterId: string, policyId: string): Promise<$_model.DeleteAutoRepairPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAutoRepairPolicyWithOptions(clusterId, policyId, headers, runtime);
+  }
+
+  /**
    * You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
    * 
    * @remarks
@@ -2201,6 +2293,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeAddonsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询自愈规则
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoRepairPolicyResponse
+   */
+  async describeAutoRepairPolicyWithOptions(clusterId: string, policyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAutoRepairPolicyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAutoRepairPolicy",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/auto_repair_policies/${$dara.URL.percentEncode(policyId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAutoRepairPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAutoRepairPolicyResponse({}));
+  }
+
+  /**
+   * 查询自愈规则
+   * @returns DescribeAutoRepairPolicyResponse
+   */
+  async describeAutoRepairPolicy(clusterId: string, policyId: string): Promise<$_model.DescribeAutoRepairPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeAutoRepairPolicyWithOptions(clusterId, policyId, headers, runtime);
   }
 
   /**
@@ -4816,6 +4943,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询自愈规则
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoRepairPoliciesResponse
+   */
+  async listAutoRepairPoliciesWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoRepairPoliciesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAutoRepairPolicies",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/auto_repair_policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAutoRepairPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListAutoRepairPoliciesResponse({}));
+  }
+
+  /**
+   * 查询自愈规则
+   * @returns ListAutoRepairPoliciesResponse
+   */
+  async listAutoRepairPolicies(clusterId: string): Promise<$_model.ListAutoRepairPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAutoRepairPoliciesWithOptions(clusterId, headers, runtime);
+  }
+
+  /**
    * 获取集群组件实例的资源列表
    * 
    * @param headers - map
@@ -5319,6 +5481,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.migrateClusterWithOptions(clusterId, request, headers, runtime);
+  }
+
+  /**
+   * 查询自愈规则
+   * 
+   * @param request - ModifyAutoRepairPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAutoRepairPolicyResponse
+   */
+  async modifyAutoRepairPolicyWithOptions(clusterId: string, policyId: string, request: $_model.ModifyAutoRepairPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoRepairPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.rules)) {
+      body["rules"] = request.rules;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAutoRepairPolicy",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/auto_repair_policies/${$dara.URL.percentEncode(policyId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAutoRepairPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAutoRepairPolicyResponse({}));
+  }
+
+  /**
+   * 查询自愈规则
+   * 
+   * @param request - ModifyAutoRepairPolicyRequest
+   * @returns ModifyAutoRepairPolicyResponse
+   */
+  async modifyAutoRepairPolicy(clusterId: string, policyId: string, request: $_model.ModifyAutoRepairPolicyRequest): Promise<$_model.ModifyAutoRepairPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyAutoRepairPolicyWithOptions(clusterId, policyId, request, headers, runtime);
   }
 
   /**
