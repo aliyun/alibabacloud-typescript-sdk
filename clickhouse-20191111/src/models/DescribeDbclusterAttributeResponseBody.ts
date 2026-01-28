@@ -392,6 +392,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
    * false
    */
   isExpired?: string;
+  lbKind?: string;
   /**
    * @remarks
    * The lock mode of the cluster. Valid values:
@@ -649,6 +650,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
       extStorageSize: 'ExtStorageSize',
       extStorageType: 'ExtStorageType',
       isExpired: 'IsExpired',
+      lbKind: 'LbKind',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       maintainAutoType: 'MaintainAutoType',
@@ -710,6 +712,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
       extStorageSize: 'number',
       extStorageType: 'string',
       isExpired: 'string',
+      lbKind: 'string',
       lockMode: 'string',
       lockReason: 'string',
       maintainAutoType: 'boolean',
