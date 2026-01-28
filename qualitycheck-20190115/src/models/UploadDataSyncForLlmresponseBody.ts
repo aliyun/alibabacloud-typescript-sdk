@@ -307,10 +307,14 @@ export class UploadDataSyncForLLMResponseBodyDataResultInfoRules extends $dara.M
 export class UploadDataSyncForLLMResponseBodyDataResultInfo extends $dara.Model {
   rules?: UploadDataSyncForLLMResponseBodyDataResultInfoRules;
   score?: number;
+  tyxmPlusCount?: string;
+  tyxmTurboCount?: string;
   static names(): { [key: string]: string } {
     return {
       rules: 'Rules',
       score: 'Score',
+      tyxmPlusCount: 'TyxmPlusCount',
+      tyxmTurboCount: 'TyxmTurboCount',
     };
   }
 
@@ -318,6 +322,8 @@ export class UploadDataSyncForLLMResponseBodyDataResultInfo extends $dara.Model 
     return {
       rules: UploadDataSyncForLLMResponseBodyDataResultInfoRules,
       score: 'number',
+      tyxmPlusCount: 'string',
+      tyxmTurboCount: 'string',
     };
   }
 

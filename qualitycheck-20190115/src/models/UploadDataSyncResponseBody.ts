@@ -382,11 +382,15 @@ export class UploadDataSyncResponseBodyDataResultInfo extends $dara.Model {
    * 100
    */
   score?: number;
+  tyxmPlusCount?: string;
+  tyxmTurboCount?: string;
   static names(): { [key: string]: string } {
     return {
       handScoreIdList: 'HandScoreIdList',
       rules: 'Rules',
       score: 'Score',
+      tyxmPlusCount: 'TyxmPlusCount',
+      tyxmTurboCount: 'TyxmTurboCount',
     };
   }
 
@@ -395,6 +399,8 @@ export class UploadDataSyncResponseBodyDataResultInfo extends $dara.Model {
       handScoreIdList: UploadDataSyncResponseBodyDataResultInfoHandScoreIdList,
       rules: UploadDataSyncResponseBodyDataResultInfoRules,
       score: 'number',
+      tyxmPlusCount: 'string',
+      tyxmTurboCount: 'string',
     };
   }
 
