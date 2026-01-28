@@ -54,6 +54,7 @@ export { ListReplicaEdgeSupportedResponseBodySupportedRegions } from './ListRepl
 export { ListReportsResponseBodyHistoryReports } from './ListReportsResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ModifyAppRequestAppTags } from './ModifyAppRequest';
 export { QueryDedicatedBlockStorageClusterInventoryDataResponseBodyDataMonitorItems } from './QueryDedicatedBlockStorageClusterInventoryDataResponseBody';
 export { QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData } from './QueryDedicatedBlockStorageClusterInventoryDataResponseBody';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
@@ -186,6 +187,9 @@ export { ListReportsResponse } from './ListReportsResponse';
 export { ListTagResourcesRequest } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBody } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponse } from './ListTagResourcesResponse';
+export { ModifyAppRequest } from './ModifyAppRequest';
+export { ModifyAppResponseBody } from './ModifyAppResponseBody';
+export { ModifyAppResponse } from './ModifyAppResponse';
 export { ModifyDedicatedBlockStorageClusterAttributeRequest } from './ModifyDedicatedBlockStorageClusterAttributeRequest';
 export { ModifyDedicatedBlockStorageClusterAttributeResponseBody } from './ModifyDedicatedBlockStorageClusterAttributeResponseBody';
 export { ModifyDedicatedBlockStorageClusterAttributeResponse } from './ModifyDedicatedBlockStorageClusterAttributeResponse';

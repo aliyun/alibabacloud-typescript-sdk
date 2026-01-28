@@ -2834,6 +2834,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 中心化角色：修改App
+   * 
+   * @param request - ModifyAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppResponse
+   */
+  async modifyAppWithOptions(request: $_model.ModifyAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.appTags)) {
+      query["AppTags"] = request.appTags;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reportSendEnabled)) {
+      query["ReportSendEnabled"] = request.reportSendEnabled;
+    }
+
+    if (!$dara.isNull(request.subscribePeriod)) {
+      query["SubscribePeriod"] = request.subscribePeriod;
+    }
+
+    if (!$dara.isNull(request.subscribeStatus)) {
+      query["SubscribeStatus"] = request.subscribeStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyApp",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppResponse({}));
+  }
+
+  /**
+   * 中心化角色：修改App
+   * 
+   * @param request - ModifyAppRequest
+   * @returns ModifyAppResponse
+   */
+  async modifyApp(request: $_model.ModifyAppRequest): Promise<$_model.ModifyAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppWithOptions(request, runtime);
+  }
+
+  /**
    * 修改专属集群属性OpenApi
    * 
    * @remarks
