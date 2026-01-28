@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/videorecog20200320",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
