@@ -96,9 +96,9 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return on each page.
    * 
-   * Maximum value: 100
+   * Valid values: 1 to 100.
    * 
    * Default value: 10.
    * 
@@ -122,8 +122,6 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
    * 
    * *   ElasticityAssurance: the general-purpose elasticity assurance. RecurrenceRules is not specified for a general-purpose elasticity assurance.
    * *   TimeDivisionElasticityAssurance: the time-segmented elasticity assurance. RecurrenceRules is specified for a time-segmented assurance.
-   * 
-   * >  Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
    * 
    * @example
    * ElasticityAssurance
