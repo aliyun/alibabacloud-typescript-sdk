@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportWorkflowsRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * test-app
    */

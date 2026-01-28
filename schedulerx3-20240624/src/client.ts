@@ -240,6 +240,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据源
+   * 
+   * @param request - CreateDatasourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasourceResponse
+   */
+  async createDatasourceWithOptions(request: $_model.CreateDatasourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.connectionParams)) {
+      body["ConnectionParams"] = request.connectionParams;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDatasource",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatasourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatasourceResponse({}));
+  }
+
+  /**
+   * 创建数据源
+   * 
+   * @param request - CreateDatasourceRequest
+   * @returns CreateDatasourceResponse
+   */
+  async createDatasource(request: $_model.CreateDatasourceRequest): Promise<$_model.CreateDatasourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDatasourceWithOptions(request, runtime);
+  }
+
+  /**
    * 添加执行器
    * 
    * @param request - CreateExecutorsRequest
@@ -671,6 +733,52 @@ export default class Client extends OpenApi {
   async deleteCluster(request: $_model.DeleteClusterRequest): Promise<$_model.DeleteClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据源
+   * 
+   * @param request - DeleteDatasourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasourceResponse
+   */
+  async deleteDatasourceWithOptions(request: $_model.DeleteDatasourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.datasourceId)) {
+      body["DatasourceId"] = request.datasourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDatasource",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatasourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatasourceResponse({}));
+  }
+
+  /**
+   * 删除数据源
+   * 
+   * @param request - DeleteDatasourceRequest
+   * @returns DeleteDatasourceResponse
+   */
+  async deleteDatasource(request: $_model.DeleteDatasourceRequest): Promise<$_model.DeleteDatasourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDatasourceWithOptions(request, runtime);
   }
 
   /**
@@ -2002,6 +2110,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据源列表
+   * 
+   * @param request - ListDatasourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasourcesResponse
+   */
+  async listDatasourcesWithOptions(request: $_model.ListDatasourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatasources",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatasourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListDatasourcesResponse({}));
+  }
+
+  /**
+   * 获取数据源列表
+   * 
+   * @param request - ListDatasourcesRequest
+   * @returns ListDatasourcesResponse
+   */
+  async listDatasources(request: $_model.ListDatasourcesRequest): Promise<$_model.ListDatasourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDatasourcesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询Executor列表
    * 
    * @param request - ListExecutorsRequest
@@ -2771,6 +2945,60 @@ export default class Client extends OpenApi {
   async operateBackfillWorkflow(request: $_model.OperateBackfillWorkflowRequest): Promise<$_model.OperateBackfillWorkflowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateBackfillWorkflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 连接数据源
+   * 
+   * @param request - OperateConnectDatasourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateConnectDatasourceResponse
+   */
+  async operateConnectDatasourceWithOptions(request: $_model.OperateConnectDatasourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateConnectDatasourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.connectionParams)) {
+      body["ConnectionParams"] = request.connectionParams;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateConnectDatasource",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateConnectDatasourceResponse>(await this.callApi(params, req, runtime), new $_model.OperateConnectDatasourceResponse({}));
+  }
+
+  /**
+   * 连接数据源
+   * 
+   * @param request - OperateConnectDatasourceRequest
+   * @returns OperateConnectDatasourceResponse
+   */
+  async operateConnectDatasource(request: $_model.OperateConnectDatasourceRequest): Promise<$_model.OperateConnectDatasourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateConnectDatasourceWithOptions(request, runtime);
   }
 
   /**
@@ -4068,17 +4296,21 @@ export default class Client extends OpenApi {
    */
   async updateClusterWithOptions(request: $_model.UpdateClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateClusterResponse> {
     request.validate();
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
+      body["ClusterId"] = request.clusterId;
     }
 
     if (!$dara.isNull(request.clusterName)) {
-      query["ClusterName"] = request.clusterName;
+      body["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.ipWhitelist)) {
+      body["IpWhitelist"] = request.ipWhitelist;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateCluster",
@@ -4103,6 +4335,68 @@ export default class Client extends OpenApi {
   async updateCluster(request: $_model.UpdateClusterRequest): Promise<$_model.UpdateClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据源
+   * 
+   * @param request - UpdateDatasourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasourceResponse
+   */
+  async updateDatasourceWithOptions(request: $_model.UpdateDatasourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.connectionParams)) {
+      body["ConnectionParams"] = request.connectionParams;
+    }
+
+    if (!$dara.isNull(request.datasourceId)) {
+      body["DatasourceId"] = request.datasourceId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDatasource",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDatasourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDatasourceResponse({}));
+  }
+
+  /**
+   * 更新数据源
+   * 
+   * @param request - UpdateDatasourceRequest
+   * @returns UpdateDatasourceResponse
+   */
+  async updateDatasource(request: $_model.UpdateDatasourceRequest): Promise<$_model.UpdateDatasourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDatasourceWithOptions(request, runtime);
   }
 
   /**
@@ -4305,6 +4599,60 @@ export default class Client extends OpenApi {
   async updateJob(request: $_model.UpdateJobRequest): Promise<$_model.UpdateJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新任务实例
+   * 
+   * @param request - UpdateJobExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateJobExecutionResponse
+   */
+  async updateJobExecutionWithOptions(request: $_model.UpdateJobExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateJobExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      body["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    if (!$dara.isNull(request.scheduleTime)) {
+      body["ScheduleTime"] = request.scheduleTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateJobExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateJobExecutionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateJobExecutionResponse({}));
+  }
+
+  /**
+   * 更新任务实例
+   * 
+   * @param request - UpdateJobExecutionRequest
+   * @returns UpdateJobExecutionResponse
+   */
+  async updateJobExecution(request: $_model.UpdateJobExecutionRequest): Promise<$_model.UpdateJobExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateJobExecutionWithOptions(request, runtime);
   }
 
   /**

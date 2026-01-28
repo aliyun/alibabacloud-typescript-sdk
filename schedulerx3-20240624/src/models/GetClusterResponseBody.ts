@@ -85,6 +85,11 @@ export class GetClusterResponseBodyData extends $dara.Model {
   intranetDomain?: string;
   /**
    * @example
+   * 192.168.1.0/24
+   */
+  ipWhitelist?: string;
+  /**
+   * @example
    * 100
    */
   jobNum?: number;
@@ -175,6 +180,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       engineVersion: 'EngineVersion',
       internetDomain: 'InternetDomain',
       intranetDomain: 'IntranetDomain',
+      ipWhitelist: 'IpWhitelist',
       jobNum: 'JobNum',
       kubeConfig: 'KubeConfig',
       maxJobNum: 'MaxJobNum',
@@ -204,6 +210,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       engineVersion: 'string',
       internetDomain: 'string',
       intranetDomain: 'string',
+      ipWhitelist: 'string',
       jobNum: 'number',
       kubeConfig: 'string',
       maxJobNum: 'number',

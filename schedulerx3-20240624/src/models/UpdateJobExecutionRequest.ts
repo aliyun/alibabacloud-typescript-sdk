@@ -2,28 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ExportWorkflowsShrinkRequest extends $dara.Model {
+export class UpdateJobExecutionRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * test-app
    */
   appName?: string;
   /**
    * @remarks
-   * A short description of struct
-   * 
    * This parameter is required.
    * 
    * @example
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
-  workflowIdShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1310630367761285120
+   */
+  jobExecutionId?: string;
+  /**
+   * @example
+   * 2023-10-01 12:00:00
+   */
+  scheduleTime?: number;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       clusterId: 'ClusterId',
-      workflowIdShrink: 'WorkflowId',
+      jobExecutionId: 'JobExecutionId',
+      scheduleTime: 'ScheduleTime',
     };
   }
 
@@ -31,7 +45,8 @@ export class ExportWorkflowsShrinkRequest extends $dara.Model {
     return {
       appName: 'string',
       clusterId: 'string',
-      workflowIdShrink: 'string',
+      jobExecutionId: 'string',
+      scheduleTime: 'number',
     };
   }
 

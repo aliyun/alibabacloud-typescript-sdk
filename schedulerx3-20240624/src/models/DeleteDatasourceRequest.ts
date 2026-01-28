@@ -2,36 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ExportWorkflowsShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * test-app
-   */
-  appName?: string;
+export class DeleteDatasourceRequest extends $dara.Model {
   /**
    * @remarks
-   * A short description of struct
-   * 
    * This parameter is required.
    * 
    * @example
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
-  workflowIdShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 195
+   */
+  datasourceId?: number;
   static names(): { [key: string]: string } {
     return {
-      appName: 'AppName',
       clusterId: 'ClusterId',
-      workflowIdShrink: 'WorkflowId',
+      datasourceId: 'DatasourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appName: 'string',
       clusterId: 'string',
-      workflowIdShrink: 'string',
+      datasourceId: 'number',
     };
   }
 

@@ -6,23 +6,19 @@ export class UpdateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxljob-c20f7ec9a78
    */
   clusterId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * xx-test-1107
-   */
   clusterName?: string;
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
+  ipWhitelist?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
+      ipWhitelist: 'IpWhitelist',
     };
   }
 
@@ -30,6 +26,7 @@ export class UpdateClusterRequest extends $dara.Model {
     return {
       clusterId: 'string',
       clusterName: 'string',
+      ipWhitelist: 'string',
     };
   }
 
