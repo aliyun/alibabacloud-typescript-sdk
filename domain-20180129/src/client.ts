@@ -2068,6 +2068,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名分组信息
+   * 
    * @param request - QueryDomainGroupListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainGroupListResponse
@@ -2081,6 +2083,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.orderByType)) {
+      query["OrderByType"] = request.orderByType;
+    }
+
+    if (!$dara.isNull(request.orderKeyType)) {
+      query["OrderKeyType"] = request.orderKeyType;
     }
 
     if (!$dara.isNull(request.showDeletingGroup)) {
@@ -2109,6 +2119,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名分组信息
+   * 
    * @param request - QueryDomainGroupListRequest
    * @returns QueryDomainGroupListResponse
    */
@@ -2129,6 +2141,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.ccompany)) {
       query["Ccompany"] = request.ccompany;
+    }
+
+    if (!$dara.isNull(request.dns)) {
+      query["Dns"] = request.dns;
     }
 
     if (!$dara.isNull(request.domainGroupId)) {

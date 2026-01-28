@@ -51,6 +51,7 @@ export class QueryDomainListRequest extends $dara.Model {
    * Guangzhou Jinye Renewable Resources Recycling Co., Ltd
    */
   ccompany?: string;
+  dns?: string;
   /**
    * @remarks
    * The ID of the domain name group.
@@ -206,6 +207,7 @@ export class QueryDomainListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ccompany: 'Ccompany',
+      dns: 'Dns',
       domainGroupId: 'DomainGroupId',
       domainName: 'DomainName',
       endExpirationDate: 'EndExpirationDate',
@@ -229,6 +231,7 @@ export class QueryDomainListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ccompany: 'string',
+      dns: 'string',
       domainGroupId: 'string',
       domainName: 'string',
       endExpirationDate: 'number',

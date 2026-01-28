@@ -9,6 +9,8 @@ export class QueryDomainGroupListRequest extends $dara.Model {
    * en
    */
   lang?: string;
+  orderByType?: string;
+  orderKeyType?: string;
   /**
    * @example
    * false
@@ -23,6 +25,8 @@ export class QueryDomainGroupListRequest extends $dara.Model {
     return {
       domainGroupName: 'DomainGroupName',
       lang: 'Lang',
+      orderByType: 'OrderByType',
+      orderKeyType: 'OrderKeyType',
       showDeletingGroup: 'ShowDeletingGroup',
       userClientIp: 'UserClientIp',
     };
@@ -32,6 +36,8 @@ export class QueryDomainGroupListRequest extends $dara.Model {
     return {
       domainGroupName: 'string',
       lang: 'string',
+      orderByType: 'string',
+      orderKeyType: 'string',
       showDeletingGroup: 'boolean',
       userClientIp: 'string',
     };

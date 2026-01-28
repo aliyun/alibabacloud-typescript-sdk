@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryDomainListResponseBodyDataDomainDnsList extends $dara.Model {
+  dnsList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsList: 'DnsList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dnsList)) {
+      $dara.Model.validateArray(this.dnsList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDomainListResponseBodyDataDomainTagTag extends $dara.Model {
   /**
    * @remarks
@@ -88,6 +114,7 @@ export class QueryDomainListResponseBodyDataDomain extends $dara.Model {
    * 0
    */
   chgholderStatus?: string;
+  dnsList?: QueryDomainListResponseBodyDataDomainDnsList;
   /**
    * @remarks
    * The state of real-name verification for the domain name. Valid values:
@@ -261,6 +288,7 @@ export class QueryDomainListResponseBodyDataDomain extends $dara.Model {
     return {
       ccompany: 'Ccompany',
       chgholderStatus: 'ChgholderStatus',
+      dnsList: 'DnsList',
       domainAuditStatus: 'DomainAuditStatus',
       domainGroupId: 'DomainGroupId',
       domainGroupName: 'DomainGroupName',
@@ -288,6 +316,7 @@ export class QueryDomainListResponseBodyDataDomain extends $dara.Model {
     return {
       ccompany: 'string',
       chgholderStatus: 'string',
+      dnsList: QueryDomainListResponseBodyDataDomainDnsList,
       domainAuditStatus: 'string',
       domainGroupId: 'string',
       domainGroupName: 'string',
@@ -312,6 +341,9 @@ export class QueryDomainListResponseBodyDataDomain extends $dara.Model {
   }
 
   validate() {
+    if(this.dnsList && typeof (this.dnsList as any).validate === 'function') {
+      (this.dnsList as any).validate();
+    }
     if(this.tag && typeof (this.tag as any).validate === 'function') {
       (this.tag as any).validate();
     }

@@ -53,6 +53,7 @@ export { QueryDomainByInstanceIdResponseBodyTag } from './QueryDomainByInstanceI
 export { QueryDomainGroupListResponseBodyDataDomainGroup } from './QueryDomainGroupListResponseBody';
 export { QueryDomainGroupListResponseBodyData } from './QueryDomainGroupListResponseBody';
 export { QueryDomainListRequestTag } from './QueryDomainListRequest';
+export { QueryDomainListResponseBodyDataDomainDnsList } from './QueryDomainListResponseBody';
 export { QueryDomainListResponseBodyDataDomainTagTag } from './QueryDomainListResponseBody';
 export { QueryDomainListResponseBodyDataDomainTag } from './QueryDomainListResponseBody';
 export { QueryDomainListResponseBodyDataDomain } from './QueryDomainListResponseBody';
