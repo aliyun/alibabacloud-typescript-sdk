@@ -10,6 +10,7 @@ export { ProxyConfigPolicies } from './ProxyConfig';
 export { TemplateMcpOptions } from './Template';
 export { TemplateMcpState } from './Template';
 export { VectorStoreConfigConfig } from './VectorStoreConfig';
+export { VectorStoreConfigMysqlConfig } from './VectorStoreConfig';
 export { GetAccessTokenResponseBodyData } from './GetAccessTokenResponseBody';
 export { ListModelProvidersResponseBodyDataItems } from './ListModelProvidersResponseBody';
 export { ListModelProvidersResponseBodyData } from './ListModelProvidersResponseBody';
