@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extends $dara.Model {
+  allocatedUnit?: number;
   /**
    * @example
    * ADB.MLLarge.2
@@ -15,6 +16,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extend
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      allocatedUnit: 'AllocatedUnit',
       gpuModel: 'GpuModel',
       totalCount: 'TotalCount',
     };
@@ -22,6 +24,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extend
 
   static types(): { [key: string]: any } {
     return {
+      allocatedUnit: 'number',
       gpuModel: 'string',
       totalCount: 'number',
     };
