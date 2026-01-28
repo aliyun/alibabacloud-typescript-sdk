@@ -9,6 +9,9 @@ export class ModifyVpcFirewallAclEngineModeRequest extends $dara.Model {
    */
   memberUid?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 0
    */

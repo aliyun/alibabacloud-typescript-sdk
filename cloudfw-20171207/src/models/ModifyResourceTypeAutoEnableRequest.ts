@@ -8,6 +8,10 @@ export class ModifyResourceTypeAutoEnableRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   regionNo?: string;
   /**
    * @example
