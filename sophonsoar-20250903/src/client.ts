@@ -284,6 +284,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 执行组件动作
+   * 
+   * @param request - ExecuteComponentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteComponentResponse
+   */
+  async executeComponentWithOptions(request: $_model.ExecuteComponentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteComponentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.componentActionName)) {
+      body["ComponentActionName"] = request.componentActionName;
+    }
+
+    if (!$dara.isNull(request.componentAssetUuid)) {
+      body["ComponentAssetUuid"] = request.componentAssetUuid;
+    }
+
+    if (!$dara.isNull(request.componentInput)) {
+      body["ComponentInput"] = request.componentInput;
+    }
+
+    if (!$dara.isNull(request.componentName)) {
+      body["ComponentName"] = request.componentName;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.playBookNodeName)) {
+      body["PlayBookNodeName"] = request.playBookNodeName;
+    }
+
+    if (!$dara.isNull(request.playbookUuid)) {
+      body["PlaybookUuid"] = request.playbookUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteComponent",
+      version: "2025-09-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteComponentResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteComponentResponse({}));
+  }
+
+  /**
+   * 执行组件动作
+   * 
+   * @param request - ExecuteComponentRequest
+   * @returns ExecuteComponentResponse
+   */
+  async executeComponent(request: $_model.ExecuteComponentRequest): Promise<$_model.ExecuteComponentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeComponentWithOptions(request, runtime);
+  }
+
+  /**
    * Get playbook details.
    * 
    * @param request - GetPlaybookRequest
