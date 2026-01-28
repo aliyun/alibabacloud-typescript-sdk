@@ -309,6 +309,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * vnode
    */
   aiNodeType?: string;
+  apiKey?: string;
   /**
    * @example
    * 2020-08-14T05:58:42Z
@@ -435,6 +436,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aiNodeType: 'AiNodeType',
+      apiKey: 'ApiKey',
       creationTime: 'CreationTime',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
@@ -469,6 +471,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aiNodeType: 'string',
+      apiKey: 'string',
       creationTime: 'string',
       DBClusterDescription: 'string',
       DBClusterId: 'string',
