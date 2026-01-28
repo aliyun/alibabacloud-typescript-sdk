@@ -55,6 +55,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
    * ANALYSIS
    */
   mode?: string;
+  userOssBucket?: string;
   static names(): { [key: string]: string } {
     return {
       customAgentId: 'CustomAgentId',
@@ -63,6 +64,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
       language: 'Language',
       mcpServerIds: 'McpServerIds',
       mode: 'Mode',
+      userOssBucket: 'UserOssBucket',
     };
   }
 
@@ -74,6 +76,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
       language: 'string',
       mcpServerIds: { 'type': 'array', 'itemType': 'string' },
       mode: 'string',
+      userOssBucket: 'string',
     };
   }
 
