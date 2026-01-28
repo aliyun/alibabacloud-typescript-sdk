@@ -1,4 +1,5 @@
 export { BatchCreateAICoachTaskRequestStudentList } from './BatchCreateAicoachTaskRequest';
+export { BatchDeletePracticeTaskResponseBodyResults } from './BatchDeletePracticeTaskResponseBody';
 export { BatchGetProjectTaskResponseBodyResultList } from './BatchGetProjectTaskResponseBody';
 export { BatchGetTrainTaskResponseBodyVoiceListVoiceMaterial } from './BatchGetTrainTaskResponseBody';
 export { BatchGetTrainTaskResponseBodyVoiceList } from './BatchGetTrainTaskResponseBody';
@@ -109,6 +110,10 @@ export { BatchAddDocumentResponse } from './BatchAddDocumentResponse';
 export { BatchCreateAICoachTaskRequest } from './BatchCreateAicoachTaskRequest';
 export { BatchCreateAICoachTaskResponseBody } from './BatchCreateAicoachTaskResponseBody';
 export { BatchCreateAICoachTaskResponse } from './BatchCreateAicoachTaskResponse';
+export { BatchDeletePracticeTaskRequest } from './BatchDeletePracticeTaskRequest';
+export { BatchDeletePracticeTaskShrinkRequest } from './BatchDeletePracticeTaskShrinkRequest';
+export { BatchDeletePracticeTaskResponseBody } from './BatchDeletePracticeTaskResponseBody';
+export { BatchDeletePracticeTaskResponse } from './BatchDeletePracticeTaskResponse';
 export { BatchGetProjectTaskRequest } from './BatchGetProjectTaskRequest';
 export { BatchGetProjectTaskShrinkRequest } from './BatchGetProjectTaskShrinkRequest';
 export { BatchGetProjectTaskResponseBody } from './BatchGetProjectTaskResponseBody';

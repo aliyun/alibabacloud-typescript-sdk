@@ -185,6 +185,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量删除对练任务
+   * 
+   * @param tmpReq - BatchDeletePracticeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeletePracticeTaskResponse
+   */
+  async batchDeletePracticeTaskWithOptions(tmpReq: $_model.BatchDeletePracticeTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchDeletePracticeTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchDeletePracticeTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "taskIds", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.idempotentId)) {
+      query["idempotentId"] = request.idempotentId;
+    }
+
+    if (!$dara.isNull(request.taskIdsShrink)) {
+      query["taskIds"] = request.taskIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchDeletePracticeTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/batchDeletePracticeTask`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchDeletePracticeTaskResponse>(await this.callApi(params, req, runtime), new $_model.BatchDeletePracticeTaskResponse({}));
+  }
+
+  /**
+   * 批量删除对练任务
+   * 
+   * @param request - BatchDeletePracticeTaskRequest
+   * @returns BatchDeletePracticeTaskResponse
+   */
+  async batchDeletePracticeTask(request: $_model.BatchDeletePracticeTaskRequest): Promise<$_model.BatchDeletePracticeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchDeletePracticeTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 批量查询项目信息
    * 
    * @param tmpReq - BatchGetProjectTaskRequest
