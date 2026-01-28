@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class RemoveUserFromAuthorizationRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 授权规则标识。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * arrule_01kf143ug06fg7m9f43u7vahxxxx
+   */
+  authorizationRuleId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * 账户ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user_d6sbsuumeta4h66ec3il7yxxxx
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      instanceId: 'InstanceId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      instanceId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

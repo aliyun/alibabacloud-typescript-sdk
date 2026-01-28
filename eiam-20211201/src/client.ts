@@ -84,6 +84,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将应用添加到授权规则
+   * 
+   * @param request - AddApplicationToAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddApplicationToAuthorizationRuleResponse
+   */
+  async addApplicationToAuthorizationRuleWithOptions(request: $_model.AddApplicationToAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddApplicationToAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
+    if (!$dara.isNull(request.validityType)) {
+      query["ValidityType"] = request.validityType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddApplicationToAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddApplicationToAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.AddApplicationToAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 将应用添加到授权规则
+   * 
+   * @param request - AddApplicationToAuthorizationRuleRequest
+   * @returns AddApplicationToAuthorizationRuleResponse
+   */
+  async addApplicationToAuthorizationRule(request: $_model.AddApplicationToAuthorizationRuleRequest): Promise<$_model.AddApplicationToAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addApplicationToAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 添加条款到品牌
    * 
    * @param request - AddCustomPrivacyPoliciesToBrandRequest
@@ -131,6 +195,134 @@ export default class Client extends OpenApi {
   async addCustomPrivacyPoliciesToBrand(request: $_model.AddCustomPrivacyPoliciesToBrandRequest): Promise<$_model.AddCustomPrivacyPoliciesToBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addCustomPrivacyPoliciesToBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 将组添加到授权规则
+   * 
+   * @param request - AddGroupToAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGroupToAuthorizationRuleResponse
+   */
+  async addGroupToAuthorizationRuleWithOptions(request: $_model.AddGroupToAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddGroupToAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
+    if (!$dara.isNull(request.validityType)) {
+      query["ValidityType"] = request.validityType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddGroupToAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddGroupToAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.AddGroupToAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 将组添加到授权规则
+   * 
+   * @param request - AddGroupToAuthorizationRuleRequest
+   * @returns AddGroupToAuthorizationRuleResponse
+   */
+  async addGroupToAuthorizationRule(request: $_model.AddGroupToAuthorizationRuleRequest): Promise<$_model.AddGroupToAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addGroupToAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 将账户添加到授权规则
+   * 
+   * @param request - AddUserToAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUserToAuthorizationRuleResponse
+   */
+  async addUserToAuthorizationRuleWithOptions(request: $_model.AddUserToAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddUserToAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
+    if (!$dara.isNull(request.validityType)) {
+      query["ValidityType"] = request.validityType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddUserToAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddUserToAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.AddUserToAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 将账户添加到授权规则
+   * 
+   * @param request - AddUserToAuthorizationRuleRequest
+   * @returns AddUserToAuthorizationRuleResponse
+   */
+  async addUserToAuthorizationRule(request: $_model.AddUserToAuthorizationRuleRequest): Promise<$_model.AddUserToAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addUserToAuthorizationRuleWithOptions(request, runtime);
   }
 
   /**
@@ -1029,6 +1221,130 @@ export default class Client extends OpenApi {
   async createApplicationToken(request: $_model.CreateApplicationTokenRequest): Promise<$_model.CreateApplicationTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createApplicationTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建授权资源
+   * 
+   * @param request - CreateAuthorizationResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAuthorizationResourceResponse
+   */
+  async createAuthorizationResourceWithOptions(request: $_model.CreateAuthorizationResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAuthorizationResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationResourceEntityId)) {
+      query["AuthorizationResourceEntityId"] = request.authorizationResourceEntityId;
+    }
+
+    if (!$dara.isNull(request.authorizationResourceEntityType)) {
+      query["AuthorizationResourceEntityType"] = request.authorizationResourceEntityType;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAuthorizationResource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAuthorizationResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateAuthorizationResourceResponse({}));
+  }
+
+  /**
+   * 创建授权资源
+   * 
+   * @param request - CreateAuthorizationResourceRequest
+   * @returns CreateAuthorizationResourceResponse
+   */
+  async createAuthorizationResource(request: $_model.CreateAuthorizationResourceRequest): Promise<$_model.CreateAuthorizationResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAuthorizationResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建授权规则
+   * 
+   * @param request - CreateAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAuthorizationRuleResponse
+   */
+  async createAuthorizationRuleWithOptions(request: $_model.CreateAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationResourceScope)) {
+      query["AuthorizationResourceScope"] = request.authorizationResourceScope;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 创建授权规则
+   * 
+   * @param request - CreateAuthorizationRuleRequest
+   * @returns CreateAuthorizationRuleResponse
+   */
+  async createAuthorizationRule(request: $_model.CreateAuthorizationRuleRequest): Promise<$_model.CreateAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAuthorizationRuleWithOptions(request, runtime);
   }
 
   /**
@@ -2434,6 +2750,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除授权资源
+   * 
+   * @param request - DeleteAuthorizationResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAuthorizationResourceResponse
+   */
+  async deleteAuthorizationResourceWithOptions(request: $_model.DeleteAuthorizationResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAuthorizationResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationResourceId)) {
+      query["AuthorizationResourceId"] = request.authorizationResourceId;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAuthorizationResource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAuthorizationResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAuthorizationResourceResponse({}));
+  }
+
+  /**
+   * 删除授权资源
+   * 
+   * @param request - DeleteAuthorizationResourceRequest
+   * @returns DeleteAuthorizationResourceResponse
+   */
+  async deleteAuthorizationResource(request: $_model.DeleteAuthorizationResourceRequest): Promise<$_model.DeleteAuthorizationResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAuthorizationResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除授权规则
+   * 
+   * @param request - DeleteAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAuthorizationRuleResponse
+   */
+  async deleteAuthorizationRuleWithOptions(request: $_model.DeleteAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 删除授权规则
+   * 
+   * @param request - DeleteAuthorizationRuleRequest
+   * @returns DeleteAuthorizationRuleResponse
+   */
+  async deleteAuthorizationRule(request: $_model.DeleteAuthorizationRuleRequest): Promise<$_model.DeleteAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 删除品牌
    * 
    * @param request - DeleteBrandRequest
@@ -3814,6 +4226,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用授权规则
+   * 
+   * @param request - DisableAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableAuthorizationRuleResponse
+   */
+  async disableAuthorizationRuleWithOptions(request: $_model.DisableAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.DisableAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 禁用授权规则
+   * 
+   * @param request - DisableAuthorizationRuleRequest
+   * @returns DisableAuthorizationRuleResponse
+   */
+  async disableAuthorizationRule(request: $_model.DisableAuthorizationRuleRequest): Promise<$_model.DisableAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 禁用品牌
    * 
    * @param request - DisableBrandRequest
@@ -4903,6 +5367,58 @@ export default class Client extends OpenApi {
   async enableApplicationToken(request: $_model.EnableApplicationTokenRequest): Promise<$_model.EnableApplicationTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableApplicationTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用授权规则
+   * 
+   * @param request - EnableAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableAuthorizationRuleResponse
+   */
+  async enableAuthorizationRuleWithOptions(request: $_model.EnableAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.EnableAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 启用授权规则
+   * 
+   * @param request - EnableAuthorizationRuleRequest
+   * @returns EnableAuthorizationRuleResponse
+   */
+  async enableAuthorizationRule(request: $_model.EnableAuthorizationRuleRequest): Promise<$_model.EnableAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableAuthorizationRuleWithOptions(request, runtime);
   }
 
   /**
@@ -6129,6 +6645,102 @@ export default class Client extends OpenApi {
   async getApplicationTemplate(request: $_model.GetApplicationTemplateRequest): Promise<$_model.GetApplicationTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getApplicationTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取授权资源信息
+   * 
+   * @param request - GetAuthorizationResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuthorizationResourceResponse
+   */
+  async getAuthorizationResourceWithOptions(request: $_model.GetAuthorizationResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuthorizationResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationResourceId)) {
+      query["AuthorizationResourceId"] = request.authorizationResourceId;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAuthorizationResource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAuthorizationResourceResponse>(await this.callApi(params, req, runtime), new $_model.GetAuthorizationResourceResponse({}));
+  }
+
+  /**
+   * 获取授权资源信息
+   * 
+   * @param request - GetAuthorizationResourceRequest
+   * @returns GetAuthorizationResourceResponse
+   */
+  async getAuthorizationResource(request: $_model.GetAuthorizationResourceRequest): Promise<$_model.GetAuthorizationResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAuthorizationResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取授权规则信息
+   * 
+   * @param request - GetAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuthorizationRuleResponse
+   */
+  async getAuthorizationRuleWithOptions(request: $_model.GetAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 获取授权规则信息
+   * 
+   * @param request - GetAuthorizationRuleRequest
+   * @returns GetAuthorizationRuleResponse
+   */
+  async getAuthorizationRule(request: $_model.GetAuthorizationRuleRequest): Promise<$_model.GetAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAuthorizationRuleWithOptions(request, runtime);
   }
 
   /**
@@ -7872,6 +8484,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询授权规则关联的应用列表
+   * 
+   * @param request - ListApplicationsForAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsForAuthorizationRuleResponse
+   */
+  async listApplicationsForAuthorizationRuleWithOptions(request: $_model.ListApplicationsForAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationsForAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationsForAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationsForAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationsForAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 查询授权规则关联的应用列表
+   * 
+   * @param request - ListApplicationsForAuthorizationRuleRequest
+   * @returns ListApplicationsForAuthorizationRuleResponse
+   */
+  async listApplicationsForAuthorizationRule(request: $_model.ListApplicationsForAuthorizationRuleRequest): Promise<$_model.ListApplicationsForAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationsForAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 查询一个EIAM组可访问的应用列表
    * 
    * @param request - ListApplicationsForGroupRequest
@@ -8165,6 +8835,280 @@ export default class Client extends OpenApi {
   async listApplicationsForUser(request: $_model.ListApplicationsForUserRequest): Promise<$_model.ListApplicationsForUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationsForUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询授权资源信息列表
+   * 
+   * @param request - ListAuthorizationResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizationResourcesResponse
+   */
+  async listAuthorizationResourcesWithOptions(request: $_model.ListAuthorizationResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthorizationResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthorizationResources",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthorizationResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthorizationResourcesResponse({}));
+  }
+
+  /**
+   * 查询授权资源信息列表
+   * 
+   * @param request - ListAuthorizationResourcesRequest
+   * @returns ListAuthorizationResourcesResponse
+   */
+  async listAuthorizationResources(request: $_model.ListAuthorizationResourcesRequest): Promise<$_model.ListAuthorizationResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthorizationResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizationRulesResponse
+   */
+  async listAuthorizationRulesWithOptions(request: $_model.ListAuthorizationRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthorizationRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthorizationRules",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthorizationRulesResponse({}));
+  }
+
+  /**
+   * 查询授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesRequest
+   * @returns ListAuthorizationRulesResponse
+   */
+  async listAuthorizationRules(request: $_model.ListAuthorizationRulesRequest): Promise<$_model.ListAuthorizationRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthorizationRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询应用关联的授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesForApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizationRulesForApplicationResponse
+   */
+  async listAuthorizationRulesForApplicationWithOptions(request: $_model.ListAuthorizationRulesForApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthorizationRulesForApplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthorizationRulesForApplication",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthorizationRulesForApplicationResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthorizationRulesForApplicationResponse({}));
+  }
+
+  /**
+   * 查询应用关联的授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesForApplicationRequest
+   * @returns ListAuthorizationRulesForApplicationResponse
+   */
+  async listAuthorizationRulesForApplication(request: $_model.ListAuthorizationRulesForApplicationRequest): Promise<$_model.ListAuthorizationRulesForApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthorizationRulesForApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询组关联的授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesForGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizationRulesForGroupResponse
+   */
+  async listAuthorizationRulesForGroupWithOptions(request: $_model.ListAuthorizationRulesForGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthorizationRulesForGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthorizationRulesForGroup",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthorizationRulesForGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthorizationRulesForGroupResponse({}));
+  }
+
+  /**
+   * 查询组关联的授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesForGroupRequest
+   * @returns ListAuthorizationRulesForGroupResponse
+   */
+  async listAuthorizationRulesForGroup(request: $_model.ListAuthorizationRulesForGroupRequest): Promise<$_model.ListAuthorizationRulesForGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthorizationRulesForGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户关联的授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizationRulesForUserResponse
+   */
+  async listAuthorizationRulesForUserWithOptions(request: $_model.ListAuthorizationRulesForUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthorizationRulesForUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthorizationRulesForUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthorizationRulesForUserResponse>(await this.callApi(params, req, runtime), new $_model.ListAuthorizationRulesForUserResponse({}));
+  }
+
+  /**
+   * 查询用户关联的授权规则信息列表
+   * 
+   * @param request - ListAuthorizationRulesForUserRequest
+   * @returns ListAuthorizationRulesForUserResponse
+   */
+  async listAuthorizationRulesForUser(request: $_model.ListAuthorizationRulesForUserRequest): Promise<$_model.ListAuthorizationRulesForUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuthorizationRulesForUserWithOptions(request, runtime);
   }
 
   /**
@@ -9065,6 +10009,64 @@ export default class Client extends OpenApi {
   async listGroupsForApplication(request: $_model.ListGroupsForApplicationRequest): Promise<$_model.ListGroupsForApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listGroupsForApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询授权规则关联的组列表
+   * 
+   * @param request - ListGroupsForAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupsForAuthorizationRuleResponse
+   */
+  async listGroupsForAuthorizationRuleWithOptions(request: $_model.ListGroupsForAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGroupsForAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGroupsForAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGroupsForAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.ListGroupsForAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 查询授权规则关联的组列表
+   * 
+   * @param request - ListGroupsForAuthorizationRuleRequest
+   * @returns ListGroupsForAuthorizationRuleResponse
+   */
+  async listGroupsForAuthorizationRule(request: $_model.ListGroupsForAuthorizationRuleRequest): Promise<$_model.ListGroupsForAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGroupsForAuthorizationRuleWithOptions(request, runtime);
   }
 
   /**
@@ -10216,6 +11218,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询授权规则关联的账户列表
+   * 
+   * @param request - ListUsersForAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersForAuthorizationRuleResponse
+   */
+  async listUsersForAuthorizationRuleWithOptions(request: $_model.ListUsersForAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUsersForAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUsersForAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUsersForAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.ListUsersForAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 查询授权规则关联的账户列表
+   * 
+   * @param request - ListUsersForAuthorizationRuleRequest
+   * @returns ListUsersForAuthorizationRuleResponse
+   */
+  async listUsersForAuthorizationRule(request: $_model.ListUsersForAuthorizationRuleRequest): Promise<$_model.ListUsersForAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUsersForAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
    * 
    * @param request - ListUsersForGroupRequest
@@ -10536,6 +11596,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将应用从授权规则中解除
+   * 
+   * @param request - RemoveApplicationFromAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveApplicationFromAuthorizationRuleResponse
+   */
+  async removeApplicationFromAuthorizationRuleWithOptions(request: $_model.RemoveApplicationFromAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveApplicationFromAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveApplicationFromAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveApplicationFromAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.RemoveApplicationFromAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 将应用从授权规则中解除
+   * 
+   * @param request - RemoveApplicationFromAuthorizationRuleRequest
+   * @returns RemoveApplicationFromAuthorizationRuleResponse
+   */
+  async removeApplicationFromAuthorizationRule(request: $_model.RemoveApplicationFromAuthorizationRuleRequest): Promise<$_model.RemoveApplicationFromAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeApplicationFromAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 移除品牌关联条款
    * 
    * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
@@ -10583,6 +11693,106 @@ export default class Client extends OpenApi {
   async removeCustomPrivacyPoliciesFromBrand(request: $_model.RemoveCustomPrivacyPoliciesFromBrandRequest): Promise<$_model.RemoveCustomPrivacyPoliciesFromBrandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeCustomPrivacyPoliciesFromBrandWithOptions(request, runtime);
+  }
+
+  /**
+   * 将组从授权规则中解除
+   * 
+   * @param request - RemoveGroupFromAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveGroupFromAuthorizationRuleResponse
+   */
+  async removeGroupFromAuthorizationRuleWithOptions(request: $_model.RemoveGroupFromAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveGroupFromAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveGroupFromAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveGroupFromAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.RemoveGroupFromAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 将组从授权规则中解除
+   * 
+   * @param request - RemoveGroupFromAuthorizationRuleRequest
+   * @returns RemoveGroupFromAuthorizationRuleResponse
+   */
+  async removeGroupFromAuthorizationRule(request: $_model.RemoveGroupFromAuthorizationRuleRequest): Promise<$_model.RemoveGroupFromAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeGroupFromAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 将账户从授权规则中解除
+   * 
+   * @param request - RemoveUserFromAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUserFromAuthorizationRuleResponse
+   */
+  async removeUserFromAuthorizationRuleWithOptions(request: $_model.RemoveUserFromAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveUserFromAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveUserFromAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveUserFromAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.RemoveUserFromAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 将账户从授权规则中解除
+   * 
+   * @param request - RemoveUserFromAuthorizationRuleRequest
+   * @returns RemoveUserFromAuthorizationRuleResponse
+   */
+  async removeUserFromAuthorizationRule(request: $_model.RemoveUserFromAuthorizationRuleRequest): Promise<$_model.RemoveUserFromAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeUserFromAuthorizationRuleWithOptions(request, runtime);
   }
 
   /**
@@ -12773,6 +13983,314 @@ export default class Client extends OpenApi {
   async updateApplicationTokenExpirationTime(request: $_model.UpdateApplicationTokenExpirationTimeRequest): Promise<$_model.UpdateApplicationTokenExpirationTimeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateApplicationTokenExpirationTimeWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新授权规则信息
+   * 
+   * @param request - UpdateAuthorizationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuthorizationRuleResponse
+   */
+  async updateAuthorizationRuleWithOptions(request: $_model.UpdateAuthorizationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuthorizationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationResourceScope)) {
+      query["AuthorizationResourceScope"] = request.authorizationResourceScope;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuthorizationRule",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 更新授权规则信息
+   * 
+   * @param request - UpdateAuthorizationRuleRequest
+   * @returns UpdateAuthorizationRuleResponse
+   */
+  async updateAuthorizationRule(request: $_model.UpdateAuthorizationRuleRequest): Promise<$_model.UpdateAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新授权规则应用关联关系属性
+   * 
+   * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuthorizationRuleApplicationAttachmentResponse
+   */
+  async updateAuthorizationRuleApplicationAttachmentWithOptions(request: $_model.UpdateAuthorizationRuleApplicationAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuthorizationRuleApplicationAttachmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
+    if (!$dara.isNull(request.validityType)) {
+      query["ValidityType"] = request.validityType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuthorizationRuleApplicationAttachment",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuthorizationRuleApplicationAttachmentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuthorizationRuleApplicationAttachmentResponse({}));
+  }
+
+  /**
+   * 更新授权规则应用关联关系属性
+   * 
+   * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
+   * @returns UpdateAuthorizationRuleApplicationAttachmentResponse
+   */
+  async updateAuthorizationRuleApplicationAttachment(request: $_model.UpdateAuthorizationRuleApplicationAttachmentRequest): Promise<$_model.UpdateAuthorizationRuleApplicationAttachmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAuthorizationRuleApplicationAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新授权规则描述信息
+   * 
+   * @param request - UpdateAuthorizationRuleDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuthorizationRuleDescriptionResponse
+   */
+  async updateAuthorizationRuleDescriptionWithOptions(request: $_model.UpdateAuthorizationRuleDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuthorizationRuleDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuthorizationRuleDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuthorizationRuleDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuthorizationRuleDescriptionResponse({}));
+  }
+
+  /**
+   * 更新授权规则描述信息
+   * 
+   * @param request - UpdateAuthorizationRuleDescriptionRequest
+   * @returns UpdateAuthorizationRuleDescriptionResponse
+   */
+  async updateAuthorizationRuleDescription(request: $_model.UpdateAuthorizationRuleDescriptionRequest): Promise<$_model.UpdateAuthorizationRuleDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAuthorizationRuleDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新授权规则组关联关系属性
+   * 
+   * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuthorizationRuleGroupAttachmentResponse
+   */
+  async updateAuthorizationRuleGroupAttachmentWithOptions(request: $_model.UpdateAuthorizationRuleGroupAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuthorizationRuleGroupAttachmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
+    if (!$dara.isNull(request.validityType)) {
+      query["ValidityType"] = request.validityType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuthorizationRuleGroupAttachment",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuthorizationRuleGroupAttachmentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuthorizationRuleGroupAttachmentResponse({}));
+  }
+
+  /**
+   * 更新授权规则组关联关系属性
+   * 
+   * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
+   * @returns UpdateAuthorizationRuleGroupAttachmentResponse
+   */
+  async updateAuthorizationRuleGroupAttachment(request: $_model.UpdateAuthorizationRuleGroupAttachmentRequest): Promise<$_model.UpdateAuthorizationRuleGroupAttachmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAuthorizationRuleGroupAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新授权规则账户关联关系属性
+   * 
+   * @param request - UpdateAuthorizationRuleUserAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuthorizationRuleUserAttachmentResponse
+   */
+  async updateAuthorizationRuleUserAttachmentWithOptions(request: $_model.UpdateAuthorizationRuleUserAttachmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuthorizationRuleUserAttachmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.validityPeriod)) {
+      query["ValidityPeriod"] = request.validityPeriod;
+    }
+
+    if (!$dara.isNull(request.validityType)) {
+      query["ValidityType"] = request.validityType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuthorizationRuleUserAttachment",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuthorizationRuleUserAttachmentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuthorizationRuleUserAttachmentResponse({}));
+  }
+
+  /**
+   * 更新授权规则账户关联关系属性
+   * 
+   * @param request - UpdateAuthorizationRuleUserAttachmentRequest
+   * @returns UpdateAuthorizationRuleUserAttachmentResponse
+   */
+  async updateAuthorizationRuleUserAttachment(request: $_model.UpdateAuthorizationRuleUserAttachmentRequest): Promise<$_model.UpdateAuthorizationRuleUserAttachmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAuthorizationRuleUserAttachmentWithOptions(request, runtime);
   }
 
   /**
