@@ -25,6 +25,11 @@ export class UpdateLLMConfigRequest extends $dara.Model {
    */
   batchSize?: number;
   /**
+   * @example
+   * 1024
+   */
+  embeddingDimension?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -61,6 +66,7 @@ export class UpdateLLMConfigRequest extends $dara.Model {
       apiKey: 'ApiKey',
       baseUrl: 'BaseUrl',
       batchSize: 'BatchSize',
+      embeddingDimension: 'EmbeddingDimension',
       maxTokens: 'MaxTokens',
       model: 'Model',
       name: 'Name',
@@ -73,6 +79,7 @@ export class UpdateLLMConfigRequest extends $dara.Model {
       apiKey: 'string',
       baseUrl: 'string',
       batchSize: 'number',
+      embeddingDimension: 'number',
       maxTokens: 'number',
       model: 'string',
       name: 'string',

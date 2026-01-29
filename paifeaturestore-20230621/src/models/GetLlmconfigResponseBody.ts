@@ -20,6 +20,11 @@ export class GetLLMConfigResponseBody extends $dara.Model {
   batchSize?: number;
   /**
    * @example
+   * 1024
+   */
+  embeddingDimension?: number;
+  /**
+   * @example
    * 2023-07-04T11:26:09.036+08:00
    */
   gmtCreateTime?: string;
@@ -71,6 +76,7 @@ export class GetLLMConfigResponseBody extends $dara.Model {
       apiKey: 'ApiKey',
       baseUrl: 'BaseUrl',
       batchSize: 'BatchSize',
+      embeddingDimension: 'EmbeddingDimension',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       LLMConfigId: 'LLMConfigId',
@@ -88,6 +94,7 @@ export class GetLLMConfigResponseBody extends $dara.Model {
       apiKey: 'string',
       baseUrl: 'string',
       batchSize: 'number',
+      embeddingDimension: 'number',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       LLMConfigId: 'string',

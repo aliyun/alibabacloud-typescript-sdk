@@ -396,6 +396,10 @@ export default class Client extends OpenApi {
       body["BatchSize"] = request.batchSize;
     }
 
+    if (!$dara.isNull(request.embeddingDimension)) {
+      body["EmbeddingDimension"] = request.embeddingDimension;
+    }
+
     if (!$dara.isNull(request.maxTokens)) {
       body["MaxTokens"] = request.maxTokens;
     }
@@ -2798,6 +2802,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.batchSize)) {
       body["BatchSize"] = request.batchSize;
+    }
+
+    if (!$dara.isNull(request.embeddingDimension)) {
+      body["EmbeddingDimension"] = request.embeddingDimension;
     }
 
     if (!$dara.isNull(request.maxTokens)) {
