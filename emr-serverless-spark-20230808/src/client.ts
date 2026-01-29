@@ -612,6 +612,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Ray集群
+   * 
+   * @param request - CreateRayClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRayClusterResponse
+   */
+  async createRayClusterWithOptions(workspaceId: string, request: $_model.CreateRayClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRayClusterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayReleaseVersion)) {
+      body["displayReleaseVersion"] = request.displayReleaseVersion;
+    }
+
+    if (!$dara.isNull(request.extraParam)) {
+      body["extraParam"] = request.extraParam;
+    }
+
+    if (!$dara.isNull(request.headSpec)) {
+      body["headSpec"] = request.headSpec;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkServiceName)) {
+      body["networkServiceName"] = request.networkServiceName;
+    }
+
+    if (!$dara.isNull(request.workerSpec)) {
+      body["workerSpec"] = request.workerSpec;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRayCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayCluster`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRayClusterResponse>(await this.callApi(params, req, runtime), new $_model.CreateRayClusterResponse({}));
+  }
+
+  /**
+   * 创建Ray集群
+   * 
+   * @param request - CreateRayClusterRequest
+   * @returns CreateRayClusterResponse
+   */
+  async createRayCluster(workspaceId: string, request: $_model.CreateRayClusterRequest): Promise<$_model.CreateRayClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRayClusterWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Creates a session.
    * 
    * @param request - CreateSessionClusterRequest
@@ -1059,6 +1128,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除Ray集群
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRayClusterResponse
+   */
+  async deleteRayClusterWithOptions(workspaceId: string, clusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRayClusterResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRayCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayCluster/${$dara.URL.percentEncode(clusterId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRayClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRayClusterResponse({}));
+  }
+
+  /**
+   * 删除Ray集群
+   * @returns DeleteRayClusterResponse
+   */
+  async deleteRayCluster(workspaceId: string, clusterId: string): Promise<$_model.DeleteRayClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRayClusterWithOptions(workspaceId, clusterId, headers, runtime);
+  }
+
+  /**
    * Modifies the queue of a workspace.
    * 
    * @param request - EditWorkspaceQueueRequest
@@ -1489,6 +1593,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
+  }
+
+  /**
+   * 获取Ray集群
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRayClusterResponse
+   */
+  async getRayClusterWithOptions(workspaceId: string, clusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRayClusterResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRayCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayCluster/${$dara.URL.percentEncode(clusterId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRayClusterResponse>(await this.callApi(params, req, runtime), new $_model.GetRayClusterResponse({}));
+  }
+
+  /**
+   * 获取Ray集群
+   * @returns GetRayClusterResponse
+   */
+  async getRayCluster(workspaceId: string, clusterId: string): Promise<$_model.GetRayClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRayClusterWithOptions(workspaceId, clusterId, headers, runtime);
   }
 
   /**
@@ -2392,6 +2531,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出Ray集群
+   * 
+   * @param request - ListRayClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRayClusterResponse
+   */
+  async listRayClusterWithOptions(workspaceId: string, request: $_model.ListRayClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRayClusterResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNum)) {
+      query["pageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRayCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayCluster`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRayClusterResponse>(await this.callApi(params, req, runtime), new $_model.ListRayClusterResponse({}));
+  }
+
+  /**
+   * 列出Ray集群
+   * 
+   * @param request - ListRayClusterRequest
+   * @returns ListRayClusterResponse
+   */
+  async listRayCluster(workspaceId: string, request: $_model.ListRayClusterRequest): Promise<$_model.ListRayClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRayClusterWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
    * 
    * @param request - ListReleaseVersionsRequest
@@ -3059,6 +3247,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动Ray集群
+   * 
+   * @param request - StartRayClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRayClusterResponse
+   */
+  async startRayClusterWithOptions(workspaceId: string, clusterId: string, request: $_model.StartRayClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartRayClusterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartRayCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayCluster/${$dara.URL.percentEncode(clusterId)}/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartRayClusterResponse>(await this.callApi(params, req, runtime), new $_model.StartRayClusterResponse({}));
+  }
+
+  /**
+   * 启动Ray集群
+   * 
+   * @param request - StartRayClusterRequest
+   * @returns StartRayClusterResponse
+   */
+  async startRayCluster(workspaceId: string, clusterId: string, request: $_model.StartRayClusterRequest): Promise<$_model.StartRayClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
+  }
+
+  /**
    * Starts a session.
    * 
    * @param request - StartSessionClusterRequest
@@ -3191,6 +3424,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+  }
+
+  /**
+   * 停止Ray集群
+   * 
+   * @param request - StopRayClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRayClusterResponse
+   */
+  async stopRayClusterWithOptions(workspaceId: string, clusterId: string, request: $_model.StopRayClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopRayClusterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopRayCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayCluster/${$dara.URL.percentEncode(clusterId)}/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopRayClusterResponse>(await this.callApi(params, req, runtime), new $_model.StopRayClusterResponse({}));
+  }
+
+  /**
+   * 停止Ray集群
+   * 
+   * @param request - StopRayClusterRequest
+   * @returns StopRayClusterResponse
+   */
+  async stopRayCluster(workspaceId: string, clusterId: string, request: $_model.StopRayClusterRequest): Promise<$_model.StopRayClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
   }
 
   /**
@@ -3677,6 +3955,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProcessDefinitionWithScheduleWithOptions(bizId, code, request, headers, runtime);
+  }
+
+  /**
+   * 更新Ray集群
+   * 
+   * @param request - UpdateRayClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRayClusterResponse
+   */
+  async updateRayClusterWithOptions(workspaceId: string, clusterId: string, request: $_model.UpdateRayClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRayClusterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayReleaseVersion)) {
+      body["displayReleaseVersion"] = request.displayReleaseVersion;
+    }
+
+    if (!$dara.isNull(request.extraParam)) {
+      body["extraParam"] = request.extraParam;
+    }
+
+    if (!$dara.isNull(request.headSpec)) {
+      body["headSpec"] = request.headSpec;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkServiceName)) {
+      body["networkServiceName"] = request.networkServiceName;
+    }
+
+    if (!$dara.isNull(request.workerSpec)) {
+      body["workerSpec"] = request.workerSpec;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRayCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayCluster/${$dara.URL.percentEncode(clusterId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRayClusterResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRayClusterResponse({}));
+  }
+
+  /**
+   * 更新Ray集群
+   * 
+   * @param request - UpdateRayClusterRequest
+   * @returns UpdateRayClusterResponse
+   */
+  async updateRayCluster(workspaceId: string, clusterId: string, request: $_model.UpdateRayClusterRequest): Promise<$_model.UpdateRayClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
   }
 
 }
