@@ -121,6 +121,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加跨账号信息
+   * 
+   * @param request - AddCrossAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCrossAccountResponse
+   */
+  async addCrossAccountWithOptions(request: $_model.AddCrossAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddCrossAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alias)) {
+      query["Alias"] = request.alias;
+    }
+
+    if (!$dara.isNull(request.crossAccountRoleName)) {
+      query["CrossAccountRoleName"] = request.crossAccountRoleName;
+    }
+
+    if (!$dara.isNull(request.crossAccountType)) {
+      query["CrossAccountType"] = request.crossAccountType;
+    }
+
+    if (!$dara.isNull(request.crossAccountUserId)) {
+      query["CrossAccountUserId"] = request.crossAccountUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddCrossAccount",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddCrossAccountResponse>(await this.callApi(params, req, runtime), new $_model.AddCrossAccountResponse({}));
+  }
+
+  /**
+   * 添加跨账号信息
+   * 
+   * @param request - AddCrossAccountRequest
+   * @returns AddCrossAccountResponse
+   */
+  async addCrossAccount(request: $_model.AddCrossAccountRequest): Promise<$_model.AddCrossAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addCrossAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels a backup job.
    * 
    * @param request - CancelBackupJobRequest
@@ -1870,6 +1924,56 @@ export default class Client extends OpenApi {
   async deleteClient(request: $_model.DeleteClientRequest): Promise<$_model.DeleteClientResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteClientWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除跨账号信息
+   * 
+   * @param request - DeleteCrossAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCrossAccountResponse
+   */
+  async deleteCrossAccountWithOptions(request: $_model.DeleteCrossAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCrossAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.crossAccountRoleName)) {
+      query["CrossAccountRoleName"] = request.crossAccountRoleName;
+    }
+
+    if (!$dara.isNull(request.crossAccountType)) {
+      query["CrossAccountType"] = request.crossAccountType;
+    }
+
+    if (!$dara.isNull(request.crossAccountUserId)) {
+      query["CrossAccountUserId"] = request.crossAccountUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCrossAccount",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCrossAccountResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCrossAccountResponse({}));
+  }
+
+  /**
+   * 删除跨账号信息
+   * 
+   * @param request - DeleteCrossAccountRequest
+   * @returns DeleteCrossAccountResponse
+   */
+  async deleteCrossAccount(request: $_model.DeleteCrossAccountRequest): Promise<$_model.DeleteCrossAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCrossAccountWithOptions(request, runtime);
   }
 
   /**
