@@ -817,6 +817,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
    */
   haveKibana?: boolean;
   ikHotDicts?: DescribeInstanceResponseBodyResultIkHotDicts[];
+  inited?: boolean;
   /**
    * @example
    * advanced
@@ -952,6 +953,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
       haveClientNode: 'haveClientNode',
       haveKibana: 'haveKibana',
       ikHotDicts: 'ikHotDicts',
+      inited: 'inited',
       instanceCategory: 'instanceCategory',
       instanceId: 'instanceId',
       isNewDeployment: 'isNewDeployment',
@@ -1014,6 +1016,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
       haveClientNode: 'boolean',
       haveKibana: 'boolean',
       ikHotDicts: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultIkHotDicts },
+      inited: 'boolean',
       instanceCategory: 'string',
       instanceId: 'string',
       isNewDeployment: 'boolean',
