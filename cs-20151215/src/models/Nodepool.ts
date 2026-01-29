@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { DataDisk } from "./DataDisk";
+import { DiskInit } from "./DiskInit";
 import { InstanceMetadataOptions } from "./InstanceMetadataOptions";
 import { KubeletConfig } from "./KubeletConfig";
 import { Tag } from "./Tag";
@@ -737,6 +738,7 @@ export class NodepoolScalingGroup extends $dara.Model {
    * 2
    */
   desiredSize?: number;
+  diskInit?: DiskInit[];
   /**
    * @example
    * aliyun_2_1903_x64_20G_alibase_20200904.vhd
@@ -900,6 +902,7 @@ export class NodepoolScalingGroup extends $dara.Model {
       dataDisks: 'data_disks',
       deploymentsetId: 'deploymentset_id',
       desiredSize: 'desired_size',
+      diskInit: 'disk_init',
       imageId: 'image_id',
       imageType: 'image_type',
       instanceChargeType: 'instance_charge_type',
@@ -949,6 +952,7 @@ export class NodepoolScalingGroup extends $dara.Model {
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentsetId: 'string',
       desiredSize: 'number',
+      diskInit: { 'type': 'array', 'itemType': DiskInit },
       imageId: 'string',
       imageType: 'string',
       instanceChargeType: 'string',
@@ -993,6 +997,9 @@ export class NodepoolScalingGroup extends $dara.Model {
   validate() {
     if(Array.isArray(this.dataDisks)) {
       $dara.Model.validateArray(this.dataDisks);
+    }
+    if(Array.isArray(this.diskInit)) {
+      $dara.Model.validateArray(this.diskInit);
     }
     if(this.instanceMetadataOptions && typeof (this.instanceMetadataOptions as any).validate === 'function') {
       (this.instanceMetadataOptions as any).validate();

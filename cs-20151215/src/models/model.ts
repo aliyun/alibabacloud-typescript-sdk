@@ -257,6 +257,7 @@ export { UpdateUserPermissionsRequestBody } from './UpdateUserPermissionsRequest
 export { UpgradeClusterRequestRollingPolicy } from './UpgradeClusterRequest';
 export { UpgradeClusterAddonsRequestBody } from './UpgradeClusterAddonsRequest';
 export { UpgradeClusterNodepoolRequestRollingPolicy } from './UpgradeClusterNodepoolRequest';
+export { DiskInit } from './DiskInit';
 export { Hugepage } from './Hugepage';
 export { InstanceMetadataOptions } from './InstanceMetadataOptions';
 export { Addon } from './Addon';

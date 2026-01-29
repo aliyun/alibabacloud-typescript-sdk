@@ -6,6 +6,8 @@ export class DataDisk extends $dara.Model {
   /**
    * @example
    * true
+   * 
+   * @deprecated
    */
   autoFormat?: boolean;
   /**
@@ -41,6 +43,8 @@ export class DataDisk extends $dara.Model {
   /**
    * @example
    * ext4
+   * 
+   * @deprecated
    */
   fileSystem?: string;
   /**
@@ -51,6 +55,8 @@ export class DataDisk extends $dara.Model {
   /**
    * @example
    * /mnt/path1
+   * 
+   * @deprecated
    */
   mountTarget?: string;
   /**
