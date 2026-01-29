@@ -2,26 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DisableArmsRequest extends $dara.Model {
+export class ListApplicationCenterServiceInstancesRequest extends $dara.Model {
   /**
-   * @remarks
-   * The application ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * 7171a6ca-d1cd-4928-8642-7d5cfe69a26c
+   * cn-beijing:test
    */
-  appId?: string;
+  namespaceId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
+      namespaceId: 'NamespaceId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
+      namespaceId: 'string',
+      regionId: 'string',
     };
   }
 

@@ -99,6 +99,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
    * 2000
    */
   cpu?: number;
+  enableIdle?: string;
   /**
    * @remarks
    * The number of instances.
@@ -207,6 +208,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
       appType: 'AppType',
       baseAppId: 'BaseAppId',
       cpu: 'Cpu',
+      enableIdle: 'EnableIdle',
       instances: 'Instances',
       isStateful: 'IsStateful',
       mem: 'Mem',
@@ -233,6 +235,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
       appType: 'string',
       baseAppId: 'string',
       cpu: 'number',
+      enableIdle: 'string',
       instances: 'number',
       isStateful: 'boolean',
       mem: 'number',

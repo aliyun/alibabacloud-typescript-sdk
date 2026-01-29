@@ -25,12 +25,14 @@ export class UpdateAppModeRequest extends $dara.Model {
    * true
    */
   enableIdle?: boolean;
+  idleHour?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appIds: 'AppIds',
       enableIdle: 'EnableIdle',
+      idleHour: 'IdleHour',
       namespaceId: 'NamespaceId',
     };
   }
@@ -40,6 +42,7 @@ export class UpdateAppModeRequest extends $dara.Model {
       appId: 'string',
       appIds: 'string',
       enableIdle: 'boolean',
+      idleHour: 'string',
       namespaceId: 'string',
     };
   }

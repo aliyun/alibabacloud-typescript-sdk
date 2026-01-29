@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The job template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +14,57 @@ export class ExecJobRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Example:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
    * @example
    * echo
    */
   command?: string;
   /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. The name must meet the following format requirements:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * 
    * @example
    * ["a","b"]
    */
   commandArgs?: string;
   /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
+   * 
+   * *   Configure custom environment variables
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
    * @example
    * [{"name":"envtmp","value":"0"}]
    */
   envs?: string;
   /**
+   * @remarks
+   * The event ID. This is a user-defined parameter used for idempotency so that only one job is created for the same event ID.
+   * 
    * @example
    * custom
    */

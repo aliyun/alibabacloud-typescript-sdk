@@ -4858,6 +4858,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables ARMS monitoring.
+   * 
    * @param request - DisableArmsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4889,6 +4891,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables ARMS monitoring.
+   * 
    * @param request - DisableArmsRequest
    * @returns DisableArmsResponse
    */
@@ -4993,6 +4997,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a job.
+   * 
    * @param request - ExecJobRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5060,6 +5066,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a job.
+   * 
    * @param request - ExecJobRequest
    * @returns ExecJobResponse
    */
@@ -5840,6 +5848,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAppVersionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询服务实例列表
+   * 
+   * @param request - ListApplicationCenterServiceInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationCenterServiceInstancesResponse
+   */
+  async listApplicationCenterServiceInstancesWithOptions(request: $_model.ListApplicationCenterServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationCenterServiceInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationCenterServiceInstances",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/cas/v5/app/listApplicationCenterServiceInstances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationCenterServiceInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationCenterServiceInstancesResponse({}));
+  }
+
+  /**
+   * 查询服务实例列表
+   * 
+   * @param request - ListApplicationCenterServiceInstancesRequest
+   * @returns ListApplicationCenterServiceInstancesResponse
+   */
+  async listApplicationCenterServiceInstances(request: $_model.ListApplicationCenterServiceInstancesRequest): Promise<$_model.ListApplicationCenterServiceInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApplicationCenterServiceInstancesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7462,7 +7519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复实例的流量
+   * Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
    * 
    * @param request - ResumeTrafficRequest
    * @param headers - map
@@ -7499,7 +7556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复实例的流量
+   * Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
    * 
    * @param request - ResumeTrafficRequest
    * @returns ResumeTrafficResponse
@@ -7821,7 +7878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将流量从实例中摘除
+   * Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
    * 
    * @param request - SuspendTrafficRequest
    * @param headers - map
@@ -7858,7 +7915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将流量从实例中摘除
+   * Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
    * 
    * @param request - SuspendTrafficRequest
    * @returns SuspendTrafficResponse
@@ -8118,6 +8175,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableIdle)) {
       query["EnableIdle"] = request.enableIdle;
+    }
+
+    if (!$dara.isNull(request.idleHour)) {
+      query["IdleHour"] = request.idleHour;
     }
 
     if (!$dara.isNull(request.namespaceId)) {

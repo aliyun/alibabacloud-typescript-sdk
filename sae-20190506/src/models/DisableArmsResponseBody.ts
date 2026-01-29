@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableArmsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates if enabled. Valid values: 
+   * 
+   * *   true: enabled
+   * *   false: disabled
+   * 
    * @example
    * true
    */
@@ -31,32 +37,65 @@ export class DisableArmsResponseBodyData extends $dara.Model {
 
 export class DisableArmsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DisableArmsResponseBodyData;
   /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * 
    * @example
-   * success
+   * Null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C0616FF6-9536-47BF-8A03-FB70386DFC71
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * ac1a0b2215623063975374318e6d53
    */

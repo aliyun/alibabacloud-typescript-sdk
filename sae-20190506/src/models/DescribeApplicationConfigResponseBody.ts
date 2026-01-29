@@ -1011,6 +1011,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   gpuType?: string;
   headlessPvtzDiscovery?: string;
   html?: string;
+  idleHour?: string;
   /**
    * @remarks
    * The ID of the corresponding secret dictionary.
@@ -1656,6 +1657,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       gpuType: 'GpuType',
       headlessPvtzDiscovery: 'HeadlessPvtzDiscovery',
       html: 'Html',
+      idleHour: 'IdleHour',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfig: 'InitContainersConfig',
@@ -1761,6 +1763,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       gpuType: 'string',
       headlessPvtzDiscovery: 'string',
       html: 'string',
+      idleHour: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfig },
