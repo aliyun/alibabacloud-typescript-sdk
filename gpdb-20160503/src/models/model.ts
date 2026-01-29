@@ -44,6 +44,7 @@ export { ChatWithKnowledgeBaseStreamResponseBodyMultiCollectionRecallResult } fr
 export { CreateCollectionRequestSparseVectorIndexConfig } from './CreateCollectionRequest';
 export { CreateDBInstanceRequestAINodeSpecInfos } from './CreateDbinstanceRequest';
 export { CreateDBInstanceRequestTag } from './CreateDbinstanceRequest';
+export { CreateDocumentCollectionRequestSparseVectorIndexConfig } from './CreateDocumentCollectionRequest';
 export { CreateRemoteADBDataSourceResponseBodyDataSourceItem } from './CreateRemoteAdbdataSourceResponseBody';
 export { DescribeAccountsResponseBodyAccountsDBInstanceAccount } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponseBodyAccounts } from './DescribeAccountsResponseBody';

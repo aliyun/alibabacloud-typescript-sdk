@@ -207,6 +207,9 @@ export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   relationshipTypesShrink?: string;
+  sparseRetrievalFields?: string;
+  sparseVectorIndexConfigShrink?: string;
+  supportSparse?: boolean;
   static names(): { [key: string]: string } {
     return {
       collection: 'Collection',
@@ -232,6 +235,9 @@ export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
       pqEnable: 'PqEnable',
       regionId: 'RegionId',
       relationshipTypesShrink: 'RelationshipTypes',
+      sparseRetrievalFields: 'SparseRetrievalFields',
+      sparseVectorIndexConfigShrink: 'SparseVectorIndexConfig',
+      supportSparse: 'SupportSparse',
     };
   }
 
@@ -260,6 +266,9 @@ export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
       pqEnable: 'number',
       regionId: 'string',
       relationshipTypesShrink: 'string',
+      sparseRetrievalFields: 'string',
+      sparseVectorIndexConfigShrink: 'string',
+      supportSparse: 'boolean',
     };
   }
 

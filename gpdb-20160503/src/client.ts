@@ -1824,6 +1824,10 @@ export default class Client extends OpenApi {
       request.relationshipTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relationshipTypes, "RelationshipTypes", "json");
     }
 
+    if (!$dara.isNull(tmpReq.sparseVectorIndexConfig)) {
+      request.sparseVectorIndexConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sparseVectorIndexConfig, "SparseVectorIndexConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
@@ -1915,6 +1919,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.relationshipTypesShrink)) {
       query["RelationshipTypes"] = request.relationshipTypesShrink;
+    }
+
+    if (!$dara.isNull(request.sparseRetrievalFields)) {
+      query["SparseRetrievalFields"] = request.sparseRetrievalFields;
+    }
+
+    if (!$dara.isNull(request.sparseVectorIndexConfigShrink)) {
+      query["SparseVectorIndexConfig"] = request.sparseVectorIndexConfigShrink;
+    }
+
+    if (!$dara.isNull(request.supportSparse)) {
+      query["SupportSparse"] = request.supportSparse;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

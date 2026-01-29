@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dara.Model {
+  hnswEfConstruction?: number;
+  hnswM?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hnswEfConstruction: 'HnswEfConstruction',
+      hnswM: 'HnswM',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hnswEfConstruction: 'number',
+      hnswM: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDocumentCollectionRequest extends $dara.Model {
   /**
    * @remarks
@@ -207,6 +233,9 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    */
   regionId?: string;
   relationshipTypes?: string[];
+  sparseRetrievalFields?: string;
+  sparseVectorIndexConfig?: CreateDocumentCollectionRequestSparseVectorIndexConfig;
+  supportSparse?: boolean;
   static names(): { [key: string]: string } {
     return {
       collection: 'Collection',
@@ -232,6 +261,9 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       pqEnable: 'PqEnable',
       regionId: 'RegionId',
       relationshipTypes: 'RelationshipTypes',
+      sparseRetrievalFields: 'SparseRetrievalFields',
+      sparseVectorIndexConfig: 'SparseVectorIndexConfig',
+      supportSparse: 'SupportSparse',
     };
   }
 
@@ -260,6 +292,9 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       pqEnable: 'number',
       regionId: 'string',
       relationshipTypes: { 'type': 'array', 'itemType': 'string' },
+      sparseRetrievalFields: 'string',
+      sparseVectorIndexConfig: CreateDocumentCollectionRequestSparseVectorIndexConfig,
+      supportSparse: 'boolean',
     };
   }
 
@@ -269,6 +304,9 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
     }
     if(Array.isArray(this.relationshipTypes)) {
       $dara.Model.validateArray(this.relationshipTypes);
+    }
+    if(this.sparseVectorIndexConfig && typeof (this.sparseVectorIndexConfig as any).validate === 'function') {
+      (this.sparseVectorIndexConfig as any).validate();
     }
     super.validate();
   }

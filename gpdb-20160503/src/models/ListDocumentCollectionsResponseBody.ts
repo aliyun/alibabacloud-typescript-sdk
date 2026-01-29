@@ -59,6 +59,8 @@ export class ListDocumentCollectionsResponseBodyItemsCollectionList extends $dar
    * zh_cn
    */
   parser?: string;
+  sparseRetrievalFields?: string;
+  supportSparse?: boolean;
   static names(): { [key: string]: string } {
     return {
       collectionName: 'CollectionName',
@@ -68,6 +70,8 @@ export class ListDocumentCollectionsResponseBodyItemsCollectionList extends $dar
       metadata: 'Metadata',
       metrics: 'Metrics',
       parser: 'Parser',
+      sparseRetrievalFields: 'SparseRetrievalFields',
+      supportSparse: 'SupportSparse',
     };
   }
 
@@ -80,6 +84,8 @@ export class ListDocumentCollectionsResponseBodyItemsCollectionList extends $dar
       metadata: 'string',
       metrics: 'string',
       parser: 'string',
+      sparseRetrievalFields: 'string',
+      supportSparse: 'boolean',
     };
   }
 
