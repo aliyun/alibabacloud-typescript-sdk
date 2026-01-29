@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { AuthConfig } from "./AuthConfig";
 import { CertConfig } from "./CertConfig";
+import { CORSConfig } from "./Corsconfig";
 import { RouteConfig } from "./RouteConfig";
 import { TLSConfig } from "./Tlsconfig";
 import { WAFConfig } from "./Wafconfig";
@@ -10,6 +11,7 @@ import { WAFConfig } from "./Wafconfig";
 export class CreateCustomDomainInput extends $dara.Model {
   authConfig?: AuthConfig;
   certConfig?: CertConfig;
+  corsConfig?: CORSConfig;
   /**
    * @remarks
    * This parameter is required.
@@ -30,6 +32,7 @@ export class CreateCustomDomainInput extends $dara.Model {
     return {
       authConfig: 'authConfig',
       certConfig: 'certConfig',
+      corsConfig: 'corsConfig',
       domainName: 'domainName',
       protocol: 'protocol',
       routeConfig: 'routeConfig',
@@ -42,6 +45,7 @@ export class CreateCustomDomainInput extends $dara.Model {
     return {
       authConfig: AuthConfig,
       certConfig: CertConfig,
+      corsConfig: CORSConfig,
       domainName: 'string',
       protocol: 'string',
       routeConfig: RouteConfig,
@@ -56,6 +60,9 @@ export class CreateCustomDomainInput extends $dara.Model {
     }
     if(this.certConfig && typeof (this.certConfig as any).validate === 'function') {
       (this.certConfig as any).validate();
+    }
+    if(this.corsConfig && typeof (this.corsConfig as any).validate === 'function') {
+      (this.corsConfig as any).validate();
     }
     if(this.routeConfig && typeof (this.routeConfig as any).validate === 'function') {
       (this.routeConfig as any).validate();

@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/fc20230330",
-  "version": "4.6.7",
+  "version": "4.6.8",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

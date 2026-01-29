@@ -9,6 +9,7 @@ export { AsyncTaskEvent } from './AsyncTaskEvent';
 export { AuthConfig } from './AuthConfig';
 export { BatchWindow } from './BatchWindow';
 export { CDNTriggerConfig } from './CdntriggerConfig';
+export { CORSConfig } from './Corsconfig';
 export { CertConfig } from './CertConfig';
 export { ChangeResourceGroupInput } from './ChangeResourceGroupInput';
 export { ChangeResourceGroupOutput } from './ChangeResourceGroupOutput';
