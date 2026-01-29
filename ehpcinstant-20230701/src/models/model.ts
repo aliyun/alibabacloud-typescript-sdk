@@ -42,6 +42,8 @@ export { GetJobResponseBodyJobInfoDependencyPolicy } from './GetJobResponseBody'
 export { GetJobResponseBodyJobInfoDeploymentPolicyNetwork } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoDeploymentPolicyTags } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoDeploymentPolicy } from './GetJobResponseBody';
+export { GetJobResponseBodyJobInfoSecurityPolicySecurityGroup } from './GetJobResponseBody';
+export { GetJobResponseBodyJobInfoSecurityPolicy } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksExecutorPolicy } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksExecutorStatus } from './GetJobResponseBody';
@@ -51,6 +53,7 @@ export { GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions } from
 export { GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor } from './GetJobResponseBody';
+export { GetJobResponseBodyJobInfoTasksTaskSpecVolumeMount } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpec } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasks } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfo } from './GetJobResponseBody';

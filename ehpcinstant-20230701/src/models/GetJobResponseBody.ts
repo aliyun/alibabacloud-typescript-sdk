@@ -217,6 +217,58 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
   }
 }
 
+export class GetJobResponseBodyJobInfoSecurityPolicySecurityGroup extends $dara.Model {
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyJobInfoSecurityPolicy extends $dara.Model {
+  securityGroup?: GetJobResponseBodyJobInfoSecurityPolicySecurityGroup;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroup: 'SecurityGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroup: GetJobResponseBodyJobInfoSecurityPolicySecurityGroup,
+    };
+  }
+
+  validate() {
+    if(this.securityGroup && typeof (this.securityGroup as any).validate === 'function') {
+      (this.securityGroup as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec extends $dara.Model {
   /**
    * @remarks
@@ -629,6 +681,35 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor extends $dara.Mo
   }
 }
 
+export class GetJobResponseBodyJobInfoTasksTaskSpecVolumeMount extends $dara.Model {
+  mountOptions?: string;
+  mountPath?: string;
+  volumeDriver?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountOptions: 'MountOptions',
+      mountPath: 'MountPath',
+      volumeDriver: 'VolumeDriver',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountOptions: 'string',
+      mountPath: 'string',
+      volumeDriver: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
   /**
    * @remarks
@@ -641,11 +722,13 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
    * The task execution configurations.
    */
   taskExecutor?: GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor[];
+  volumeMount?: GetJobResponseBodyJobInfoTasksTaskSpecVolumeMount[];
   static names(): { [key: string]: string } {
     return {
       resource: 'Resource',
       retryPolicy: 'RetryPolicy',
       taskExecutor: 'TaskExecutor',
+      volumeMount: 'VolumeMount',
     };
   }
 
@@ -654,6 +737,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
       resource: GetJobResponseBodyJobInfoTasksTaskSpecResource,
       retryPolicy: GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy,
       taskExecutor: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor },
+      volumeMount: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasksTaskSpecVolumeMount },
     };
   }
 
@@ -666,6 +750,9 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
     }
     if(Array.isArray(this.taskExecutor)) {
       $dara.Model.validateArray(this.taskExecutor);
+    }
+    if(Array.isArray(this.volumeMount)) {
+      $dara.Model.validateArray(this.volumeMount);
     }
     super.validate();
   }
@@ -808,6 +895,7 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
    * HPC
    */
   jobScheduler?: string;
+  securityPolicy?: GetJobResponseBodyJobInfoSecurityPolicy;
   /**
    * @remarks
    * The time when the job started.
@@ -852,6 +940,7 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
       jobId: 'JobId',
       jobName: 'JobName',
       jobScheduler: 'JobScheduler',
+      securityPolicy: 'SecurityPolicy',
       startTime: 'StartTime',
       status: 'Status',
       tasks: 'Tasks',
@@ -869,6 +958,7 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
       jobId: 'string',
       jobName: 'string',
       jobScheduler: 'string',
+      securityPolicy: GetJobResponseBodyJobInfoSecurityPolicy,
       startTime: 'string',
       status: 'string',
       tasks: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasks },
@@ -881,6 +971,9 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
     }
     if(this.deploymentPolicy && typeof (this.deploymentPolicy as any).validate === 'function') {
       (this.deploymentPolicy as any).validate();
+    }
+    if(this.securityPolicy && typeof (this.securityPolicy as any).validate === 'function') {
+      (this.securityPolicy as any).validate();
     }
     if(Array.isArray(this.tasks)) {
       $dara.Model.validateArray(this.tasks);
