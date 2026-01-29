@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class CallNumberDetailResponseBodyModel extends $dara.Model {
   /**
    * @remarks
+   * ai计费时长
+   * 
+   * @example
+   * 1
+   */
+  aiBill?: number;
+  /**
+   * @remarks
+   * 接通转接类型 1-不转人工；2-接通转人工；3-智能转人工
+   * 
+   * @example
+   * 1
+   */
+  answerTransferType?: number;
+  /**
+   * @remarks
    * 导入号码时返回的批次号
    * 
    * @example
@@ -21,6 +37,14 @@ export class CallNumberDetailResponseBodyModel extends $dara.Model {
   bill?: number;
   /**
    * @remarks
+   * 转接计费时长
+   * 
+   * @example
+   * 1
+   */
+  bridgeBill?: number;
+  /**
+   * @remarks
    * 每次呼叫的唯一标识
    * 
    * @example
@@ -35,6 +59,38 @@ export class CallNumberDetailResponseBodyModel extends $dara.Model {
    * 1
    */
   callType?: number;
+  /**
+   * @remarks
+   * 客户详情url
+   * 
+   * @example
+   * a
+   */
+  clientUrl?: string;
+  /**
+   * @remarks
+   * 创建时间 格式 2026-01-01 00:00:00
+   * 
+   * @example
+   * 2026-01-01 00:00:00
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 通话轮次
+   * 
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * 线路id
+   * 
+   * @example
+   * 1
+   */
+  gatewayId?: number;
   /**
    * @remarks
    * 号码编号
@@ -77,12 +133,36 @@ export class CallNumberDetailResponseBodyModel extends $dara.Model {
   numberMd5?: string;
   /**
    * @remarks
+   * 自定义参数 json
+   * 
+   * @example
+   * {"名字":"a"}
+   */
+  params?: string;
+  /**
+   * @remarks
    * 个性标签
    * 
    * @example
    * a
    */
   personalityTag?: string;
+  /**
+   * @remarks
+   * 备注信息
+   * 
+   * @example
+   * a
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * 坐席id
+   * 
+   * @example
+   * 1
+   */
+  sid?: number;
   /**
    * @remarks
    * 外呼状态编码
@@ -125,16 +205,26 @@ export class CallNumberDetailResponseBodyModel extends $dara.Model {
   transferStatus?: number;
   static names(): { [key: string]: string } {
     return {
+      aiBill: 'AiBill',
+      answerTransferType: 'AnswerTransferType',
       batchId: 'BatchId',
       bill: 'Bill',
+      bridgeBill: 'BridgeBill',
       callId: 'CallId',
       callType: 'CallType',
+      clientUrl: 'ClientUrl',
+      createTime: 'CreateTime',
+      duration: 'Duration',
+      gatewayId: 'GatewayId',
       id: 'Id',
       intentTag: 'IntentTag',
       keywords: 'Keywords',
       number: 'Number',
       numberMd5: 'NumberMd5',
+      params: 'Params',
       personalityTag: 'PersonalityTag',
+      remark: 'Remark',
+      sid: 'Sid',
       statusCode: 'StatusCode',
       tag: 'Tag',
       taskId: 'TaskId',
@@ -145,16 +235,26 @@ export class CallNumberDetailResponseBodyModel extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiBill: 'number',
+      answerTransferType: 'number',
       batchId: 'string',
       bill: 'number',
+      bridgeBill: 'number',
       callId: 'string',
       callType: 'number',
+      clientUrl: 'string',
+      createTime: 'string',
+      duration: 'number',
+      gatewayId: 'number',
       id: 'number',
       intentTag: 'string',
       keywords: 'string',
       number: 'string',
       numberMd5: 'string',
+      params: 'string',
       personalityTag: 'string',
+      remark: 'string',
+      sid: 'number',
       statusCode: 'number',
       tag: 'string',
       taskId: 'number',
