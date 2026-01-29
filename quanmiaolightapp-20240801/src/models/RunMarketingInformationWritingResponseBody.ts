@@ -64,6 +64,10 @@ export class RunMarketingInformationWritingResponseBodyHeader extends $dara.Mode
 }
 
 export class RunMarketingInformationWritingResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @example
+   * 推理内容
+   */
   reasonContent?: string;
   text?: string;
   static names(): { [key: string]: string } {

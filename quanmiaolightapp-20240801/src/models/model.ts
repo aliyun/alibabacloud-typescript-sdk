@@ -268,6 +268,7 @@ export { RunMarketingInformationExtractShrinkRequest } from './RunMarketingInfor
 export { RunMarketingInformationExtractResponseBody } from './RunMarketingInformationExtractResponseBody';
 export { RunMarketingInformationExtractResponse } from './RunMarketingInformationExtractResponse';
 export { RunMarketingInformationWritingRequest } from './RunMarketingInformationWritingRequest';
+export { RunMarketingInformationWritingShrinkRequest } from './RunMarketingInformationWritingShrinkRequest';
 export { RunMarketingInformationWritingResponseBody } from './RunMarketingInformationWritingResponseBody';
 export { RunMarketingInformationWritingResponse } from './RunMarketingInformationWritingResponse';
 export { RunNetworkContentAuditRequest } from './RunNetworkContentAuditRequest';

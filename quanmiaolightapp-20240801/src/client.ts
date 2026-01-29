@@ -1538,13 +1538,19 @@ export default class Client extends OpenApi {
   /**
    * 营销文案写作服务
    * 
-   * @param request - RunMarketingInformationWritingRequest
+   * @param tmpReq - RunMarketingInformationWritingRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunMarketingInformationWritingResponse
    */
-  async *runMarketingInformationWritingWithSSE(workspaceId: string, request: $_model.RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunMarketingInformationWritingResponse, any, unknown> {
-    request.validate();
+  async *runMarketingInformationWritingWithSSE(workspaceId: string, tmpReq: $_model.RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunMarketingInformationWritingResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunMarketingInformationWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.extParameters)) {
+      request.extParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extParameters, "extParameters", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.apiKey)) {
       body["apiKey"] = request.apiKey;
@@ -1558,20 +1564,48 @@ export default class Client extends OpenApi {
       body["customPrompt"] = request.customPrompt;
     }
 
+    if (!$dara.isNull(request.extParametersShrink)) {
+      body["extParameters"] = request.extParametersShrink;
+    }
+
+    if (!$dara.isNull(request.generateCount)) {
+      body["generateCount"] = request.generateCount;
+    }
+
     if (!$dara.isNull(request.inputExample)) {
       body["inputExample"] = request.inputExample;
+    }
+
+    if (!$dara.isNull(request.keywords)) {
+      body["keywords"] = request.keywords;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
     }
 
     if (!$dara.isNull(request.modelId)) {
       body["modelId"] = request.modelId;
     }
 
+    if (!$dara.isNull(request.otherRequirements)) {
+      body["otherRequirements"] = request.otherRequirements;
+    }
+
     if (!$dara.isNull(request.outputExample)) {
       body["outputExample"] = request.outputExample;
     }
 
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
     if (!$dara.isNull(request.sourceMaterial)) {
       body["sourceMaterial"] = request.sourceMaterial;
+    }
+
+    if (!$dara.isNull(request.wordCountRange)) {
+      body["wordCountRange"] = request.wordCountRange;
     }
 
     if (!$dara.isNull(request.writingType)) {
@@ -1612,13 +1646,19 @@ export default class Client extends OpenApi {
   /**
    * 营销文案写作服务
    * 
-   * @param request - RunMarketingInformationWritingRequest
+   * @param tmpReq - RunMarketingInformationWritingRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunMarketingInformationWritingResponse
    */
-  async runMarketingInformationWritingWithOptions(workspaceId: string, request: $_model.RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunMarketingInformationWritingResponse> {
-    request.validate();
+  async runMarketingInformationWritingWithOptions(workspaceId: string, tmpReq: $_model.RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunMarketingInformationWritingResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunMarketingInformationWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.extParameters)) {
+      request.extParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extParameters, "extParameters", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.apiKey)) {
       body["apiKey"] = request.apiKey;
@@ -1632,20 +1672,48 @@ export default class Client extends OpenApi {
       body["customPrompt"] = request.customPrompt;
     }
 
+    if (!$dara.isNull(request.extParametersShrink)) {
+      body["extParameters"] = request.extParametersShrink;
+    }
+
+    if (!$dara.isNull(request.generateCount)) {
+      body["generateCount"] = request.generateCount;
+    }
+
     if (!$dara.isNull(request.inputExample)) {
       body["inputExample"] = request.inputExample;
+    }
+
+    if (!$dara.isNull(request.keywords)) {
+      body["keywords"] = request.keywords;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
     }
 
     if (!$dara.isNull(request.modelId)) {
       body["modelId"] = request.modelId;
     }
 
+    if (!$dara.isNull(request.otherRequirements)) {
+      body["otherRequirements"] = request.otherRequirements;
+    }
+
     if (!$dara.isNull(request.outputExample)) {
       body["outputExample"] = request.outputExample;
     }
 
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
     if (!$dara.isNull(request.sourceMaterial)) {
       body["sourceMaterial"] = request.sourceMaterial;
+    }
+
+    if (!$dara.isNull(request.wordCountRange)) {
+      body["wordCountRange"] = request.wordCountRange;
     }
 
     if (!$dara.isNull(request.writingType)) {

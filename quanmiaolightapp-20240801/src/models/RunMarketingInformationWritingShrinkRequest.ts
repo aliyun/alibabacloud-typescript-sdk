@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RunMarketingInformationWritingRequest extends $dara.Model {
+export class RunMarketingInformationWritingShrinkRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @example
@@ -23,7 +23,7 @@ export class RunMarketingInformationWritingRequest extends $dara.Model {
    *               "thinkingBudget": "2000"
    *             }
    */
-  extParameters?: { [key: string]: string };
+  extParametersShrink?: string;
   /**
    * @example
    * 5
@@ -85,7 +85,7 @@ export class RunMarketingInformationWritingRequest extends $dara.Model {
       apiKey: 'apiKey',
       customLimitation: 'customLimitation',
       customPrompt: 'customPrompt',
-      extParameters: 'extParameters',
+      extParametersShrink: 'extParameters',
       generateCount: 'generateCount',
       inputExample: 'inputExample',
       keywords: 'keywords',
@@ -105,7 +105,7 @@ export class RunMarketingInformationWritingRequest extends $dara.Model {
       apiKey: 'string',
       customLimitation: 'string',
       customPrompt: 'string',
-      extParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      extParametersShrink: 'string',
       generateCount: 'string',
       inputExample: 'string',
       keywords: 'string',
@@ -121,9 +121,6 @@ export class RunMarketingInformationWritingRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.extParameters) {
-      $dara.Model.validateMap(this.extParameters);
-    }
     super.validate();
   }
 
