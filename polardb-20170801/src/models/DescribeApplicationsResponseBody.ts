@@ -69,6 +69,66 @@ export class DescribeApplicationsResponseBodyItemsApplicationsEndpoints extends 
   }
 }
 
+export class DescribeApplicationsResponseBodyItemsApplicationsTagsTag extends $dara.Model {
+  /**
+   * @example
+   * testKey
+   */
+  key?: string;
+  /**
+   * @example
+   * testValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationsResponseBodyItemsApplicationsTags extends $dara.Model {
+  tag?: DescribeApplicationsResponseBodyItemsApplicationsTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeApplicationsResponseBodyItemsApplicationsTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Model {
   /**
    * @example
@@ -131,6 +191,7 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
    * Activated
    */
   status?: string;
+  tags?: DescribeApplicationsResponseBodyItemsApplicationsTags;
   /**
    * @example
    * cn-hangzhou-b
@@ -151,6 +212,7 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
       polarFSInstanceId: 'PolarFSInstanceId',
       regionId: 'RegionId',
       status: 'Status',
+      tags: 'Tags',
       zoneId: 'ZoneId',
     };
   }
@@ -170,6 +232,7 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
       polarFSInstanceId: 'string',
       regionId: 'string',
       status: 'string',
+      tags: DescribeApplicationsResponseBodyItemsApplicationsTags,
       zoneId: 'string',
     };
   }
@@ -177,6 +240,9 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
   validate() {
     if(this.endpoints && typeof (this.endpoints as any).validate === 'function') {
       (this.endpoints as any).validate();
+    }
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
     }
     super.validate();
   }

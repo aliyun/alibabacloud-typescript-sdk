@@ -49,8 +49,11 @@ export { DescribeApplicationParametersResponseBodyParametersComponentParametersP
 export { DescribeApplicationParametersResponseBodyParametersComponentParameters } from './DescribeApplicationParametersResponseBody';
 export { DescribeApplicationParametersResponseBodyParameters } from './DescribeApplicationParametersResponseBody';
 export { DescribeApplicationServerlessConfResponseBodyServerlessConfItems } from './DescribeApplicationServerlessConfResponseBody';
+export { DescribeApplicationsRequestTag } from './DescribeApplicationsRequest';
 export { DescribeApplicationsResponseBodyItemsApplicationsEndpointsEndpoint } from './DescribeApplicationsResponseBody';
 export { DescribeApplicationsResponseBodyItemsApplicationsEndpoints } from './DescribeApplicationsResponseBody';
+export { DescribeApplicationsResponseBodyItemsApplicationsTagsTag } from './DescribeApplicationsResponseBody';
+export { DescribeApplicationsResponseBodyItemsApplicationsTags } from './DescribeApplicationsResponseBody';
 export { DescribeApplicationsResponseBodyItemsApplications } from './DescribeApplicationsResponseBody';
 export { DescribeApplicationsResponseBodyItems } from './DescribeApplicationsResponseBody';
 export { DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute } from './DescribeAutoRenewAttributeResponseBody';

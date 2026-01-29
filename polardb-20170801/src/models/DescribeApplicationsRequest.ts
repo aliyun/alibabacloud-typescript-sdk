@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeApplicationsRequestTag extends $dara.Model {
+  /**
+   * @example
+   * testKey
+   */
+  key?: string;
+  /**
+   * @example
+   * testValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationsRequest extends $dara.Model {
   /**
    * @example
@@ -32,6 +66,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  tag?: DescribeApplicationsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       applicationIds: 'ApplicationIds',
@@ -40,6 +75,7 @@ export class DescribeApplicationsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      tag: 'Tag',
     };
   }
 
@@ -51,10 +87,14 @@ export class DescribeApplicationsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeApplicationsRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 
