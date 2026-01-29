@@ -2040,12 +2040,18 @@ export default class Client extends OpenApi {
   /**
    * Queries the coverage details of savings plans.
    * 
-   * @param request - DescribeSavingsPlansCoverageDetailRequest
+   * @param tmpReq - DescribeSavingsPlansCoverageDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSavingsPlansCoverageDetailResponse
    */
-  async describeSavingsPlansCoverageDetailWithOptions(request: $_model.DescribeSavingsPlansCoverageDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansCoverageDetailResponse> {
-    request.validate();
+  async describeSavingsPlansCoverageDetailWithOptions(tmpReq: $_model.DescribeSavingsPlansCoverageDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansCoverageDetailResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeSavingsPlansCoverageDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterParam)) {
+      request.filterParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParam, "FilterParam", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.billOwnerId)) {
       query["BillOwnerId"] = request.billOwnerId;
@@ -2053,6 +2059,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endPeriod)) {
       query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!$dara.isNull(request.filterParamShrink)) {
+      query["FilterParam"] = request.filterParamShrink;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -2102,12 +2112,18 @@ export default class Client extends OpenApi {
   /**
    * Queries the coverage summary of savings plans.
    * 
-   * @param request - DescribeSavingsPlansCoverageTotalRequest
+   * @param tmpReq - DescribeSavingsPlansCoverageTotalRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSavingsPlansCoverageTotalResponse
    */
-  async describeSavingsPlansCoverageTotalWithOptions(request: $_model.DescribeSavingsPlansCoverageTotalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansCoverageTotalResponse> {
-    request.validate();
+  async describeSavingsPlansCoverageTotalWithOptions(tmpReq: $_model.DescribeSavingsPlansCoverageTotalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansCoverageTotalResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeSavingsPlansCoverageTotalShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterParam)) {
+      request.filterParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParam, "FilterParam", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.billOwnerId)) {
       query["BillOwnerId"] = request.billOwnerId;
@@ -2115,6 +2131,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endPeriod)) {
       query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!$dara.isNull(request.filterParamShrink)) {
+      query["FilterParam"] = request.filterParamShrink;
     }
 
     if (!$dara.isNull(request.periodType)) {
@@ -2156,12 +2176,18 @@ export default class Client extends OpenApi {
   /**
    * Queries the usage details of savings plans.
    * 
-   * @param request - DescribeSavingsPlansUsageDetailRequest
+   * @param tmpReq - DescribeSavingsPlansUsageDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSavingsPlansUsageDetailResponse
    */
-  async describeSavingsPlansUsageDetailWithOptions(request: $_model.DescribeSavingsPlansUsageDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansUsageDetailResponse> {
-    request.validate();
+  async describeSavingsPlansUsageDetailWithOptions(tmpReq: $_model.DescribeSavingsPlansUsageDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansUsageDetailResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeSavingsPlansUsageDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterParam)) {
+      request.filterParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParam, "FilterParam", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.billOwnerId)) {
       query["BillOwnerId"] = request.billOwnerId;
@@ -2169,6 +2195,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endPeriod)) {
       query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!$dara.isNull(request.filterParamShrink)) {
+      query["FilterParam"] = request.filterParamShrink;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -2218,12 +2248,18 @@ export default class Client extends OpenApi {
   /**
    * Queries the usage summary of savings plans.
    * 
-   * @param request - DescribeSavingsPlansUsageTotalRequest
+   * @param tmpReq - DescribeSavingsPlansUsageTotalRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSavingsPlansUsageTotalResponse
    */
-  async describeSavingsPlansUsageTotalWithOptions(request: $_model.DescribeSavingsPlansUsageTotalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansUsageTotalResponse> {
-    request.validate();
+  async describeSavingsPlansUsageTotalWithOptions(tmpReq: $_model.DescribeSavingsPlansUsageTotalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSavingsPlansUsageTotalResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeSavingsPlansUsageTotalShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterParam)) {
+      request.filterParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParam, "FilterParam", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.billOwnerId)) {
       query["BillOwnerId"] = request.billOwnerId;
@@ -2231,6 +2267,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endPeriod)) {
       query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!$dara.isNull(request.filterParamShrink)) {
+      query["FilterParam"] = request.filterParamShrink;
     }
 
     if (!$dara.isNull(request.periodType)) {

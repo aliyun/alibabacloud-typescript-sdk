@@ -2,6 +2,102 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeSavingsPlansUsageTotalRequestFilterParamDimensions extends $dara.Model {
+  code?: string;
+  selectType?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      selectType: 'SelectType',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      selectType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlansUsageTotalRequestFilterParamTags extends $dara.Model {
+  code?: string;
+  selectType?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      selectType: 'SelectType',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      selectType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlansUsageTotalRequestFilterParam extends $dara.Model {
+  dimensions?: DescribeSavingsPlansUsageTotalRequestFilterParamDimensions[];
+  tags?: DescribeSavingsPlansUsageTotalRequestFilterParamTags[];
+  static names(): { [key: string]: string } {
+    return {
+      dimensions: 'Dimensions',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensions: { 'type': 'array', 'itemType': DescribeSavingsPlansUsageTotalRequestFilterParamDimensions },
+      tags: { 'type': 'array', 'itemType': DescribeSavingsPlansUsageTotalRequestFilterParamTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dimensions)) {
+      $dara.Model.validateArray(this.dimensions);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSavingsPlansUsageTotalRequest extends $dara.Model {
   /**
    * @remarks
@@ -19,6 +115,7 @@ export class DescribeSavingsPlansUsageTotalRequest extends $dara.Model {
    * 2021-01-02 00:00:00
    */
   endPeriod?: string;
+  filterParam?: DescribeSavingsPlansUsageTotalRequestFilterParam;
   /**
    * @remarks
    * The time granularity at which usage summary are queried. Valid values: MONTH, DAY, and HOUR.
@@ -43,6 +140,7 @@ export class DescribeSavingsPlansUsageTotalRequest extends $dara.Model {
     return {
       billOwnerId: 'BillOwnerId',
       endPeriod: 'EndPeriod',
+      filterParam: 'FilterParam',
       periodType: 'PeriodType',
       startPeriod: 'StartPeriod',
     };
@@ -52,12 +150,16 @@ export class DescribeSavingsPlansUsageTotalRequest extends $dara.Model {
     return {
       billOwnerId: 'number',
       endPeriod: 'string',
+      filterParam: DescribeSavingsPlansUsageTotalRequestFilterParam,
       periodType: 'string',
       startPeriod: 'string',
     };
   }
 
   validate() {
+    if(this.filterParam && typeof (this.filterParam as any).validate === 'function') {
+      (this.filterParam as any).validate();
+    }
     super.validate();
   }
 

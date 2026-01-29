@@ -2,6 +2,102 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeSavingsPlansCoverageDetailRequestFilterParamDimensions extends $dara.Model {
+  code?: string;
+  selectType?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      selectType: 'SelectType',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      selectType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlansCoverageDetailRequestFilterParamTags extends $dara.Model {
+  code?: string;
+  selectType?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      selectType: 'SelectType',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      selectType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSavingsPlansCoverageDetailRequestFilterParam extends $dara.Model {
+  dimensions?: DescribeSavingsPlansCoverageDetailRequestFilterParamDimensions[];
+  tags?: DescribeSavingsPlansCoverageDetailRequestFilterParamTags[];
+  static names(): { [key: string]: string } {
+    return {
+      dimensions: 'Dimensions',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensions: { 'type': 'array', 'itemType': DescribeSavingsPlansCoverageDetailRequestFilterParamDimensions },
+      tags: { 'type': 'array', 'itemType': DescribeSavingsPlansCoverageDetailRequestFilterParamTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dimensions)) {
+      $dara.Model.validateArray(this.dimensions);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSavingsPlansCoverageDetailRequest extends $dara.Model {
   /**
    * @remarks
@@ -19,6 +115,7 @@ export class DescribeSavingsPlansCoverageDetailRequest extends $dara.Model {
    * 2021-08-09 00:00:00
    */
   endPeriod?: string;
+  filterParam?: DescribeSavingsPlansCoverageDetailRequestFilterParam;
   /**
    * @remarks
    * The maximum number of entries to return. Default value: 20. Maximum value: 300.
@@ -59,6 +156,7 @@ export class DescribeSavingsPlansCoverageDetailRequest extends $dara.Model {
     return {
       billOwnerId: 'BillOwnerId',
       endPeriod: 'EndPeriod',
+      filterParam: 'FilterParam',
       maxResults: 'MaxResults',
       periodType: 'PeriodType',
       startPeriod: 'StartPeriod',
@@ -70,6 +168,7 @@ export class DescribeSavingsPlansCoverageDetailRequest extends $dara.Model {
     return {
       billOwnerId: 'number',
       endPeriod: 'string',
+      filterParam: DescribeSavingsPlansCoverageDetailRequestFilterParam,
       maxResults: 'number',
       periodType: 'string',
       startPeriod: 'string',
@@ -78,6 +177,9 @@ export class DescribeSavingsPlansCoverageDetailRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.filterParam && typeof (this.filterParam as any).validate === 'function') {
+      (this.filterParam as any).validate();
+    }
     super.validate();
   }
 
