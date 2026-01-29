@@ -653,6 +653,10 @@ export default class Client extends OpenApi {
       query["chunkMode"] = request.chunkMode;
     }
 
+    if (!$dara.isNull(request.connectId)) {
+      query["connectId"] = request.connectId;
+    }
+
     if (!$dara.isNull(request.database)) {
       query["database"] = request.database;
     }
@@ -663,6 +667,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableHeaders)) {
       query["enableHeaders"] = request.enableHeaders;
+    }
+
+    if (!$dara.isNull(request.knowledgeScene)) {
+      query["knowledgeScene"] = request.knowledgeScene;
     }
 
     if (!$dara.isNull(request.metaExtractColumnsShrink)) {

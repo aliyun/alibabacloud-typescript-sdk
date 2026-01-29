@@ -425,6 +425,7 @@ export class CreateIndexRequest extends $dara.Model {
    * regex
    */
   chunkMode?: string;
+  connectId?: string;
   database?: string;
   datasourceCode?: string;
   /**
@@ -444,6 +445,7 @@ export class CreateIndexRequest extends $dara.Model {
    * false
    */
   enableHeaders?: boolean;
+  knowledgeScene?: string;
   /**
    * @remarks
    * The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
@@ -488,9 +490,11 @@ export class CreateIndexRequest extends $dara.Model {
       structureType: 'StructureType',
       tableIds: 'TableIds',
       chunkMode: 'chunkMode',
+      connectId: 'connectId',
       database: 'database',
       datasourceCode: 'datasourceCode',
       enableHeaders: 'enableHeaders',
+      knowledgeScene: 'knowledgeScene',
       metaExtractColumns: 'metaExtractColumns',
       pipelineCommercialCu: 'pipelineCommercialCu',
       pipelineCommercialType: 'pipelineCommercialType',
@@ -522,9 +526,11 @@ export class CreateIndexRequest extends $dara.Model {
       structureType: 'string',
       tableIds: { 'type': 'array', 'itemType': 'string' },
       chunkMode: 'string',
+      connectId: 'string',
       database: 'string',
       datasourceCode: 'string',
       enableHeaders: 'boolean',
+      knowledgeScene: 'string',
       metaExtractColumns: { 'type': 'array', 'itemType': CreateIndexRequestMetaExtractColumns },
       pipelineCommercialCu: 'number',
       pipelineCommercialType: 'string',
