@@ -2864,6 +2864,10 @@ export default class Client extends OpenApi {
   async createActivationWithOptions(request: $_model.CreateActivationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateActivationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
@@ -3424,6 +3428,10 @@ export default class Client extends OpenApi {
   async createCommandWithOptions(request: $_model.CreateCommandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCommandResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.commandContent)) {
       query["CommandContent"] = request.commandContent;
     }
@@ -10259,6 +10267,10 @@ export default class Client extends OpenApi {
   async deregisterManagedInstanceWithOptions(request: $_model.DeregisterManagedInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeregisterManagedInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -27678,6 +27690,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.commandContent)) {
       query["CommandContent"] = request.commandContent;
     }
@@ -33710,6 +33726,10 @@ export default class Client extends OpenApi {
   async sendFileWithOptions(request: $_model.SendFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendFileResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.content)) {
       query["Content"] = request.content;
     }
@@ -34105,6 +34125,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.commandLine)) {
       query["CommandLine"] = request.commandLine;
     }

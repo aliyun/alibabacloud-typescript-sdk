@@ -49,6 +49,7 @@ export class CreateActivationRequestTag extends $dara.Model {
 }
 
 export class CreateActivationRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
    * The description of the activation code. The description must be 1 to 100 characters in length.
@@ -126,6 +127,7 @@ export class CreateActivationRequest extends $dara.Model {
   timeToLiveInHours?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       description: 'Description',
       instanceCount: 'InstanceCount',
       instanceName: 'InstanceName',
@@ -143,6 +145,7 @@ export class CreateActivationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       description: 'string',
       instanceCount: 'number',
       instanceName: 'string',

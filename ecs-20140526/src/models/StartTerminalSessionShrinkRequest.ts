@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartTerminalSessionShrinkRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
    * The command to run after the session is initiated. The command length cannot exceed 512 characters.
@@ -77,6 +78,7 @@ export class StartTerminalSessionShrinkRequest extends $dara.Model {
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       commandLine: 'CommandLine',
       connectionType: 'ConnectionType',
       encryptionOptionsShrink: 'EncryptionOptions',
@@ -95,6 +97,7 @@ export class StartTerminalSessionShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       commandLine: 'string',
       connectionType: 'string',
       encryptionOptionsShrink: 'string',

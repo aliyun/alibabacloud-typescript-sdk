@@ -79,6 +79,8 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances
    * Success
    */
   invocationStatus?: string;
+  ossOutputErrorCode?: string;
+  ossOutputErrorInfo?: string;
   /**
    * @remarks
    * The overall execution status of the command task. The value of this parameter depends on the execution status of the command task on all the involved instances. Valid values:
@@ -186,6 +188,8 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances
       instanceId: 'InstanceId',
       instanceInvokeStatus: 'InstanceInvokeStatus',
       invocationStatus: 'InvocationStatus',
+      ossOutputErrorCode: 'OssOutputErrorCode',
+      ossOutputErrorInfo: 'OssOutputErrorInfo',
       ossOutputStatus: 'OssOutputStatus',
       ossOutputUri: 'OssOutputUri',
       output: 'Output',
@@ -208,6 +212,8 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances
       instanceId: 'string',
       instanceInvokeStatus: 'string',
       invocationStatus: 'string',
+      ossOutputErrorCode: 'string',
+      ossOutputErrorInfo: 'string',
       ossOutputStatus: 'string',
       ossOutputUri: 'string',
       output: 'string',

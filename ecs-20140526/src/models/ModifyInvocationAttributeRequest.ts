@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInvocationAttributeRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
    * The content of the command after modification. The command content can be plaintext or Base64-encoded. Take note of the following items:
@@ -149,6 +150,7 @@ export class ModifyInvocationAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       commandContent: 'CommandContent',
       contentEncoding: 'ContentEncoding',
       enableParameter: 'EnableParameter',
@@ -166,6 +168,7 @@ export class ModifyInvocationAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       commandContent: 'string',
       contentEncoding: 'string',
       enableParameter: 'boolean',

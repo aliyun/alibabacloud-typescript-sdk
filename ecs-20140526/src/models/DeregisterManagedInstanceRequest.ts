@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeregisterManagedInstanceRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
    * The managed instance ID.
@@ -31,6 +32,7 @@ export class DeregisterManagedInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -42,6 +44,7 @@ export class DeregisterManagedInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

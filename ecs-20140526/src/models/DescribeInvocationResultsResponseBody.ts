@@ -249,6 +249,8 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * oss://testBucket/testPrefix
    */
   ossOutputDelivery?: string;
+  ossOutputErrorCode?: string;
+  ossOutputErrorInfo?: string;
   /**
    * @remarks
    * The execution results.
@@ -358,6 +360,8 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
       invokeRecordStatus: 'InvokeRecordStatus',
       launcher: 'Launcher',
       ossOutputDelivery: 'OssOutputDelivery',
+      ossOutputErrorCode: 'OssOutputErrorCode',
+      ossOutputErrorInfo: 'OssOutputErrorInfo',
       ossOutputStatus: 'OssOutputStatus',
       ossOutputUri: 'OssOutputUri',
       output: 'Output',
@@ -386,6 +390,8 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
       invokeRecordStatus: 'string',
       launcher: 'string',
       ossOutputDelivery: 'string',
+      ossOutputErrorCode: 'string',
+      ossOutputErrorInfo: 'string',
       ossOutputStatus: 'string',
       ossOutputUri: 'string',
       output: 'string',

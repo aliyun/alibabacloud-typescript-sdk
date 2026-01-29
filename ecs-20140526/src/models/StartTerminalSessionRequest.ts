@@ -32,6 +32,7 @@ export class StartTerminalSessionRequestEncryptionOptions extends $dara.Model {
 }
 
 export class StartTerminalSessionRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
    * The command to run after the session is initiated. The command length cannot exceed 512 characters.
@@ -106,6 +107,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       commandLine: 'CommandLine',
       connectionType: 'ConnectionType',
       encryptionOptions: 'EncryptionOptions',
@@ -124,6 +126,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       commandLine: 'string',
       connectionType: 'string',
       encryptionOptions: StartTerminalSessionRequestEncryptionOptions,

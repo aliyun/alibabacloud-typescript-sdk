@@ -49,6 +49,7 @@ export class CreateCommandRequestTag extends $dara.Model {
 }
 
 export class CreateCommandRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
    * The Base64-encoded content of the command. Take note of the following items:
@@ -213,6 +214,7 @@ export class CreateCommandRequest extends $dara.Model {
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       commandContent: 'CommandContent',
       contentEncoding: 'ContentEncoding',
       description: 'Description',
@@ -234,6 +236,7 @@ export class CreateCommandRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       commandContent: 'string',
       contentEncoding: 'string',
       description: 'string',

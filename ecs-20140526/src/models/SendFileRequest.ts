@@ -49,6 +49,7 @@ export class SendFileRequestTag extends $dara.Model {
 }
 
 export class SendFileRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
    * The content of the file. The file must not exceed 32 KB in size after it is encoded in Base64.
@@ -201,6 +202,7 @@ export class SendFileRequest extends $dara.Model {
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       content: 'Content',
       contentType: 'ContentType',
       description: 'Description',
@@ -224,6 +226,7 @@ export class SendFileRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       content: 'string',
       contentType: 'string',
       description: 'string',
