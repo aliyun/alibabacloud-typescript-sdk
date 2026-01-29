@@ -16,12 +16,18 @@ export class PrecheckDuckDBDependencyRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * readOnly
+   */
+  targetMode?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      targetMode: 'TargetMode',
     };
   }
 
@@ -31,6 +37,7 @@ export class PrecheckDuckDBDependencyRequest extends $dara.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      targetMode: 'string',
     };
   }
 
