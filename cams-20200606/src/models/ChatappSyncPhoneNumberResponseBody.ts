@@ -2,7 +2,223 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule extends $dara.Model {
+  /**
+   * @example
+   * 2026-01-01
+   */
+  date?: string;
+  /**
+   * @example
+   * 2359
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 0000
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours extends $dara.Model {
+  /**
+   * @example
+   * 2359
+   */
+  closeTime?: string;
+  /**
+   * @example
+   * MONDAY
+   */
+  dayOfWeek?: string;
+  /**
+   * @example
+   * 0000
+   */
+  openTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      closeTime: 'CloseTime',
+      dayOfWeek: 'DayOfWeek',
+      openTime: 'OpenTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      closeTime: 'string',
+      dayOfWeek: 'string',
+      openTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHours extends $dara.Model {
+  holidaySchedule?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule[];
+  /**
+   * @example
+   * ENABLED
+   */
+  status?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezoneId?: string;
+  weeklyOperatingHours?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours[];
+  static names(): { [key: string]: string } {
+    return {
+      holidaySchedule: 'HolidaySchedule',
+      status: 'Status',
+      timezoneId: 'TimezoneId',
+      weeklyOperatingHours: 'WeeklyOperatingHours',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      holidaySchedule: { 'type': 'array', 'itemType': ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule },
+      status: 'string',
+      timezoneId: 'string',
+      weeklyOperatingHours: { 'type': 'array', 'itemType': ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.holidaySchedule)) {
+      $dara.Model.validateArray(this.holidaySchedule);
+    }
+    if(Array.isArray(this.weeklyOperatingHours)) {
+      $dara.Model.validateArray(this.weeklyOperatingHours);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalling extends $dara.Model {
+  callHours?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHours;
+  /**
+   * @example
+   * DEFAULT
+   */
+  callIconVisibility?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  callbackPermissionStatus?: string;
+  /**
+   * @example
+   * ENABLED
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callHours: 'CallHours',
+      callIconVisibility: 'CallIconVisibility',
+      callbackPermissionStatus: 'CallbackPermissionStatus',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callHours: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHours,
+      callIconVisibility: 'string',
+      callbackPermissionStatus: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.callHours && typeof (this.callHours as any).validate === 'function') {
+      (this.callHours as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigure extends $dara.Model {
+  calling?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalling;
+  /**
+   * @example
+   * http://aliyun.com
+   */
+  callingCallbackUrl?: string;
+  /**
+   * @example
+   * 100
+   */
+  maxTalkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      calling: 'Calling',
+      callingCallbackUrl: 'CallingCallbackUrl',
+      maxTalkTime: 'MaxTalkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calling: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalling,
+      callingCallbackUrl: 'string',
+      maxTalkTime: 'number',
+    };
+  }
+
+  validate() {
+    if(this.calling && typeof (this.calling as any).validate === 'function') {
+      (this.calling as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model {
+  callingConfigure?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigure;
   /**
    * @remarks
    * The verification state of the phone number.
@@ -136,6 +352,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   verifiedName?: string;
   static names(): { [key: string]: string } {
     return {
+      callingConfigure: 'CallingConfigure',
       codeVerificationStatus: 'CodeVerificationStatus',
       isOfficial: 'IsOfficial',
       messagingLimitTier: 'MessagingLimitTier',
@@ -154,6 +371,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      callingConfigure: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigure,
       codeVerificationStatus: 'string',
       isOfficial: 'string',
       messagingLimitTier: 'string',
@@ -171,6 +389,9 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   }
 
   validate() {
+    if(this.callingConfigure && typeof (this.callingConfigure as any).validate === 'function') {
+      (this.callingConfigure as any).validate();
+    }
     super.validate();
   }
 

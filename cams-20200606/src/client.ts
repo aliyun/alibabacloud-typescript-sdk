@@ -11511,4 +11511,84 @@ export default class Client extends OpenApi {
     return await this.updateWabaMmlStatusWithOptions(request, runtime);
   }
 
+  /**
+   * Whatsapp 语音电话
+   * 
+   * @param tmpReq - WhatsappCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WhatsappCallResponse
+   */
+  async whatsappCallWithOptions(tmpReq: $_model.WhatsappCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.WhatsappCallResponse> {
+    tmpReq.validate();
+    let request = new $_model.WhatsappCallShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.session)) {
+      request.sessionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.session, "Session", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.callAction)) {
+      query["CallAction"] = request.callAction;
+    }
+
+    if (!$dara.isNull(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sessionShrink)) {
+      query["Session"] = request.sessionShrink;
+    }
+
+    if (!$dara.isNull(request.userNumber)) {
+      query["UserNumber"] = request.userNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "WhatsappCall",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.WhatsappCallResponse>(await this.callApi(params, req, runtime), new $_model.WhatsappCallResponse({}));
+  }
+
+  /**
+   * Whatsapp 语音电话
+   * 
+   * @param request - WhatsappCallRequest
+   * @returns WhatsappCallResponse
+   */
+  async whatsappCall(request: $_model.WhatsappCallRequest): Promise<$_model.WhatsappCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.whatsappCallWithOptions(request, runtime);
+  }
+
 }
