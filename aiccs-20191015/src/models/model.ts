@@ -116,6 +116,9 @@ export { QueryAiVoiceAgentDetailResponseBodyData } from './QueryAiVoiceAgentDeta
 export { QueryConversationDetailInfoResponseBodyDataOutputTags } from './QueryConversationDetailInfoResponseBody';
 export { QueryConversationDetailInfoResponseBodyDataVariables } from './QueryConversationDetailInfoResponseBody';
 export { QueryConversationDetailInfoResponseBodyData } from './QueryConversationDetailInfoResponseBody';
+export { QueryConversationDetailInfoNewResponseBodyDataOutputTags } from './QueryConversationDetailInfoNewResponseBody';
+export { QueryConversationDetailInfoNewResponseBodyDataVariables } from './QueryConversationDetailInfoNewResponseBody';
+export { QueryConversationDetailInfoNewResponseBodyData } from './QueryConversationDetailInfoNewResponseBody';
 export { QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList } from './QueryHotlineNumberResponseBody';
 export { QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList } from './QueryHotlineNumberResponseBody';
 export { QueryHotlineNumberResponseBodyDataHotlineNumList } from './QueryHotlineNumberResponseBody';
@@ -544,6 +547,9 @@ export { QueryAiVoiceAgentDetailResponse } from './QueryAiVoiceAgentDetailRespon
 export { QueryConversationDetailInfoRequest } from './QueryConversationDetailInfoRequest';
 export { QueryConversationDetailInfoResponseBody } from './QueryConversationDetailInfoResponseBody';
 export { QueryConversationDetailInfoResponse } from './QueryConversationDetailInfoResponse';
+export { QueryConversationDetailInfoNewRequest } from './QueryConversationDetailInfoNewRequest';
+export { QueryConversationDetailInfoNewResponseBody } from './QueryConversationDetailInfoNewResponseBody';
+export { QueryConversationDetailInfoNewResponse } from './QueryConversationDetailInfoNewResponse';
 export { QueryHotlineInQueueRequest } from './QueryHotlineInQueueRequest';
 export { QueryHotlineInQueueResponseBody } from './QueryHotlineInQueueResponseBody';
 export { QueryHotlineInQueueResponse } from './QueryHotlineInQueueResponse';

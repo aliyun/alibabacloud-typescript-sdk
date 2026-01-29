@@ -7090,6 +7090,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询通话记录接口-新
+   * 
+   * @param request - QueryConversationDetailInfoNewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConversationDetailInfoNewResponse
+   */
+  async queryConversationDetailInfoNewWithOptions(request: $_model.QueryConversationDetailInfoNewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryConversationDetailInfoNewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!$dara.isNull(request.detailId)) {
+      query["DetailId"] = request.detailId;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryConversationDetailInfoNew",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryConversationDetailInfoNewResponse>(await this.callApi(params, req, runtime), new $_model.QueryConversationDetailInfoNewResponse({}));
+  }
+
+  /**
+   * 查询通话记录接口-新
+   * 
+   * @param request - QueryConversationDetailInfoNewRequest
+   * @returns QueryConversationDetailInfoNewResponse
+   */
+  async queryConversationDetailInfoNew(request: $_model.QueryConversationDetailInfoNewRequest): Promise<$_model.QueryConversationDetailInfoNewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryConversationDetailInfoNewWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryHotlineInQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryHotlineInQueueResponse
