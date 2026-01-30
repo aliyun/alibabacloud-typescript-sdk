@@ -18,10 +18,12 @@ export class UpdateResourceInstanceRequest extends $dara.Model {
    */
   action?: string;
   newDiskSize?: string;
+  reason?: string;
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
       newDiskSize: 'NewDiskSize',
+      reason: 'Reason',
     };
   }
 
@@ -29,6 +31,7 @@ export class UpdateResourceInstanceRequest extends $dara.Model {
     return {
       action: 'string',
       newDiskSize: 'string',
+      reason: 'string',
     };
   }
 

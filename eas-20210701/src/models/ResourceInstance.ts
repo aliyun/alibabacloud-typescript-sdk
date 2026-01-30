@@ -53,6 +53,8 @@ export class ResourceInstance extends $dara.Model {
   instanceUsedGpuMemory?: string;
   instanceUsedMemory?: string;
   labels?: ResourceInstanceLabels[];
+  lastCordonOperator?: string;
+  lastCordonReason?: string;
   region?: string;
   resourceId?: string;
   zone?: string;
@@ -80,6 +82,8 @@ export class ResourceInstance extends $dara.Model {
       instanceUsedGpuMemory: 'InstanceUsedGpuMemory',
       instanceUsedMemory: 'InstanceUsedMemory',
       labels: 'Labels',
+      lastCordonOperator: 'LastCordonOperator',
+      lastCordonReason: 'LastCordonReason',
       region: 'Region',
       resourceId: 'ResourceId',
       zone: 'Zone',
@@ -110,6 +114,8 @@ export class ResourceInstance extends $dara.Model {
       instanceUsedGpuMemory: 'string',
       instanceUsedMemory: 'string',
       labels: { 'type': 'array', 'itemType': ResourceInstanceLabels },
+      lastCordonOperator: 'string',
+      lastCordonReason: 'string',
       region: 'string',
       resourceId: 'string',
       zone: 'string',
