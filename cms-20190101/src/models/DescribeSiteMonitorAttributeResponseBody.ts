@@ -1370,6 +1370,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * 1
    */
   matchRule?: number;
+  maxTlsVersion?: string;
   /**
    * @remarks
    * The minimum TLS version. By default, TLS 1.2 and later versions are supported. TLS 1.0 and 1.1 are disabled. If you still require TLS 1.0 or 1.1, you can change the configuration.
@@ -1511,6 +1512,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * false
    */
   scrollEnd?: boolean;
+  serverName?: string;
   steps?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonSteps;
   /**
    * @remarks
@@ -1520,6 +1522,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * false
    */
   strictMode?: boolean;
+  supportedCipherSuits?: string;
   /**
    * @remarks
    * The timeout period. Unit: milliseconds.
@@ -1549,6 +1552,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    */
   trafficHijackElementWhitelist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist;
   usePrivateCrt?: boolean;
+  useSsl?: boolean;
   /**
    * @remarks
    * The username of the FTP, SMTP, or POP3 protocol.
@@ -1599,6 +1603,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       ipNetwork: 'ip_network',
       isBase64Encode: 'isBase64Encode',
       matchRule: 'match_rule',
+      maxTlsVersion: 'max_tls_version',
       minTlsVersion: 'min_tls_version',
       password: 'password',
       pingNum: 'ping_num',
@@ -1617,8 +1622,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       safeLink: 'safe_link',
       screenShot: 'screen_shot',
       scrollEnd: 'scroll_end',
+      serverName: 'server_name',
       steps: 'steps',
       strictMode: 'strict_mode',
+      supportedCipherSuits: 'supported_cipher_suits',
       timeOut: 'time_out',
       traceRegion: 'trace_region',
       traceType: 'trace_type',
@@ -1626,6 +1633,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       trafficHijackElementCount: 'traffic_hijack_element_count',
       trafficHijackElementWhitelist: 'traffic_hijack_element_whitelist',
       usePrivateCrt: 'use_private_crt',
+      useSsl: 'use_ssl',
       username: 'username',
       waitTimeAfterCompletion: 'waitTime_after_completion',
     };
@@ -1665,6 +1673,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       ipNetwork: 'string',
       isBase64Encode: 'string',
       matchRule: 'number',
+      maxTlsVersion: 'string',
       minTlsVersion: 'string',
       password: 'string',
       pingNum: 'number',
@@ -1683,8 +1692,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       safeLink: 'number',
       screenShot: 'boolean',
       scrollEnd: 'boolean',
+      serverName: 'string',
       steps: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonSteps,
       strictMode: 'boolean',
+      supportedCipherSuits: 'string',
       timeOut: 'number',
       traceRegion: 'string',
       traceType: 'string',
@@ -1692,6 +1703,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       trafficHijackElementCount: 'number',
       trafficHijackElementWhitelist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist,
       usePrivateCrt: 'boolean',
+      useSsl: 'boolean',
       username: 'string',
       waitTimeAfterCompletion: 'number',
     };
