@@ -560,6 +560,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建预设节点池
+   * 
+   * @param request - CreateReservedNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReservedNodePoolResponse
+   */
+  async createReservedNodePoolWithOptions(request: $_model.CreateReservedNodePoolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReservedNodePoolResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hostPostfix)) {
+      query["HostPostfix"] = request.hostPostfix;
+    }
+
+    if (!$dara.isNull(request.hostPrefix)) {
+      query["HostPrefix"] = request.hostPrefix;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateReservedNodePool",
+      version: "2024-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateReservedNodePoolResponse>(await this.callApi(params, req, runtime), new $_model.CreateReservedNodePoolResponse({}));
+  }
+
+  /**
+   * 创建预设节点池
+   * 
+   * @param request - CreateReservedNodePoolRequest
+   * @returns CreateReservedNodePoolResponse
+   */
+  async createReservedNodePool(request: $_model.CreateReservedNodePoolRequest): Promise<$_model.CreateReservedNodePoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createReservedNodePoolWithOptions(request, runtime);
+  }
+
+  /**
    * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
    * 
    * @param tmpReq - CreateUsersRequest
@@ -781,6 +847,52 @@ export default class Client extends OpenApi {
   async deleteQueues(request: $_model.DeleteQueuesRequest): Promise<$_model.DeleteQueuesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQueuesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除集群预设节点池
+   * 
+   * @param request - DeleteReservedNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReservedNodePoolResponse
+   */
+  async deleteReservedNodePoolWithOptions(request: $_model.DeleteReservedNodePoolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteReservedNodePoolResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteReservedNodePool",
+      version: "2024-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteReservedNodePoolResponse>(await this.callApi(params, req, runtime), new $_model.DeleteReservedNodePoolResponse({}));
+  }
+
+  /**
+   * 删除集群预设节点池
+   * 
+   * @param request - DeleteReservedNodePoolRequest
+   * @returns DeleteReservedNodePoolResponse
+   */
+  async deleteReservedNodePool(request: $_model.DeleteReservedNodePoolRequest): Promise<$_model.DeleteReservedNodePoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteReservedNodePoolWithOptions(request, runtime);
   }
 
   /**
