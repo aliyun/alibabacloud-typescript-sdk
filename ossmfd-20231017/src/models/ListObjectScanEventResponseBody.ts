@@ -69,6 +69,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * true
    */
   displaySandboxResult?: string;
+  errorMsg?: string;
   /**
    * @example
    * 1
@@ -100,11 +101,13 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * e991e62f484bb6accd676e57a9******
    */
   md5?: string;
+  operateResult?: string;
   /**
    * @example
    * 1/2022/06/23/15/41/16559701077444693a0c6-33b2-4cc2-a99f-9f38b8b8****
    */
   ossKey?: string;
+  remark?: string;
   /**
    * @example
    * high
@@ -125,11 +128,13 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * OSS
    */
   source?: string;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'BucketName',
       details: 'Details',
       displaySandboxResult: 'DisplaySandboxResult',
+      errorMsg: 'ErrorMsg',
       eventId: 'EventId',
       eventName: 'EventName',
       filePath: 'FilePath',
@@ -137,11 +142,14 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
       hasSubEvent: 'HasSubEvent',
       lastTime: 'LastTime',
       md5: 'Md5',
+      operateResult: 'OperateResult',
       ossKey: 'OssKey',
+      remark: 'Remark',
       riskLevel: 'RiskLevel',
       sha1: 'Sha1',
       sha256: 'Sha256',
       source: 'Source',
+      status: 'Status',
     };
   }
 
@@ -150,6 +158,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
       bucketName: 'string',
       details: { 'type': 'array', 'itemType': ListObjectScanEventResponseBodyDataDetails },
       displaySandboxResult: 'string',
+      errorMsg: 'string',
       eventId: 'number',
       eventName: 'string',
       filePath: 'string',
@@ -157,11 +166,14 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
       hasSubEvent: 'boolean',
       lastTime: 'number',
       md5: 'string',
+      operateResult: 'string',
       ossKey: 'string',
+      remark: 'string',
       riskLevel: 'string',
       sha1: 'string',
       sha256: 'string',
       source: 'string',
+      status: 'number',
     };
   }
 

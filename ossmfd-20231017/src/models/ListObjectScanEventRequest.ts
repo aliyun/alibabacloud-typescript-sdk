@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListObjectScanEventRequest extends $dara.Model {
   /**
    * @example
+   * sha256
+   */
+  batchType?: string;
+  /**
+   * @example
    * testBucket******
    */
   bucketName?: string;
@@ -16,6 +21,15 @@ export class ListObjectScanEventRequest extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  /**
+   * @example
+   * 1
+   */
+  eventId?: number;
+  /**
+   * @example
+   * WebShell
+   */
   eventName?: string;
   /**
    * @example
@@ -57,6 +71,11 @@ export class ListObjectScanEventRequest extends $dara.Model {
   source?: string;
   /**
    * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
    * 1683862286000
    */
   timeEnd?: number;
@@ -67,8 +86,10 @@ export class ListObjectScanEventRequest extends $dara.Model {
   timeStart?: number;
   static names(): { [key: string]: string } {
     return {
+      batchType: 'BatchType',
       bucketName: 'BucketName',
       currentPage: 'CurrentPage',
+      eventId: 'EventId',
       eventName: 'EventName',
       lang: 'Lang',
       md5: 'Md5',
@@ -77,6 +98,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
       parentEventId: 'ParentEventId',
       riskLevel: 'RiskLevel',
       source: 'Source',
+      status: 'Status',
       timeEnd: 'TimeEnd',
       timeStart: 'TimeStart',
     };
@@ -84,8 +106,10 @@ export class ListObjectScanEventRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      batchType: 'string',
       bucketName: 'string',
       currentPage: 'number',
+      eventId: 'number',
       eventName: 'string',
       lang: 'string',
       md5: 'string',
@@ -94,6 +118,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
       parentEventId: 'number',
       riskLevel: 'string',
       source: 'string',
+      status: 'number',
       timeEnd: 'number',
       timeStart: 'number',
     };

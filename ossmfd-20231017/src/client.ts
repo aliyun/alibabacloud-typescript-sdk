@@ -519,12 +519,20 @@ export default class Client extends OpenApi {
   async listObjectScanEventWithOptions(request: $_model.ListObjectScanEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListObjectScanEventResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.batchType)) {
+      query["BatchType"] = request.batchType;
+    }
+
     if (!$dara.isNull(request.bucketName)) {
       query["BucketName"] = request.bucketName;
     }
 
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
     }
 
     if (!$dara.isNull(request.eventName)) {
@@ -557,6 +565,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     if (!$dara.isNull(request.timeEnd)) {
