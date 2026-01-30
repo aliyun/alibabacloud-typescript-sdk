@@ -2,7 +2,7 @@ export { CreateInstanceRequestTags } from './CreateInstanceRequest';
 export { CreateVCUInstanceRequestTags } from './CreateVcuinstanceRequest';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
 export { GetInstanceResponseBodyTags } from './GetInstanceResponseBody';
-export { ListClusterTypeResponseBodyClusterTypeDetailList } from './ListClusterTypeResponseBody';
+export { ListClusterTypeResponseBodyClusterTypeInfos } from './ListClusterTypeResponseBody';
 export { ListInstancesRequestTag } from './ListInstancesRequest';
 export { ListInstancesResponseBodyInstances } from './ListInstancesResponseBody';
 export { ListTagResourcesRequestTags } from './ListTagResourcesRequest';
