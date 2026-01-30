@@ -4,6 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class AgentServiceConfigCustomConfig extends $dara.Model {
+  apiKey?: string;
+  apiKeyGenerateMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiKey: 'apiKey',
+      apiKeyGenerateMode: 'apiKeyGenerateMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiKey: 'string',
+      apiKeyGenerateMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AgentServiceConfigDashScopeConfigAppCredentials extends $dara.Model {
   apiKey?: string;
   appId?: string;
@@ -91,9 +117,11 @@ export class AgentServiceConfig extends $dara.Model {
    * https://dashscope.aliyuncs.com/api/v1
    */
   address?: string;
+  customConfig?: AgentServiceConfigCustomConfig;
   dashScopeConfig?: AgentServiceConfigDashScopeConfig;
   difyConfig?: AgentServiceConfigDifyConfig;
   enableHealthCheck?: boolean;
+  enableOutlierDetection?: boolean;
   protocols?: string[];
   /**
    * @remarks
@@ -103,9 +131,11 @@ export class AgentServiceConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       address: 'address',
+      customConfig: 'customConfig',
       dashScopeConfig: 'dashScopeConfig',
       difyConfig: 'difyConfig',
       enableHealthCheck: 'enableHealthCheck',
+      enableOutlierDetection: 'enableOutlierDetection',
       protocols: 'protocols',
       provider: 'provider',
     };
@@ -114,15 +144,20 @@ export class AgentServiceConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       address: 'string',
+      customConfig: AgentServiceConfigCustomConfig,
       dashScopeConfig: AgentServiceConfigDashScopeConfig,
       difyConfig: AgentServiceConfigDifyConfig,
       enableHealthCheck: 'boolean',
+      enableOutlierDetection: 'boolean',
       protocols: { 'type': 'array', 'itemType': 'string' },
       provider: 'string',
     };
   }
 
   validate() {
+    if(this.customConfig && typeof (this.customConfig as any).validate === 'function') {
+      (this.customConfig as any).validate();
+    }
     if(this.dashScopeConfig && typeof (this.dashScopeConfig as any).validate === 'function') {
       (this.dashScopeConfig as any).validate();
     }

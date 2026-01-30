@@ -881,6 +881,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.policyConfigs)) {
+      body["policyConfigs"] = request.policyConfigs;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1273,6 +1277,11 @@ export default class Client extends OpenApi {
    */
   async createServiceWithOptions(request: $_model.CreateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.gatewayId)) {
       body["gatewayId"] = request.gatewayId;
@@ -1292,6 +1301,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({

@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { HttpApiDeployConfig } from "./HttpApiDeployConfig";
 import { HttpRouteMatch } from "./HttpRouteMatch";
+import { HttpApiPolicyConfigs } from "./HttpApiPolicyConfigs";
 
 
 export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
@@ -193,6 +194,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
    * login
    */
   name?: string;
+  policyConfigs?: HttpApiPolicyConfigs[];
   static names(): { [key: string]: string } {
     return {
       backendConfig: 'backendConfig',
@@ -203,6 +205,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
       match: 'match',
       mcpRouteConfig: 'mcpRouteConfig',
       name: 'name',
+      policyConfigs: 'policyConfigs',
     };
   }
 
@@ -216,6 +219,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
       match: HttpRouteMatch,
       mcpRouteConfig: CreateHttpApiRouteRequestMcpRouteConfig,
       name: 'string',
+      policyConfigs: { 'type': 'array', 'itemType': HttpApiPolicyConfigs },
     };
   }
 
@@ -234,6 +238,9 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
     }
     if(this.mcpRouteConfig && typeof (this.mcpRouteConfig as any).validate === 'function') {
       (this.mcpRouteConfig as any).validate();
+    }
+    if(Array.isArray(this.policyConfigs)) {
+      $dara.Model.validateArray(this.policyConfigs);
     }
     super.validate();
   }

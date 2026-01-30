@@ -4,6 +4,29 @@ import { AgentServiceConfig } from "./AgentServiceConfig";
 import { AiServiceConfig } from "./AiServiceConfig";
 
 
+export class CreateServiceRequestServiceConfigsValidationOptions extends $dara.Model {
+  skipVerifyAIChatCompletion?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      skipVerifyAIChatCompletion: 'skipVerifyAIChatCompletion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skipVerifyAIChatCompletion: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceRequestServiceConfigs extends $dara.Model {
   /**
    * @remarks
@@ -21,6 +44,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
    * The list of DNS service addresses.
    */
   dnsServers?: string[];
+  expressType?: string;
   /**
    * @remarks
    * The service group name. This parameter is required if sourceType is set to MSE_NACOS.
@@ -57,17 +81,20 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
    */
   qualifier?: string;
   sourceId?: string;
+  validationOptions?: CreateServiceRequestServiceConfigsValidationOptions;
   static names(): { [key: string]: string } {
     return {
       addresses: 'addresses',
       agentServiceConfig: 'agentServiceConfig',
       aiServiceConfig: 'aiServiceConfig',
       dnsServers: 'dnsServers',
+      expressType: 'expressType',
       groupName: 'groupName',
       name: 'name',
       namespace: 'namespace',
       qualifier: 'qualifier',
       sourceId: 'sourceId',
+      validationOptions: 'validationOptions',
     };
   }
 
@@ -77,11 +104,13 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
       agentServiceConfig: AgentServiceConfig,
       aiServiceConfig: AiServiceConfig,
       dnsServers: { 'type': 'array', 'itemType': 'string' },
+      expressType: 'string',
       groupName: 'string',
       name: 'string',
       namespace: 'string',
       qualifier: 'string',
       sourceId: 'string',
+      validationOptions: CreateServiceRequestServiceConfigsValidationOptions,
     };
   }
 
@@ -97,6 +126,9 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
     }
     if(Array.isArray(this.dnsServers)) {
       $dara.Model.validateArray(this.dnsServers);
+    }
+    if(this.validationOptions && typeof (this.validationOptions as any).validate === 'function') {
+      (this.validationOptions as any).validate();
     }
     super.validate();
   }
@@ -152,12 +184,14 @@ export class CreateServiceRequest extends $dara.Model {
    * MSE_NACOS
    */
   sourceType?: string;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
       resourceGroupId: 'resourceGroupId',
       serviceConfigs: 'serviceConfigs',
       sourceType: 'sourceType',
+      clientToken: 'clientToken',
     };
   }
 
@@ -167,6 +201,7 @@ export class CreateServiceRequest extends $dara.Model {
       resourceGroupId: 'string',
       serviceConfigs: { 'type': 'array', 'itemType': CreateServiceRequestServiceConfigs },
       sourceType: 'string',
+      clientToken: 'string',
     };
   }
 

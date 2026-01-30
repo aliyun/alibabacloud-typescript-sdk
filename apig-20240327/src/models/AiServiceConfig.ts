@@ -63,6 +63,47 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
   }
 }
 
+export class AiServiceConfigVertexServiceConfig extends $dara.Model {
+  geminiSafetySetting?: { [key: string]: string };
+  vertexAuthKey?: string;
+  vertexAuthServiceName?: string;
+  vertexProjectId?: string;
+  vertexRegion?: string;
+  vertexTokenRefreshAhead?: number;
+  static names(): { [key: string]: string } {
+    return {
+      geminiSafetySetting: 'geminiSafetySetting',
+      vertexAuthKey: 'vertexAuthKey',
+      vertexAuthServiceName: 'vertexAuthServiceName',
+      vertexProjectId: 'vertexProjectId',
+      vertexRegion: 'vertexRegion',
+      vertexTokenRefreshAhead: 'vertexTokenRefreshAhead',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      geminiSafetySetting: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      vertexAuthKey: 'string',
+      vertexAuthServiceName: 'string',
+      vertexProjectId: 'string',
+      vertexRegion: 'string',
+      vertexTokenRefreshAhead: 'number',
+    };
+  }
+
+  validate() {
+    if(this.geminiSafetySetting) {
+      $dara.Model.validateMap(this.geminiSafetySetting);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AiServiceConfig extends $dara.Model {
   apiKeyGenerateMode?: string;
   /**
@@ -72,7 +113,10 @@ export class AiServiceConfig extends $dara.Model {
   address?: string;
   apiKeys?: string[];
   bedrockServiceConfig?: AiServiceConfigBedrockServiceConfig;
+  compatibleProtocols?: string[];
+  defaultModelName?: string;
   enableHealthCheck?: boolean;
+  enableOutlierDetection?: boolean;
   paiEASServiceConfig?: AiServiceConfigPaiEASServiceConfig;
   protocols?: string[];
   /**
@@ -80,16 +124,21 @@ export class AiServiceConfig extends $dara.Model {
    * qwen
    */
   provider?: string;
+  vertexServiceConfig?: AiServiceConfigVertexServiceConfig;
   static names(): { [key: string]: string } {
     return {
       apiKeyGenerateMode: 'ApiKeyGenerateMode',
       address: 'address',
       apiKeys: 'apiKeys',
       bedrockServiceConfig: 'bedrockServiceConfig',
+      compatibleProtocols: 'compatibleProtocols',
+      defaultModelName: 'defaultModelName',
       enableHealthCheck: 'enableHealthCheck',
+      enableOutlierDetection: 'enableOutlierDetection',
       paiEASServiceConfig: 'paiEASServiceConfig',
       protocols: 'protocols',
       provider: 'provider',
+      vertexServiceConfig: 'vertexServiceConfig',
     };
   }
 
@@ -99,10 +148,14 @@ export class AiServiceConfig extends $dara.Model {
       address: 'string',
       apiKeys: { 'type': 'array', 'itemType': 'string' },
       bedrockServiceConfig: AiServiceConfigBedrockServiceConfig,
+      compatibleProtocols: { 'type': 'array', 'itemType': 'string' },
+      defaultModelName: 'string',
       enableHealthCheck: 'boolean',
+      enableOutlierDetection: 'boolean',
       paiEASServiceConfig: AiServiceConfigPaiEASServiceConfig,
       protocols: { 'type': 'array', 'itemType': 'string' },
       provider: 'string',
+      vertexServiceConfig: AiServiceConfigVertexServiceConfig,
     };
   }
 
@@ -113,11 +166,17 @@ export class AiServiceConfig extends $dara.Model {
     if(this.bedrockServiceConfig && typeof (this.bedrockServiceConfig as any).validate === 'function') {
       (this.bedrockServiceConfig as any).validate();
     }
+    if(Array.isArray(this.compatibleProtocols)) {
+      $dara.Model.validateArray(this.compatibleProtocols);
+    }
     if(this.paiEASServiceConfig && typeof (this.paiEASServiceConfig as any).validate === 'function') {
       (this.paiEASServiceConfig as any).validate();
     }
     if(Array.isArray(this.protocols)) {
       $dara.Model.validateArray(this.protocols);
+    }
+    if(this.vertexServiceConfig && typeof (this.vertexServiceConfig as any).validate === 'function') {
+      (this.vertexServiceConfig as any).validate();
     }
     super.validate();
   }
