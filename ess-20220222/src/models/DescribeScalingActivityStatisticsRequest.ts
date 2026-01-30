@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScalingActivityStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the statistical interval. The time follows the ISO 8601 standard and uses UTC time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,14 @@ export class DescribeScalingActivityStatisticsRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The name of the metric on which the scaling activity is counted. Valid values:
+   * 
+   * *   ScalingActivityStatus: collects statistics on the distribution of scaling activities in different states within a time range.
+   * *   ScalingActivityErrorCodes: the distribution of error codes in failed scaling activities within a time range.
+   * 
+   * Default value: ScalingActivityStatus.
+   * 
    * @example
    * ScalingActivityStatus
    */
@@ -19,6 +29,8 @@ export class DescribeScalingActivityStatisticsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,12 +40,17 @@ export class DescribeScalingActivityStatisticsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The ID of the scaling group.
+   * 
    * @example
    * asg-8vbje5pofxxxxxxxx
    */
   scalingGroupId?: string;
   /**
    * @remarks
+   * The start time of the statistical interval. The time follows the ISO 8601 standard and uses UTC time.
+   * 
    * This parameter is required.
    * 
    * @example

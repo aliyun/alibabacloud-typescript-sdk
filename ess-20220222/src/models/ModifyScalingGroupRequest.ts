@@ -95,42 +95,49 @@ export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
 export class ModifyScalingGroupRequestLaunchTemplateOverrides extends $dara.Model {
   /**
    * @remarks
-   * The instance type. The instance type that you specify by using the InstanceType parameter overwrites the instance type that is specified in the launch template.
+   * The instance type that you want to use to override the instance type that is specified in the launch template.
    * 
-   * If you want Auto Scaling to scale instances in the scaling group based on the instance type weight, you must specify both the InstanceType and WeightedCapacity parameters.
+   * The instance type specified by using this parameter overwrites the instance type of the launch template.
    * 
-   * > This parameter takes effect only after you specify the LaunchTemplateId parameter.
+   * >  This parameter takes effect only if you specify LaunchTemplateId.
    * 
-   * You can use the InstanceType parameter to specify only instance types that are available for purchase.
+   * You can use this parameter to specify any instance types that are available for purchase.
    * 
    * @example
    * ecs.c5.xlarge
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The maximum bid price of instance type N that is specified by `LaunchTemplateOverride.N.InstanceType`. You can specify N instance types by using the Extend Launch Template feature. You can specify 1 to 10 memory sizes, indicated by N.
+   * 
+   * >  This parameter takes effect only if you use `LaunchTemplateId` to specify a launch template.
+   * 
    * @example
    * 0.025
    */
   spotPriceLimit?: number;
   /**
    * @remarks
-   * The weight of the instance type. The weight specifies the capacity of a single instance of the specified instance type in the scaling group. If you want Auto Scaling to scale instances in the scaling group based on the weighted capacity of instances, you must specify the WeightedCapacity parameter after you specify the InstanceType parameter.
+   * If you want to scale the scaling group based on the instance types, you must specify LaunchTemplateOverrides.InstanceType before you specify this parameter. The two parameters have a one-to-one correspondence.
    * 
-   * A higher weight specifies that a smaller number of instances of the specified instance type are required to meet the expected capacity.
+   * The weight specifies the capacity of an instance of the specified instance type in the scaling group.
    * 
-   * Performance metrics, such as the number of vCPUs and the memory size of each instance type, may vary. You can specify different weights for different instance types based on your business requirements.
+   * A higher weight specifies that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
    * 
-   * Example:
+   * Performance metrics such as the number of vCPUs and the memory size of each instance type may vary. You can specify different weights for different instance types based on your business requirements.
    * 
-   * *   Current capacity: 0
+   * Sample capacity configurations:
+   * 
+   * *   Current capacity: 0.
    * *   Expected capacity: 6
    * *   Capacity of ecs.c5.xlarge: 4
    * 
-   * To meet the expected capacity requirement, Auto Scaling must create and add two ecs.c5.xlarge instances.
+   * To reach the expected capacity, Auto Scaling must scale out two instances of ecs.c5.xlarge.
    * 
-   * > The capacity of the scaling group cannot exceed the sum of the maximum number of instances that is specified by the MaxSize parameter and the maximum weight of the instance type.
+   * >  The total capacity of the scaling group is constrained and cannot surpass the combined total of the maximum group size defined by MaxSize and the highest weight assigned to any instance type.
    * 
-   * Valid values of the WeightedCapacity parameter: 1 to 500.
+   * Valid values of WeightedCapacity: 1 to 500.
    * 
    * @example
    * 4
@@ -313,7 +320,7 @@ export class ModifyScalingGroupRequest extends $dara.Model {
   launchTemplateId?: string;
   /**
    * @remarks
-   * Details of the instance types that are specified in the extended configurations of the launch template.
+   * The information about the instance types that are extended in the launch template.
    */
   launchTemplateOverrides?: ModifyScalingGroupRequestLaunchTemplateOverrides[];
   /**

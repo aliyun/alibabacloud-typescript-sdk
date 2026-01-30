@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceCreateAndDeleteStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the statistical interval. The time follows the ISO 8601 standard and uses UTC time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class DescribeInstanceCreateAndDeleteStatisticsRequest extends $dara.Mode
   ownerId?: number;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,12 +27,17 @@ export class DescribeInstanceCreateAndDeleteStatisticsRequest extends $dara.Mode
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The ID of the scaling group.
+   * 
    * @example
    * asg-2ze4057nqfbxxxxxxxx
    */
   scalingGroupId?: string;
   /**
    * @remarks
+   * The start time of the statistical interval. The time follows the ISO 8601 standard and uses UTC time.
+   * 
    * This parameter is required.
    * 
    * @example

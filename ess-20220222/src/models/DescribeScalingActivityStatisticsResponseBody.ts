@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeScalingActivityStatisticsResponseBodyScalingActivityErrorCodeStatisticsErrorStatistic extends $dara.Model {
   /**
+   * @remarks
+   * The number of failed scaling activities.
+   * 
    * @example
    * 4
    */
   count?: number;
   /**
+   * @remarks
+   * Scaling Activity Error Codes
+   * 
    * @example
    * QuotaExceeded.PrivateIpAddress
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The time when the statistics are generated. The time is in UTC. Format: yyyyMMddHH.
+   * 
    * @example
    * 2025121623
    */
@@ -71,21 +80,33 @@ export class DescribeScalingActivityStatisticsResponseBodyScalingActivityErrorCo
 
 export class DescribeScalingActivityStatisticsResponseBodyScalingActivityStatusStatisticsStatistic extends $dara.Model {
   /**
+   * @remarks
+   * The number of failed scaling activities.
+   * 
    * @example
    * 1
    */
   failedActivityCount?: number;
   /**
+   * @remarks
+   * The number of successful scaling activities.
+   * 
    * @example
    * 10
    */
   successActivityCount?: number;
   /**
+   * @remarks
+   * The time when the statistics are generated. The time is in UTC. Format: yyyyMMddHH.
+   * 
    * @example
    * 2025121623
    */
   time?: string;
   /**
+   * @remarks
+   * The number of partially executed scaling activities.
+   * 
    * @example
    * 2
    */
@@ -145,11 +166,22 @@ export class DescribeScalingActivityStatisticsResponseBodyScalingActivityStatusS
 
 export class DescribeScalingActivityStatisticsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A8F44B4D-BAB4-5176-8705-5984xxxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The error message statistics of the scaling activity.
+   */
   scalingActivityErrorCodeStatistics?: DescribeScalingActivityStatisticsResponseBodyScalingActivityErrorCodeStatistics;
+  /**
+   * @remarks
+   * The statistical metrics of the scaling activity status.
+   */
   scalingActivityStatusStatistics?: DescribeScalingActivityStatisticsResponseBodyScalingActivityStatusStatistics;
   static names(): { [key: string]: string } {
     return {

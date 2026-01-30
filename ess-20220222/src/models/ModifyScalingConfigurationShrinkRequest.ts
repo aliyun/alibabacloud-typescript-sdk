@@ -817,13 +817,13 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
 export class ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides extends $dara.Model {
   /**
    * @remarks
-   * The instance type. If you want to specify the capacity of instance types in the scaling configuration, specify InstanceType and WeightedCapacity at the same time.
+   * The instance type. If you want to specify the weight of the instance type in the scaling configuration, you must specify InstanceTypeOverride.WeightedCapacity after you specify this parameter.
    * 
-   * You can use InstanceType to specify multiple instance types and WeightedCapacity to specify the weights of the instance types.
+   * This parameter specifies instance types. You can use this parameter to specify multiple instance types and use InstanceTypeOverride.WeightedCapacity to specify weights for the instance types.
    * 
-   * > If you specify InstanceType, you cannot specify InstanceTypes.
+   * >  If you specify this parameter, you cannot specify instanceTypes.
    * 
-   * You can use InstanceType to specify only instance types that are available for purchase.
+   * You can use this parameter to specify any instance types that are available for purchase.
    * 
    * @example
    * ecs.c5.xlarge
@@ -831,21 +831,21 @@ export class ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides extend
   instanceType?: string;
   /**
    * @remarks
-   * The weight of the instance type. The weight specifies the capacity of an instance of the specified instance type in the scaling group. If you want Auto Scaling to scale instances in the scaling group based on the weighted capacity of the instances, specify WeightedCapacity after you specify InstanceType.
+   * The weight of the instance type. If you want to trigger scale-outs based on instance capacities, you can specify this parameter after you specify LaunchTemplateOverride.InstanceType.
    * 
-   * A higher weight specifies that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
+   * The weight specifies the capacity of an instance of the specified instance type in the scaling group. A higher weight specifies that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
    * 
-   * Performance metrics, such as the number of vCPUs and the memory size of each instance type, may vary. You can specify different weights for different instance types based on your business requirements.
+   * Performance metrics such as the number of vCPUs and the memory size of each instance type may vary. You can specify different weights for different instance types based on your business requirements.
    * 
-   * Example:
+   * Sample capacity configurations:
    * 
-   * *   Current capacity: 0
-   * *   Expected capacity: 6
-   * *   Capacity of ecs.c5.xlarge: 4
+   * *   Current capacity: 0.
+   * *   Expected capacity: 6.
+   * *   Capacity of ecs.c5.xlarge: 4.
    * 
-   * To meet the expected capacity requirement, Auto Scaling must create and add two ecs.c5.xlarge instances.
+   * To reach the expected capacity, Auto Scaling must scale out two instances of ecs.c5.xlarge.
    * 
-   * > The capacity of the scaling group cannot exceed the sum of the maximum number of instances that is specified by MaxSize and the maximum weight of the instance types.
+   * >  The total capacity of the scaling group is constrained and cannot surpass the combined total of the maximum group size defined by MaxSize and the highest weight assigned to any instance type.
    * 
    * Valid values of WeightedCapacity: 1 to 500.
    * 
@@ -917,6 +917,7 @@ export class ModifyScalingConfigurationShrinkRequestNetworkInterfaces extends $d
    * HighPerformance
    */
   networkInterfaceTrafficMode?: string;
+  secondaryPrivateIpAddressCount?: number;
   /**
    * @remarks
    * The IDs of the security groups to which you want to assign the ENI.
@@ -927,6 +928,7 @@ export class ModifyScalingConfigurationShrinkRequestNetworkInterfaces extends $d
       instanceType: 'InstanceType',
       ipv6AddressCount: 'Ipv6AddressCount',
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      secondaryPrivateIpAddressCount: 'SecondaryPrivateIpAddressCount',
       securityGroupIds: 'SecurityGroupIds',
     };
   }
@@ -936,6 +938,7 @@ export class ModifyScalingConfigurationShrinkRequestNetworkInterfaces extends $d
       instanceType: 'string',
       ipv6AddressCount: 'number',
       networkInterfaceTrafficMode: 'string',
+      secondaryPrivateIpAddressCount: 'number',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1034,7 +1037,7 @@ export class ModifyScalingConfigurationShrinkRequestSecurityOptions extends $dar
 export class ModifyScalingConfigurationShrinkRequestSpotPriceLimits extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the preemptible instance. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
+   * The instance type of the spot instances. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
    * 
    * @example
    * ecs.g6.large
@@ -1042,7 +1045,7 @@ export class ModifyScalingConfigurationShrinkRequestSpotPriceLimits extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The price limit of the preemptible instance. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
+   * The price limit of the spot instances. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
    * 
    * @example
    * 0.125
@@ -1266,7 +1269,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $dara.Model {
   instancePatternInfos?: ModifyScalingConfigurationShrinkRequestInstancePatternInfos[];
   /**
    * @remarks
-   * The instance types.
+   * Details of the instance types.
    */
   instanceTypeOverrides?: ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides[];
   /**
@@ -1490,7 +1493,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $dara.Model {
   spotInterruptionBehavior?: string;
   /**
    * @remarks
-   * The preemptible instance types.
+   * The information about spot instance types.
    */
   spotPriceLimits?: ModifyScalingConfigurationShrinkRequestSpotPriceLimits[];
   /**

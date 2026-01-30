@@ -7,6 +7,8 @@ export class DetachServerGroupsRequestServerGroups extends $dara.Model {
    * @remarks
    * The port used by ECS instances or elastic container instances as backend servers of the server group.
    * 
+   * >  For ALB and NLB types, this parameter is required. GWLB type cannot set this parameter and the default value is 6081.
+   * 
    * @example
    * 22
    */
@@ -27,6 +29,7 @@ export class DetachServerGroupsRequestServerGroups extends $dara.Model {
    * 
    * *   ALB
    * *   NLB
+   * *   GWLB
    * 
    * This parameter is required.
    * 

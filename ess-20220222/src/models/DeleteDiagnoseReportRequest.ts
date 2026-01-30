@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDiagnoseReportRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDiagnoseReportRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the diagnostic report.
+   * 
    * This parameter is required.
    * 
    * @example

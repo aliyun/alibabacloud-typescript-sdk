@@ -828,13 +828,13 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
 export class CreateScalingConfigurationShrinkRequestInstanceTypeOverrides extends $dara.Model {
   /**
    * @remarks
-   * Instance type N that you want to use to override the instance type that is specified in the launch template.
+   * If you want to scale instances in the scaling group based on the weight of an instance type, you must specify this property and WeightedCapacity.
    * 
-   * If you want to trigger scale-outs based on the weighted capacities of instances, specify InstanceType and WeightedCapacity at the same time. You can specify N instance types by using the Extended Configurations feature. Valid values of N: 1 to 10.
+   * The instance type specified by using this parameter overwrites the instance type of the launch template. You can specify N instance types by using the Extend Launch Template feature. You can specify 1 to 10 memory sizes, indicated by N.
    * 
-   * > This parameter takes effect only if you specify LaunchTemplateId.
+   * >  This parameter takes effect only if you specify LaunchTemplateId.
    * 
-   * You can specify an instance type that is available for purchase as the value of InstanceType.
+   * You can use this parameter to specify any instance types that are available for purchase.
    * 
    * @example
    * ecs.c5.xlarge
@@ -842,21 +842,21 @@ export class CreateScalingConfigurationShrinkRequestInstanceTypeOverrides extend
   instanceType?: string;
   /**
    * @remarks
-   * The weight of instance type N. If you want to trigger scale-outs based on the weighted capacities of instances, you must specify WeightedCapacity after you specify InstanceType.
+   * If you need to specify the capacity of the instance type in the scaling configuration, you must specify this parameter after you specify InstanceTypeOverrides.InstanceType.
    * 
-   * The weight of an instance type specifies the capacity of an instance of the instance type in the scaling group. A higher weight specifies that a smaller number of instances of the specified instance type is required to meet the expected capacity requirement.
+   * The weight specifies the capacity of an instance of the specified instance type in the scaling group. A higher weight specifies that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
    * 
-   * Performance metrics, such as the number of vCPUs and the memory size of each instance type, may vary. You can specify different weights for different instance types based on your business requirements.
+   * Performance metrics such as the number of vCPUs and memory size vary with each instance type. You can specify different weights for different instance types based on your business requirements.
    * 
-   * Example:
+   * For example:
    * 
-   * *   Current capacity: 0
+   * *   Current capacity: 0.
    * *   Expected capacity: 6
-   * *   Capacity of ecs.c5.xlarge: 4
+   * *   Capacity of ecs.c5.xlarge: 4.
    * 
-   * To meet the expected capacity requirement, Auto Scaling must create and add two ecs.c5.xlarge instances.
+   * To reach the expected capacity, Auto Scaling must scale out two instances of ecs.c5.xlarge.
    * 
-   * > The capacity of the scaling group cannot exceed the sum of the maximum number of instances that is specified by MaxSize and the maximum weight of the instance types.
+   * >  The total capacity of the scaling group is constrained and cannot surpass the combined total of the maximum group size defined by MaxSize and the highest weight assigned to any instance type.
    * 
    * Valid values of WeightedCapacity: 1 to 500.
    * 
@@ -903,12 +903,14 @@ export class CreateScalingConfigurationShrinkRequestNetworkInterfaces extends $d
    * HighPerformance
    */
   networkInterfaceTrafficMode?: string;
+  secondaryPrivateIpAddressCount?: number;
   securityGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
       instanceType: 'InstanceType',
       ipv6AddressCount: 'Ipv6AddressCount',
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      secondaryPrivateIpAddressCount: 'SecondaryPrivateIpAddressCount',
       securityGroupIds: 'SecurityGroupIds',
     };
   }
@@ -918,6 +920,7 @@ export class CreateScalingConfigurationShrinkRequestNetworkInterfaces extends $d
       instanceType: 'string',
       ipv6AddressCount: 'number',
       networkInterfaceTrafficMode: 'string',
+      secondaryPrivateIpAddressCount: 'number',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1016,7 +1019,7 @@ export class CreateScalingConfigurationShrinkRequestSecurityOptions extends $dar
 export class CreateScalingConfigurationShrinkRequestSpotPriceLimits extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the preemptible instance. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
+   * The instance type of the spot instances. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
    * 
    * @example
    * ecs.g6.large
@@ -1024,7 +1027,7 @@ export class CreateScalingConfigurationShrinkRequestSpotPriceLimits extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The price limit of the preemptible instance. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
+   * The price limit of the spot instances. This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit.
    * 
    * @example
    * 0.5
@@ -1258,7 +1261,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The instance types.
+   * The information about instance types.
    */
   instanceTypeOverrides?: CreateScalingConfigurationShrinkRequestInstanceTypeOverrides[];
   /**
@@ -1486,7 +1489,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
   spotInterruptionBehavior?: string;
   /**
    * @remarks
-   * The billing information of the preemptible instances.
+   * The billing information of the spot instances.
    */
   spotPriceLimits?: CreateScalingConfigurationShrinkRequestSpotPriceLimits[];
   /**

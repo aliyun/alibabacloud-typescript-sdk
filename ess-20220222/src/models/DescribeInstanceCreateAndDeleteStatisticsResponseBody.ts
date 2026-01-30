@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceCreateAndDeleteStatisticsResponseBodyInstanceCreateAndDeleteStatisticsStatistic extends $dara.Model {
   /**
+   * @remarks
+   * The number of new instances.
+   * 
    * @example
    * 12
    */
   createdVmCount?: number;
   /**
+   * @remarks
+   * The number of released instances.
+   * 
    * @example
    * 34
    */
   destroyedVmCount?: number;
   /**
+   * @remarks
+   * The number of instances that are started from economical mode.
+   * 
    * @example
    * 5
    */
   startedVmCount?: number;
   /**
+   * @remarks
+   * The number of instances that are stopped in economical mode.
+   * 
    * @example
    * 10
    */
   stoppedVmCount?: number;
   /**
+   * @remarks
+   * The time when the statistics are generated. The time is in UTC. Format: yyyyMMddHH.
+   * 
    * @example
    * 2025121623
    */
@@ -84,8 +99,15 @@ export class DescribeInstanceCreateAndDeleteStatisticsResponseBodyInstanceCreate
 }
 
 export class DescribeInstanceCreateAndDeleteStatisticsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Metrics for instance creation and deletion.
+   */
   instanceCreateAndDeleteStatistics?: DescribeInstanceCreateAndDeleteStatisticsResponseBodyInstanceCreateAndDeleteStatistics;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 086EFCD4-C76F-4DC6-9EE9-0D9B711E****
    */

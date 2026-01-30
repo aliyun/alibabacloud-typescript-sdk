@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPredictiveTaskInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the prediction task. The time follows the ISO8601 standard and uses UTC time.
+   * 
+   * Format: yyyy-MM-ddTHH:mmZ.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +18,8 @@ export class QueryPredictiveTaskInfoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +30,8 @@ export class QueryPredictiveTaskInfoRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the prediction scaling rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +40,10 @@ export class QueryPredictiveTaskInfoRequest extends $dara.Model {
   scalingRuleId?: string;
   /**
    * @remarks
+   * The start time of the prediction task. The time follows the ISO8601 standard and uses UTC time.
+   * 
+   * Format: yyyy-MM-ddTHH:mmZ.
+   * 
    * This parameter is required.
    * 
    * @example

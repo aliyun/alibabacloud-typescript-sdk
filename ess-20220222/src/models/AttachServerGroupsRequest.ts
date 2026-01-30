@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AttachServerGroupsRequestServerGroups extends $dara.Model {
   /**
    * @remarks
-   * The port used by ECS instances or elastic container instances after being added as backend servers to the server group.
+   * The port used by ECS or ECI instances after being added as backend servers to the server group.
    * 
    * Valid values: 1 to 65535.
+   * 
+   * > For ALB and NLB types, this parameter is required. GWLB type cannot set this parameter and the default value is 6081.
    * 
    * @example
    * 22
@@ -25,10 +27,11 @@ export class AttachServerGroupsRequestServerGroups extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The type of the server group. Valid values:
+   * The type of the server group. Valid Values:
    * 
    * *   ALB
    * *   NLB
+   * *   GWLB
    * 
    * This parameter is required.
    * 
@@ -38,9 +41,11 @@ export class AttachServerGroupsRequestServerGroups extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The weight of an ECS instance or elastic container instance as a backend server of the server group. Valid values: 0 to 100.
+   * The weight of an ECS or ECI instance as a backend server of the server group. Valid values: 0 to 100
    * 
-   * If you assign a higher weight to an instance, the instance is allocated a larger proportion of access requests. If you assign zero weight to an instance, the instance is allocated no access requests.
+   * If you assign a higher weight to an instance, the instance is allocated a larger proportion of access requests. If the weight is 0, the ECS or ECI instance does not receive access requests.
+   * 
+   * > For ALB and NLB types, this parameter is required. GWLB type cannot be set.
    * 
    * @example
    * 100
@@ -86,7 +91,7 @@ export class AttachServerGroupsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the server group. Valid values:
+   * Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances (ECI) in the scaling group to the server group. Valid values:
    * 
    * *   true
    * *   false

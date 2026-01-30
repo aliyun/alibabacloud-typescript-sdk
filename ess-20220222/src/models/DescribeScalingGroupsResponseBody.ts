@@ -283,7 +283,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs e
 export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends $dara.Model {
   /**
    * @remarks
-   * The port number used by an ECS instance as a backend server in the server group.
+   * The port number used by each ECS instance in the server group.
    * 
    * @example
    * 80
@@ -303,6 +303,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends 
    * 
    * *   ALB
    * *   NLB
+   * *   GWLB
    * 
    * @example
    * ALB
@@ -907,9 +908,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   scalingPolicy?: string;
   /**
    * @remarks
-   * The server groups.
+   * The information about the server groups.
    * 
-   * >  You can use this parameter to obtain information about ALB server groups and Network Load Balancer (NLB) server groups attached to the scaling group.
+   * >  You can use this parameter to obtain the information about the ALB, NLB, and GWLB server groups associated with a scaling group.
    */
   serverGroups?: DescribeScalingGroupsResponseBodyScalingGroupsServerGroups[];
   /**

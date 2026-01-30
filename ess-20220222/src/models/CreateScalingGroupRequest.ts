@@ -442,10 +442,11 @@ export class CreateScalingGroupRequestServerGroups extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The type of the server group. Valid values:
+   * The type of server group N. Valid Values:
    * 
    * *   ALB
    * *   NLB
+   * *   GWLB
    * 
    * @example
    * ALB
@@ -455,7 +456,9 @@ export class CreateScalingGroupRequestServerGroups extends $dara.Model {
    * @remarks
    * The weight of each ECS instance as a backend server in the server group. Valid values: 0 to 100.
    * 
-   * If you increase the weight for an ECS instance, the number of requests that are forwarded to the ECS instance also increases. If you set the weight for an ECS instance to 0, no requests are forwarded to the ECS instance.
+   * The higher the weight, the more access requests the instance will be assigned. If the weight is 0, the instance will not receive any access requests.
+   * 
+   * > For ALB and NLB types, this parameter is required. GWLB type cannot be set.
    * 
    * @example
    * 100
@@ -1033,9 +1036,9 @@ export class CreateScalingGroupRequest extends $dara.Model {
   scalingPolicy?: string;
   /**
    * @remarks
-   * The server groups.
+   * The information about the server groups.
    * 
-   * >  You cannot use AlbServerGroups and ServerGroups to specify the same server group.
+   * > You cannot use AlbServerGroups and ServerGroups to specify the same server group.
    */
   serverGroups?: CreateScalingGroupRequestServerGroups[];
   /**
@@ -1093,7 +1096,7 @@ export class CreateScalingGroupRequest extends $dara.Model {
   syncAlarmRuleToCms?: boolean;
   /**
    * @remarks
-   * The information about the tags of the scaling group.
+   * The collection of tag information for the scaling group.
    */
   tags?: CreateScalingGroupRequestTags[];
   /**

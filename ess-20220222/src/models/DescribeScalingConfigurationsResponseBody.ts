@@ -557,6 +557,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
    * HighPerformance
    */
   networkInterfaceTrafficMode?: string;
+  secondaryPrivateIpAddressCount?: number;
   /**
    * @remarks
    * The IDs of the security groups to which the ENIs belong.
@@ -567,6 +568,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
       instanceType: 'InstanceType',
       ipv6AddressCount: 'Ipv6AddressCount',
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      secondaryPrivateIpAddressCount: 'SecondaryPrivateIpAddressCount',
       securityGroupIds: 'SecurityGroupIds',
     };
   }
@@ -576,6 +578,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
       instanceType: 'string',
       ipv6AddressCount: 'number',
       networkInterfaceTrafficMode: 'string',
+      secondaryPrivateIpAddressCount: 'number',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }

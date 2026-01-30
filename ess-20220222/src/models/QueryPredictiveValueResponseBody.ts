@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryPredictiveValueResponseBodyPredictiveValuesPredictiveValue extends $dara.Model {
   /**
+   * @remarks
+   * The point in time, in the ISO 8601 standard, in the yyyy-MM-ddTHH:mmZ format.
+   * 
    * @example
    * 2025-12-17T10:00Z
    */
   time?: string;
   /**
+   * @remarks
+   * The number of instances.
+   * 
    * @example
    * 3
    */
@@ -63,8 +69,15 @@ export class QueryPredictiveValueResponseBodyPredictiveValues extends $dara.Mode
 }
 
 export class QueryPredictiveValueResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of predicted instances in the scaling group.
+   */
   predictiveValues?: QueryPredictiveValueResponseBodyPredictiveValues;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FA5F448E-DC84-5EBC-B6D5-F659ADxxxx
    */

@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPredictiveValueRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the predicted number of instances in the scaling group. The time follows the ISO8601 standard and uses UTC time.
+   * 
+   * Format: yyyy-MM-ddTHH:mmZ.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,12 @@ export class QueryPredictiveValueRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The name of the monitoring metric of the prediction rule. Valid values:
+   * 
+   * *   CpuUtilization: the average CPU utilization.
+   * *   IntranetRx: the inbound traffic over an internal network.
+   * *   IntranetTx: the outbound traffic over an internal network.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +32,8 @@ export class QueryPredictiveValueRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +44,8 @@ export class QueryPredictiveValueRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the scaling group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +54,10 @@ export class QueryPredictiveValueRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
+   * The start time of the predicted number of instances in the scaling group. The time follows the ISO8601 standard and uses UTC time.
+   * 
+   * Format: yyyy-MM-ddTHH:mmZ.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +66,8 @@ export class QueryPredictiveValueRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
+   * The current value of the monitoring metric of the prediction rule.
+   * 
    * This parameter is required.
    * 
    * @example
