@@ -64,6 +64,8 @@ export { ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyChec
 export { ListFeatureConsistencyCheckJobFeatureReportsResponseBodyReportsOfFeatureDiff } from './ListFeatureConsistencyCheckJobFeatureReportsResponseBody';
 export { ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScoreDiff } from './ListFeatureConsistencyCheckJobScoreReportsResponseBody';
 export { ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJobs } from './ListFeatureConsistencyCheckJobsResponseBody';
+export { ListInstanceResourceSchemasResponseBodySchemas } from './ListInstanceResourceSchemasResponseBody';
+export { ListInstanceResourceTablesResponseBodyTables } from './ListInstanceResourceTablesResponseBody';
 export { ListInstanceResourcesResponseBodyResources } from './ListInstanceResourcesResponseBody';
 export { ListInstancesResponseBodyInstancesConfigDataManagements } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyInstancesConfigEngines } from './ListInstancesResponseBody';
@@ -426,6 +428,12 @@ export { ListFeatureConsistencyCheckJobScoreReportsResponse } from './ListFeatur
 export { ListFeatureConsistencyCheckJobsRequest } from './ListFeatureConsistencyCheckJobsRequest';
 export { ListFeatureConsistencyCheckJobsResponseBody } from './ListFeatureConsistencyCheckJobsResponseBody';
 export { ListFeatureConsistencyCheckJobsResponse } from './ListFeatureConsistencyCheckJobsResponse';
+export { ListInstanceResourceSchemasRequest } from './ListInstanceResourceSchemasRequest';
+export { ListInstanceResourceSchemasResponseBody } from './ListInstanceResourceSchemasResponseBody';
+export { ListInstanceResourceSchemasResponse } from './ListInstanceResourceSchemasResponse';
+export { ListInstanceResourceTablesRequest } from './ListInstanceResourceTablesRequest';
+export { ListInstanceResourceTablesResponseBody } from './ListInstanceResourceTablesResponseBody';
+export { ListInstanceResourceTablesResponse } from './ListInstanceResourceTablesResponse';
 export { ListInstanceResourcesRequest } from './ListInstanceResourcesRequest';
 export { ListInstanceResourcesResponseBody } from './ListInstanceResourcesResponseBody';
 export { ListInstanceResourcesResponse } from './ListInstanceResourcesResponse';

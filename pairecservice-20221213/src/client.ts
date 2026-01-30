@@ -5874,6 +5874,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据资源下的Schema列表。
+   * 
+   * @param request - ListInstanceResourceSchemasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceResourceSchemasResponse
+   */
+  async listInstanceResourceSchemasWithOptions(InstanceId: string, ResourceId: string, request: $_model.ListInstanceResourceSchemasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceResourceSchemasResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceResourceSchemas",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/resources/${$dara.URL.percentEncode(ResourceId)}/schemas`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceResourceSchemasResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceResourceSchemasResponse({}));
+  }
+
+  /**
+   * 获取数据资源下的Schema列表。
+   * 
+   * @param request - ListInstanceResourceSchemasRequest
+   * @returns ListInstanceResourceSchemasResponse
+   */
+  async listInstanceResourceSchemas(InstanceId: string, ResourceId: string, request: $_model.ListInstanceResourceSchemasRequest): Promise<$_model.ListInstanceResourceSchemasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceResourceSchemasWithOptions(InstanceId, ResourceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取数据源下数据表的列表。
+   * 
+   * @param request - ListInstanceResourceTablesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceResourceTablesResponse
+   */
+  async listInstanceResourceTablesWithOptions(InstanceId: string, ResourceId: string, request: $_model.ListInstanceResourceTablesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceResourceTablesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxcomputeSchema)) {
+      query["MaxcomputeSchema"] = request.maxcomputeSchema;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceResourceTables",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/resources/${$dara.URL.percentEncode(ResourceId)}/tables`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceResourceTablesResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceResourceTablesResponse({}));
+  }
+
+  /**
+   * 获取数据源下数据表的列表。
+   * 
+   * @param request - ListInstanceResourceTablesRequest
+   * @returns ListInstanceResourceTablesResponse
+   */
+  async listInstanceResourceTables(InstanceId: string, ResourceId: string, request: $_model.ListInstanceResourceTablesRequest): Promise<$_model.ListInstanceResourceTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceResourceTablesWithOptions(InstanceId, ResourceId, request, headers, runtime);
+  }
+
+  /**
    * 获取实例下配置的资源列表。
    * 
    * @param request - ListInstanceResourcesRequest
