@@ -11,15 +11,18 @@ export class DescribeClusterUserKubeconfigRequest extends $dara.Model {
    * eck-xxxxxxxxx
    */
   clusterId?: string;
+  privateIpAddress?: boolean;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      privateIpAddress: 'PrivateIpAddress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      privateIpAddress: 'boolean',
     };
   }
 
