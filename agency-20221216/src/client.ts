@@ -1326,6 +1326,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询T2优惠券审批详情
+   * 
+   * @param request - GetTier2CouponApprovalDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTier2CouponApprovalDetailResponse
+   */
+  async getTier2CouponApprovalDetailWithOptions(request: $_model.GetTier2CouponApprovalDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTier2CouponApprovalDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationSheetId)) {
+      query["ApplicationSheetId"] = request.applicationSheetId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTier2CouponApprovalDetail",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTier2CouponApprovalDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetTier2CouponApprovalDetailResponse({}));
+  }
+
+  /**
+   * 查询T2优惠券审批详情
+   * 
+   * @param request - GetTier2CouponApprovalDetailRequest
+   * @returns GetTier2CouponApprovalDetailResponse
+   */
+  async getTier2CouponApprovalDetail(request: $_model.GetTier2CouponApprovalDetailRequest): Promise<$_model.GetTier2CouponApprovalDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTier2CouponApprovalDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Query all the Unassociated Customer.
    * 
    * @param request - GetUnassociatedCustomerRequest
@@ -1629,6 +1671,118 @@ export default class Client extends OpenApi {
   async listExportTasks(request: $_model.ListExportTasksRequest): Promise<$_model.ListExportTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listExportTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * T1查询T2优惠券申请列表
+   * 
+   * @param request - ListTier2CouponApprovalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTier2CouponApprovalResponse
+   */
+  async listTier2CouponApprovalWithOptions(request: $_model.ListTier2CouponApprovalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTier2CouponApprovalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationSheetId)) {
+      query["ApplicationSheetId"] = request.applicationSheetId;
+    }
+
+    if (!$dara.isNull(request.approvalStatus)) {
+      query["ApprovalStatus"] = request.approvalStatus;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.t2PartnerName)) {
+      query["T2PartnerName"] = request.t2PartnerName;
+    }
+
+    if (!$dara.isNull(request.t2PartnerUid)) {
+      query["T2PartnerUid"] = request.t2PartnerUid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTier2CouponApproval",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTier2CouponApprovalResponse>(await this.callApi(params, req, runtime), new $_model.ListTier2CouponApprovalResponse({}));
+  }
+
+  /**
+   * T1查询T2优惠券申请列表
+   * 
+   * @param request - ListTier2CouponApprovalRequest
+   * @returns ListTier2CouponApprovalResponse
+   */
+  async listTier2CouponApproval(request: $_model.ListTier2CouponApprovalRequest): Promise<$_model.ListTier2CouponApprovalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTier2CouponApprovalWithOptions(request, runtime);
+  }
+
+  /**
+   * 审批流审批通用接口
+   * 
+   * @param request - ProcessApprovalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ProcessApprovalResponse
+   */
+  async processApprovalWithOptions(request: $_model.ProcessApprovalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ProcessApprovalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationSheetId)) {
+      query["ApplicationSheetId"] = request.applicationSheetId;
+    }
+
+    if (!$dara.isNull(request.approvalAction)) {
+      query["ApprovalAction"] = request.approvalAction;
+    }
+
+    if (!$dara.isNull(request.approvalComments)) {
+      query["ApprovalComments"] = request.approvalComments;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ProcessApproval",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ProcessApprovalResponse>(await this.callApi(params, req, runtime), new $_model.ProcessApprovalResponse({}));
+  }
+
+  /**
+   * 审批流审批通用接口
+   * 
+   * @param request - ProcessApprovalRequest
+   * @returns ProcessApprovalResponse
+   */
+  async processApproval(request: $_model.ProcessApprovalRequest): Promise<$_model.ProcessApprovalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.processApprovalWithOptions(request, runtime);
   }
 
   /**
