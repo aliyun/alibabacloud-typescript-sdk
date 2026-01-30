@@ -20784,6 +20784,10 @@ export default class Client extends OpenApi {
       query["TaskAction"] = request.taskAction;
     }
 
+    if (!$dara.isNull(request.taskGroupId)) {
+      query["TaskGroupId"] = request.taskGroupId;
+    }
+
     if (!$dara.isNull(request.taskIds)) {
       query["TaskIds"] = request.taskIds;
     }

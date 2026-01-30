@@ -77,6 +77,11 @@ export class DescribeTasksRequest extends $dara.Model {
    */
   taskAction?: string;
   /**
+   * **if can be null:**
+   * false
+   */
+  taskGroupId?: string;
+  /**
    * @remarks
    * The task IDs. You can specify up to 100 task IDs at a time. Separate the task IDs with commas (,).
    * 
@@ -113,6 +118,7 @@ export class DescribeTasksRequest extends $dara.Model {
       resourceOwnerId: 'ResourceOwnerId',
       startTime: 'StartTime',
       taskAction: 'TaskAction',
+      taskGroupId: 'TaskGroupId',
       taskIds: 'TaskIds',
       taskStatus: 'TaskStatus',
     };
@@ -131,6 +137,7 @@ export class DescribeTasksRequest extends $dara.Model {
       resourceOwnerId: 'number',
       startTime: 'string',
       taskAction: 'string',
+      taskGroupId: 'string',
       taskIds: 'string',
       taskStatus: 'string',
     };
