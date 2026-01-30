@@ -7312,6 +7312,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 变配云渲染资源实例付费类型
+   * 
+   * @param request - ModifyRenderingChargeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRenderingChargeTypeResponse
+   */
+  async modifyRenderingChargeTypeWithOptions(request: $_model.ModifyRenderingChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRenderingChargeTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.instanceBillingCycle)) {
+      query["InstanceBillingCycle"] = request.instanceBillingCycle;
+    }
+
+    if (!$dara.isNull(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRenderingChargeType",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyRenderingChargeTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRenderingChargeTypeResponse({}));
+  }
+
+  /**
+   * 变配云渲染资源实例付费类型
+   * 
+   * @param request - ModifyRenderingChargeTypeRequest
+   * @returns ModifyRenderingChargeTypeResponse
+   */
+  async modifyRenderingChargeType(request: $_model.ModifyRenderingChargeTypeRequest): Promise<$_model.ModifyRenderingChargeTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRenderingChargeTypeWithOptions(request, runtime);
+  }
+
+  /**
    * 变配云渲染资源实例
    * 
    * @param request - ModifyRenderingInstanceRequest
