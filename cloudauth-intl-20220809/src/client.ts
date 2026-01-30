@@ -2436,6 +2436,10 @@ export default class Client extends OpenApi {
       query["EditOcrResult"] = request.editOcrResult;
     }
 
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
     if (!$dara.isNull(request.experienceCode)) {
       query["ExperienceCode"] = request.experienceCode;
     }
@@ -2486,6 +2490,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.metaInfo)) {
       query["MetaInfo"] = request.metaInfo;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
     }
 
     if (!$dara.isNull(request.model)) {

@@ -162,6 +162,7 @@ export class InitializeShrinkRequest extends $dara.Model {
    * 0
    */
   editOcrResult?: string;
+  email?: string;
   /**
    * @remarks
    * Experience code
@@ -285,6 +286,7 @@ export class InitializeShrinkRequest extends $dara.Model {
    * {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0 (Macintosh
    */
   metaInfo?: string;
+  mobile?: string;
   /**
    * @remarks
    * The type of liveness detection to be performed:
@@ -511,6 +513,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       docVideo: 'DocVideo',
       documentNumber: 'DocumentNumber',
       editOcrResult: 'EditOcrResult',
+      email: 'Email',
       experienceCode: 'ExperienceCode',
       faceGroupCodes: 'FaceGroupCodes',
       facePictureBase64: 'FacePictureBase64',
@@ -525,6 +528,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       metaInfo: 'MetaInfo',
+      mobile: 'Mobile',
       model: 'Model',
       ocr: 'Ocr',
       pages: 'Pages',
@@ -566,6 +570,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       docVideo: 'string',
       documentNumber: 'string',
       editOcrResult: 'string',
+      email: 'string',
       experienceCode: 'string',
       faceGroupCodes: 'string',
       facePictureBase64: 'string',
@@ -580,6 +585,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       merchantBizId: 'string',
       merchantUserId: 'string',
       metaInfo: 'string',
+      mobile: 'string',
       model: 'string',
       ocr: 'string',
       pages: 'string',

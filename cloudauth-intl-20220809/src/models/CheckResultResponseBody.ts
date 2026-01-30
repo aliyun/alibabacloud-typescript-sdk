@@ -51,6 +51,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
    * **
    */
   extRiskInfo?: string;
+  extSourceInfo?: string;
   /**
    * @remarks
    * Whether the authentication is passed.
@@ -78,6 +79,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
       extIdInfo: 'ExtIdInfo',
       extInfo: 'ExtInfo',
       extRiskInfo: 'ExtRiskInfo',
+      extSourceInfo: 'ExtSourceInfo',
       passed: 'Passed',
       subCode: 'SubCode',
     };
@@ -91,6 +93,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
       extIdInfo: 'string',
       extInfo: 'string',
       extRiskInfo: 'string',
+      extSourceInfo: 'string',
       passed: 'string',
       subCode: 'string',
     };
