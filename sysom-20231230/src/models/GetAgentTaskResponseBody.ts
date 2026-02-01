@@ -4,6 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   error?: string;
+  errorCode?: string;
+  errorMessage?: string;
   instance?: string;
   params?: any;
   region?: string;
@@ -16,6 +18,8 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       error: 'error',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
       instance: 'instance',
       params: 'params',
       region: 'region',
@@ -27,6 +31,8 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       error: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
       instance: 'string',
       params: 'any',
       region: 'string',
