@@ -116,6 +116,10 @@ export { CreateNetworkInterfaceResponseBodySecurityGroupIds } from './CreateNetw
 export { CreateNetworkInterfaceResponseBodyTagsTag } from './CreateNetworkInterfaceResponseBody';
 export { CreateNetworkInterfaceResponseBodyTags } from './CreateNetworkInterfaceResponseBody';
 export { CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission } from './CreateNetworkInterfacePermissionResponseBody';
+export { CreatePlanMaintenanceWindowRequestTargetResourceTags } from './CreatePlanMaintenanceWindowRequest';
+export { CreatePlanMaintenanceWindowRequestTargetResource } from './CreatePlanMaintenanceWindowRequest';
+export { CreatePlanMaintenanceWindowRequestTimePeriodRangeList } from './CreatePlanMaintenanceWindowRequest';
+export { CreatePlanMaintenanceWindowRequestTimePeriod } from './CreatePlanMaintenanceWindowRequest';
 export { CreatePortRangeListRequestEntry } from './CreatePortRangeListRequest';
 export { CreatePortRangeListRequestTag } from './CreatePortRangeListRequest';
 export { CreatePrefixListRequestEntry } from './CreatePrefixListRequest';
@@ -591,6 +595,12 @@ export { DescribeNewProjectEipMonitorDataResponseBodyEipMonitorDatas } from './D
 export { DescribePhysicalConnectionsRequestFilter } from './DescribePhysicalConnectionsRequest';
 export { DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType } from './DescribePhysicalConnectionsResponseBody';
 export { DescribePhysicalConnectionsResponseBodyPhysicalConnectionSet } from './DescribePhysicalConnectionsResponseBody';
+export { DescribePlanMaintenanceWindowsRequestTargetResourceTags } from './DescribePlanMaintenanceWindowsRequest';
+export { DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTargetResourceTags } from './DescribePlanMaintenanceWindowsResponseBody';
+export { DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTargetResource } from './DescribePlanMaintenanceWindowsResponseBody';
+export { DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriodRangeList } from './DescribePlanMaintenanceWindowsResponseBody';
+export { DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriod } from './DescribePlanMaintenanceWindowsResponseBody';
+export { DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList } from './DescribePlanMaintenanceWindowsResponseBody';
 export { DescribePortRangeListAssociationsResponseBodyPortRangeListAssociations } from './DescribePortRangeListAssociationsResponseBody';
 export { DescribePortRangeListEntriesResponseBodyEntries } from './DescribePortRangeListEntriesResponseBody';
 export { DescribePortRangeListsRequestTag } from './DescribePortRangeListsRequest';
@@ -827,6 +837,10 @@ export { ModifyManagedInstanceResponseBodyInstance } from './ModifyManagedInstan
 export { ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration } from './ModifyNetworkInterfaceAttributeRequest';
 export { ModifyNetworkInterfaceAttributeRequestEnhancedNetwork } from './ModifyNetworkInterfaceAttributeRequest';
 export { ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig } from './ModifyNetworkInterfaceAttributeRequest';
+export { ModifyPlanMaintenanceWindowRequestTargetResourceTags } from './ModifyPlanMaintenanceWindowRequest';
+export { ModifyPlanMaintenanceWindowRequestTargetResource } from './ModifyPlanMaintenanceWindowRequest';
+export { ModifyPlanMaintenanceWindowRequestTimePeriodRangeList } from './ModifyPlanMaintenanceWindowRequest';
+export { ModifyPlanMaintenanceWindowRequestTimePeriod } from './ModifyPlanMaintenanceWindowRequest';
 export { ModifyPortRangeListRequestAddEntry } from './ModifyPortRangeListRequest';
 export { ModifyPortRangeListRequestRemoveEntry } from './ModifyPortRangeListRequest';
 export { ModifyPrefixListRequestAddEntry } from './ModifyPrefixListRequest';
@@ -1047,6 +1061,10 @@ export { CreateNetworkInterfacePermissionResponse } from './CreateNetworkInterfa
 export { CreatePhysicalConnectionRequest } from './CreatePhysicalConnectionRequest';
 export { CreatePhysicalConnectionResponseBody } from './CreatePhysicalConnectionResponseBody';
 export { CreatePhysicalConnectionResponse } from './CreatePhysicalConnectionResponse';
+export { CreatePlanMaintenanceWindowRequest } from './CreatePlanMaintenanceWindowRequest';
+export { CreatePlanMaintenanceWindowShrinkRequest } from './CreatePlanMaintenanceWindowShrinkRequest';
+export { CreatePlanMaintenanceWindowResponseBody } from './CreatePlanMaintenanceWindowResponseBody';
+export { CreatePlanMaintenanceWindowResponse } from './CreatePlanMaintenanceWindowResponse';
 export { CreatePortRangeListRequest } from './CreatePortRangeListRequest';
 export { CreatePortRangeListResponseBody } from './CreatePortRangeListResponseBody';
 export { CreatePortRangeListResponse } from './CreatePortRangeListResponse';
@@ -1164,6 +1182,9 @@ export { DeleteNetworkInterfacePermissionResponse } from './DeleteNetworkInterfa
 export { DeletePhysicalConnectionRequest } from './DeletePhysicalConnectionRequest';
 export { DeletePhysicalConnectionResponseBody } from './DeletePhysicalConnectionResponseBody';
 export { DeletePhysicalConnectionResponse } from './DeletePhysicalConnectionResponse';
+export { DeletePlanMaintenanceWindowRequest } from './DeletePlanMaintenanceWindowRequest';
+export { DeletePlanMaintenanceWindowResponseBody } from './DeletePlanMaintenanceWindowResponseBody';
+export { DeletePlanMaintenanceWindowResponse } from './DeletePlanMaintenanceWindowResponse';
 export { DeletePortRangeListRequest } from './DeletePortRangeListRequest';
 export { DeletePortRangeListResponseBody } from './DeletePortRangeListResponseBody';
 export { DeletePortRangeListResponse } from './DeletePortRangeListResponse';
@@ -1434,6 +1455,10 @@ export { DescribeNewProjectEipMonitorDataResponse } from './DescribeNewProjectEi
 export { DescribePhysicalConnectionsRequest } from './DescribePhysicalConnectionsRequest';
 export { DescribePhysicalConnectionsResponseBody } from './DescribePhysicalConnectionsResponseBody';
 export { DescribePhysicalConnectionsResponse } from './DescribePhysicalConnectionsResponse';
+export { DescribePlanMaintenanceWindowsRequest } from './DescribePlanMaintenanceWindowsRequest';
+export { DescribePlanMaintenanceWindowsShrinkRequest } from './DescribePlanMaintenanceWindowsShrinkRequest';
+export { DescribePlanMaintenanceWindowsResponseBody } from './DescribePlanMaintenanceWindowsResponseBody';
+export { DescribePlanMaintenanceWindowsResponse } from './DescribePlanMaintenanceWindowsResponse';
 export { DescribePortRangeListAssociationsRequest } from './DescribePortRangeListAssociationsRequest';
 export { DescribePortRangeListAssociationsResponseBody } from './DescribePortRangeListAssociationsResponseBody';
 export { DescribePortRangeListAssociationsResponse } from './DescribePortRangeListAssociationsResponse';
@@ -1788,6 +1813,10 @@ export { ModifyNetworkInterfaceAttributeResponse } from './ModifyNetworkInterfac
 export { ModifyPhysicalConnectionAttributeRequest } from './ModifyPhysicalConnectionAttributeRequest';
 export { ModifyPhysicalConnectionAttributeResponseBody } from './ModifyPhysicalConnectionAttributeResponseBody';
 export { ModifyPhysicalConnectionAttributeResponse } from './ModifyPhysicalConnectionAttributeResponse';
+export { ModifyPlanMaintenanceWindowRequest } from './ModifyPlanMaintenanceWindowRequest';
+export { ModifyPlanMaintenanceWindowShrinkRequest } from './ModifyPlanMaintenanceWindowShrinkRequest';
+export { ModifyPlanMaintenanceWindowResponseBody } from './ModifyPlanMaintenanceWindowResponseBody';
+export { ModifyPlanMaintenanceWindowResponse } from './ModifyPlanMaintenanceWindowResponse';
 export { ModifyPortRangeListRequest } from './ModifyPortRangeListRequest';
 export { ModifyPortRangeListResponseBody } from './ModifyPortRangeListResponseBody';
 export { ModifyPortRangeListResponse } from './ModifyPortRangeListResponse';

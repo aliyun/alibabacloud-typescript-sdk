@@ -36,6 +36,8 @@ export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricRe
    * 2022-07-11T14:00:00Z
    */
   occurrenceTime?: string;
+  repairStatus?: string;
+  repairable?: boolean;
   /**
    * @remarks
    * The severity level of the diagnosed issue. Valid values:
@@ -53,6 +55,8 @@ export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricRe
       additional: 'Additional',
       issueId: 'IssueId',
       occurrenceTime: 'OccurrenceTime',
+      repairStatus: 'RepairStatus',
+      repairable: 'Repairable',
       severity: 'Severity',
     };
   }
@@ -62,6 +66,8 @@ export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricRe
       additional: 'string',
       issueId: 'string',
       occurrenceTime: 'string',
+      repairStatus: 'string',
+      repairable: 'boolean',
       severity: 'string',
     };
   }

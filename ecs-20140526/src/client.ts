@@ -202,7 +202,7 @@ export default class Client extends OpenApi {
   /**
    * AddBandwidthPackageIps
    * 
-   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
+   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
    * 
    * @param request - AddBandwidthPackageIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -263,7 +263,7 @@ export default class Client extends OpenApi {
   /**
    * AddBandwidthPackageIps
    * 
-   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
+   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
    * 
    * @param request - AddBandwidthPackageIpsRequest
    * @returns AddBandwidthPackageIpsResponse
@@ -6255,6 +6255,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建运维窗口
+   * 
+   * @param tmpReq - CreatePlanMaintenanceWindowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePlanMaintenanceWindowResponse
+   */
+  async createPlanMaintenanceWindowWithOptions(tmpReq: $_model.CreatePlanMaintenanceWindowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePlanMaintenanceWindowResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePlanMaintenanceWindowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.targetResource)) {
+      request.targetResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetResource, "TargetResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.timePeriod)) {
+      request.timePeriodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timePeriod, "TimePeriod", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.planWindowName)) {
+      query["PlanWindowName"] = request.planWindowName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.supportMaintenanceAction)) {
+      query["SupportMaintenanceAction"] = request.supportMaintenanceAction;
+    }
+
+    if (!$dara.isNull(request.targetResourceShrink)) {
+      query["TargetResource"] = request.targetResourceShrink;
+    }
+
+    if (!$dara.isNull(request.timePeriodShrink)) {
+      query["TimePeriod"] = request.timePeriodShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePlanMaintenanceWindow",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePlanMaintenanceWindowResponse>(await this.callApi(params, req, runtime), new $_model.CreatePlanMaintenanceWindowResponse({}));
+  }
+
+  /**
+   * 创建运维窗口
+   * 
+   * @param request - CreatePlanMaintenanceWindowRequest
+   * @returns CreatePlanMaintenanceWindowResponse
+   */
+  async createPlanMaintenanceWindow(request: $_model.CreatePlanMaintenanceWindowRequest): Promise<$_model.CreatePlanMaintenanceWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPlanMaintenanceWindowWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a port list. You can associate a port list with resources, such as security groups.
    * 
    * @param request - CreatePortRangeListRequest
@@ -7881,8 +7953,6 @@ export default class Client extends OpenApi {
   /**
    * DeleteBandwidthPackage
    * 
-   * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
-   * 
    * @param request - DeleteBandwidthPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBandwidthPackageResponse
@@ -7934,12 +8004,9 @@ export default class Client extends OpenApi {
   /**
    * DeleteBandwidthPackage
    * 
-   * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
-   * 
    * @param request - DeleteBandwidthPackageRequest
    * @returns DeleteBandwidthPackageResponse
    */
-  // Deprecated
   async deleteBandwidthPackage(request: $_model.DeleteBandwidthPackageRequest): Promise<$_model.DeleteBandwidthPackageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBandwidthPackageWithOptions(request, runtime);
@@ -9472,6 +9539,52 @@ export default class Client extends OpenApi {
   async deletePhysicalConnection(request: $_model.DeletePhysicalConnectionRequest): Promise<$_model.DeletePhysicalConnectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePhysicalConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除运维窗口
+   * 
+   * @param request - DeletePlanMaintenanceWindowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePlanMaintenanceWindowResponse
+   */
+  async deletePlanMaintenanceWindowWithOptions(request: $_model.DeletePlanMaintenanceWindowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePlanMaintenanceWindowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.planWindowId)) {
+      query["PlanWindowId"] = request.planWindowId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePlanMaintenanceWindow",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePlanMaintenanceWindowResponse>(await this.callApi(params, req, runtime), new $_model.DeletePlanMaintenanceWindowResponse({}));
+  }
+
+  /**
+   * 删除运维窗口
+   * 
+   * @param request - DeletePlanMaintenanceWindowRequest
+   * @returns DeletePlanMaintenanceWindowResponse
+   */
+  async deletePlanMaintenanceWindow(request: $_model.DeletePlanMaintenanceWindowRequest): Promise<$_model.DeletePlanMaintenanceWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePlanMaintenanceWindowWithOptions(request, runtime);
   }
 
   /**
@@ -17453,6 +17566,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询运维窗口
+   * 
+   * @param tmpReq - DescribePlanMaintenanceWindowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePlanMaintenanceWindowsResponse
+   */
+  async describePlanMaintenanceWindowsWithOptions(tmpReq: $_model.DescribePlanMaintenanceWindowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePlanMaintenanceWindowsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribePlanMaintenanceWindowsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.targetResourceTags)) {
+      request.targetResourceTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetResourceTags, "TargetResourceTags", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.planWindowId)) {
+      query["PlanWindowId"] = request.planWindowId;
+    }
+
+    if (!$dara.isNull(request.planWindowName)) {
+      query["PlanWindowName"] = request.planWindowName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.targetResourceGroupId)) {
+      query["TargetResourceGroupId"] = request.targetResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.targetResourceTagsShrink)) {
+      query["TargetResourceTags"] = request.targetResourceTagsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePlanMaintenanceWindows",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePlanMaintenanceWindowsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePlanMaintenanceWindowsResponse({}));
+  }
+
+  /**
+   * 查询运维窗口
+   * 
+   * @param request - DescribePlanMaintenanceWindowsRequest
+   * @returns DescribePlanMaintenanceWindowsResponse
+   */
+  async describePlanMaintenanceWindows(request: $_model.DescribePlanMaintenanceWindowsRequest): Promise<$_model.DescribePlanMaintenanceWindowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePlanMaintenanceWindowsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the resources that are associated with a port list, such as security groups.
    * 
    * @param request - DescribePortRangeListAssociationsRequest
@@ -24187,7 +24376,7 @@ export default class Client extends OpenApi {
   /**
    * ModifyBandwidthPackageSpec
    * 
-   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
+   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
    * 
    * @param request - ModifyBandwidthPackageSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24244,7 +24433,7 @@ export default class Client extends OpenApi {
   /**
    * ModifyBandwidthPackageSpec
    * 
-   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
+   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
    * 
    * @param request - ModifyBandwidthPackageSpecRequest
    * @returns ModifyBandwidthPackageSpecResponse
@@ -28173,6 +28362,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新运维窗口
+   * 
+   * @param tmpReq - ModifyPlanMaintenanceWindowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPlanMaintenanceWindowResponse
+   */
+  async modifyPlanMaintenanceWindowWithOptions(tmpReq: $_model.ModifyPlanMaintenanceWindowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPlanMaintenanceWindowResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyPlanMaintenanceWindowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.targetResource)) {
+      request.targetResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetResource, "TargetResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.timePeriod)) {
+      request.timePeriodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timePeriod, "TimePeriod", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.planWindowId)) {
+      query["PlanWindowId"] = request.planWindowId;
+    }
+
+    if (!$dara.isNull(request.planWindowName)) {
+      query["PlanWindowName"] = request.planWindowName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.supportMaintenanceAction)) {
+      query["SupportMaintenanceAction"] = request.supportMaintenanceAction;
+    }
+
+    if (!$dara.isNull(request.targetResourceShrink)) {
+      query["TargetResource"] = request.targetResourceShrink;
+    }
+
+    if (!$dara.isNull(request.timePeriodShrink)) {
+      query["TimePeriod"] = request.timePeriodShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPlanMaintenanceWindow",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPlanMaintenanceWindowResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPlanMaintenanceWindowResponse({}));
+  }
+
+  /**
+   * 更新运维窗口
+   * 
+   * @param request - ModifyPlanMaintenanceWindowRequest
+   * @returns ModifyPlanMaintenanceWindowResponse
+   */
+  async modifyPlanMaintenanceWindow(request: $_model.ModifyPlanMaintenanceWindowRequest): Promise<$_model.ModifyPlanMaintenanceWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPlanMaintenanceWindowWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the name and entries of a port list. You can call this operation to add, modify, and remove entries for a port list.
    * 
    * @param request - ModifyPortRangeListRequest
@@ -31455,8 +31720,6 @@ export default class Client extends OpenApi {
   /**
    * RemoveBandwidthPackageIps
    * 
-   * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
-   * 
    * @param request - RemoveBandwidthPackageIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveBandwidthPackageIpsResponse
@@ -31516,12 +31779,9 @@ export default class Client extends OpenApi {
   /**
    * RemoveBandwidthPackageIps
    * 
-   * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
-   * 
    * @param request - RemoveBandwidthPackageIpsRequest
    * @returns RemoveBandwidthPackageIpsResponse
    */
-  // Deprecated
   async removeBandwidthPackageIps(request: $_model.RemoveBandwidthPackageIpsRequest): Promise<$_model.RemoveBandwidthPackageIpsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeBandwidthPackageIpsWithOptions(request, runtime);

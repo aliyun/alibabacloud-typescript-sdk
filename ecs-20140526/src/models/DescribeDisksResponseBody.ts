@@ -651,6 +651,11 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
    */
   size?: number;
   /**
+   * @example
+   * d-123*********
+   */
+  sourceDiskId?: string;
+  /**
    * @remarks
    * The ID of the snapshot that was used to create the cloud disk.
    * 
@@ -787,6 +792,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       serialNumber: 'SerialNumber',
       size: 'Size',
+      sourceDiskId: 'SourceDiskId',
       sourceSnapshotId: 'SourceSnapshotId',
       status: 'Status',
       storageClusterId: 'StorageClusterId',
@@ -841,6 +847,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
       resourceGroupId: 'string',
       serialNumber: 'string',
       size: 'number',
+      sourceDiskId: 'string',
       sourceSnapshotId: 'string',
       status: 'string',
       storageClusterId: 'string',
