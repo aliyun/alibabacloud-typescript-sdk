@@ -1508,6 +1508,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为当前UID创建合规报告模版
+   * 
+   * @param tmpReq - CreateReportTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReportTemplateResponse
+   */
+  async createReportTemplateWithOptions(tmpReq: $_model.CreateReportTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReportTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateReportTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.reportScope)) {
+      request.reportScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reportScope, "ReportScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportFileFormats)) {
+      body["ReportFileFormats"] = request.reportFileFormats;
+    }
+
+    if (!$dara.isNull(request.reportGranularity)) {
+      body["ReportGranularity"] = request.reportGranularity;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      body["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.reportScopeShrink)) {
+      body["ReportScope"] = request.reportScopeShrink;
+    }
+
+    if (!$dara.isNull(request.reportTemplateDescription)) {
+      body["ReportTemplateDescription"] = request.reportTemplateDescription;
+    }
+
+    if (!$dara.isNull(request.reportTemplateName)) {
+      body["ReportTemplateName"] = request.reportTemplateName;
+    }
+
+    if (!$dara.isNull(request.subscriptionFrequency)) {
+      body["SubscriptionFrequency"] = request.subscriptionFrequency;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateReportTemplate",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateReportTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateReportTemplateResponse({}));
+  }
+
+  /**
+   * 为当前UID创建合规报告模版
+   * 
+   * @param request - CreateReportTemplateRequest
+   * @returns CreateReportTemplateResponse
+   */
+  async createReportTemplate(request: $_model.CreateReportTemplateRequest): Promise<$_model.CreateReportTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createReportTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
    * 
    * @remarks
@@ -4758,6 +4830,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取合规报告模版详情
+   * 
+   * @param request - GetReportTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReportTemplateResponse
+   */
+  async getReportTemplateWithOptions(request: $_model.GetReportTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetReportTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.reportTemplateId)) {
+      query["ReportTemplateId"] = request.reportTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetReportTemplate",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetReportTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetReportTemplateResponse({}));
+  }
+
+  /**
+   * 获取合规报告模版详情
+   * 
+   * @param request - GetReportTemplateRequest
+   * @returns GetReportTemplateResponse
+   */
+  async getReportTemplate(request: $_model.GetReportTemplateRequest): Promise<$_model.GetReportTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getReportTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the compliance summary based on the compliance evaluation result of a rule.
    * 
    * @remarks
@@ -7194,6 +7308,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量获取合规报告模版详情
+   * 
+   * @param request - ListReportTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReportTemplatesResponse
+   */
+  async listReportTemplatesWithOptions(request: $_model.ListReportTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListReportTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListReportTemplates",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListReportTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListReportTemplatesResponse({}));
+  }
+
+  /**
+   * 批量获取合规报告模版详情
+   * 
+   * @param request - ListReportTemplatesRequest
+   * @returns ListReportTemplatesResponse
+   */
+  async listReportTemplates(request: $_model.ListReportTemplatesRequest): Promise<$_model.ListReportTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listReportTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the compliance evaluation results of resources.
    * 
    * @remarks
@@ -9323,6 +9487,82 @@ export default class Client extends OpenApi {
   async updateRemediation(request: $_model.UpdateRemediationRequest): Promise<$_model.UpdateRemediationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRemediationWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新合规报告模版
+   * 
+   * @param tmpReq - UpdateReportTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateReportTemplateResponse
+   */
+  async updateReportTemplateWithOptions(tmpReq: $_model.UpdateReportTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateReportTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateReportTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.reportScope)) {
+      request.reportScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reportScope, "ReportScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportFileFormats)) {
+      body["ReportFileFormats"] = request.reportFileFormats;
+    }
+
+    if (!$dara.isNull(request.reportGranularity)) {
+      body["ReportGranularity"] = request.reportGranularity;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      body["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.reportScopeShrink)) {
+      body["ReportScope"] = request.reportScopeShrink;
+    }
+
+    if (!$dara.isNull(request.reportTemplateDescription)) {
+      body["ReportTemplateDescription"] = request.reportTemplateDescription;
+    }
+
+    if (!$dara.isNull(request.reportTemplateId)) {
+      body["ReportTemplateId"] = request.reportTemplateId;
+    }
+
+    if (!$dara.isNull(request.reportTemplateName)) {
+      body["ReportTemplateName"] = request.reportTemplateName;
+    }
+
+    if (!$dara.isNull(request.subscriptionFrequency)) {
+      body["SubscriptionFrequency"] = request.subscriptionFrequency;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateReportTemplate",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateReportTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateReportTemplateResponse({}));
+  }
+
+  /**
+   * 更新合规报告模版
+   * 
+   * @param request - UpdateReportTemplateRequest
+   * @returns UpdateReportTemplateResponse
+   */
+  async updateReportTemplate(request: $_model.UpdateReportTemplateRequest): Promise<$_model.UpdateReportTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateReportTemplateWithOptions(request, runtime);
   }
 
 }
