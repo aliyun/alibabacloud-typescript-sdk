@@ -214,13 +214,17 @@ export class NotifyStrategyForModifyRoutesEffectTimeRange extends $dara.Model {
 
 export class NotifyStrategyForModifyRoutes extends $dara.Model {
   channels?: NotifyStrategyForModifyRoutesChannels[];
+  digitalEmployeeName?: string;
   effectTimeRange?: NotifyStrategyForModifyRoutesEffectTimeRange;
+  enableRca?: boolean;
   filterSetting?: FilterSetting;
   severities?: string[];
   static names(): { [key: string]: string } {
     return {
       channels: 'channels',
+      digitalEmployeeName: 'digitalEmployeeName',
       effectTimeRange: 'effectTimeRange',
+      enableRca: 'enableRca',
       filterSetting: 'filterSetting',
       severities: 'severities',
     };
@@ -229,7 +233,9 @@ export class NotifyStrategyForModifyRoutes extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       channels: { 'type': 'array', 'itemType': NotifyStrategyForModifyRoutesChannels },
+      digitalEmployeeName: 'string',
       effectTimeRange: NotifyStrategyForModifyRoutesEffectTimeRange,
+      enableRca: 'boolean',
       filterSetting: FilterSetting,
       severities: { 'type': 'array', 'itemType': 'string' },
     };

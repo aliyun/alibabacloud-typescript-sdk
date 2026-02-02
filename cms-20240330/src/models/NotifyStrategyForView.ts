@@ -214,13 +214,17 @@ export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
 
 export class NotifyStrategyForViewRoutes extends $dara.Model {
   channels?: NotifyStrategyForViewRoutesChannels[];
+  digitalEmployeeName?: string;
   effectTimeRange?: NotifyStrategyForViewRoutesEffectTimeRange;
+  enableRca?: boolean;
   filterSetting?: FilterSetting;
   severities?: string[];
   static names(): { [key: string]: string } {
     return {
       channels: 'channels',
+      digitalEmployeeName: 'digitalEmployeeName',
       effectTimeRange: 'effectTimeRange',
+      enableRca: 'enableRca',
       filterSetting: 'filterSetting',
       severities: 'severities',
     };
@@ -229,7 +233,9 @@ export class NotifyStrategyForViewRoutes extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       channels: { 'type': 'array', 'itemType': NotifyStrategyForViewRoutesChannels },
+      digitalEmployeeName: 'string',
       effectTimeRange: NotifyStrategyForViewRoutesEffectTimeRange,
+      enableRca: 'boolean',
       filterSetting: FilterSetting,
       severities: { 'type': 'array', 'itemType': 'string' },
     };

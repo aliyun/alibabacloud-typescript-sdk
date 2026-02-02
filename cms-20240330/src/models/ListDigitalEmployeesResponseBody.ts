@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { Tag } from "./Tag";
 
 
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian extends $dara.Model {
@@ -115,9 +116,15 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   name?: string;
   /**
    * @example
+   * rg-ae******ey
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
+  tags?: Tag[];
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
@@ -135,7 +142,9 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
       employeeType: 'employeeType',
       knowledges: 'knowledges',
       name: 'name',
+      resourceGroupId: 'resourceGroupId',
       roleArn: 'roleArn',
+      tags: 'tags',
       updateTime: 'updateTime',
     };
   }
@@ -149,7 +158,9 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
       employeeType: 'string',
       knowledges: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges,
       name: 'string',
+      resourceGroupId: 'string',
       roleArn: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
       updateTime: 'string',
     };
   }
@@ -157,6 +168,9 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   validate() {
     if(this.knowledges && typeof (this.knowledges as any).validate === 'function') {
       (this.knowledges as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

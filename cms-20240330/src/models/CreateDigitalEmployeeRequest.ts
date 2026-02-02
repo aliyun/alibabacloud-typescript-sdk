@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { Tag } from "./Tag";
 
 
 export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
@@ -108,6 +109,11 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * rg-ae******ey
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -115,6 +121,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
+  tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
       defaultRule: 'defaultRule',
@@ -122,7 +129,9 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
       displayName: 'displayName',
       knowledges: 'knowledges',
       name: 'name',
+      resourceGroupId: 'resourceGroupId',
       roleArn: 'roleArn',
+      tags: 'tags',
     };
   }
 
@@ -133,13 +142,18 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
       displayName: 'string',
       knowledges: CreateDigitalEmployeeRequestKnowledges,
       name: 'string',
+      resourceGroupId: 'string',
       roleArn: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
     };
   }
 
   validate() {
     if(this.knowledges && typeof (this.knowledges as any).validate === 'function') {
       (this.knowledges as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

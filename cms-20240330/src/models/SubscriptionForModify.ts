@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { FilterSetting } from "./FilterSetting";
+import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 
 
 export class SubscriptionForModifyPushingSetting extends $dara.Model {
@@ -51,6 +52,7 @@ export class SubscriptionForModify extends $dara.Model {
    * This parameter is required.
    */
   subscriptionName?: string;
+  workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
@@ -58,6 +60,7 @@ export class SubscriptionForModify extends $dara.Model {
       notifyStrategyId: 'notifyStrategyId',
       pushingSetting: 'pushingSetting',
       subscriptionName: 'subscriptionName',
+      workspaceFilterSetting: 'workspaceFilterSetting',
     };
   }
 
@@ -68,6 +71,7 @@ export class SubscriptionForModify extends $dara.Model {
       notifyStrategyId: 'string',
       pushingSetting: SubscriptionForModifyPushingSetting,
       subscriptionName: 'string',
+      workspaceFilterSetting: WorkspaceFilterSetting,
     };
   }
 
@@ -77,6 +81,9 @@ export class SubscriptionForModify extends $dara.Model {
     }
     if(this.pushingSetting && typeof (this.pushingSetting as any).validate === 'function') {
       (this.pushingSetting as any).validate();
+    }
+    if(this.workspaceFilterSetting && typeof (this.workspaceFilterSetting as any).validate === 'function') {
+      (this.workspaceFilterSetting as any).validate();
     }
     super.validate();
   }

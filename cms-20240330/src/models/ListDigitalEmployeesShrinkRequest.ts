@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { Tag } from "./Tag";
 
 
-export class ListDigitalEmployeesRequest extends $dara.Model {
+export class ListDigitalEmployeesShrinkRequest extends $dara.Model {
   displayName?: string;
   employeeType?: string;
   /**
@@ -26,7 +25,7 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
    * rg-ae******ey
    */
   resourceGroupId?: string;
-  tags?: Tag[];
+  tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       displayName: 'displayName',
@@ -35,7 +34,7 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
       name: 'name',
       nextToken: 'nextToken',
       resourceGroupId: 'resourceGroupId',
-      tags: 'tags',
+      tagsShrink: 'tags',
     };
   }
 
@@ -47,14 +46,11 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
       name: 'string',
       nextToken: 'string',
       resourceGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': Tag },
+      tagsShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
     super.validate();
   }
 

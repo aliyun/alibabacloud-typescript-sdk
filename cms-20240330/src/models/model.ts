@@ -445,6 +445,7 @@ export { ListBizTracesRequest } from './ListBizTracesRequest';
 export { ListBizTracesResponseBody } from './ListBizTracesResponseBody';
 export { ListBizTracesResponse } from './ListBizTracesResponse';
 export { ListDigitalEmployeesRequest } from './ListDigitalEmployeesRequest';
+export { ListDigitalEmployeesShrinkRequest } from './ListDigitalEmployeesShrinkRequest';
 export { ListDigitalEmployeesResponseBody } from './ListDigitalEmployeesResponseBody';
 export { ListDigitalEmployeesResponse } from './ListDigitalEmployeesResponse';
 export { ListIntegrationPoliciesRequest } from './ListIntegrationPoliciesRequest';

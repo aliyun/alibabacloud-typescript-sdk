@@ -599,8 +599,16 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.roleArn)) {
       body["roleArn"] = request.roleArn;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3395,13 +3403,19 @@ export default class Client extends OpenApi {
   /**
    * 列出资源DigitalEmployee
    * 
-   * @param request - ListDigitalEmployeesRequest
+   * @param tmpReq - ListDigitalEmployeesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDigitalEmployeesResponse
    */
-  async listDigitalEmployeesWithOptions(request: $_model.ListDigitalEmployeesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeesResponse> {
-    request.validate();
+  async listDigitalEmployeesWithOptions(tmpReq: $_model.ListDigitalEmployeesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDigitalEmployeesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.displayName)) {
       query["displayName"] = request.displayName;
@@ -3421,6 +3435,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

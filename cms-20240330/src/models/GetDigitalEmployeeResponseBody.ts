@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { Tag } from "./Tag";
 
 
 export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model {
@@ -125,9 +126,15 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @example
+   * rg-ae******ey
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
+  tags?: Tag[];
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
@@ -147,7 +154,9 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       name: 'name',
       regionId: 'regionId',
       requestId: 'requestId',
+      resourceGroupId: 'resourceGroupId',
       roleArn: 'roleArn',
+      tags: 'tags',
       updateTime: 'updateTime',
     };
   }
@@ -163,7 +172,9 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       name: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       roleArn: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
       updateTime: 'string',
     };
   }
@@ -171,6 +182,9 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   validate() {
     if(this.knowledges && typeof (this.knowledges as any).validate === 'function') {
       (this.knowledges as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
