@@ -38,6 +38,11 @@ export class ModifyHeadersRequest extends $dara.Model {
    */
   domain?: string;
   /**
+   * @example
+   * {"X-Client-IP":true,"X-True-IP":true,"Web-Server-Type":true,"WL-Proxy-Client-IP":true,"X-Forwarded-Proto":true}
+   */
+  embeddedHeaders?: string;
+  /**
    * @remarks
    * The ID of the resource group to which the instance belongs.
    * 
@@ -55,6 +60,7 @@ export class ModifyHeadersRequest extends $dara.Model {
     return {
       customHeaders: 'CustomHeaders',
       domain: 'Domain',
+      embeddedHeaders: 'EmbeddedHeaders',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -63,6 +69,7 @@ export class ModifyHeadersRequest extends $dara.Model {
     return {
       customHeaders: 'string',
       domain: 'string',
+      embeddedHeaders: 'string',
       resourceGroupId: 'string',
     };
   }

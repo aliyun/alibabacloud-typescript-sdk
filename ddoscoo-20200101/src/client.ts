@@ -8814,6 +8814,10 @@ export default class Client extends OpenApi {
       query["Domain"] = request.domain;
     }
 
+    if (!$dara.isNull(request.embeddedHeaders)) {
+      query["EmbeddedHeaders"] = request.embeddedHeaders;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }

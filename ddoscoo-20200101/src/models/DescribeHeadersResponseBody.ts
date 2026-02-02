@@ -49,6 +49,14 @@ export class DescribeHeadersResponseBody extends $dara.Model {
    */
   customHeader?: DescribeHeadersResponseBodyCustomHeader;
   /**
+   * @example
+   * {"X-Client-IP":true,"X-True-IP":true,"Web-Server-Type":true,"WL-Proxy-Client-IP":true,"X-Forwarded-Proto":true}
+   * 
+   * **if can be null:**
+   * false
+   */
+  embeddedHeaders?: string;
+  /**
    * @remarks
    * The ID of the request, which is used to locate and troubleshoot issues.
    * 
@@ -59,6 +67,7 @@ export class DescribeHeadersResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       customHeader: 'CustomHeader',
+      embeddedHeaders: 'EmbeddedHeaders',
       requestId: 'RequestId',
     };
   }
@@ -66,6 +75,7 @@ export class DescribeHeadersResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       customHeader: DescribeHeadersResponseBodyCustomHeader,
+      embeddedHeaders: 'string',
       requestId: 'string',
     };
   }
