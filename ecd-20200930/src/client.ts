@@ -4702,6 +4702,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建限速组
+   * 
+   * @param request - CreateQosRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateQosRuleResponse
+   */
+  async createQosRuleWithOptions(request: $_model.CreateQosRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateQosRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authAndroidId)) {
+      query["AuthAndroidId"] = request.authAndroidId;
+    }
+
+    if (!$dara.isNull(request.authDesktopId)) {
+      query["AuthDesktopId"] = request.authDesktopId;
+    }
+
+    if (!$dara.isNull(request.download)) {
+      query["Download"] = request.download;
+    }
+
+    if (!$dara.isNull(request.networkPackageId)) {
+      query["NetworkPackageId"] = request.networkPackageId;
+    }
+
+    if (!$dara.isNull(request.qosRuleName)) {
+      query["QosRuleName"] = request.qosRuleName;
+    }
+
+    if (!$dara.isNull(request.upload)) {
+      query["Upload"] = request.upload;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateQosRule",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateQosRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateQosRuleResponse({}));
+  }
+
+  /**
+   * 新建限速组
+   * 
+   * @param request - CreateQosRuleRequest
+   * @returns CreateQosRuleResponse
+   */
+  async createQosRule(request: $_model.CreateQosRuleRequest): Promise<$_model.CreateQosRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createQosRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Resource Access Management (RAM) directory.
    * 
    * @remarks
@@ -6372,6 +6434,44 @@ export default class Client extends OpenApi {
   async deletePolicyGroups(request: $_model.DeletePolicyGroupsRequest): Promise<$_model.DeletePolicyGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolicyGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteQosRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQosRulesResponse
+   */
+  async deleteQosRulesWithOptions(request: $_model.DeleteQosRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteQosRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.qosRuleId)) {
+      query["QosRuleId"] = request.qosRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteQosRules",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteQosRulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteQosRulesResponse({}));
+  }
+
+  /**
+   * @param request - DeleteQosRulesRequest
+   * @returns DeleteQosRulesResponse
+   */
+  async deleteQosRules(request: $_model.DeleteQosRulesRequest): Promise<$_model.DeleteQosRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteQosRulesWithOptions(request, runtime);
   }
 
   /**
@@ -10716,6 +10816,48 @@ export default class Client extends OpenApi {
   async describePriceForRenewDesktopOversoldGroup(request: $_model.DescribePriceForRenewDesktopOversoldGroupRequest): Promise<$_model.DescribePriceForRenewDesktopOversoldGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePriceForRenewDesktopOversoldGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeQosRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeQosRulesResponse
+   */
+  async describeQosRulesWithOptions(request: $_model.DescribeQosRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeQosRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.networkPackageId)) {
+      query["NetworkPackageId"] = request.networkPackageId;
+    }
+
+    if (!$dara.isNull(request.qosRuleName)) {
+      query["QosRuleName"] = request.qosRuleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeQosRules",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeQosRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeQosRulesResponse({}));
+  }
+
+  /**
+   * @param request - DescribeQosRulesRequest
+   * @returns DescribeQosRulesResponse
+   */
+  async describeQosRules(request: $_model.DescribeQosRulesRequest): Promise<$_model.DescribeQosRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeQosRulesWithOptions(request, runtime);
   }
 
   /**
@@ -17078,6 +17220,114 @@ export default class Client extends OpenApi {
   async modifyPolicyGroup(request: $_model.ModifyPolicyGroupRequest): Promise<$_model.ModifyPolicyGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改限速组资源绑定关系
+   * 
+   * @param request - ModifyQosEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyQosEntriesResponse
+   */
+  async modifyQosEntriesWithOptions(request: $_model.ModifyQosEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyQosEntriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authAndroidId)) {
+      query["AuthAndroidId"] = request.authAndroidId;
+    }
+
+    if (!$dara.isNull(request.authDesktopId)) {
+      query["AuthDesktopId"] = request.authDesktopId;
+    }
+
+    if (!$dara.isNull(request.qosRuleId)) {
+      query["QosRuleId"] = request.qosRuleId;
+    }
+
+    if (!$dara.isNull(request.revokeAndroidId)) {
+      query["RevokeAndroidId"] = request.revokeAndroidId;
+    }
+
+    if (!$dara.isNull(request.revokeDesktopId)) {
+      query["RevokeDesktopId"] = request.revokeDesktopId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyQosEntries",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyQosEntriesResponse>(await this.callApi(params, req, runtime), new $_model.ModifyQosEntriesResponse({}));
+  }
+
+  /**
+   * 修改限速组资源绑定关系
+   * 
+   * @param request - ModifyQosEntriesRequest
+   * @returns ModifyQosEntriesResponse
+   */
+  async modifyQosEntries(request: $_model.ModifyQosEntriesRequest): Promise<$_model.ModifyQosEntriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyQosEntriesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyQosRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyQosRuleResponse
+   */
+  async modifyQosRuleWithOptions(request: $_model.ModifyQosRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyQosRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.download)) {
+      query["Download"] = request.download;
+    }
+
+    if (!$dara.isNull(request.qosRuleId)) {
+      query["QosRuleId"] = request.qosRuleId;
+    }
+
+    if (!$dara.isNull(request.qosRuleName)) {
+      query["QosRuleName"] = request.qosRuleName;
+    }
+
+    if (!$dara.isNull(request.upload)) {
+      query["Upload"] = request.upload;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyQosRule",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyQosRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyQosRuleResponse({}));
+  }
+
+  /**
+   * @param request - ModifyQosRuleRequest
+   * @returns ModifyQosRuleResponse
+   */
+  async modifyQosRule(request: $_model.ModifyQosRuleRequest): Promise<$_model.ModifyQosRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyQosRuleWithOptions(request, runtime);
   }
 
   /**
