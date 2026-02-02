@@ -334,6 +334,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据通道凭证
+   * 
+   * @param request - GetDataChannelCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataChannelCredentialResponse
+   */
+  async getDataChannelCredentialWithOptions(request: $_model.GetDataChannelCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataChannelCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      query["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataChannelCredential",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataChannelCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetDataChannelCredentialResponse({}));
+  }
+
+  /**
+   * 获取数据通道凭证
+   * 
+   * @param request - GetDataChannelCredentialRequest
+   * @returns GetDataChannelCredentialResponse
+   */
+  async getDataChannelCredential(request: $_model.GetDataChannelCredentialRequest): Promise<$_model.GetDataChannelCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataChannelCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * 查询应用
    * 
    * @param request - ListApplicationsRequest

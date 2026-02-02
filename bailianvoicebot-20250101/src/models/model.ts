@@ -20,6 +20,7 @@ export { GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig } from 
 export { GetApplicationResponseBodyDataPublishedVersionTranscriberConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersion } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyData } from './GetApplicationResponseBody';
+export { GetDataChannelCredentialResponseBodyData } from './GetDataChannelCredentialResponseBody';
 export { ListApplicationsResponseBodyDataApplications } from './ListApplicationsResponseBody';
 export { ListApplicationsResponseBodyData } from './ListApplicationsResponseBody';
 export { UpdateApplicationVersionRequestInteractionConfigSilenceDetectionConfig } from './UpdateApplicationVersionRequest';
@@ -44,6 +45,9 @@ export { DeleteApplicationResponse } from './DeleteApplicationResponse';
 export { GetApplicationRequest } from './GetApplicationRequest';
 export { GetApplicationResponseBody } from './GetApplicationResponseBody';
 export { GetApplicationResponse } from './GetApplicationResponse';
+export { GetDataChannelCredentialRequest } from './GetDataChannelCredentialRequest';
+export { GetDataChannelCredentialResponseBody } from './GetDataChannelCredentialResponseBody';
+export { GetDataChannelCredentialResponse } from './GetDataChannelCredentialResponse';
 export { ListApplicationsRequest } from './ListApplicationsRequest';
 export { ListApplicationsResponseBody } from './ListApplicationsResponseBody';
 export { ListApplicationsResponse } from './ListApplicationsResponse';
