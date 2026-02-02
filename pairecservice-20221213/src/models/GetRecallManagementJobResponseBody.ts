@@ -2,6 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetRecallManagementJobResponseBodyRecallManagementTableInfo extends $dara.Model {
+  dataVersion?: string;
+  recallManagementTableVersionId?: string;
+  sourceTableDataSize?: string;
+  sourceTableRowCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataVersion: 'DataVersion',
+      recallManagementTableVersionId: 'RecallManagementTableVersionId',
+      sourceTableDataSize: 'SourceTableDataSize',
+      sourceTableRowCount: 'SourceTableRowCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataVersion: 'string',
+      recallManagementTableVersionId: 'string',
+      sourceTableDataSize: 'string',
+      sourceTableRowCount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRecallManagementJobResponseBodyRecallManagerTableInfo extends $dara.Model {
   dataVersion?: string;
   recallManagerTableVersionId?: string;
@@ -38,6 +70,7 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
   endTime?: string;
   log?: string;
   recallManagementJobId?: string;
+  recallManagementTableInfo?: GetRecallManagementJobResponseBodyRecallManagementTableInfo;
   recallManagerTableInfo?: GetRecallManagementJobResponseBodyRecallManagerTableInfo;
   requestId?: string;
   startTime?: string;
@@ -47,6 +80,7 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
       endTime: 'EndTime',
       log: 'Log',
       recallManagementJobId: 'RecallManagementJobId',
+      recallManagementTableInfo: 'RecallManagementTableInfo',
       recallManagerTableInfo: 'RecallManagerTableInfo',
       requestId: 'RequestId',
       startTime: 'StartTime',
@@ -59,6 +93,7 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
       endTime: 'string',
       log: 'string',
       recallManagementJobId: 'string',
+      recallManagementTableInfo: GetRecallManagementJobResponseBodyRecallManagementTableInfo,
       recallManagerTableInfo: GetRecallManagementJobResponseBodyRecallManagerTableInfo,
       requestId: 'string',
       startTime: 'string',
@@ -67,6 +102,9 @@ export class GetRecallManagementJobResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.recallManagementTableInfo && typeof (this.recallManagementTableInfo as any).validate === 'function') {
+      (this.recallManagementTableInfo as any).validate();
+    }
     if(this.recallManagerTableInfo && typeof (this.recallManagerTableInfo as any).validate === 'function') {
       (this.recallManagerTableInfo as any).validate();
     }

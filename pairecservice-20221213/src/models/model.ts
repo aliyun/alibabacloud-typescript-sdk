@@ -27,6 +27,7 @@ export { GetInstanceResponseBodyConfig } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyOperatingTool } from './GetInstanceResponseBody';
 export { GetInstanceResourceTableResponseBodyFields } from './GetInstanceResourceTableResponseBody';
 export { GetRecallManagementConfigResponseBodyNetworkConfigs } from './GetRecallManagementConfigResponseBody';
+export { GetRecallManagementJobResponseBodyRecallManagementTableInfo } from './GetRecallManagementJobResponseBody';
 export { GetRecallManagementJobResponseBodyRecallManagerTableInfo } from './GetRecallManagementJobResponseBody';
 export { GetRecallManagementServiceVersionResponseBodyConfigsMergeConfig } from './GetRecallManagementServiceVersionResponseBody';
 export { GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsFeatureConfig } from './GetRecallManagementServiceVersionResponseBody';
@@ -76,6 +77,7 @@ export { ListInstancesResponseBodyInstances } from './ListInstancesResponseBody'
 export { ListLaboratoriesResponseBodyLaboratories } from './ListLaboratoriesResponseBody';
 export { ListLayersResponseBodyLayers } from './ListLayersResponseBody';
 export { ListParamsResponseBodyParams } from './ListParamsResponseBody';
+export { ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo } from './ListRecallManagementJobsResponseBody';
 export { ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo } from './ListRecallManagementJobsResponseBody';
 export { ListRecallManagementJobsResponseBodyRecallManagementJobs } from './ListRecallManagementJobsResponseBody';
 export { ListRecallManagementServiceVersionsResponseBodyRecallManagementServiceVersions } from './ListRecallManagementServiceVersionsResponseBody';

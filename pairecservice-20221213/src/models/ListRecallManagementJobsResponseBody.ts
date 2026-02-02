@@ -2,6 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo extends $dara.Model {
+  dataVersion?: string;
+  recallManagementTableVersionId?: string;
+  sourceTableDataSize?: string;
+  sourceTableRowCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataVersion: 'DataVersion',
+      recallManagementTableVersionId: 'RecallManagementTableVersionId',
+      sourceTableDataSize: 'SourceTableDataSize',
+      sourceTableRowCount: 'SourceTableRowCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataVersion: 'string',
+      recallManagementTableVersionId: 'string',
+      sourceTableDataSize: 'string',
+      sourceTableRowCount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo extends $dara.Model {
   /**
    * @example
@@ -61,6 +93,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
    * 1
    */
   recallManagementJobId?: string;
+  recallManagementTableInfo?: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo;
   recallManagerTableInfo?: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo;
   /**
    * @example
@@ -76,6 +109,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
     return {
       endTime: 'EndTime',
       recallManagementJobId: 'RecallManagementJobId',
+      recallManagementTableInfo: 'RecallManagementTableInfo',
       recallManagerTableInfo: 'RecallManagerTableInfo',
       startTime: 'StartTime',
       status: 'Status',
@@ -86,6 +120,7 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
     return {
       endTime: 'string',
       recallManagementJobId: 'string',
+      recallManagementTableInfo: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo,
       recallManagerTableInfo: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo,
       startTime: 'string',
       status: 'string',
@@ -93,6 +128,9 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
   }
 
   validate() {
+    if(this.recallManagementTableInfo && typeof (this.recallManagementTableInfo as any).validate === 'function') {
+      (this.recallManagementTableInfo as any).validate();
+    }
     if(this.recallManagerTableInfo && typeof (this.recallManagerTableInfo as any).validate === 'function') {
       (this.recallManagerTableInfo as any).validate();
     }
