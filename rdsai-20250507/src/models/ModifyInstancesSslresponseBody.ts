@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstancesSSLResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The RDS Supabase instances whose SSL settings are modified.
+   * 
    * @example
    * [
    *     "ra-supabase-xxx",
@@ -12,6 +15,9 @@ export class ModifyInstancesSSLResponseBody extends $dara.Model {
    */
   instanceNames?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32DEFB4A-xxxx-ADD5-918E4FD7AB8C
    */

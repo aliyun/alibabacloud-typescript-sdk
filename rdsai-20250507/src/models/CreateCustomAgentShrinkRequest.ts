@@ -16,6 +16,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * The operation that you want to perform. Set the value to **CreateCustomAgent**.
    */
   name?: string;
+  skillIdsShrink?: string;
   /**
    * @remarks
    * The name of the dedicated agent.
@@ -32,6 +33,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
     return {
       enableTools: 'EnableTools',
       name: 'Name',
+      skillIdsShrink: 'SkillIds',
       systemPrompt: 'SystemPrompt',
       toolsShrink: 'Tools',
     };
@@ -41,6 +43,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
     return {
       enableTools: 'boolean',
       name: 'string',
+      skillIdsShrink: 'string',
       systemPrompt: 'string',
       toolsShrink: 'string',
     };

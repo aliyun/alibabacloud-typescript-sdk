@@ -16,6 +16,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
    * The operation that you want to perform. Set the value to **CreateCustomAgent**.
    */
   name?: string;
+  skillIds?: string[];
   /**
    * @remarks
    * The name of the dedicated agent.
@@ -32,6 +33,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
     return {
       enableTools: 'EnableTools',
       name: 'Name',
+      skillIds: 'SkillIds',
       systemPrompt: 'SystemPrompt',
       tools: 'Tools',
     };
@@ -41,12 +43,16 @@ export class CreateCustomAgentRequest extends $dara.Model {
     return {
       enableTools: 'boolean',
       name: 'string',
+      skillIds: { 'type': 'array', 'itemType': 'string' },
       systemPrompt: 'string',
       tools: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.skillIds)) {
+      $dara.Model.validateArray(this.skillIds);
+    }
     if(Array.isArray(this.tools)) {
       $dara.Model.validateArray(this.tools);
     }

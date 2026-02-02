@@ -330,6 +330,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateCustomAgentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.skillIds)) {
+      request.skillIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.skillIds, "SkillIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tools)) {
       request.toolsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tools, "Tools", "json");
     }
@@ -341,6 +345,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.skillIdsShrink)) {
+      query["SkillIds"] = request.skillIdsShrink;
     }
 
     if (!$dara.isNull(request.systemPrompt)) {
@@ -1660,7 +1668,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改实例的SSL配置
+   * Modifies the SSL settings of RDS Supabase instances in batches.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * RDS PostgreSQL
+   * ### [](#)References
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param tmpReq - ModifyInstancesSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1717,7 +1731,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改实例的SSL配置
+   * Modifies the SSL settings of RDS Supabase instances in batches.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * RDS PostgreSQL
+   * ### [](#)References
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyInstancesSSLRequest
    * @returns ModifyInstancesSSLResponse
@@ -2030,6 +2050,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateCustomAgentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.skillIds)) {
+      request.skillIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.skillIds, "SkillIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tools)) {
       request.toolsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tools, "Tools", "json");
     }
@@ -2045,6 +2069,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.skillIdsShrink)) {
+      query["SkillIds"] = request.skillIdsShrink;
     }
 
     if (!$dara.isNull(request.systemPrompt)) {

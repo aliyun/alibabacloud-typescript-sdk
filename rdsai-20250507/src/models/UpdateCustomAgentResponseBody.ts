@@ -2,6 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateCustomAgentResponseBodySkills extends $dara.Model {
+  description?: string;
+  id?: string;
+  name?: string;
+  skillType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+      skillType: 'SkillType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      name: 'string',
+      skillType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -32,6 +64,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  skills?: UpdateCustomAgentResponseBodySkills[];
   /**
    * @remarks
    * The system prompts.
@@ -48,6 +81,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
       id: 'Id',
       name: 'Name',
       requestId: 'RequestId',
+      skills: 'Skills',
       systemPrompt: 'SystemPrompt',
       tools: 'Tools',
     };
@@ -59,12 +93,16 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
       id: 'string',
       name: 'string',
       requestId: 'string',
+      skills: { 'type': 'array', 'itemType': UpdateCustomAgentResponseBodySkills },
       systemPrompt: 'string',
       tools: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.skills)) {
+      $dara.Model.validateArray(this.skills);
+    }
     if(Array.isArray(this.tools)) {
       $dara.Model.validateArray(this.tools);
     }

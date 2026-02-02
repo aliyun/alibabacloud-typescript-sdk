@@ -1,5 +1,6 @@
 export { ChatMessagesRequestInputs } from './ChatMessagesRequest';
 export { CreateAppInstanceRequestDBInstanceConfig } from './CreateAppInstanceRequest';
+export { CreateCustomAgentResponseBodySkills } from './CreateCustomAgentResponseBody';
 export { DescribeAppInstancesResponseBodyInstances } from './DescribeAppInstancesResponseBody';
 export { DescribeEventsListResponseBodyEvents } from './DescribeEventsListResponseBody';
 export { DescribeInstanceAuthInfoResponseBodyApiKeys } from './DescribeInstanceAuthInfoResponseBody';
@@ -10,13 +11,16 @@ export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './Desc
 export { DescribeInstanceRAGConfigResponseBodyConfigList } from './DescribeInstanceRagconfigResponseBody';
 export { DescribeInstanceStorageConfigResponseBodyConfigList } from './DescribeInstanceStorageConfigResponseBody';
 export { GetConversationsResponseBodyData } from './GetConversationsResponseBody';
+export { GetCustomAgentResponseBodySkills } from './GetCustomAgentResponseBody';
 export { GetMessagesResponseBodyDataEvents } from './GetMessagesResponseBody';
 export { GetMessagesResponseBodyData } from './GetMessagesResponseBody';
 export { ListCustomAgentResponseBodyData } from './ListCustomAgentResponseBody';
+export { ListCustomAgentResponseBodySkills } from './ListCustomAgentResponseBody';
 export { ListCustomAgentToolsResponseBodyData } from './ListCustomAgentToolsResponseBody';
 export { ModifyInstanceAuthConfigRequestConfigList } from './ModifyInstanceAuthConfigRequest';
 export { ModifyInstanceRAGConfigRequestConfigList } from './ModifyInstanceRagconfigRequest';
 export { ModifyInstanceStorageConfigRequestConfigList } from './ModifyInstanceStorageConfigRequest';
+export { UpdateCustomAgentResponseBodySkills } from './UpdateCustomAgentResponseBody';
 export { ChatMessagesRequest } from './ChatMessagesRequest';
 export { ChatMessagesShrinkRequest } from './ChatMessagesShrinkRequest';
 export { ChatMessagesResponseBody } from './ChatMessagesResponseBody';

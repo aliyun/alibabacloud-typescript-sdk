@@ -26,6 +26,7 @@ export class UpdateCustomAgentShrinkRequest extends $dara.Model {
    * The ID of the agent.
    */
   name?: string;
+  skillIdsShrink?: string;
   /**
    * @remarks
    * The name of the agent.
@@ -41,6 +42,7 @@ export class UpdateCustomAgentShrinkRequest extends $dara.Model {
       customAgentId: 'CustomAgentId',
       enableTools: 'EnableTools',
       name: 'Name',
+      skillIdsShrink: 'SkillIds',
       systemPrompt: 'SystemPrompt',
       toolsShrink: 'Tools',
     };
@@ -51,6 +53,7 @@ export class UpdateCustomAgentShrinkRequest extends $dara.Model {
       customAgentId: 'string',
       enableTools: 'boolean',
       name: 'string',
+      skillIdsShrink: 'string',
       systemPrompt: 'string',
       toolsShrink: 'string',
     };

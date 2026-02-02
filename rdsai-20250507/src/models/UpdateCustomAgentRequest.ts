@@ -26,6 +26,7 @@ export class UpdateCustomAgentRequest extends $dara.Model {
    * The ID of the agent.
    */
   name?: string;
+  skillIds?: string[];
   /**
    * @remarks
    * The name of the agent.
@@ -41,6 +42,7 @@ export class UpdateCustomAgentRequest extends $dara.Model {
       customAgentId: 'CustomAgentId',
       enableTools: 'EnableTools',
       name: 'Name',
+      skillIds: 'SkillIds',
       systemPrompt: 'SystemPrompt',
       tools: 'Tools',
     };
@@ -51,12 +53,16 @@ export class UpdateCustomAgentRequest extends $dara.Model {
       customAgentId: 'string',
       enableTools: 'boolean',
       name: 'string',
+      skillIds: { 'type': 'array', 'itemType': 'string' },
       systemPrompt: 'string',
       tools: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.skillIds)) {
+      $dara.Model.validateArray(this.skillIds);
+    }
     if(Array.isArray(this.tools)) {
       $dara.Model.validateArray(this.tools);
     }

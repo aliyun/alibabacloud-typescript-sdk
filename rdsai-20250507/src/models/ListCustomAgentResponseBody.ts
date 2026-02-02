@@ -86,6 +86,38 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListCustomAgentResponseBodySkills extends $dara.Model {
+  description?: string;
+  id?: string;
+  name?: string;
+  skillType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+      skillType: 'SkillType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      name: 'string',
+      skillType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -116,6 +148,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  skills?: ListCustomAgentResponseBodySkills[];
   /**
    * @remarks
    * The total number of entries returned. By default, this parameter is not returned.
@@ -130,6 +163,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      skills: 'Skills',
       totalCount: 'TotalCount',
     };
   }
@@ -140,6 +174,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
+      skills: { 'type': 'array', 'itemType': ListCustomAgentResponseBodySkills },
       totalCount: 'number',
     };
   }
@@ -147,6 +182,9 @@ export class ListCustomAgentResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.data)) {
       $dara.Model.validateArray(this.data);
+    }
+    if(Array.isArray(this.skills)) {
+      $dara.Model.validateArray(this.skills);
     }
     super.validate();
   }
