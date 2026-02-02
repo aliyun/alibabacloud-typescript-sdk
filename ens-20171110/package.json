@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ens20171110",
-  "version": "9.0.2",
+  "version": "9.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

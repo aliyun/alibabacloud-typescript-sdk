@@ -13036,6 +13036,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * aic实例变配接口
+   * 
+   * @param request - ModifyAICInstanceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAICInstanceTypeResponse
+   */
+  async modifyAICInstanceTypeWithOptions(request: $_model.ModifyAICInstanceTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAICInstanceTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.environmentVar)) {
+      query["EnvironmentVar"] = request.environmentVar;
+    }
+
+    if (!$dara.isNull(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAICInstanceType",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAICInstanceTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAICInstanceTypeResponse({}));
+  }
+
+  /**
+   * aic实例变配接口
+   * 
+   * @param request - ModifyAICInstanceTypeRequest
+   * @returns ModifyAICInstanceTypeResponse
+   */
+  async modifyAICInstanceType(request: $_model.ModifyAICInstanceTypeRequest): Promise<$_model.ModifyAICInstanceTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAICInstanceTypeWithOptions(request, runtime);
+  }
+
+  /**
    * 修改集群组件实例配置
    * 
    * @param tmpReq - ModifyClusterAddonRequest
