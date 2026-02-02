@@ -334,7 +334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数字人会话
+   * 创建实时数字人会话。
    * 
    * @param request - CreateChatSessionRequest
    * @param headers - map
@@ -375,7 +375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数字人会话
+   * 创建实时数字人会话。
    * 
    * @param request - CreateChatSessionRequest
    * @returns CreateChatSessionResponse
@@ -523,6 +523,10 @@ export default class Client extends OpenApi {
   async createTrainPicAvatarWithOptions(request: $_model.CreateTrainPicAvatarRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTrainPicAvatarResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["bizType"] = request.bizType;
+    }
+
     if (!$dara.isNull(request.gender)) {
       query["gender"] = request.gender;
     }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTrainPicAvatarRequest extends $dara.Model {
+  bizType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -41,6 +42,7 @@ export class CreateTrainPicAvatarRequest extends $dara.Model {
   transparent?: boolean;
   static names(): { [key: string]: string } {
     return {
+      bizType: 'bizType',
       gender: 'gender',
       generateAssets: 'generateAssets',
       imageOssPath: 'imageOssPath',
@@ -52,6 +54,7 @@ export class CreateTrainPicAvatarRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'string',
       gender: 'string',
       generateAssets: 'boolean',
       imageOssPath: 'string',

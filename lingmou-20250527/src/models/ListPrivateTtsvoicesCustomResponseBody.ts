@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateTTSVoicesCustomResponseBodyDataData extends $dara.Model {
   /**
    * @example
-   * https://xxx-aliyuncs.com/material/INPUT_TRAIN_AUDIO/Mt.CQEG75L4FWIU2/TestTTSVoiceName.mp3?Expires=1764262805&OSSAccessKeyId=LTAI5tK3WcKwKtAyaTSeq7sx&Signature=D%2Fld6gp9Zh6TsGRU9cd6GD2pFY0%3D
+   * https://xxx-aliyuncs.com/material/INPUT_TRAIN_AUDIO/Mt.CQEG75L4FWIU2/TestTTSVoiceName.mp3?Expires=1764262805&OSSAccessKeyId=LTAI5tK3WcKwKtAyaT******&Signature=D%2Fld6gp9Zh6TsGRU9cd6GD2pFY0%3D
    */
   audioURL?: string;
   /**
@@ -28,6 +28,13 @@ export class ListPrivateTTSVoicesCustomResponseBodyDataData extends $dara.Model 
    * Optional for WH managernif no issue will be cancel
    */
   description?: string;
+  /**
+   * @remarks
+   * 错误码。
+   * 
+   * @example
+   * Audio.AudioShortError
+   */
   errorCode?: string;
   /**
    * @example
