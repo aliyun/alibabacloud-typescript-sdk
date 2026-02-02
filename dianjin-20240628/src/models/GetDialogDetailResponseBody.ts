@@ -37,6 +37,11 @@ export class GetDialogDetailResponseBodyDataDialogueList extends $dara.Model {
   intentName?: string;
   /**
    * @example
+   * 19387872364736xdhcb
+   */
+  recordId?: string;
+  /**
+   * @example
    * 0
    */
   role?: string;
@@ -55,6 +60,7 @@ export class GetDialogDetailResponseBodyDataDialogueList extends $dara.Model {
       id: 'id',
       intentCode: 'intentCode',
       intentName: 'intentName',
+      recordId: 'recordId',
       role: 'role',
       type: 'type',
     };
@@ -70,6 +76,7 @@ export class GetDialogDetailResponseBodyDataDialogueList extends $dara.Model {
       id: 'number',
       intentCode: 'string',
       intentName: 'string',
+      recordId: 'string',
       role: 'string',
       type: 'string',
     };
