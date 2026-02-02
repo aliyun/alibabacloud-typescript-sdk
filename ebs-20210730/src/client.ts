@@ -1126,6 +1126,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 中心化角色：查询App信息
+   * 
+   * @param request - DescribeAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppsResponse
+   */
+  async describeAppsWithOptions(request: $_model.DescribeAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!$dara.isNull(request.appNames)) {
+      query["AppNames"] = request.appNames;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApps",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAppsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAppsResponse({}));
+  }
+
+  /**
+   * 中心化角色：查询App信息
+   * 
+   * @param request - DescribeAppsRequest
+   * @returns DescribeAppsResponse
+   */
+  async describeApps(request: $_model.DescribeAppsRequest): Promise<$_model.DescribeAppsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAppsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of one or more disks in a dedicated block storage cluster.
    * 
    * @remarks

@@ -11,6 +11,8 @@ export { CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules } from './Creat
 export { CreateEnterpriseSnapshotPolicyRequestStorageRule } from './CreateEnterpriseSnapshotPolicyRequest';
 export { CreateEnterpriseSnapshotPolicyRequestTag } from './CreateEnterpriseSnapshotPolicyRequest';
 export { CreateEnterpriseSnapshotPolicyShrinkRequestTag } from './CreateEnterpriseSnapshotPolicyShrinkRequest';
+export { DescribeAppsResponseBodyAppInfosAppTags } from './DescribeAppsResponseBody';
+export { DescribeAppsResponseBodyAppInfos } from './DescribeAppsResponseBody';
 export { DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags } from './DescribeDedicatedBlockStorageClusterDisksResponseBody';
 export { DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk } from './DescribeDedicatedBlockStorageClusterDisksResponseBody';
 export { DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks } from './DescribeDedicatedBlockStorageClusterDisksResponseBody';
@@ -112,6 +114,9 @@ export { DeleteDiskReplicaPairResponse } from './DeleteDiskReplicaPairResponse';
 export { DeleteEnterpriseSnapshotPolicyRequest } from './DeleteEnterpriseSnapshotPolicyRequest';
 export { DeleteEnterpriseSnapshotPolicyResponseBody } from './DeleteEnterpriseSnapshotPolicyResponseBody';
 export { DeleteEnterpriseSnapshotPolicyResponse } from './DeleteEnterpriseSnapshotPolicyResponse';
+export { DescribeAppsRequest } from './DescribeAppsRequest';
+export { DescribeAppsResponseBody } from './DescribeAppsResponseBody';
+export { DescribeAppsResponse } from './DescribeAppsResponse';
 export { DescribeDedicatedBlockStorageClusterDisksRequest } from './DescribeDedicatedBlockStorageClusterDisksRequest';
 export { DescribeDedicatedBlockStorageClusterDisksResponseBody } from './DescribeDedicatedBlockStorageClusterDisksResponseBody';
 export { DescribeDedicatedBlockStorageClusterDisksResponse } from './DescribeDedicatedBlockStorageClusterDisksResponse';
