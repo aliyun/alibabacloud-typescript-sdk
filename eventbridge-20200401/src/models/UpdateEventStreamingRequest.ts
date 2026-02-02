@@ -10,6 +10,7 @@ import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
+import { SinkMQTTParameters } from "./SinkMqttparameters";
 import { SinkOSSParameters } from "./SinkOssparameters";
 import { SinkRabbitMQMetaParameters } from "./SinkRabbitMqmetaParameters";
 import { SinkRabbitMQMsgSyncParameters } from "./SinkRabbitMqmsgSyncParameters";
@@ -6811,6 +6812,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify Simple Message Queue (SMQ, formerly MNS) as the event target.
    */
   sinkMNSParameters?: UpdateEventStreamingRequestSinkSinkMNSParameters;
+  sinkMQTTParameters?: SinkMQTTParameters;
   sinkOSSParameters?: SinkOSSParameters;
   /**
    * @remarks
@@ -6861,6 +6863,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkHttpsParameters: 'SinkHttpsParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkMQTTParameters: 'SinkMQTTParameters',
       sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkPrometheusParameters: 'SinkPrometheusParameters',
@@ -6890,6 +6893,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkHttpsParameters: SinkHttpsParameters,
       sinkKafkaParameters: UpdateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: UpdateEventStreamingRequestSinkSinkMNSParameters,
+      sinkMQTTParameters: SinkMQTTParameters,
       sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters,
       sinkPrometheusParameters: UpdateEventStreamingRequestSinkSinkPrometheusParameters,
@@ -6947,6 +6951,9 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkMNSParameters && typeof (this.sinkMNSParameters as any).validate === 'function') {
       (this.sinkMNSParameters as any).validate();
+    }
+    if(this.sinkMQTTParameters && typeof (this.sinkMQTTParameters as any).validate === 'function') {
+      (this.sinkMQTTParameters as any).validate();
     }
     if(this.sinkOSSParameters && typeof (this.sinkOSSParameters as any).validate === 'function') {
       (this.sinkOSSParameters as any).validate();

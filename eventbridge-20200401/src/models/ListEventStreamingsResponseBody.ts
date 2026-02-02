@@ -9,6 +9,7 @@ import { SourceRabbitMQMsgSyncParameters } from "./SourceRabbitMqmsgSyncParamete
 import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
+import { SinkMQTTParameters } from "./SinkMqttparameters";
 import { SinkOSSParameters } from "./SinkOssparameters";
 import { SinkRabbitMQMetaParameters } from "./SinkRabbitMqmetaParameters";
 import { SinkRabbitMQMsgSyncParameters } from "./SinkRabbitMqmsgSyncParameters";
@@ -5051,6 +5052,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
    * The parameters that are returned if MNS is specified as the event target.
    */
   sinkMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters;
+  sinkMQTTParameters?: SinkMQTTParameters;
   sinkOSSParameters?: SinkOSSParameters;
   sinkOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters;
   sinkRabbitMQMetaParameters?: SinkRabbitMQMetaParameters;
@@ -5086,6 +5088,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkHttpsParameters: 'SinkHttpsParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkMQTTParameters: 'SinkMQTTParameters',
       sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkRabbitMQMetaParameters: 'SinkRabbitMQMetaParameters',
@@ -5112,6 +5115,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkHttpsParameters: SinkHttpsParameters,
       sinkKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters,
       sinkMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters,
+      sinkMQTTParameters: SinkMQTTParameters,
       sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters,
       sinkRabbitMQMetaParameters: SinkRabbitMQMetaParameters,
@@ -5162,6 +5166,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
     }
     if(this.sinkMNSParameters && typeof (this.sinkMNSParameters as any).validate === 'function') {
       (this.sinkMNSParameters as any).validate();
+    }
+    if(this.sinkMQTTParameters && typeof (this.sinkMQTTParameters as any).validate === 'function') {
+      (this.sinkMQTTParameters as any).validate();
     }
     if(this.sinkOSSParameters && typeof (this.sinkOSSParameters as any).validate === 'function') {
       (this.sinkOSSParameters as any).validate();

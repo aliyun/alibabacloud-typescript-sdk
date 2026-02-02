@@ -10,6 +10,7 @@ import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
+import { SinkMQTTParameters } from "./SinkMqttparameters";
 import { SinkOSSParameters } from "./SinkOssparameters";
 import { SinkRabbitMQMetaParameters } from "./SinkRabbitMqmetaParameters";
 import { SinkRabbitMQMsgSyncParameters } from "./SinkRabbitMqmsgSyncParameters";
@@ -5505,6 +5506,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
    * The parameters that are returned if the event target is Message Service (MNS).
    */
   sinkMNSParameters?: GetEventStreamingResponseBodyDataSinkSinkMNSParameters;
+  sinkMQTTParameters?: SinkMQTTParameters;
   sinkOSSParameters?: SinkOSSParameters;
   /**
    * @remarks
@@ -5550,6 +5552,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
       sinkHttpsParameters: 'SinkHttpsParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkMQTTParameters: 'SinkMQTTParameters',
       sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkRabbitMQMetaParameters: 'SinkRabbitMQMetaParameters',
@@ -5578,6 +5581,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
       sinkHttpsParameters: SinkHttpsParameters,
       sinkKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkKafkaParameters,
       sinkMNSParameters: GetEventStreamingResponseBodyDataSinkSinkMNSParameters,
+      sinkMQTTParameters: SinkMQTTParameters,
       sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters,
       sinkRabbitMQMetaParameters: SinkRabbitMQMetaParameters,
@@ -5634,6 +5638,9 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
     }
     if(this.sinkMNSParameters && typeof (this.sinkMNSParameters as any).validate === 'function') {
       (this.sinkMNSParameters as any).validate();
+    }
+    if(this.sinkMQTTParameters && typeof (this.sinkMQTTParameters as any).validate === 'function') {
+      (this.sinkMQTTParameters as any).validate();
     }
     if(this.sinkOSSParameters && typeof (this.sinkOSSParameters as any).validate === 'function') {
       (this.sinkOSSParameters as any).validate();
