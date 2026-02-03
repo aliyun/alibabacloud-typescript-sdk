@@ -67,6 +67,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $dara.
    * 2
    */
   lastRowsAffectedCount?: number;
+  lockTimeMS?: number;
   /**
    * @remarks
    * The lock duration of the query. Unit: seconds.
@@ -182,6 +183,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $dara.
       executionStartTime: 'ExecutionStartTime',
       hostAddress: 'HostAddress',
       lastRowsAffectedCount: 'LastRowsAffectedCount',
+      lockTimeMS: 'LockTimeMS',
       lockTimes: 'LockTimes',
       logicalIORead: 'LogicalIORead',
       parseRowCounts: 'ParseRowCounts',
@@ -206,6 +208,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $dara.
       executionStartTime: 'string',
       hostAddress: 'string',
       lastRowsAffectedCount: 'number',
+      lockTimeMS: 'number',
       lockTimes: 'number',
       logicalIORead: 'number',
       parseRowCounts: 'number',
