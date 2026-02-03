@@ -288,6 +288,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
    * vsw-5rqswx1trlsj9
    */
   vSwitchId?: string;
+  vmncLearn?: boolean;
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
@@ -306,6 +307,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       status: 'Status',
       type: 'Type',
       vSwitchId: 'VSwitchId',
+      vmncLearn: 'VmncLearn',
     };
   }
 
@@ -327,6 +329,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       status: 'string',
       type: 'string',
       vSwitchId: 'string',
+      vmncLearn: 'boolean',
     };
   }
 
