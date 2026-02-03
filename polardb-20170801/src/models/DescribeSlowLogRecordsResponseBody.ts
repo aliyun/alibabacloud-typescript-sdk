@@ -35,6 +35,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $dara.
    * testdb[testdb] @  [100.**.**.242]
    */
   hostAddress?: string;
+  lockTimeMS?: number;
   /**
    * @remarks
    * SQL lock duration in seconds.
@@ -94,6 +95,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $dara.
       DBNodeId: 'DBNodeId',
       executionStartTime: 'ExecutionStartTime',
       hostAddress: 'HostAddress',
+      lockTimeMS: 'LockTimeMS',
       lockTimes: 'LockTimes',
       parseRowCounts: 'ParseRowCounts',
       queryTimeMS: 'QueryTimeMS',
@@ -110,6 +112,7 @@ export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $dara.
       DBNodeId: 'string',
       executionStartTime: 'string',
       hostAddress: 'string',
+      lockTimeMS: 'number',
       lockTimes: 'number',
       parseRowCounts: 'number',
       queryTimeMS: 'number',
