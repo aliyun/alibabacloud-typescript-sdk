@@ -2,24 +2,100 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class RunVideoAnalysisRequestAddDocumentParamDocumentMetadataKeyValues extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestAddDocumentParamDocumentMetadata extends $dara.Model {
+  keyValues?: RunVideoAnalysisRequestAddDocumentParamDocumentMetadataKeyValues[];
+  static names(): { [key: string]: string } {
+    return {
+      keyValues: 'keyValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyValues: { 'type': 'array', 'itemType': RunVideoAnalysisRequestAddDocumentParamDocumentMetadataKeyValues },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keyValues)) {
+      $dara.Model.validateArray(this.keyValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunVideoAnalysisRequestAddDocumentParamDocument extends $dara.Model {
+  categoryUuid?: string;
   docId?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
+  metadata?: RunVideoAnalysisRequestAddDocumentParamDocumentMetadata;
+  tags?: string[];
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'categoryUuid',
       docId: 'docId',
+      extend1: 'extend1',
+      extend2: 'extend2',
+      extend3: 'extend3',
+      metadata: 'metadata',
+      tags: 'tags',
       title: 'title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      metadata: RunVideoAnalysisRequestAddDocumentParamDocumentMetadata,
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
     };
   }
 
   validate() {
+    if(this.metadata && typeof (this.metadata as any).validate === 'function') {
+      (this.metadata as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
