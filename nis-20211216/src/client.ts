@@ -684,6 +684,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询流量分析topN异步任务结果
+   * 
+   * @param request - DescribeNisTrafficRankingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNisTrafficRankingResponse
+   */
+  async describeNisTrafficRankingWithOptions(request: $_model.DescribeNisTrafficRankingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNisTrafficRankingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nisTrafficRankingId)) {
+      query["NisTrafficRankingId"] = request.nisTrafficRankingId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNisTrafficRanking",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNisTrafficRankingResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNisTrafficRankingResponse({}));
+  }
+
+  /**
+   * 查询流量分析topN异步任务结果
+   * 
+   * @param request - DescribeNisTrafficRankingRequest
+   * @returns DescribeNisTrafficRankingResponse
+   */
+  async describeNisTrafficRanking(request: $_model.DescribeNisTrafficRankingRequest): Promise<$_model.DescribeNisTrafficRankingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNisTrafficRankingWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
    * 
    * @deprecated OpenAPI GetInternetTuple is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead.
@@ -1553,6 +1603,118 @@ export default class Client extends OpenApi {
   async startNisInspectionTask(request: $_model.StartNisInspectionTaskRequest): Promise<$_model.StartNisInspectionTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startNisInspectionTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取云网络流量指标排名
+   * 
+   * @param tmpReq - StartNisTrafficRankingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartNisTrafficRankingResponse
+   */
+  async startNisTrafficRankingWithOptions(tmpReq: $_model.StartNisTrafficRankingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartNisTrafficRankingResponse> {
+    tmpReq.validate();
+    let request = new $_model.StartNisTrafficRankingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.groupBy)) {
+      request.groupByShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupBy, "GroupBy", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.groupByShrink)) {
+      query["GroupBy"] = request.groupByShrink;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.storageInterval)) {
+      query["StorageInterval"] = request.storageInterval;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      query["TopN"] = request.topN;
+    }
+
+    if (!$dara.isNull(request.trafficAnalyzerId)) {
+      query["TrafficAnalyzerId"] = request.trafficAnalyzerId;
+    }
+
+    if (!$dara.isNull(request.trafficScenario)) {
+      query["TrafficScenario"] = request.trafficScenario;
+    }
+
+    if (!$dara.isNull(request.tupleDimension)) {
+      query["TupleDimension"] = request.tupleDimension;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartNisTrafficRanking",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartNisTrafficRankingResponse>(await this.callApi(params, req, runtime), new $_model.StartNisTrafficRankingResponse({}));
+  }
+
+  /**
+   * 获取云网络流量指标排名
+   * 
+   * @param request - StartNisTrafficRankingRequest
+   * @returns StartNisTrafficRankingResponse
+   */
+  async startNisTrafficRanking(request: $_model.StartNisTrafficRankingRequest): Promise<$_model.StartNisTrafficRankingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startNisTrafficRankingWithOptions(request, runtime);
   }
 
   /**

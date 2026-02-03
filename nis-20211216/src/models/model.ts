@@ -8,6 +8,7 @@ export { DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary } 
 export { DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary } from './DescribeNisInspectionReportSummaryResponseBody';
 export { DescribeNisInspectionReportSummaryResponseBodySummary } from './DescribeNisInspectionReportSummaryResponseBody';
 export { DescribeNisInspectionTaskResponseBodyCheckResourceList } from './DescribeNisInspectionTaskResponseBody';
+export { DescribeNisTrafficRankingResponseBodyFlowRankingList } from './DescribeNisTrafficRankingResponseBody';
 export { GetInternetTupleResponseBodyData } from './GetInternetTupleResponseBody';
 export { GetNatTopNResponseBodyNatGatewayTopN } from './GetNatTopNresponseBody';
 export { GetNisNetworkMetricsRequestDimensions } from './GetNisNetworkMetricsRequest';
@@ -20,6 +21,7 @@ export { GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN } from './GetV
 export { ListNisInspectionResourceTypeResponseBodyResourceTypeList } from './ListNisInspectionResourceTypeResponseBody';
 export { ListNisInspectionTaskReportsResponseBodyInspectionReportList } from './ListNisInspectionTaskReportsResponseBody';
 export { ListNisInspectionTasksResponseBodyInspectionTaskList } from './ListNisInspectionTasksResponseBody';
+export { StartNisTrafficRankingRequestFilter } from './StartNisTrafficRankingRequest';
 export { CreateAndAnalyzeNetworkPathRequest } from './CreateAndAnalyzeNetworkPathRequest';
 export { CreateAndAnalyzeNetworkPathResponseBody } from './CreateAndAnalyzeNetworkPathResponseBody';
 export { CreateAndAnalyzeNetworkPathResponse } from './CreateAndAnalyzeNetworkPathResponse';
@@ -59,6 +61,9 @@ export { DescribeNisInspectionReportSummaryResponse } from './DescribeNisInspect
 export { DescribeNisInspectionTaskRequest } from './DescribeNisInspectionTaskRequest';
 export { DescribeNisInspectionTaskResponseBody } from './DescribeNisInspectionTaskResponseBody';
 export { DescribeNisInspectionTaskResponse } from './DescribeNisInspectionTaskResponse';
+export { DescribeNisTrafficRankingRequest } from './DescribeNisTrafficRankingRequest';
+export { DescribeNisTrafficRankingResponseBody } from './DescribeNisTrafficRankingResponseBody';
+export { DescribeNisTrafficRankingResponse } from './DescribeNisTrafficRankingResponse';
 export { GetInternetTupleRequest } from './GetInternetTupleRequest';
 export { GetInternetTupleShrinkRequest } from './GetInternetTupleShrinkRequest';
 export { GetInternetTupleResponseBody } from './GetInternetTupleResponseBody';
@@ -96,6 +101,10 @@ export { ListNisInspectionTasksResponse } from './ListNisInspectionTasksResponse
 export { StartNisInspectionTaskRequest } from './StartNisInspectionTaskRequest';
 export { StartNisInspectionTaskResponseBody } from './StartNisInspectionTaskResponseBody';
 export { StartNisInspectionTaskResponse } from './StartNisInspectionTaskResponse';
+export { StartNisTrafficRankingRequest } from './StartNisTrafficRankingRequest';
+export { StartNisTrafficRankingShrinkRequest } from './StartNisTrafficRankingShrinkRequest';
+export { StartNisTrafficRankingResponseBody } from './StartNisTrafficRankingResponseBody';
+export { StartNisTrafficRankingResponse } from './StartNisTrafficRankingResponse';
 export { UpdateNisInspectionTaskRequest } from './UpdateNisInspectionTaskRequest';
 export { UpdateNisInspectionTaskResponseBody } from './UpdateNisInspectionTaskResponseBody';
 export { UpdateNisInspectionTaskResponse } from './UpdateNisInspectionTaskResponse';
