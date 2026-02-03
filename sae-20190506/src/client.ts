@@ -3651,6 +3651,14 @@ export default class Client extends OpenApi {
       query["Cpu"] = request.cpu;
     }
 
+    if (!$dara.isNull(request.gpuA10)) {
+      query["GpuA10"] = request.gpuA10;
+    }
+
+    if (!$dara.isNull(request.gpuPpu810e)) {
+      query["GpuPpu810e"] = request.gpuPpu810e;
+    }
+
     if (!$dara.isNull(request.memory)) {
       query["Memory"] = request.memory;
     }

@@ -23,6 +23,8 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
    * 2000
    */
   cpu?: number;
+  gpuA10?: string;
+  gpuPpu810e?: string;
   /**
    * @remarks
    * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
@@ -61,6 +63,8 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
     return {
       bestEffortType: 'BestEffortType',
       cpu: 'Cpu',
+      gpuA10: 'GpuA10',
+      gpuPpu810e: 'GpuPpu810e',
       memory: 'Memory',
       newSaeVersion: 'NewSaeVersion',
       resourceType: 'ResourceType',
@@ -72,6 +76,8 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
     return {
       bestEffortType: 'string',
       cpu: 'number',
+      gpuA10: 'string',
+      gpuPpu810e: 'string',
       memory: 'number',
       newSaeVersion: 'string',
       resourceType: 'string',
