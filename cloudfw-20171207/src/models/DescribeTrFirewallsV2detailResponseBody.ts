@@ -132,6 +132,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * managed
    */
   routeMode?: string;
+  trAttachmentId?: string;
   /**
    * @remarks
    * The primary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
@@ -188,6 +189,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
       regionNo: 'RegionNo',
       requestId: 'RequestId',
       routeMode: 'RouteMode',
+      trAttachmentId: 'TrAttachmentId',
       trAttachmentMasterCidr: 'TrAttachmentMasterCidr',
       trAttachmentMasterZone: 'TrAttachmentMasterZone',
       trAttachmentSlaveCidr: 'TrAttachmentSlaveCidr',
@@ -212,6 +214,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
       regionNo: 'string',
       requestId: 'string',
       routeMode: 'string',
+      trAttachmentId: 'string',
       trAttachmentMasterCidr: 'string',
       trAttachmentMasterZone: 'string',
       trAttachmentSlaveCidr: 'string',
