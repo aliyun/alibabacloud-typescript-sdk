@@ -2,7 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos extends $dara.Model {
+  chunk?: string;
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chunk: 'Chunk',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunk: 'string',
+      score: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchDatasetDocumentsResponseBodyDataDocuments extends $dara.Model {
+  categoryUuid?: string;
+  chunk?: string;
+  chunkInfos?: SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos[];
   /**
    * @example
    * xx
@@ -13,16 +42,24 @@ export class SearchDatasetDocumentsResponseBodyDataDocuments extends $dara.Model
    * 用户指定的文档唯一ID
    */
   docId?: string;
+  docType?: string;
   /**
    * @example
    * 内部文档唯一ID
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 2024-12-09 17:09:40
    */
   pubTime?: string;
+  score?: number;
+  searchSource?: string;
+  searchSourceName?: string;
+  searchSourceType?: string;
   /**
    * @example
    * 来源
@@ -33,6 +70,7 @@ export class SearchDatasetDocumentsResponseBodyDataDocuments extends $dara.Model
    * 文章摘要
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -45,12 +83,24 @@ export class SearchDatasetDocumentsResponseBodyDataDocuments extends $dara.Model
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
+      chunk: 'Chunk',
+      chunkInfos: 'ChunkInfos',
       content: 'Content',
       docId: 'DocId',
+      docType: 'DocType',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       pubTime: 'PubTime',
+      score: 'Score',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
       sourceFrom: 'SourceFrom',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -58,18 +108,36 @@ export class SearchDatasetDocumentsResponseBodyDataDocuments extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
+      chunk: 'string',
+      chunkInfos: { 'type': 'array', 'itemType': SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos },
       content: 'string',
       docId: 'string',
+      docType: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       pubTime: 'string',
+      score: 'number',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
       sourceFrom: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.chunkInfos)) {
+      $dara.Model.validateArray(this.chunkInfos);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

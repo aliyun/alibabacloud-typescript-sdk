@@ -31,6 +31,32 @@ export class AddDatasetDocumentRequestDocumentMetadataAsrSentences extends $dara
   }
 }
 
+export class AddDatasetDocumentRequestDocumentMetadataKeyValues extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddDatasetDocumentRequestDocumentMetadataVideoShots extends $dara.Model {
   endTime?: number;
   startTime?: number;
@@ -62,11 +88,13 @@ export class AddDatasetDocumentRequestDocumentMetadataVideoShots extends $dara.M
 
 export class AddDatasetDocumentRequestDocumentMetadata extends $dara.Model {
   asrSentences?: AddDatasetDocumentRequestDocumentMetadataAsrSentences[];
+  keyValues?: AddDatasetDocumentRequestDocumentMetadataKeyValues[];
   text?: string;
   videoShots?: AddDatasetDocumentRequestDocumentMetadataVideoShots[];
   static names(): { [key: string]: string } {
     return {
       asrSentences: 'AsrSentences',
+      keyValues: 'KeyValues',
       text: 'Text',
       videoShots: 'VideoShots',
     };
@@ -75,6 +103,7 @@ export class AddDatasetDocumentRequestDocumentMetadata extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       asrSentences: { 'type': 'array', 'itemType': AddDatasetDocumentRequestDocumentMetadataAsrSentences },
+      keyValues: { 'type': 'array', 'itemType': AddDatasetDocumentRequestDocumentMetadataKeyValues },
       text: 'string',
       videoShots: { 'type': 'array', 'itemType': AddDatasetDocumentRequestDocumentMetadataVideoShots },
     };
@@ -83,6 +112,9 @@ export class AddDatasetDocumentRequestDocumentMetadata extends $dara.Model {
   validate() {
     if(Array.isArray(this.asrSentences)) {
       $dara.Model.validateArray(this.asrSentences);
+    }
+    if(Array.isArray(this.keyValues)) {
+      $dara.Model.validateArray(this.keyValues);
     }
     if(Array.isArray(this.videoShots)) {
       $dara.Model.validateArray(this.videoShots);
@@ -137,6 +169,7 @@ export class AddDatasetDocumentRequestDocumentMultimodalMedias extends $dara.Mod
 }
 
 export class AddDatasetDocumentRequestDocument extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xxx
@@ -199,6 +232,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
    * 文章摘要
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xxxxx@xxxxx.com
@@ -211,6 +245,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       content: 'Content',
       disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
       docId: 'DocId',
@@ -225,6 +260,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
       pubTime: 'PubTime',
       sourceFrom: 'SourceFrom',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -232,6 +268,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       content: 'string',
       disableHandleMultimodalMedia: 'boolean',
       docId: 'string',
@@ -246,6 +283,7 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
       pubTime: 'string',
       sourceFrom: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
@@ -257,6 +295,9 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
     }
     if(Array.isArray(this.multimodalMedias)) {
       $dara.Model.validateArray(this.multimodalMedias);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

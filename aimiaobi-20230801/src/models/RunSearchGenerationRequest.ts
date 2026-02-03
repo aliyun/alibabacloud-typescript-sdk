@@ -319,11 +319,19 @@ export class RunSearchGenerationRequestChatConfigSearchParamSearchSources extend
 }
 
 export class RunSearchGenerationRequestChatConfigSearchParam extends $dara.Model {
+  categoryUuids?: string[];
+  createTimeEnd?: number;
+  createTimeStart?: number;
+  docIds?: string[];
+  docUuids?: string[];
   /**
    * @example
    * 1725983999999
    */
   endTime?: number;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   multimodalSearchTypes?: string[];
   /**
    * @example
@@ -351,9 +359,18 @@ export class RunSearchGenerationRequestChatConfigSearchParam extends $dara.Model
    * 1725983999999
    */
   startTime?: number;
+  tags?: string[];
   static names(): { [key: string]: string } {
     return {
+      categoryUuids: 'CategoryUuids',
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      docIds: 'DocIds',
+      docUuids: 'DocUuids',
       endTime: 'EndTime',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       multimodalSearchTypes: 'MultimodalSearchTypes',
       searchAudioMinScore: 'SearchAudioMinScore',
       searchImageMinScore: 'SearchImageMinScore',
@@ -361,12 +378,21 @@ export class RunSearchGenerationRequestChatConfigSearchParam extends $dara.Model
       searchTextMinScore: 'SearchTextMinScore',
       searchVideoMinScore: 'SearchVideoMinScore',
       startTime: 'StartTime',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuids: { 'type': 'array', 'itemType': 'string' },
+      createTimeEnd: 'number',
+      createTimeStart: 'number',
+      docIds: { 'type': 'array', 'itemType': 'string' },
+      docUuids: { 'type': 'array', 'itemType': 'string' },
       endTime: 'number',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       multimodalSearchTypes: { 'type': 'array', 'itemType': 'string' },
       searchAudioMinScore: 'number',
       searchImageMinScore: 'number',
@@ -374,15 +400,28 @@ export class RunSearchGenerationRequestChatConfigSearchParam extends $dara.Model
       searchTextMinScore: 'number',
       searchVideoMinScore: 'number',
       startTime: 'number',
+      tags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.categoryUuids)) {
+      $dara.Model.validateArray(this.categoryUuids);
+    }
+    if(Array.isArray(this.docIds)) {
+      $dara.Model.validateArray(this.docIds);
+    }
+    if(Array.isArray(this.docUuids)) {
+      $dara.Model.validateArray(this.docUuids);
+    }
     if(Array.isArray(this.multimodalSearchTypes)) {
       $dara.Model.validateArray(this.multimodalSearchTypes);
     }
     if(Array.isArray(this.searchSources)) {
       $dara.Model.validateArray(this.searchSources);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

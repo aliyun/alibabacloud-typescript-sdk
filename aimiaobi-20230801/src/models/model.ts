@@ -6,6 +6,7 @@ export { WritingStyleTemplateFieldEnums } from './WritingStyleTemplateField';
 export { WritingStyleTemplateFieldStyle } from './WritingStyleTemplateField';
 export { AddAuditTermsResponseBodyDataV1 } from './AddAuditTermsResponseBody';
 export { AddDatasetDocumentRequestDocumentMetadataAsrSentences } from './AddDatasetDocumentRequest';
+export { AddDatasetDocumentRequestDocumentMetadataKeyValues } from './AddDatasetDocumentRequest';
 export { AddDatasetDocumentRequestDocumentMetadataVideoShots } from './AddDatasetDocumentRequest';
 export { AddDatasetDocumentRequestDocumentMetadata } from './AddDatasetDocumentRequest';
 export { AddDatasetDocumentRequestDocumentMultimodalMedias } from './AddDatasetDocumentRequest';
@@ -29,6 +30,7 @@ export { AsyncWritingBiddingDocResponseBodyData } from './AsyncWritingBiddingDoc
 export { BindPptArtifactResponseBodyData } from './BindPptArtifactResponseBody';
 export { CancelDeepWriteTaskResponseBodyData } from './CancelDeepWriteTaskResponseBody';
 export { ClearIntervenesResponseBodyData } from './ClearIntervenesResponseBody';
+export { CreateDatasetRequestDatasetConfigSearchSourceConfig } from './CreateDatasetRequest';
 export { CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders } from './CreateDatasetRequest';
 export { CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams } from './CreateDatasetRequest';
 export { CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig } from './CreateDatasetRequest';
@@ -84,6 +86,7 @@ export { GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomVie
 export { GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData } from './GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody';
 export { GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList } from './GetDataSourceOrderConfigResponseBody';
 export { GetDataSourceOrderConfigResponseBodyData } from './GetDataSourceOrderConfigResponseBody';
+export { GetDatasetResponseBodyDataDatasetConfigSearchSourceConfig } from './GetDatasetResponseBody';
 export { GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders } from './GetDatasetResponseBody';
 export { GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams } from './GetDatasetResponseBody';
 export { GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfig } from './GetDatasetResponseBody';
@@ -96,6 +99,7 @@ export { GetDatasetResponseBodyDataDatasetConfig } from './GetDatasetResponseBod
 export { GetDatasetResponseBodyDataDocumentHandleConfig } from './GetDatasetResponseBody';
 export { GetDatasetResponseBodyData } from './GetDatasetResponseBody';
 export { GetDatasetDocumentResponseBodyDataMetadataAsrSentences } from './GetDatasetDocumentResponseBody';
+export { GetDatasetDocumentResponseBodyDataMetadataKeyValues } from './GetDatasetDocumentResponseBody';
 export { GetDatasetDocumentResponseBodyDataMetadataVideoShots } from './GetDatasetDocumentResponseBody';
 export { GetDatasetDocumentResponseBodyDataMetadata } from './GetDatasetDocumentResponseBody';
 export { GetDatasetDocumentResponseBodyData } from './GetDatasetDocumentResponseBody';
@@ -544,6 +548,7 @@ export { RunWritingV2ResponseBodyPayloadOutput } from './RunWritingV2responseBod
 export { RunWritingV2ResponseBodyPayloadUsage } from './RunWritingV2responseBody';
 export { RunWritingV2ResponseBodyPayload } from './RunWritingV2responseBody';
 export { SaveDataSourceOrderConfigRequestUserConfigDataSourceList } from './SaveDataSourceOrderConfigRequest';
+export { SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos } from './SearchDatasetDocumentsResponseBody';
 export { SearchDatasetDocumentsResponseBodyDataDocuments } from './SearchDatasetDocumentsResponseBody';
 export { SearchDatasetDocumentsResponseBodyData } from './SearchDatasetDocumentsResponseBody';
 export { SearchNewsResponseBodyData } from './SearchNewsResponseBody';
@@ -593,6 +598,7 @@ export { SubmitSmartClipTaskResponseBodyData } from './SubmitSmartClipTaskRespon
 export { SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments } from './SubmitTopicSelectionPerspectiveAnalysisTaskRequest';
 export { SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments } from './SubmitTopicSelectionPerspectiveAnalysisTaskRequest';
 export { SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData } from './SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody';
+export { UpdateDatasetRequestDatasetConfigSearchSourceConfig } from './UpdateDatasetRequest';
 export { UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders } from './UpdateDatasetRequest';
 export { UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams } from './UpdateDatasetRequest';
 export { UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig } from './UpdateDatasetRequest';
@@ -1191,6 +1197,7 @@ export { SaveStyleLearningResultShrinkRequest } from './SaveStyleLearningResultS
 export { SaveStyleLearningResultResponseBody } from './SaveStyleLearningResultResponseBody';
 export { SaveStyleLearningResultResponse } from './SaveStyleLearningResultResponse';
 export { SearchDatasetDocumentsRequest } from './SearchDatasetDocumentsRequest';
+export { SearchDatasetDocumentsShrinkRequest } from './SearchDatasetDocumentsShrinkRequest';
 export { SearchDatasetDocumentsResponseBody } from './SearchDatasetDocumentsResponseBody';
 export { SearchDatasetDocumentsResponse } from './SearchDatasetDocumentsResponse';
 export { SearchNewsRequest } from './SearchNewsRequest';

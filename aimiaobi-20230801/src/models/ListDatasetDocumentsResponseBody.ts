@@ -59,6 +59,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
    * 2025-04-14 19:59:53
    */
   createTime?: string;
+  createUser?: string;
   /**
    * @example
    * false
@@ -115,6 +116,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -125,6 +127,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
    * 2025-04-14 19:59:53
    */
   updateTime?: string;
+  updateUser?: string;
   /**
    * @remarks
    * url
@@ -138,6 +141,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
       categoryUuid: 'CategoryUuid',
       content: 'Content',
       createTime: 'CreateTime',
+      createUser: 'CreateUser',
       disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
       docId: 'DocId',
       docType: 'DocType',
@@ -150,8 +154,10 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
       sourceFrom: 'SourceFrom',
       status: 'Status',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       updateTime: 'UpdateTime',
+      updateUser: 'UpdateUser',
       url: 'Url',
     };
   }
@@ -161,6 +167,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
       categoryUuid: 'string',
       content: 'string',
       createTime: 'string',
+      createUser: 'string',
       disableHandleMultimodalMedia: 'boolean',
       docId: 'string',
       docType: 'string',
@@ -173,8 +180,10 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
       sourceFrom: 'string',
       status: 'number',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       updateTime: 'string',
+      updateUser: 'string',
       url: 'string',
     };
   }
@@ -182,6 +191,9 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.multimodalMedias)) {
       $dara.Model.validateArray(this.multimodalMedias);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

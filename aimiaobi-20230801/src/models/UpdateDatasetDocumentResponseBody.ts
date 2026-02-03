@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDatasetDocumentResponseBodyData extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * 用户指定的文档唯一ID
@@ -13,24 +14,41 @@ export class UpdateDatasetDocumentResponseBodyData extends $dara.Model {
    * 内部文档唯一ID
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
+  tags?: string[];
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
+      tags: 'Tags',
       title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

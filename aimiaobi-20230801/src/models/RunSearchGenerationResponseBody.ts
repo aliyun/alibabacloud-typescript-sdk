@@ -86,6 +86,7 @@ export class RunSearchGenerationResponseBodyHeader extends $dara.Model {
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultArticle extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -96,6 +97,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * xx
@@ -106,6 +110,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xxx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -118,10 +123,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       searchSourceName: 'SearchSourceName',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -129,16 +139,24 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       searchSourceName: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -282,6 +300,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultArticle extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -292,16 +311,22 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
+  searchSource?: string;
   /**
    * @example
    * xx
    */
   searchSourceName?: string;
+  searchSourceType?: string;
   /**
    * @example
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -314,10 +339,17 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
+      searchSource: 'SearchSource',
       searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -325,16 +357,26 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      searchSource: 'string',
       searchSourceName: 'string',
+      searchSourceType: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -492,6 +534,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -502,16 +545,22 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
+  searchSource?: string;
   /**
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
+  searchSourceType?: string;
   /**
    * @example
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -524,10 +573,17 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
+      searchSource: 'SearchSource',
       searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -535,16 +591,26 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      searchSource: 'string',
       searchSourceName: 'string',
+      searchSourceType: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -682,6 +748,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResult extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -692,6 +759,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   multimodalMedias?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResultMultimodalMedias[];
   /**
    * @example
@@ -718,6 +788,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -730,14 +801,19 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       multimodalMedias: 'MultimodalMedias',
       pubTime: 'PubTime',
       searchSource: 'SearchSource',
       searchSourceName: 'SearchSourceName',
       searchSourceType: 'SearchSourceType',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -745,14 +821,19 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       multimodalMedias: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResultMultimodalMedias },
       pubTime: 'string',
       searchSource: 'string',
       searchSourceName: 'string',
       searchSourceType: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
@@ -761,6 +842,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   validate() {
     if(Array.isArray(this.multimodalMedias)) {
       $dara.Model.validateArray(this.multimodalMedias);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -818,6 +902,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultArticle extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -828,16 +913,22 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
+  searchSource?: string;
   /**
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
+  searchSourceType?: string;
   /**
    * @example
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -850,10 +941,17 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
+      searchSource: 'SearchSource',
       searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -861,16 +959,26 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      searchSource: 'string',
       searchSourceName: 'string',
+      searchSourceType: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -1309,6 +1417,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResult extends $dara.Model {
+  categoryUuid?: string;
   chunks?: string[];
   /**
    * @example
@@ -1330,6 +1439,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   excerpt?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   multimodalMedias?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultMultimodalMedias[];
   /**
    * @example
@@ -1366,6 +1478,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   textGenerateMultimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaList[];
   /**
    * @example
@@ -1384,11 +1497,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       chunks: 'Chunks',
       content: 'Content',
       docId: 'DocId',
       docUuid: 'DocUuid',
       excerpt: 'Excerpt',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       multimodalMedias: 'MultimodalMedias',
       pubTime: 'PubTime',
       score: 'Score',
@@ -1397,6 +1514,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       searchSourceType: 'SearchSourceType',
       select: 'Select',
       summary: 'Summary',
+      tags: 'Tags',
       textGenerateMultimodalMediaList: 'TextGenerateMultimodalMediaList',
       title: 'Title',
       traceabilityId: 'TraceabilityId',
@@ -1406,11 +1524,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       chunks: { 'type': 'array', 'itemType': 'string' },
       content: 'string',
       docId: 'string',
       docUuid: 'string',
       excerpt: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       multimodalMedias: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultMultimodalMedias },
       pubTime: 'string',
       score: 'number',
@@ -1419,6 +1541,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       searchSourceType: 'string',
       select: 'boolean',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       textGenerateMultimodalMediaList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaList },
       title: 'string',
       traceabilityId: 'number',
@@ -1432,6 +1555,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
     }
     if(Array.isArray(this.multimodalMedias)) {
       $dara.Model.validateArray(this.multimodalMedias);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     if(Array.isArray(this.textGenerateMultimodalMediaList)) {
       $dara.Model.validateArray(this.textGenerateMultimodalMediaList);
@@ -1495,6 +1621,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResultArticle extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -1505,6 +1632,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 互联网搜索
@@ -1515,6 +1645,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -1527,10 +1658,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       searchSourceName: 'SearchSourceName',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -1538,16 +1674,24 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       searchSourceName: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -1630,6 +1774,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListArticle extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -1645,6 +1790,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 2023-04-04 08:39:09
@@ -1680,6 +1828,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -1692,9 +1841,13 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       content: 'Content',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       pubTime: 'PubTime',
       score: 'Score',
       searchSource: 'SearchSource',
@@ -1702,6 +1855,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       searchSourceType: 'SearchSourceType',
       select: 'Select',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -1709,9 +1863,13 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       content: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       pubTime: 'string',
       score: 'number',
       searchSource: 'string',
@@ -1719,12 +1877,16 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       searchSourceType: 'string',
       select: 'boolean',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -2294,6 +2456,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultReferenceList extends $dara.Model {
+  categoryUuid?: string;
   chunks?: string[];
   /**
    * @example
@@ -2310,6 +2473,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 2023-04-04 08:39:09
@@ -2350,6 +2516,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -2367,10 +2534,14 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       chunks: 'Chunks',
       content: 'Content',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       pubTime: 'PubTime',
       score: 'Score',
       searchSource: 'SearchSource',
@@ -2379,6 +2550,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       select: 'Select',
       source: 'Source',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       traceabilityId: 'TraceabilityId',
       url: 'Url',
@@ -2387,10 +2559,14 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       chunks: { 'type': 'array', 'itemType': 'string' },
       content: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       pubTime: 'string',
       score: 'number',
       searchSource: 'string',
@@ -2399,6 +2575,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       select: 'boolean',
       source: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       traceabilityId: 'number',
       url: 'string',
@@ -2408,6 +2585,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   validate() {
     if(Array.isArray(this.chunks)) {
       $dara.Model.validateArray(this.chunks);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -2635,6 +2815,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -2650,6 +2831,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 2024-11-25 14:25:59
@@ -2675,6 +2859,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -2692,14 +2877,19 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       content: 'Content',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       pubTime: 'PubTime',
       searchSource: 'SearchSource',
       searchSourceName: 'SearchSourceName',
       searchSourceType: 'SearchSourceType',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       traceabilityId: 'TraceabilityId',
       url: 'Url',
@@ -2708,14 +2898,19 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       content: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       pubTime: 'string',
       searchSource: 'string',
       searchSourceName: 'string',
       searchSourceType: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       traceabilityId: 'string',
       url: 'string',
@@ -2723,6 +2918,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -3124,6 +3322,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultReferenceList extends $dara.Model {
+  categoryUuid?: string;
   chunks?: string[];
   /**
    * @example
@@ -3140,6 +3339,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 2023-04-04 08:39:09
@@ -3180,6 +3382,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -3197,10 +3400,14 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       chunks: 'Chunks',
       content: 'Content',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       pubTime: 'PubTime',
       score: 'Score',
       searchSource: 'SearchSource',
@@ -3209,6 +3416,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       select: 'Select',
       source: 'Source',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       traceabilityId: 'TraceabilityId',
       url: 'Url',
@@ -3217,10 +3425,14 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       chunks: { 'type': 'array', 'itemType': 'string' },
       content: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       pubTime: 'string',
       score: 'number',
       searchSource: 'string',
@@ -3229,6 +3441,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       select: 'boolean',
       source: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       traceabilityId: 'number',
       url: 'string',
@@ -3238,6 +3451,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   validate() {
     if(Array.isArray(this.chunks)) {
       $dara.Model.validateArray(this.chunks);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -3458,6 +3674,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultArticle extends $dara.Model {
+  categoryUuid?: string;
   /**
    * @example
    * xx
@@ -3468,6 +3685,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 互联网搜索
@@ -3478,6 +3698,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   summary?: string;
+  tags?: string[];
   /**
    * @example
    * xx
@@ -3490,10 +3711,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       searchSourceName: 'SearchSourceName',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -3501,16 +3727,24 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       searchSourceName: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

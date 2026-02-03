@@ -58,18 +58,25 @@ export class RunSearchSimilarArticlesResponseBodyHeader extends $dara.Model {
 }
 
 export class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles extends $dara.Model {
+  categoryUuid?: string;
   docId?: string;
+  docType?: string;
   /**
    * @example
    * a26c2c1
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   /**
    * @example
    * 2025-01-16 18:07:22
    */
   pubTime?: string;
+  searchSource?: string;
   searchSourceName?: string;
+  searchSourceType?: string;
   /**
    * @example
    * xxx.com
@@ -80,6 +87,7 @@ export class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles extends $
    * xxx
    */
   summary?: string;
+  tags?: string[];
   title?: string;
   /**
    * @example
@@ -88,12 +96,20 @@ export class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles extends $
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       docId: 'DocId',
+      docType: 'DocType',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       pubTime: 'PubTime',
+      searchSource: 'SearchSource',
       searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
       source: 'Source',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -101,18 +117,29 @@ export class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles extends $
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       docId: 'string',
+      docType: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       pubTime: 'string',
+      searchSource: 'string',
       searchSourceName: 'string',
+      searchSourceType: 'string',
       source: 'string',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

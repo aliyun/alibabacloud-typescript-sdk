@@ -2,8 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SearchDatasetDocumentsRequest extends $dara.Model {
-  categoryUuids?: string[];
+export class SearchDatasetDocumentsShrinkRequest extends $dara.Model {
+  categoryUuidsShrink?: string;
   createTimeEnd?: number;
   createTimeStart?: number;
   /**
@@ -16,9 +16,9 @@ export class SearchDatasetDocumentsRequest extends $dara.Model {
    * 数据集名称
    */
   datasetName?: string;
-  docIds?: string[];
-  docTypes?: string[];
-  docUuids?: string[];
+  docIdsShrink?: string;
+  docTypesShrink?: string;
+  docUuidsShrink?: string;
   endTime?: number;
   /**
    * @example
@@ -47,7 +47,7 @@ export class SearchDatasetDocumentsRequest extends $dara.Model {
   query?: string;
   searchMode?: string;
   startTime?: number;
-  tags?: string[];
+  tagsShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -58,14 +58,14 @@ export class SearchDatasetDocumentsRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      categoryUuids: 'CategoryUuids',
+      categoryUuidsShrink: 'CategoryUuids',
       createTimeEnd: 'CreateTimeEnd',
       createTimeStart: 'CreateTimeStart',
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
-      docIds: 'DocIds',
-      docTypes: 'DocTypes',
-      docUuids: 'DocUuids',
+      docIdsShrink: 'DocIds',
+      docTypesShrink: 'DocTypes',
+      docUuidsShrink: 'DocUuids',
       endTime: 'EndTime',
       extend1: 'Extend1',
       extend2: 'Extend2',
@@ -75,21 +75,21 @@ export class SearchDatasetDocumentsRequest extends $dara.Model {
       query: 'Query',
       searchMode: 'SearchMode',
       startTime: 'StartTime',
-      tags: 'Tags',
+      tagsShrink: 'Tags',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      categoryUuids: { 'type': 'array', 'itemType': 'string' },
+      categoryUuidsShrink: 'string',
       createTimeEnd: 'number',
       createTimeStart: 'number',
       datasetId: 'number',
       datasetName: 'string',
-      docIds: { 'type': 'array', 'itemType': 'string' },
-      docTypes: { 'type': 'array', 'itemType': 'string' },
-      docUuids: { 'type': 'array', 'itemType': 'string' },
+      docIdsShrink: 'string',
+      docTypesShrink: 'string',
+      docUuidsShrink: 'string',
       endTime: 'number',
       extend1: 'string',
       extend2: 'string',
@@ -99,27 +99,12 @@ export class SearchDatasetDocumentsRequest extends $dara.Model {
       query: 'string',
       searchMode: 'string',
       startTime: 'number',
-      tags: { 'type': 'array', 'itemType': 'string' },
+      tagsShrink: 'string',
       workspaceId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.categoryUuids)) {
-      $dara.Model.validateArray(this.categoryUuids);
-    }
-    if(Array.isArray(this.docIds)) {
-      $dara.Model.validateArray(this.docIds);
-    }
-    if(Array.isArray(this.docTypes)) {
-      $dara.Model.validateArray(this.docTypes);
-    }
-    if(Array.isArray(this.docUuids)) {
-      $dara.Model.validateArray(this.docUuids);
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
     super.validate();
   }
 

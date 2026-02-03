@@ -2,6 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfig extends $dara.Model {
+  metadataKeyValueGenerateEnable?: string;
+  metadataKeyValueSearchEnable?: string;
+  tagGenerateEnable?: string;
+  tagSearchEnable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadataKeyValueGenerateEnable: 'MetadataKeyValueGenerateEnable',
+      metadataKeyValueSearchEnable: 'MetadataKeyValueSearchEnable',
+      tagGenerateEnable: 'TagGenerateEnable',
+      tagSearchEnable: 'TagSearchEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadataKeyValueGenerateEnable: 'string',
+      metadataKeyValueSearchEnable: 'string',
+      tagGenerateEnable: 'string',
+      tagSearchEnable: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders extends $dara.Model {
   /**
    * @example
@@ -380,20 +412,26 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs extends 
 }
 
 export class GetDatasetResponseBodyDataDatasetConfig extends $dara.Model {
+  searchSourceConfig?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfig;
   searchSourceConfigs?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs[];
   static names(): { [key: string]: string } {
     return {
+      searchSourceConfig: 'SearchSourceConfig',
       searchSourceConfigs: 'SearchSourceConfigs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      searchSourceConfig: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfig,
       searchSourceConfigs: { 'type': 'array', 'itemType': GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs },
     };
   }
 
   validate() {
+    if(this.searchSourceConfig && typeof (this.searchSourceConfig as any).validate === 'function') {
+      (this.searchSourceConfig as any).validate();
+    }
     if(Array.isArray(this.searchSourceConfigs)) {
       $dara.Model.validateArray(this.searchSourceConfigs);
     }

@@ -31,6 +31,32 @@ export class GetDatasetDocumentResponseBodyDataMetadataAsrSentences extends $dar
   }
 }
 
+export class GetDatasetDocumentResponseBodyDataMetadataKeyValues extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDatasetDocumentResponseBodyDataMetadataVideoShots extends $dara.Model {
   endTime?: number;
   startTime?: number;
@@ -62,11 +88,13 @@ export class GetDatasetDocumentResponseBodyDataMetadataVideoShots extends $dara.
 
 export class GetDatasetDocumentResponseBodyDataMetadata extends $dara.Model {
   asrSentences?: GetDatasetDocumentResponseBodyDataMetadataAsrSentences[];
+  keyValues?: GetDatasetDocumentResponseBodyDataMetadataKeyValues[];
   text?: string;
   videoShots?: GetDatasetDocumentResponseBodyDataMetadataVideoShots[];
   static names(): { [key: string]: string } {
     return {
       asrSentences: 'AsrSentences',
+      keyValues: 'KeyValues',
       text: 'Text',
       videoShots: 'VideoShots',
     };
@@ -75,6 +103,7 @@ export class GetDatasetDocumentResponseBodyDataMetadata extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       asrSentences: { 'type': 'array', 'itemType': GetDatasetDocumentResponseBodyDataMetadataAsrSentences },
+      keyValues: { 'type': 'array', 'itemType': GetDatasetDocumentResponseBodyDataMetadataKeyValues },
       text: 'string',
       videoShots: { 'type': 'array', 'itemType': GetDatasetDocumentResponseBodyDataMetadataVideoShots },
     };
@@ -83,6 +112,9 @@ export class GetDatasetDocumentResponseBodyDataMetadata extends $dara.Model {
   validate() {
     if(Array.isArray(this.asrSentences)) {
       $dara.Model.validateArray(this.asrSentences);
+    }
+    if(Array.isArray(this.keyValues)) {
+      $dara.Model.validateArray(this.keyValues);
     }
     if(Array.isArray(this.videoShots)) {
       $dara.Model.validateArray(this.videoShots);
@@ -96,6 +128,7 @@ export class GetDatasetDocumentResponseBodyDataMetadata extends $dara.Model {
 }
 
 export class GetDatasetDocumentResponseBodyData extends $dara.Model {
+  categoryUuid?: string;
   content?: string;
   /**
    * @example
@@ -113,6 +146,9 @@ export class GetDatasetDocumentResponseBodyData extends $dara.Model {
    * 内部文档唯一ID
    */
   docUuid?: string;
+  extend1?: string;
+  extend2?: string;
+  extend3?: string;
   metadata?: GetDatasetDocumentResponseBodyDataMetadata;
   /**
    * @example
@@ -130,6 +166,7 @@ export class GetDatasetDocumentResponseBodyData extends $dara.Model {
    * 文章摘要
    */
   summary?: string;
+  tags?: string[];
   title?: string;
   /**
    * @example
@@ -138,16 +175,21 @@ export class GetDatasetDocumentResponseBodyData extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryUuid: 'CategoryUuid',
       content: 'Content',
       disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
       docId: 'DocId',
       docType: 'DocType',
       docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
       metadata: 'Metadata',
       pubTime: 'PubTime',
       sourceFrom: 'SourceFrom',
       status: 'Status',
       summary: 'Summary',
+      tags: 'Tags',
       title: 'Title',
       url: 'Url',
     };
@@ -155,16 +197,21 @@ export class GetDatasetDocumentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categoryUuid: 'string',
       content: 'string',
       disableHandleMultimodalMedia: 'boolean',
       docId: 'string',
       docType: 'string',
       docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
       metadata: GetDatasetDocumentResponseBodyDataMetadata,
       pubTime: 'string',
       sourceFrom: 'string',
       status: 'number',
       summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
       url: 'string',
     };
@@ -173,6 +220,9 @@ export class GetDatasetDocumentResponseBodyData extends $dara.Model {
   validate() {
     if(this.metadata && typeof (this.metadata as any).validate === 'function') {
       (this.metadata as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

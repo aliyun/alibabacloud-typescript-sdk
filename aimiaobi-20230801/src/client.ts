@@ -5526,12 +5526,77 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListDatasetDocumentsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.categoryUuids)) {
+      request.categoryUuidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryUuids, "CategoryUuids", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.docIds)) {
+      request.docIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docIds, "DocIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.docUuids)) {
+      request.docUuidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docUuids, "DocUuids", "json");
+    }
+
     if (!$dara.isNull(tmpReq.excludeFields)) {
       request.excludeFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeFields, "ExcludeFields", "json");
     }
 
     if (!$dara.isNull(tmpReq.includeFields)) {
       request.includeFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.includeFields, "IncludeFields", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.categoryUuidsShrink)) {
+      query["CategoryUuids"] = request.categoryUuidsShrink;
+    }
+
+    if (!$dara.isNull(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!$dara.isNull(request.docIdsShrink)) {
+      query["DocIds"] = request.docIdsShrink;
+    }
+
+    if (!$dara.isNull(request.docUuidsShrink)) {
+      query["DocUuids"] = request.docUuidsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.extend1)) {
+      query["Extend1"] = request.extend1;
+    }
+
+    if (!$dara.isNull(request.extend2)) {
+      query["Extend2"] = request.extend2;
+    }
+
+    if (!$dara.isNull(request.extend3)) {
+      query["Extend3"] = request.extend3;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
     }
 
     let body : {[key: string ]: any} = { };
@@ -5580,6 +5645,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -12802,12 +12868,83 @@ export default class Client extends OpenApi {
   /**
    * 搜索数据集文档
    * 
-   * @param request - SearchDatasetDocumentsRequest
+   * @param tmpReq - SearchDatasetDocumentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SearchDatasetDocumentsResponse
    */
-  async searchDatasetDocumentsWithOptions(request: $_model.SearchDatasetDocumentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchDatasetDocumentsResponse> {
-    request.validate();
+  async searchDatasetDocumentsWithOptions(tmpReq: $_model.SearchDatasetDocumentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchDatasetDocumentsResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchDatasetDocumentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.categoryUuids)) {
+      request.categoryUuidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryUuids, "CategoryUuids", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.docIds)) {
+      request.docIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docIds, "DocIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.docTypes)) {
+      request.docTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docTypes, "DocTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.docUuids)) {
+      request.docUuidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docUuids, "DocUuids", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.categoryUuidsShrink)) {
+      query["CategoryUuids"] = request.categoryUuidsShrink;
+    }
+
+    if (!$dara.isNull(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!$dara.isNull(request.docIdsShrink)) {
+      query["DocIds"] = request.docIdsShrink;
+    }
+
+    if (!$dara.isNull(request.docTypesShrink)) {
+      query["DocTypes"] = request.docTypesShrink;
+    }
+
+    if (!$dara.isNull(request.docUuidsShrink)) {
+      query["DocUuids"] = request.docUuidsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.extend2)) {
+      query["Extend2"] = request.extend2;
+    }
+
+    if (!$dara.isNull(request.extend3)) {
+      query["Extend3"] = request.extend3;
+    }
+
+    if (!$dara.isNull(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.datasetId)) {
       body["DatasetId"] = request.datasetId;
@@ -12838,6 +12975,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
