@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/yundun-bastionhost20191209",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
