@@ -11,6 +11,7 @@ export class ListPrincipalsResponseBodyPrincipals extends $dara.Model {
    * 24477111603637****
    */
   principalId?: string;
+  principalPattern?: string;
   /**
    * @remarks
    * The type of the RAM entity. Valid values:
@@ -25,6 +26,7 @@ export class ListPrincipalsResponseBodyPrincipals extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       principalId: 'PrincipalId',
+      principalPattern: 'PrincipalPattern',
       principalType: 'PrincipalType',
     };
   }
@@ -32,6 +34,7 @@ export class ListPrincipalsResponseBodyPrincipals extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       principalId: 'string',
+      principalPattern: 'string',
       principalType: 'string',
     };
   }

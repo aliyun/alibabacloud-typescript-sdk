@@ -12,13 +12,18 @@ export class AssociatePrincipalWithPortfolioRequest extends $dara.Model {
    */
   portfolioId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 24477111603637****
+   * 
+   * **if can be null:**
+   * true
    */
   principalId?: string;
+  /**
+   * @example
+   * user/userName
+   */
+  principalPattern?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -31,6 +36,7 @@ export class AssociatePrincipalWithPortfolioRequest extends $dara.Model {
     return {
       portfolioId: 'PortfolioId',
       principalId: 'PrincipalId',
+      principalPattern: 'PrincipalPattern',
       principalType: 'PrincipalType',
     };
   }
@@ -39,6 +45,7 @@ export class AssociatePrincipalWithPortfolioRequest extends $dara.Model {
     return {
       portfolioId: 'string',
       principalId: 'string',
+      principalPattern: 'string',
       principalType: 'string',
     };
   }

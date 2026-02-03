@@ -21,12 +21,15 @@ export class DisassociatePrincipalFromPortfolioRequest extends $dara.Model {
    * 
    * For more information about how to obtain the ID of a RAM role, see [GetRole](https://help.aliyun.com/document_detail/28711.html).
    * 
-   * This parameter is required.
-   * 
    * @example
    * 24477111603637****
    */
   principalId?: string;
+  /**
+   * @example
+   * user/userName
+   */
+  principalPattern?: string;
   /**
    * @remarks
    * The type of the Resource Access Management (RAM) entity. Valid values:
@@ -44,6 +47,7 @@ export class DisassociatePrincipalFromPortfolioRequest extends $dara.Model {
     return {
       portfolioId: 'PortfolioId',
       principalId: 'PrincipalId',
+      principalPattern: 'PrincipalPattern',
       principalType: 'PrincipalType',
     };
   }
@@ -52,6 +56,7 @@ export class DisassociatePrincipalFromPortfolioRequest extends $dara.Model {
     return {
       portfolioId: 'string',
       principalId: 'string',
+      principalPattern: 'string',
       principalType: 'string',
     };
   }

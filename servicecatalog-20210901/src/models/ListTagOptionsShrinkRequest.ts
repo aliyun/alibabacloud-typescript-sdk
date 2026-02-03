@@ -8,6 +8,8 @@ export class ListTagOptionsShrinkRequest extends $dara.Model {
    * The filter condition.
    */
   filtersShrink?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The number of the page to return.
@@ -52,6 +54,8 @@ export class ListTagOptionsShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       filtersShrink: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       sortBy: 'SortBy',
@@ -62,6 +66,8 @@ export class ListTagOptionsShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filtersShrink: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       sortBy: 'string',

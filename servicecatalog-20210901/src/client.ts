@@ -97,6 +97,10 @@ export default class Client extends OpenApi {
       body["PrincipalId"] = request.principalId;
     }
 
+    if (!$dara.isNull(request.principalPattern)) {
+      body["PrincipalPattern"] = request.principalPattern;
+    }
+
     if (!$dara.isNull(request.principalType)) {
       body["PrincipalType"] = request.principalType;
     }
@@ -1055,6 +1059,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.principalId)) {
       body["PrincipalId"] = request.principalId;
+    }
+
+    if (!$dara.isNull(request.principalPattern)) {
+      body["PrincipalPattern"] = request.principalPattern;
     }
 
     if (!$dara.isNull(request.principalType)) {

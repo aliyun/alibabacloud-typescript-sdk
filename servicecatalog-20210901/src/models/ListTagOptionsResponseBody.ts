@@ -76,6 +76,7 @@ export class ListTagOptionsResponseBodyTagOptionDetails extends $dara.Model {
 }
 
 export class ListTagOptionsResponseBody extends $dara.Model {
+  nextToken?: string;
   /**
    * @remarks
    * The page number of the returned page.
@@ -117,6 +118,7 @@ export class ListTagOptionsResponseBody extends $dara.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -127,6 +129,7 @@ export class ListTagOptionsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
