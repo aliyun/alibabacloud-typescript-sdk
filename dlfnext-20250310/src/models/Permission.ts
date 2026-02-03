@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { RowFilter } from "./RowFilter";
 
 
-/**
- */
 export class PermissionColumns extends $dara.Model {
   columnNames?: string[];
   excludedColumnNames?: string[];
@@ -44,6 +43,7 @@ export class Permission extends $dara.Model {
   function?: string;
   principal?: string;
   resourceType?: string;
+  rowFilter?: RowFilter;
   table?: string;
   view?: string;
   static names(): { [key: string]: string } {
@@ -55,6 +55,7 @@ export class Permission extends $dara.Model {
       function: 'function',
       principal: 'principal',
       resourceType: 'resourceType',
+      rowFilter: 'rowFilter',
       table: 'table',
       view: 'view',
     };
@@ -69,6 +70,7 @@ export class Permission extends $dara.Model {
       function: 'string',
       principal: 'string',
       resourceType: 'string',
+      rowFilter: RowFilter,
       table: 'string',
       view: 'string',
     };
@@ -77,6 +79,9 @@ export class Permission extends $dara.Model {
   validate() {
     if(this.columns && typeof (this.columns as any).validate === 'function') {
       (this.columns as any).validate();
+    }
+    if(this.rowFilter && typeof (this.rowFilter as any).validate === 'function') {
+      (this.rowFilter as any).validate();
     }
     super.validate();
   }

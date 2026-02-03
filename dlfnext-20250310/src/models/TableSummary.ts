@@ -39,7 +39,18 @@ export class TableSummary extends $dara.Model {
    */
   totalFileCount?: number;
   totalFileSizeInBytes?: number;
+  totalMetaFileCount?: number;
   totalMetaSizeInBytes?: number;
+  /**
+   * @remarks
+   * Creation timestamp in milliseconds
+   */
+  unaccessedStdIaPartitionCount180d?: number;
+  /**
+   * @remarks
+   * Creation timestamp in milliseconds
+   */
+  unaccessedStdPartitionCount30d?: number;
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -59,7 +70,10 @@ export class TableSummary extends $dara.Model {
       tableName: 'tableName',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
+      totalMetaFileCount: 'totalMetaFileCount',
       totalMetaSizeInBytes: 'totalMetaSizeInBytes',
+      unaccessedStdIaPartitionCount180d: 'unaccessedStdIaPartitionCount180d',
+      unaccessedStdPartitionCount30d: 'unaccessedStdPartitionCount30d',
       updatedAt: 'updatedAt',
     };
   }
@@ -82,7 +96,10 @@ export class TableSummary extends $dara.Model {
       tableName: 'string',
       totalFileCount: 'number',
       totalFileSizeInBytes: 'number',
+      totalMetaFileCount: 'number',
       totalMetaSizeInBytes: 'number',
+      unaccessedStdIaPartitionCount180d: 'number',
+      unaccessedStdPartitionCount30d: 'number',
       updatedAt: 'number',
     };
   }

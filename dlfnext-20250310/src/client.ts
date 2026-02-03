@@ -861,7 +861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据湖Catalog
+   * 删除数据湖Catalog
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -886,7 +886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据湖Catalog
+   * 删除数据湖Catalog
    * @returns DropCatalogResponse
    */
   async dropCatalog(catalog: string): Promise<$_model.DropCatalogResponse> {

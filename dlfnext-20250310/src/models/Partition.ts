@@ -14,6 +14,7 @@ export class Partition extends $dara.Model {
   storageAction?: string;
   storageActionTimestamp?: number;
   storageClass?: string;
+  totalBuckets?: number;
   updatedAt?: number;
   updatedBy?: string;
   static names(): { [key: string]: string } {
@@ -29,6 +30,7 @@ export class Partition extends $dara.Model {
       storageAction: 'storageAction',
       storageActionTimestamp: 'storageActionTimestamp',
       storageClass: 'storageClass',
+      totalBuckets: 'totalBuckets',
       updatedAt: 'updatedAt',
       updatedBy: 'updatedBy',
     };
@@ -47,6 +49,7 @@ export class Partition extends $dara.Model {
       storageAction: 'string',
       storageActionTimestamp: 'number',
       storageClass: 'string',
+      totalBuckets: 'number',
       updatedAt: 'number',
       updatedBy: 'string',
     };

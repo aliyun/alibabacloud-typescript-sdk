@@ -9,6 +9,7 @@ export class TableSnapshot extends $dara.Model {
   lastFileCreationTime?: number;
   recordCount?: number;
   snapshot?: Snapshot;
+  totalBuckets?: number;
   static names(): { [key: string]: string } {
     return {
       fileCount: 'fileCount',
@@ -16,6 +17,7 @@ export class TableSnapshot extends $dara.Model {
       lastFileCreationTime: 'lastFileCreationTime',
       recordCount: 'recordCount',
       snapshot: 'snapshot',
+      totalBuckets: 'totalBuckets',
     };
   }
 
@@ -26,6 +28,7 @@ export class TableSnapshot extends $dara.Model {
       lastFileCreationTime: 'number',
       recordCount: 'number',
       snapshot: Snapshot,
+      totalBuckets: 'number',
     };
   }
 
