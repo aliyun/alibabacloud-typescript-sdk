@@ -416,3 +416,6 @@ export { UpdateWorkspaceResponse } from './UpdateWorkspaceResponse';
 export { UpdateWorkspaceResourceRequest } from './UpdateWorkspaceResourceRequest';
 export { UpdateWorkspaceResourceResponseBody } from './UpdateWorkspaceResourceResponseBody';
 export { UpdateWorkspaceResourceResponse } from './UpdateWorkspaceResourceResponse';
+export { ValidateConnectionRequest } from './ValidateConnectionRequest';
+export { ValidateConnectionResponseBody } from './ValidateConnectionResponseBody';
+export { ValidateConnectionResponse } from './ValidateConnectionResponse';

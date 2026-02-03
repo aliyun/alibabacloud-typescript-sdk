@@ -3292,6 +3292,14 @@ export default class Client extends OpenApi {
       query["Accessibility"] = request.accessibility;
     }
 
+    if (!$dara.isNull(request.callerType)) {
+      query["CallerType"] = request.callerType;
+    }
+
+    if (!$dara.isNull(request.callerUid)) {
+      query["CallerUid"] = request.callerUid;
+    }
+
     if (!$dara.isNull(request.creator)) {
       query["Creator"] = request.creator;
     }
@@ -3306,6 +3314,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resource)) {
       query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6620,6 +6632,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateWorkspaceResourceWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 验证连接
+   * 
+   * @param request - ValidateConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateConnectionResponse
+   */
+  async validateConnectionWithOptions(request: $_model.ValidateConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateConnectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configs)) {
+      body["Configs"] = request.configs;
+    }
+
+    if (!$dara.isNull(request.connectionId)) {
+      body["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.connectionType)) {
+      body["ConnectionType"] = request.connectionType;
+    }
+
+    if (!$dara.isNull(request.secrets)) {
+      body["Secrets"] = request.secrets;
+    }
+
+    if (!$dara.isNull(request.validateType)) {
+      body["ValidateType"] = request.validateType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateConnection",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/connections/validate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateConnectionResponse>(await this.callApi(params, req, runtime), new $_model.ValidateConnectionResponse({}));
+  }
+
+  /**
+   * 验证连接
+   * 
+   * @param request - ValidateConnectionRequest
+   * @returns ValidateConnectionResponse
+   */
+  async validateConnection(request: $_model.ValidateConnectionRequest): Promise<$_model.ValidateConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.validateConnectionWithOptions(request, headers, runtime);
   }
 
 }

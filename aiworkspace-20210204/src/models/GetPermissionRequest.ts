@@ -14,6 +14,8 @@ export class GetPermissionRequest extends $dara.Model {
    * PUBLIC
    */
   accessibility?: string;
+  callerType?: string;
+  callerUid?: string;
   /**
    * @remarks
    * The UID of the Alibaba Cloud account that is used to create the workspace.
@@ -42,23 +44,30 @@ export class GetPermissionRequest extends $dara.Model {
    * job/dlc-ksd******s12
    */
   resource?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      callerType: 'CallerType',
+      callerUid: 'CallerUid',
       creator: 'Creator',
       labels: 'Labels',
       option: 'Option',
       resource: 'Resource',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      callerType: 'string',
+      callerUid: 'string',
       creator: 'string',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       option: 'string',
       resource: 'string',
+      securityToken: 'string',
     };
   }
 
