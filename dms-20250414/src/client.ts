@@ -3169,6 +3169,10 @@ export default class Client extends OpenApi {
       query["MessageType"] = request.messageType;
     }
 
+    if (!$dara.isNull(request.parentSessionId)) {
+      query["ParentSessionId"] = request.parentSessionId;
+    }
+
     if (!$dara.isNull(request.question)) {
       query["Question"] = request.question;
     }

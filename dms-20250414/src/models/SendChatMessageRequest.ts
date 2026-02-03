@@ -170,6 +170,7 @@ export class SendChatMessageRequest extends $dara.Model {
    * primary
    */
   messageType?: string;
+  parentSessionId?: string;
   question?: string;
   /**
    * @example
@@ -201,6 +202,7 @@ export class SendChatMessageRequest extends $dara.Model {
       dataSource: 'DataSource',
       message: 'Message',
       messageType: 'MessageType',
+      parentSessionId: 'ParentSessionId',
       question: 'Question',
       quotedMessage: 'QuotedMessage',
       replyTo: 'ReplyTo',
@@ -216,6 +218,7 @@ export class SendChatMessageRequest extends $dara.Model {
       dataSource: SendChatMessageRequestDataSource,
       message: 'string',
       messageType: 'string',
+      parentSessionId: 'string',
       question: 'string',
       quotedMessage: 'string',
       replyTo: 'string',

@@ -30,6 +30,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
    * primary
    */
   messageType?: string;
+  parentSessionId?: string;
   question?: string;
   /**
    * @example
@@ -61,6 +62,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       dataSourceShrink: 'DataSource',
       message: 'Message',
       messageType: 'MessageType',
+      parentSessionId: 'ParentSessionId',
       question: 'Question',
       quotedMessage: 'QuotedMessage',
       replyTo: 'ReplyTo',
@@ -76,6 +78,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       dataSourceShrink: 'string',
       message: 'string',
       messageType: 'string',
+      parentSessionId: 'string',
       question: 'string',
       quotedMessage: 'string',
       replyTo: 'string',
