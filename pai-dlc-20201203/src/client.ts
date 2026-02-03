@@ -100,6 +100,10 @@ export default class Client extends OpenApi {
       body["CredentialConfig"] = request.credentialConfig;
     }
 
+    if (!$dara.isNull(request.customEnvs)) {
+      body["CustomEnvs"] = request.customEnvs;
+    }
+
     if (!$dara.isNull(request.dataSources)) {
       body["DataSources"] = request.dataSources;
     }

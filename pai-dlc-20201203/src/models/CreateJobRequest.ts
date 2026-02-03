@@ -66,6 +66,35 @@ export class CreateJobRequestCodeSource extends $dara.Model {
   }
 }
 
+export class CreateJobRequestCustomEnvs extends $dara.Model {
+  key?: string;
+  value?: string;
+  visible?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+      visible: 'Visible',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+      visible: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateJobRequestDataSources extends $dara.Model {
   /**
    * @remarks
@@ -240,6 +269,7 @@ export class CreateJobRequest extends $dara.Model {
    * The access credential configuration.
    */
   credentialConfig?: CredentialConfig;
+  customEnvs?: CreateJobRequestCustomEnvs[];
   /**
    * @remarks
    * The data sources for job running.
@@ -410,6 +440,7 @@ export class CreateJobRequest extends $dara.Model {
       accessibility: 'Accessibility',
       codeSource: 'CodeSource',
       credentialConfig: 'CredentialConfig',
+      customEnvs: 'CustomEnvs',
       dataSources: 'DataSources',
       debuggerConfigContent: 'DebuggerConfigContent',
       displayName: 'DisplayName',
@@ -436,6 +467,7 @@ export class CreateJobRequest extends $dara.Model {
       accessibility: 'string',
       codeSource: CreateJobRequestCodeSource,
       credentialConfig: CredentialConfig,
+      customEnvs: { 'type': 'array', 'itemType': CreateJobRequestCustomEnvs },
       dataSources: { 'type': 'array', 'itemType': CreateJobRequestDataSources },
       debuggerConfigContent: 'string',
       displayName: 'string',
@@ -463,6 +495,9 @@ export class CreateJobRequest extends $dara.Model {
     }
     if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
       (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.customEnvs)) {
+      $dara.Model.validateArray(this.customEnvs);
     }
     if(Array.isArray(this.dataSources)) {
       $dara.Model.validateArray(this.dataSources);

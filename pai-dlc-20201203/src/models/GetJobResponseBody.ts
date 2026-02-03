@@ -69,6 +69,35 @@ export class GetJobResponseBodyCodeSource extends $dara.Model {
   }
 }
 
+export class GetJobResponseBodyCustomEnvs extends $dara.Model {
+  key?: string;
+  value?: string;
+  visible?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+      visible: 'Visible',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+      visible: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyDataSources extends $dara.Model {
   /**
    * @remarks
@@ -601,6 +630,7 @@ export class GetJobResponseBody extends $dara.Model {
    * The access credential configurations.
    */
   credentialConfig?: CredentialConfig;
+  customEnvs?: GetJobResponseBodyCustomEnvs[];
   /**
    * @remarks
    * The data sources.
@@ -892,6 +922,7 @@ export class GetJobResponseBody extends $dara.Model {
       clusterId: 'ClusterId',
       codeSource: 'CodeSource',
       credentialConfig: 'CredentialConfig',
+      customEnvs: 'CustomEnvs',
       dataSources: 'DataSources',
       displayName: 'DisplayName',
       duration: 'Duration',
@@ -940,6 +971,7 @@ export class GetJobResponseBody extends $dara.Model {
       clusterId: 'string',
       codeSource: GetJobResponseBodyCodeSource,
       credentialConfig: CredentialConfig,
+      customEnvs: { 'type': 'array', 'itemType': GetJobResponseBodyCustomEnvs },
       dataSources: { 'type': 'array', 'itemType': GetJobResponseBodyDataSources },
       displayName: 'string',
       duration: 'number',
@@ -988,6 +1020,9 @@ export class GetJobResponseBody extends $dara.Model {
     }
     if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
       (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.customEnvs)) {
+      $dara.Model.validateArray(this.customEnvs);
     }
     if(Array.isArray(this.dataSources)) {
       $dara.Model.validateArray(this.dataSources);

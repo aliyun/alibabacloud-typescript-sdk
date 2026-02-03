@@ -1,29 +1,28 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModelTemplate } from "./ModelTemplate";
 
 
-export class ModelConfig extends $dara.Model {
+export class ModelTemplate extends $dara.Model {
+  collections?: string;
   modelName?: string;
-  modelTemplate?: ModelTemplate;
+  provider?: string;
   static names(): { [key: string]: string } {
     return {
+      collections: 'Collections',
       modelName: 'ModelName',
-      modelTemplate: 'ModelTemplate',
+      provider: 'Provider',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      collections: 'string',
       modelName: 'string',
-      modelTemplate: ModelTemplate,
+      provider: 'string',
     };
   }
 
   validate() {
-    if(this.modelTemplate && typeof (this.modelTemplate as any).validate === 'function') {
-      (this.modelTemplate as any).validate();
-    }
     super.validate();
   }
 
