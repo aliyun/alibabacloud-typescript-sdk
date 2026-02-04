@@ -2,6 +2,7 @@ export { AddDisasterRecoveryItemRequestTopics } from './AddDisasterRecoveryItemR
 export { CreateConsumerGroupRequestConsumeRetryPolicy } from './CreateConsumerGroupRequest';
 export { CreateDisasterRecoveryPlanRequestInstancesMessageProperty } from './CreateDisasterRecoveryPlanRequest';
 export { CreateDisasterRecoveryPlanRequestInstances } from './CreateDisasterRecoveryPlanRequest';
+export { CreateInstanceRequestAclInfo } from './CreateInstanceRequest';
 export { CreateInstanceRequestNetworkInfoInternetInfo } from './CreateInstanceRequest';
 export { CreateInstanceRequestNetworkInfoVpcInfoVSwitches } from './CreateInstanceRequest';
 export { CreateInstanceRequestNetworkInfoVpcInfo } from './CreateInstanceRequest';

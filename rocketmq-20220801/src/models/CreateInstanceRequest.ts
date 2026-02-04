@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateInstanceRequestAclInfo extends $dara.Model {
+  defaultVpcAuthFree?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      defaultVpcAuthFree: 'defaultVpcAuthFree',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultVpcAuthFree: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
@@ -383,6 +406,7 @@ export class CreateInstanceRequestTags extends $dara.Model {
 }
 
 export class CreateInstanceRequest extends $dara.Model {
+  aclInfo?: CreateInstanceRequestAclInfo;
   /**
    * @remarks
    * Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set paymentType to Subscription. Valid values:
@@ -569,6 +593,7 @@ export class CreateInstanceRequest extends $dara.Model {
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
+      aclInfo: 'aclInfo',
       autoRenew: 'autoRenew',
       autoRenewPeriod: 'autoRenewPeriod',
       commodityCode: 'commodityCode',
@@ -590,6 +615,7 @@ export class CreateInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aclInfo: CreateInstanceRequestAclInfo,
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       commodityCode: 'string',
@@ -610,6 +636,9 @@ export class CreateInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.aclInfo && typeof (this.aclInfo as any).validate === 'function') {
+      (this.aclInfo as any).validate();
+    }
     if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
       (this.networkInfo as any).validate();
     }

@@ -294,6 +294,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aclInfo)) {
+      body["aclInfo"] = request.aclInfo;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       body["autoRenew"] = request.autoRenew;
     }
