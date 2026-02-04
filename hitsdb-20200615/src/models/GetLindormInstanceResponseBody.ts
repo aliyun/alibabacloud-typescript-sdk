@@ -176,6 +176,7 @@ export class GetLindormInstanceResponseBody extends $dara.Model {
    * false
    */
   autoRenew?: boolean;
+  backupInstance?: string;
   /**
    * @remarks
    * The Capacity storage size of the instance.
@@ -680,6 +681,7 @@ export class GetLindormInstanceResponseBody extends $dara.Model {
       archVersion: 'ArchVersion',
       archiveStorage: 'ArchiveStorage',
       autoRenew: 'AutoRenew',
+      backupInstance: 'BackupInstance',
       coldStorage: 'ColdStorage',
       coreDiskCategory: 'CoreDiskCategory',
       coreNum: 'CoreNum',
@@ -742,6 +744,7 @@ export class GetLindormInstanceResponseBody extends $dara.Model {
       archVersion: 'string',
       archiveStorage: 'number',
       autoRenew: 'boolean',
+      backupInstance: 'string',
       coldStorage: 'number',
       coreDiskCategory: 'string',
       coreNum: 'number',
