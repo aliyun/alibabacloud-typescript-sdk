@@ -116,6 +116,7 @@ export class CreateDtsInstanceRequest extends $dara.Model {
    * ONLY_CONFIGURATION_FEE
    */
   feeType?: string;
+  insightModule?: boolean;
   /**
    * @remarks
    * The instance class.
@@ -307,6 +308,7 @@ export class CreateDtsInstanceRequest extends $dara.Model {
       dtsRegion: 'DtsRegion',
       du: 'Du',
       feeType: 'FeeType',
+      insightModule: 'InsightModule',
       instanceClass: 'InstanceClass',
       jobId: 'JobId',
       maxDu: 'MaxDu',
@@ -335,6 +337,7 @@ export class CreateDtsInstanceRequest extends $dara.Model {
       dtsRegion: 'string',
       du: 'number',
       feeType: 'string',
+      insightModule: 'boolean',
       instanceClass: 'string',
       jobId: 'string',
       maxDu: 'number',

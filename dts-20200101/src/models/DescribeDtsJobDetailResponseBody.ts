@@ -8061,6 +8061,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
    */
   httpStatusCode?: number;
   initCheckpoint?: string;
+  insightModule?: boolean;
   /**
    * @remarks
    * The type of the DTS task. Valid values:
@@ -8292,6 +8293,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
       groupId: 'GroupId',
       httpStatusCode: 'HttpStatusCode',
       initCheckpoint: 'InitCheckpoint',
+      insightModule: 'InsightModule',
       jobType: 'JobType',
       lastUpdateTime: 'LastUpdateTime',
       maxDu: 'MaxDu',
@@ -8355,6 +8357,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
       groupId: 'string',
       httpStatusCode: 'number',
       initCheckpoint: 'string',
+      insightModule: 'boolean',
       jobType: 'string',
       lastUpdateTime: 'string',
       maxDu: 'number',

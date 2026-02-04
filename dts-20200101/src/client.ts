@@ -1908,6 +1908,10 @@ export default class Client extends OpenApi {
       query["FeeType"] = request.feeType;
     }
 
+    if (!$dara.isNull(request.insightModule)) {
+      query["InsightModule"] = request.insightModule;
+    }
+
     if (!$dara.isNull(request.instanceClass)) {
       query["InstanceClass"] = request.instanceClass;
     }
