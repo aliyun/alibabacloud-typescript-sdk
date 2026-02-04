@@ -179,6 +179,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建播报音频
+   * 
+   * @param request - CreateBroadcastAudioRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBroadcastAudioResponse
+   */
+  async createBroadcastAudioWithOptions(request: $_model.CreateBroadcastAudioRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBroadcastAudioResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      body["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      body["ossKey"] = request.ossKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBroadcastAudio",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/customer/broadcast/material/audio/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBroadcastAudioResponse>(await this.callApi(params, req, runtime), new $_model.CreateBroadcastAudioResponse({}));
+  }
+
+  /**
+   * 创建播报音频
+   * 
+   * @param request - CreateBroadcastAudioRequest
+   * @returns CreateBroadcastAudioResponse
+   */
+  async createBroadcastAudio(request: $_model.CreateBroadcastAudioRequest): Promise<$_model.CreateBroadcastAudioResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createBroadcastAudioWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建播报贴图
    * 
    * @param request - CreateBroadcastStickerRequest
@@ -763,6 +812,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUploadPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据音频id批量查询播报音频（最多查询100个）
+   * 
+   * @param tmpReq - ListBroadcastAudiosByIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBroadcastAudiosByIdResponse
+   */
+  async listBroadcastAudiosByIdWithOptions(tmpReq: $_model.ListBroadcastAudiosByIdRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListBroadcastAudiosByIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListBroadcastAudiosByIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.audioIds)) {
+      request.audioIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.audioIds, "audioIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audioIdsShrink)) {
+      query["audioIds"] = request.audioIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBroadcastAudiosById",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/customer/broadcast/material/audio/batchQuery`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBroadcastAudiosByIdResponse>(await this.callApi(params, req, runtime), new $_model.ListBroadcastAudiosByIdResponse({}));
+  }
+
+  /**
+   * 根据音频id批量查询播报音频（最多查询100个）
+   * 
+   * @param request - ListBroadcastAudiosByIdRequest
+   * @returns ListBroadcastAudiosByIdResponse
+   */
+  async listBroadcastAudiosById(request: $_model.ListBroadcastAudiosByIdRequest): Promise<$_model.ListBroadcastAudiosByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listBroadcastAudiosByIdWithOptions(request, headers, runtime);
   }
 
   /**
