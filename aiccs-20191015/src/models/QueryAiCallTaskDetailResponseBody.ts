@@ -47,6 +47,16 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
    * 示例值示例值
    */
   agentName?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  applicationCode?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  applicationName?: string;
   callDays?: string[];
   callTimes?: QueryAiCallTaskDetailResponseBodyDataCallTimes[];
   /**
@@ -59,6 +69,21 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
    * 10
    */
   concurrentCount?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  lineEncoding?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  linePhoneNum?: string;
+  /**
+   * @example
+   * 17
+   */
+  phoneType?: number;
   /**
    * @example
    * 1748932499000
@@ -104,10 +129,15 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
     return {
       agentId: 'AgentId',
       agentName: 'AgentName',
+      applicationCode: 'ApplicationCode',
+      applicationName: 'ApplicationName',
       callDays: 'CallDays',
       callTimes: 'CallTimes',
       callerNumber: 'CallerNumber',
       concurrentCount: 'ConcurrentCount',
+      lineEncoding: 'LineEncoding',
+      linePhoneNum: 'LinePhoneNum',
+      phoneType: 'PhoneType',
       realStartTime: 'RealStartTime',
       retryCount: 'RetryCount',
       retryEnable: 'RetryEnable',
@@ -124,10 +154,15 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
     return {
       agentId: 'string',
       agentName: 'string',
+      applicationCode: 'string',
+      applicationName: 'string',
       callDays: { 'type': 'array', 'itemType': 'string' },
       callTimes: { 'type': 'array', 'itemType': QueryAiCallTaskDetailResponseBodyDataCallTimes },
       callerNumber: 'string',
       concurrentCount: 'number',
+      lineEncoding: 'string',
+      linePhoneNum: 'string',
+      phoneType: 'number',
       realStartTime: 'number',
       retryCount: 'number',
       retryEnable: 'boolean',

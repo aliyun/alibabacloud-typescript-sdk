@@ -26,12 +26,32 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   callTimeShrink?: string;
   /**
    * @example
+   * 示例值示例值示例值
+   */
+  lineEncoding?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  linePhoneNum?: string;
+  /**
+   * @example
    * true
    */
   missCallRetry?: boolean;
   ownerId?: number;
+  /**
+   * @example
+   * 53
+   */
+  phoneType?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 31
+   */
+  source?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -70,9 +90,6 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
    */
   taskStartTime?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 0537022*****
    */
@@ -84,10 +101,14 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
       callRetryReasonShrink: 'CallRetryReason',
       callRetryTimes: 'CallRetryTimes',
       callTimeShrink: 'CallTime',
+      lineEncoding: 'LineEncoding',
+      linePhoneNum: 'LinePhoneNum',
       missCallRetry: 'MissCallRetry',
       ownerId: 'OwnerId',
+      phoneType: 'PhoneType',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      source: 'Source',
       startType: 'StartType',
       taskCps: 'TaskCps',
       taskId: 'TaskId',
@@ -104,10 +125,14 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
       callRetryReasonShrink: 'string',
       callRetryTimes: 'number',
       callTimeShrink: 'string',
+      lineEncoding: 'string',
+      linePhoneNum: 'string',
       missCallRetry: 'boolean',
       ownerId: 'number',
+      phoneType: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      source: 'number',
       startType: 'string',
       taskCps: 'number',
       taskId: 'string',

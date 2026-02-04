@@ -615,6 +615,10 @@ export default class Client extends OpenApi {
       query["DetailIdList"] = request.detailIdListShrink;
     }
 
+    if (!$dara.isNull(request.encryptionType)) {
+      query["EncryptionType"] = request.encryptionType;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -908,6 +912,14 @@ export default class Client extends OpenApi {
       query["AgentId"] = request.agentId;
     }
 
+    if (!$dara.isNull(request.applicationCode)) {
+      query["ApplicationCode"] = request.applicationCode;
+    }
+
+    if (!$dara.isNull(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
     if (!$dara.isNull(request.callDayShrink)) {
       query["CallDay"] = request.callDayShrink;
     }
@@ -928,6 +940,14 @@ export default class Client extends OpenApi {
       query["CallTime"] = request.callTimeShrink;
     }
 
+    if (!$dara.isNull(request.lineEncoding)) {
+      query["LineEncoding"] = request.lineEncoding;
+    }
+
+    if (!$dara.isNull(request.linePhoneNum)) {
+      query["LinePhoneNum"] = request.linePhoneNum;
+    }
+
     if (!$dara.isNull(request.missCallRetry)) {
       query["MissCallRetry"] = request.missCallRetry;
     }
@@ -936,12 +956,20 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.phoneType)) {
+      query["PhoneType"] = request.phoneType;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!$dara.isNull(request.startType)) {
@@ -5315,6 +5343,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.encryptionType)) {
+      query["EncryptionType"] = request.encryptionType;
+    }
+
     if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
@@ -5389,6 +5421,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.dataType)) {
       query["DataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.encryptionType)) {
+      query["EncryptionType"] = request.encryptionType;
     }
 
     if (!$dara.isNull(request.ossFileName)) {
@@ -6757,6 +6793,10 @@ export default class Client extends OpenApi {
       query["DetailIds"] = request.detailIdsShrink;
     }
 
+    if (!$dara.isNull(request.encryptionType)) {
+      query["EncryptionType"] = request.encryptionType;
+    }
+
     if (!$dara.isNull(request.endCallingTime)) {
       query["EndCallingTime"] = request.endCallingTime;
     }
@@ -6913,6 +6953,10 @@ export default class Client extends OpenApi {
       query["AgentName"] = request.agentName;
     }
 
+    if (!$dara.isNull(request.applicationCode)) {
+      query["ApplicationCode"] = request.applicationCode;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -6931,6 +6975,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -9227,6 +9275,14 @@ export default class Client extends OpenApi {
       query["CallTime"] = request.callTimeShrink;
     }
 
+    if (!$dara.isNull(request.lineEncoding)) {
+      query["LineEncoding"] = request.lineEncoding;
+    }
+
+    if (!$dara.isNull(request.linePhoneNum)) {
+      query["LinePhoneNum"] = request.linePhoneNum;
+    }
+
     if (!$dara.isNull(request.missCallRetry)) {
       query["MissCallRetry"] = request.missCallRetry;
     }
@@ -9235,12 +9291,20 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.phoneType)) {
+      query["PhoneType"] = request.phoneType;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!$dara.isNull(request.startType)) {

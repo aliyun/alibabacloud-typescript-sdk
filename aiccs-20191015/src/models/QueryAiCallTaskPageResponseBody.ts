@@ -15,6 +15,16 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   agentName?: string;
   /**
    * @example
+   * 示例值示例值示例值
+   */
+  applicationCode?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  applicationName?: string;
+  /**
+   * @example
    * 72
    */
   callingCount?: number;
@@ -107,6 +117,8 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
     return {
       agentId: 'AgentId',
       agentName: 'AgentName',
+      applicationCode: 'ApplicationCode',
+      applicationName: 'ApplicationName',
       callingCount: 'CallingCount',
       completeRate: 'CompleteRate',
       concurrentCount: 'ConcurrentCount',
@@ -132,6 +144,8 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
     return {
       agentId: 'string',
       agentName: 'string',
+      applicationCode: 'string',
+      applicationName: 'string',
       callingCount: 'number',
       completeRate: 'string',
       concurrentCount: 'number',

@@ -13,6 +13,11 @@ export class ImportTaskNumberDatasRequest extends $dara.Model {
   dataType?: string;
   /**
    * @example
+   * 1
+   */
+  encryptionType?: number;
+  /**
+   * @example
    * 123dsdfsdfsdf.xlsx
    */
   ossFileName?: string;
@@ -31,6 +36,7 @@ export class ImportTaskNumberDatasRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dataType: 'DataType',
+      encryptionType: 'EncryptionType',
       ossFileName: 'OssFileName',
       ownerId: 'OwnerId',
       phoneNumberList: 'PhoneNumberList',
@@ -43,6 +49,7 @@ export class ImportTaskNumberDatasRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dataType: 'string',
+      encryptionType: 'number',
       ossFileName: 'string',
       ownerId: 'number',
       phoneNumberList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },

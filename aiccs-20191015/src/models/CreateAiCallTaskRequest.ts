@@ -4,13 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAiCallTaskRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 121223123123****
    */
   agentId?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  applicationCode?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  applicationName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -34,12 +41,32 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callTime?: string[];
   /**
    * @example
+   * 示例值示例值
+   */
+  lineEncoding?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  linePhoneNum?: string;
+  /**
+   * @example
    * false
    */
   missCallRetry?: boolean;
   ownerId?: number;
+  /**
+   * @example
+   * 54
+   */
+  phoneType?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 92
+   */
+  source?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -67,9 +94,6 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    */
   taskStartTime?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 032712122*****
    */
@@ -77,15 +101,21 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
+      applicationCode: 'ApplicationCode',
+      applicationName: 'ApplicationName',
       callDay: 'CallDay',
       callRetryInterval: 'CallRetryInterval',
       callRetryReason: 'CallRetryReason',
       callRetryTimes: 'CallRetryTimes',
       callTime: 'CallTime',
+      lineEncoding: 'LineEncoding',
+      linePhoneNum: 'LinePhoneNum',
       missCallRetry: 'MissCallRetry',
       ownerId: 'OwnerId',
+      phoneType: 'PhoneType',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      source: 'Source',
       startType: 'StartType',
       taskCps: 'TaskCps',
       taskName: 'TaskName',
@@ -97,15 +127,21 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentId: 'string',
+      applicationCode: 'string',
+      applicationName: 'string',
       callDay: { 'type': 'array', 'itemType': 'string' },
       callRetryInterval: 'number',
       callRetryReason: { 'type': 'array', 'itemType': 'string' },
       callRetryTimes: 'number',
       callTime: { 'type': 'array', 'itemType': 'string' },
+      lineEncoding: 'string',
+      linePhoneNum: 'string',
       missCallRetry: 'boolean',
       ownerId: 'number',
+      phoneType: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      source: 'number',
       startType: 'string',
       taskCps: 'number',
       taskName: 'string',

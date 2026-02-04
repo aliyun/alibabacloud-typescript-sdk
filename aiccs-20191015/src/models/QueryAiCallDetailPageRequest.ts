@@ -21,6 +21,11 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   detailIds?: number[];
   /**
    * @example
+   * 73
+   */
+  encryptionType?: number;
+  /**
+   * @example
    * 1748948749000
    */
   endCallingTime?: number;
@@ -94,6 +99,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
       callResult: 'CallResult',
       calledNumber: 'CalledNumber',
       detailIds: 'DetailIds',
+      encryptionType: 'EncryptionType',
       endCallingTime: 'EndCallingTime',
       endImportedTime: 'EndImportedTime',
       majorIntent: 'MajorIntent',
@@ -118,6 +124,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
       callResult: 'string',
       calledNumber: 'string',
       detailIds: { 'type': 'array', 'itemType': 'number' },
+      encryptionType: 'number',
       endCallingTime: 'number',
       endImportedTime: 'number',
       majorIntent: 'string',

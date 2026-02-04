@@ -10,6 +10,16 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   batchId?: string;
   /**
    * @example
+   * 49
+   */
+  branchId?: number;
+  /**
+   * @example
+   * 9
+   */
+  branchVersionId?: number;
+  /**
+   * @example
    * 示例值
    */
   callResult?: string;
@@ -43,6 +53,11 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    * 12121211111*****
    */
   detailId?: string;
+  /**
+   * @example
+   * 21
+   */
+  encryptionType?: number;
   /**
    * @example
    * 示例值示例值示例值
@@ -86,6 +101,8 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       batchId: 'BatchId',
+      branchId: 'BranchId',
+      branchVersionId: 'BranchVersionId',
       callResult: 'CallResult',
       calledNumber: 'CalledNumber',
       callingTime: 'CallingTime',
@@ -93,6 +110,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       conversationRecord: 'ConversationRecord',
       conversationTurnCount: 'ConversationTurnCount',
       detailId: 'DetailId',
+      encryptionType: 'EncryptionType',
       failedReason: 'FailedReason',
       importedTime: 'ImportedTime',
       majorIntent: 'MajorIntent',
@@ -107,6 +125,8 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       batchId: 'string',
+      branchId: 'number',
+      branchVersionId: 'number',
       callResult: 'string',
       calledNumber: 'string',
       callingTime: 'number',
@@ -114,6 +134,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       conversationRecord: 'string',
       conversationTurnCount: 'number',
       detailId: 'string',
+      encryptionType: 'number',
       failedReason: 'string',
       importedTime: 'number',
       majorIntent: 'string',

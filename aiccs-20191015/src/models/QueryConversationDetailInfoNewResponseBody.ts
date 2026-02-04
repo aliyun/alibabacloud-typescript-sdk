@@ -160,6 +160,11 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   duration?: number;
   /**
    * @example
+   * 28
+   */
+  encryptionType?: number;
+  /**
+   * @example
    * 示例值示例值
    */
   failedReason?: string;
@@ -241,6 +246,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
       conversationTurnCount: 'ConversationTurnCount',
       detailId: 'DetailId',
       duration: 'Duration',
+      encryptionType: 'EncryptionType',
       failedReason: 'FailedReason',
       hangupDirection: 'HangupDirection',
       importedTime: 'ImportedTime',
@@ -271,6 +277,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
       conversationTurnCount: 'number',
       detailId: 'string',
       duration: 'number',
+      encryptionType: 'number',
       failedReason: 'string',
       hangupDirection: 'string',
       importedTime: 'number',

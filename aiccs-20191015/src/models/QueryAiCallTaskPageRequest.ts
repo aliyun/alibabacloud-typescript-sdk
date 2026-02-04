@@ -8,6 +8,11 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
    * 示例值示例值
    */
   agentName?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  applicationCode?: string;
   ownerId?: number;
   /**
    * @example
@@ -21,6 +26,11 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 68
+   */
+  source?: number;
   /**
    * @example
    * INIT
@@ -39,11 +49,13 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentName: 'AgentName',
+      applicationCode: 'ApplicationCode',
       ownerId: 'OwnerId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      source: 'Source',
       status: 'Status',
       taskId: 'TaskId',
       taskName: 'TaskName',
@@ -53,11 +65,13 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentName: 'string',
+      applicationCode: 'string',
       ownerId: 'number',
       pageNo: 'number',
       pageSize: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      source: 'number',
       status: 'string',
       taskId: 'string',
       taskName: 'string',

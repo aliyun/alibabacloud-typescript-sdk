@@ -9,6 +9,11 @@ export class CancelAiCallDetailsRequest extends $dara.Model {
    */
   batchId?: string;
   detailIdList?: string[];
+  /**
+   * @example
+   * 36
+   */
+  encryptionType?: number;
   ownerId?: number;
   phoneNumbers?: string[];
   resourceOwnerAccount?: string;
@@ -25,6 +30,7 @@ export class CancelAiCallDetailsRequest extends $dara.Model {
     return {
       batchId: 'BatchId',
       detailIdList: 'DetailIdList',
+      encryptionType: 'EncryptionType',
       ownerId: 'OwnerId',
       phoneNumbers: 'PhoneNumbers',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -37,6 +43,7 @@ export class CancelAiCallDetailsRequest extends $dara.Model {
     return {
       batchId: 'string',
       detailIdList: { 'type': 'array', 'itemType': 'string' },
+      encryptionType: 'number',
       ownerId: 'number',
       phoneNumbers: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',

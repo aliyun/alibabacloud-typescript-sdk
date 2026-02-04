@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ImportOneTaskPhoneNumberRequest extends $dara.Model {
   /**
    * @example
+   * 81
+   */
+  encryptionType?: number;
+  /**
+   * @example
    * 94ba739b-c01a-ef91-335d-4be006c34899
    */
   outId?: string;
@@ -30,6 +35,7 @@ export class ImportOneTaskPhoneNumberRequest extends $dara.Model {
   variables?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      encryptionType: 'EncryptionType',
       outId: 'OutId',
       ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
@@ -42,6 +48,7 @@ export class ImportOneTaskPhoneNumberRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      encryptionType: 'number',
       outId: 'string',
       ownerId: 'number',
       phoneNumber: 'string',

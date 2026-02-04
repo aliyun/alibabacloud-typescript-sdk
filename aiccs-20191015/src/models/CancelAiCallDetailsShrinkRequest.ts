@@ -9,6 +9,11 @@ export class CancelAiCallDetailsShrinkRequest extends $dara.Model {
    */
   batchId?: string;
   detailIdListShrink?: string;
+  /**
+   * @example
+   * 36
+   */
+  encryptionType?: number;
   ownerId?: number;
   phoneNumbersShrink?: string;
   resourceOwnerAccount?: string;
@@ -25,6 +30,7 @@ export class CancelAiCallDetailsShrinkRequest extends $dara.Model {
     return {
       batchId: 'BatchId',
       detailIdListShrink: 'DetailIdList',
+      encryptionType: 'EncryptionType',
       ownerId: 'OwnerId',
       phoneNumbersShrink: 'PhoneNumbers',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -37,6 +43,7 @@ export class CancelAiCallDetailsShrinkRequest extends $dara.Model {
     return {
       batchId: 'string',
       detailIdListShrink: 'string',
+      encryptionType: 'number',
       ownerId: 'number',
       phoneNumbersShrink: 'string',
       resourceOwnerAccount: 'string',

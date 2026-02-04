@@ -147,6 +147,11 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
    * @example
    * 示例值示例值示例值
    */
+  encryptionType?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   failedReason?: string;
   /**
    * @example
@@ -203,6 +208,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
       callerPhone: 'CallerPhone',
       conversationRecord: 'ConversationRecord',
       duration: 'Duration',
+      encryptionType: 'EncryptionType',
       failedReason: 'FailedReason',
       hangupDirection: 'HangupDirection',
       majorIntent: 'MajorIntent',
@@ -226,6 +232,7 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
       callerPhone: 'string',
       conversationRecord: 'string',
       duration: 'number',
+      encryptionType: 'string',
       failedReason: 'string',
       hangupDirection: 'string',
       majorIntent: 'string',
