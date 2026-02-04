@@ -11,6 +11,11 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   extendContentPacked?: string;
   /**
    * @example
+   * flat
+   */
+  extendFieldStoreMode?: string;
+  /**
+   * @example
    * NETWORK_CATEGORY。
    */
   normalizationCategoryId?: string;
@@ -85,6 +90,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
     return {
       createTime: 'CreateTime',
       extendContentPacked: 'ExtendContentPacked',
+      extendFieldStoreMode: 'ExtendFieldStoreMode',
       normalizationCategoryId: 'NormalizationCategoryId',
       normalizationRuleDescription: 'NormalizationRuleDescription',
       normalizationRuleExpression: 'NormalizationRuleExpression',
@@ -108,6 +114,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
     return {
       createTime: 'number',
       extendContentPacked: 'string',
+      extendFieldStoreMode: 'string',
       normalizationCategoryId: 'string',
       normalizationRuleDescription: 'string',
       normalizationRuleExpression: 'string',

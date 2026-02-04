@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDataSourceRequestDataSourceStores extends $dara.Model {
-  createTime?: number;
   dataSourceStoreFrom?: string;
   dataSourceStoreId?: string;
   dataSourceStoreStatus?: string;
@@ -22,30 +21,25 @@ export class CreateDataSourceRequestDataSourceStores extends $dara.Model {
    * actiontrail_management-events。
    */
   logStoreName?: string;
-  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
-      createTime: 'CreateTime',
       dataSourceStoreFrom: 'DataSourceStoreFrom',
       dataSourceStoreId: 'DataSourceStoreId',
       dataSourceStoreStatus: 'DataSourceStoreStatus',
       logProjectName: 'LogProjectName',
       logRegionId: 'LogRegionId',
       logStoreName: 'LogStoreName',
-      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'number',
       dataSourceStoreFrom: 'string',
       dataSourceStoreId: 'string',
       dataSourceStoreStatus: 'string',
       logProjectName: 'string',
       logRegionId: 'string',
       logStoreName: 'string',
-      updateTime: 'number',
     };
   }
 
@@ -116,7 +110,6 @@ export class CreateDataSourceRequest extends $dara.Model {
    * 173326*******。
    */
   roleFor?: number;
-  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
       dataSourceFrom: 'DataSourceFrom',
@@ -136,7 +129,6 @@ export class CreateDataSourceRequest extends $dara.Model {
       order: 'Order',
       regionId: 'RegionId',
       roleFor: 'RoleFor',
-      updateTime: 'UpdateTime',
     };
   }
 
@@ -159,7 +151,6 @@ export class CreateDataSourceRequest extends $dara.Model {
       order: 'string',
       regionId: 'string',
       roleFor: 'number',
-      updateTime: 'number',
     };
   }
 

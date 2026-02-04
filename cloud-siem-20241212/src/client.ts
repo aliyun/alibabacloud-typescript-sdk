@@ -353,10 +353,6 @@ export default class Client extends OpenApi {
       body["RoleFor"] = request.roleFor;
     }
 
-    if (!$dara.isNull(request.updateTime)) {
-      body["UpdateTime"] = request.updateTime;
-    }
-
     body = {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
@@ -403,8 +399,16 @@ export default class Client extends OpenApi {
       body["AlertAttCk"] = request.alertAttCk;
     }
 
+    if (!$dara.isNull(request.alertDescription)) {
+      body["AlertDescription"] = request.alertDescription;
+    }
+
     if (!$dara.isNull(request.alertLevel)) {
       body["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.alertName)) {
+      body["AlertName"] = request.alertName;
     }
 
     if (!$dara.isNull(request.alertSchemaId)) {
@@ -699,6 +703,10 @@ export default class Client extends OpenApi {
       body["ExtendContentPacked"] = request.extendContentPacked;
     }
 
+    if (!$dara.isNull(request.extendFieldStoreMode)) {
+      body["ExtendFieldStoreMode"] = request.extendFieldStoreMode;
+    }
+
     if (!$dara.isNull(request.lang)) {
       body["Lang"] = request.lang;
     }
@@ -789,6 +797,84 @@ export default class Client extends OpenApi {
   async createNormalizationRule(request: $_model.CreateNormalizationRuleRequest): Promise<$_model.CreateNormalizationRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createNormalizationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建标准化结构
+   * 
+   * @param request - CreateNormalizationSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNormalizationSchemaResponse
+   */
+  async createNormalizationSchemaWithOptions(request: $_model.CreateNormalizationSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNormalizationSchemaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.normalizationCategoryId)) {
+      body["NormalizationCategoryId"] = request.normalizationCategoryId;
+    }
+
+    if (!$dara.isNull(request.normalizationFields)) {
+      body["NormalizationFields"] = request.normalizationFields;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaDescription)) {
+      body["NormalizationSchemaDescription"] = request.normalizationSchemaDescription;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaId)) {
+      body["NormalizationSchemaId"] = request.normalizationSchemaId;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaName)) {
+      body["NormalizationSchemaName"] = request.normalizationSchemaName;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaType)) {
+      body["NormalizationSchemaType"] = request.normalizationSchemaType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.targetLogStore)) {
+      body["TargetLogStore"] = request.targetLogStore;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNormalizationSchema",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNormalizationSchemaResponse>(await this.callApi(params, req, runtime), new $_model.CreateNormalizationSchemaResponse({}));
+  }
+
+  /**
+   * 创建标准化结构
+   * 
+   * @param request - CreateNormalizationSchemaRequest
+   * @returns CreateNormalizationSchemaResponse
+   */
+  async createNormalizationSchema(request: $_model.CreateNormalizationSchemaRequest): Promise<$_model.CreateNormalizationSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNormalizationSchemaWithOptions(request, runtime);
   }
 
   /**
@@ -2956,6 +3042,10 @@ export default class Client extends OpenApi {
       body["OrderFieldName"] = request.orderFieldName;
     }
 
+    if (!$dara.isNull(request.owners)) {
+      body["Owners"] = request.owners;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
@@ -3930,6 +4020,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 刷新数据源
+   * 
+   * @param request - RefreshDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshDataSourceResponse
+   */
+  async refreshDataSourceWithOptions(request: $_model.RefreshDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshDataSourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshDataSource",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefreshDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.RefreshDataSourceResponse({}));
+  }
+
+  /**
+   * 刷新数据源
+   * 
+   * @param request - RefreshDataSourceRequest
+   * @returns RefreshDataSourceResponse
+   */
+  async refreshDataSource(request: $_model.RefreshDataSourceRequest): Promise<$_model.RefreshDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.refreshDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * 数据存储的清空操作，该动作会删除已有的数据，重新初始化物理存储。
    * 
    * @param request - ResetDataStorageRequest
@@ -4771,8 +4915,16 @@ export default class Client extends OpenApi {
       body["AlertAttCk"] = request.alertAttCk;
     }
 
+    if (!$dara.isNull(request.alertDescription)) {
+      body["AlertDescription"] = request.alertDescription;
+    }
+
     if (!$dara.isNull(request.alertLevel)) {
       body["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.alertName)) {
+      body["AlertName"] = request.alertName;
     }
 
     if (!$dara.isNull(request.alertSchemaId)) {
@@ -4935,8 +5087,16 @@ export default class Client extends OpenApi {
       body["ExtendContentPacked"] = request.extendContentPacked;
     }
 
+    if (!$dara.isNull(request.extendFieldStoreMode)) {
+      body["ExtendFieldStoreMode"] = request.extendFieldStoreMode;
+    }
+
     if (!$dara.isNull(request.lang)) {
       body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.normalizationCategoryId)) {
+      body["NormalizationCategoryId"] = request.normalizationCategoryId;
     }
 
     if (!$dara.isNull(request.normalizationRuleDescription)) {
@@ -5021,6 +5181,76 @@ export default class Client extends OpenApi {
   async updateNormalizationRule(request: $_model.UpdateNormalizationRuleRequest): Promise<$_model.UpdateNormalizationRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateNormalizationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新标准化结构
+   * 
+   * @param request - UpdateNormalizationSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNormalizationSchemaResponse
+   */
+  async updateNormalizationSchemaWithOptions(request: $_model.UpdateNormalizationSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNormalizationSchemaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.normalizationFields)) {
+      body["NormalizationFields"] = request.normalizationFields;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaDescription)) {
+      body["NormalizationSchemaDescription"] = request.normalizationSchemaDescription;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaId)) {
+      body["NormalizationSchemaId"] = request.normalizationSchemaId;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaName)) {
+      body["NormalizationSchemaName"] = request.normalizationSchemaName;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaType)) {
+      body["NormalizationSchemaType"] = request.normalizationSchemaType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNormalizationSchema",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNormalizationSchemaResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNormalizationSchemaResponse({}));
+  }
+
+  /**
+   * 更新标准化结构
+   * 
+   * @param request - UpdateNormalizationSchemaRequest
+   * @returns UpdateNormalizationSchemaResponse
+   */
+  async updateNormalizationSchema(request: $_model.UpdateNormalizationSchemaRequest): Promise<$_model.UpdateNormalizationSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNormalizationSchemaWithOptions(request, runtime);
   }
 
   /**
@@ -5223,16 +5453,36 @@ export default class Client extends OpenApi {
       body["Data"] = request.data;
     }
 
+    if (!$dara.isNull(request.extendFieldStoreMode)) {
+      body["ExtendFieldStoreMode"] = request.extendFieldStoreMode;
+    }
+
     if (!$dara.isNull(request.lang)) {
       body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.logSample)) {
+      body["LogSample"] = request.logSample;
     }
 
     if (!$dara.isNull(request.normalizationCategoryId)) {
       body["NormalizationCategoryId"] = request.normalizationCategoryId;
     }
 
+    if (!$dara.isNull(request.normalizationRuleExpression)) {
+      body["NormalizationRuleExpression"] = request.normalizationRuleExpression;
+    }
+
+    if (!$dara.isNull(request.normalizationRuleMode)) {
+      body["NormalizationRuleMode"] = request.normalizationRuleMode;
+    }
+
     if (!$dara.isNull(request.normalizationSchemaId)) {
       body["NormalizationSchemaId"] = request.normalizationSchemaId;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      body["ProductId"] = request.productId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -5241,6 +5491,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.roleFor)) {
       body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.vendorId)) {
+      body["VendorId"] = request.vendorId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

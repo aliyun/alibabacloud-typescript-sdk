@@ -15,9 +15,24 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   fieldValue?: string;
   /**
    * @example
+   * aaa
+   */
+  logFieldName?: string;
+  /**
+   * @example
+   * bbb
+   */
+  logFieldValue?: string;
+  /**
+   * @example
    * success。
    */
   message?: string;
+  /**
+   * @example
+   * preset
+   */
+  normalizationFieldFrom?: string;
   /**
    * @example
    * host。
@@ -28,6 +43,22 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
    * true。
    */
   normalizationFieldRequired?: boolean;
+  normalizationFieldReserved?: boolean;
+  /**
+   * @example
+   * text
+   */
+  normalizationFieldType?: string;
+  /**
+   * @example
+   * OperationDenied.TheValueIsRequired
+   */
+  normalizationFieldValidationReason?: string;
+  /**
+   * @example
+   * pass
+   */
+  normalizationFieldValidationStatus?: string;
   /**
    * @example
    * 1。
@@ -37,9 +68,16 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
     return {
       fieldName: 'FieldName',
       fieldValue: 'FieldValue',
+      logFieldName: 'LogFieldName',
+      logFieldValue: 'LogFieldValue',
       message: 'Message',
+      normalizationFieldFrom: 'NormalizationFieldFrom',
       normalizationFieldName: 'NormalizationFieldName',
       normalizationFieldRequired: 'NormalizationFieldRequired',
+      normalizationFieldReserved: 'NormalizationFieldReserved',
+      normalizationFieldType: 'NormalizationFieldType',
+      normalizationFieldValidationReason: 'NormalizationFieldValidationReason',
+      normalizationFieldValidationStatus: 'NormalizationFieldValidationStatus',
       result: 'Result',
     };
   }
@@ -48,9 +86,16 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
     return {
       fieldName: 'string',
       fieldValue: 'string',
+      logFieldName: 'string',
+      logFieldValue: 'string',
       message: 'string',
+      normalizationFieldFrom: 'string',
       normalizationFieldName: 'string',
       normalizationFieldRequired: 'boolean',
+      normalizationFieldReserved: 'boolean',
+      normalizationFieldType: 'string',
+      normalizationFieldValidationReason: 'string',
+      normalizationFieldValidationStatus: 'string',
       result: 'number',
     };
   }

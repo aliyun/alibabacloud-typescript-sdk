@@ -63,6 +63,11 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
   incidentUuid?: string;
   /**
    * @example
+   * 1234567890xxxxxx
+   */
+  owner?: string;
+  /**
+   * @example
    * 23
    */
   relateAlertCount?: number;
@@ -108,6 +113,7 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
       incidentStatus: 'IncidentStatus',
       incidentTags: 'IncidentTags',
       incidentUuid: 'IncidentUuid',
+      owner: 'Owner',
       relateAlertCount: 'RelateAlertCount',
       relateAssetCount: 'RelateAssetCount',
       relateDataSourceIds: 'RelateDataSourceIds',
@@ -130,6 +136,7 @@ export class GetIncidentResponseBodyIncident extends $dara.Model {
       incidentStatus: 'number',
       incidentTags: 'string',
       incidentUuid: 'string',
+      owner: 'string',
       relateAlertCount: 'number',
       relateAssetCount: 'number',
       relateDataSourceIds: 'any',

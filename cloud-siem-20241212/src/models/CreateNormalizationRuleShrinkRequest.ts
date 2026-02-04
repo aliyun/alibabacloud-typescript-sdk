@@ -6,6 +6,11 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   extendContentPacked?: string;
   /**
    * @example
+   * flat
+   */
+  extendFieldStoreMode?: string;
+  /**
+   * @example
    * zh。
    */
   lang?: string;
@@ -71,6 +76,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       extendContentPacked: 'ExtendContentPacked',
+      extendFieldStoreMode: 'ExtendFieldStoreMode',
       lang: 'Lang',
       normalizationCategoryId: 'NormalizationCategoryId',
       normalizationRuleDescription: 'NormalizationRuleDescription',
@@ -93,6 +99,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       extendContentPacked: 'string',
+      extendFieldStoreMode: 'string',
       lang: 'string',
       normalizationCategoryId: 'string',
       normalizationRuleDescription: 'string',

@@ -8,6 +8,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    * Discovery
    */
   alertAttCk?: string;
+  alertDescription?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -16,6 +17,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    * 1
    */
   alertLevel?: string;
+  alertName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -201,7 +203,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       alertAttCk: 'AlertAttCk',
+      alertDescription: 'AlertDescription',
       alertLevel: 'AlertLevel',
+      alertName: 'AlertName',
       alertSchemaId: 'AlertSchemaId',
       alertTacticId: 'AlertTacticId',
       alertThresholdCount: 'AlertThresholdCount',
@@ -238,7 +242,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       alertAttCk: 'string',
+      alertDescription: 'string',
       alertLevel: 'string',
+      alertName: 'string',
       alertSchemaId: 'string',
       alertTacticId: 'string',
       alertThresholdCount: 'number',

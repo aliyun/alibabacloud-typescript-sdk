@@ -8,6 +8,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
    * 1603248483000
    */
   createTime?: number;
+  detectionRuleId?: string;
   /**
    * @example
    * ECS unusual log in
@@ -35,6 +36,11 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentUuid?: string;
   /**
    * @example
+   * 1234567890xxxxxx
+   */
+  owner?: string;
+  /**
+   * @example
    * 3
    */
   relateAlertCount?: number;
@@ -56,11 +62,13 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      detectionRuleId: 'DetectionRuleId',
       incidentName: 'IncidentName',
       incidentRemark: 'IncidentRemark',
       incidentStatus: 'IncidentStatus',
       incidentTags: 'IncidentTags',
       incidentUuid: 'IncidentUuid',
+      owner: 'Owner',
       relateAlertCount: 'RelateAlertCount',
       relateAssetCount: 'RelateAssetCount',
       threatLevel: 'ThreatLevel',
@@ -71,11 +79,13 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
+      detectionRuleId: 'string',
       incidentName: 'string',
       incidentRemark: 'string',
       incidentStatus: 'number',
       incidentTags: 'string',
       incidentUuid: 'string',
+      owner: 'string',
       relateAlertCount: 'number',
       relateAssetCount: 'number',
       threatLevel: 'string',

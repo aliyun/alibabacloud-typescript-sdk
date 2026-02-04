@@ -54,6 +54,7 @@ export class ListIncidentsRequest extends $dara.Model {
    * GmtModified
    */
   orderFieldName?: string;
+  owners?: string[];
   /**
    * @remarks
    * This parameter is required.
@@ -110,6 +111,7 @@ export class ListIncidentsRequest extends $dara.Model {
       nextToken: 'NextToken',
       orderDirection: 'OrderDirection',
       orderFieldName: 'OrderFieldName',
+      owners: 'Owners',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -135,6 +137,7 @@ export class ListIncidentsRequest extends $dara.Model {
       nextToken: 'string',
       orderDirection: 'string',
       orderFieldName: 'string',
+      owners: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -150,6 +153,9 @@ export class ListIncidentsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.incidentUuids)) {
       $dara.Model.validateArray(this.incidentUuids);
+    }
+    if(Array.isArray(this.owners)) {
+      $dara.Model.validateArray(this.owners);
     }
     if(Array.isArray(this.threatLevel)) {
       $dara.Model.validateArray(this.threatLevel);

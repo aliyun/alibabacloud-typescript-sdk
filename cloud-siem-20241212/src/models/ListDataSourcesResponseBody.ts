@@ -53,6 +53,11 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   dataSourceStoreStatus?: string;
   /**
    * @example
+   * LogStoreNotExist
+   */
+  dataSourceStoreStatusCode?: string;
+  /**
+   * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou。
    */
   logProjectName?: string;
@@ -78,6 +83,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
       dataSourceStoreFrom: 'DataSourceStoreFrom',
       dataSourceStoreId: 'DataSourceStoreId',
       dataSourceStoreStatus: 'DataSourceStoreStatus',
+      dataSourceStoreStatusCode: 'DataSourceStoreStatusCode',
       logProjectName: 'LogProjectName',
       logRegionId: 'LogRegionId',
       logStoreName: 'LogStoreName',
@@ -92,6 +98,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
       dataSourceStoreFrom: 'string',
       dataSourceStoreId: 'string',
       dataSourceStoreStatus: 'string',
+      dataSourceStoreStatusCode: 'string',
       logProjectName: 'string',
       logRegionId: 'string',
       logStoreName: 'string',

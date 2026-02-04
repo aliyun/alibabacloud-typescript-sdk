@@ -2,21 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys extends $dara.Model {
-  /**
-   * @example
-   * 1736386610000
-   */
-  createTime?: number;
-  /**
-   * @example
-   * 告警等级
-   */
+export class UpdateNormalizationSchemaRequestNormalizationFieldsNormalizationFieldJsonKeys extends $dara.Model {
   normalizationFieldDescription?: string;
-  /**
-   * @example
-   * 枚举值：1、2、3、4、5
-   */
   normalizationFieldExample?: string;
   /**
    * @example
@@ -24,50 +11,48 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
    */
   normalizationFieldFrom?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * alert_name
    */
   normalizationFieldName?: string;
   normalizationFieldRequired?: boolean;
-  normalizationFieldReserved?: boolean;
+  /**
+   * @example
+   * true
+   */
   normalizationFieldTokenize?: boolean;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * text
    */
   normalizationFieldType?: string;
-  /**
-   * @example
-   * 1736386610000
-   */
-  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
-      createTime: 'CreateTime',
       normalizationFieldDescription: 'NormalizationFieldDescription',
       normalizationFieldExample: 'NormalizationFieldExample',
       normalizationFieldFrom: 'NormalizationFieldFrom',
       normalizationFieldName: 'NormalizationFieldName',
       normalizationFieldRequired: 'NormalizationFieldRequired',
-      normalizationFieldReserved: 'NormalizationFieldReserved',
       normalizationFieldTokenize: 'NormalizationFieldTokenize',
       normalizationFieldType: 'NormalizationFieldType',
-      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'number',
       normalizationFieldDescription: 'string',
       normalizationFieldExample: 'string',
       normalizationFieldFrom: 'string',
       normalizationFieldName: 'string',
       normalizationFieldRequired: 'boolean',
-      normalizationFieldReserved: 'boolean',
       normalizationFieldTokenize: 'boolean',
       normalizationFieldType: 'string',
-      updateTime: 'number',
     };
   }
 
@@ -80,25 +65,15 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
   }
 }
 
-export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dara.Model {
+export class UpdateNormalizationSchemaRequestNormalizationFields extends $dara.Model {
   /**
    * @example
-   * 1736386610000
-   */
-  createTime?: number;
-  /**
-   * @example
-   * NETWORK_CATEGORY。
-   */
-  normalizationCategoryId?: string;
-  /**
-   * @example
-   * cloud_user。
+   * cloud_user
    */
   normalizationFieldDescription?: string;
   /**
    * @example
-   * 173326*******。
+   * 173326*******
    */
   normalizationFieldExample?: string;
   /**
@@ -107,43 +82,27 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
    */
   normalizationFieldFrom?: string;
   normalizationFieldJsonIndexAll?: boolean;
-  normalizationFieldJsonKeys?: ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys[];
+  normalizationFieldJsonKeys?: UpdateNormalizationSchemaRequestNormalizationFieldsNormalizationFieldJsonKeys[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * cloud_user。
+   * cloud_user
    */
   normalizationFieldName?: string;
   normalizationFieldRequired?: boolean;
-  /**
-   * @example
-   * true。
-   */
-  normalizationFieldRequirement?: boolean;
-  /**
-   * @example
-   * true。
-   */
-  normalizationFieldReserved?: boolean;
   normalizationFieldTokenize?: boolean;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * varchar。
+   * varchar
    */
   normalizationFieldType?: string;
-  /**
-   * @example
-   * NETWORK_SESSION_ACTIVITY。
-   */
-  normalizationSchemaId?: string;
-  /**
-   * @example
-   * 1736386610000
-   */
-  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
-      createTime: 'CreateTime',
-      normalizationCategoryId: 'NormalizationCategoryId',
       normalizationFieldDescription: 'NormalizationFieldDescription',
       normalizationFieldExample: 'NormalizationFieldExample',
       normalizationFieldFrom: 'NormalizationFieldFrom',
@@ -151,32 +110,22 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
       normalizationFieldJsonKeys: 'NormalizationFieldJsonKeys',
       normalizationFieldName: 'NormalizationFieldName',
       normalizationFieldRequired: 'NormalizationFieldRequired',
-      normalizationFieldRequirement: 'NormalizationFieldRequirement',
-      normalizationFieldReserved: 'NormalizationFieldReserved',
       normalizationFieldTokenize: 'NormalizationFieldTokenize',
       normalizationFieldType: 'NormalizationFieldType',
-      normalizationSchemaId: 'NormalizationSchemaId',
-      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'number',
-      normalizationCategoryId: 'string',
       normalizationFieldDescription: 'string',
       normalizationFieldExample: 'string',
       normalizationFieldFrom: 'string',
       normalizationFieldJsonIndexAll: 'boolean',
-      normalizationFieldJsonKeys: { 'type': 'array', 'itemType': ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys },
+      normalizationFieldJsonKeys: { 'type': 'array', 'itemType': UpdateNormalizationSchemaRequestNormalizationFieldsNormalizationFieldJsonKeys },
       normalizationFieldName: 'string',
       normalizationFieldRequired: 'boolean',
-      normalizationFieldRequirement: 'boolean',
-      normalizationFieldReserved: 'boolean',
       normalizationFieldTokenize: 'boolean',
       normalizationFieldType: 'string',
-      normalizationSchemaId: 'string',
-      updateTime: 'number',
     };
   }
 
@@ -192,45 +141,75 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
   }
 }
 
-export class ListNormalizationFieldsResponseBody extends $dara.Model {
+export class UpdateNormalizationSchemaRequest extends $dara.Model {
   /**
    * @example
-   * 50。
+   * zh
    */
-  maxResults?: number;
+  lang?: string;
+  normalizationFields?: UpdateNormalizationSchemaRequestNormalizationFields[];
   /**
    * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****。
+   * ProcessQuery
    */
-  nextToken?: string;
-  normalizationFields?: ListNormalizationFieldsResponseBodyNormalizationFields[];
+  normalizationSchemaDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WAF_ALERT_ACTIVITY
+   */
+  normalizationSchemaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ProcessQuery
+   */
+  normalizationSchemaName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * log
+   */
+  normalizationSchemaType?: string;
   /**
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * cn-hangzhou
    */
-  requestId?: string;
+  regionId?: string;
   /**
    * @example
-   * 57。
+   * 113091674488****
    */
-  totalCount?: number;
+  roleFor?: number;
   static names(): { [key: string]: string } {
     return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
+      lang: 'Lang',
       normalizationFields: 'NormalizationFields',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
+      normalizationSchemaDescription: 'NormalizationSchemaDescription',
+      normalizationSchemaId: 'NormalizationSchemaId',
+      normalizationSchemaName: 'NormalizationSchemaName',
+      normalizationSchemaType: 'NormalizationSchemaType',
+      regionId: 'RegionId',
+      roleFor: 'RoleFor',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'number',
-      nextToken: 'string',
-      normalizationFields: { 'type': 'array', 'itemType': ListNormalizationFieldsResponseBodyNormalizationFields },
-      requestId: 'string',
-      totalCount: 'number',
+      lang: 'string',
+      normalizationFields: { 'type': 'array', 'itemType': UpdateNormalizationSchemaRequestNormalizationFields },
+      normalizationSchemaDescription: 'string',
+      normalizationSchemaId: 'string',
+      normalizationSchemaName: 'string',
+      normalizationSchemaType: 'string',
+      regionId: 'string',
+      roleFor: 'number',
     };
   }
 

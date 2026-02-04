@@ -3,6 +3,8 @@ export { CreateDataSetRequestIpWhitelistRecognizers } from './CreateDataSetReque
 export { CreateDataSetResponseBodyDataSetRecordStatistic } from './CreateDataSetResponseBody';
 export { CreateDataSourceRequestDataSourceStores } from './CreateDataSourceRequest';
 export { CreateDataSourceShrinkRequestDataSourceStores } from './CreateDataSourceShrinkRequest';
+export { CreateNormalizationSchemaRequestNormalizationFieldsNormalizationFieldJsonKeys } from './CreateNormalizationSchemaRequest';
+export { CreateNormalizationSchemaRequestNormalizationFields } from './CreateNormalizationSchemaRequest';
 export { GetDataBatchIngestionResponseBodyDataBatchIngestionDataIngestions } from './GetDataBatchIngestionResponseBody';
 export { GetDataBatchIngestionResponseBodyDataBatchIngestion } from './GetDataBatchIngestionResponseBody';
 export { GetDataStorageResponseBodyDataNormalizationLogStores } from './GetDataStorageResponseBody';
@@ -13,7 +15,9 @@ export { GetDetectionStatisticResponseBodyDetectionStatistic } from './GetDetect
 export { GetIncidentResponseBodyIncident } from './GetIncidentResponseBody';
 export { GetNormalizationRuleResponseBodyNormalizationRule } from './GetNormalizationRuleResponseBody';
 export { GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion } from './GetNormalizationRuleVersionResponseBody';
+export { GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFieldsNormalizationFieldJsonKeys } from './GetNormalizationSchemaResponseBody';
 export { GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFields } from './GetNormalizationSchemaResponseBody';
+export { GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationSchemaReferences } from './GetNormalizationSchemaResponseBody';
 export { GetNormalizationSchemaResponseBodyNormalizationSchema } from './GetNormalizationSchemaResponseBody';
 export { GetUserConfigResponseBodyUser } from './GetUserConfigResponseBody';
 export { ListDataIngestionTemplatesResponseBodyDataIngestionTemplates } from './ListDataIngestionTemplatesResponseBody';
@@ -32,6 +36,7 @@ export { ListDetectionRulesResponseBodyDetectionRulesPlaybook } from './ListDete
 export { ListDetectionRulesResponseBodyDetectionRules } from './ListDetectionRulesResponseBody';
 export { ListIncidentsResponseBodyIncidents } from './ListIncidentsResponseBody';
 export { ListNormalizationCategoriesResponseBodyNormalizationCategories } from './ListNormalizationCategoriesResponseBody';
+export { ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys } from './ListNormalizationFieldsResponseBody';
 export { ListNormalizationFieldsResponseBodyNormalizationFields } from './ListNormalizationFieldsResponseBody';
 export { ListNormalizationRuleCapacitiesResponseBodyNormalizationRuleCapacities } from './ListNormalizationRuleCapacitiesResponseBody';
 export { ListNormalizationRuleVersionsResponseBodyNormalizationRuleVersions } from './ListNormalizationRuleVersionsResponseBody';
@@ -47,6 +52,8 @@ export { SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVersion 
 export { UpdateDataSetRequestIpWhitelistRecognizers } from './UpdateDataSetRequest';
 export { UpdateDataSetRecordResponseBodyDataSetRecordStatistic } from './UpdateDataSetRecordResponseBody';
 export { UpdateDataSourceRequestDataSourceStores } from './UpdateDataSourceRequest';
+export { UpdateNormalizationSchemaRequestNormalizationFieldsNormalizationFieldJsonKeys } from './UpdateNormalizationSchemaRequest';
+export { UpdateNormalizationSchemaRequestNormalizationFields } from './UpdateNormalizationSchemaRequest';
 export { ValidateNormalizationRuleResponseBodyValidateResult } from './ValidateNormalizationRuleResponseBody';
 export { CheckUpgradeItemRequest } from './CheckUpgradeItemRequest';
 export { CheckUpgradeItemResponseBody } from './CheckUpgradeItemResponseBody';
@@ -74,6 +81,9 @@ export { CreateNormalizationRuleRequest } from './CreateNormalizationRuleRequest
 export { CreateNormalizationRuleShrinkRequest } from './CreateNormalizationRuleShrinkRequest';
 export { CreateNormalizationRuleResponseBody } from './CreateNormalizationRuleResponseBody';
 export { CreateNormalizationRuleResponse } from './CreateNormalizationRuleResponse';
+export { CreateNormalizationSchemaRequest } from './CreateNormalizationSchemaRequest';
+export { CreateNormalizationSchemaResponseBody } from './CreateNormalizationSchemaResponseBody';
+export { CreateNormalizationSchemaResponse } from './CreateNormalizationSchemaResponse';
 export { CreateProductRequest } from './CreateProductRequest';
 export { CreateProductResponseBody } from './CreateProductResponseBody';
 export { CreateProductResponse } from './CreateProductResponse';
@@ -226,6 +236,9 @@ export { ListVendorsRequest } from './ListVendorsRequest';
 export { ListVendorsShrinkRequest } from './ListVendorsShrinkRequest';
 export { ListVendorsResponseBody } from './ListVendorsResponseBody';
 export { ListVendorsResponse } from './ListVendorsResponse';
+export { RefreshDataSourceRequest } from './RefreshDataSourceRequest';
+export { RefreshDataSourceResponseBody } from './RefreshDataSourceResponseBody';
+export { RefreshDataSourceResponse } from './RefreshDataSourceResponse';
 export { ResetDataStorageRequest } from './ResetDataStorageRequest';
 export { ResetDataStorageResponseBody } from './ResetDataStorageResponseBody';
 export { ResetDataStorageResponse } from './ResetDataStorageResponse';
@@ -271,6 +284,9 @@ export { UpdateNormalizationRuleRequest } from './UpdateNormalizationRuleRequest
 export { UpdateNormalizationRuleShrinkRequest } from './UpdateNormalizationRuleShrinkRequest';
 export { UpdateNormalizationRuleResponseBody } from './UpdateNormalizationRuleResponseBody';
 export { UpdateNormalizationRuleResponse } from './UpdateNormalizationRuleResponse';
+export { UpdateNormalizationSchemaRequest } from './UpdateNormalizationSchemaRequest';
+export { UpdateNormalizationSchemaResponseBody } from './UpdateNormalizationSchemaResponseBody';
+export { UpdateNormalizationSchemaResponse } from './UpdateNormalizationSchemaResponse';
 export { UpdateProductRequest } from './UpdateProductRequest';
 export { UpdateProductResponseBody } from './UpdateProductResponseBody';
 export { UpdateProductResponse } from './UpdateProductResponse';
