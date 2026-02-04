@@ -14,6 +14,7 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
    * zh-CN
    */
   acceptLanguage?: string;
+  gatewayType?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -55,6 +56,7 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      gatewayType: 'GatewayType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -67,6 +69,7 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      gatewayType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

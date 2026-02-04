@@ -196,6 +196,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBodyVirtua
    * vbr-bp16ksp61j7e0tk****
    */
   vbrId?: string;
+  vbrName?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud account to which the VBR belongs.
@@ -237,6 +238,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBodyVirtua
       terminationTime: 'TerminationTime',
       type: 'Type',
       vbrId: 'VbrId',
+      vbrName: 'VbrName',
       vbrOwnerUid: 'VbrOwnerUid',
       vlanId: 'VlanId',
     };
@@ -265,6 +267,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBodyVirtua
       terminationTime: 'string',
       type: 'string',
       vbrId: 'string',
+      vbrName: 'string',
       vbrOwnerUid: 'number',
       vlanId: 'number',
     };

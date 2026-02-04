@@ -13,6 +13,10 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
    * ngw-bp1uewa15k4iy5770****
    */
   natGatewayId?: string;
+  /**
+   * @remarks
+   * The ID of the elastic network interface to be queried.
+   */
   networkInterfaceIds?: string[];
   ownerAccount?: string;
   ownerId?: number;

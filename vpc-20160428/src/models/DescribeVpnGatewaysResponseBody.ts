@@ -296,6 +296,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
    * The ENIs created by the system for the VPN gateway.
    */
   eniInstanceIds?: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds;
+  gatewayType?: string;
   /**
    * @remarks
    * *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the value of this parameter is the IP address of the VPN gateway, which can be used to create IPsec-VPN or SSL-VPN connections.
@@ -494,6 +495,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
       enableBgp: 'EnableBgp',
       endTime: 'EndTime',
       eniInstanceIds: 'EniInstanceIds',
+      gatewayType: 'GatewayType',
       internetIp: 'InternetIp',
       ipsecVpn: 'IpsecVpn',
       name: 'Name',
@@ -526,6 +528,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
       enableBgp: 'boolean',
       endTime: 'number',
       eniInstanceIds: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds,
+      gatewayType: 'string',
       internetIp: 'string',
       ipsecVpn: 'string',
       name: 'string',

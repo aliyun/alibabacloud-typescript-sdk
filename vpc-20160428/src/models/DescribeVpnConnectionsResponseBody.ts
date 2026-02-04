@@ -1143,6 +1143,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
    * nametest
    */
   transitRouterName?: string;
+  tunnelBandwidth?: string;
   /**
    * @remarks
    * The tunnel configurations of the IPsec-VPN connection.
@@ -1202,6 +1203,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       tag: 'Tag',
       transitRouterId: 'TransitRouterId',
       transitRouterName: 'TransitRouterName',
+      tunnelBandwidth: 'TunnelBandwidth',
       tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vcoHealthCheck: 'VcoHealthCheck',
       vpnBgpConfig: 'VpnBgpConfig',
@@ -1236,6 +1238,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       tag: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag,
       transitRouterId: 'string',
       transitRouterName: 'string',
+      tunnelBandwidth: 'string',
       tunnelOptionsSpecification: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification,
       vcoHealthCheck: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHealthCheck,
       vpnBgpConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgpConfig,

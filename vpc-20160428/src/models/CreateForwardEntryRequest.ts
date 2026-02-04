@@ -15,6 +15,15 @@ export class CreateForwardEntryRequest extends $dara.Model {
    * 0c593ea1-3bea-11e9-b96b-88e9fe6****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Indicates whether to perform a dry run of the request. Values:
+   * - **true**: Sends a check request without creating a DNAT entry. The checks include whether the AccessKey is valid, the RAM user\\"s authorization status, and if all required parameters are filled out. If any check fails, the corresponding error is returned. If all checks pass, an error code `DryRunOperation` is returned.
+   * - **false** (default): Sends a normal request. After passing the checks, it returns a 2xx HTTP status code and creates a DNAT entry.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -107,12 +116,10 @@ export class CreateForwardEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to remove limits on the port range. Valid values:
-   * 
-   * *   **true**
-   * *   **false** (default)
-   * 
-   * >  If a DNAT entry and an SNAT entry have the same public IP address, ou must specify a port that is larger that 1024, and set **PortBreak** to **true**.
+   * Whether to enable port breakthrough, with values:
+   * - **true**: Enable port breakthrough. 
+   * - **false** (default): Do not enable port breakthrough.
+   * >When both DNAT and SNAT entries use the same public IP address, if you need to configure a port number greater than 1024, you must set **PortBreak** to **true**.
    * 
    * @example
    * false

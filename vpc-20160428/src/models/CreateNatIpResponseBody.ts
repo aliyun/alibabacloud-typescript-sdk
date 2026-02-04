@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNatIpResponseBodyNatIps extends $dara.Model {
   /**
+   * @remarks
+   * The Ipv4Prefix of the created NatIpList list is returned when Ipv4Preix is created.
+   * 
    * @example
    * 192.168.1.128/28
    * 
@@ -12,11 +15,17 @@ export class CreateNatIpResponseBodyNatIps extends $dara.Model {
    */
   ipv4Prefix?: string;
   /**
+   * @remarks
+   * Returns the NatIp address of the created NatIpList list when Ipv4Preix is created.
+   * 
    * @example
    * 192.168.2.128
    */
   natIp?: string;
   /**
+   * @remarks
+   * Returns the NatIpId of the created NatIpList list when Ipv4Preix is created.
+   * 
    * @example
    * vpcnatip-xxxxxxxx
    */
@@ -48,6 +57,9 @@ export class CreateNatIpResponseBodyNatIps extends $dara.Model {
 
 export class CreateNatIpResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The IPv4Prefix returned by the previous API is obsolete.
+   * 
    * @example
    * ""
    */
@@ -68,6 +80,10 @@ export class CreateNatIpResponseBody extends $dara.Model {
    * vpcnatip-gw8y7q3cpk3fggs8****
    */
   natIpId?: string;
+  /**
+   * @remarks
+   * The NatIp parameter that is returned after you create a NatIp. If you use IPv4Prefix to create a NatIp, the information about all NatIp is returned. We recommend that you use this parameter to obtain the information about a NatIp when you create a NatIp.
+   */
   natIps?: CreateNatIpResponseBodyNatIps[];
   /**
    * @remarks

@@ -27,10 +27,20 @@ export class ListNatIpsRequest extends $dara.Model {
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The enumeration of the fields used to describe the source of the NatIp. Prefix indicates the NatIp that belongs to the IPv4Prefix. The value cidr indicates isolated NatIp. The value control indicates all NatIp.
+   * 
    * @example
    * cidr
    */
   ipOrigin?: string;
+  /**
+   * @remarks
+   * The IP prefix address range.
+   * 
+   * @example
+   * 192.168.0.0/28
+   */
   ipv4Prefix?: string;
   /**
    * @remarks

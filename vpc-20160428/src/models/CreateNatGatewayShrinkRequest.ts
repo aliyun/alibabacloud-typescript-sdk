@@ -46,6 +46,9 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The access mode for reverse access to the VPC NAT gateway.
+   * 
+   * @example
+   * MULTI_BINDED
    */
   accessModeShrink?: string;
   /**
@@ -131,6 +134,13 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
    * PayByLcu
    */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * Create an IP prefix address segment for batch creation of NAT IPs. Please use the reserved and unallocated network segments in the VSwitch where the NAT is located.
+   * 
+   * @example
+   * 192.168.0.0/28
+   */
   ipv4Prefix?: string;
   /**
    * @remarks
@@ -144,6 +154,13 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
    * fortest
    */
   name?: string;
+  /**
+   * @remarks
+   * The private IP address occupied by the NAT gateway. Please use an unassigned IP from the subnet where the NAT is located. If left empty, an IP address will be randomly assigned.
+   * 
+   * @example
+   * 192.168.0.x
+   */
   natIp?: string;
   /**
    * @remarks
@@ -177,6 +194,9 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * PrivateLink is not supported by default. If you set the value to true, PrivateLink is supported.
+   * 
+   * @example
+   * false
    */
   privateLinkEnabled?: boolean;
   /**

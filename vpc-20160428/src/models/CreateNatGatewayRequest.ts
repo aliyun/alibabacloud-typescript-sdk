@@ -24,6 +24,9 @@ export class CreateNatGatewayRequestAccessMode extends $dara.Model {
    * - **geneve**: Geneve type
    * 
    * > This value takes effect if the access mode is the tunnel mode.
+   * 
+   * @example
+   * geneve
    */
   tunnelType?: string;
   static names(): { [key: string]: string } {
@@ -93,6 +96,9 @@ export class CreateNatGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * The access mode for reverse access to the VPC NAT gateway.
+   * 
+   * @example
+   * MULTI_BINDED
    */
   accessMode?: CreateNatGatewayRequestAccessMode;
   /**
@@ -178,6 +184,13 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * PayByLcu
    */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * Create an IP prefix address segment for batch creation of NAT IPs. Please use the reserved and unallocated network segments in the VSwitch where the NAT is located.
+   * 
+   * @example
+   * 192.168.0.0/28
+   */
   ipv4Prefix?: string;
   /**
    * @remarks
@@ -191,6 +204,13 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * fortest
    */
   name?: string;
+  /**
+   * @remarks
+   * The private IP address occupied by the NAT gateway. Please use an unassigned IP from the subnet where the NAT is located. If left empty, an IP address will be randomly assigned.
+   * 
+   * @example
+   * 192.168.0.x
+   */
   natIp?: string;
   /**
    * @remarks
@@ -224,6 +244,9 @@ export class CreateNatGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * PrivateLink is not supported by default. If you set the value to true, PrivateLink is supported.
+   * 
+   * @example
+   * false
    */
   privateLinkEnabled?: boolean;
   /**

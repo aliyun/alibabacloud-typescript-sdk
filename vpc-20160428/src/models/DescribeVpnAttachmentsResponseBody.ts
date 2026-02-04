@@ -122,6 +122,7 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
    * nametest2
    */
   transitRouterName?: string;
+  tunnelBandwidth?: string;
   static names(): { [key: string]: string } {
     return {
       attachType: 'AttachType',
@@ -133,6 +134,7 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
       tags: 'Tags',
       transitRouterId: 'TransitRouterId',
       transitRouterName: 'TransitRouterName',
+      tunnelBandwidth: 'TunnelBandwidth',
     };
   }
 
@@ -147,6 +149,7 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
       tags: { 'type': 'array', 'itemType': DescribeVpnAttachmentsResponseBodyVpnAttachmentsTags },
       transitRouterId: 'string',
       transitRouterName: 'string',
+      tunnelBandwidth: 'string',
     };
   }
 

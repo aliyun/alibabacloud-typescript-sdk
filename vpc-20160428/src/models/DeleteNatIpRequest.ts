@@ -26,7 +26,21 @@ export class DeleteNatIpRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The IP prefix address to be deleted.
+   * 
+   * @example
+   * 192.168.0.0/28
+   */
   ipv4Prefix?: string;
+  /**
+   * @remarks
+   * The ID of the NAT gateway instance to which the IP prefix to be deleted belongs. Required when deleting an IP prefix.
+   * 
+   * @example
+   * ngw-gw8v16wgvtq26vh59****
+   */
   natGatewayId?: string;
   /**
    * @remarks

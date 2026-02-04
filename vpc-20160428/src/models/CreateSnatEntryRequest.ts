@@ -17,6 +17,15 @@ export class CreateSnatEntryRequest extends $dara.Model {
    * 02fb3da4-130e-11e9-8e44****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Indicates whether to only precheck this request. Values:
+   * - **true**: Sends a precheck request and does not create an SNAT entry. The precheck includes verifying if the AccessKey is valid, checking the RAM user\\"s authorization, and ensuring that all required parameters are filled out. If the precheck fails, the corresponding error is returned. If the precheck passes, the error code `DryRunOperation` is returned.
+   * - **false** (default): Sends a normal request. After passing the precheck, it returns a 2xx HTTP status code and creates an SNAT entry.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -33,6 +42,14 @@ export class CreateSnatEntryRequest extends $dara.Model {
    * 1
    */
   eipAffinity?: number;
+  /**
+   * @remarks
+   * Elastic Network Interface ID.  
+   * > The IPv4 address set of the elastic network interface will be used as the SNAT address.
+   * 
+   * @example
+   * eni-gw8g131ef2dnbu3k****
+   */
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;

@@ -130,6 +130,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
    * 2019-02-26T08:00:00Z
    */
   constructionTime?: string;
+  description?: string;
   /**
    * @remarks
    * The ID of the Express Connect circuit.
@@ -230,6 +231,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
       companyLocalizedName: 'CompanyLocalizedName',
       companyName: 'CompanyName',
       constructionTime: 'ConstructionTime',
+      description: 'Description',
       instanceId: 'InstanceId',
       lineCode: 'LineCode',
       lineLabel: 'LineLabel',
@@ -248,6 +250,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
       companyLocalizedName: 'string',
       companyName: 'string',
       constructionTime: 'string',
+      description: 'string',
       instanceId: 'string',
       lineCode: 'string',
       lineLabel: 'string',

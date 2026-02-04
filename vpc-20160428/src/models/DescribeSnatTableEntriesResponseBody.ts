@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable IP affinity. Values:
+   * - **0**: Disable IP affinity. - **1**: Enable IP affinity.
+   * > After enabling the IP affinity switch, if an SNAT entry is bound to multiple EIPs or NAT IPs, the same client will use the same EIP or NAT IP for access. Otherwise, the client will randomly select from the bound EIPs or NAT IPs for access.
+   * 
+   * @example
+   * 1
+   */
   eipAffinity?: string;
   /**
    * @remarks
@@ -12,6 +21,13 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
    * ngw-bp1uewa15k4iy5770****
    */
   natGatewayId?: string;
+  /**
+   * @remarks
+   * Elastic Network Interface ID
+   * 
+   * @example
+   * eni-gw8g131ef2dnbu3k****
+   */
   networkInterfaceId?: string;
   /**
    * @remarks

@@ -622,9 +622,6 @@ export { ConfirmPhysicalConnectionResponse } from './ConfirmPhysicalConnectionRe
 export { ConnectRouterInterfaceRequest } from './ConnectRouterInterfaceRequest';
 export { ConnectRouterInterfaceResponseBody } from './ConnectRouterInterfaceResponseBody';
 export { ConnectRouterInterfaceResponse } from './ConnectRouterInterfaceResponse';
-export { ConvertBandwidthPackageRequest } from './ConvertBandwidthPackageRequest';
-export { ConvertBandwidthPackageResponseBody } from './ConvertBandwidthPackageResponseBody';
-export { ConvertBandwidthPackageResponse } from './ConvertBandwidthPackageResponse';
 export { CopyNetworkAclEntriesRequest } from './CopyNetworkAclEntriesRequest';
 export { CopyNetworkAclEntriesResponseBody } from './CopyNetworkAclEntriesResponseBody';
 export { CopyNetworkAclEntriesResponse } from './CopyNetworkAclEntriesResponse';
@@ -1220,9 +1217,6 @@ export { DiagnoseVpnConnectionsResponse } from './DiagnoseVpnConnectionsResponse
 export { DiagnoseVpnGatewayRequest } from './DiagnoseVpnGatewayRequest';
 export { DiagnoseVpnGatewayResponseBody } from './DiagnoseVpnGatewayResponseBody';
 export { DiagnoseVpnGatewayResponse } from './DiagnoseVpnGatewayResponse';
-export { DisableNatGatewayEcsMetricRequest } from './DisableNatGatewayEcsMetricRequest';
-export { DisableNatGatewayEcsMetricResponseBody } from './DisableNatGatewayEcsMetricResponseBody';
-export { DisableNatGatewayEcsMetricResponse } from './DisableNatGatewayEcsMetricResponse';
 export { DisableVpcClassicLinkRequest } from './DisableVpcClassicLinkRequest';
 export { DisableVpcClassicLinkResponseBody } from './DisableVpcClassicLinkResponseBody';
 export { DisableVpcClassicLinkResponse } from './DisableVpcClassicLinkResponse';
@@ -1238,9 +1232,6 @@ export { DissociateVpnGatewayWithCertificateResponse } from './DissociateVpnGate
 export { DownloadVpnConnectionConfigRequest } from './DownloadVpnConnectionConfigRequest';
 export { DownloadVpnConnectionConfigResponseBody } from './DownloadVpnConnectionConfigResponseBody';
 export { DownloadVpnConnectionConfigResponse } from './DownloadVpnConnectionConfigResponse';
-export { EnableNatGatewayEcsMetricRequest } from './EnableNatGatewayEcsMetricRequest';
-export { EnableNatGatewayEcsMetricResponseBody } from './EnableNatGatewayEcsMetricResponseBody';
-export { EnableNatGatewayEcsMetricResponse } from './EnableNatGatewayEcsMetricResponse';
 export { EnablePhysicalConnectionRequest } from './EnablePhysicalConnectionRequest';
 export { EnablePhysicalConnectionResponseBody } from './EnablePhysicalConnectionResponseBody';
 export { EnablePhysicalConnectionResponse } from './EnablePhysicalConnectionResponse';

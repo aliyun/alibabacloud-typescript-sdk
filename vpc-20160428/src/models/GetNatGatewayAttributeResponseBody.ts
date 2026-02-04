@@ -3,7 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNatGatewayAttributeResponseBodyAccessMode extends $dara.Model {
+  /**
+   * @remarks
+   * Access mode values:
+   * - **route**: Route mode.
+   * - **tunnel**: Tunnel mode.
+   * 
+   * @example
+   * route
+   */
   modeValue?: string;
+  /**
+   * @remarks
+   * Tunnel mode type:
+   * - **geneve**: Geneve type.
+   * 
+   * @example
+   * geneve
+   */
   tunnelType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -272,9 +289,39 @@ export class GetNatGatewayAttributeResponseBodyIpList extends $dara.Model {
 }
 
 export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * Error message for session log write failure.
+   * 
+   * @example
+   * LogStoreNotExist: logstore session_log_test does not exist
+   */
   deliverLogsErrorMessage?: string;
+  /**
+   * @remarks
+   * Session log write status. Values:
+   * - **Success**: Success. 
+   * - **Failure**: Failure.
+   * 
+   * @example
+   * Failure
+   */
   deliveryStatus?: string;
+  /**
+   * @remarks
+   * Session log delivery destination type. Value: **sls**, Alibaba Cloud Log Service SLS.
+   * 
+   * @example
+   * sls
+   */
   logDeliveryType?: string;
+  /**
+   * @remarks
+   * Destination address for session log writing
+   * 
+   * @example
+   * acs:log:cn-hangzhou:0000:project/nat_session_log_project/logstore/session_log_test
+   */
   logDestination?: string;
   static names(): { [key: string]: string } {
     return {
@@ -414,6 +461,10 @@ export class GetNatGatewayAttributeResponseBodySnatTable extends $dara.Model {
 }
 
 export class GetNatGatewayAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Access mode for reverse access to VPC NAT gateway.
+   */
   accessMode?: GetNatGatewayAttributeResponseBodyAccessMode;
   /**
    * @remarks
@@ -463,6 +514,15 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
    * true
    */
   ecsMetricEnabled?: boolean;
+  /**
+   * @remarks
+   * Whether to enable session log, with values:
+   * - **true**: Session logging is enabled. 
+   * - **false**: Session logging is disabled.
+   * 
+   * @example
+   * true
+   */
   enableSessionLog?: boolean;
   /**
    * @remarks
@@ -487,6 +547,10 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
    * The elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
    */
   ipList?: GetNatGatewayAttributeResponseBodyIpList[];
+  /**
+   * @remarks
+   * Session log configuration information.
+   */
   logDelivery?: GetNatGatewayAttributeResponseBodyLogDelivery;
   /**
    * @remarks

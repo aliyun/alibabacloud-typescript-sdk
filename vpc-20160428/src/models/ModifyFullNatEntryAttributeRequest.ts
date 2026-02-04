@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyFullNatEntryAttributeRequest extends $dara.Model {
+  accessDomain?: string;
   /**
    * @remarks
    * The backend IP address to be modified in FULLNAT address translation.
@@ -135,6 +136,7 @@ export class ModifyFullNatEntryAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDomain: 'AccessDomain',
       accessIp: 'AccessIp',
       accessPort: 'AccessPort',
       clientToken: 'ClientToken',
@@ -157,6 +159,7 @@ export class ModifyFullNatEntryAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDomain: 'string',
       accessIp: 'string',
       accessPort: 'string',
       clientToken: 'string',

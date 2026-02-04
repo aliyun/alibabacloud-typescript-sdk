@@ -3,7 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode extends $dara.Model {
+  /**
+   * @remarks
+   * Access mode, with values:
+   * - **route**: Route mode.
+   * - **tunnel**: Tunnel mode.
+   * 
+   * @example
+   * route
+   */
   modeValue?: string;
+  /**
+   * @remarks
+   * Tunnel mode type:
+   * - **geneve**: Geneve type.
+   * 
+   * @example
+   * geneve
+   */
   tunnelType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,6 +202,13 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists extends
 }
 
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixListIpPrefixList extends $dara.Model {
+  /**
+   * @remarks
+   * NAT IP prefix address range
+   * 
+   * @example
+   * 192.168.0.0/28
+   */
   ipPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -429,6 +453,10 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTags extends $d
 }
 
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.Model {
+  /**
+   * @remarks
+   * Access mode for reverse access to VPC NAT gateway.
+   */
   accessMode?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode;
   /**
    * @remarks
@@ -503,6 +531,15 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
    * MULTI_BINDED
    */
   eipBindMode?: string;
+  /**
+   * @remarks
+   * Whether to enable session logging, with values:
+   * - **true**: Session logging is enabled. 
+   * - **false**: Session logging is disabled.
+   * 
+   * @example
+   * true
+   */
   enableSessionLog?: string;
   /**
    * @remarks
@@ -557,6 +594,10 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
    * The list of elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
    */
   ipLists?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists;
+  /**
+   * @remarks
+   * List of NAT IP prefix address segments.
+   */
   ipPrefixList?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList;
   /**
    * @remarks

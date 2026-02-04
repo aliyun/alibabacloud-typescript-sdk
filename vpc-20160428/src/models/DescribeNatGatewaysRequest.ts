@@ -109,7 +109,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 1

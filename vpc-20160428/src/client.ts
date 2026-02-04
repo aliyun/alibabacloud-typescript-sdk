@@ -3202,89 +3202,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts a NAT service plan to an Internet Shared Bandwidth instance.
-   * 
-   * @remarks
-   * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-   * *   You are not charged for the conversion.
-   * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-   * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-   * 
-   * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
-   * 
-   * @param request - ConvertBandwidthPackageRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ConvertBandwidthPackageResponse
-   */
-  async convertBandwidthPackageWithOptions(request: $_model.ConvertBandwidthPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertBandwidthPackageResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.bandwidthPackageId)) {
-      query["BandwidthPackageId"] = request.bandwidthPackageId;
-    }
-
-    if (!$dara.isNull(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ConvertBandwidthPackage",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ConvertBandwidthPackageResponse>(await this.callApi(params, req, runtime), new $_model.ConvertBandwidthPackageResponse({}));
-  }
-
-  /**
-   * Converts a NAT service plan to an Internet Shared Bandwidth instance.
-   * 
-   * @remarks
-   * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-   * *   You are not charged for the conversion.
-   * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-   * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-   * 
-   * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
-   * 
-   * @param request - ConvertBandwidthPackageRequest
-   * @returns ConvertBandwidthPackageResponse
-   */
-  // Deprecated
-  async convertBandwidthPackage(request: $_model.ConvertBandwidthPackageRequest): Promise<$_model.ConvertBandwidthPackageResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.convertBandwidthPackageWithOptions(request, runtime);
-  }
-
-  /**
    * Copies rules of a network access control list (ACL).
    * 
    * @remarks
@@ -4818,6 +4735,10 @@ export default class Client extends OpenApi {
   async createFullNatEntryWithOptions(request: $_model.CreateFullNatEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFullNatEntryResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accessDomain)) {
+      query["AccessDomain"] = request.accessDomain;
+    }
+
     if (!$dara.isNull(request.accessIp)) {
       query["AccessIp"] = request.accessIp;
     }
@@ -9193,6 +9114,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.tunnelBandwidth)) {
+      query["TunnelBandwidth"] = request.tunnelBandwidth;
     }
 
     let body : {[key: string ]: any} = { };
@@ -20248,6 +20173,10 @@ export default class Client extends OpenApi {
       query["BusinessStatus"] = request.businessStatus;
     }
 
+    if (!$dara.isNull(request.gatewayType)) {
+      query["GatewayType"] = request.gatewayType;
+    }
+
     if (!$dara.isNull(request.includeReservationData)) {
       query["IncludeReservationData"] = request.includeReservationData;
     }
@@ -20851,65 +20780,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
-   * 
-   * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
-   * 
-   * @param request - DisableNatGatewayEcsMetricRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DisableNatGatewayEcsMetricResponse
-   */
-  async disableNatGatewayEcsMetricWithOptions(request: $_model.DisableNatGatewayEcsMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableNatGatewayEcsMetricResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.dryRun)) {
-      query["DryRun"] = request.dryRun;
-    }
-
-    if (!$dara.isNull(request.natGatewayId)) {
-      query["NatGatewayId"] = request.natGatewayId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DisableNatGatewayEcsMetric",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DisableNatGatewayEcsMetricResponse>(await this.callApi(params, req, runtime), new $_model.DisableNatGatewayEcsMetricResponse({}));
-  }
-
-  /**
-   * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
-   * 
-   * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
-   * 
-   * @param request - DisableNatGatewayEcsMetricRequest
-   * @returns DisableNatGatewayEcsMetricResponse
-   */
-  // Deprecated
-  async disableNatGatewayEcsMetric(request: $_model.DisableNatGatewayEcsMetricRequest): Promise<$_model.DisableNatGatewayEcsMetricResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.disableNatGatewayEcsMetricWithOptions(request, runtime);
-  }
-
-  /**
    * Disables ClassicLink for a virtual private cloud (VPC).
    * 
    * @param request - DisableVpcClassicLinkRequest
@@ -21265,65 +21135,6 @@ export default class Client extends OpenApi {
   async downloadVpnConnectionConfig(request: $_model.DownloadVpnConnectionConfigRequest): Promise<$_model.DownloadVpnConnectionConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.downloadVpnConnectionConfigWithOptions(request, runtime);
-  }
-
-  /**
-   * Enables Elastic Compute Service (ECS) traffic monitoring.
-   * 
-   * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
-   * 
-   * @param request - EnableNatGatewayEcsMetricRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns EnableNatGatewayEcsMetricResponse
-   */
-  async enableNatGatewayEcsMetricWithOptions(request: $_model.EnableNatGatewayEcsMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableNatGatewayEcsMetricResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.dryRun)) {
-      query["DryRun"] = request.dryRun;
-    }
-
-    if (!$dara.isNull(request.natGatewayId)) {
-      query["NatGatewayId"] = request.natGatewayId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "EnableNatGatewayEcsMetric",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.EnableNatGatewayEcsMetricResponse>(await this.callApi(params, req, runtime), new $_model.EnableNatGatewayEcsMetricResponse({}));
-  }
-
-  /**
-   * Enables Elastic Compute Service (ECS) traffic monitoring.
-   * 
-   * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
-   * 
-   * @param request - EnableNatGatewayEcsMetricRequest
-   * @returns EnableNatGatewayEcsMetricResponse
-   */
-  // Deprecated
-  async enableNatGatewayEcsMetric(request: $_model.EnableNatGatewayEcsMetricRequest): Promise<$_model.EnableNatGatewayEcsMetricResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.enableNatGatewayEcsMetricWithOptions(request, runtime);
   }
 
   /**
@@ -21763,7 +21574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询NAT详情信息
+   * Queries information about a NAT gateway.
    * 
    * @remarks
    * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
@@ -21821,7 +21632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询NAT详情信息
+   * Queries information about a NAT gateway.
    * 
    * @remarks
    * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
@@ -26121,6 +25932,10 @@ export default class Client extends OpenApi {
   async modifyFullNatEntryAttributeWithOptions(request: $_model.ModifyFullNatEntryAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyFullNatEntryAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accessDomain)) {
+      query["AccessDomain"] = request.accessDomain;
+    }
+
     if (!$dara.isNull(request.accessIp)) {
       query["AccessIp"] = request.accessIp;
     }

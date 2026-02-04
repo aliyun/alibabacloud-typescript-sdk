@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
+  accessDomain?: string;
   /**
    * @remarks
    * The backend IP address that is used for FULLNAT address translation in FULLNAT entries.
@@ -27,6 +28,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
    * 2021-10-27T02:44:40Z
    */
   creationTime?: string;
+  domainResolve?: string;
   /**
    * @remarks
    * The description of the FULLNAT entry.
@@ -121,9 +123,11 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   networkInterfaceType?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDomain: 'AccessDomain',
       accessIp: 'AccessIp',
       accessPort: 'AccessPort',
       creationTime: 'CreationTime',
+      domainResolve: 'DomainResolve',
       fullNatEntryDescription: 'FullNatEntryDescription',
       fullNatEntryId: 'FullNatEntryId',
       fullNatEntryName: 'FullNatEntryName',
@@ -139,9 +143,11 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDomain: 'string',
       accessIp: 'string',
       accessPort: 'string',
       creationTime: 'string',
+      domainResolve: 'string',
       fullNatEntryDescription: 'string',
       fullNatEntryId: 'string',
       fullNatEntryName: 'string',

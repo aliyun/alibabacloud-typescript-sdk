@@ -58,6 +58,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
    * Normal
    */
   businessStatus?: string;
+  gatewayType?: string;
   /**
    * @remarks
    * Specifies whether to return information about pending orders. Valid values:
@@ -149,6 +150,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       businessStatus: 'BusinessStatus',
+      gatewayType: 'GatewayType',
       includeReservationData: 'IncludeReservationData',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -168,6 +170,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessStatus: 'string',
+      gatewayType: 'string',
       includeReservationData: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',

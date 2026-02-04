@@ -15,8 +15,34 @@ export class ModifySnatEntryRequest extends $dara.Model {
    * 02fb3da4-130e-11e9-8e44-001****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Whether to perform a dry run of this request, with values:
+   * - **true**: Sends a check request without modifying the SNAT entry. The checks include whether the required parameters are filled in, the request format, and business restrictions. If the check fails, the corresponding error is returned. If the check passes, an error code `DryRunOperation` is returned.
+   * - **false** (default): Sends a normal request. After passing the check, it returns a 2xx HTTP status code and modifies the SNAT entry.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Whether to enable IP affinity. Values:
+   * - **0**: Disable IP affinity.
+   *  - **1**: Enable IP affinity.
+   * > After enabling the IP affinity switch, if an SNAT entry is bound to multiple EIPs or NAT IPs, the same client will use the same EIP or NAT IP for access; otherwise, the client will randomly select from the bound EIPs or NAT IPs for access.
+   * 
+   * @example
+   * 1
+   */
   eipAffinity?: number;
+  /**
+   * @remarks
+   * Elastic Network Interface ID. The IPv4 address set of the elastic network interface will be used as the SNAT address.
+   * 
+   * @example
+   * eni-gw8g131ef2dnbu3k****
+   */
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;

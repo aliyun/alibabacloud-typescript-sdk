@@ -109,6 +109,13 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNe
    * PrivateLink
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * VPC ID of the service resource
+   * 
+   * @example
+   * vpc-bp1di7uewzmtvfuq8****
+   */
   resourceVpcId?: string;
   /**
    * @remarks

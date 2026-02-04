@@ -680,6 +680,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
    */
   tags?: CreateVpnAttachmentRequestTags[];
+  tunnelBandwidth?: string;
   /**
    * @remarks
    * The tunnel configurations.
@@ -716,6 +717,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tags: 'Tags',
+      tunnelBandwidth: 'TunnelBandwidth',
       tunnelOptionsSpecification: 'TunnelOptionsSpecification',
     };
   }
@@ -745,6 +747,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tags: { 'type': 'array', 'itemType': CreateVpnAttachmentRequestTags },
+      tunnelBandwidth: 'string',
       tunnelOptionsSpecification: { 'type': 'array', 'itemType': CreateVpnAttachmentRequestTunnelOptionsSpecification },
     };
   }

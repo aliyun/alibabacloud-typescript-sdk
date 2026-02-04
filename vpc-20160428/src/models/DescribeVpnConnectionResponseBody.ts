@@ -1162,6 +1162,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
    * nametest
    */
   transitRouterName?: string;
+  tunnelBandwidth?: string;
   /**
    * @remarks
    * The tunnel configurations of the IPsec-VPN connection.
@@ -1232,6 +1233,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
       tags: 'Tags',
       transitRouterId: 'TransitRouterId',
       transitRouterName: 'TransitRouterName',
+      tunnelBandwidth: 'TunnelBandwidth',
       tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vcoHealthCheck: 'VcoHealthCheck',
       vpnBgpConfig: 'VpnBgpConfig',
@@ -1268,6 +1270,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
       tags: DescribeVpnConnectionResponseBodyTags,
       transitRouterId: 'string',
       transitRouterName: 'string',
+      tunnelBandwidth: 'string',
       tunnelOptionsSpecification: DescribeVpnConnectionResponseBodyTunnelOptionsSpecification,
       vcoHealthCheck: DescribeVpnConnectionResponseBodyVcoHealthCheck,
       vpnBgpConfig: DescribeVpnConnectionResponseBodyVpnBgpConfig,

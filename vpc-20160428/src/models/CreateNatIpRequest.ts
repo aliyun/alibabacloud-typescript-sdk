@@ -27,10 +27,20 @@ export class CreateNatIpRequest extends $dara.Model {
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The created IP prefix address segment must be within the reserved network segment of the switch where the NAT is located, and the reserved network segment cannot be occupied. The IP prefix mask must be /28.
+   * 
    * @example
    * null
    */
   ipv4Prefix?: string;
+  /**
+   * @remarks
+   * The number of automatically assigned IP prefixes. These are randomly allocated from the unassigned reserved segments of the switch where the NAT is located. Value range: 1 to 10.
+   * 
+   * @example
+   * 1
+   */
   ipv4PrefixCount?: number;
   /**
    * @remarks

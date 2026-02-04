@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListNatIpsResponseBodyNatIps extends $dara.Model {
+  /**
+   * @remarks
+   * The IP prefix address range to which the queried NAT IP address belongs.
+   * 
+   * @example
+   * 192.168.0.0/28
+   */
   ipv4Prefix?: string;
   /**
    * @remarks
