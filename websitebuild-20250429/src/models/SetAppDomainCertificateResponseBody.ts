@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetAppDomainCertificateResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Whether it is successful
+   * 
    * @example
    * True
    */
@@ -31,47 +34,85 @@ export class SetAppDomainCertificateResponseBodyModule extends $dara.Model {
 
 export class SetAppDomainCertificateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * No permission information
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Whether to allow retry. Values:
+   * - false: Do not allow retry.
+   * - true: Allow retry.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * 应用名称
+   * 
    * @example
    * mar
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message.
+   * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/uoa11auyf2565k6/uoa11auyf2565k6.sql.zip?Expires=1730520371&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=WIutxAQYbbwxX0aeKmdObduLnDg%3D
+   * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Return error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: SetAppDomainCertificateResponseBodyModule;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Exception message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Whether it is processed synchronously
+   * 
    * @example
    * True
    */

@@ -52,7 +52,7 @@ export class RefundAppInstanceForPartnerResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
+   * SYSTEM_ERROR
    */
   dynamicMessage?: string;
   errorArgs?: any[];

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnbindAppDomainRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250908140837000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Domain Name
+   * 
    * @example
    * conway.cn
    */

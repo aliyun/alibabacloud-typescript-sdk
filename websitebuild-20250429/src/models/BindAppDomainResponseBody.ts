@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindAppDomainResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Indicator of whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -31,47 +34,90 @@ export class BindAppDomainResponseBodyModule extends $dara.Model {
 
 export class BindAppDomainResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Error Code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace the **%s** in the error message of the returned parameter **ErrMessage**.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
+   * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/vs1w2yd3p8264pz/vs1w2yd3p8264pz.diff.zip?Expires=1739592470&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=3DRuMtCeTinVYxo7XAOEIOEmZGE%3D
+   * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Data table module.
+   * 
+   * - ABTest: Experiment data table
+   * 
+   * - ExperimentTool: Experiment tool table
+   * 
+   * - DataDiagnosis: Data diagnosis
+   */
   module?: BindAppDomainResponseBodyModule;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error Code
+   * 
    * @example
    * SYSTEM.EROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Exception Message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Whether to process synchronously
+   * 
    * @example
    * True
    */

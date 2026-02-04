@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAppDomainRedirectRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID of the application instance
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * ID of the domain redirect record
+   * 
    * @example
    * 803858889404426240
    */

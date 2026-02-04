@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppDomainRedirectRecordsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application instance business ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * The number of results per query.
+   * 
+   * Range: 10~100. Default value: 20.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token for the next query. It is empty if there is no next query.
+   * 
    * @example
    * yPkgBbQln0gmUnIZSGizGw==
    */

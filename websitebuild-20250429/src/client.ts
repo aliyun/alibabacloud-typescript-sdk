@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定应用域名
+   * Bind Application Domain
    * 
    * @param request - BindAppDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定应用域名
+   * Bind Application Domain
    * 
    * @param request - BindAppDomainRequest
    * @returns BindAppDomainResponse
@@ -178,7 +178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 免登ticket
+   * SSO ticket
    * 
    * @param request - CreateAppInstanceTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -213,7 +213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 免登ticket
+   * SSO ticket
    * 
    * @param request - CreateAppInstanceTicketRequest
    * @returns CreateAppInstanceTicketResponse
@@ -278,7 +278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除域名的SSL证书
+   * Delete the SSL certificate of a domain
    * 
    * @param request - DeleteAppDomainCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -313,7 +313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除域名的SSL证书
+   * Delete the SSL certificate of a domain
    * 
    * @param request - DeleteAppDomainCertificateRequest
    * @returns DeleteAppDomainCertificateResponse
@@ -324,7 +324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除域名的跳转规则
+   * Delete the domain redirection rules
    * 
    * @param request - DeleteAppDomainRedirectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -359,7 +359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除域名的跳转规则
+   * Delete the domain redirection rules
    * 
    * @param request - DeleteAppDomainRedirectRequest
    * @returns DeleteAppDomainRedirectResponse
@@ -370,7 +370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名的DNS解析记录
+   * Query the DNS resolution records of a domain
    * 
    * @param request - DescribeAppDomainDnsRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -409,7 +409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名的DNS解析记录
+   * Query the DNS resolution records of a domain
    * 
    * @param request - DescribeAppDomainDnsRecordRequest
    * @returns DescribeAppDomainDnsRecordResponse
@@ -478,7 +478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用实例详情
+   * Query Application Instance Details
    * 
    * @param request - GetAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -509,7 +509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用实例详情
+   * Query Application Instance Details
    * 
    * @param request - GetAppInstanceRequest
    * @returns GetAppInstanceResponse
@@ -762,7 +762,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名的跳转规则列表
+   * 检查AccessToken
+   * 
+   * @param request - IntrospectAppInstanceTicketForPreviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntrospectAppInstanceTicketForPreviewResponse
+   */
+  async introspectAppInstanceTicketForPreviewWithOptions(request: $_model.IntrospectAppInstanceTicketForPreviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.IntrospectAppInstanceTicketForPreviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntrospectAppInstanceTicketForPreview",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntrospectAppInstanceTicketForPreviewResponse>(await this.callApi(params, req, runtime), new $_model.IntrospectAppInstanceTicketForPreviewResponse({}));
+  }
+
+  /**
+   * 检查AccessToken
+   * 
+   * @param request - IntrospectAppInstanceTicketForPreviewRequest
+   * @returns IntrospectAppInstanceTicketForPreviewResponse
+   */
+  async introspectAppInstanceTicketForPreview(request: $_model.IntrospectAppInstanceTicketForPreviewRequest): Promise<$_model.IntrospectAppInstanceTicketForPreviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.introspectAppInstanceTicketForPreviewWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the list of domain redirection rules
    * 
    * @param request - ListAppDomainRedirectRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -801,7 +847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名的跳转规则列表
+   * Query the list of domain redirection rules
    * 
    * @param request - ListAppDomainRedirectRecordsRequest
    * @returns ListAppDomainRedirectRecordsResponse
@@ -812,7 +858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用实例下的所有域名列表
+   * List all domain names under the application instance
    * 
    * @param request - ListAppInstanceDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -867,7 +913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用实例下的所有域名列表
+   * List all domain names under the application instance
    * 
    * @param request - ListAppInstanceDomainsRequest
    * @returns ListAppInstanceDomainsResponse
@@ -878,7 +924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例列表查询
+   * Website Instance List Query
    * 
    * @param tmpReq - ListAppInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -959,7 +1005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例列表查询
+   * Website Instance List Query
    * 
    * @param request - ListAppInstancesRequest
    * @returns ListAppInstancesResponse
@@ -970,7 +1016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例变配
+   * Modify the configuration of a building instance
    * 
    * @param request - ModifyAppInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1025,7 +1071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例变配
+   * Modify the configuration of a building instance
    * 
    * @param request - ModifyAppInstanceSpecRequest
    * @returns ModifyAppInstanceSpecResponse
@@ -1136,7 +1182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新ticket
+   * Refresh ticket
    * 
    * @param request - RefreshAppInstanceTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1175,7 +1221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新ticket
+   * Refresh ticket
    * 
    * @param request - RefreshAppInstanceTicketRequest
    * @returns RefreshAppInstanceTicketResponse
@@ -1240,7 +1286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例续费
+   * Renewal of website building instance
    * 
    * @param request - RenewAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1291,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例续费
+   * Renewal of website building instance
    * 
    * @param request - RenewAppInstanceRequest
    * @returns RenewAppInstanceResponse
@@ -1406,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置域名的SSL证书
+   * Set the SSL certificate for a domain
    * 
    * @param request - SetAppDomainCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1457,7 +1503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置域名的SSL证书
+   * Set the SSL certificate for a domain
    * 
    * @param request - SetAppDomainCertificateRequest
    * @returns SetAppDomainCertificateResponse
@@ -1532,7 +1578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑应用域名
+   * Unbind Application Domain
    * 
    * @param request - UnbindAppDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1567,7 +1613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑应用域名
+   * Unbind Application Domain
    * 
    * @param request - UnbindAppDomainRequest
    * @returns UnbindAppDomainResponse

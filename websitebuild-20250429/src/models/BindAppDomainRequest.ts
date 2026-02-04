@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindAppDomainRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250820143531000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Domain Name
+   * 
    * @example
    * xiaoniu.link
    */
   domainName?: string;
+  /**
+   * @remarks
+   * Extended Information (OverwriteExistingRecord)
+   * 
+   * @example
+   * {\\"deliveryNodeName\\":\\"网站验收\\",\\"deliveryNodeStatus\\":\\"Reject\\",\\"deliveryOperatorRole\\":\\"Customer\\"}
+   */
   extend?: string;
   /**
+   * @remarks
+   * Domain Binding - Operation Type
+   * 
    * @example
    * vul_fix
    */

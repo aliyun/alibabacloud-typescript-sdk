@@ -2,101 +2,71 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RefreshAppInstanceTicketResponseBodyModule extends $dara.Model {
+export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $dara.Model {
   /**
-   * @remarks
-   * Access token expiration time
-   * 
    * @example
    * 2025-12-18T22:30:00+08:00
    */
   accessTokenExpiresAt?: string;
   /**
-   * @remarks
-   * Access token issuance time
-   * 
    * @example
    * 2025-12-18T22:30:00+08:00
    */
   accessTokenIssuedAt?: string;
   /**
-   * @remarks
-   * Access token value
-   * 
    * @example
    * 2108341e17661121129745384e79f9
    */
   accessTokenValue?: string;
   /**
    * @remarks
-   * User ID
+   * aliyunPk
    * 
    * @example
-   * 1907880872137014
+   * 12343131221311
    */
   aliyunPk?: string;
   /**
-   * @remarks
-   * Extended attributes
-   * 
    * @example
    * {}
    */
   attributes?: string;
   /**
-   * @remarks
-   * Authorization grant type
-   * 
    * @example
    * authorization_code
    */
   authorizationGrantType?: string;
   /**
    * @remarks
-   * business id for user
+   * bid
    * 
    * @example
-   * 26842
+   * 123131
    */
   bid?: string;
   /**
-   * @remarks
-   * User ID
-   * 
    * @example
-   * 1907880872137014
+   * 12343131221311
    */
   parentPk?: string;
   /**
-   * @remarks
-   * 刷新token过期时间
-   * 
    * @example
-   * 2025-12-18T22:30:00+08:00
+   * 1768619049924
    */
   refreshTokenExpiresAt?: string;
   /**
-   * @remarks
-   * 刷新token颁发时间
-   * 
    * @example
-   * 2025-12-18T22:30:00+08:00
+   * 1768619049924
    */
   refreshTokenIssuedAt?: string;
   /**
-   * @remarks
-   * 刷新token值
-   * 
    * @example
-   * 2108341e17661121129745384e79f9
+   * be9750d595b6cd7c93a80b46
    */
   refreshTokenValue?: string;
   /**
-   * @remarks
-   * Unique identifier externally
-   * 
    * @example
-   * 357504C7F21FCAE502756332ECE8B533
+   * hdm_33be9750d595b6cd7c93a80b46734b22
    */
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -142,86 +112,49 @@ export class RefreshAppInstanceTicketResponseBodyModule extends $dara.Model {
   }
 }
 
-export class RefreshAppInstanceTicketResponseBody extends $dara.Model {
+export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Detailed reason for access denial.
-   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Whether to allow retry
-   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
-   * @remarks
-   * App name.
-   * 
    * @example
-   * mar
+   * or
    */
   appName?: string;
   /**
-   * @remarks
-   * Dynamic error code.
-   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
-   * @remarks
-   * Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
-   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
-  /**
-   * @remarks
-   * Returned error parameters
-   */
   errorArgs?: any[];
+  module?: IntrospectAppInstanceTicketForPreviewResponseBodyModule;
   /**
    * @remarks
-   * Application module
-   */
-  module?: RefreshAppInstanceTicketResponseBodyModule;
-  /**
-   * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */
   requestId?: string;
   /**
-   * @remarks
-   * Error code
-   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
-  /**
-   * @remarks
-   * Exception message
-   * 
-   * @example
-   * 系统异常
-   */
   rootErrorMsg?: string;
   /**
-   * @remarks
-   * Reserved parameter.
-   * 
    * @example
    * True
    */
@@ -250,7 +183,7 @@ export class RefreshAppInstanceTicketResponseBody extends $dara.Model {
       dynamicCode: 'string',
       dynamicMessage: 'string',
       errorArgs: { 'type': 'array', 'itemType': 'any' },
-      module: RefreshAppInstanceTicketResponseBodyModule,
+      module: IntrospectAppInstanceTicketForPreviewResponseBodyModule,
       requestId: 'string',
       rootErrorCode: 'string',
       rootErrorMsg: 'string',

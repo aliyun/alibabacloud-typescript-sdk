@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Access token expiration time
+   * 
    * @example
    * 1768619049924
    */
   accessTokenExpiresAt?: string;
   /**
+   * @remarks
+   * Access token issuance time
+   * 
    * @example
    * 1768619049924
    */
   accessTokenIssuedAt?: string;
   /**
+   * @remarks
+   * Access token value
+   * 
    * @example
    * be9750d595b6cd7c93a80b46
    */
   accessTokenValue?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 12343131221311
    */
   aliyunPk?: string;
   /**
+   * @remarks
+   * Extended attributes
+   * 
    * @example
    * {\\"resourceGroupId\\":\\"\\",\\"page\\":1,\\"size\\":10,\\"selected\\":\\"[\\\\\\"kvstore\\\\\\"]\\"}
    */
   attributes?: string;
   /**
+   * @remarks
+   * Authorization grant type
+   * 
    * @example
    * authorization_code
    */
@@ -42,26 +60,41 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
    */
   bid?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 12343131221311
    */
   parentPk?: string;
   /**
+   * @remarks
+   * Refresh token expiration time
+   * 
    * @example
    * 1768619049924
    */
   refreshTokenExpiresAt?: string;
   /**
+   * @remarks
+   * Refresh token issuance time
+   * 
    * @example
    * 1768619049924
    */
   refreshTokenIssuedAt?: string;
   /**
+   * @remarks
+   * Refresh token value
+   * 
    * @example
    * be9750d595b6cd7c93a80b46
    */
   refreshTokenValue?: string;
   /**
+   * @remarks
+   * Unique identifier externally
+   * 
    * @example
    * hdm_33be9750d595b6cd7c93a80b46734b22
    */
@@ -111,47 +144,84 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
 
 export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Whether to allow retry
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input request parameter **DtsJobId** is invalid.
+   * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
+   * SYSTEM_ERRROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: CreateAppInstanceTicketResponseBodyModule;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Exception message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

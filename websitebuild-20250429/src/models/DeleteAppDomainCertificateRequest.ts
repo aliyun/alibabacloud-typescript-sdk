@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAppDomainCertificateRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID of the application instance
+   * 
    * @example
    * 202506170003
    */
   bizId?: string;
   /**
+   * @remarks
+   * Domain name
+   * 
    * @example
    * aliwmzs.com
    */

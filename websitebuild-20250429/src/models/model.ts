@@ -16,6 +16,7 @@ export { GetIcpFilingInfoForPartnerResponseBodyData } from './GetIcpFilingInfoFo
 export { GetUserAccessTokenForPartnerResponseBodyModule } from './GetUserAccessTokenForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyDataCredentials } from './GetUserTmpIdentityForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyData } from './GetUserTmpIdentityForPartnerResponseBody';
+export { IntrospectAppInstanceTicketForPreviewResponseBodyModule } from './IntrospectAppInstanceTicketForPreviewResponseBody';
 export { ListAppDomainRedirectRecordsResponseBodyModuleData } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppDomainRedirectRecordsResponseBodyModuleNext } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppDomainRedirectRecordsResponseBodyModule } from './ListAppDomainRedirectRecordsResponseBody';
@@ -99,6 +100,9 @@ export { GetUserAccessTokenForPartnerResponse } from './GetUserAccessTokenForPar
 export { GetUserTmpIdentityForPartnerRequest } from './GetUserTmpIdentityForPartnerRequest';
 export { GetUserTmpIdentityForPartnerResponseBody } from './GetUserTmpIdentityForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponse } from './GetUserTmpIdentityForPartnerResponse';
+export { IntrospectAppInstanceTicketForPreviewRequest } from './IntrospectAppInstanceTicketForPreviewRequest';
+export { IntrospectAppInstanceTicketForPreviewResponseBody } from './IntrospectAppInstanceTicketForPreviewResponseBody';
+export { IntrospectAppInstanceTicketForPreviewResponse } from './IntrospectAppInstanceTicketForPreviewResponse';
 export { ListAppDomainRedirectRecordsRequest } from './ListAppDomainRedirectRecordsRequest';
 export { ListAppDomainRedirectRecordsResponseBody } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppDomainRedirectRecordsResponse } from './ListAppDomainRedirectRecordsResponse';

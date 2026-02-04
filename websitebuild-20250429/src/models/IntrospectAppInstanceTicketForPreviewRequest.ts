@@ -2,44 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAppDomainDnsRecordRequest extends $dara.Model {
+export class IntrospectAppInstanceTicketForPreviewRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business ID
-   * 
    * @example
-   * WD20250821114240000001
+   * WS12345678
    */
   bizId?: string;
   /**
-   * @remarks
-   * Domain name
-   * 
    * @example
-   * rayihealth.cn
+   * ogxMqT04nnZOqdIqJZldbm-ZNsAVDz5mcqdCSudfX0SL61jjyWfV-ZnAO-OVpCt_aDl8xaaIO1OVkuvEcMn-HR_QddvaxMqIdsMY1cHdD4SDiRfOBGNdnpSdX9gG_Hi_.ab9c10816d913b51d87520ce0a72b2970668144c552689e9d9e211eb4529f0ea
    */
-  domainName?: string;
-  /**
-   * @remarks
-   * Purpose for querying DNS configuration
-   * 
-   * @example
-   * restore
-   */
-  purpose?: string;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
-      domainName: 'DomainName',
-      purpose: 'Purpose',
+      token: 'Token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
-      domainName: 'string',
-      purpose: 'string',
+      token: 'string',
     };
   }
 
