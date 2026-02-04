@@ -873,6 +873,9 @@ export { RefreshDcdnObjectCachesResponse } from './RefreshDcdnObjectCachesRespon
 export { RefreshErObjectCachesRequest } from './RefreshErObjectCachesRequest';
 export { RefreshErObjectCachesResponseBody } from './RefreshErObjectCachesResponseBody';
 export { RefreshErObjectCachesResponse } from './RefreshErObjectCachesResponse';
+export { RefreshErObjectCachesByCacheTagRequest } from './RefreshErObjectCachesByCacheTagRequest';
+export { RefreshErObjectCachesByCacheTagResponseBody } from './RefreshErObjectCachesByCacheTagResponseBody';
+export { RefreshErObjectCachesByCacheTagResponse } from './RefreshErObjectCachesByCacheTagResponse';
 export { RollbackDcdnStagingConfigRequest } from './RollbackDcdnStagingConfigRequest';
 export { RollbackDcdnStagingConfigResponseBody } from './RollbackDcdnStagingConfigResponseBody';
 export { RollbackDcdnStagingConfigResponse } from './RollbackDcdnStagingConfigResponse';

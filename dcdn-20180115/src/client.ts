@@ -72,41 +72,87 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("dcdn", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -697,7 +743,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       batchDeleteDcdnKvWithHighCapacityReq.url = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -985,7 +1031,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       batchPutDcdnKvWithHighCapacityReq.url = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -4487,6 +4533,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeDcdnDomainLogExTtl
+   * 
    * @param request - DescribeDcdnDomainLogExTtlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDcdnDomainLogExTtlResponse
@@ -4532,6 +4580,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeDcdnDomainLogExTtl
+   * 
    * @param request - DescribeDcdnDomainLogExTtlRequest
    * @returns DescribeDcdnDomainLogExTtlResponse
    */
@@ -12266,6 +12316,60 @@ export default class Client extends OpenApi {
   async refreshErObjectCaches(request: $_model.RefreshErObjectCachesRequest): Promise<$_model.RefreshErObjectCachesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.refreshErObjectCachesWithOptions(request, runtime);
+  }
+
+  /**
+   * ER场景下的cache tag粒度的刷新接口
+   * 
+   * @param request - RefreshErObjectCachesByCacheTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshErObjectCachesByCacheTagResponse
+   */
+  async refreshErObjectCachesByCacheTagWithOptions(request: $_model.RefreshErObjectCachesByCacheTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshErObjectCachesByCacheTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cacheTag)) {
+      query["CacheTag"] = request.cacheTag;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!$dara.isNull(request.mergeDomainName)) {
+      query["MergeDomainName"] = request.mergeDomainName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshErObjectCachesByCacheTag",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefreshErObjectCachesByCacheTagResponse>(await this.callApi(params, req, runtime), new $_model.RefreshErObjectCachesByCacheTagResponse({}));
+  }
+
+  /**
+   * ER场景下的cache tag粒度的刷新接口
+   * 
+   * @param request - RefreshErObjectCachesByCacheTagRequest
+   * @returns RefreshErObjectCachesByCacheTagResponse
+   */
+  async refreshErObjectCachesByCacheTag(request: $_model.RefreshErObjectCachesByCacheTagRequest): Promise<$_model.RefreshErObjectCachesByCacheTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.refreshErObjectCachesByCacheTagWithOptions(request, runtime);
   }
 
   /**
