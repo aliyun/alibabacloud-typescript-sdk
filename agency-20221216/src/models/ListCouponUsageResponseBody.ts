@@ -39,6 +39,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
    * AVAILABLE
    */
   status?: string;
+  t2PartnerUid?: string;
   /**
    * @example
    * 1647668856741998
@@ -54,6 +55,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
       effDate: 'EffDate',
       publishDate: 'PublishDate',
       status: 'Status',
+      t2PartnerUid: 'T2PartnerUid',
       uid: 'Uid',
     };
   }
@@ -68,6 +70,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
       effDate: 'string',
       publishDate: 'string',
       status: 'string',
+      t2PartnerUid: 'string',
       uid: 'number',
     };
   }
