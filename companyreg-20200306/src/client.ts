@@ -856,6 +856,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 玄坛发起智能外呼
+   * 
+   * @param request - LlmSmartCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LlmSmartCallResponse
+   */
+  async llmSmartCallWithOptions(request: $_model.LlmSmartCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LlmSmartCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.callerNumber)) {
+      query["CallerNumber"] = request.callerNumber;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.promptParam)) {
+      query["PromptParam"] = request.promptParam;
+    }
+
+    if (!$dara.isNull(request.scenesCode)) {
+      query["ScenesCode"] = request.scenesCode;
+    }
+
+    if (!$dara.isNull(request.skillType)) {
+      query["SkillType"] = request.skillType;
+    }
+
+    if (!$dara.isNull(request.startWordParam)) {
+      query["StartWordParam"] = request.startWordParam;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LlmSmartCall",
+      version: "2020-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LlmSmartCallResponse>(await this.callApi(params, req, runtime), new $_model.LlmSmartCallResponse({}));
+  }
+
+  /**
+   * 玄坛发起智能外呼
+   * 
+   * @param request - LlmSmartCallRequest
+   * @returns LlmSmartCallResponse
+   */
+  async llmSmartCall(request: $_model.LlmSmartCallRequest): Promise<$_model.LlmSmartCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.llmSmartCallWithOptions(request, runtime);
+  }
+
+  /**
    * 服务商玄坛呼叫中心操作
    * 
    * @param request - OperateCallCenterForPartnerRequest
