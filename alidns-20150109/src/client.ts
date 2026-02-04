@@ -6262,6 +6262,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.preciseSort)) {
+      query["PreciseSort"] = request.preciseSort;
+    }
+
     if (!$dara.isNull(request.queryCondition)) {
       query["QueryCondition"] = request.queryCondition;
     }

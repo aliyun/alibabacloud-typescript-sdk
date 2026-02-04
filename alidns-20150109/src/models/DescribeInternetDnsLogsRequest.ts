@@ -65,6 +65,7 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  preciseSort?: boolean;
   /**
    * @remarks
    * Query parameters 
@@ -97,6 +98,7 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
       module: 'Module',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      preciseSort: 'PreciseSort',
       queryCondition: 'QueryCondition',
       recursionProtocolType: 'RecursionProtocolType',
       startTimestamp: 'StartTimestamp',
@@ -112,6 +114,7 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
       module: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      preciseSort: 'boolean',
       queryCondition: 'string',
       recursionProtocolType: 'string',
       startTimestamp: 'number',
