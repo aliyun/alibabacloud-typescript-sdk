@@ -13,15 +13,29 @@ export class ListDelegatedServicesForAccountRequest extends $dara.Model {
    * 138660628348****
    */
   accountId?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * TGlzdFJlc291cm****
+   */
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
     };
   }
 

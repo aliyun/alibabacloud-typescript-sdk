@@ -90,6 +90,16 @@ export class ListDelegatedServicesForAccountResponseBody extends $dara.Model {
    */
   delegatedServices?: ListDelegatedServicesForAccountResponseBodyDelegatedServices;
   /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * TGlzdFJlc291cm****
+   */
+  nextToken?: string;
+  /**
    * @remarks
    * The ID of the request.
    * 
@@ -100,6 +110,8 @@ export class ListDelegatedServicesForAccountResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       delegatedServices: 'DelegatedServices',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
     };
   }
@@ -107,6 +119,8 @@ export class ListDelegatedServicesForAccountResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       delegatedServices: ListDelegatedServicesForAccountResponseBodyDelegatedServices,
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
     };
   }
