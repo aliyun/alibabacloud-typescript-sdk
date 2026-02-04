@@ -6,12 +6,32 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * rm-t4n8t18o3*****d5
    */
   DBInstanceName?: string;
+  /**
+   * @example
+   * testdb
+   */
   DBName?: string;
+  /**
+   * @example
+   * aes-128-gcm
+   */
   defaultAlgo?: string;
+  /**
+   * @example
+   * [{"name": "aes-128-gcm"},
+   *         {"name":"sm4-128-gcm"}]
+   */
   maskingAlgo?: string;
   ownerId?: string;
+  /**
+   * @example
+   * ap-southeast-1
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -19,6 +39,9 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * rulename1
    */
   ruleName?: string;
   static names(): { [key: string]: string } {

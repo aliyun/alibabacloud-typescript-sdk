@@ -10255,6 +10255,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询RDS实例的列加密（CLS）配置信息
+   * 
+   * @param request - DescribeDBInstanceCLSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceCLSResponse
+   */
+  async describeDBInstanceCLSWithOptions(request: $_model.DescribeDBInstanceCLSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceCLSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstanceCLS",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBInstanceCLSResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstanceCLSResponse({}));
+  }
+
+  /**
+   * 查询RDS实例的列加密（CLS）配置信息
+   * 
+   * @param request - DescribeDBInstanceCLSRequest
+   * @returns DescribeDBInstanceCLSResponse
+   */
+  async describeDBInstanceCLS(request: $_model.DescribeDBInstanceCLSRequest): Promise<$_model.DescribeDBInstanceCLSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstanceCLSWithOptions(request, runtime);
+  }
+
+  /**
    * 获取实例链路诊断信息
    * 
    * @param request - DescribeDBInstanceConnectivityRequest
@@ -22601,6 +22659,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置RDS实例开启/修改/关闭列加密状态
+   * 
+   * @param request - ModifyDBInstanceCLSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstanceCLSResponse
+   */
+  async modifyDBInstanceCLSWithOptions(request: $_model.ModifyDBInstanceCLSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceCLSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.encryptionAlgorithm)) {
+      query["EncryptionAlgorithm"] = request.encryptionAlgorithm;
+    }
+
+    if (!$dara.isNull(request.encryptionKey)) {
+      query["EncryptionKey"] = request.encryptionKey;
+    }
+
+    if (!$dara.isNull(request.encryptionKeyMode)) {
+      query["EncryptionKeyMode"] = request.encryptionKeyMode;
+    }
+
+    if (!$dara.isNull(request.encryptionStatus)) {
+      query["EncryptionStatus"] = request.encryptionStatus;
+    }
+
+    if (!$dara.isNull(request.isRotate)) {
+      query["IsRotate"] = request.isRotate;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!$dara.isNull(request.whiteListMode)) {
+      query["WhiteListMode"] = request.whiteListMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBInstanceCLS",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBInstanceCLSResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBInstanceCLSResponse({}));
+  }
+
+  /**
+   * 设置RDS实例开启/修改/关闭列加密状态
+   * 
+   * @param request - ModifyDBInstanceCLSRequest
+   * @returns ModifyDBInstanceCLSResponse
+   */
+  async modifyDBInstanceCLS(request: $_model.ModifyDBInstanceCLSRequest): Promise<$_model.ModifyDBInstanceCLSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBInstanceCLSWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configuration item of an instance.
    * 
    * @remarks
@@ -26262,6 +26406,56 @@ export default class Client extends OpenApi {
   async modifyParameterGroup(request: $_model.ModifyParameterGroupRequest): Promise<$_model.ModifyParameterGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * RDS MySQL修改参数定时任务
+   * 
+   * @param request - ModifyParameterTimedScheduleTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyParameterTimedScheduleTaskResponse
+   */
+  async modifyParameterTimedScheduleTaskWithOptions(request: $_model.ModifyParameterTimedScheduleTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyParameterTimedScheduleTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyParameterTimedScheduleTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyParameterTimedScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.ModifyParameterTimedScheduleTaskResponse({}));
+  }
+
+  /**
+   * RDS MySQL修改参数定时任务
+   * 
+   * @param request - ModifyParameterTimedScheduleTaskRequest
+   * @returns ModifyParameterTimedScheduleTaskResponse
+   */
+  async modifyParameterTimedScheduleTask(request: $_model.ModifyParameterTimedScheduleTaskRequest): Promise<$_model.ModifyParameterTimedScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyParameterTimedScheduleTaskWithOptions(request, runtime);
   }
 
   /**

@@ -4,8 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyMaskingRulesResponseBody extends $dara.Model {
   data?: { [key: string]: string };
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 8B1434A1-08A7-3E8C-A237-076A********
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {

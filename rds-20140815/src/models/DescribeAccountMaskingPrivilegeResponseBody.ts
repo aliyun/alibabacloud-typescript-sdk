@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege extends $dara.Model {
+  /**
+   * @example
+   * 2026-01-22T02:01:20Z
+   */
   expireTime?: string;
+  /**
+   * @example
+   * restrictedAccess
+   */
   privilege?: string;
+  /**
+   * @example
+   * rds
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,6 +71,10 @@ export class DescribeAccountMaskingPrivilegeResponseBodyData extends $dara.Model
 
 export class DescribeAccountMaskingPrivilegeResponseBody extends $dara.Model {
   data?: DescribeAccountMaskingPrivilegeResponseBodyData;
+  /**
+   * @example
+   * D0073A98-52F1-3075-8256-394**********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

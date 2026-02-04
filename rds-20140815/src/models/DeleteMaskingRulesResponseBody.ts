@@ -4,8 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteMaskingRulesResponseBody extends $dara.Model {
   data?: { [key: string]: string };
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 5EEE1ED1-A459-38D2-840C-0C49********
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {

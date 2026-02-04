@@ -44,13 +44,37 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * rm-t4n8t18o******6d5
    */
   DBInstanceName?: string;
+  /**
+   * @example
+   * myDB
+   */
   DBName?: string;
+  /**
+   * @example
+   * sm4-128-gcm
+   */
   defaultAlgo?: string;
+  /**
+   * @example
+   * true
+   */
   enabled?: string;
+  /**
+   * @example
+   * [{"name": "sha256"},
+   *         {"name":"sm4-128-gcm"}]
+   */
   maskingAlgo?: string;
   ownerId?: string;
+  /**
+   * @example
+   * ap-southeast-1
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -58,6 +82,9 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * rulename1
    */
   ruleName?: string;
   static names(): { [key: string]: string } {
