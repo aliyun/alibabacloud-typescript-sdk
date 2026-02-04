@@ -920,6 +920,152 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查应用同步主组织是否在应用同步范围
+   * 
+   * @param request - CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+   */
+  async checkApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request: $_model.CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userPrimaryOrganizationalUnitId)) {
+      query["UserPrimaryOrganizationalUnitId"] = request.userPrimaryOrganizationalUnitId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckApplicationProvisioningUserPrimaryOrganizationalUnit",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new $_model.CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse({}));
+  }
+
+  /**
+   * 检查应用同步主组织是否在应用同步范围
+   * 
+   * @param request - CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+   * @returns CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+   */
+  async checkApplicationProvisioningUserPrimaryOrganizationalUnit(request: $_model.CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest): Promise<$_model.CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 实例删除检查
+   * 
+   * @param request - CheckInstanceForDeleteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckInstanceForDeleteResponse
+   */
+  async checkInstanceForDeleteWithOptions(request: $_model.CheckInstanceForDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckInstanceForDeleteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckInstanceForDelete",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckInstanceForDeleteResponse>(await this.callApi(params, req, runtime), new $_model.CheckInstanceForDeleteResponse({}));
+  }
+
+  /**
+   * 实例删除检查
+   * 
+   * @param request - CheckInstanceForDeleteRequest
+   * @returns CheckInstanceForDeleteResponse
+   */
+  async checkInstanceForDelete(request: $_model.CheckInstanceForDeleteRequest): Promise<$_model.CheckInstanceForDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkInstanceForDeleteWithOptions(request, runtime);
+  }
+
+  /**
+   * 判断实例是否具有某个模块的功能
+   * 
+   * @param request - CheckInstanceModuleStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckInstanceModuleStatusResponse
+   */
+  async checkInstanceModuleStatusWithOptions(request: $_model.CheckInstanceModuleStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckInstanceModuleStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.featureKey)) {
+      query["FeatureKey"] = request.featureKey;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.moduleKey)) {
+      query["ModuleKey"] = request.moduleKey;
+    }
+
+    if (!$dara.isNull(request.subFeatureKey)) {
+      query["SubFeatureKey"] = request.subFeatureKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckInstanceModuleStatus",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckInstanceModuleStatusResponse>(await this.callApi(params, req, runtime), new $_model.CheckInstanceModuleStatusResponse({}));
+  }
+
+  /**
+   * 判断实例是否具有某个模块的功能
+   * 
+   * @param request - CheckInstanceModuleStatusRequest
+   * @returns CheckInstanceModuleStatusResponse
+   */
+  async checkInstanceModuleStatus(request: $_model.CheckInstanceModuleStatusRequest): Promise<$_model.CheckInstanceModuleStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkInstanceModuleStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
    * 
    * @remarks
@@ -1664,6 +1810,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建扩展字段
+   * 
+   * @param request - CreateCustomFieldRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomFieldResponse
+   */
+  async createCustomFieldWithOptions(request: $_model.CreateCustomFieldRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomFieldResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.defaultValue)) {
+      query["DefaultValue"] = request.defaultValue;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.encrypted)) {
+      query["Encrypted"] = request.encrypted;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.fieldDataConfig)) {
+      query["FieldDataConfig"] = request.fieldDataConfig;
+    }
+
+    if (!$dara.isNull(request.fieldDataType)) {
+      query["FieldDataType"] = request.fieldDataType;
+    }
+
+    if (!$dara.isNull(request.fieldDisplayName)) {
+      query["FieldDisplayName"] = request.fieldDisplayName;
+    }
+
+    if (!$dara.isNull(request.fieldDisplayType)) {
+      query["FieldDisplayType"] = request.fieldDisplayType;
+    }
+
+    if (!$dara.isNull(request.fieldName)) {
+      query["FieldName"] = request.fieldName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.required)) {
+      query["Required"] = request.required;
+    }
+
+    if (!$dara.isNull(request.unique)) {
+      query["Unique"] = request.unique;
+    }
+
+    if (!$dara.isNull(request.userPermission)) {
+      query["UserPermission"] = request.userPermission;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomField",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomFieldResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomFieldResponse({}));
+  }
+
+  /**
+   * 创建扩展字段
+   * 
+   * @param request - CreateCustomFieldRequest
+   * @returns CreateCustomFieldResponse
+   */
+  async createCustomField(request: $_model.CreateCustomFieldRequest): Promise<$_model.CreateCustomFieldResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomFieldWithOptions(request, runtime);
+  }
+
+  /**
    * 创建自定义条款
    * 
    * @param request - CreateCustomPrivacyPolicyRequest
@@ -2141,6 +2377,48 @@ export default class Client extends OpenApi {
   async createInstance(request: $_model.CreateInstanceRequest): Promise<$_model.CreateInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 为实例创建试用版 License
+   * 
+   * @param request - CreateInstanceTrialLicenseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceTrialLicenseResponse
+   */
+  async createInstanceTrialLicenseWithOptions(request: $_model.CreateInstanceTrialLicenseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceTrialLicenseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInstanceTrialLicense",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInstanceTrialLicenseResponse>(await this.callApi(params, req, runtime), new $_model.CreateInstanceTrialLicenseResponse({}));
+  }
+
+  /**
+   * 为实例创建试用版 License
+   * 
+   * @param request - CreateInstanceTrialLicenseRequest
+   * @returns CreateInstanceTrialLicenseResponse
+   */
+  async createInstanceTrialLicense(request: $_model.CreateInstanceTrialLicenseRequest): Promise<$_model.CreateInstanceTrialLicenseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInstanceTrialLicenseWithOptions(request, runtime);
   }
 
   /**
@@ -3087,6 +3365,52 @@ export default class Client extends OpenApi {
   async deleteConditionalAccessPolicy(request: $_model.DeleteConditionalAccessPolicyRequest): Promise<$_model.DeleteConditionalAccessPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除扩展字段
+   * 
+   * @param request - DeleteCustomFieldRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomFieldResponse
+   */
+  async deleteCustomFieldWithOptions(request: $_model.DeleteCustomFieldRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomFieldResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fieldId)) {
+      query["FieldId"] = request.fieldId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomField",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomFieldResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomFieldResponse({}));
+  }
+
+  /**
+   * 删除扩展字段
+   * 
+   * @param request - DeleteCustomFieldRequest
+   * @returns DeleteCustomFieldResponse
+   */
+  async deleteCustomField(request: $_model.DeleteCustomFieldRequest): Promise<$_model.DeleteCustomFieldResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomFieldWithOptions(request, runtime);
   }
 
   /**
@@ -4484,6 +4808,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用字段
+   * 
+   * @param request - DisableCustomFieldRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableCustomFieldResponse
+   */
+  async disableCustomFieldWithOptions(request: $_model.DisableCustomFieldRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCustomFieldResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fieldId)) {
+      query["FieldId"] = request.fieldId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableCustomField",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableCustomFieldResponse>(await this.callApi(params, req, runtime), new $_model.DisableCustomFieldResponse({}));
+  }
+
+  /**
+   * 禁用字段
+   * 
+   * @param request - DisableCustomFieldRequest
+   * @returns DisableCustomFieldResponse
+   */
+  async disableCustomField(request: $_model.DisableCustomFieldRequest): Promise<$_model.DisableCustomFieldResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableCustomFieldWithOptions(request, runtime);
+  }
+
+  /**
    * 禁用自定义条款
    * 
    * @param request - DisableCustomPrivacyPolicyRequest
@@ -5628,6 +5998,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用字段
+   * 
+   * @param request - EnableCustomFieldRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCustomFieldResponse
+   */
+  async enableCustomFieldWithOptions(request: $_model.EnableCustomFieldRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCustomFieldResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fieldId)) {
+      query["FieldId"] = request.fieldId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCustomField",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCustomFieldResponse>(await this.callApi(params, req, runtime), new $_model.EnableCustomFieldResponse({}));
+  }
+
+  /**
+   * 启用字段
+   * 
+   * @param request - EnableCustomFieldRequest
+   * @returns EnableCustomFieldResponse
+   */
+  async enableCustomField(request: $_model.EnableCustomFieldRequest): Promise<$_model.EnableCustomFieldResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableCustomFieldWithOptions(request, runtime);
+  }
+
+  /**
    * 启用自定义条款
    * 
    * @param request - EnableCustomPrivacyPolicyRequest
@@ -6510,6 +6926,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定应用同步配置
+   * 
+   * @param request - GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+   */
+  async getApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request: $_model.GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApplicationProvisioningUserPrimaryOrganizationalUnit",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new $_model.GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse({}));
+  }
+
+  /**
+   * 查询指定应用同步配置
+   * 
+   * @param request - GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+   * @returns GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+   */
+  async getApplicationProvisioningUserPrimaryOrganizationalUnit(request: $_model.GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest): Promise<$_model.GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request, runtime);
+  }
+
+  /**
    * 获取角色信息
    * 
    * @param request - GetApplicationRoleRequest
@@ -6988,6 +7450,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取扩展字段信息
+   * 
+   * @param request - GetCustomFieldRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomFieldResponse
+   */
+  async getCustomFieldWithOptions(request: $_model.GetCustomFieldRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomFieldResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fieldId)) {
+      query["FieldId"] = request.fieldId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomField",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomFieldResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomFieldResponse({}));
+  }
+
+  /**
+   * 获取扩展字段信息
+   * 
+   * @param request - GetCustomFieldRequest
+   * @returns GetCustomFieldResponse
+   */
+  async getCustomField(request: $_model.GetCustomFieldRequest): Promise<$_model.GetCustomFieldResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomFieldWithOptions(request, runtime);
+  }
+
+  /**
    * 获取自定义条款
    * 
    * @param request - GetCustomPrivacyPolicyRequest
@@ -7306,6 +7814,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取高级配置信息
+   * 
+   * @param request - GetIdentityProviderAdvancedConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdentityProviderAdvancedConfigurationResponse
+   */
+  async getIdentityProviderAdvancedConfigurationWithOptions(request: $_model.GetIdentityProviderAdvancedConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIdentityProviderAdvancedConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIdentityProviderAdvancedConfiguration",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIdentityProviderAdvancedConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.GetIdentityProviderAdvancedConfigurationResponse({}));
+  }
+
+  /**
+   * 获取高级配置信息
+   * 
+   * @param request - GetIdentityProviderAdvancedConfigurationRequest
+   * @returns GetIdentityProviderAdvancedConfigurationResponse
+   */
+  async getIdentityProviderAdvancedConfiguration(request: $_model.GetIdentityProviderAdvancedConfigurationRequest): Promise<$_model.GetIdentityProviderAdvancedConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIdentityProviderAdvancedConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取IdP检查任务
+   * 
+   * @param request - GetIdentityProviderStatusCheckJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdentityProviderStatusCheckJobResponse
+   */
+  async getIdentityProviderStatusCheckJobWithOptions(request: $_model.GetIdentityProviderStatusCheckJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIdentityProviderStatusCheckJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.identityProviderStatusCheckJobId)) {
+      query["IdentityProviderStatusCheckJobId"] = request.identityProviderStatusCheckJobId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIdentityProviderStatusCheckJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIdentityProviderStatusCheckJobResponse>(await this.callApi(params, req, runtime), new $_model.GetIdentityProviderStatusCheckJobResponse({}));
+  }
+
+  /**
+   * 获取IdP检查任务
+   * 
+   * @param request - GetIdentityProviderStatusCheckJobRequest
+   * @returns GetIdentityProviderStatusCheckJobResponse
+   */
+  async getIdentityProviderStatusCheckJob(request: $_model.GetIdentityProviderStatusCheckJobRequest): Promise<$_model.GetIdentityProviderStatusCheckJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIdentityProviderStatusCheckJobWithOptions(request, runtime);
+  }
+
+  /**
    * Get IdP Inbound Synchronization Configuration Information
    * 
    * @param request - GetIdentityProviderUdPullConfigurationRequest
@@ -7352,6 +7956,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取IdP同步出配置
+   * 
+   * @param request - GetIdentityProviderUdPushConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdentityProviderUdPushConfigurationResponse
+   */
+  async getIdentityProviderUdPushConfigurationWithOptions(request: $_model.GetIdentityProviderUdPushConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIdentityProviderUdPushConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIdentityProviderUdPushConfiguration",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIdentityProviderUdPushConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.GetIdentityProviderUdPushConfigurationResponse({}));
+  }
+
+  /**
+   * 获取IdP同步出配置
+   * 
+   * @param request - GetIdentityProviderUdPushConfigurationRequest
+   * @returns GetIdentityProviderUdPushConfigurationResponse
+   */
+  async getIdentityProviderUdPushConfiguration(request: $_model.GetIdentityProviderUdPushConfigurationRequest): Promise<$_model.GetIdentityProviderUdPushConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIdentityProviderUdPushConfigurationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
    * 
    * @param request - GetInstanceRequest
@@ -7391,6 +8041,90 @@ export default class Client extends OpenApi {
   async getInstance(request: $_model.GetInstanceRequest): Promise<$_model.GetInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例控制项
+   * 
+   * @param request - GetInstanceControlConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceControlConfigurationResponse
+   */
+  async getInstanceControlConfigurationWithOptions(request: $_model.GetInstanceControlConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceControlConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceControlConfiguration",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceControlConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceControlConfigurationResponse({}));
+  }
+
+  /**
+   * 查询实例控制项
+   * 
+   * @param request - GetInstanceControlConfigurationRequest
+   * @returns GetInstanceControlConfigurationResponse
+   */
+  async getInstanceControlConfiguration(request: $_model.GetInstanceControlConfigurationRequest): Promise<$_model.GetInstanceControlConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceControlConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例语言、时区信息
+   * 
+   * @param request - GetInstanceGlobalizationConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceGlobalizationConfigResponse
+   */
+  async getInstanceGlobalizationConfigWithOptions(request: $_model.GetInstanceGlobalizationConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceGlobalizationConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceGlobalizationConfig",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceGlobalizationConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceGlobalizationConfigResponse({}));
+  }
+
+  /**
+   * 获取实例语言、时区信息
+   * 
+   * @param request - GetInstanceGlobalizationConfigRequest
+   * @returns GetInstanceGlobalizationConfigResponse
+   */
+  async getInstanceGlobalizationConfig(request: $_model.GetInstanceGlobalizationConfigRequest): Promise<$_model.GetInstanceGlobalizationConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceGlobalizationConfigWithOptions(request, runtime);
   }
 
   /**
@@ -7439,6 +8173,140 @@ export default class Client extends OpenApi {
   async getInstanceLicense(request: $_model.GetInstanceLicenseRequest): Promise<$_model.GetInstanceLicenseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceLicenseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一级模块下，所有模块信息
+   * 
+   * @param request - GetInstanceModuleInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceModuleInfoResponse
+   */
+  async getInstanceModuleInfoWithOptions(request: $_model.GetInstanceModuleInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceModuleInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.moduleKey)) {
+      query["ModuleKey"] = request.moduleKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceModuleInfo",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceModuleInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceModuleInfoResponse({}));
+  }
+
+  /**
+   * 获取一级模块下，所有模块信息
+   * 
+   * @param request - GetInstanceModuleInfoRequest
+   * @returns GetInstanceModuleInfoResponse
+   */
+  async getInstanceModuleInfo(request: $_model.GetInstanceModuleInfoRequest): Promise<$_model.GetInstanceModuleInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceModuleInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例单一类型的Quota
+   * 
+   * @param request - GetInstanceQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceQuotaResponse
+   */
+  async getInstanceQuotaWithOptions(request: $_model.GetInstanceQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.quotaKey)) {
+      query["QuotaKey"] = request.quotaKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceQuota",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceQuotaResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceQuotaResponse({}));
+  }
+
+  /**
+   * 获取实例单一类型的Quota
+   * 
+   * @param request - GetInstanceQuotaRequest
+   * @returns GetInstanceQuotaResponse
+   */
+  async getInstanceQuota(request: $_model.GetInstanceQuotaRequest): Promise<$_model.GetInstanceQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例的试用状态
+   * 
+   * @param request - GetInstanceTrialStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceTrialStatusResponse
+   */
+  async getInstanceTrialStatusWithOptions(request: $_model.GetInstanceTrialStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceTrialStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceTrialStatus",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceTrialStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceTrialStatusResponse({}));
+  }
+
+  /**
+   * 获取实例的试用状态
+   * 
+   * @param request - GetInstanceTrialStatusRequest
+   * @returns GetInstanceTrialStatusResponse
+   */
+  async getInstanceTrialStatus(request: $_model.GetInstanceTrialStatusRequest): Promise<$_model.GetInstanceTrialStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceTrialStatusWithOptions(request, runtime);
   }
 
   /**
