@@ -1,189 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class ExpireLoginTokenRequest extends $tea.Model {
-  endUserId?: string;
-  loginToken?: string;
-  officeSiteId?: string;
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endUserId: 'EndUserId',
-      loginToken: 'LoginToken',
-      officeSiteId: 'OfficeSiteId',
-      sessionId: 'SessionId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      endUserId: 'string',
-      loginToken: 'string',
-      officeSiteId: 'string',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExpireLoginTokenResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExpireLoginTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExpireLoginTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExpireLoginTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthCodeRequest extends $tea.Model {
-  autoCreateUser?: boolean;
-  endUserId?: string;
-  externalUserId?: string;
-  policy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoCreateUser: 'AutoCreateUser',
-      endUserId: 'EndUserId',
-      externalUserId: 'ExternalUserId',
-      policy: 'Policy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoCreateUser: 'boolean',
-      endUserId: 'string',
-      externalUserId: 'string',
-      policy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthCodeResponseBody extends $tea.Model {
-  authModel?: GetAuthCodeResponseBodyAuthModel;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authModel: 'AuthModel',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authModel: GetAuthCodeResponseBodyAuthModel,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAuthCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAuthCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthCodeResponseBodyAuthModel extends $tea.Model {
-  authCode?: string;
-  endUserId?: string;
-  expireTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authCode: 'AuthCode',
-      endUserId: 'EndUserId',
-      expireTime: 'ExpireTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authCode: 'string',
-      endUserId: 'string',
-      expireTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -192,40 +18,47 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async expireLoginTokenWithOptions(request: ExpireLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<ExpireLoginTokenResponse> {
-    Util.validateModel(request);
+  /**
+   * 登录token主动失效
+   * 
+   * @param request - ExpireLoginTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExpireLoginTokenResponse
+   */
+  async expireLoginTokenWithOptions(request: $_model.ExpireLoginTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExpireLoginTokenResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.loginToken)) {
+    if (!$dara.isNull(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!Util.isUnset(request.officeSiteId)) {
+    if (!$dara.isNull(request.officeSiteId)) {
       body["OfficeSiteId"] = request.officeSiteId;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExpireLoginToken",
       version: "2021-02-18",
       protocol: "HTTPS",
@@ -236,37 +69,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExpireLoginTokenResponse>(await this.callApi(params, req, runtime), new ExpireLoginTokenResponse({}));
+    return $dara.cast<$_model.ExpireLoginTokenResponse>(await this.callApi(params, req, runtime), new $_model.ExpireLoginTokenResponse({}));
   }
 
-  async expireLoginToken(request: ExpireLoginTokenRequest): Promise<ExpireLoginTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 登录token主动失效
+   * 
+   * @param request - ExpireLoginTokenRequest
+   * @returns ExpireLoginTokenResponse
+   */
+  async expireLoginToken(request: $_model.ExpireLoginTokenRequest): Promise<$_model.ExpireLoginTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.expireLoginTokenWithOptions(request, runtime);
   }
 
-  async getAuthCodeWithOptions(request: GetAuthCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthCodeResponse> {
-    Util.validateModel(request);
+  /**
+   * 获取授权码
+   * 
+   * @param request - GetAuthCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuthCodeResponse
+   */
+  async getAuthCodeWithOptions(request: $_model.GetAuthCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuthCodeResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoCreateUser)) {
+    if (!$dara.isNull(request.autoCreateUser)) {
       body["AutoCreateUser"] = request.autoCreateUser;
     }
 
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.externalUserId)) {
+    if (!$dara.isNull(request.externalUserId)) {
       body["ExternalUserId"] = request.externalUserId;
     }
 
-    if (!Util.isUnset(request.policy)) {
+    if (!$dara.isNull(request.policy)) {
       body["Policy"] = request.policy;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAuthCode",
       version: "2021-02-18",
       protocol: "HTTPS",
@@ -277,12 +123,68 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAuthCodeResponse>(await this.callApi(params, req, runtime), new GetAuthCodeResponse({}));
+    return $dara.cast<$_model.GetAuthCodeResponse>(await this.callApi(params, req, runtime), new $_model.GetAuthCodeResponse({}));
   }
 
-  async getAuthCode(request: GetAuthCodeRequest): Promise<GetAuthCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 获取授权码
+   * 
+   * @param request - GetAuthCodeRequest
+   * @returns GetAuthCodeResponse
+   */
+  async getAuthCode(request: $_model.GetAuthCodeRequest): Promise<$_model.GetAuthCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAuthCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取stsToken
+   * 
+   * @param request - GetStsTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStsTokenResponse
+   */
+  async getStsTokenWithOptions(request: $_model.GetStsTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStsTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endUserId)) {
+      body["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.expiration)) {
+      body["Expiration"] = request.expiration;
+    }
+
+    if (!$dara.isNull(request.externalId)) {
+      body["ExternalId"] = request.externalId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStsToken",
+      version: "2021-02-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStsTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetStsTokenResponse({}));
+  }
+
+  /**
+   * 获取stsToken
+   * 
+   * @param request - GetStsTokenRequest
+   * @returns GetStsTokenResponse
+   */
+  async getStsToken(request: $_model.GetStsTokenRequest): Promise<$_model.GetStsTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStsTokenWithOptions(request, runtime);
   }
 
 }
