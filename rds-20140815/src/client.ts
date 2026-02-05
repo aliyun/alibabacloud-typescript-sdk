@@ -8011,6 +8011,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询主动操作维护配置
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConfWithOptions(request: $_model.DescribeActiveOperationMaintainConfRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeActiveOperationMaintainConfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeActiveOperationMaintainConf",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new $_model.DescribeActiveOperationMaintainConfResponse({}));
+  }
+
+  /**
+   * 查询主动操作维护配置
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConf(request: $_model.DescribeActiveOperationMaintainConfRequest): Promise<$_model.DescribeActiveOperationMaintainConfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details about scheduled O\\\\\\\\\\\\\\\\\\\\&M tasks for an instance.
    * 
    * @remarks
@@ -18546,6 +18604,68 @@ export default class Client extends OpenApi {
   async describeSQLLogReportList(request: $_model.DescribeSQLLogReportListRequest): Promise<$_model.DescribeSQLLogReportListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSQLLogReportListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询SQLServer升级版本
+   * 
+   * @param request - DescribeSQLServerUpgradeVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLServerUpgradeVersionsResponse
+   */
+  async describeSQLServerUpgradeVersionsWithOptions(request: $_model.DescribeSQLServerUpgradeVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSQLServerUpgradeVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSQLServerUpgradeVersions",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSQLServerUpgradeVersionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSQLServerUpgradeVersionsResponse({}));
+  }
+
+  /**
+   * 查询SQLServer升级版本
+   * 
+   * @param request - DescribeSQLServerUpgradeVersionsRequest
+   * @returns DescribeSQLServerUpgradeVersionsResponse
+   */
+  async describeSQLServerUpgradeVersions(request: $_model.DescribeSQLServerUpgradeVersionsRequest): Promise<$_model.DescribeSQLServerUpgradeVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSQLServerUpgradeVersionsWithOptions(request, runtime);
   }
 
   /**
