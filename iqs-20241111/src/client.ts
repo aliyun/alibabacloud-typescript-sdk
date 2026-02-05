@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI搜索流式接口
+   * AI搜索流式接口(废弃)
    * 
    * @param request - AiSearchRequest
    * @param headers - map
@@ -92,7 +92,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI搜索流式接口
+   * AI搜索流式接口(废弃)
    * 
    * @param request - AiSearchRequest
    * @param headers - map
@@ -141,7 +141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI搜索流式接口
+   * AI搜索流式接口(废弃)
    * 
    * @param request - AiSearchRequest
    * @returns AiSearchResponse
@@ -408,6 +408,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.globalSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 多模态搜索
+   * 
+   * @param request - MultimodalSearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultimodalSearchResponse
+   */
+  async multimodalSearchWithOptions(request: $_model.MultimodalSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.MultimodalSearchResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultimodalSearch",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/multimodal/unified`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultimodalSearchResponse>(await this.callApi(params, req, runtime), new $_model.MultimodalSearchResponse({}));
+  }
+
+  /**
+   * 多模态搜索
+   * 
+   * @param request - MultimodalSearchRequest
+   * @returns MultimodalSearchResponse
+   */
+  async multimodalSearch(request: $_model.MultimodalSearchRequest): Promise<$_model.MultimodalSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.multimodalSearchWithOptions(request, headers, runtime);
   }
 
   /**
