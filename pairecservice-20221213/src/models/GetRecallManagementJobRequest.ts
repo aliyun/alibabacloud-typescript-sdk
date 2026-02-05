@@ -6,6 +6,9 @@ export class GetRecallManagementJobRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * pairec-1324***
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

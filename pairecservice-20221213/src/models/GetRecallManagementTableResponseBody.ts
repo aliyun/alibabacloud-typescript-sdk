@@ -87,7 +87,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
    * true
    */
   enableRowCountFluctuationThreshold?: boolean;
-  fields?: GetRecallManagementTableResponseBodyFields;
+  fields?: GetRecallManagementTableResponseBodyFields[];
   /**
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -213,7 +213,7 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
       description: 'string',
       enableDataSizeFluctuationThreshold: 'boolean',
       enableRowCountFluctuationThreshold: 'boolean',
-      fields: GetRecallManagementTableResponseBodyFields,
+      fields: { 'type': 'array', 'itemType': GetRecallManagementTableResponseBodyFields },
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       indexEffectiveTime: 'string',
@@ -235,8 +235,8 @@ export class GetRecallManagementTableResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.fields && typeof (this.fields as any).validate === 'function') {
-      (this.fields as any).validate();
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
     }
     super.validate();
   }

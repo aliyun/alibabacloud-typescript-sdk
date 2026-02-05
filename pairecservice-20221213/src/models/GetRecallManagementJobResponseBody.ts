@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRecallManagementJobResponseBodyRecallManagementTableInfo extends $dara.Model {
+  /**
+   * @example
+   * ds=20250701
+   */
   dataVersion?: string;
+  /**
+   * @example
+   * 20250101000
+   */
   recallManagementTableVersionId?: string;
+  /**
+   * @example
+   * 10000
+   */
   sourceTableDataSize?: string;
+  /**
+   * @example
+   * 100
+   */
   sourceTableRowCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +51,25 @@ export class GetRecallManagementJobResponseBodyRecallManagementTableInfo extends
 }
 
 export class GetRecallManagementJobResponseBodyRecallManagerTableInfo extends $dara.Model {
+  /**
+   * @example
+   * ds=20250701
+   */
   dataVersion?: string;
+  /**
+   * @example
+   * 20250101000
+   */
   recallManagerTableVersionId?: string;
+  /**
+   * @example
+   * 10000
+   */
   sourceTableDataSize?: string;
+  /**
+   * @example
+   * 100
+   */
   sourceTableRowCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,13 +99,37 @@ export class GetRecallManagementJobResponseBodyRecallManagerTableInfo extends $d
 }
 
 export class GetRecallManagementJobResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132
+   */
   endTime?: string;
+  /**
+   * @example
+   * "success"
+   */
   log?: string;
+  /**
+   * @example
+   * 1
+   */
   recallManagementJobId?: string;
   recallManagementTableInfo?: GetRecallManagementJobResponseBodyRecallManagementTableInfo;
   recallManagerTableInfo?: GetRecallManagementJobResponseBodyRecallManagerTableInfo;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2021-12-15T22:24:33.132
+   */
   startTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
