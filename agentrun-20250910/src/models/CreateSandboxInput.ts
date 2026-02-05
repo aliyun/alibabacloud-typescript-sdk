@@ -8,9 +8,12 @@ export class CreateSandboxInput extends $dara.Model {
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
   sandboxId?: string;
+  sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
+   * 
+   * @deprecated
    */
   sandboxIdleTimeoutSeconds?: number;
   /**
@@ -25,6 +28,7 @@ export class CreateSandboxInput extends $dara.Model {
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
       sandboxId: 'sandboxId',
+      sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
       sandboxIdleTimeoutSeconds: 'sandboxIdleTimeoutSeconds',
       templateName: 'templateName',
     };
@@ -35,6 +39,7 @@ export class CreateSandboxInput extends $dara.Model {
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
       sandboxId: 'string',
+      sandboxIdleTimeoutInSeconds: 'number',
       sandboxIdleTimeoutSeconds: 'number',
       templateName: 'string',
     };
