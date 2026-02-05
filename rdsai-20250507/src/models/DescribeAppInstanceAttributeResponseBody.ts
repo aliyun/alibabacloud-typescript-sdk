@@ -27,6 +27,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
    * pgm-2ze49qv594vi****
    */
   DBInstanceName?: string;
+  eipId?: string;
   eipStatus?: string;
   /**
    * @remarks
@@ -52,6 +53,8 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
+  natCreatedBy?: string;
+  natGatewayId?: string;
   natStatus?: string;
   /**
    * @remarks
@@ -114,10 +117,13 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       appName: 'AppName',
       appType: 'AppType',
       DBInstanceName: 'DBInstanceName',
+      eipId: 'EipId',
       eipStatus: 'EipStatus',
       instanceClass: 'InstanceClass',
       instanceMinorVersion: 'InstanceMinorVersion',
       instanceName: 'InstanceName',
+      natCreatedBy: 'NatCreatedBy',
+      natGatewayId: 'NatGatewayId',
       natStatus: 'NatStatus',
       publicConnectionString: 'PublicConnectionString',
       regionId: 'RegionId',
@@ -134,10 +140,13 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       appName: 'string',
       appType: 'string',
       DBInstanceName: 'string',
+      eipId: 'string',
       eipStatus: 'string',
       instanceClass: 'string',
       instanceMinorVersion: 'string',
       instanceName: 'string',
+      natCreatedBy: 'string',
+      natGatewayId: 'string',
       natStatus: 'string',
       publicConnectionString: 'string',
       regionId: 'string',

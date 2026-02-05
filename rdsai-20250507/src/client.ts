@@ -388,6 +388,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建一个批量实例巡检任务
+   * 
+   * @param request - CreateInspectionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInspectionTaskResponse
+   */
+  async createInspectionTaskWithOptions(request: $_model.CreateInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInspectionTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.inspectionItems)) {
+      query["InspectionItems"] = request.inspectionItems;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInspectionTask",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInspectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateInspectionTaskResponse({}));
+  }
+
+  /**
+   * 创建一个批量实例巡检任务
+   * 
+   * @param request - CreateInspectionTaskRequest
+   * @returns CreateInspectionTaskResponse
+   */
+  async createInspectionTask(request: $_model.CreateInspectionTaskRequest): Promise<$_model.CreateInspectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInspectionTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个新的批量实例巡检任务
+   * 
+   * @param request - CreateScheduledTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScheduledTaskResponse
+   */
+  async createScheduledTaskWithOptions(request: $_model.CreateScheduledTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScheduledTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScheduledTask",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScheduledTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateScheduledTaskResponse({}));
+  }
+
+  /**
+   * 创建一个新的批量实例巡检任务
+   * 
+   * @param request - CreateScheduledTaskRequest
+   * @returns CreateScheduledTaskResponse
+   */
+  async createScheduledTask(request: $_model.CreateScheduledTaskRequest): Promise<$_model.CreateScheduledTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createScheduledTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an RDS Supabase instance.
    * 
    * @remarks
@@ -493,6 +609,48 @@ export default class Client extends OpenApi {
   async deleteCustomAgent(request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除指定的巡检任务
+   * 
+   * @param request - DeleteScheduledTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScheduledTaskResponse
+   */
+  async deleteScheduledTaskWithOptions(request: $_model.DeleteScheduledTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScheduledTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteScheduledTask",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteScheduledTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScheduledTaskResponse({}));
+  }
+
+  /**
+   * 删除指定的巡检任务
+   * 
+   * @param request - DeleteScheduledTaskRequest
+   * @returns DeleteScheduledTaskResponse
+   */
+  async deleteScheduledTask(request: $_model.DeleteScheduledTaskRequest): Promise<$_model.DeleteScheduledTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteScheduledTaskWithOptions(request, runtime);
   }
 
   /**
@@ -1124,6 +1282,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取巡检任务报告结果
+   * 
+   * @param request - GetInspectionReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInspectionReportResponse
+   */
+  async getInspectionReportWithOptions(request: $_model.GetInspectionReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInspectionReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInspectionReport",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInspectionReportResponse>(await this.callApi(params, req, runtime), new $_model.GetInspectionReportResponse({}));
+  }
+
+  /**
+   * 获取巡检任务报告结果
+   * 
+   * @param request - GetInspectionReportRequest
+   * @returns GetInspectionReportResponse
+   */
+  async getInspectionReport(request: $_model.GetInspectionReportRequest): Promise<$_model.GetInspectionReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInspectionReportWithOptions(request, runtime);
+  }
+
+  /**
    * Queries specific conversation messages.
    * 
    * @param request - GetMessagesRequest
@@ -1175,6 +1379,168 @@ export default class Client extends OpenApi {
   async getMessages(request: $_model.GetMessagesRequest): Promise<$_model.GetMessagesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMessagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+   * 
+   * @param request - GetScheduledInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScheduledInstancesResponse
+   */
+  async getScheduledInstancesWithOptions(request: $_model.GetScheduledInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScheduledInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScheduledInstances",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScheduledInstancesResponse>(await this.callApi(params, req, runtime), new $_model.GetScheduledInstancesResponse({}));
+  }
+
+  /**
+   * 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+   * 
+   * @param request - GetScheduledInstancesRequest
+   * @returns GetScheduledInstancesResponse
+   */
+  async getScheduledInstances(request: $_model.GetScheduledInstancesRequest): Promise<$_model.GetScheduledInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getScheduledInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取定时任务的所有巡检报告，支持分页
+   * 
+   * @param request - GetScheduledReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScheduledReportsResponse
+   */
+  async getScheduledReportsWithOptions(request: $_model.GetScheduledReportsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScheduledReportsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScheduledReports",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScheduledReportsResponse>(await this.callApi(params, req, runtime), new $_model.GetScheduledReportsResponse({}));
+  }
+
+  /**
+   * 获取定时任务的所有巡检报告，支持分页
+   * 
+   * @param request - GetScheduledReportsRequest
+   * @returns GetScheduledReportsResponse
+   */
+  async getScheduledReports(request: $_model.GetScheduledReportsRequest): Promise<$_model.GetScheduledReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getScheduledReportsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+   * 
+   * @param request - GetStandAloneReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStandAloneReportsResponse
+   */
+  async getStandAloneReportsWithOptions(request: $_model.GetStandAloneReportsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStandAloneReportsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStandAloneReports",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStandAloneReportsResponse>(await this.callApi(params, req, runtime), new $_model.GetStandAloneReportsResponse({}));
+  }
+
+  /**
+   * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+   * 
+   * @param request - GetStandAloneReportsRequest
+   * @returns GetStandAloneReportsResponse
+   */
+  async getStandAloneReports(request: $_model.GetStandAloneReportsRequest): Promise<$_model.GetStandAloneReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStandAloneReportsWithOptions(request, runtime);
   }
 
   /**
@@ -1253,6 +1619,56 @@ export default class Client extends OpenApi {
   async listCustomAgentTools(): Promise<$_model.ListCustomAgentToolsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCustomAgentToolsWithOptions(runtime);
+  }
+
+  /**
+   * 查询指定用户UID下所有巡检任务的基本信息列表
+   * 
+   * @param request - ListScheduledTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScheduledTasksResponse
+   */
+  async listScheduledTasksWithOptions(request: $_model.ListScheduledTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScheduledTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScheduledTasks",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScheduledTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListScheduledTasksResponse({}));
+  }
+
+  /**
+   * 查询指定用户UID下所有巡检任务的基本信息列表
+   * 
+   * @param request - ListScheduledTasksRequest
+   * @returns ListScheduledTasksResponse
+   */
+  async listScheduledTasks(request: $_model.ListScheduledTasksRequest): Promise<$_model.ListScheduledTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScheduledTasksWithOptions(request, runtime);
   }
 
   /**
@@ -1795,6 +2211,72 @@ export default class Client extends OpenApi {
   async modifyMessagesFeedbacks(request: $_model.ModifyMessagesFeedbacksRequest): Promise<$_model.ModifyMessagesFeedbacksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyMessagesFeedbacksWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改已存在的巡检任务信息
+   * 
+   * @param request - ModifyScheduledTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyScheduledTaskResponse
+   */
+  async modifyScheduledTaskWithOptions(request: $_model.ModifyScheduledTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyScheduledTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyScheduledTask",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyScheduledTaskResponse>(await this.callApi(params, req, runtime), new $_model.ModifyScheduledTaskResponse({}));
+  }
+
+  /**
+   * 修改已存在的巡检任务信息
+   * 
+   * @param request - ModifyScheduledTaskRequest
+   * @returns ModifyScheduledTaskResponse
+   */
+  async modifyScheduledTask(request: $_model.ModifyScheduledTaskRequest): Promise<$_model.ModifyScheduledTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyScheduledTaskWithOptions(request, runtime);
   }
 
   /**
