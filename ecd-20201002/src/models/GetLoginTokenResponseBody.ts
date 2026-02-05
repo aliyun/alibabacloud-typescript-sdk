@@ -250,6 +250,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
    * mode
    */
   windowDisplayMode?: string;
+  wyId?: string;
   static names(): { [key: string]: string } {
     return {
       email: 'Email',
@@ -271,6 +272,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
       sessionId: 'SessionId',
       tenantId: 'TenantId',
       windowDisplayMode: 'WindowDisplayMode',
+      wyId: 'WyId',
     };
   }
 
@@ -295,6 +297,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
       sessionId: 'string',
       tenantId: 'number',
       windowDisplayMode: 'string',
+      wyId: 'string',
     };
   }
 
