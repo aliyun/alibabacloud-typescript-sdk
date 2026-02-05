@@ -300,6 +300,67 @@ export class AIAgentConfigBackChannelingConfig extends $dara.Model {
   }
 }
 
+export class AIAgentConfigBackChannelingConfigsWords extends $dara.Model {
+  probability?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigBackChannelingConfigs extends $dara.Model {
+  enabled?: boolean;
+  probability?: number;
+  triggerStage?: string;
+  words?: AIAgentConfigBackChannelingConfigsWords[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      probability: 'Probability',
+      triggerStage: 'TriggerStage',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      probability: 'number',
+      triggerStage: 'string',
+      words: { 'type': 'array', 'itemType': AIAgentConfigBackChannelingConfigsWords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.words)) {
+      $dara.Model.validateArray(this.words);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentConfigInterruptConfig extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   interruptWords?: string[];
@@ -752,10 +813,12 @@ export class AIAgentConfigVcrConfig extends $dara.Model {
 }
 
 export class AIAgentConfigVoiceprintConfig extends $dara.Model {
+  registrationMode?: string;
   useVoiceprint?: boolean;
   voiceprintId?: string;
   static names(): { [key: string]: string } {
     return {
+      registrationMode: 'RegistrationMode',
       useVoiceprint: 'UseVoiceprint',
       voiceprintId: 'VoiceprintId',
     };
@@ -763,6 +826,7 @@ export class AIAgentConfigVoiceprintConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      registrationMode: 'string',
       useVoiceprint: 'boolean',
       voiceprintId: 'string',
     };
@@ -784,7 +848,11 @@ export class AIAgentConfig extends $dara.Model {
   avatarConfig?: AIAgentConfigAvatarConfig;
   avatarUrl?: string;
   avatarUrlType?: string;
+  /**
+   * @deprecated
+   */
   backChannelingConfig?: AIAgentConfigBackChannelingConfig[];
+  backChannelingConfigs?: AIAgentConfigBackChannelingConfigs[];
   enableIntelligentSegment?: boolean;
   enablePushToTalk?: boolean;
   experimentalConfig?: string;
@@ -811,6 +879,7 @@ export class AIAgentConfig extends $dara.Model {
       avatarUrl: 'AvatarUrl',
       avatarUrlType: 'AvatarUrlType',
       backChannelingConfig: 'BackChannelingConfig',
+      backChannelingConfigs: 'BackChannelingConfigs',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       enablePushToTalk: 'EnablePushToTalk',
       experimentalConfig: 'ExperimentalConfig',
@@ -840,6 +909,7 @@ export class AIAgentConfig extends $dara.Model {
       avatarUrl: 'string',
       avatarUrlType: 'string',
       backChannelingConfig: { 'type': 'array', 'itemType': AIAgentConfigBackChannelingConfig },
+      backChannelingConfigs: { 'type': 'array', 'itemType': AIAgentConfigBackChannelingConfigs },
       enableIntelligentSegment: 'boolean',
       enablePushToTalk: 'boolean',
       experimentalConfig: 'string',
@@ -875,6 +945,9 @@ export class AIAgentConfig extends $dara.Model {
     }
     if(Array.isArray(this.backChannelingConfig)) {
       $dara.Model.validateArray(this.backChannelingConfig);
+    }
+    if(Array.isArray(this.backChannelingConfigs)) {
+      $dara.Model.validateArray(this.backChannelingConfigs);
     }
     if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
       (this.interruptConfig as any).validate();

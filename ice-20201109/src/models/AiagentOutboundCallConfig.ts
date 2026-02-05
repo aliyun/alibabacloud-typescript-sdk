@@ -275,6 +275,67 @@ export class AIAgentOutboundCallConfigBackChannelingConfig extends $dara.Model {
   }
 }
 
+export class AIAgentOutboundCallConfigBackChannelingConfigsWords extends $dara.Model {
+  probability?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentOutboundCallConfigBackChannelingConfigs extends $dara.Model {
+  enabled?: boolean;
+  probability?: number;
+  triggerStage?: string;
+  words?: AIAgentOutboundCallConfigBackChannelingConfigsWords[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      probability: 'Probability',
+      triggerStage: 'TriggerStage',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      probability: 'number',
+      triggerStage: 'string',
+      words: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigBackChannelingConfigsWords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.words)) {
+      $dara.Model.validateArray(this.words);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentOutboundCallConfigInterruptConfig extends $dara.Model {
   /**
    * @deprecated
@@ -536,7 +597,11 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   ambientSoundConfig?: AIAgentOutboundCallConfigAmbientSoundConfig;
   asrConfig?: AIAgentOutboundCallConfigAsrConfig;
   autoSpeechConfig?: AIAgentOutboundCallConfigAutoSpeechConfig;
+  /**
+   * @deprecated
+   */
   backChannelingConfig?: AIAgentOutboundCallConfigBackChannelingConfig;
+  backChannelingConfigs?: AIAgentOutboundCallConfigBackChannelingConfigs[];
   enableIntelligentSegment?: boolean;
   experimentalConfig?: string;
   greeting?: string;
@@ -552,6 +617,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
       asrConfig: 'AsrConfig',
       autoSpeechConfig: 'AutoSpeechConfig',
       backChannelingConfig: 'BackChannelingConfig',
+      backChannelingConfigs: 'BackChannelingConfigs',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       experimentalConfig: 'ExperimentalConfig',
       greeting: 'Greeting',
@@ -570,6 +636,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
       asrConfig: AIAgentOutboundCallConfigAsrConfig,
       autoSpeechConfig: AIAgentOutboundCallConfigAutoSpeechConfig,
       backChannelingConfig: AIAgentOutboundCallConfigBackChannelingConfig,
+      backChannelingConfigs: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigBackChannelingConfigs },
       enableIntelligentSegment: 'boolean',
       experimentalConfig: 'string',
       greeting: 'string',
@@ -594,6 +661,9 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
     }
     if(this.backChannelingConfig && typeof (this.backChannelingConfig as any).validate === 'function') {
       (this.backChannelingConfig as any).validate();
+    }
+    if(Array.isArray(this.backChannelingConfigs)) {
+      $dara.Model.validateArray(this.backChannelingConfigs);
     }
     if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
       (this.interruptConfig as any).validate();

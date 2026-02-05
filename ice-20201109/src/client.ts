@@ -1129,6 +1129,10 @@ export default class Client extends OpenApi {
   async clearAIAgentVoiceprintWithOptions(request: $_model.ClearAIAgentVoiceprintRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClearAIAgentVoiceprintResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.registrationMode)) {
+      query["RegistrationMode"] = request.registrationMode;
+    }
+
     if (!$dara.isNull(request.voiceprintId)) {
       query["VoiceprintId"] = request.voiceprintId;
     }
@@ -10105,6 +10109,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.registrationMode)) {
+      query["RegistrationMode"] = request.registrationMode;
     }
 
     if (!$dara.isNull(request.voiceprintId)) {

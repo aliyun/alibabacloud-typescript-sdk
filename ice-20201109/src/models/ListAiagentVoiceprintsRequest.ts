@@ -19,6 +19,7 @@ export class ListAIAgentVoiceprintsRequest extends $dara.Model {
    * 100
    */
   pageSize?: number;
+  registrationMode?: string;
   /**
    * @remarks
    * A unique identifier for the voiceprint. This parameter is optional. If provided, only the information for that ID is returned. If not specified, all voiceprints under the account are returned.
@@ -31,6 +32,7 @@ export class ListAIAgentVoiceprintsRequest extends $dara.Model {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      registrationMode: 'RegistrationMode',
       voiceprintId: 'VoiceprintId',
     };
   }
@@ -39,6 +41,7 @@ export class ListAIAgentVoiceprintsRequest extends $dara.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      registrationMode: 'string',
       voiceprintId: 'string',
     };
   }

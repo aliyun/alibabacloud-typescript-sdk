@@ -8,6 +8,8 @@ export { AIAgentConfigAutoSpeechConfig } from './AiagentConfig';
 export { AIAgentConfigAvatarConfig } from './AiagentConfig';
 export { AIAgentConfigBackChannelingConfigWords } from './AiagentConfig';
 export { AIAgentConfigBackChannelingConfig } from './AiagentConfig';
+export { AIAgentConfigBackChannelingConfigsWords } from './AiagentConfig';
+export { AIAgentConfigBackChannelingConfigs } from './AiagentConfig';
 export { AIAgentConfigInterruptConfig } from './AiagentConfig';
 export { AIAgentConfigLlmConfigFunctionMap } from './AiagentConfig';
 export { AIAgentConfigLlmConfigLlmHistory } from './AiagentConfig';
@@ -32,6 +34,8 @@ export { AIAgentOutboundCallConfigAutoSpeechConfigUserIdle } from './AiagentOutb
 export { AIAgentOutboundCallConfigAutoSpeechConfig } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigBackChannelingConfigWords } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigBackChannelingConfig } from './AiagentOutboundCallConfig';
+export { AIAgentOutboundCallConfigBackChannelingConfigsWords } from './AiagentOutboundCallConfig';
+export { AIAgentOutboundCallConfigBackChannelingConfigs } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigInterruptConfig } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigLlmConfigFunctionMap } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigLlmConfigLlmHistory } from './AiagentOutboundCallConfig';

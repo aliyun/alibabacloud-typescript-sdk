@@ -138,6 +138,7 @@ export class MediaQualityAnalysisJobVqaResultScoreResult extends $dara.Model {
   color?: MediaQualityAnalysisJobVqaResultScoreResultColor;
   detail?: MediaQualityAnalysisJobVqaResultScoreResultDetail;
   noise?: MediaQualityAnalysisJobVqaResultScoreResultNoise;
+  score?: number;
   sharp?: MediaQualityAnalysisJobVqaResultScoreResultSharp;
   static names(): { [key: string]: string } {
     return {
@@ -145,6 +146,7 @@ export class MediaQualityAnalysisJobVqaResultScoreResult extends $dara.Model {
       color: 'Color',
       detail: 'Detail',
       noise: 'Noise',
+      score: 'Score',
       sharp: 'Sharp',
     };
   }
@@ -155,6 +157,7 @@ export class MediaQualityAnalysisJobVqaResultScoreResult extends $dara.Model {
       color: MediaQualityAnalysisJobVqaResultScoreResultColor,
       detail: MediaQualityAnalysisJobVqaResultScoreResultDetail,
       noise: MediaQualityAnalysisJobVqaResultScoreResultNoise,
+      score: 'number',
       sharp: MediaQualityAnalysisJobVqaResultScoreResultSharp,
     };
   }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ClearAIAgentVoiceprintRequest extends $dara.Model {
+  registrationMode?: string;
   /**
    * @remarks
    * The unique identifier for the voiceprint.
@@ -13,12 +14,14 @@ export class ClearAIAgentVoiceprintRequest extends $dara.Model {
   voiceprintId?: string;
   static names(): { [key: string]: string } {
     return {
+      registrationMode: 'RegistrationMode',
       voiceprintId: 'VoiceprintId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      registrationMode: 'string',
       voiceprintId: 'string',
     };
   }
