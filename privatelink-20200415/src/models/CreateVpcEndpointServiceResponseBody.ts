@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcEndpointServiceResponseBodySupportedRegionSet extends $dara.Model {
   regionBusinessStatus?: string;
   regionServiceStatus?: string;
+  /**
+   * @deprecated
+   */
   serviceRegionId?: string;
+  supportedRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       regionBusinessStatus: 'RegionBusinessStatus',
       regionServiceStatus: 'RegionServiceStatus',
       serviceRegionId: 'ServiceRegionId',
+      supportedRegionId: 'SupportedRegionId',
     };
   }
 
@@ -19,6 +24,7 @@ export class CreateVpcEndpointServiceResponseBodySupportedRegionSet extends $dar
       regionBusinessStatus: 'string',
       regionServiceStatus: 'string',
       serviceRegionId: 'string',
+      supportedRegionId: 'string',
     };
   }
 
