@@ -258,6 +258,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
    * on
    */
   sccMode?: string;
+  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
       addressItems: 'AddressItems',
@@ -273,6 +274,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
       polarSccWaitTimeout: 'PolarSccWaitTimeout',
       readWriteMode: 'ReadWriteMode',
       sccMode: 'SccMode',
+      serviceName: 'ServiceName',
     };
   }
 
@@ -291,6 +293,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
       polarSccWaitTimeout: 'string',
       readWriteMode: 'string',
       sccMode: 'string',
+      serviceName: 'string',
     };
   }
 
