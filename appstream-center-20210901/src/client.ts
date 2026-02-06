@@ -375,6 +375,11 @@ export default class Client extends OpenApi {
    */
   async createImageByInstanceWithOptions(request: $_model.CreateImageByInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageByInstanceResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tagList)) {
+      query["TagList"] = request.tagList;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoCleanUserdata)) {
       body["AutoCleanUserdata"] = request.autoCleanUserdata;
@@ -413,6 +418,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({

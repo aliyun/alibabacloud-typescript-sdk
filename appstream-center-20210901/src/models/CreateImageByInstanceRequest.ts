@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateImageByInstanceRequestTagList extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -90,6 +116,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
    * p-0cc7s3n1l*****
    */
   subInstanceId?: string;
+  tagList?: CreateImageByInstanceRequestTagList[];
   static names(): { [key: string]: string } {
     return {
       autoCleanUserdata: 'AutoCleanUserdata',
@@ -101,6 +128,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
       instanceType: 'InstanceType',
       productType: 'ProductType',
       subInstanceId: 'SubInstanceId',
+      tagList: 'TagList',
     };
   }
 
@@ -115,10 +143,14 @@ export class CreateImageByInstanceRequest extends $dara.Model {
       instanceType: 'string',
       productType: 'string',
       subInstanceId: 'string',
+      tagList: { 'type': 'array', 'itemType': CreateImageByInstanceRequestTagList },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tagList)) {
+      $dara.Model.validateArray(this.tagList);
+    }
     super.validate();
   }
 

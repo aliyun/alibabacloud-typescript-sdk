@@ -13,6 +13,7 @@ export { CreateAppInstanceGroupRequestUserDefinePolicy } from './CreateAppInstan
 export { CreateAppInstanceGroupRequestUserInfo } from './CreateAppInstanceGroupRequest';
 export { CreateAppInstanceGroupRequestVideoPolicy } from './CreateAppInstanceGroupRequest';
 export { CreateAppInstanceGroupResponseBodyAppInstanceGroupModel } from './CreateAppInstanceGroupResponseBody';
+export { CreateImageByInstanceRequestTagList } from './CreateImageByInstanceRequest';
 export { CreateImageByInstanceResponseBodyData } from './CreateImageByInstanceResponseBody';
 export { CreateWuyingServerRequestDataDisk } from './CreateWuyingServerRequest';
 export { CreateWuyingServerResponseBodyData } from './CreateWuyingServerResponseBody';
