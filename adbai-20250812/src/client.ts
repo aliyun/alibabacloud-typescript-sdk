@@ -154,6 +154,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除具身智能平台
+   * 
+   * @param request - DeleteEmbodiedAIPlatformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEmbodiedAIPlatformResponse
+   */
+  async deleteEmbodiedAIPlatformWithOptions(request: $_model.DeleteEmbodiedAIPlatformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEmbodiedAIPlatformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.platformName)) {
+      query["PlatformName"] = request.platformName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEmbodiedAIPlatform",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEmbodiedAIPlatformResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEmbodiedAIPlatformResponse({}));
+  }
+
+  /**
+   * 删除具身智能平台
+   * 
+   * @param request - DeleteEmbodiedAIPlatformRequest
+   * @returns DeleteEmbodiedAIPlatformResponse
+   */
+  async deleteEmbodiedAIPlatform(request: $_model.DeleteEmbodiedAIPlatformRequest): Promise<$_model.DeleteEmbodiedAIPlatformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEmbodiedAIPlatformWithOptions(request, runtime);
+  }
+
+  /**
    * 查询具身智能平台
    * 
    * @param request - DescribeEmbodiedAIPlatformsRequest
