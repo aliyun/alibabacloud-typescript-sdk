@@ -9,6 +9,11 @@ export class ModifyFlowResponseBodyData extends $dara.Model {
    */
   categories?: string[];
   /**
+   * @example
+   * http://www.abc.com
+   */
+  endpointUri?: string;
+  /**
    * @remarks
    * The Flow ID.
    * 
@@ -27,6 +32,7 @@ export class ModifyFlowResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       categories: 'Categories',
+      endpointUri: 'EndpointUri',
       flowId: 'FlowId',
       flowName: 'FlowName',
     };
@@ -35,6 +41,7 @@ export class ModifyFlowResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       categories: { 'type': 'array', 'itemType': 'string' },
+      endpointUri: 'string',
       flowId: 'string',
       flowName: 'string',
     };

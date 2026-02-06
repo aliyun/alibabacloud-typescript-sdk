@@ -14,6 +14,11 @@ export class CreateFlowRequest extends $dara.Model {
    */
   custSpaceId?: string;
   /**
+   * @example
+   * http://www.***.com
+   */
+  endpointUri?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -28,6 +33,7 @@ export class CreateFlowRequest extends $dara.Model {
     return {
       categories: 'Categories',
       custSpaceId: 'CustSpaceId',
+      endpointUri: 'EndpointUri',
       flowName: 'FlowName',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -39,6 +45,7 @@ export class CreateFlowRequest extends $dara.Model {
     return {
       categories: { 'type': 'array', 'itemType': 'string' },
       custSpaceId: 'string',
+      endpointUri: 'string',
       flowName: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

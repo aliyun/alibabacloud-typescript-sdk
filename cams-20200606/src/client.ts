@@ -1998,6 +1998,10 @@ export default class Client extends OpenApi {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
+    if (!$dara.isNull(request.endpointUri)) {
+      query["EndpointUri"] = request.endpointUri;
+    }
+
     if (!$dara.isNull(request.flowName)) {
       query["FlowName"] = request.flowName;
     }
@@ -8342,6 +8346,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.endpointUri)) {
+      query["EndpointUri"] = request.endpointUri;
     }
 
     if (!$dara.isNull(request.flowId)) {

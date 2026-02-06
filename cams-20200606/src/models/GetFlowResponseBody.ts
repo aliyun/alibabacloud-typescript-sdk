@@ -17,6 +17,11 @@ export class GetFlowResponseBodyData extends $dara.Model {
    */
   dataApiVersion?: string;
   /**
+   * @example
+   * http://abc.com
+   */
+  endpointUri?: string;
+  /**
    * @remarks
    * The Flow ID.
    * 
@@ -94,6 +99,7 @@ export class GetFlowResponseBodyData extends $dara.Model {
     return {
       categories: 'Categories',
       dataApiVersion: 'DataApiVersion',
+      endpointUri: 'EndpointUri',
       flowId: 'FlowId',
       flowName: 'FlowName',
       JSONVersion: 'JSONVersion',
@@ -107,6 +113,7 @@ export class GetFlowResponseBodyData extends $dara.Model {
     return {
       categories: { 'type': 'array', 'itemType': 'string' },
       dataApiVersion: 'string',
+      endpointUri: 'string',
       flowId: 'string',
       flowName: 'string',
       JSONVersion: 'string',

@@ -15,6 +15,11 @@ export class ModifyFlowRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @example
+   * http://www.***.com
+   */
+  endpointUri?: string;
+  /**
+   * @example
    * 示例值
    */
   flowId?: string;
@@ -33,6 +38,7 @@ export class ModifyFlowRequest extends $dara.Model {
     return {
       categories: 'Categories',
       custSpaceId: 'CustSpaceId',
+      endpointUri: 'EndpointUri',
       flowId: 'FlowId',
       flowName: 'FlowName',
       ownerId: 'OwnerId',
@@ -45,6 +51,7 @@ export class ModifyFlowRequest extends $dara.Model {
     return {
       categories: { 'type': 'array', 'itemType': 'string' },
       custSpaceId: 'string',
+      endpointUri: 'string',
       flowId: 'string',
       flowName: 'string',
       ownerId: 'number',
