@@ -663,6 +663,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cameraRedirect?: string;
   clientControlMenu?: string;
   clientCreateSnapshot?: string;
+  clientHibernate?: string;
+  clientRestart?: string;
+  clientShutdown?: string;
   /**
    * @remarks
    * The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
@@ -883,6 +886,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   gpuAcceleration?: string;
   hoverConfigMsg?: string;
+  hoverHibernate?: string;
+  hoverRestart?: string;
+  hoverShutdown?: string;
   /**
    * @remarks
    * Specifies whether to allow web client access.
@@ -1695,6 +1701,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
       clientCreateSnapshot: 'ClientCreateSnapshot',
+      clientHibernate: 'ClientHibernate',
+      clientRestart: 'ClientRestart',
+      clientShutdown: 'ClientShutdown',
       clientTypes: 'ClientTypes',
       clipboard: 'Clipboard',
       colorEnhancement: 'ColorEnhancement',
@@ -1727,6 +1736,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
       hoverConfigMsg: 'HoverConfigMsg',
+      hoverHibernate: 'HoverHibernate',
+      hoverRestart: 'HoverRestart',
+      hoverShutdown: 'HoverShutdown',
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
@@ -1830,6 +1842,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       cameraRedirect: 'string',
       clientControlMenu: 'string',
       clientCreateSnapshot: 'string',
+      clientHibernate: 'string',
+      clientRestart: 'string',
+      clientShutdown: 'string',
       clientTypes: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes },
       clipboard: 'string',
       colorEnhancement: 'string',
@@ -1862,6 +1877,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
       hoverConfigMsg: 'string',
+      hoverHibernate: 'string',
+      hoverRestart: 'string',
+      hoverShutdown: 'string',
       html5Access: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
