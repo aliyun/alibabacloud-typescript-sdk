@@ -1716,6 +1716,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Add configurations for modifying the response code.
+   * 
+   * @param request - CreateCustomResponseCodeRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomResponseCodeRuleResponse
+   */
+  async createCustomResponseCodeRuleWithOptions(request: $_model.CreateCustomResponseCodeRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomResponseCodeRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.returnCode)) {
+      query["ReturnCode"] = request.returnCode;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomResponseCodeRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomResponseCodeRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomResponseCodeRuleResponse({}));
+  }
+
+  /**
+   * Add configurations for modifying the response code.
+   * 
+   * @param request - CreateCustomResponseCodeRuleRequest
+   * @returns CreateCustomResponseCodeRuleResponse
+   */
+  async createCustomResponseCodeRule(request: $_model.CreateCustomResponseCodeRuleRequest): Promise<$_model.CreateCustomResponseCodeRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomResponseCodeRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
    * 
    * @param request - CreateCustomScenePolicyRequest
@@ -5309,6 +5379,52 @@ export default class Client extends OpenApi {
   async deleteCustomHostname(request: $_model.DeleteCustomHostnameRequest): Promise<$_model.DeleteCustomHostnameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomHostnameWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the configuration of response code modification for a website.
+   * 
+   * @param request - DeleteCustomResponseCodeRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomResponseCodeRuleResponse
+   */
+  async deleteCustomResponseCodeRuleWithOptions(request: $_model.DeleteCustomResponseCodeRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomResponseCodeRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomResponseCodeRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomResponseCodeRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomResponseCodeRuleResponse({}));
+  }
+
+  /**
+   * Deletes the configuration of response code modification for a website.
+   * 
+   * @param request - DeleteCustomResponseCodeRuleRequest
+   * @returns DeleteCustomResponseCodeRuleResponse
+   */
+  async deleteCustomResponseCodeRule(request: $_model.DeleteCustomResponseCodeRuleRequest): Promise<$_model.DeleteCustomResponseCodeRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomResponseCodeRuleWithOptions(request, runtime);
   }
 
   /**
@@ -9084,6 +9200,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询修改响应码规则详情
+   * 
+   * @param request - GetCustomResponseCodeRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomResponseCodeRuleResponse
+   */
+  async getCustomResponseCodeRuleWithOptions(request: $_model.GetCustomResponseCodeRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomResponseCodeRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomResponseCodeRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomResponseCodeRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomResponseCodeRuleResponse({}));
+  }
+
+  /**
+   * 查询修改响应码规则详情
+   * 
+   * @param request - GetCustomResponseCodeRuleRequest
+   * @returns GetCustomResponseCodeRuleResponse
+   */
+  async getCustomResponseCodeRule(request: $_model.GetCustomResponseCodeRuleRequest): Promise<$_model.GetCustomResponseCodeRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomResponseCodeRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Query Site Developer Mode Configuration
    * 
    * @param request - GetDevelopmentModeRequest
@@ -12363,6 +12525,72 @@ export default class Client extends OpenApi {
   async listCustomHostnames(request: $_model.ListCustomHostnamesRequest): Promise<$_model.ListCustomHostnamesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCustomHostnamesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the configuration list of an HTTP response header modification rule for a website.
+   * 
+   * @param request - ListCustomResponseCodeRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomResponseCodeRulesResponse
+   */
+  async listCustomResponseCodeRulesWithOptions(request: $_model.ListCustomResponseCodeRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomResponseCodeRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.configType)) {
+      query["ConfigType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomResponseCodeRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomResponseCodeRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomResponseCodeRulesResponse({}));
+  }
+
+  /**
+   * Queries the configuration list of an HTTP response header modification rule for a website.
+   * 
+   * @param request - ListCustomResponseCodeRulesRequest
+   * @returns ListCustomResponseCodeRulesResponse
+   */
+  async listCustomResponseCodeRules(request: $_model.ListCustomResponseCodeRulesRequest): Promise<$_model.ListCustomResponseCodeRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomResponseCodeRulesWithOptions(request, runtime);
   }
 
   /**
@@ -17187,6 +17415,76 @@ export default class Client extends OpenApi {
   async updateCustomHostname(request: $_model.UpdateCustomHostnameRequest): Promise<$_model.UpdateCustomHostnameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomHostnameWithOptions(request, runtime);
+  }
+
+  /**
+   * Modify the response code configurations for a website.
+   * 
+   * @param request - UpdateCustomResponseCodeRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomResponseCodeRuleResponse
+   */
+  async updateCustomResponseCodeRuleWithOptions(request: $_model.UpdateCustomResponseCodeRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomResponseCodeRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!$dara.isNull(request.returnCode)) {
+      query["ReturnCode"] = request.returnCode;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustomResponseCodeRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustomResponseCodeRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomResponseCodeRuleResponse({}));
+  }
+
+  /**
+   * Modify the response code configurations for a website.
+   * 
+   * @param request - UpdateCustomResponseCodeRuleRequest
+   * @returns UpdateCustomResponseCodeRuleResponse
+   */
+  async updateCustomResponseCodeRule(request: $_model.UpdateCustomResponseCodeRuleRequest): Promise<$_model.UpdateCustomResponseCodeRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCustomResponseCodeRuleWithOptions(request, runtime);
   }
 
   /**
