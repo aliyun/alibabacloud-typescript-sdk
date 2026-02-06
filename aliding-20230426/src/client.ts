@@ -1100,6 +1100,10 @@ export default class Client extends OpenApi {
       body["PermissionCodes"] = request.permissionCodesShrink;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["SourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -11870,6 +11874,152 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetSheetContentJobIdHeaders({ });
     return await this.getSheetContentJobIdWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取技能详情
+   * 
+   * @param request - GetSkillDetailRequest
+   * @param tmpHeader - GetSkillDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillDetailResponse
+   */
+  async getSkillDetailWithOptions(request: $_model.GetSkillDetailRequest, tmpHeader: $_model.GetSkillDetailHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillDetailResponse> {
+    request.validate();
+    let headers = new $_model.GetSkillDetailShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      body["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["SourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkillDetail",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/skill/getSkillDetail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillDetailResponse({}));
+  }
+
+  /**
+   * 获取技能详情
+   * 
+   * @param request - GetSkillDetailRequest
+   * @returns GetSkillDetailResponse
+   */
+  async getSkillDetail(request: $_model.GetSkillDetailRequest): Promise<$_model.GetSkillDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetSkillDetailHeaders({ });
+    return await this.getSkillDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取技能列表
+   * 
+   * @param tmpReq - GetSkillsRequest
+   * @param tmpHeader - GetSkillsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillsResponse
+   */
+  async getSkillsWithOptions(tmpReq: $_model.GetSkillsRequest, tmpHeader: $_model.GetSkillsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillsResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetSkillsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetSkillsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.groupIds)) {
+      request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.skillIds)) {
+      request.skillIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.skillIds, "SkillIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupIdsShrink)) {
+      body["GroupIds"] = request.groupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.skillIdsShrink)) {
+      body["SkillIds"] = request.skillIdsShrink;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["SourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkills",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/skill/getSkills`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillsResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillsResponse({}));
+  }
+
+  /**
+   * 获取技能列表
+   * 
+   * @param request - GetSkillsRequest
+   * @returns GetSkillsResponse
+   */
+  async getSkills(request: $_model.GetSkillsRequest): Promise<$_model.GetSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetSkillsHeaders({ });
+    return await this.getSkillsWithOptions(request, headers, runtime);
   }
 
   /**

@@ -2,27 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AuthorizeSkillRequest extends $dara.Model {
-  permissionCodes?: string[];
+export class GetSkillsShrinkRequest extends $dara.Model {
+  groupIdsShrink?: string;
+  skillIdsShrink?: string;
+  /**
+   * @example
+   * xxx
+   */
   sourceIdOfAssistantId?: string;
   static names(): { [key: string]: string } {
     return {
-      permissionCodes: 'PermissionCodes',
+      groupIdsShrink: 'GroupIds',
+      skillIdsShrink: 'SkillIds',
       sourceIdOfAssistantId: 'SourceIdOfAssistantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      permissionCodes: { 'type': 'array', 'itemType': 'string' },
+      groupIdsShrink: 'string',
+      skillIdsShrink: 'string',
       sourceIdOfAssistantId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.permissionCodes)) {
-      $dara.Model.validateArray(this.permissionCodes);
-    }
     super.validate();
   }
 

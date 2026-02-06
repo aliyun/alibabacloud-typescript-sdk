@@ -2,20 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AuthorizeSkillShrinkRequest extends $dara.Model {
-  permissionCodesShrink?: string;
-  sourceIdOfAssistantId?: string;
+export class GetSkillDetailResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  data?: any;
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * A348BA5D-FFD4-57E4-9450-23A14D72F331
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      permissionCodesShrink: 'PermissionCodes',
-      sourceIdOfAssistantId: 'SourceIdOfAssistantId',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      permissionCodesShrink: 'string',
-      sourceIdOfAssistantId: 'string',
+      data: 'any',
+      requestId: 'string',
     };
   }
 
