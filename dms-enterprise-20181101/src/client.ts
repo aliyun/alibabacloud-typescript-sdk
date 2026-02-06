@@ -12013,6 +12013,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
     }

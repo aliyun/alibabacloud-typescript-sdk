@@ -29,6 +29,7 @@ export class ListDatabasesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  searchKey?: string;
   /**
    * @remarks
    * The ID of the tenant.
@@ -44,6 +45,7 @@ export class ListDatabasesRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      searchKey: 'SearchKey',
       tid: 'Tid',
     };
   }
@@ -53,6 +55,7 @@ export class ListDatabasesRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      searchKey: 'string',
       tid: 'number',
     };
   }
