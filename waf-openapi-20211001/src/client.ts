@@ -538,6 +538,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加云产品接入的扩展证书
+   * 
+   * @param request - CreateCloudResourceExtensionCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudResourceExtensionCertResponse
+   */
+  async createCloudResourceExtensionCertWithOptions(request: $_model.CreateCloudResourceExtensionCertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudResourceExtensionCertResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudResourceExtensionCert",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloudResourceExtensionCertResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudResourceExtensionCertResponse({}));
+  }
+
+  /**
+   * 添加云产品接入的扩展证书
+   * 
+   * @param request - CreateCloudResourceExtensionCertRequest
+   * @returns CreateCloudResourceExtensionCertResponse
+   */
+  async createCloudResourceExtensionCert(request: $_model.CreateCloudResourceExtensionCertRequest): Promise<$_model.CreateCloudResourceExtensionCertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloudResourceExtensionCertWithOptions(request, runtime);
+  }
+
+  /**
    * 创建防护对象
    * 
    * @param tmpReq - CreateDefenseResourceRequest
@@ -1783,6 +1841,64 @@ export default class Client extends OpenApi {
   async deleteCloudResource(request: $_model.DeleteCloudResourceRequest): Promise<$_model.DeleteCloudResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloudResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除云产品接入的扩展证书
+   * 
+   * @param request - DeleteCloudResourceExtensionCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudResourceExtensionCertResponse
+   */
+  async deleteCloudResourceExtensionCertWithOptions(request: $_model.DeleteCloudResourceExtensionCertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudResourceExtensionCertResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloudResourceExtensionCert",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloudResourceExtensionCertResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloudResourceExtensionCertResponse({}));
+  }
+
+  /**
+   * 删除云产品接入的扩展证书
+   * 
+   * @param request - DeleteCloudResourceExtensionCertRequest
+   * @returns DeleteCloudResourceExtensionCertResponse
+   */
+  async deleteCloudResourceExtensionCert(request: $_model.DeleteCloudResourceExtensionCertRequest): Promise<$_model.DeleteCloudResourceExtensionCertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloudResourceExtensionCertWithOptions(request, runtime);
   }
 
   /**
@@ -12587,6 +12703,64 @@ export default class Client extends OpenApi {
   async modifyCloudResourceCert(request: $_model.ModifyCloudResourceCertRequest): Promise<$_model.ModifyCloudResourceCertResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyCloudResourceCertWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改云产品接入的默认证书
+   * 
+   * @param request - ModifyCloudResourceDefaultCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCloudResourceDefaultCertResponse
+   */
+  async modifyCloudResourceDefaultCertWithOptions(request: $_model.ModifyCloudResourceDefaultCertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCloudResourceDefaultCertResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCloudResourceDefaultCert",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCloudResourceDefaultCertResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCloudResourceDefaultCertResponse({}));
+  }
+
+  /**
+   * 修改云产品接入的默认证书
+   * 
+   * @param request - ModifyCloudResourceDefaultCertRequest
+   * @returns ModifyCloudResourceDefaultCertResponse
+   */
+  async modifyCloudResourceDefaultCert(request: $_model.ModifyCloudResourceDefaultCertRequest): Promise<$_model.ModifyCloudResourceDefaultCertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCloudResourceDefaultCertWithOptions(request, runtime);
   }
 
   /**
