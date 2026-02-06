@@ -7284,6 +7284,10 @@ export default class Client extends OpenApi {
       query["AuthTimeout"] = request.authTimeout;
     }
 
+    if (!$dara.isNull(request.codecName)) {
+      query["CodecName"] = request.codecName;
+    }
+
     if (!$dara.isNull(request.definition)) {
       query["Definition"] = request.definition;
     }

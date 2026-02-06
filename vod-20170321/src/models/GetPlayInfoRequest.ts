@@ -36,6 +36,11 @@ export class GetPlayInfoRequest extends $dara.Model {
    */
   authTimeout?: number;
   /**
+   * @example
+   * H264
+   */
+  codecName?: string;
+  /**
    * @remarks
    * The quality of the video stream. Separate multiple qualities with commas (,). Valid values:
    * 
@@ -171,6 +176,7 @@ export class GetPlayInfoRequest extends $dara.Model {
     return {
       additionType: 'AdditionType',
       authTimeout: 'AuthTimeout',
+      codecName: 'CodecName',
       definition: 'Definition',
       digitalWatermarkType: 'DigitalWatermarkType',
       formats: 'Formats',
@@ -189,6 +195,7 @@ export class GetPlayInfoRequest extends $dara.Model {
     return {
       additionType: 'string',
       authTimeout: 'number',
+      codecName: 'string',
       definition: 'string',
       digitalWatermarkType: 'string',
       formats: 'string',

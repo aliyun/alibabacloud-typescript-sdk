@@ -60,6 +60,11 @@ export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
    */
   mediaId?: string;
   /**
+   * @example
+   * 93ab850b4f654b6e91d24d81d44****
+   */
+  registeredMediaId?: string;
+  /**
    * @remarks
    * The status of the URL-based upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
    * 
@@ -94,6 +99,7 @@ export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
       fileSize: 'FileSize',
       jobId: 'JobId',
       mediaId: 'MediaId',
+      registeredMediaId: 'RegisteredMediaId',
       status: 'Status',
       uploadURL: 'UploadURL',
       userData: 'UserData',
@@ -109,6 +115,7 @@ export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
       fileSize: 'string',
       jobId: 'string',
       mediaId: 'string',
+      registeredMediaId: 'string',
       status: 'string',
       uploadURL: 'string',
       userData: 'string',
