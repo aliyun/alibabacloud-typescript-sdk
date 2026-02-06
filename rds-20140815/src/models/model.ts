@@ -220,6 +220,7 @@ export { DescribeParameterGroupsResponseBodyParameterGroupsParameterGroup } from
 export { DescribeParameterGroupsResponseBodyParameterGroups } from './DescribeParameterGroupsResponseBody';
 export { DescribeParameterTemplatesResponseBodyParametersTemplateRecord } from './DescribeParameterTemplatesResponseBody';
 export { DescribeParameterTemplatesResponseBodyParameters } from './DescribeParameterTemplatesResponseBody';
+export { DescribeParameterTimedScheduleTaskResponseBodyTaskList } from './DescribeParameterTimedScheduleTaskResponseBody';
 export { DescribeParametersResponseBodyConfigParametersDBInstanceParameter } from './DescribeParametersResponseBody';
 export { DescribeParametersResponseBodyConfigParameters } from './DescribeParametersResponseBody';
 export { DescribeParametersResponseBodyParamGroupInfo } from './DescribeParametersResponseBody';
@@ -630,6 +631,9 @@ export { DeleteMaskingRulesResponse } from './DeleteMaskingRulesResponse';
 export { DeleteParameterGroupRequest } from './DeleteParameterGroupRequest';
 export { DeleteParameterGroupResponseBody } from './DeleteParameterGroupResponseBody';
 export { DeleteParameterGroupResponse } from './DeleteParameterGroupResponse';
+export { DeleteParameterTimedScheduleTaskRequest } from './DeleteParameterTimedScheduleTaskRequest';
+export { DeleteParameterTimedScheduleTaskResponseBody } from './DeleteParameterTimedScheduleTaskResponseBody';
+export { DeleteParameterTimedScheduleTaskResponse } from './DeleteParameterTimedScheduleTaskResponse';
 export { DeletePostgresExtensionsRequest } from './DeletePostgresExtensionsRequest';
 export { DeletePostgresExtensionsResponseBody } from './DeletePostgresExtensionsResponseBody';
 export { DeletePostgresExtensionsResponse } from './DeletePostgresExtensionsResponse';
@@ -965,6 +969,9 @@ export { DescribeParameterGroupsResponse } from './DescribeParameterGroupsRespon
 export { DescribeParameterTemplatesRequest } from './DescribeParameterTemplatesRequest';
 export { DescribeParameterTemplatesResponseBody } from './DescribeParameterTemplatesResponseBody';
 export { DescribeParameterTemplatesResponse } from './DescribeParameterTemplatesResponse';
+export { DescribeParameterTimedScheduleTaskRequest } from './DescribeParameterTimedScheduleTaskRequest';
+export { DescribeParameterTimedScheduleTaskResponseBody } from './DescribeParameterTimedScheduleTaskResponseBody';
+export { DescribeParameterTimedScheduleTaskResponse } from './DescribeParameterTimedScheduleTaskResponse';
 export { DescribeParametersRequest } from './DescribeParametersRequest';
 export { DescribeParametersResponseBody } from './DescribeParametersResponseBody';
 export { DescribeParametersResponse } from './DescribeParametersResponse';

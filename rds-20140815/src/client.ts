@@ -6795,6 +6795,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * RDS MySQL删除修改参数运行任务
+   * 
+   * @param request - DeleteParameterTimedScheduleTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteParameterTimedScheduleTaskResponse
+   */
+  async deleteParameterTimedScheduleTaskWithOptions(request: $_model.DeleteParameterTimedScheduleTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteParameterTimedScheduleTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteParameterTimedScheduleTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteParameterTimedScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteParameterTimedScheduleTaskResponse({}));
+  }
+
+  /**
+   * RDS MySQL删除修改参数运行任务
+   * 
+   * @param request - DeleteParameterTimedScheduleTaskRequest
+   * @returns DeleteParameterTimedScheduleTaskResponse
+   */
+  async deleteParameterTimedScheduleTask(request: $_model.DeleteParameterTimedScheduleTaskRequest): Promise<$_model.DeleteParameterTimedScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteParameterTimedScheduleTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an extension from a database.
    * 
    * @remarks
@@ -15629,6 +15675,44 @@ export default class Client extends OpenApi {
   async describeParameterTemplates(request: $_model.DescribeParameterTemplatesRequest): Promise<$_model.DescribeParameterTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeParameterTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * RDS MySQL查询修改参数运行时间列表
+   * 
+   * @param request - DescribeParameterTimedScheduleTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParameterTimedScheduleTaskResponse
+   */
+  async describeParameterTimedScheduleTaskWithOptions(request: $_model.DescribeParameterTimedScheduleTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeParameterTimedScheduleTaskResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeParameterTimedScheduleTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeParameterTimedScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribeParameterTimedScheduleTaskResponse({}));
+  }
+
+  /**
+   * RDS MySQL查询修改参数运行时间列表
+   * 
+   * @param request - DescribeParameterTimedScheduleTaskRequest
+   * @returns DescribeParameterTimedScheduleTaskResponse
+   */
+  async describeParameterTimedScheduleTask(request: $_model.DescribeParameterTimedScheduleTaskRequest): Promise<$_model.DescribeParameterTimedScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeParameterTimedScheduleTaskWithOptions(request, runtime);
   }
 
   /**
