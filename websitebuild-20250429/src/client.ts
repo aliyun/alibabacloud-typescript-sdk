@@ -278,6 +278,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建素材中心文件夹
+   * 
+   * @param request - CreateMaterialDirectoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMaterialDirectoryResponse
+   */
+  async createMaterialDirectoryWithOptions(request: $_model.CreateMaterialDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMaterialDirectoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parentDirectoryId)) {
+      query["ParentDirectoryId"] = request.parentDirectoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMaterialDirectory",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMaterialDirectoryResponse>(await this.callApi(params, req, runtime), new $_model.CreateMaterialDirectoryResponse({}));
+  }
+
+  /**
+   * 创建素材中心文件夹
+   * 
+   * @param request - CreateMaterialDirectoryRequest
+   * @returns CreateMaterialDirectoryResponse
+   */
+  async createMaterialDirectory(request: $_model.CreateMaterialDirectoryRequest): Promise<$_model.CreateMaterialDirectoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMaterialDirectoryWithOptions(request, runtime);
+  }
+
+  /**
    * Delete the SSL certificate of a domain
    * 
    * @param request - DeleteAppDomainCertificateRequest
@@ -367,6 +417,100 @@ export default class Client extends OpenApi {
   async deleteAppDomainRedirect(request: $_model.DeleteAppDomainRedirectRequest): Promise<$_model.DeleteAppDomainRedirectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppDomainRedirectWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除素材中心文件夹
+   * 
+   * @param request - DeleteMaterialDirectoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMaterialDirectoryResponse
+   */
+  async deleteMaterialDirectoryWithOptions(request: $_model.DeleteMaterialDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMaterialDirectoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMaterialDirectory",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMaterialDirectoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMaterialDirectoryResponse({}));
+  }
+
+  /**
+   * 删除素材中心文件夹
+   * 
+   * @param request - DeleteMaterialDirectoryRequest
+   * @returns DeleteMaterialDirectoryResponse
+   */
+  async deleteMaterialDirectory(request: $_model.DeleteMaterialDirectoryRequest): Promise<$_model.DeleteMaterialDirectoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMaterialDirectoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除素材生产任务
+   * 
+   * @param tmpReq - DeleteMaterialTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMaterialTaskResponse
+   */
+  async deleteMaterialTaskWithOptions(tmpReq: $_model.DeleteMaterialTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMaterialTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteMaterialTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "TaskIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.taskIdsShrink)) {
+      query["TaskIds"] = request.taskIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMaterialTask",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMaterialTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMaterialTaskResponse({}));
+  }
+
+  /**
+   * 删除素材生产任务
+   * 
+   * @param request - DeleteMaterialTaskRequest
+   * @returns DeleteMaterialTaskResponse
+   */
+  async deleteMaterialTask(request: $_model.DeleteMaterialTaskRequest): Promise<$_model.DeleteMaterialTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMaterialTaskWithOptions(request, runtime);
   }
 
   /**
@@ -475,6 +619,58 @@ export default class Client extends OpenApi {
   async dispatchConsoleAPIForPartner(request: $_model.DispatchConsoleAPIForPartnerRequest): Promise<$_model.DispatchConsoleAPIForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.dispatchConsoleAPIForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * 导出素材文件
+   * 
+   * @param tmpReq - ExportMaterialFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportMaterialFileResponse
+   */
+  async exportMaterialFileWithOptions(tmpReq: $_model.ExportMaterialFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportMaterialFileResponse> {
+    tmpReq.validate();
+    let request = new $_model.ExportMaterialFileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileIds)) {
+      request.fileIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileIds, "FileIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.fileIdsShrink)) {
+      query["FileIds"] = request.fileIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportMaterialFile",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportMaterialFileResponse>(await this.callApi(params, req, runtime), new $_model.ExportMaterialFileResponse({}));
+  }
+
+  /**
+   * 导出素材文件
+   * 
+   * @param request - ExportMaterialFileRequest
+   * @returns ExportMaterialFileResponse
+   */
+  async exportMaterialFile(request: $_model.ExportMaterialFileRequest): Promise<$_model.ExportMaterialFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportMaterialFileWithOptions(request, runtime);
   }
 
   /**
@@ -1082,6 +1278,272 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改素材中心文件夹
+   * 
+   * @param request - ModifyMaterialDirectoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMaterialDirectoryResponse
+   */
+  async modifyMaterialDirectoryWithOptions(request: $_model.ModifyMaterialDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMaterialDirectoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMaterialDirectory",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMaterialDirectoryResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMaterialDirectoryResponse({}));
+  }
+
+  /**
+   * 修改素材中心文件夹
+   * 
+   * @param request - ModifyMaterialDirectoryRequest
+   * @returns ModifyMaterialDirectoryResponse
+   */
+  async modifyMaterialDirectory(request: $_model.ModifyMaterialDirectoryRequest): Promise<$_model.ModifyMaterialDirectoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyMaterialDirectoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改素材文件
+   * 
+   * @param request - ModifyMaterialFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMaterialFileResponse
+   */
+  async modifyMaterialFileWithOptions(request: $_model.ModifyMaterialFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMaterialFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMaterialFile",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMaterialFileResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMaterialFileResponse({}));
+  }
+
+  /**
+   * 修改素材文件
+   * 
+   * @param request - ModifyMaterialFileRequest
+   * @returns ModifyMaterialFileResponse
+   */
+  async modifyMaterialFile(request: $_model.ModifyMaterialFileRequest): Promise<$_model.ModifyMaterialFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyMaterialFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改素材文件状态
+   * 
+   * @param tmpReq - ModifyMaterialFileStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMaterialFileStatusResponse
+   */
+  async modifyMaterialFileStatusWithOptions(tmpReq: $_model.ModifyMaterialFileStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMaterialFileStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyMaterialFileStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileIds)) {
+      request.fileIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileIds, "FileIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.fileIdsShrink)) {
+      query["FileIds"] = request.fileIdsShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMaterialFileStatus",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMaterialFileStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMaterialFileStatusResponse({}));
+  }
+
+  /**
+   * 修改素材文件状态
+   * 
+   * @param request - ModifyMaterialFileStatusRequest
+   * @returns ModifyMaterialFileStatusResponse
+   */
+  async modifyMaterialFileStatus(request: $_model.ModifyMaterialFileStatusRequest): Promise<$_model.ModifyMaterialFileStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyMaterialFileStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 移动素材中心文件夹
+   * 
+   * @param request - MoveMaterialDirectoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveMaterialDirectoryResponse
+   */
+  async moveMaterialDirectoryWithOptions(request: $_model.MoveMaterialDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveMaterialDirectoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.parentDirectoryId)) {
+      query["ParentDirectoryId"] = request.parentDirectoryId;
+    }
+
+    if (!$dara.isNull(request.sortNum)) {
+      query["SortNum"] = request.sortNum;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MoveMaterialDirectory",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MoveMaterialDirectoryResponse>(await this.callApi(params, req, runtime), new $_model.MoveMaterialDirectoryResponse({}));
+  }
+
+  /**
+   * 移动素材中心文件夹
+   * 
+   * @param request - MoveMaterialDirectoryRequest
+   * @returns MoveMaterialDirectoryResponse
+   */
+  async moveMaterialDirectory(request: $_model.MoveMaterialDirectoryRequest): Promise<$_model.MoveMaterialDirectoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.moveMaterialDirectoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 移动素材文件
+   * 
+   * @param tmpReq - MoveMaterialFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveMaterialFileResponse
+   */
+  async moveMaterialFileWithOptions(tmpReq: $_model.MoveMaterialFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveMaterialFileResponse> {
+    tmpReq.validate();
+    let request = new $_model.MoveMaterialFileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileIds)) {
+      request.fileIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileIds, "FileIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.fileIdsShrink)) {
+      query["FileIds"] = request.fileIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MoveMaterialFile",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MoveMaterialFileResponse>(await this.callApi(params, req, runtime), new $_model.MoveMaterialFileResponse({}));
+  }
+
+  /**
+   * 移动素材文件
+   * 
+   * @param request - MoveMaterialFileRequest
+   * @returns MoveMaterialFileResponse
+   */
+  async moveMaterialFile(request: $_model.MoveMaterialFileRequest): Promise<$_model.MoveMaterialFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.moveMaterialFileWithOptions(request, runtime);
+  }
+
+  /**
    * 合作伙伴操作应用
    * 
    * @param request - OperateAppInstanceForPartnerRequest
@@ -1179,6 +1641,416 @@ export default class Client extends OpenApi {
   async operateAppServiceForPartner(request: $_model.OperateAppServiceForPartnerRequest): Promise<$_model.OperateAppServiceForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateAppServiceForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询素材中心文件夹树结构
+   * 
+   * @param request - QueryMaterialDirectoryTreeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMaterialDirectoryTreeResponse
+   */
+  async queryMaterialDirectoryTreeWithOptions(request: $_model.QueryMaterialDirectoryTreeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMaterialDirectoryTreeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.hiddenPublic)) {
+      query["HiddenPublic"] = request.hiddenPublic;
+    }
+
+    if (!$dara.isNull(request.root)) {
+      query["Root"] = request.root;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMaterialDirectoryTree",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMaterialDirectoryTreeResponse>(await this.callApi(params, req, runtime), new $_model.QueryMaterialDirectoryTreeResponse({}));
+  }
+
+  /**
+   * 查询素材中心文件夹树结构
+   * 
+   * @param request - QueryMaterialDirectoryTreeRequest
+   * @returns QueryMaterialDirectoryTreeResponse
+   */
+  async queryMaterialDirectoryTree(request: $_model.QueryMaterialDirectoryTreeRequest): Promise<$_model.QueryMaterialDirectoryTreeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMaterialDirectoryTreeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询素材文件详情
+   * 
+   * @param request - QueryMaterialFileDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMaterialFileDetailResponse
+   */
+  async queryMaterialFileDetailWithOptions(request: $_model.QueryMaterialFileDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMaterialFileDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMaterialFileDetail",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMaterialFileDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryMaterialFileDetailResponse({}));
+  }
+
+  /**
+   * 查询素材文件详情
+   * 
+   * @param request - QueryMaterialFileDetailRequest
+   * @returns QueryMaterialFileDetailResponse
+   */
+  async queryMaterialFileDetail(request: $_model.QueryMaterialFileDetailRequest): Promise<$_model.QueryMaterialFileDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMaterialFileDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询素材文件列表
+   * 
+   * @param tmpReq - QueryMaterialFileListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMaterialFileListResponse
+   */
+  async queryMaterialFileListWithOptions(tmpReq: $_model.QueryMaterialFileListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMaterialFileListResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryMaterialFileListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.suffixList)) {
+      request.suffixListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.suffixList, "SuffixList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.typeList)) {
+      request.typeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.typeList, "TypeList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.maxFileSize)) {
+      query["MaxFileSize"] = request.maxFileSize;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.minFileSize)) {
+      query["MinFileSize"] = request.minFileSize;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.statusListShrink)) {
+      query["StatusList"] = request.statusListShrink;
+    }
+
+    if (!$dara.isNull(request.suffixListShrink)) {
+      query["SuffixList"] = request.suffixListShrink;
+    }
+
+    if (!$dara.isNull(request.typeListShrink)) {
+      query["TypeList"] = request.typeListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMaterialFileList",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMaterialFileListResponse>(await this.callApi(params, req, runtime), new $_model.QueryMaterialFileListResponse({}));
+  }
+
+  /**
+   * 查询素材文件列表
+   * 
+   * @param request - QueryMaterialFileListRequest
+   * @returns QueryMaterialFileListResponse
+   */
+  async queryMaterialFileList(request: $_model.QueryMaterialFileListRequest): Promise<$_model.QueryMaterialFileListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMaterialFileListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询素材中心文件概要信息
+   * 
+   * @param tmpReq - QueryMaterialFileSummaryInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMaterialFileSummaryInfoResponse
+   */
+  async queryMaterialFileSummaryInfoWithOptions(tmpReq: $_model.QueryMaterialFileSummaryInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMaterialFileSummaryInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryMaterialFileSummaryInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.typeList)) {
+      request.typeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.typeList, "TypeList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.statusListShrink)) {
+      query["StatusList"] = request.statusListShrink;
+    }
+
+    if (!$dara.isNull(request.typeListShrink)) {
+      query["TypeList"] = request.typeListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMaterialFileSummaryInfo",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMaterialFileSummaryInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryMaterialFileSummaryInfoResponse({}));
+  }
+
+  /**
+   * 查询素材中心文件概要信息
+   * 
+   * @param request - QueryMaterialFileSummaryInfoRequest
+   * @returns QueryMaterialFileSummaryInfoResponse
+   */
+  async queryMaterialFileSummaryInfo(request: $_model.QueryMaterialFileSummaryInfoRequest): Promise<$_model.QueryMaterialFileSummaryInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMaterialFileSummaryInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询素材生产任务详情
+   * 
+   * @param request - QueryMaterialTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMaterialTaskDetailResponse
+   */
+  async queryMaterialTaskDetailWithOptions(request: $_model.QueryMaterialTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMaterialTaskDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMaterialTaskDetail",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMaterialTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryMaterialTaskDetailResponse({}));
+  }
+
+  /**
+   * 查询素材生产任务详情
+   * 
+   * @param request - QueryMaterialTaskDetailRequest
+   * @returns QueryMaterialTaskDetailResponse
+   */
+  async queryMaterialTaskDetail(request: $_model.QueryMaterialTaskDetailRequest): Promise<$_model.QueryMaterialTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMaterialTaskDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询素材生产任务列表
+   * 
+   * @param tmpReq - QueryMaterialTaskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMaterialTaskListResponse
+   */
+  async queryMaterialTaskListWithOptions(tmpReq: $_model.QueryMaterialTaskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMaterialTaskListResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryMaterialTaskListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.taskTypeList)) {
+      request.taskTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskTypeList, "TaskTypeList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.statusListShrink)) {
+      query["StatusList"] = request.statusListShrink;
+    }
+
+    if (!$dara.isNull(request.taskTypeListShrink)) {
+      query["TaskTypeList"] = request.taskTypeListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMaterialTaskList",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMaterialTaskListResponse>(await this.callApi(params, req, runtime), new $_model.QueryMaterialTaskListResponse({}));
+  }
+
+  /**
+   * 查询素材生产任务列表
+   * 
+   * @param request - QueryMaterialTaskListRequest
+   * @returns QueryMaterialTaskListResponse
+   */
+  async queryMaterialTaskList(request: $_model.QueryMaterialTaskListRequest): Promise<$_model.QueryMaterialTaskListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMaterialTaskListWithOptions(request, runtime);
   }
 
   /**
@@ -1514,6 +2386,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交素材生产任务
+   * 
+   * @param request - SubmitMaterialTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMaterialTaskResponse
+   */
+  async submitMaterialTaskWithOptions(request: $_model.SubmitMaterialTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitMaterialTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskParam)) {
+      query["TaskParam"] = request.taskParam;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitMaterialTask",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitMaterialTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitMaterialTaskResponse({}));
+  }
+
+  /**
+   * 提交素材生产任务
+   * 
+   * @param request - SubmitMaterialTaskRequest
+   * @returns SubmitMaterialTaskResponse
+   */
+  async submitMaterialTask(request: $_model.SubmitMaterialTaskRequest): Promise<$_model.SubmitMaterialTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitMaterialTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 合作伙伴同步应用实例
    * 
    * @param tmpReq - SyncAppInstanceForPartnerRequest
@@ -1621,6 +2539,60 @@ export default class Client extends OpenApi {
   async unbindAppDomain(request: $_model.UnbindAppDomainRequest): Promise<$_model.UnbindAppDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindAppDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传素材文件
+   * 
+   * @param request - UploadMaterialFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadMaterialFileResponse
+   */
+  async uploadMaterialFileWithOptions(request: $_model.UploadMaterialFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadMaterialFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadMaterialFile",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadMaterialFileResponse>(await this.callApi(params, req, runtime), new $_model.UploadMaterialFileResponse({}));
+  }
+
+  /**
+   * 上传素材文件
+   * 
+   * @param request - UploadMaterialFileRequest
+   * @returns UploadMaterialFileResponse
+   */
+  async uploadMaterialFile(request: $_model.UploadMaterialFileRequest): Promise<$_model.UploadMaterialFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadMaterialFileWithOptions(request, runtime);
   }
 
 }
