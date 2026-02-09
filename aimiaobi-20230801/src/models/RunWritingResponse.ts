@@ -6,11 +6,15 @@ import { RunWritingResponseBody } from "./RunWritingResponseBody";
 export class RunWritingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  id?: string;
+  event?: string;
   body?: RunWritingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      id: 'id',
+      event: 'event',
       body: 'body',
     };
   }
@@ -19,6 +23,8 @@ export class RunWritingResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      id: 'string',
+      event: 'string',
       body: RunWritingResponseBody,
     };
   }

@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAutoClipsTaskInfoRequest extends $dara.Model {
+  showAnalysisResults?: boolean;
+  showResourceInfo?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -18,6 +20,8 @@ export class GetAutoClipsTaskInfoRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      showAnalysisResults: 'ShowAnalysisResults',
+      showResourceInfo: 'ShowResourceInfo',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
     };
@@ -25,6 +29,8 @@ export class GetAutoClipsTaskInfoRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      showAnalysisResults: 'boolean',
+      showResourceInfo: 'boolean',
       taskId: 'string',
       workspaceId: 'string',
     };

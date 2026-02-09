@@ -6,11 +6,15 @@ import { RunWriteToneGenerationResponseBody } from "./RunWriteToneGenerationResp
 export class RunWriteToneGenerationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  id?: string;
+  event?: string;
   body?: RunWriteToneGenerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      id: 'id',
+      event: 'event',
       body: 'body',
     };
   }
@@ -19,6 +23,8 @@ export class RunWriteToneGenerationResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      id: 'string',
+      event: 'string',
       body: RunWriteToneGenerationResponseBody,
     };
   }

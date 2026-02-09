@@ -1,20 +1,16 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunSearchGenerationResponseBody } from "./RunSearchGenerationResponseBody";
+import { ListAutoClipsTaskResponseBody } from "./ListAutoClipsTaskResponseBody";
 
 
-export class RunSearchGenerationResponse extends $dara.Model {
+export class ListAutoClipsTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  id?: string;
-  event?: string;
-  body?: RunSearchGenerationResponseBody;
+  body?: ListAutoClipsTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
-      id: 'id',
-      event: 'event',
       body: 'body',
     };
   }
@@ -23,9 +19,7 @@ export class RunSearchGenerationResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      id: 'string',
-      event: 'string',
-      body: RunSearchGenerationResponseBody,
+      body: ListAutoClipsTaskResponseBody,
     };
   }
 

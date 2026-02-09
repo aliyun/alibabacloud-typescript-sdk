@@ -6,6 +6,10 @@ import { OutlineWritingArticle } from "./OutlineWritingArticle";
 export class OutlineSearchResult extends $dara.Model {
   articles?: OutlineWritingArticle[];
   outline?: string;
+  /**
+   * @example
+   * xxxxxx
+   */
   outlineId?: string;
   primaryOutline?: string;
   query?: string;

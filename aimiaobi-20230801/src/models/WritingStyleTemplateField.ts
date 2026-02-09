@@ -36,10 +36,18 @@ export class WritingStyleTemplateFieldEnums extends $dara.Model {
 
 export class WritingStyleTemplateFieldStyle extends $dara.Model {
   description?: string;
+  /**
+   * @example
+   * yyyy-mm-dd
+   */
   format?: string;
   placeholder?: string;
   showTime?: boolean;
   suffix?: string;
+  /**
+   * @example
+   * media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,19 +81,59 @@ export class WritingStyleTemplateFieldStyle extends $dara.Model {
 }
 
 export class WritingStyleTemplateField extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   buildIn?: boolean;
   cascadingFields?: WritingStyleTemplateField[];
   enums?: WritingStyleTemplateFieldEnums[];
   initialValue?: string;
+  /**
+   * @example
+   * topic
+   */
   key?: string;
+  /**
+   * @example
+   * 2000
+   */
   max?: number;
+  /**
+   * @example
+   * 10
+   */
   maxItem?: number;
+  /**
+   * @example
+   * 4000
+   */
   maxItemLength?: number;
+  /**
+   * @example
+   * 2000
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 1
+   */
   min?: number;
+  /**
+   * @example
+   * 1000
+   */
   minItemLength?: number;
+  /**
+   * @example
+   * 20
+   */
   minLength?: number;
   name?: string;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
   style?: WritingStyleTemplateFieldStyle;
   static names(): { [key: string]: string } {

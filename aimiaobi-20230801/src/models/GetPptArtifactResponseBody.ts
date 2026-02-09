@@ -2,42 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AsyncUploadVideoResponseBodyDataVideoInfos extends $dara.Model {
+export class GetPptArtifactResponseBodyDataFileAttr extends $dara.Model {
   /**
    * @example
-   * 视频中有一个房子
+   * xxx.pptx
    */
-  videoExtraInfo?: string;
+  fileName?: string;
   /**
    * @example
-   * 60616fad41b171f0bb4b4531948c0102
+   * 600
    */
-  videoId?: string;
+  height?: number;
   /**
    * @example
-   * 123.mp4
+   * http://www.example.com/xxx.pptx
    */
-  videoName?: string;
+  tmpUrl?: string;
   /**
    * @example
-   * http://123.mp4
+   * 800
    */
-  videoUrl?: string;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
-      videoExtraInfo: 'VideoExtraInfo',
-      videoId: 'VideoId',
-      videoName: 'VideoName',
-      videoUrl: 'VideoUrl',
+      fileName: 'FileName',
+      height: 'Height',
+      tmpUrl: 'TmpUrl',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoExtraInfo: 'string',
-      videoId: 'string',
-      videoName: 'string',
-      videoUrl: 'string',
+      fileName: 'string',
+      height: 'number',
+      tmpUrl: 'string',
+      width: 'number',
     };
   }
 
@@ -50,30 +50,54 @@ export class AsyncUploadVideoResponseBodyDataVideoInfos extends $dara.Model {
   }
 }
 
-export class AsyncUploadVideoResponseBodyData extends $dara.Model {
+export class GetPptArtifactResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 3f7045e099474ba28ceca1b4eb6d6e21
+   * 2024-11-25 11:40:50
    */
-  taskId?: string;
-  videoInfos?: AsyncUploadVideoResponseBodyDataVideoInfos[];
+  createTime?: string;
+  fileAttr?: GetPptArtifactResponseBodyDataFileAttr;
+  /**
+   * @example
+   * oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
+   */
+  fileKey?: string;
+  /**
+   * @example
+   * 10
+   */
+  id?: number;
+  title?: string;
+  /**
+   * @example
+   * 2024-11-25 11:40:50
+   */
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      videoInfos: 'VideoInfos',
+      createTime: 'CreateTime',
+      fileAttr: 'FileAttr',
+      fileKey: 'FileKey',
+      id: 'Id',
+      title: 'Title',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      videoInfos: { 'type': 'array', 'itemType': AsyncUploadVideoResponseBodyDataVideoInfos },
+      createTime: 'string',
+      fileAttr: GetPptArtifactResponseBodyDataFileAttr,
+      fileKey: 'string',
+      id: 'number',
+      title: 'string',
+      updateTime: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.videoInfos)) {
-      $dara.Model.validateArray(this.videoInfos);
+    if(this.fileAttr && typeof (this.fileAttr as any).validate === 'function') {
+      (this.fileAttr as any).validate();
     }
     super.validate();
   }
@@ -83,21 +107,21 @@ export class AsyncUploadVideoResponseBodyData extends $dara.Model {
   }
 }
 
-export class AsyncUploadVideoResponseBody extends $dara.Model {
+export class GetPptArtifactResponseBody extends $dara.Model {
   /**
    * @example
-   * successful
+   * DataNotExists
    */
   code?: string;
-  data?: AsyncUploadVideoResponseBodyData;
+  data?: GetPptArtifactResponseBodyData;
   /**
    * @example
-   * 200
+   * 400
    */
   httpStatusCode?: number;
   /**
    * @example
-   * success
+   * 错误消息
    */
   message?: string;
   /**
@@ -105,7 +129,7 @@ export class AsyncUploadVideoResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 94512A33-8EC1-5452-A793-5C91F18ED2F0
+   * xxxxx
    */
   requestId?: string;
   /**
@@ -127,7 +151,7 @@ export class AsyncUploadVideoResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: AsyncUploadVideoResponseBodyData,
+      data: GetPptArtifactResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',

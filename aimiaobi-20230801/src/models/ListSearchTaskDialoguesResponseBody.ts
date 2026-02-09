@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources extends $dara.Model {
   /**
    * @example
-   * x\"x
+   * x\\"x
    */
   code?: string;
   /**

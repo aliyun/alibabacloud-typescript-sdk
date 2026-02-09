@@ -6,7 +6,11 @@ export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
   closeMusic?: boolean;
   closeSubtitle?: boolean;
   closeVoice?: boolean;
+  closingCreditsUrl?: string;
   colorWordsShrink?: string;
+  cosyVoiceAppKey?: string;
+  cosyVoiceToken?: string;
+  customVoiceStyle?: string;
   /**
    * @example
    * http://xxx/xxx.mp4
@@ -22,12 +26,15 @@ export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
    * 1920
    */
   height?: number;
+  highDefSourceVideosShrink?: string;
+  musicStyle?: string;
   /**
    * @example
    * http://music.mp4
    */
   musicUrl?: string;
   musicVolume?: number;
+  openingCreditsUrl?: string;
   stickersShrink?: string;
   subtitleFontSize?: number;
   /**
@@ -58,12 +65,19 @@ export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
       closeMusic: 'CloseMusic',
       closeSubtitle: 'CloseSubtitle',
       closeVoice: 'CloseVoice',
+      closingCreditsUrl: 'ClosingCreditsUrl',
       colorWordsShrink: 'ColorWords',
+      cosyVoiceAppKey: 'CosyVoiceAppKey',
+      cosyVoiceToken: 'CosyVoiceToken',
+      customVoiceStyle: 'CustomVoiceStyle',
       customVoiceUrl: 'CustomVoiceUrl',
       customVoiceVolume: 'CustomVoiceVolume',
       height: 'Height',
+      highDefSourceVideosShrink: 'HighDefSourceVideos',
+      musicStyle: 'MusicStyle',
       musicUrl: 'MusicUrl',
       musicVolume: 'MusicVolume',
+      openingCreditsUrl: 'OpeningCreditsUrl',
       stickersShrink: 'Stickers',
       subtitleFontSize: 'SubtitleFontSize',
       taskId: 'TaskId',
@@ -79,12 +93,19 @@ export class AsyncCreateClipsTaskShrinkRequest extends $dara.Model {
       closeMusic: 'boolean',
       closeSubtitle: 'boolean',
       closeVoice: 'boolean',
+      closingCreditsUrl: 'string',
       colorWordsShrink: 'string',
+      cosyVoiceAppKey: 'string',
+      cosyVoiceToken: 'string',
+      customVoiceStyle: 'string',
       customVoiceUrl: 'string',
       customVoiceVolume: 'number',
       height: 'number',
+      highDefSourceVideosShrink: 'string',
+      musicStyle: 'string',
       musicUrl: 'string',
       musicVolume: 'number',
+      openingCreditsUrl: 'string',
       stickersShrink: 'string',
       subtitleFontSize: 'number',
       taskId: 'string',

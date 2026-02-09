@@ -7,6 +7,10 @@ export class WritingOutline extends $dara.Model {
   articles?: OutlineWritingArticle[];
   children?: WritingOutline[];
   outline?: string;
+  /**
+   * @example
+   * xxx
+   */
   outlineId?: string;
   searchKeyWordList?: string[];
   wordCount?: string;

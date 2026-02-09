@@ -2,6 +2,140 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfosEndTime extends $dara.Model {
+  hour?: number;
+  millSecond?: number;
+  minute?: number;
+  second?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hour: 'Hour',
+      millSecond: 'MillSecond',
+      minute: 'Minute',
+      second: 'Second',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hour: 'number',
+      millSecond: 'number',
+      minute: 'number',
+      second: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfosStartTime extends $dara.Model {
+  hour?: number;
+  millSecond?: number;
+  minute?: number;
+  second?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hour: 'Hour',
+      millSecond: 'MillSecond',
+      minute: 'Minute',
+      second: 'Second',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hour: 'number',
+      millSecond: 'number',
+      minute: 'number',
+      second: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfos extends $dara.Model {
+  analysisContent?: string;
+  endTime?: GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfosEndTime;
+  startTime?: GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfosStartTime;
+  static names(): { [key: string]: string } {
+    return {
+      analysisContent: 'AnalysisContent',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisContent: 'string',
+      endTime: GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfosEndTime,
+      startTime: GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfosStartTime,
+    };
+  }
+
+  validate() {
+    if(this.endTime && typeof (this.endTime as any).validate === 'function') {
+      (this.endTime as any).validate();
+    }
+    if(this.startTime && typeof (this.startTime as any).validate === 'function') {
+      (this.startTime as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoClipsTaskInfoResponseBodyDataAnalysisResults extends $dara.Model {
+  lensInfos?: GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfos[];
+  mediaId?: string;
+  mediaName?: string;
+  mediaUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lensInfos: 'LensInfos',
+      mediaId: 'MediaId',
+      mediaName: 'MediaName',
+      mediaUrl: 'MediaUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lensInfos: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataAnalysisResultsLensInfos },
+      mediaId: 'string',
+      mediaName: 'string',
+      mediaUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lensInfos)) {
+      $dara.Model.validateArray(this.lensInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAutoClipsTaskInfoResponseBodyDataColorWords extends $dara.Model {
   content?: string;
   /**
@@ -55,6 +189,64 @@ export class GetAutoClipsTaskInfoResponseBodyDataColorWords extends $dara.Model 
       timelineOut: 'number',
       x: 'number',
       y: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoClipsTaskInfoResponseBodyDataReferenceVideo extends $dara.Model {
+  videoId?: string;
+  videoName?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoId: 'VideoId',
+      videoName: 'VideoName',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoId: 'string',
+      videoName: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoClipsTaskInfoResponseBodyDataSourceVideos extends $dara.Model {
+  videoId?: string;
+  videoName?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoId: 'VideoId',
+      videoName: 'VideoName',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoId: 'string',
+      videoName: 'string',
+      videoUrl: 'string',
     };
   }
 
@@ -244,11 +436,14 @@ export class GetAutoClipsTaskInfoResponseBodyDataTimelines extends $dara.Model {
 }
 
 export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
+  analysisResults?: GetAutoClipsTaskInfoResponseBodyDataAnalysisResults[];
   closeMusic?: boolean;
   closeSubtitle?: boolean;
   closeVoice?: boolean;
+  closingCreditsUrl?: string;
   colorWords?: GetAutoClipsTaskInfoResponseBodyDataColorWords[];
   content?: string;
+  customVoiceStyle?: string;
   /**
    * @example
    * http://xxx/xxx.mp4
@@ -272,11 +467,15 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
    * 5
    */
   musicVolume?: number;
+  openingCreditsUrl?: string;
+  outputVideoFileKey?: string;
   /**
    * @example
    * http://output.mp4
    */
   outputVideoUrl?: string;
+  referenceVideo?: GetAutoClipsTaskInfoResponseBodyDataReferenceVideo;
+  sourceVideos?: GetAutoClipsTaskInfoResponseBodyDataSourceVideos[];
   status?: number;
   /**
    * @example
@@ -303,11 +502,14 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
   voiceVolume?: number;
   static names(): { [key: string]: string } {
     return {
+      analysisResults: 'AnalysisResults',
       closeMusic: 'CloseMusic',
       closeSubtitle: 'CloseSubtitle',
       closeVoice: 'CloseVoice',
+      closingCreditsUrl: 'ClosingCreditsUrl',
       colorWords: 'ColorWords',
       content: 'Content',
+      customVoiceStyle: 'CustomVoiceStyle',
       customVoiceUrl: 'CustomVoiceUrl',
       customVoiceVolume: 'CustomVoiceVolume',
       errorMessage: 'ErrorMessage',
@@ -315,7 +517,11 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
       musicStyle: 'MusicStyle',
       musicUrl: 'MusicUrl',
       musicVolume: 'MusicVolume',
+      openingCreditsUrl: 'OpeningCreditsUrl',
+      outputVideoFileKey: 'OutputVideoFileKey',
       outputVideoUrl: 'OutputVideoUrl',
+      referenceVideo: 'ReferenceVideo',
+      sourceVideos: 'SourceVideos',
       status: 'Status',
       step: 'Step',
       stickers: 'Stickers',
@@ -329,11 +535,14 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      analysisResults: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataAnalysisResults },
       closeMusic: 'boolean',
       closeSubtitle: 'boolean',
       closeVoice: 'boolean',
+      closingCreditsUrl: 'string',
       colorWords: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataColorWords },
       content: 'string',
+      customVoiceStyle: 'string',
       customVoiceUrl: 'string',
       customVoiceVolume: 'number',
       errorMessage: 'string',
@@ -341,7 +550,11 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
       musicStyle: 'string',
       musicUrl: 'string',
       musicVolume: 'number',
+      openingCreditsUrl: 'string',
+      outputVideoFileKey: 'string',
       outputVideoUrl: 'string',
+      referenceVideo: GetAutoClipsTaskInfoResponseBodyDataReferenceVideo,
+      sourceVideos: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataSourceVideos },
       status: 'number',
       step: 'string',
       stickers: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataStickers },
@@ -354,8 +567,17 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.analysisResults)) {
+      $dara.Model.validateArray(this.analysisResults);
+    }
     if(Array.isArray(this.colorWords)) {
       $dara.Model.validateArray(this.colorWords);
+    }
+    if(this.referenceVideo && typeof (this.referenceVideo as any).validate === 'function') {
+      (this.referenceVideo as any).validate();
+    }
+    if(Array.isArray(this.sourceVideos)) {
+      $dara.Model.validateArray(this.sourceVideos);
     }
     if(Array.isArray(this.stickers)) {
       $dara.Model.validateArray(this.stickers);

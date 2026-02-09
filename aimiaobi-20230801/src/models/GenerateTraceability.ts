@@ -5,11 +5,26 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class GenerateTraceabilityNews extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
   index?: number;
+  /**
+   * @example
+   * 2024-01-22 10:29:00
+   */
   pubTime?: string;
   searchSource?: string;
   searchSourceName?: string;
   title?: string;
+  /**
+   * @remarks
+   * URL
+   * 
+   * @example
+   * http://www.example.com/xxx.html
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {

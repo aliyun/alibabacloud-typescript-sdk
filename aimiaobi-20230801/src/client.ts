@@ -172,6 +172,10 @@ export default class Client extends OpenApi {
       request.colorWordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.colorWords, "ColorWords", "json");
     }
 
+    if (!$dara.isNull(tmpReq.highDefSourceVideos)) {
+      request.highDefSourceVideosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.highDefSourceVideos, "HighDefSourceVideos", "json");
+    }
+
     if (!$dara.isNull(tmpReq.stickers)) {
       request.stickersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stickers, "Stickers", "json");
     }
@@ -189,8 +193,24 @@ export default class Client extends OpenApi {
       body["CloseVoice"] = request.closeVoice;
     }
 
+    if (!$dara.isNull(request.closingCreditsUrl)) {
+      body["ClosingCreditsUrl"] = request.closingCreditsUrl;
+    }
+
     if (!$dara.isNull(request.colorWordsShrink)) {
       body["ColorWords"] = request.colorWordsShrink;
+    }
+
+    if (!$dara.isNull(request.cosyVoiceAppKey)) {
+      body["CosyVoiceAppKey"] = request.cosyVoiceAppKey;
+    }
+
+    if (!$dara.isNull(request.cosyVoiceToken)) {
+      body["CosyVoiceToken"] = request.cosyVoiceToken;
+    }
+
+    if (!$dara.isNull(request.customVoiceStyle)) {
+      body["CustomVoiceStyle"] = request.customVoiceStyle;
     }
 
     if (!$dara.isNull(request.customVoiceUrl)) {
@@ -205,12 +225,24 @@ export default class Client extends OpenApi {
       body["Height"] = request.height;
     }
 
+    if (!$dara.isNull(request.highDefSourceVideosShrink)) {
+      body["HighDefSourceVideos"] = request.highDefSourceVideosShrink;
+    }
+
+    if (!$dara.isNull(request.musicStyle)) {
+      body["MusicStyle"] = request.musicStyle;
+    }
+
     if (!$dara.isNull(request.musicUrl)) {
       body["MusicUrl"] = request.musicUrl;
     }
 
     if (!$dara.isNull(request.musicVolume)) {
       body["MusicVolume"] = request.musicVolume;
+    }
+
+    if (!$dara.isNull(request.openingCreditsUrl)) {
+      body["OpeningCreditsUrl"] = request.openingCreditsUrl;
     }
 
     if (!$dara.isNull(request.stickersShrink)) {
@@ -465,6 +497,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adaptiveThreshold)) {
+      body["AdaptiveThreshold"] = request.adaptiveThreshold;
+    }
+
     if (!$dara.isNull(request.anlysisPrompt)) {
       body["AnlysisPrompt"] = request.anlysisPrompt;
     }
@@ -487,6 +523,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.splitInterval)) {
       body["SplitInterval"] = request.splitInterval;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
     }
 
     if (!$dara.isNull(request.videoRolesShrink)) {
@@ -1759,6 +1803,52 @@ export default class Client extends OpenApi {
   async deleteMaterialById(request: $_model.DeleteMaterialByIdRequest): Promise<$_model.DeleteMaterialByIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMaterialByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除PPT作品
+   * 
+   * @param request - DeletePptArtifactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePptArtifactResponse
+   */
+  async deletePptArtifactWithOptions(request: $_model.DeletePptArtifactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePptArtifactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pptArtifactId)) {
+      body["PptArtifactId"] = request.pptArtifactId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePptArtifact",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePptArtifactResponse>(await this.callApi(params, req, runtime), new $_model.DeletePptArtifactResponse({}));
+  }
+
+  /**
+   * 删除PPT作品
+   * 
+   * @param request - DeletePptArtifactRequest
+   * @returns DeletePptArtifactResponse
+   */
+  async deletePptArtifact(request: $_model.DeletePptArtifactRequest): Promise<$_model.DeletePptArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePptArtifactWithOptions(request, runtime);
   }
 
   /**
@@ -3055,6 +3145,14 @@ export default class Client extends OpenApi {
   async getAutoClipsTaskInfoWithOptions(request: $_model.GetAutoClipsTaskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAutoClipsTaskInfoResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.showAnalysisResults)) {
+      body["ShowAnalysisResults"] = request.showAnalysisResults;
+    }
+
+    if (!$dara.isNull(request.showResourceInfo)) {
+      body["ShowResourceInfo"] = request.showResourceInfo;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
@@ -3273,6 +3371,52 @@ export default class Client extends OpenApi {
   async getCategoriesByTaskId(request: $_model.GetCategoriesByTaskIdRequest): Promise<$_model.GetCategoriesByTaskIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCategoriesByTaskIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 获得智能混剪内置资源
+   * 
+   * @param request - GetClipsBuildInResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClipsBuildInResourceResponse
+   */
+  async getClipsBuildInResourceWithOptions(request: $_model.GetClipsBuildInResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClipsBuildInResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetClipsBuildInResource",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetClipsBuildInResourceResponse>(await this.callApi(params, req, runtime), new $_model.GetClipsBuildInResourceResponse({}));
+  }
+
+  /**
+   * 获得智能混剪内置资源
+   * 
+   * @param request - GetClipsBuildInResourceRequest
+   * @returns GetClipsBuildInResourceResponse
+   */
+  async getClipsBuildInResource(request: $_model.GetClipsBuildInResourceRequest): Promise<$_model.GetClipsBuildInResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getClipsBuildInResourceWithOptions(request, runtime);
   }
 
   /**
@@ -4392,6 +4536,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询PPT作品信息
+   * 
+   * @param request - GetPptArtifactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPptArtifactResponse
+   */
+  async getPptArtifactWithOptions(request: $_model.GetPptArtifactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPptArtifactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pptArtifactId)) {
+      body["PptArtifactId"] = request.pptArtifactId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPptArtifact",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPptArtifactResponse>(await this.callApi(params, req, runtime), new $_model.GetPptArtifactResponse({}));
+  }
+
+  /**
+   * 查询PPT作品信息
+   * 
+   * @param request - GetPptArtifactRequest
+   * @returns GetPptArtifactResponse
+   */
+  async getPptArtifact(request: $_model.GetPptArtifactRequest): Promise<$_model.GetPptArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPptArtifactWithOptions(request, runtime);
+  }
+
+  /**
    * 获取PPT组件的配置
    * 
    * @param request - GetPptConfigRequest
@@ -5249,6 +5439,88 @@ export default class Client extends OpenApi {
   async listAuditTerms(request: $_model.ListAuditTermsRequest): Promise<$_model.ListAuditTermsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAuditTermsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出智能混剪任务列表
+   * 
+   * @param request - ListAutoClipsTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoClipsTaskResponse
+   */
+  async listAutoClipsTaskWithOptions(request: $_model.ListAutoClipsTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoClipsTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createTimeEnd)) {
+      body["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.createTimeStart)) {
+      body["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!$dara.isNull(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      body["Skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      body["TaskStatus"] = request.taskStatus;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAutoClipsTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAutoClipsTaskResponse>(await this.callApi(params, req, runtime), new $_model.ListAutoClipsTaskResponse({}));
+  }
+
+  /**
+   * 列出智能混剪任务列表
+   * 
+   * @param request - ListAutoClipsTaskRequest
+   * @returns ListAutoClipsTaskResponse
+   */
+  async listAutoClipsTask(request: $_model.ListAutoClipsTaskRequest): Promise<$_model.ListAutoClipsTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAutoClipsTaskWithOptions(request, runtime);
   }
 
   /**
@@ -6868,6 +7140,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * PPT作品-列表
+   * 
+   * @param request - ListPptArtifactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPptArtifactsResponse
+   */
+  async listPptArtifactsWithOptions(request: $_model.ListPptArtifactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPptArtifactsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPptArtifacts",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPptArtifactsResponse>(await this.callApi(params, req, runtime), new $_model.ListPptArtifactsResponse({}));
+  }
+
+  /**
+   * PPT作品-列表
+   * 
+   * @param request - ListPptArtifactsRequest
+   * @returns ListPptArtifactsResponse
+   */
+  async listPptArtifacts(request: $_model.ListPptArtifactsRequest): Promise<$_model.ListPptArtifactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPptArtifactsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询搜索生成任务对话详情中数据列表
    * 
    * @param request - ListSearchTaskDialogueDatasRequest
@@ -7578,16 +7906,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunAbbreviationContentResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunAbbreviationContentResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunAbbreviationContentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunAbbreviationContentResponse({}));
+      }
+
     }
   }
 
@@ -7702,16 +8031,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunAiHelperWritingResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunAiHelperWritingResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunAiHelperWritingResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunAiHelperWritingResponse({}));
+      }
+
     }
   }
 
@@ -7842,16 +8172,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunBookBrainmapResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunBookBrainmapResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunBookBrainmapResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunBookBrainmapResponse({}));
+      }
+
     }
   }
 
@@ -7968,16 +8299,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunBookIntroductionResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunBookIntroductionResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunBookIntroductionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunBookIntroductionResponse({}));
+      }
+
     }
   }
 
@@ -8078,16 +8410,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunBookSmartCardResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunBookSmartCardResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunBookSmartCardResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunBookSmartCardResponse({}));
+      }
+
     }
   }
 
@@ -8230,16 +8563,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunCommentGenerationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunCommentGenerationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunCommentGenerationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunCommentGenerationResponse({}));
+      }
+
     }
   }
 
@@ -8378,16 +8712,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunContinueContentResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunContinueContentResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunContinueContentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunContinueContentResponse({}));
+      }
+
     }
   }
 
@@ -8492,16 +8827,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunCustomHotTopicAnalysisResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunCustomHotTopicAnalysisResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunCustomHotTopicAnalysisResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunCustomHotTopicAnalysisResponse({}));
+      }
+
     }
   }
 
@@ -8638,16 +8974,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunCustomHotTopicViewPointAnalysisResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunCustomHotTopicViewPointAnalysisResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunCustomHotTopicViewPointAnalysisResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunCustomHotTopicViewPointAnalysisResponse({}));
+      }
+
     }
   }
 
@@ -8768,16 +9105,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDeepWritingResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDeepWritingResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDeepWritingResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDeepWritingResponse({}));
+      }
+
     }
   }
 
@@ -8894,16 +9232,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDocBrainmapResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDocBrainmapResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDocBrainmapResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDocBrainmapResponse({}));
+      }
+
     }
   }
 
@@ -9044,16 +9383,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDocIntroductionResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDocIntroductionResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDocIntroductionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDocIntroductionResponse({}));
+      }
+
     }
   }
 
@@ -9208,16 +9548,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDocQaResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDocQaResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDocQaResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDocQaResponse({}));
+      }
+
     }
   }
 
@@ -9356,16 +9697,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDocSmartCardResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDocSmartCardResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDocSmartCardResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDocSmartCardResponse({}));
+      }
+
     }
   }
 
@@ -9482,16 +9824,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDocSummaryResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDocSummaryResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDocSummaryResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDocSummaryResponse({}));
+      }
+
     }
   }
 
@@ -9616,16 +9959,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDocTranslationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDocTranslationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDocTranslationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDocTranslationResponse({}));
+      }
+
     }
   }
 
@@ -9758,16 +10102,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunDocWashingResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunDocWashingResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunDocWashingResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunDocWashingResponse({}));
+      }
+
     }
   }
 
@@ -9884,16 +10229,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunExpandContentResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunExpandContentResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunExpandContentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunExpandContentResponse({}));
+      }
+
     }
   }
 
@@ -9994,16 +10340,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunGenerateQuestionsResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunGenerateQuestionsResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunGenerateQuestionsResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunGenerateQuestionsResponse({}));
+      }
+
     }
   }
 
@@ -10116,16 +10463,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunHotwordResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunHotwordResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunHotwordResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunHotwordResponse({}));
+      }
+
     }
   }
 
@@ -10240,16 +10588,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunKeywordsExtractionGenerationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunKeywordsExtractionGenerationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunKeywordsExtractionGenerationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunKeywordsExtractionGenerationResponse({}));
+      }
+
     }
   }
 
@@ -10370,16 +10719,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunMultiDocIntroductionResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunMultiDocIntroductionResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunMultiDocIntroductionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunMultiDocIntroductionResponse({}));
+      }
+
     }
   }
 
@@ -10486,16 +10836,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunPptOutlineGenerationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunPptOutlineGenerationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunPptOutlineGenerationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunPptOutlineGenerationResponse({}));
+      }
+
     }
   }
 
@@ -10602,16 +10953,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunQuickWritingResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunQuickWritingResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunQuickWritingResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunQuickWritingResponse({}));
+      }
+
     }
   }
 
@@ -10752,16 +11104,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunSearchGenerationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunSearchGenerationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunSearchGenerationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunSearchGenerationResponse({}));
+      }
+
     }
   }
 
@@ -10898,16 +11251,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunSearchSimilarArticlesResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunSearchSimilarArticlesResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunSearchSimilarArticlesResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunSearchSimilarArticlesResponse({}));
+      }
+
     }
   }
 
@@ -11040,16 +11394,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunStepByStepWritingResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunStepByStepWritingResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunStepByStepWritingResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunStepByStepWritingResponse({}));
+      }
+
     }
   }
 
@@ -11178,16 +11533,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunStyleFeatureAnalysisResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunStyleFeatureAnalysisResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunStyleFeatureAnalysisResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunStyleFeatureAnalysisResponse({}));
+      }
+
     }
   }
 
@@ -11290,16 +11646,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunSummaryGenerateResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunSummaryGenerateResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunSummaryGenerateResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunSummaryGenerateResponse({}));
+      }
+
     }
   }
 
@@ -11400,16 +11757,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunTextPolishingResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunTextPolishingResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunTextPolishingResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunTextPolishingResponse({}));
+      }
+
     }
   }
 
@@ -11528,16 +11886,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunTitleGenerationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunTitleGenerationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunTitleGenerationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunTitleGenerationResponse({}));
+      }
+
     }
   }
 
@@ -11654,16 +12013,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunTopicSelectionMergeResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunTopicSelectionMergeResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunTopicSelectionMergeResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunTopicSelectionMergeResponse({}));
+      }
+
     }
   }
 
@@ -11772,16 +12132,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunTranslateGenerationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunTranslateGenerationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunTranslateGenerationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunTranslateGenerationResponse({}));
+      }
+
     }
   }
 
@@ -11896,16 +12257,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunVideoScriptGenerateResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunVideoScriptGenerateResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunVideoScriptGenerateResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunVideoScriptGenerateResponse({}));
+      }
+
     }
   }
 
@@ -12020,16 +12382,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunWriteToneGenerationResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunWriteToneGenerationResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunWriteToneGenerationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunWriteToneGenerationResponse({}));
+      }
+
     }
   }
 
@@ -12158,16 +12521,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunWritingResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunWritingResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunWritingResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunWritingResponse({}));
+      }
+
     }
   }
 
@@ -12396,16 +12760,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.RunWritingV2Response>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.RunWritingV2Response({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunWritingV2Response>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunWritingV2Response({}));
+      }
+
     }
   }
 

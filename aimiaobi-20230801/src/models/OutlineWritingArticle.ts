@@ -6,10 +6,18 @@ export class OutlineWritingArticle extends $dara.Model {
   content?: string;
   outline?: string;
   primaryOutline?: string;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   pubTime?: string;
   searchSource?: string;
   searchSourceName?: string;
   title?: string;
+  /**
+   * @example
+   * http://www.example.com/xxxx.html
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {

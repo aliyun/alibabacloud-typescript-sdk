@@ -59,6 +59,35 @@ export class AsyncCreateClipsTaskRequestColorWords extends $dara.Model {
   }
 }
 
+export class AsyncCreateClipsTaskRequestHighDefSourceVideos extends $dara.Model {
+  videoId?: string;
+  videoName?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoId: 'VideoId',
+      videoName: 'VideoName',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoId: 'string',
+      videoName: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AsyncCreateClipsTaskRequestStickers extends $dara.Model {
   /**
    * @example
@@ -139,7 +168,11 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
   closeMusic?: boolean;
   closeSubtitle?: boolean;
   closeVoice?: boolean;
+  closingCreditsUrl?: string;
   colorWords?: AsyncCreateClipsTaskRequestColorWords[];
+  cosyVoiceAppKey?: string;
+  cosyVoiceToken?: string;
+  customVoiceStyle?: string;
   /**
    * @example
    * http://xxx/xxx.mp4
@@ -155,12 +188,15 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
    * 1920
    */
   height?: number;
+  highDefSourceVideos?: AsyncCreateClipsTaskRequestHighDefSourceVideos[];
+  musicStyle?: string;
   /**
    * @example
    * http://music.mp4
    */
   musicUrl?: string;
   musicVolume?: number;
+  openingCreditsUrl?: string;
   stickers?: AsyncCreateClipsTaskRequestStickers[];
   subtitleFontSize?: number;
   /**
@@ -191,12 +227,19 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
       closeMusic: 'CloseMusic',
       closeSubtitle: 'CloseSubtitle',
       closeVoice: 'CloseVoice',
+      closingCreditsUrl: 'ClosingCreditsUrl',
       colorWords: 'ColorWords',
+      cosyVoiceAppKey: 'CosyVoiceAppKey',
+      cosyVoiceToken: 'CosyVoiceToken',
+      customVoiceStyle: 'CustomVoiceStyle',
       customVoiceUrl: 'CustomVoiceUrl',
       customVoiceVolume: 'CustomVoiceVolume',
       height: 'Height',
+      highDefSourceVideos: 'HighDefSourceVideos',
+      musicStyle: 'MusicStyle',
       musicUrl: 'MusicUrl',
       musicVolume: 'MusicVolume',
+      openingCreditsUrl: 'OpeningCreditsUrl',
       stickers: 'Stickers',
       subtitleFontSize: 'SubtitleFontSize',
       taskId: 'TaskId',
@@ -212,12 +255,19 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
       closeMusic: 'boolean',
       closeSubtitle: 'boolean',
       closeVoice: 'boolean',
+      closingCreditsUrl: 'string',
       colorWords: { 'type': 'array', 'itemType': AsyncCreateClipsTaskRequestColorWords },
+      cosyVoiceAppKey: 'string',
+      cosyVoiceToken: 'string',
+      customVoiceStyle: 'string',
       customVoiceUrl: 'string',
       customVoiceVolume: 'number',
       height: 'number',
+      highDefSourceVideos: { 'type': 'array', 'itemType': AsyncCreateClipsTaskRequestHighDefSourceVideos },
+      musicStyle: 'string',
       musicUrl: 'string',
       musicVolume: 'number',
+      openingCreditsUrl: 'string',
       stickers: { 'type': 'array', 'itemType': AsyncCreateClipsTaskRequestStickers },
       subtitleFontSize: 'number',
       taskId: 'string',
@@ -231,6 +281,9 @@ export class AsyncCreateClipsTaskRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.colorWords)) {
       $dara.Model.validateArray(this.colorWords);
+    }
+    if(Array.isArray(this.highDefSourceVideos)) {
+      $dara.Model.validateArray(this.highDefSourceVideos);
     }
     if(Array.isArray(this.stickers)) {
       $dara.Model.validateArray(this.stickers);

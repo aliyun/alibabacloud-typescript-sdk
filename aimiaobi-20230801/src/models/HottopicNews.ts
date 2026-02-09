@@ -29,6 +29,10 @@ export class HottopicNews extends $dara.Model {
   comments?: HottopicNewsComments[];
   content?: string;
   title?: string;
+  /**
+   * @example
+   * http://www.example.com/xxx.html
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {

@@ -2,41 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetSmartClipTaskResponseBodyDataSubJobsFileAttr extends $dara.Model {
-  /**
-   * @example
-   * 120
-   */
-  duration?: number;
-  /**
-   * @example
-   * 290804
-   */
-  fileLength?: string;
-  /**
-   * @example
-   * 2024-12-12.mp4
-   */
+export class ListPptArtifactsResponseBodyDataFileAttr extends $dara.Model {
   fileName?: string;
   /**
    * @example
-   * 1080
+   * 500
    */
   height?: number;
   /**
    * @example
-   * http://www.example.com/tmp.mp4
+   * http://www.example.com/xxx.jpg
    */
   tmpUrl?: string;
   /**
    * @example
-   * 1920
+   * 100
    */
   width?: number;
   static names(): { [key: string]: string } {
     return {
-      duration: 'Duration',
-      fileLength: 'FileLength',
       fileName: 'FileName',
       height: 'Height',
       tmpUrl: 'TmpUrl',
@@ -46,8 +30,6 @@ export class GetSmartClipTaskResponseBodyDataSubJobsFileAttr extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
-      duration: 'number',
-      fileLength: 'string',
       fileName: 'string',
       height: 'number',
       tmpUrl: 'string',
@@ -64,45 +46,48 @@ export class GetSmartClipTaskResponseBodyDataSubJobsFileAttr extends $dara.Model
   }
 }
 
-export class GetSmartClipTaskResponseBodyDataSubJobs extends $dara.Model {
+export class ListPptArtifactsResponseBodyData extends $dara.Model {
   /**
    * @example
-   * x\\"x\\"x\\"x
+   * 2024-01-04 11:46:07
    */
-  errorMessage?: string;
-  fileAttr?: GetSmartClipTaskResponseBodyDataSubJobsFileAttr;
+  createTime?: string;
+  fileAttr?: ListPptArtifactsResponseBodyDataFileAttr;
   /**
    * @example
-   * oss://default/bucket-name/path-xxx/xxx-1.mp4
+   * http://www.example.com/xxx.jpg
    */
   fileKey?: string;
   /**
    * @example
-   * RUNNING
+   * 10
    */
-  status?: string;
+  id?: number;
+  title?: string;
   /**
    * @example
-   * xxxxx
+   * 2025-04-14 19:59:53
    */
-  subJobId?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      errorMessage: 'ErrorMessage',
+      createTime: 'CreateTime',
       fileAttr: 'FileAttr',
       fileKey: 'FileKey',
-      status: 'Status',
-      subJobId: 'SubJobId',
+      id: 'Id',
+      title: 'Title',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      errorMessage: 'string',
-      fileAttr: GetSmartClipTaskResponseBodyDataSubJobsFileAttr,
+      createTime: 'string',
+      fileAttr: ListPptArtifactsResponseBodyDataFileAttr,
       fileKey: 'string',
-      status: 'string',
-      subJobId: 'string',
+      id: 'number',
+      title: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -118,49 +103,18 @@ export class GetSmartClipTaskResponseBodyDataSubJobs extends $dara.Model {
   }
 }
 
-export class GetSmartClipTaskResponseBodyData extends $dara.Model {
-  errorMessage?: string;
-  /**
-   * @example
-   * RUNNING
-   */
-  status?: string;
-  subJobs?: GetSmartClipTaskResponseBodyDataSubJobs[];
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'ErrorMessage',
-      status: 'Status',
-      subJobs: 'SubJobs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      status: 'string',
-      subJobs: { 'type': 'array', 'itemType': GetSmartClipTaskResponseBodyDataSubJobs },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.subJobs)) {
-      $dara.Model.validateArray(this.subJobs);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmartClipTaskResponseBody extends $dara.Model {
+export class ListPptArtifactsResponseBody extends $dara.Model {
   /**
    * @example
    * NoData
    */
   code?: string;
-  data?: GetSmartClipTaskResponseBodyData;
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  data?: ListPptArtifactsResponseBodyData[];
   /**
    * @example
    * 200
@@ -168,9 +122,19 @@ export class GetSmartClipTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
    * success
    */
   message?: string;
+  /**
+   * @example
+   * cEoBWREAXdxaOyjq/cqAbg==
+   */
+  nextToken?: string;
   /**
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
@@ -178,34 +142,54 @@ export class GetSmartClipTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @example
+   * 10
+   */
+  size?: number;
+  /**
+   * @example
    * true
    */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      current: 'Current',
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
       message: 'Message',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
+      size: 'Size',
       success: 'Success',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetSmartClipTaskResponseBodyData,
+      current: 'number',
+      data: { 'type': 'array', 'itemType': ListPptArtifactsResponseBodyData },
       httpStatusCode: 'number',
+      maxResults: 'number',
       message: 'string',
+      nextToken: 'string',
       requestId: 'string',
+      size: 'number',
       success: 'boolean',
+      total: 'number',
     };
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
     }
     super.validate();
   }
