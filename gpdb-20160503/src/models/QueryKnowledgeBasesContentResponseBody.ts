@@ -3,42 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryKnowledgeBasesContentResponseBodyEntitiesEntities extends $dara.Model {
-  /**
-   * @remarks
-   * The entity description.
-   * 
-   * @example
-   * A former advisor at DeepMind.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the entity.
-   * 
-   * @example
-   * Dr. Wang
-   */
   entity?: string;
-  /**
-   * @remarks
-   * The name of the file.
-   * 
-   * @example
-   * my_doc.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * The entity ID.
-   * 
-   * @example
-   * 1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The entity type.
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,73 +64,14 @@ export class QueryKnowledgeBasesContentResponseBodyEntities extends $dara.Model 
 }
 
 export class QueryKnowledgeBasesContentResponseBodyMatchesMatchList extends $dara.Model {
-  /**
-   * @remarks
-   * The content of the text.
-   */
   content?: string;
-  /**
-   * @remarks
-   * The name of the file.
-   * 
-   * @example
-   * my_doc.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * The public network URL of the image result. By default, the URL is valid for 2 hours.
-   * 
-   * You can use the UrlExpiration parameter to specify a validity period.
-   * 
-   * @example
-   * https://xxx-cn-beijing.aliyuncs.com/image/test.png
-   */
   fileURL?: string;
-  /**
-   * @remarks
-   * The unique ID of the vector data.
-   * 
-   * @example
-   * doca-1234
-   */
   id?: string;
-  /**
-   * @remarks
-   * Document loader metadata.
-   * 
-   * @example
-   * {"page_pos": 1}
-   */
   loaderMetadata?: string;
-  /**
-   * @remarks
-   * The metadata map.
-   */
   metadata?: { [key: string]: string };
-  /**
-   * @remarks
-   * The rerank score.
-   * 
-   * @example
-   * 6.2345
-   */
   rerankScore?: number;
-  /**
-   * @remarks
-   * The source of the retrieval results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
-   * 
-   * @example
-   * 1
-   */
   retrievalSource?: number;
-  /**
-   * @remarks
-   * The similarity score of the data. It is related to the algorithm (l2, ip, or cosine) that is specified when you create an index.
-   * 
-   * @example
-   * 0.12345
-   */
   score?: number;
   static names(): { [key: string]: string } {
     return {
@@ -231,42 +140,10 @@ export class QueryKnowledgeBasesContentResponseBodyMatches extends $dara.Model {
 }
 
 export class QueryKnowledgeBasesContentResponseBodyRelationsRelations extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the relationship edge.
-   * 
-   * @example
-   * Dr. Wang previously served as an advisor at DeepMind.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the file.
-   * 
-   * @example
-   * my_doc.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * The ID of the link.
-   * 
-   * @example
-   * 1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The source entity.
-   */
   sourceEntity?: string;
-  /**
-   * @remarks
-   * The destination entity.
-   * 
-   * @example
-   * Dr. Wang
-   */
   targetEntity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -378,15 +255,7 @@ export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
    * 100
    */
   embeddingTokens?: string;
-  /**
-   * @remarks
-   * The details of the entity.
-   */
   entities?: QueryKnowledgeBasesContentResponseBodyEntities;
-  /**
-   * @remarks
-   * A single data record.
-   */
   matches?: QueryKnowledgeBasesContentResponseBodyMatches;
   /**
    * @remarks
@@ -396,10 +265,6 @@ export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
    * success
    */
   message?: string;
-  /**
-   * @remarks
-   * The details of the relationship edge.
-   */
   relations?: QueryKnowledgeBasesContentResponseBodyRelations;
   /**
    * @remarks

@@ -29,10 +29,6 @@ export class ListCollectionsResponseBodyCollections extends $dara.Model {
 }
 
 export class ListCollectionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried vector collections.
-   */
   collections?: ListCollectionsResponseBodyCollections;
   /**
    * @remarks

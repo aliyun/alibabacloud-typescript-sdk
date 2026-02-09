@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RerankResponseBodyResultsResults extends $dara.Model {
-  /**
-   * @remarks
-   * Re-ordered document information.
-   * 
-   * @example
-   * ADBPG is the OLAP database of Alibaba Cloud.
-   */
   document?: string;
-  /**
-   * @remarks
-   * Index of this document in the request parameter Documents, starting from 0.
-   * 
-   * @example
-   * 1
-   */
   index?: number;
-  /**
-   * @remarks
-   * Rerank similarity score.
-   * 
-   * @example
-   * 2.31412
-   */
   relevanceScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -95,10 +74,6 @@ export class RerankResponseBody extends $dara.Model {
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Rerank results.
-   */
   results?: RerankResponseBodyResults;
   /**
    * @remarks

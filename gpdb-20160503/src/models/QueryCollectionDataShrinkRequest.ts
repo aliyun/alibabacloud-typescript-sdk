@@ -35,6 +35,16 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
    * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * Filter conditions for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). Conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), as well as conditions using keywords like IN, BETWEEN, and LIKE.
+   * 
+   * > 
+   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
+   * 
+   * @example
+   * response > 200
+   */
   filter?: string;
   /**
    * @remarks

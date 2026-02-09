@@ -3,95 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRemoteADBDataSourcesResponseBodyDataSourceItemsRemoteDataSources extends $dara.Model {
-  /**
-   * @remarks
-   * Data source name
-   * 
-   * @example
-   * db1_gptest1_to_db2_gp-test2
-   */
   dataSourceName?: string;
-  /**
-   * @remarks
-   * Description.
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * ID.
-   * 
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @remarks
-   * Local database name
-   * 
-   * @example
-   * db1
-   */
   localDatabase?: string;
-  /**
-   * @remarks
-   * Local instance name
-   * 
-   * @example
-   * gp-test1
-   */
   localInstanceName?: string;
-  /**
-   * @remarks
-   * Manager user name
-   * 
-   * @example
-   * admin
-   */
   managerUserName?: string;
-  /**
-   * @remarks
-   * Region ID.
-   * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * Remote database name
-   * 
-   * @example
-   * db2
-   */
   remoteDatabase?: string;
-  /**
-   * @remarks
-   * Remote instance name
-   * 
-   * @example
-   * gp-test2
-   */
   remoteInstanceName?: string;
-  /**
-   * @remarks
-   * Data source status
-   * 
-   * @example
-   * creating
-   */
   status?: string;
-  /**
-   * @remarks
-   * User name
-   * 
-   * @example
-   * user1
-   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,10 +82,6 @@ export class ListRemoteADBDataSourcesResponseBodyDataSourceItems extends $dara.M
 }
 
 export class ListRemoteADBDataSourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Returns the successfully added data sharing service data.
-   */
   dataSourceItems?: ListRemoteADBDataSourcesResponseBodyDataSourceItems;
   /**
    * @remarks

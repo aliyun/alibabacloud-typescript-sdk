@@ -29,10 +29,6 @@ export class ListDatabasesResponseBodyDatabases extends $dara.Model {
 }
 
 export class ListDatabasesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried databases.
-   */
   databases?: ListDatabasesResponseBodyDatabases;
   /**
    * @remarks

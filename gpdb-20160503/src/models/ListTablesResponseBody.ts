@@ -64,10 +64,6 @@ export class ListTablesResponseBody extends $dara.Model {
    * success
    */
   status?: string;
-  /**
-   * @remarks
-   * The queried tables.
-   */
   tables?: ListTablesResponseBodyTables;
   static names(): { [key: string]: string } {
     return {

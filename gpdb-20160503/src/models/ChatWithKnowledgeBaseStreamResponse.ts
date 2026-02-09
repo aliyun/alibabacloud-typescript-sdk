@@ -6,11 +6,15 @@ import { ChatWithKnowledgeBaseStreamResponseBody } from "./ChatWithKnowledgeBase
 export class ChatWithKnowledgeBaseStreamResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  id?: string;
+  event?: string;
   body?: ChatWithKnowledgeBaseStreamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      id: 'id',
+      event: 'event',
       body: 'body',
     };
   }
@@ -19,6 +23,8 @@ export class ChatWithKnowledgeBaseStreamResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      id: 'string',
+      event: 'string',
       body: ChatWithKnowledgeBaseStreamResponseBody,
     };
   }

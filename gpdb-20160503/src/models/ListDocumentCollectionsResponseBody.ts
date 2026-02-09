@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDocumentCollectionsResponseBodyItemsCollectionList extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the document collection.
-   * 
-   * @example
-   * document
-   */
   collectionName?: string;
-  /**
-   * @remarks
-   * The number of vector dimensions.
-   * 
-   * @example
-   * 1536
-   */
   dimension?: number;
-  /**
-   * @remarks
-   * The name of the vector algorithm.
-   * 
-   * @example
-   * text-embeddding-v1
-   */
   embeddingModel?: string;
-  /**
-   * @remarks
-   * The fields that are used for full-text search. Multiple fields are separated by commas (,).
-   * 
-   * @example
-   * title
-   */
   fullTextRetrievalFields?: string;
-  /**
-   * @remarks
-   * The metadata.
-   * 
-   * @example
-   * {\\"page\\": \\"int\\", \\"title\\": \\"text\\"}
-   */
   metadata?: string;
-  /**
-   * @remarks
-   * The vector similarity algorithm.
-   * 
-   * @example
-   * cosine
-   */
   metrics?: string;
-  /**
-   * @remarks
-   * The analyzer that is used for full-text search.
-   * 
-   * @example
-   * zh_cn
-   */
   parser?: string;
   sparseRetrievalFields?: string;
   supportSparse?: boolean;
@@ -133,10 +84,6 @@ export class ListDocumentCollectionsResponseBody extends $dara.Model {
    * 10
    */
   count?: number;
-  /**
-   * @remarks
-   * The queried document collections.
-   */
   items?: ListDocumentCollectionsResponseBodyItems;
   /**
    * @remarks

@@ -46,6 +46,13 @@ export class QueryContentAdvanceRequest extends $dara.Model {
    * document
    */
   collection?: string;
+  /**
+   * @remarks
+   * Text content for retrieval.
+   * 
+   * @example
+   * What is ADBPG?
+   */
   content?: string;
   /**
    * @remarks

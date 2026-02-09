@@ -3,49 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the account.
-   * 
-   * @example
-   * testuser
-   */
   accountDescription?: string;
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * @example
-   * testuser
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The state of the account.
-   * 
-   * *   **0**: The account is being created.
-   * *   **1**: The account is in use.
-   * *   **3**: The account is being deleted.
-   * 
-   * @example
-   * 1
-   */
   accountStatus?: string;
-  /**
-   * @remarks
-   * The type of the database account. Valid values: Super and Normal. Super indicates a privileged account and Normal indicates a standard account.
-   * 
-   * @example
-   * Super
-   */
   accountType?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * gp-bp***************
-   */
   DBInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +64,6 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
 }
 
 export class DescribeAccountsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried database accounts.
-   */
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
    * @remarks

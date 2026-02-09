@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryContentResponseBodyEntitiesEntities extends $dara.Model {
-  /**
-   * @remarks
-   * Entity description.
-   * 
-   * @example
-   * A former advisor at DeepMind.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The entity name.
-   * 
-   * @example
-   * Dr. Wang
-   */
   entity?: string;
-  /**
-   * @remarks
-   * The file name.
-   * 
-   * @example
-   * my_doc.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * The entity ID.
-   * 
-   * @example
-   * 1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The entity type.
-   * 
-   * @example
-   * Figure
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,89 +90,15 @@ export class QueryContentResponseBodyMatchesMatchListVector extends $dara.Model 
 }
 
 export class QueryContentResponseBodyMatchesMatchList extends $dara.Model {
-  /**
-   * @remarks
-   * The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
-   * 
-   * >  You must specify at least one of the Content and Vector parameters.
-   * 
-   * @example
-   * Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
-   */
   content?: string;
-  /**
-   * @remarks
-   * The name of the document.
-   * 
-   * >  You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
-   * 
-   * @example
-   * my_doc.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * The public URL of the query result image, valid for 2 hours
-   * 
-   * @example
-   * https://xxx-cn-beijing.aliyuncs.com/image/test.png
-   */
   fileURL?: string;
-  /**
-   * @remarks
-   * The unique ID of the vector data.
-   * 
-   * @example
-   * doca-1234
-   */
   id?: string;
-  /**
-   * @remarks
-   * Metadata during document loader loading.
-   * 
-   * @example
-   * {"page_pos": 1}
-   */
   loaderMetadata?: string;
-  /**
-   * @remarks
-   * The metadata.
-   */
   metadata?: { [key: string]: string };
-  /**
-   * @remarks
-   * Re-ranking score.
-   * 
-   * @example
-   * 6.2345
-   */
   rerankScore?: number;
-  /**
-   * @remarks
-   * Source of the retrieval results:
-   * 
-   * - 1 indicates vector retrieval
-   * - 2 indicates full-text retrieval
-   * - 3 indicates dual-path recall
-   * 
-   * @example
-   * 1
-   */
   retrievalSource?: number;
-  /**
-   * @remarks
-   * The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
-   * 
-   * @example
-   * 0.12345
-   */
   score?: number;
-  /**
-   * @remarks
-   * The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
-   * 
-   * >  If you leave this parameter empty, only full-text search results are returned.
-   */
   vector?: QueryContentResponseBodyMatchesMatchListVector;
   static names(): { [key: string]: string } {
     return {
@@ -281,45 +172,10 @@ export class QueryContentResponseBodyMatches extends $dara.Model {
 }
 
 export class QueryContentResponseBodyRelationsRelations extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the relationship edge.
-   * 
-   * @example
-   * Dr. Wang previously served as an advisor at DeepMind.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The file name.
-   * 
-   * @example
-   * my_doc.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * The ID of the relationship edge.
-   * 
-   * @example
-   * 1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The source entity.
-   * 
-   * @example
-   * Former DeepMind consultant
-   */
   sourceEntity?: string;
-  /**
-   * @remarks
-   * The destination entity.
-   * 
-   * @example
-   * Dr. Wang
-   */
   targetEntity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -420,42 +276,10 @@ export class QueryContentResponseBodyUsage extends $dara.Model {
 }
 
 export class QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatchWindowMatch extends $dara.Model {
-  /**
-   * @remarks
-   * Text content.
-   * 
-   * @example
-   * AnalyticDB for PostgreSQL is a cloud-native data warehouse service that provides large-scale parallel processing (MPP) capabilities for massive online data analysis.
-   */
   content?: string;
-  /**
-   * @remarks
-   * File name.
-   * 
-   * @example
-   * my_doc.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * Unique ID of the vector data.
-   * 
-   * @example
-   * doca-2345
-   */
   id?: string;
-  /**
-   * @remarks
-   * Metadata information when the document loader was loaded.
-   * 
-   * @example
-   * {"page_pos": 2}
-   */
   loaderMetadata?: string;
-  /**
-   * @remarks
-   * Metadata map.
-   */
   metadata?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -516,10 +340,6 @@ export class QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatch exten
 }
 
 export class QueryContentResponseBodyWindowMatchesWindowMatches extends $dara.Model {
-  /**
-   * @remarks
-   * List of individual top windowed matches.
-   */
   windowMatch?: QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatch;
   static names(): { [key: string]: string } {
     return {
@@ -582,15 +402,7 @@ export class QueryContentResponseBody extends $dara.Model {
    * 100
    */
   embeddingTokens?: string;
-  /**
-   * @remarks
-   * The entities.
-   */
   entities?: QueryContentResponseBodyEntities;
-  /**
-   * @remarks
-   * The retrieved data.
-   */
   matches?: QueryContentResponseBodyMatches;
   /**
    * @remarks
@@ -600,10 +412,6 @@ export class QueryContentResponseBody extends $dara.Model {
    * success
    */
   message?: string;
-  /**
-   * @remarks
-   * The list of relationship edges.
-   */
   relations?: QueryContentResponseBodyRelations;
   /**
    * @remarks
@@ -629,10 +437,6 @@ export class QueryContentResponseBody extends $dara.Model {
    * Resource usage for this query.
    */
   usage?: QueryContentResponseBodyUsage;
-  /**
-   * @remarks
-   * List of windowed matches.
-   */
   windowMatches?: QueryContentResponseBodyWindowMatches;
   static names(): { [key: string]: string } {
     return {

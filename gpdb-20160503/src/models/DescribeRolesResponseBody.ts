@@ -37,10 +37,6 @@ export class DescribeRolesResponseBody extends $dara.Model {
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The roles.
-   */
   roleList?: DescribeRolesResponseBodyRoleList;
   static names(): { [key: string]: string } {
     return {

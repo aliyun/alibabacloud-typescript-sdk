@@ -56,6 +56,10 @@ export class UpsertCollectionDataShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The vector data that you want to upload.
+   */
   rowsShrink?: string;
   /**
    * @remarks

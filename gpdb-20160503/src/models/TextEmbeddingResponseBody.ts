@@ -29,18 +29,7 @@ export class TextEmbeddingResponseBodyResultsResultsEmbedding extends $dara.Mode
 }
 
 export class TextEmbeddingResponseBodyResultsResults extends $dara.Model {
-  /**
-   * @remarks
-   * The embedding values.
-   */
   embedding?: TextEmbeddingResponseBodyResultsResultsEmbedding;
-  /**
-   * @remarks
-   * The number of the embedding in the Input request parameter, which starts from 0.
-   * 
-   * @example
-   * 0
-   */
   index?: number;
   static names(): { [key: string]: string } {
     return {
@@ -111,10 +100,6 @@ export class TextEmbeddingResponseBody extends $dara.Model {
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The embedding results.
-   */
   results?: TextEmbeddingResponseBodyResults;
   /**
    * @remarks

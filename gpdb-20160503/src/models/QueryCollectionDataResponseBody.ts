@@ -113,33 +113,11 @@ export class QueryCollectionDataResponseBodyMatchesMatchValues extends $dara.Mod
 }
 
 export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
-  /**
-   * @remarks
-   * The unique ID of the vector data.
-   * 
-   * @example
-   * doca-1234
-   */
   id?: string;
-  /**
-   * @remarks
-   * Metadata.
-   */
   metadata?: { [key: string]: string };
   metadataV2?: { [key: string]: any };
-  /**
-   * @remarks
-   * The similarity score of this data, which is related to the algorithm `(l2/ip/cosine)` specified when creating the index.
-   * 
-   * @example
-   * 0.12345
-   */
   score?: number;
   sparseValues?: QueryCollectionDataResponseBodyMatchesMatchSparseValues;
-  /**
-   * @remarks
-   * List of vector data.
-   */
   values?: QueryCollectionDataResponseBodyMatchesMatchValues;
   static names(): { [key: string]: string } {
     return {
@@ -211,10 +189,6 @@ export class QueryCollectionDataResponseBodyMatches extends $dara.Model {
 }
 
 export class QueryCollectionDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Data list.
-   */
   matches?: QueryCollectionDataResponseBodyMatches;
   /**
    * @remarks

@@ -83,15 +83,7 @@ export class ExecuteStatementResponseBodyDataRecords extends $dara.Model {
 }
 
 export class ExecuteStatementResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The metadata of the columns.
-   */
   columnMetadata?: ExecuteStatementResponseBodyDataColumnMetadata;
-  /**
-   * @remarks
-   * The rows of data.
-   */
   records?: ExecuteStatementResponseBodyDataRecords;
   /**
    * @remarks

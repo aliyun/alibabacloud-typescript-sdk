@@ -53,10 +53,6 @@ export class ListNamespacesResponseBody extends $dara.Model {
    * Successful
    */
   message?: string;
-  /**
-   * @remarks
-   * The queried namespaces.
-   */
   namespaces?: ListNamespacesResponseBodyNamespaces;
   /**
    * @remarks

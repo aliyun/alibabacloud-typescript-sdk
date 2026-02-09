@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDocumentsResponseBodyItemsDocumentList extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the document.
-   * 
-   * @example
-   * music.txt
-   */
   fileName?: string;
-  /**
-   * @remarks
-   * The source of the document.
-   * 
-   * @example
-   * http://oss.xxx/music.txt
-   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +63,6 @@ export class ListDocumentsResponseBody extends $dara.Model {
    * 3
    */
   count?: number;
-  /**
-   * @remarks
-   * The queried documents.
-   */
   items?: ListDocumentsResponseBodyItems;
   /**
    * @remarks

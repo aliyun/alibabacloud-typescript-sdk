@@ -29,10 +29,6 @@ export class ListSupportModelsResponseBodyModelNames extends $dara.Model {
 }
 
 export class ListSupportModelsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of supported model names.
-   */
   modelNames?: ListSupportModelsResponseBodyModelNames;
   /**
    * @remarks

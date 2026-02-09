@@ -36,6 +36,8 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * PL0
    */
   diskPerformanceLevel?: string;
+  payType?: string;
+  period?: string;
   /**
    * @remarks
    * The name of the Supabase project. The name must meet the following requirements:
@@ -88,6 +90,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * 2
    */
   storageSize?: number;
+  usedTime?: string;
   /**
    * @remarks
    * The vSwitch ID.
@@ -137,11 +140,14 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       accountPassword: 'AccountPassword',
       clientToken: 'ClientToken',
       diskPerformanceLevel: 'DiskPerformanceLevel',
+      payType: 'PayType',
+      period: 'Period',
       projectName: 'ProjectName',
       projectSpec: 'ProjectSpec',
       regionId: 'RegionId',
       securityIPList: 'SecurityIPList',
       storageSize: 'StorageSize',
+      usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -153,11 +159,14 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       accountPassword: 'string',
       clientToken: 'string',
       diskPerformanceLevel: 'string',
+      payType: 'string',
+      period: 'string',
       projectName: 'string',
       projectSpec: 'string',
       regionId: 'string',
       securityIPList: 'string',
       storageSize: 'number',
+      usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',

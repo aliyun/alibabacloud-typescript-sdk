@@ -712,16 +712,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.ChatWithKnowledgeBaseStreamResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.ChatWithKnowledgeBaseStreamResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatWithKnowledgeBaseStreamResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatWithKnowledgeBaseStreamResponse({}));
+      }
+
     }
   }
 
@@ -870,7 +871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Hadoop Cluster Network Connectivity
+   * Checks the network connectivity of a Hadoop external data source.
    * 
    * @param request - CheckHadoopNetConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -913,7 +914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Hadoop Cluster Network Connectivity
+   * Checks the network connectivity of a Hadoop external data source.
    * 
    * @param request - CheckHadoopNetConnectionRequest
    * @returns CheckHadoopNetConnectionResponse
@@ -978,7 +979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a service-linked role is created.
+   * Checks whether a service-linked role is created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1009,7 +1010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a service-linked role is created.
+   * Checks whether a service-linked role is created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @returns CheckServiceLinkedRoleResponse
@@ -1962,7 +1963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Install extensions.
+   * Installs extensions.
    * 
    * @param request - CreateExtensionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2005,7 +2006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Install extensions.
+   * Installs extensions.
    * 
    * @param request - CreateExtensionsRequest
    * @returns CreateExtensionsResponse
@@ -2794,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create External Data Source Configuration
+   * Creates a real-time data source.
    * 
    * @param request - CreateStreamingDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2849,7 +2850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create External Data Source Configuration
+   * Creates a real-time data source.
    * 
    * @param request - CreateStreamingDataSourceRequest
    * @returns CreateStreamingDataSourceResponse
@@ -3028,6 +3029,14 @@ export default class Client extends OpenApi {
       query["DiskPerformanceLevel"] = request.diskPerformanceLevel;
     }
 
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
     if (!$dara.isNull(request.projectName)) {
       query["ProjectName"] = request.projectName;
     }
@@ -3046,6 +3055,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.storageSize)) {
       query["StorageSize"] = request.storageSize;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
     }
 
     if (!$dara.isNull(request.vSwitchId)) {
@@ -3248,7 +3261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据库账号
+   * Deletes a database account.
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3283,7 +3296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据库账号
+   * Deletes a database account.
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -3876,7 +3889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstall an extension.
+   * Uninstalls extensions.
    * 
    * @param request - DeleteExtensionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3919,7 +3932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstall an extension.
+   * Uninstalls extensions.
    * 
    * @param request - DeleteExtensionRequest
    * @returns DeleteExtensionResponse
@@ -3980,7 +3993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除hadoop数据源
+   * Deletes a Hadoop external data source.
    * 
    * @param request - DeleteHadoopDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4019,7 +4032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除hadoop数据源
+   * Deletes a Hadoop external data source.
    * 
    * @param request - DeleteHadoopDataSourceRequest
    * @returns DeleteHadoopDataSourceResponse
@@ -4422,7 +4435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time data service.
+   * Deletes the configurations of an external data source.
    * 
    * @param request - DeleteStreamingDataServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4461,7 +4474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time data service.
+   * Deletes the configurations of an external data source.
    * 
    * @param request - DeleteStreamingDataServiceRequest
    * @returns DeleteStreamingDataServiceResponse
@@ -4522,7 +4535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time data service job.
+   * Deletes a real-time data synchronization job.
    * 
    * @param request - DeleteStreamingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4561,7 +4574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time data service job.
+   * Deletes a real-time data synchronization job.
    * 
    * @param request - DeleteStreamingJobRequest
    * @returns DeleteStreamingJobResponse
@@ -6460,7 +6473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+   * Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
    * 
    * @remarks
    * Data sharing is supported only for instances in Serverless mode.
@@ -6514,7 +6527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+   * Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
    * 
    * @remarks
    * Data sharing is supported only for instances in Serverless mode.
@@ -6642,7 +6655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+   * Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
    * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
@@ -6678,7 +6691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+   * Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
    * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
@@ -7032,7 +7045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get download records
+   * Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - DescribeDownloadSQLLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7063,7 +7076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get download records
+   * Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - DescribeDownloadSQLLogsRequest
    * @returns DescribeDownloadSQLLogsResponse
@@ -7174,7 +7187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+   * Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
    * 
    * @param request - DescribeHadoopClustersInSameNetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7209,7 +7222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+   * Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
    * 
    * @param request - DescribeHadoopClustersInSameNetRequest
    * @returns DescribeHadoopClustersInSameNetResponse
@@ -8036,7 +8049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述一个实例是否处于平衡状态
+   * Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - DescribeRebalanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8067,7 +8080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述一个实例是否处于平衡状态
+   * Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - DescribeRebalanceStatusRequest
    * @returns DescribeRebalanceStatusResponse
@@ -8644,7 +8657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete External Data Source Configuration
+   * Queries a real-time data synchronization job.
    * 
    * @param request - DescribeStreamingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8683,7 +8696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete External Data Source Configuration
+   * Queries a real-time data synchronization job.
    * 
    * @param request - DescribeStreamingJobRequest
    * @returns DescribeStreamingJobResponse
@@ -9692,7 +9705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特定的账号信息
+   * Queries the information about a database account.
    * 
    * @param request - GetAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9727,7 +9740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特定的账号信息
+   * Queries the information about a database account.
    * 
    * @param request - GetAccountRequest
    * @returns GetAccountResponse
@@ -10882,7 +10895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例外表配置列表
+   * Queries a list of data sources.
    * 
    * @param request - ListExternalDataSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10925,7 +10938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例外表配置列表
+   * Queries a list of data sources.
    * 
    * @param request - ListExternalDataSourcesRequest
    * @returns ListExternalDataSourcesResponse
@@ -11242,7 +11255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Homogeneous Data Source
+   * Queries remote AnalyticDB data sources.
    * 
    * @param request - ListRemoteADBDataSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11281,7 +11294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Homogeneous Data Source
+   * Queries remote AnalyticDB data sources.
    * 
    * @param request - ListRemoteADBDataSourcesRequest
    * @returns ListRemoteADBDataSourcesResponse
@@ -11556,7 +11569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries real-time service data sources.
+   * Queries a list of real-time service data sources.
    * 
    * @param request - ListStreamingDataSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11599,7 +11612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries real-time service data sources.
+   * Queries a list of real-time service data sources.
    * 
    * @param request - ListStreamingDataSourcesRequest
    * @returns ListStreamingDataSourcesResponse
@@ -11850,7 +11863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+   * Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11913,7 +11926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+   * Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -12474,7 +12487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 包年包月/按量付费转换改造
+   * Switches between billing methods for an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - ModifyDBInstancePayTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12517,7 +12530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 包年包月/按量付费转换改造
+   * Switches between billing methods for an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - ModifyDBInstancePayTypeRequest
    * @returns ModifyDBInstancePayTypeResponse
@@ -13050,7 +13063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Homogeneous Data Source
+   * Modifies a remote AnalyticDB data source.
    * 
    * @param request - ModifyRemoteADBDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13101,7 +13114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Homogeneous Data Source
+   * Modifies a remote AnalyticDB data source.
    * 
    * @param request - ModifyRemoteADBDataSourceRequest
    * @returns ModifyRemoteADBDataSourceResponse
@@ -13238,7 +13251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a real-time data service.
+   * Modifies the configurations of an external data source.
    * 
    * @param request - ModifyStreamingDataServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13285,7 +13298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a real-time data service.
+   * Modifies the configurations of an external data source.
    * 
    * @param request - ModifyStreamingDataServiceRequest
    * @returns ModifyStreamingDataServiceResponse
@@ -13546,7 +13559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+   * Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - ModifyVectorConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13585,7 +13598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+   * Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - ModifyVectorConfigurationRequest
    * @returns ModifyVectorConfigurationResponse
@@ -13844,7 +13857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query
+   * Retrieves vector data and metadata from a document collection by using natural statements.
    * 
    * @param tmpReq - QueryContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13987,7 +14000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query
+   * Retrieves vector data and metadata from a document collection by using natural statements.
    * 
    * @param request - QueryContentRequest
    * @returns QueryContentResponse
@@ -14264,7 +14277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Score and re-order documents using a model
+   * The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
    * 
    * @param tmpReq - RerankRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14335,7 +14348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Score and re-order documents using a model
+   * The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
    * 
    * @param request - RerankRequest
    * @returns RerankResponse
@@ -15050,7 +15063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+   * Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
    * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
@@ -15090,7 +15103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+   * Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
    * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
@@ -15106,7 +15119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove resource tags
+   * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15169,7 +15182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove resource tags
+   * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse

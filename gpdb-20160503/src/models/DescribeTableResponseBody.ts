@@ -30,10 +30,6 @@ export class DescribeTableResponseBodyColumnList extends $dara.Model {
 }
 
 export class DescribeTableResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The columns of the table.
-   */
   columnList?: DescribeTableResponseBodyColumnList;
   /**
    * @remarks
