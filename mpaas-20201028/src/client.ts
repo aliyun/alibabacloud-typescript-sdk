@@ -688,6 +688,228 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建热修复资源
+   * 
+   * @param request - CreateMcubeHotpatchResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeHotpatchResourceResponse
+   */
+  async createMcubeHotpatchResourceWithOptions(request: $_model.CreateMcubeHotpatchResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeHotpatchResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.fixDesc)) {
+      body["FixDesc"] = request.fixDesc;
+    }
+
+    if (!$dara.isNull(request.onexFlag)) {
+      body["OnexFlag"] = request.onexFlag;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.productVersion)) {
+      body["ProductVersion"] = request.productVersion;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMcubeHotpatchResource",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMcubeHotpatchResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeHotpatchResourceResponse({}));
+  }
+
+  /**
+   * 创建热修复资源
+   * 
+   * @param request - CreateMcubeHotpatchResourceRequest
+   * @returns CreateMcubeHotpatchResourceResponse
+   */
+  async createMcubeHotpatchResource(request: $_model.CreateMcubeHotpatchResourceRequest): Promise<$_model.CreateMcubeHotpatchResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMcubeHotpatchResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建热修复回滚任务
+   * 
+   * @param request - CreateMcubeHotpatchRollbackTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeHotpatchRollbackTaskResponse
+   */
+  async createMcubeHotpatchRollbackTaskWithOptions(request: $_model.CreateMcubeHotpatchRollbackTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeHotpatchRollbackTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      body["ProductId"] = request.productId;
+    }
+
+    if (!$dara.isNull(request.productVersion)) {
+      body["ProductVersion"] = request.productVersion;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMcubeHotpatchRollbackTask",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMcubeHotpatchRollbackTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeHotpatchRollbackTaskResponse({}));
+  }
+
+  /**
+   * 创建热修复回滚任务
+   * 
+   * @param request - CreateMcubeHotpatchRollbackTaskRequest
+   * @returns CreateMcubeHotpatchRollbackTaskResponse
+   */
+  async createMcubeHotpatchRollbackTask(request: $_model.CreateMcubeHotpatchRollbackTaskRequest): Promise<$_model.CreateMcubeHotpatchRollbackTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMcubeHotpatchRollbackTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建热修复发布任务
+   * 
+   * @param request - CreateMcubeHotpatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeHotpatchTaskResponse
+   */
+  async createMcubeHotpatchTaskWithOptions(request: $_model.CreateMcubeHotpatchTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeHotpatchTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.greyConfigInfo)) {
+      body["GreyConfigInfo"] = request.greyConfigInfo;
+    }
+
+    if (!$dara.isNull(request.greyEndtimeData)) {
+      body["GreyEndtimeData"] = request.greyEndtimeData;
+    }
+
+    if (!$dara.isNull(request.greyNum)) {
+      body["GreyNum"] = request.greyNum;
+    }
+
+    if (!$dara.isNull(request.memo)) {
+      body["Memo"] = request.memo;
+    }
+
+    if (!$dara.isNull(request.packageId)) {
+      body["PackageId"] = request.packageId;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.publishMode)) {
+      body["PublishMode"] = request.publishMode;
+    }
+
+    if (!$dara.isNull(request.publishType)) {
+      body["PublishType"] = request.publishType;
+    }
+
+    if (!$dara.isNull(request.syncMode)) {
+      body["SyncMode"] = request.syncMode;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.whitelistIds)) {
+      body["WhitelistIds"] = request.whitelistIds;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMcubeHotpatchTask",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMcubeHotpatchTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeHotpatchTaskResponse({}));
+  }
+
+  /**
+   * 创建热修复发布任务
+   * 
+   * @param request - CreateMcubeHotpatchTaskRequest
+   * @returns CreateMcubeHotpatchTaskResponse
+   */
+  async createMcubeHotpatchTask(request: $_model.CreateMcubeHotpatchTaskRequest): Promise<$_model.CreateMcubeHotpatchTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMcubeHotpatchTaskWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CreateMcubeMiniAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateMcubeMiniAppResponse
@@ -2342,6 +2564,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除热修复资源包
+   * 
+   * @param request - DeleteMcubeHotpatchResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcubeHotpatchResourceResponse
+   */
+  async deleteMcubeHotpatchResourceWithOptions(request: $_model.DeleteMcubeHotpatchResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcubeHotpatchResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appCode)) {
+      body["AppCode"] = request.appCode;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMcubeHotpatchResource",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMcubeHotpatchResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcubeHotpatchResourceResponse({}));
+  }
+
+  /**
+   * 删除热修复资源包
+   * 
+   * @param request - DeleteMcubeHotpatchResourceRequest
+   * @returns DeleteMcubeHotpatchResourceResponse
+   */
+  async deleteMcubeHotpatchResource(request: $_model.DeleteMcubeHotpatchResourceRequest): Promise<$_model.DeleteMcubeHotpatchResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMcubeHotpatchResourceWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DeleteMcubeMiniAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMcubeMiniAppResponse
@@ -2863,6 +3143,76 @@ export default class Client extends OpenApi {
   async getFileTokenForUploadToMsa(request: $_model.GetFileTokenForUploadToMsaRequest): Promise<$_model.GetFileTokenForUploadToMsaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFileTokenForUploadToMsaWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看全部审核记录
+   * 
+   * @param request - GetGameReviewByStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGameReviewByStatusResponse
+   */
+  async getGameReviewByStatusWithOptions(request: $_model.GetGameReviewByStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGameReviewByStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.reviewStatus)) {
+      body["ReviewStatus"] = request.reviewStatus;
+    }
+
+    if (!$dara.isNull(request.sortMode)) {
+      body["SortMode"] = request.sortMode;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGameReviewByStatus",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGameReviewByStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetGameReviewByStatusResponse({}));
+  }
+
+  /**
+   * 查看全部审核记录
+   * 
+   * @param request - GetGameReviewByStatusRequest
+   * @returns GetGameReviewByStatusResponse
+   */
+  async getGameReviewByStatus(request: $_model.GetGameReviewByStatusRequest): Promise<$_model.GetGameReviewByStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGameReviewByStatusWithOptions(request, runtime);
   }
 
   /**
@@ -3660,6 +4010,118 @@ export default class Client extends OpenApi {
   async listMcdpAim(request: $_model.ListMcdpAimRequest): Promise<$_model.ListMcdpAimResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcdpAimWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询热修复资源包列表
+   * 
+   * @param request - ListMcubeHotpatchResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeHotpatchResourcesResponse
+   */
+  async listMcubeHotpatchResourcesWithOptions(request: $_model.ListMcubeHotpatchResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeHotpatchResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcubeHotpatchResources",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMcubeHotpatchResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeHotpatchResourcesResponse({}));
+  }
+
+  /**
+   * 查询热修复资源包列表
+   * 
+   * @param request - ListMcubeHotpatchResourcesRequest
+   * @returns ListMcubeHotpatchResourcesResponse
+   */
+  async listMcubeHotpatchResources(request: $_model.ListMcubeHotpatchResourcesRequest): Promise<$_model.ListMcubeHotpatchResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMcubeHotpatchResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询热修复发布任务列表
+   * 
+   * @param request - ListMcubeHotpatchTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeHotpatchTasksResponse
+   */
+  async listMcubeHotpatchTasksWithOptions(request: $_model.ListMcubeHotpatchTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeHotpatchTasksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcubeHotpatchTasks",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMcubeHotpatchTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeHotpatchTasksResponse({}));
+  }
+
+  /**
+   * 查询热修复发布任务列表
+   * 
+   * @param request - ListMcubeHotpatchTasksRequest
+   * @returns ListMcubeHotpatchTasksResponse
+   */
+  async listMcubeHotpatchTasks(request: $_model.ListMcubeHotpatchTasksRequest): Promise<$_model.ListMcubeHotpatchTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMcubeHotpatchTasksWithOptions(request, runtime);
   }
 
   /**
@@ -5777,6 +6239,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询热修复发布任务详情
+   * 
+   * @param request - QueryMcubeHotpatchTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMcubeHotpatchTaskDetailResponse
+   */
+  async queryMcubeHotpatchTaskDetailWithOptions(request: $_model.QueryMcubeHotpatchTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMcubeHotpatchTaskDetailResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMcubeHotpatchTaskDetail",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMcubeHotpatchTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryMcubeHotpatchTaskDetailResponse({}));
+  }
+
+  /**
+   * 查询热修复发布任务详情
+   * 
+   * @param request - QueryMcubeHotpatchTaskDetailRequest
+   * @returns QueryMcubeHotpatchTaskDetailResponse
+   */
+  async queryMcubeHotpatchTaskDetail(request: $_model.QueryMcubeHotpatchTaskDetailRequest): Promise<$_model.QueryMcubeHotpatchTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMcubeHotpatchTaskDetailWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryMcubeMiniPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMcubeMiniPackageResponse
@@ -6250,6 +6766,64 @@ export default class Client extends OpenApi {
   async queryMpsSchedulerList(request: $_model.QueryMpsSchedulerListRequest): Promise<$_model.QueryMpsSchedulerListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMpsSchedulerListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询风险信息
+   * 
+   * @param request - QueryMscpRiskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMscpRiskInfoResponse
+   */
+  async queryMscpRiskInfoWithOptions(request: $_model.QueryMscpRiskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMscpRiskInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apdidToken)) {
+      body["ApdidToken"] = request.apdidToken;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.terminalType)) {
+      body["TerminalType"] = request.terminalType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMscpRiskInfo",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMscpRiskInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryMscpRiskInfoResponse({}));
+  }
+
+  /**
+   * 查询风险信息
+   * 
+   * @param request - QueryMscpRiskInfoRequest
+   * @returns QueryMscpRiskInfoResponse
+   */
+  async queryMscpRiskInfo(request: $_model.QueryMscpRiskInfoRequest): Promise<$_model.QueryMscpRiskInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMscpRiskInfoWithOptions(request, runtime);
   }
 
   /**
@@ -6900,6 +7474,72 @@ export default class Client extends OpenApi {
   async updateLink(request: $_model.UpdateLinkRequest): Promise<$_model.UpdateLinkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新热修复发布任务状态
+   * 
+   * @param request - UpdateMcubeHotpatchTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMcubeHotpatchTaskStatusResponse
+   */
+  async updateMcubeHotpatchTaskStatusWithOptions(request: $_model.UpdateMcubeHotpatchTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMcubeHotpatchTaskStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.packageId)) {
+      body["PackageId"] = request.packageId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      body["TaskStatus"] = request.taskStatus;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMcubeHotpatchTaskStatus",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMcubeHotpatchTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMcubeHotpatchTaskStatusResponse({}));
+  }
+
+  /**
+   * 更新热修复发布任务状态
+   * 
+   * @param request - UpdateMcubeHotpatchTaskStatusRequest
+   * @returns UpdateMcubeHotpatchTaskStatusResponse
+   */
+  async updateMcubeHotpatchTaskStatus(request: $_model.UpdateMcubeHotpatchTaskStatusRequest): Promise<$_model.UpdateMcubeHotpatchTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMcubeHotpatchTaskStatusWithOptions(request, runtime);
   }
 
   /**
