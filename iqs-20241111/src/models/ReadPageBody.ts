@@ -3,9 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadPageBodyReadability extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   excludeAllImages?: boolean;
+  /**
+   * @example
+   * false
+   */
   excludeAllLinks?: boolean;
   excludedTags?: string[];
+  /**
+   * @example
+   * none
+   */
   readabilityMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,13 +52,28 @@ export class ReadPageBodyReadability extends $dara.Model {
 export class ReadPageBody extends $dara.Model {
   formats?: string[];
   location?: string;
+  /**
+   * @example
+   * 1296000
+   */
   maxAge?: number;
+  /**
+   * @example
+   * 10000
+   */
   pageTimeout?: number;
   readability?: ReadPageBodyReadability;
+  /**
+   * @example
+   * 60000
+   */
   timeout?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * https://help.aliyun.com/document_detail/2837301.html?spm=a2c4g.11186623.help-menu-2837261.d_0_0_0.59ed3e95CppOt2&scm=20140722.H_2837301._.OR_help-T_cn~zh-V_1
    */
   url?: string;
   static names(): { [key: string]: string } {

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchInformation extends $dara.Model {
+  /**
+   * @example
+   * 700
+   */
   searchTime?: number;
+  /**
+   * @example
+   * 13
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

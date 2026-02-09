@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnifiedOriginalQuery extends $dara.Model {
   query?: string;
+  /**
+   * @example
+   * NoLimit
+   */
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {

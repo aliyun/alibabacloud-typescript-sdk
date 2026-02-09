@@ -3,6 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MultimodalSearchBody extends $dara.Model {
+  /**
+   * @example
+   * {
+   *     "excludeSites": "www.360doc.com,weibo.com"
+   *   }
+   */
   advancedParams?: { [key: string]: any };
   query?: string;
   static names(): { [key: string]: string } {

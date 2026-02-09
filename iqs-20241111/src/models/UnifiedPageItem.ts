@@ -5,17 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class UnifiedPageItem extends $dara.Model {
   correlationTag?: number;
   hostAuthorityScore?: number;
+  /**
+   * @example
+   * https://www.china.com/zh_cn/img1905/2023/logo.png
+   */
   hostLogo?: string;
   hostname?: string;
   images?: string[];
+  /**
+   * @example
+   * https://hea.china.com/articles/20250427/202504271666343.html
+   */
   link?: string;
   mainText?: string;
   markdownText?: string;
   /**
    * @example
-   * 2025-04-07T10:15:30.123+08:00
+   * 2025-04-27T20:36:04+08:00
    */
   publishedTime?: string;
+  /**
+   * @example
+   * 0.7786493301391602
+   */
   rerankScore?: number;
   richMainBody?: string;
   snippet?: string;

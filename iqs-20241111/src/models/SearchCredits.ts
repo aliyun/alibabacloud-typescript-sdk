@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchCredits extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   genericTextSearch?: number;
   liteAdvancedTextSearch?: number;
   static names(): { [key: string]: string } {

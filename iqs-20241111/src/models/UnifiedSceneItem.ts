@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnifiedSceneItem extends $dara.Model {
   detail?: string;
+  /**
+   * @example
+   * time
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

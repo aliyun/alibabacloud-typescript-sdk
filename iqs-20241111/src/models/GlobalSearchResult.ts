@@ -10,6 +10,9 @@ export class GlobalSearchResult extends $dara.Model {
   pageItems?: GlobalPageItem[];
   queryContext?: GlobalQueryContext;
   /**
+   * @remarks
+   * requestId
+   * 
    * @example
    * 123456
    */

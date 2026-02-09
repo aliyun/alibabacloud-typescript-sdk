@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ValueAddedCredits extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   advanced?: number;
+  /**
+   * @example
+   * 1
+   */
   summary?: number;
   static names(): { [key: string]: string } {
     return {

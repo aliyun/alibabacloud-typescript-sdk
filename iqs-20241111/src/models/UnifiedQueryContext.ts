@@ -5,6 +5,10 @@ import { UnifiedRewrite } from "./UnifiedRewrite";
 
 
 export class UnifiedQueryContext extends $dara.Model {
+  /**
+   * @example
+   * Generic
+   */
   engineType?: string;
   originalQuery?: UnifiedOriginalQuery;
   rewrite?: UnifiedRewrite;

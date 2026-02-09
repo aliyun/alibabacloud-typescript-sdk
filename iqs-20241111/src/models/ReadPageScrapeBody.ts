@@ -3,9 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadPageScrapeBodyReadability extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   excludeAllImages?: boolean;
+  /**
+   * @example
+   * false
+   */
   excludeAllLinks?: boolean;
   excludedTags?: string[];
+  /**
+   * @example
+   * none
+   */
   readabilityMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,14 +51,33 @@ export class ReadPageScrapeBodyReadability extends $dara.Model {
 
 export class ReadPageScrapeBody extends $dara.Model {
   formats?: string[];
+  /**
+   * @example
+   * null
+   */
   location?: string;
+  /**
+   * @example
+   * 1296000
+   */
   maxAge?: number;
+  /**
+   * @example
+   * 15000
+   */
   pageTimeout?: number;
   readability?: ReadPageScrapeBodyReadability;
+  /**
+   * @example
+   * 60000
+   */
   timeout?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * https://www.example.com
    */
   url?: string;
   static names(): { [key: string]: string } {

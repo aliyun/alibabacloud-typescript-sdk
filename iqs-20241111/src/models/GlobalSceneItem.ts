@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalSceneItem extends $dara.Model {
   detail?: string;
+  /**
+   * @example
+   * answerBox
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

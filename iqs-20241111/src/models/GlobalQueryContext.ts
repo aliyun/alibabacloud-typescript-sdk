@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GlobalQueryContextOriginalQuery extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   page?: string;
   query?: string;
+  /**
+   * @example
+   * NoLimit
+   */
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {
