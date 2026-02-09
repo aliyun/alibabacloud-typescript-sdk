@@ -9,6 +9,9 @@ export class SetFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
    */
   fundAccountId?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 100
    */

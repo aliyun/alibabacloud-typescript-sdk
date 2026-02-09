@@ -3,90 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetOrdersResponseBodyDataOrderListOrder extends $dara.Model {
-  /**
-   * @example
-   * 66
-   */
   afterTaxAmount?: string;
-  /**
-   * @example
-   * rds
-   */
   commodityCode?: string;
-  /**
-   * @example
-   * 2017-06-08T09:41:30Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * CNY
-   */
   currency?: string;
-  /**
-   * @example
-   * 237258627070169
-   */
   orderId?: string;
-  /**
-   * @example
-   * New
-   */
   orderType?: string;
-  /**
-   * @example
-   * CNY
-   */
   paymentCurrency?: string;
-  /**
-   * @example
-   * Paid
-   */
   paymentStatus?: string;
-  /**
-   * @example
-   * 2017-06-08T09:41:30Z
-   */
   paymentTime?: string;
-  /**
-   * @example
-   * 0
-   */
   pretaxAmount?: string;
-  /**
-   * @example
-   * 0
-   */
   pretaxAmountLocal?: string;
-  /**
-   * @example
-   * 0
-   */
   pretaxGrossAmount?: string;
-  /**
-   * @example
-   * rds
-   */
   productCode?: string;
-  /**
-   * @example
-   * rds
-   */
   productType?: string;
-  /**
-   * @example
-   * 234535345345342
-   */
   relatedOrderId?: string;
-  /**
-   * @example
-   * Subscription
-   */
   subscriptionType?: string;
-  /**
-   * @example
-   * 1
-   */
   tax?: string;
   static names(): { [key: string]: string } {
     return {

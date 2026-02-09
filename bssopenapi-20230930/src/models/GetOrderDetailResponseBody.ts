@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties extends $dara.Model {
-  /**
-   * @example
-   * cloud_ssd
-   */
   attrApiCode?: string;
-  /**
-   * @example
-   * cloud_ssd
-   */
   moduleApiCode?: string;
-  /**
-   * @example
-   * cloud_ssd
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,19 +58,8 @@ export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillMod
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig extends $dara.Model {
-  /**
-   * @remarks
-   * apiCode
-   * 
-   * @example
-   * datadisk
-   */
   apiCode?: string;
   billModuleProperties?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties;
-  /**
-   * @example
-   * datadisk
-   */
   code?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -142,16 +119,8 @@ export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig extend
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties extends $dara.Model {
-  /**
-   * @example
-   * cloud_efficiency
-   */
   code?: string;
   name?: string;
-  /**
-   * @example
-   * cloud_efficiency
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -205,10 +174,6 @@ export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOri
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig extends $dara.Model {
-  /**
-   * @example
-   * systemdisk
-   */
   code?: string;
   moduleProperties?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties;
   name?: string;
@@ -267,143 +232,35 @@ export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig ex
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrder extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   afterTaxAmount?: string;
   billModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig;
-  /**
-   * @example
-   * rds
-   */
   commodityCode?: string;
-  /**
-   * @example
-   * DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
-   */
   config?: string;
-  /**
-   * @example
-   * 2017-06-08T09:41:30Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * CNY
-   */
   currency?: string;
   extendInfos?: { [key: string]: string };
-  /**
-   * @example
-   * ["rm-bp1a2vsr018313t6o"]
-   */
   instanceIds?: string;
-  /**
-   * @example
-   * 322315
-   */
   operator?: string;
-  /**
-   * @example
-   * 241559391310333
-   */
   orderId?: string;
-  /**
-   * @example
-   * productsuborder
-   */
   orderSubType?: string;
-  /**
-   * @example
-   * new
-   */
   orderType?: string;
-  /**
-   * @example
-   * DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
-   */
   originalConfig?: string;
   originalModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig;
-  /**
-   * @example
-   * CNY
-   */
   paymentCurrency?: string;
-  /**
-   * @example
-   * paid
-   */
   paymentStatus?: string;
-  /**
-   * @example
-   * 2017-06-08T09:41:30Z
-   */
   paymentTime?: string;
-  /**
-   * @example
-   * 0
-   */
   pretaxAmount?: string;
-  /**
-   * @example
-   * 0
-   */
   pretaxAmountLocal?: string;
-  /**
-   * @example
-   * 0
-   */
   pretaxGrossAmount?: string;
-  /**
-   * @example
-   * rds
-   */
   productCode?: string;
-  /**
-   * @example
-   * rds
-   */
   productType?: string;
-  /**
-   * @example
-   * 3
-   */
   quantity?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @example
-   * 241559391310332
-   */
   relatedOrderId?: string;
-  /**
-   * @example
-   * 234343
-   */
   subOrderId?: string;
-  /**
-   * @example
-   * Subscription
-   */
   subscriptionType?: string;
-  /**
-   * @example
-   * 0
-   */
   tax?: string;
-  /**
-   * @example
-   * 2117-06-08T16:00:00Z
-   */
   usageEndTime?: string;
-  /**
-   * @example
-   * 2017-06-08T16:00:00Z
-   */
   usageStartTime?: string;
   static names(): { [key: string]: string } {
     return {
