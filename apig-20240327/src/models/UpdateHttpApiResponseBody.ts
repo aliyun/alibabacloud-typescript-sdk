@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * Response status code.
    * 
    * @example
-   * Ok
+   * 200
    */
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * Response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpdateHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

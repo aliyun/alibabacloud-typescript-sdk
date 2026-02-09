@@ -11,6 +11,13 @@ export class ListDomainsRequest extends $dara.Model {
    * gw-xxx
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The gateway type to filter. Valid values: **AI** and **API**.
+   * 
+   * @example
+   * API
+   */
   gatewayType?: string;
   /**
    * @remarks

@@ -3,7 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResourceStatistic extends $dara.Model {
+  /**
+   * @remarks
+   * The number of online resources.
+   * 
+   * @example
+   * 10
+   */
   resourceCount?: number;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   HttpApi
+   * *   GatewayRoute
+   * 
+   * @example
+   * HttpApi
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {

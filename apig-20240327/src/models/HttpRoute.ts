@@ -5,8 +5,29 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 
 
 export class HttpRouteDomainInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The domain ID
+   * 
+   * @example
+   * d-cr3v7dllhtgi9s***
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The domain name
+   * 
+   * @example
+   * itemcenter.dev
+   */
   name?: string;
+  /**
+   * @remarks
+   * The domain protocol
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +55,21 @@ export class HttpRouteDomainInfos extends $dara.Model {
 }
 
 export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The gateway ID
+   * 
+   * @example
+   * gw-cqoohqtlh***
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The gateway name
+   * 
+   * @example
+   * itemcenter-gateway
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60,13 +95,37 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
 }
 
 export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
+  /**
+   * @remarks
+   * The subdomain ID
+   * 
+   * @example
+   * d-cqu19hdlhtgjuv4***
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The subdomain name
+   * 
+   * @example
+   * env-crmic3llht***-cn-hangzhou-vpc.alicloudapi.com
+   */
   name?: string;
   /**
+   * @remarks
+   * networkType
+   * 
    * @example
    * Internet
    */
   networkType?: string;
+  /**
+   * @remarks
+   * The subdomain protocol
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,10 +155,39 @@ export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
 }
 
 export class HttpRouteEnvironmentInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The environment alias
+   * 
+   * @example
+   * prod
+   */
   alias?: string;
+  /**
+   * @remarks
+   * The environment ID
+   * 
+   * @example
+   * env-crhq1u5lhtgju***
+   */
   environmentId?: string;
+  /**
+   * @remarks
+   * The gateway information
+   */
   gatewayInfo?: HttpRouteEnvironmentInfoGatewayInfo;
+  /**
+   * @remarks
+   * The environment name
+   * 
+   * @example
+   * itemcenter-pre
+   */
   name?: string;
+  /**
+   * @remarks
+   * List of subdomain information
+   */
   subDomains?: HttpRouteEnvironmentInfoSubDomains[];
   static names(): { [key: string]: string } {
     return {
@@ -137,7 +225,21 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
 }
 
 export class HttpRouteMcpServerInfoMcpRouteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * mcp route path
+   * 
+   * @example
+   * /mcp
+   */
   exposedUriPath?: string;
+  /**
+   * @remarks
+   * The MCP protocol
+   * 
+   * @example
+   * SSE
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,11 +265,50 @@ export class HttpRouteMcpServerInfoMcpRouteConfig extends $dara.Model {
 }
 
 export class HttpRouteMcpServerInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The creation type
+   * 
+   * @example
+   * Nacos
+   */
   createFromType?: string;
+  /**
+   * @remarks
+   * The imported instance ID
+   * 
+   * @example
+   * import-001
+   */
   importInstanceId?: string;
+  /**
+   * @remarks
+   * The imported Nacos MCP server ID
+   * 
+   * @example
+   * mcp-002
+   */
   importMcpServerId?: string;
+  /**
+   * @remarks
+   * The imported namespace
+   * 
+   * @example
+   * default
+   */
   importNamespace?: string;
+  /**
+   * @remarks
+   * The MCP route configuration
+   */
   mcpRouteConfig?: HttpRouteMcpServerInfoMcpRouteConfig;
+  /**
+   * @remarks
+   * The MCP server configuration content
+   * 
+   * @example
+   * {\\"config\\":{}}
+   */
   mcpServerConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -204,18 +345,91 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
 }
 
 export class HttpRoute extends $dara.Model {
+  /**
+   * @remarks
+   * The backend configuration
+   */
   backend?: Backend;
+  /**
+   * @remarks
+   * builtin
+   * 
+   * @example
+   * true
+   */
   builtin?: string;
+  /**
+   * @remarks
+   * The creation timestamp in milliseconds
+   * 
+   * @example
+   * 1726649310593
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The deployment status
+   * 
+   * @example
+   * Deployed
+   */
   deployStatus?: string;
+  /**
+   * @remarks
+   * The description of the route
+   * 
+   * @example
+   * Route for user management API
+   */
   description?: string;
+  /**
+   * @remarks
+   * List of domain information
+   */
   domainInfos?: HttpRouteDomainInfos[];
+  /**
+   * @remarks
+   * The environment information
+   */
   environmentInfo?: HttpRouteEnvironmentInfo;
+  /**
+   * @remarks
+   * gatewayStatus
+   */
   gatewayStatus?: { [key: string]: string };
+  /**
+   * @remarks
+   * The route matching rules
+   */
   match?: HttpRouteMatch;
+  /**
+   * @remarks
+   * The MCP server information
+   */
   mcpServerInfo?: HttpRouteMcpServerInfo;
+  /**
+   * @remarks
+   * The name of the route
+   * 
+   * @example
+   * itemcenter-pre-route
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unique identifier of the route
+   * 
+   * @example
+   * hr-crf5l7tlhtgp91t***
+   */
   routeId?: string;
+  /**
+   * @remarks
+   * The last update timestamp in milliseconds
+   * 
+   * @example
+   * 1726819895636
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnvironmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Environment ID.
+   * The request ID, which is used to trace the call link.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
@@ -35,7 +35,7 @@ export class CreateEnvironmentResponseBodyData extends $dara.Model {
 export class CreateEnvironmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The resource group ID.
    * 
    * @example
    * Ok
@@ -43,12 +43,12 @@ export class CreateEnvironmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * Schema of Response
    */
   data?: CreateEnvironmentResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * rg-acfmycs5expl7oq
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class CreateEnvironmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the API call chain.
+   * The instance ID.
    * 
    * @example
    * 3C3B9A12-3868-5EB9-8BEA-F99E03DD125C

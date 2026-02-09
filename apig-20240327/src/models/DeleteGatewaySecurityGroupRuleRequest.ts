@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGatewaySecurityGroupRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to cascade delete the security group rules.
+   * Specifies whether to delete the cascaded security group rule.
    * 
    * @example
    * true

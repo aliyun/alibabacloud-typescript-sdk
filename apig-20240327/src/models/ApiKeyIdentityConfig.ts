@@ -3,7 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApiKeyIdentityConfigApikeySource extends $dara.Model {
+  /**
+   * @remarks
+   * The source of the API key.
+   * 
+   * Valid values:
+   * 
+   * *   Header
+   * *   QueryString
+   * *   Default
+   * 
+   * @example
+   * Default
+   */
   source?: string;
+  /**
+   * @remarks
+   * The value of the API key.
+   * 
+   * @example
+   * xxxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +49,21 @@ export class ApiKeyIdentityConfigApikeySource extends $dara.Model {
 }
 
 export class ApiKeyIdentityConfigCredentials extends $dara.Model {
+  /**
+   * @remarks
+   * The API key configuration.
+   * 
+   * @example
+   * xxxxx
+   */
   apikey?: string;
+  /**
+   * @remarks
+   * The production mode.
+   * 
+   * @example
+   * System
+   */
   generateMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,8 +89,23 @@ export class ApiKeyIdentityConfigCredentials extends $dara.Model {
 }
 
 export class ApiKeyIdentityConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The source configuration of the API key.
+   */
   apikeySource?: ApiKeyIdentityConfigApikeySource;
+  /**
+   * @remarks
+   * The list of certificates.
+   */
   credentials?: ApiKeyIdentityConfigCredentials[];
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * Apikey
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

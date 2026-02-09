@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteGatewayResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteGatewayResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * DE97DFDB-7DF0-5AB9-941C-10D27D769E4B

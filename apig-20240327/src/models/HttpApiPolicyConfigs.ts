@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HttpApiPolicyConfigsAiCacheConfigEmbeddingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Embedding model name
+   * 
+   * @example
+   * model-1
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * Embedding service ID
+   * 
+   * @example
+   * svc-1
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * Embedding service request timeout in milliseconds
+   * 
+   * @example
+   * 2000
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * Embedding service provider type
+   * 
+   * @example
+   * dashscope
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +63,26 @@ export class HttpApiPolicyConfigsAiCacheConfigEmbeddingConfig extends $dara.Mode
 }
 
 export class HttpApiPolicyConfigsAiCacheConfigPluginStatus extends $dara.Model {
+  /**
+   * @remarks
+   * errorLogs
+   */
   errorLogs?: { [key: string]: string };
+  /**
+   * @remarks
+   * pluginId
+   * 
+   * @example
+   * pl-123456
+   */
   pluginId?: string;
+  /**
+   * @remarks
+   * serviceHealthy
+   * 
+   * @example
+   * true
+   */
   serviceHealthy?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -67,11 +113,53 @@ export class HttpApiPolicyConfigsAiCacheConfigPluginStatus extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiCacheConfigRedisConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Redis database number
+   * 
+   * @example
+   * 1
+   */
   databaseNumber?: number;
+  /**
+   * @remarks
+   * Redis host
+   * 
+   * @example
+   * redis.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * Redis password
+   * 
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @remarks
+   * Redis port
+   * 
+   * @example
+   * 6379
+   */
   port?: number;
+  /**
+   * @remarks
+   * Redis timeout
+   * 
+   * @example
+   * 60
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * Redis username
+   * 
+   * @example
+   * username
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,11 +193,53 @@ export class HttpApiPolicyConfigsAiCacheConfigRedisConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiCacheConfigVectorConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Vector database API key for authentication
+   * 
+   * @example
+   * vec-api-key-123
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * Vector database collection ID for storing vector embeddings
+   * 
+   * @example
+   * col-1
+   */
   collectionId?: string;
+  /**
+   * @remarks
+   * Vector database service host address
+   * 
+   * @example
+   * vec.example.com
+   */
   serviceHost?: string;
+  /**
+   * @remarks
+   * Similarity threshold for semantic matching
+   * 
+   * @example
+   * 0.8
+   */
   threshold?: number;
+  /**
+   * @remarks
+   * Vector database request timeout in milliseconds
+   * 
+   * @example
+   * 1000
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * Vector database service type
+   * 
+   * @example
+   * dashvector
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,12 +273,49 @@ export class HttpApiPolicyConfigsAiCacheConfigVectorConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiCacheConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Strategy for generating cache keys
+   * 
+   * @example
+   * default
+   */
   cacheKeyStrategy?: string;
+  /**
+   * @remarks
+   * Cache mode type
+   * 
+   * @example
+   * exact
+   */
   cacheMode?: string;
+  /**
+   * @remarks
+   * Cache time-to-live in seconds
+   * 
+   * @example
+   * 3600
+   */
   cacheTTL?: number;
+  /**
+   * @remarks
+   * Embedding Config
+   */
   embeddingConfig?: HttpApiPolicyConfigsAiCacheConfigEmbeddingConfig;
+  /**
+   * @remarks
+   * pluginStatus
+   */
   pluginStatus?: HttpApiPolicyConfigsAiCacheConfigPluginStatus;
+  /**
+   * @remarks
+   * Redis configuration for cache storage
+   */
   redisConfig?: HttpApiPolicyConfigsAiCacheConfigRedisConfig;
+  /**
+   * @remarks
+   * vectorConfig
+   */
   vectorConfig?: HttpApiPolicyConfigsAiCacheConfigVectorConfig;
   static names(): { [key: string]: string } {
     return {
@@ -196,9 +363,37 @@ export class HttpApiPolicyConfigsAiCacheConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiFallbackConfigServiceConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * Service name for frontend display
+   * 
+   * @example
+   * azure.ai
+   */
   name?: string;
+  /**
+   * @remarks
+   * Whether to pass through the original model name
+   * 
+   * @example
+   * true
+   */
   passThroughModelName?: boolean;
+  /**
+   * @remarks
+   * Fallback service ID
+   * 
+   * @example
+   * svc-123456
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * Target model name for fallback
+   * 
+   * @example
+   * kimi-fallback-test
+   */
   targetModelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -228,8 +423,26 @@ export class HttpApiPolicyConfigsAiFallbackConfigServiceConfigs extends $dara.Mo
 }
 
 export class HttpApiPolicyConfigsAiFallbackConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Only trigger fallback when backend returns 4xx/5xx status codes
+   * 
+   * @example
+   * true
+   */
   onlyRedirectUpstreamCode?: boolean;
+  /**
+   * @remarks
+   * Whether the policy is generated from route embedded configuration
+   * 
+   * @example
+   * true
+   */
   routeEmbedded?: boolean;
+  /**
+   * @remarks
+   * List of fallback service configurations
+   */
   serviceConfigs?: HttpApiPolicyConfigsAiFallbackConfigServiceConfigs[];
   static names(): { [key: string]: string } {
     return {
@@ -260,8 +473,26 @@ export class HttpApiPolicyConfigsAiFallbackConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiNetworkSearchConfigPluginStatus extends $dara.Model {
+  /**
+   * @remarks
+   * errorLogs
+   */
   errorLogs?: { [key: string]: string };
+  /**
+   * @remarks
+   * pluginId
+   * 
+   * @example
+   * pl-123456
+   */
   pluginId?: string;
+  /**
+   * @remarks
+   * serviceHealthy
+   * 
+   * @example
+   * true
+   */
   serviceHealthy?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -292,15 +523,82 @@ export class HttpApiPolicyConfigsAiNetworkSearchConfigPluginStatus extends $dara
 }
 
 export class HttpApiPolicyConfigsAiNetworkSearchConfigSearchEngineConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Search engine API key
+   * 
+   * @example
+   * xxx
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * Content mode
+   * 
+   * @example
+   * summary
+   */
   contentMode?: string;
+  /**
+   * @remarks
+   * Result count
+   * 
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * Search engine endpoint
+   * 
+   * @example
+   * ******-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * Industry
+   * 
+   * @example
+   * tech
+   */
   industry?: string;
+  /**
+   * @remarks
+   * Additional parameters
+   */
   optionArgs?: { [key: string]: string };
+  /**
+   * @remarks
+   * Result offset
+   * 
+   * @example
+   * 0
+   */
   start?: number;
+  /**
+   * @remarks
+   * Time range
+   * 
+   * @example
+   * 7d
+   */
   timeRange?: string;
+  /**
+   * @remarks
+   * API call timeout in milliseconds
+   * 
+   * @example
+   * 5000
+   */
   timeoutMillisecond?: number;
+  /**
+   * @remarks
+   * Search engine type: Bing/aliyunQuark
+   * 
+   * @example
+   * Bing
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -345,15 +643,82 @@ export class HttpApiPolicyConfigsAiNetworkSearchConfigSearchEngineConfig extends
 }
 
 export class HttpApiPolicyConfigsAiNetworkSearchConfigSearchFrom extends $dara.Model {
+  /**
+   * @remarks
+   * Search engine API key
+   * 
+   * @example
+   * xxx
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * Content mode
+   * 
+   * @example
+   * summary
+   */
   contentMode?: string;
+  /**
+   * @remarks
+   * Result count
+   * 
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * Search engine endpoint
+   * 
+   * @example
+   * ******-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * Industry
+   * 
+   * @example
+   * tech
+   */
   industry?: string;
+  /**
+   * @remarks
+   * Additional parameters
+   */
   optionArgs?: { [key: string]: string };
+  /**
+   * @remarks
+   * Result offset
+   * 
+   * @example
+   * 0
+   */
   start?: number;
+  /**
+   * @remarks
+   * Time range
+   * 
+   * @example
+   * 7d
+   */
   timeRange?: string;
+  /**
+   * @remarks
+   * API call timeout in milliseconds
+   * 
+   * @example
+   * 5000
+   */
   timeoutMillisecond?: number;
+  /**
+   * @remarks
+   * Search engine type
+   * 
+   * @example
+   * Bing
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -398,10 +763,45 @@ export class HttpApiPolicyConfigsAiNetworkSearchConfigSearchFrom extends $dara.M
 }
 
 export class HttpApiPolicyConfigsAiNetworkSearchConfigSearchRewrite extends $dara.Model {
+  /**
+   * @remarks
+   * Enable search rewrite
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Max rewrite count (1-5)
+   * 
+   * @example
+   * 3
+   */
   maxCount?: number;
+  /**
+   * @remarks
+   * Model name
+   * 
+   * @example
+   * qwen-turbo
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * Service ID
+   * 
+   * @example
+   * svc-123456
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * Timeout in milliseconds
+   * 
+   * @example
+   * 5000
+   */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -433,14 +833,65 @@ export class HttpApiPolicyConfigsAiNetworkSearchConfigSearchRewrite extends $dar
 }
 
 export class HttpApiPolicyConfigsAiNetworkSearchConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Default enable
+   * 
+   * @example
+   * true
+   */
   defaultEnable?: boolean;
+  /**
+   * @remarks
+   * Default search language code
+   * 
+   * @example
+   * zh-CN
+   */
   defaultLang?: string;
+  /**
+   * @remarks
+   * Add reference sources in answer
+   * 
+   * @example
+   * true
+   */
   needReference?: boolean;
+  /**
+   * @remarks
+   * pluginStatus
+   */
   pluginStatus?: HttpApiPolicyConfigsAiNetworkSearchConfigPluginStatus;
+  /**
+   * @remarks
+   * Reference format
+   * 
+   * @example
+   * Reference: %s
+   */
   referenceFormat?: string;
+  /**
+   * @remarks
+   * Reference location
+   * 
+   * @example
+   * head
+   */
   referenceLocation?: string;
+  /**
+   * @remarks
+   * Search engine configuration
+   */
   searchEngineConfig?: HttpApiPolicyConfigsAiNetworkSearchConfigSearchEngineConfig;
+  /**
+   * @remarks
+   * Search engine list
+   */
   searchFrom?: HttpApiPolicyConfigsAiNetworkSearchConfigSearchFrom[];
+  /**
+   * @remarks
+   * Search rewrite configuration
+   */
   searchRewrite?: HttpApiPolicyConfigsAiNetworkSearchConfigSearchRewrite;
   static names(): { [key: string]: string } {
     return {
@@ -492,10 +943,45 @@ export class HttpApiPolicyConfigsAiNetworkSearchConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiSecurityGuardConfigConsumerRequestCheckService extends $dara.Model {
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * Exact
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Modality type
+   * 
+   * @example
+   * Text
+   */
   modalityType?: string;
+  /**
+   * @remarks
+   * Consumer name
+   * 
+   * @example
+   * consumer-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * requestCheckService
+   * 
+   * @example
+   * query_security_check
+   */
   requestCheckService?: string;
+  /**
+   * @remarks
+   * requestImageCheckService
+   * 
+   * @example
+   * nsfw-image-detector
+   */
   requestImageCheckService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -527,10 +1013,45 @@ export class HttpApiPolicyConfigsAiSecurityGuardConfigConsumerRequestCheckServic
 }
 
 export class HttpApiPolicyConfigsAiSecurityGuardConfigConsumerResponseCheckService extends $dara.Model {
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * Exact
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Modality type
+   * 
+   * @example
+   * Text
+   */
   modalityType?: string;
+  /**
+   * @remarks
+   * Consumer name
+   * 
+   * @example
+   * consumer-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * responseCheckService
+   * 
+   * @example
+   * response_security_check
+   */
   responseCheckService?: string;
+  /**
+   * @remarks
+   * responseImageCheckService
+   * 
+   * @example
+   * watermark-detector
+   */
   responseImageCheckService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -562,9 +1083,37 @@ export class HttpApiPolicyConfigsAiSecurityGuardConfigConsumerResponseCheckServi
 }
 
 export class HttpApiPolicyConfigsAiSecurityGuardConfigConsumerRiskLevel extends $dara.Model {
+  /**
+   * @remarks
+   * Risk level
+   * 
+   * @example
+   * high
+   */
   level?: string;
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * Exact
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Consumer name
+   * 
+   * @example
+   * consumer-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * Risk type
+   * 
+   * @example
+   * ContentModeration
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -594,8 +1143,26 @@ export class HttpApiPolicyConfigsAiSecurityGuardConfigConsumerRiskLevel extends 
 }
 
 export class HttpApiPolicyConfigsAiSecurityGuardConfigPluginStatus extends $dara.Model {
+  /**
+   * @remarks
+   * errorLogs
+   */
   errorLogs?: { [key: string]: string };
+  /**
+   * @remarks
+   * pluginId
+   * 
+   * @example
+   * pl-123456
+   */
   pluginId?: string;
+  /**
+   * @remarks
+   * serviceHealthy
+   * 
+   * @example
+   * true
+   */
   serviceHealthy?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -626,7 +1193,21 @@ export class HttpApiPolicyConfigsAiSecurityGuardConfigPluginStatus extends $dara
 }
 
 export class HttpApiPolicyConfigsAiSecurityGuardConfigRiskConfigConsumerRules extends $dara.Model {
+  /**
+   * @remarks
+   * matchType
+   * 
+   * @example
+   * Exact
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * pattern
+   * 
+   * @example
+   * /v1/chat/*
+   */
   pattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -652,8 +1233,26 @@ export class HttpApiPolicyConfigsAiSecurityGuardConfigRiskConfigConsumerRules ex
 }
 
 export class HttpApiPolicyConfigsAiSecurityGuardConfigRiskConfig extends $dara.Model {
+  /**
+   * @remarks
+   * consumerRules
+   */
   consumerRules?: HttpApiPolicyConfigsAiSecurityGuardConfigRiskConfigConsumerRules;
+  /**
+   * @remarks
+   * Risk level
+   * 
+   * @example
+   * high
+   */
   level?: string;
+  /**
+   * @remarks
+   * Risk type
+   * 
+   * @example
+   * ContentModeration
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -684,21 +1283,118 @@ export class HttpApiPolicyConfigsAiSecurityGuardConfigRiskConfig extends $dara.M
 }
 
 export class HttpApiPolicyConfigsAiSecurityGuardConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Buffer limit for content checking
+   * 
+   * @example
+   * 1000
+   */
   bufferLimit?: number;
+  /**
+   * @remarks
+   * Enable request content checking
+   * 
+   * @example
+   * true
+   */
   checkRequest?: boolean;
+  /**
+   * @remarks
+   * Enable request image checking
+   * 
+   * @example
+   * true
+   */
   checkRequestImage?: boolean;
+  /**
+   * @remarks
+   * Enable response content checking
+   * 
+   * @example
+   * true
+   */
   checkResponse?: boolean;
+  /**
+   * @remarks
+   * Enable response image checking
+   * 
+   * @example
+   * true
+   */
   checkResponseImage?: boolean;
+  /**
+   * @remarks
+   * consumerRequestCheckService
+   */
   consumerRequestCheckService?: HttpApiPolicyConfigsAiSecurityGuardConfigConsumerRequestCheckService[];
+  /**
+   * @remarks
+   * consumerResponseCheckService
+   */
   consumerResponseCheckService?: HttpApiPolicyConfigsAiSecurityGuardConfigConsumerResponseCheckService[];
+  /**
+   * @remarks
+   * consumerRiskLevel
+   */
   consumerRiskLevel?: HttpApiPolicyConfigsAiSecurityGuardConfigConsumerRiskLevel[];
+  /**
+   * @remarks
+   * pluginStatus
+   */
   pluginStatus?: HttpApiPolicyConfigsAiSecurityGuardConfigPluginStatus;
+  /**
+   * @remarks
+   * Request text check service type
+   * 
+   * @example
+   * content-moderation-service
+   */
   requestCheckService?: string;
+  /**
+   * @remarks
+   * Request image check service type
+   * 
+   * @example
+   * image-moderation-service
+   */
   requestImageCheckService?: string;
+  /**
+   * @remarks
+   * Response text check service type
+   * 
+   * @example
+   * output-moderation-service
+   */
   responseCheckService?: string;
+  /**
+   * @remarks
+   * Response image check service type
+   * 
+   * @example
+   * generated-image-scanner
+   */
   responseImageCheckService?: string;
+  /**
+   * @remarks
+   * Global risk alert level
+   * 
+   * @example
+   * high
+   */
   riskAlertLevel?: string;
+  /**
+   * @remarks
+   * RiskConfig
+   */
   riskConfig?: HttpApiPolicyConfigsAiSecurityGuardConfigRiskConfig[];
+  /**
+   * @remarks
+   * Security guard service endpoint URL
+   * 
+   * @example
+   * https://api.example.com/v1
+   */
   serviceAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -767,7 +1463,21 @@ export class HttpApiPolicyConfigsAiSecurityGuardConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiStatisticsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Log request content
+   * 
+   * @example
+   * true
+   */
   logRequestContent?: boolean;
+  /**
+   * @remarks
+   * Log response content
+   * 
+   * @example
+   * true
+   */
   logResponseContent?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -793,11 +1503,53 @@ export class HttpApiPolicyConfigsAiStatisticsConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiTokenRateLimitConfigGlobalRules extends $dara.Model {
+  /**
+   * @remarks
+   * Limit mode
+   * 
+   * @example
+   * TokenPerSecond
+   */
   limitMode?: string;
+  /**
+   * @remarks
+   * Limit type
+   * 
+   * @example
+   * Global
+   */
   limitType?: string;
+  /**
+   * @remarks
+   * Limit value
+   * 
+   * @example
+   * 100
+   */
   limitValue?: string;
+  /**
+   * @remarks
+   * Match key
+   * 
+   * @example
+   * user_id
+   */
   matchKey?: string;
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * Exact
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Match value
+   * 
+   * @example
+   * 12345
+   */
   matchValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -831,8 +1583,26 @@ export class HttpApiPolicyConfigsAiTokenRateLimitConfigGlobalRules extends $dara
 }
 
 export class HttpApiPolicyConfigsAiTokenRateLimitConfigPluginStatus extends $dara.Model {
+  /**
+   * @remarks
+   * Array of plugin execution error logs
+   */
   errorLogs?: { [key: string]: string };
+  /**
+   * @remarks
+   * Plugin instance unique identifier
+   * 
+   * @example
+   * pl-123456
+   */
   pluginId?: string;
+  /**
+   * @remarks
+   * Health status of the cache service
+   * 
+   * @example
+   * true
+   */
   serviceHealthy?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -863,11 +1633,53 @@ export class HttpApiPolicyConfigsAiTokenRateLimitConfigPluginStatus extends $dar
 }
 
 export class HttpApiPolicyConfigsAiTokenRateLimitConfigRedisConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Redis database number
+   * 
+   * @example
+   * 1
+   */
   databaseNumber?: number;
+  /**
+   * @remarks
+   * Redis host
+   * 
+   * @example
+   * redis.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * Redis password
+   * 
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @remarks
+   * Redis port
+   * 
+   * @example
+   * 6379
+   */
   port?: number;
+  /**
+   * @remarks
+   * Redis timeout
+   * 
+   * @example
+   * 60
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * Redis username
+   * 
+   * @example
+   * username
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -901,11 +1713,53 @@ export class HttpApiPolicyConfigsAiTokenRateLimitConfigRedisConfig extends $dara
 }
 
 export class HttpApiPolicyConfigsAiTokenRateLimitConfigRules extends $dara.Model {
+  /**
+   * @remarks
+   * Limit mode
+   * 
+   * @example
+   * TokenPerSecond
+   */
   limitMode?: string;
+  /**
+   * @remarks
+   * Limit type
+   * 
+   * @example
+   * Header
+   */
   limitType?: string;
+  /**
+   * @remarks
+   * Limit value
+   * 
+   * @example
+   * 100
+   */
   limitValue?: string;
+  /**
+   * @remarks
+   * Match key
+   * 
+   * @example
+   * x-api-key
+   */
   matchKey?: string;
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * Exact
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Match value
+   * 
+   * @example
+   * test-value
+   */
   matchValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -939,10 +1793,33 @@ export class HttpApiPolicyConfigsAiTokenRateLimitConfigRules extends $dara.Model
 }
 
 export class HttpApiPolicyConfigsAiTokenRateLimitConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Enable global rate limit rules
+   * 
+   * @example
+   * true
+   */
   enableGlobalRules?: boolean;
+  /**
+   * @remarks
+   * List of global rate limit rules
+   */
   globalRules?: HttpApiPolicyConfigsAiTokenRateLimitConfigGlobalRules[];
+  /**
+   * @remarks
+   * pluginStatus
+   */
   pluginStatus?: HttpApiPolicyConfigsAiTokenRateLimitConfigPluginStatus;
+  /**
+   * @remarks
+   * Redis Config
+   */
   redisConfig?: HttpApiPolicyConfigsAiTokenRateLimitConfigRedisConfig;
+  /**
+   * @remarks
+   * List of rate limit rules
+   */
   rules?: HttpApiPolicyConfigsAiTokenRateLimitConfigRules[];
   static names(): { [key: string]: string } {
     return {
@@ -986,6 +1863,13 @@ export class HttpApiPolicyConfigsAiTokenRateLimitConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigEnableConditions extends $dara.Model {
+  /**
+   * @remarks
+   * Tool count threshold
+   * 
+   * @example
+   * 10
+   */
   toolCountThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1009,8 +1893,26 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigEnableConditions extends $
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigPluginStatus extends $dara.Model {
+  /**
+   * @remarks
+   * errorLogs
+   */
   errorLogs?: { [key: string]: string };
+  /**
+   * @remarks
+   * pluginId
+   * 
+   * @example
+   * pl-123456
+   */
   pluginId?: string;
+  /**
+   * @remarks
+   * serviceHealthy
+   * 
+   * @example
+   * true
+   */
   serviceHealthy?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1041,7 +1943,21 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigPluginStatus extends $dara
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingContextSelection extends $dara.Model {
+  /**
+   * @remarks
+   * Context type
+   * 
+   * @example
+   * recentMessages
+   */
   type?: string;
+  /**
+   * @remarks
+   * Value
+   * 
+   * @example
+   * 5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1067,8 +1983,29 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingContextSelec
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingModelService extends $dara.Model {
+  /**
+   * @remarks
+   * Model name
+   * 
+   * @example
+   * qwen-turbo
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * Service ID
+   * 
+   * @example
+   * svc-123456
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * Timeout in milliseconds
+   * 
+   * @example
+   * 5000
+   */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1096,7 +2033,21 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingModelService
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingPromptConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Custom prompt (required when type=custom)
+   * 
+   * @example
+   * Custom prompt
+   */
   customPrompt?: string;
+  /**
+   * @remarks
+   * Prompt type: builtIn/custom
+   * 
+   * @example
+   * builtIn
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1122,6 +2073,13 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingPromptConfig
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingTriggerConditions extends $dara.Model {
+  /**
+   * @remarks
+   * Message count threshold (≥0)
+   * 
+   * @example
+   * 1
+   */
   messageCountThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1145,12 +2103,49 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingTriggerCondi
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewriting extends $dara.Model {
+  /**
+   * @remarks
+   * Context selection
+   */
   contextSelection?: HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingContextSelection;
+  /**
+   * @remarks
+   * Enable query rewriting
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * Fallback strategy
+   * 
+   * @example
+   * skip
+   */
   fallbackStrategy?: string;
+  /**
+   * @remarks
+   * Max output tokens
+   * 
+   * @example
+   * 50
+   */
   maxOutputTokens?: number;
+  /**
+   * @remarks
+   * Model service configuration
+   */
   modelService?: HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingModelService;
+  /**
+   * @remarks
+   * Prompt configuration
+   */
   promptConfig?: HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingPromptConfig;
+  /**
+   * @remarks
+   * Trigger conditions
+   */
   triggerConditions?: HttpApiPolicyConfigsAiToolSelectionConfigQueryRewritingTriggerConditions;
   static names(): { [key: string]: string } {
     return {
@@ -1198,8 +2193,29 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigQueryRewriting extends $da
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigToolRerankingModelService extends $dara.Model {
+  /**
+   * @remarks
+   * Model name
+   * 
+   * @example
+   * gte-rerank-v2
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * Service ID
+   * 
+   * @example
+   * svc-123456
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * Timeout in milliseconds
+   * 
+   * @example
+   * 5000
+   */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1227,11 +2243,50 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigToolRerankingModelService 
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfigToolReranking extends $dara.Model {
+  /**
+   * @remarks
+   * Fallback strategy: skip/error
+   * 
+   * @example
+   * skip
+   */
   fallbackStrategy?: string;
+  /**
+   * @remarks
+   * Filtering method: topK/topN/combined
+   * 
+   * @example
+   * topK
+   */
   filteringMethod?: string;
+  /**
+   * @remarks
+   * Model service configuration
+   */
   modelService?: HttpApiPolicyConfigsAiToolSelectionConfigToolRerankingModelService;
+  /**
+   * @remarks
+   * Score threshold (0.0-1.0, 0 means disabled)
+   * 
+   * @example
+   * 0.5
+   */
   scoreThreshold?: number;
+  /**
+   * @remarks
+   * TopK percentage (1-100)
+   * 
+   * @example
+   * 50
+   */
   topKPercent?: number;
+  /**
+   * @remarks
+   * TopN count
+   * 
+   * @example
+   * 5
+   */
   topNCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1268,9 +2323,25 @@ export class HttpApiPolicyConfigsAiToolSelectionConfigToolReranking extends $dar
 }
 
 export class HttpApiPolicyConfigsAiToolSelectionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Enable conditions configuration
+   */
   enableConditions?: HttpApiPolicyConfigsAiToolSelectionConfigEnableConditions;
+  /**
+   * @remarks
+   * Plugin status
+   */
   pluginStatus?: HttpApiPolicyConfigsAiToolSelectionConfigPluginStatus;
+  /**
+   * @remarks
+   * Query rewriting configuration
+   */
   queryRewriting?: HttpApiPolicyConfigsAiToolSelectionConfigQueryRewriting;
+  /**
+   * @remarks
+   * Tool reranking configuration
+   */
   toolReranking?: HttpApiPolicyConfigsAiToolSelectionConfigToolReranking;
   static names(): { [key: string]: string } {
     return {
@@ -1312,6 +2383,13 @@ export class HttpApiPolicyConfigsAiToolSelectionConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigsSemanticRouterConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Timeout in milliseconds
+   * 
+   * @example
+   * 2000
+   */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1335,15 +2413,61 @@ export class HttpApiPolicyConfigsSemanticRouterConfig extends $dara.Model {
 }
 
 export class HttpApiPolicyConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * AiCacheConfig
+   */
   aiCacheConfig?: HttpApiPolicyConfigsAiCacheConfig;
+  /**
+   * @remarks
+   * AiFallbackConfig
+   */
   aiFallbackConfig?: HttpApiPolicyConfigsAiFallbackConfig;
+  /**
+   * @remarks
+   * AiNetworkSearchConfig
+   */
   aiNetworkSearchConfig?: HttpApiPolicyConfigsAiNetworkSearchConfig;
+  /**
+   * @remarks
+   * AiSecurityGuardConfig
+   */
   aiSecurityGuardConfig?: HttpApiPolicyConfigsAiSecurityGuardConfig;
+  /**
+   * @remarks
+   * AiStatisticsConfig
+   */
   aiStatisticsConfig?: HttpApiPolicyConfigsAiStatisticsConfig;
+  /**
+   * @remarks
+   * AiTokenRateLimitConfig
+   */
   aiTokenRateLimitConfig?: HttpApiPolicyConfigsAiTokenRateLimitConfig;
+  /**
+   * @remarks
+   * AiToolSelectionConfig
+   */
   aiToolSelectionConfig?: HttpApiPolicyConfigsAiToolSelectionConfig;
+  /**
+   * @remarks
+   * Policy Enable
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * SemanticRouterConfig
+   */
   semanticRouterConfig?: HttpApiPolicyConfigsSemanticRouterConfig;
+  /**
+   * @remarks
+   * Policy Type
+   * 
+   * @example
+   * AiCache
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

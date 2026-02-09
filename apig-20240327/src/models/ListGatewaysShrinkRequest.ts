@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewaysShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. If you specify an ID, an exact search is performed.
+   * Retrieve the list of created cloud-native gateways
    * 
    * @example
    * gw-cpv4sqdl****
    */
   gatewayId?: string;
-  gatewayType?: string;
   /**
    * @remarks
    * The search keyword. A full match is performed. The search is case-insensitive.
+   * 
+   * @example
+   * API
+   */
+  gatewayType?: string;
+  /**
+   * @remarks
+   * The instance name. If you specify a name, an exact search is performed.
    * 
    * @example
    * dev
@@ -22,7 +29,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The instance name. If you specify a name, an exact search is performed.
+   * The number of entries per page.
    * 
    * @example
    * itemcenter-gateway
@@ -30,7 +37,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The instance ID. If you specify an ID, an exact search is performed.
    * 
    * @example
    * 1
@@ -38,7 +45,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of the page to return.
    * 
    * @example
    * 10
@@ -46,10 +53,10 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * rg-aekz3wes3hnre5a
    * 
    * @example
-   * rg-aekz3wes3hnre5a
+   * rg-aekzq6bzz5uyg2q
    */
   resourceGroupId?: string;
   /**

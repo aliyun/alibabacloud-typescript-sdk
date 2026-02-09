@@ -6,10 +6,17 @@ import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 
 
 export class CreateHttpApiRequestIngressConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID.
+   * 
+   * @example
+   * k7v5eobfzttudni2pw***
+   */
   clusterId?: string;
   /**
    * @remarks
-   * The environment ID.
+   * $.parameters[0].schema.properties.deployConfigs.enumValueTitles
    * 
    * @example
    * env-cq146allhtgk***
@@ -17,7 +24,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress Class for listening.
+   * $.parameters[0].schema.properties.enableAuth.example
    * 
    * @example
    * mse
@@ -25,7 +32,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in Ingress Status.
+   * $.parameters[0].schema.properties.authConfig.description
    * 
    * @example
    * false
@@ -33,7 +40,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   overrideIngressIp?: boolean;
   /**
    * @remarks
-   * The source ID.
+   * $.parameters[0].schema.properties.enableAuth.description
    * 
    * @example
    * src-crdddallhtgtr***
@@ -43,7 +50,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The namespace for listening.
+   * $.parameters[0].schema.properties.enableAuth.enumValueTitles
    * 
    * @example
    * default
@@ -81,22 +88,24 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
 }
 
 export class CreateHttpApiRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Agent protocols
+   */
   agentProtocols?: string[];
   /**
    * @remarks
-   * The AI API protocols. Valid value:
-   * 
-   * *   OpenAI/v1
+   * $.parameters[0].schema.properties.authConfig.enumValueTitles
    */
   aiProtocols?: string[];
   /**
    * @remarks
-   * The authentication configurations.
+   * The request parameters for API creation.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The API base path, which must start with a forward slash (/).
+   * $.parameters[0].schema.properties.deployConfigs.items.example
    * 
    * @example
    * /v1
@@ -104,32 +113,49 @@ export class CreateHttpApiRequest extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The API deployment configurations. Currently, only AI APIs support deployment configurations, and only a single deployment configuration can be passed.
+   * $.parameters[0].schema.example
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * $.parameters[0].schema.properties.aiProtocols.items.description
    * 
    * @example
-   * API for testing
+   * $.parameters[0].schema.properties.aiProtocols.items.example
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable authentication.
+   * Create an API of HTTP type
+   * 
+   * @example
+   * true
    */
   enableAuth?: boolean;
+  /**
+   * @remarks
+   * First byte timeout
+   * 
+   * @example
+   * 30
+   */
   firstByteTimeout?: number;
   /**
    * @remarks
-   * The HTTP Ingress configurations.
+   * $.parameters[0].schema.properties.deployConfigs.example
    */
   ingressConfig?: CreateHttpApiRequestIngressConfig;
+  /**
+   * @remarks
+   * Model category
+   * 
+   * @example
+   * llm/text-to-image
+   */
   modelCategory?: string;
   /**
    * @remarks
-   * The API name.
+   * $.parameters[0].schema.example
    * 
    * This parameter is required.
    * 
@@ -139,26 +165,28 @@ export class CreateHttpApiRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocols that are used to call the API.
+   * $.parameters[0].schema.properties.aiProtocols.description
    */
   protocols?: string[];
+  /**
+   * @remarks
+   * Whether to remove base path when forwarding
+   * 
+   * @example
+   * true
+   */
   removeBasePathOnForward?: boolean;
   /**
    * @remarks
-   * The resource group ID.
+   * $.parameters[0].schema.properties.authConfig.example
    * 
    * @example
-   * rg-aekzgvmlotionbi
+   * rg-xxx
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The API type. Valid values:
-   * 
-   * *   Http
-   * *   Rest
-   * *   WebSocket
-   * *   HttpIngress
+   * $.parameters[0].schema.properties.deployConfigs.description
    * 
    * @example
    * Http
@@ -166,7 +194,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The versioning configuration of the API.
+   * $.parameters[0].schema.properties.deployConfigs.items.enumValueTitles
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {

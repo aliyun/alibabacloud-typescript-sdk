@@ -11,6 +11,13 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
    * env-cti17hem1hktoruj98ug
    */
   environmentId?: string;
+  /**
+   * @remarks
+   * Parent resource ID
+   * 
+   * @example
+   * api-******
+   */
   parentResourceId?: string;
   /**
    * @remarks
@@ -20,6 +27,10 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
    * ha-cn-li942gy8p03
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * List of resources
+   */
   resources?: string[];
   static names(): { [key: string]: string } {
     return {

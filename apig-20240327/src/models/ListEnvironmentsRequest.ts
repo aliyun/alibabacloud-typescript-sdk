@@ -8,7 +8,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
    * Environment alias, fuzzy search.
    * 
    * @example
-   * 测试
+   * production
    */
   aliasLike?: string;
   /**
@@ -27,6 +27,13 @@ export class ListEnvironmentsRequest extends $dara.Model {
    * test-gw
    */
   gatewayNameLike?: string;
+  /**
+   * @remarks
+   * The gateway type
+   * 
+   * @example
+   * APIGateway
+   */
   gatewayType?: string;
   /**
    * @remarks

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HttpApiApiInfoDeployCntMapValue extends $dara.Model {
+  /**
+   * @remarks
+   * deployedCnt
+   * 
+   * @example
+   * 3
+   */
   deployedCnt?: number;
+  /**
+   * @remarks
+   * Cnt
+   * 
+   * @example
+   * 5
+   */
   cnt?: number;
   static names(): { [key: string]: string } {
     return {

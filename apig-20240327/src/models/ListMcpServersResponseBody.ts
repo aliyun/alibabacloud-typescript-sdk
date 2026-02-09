@@ -67,6 +67,9 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
   /**
    * @remarks
    * The synchronized MCP server ID.
+   * 
+   * @example
+   * nacos-mcp-001
    */
   importMcpServerId?: string;
   /**
@@ -106,6 +109,9 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The API ID.
+   * 
+   * @example
+   * api-xxx
    */
   apiId?: string;
   /**
@@ -143,6 +149,9 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The description.
+   * 
+   * @example
+   * My MCP Server
    */
   description?: string;
   /**
@@ -187,6 +196,9 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The HTTP-to-MCP configurations.
+   * 
+   * @example
+   * mcp spec content
    */
   mcpServerConfig?: string;
   /**

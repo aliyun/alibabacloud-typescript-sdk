@@ -3,9 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubDomainInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name ID.
+   * 
+   * @example
+   * d-cpudb0llhtgl2djvq2sg
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * abc.com
+   */
   name?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * Valid values:
+   * 
+   * *   Intranet
+   * *   Internet
+   * 
+   * @example
+   * Intranet
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The protocol.
+   * 
+   * Valid values:
+   * 
+   * *   HTTPS
+   * *   HTTP
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {

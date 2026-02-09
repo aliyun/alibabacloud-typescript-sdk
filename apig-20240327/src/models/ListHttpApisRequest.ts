@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpApisRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud-native API Gateway instance.
+   * Specifies whether to include policy configurations.
    * 
    * @example
    * gw-cq2avtllh****
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The API information.
+   * 
+   * @example
+   * API
+   */
   gatewayType?: string;
   /**
    * @remarks
-   * The search keyword. You can fuzzy-search by API name or exact-search by API ID.
+   * The consumer authentication policy in the specified environment in each returned API.
    * 
    * @example
    * test-
@@ -22,7 +29,7 @@ export class ListHttpApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The API name that is used for the search. In this case, exact search is performed.
+   * Specifies whether authentication is enabled.
    * 
    * @example
    * login
@@ -30,7 +37,7 @@ export class ListHttpApisRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * The environment information.
    * 
    * @example
    * 1
@@ -38,7 +45,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The resource group ID.
    * 
    * @example
    * 10
@@ -46,7 +53,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The returned message.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -54,21 +61,23 @@ export class ListHttpApisRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The API type. You can specify multiple types and separate them with a comma (,).
-   * 
-   * *   Http
-   * *   Rest
-   * *   WebSocket
-   * *   HttpIngress
+   * The Ingress information.
    * 
    * @example
    * Http,Rest
    */
   types?: string;
+  /**
+   * @remarks
+   * Whether to return all APIs published to a specific environment
+   * 
+   * @example
+   * true
+   */
   withAPIsPublishedToEnvironment?: boolean;
   /**
    * @remarks
-   * The consumer authentication policy in the specified environment in each returned API.
+   * The gateway type to filter. Valid values: **AI** and **API**.
    * 
    * @example
    * env-xxx
@@ -76,7 +85,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyInEnvironmentId?: string;
   /**
    * @remarks
-   * Specifies whether authentication is enabled.
+   * The page number of the returned page.
    * 
    * @example
    * true
@@ -84,7 +93,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyList?: boolean;
   /**
    * @remarks
-   * The authorization rules of the specified consumer in each returned API.
+   * The response body.
    * 
    * @example
    * cs-xxx
@@ -92,7 +101,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * The environment information.
+   * The request ID.
    * 
    * @example
    * true
@@ -100,7 +109,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfo?: boolean;
   /**
    * @remarks
-   * The environment ID.
+   * The APIs.
    * 
    * @example
    * env-ctovu5mm1hksb4q8ln40
@@ -108,7 +117,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfoById?: string;
   /**
    * @remarks
-   * The Ingress information.
+   * The number of entries per page.
    * 
    * @example
    * false
@@ -116,12 +125,19 @@ export class ListHttpApisRequest extends $dara.Model {
   withIngressInfo?: boolean;
   /**
    * @remarks
-   * The plug-in ID. You can use the returned value of this parameter to query the plug-in.
+   * The status code.
    * 
    * @example
    * pl-ct9qn3um1hktue8dqol0
    */
   withPluginAttachmentByPluginId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * false
+   */
   withPolicyConfigs?: boolean;
   static names(): { [key: string]: string } {
     return {

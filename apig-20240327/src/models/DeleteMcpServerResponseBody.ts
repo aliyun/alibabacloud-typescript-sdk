@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMcpServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The request ID.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteMcpServerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The status message.
+   * The status code.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class DeleteMcpServerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The MCP server ID.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResourceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * api-1nsu2d****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * test1023
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The resource type. Valid values: HttpApi, Operation, GatewayRoute, Gateway, and GatewayDomain.
+   * 
+   * @example
+   * HttpApi
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The resource version.
+   * 
+   * @example
+   * 1.0.0
+   */
   resourceVersion?: string;
   static names(): { [key: string]: string } {
     return {

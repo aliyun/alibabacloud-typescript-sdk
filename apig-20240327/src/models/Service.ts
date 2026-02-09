@@ -7,8 +7,29 @@ import { LabelDetail } from "./LabelDetail";
 
 
 export class ServicePorts extends $dara.Model {
+  /**
+   * @remarks
+   * The port name.
+   * 
+   * @example
+   * user-service
+   */
   name?: string;
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * The protocol. Valid values: TCP and UDP.
+   * 
+   * @example
+   * TCP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,50 +57,154 @@ export class ServicePorts extends $dara.Model {
 }
 
 export class Service extends $dara.Model {
+  /**
+   * @remarks
+   * The address details, which can be IP addresses or domain names.
+   */
   addresses?: string[];
+  /**
+   * @remarks
+   * The agent service configuration
+   */
   agentServiceConfig?: AgentServiceConfig;
+  /**
+   * @remarks
+   * The AI service configurations.
+   */
   aiServiceConfig?: AiServiceConfig;
+  /**
+   * @remarks
+   * The creation time (unix timestamp).
+   * 
+   * @example
+   * 1725617840096
+   */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The express type
+   * 
    * @example
    * StartExecution
    */
   expressType?: string;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-xxxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The service group name.
+   * 
    * @example
    * publich
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The health check configurations.
+   */
   healthCheck?: ServiceHealthCheck;
+  /**
+   * @remarks
+   * The health check status.
+   * 
+   * Valid values:
+   * 
+   * *   Unhealthy
+   * *   Healthy
+   * 
+   * @example
+   * Healthy
+   */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The label details for service version configuration
+   */
   labelDetails?: LabelDetail[];
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * user-service
+   */
   name?: string;
+  /**
+   * @remarks
+   * The namespace of the service.
+   * 
+   * @example
+   * PUBLIC
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The outlier endpoints list
+   */
   outlierEndpoints?: string[];
+  /**
+   * @remarks
+   * The list of objects containing port details.
+   */
   ports?: ServicePorts[];
   /**
+   * @remarks
+   * The service protocol type.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The function qualifier name.
+   * 
    * @example
    * LATEST
    */
   qualifier?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxx
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The service unique ID.
+   * 
+   * @example
+   * svc-cr6pk4tlhtgm***
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The source type.
+   * 
+   * @example
+   * MSE_NACOS
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * The list of unhealthy endpoints.
+   */
   unhealthyEndpoints?: string[];
+  /**
+   * @remarks
+   * The last modified time (unix timestamp).
+   * 
+   * @example
+   * 1725868548440
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {

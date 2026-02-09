@@ -6,12 +6,12 @@ import { HttpApiInfoByName } from "./HttpApiInfoByName";
 export class ListHttpApisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API information.
+   * object
    */
   items?: HttpApiInfoByName[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * Page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListHttpApisResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListHttpApisResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * Total number of items.
    * 
    * @example
    * 10
@@ -69,17 +69,17 @@ export class ListHttpApisResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * Ok
+   * 200
    */
   code?: string;
   /**
    * @remarks
-   * The APIs.
+   * Response data.
    */
   data?: ListHttpApisResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * Response message.
    * 
    * @example
    * success
@@ -87,7 +87,7 @@ export class ListHttpApisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Get HTTP API List
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

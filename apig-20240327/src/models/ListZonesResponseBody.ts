@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListZonesResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * Whether QAT (Quality Assurance Testing) is supported in this zone
+   * 
+   * @example
+   * true
+   */
   supportQat?: string;
   /**
    * @remarks
-   * 可用区ID。
+   * The zone identifier
    * 
    * @example
    * cn-shenzhen-c
@@ -38,7 +45,7 @@ export class ListZonesResponseBodyDataItems extends $dara.Model {
 export class ListZonesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of availability zones.
+   * The list of queried zones.
    */
   items?: ListZonesResponseBodyDataItems[];
   static names(): { [key: string]: string } {
@@ -76,7 +83,7 @@ export class ListZonesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The data returned.
    */
   data?: ListZonesResponseBodyData;
   /**

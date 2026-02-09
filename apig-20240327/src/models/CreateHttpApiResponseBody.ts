@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The HTTP API ID.
+   * HTTP API ID。
    * 
    * @example
    * api-xxx
@@ -13,7 +13,7 @@ export class CreateHttpApiResponseBodyData extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * The API name.
+   * The API base path, which must start with a forward slash (/).
    * 
    * @example
    * test-api
@@ -45,7 +45,7 @@ export class CreateHttpApiResponseBodyData extends $dara.Model {
 export class CreateHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * API for testing
    * 
    * @example
    * Ok
@@ -53,12 +53,12 @@ export class CreateHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The API information.
+   * A protocol.
    */
   data?: CreateHttpApiResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The protocol list for API access.
    * 
    * @example
    * success
@@ -66,7 +66,7 @@ export class CreateHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The API description.
    * 
    * @example
    * A1994B10-C6A8-58FA-8347-6A08B0D4EFDE

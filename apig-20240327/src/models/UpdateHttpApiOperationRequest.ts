@@ -6,7 +6,7 @@ import { HttpApiOperation } from "./HttpApiOperation";
 export class UpdateHttpApiOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * operation definition.
+   * The operation definition.
    */
   operation?: HttpApiOperation;
   static names(): { [key: string]: string } {

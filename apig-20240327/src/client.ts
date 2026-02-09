@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorize the security group for gateway to access services
+   * Adds a security group that authorizes an instance to access services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -71,7 +71,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorize the security group for gateway to access services
+   * Adds a security group that authorizes an instance to access services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @returns AddGatewaySecurityGroupRuleResponse
@@ -128,7 +128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resource Group Transfer
+   * Moves a resource from one resource group to another.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -173,7 +173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resource Group Transfer
+   * Moves a resource from one resource group to another.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -532,10 +532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateEnvironment
-   * 
-   * @remarks
-   * Create environment.
+   * Creates an environment.
    * 
    * @deprecated OpenAPI CreateEnvironment is deprecated
    * 
@@ -586,10 +583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateEnvironment
-   * 
-   * @remarks
-   * Create environment.
+   * Creates an environment.
    * 
    * @deprecated OpenAPI CreateEnvironment is deprecated
    * 
@@ -1082,7 +1076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Policy
+   * Creates a policy.
    * 
    * @param request - CreatePolicyRequest
    * @param headers - map
@@ -1127,7 +1121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Policy
+   * Creates a policy.
    * 
    * @param request - CreatePolicyRequest
    * @returns CreatePolicyResponse
@@ -1139,7 +1133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create policy resource mount
+   * Creates a policy attachment.
    * 
    * @param request - CreatePolicyAttachmentRequest
    * @param headers - map
@@ -1188,7 +1182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create policy resource mount
+   * Creates a policy attachment.
    * 
    * @param request - CreatePolicyAttachmentRequest
    * @returns CreatePolicyAttachmentResponse
@@ -1383,7 +1377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建服务来源
+   * Creates a service source.
    * 
    * @param request - CreateSourceRequest
    * @param headers - map
@@ -1432,7 +1426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建服务来源
+   * Creates a service source.
    * 
    * @param request - CreateSourceRequest
    * @returns CreateSourceResponse
@@ -1514,7 +1508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteDomain
+   * Deletes a domain name.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1539,7 +1533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteDomain
+   * Deletes a domain name.
    * @returns DeleteDomainResponse
    */
   async deleteDomain(domainId: string): Promise<$_model.DeleteDomainResponse> {
@@ -1549,7 +1543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteEnvironment
+   * Deletes an environment.
    * 
    * @deprecated OpenAPI DeleteEnvironment is deprecated
    * 
@@ -1576,7 +1570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteEnvironment
+   * Deletes an environment.
    * 
    * @deprecated OpenAPI DeleteEnvironment is deprecated
    * @returns DeleteEnvironmentResponse
@@ -1589,7 +1583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Gateway
+   * Deletes a Cloud-native API Gateway instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1614,7 +1608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Gateway
+   * Deletes a Cloud-native API Gateway instance.
    * @returns DeleteGatewayResponse
    */
   async deleteGateway(gatewayId: string): Promise<$_model.DeleteGatewayResponse> {
@@ -1624,7 +1618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the security group rule of a gateway
+   * Deletes a security group rule from a Cloud-native API Gateway instance.
    * 
    * @param request - DeleteGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -1657,7 +1651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the security group rule of a gateway
+   * Deletes a security group rule from a Cloud-native API Gateway instance.
    * 
    * @param request - DeleteGatewaySecurityGroupRuleRequest
    * @returns DeleteGatewaySecurityGroupRuleResponse
@@ -1704,7 +1698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Operation
+   * Deletes an operation from an HTTP API.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1729,7 +1723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Operation
+   * Deletes an operation from an HTTP API.
    * @returns DeleteHttpApiOperationResponse
    */
   async deleteHttpApiOperation(httpApiId: string, operationId: string): Promise<$_model.DeleteHttpApiOperationResponse> {
@@ -1739,7 +1733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the route of an HttpApi
+   * Deletes a route in an HTTP API.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1764,7 +1758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the route of an HttpApi
+   * Deletes a route in an HTTP API.
    * @returns DeleteHttpApiRouteResponse
    */
   async deleteHttpApiRoute(httpApiId: string, routeId: string): Promise<$_model.DeleteHttpApiRouteResponse> {
@@ -1774,7 +1768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除MCP server
+   * Deletes an MCP server.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1799,7 +1793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除MCP server
+   * Deletes an MCP server.
    * @returns DeleteMcpServerResponse
    */
   async deleteMcpServer(mcpServerId: string): Promise<$_model.DeleteMcpServerResponse> {
@@ -1844,7 +1838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Policy
+   * Deletes a policy.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1869,7 +1863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Policy
+   * Deletes a policy.
    * @returns DeletePolicyResponse
    */
   async deletePolicy(policyId: string): Promise<$_model.DeletePolicyResponse> {
@@ -1879,7 +1873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete policy resource attachment
+   * Deletes a policy attachment.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1904,7 +1898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete policy resource attachment
+   * Deletes a policy attachment.
    * @returns DeletePolicyAttachmentResponse
    */
   async deletePolicyAttachment(policyAttachmentId: string): Promise<$_model.DeletePolicyAttachmentResponse> {
@@ -2019,7 +2013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务来源
+   * Deletes a service source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2044,7 +2038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务来源
+   * Deletes a service source.
    * @returns DeleteSourceResponse
    */
   async deleteSource(sourceId: string): Promise<$_model.DeleteSourceResponse> {
@@ -2142,7 +2136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export HTTP API
+   * Exports an HTTP API.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2167,7 +2161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export HTTP API
+   * Exports an HTTP API.
    * @returns ExportHttpApiResponse
    */
   async exportHttpApi(httpApiId: string): Promise<$_model.ExportHttpApiResponse> {
@@ -2375,7 +2369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEnvironment
+   * Queries an environment.
    * 
    * @deprecated OpenAPI GetEnvironment is deprecated
    * 
@@ -2414,7 +2408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEnvironment
+   * Queries an environment.
    * 
    * @deprecated OpenAPI GetEnvironment is deprecated
    * 
@@ -2680,7 +2674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Resource Attachment
+   * Queries a policy attachment.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2705,7 +2699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Resource Attachment
+   * Queries a policy attachment.
    * @returns GetPolicyAttachmentResponse
    */
   async getPolicyAttachment(policyAttachmentId: string): Promise<$_model.GetPolicyAttachmentResponse> {
@@ -2830,7 +2824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a service.
+   * Queries a service.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2855,7 +2849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a service.
+   * Queries a service.
    * @returns GetServiceResponse
    */
   async getService(serviceId: string): Promise<$_model.GetServiceResponse> {
@@ -2900,7 +2894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve Tracing Configuration
+   * Queries the tracing configurations of a Cloud-native API Gateway instance.
    * 
    * @param request - GetTraceConfigRequest
    * @param headers - map
@@ -2933,7 +2927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve Tracing Configuration
+   * Queries the tracing configurations of a Cloud-native API Gateway instance.
    * 
    * @param request - GetTraceConfigRequest
    * @returns GetTraceConfigResponse
@@ -4136,7 +4130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPolicyClasses
+   * Queries policy templates.
    * 
    * @param request - ListPolicyClassesRequest
    * @param headers - map
@@ -4193,7 +4187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPolicyClasses
+   * Queries policy templates.
    * 
    * @param request - ListPolicyClassesRequest
    * @returns ListPolicyClassesResponse
@@ -4380,7 +4374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListSslCerts
+   * Queries SSL certificates.
    * 
    * @param request - ListSslCertsRequest
    * @param headers - map
@@ -4425,7 +4419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListSslCerts
+   * Queries SSL certificates.
    * 
    * @param request - ListSslCertsRequest
    * @returns ListSslCertsResponse
@@ -4592,7 +4586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gateway Restart
+   * Restarts an instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4617,7 +4611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gateway Restart
+   * Restarts an instance.
    * @returns RestartGatewayResponse
    */
   async restartGateway(gatewayId: string): Promise<$_model.RestartGatewayResponse> {
@@ -5000,6 +4994,9 @@ export default class Client extends OpenApi {
   /**
    * Updates a domain name.
    * 
+   * @remarks
+   * You can update the listening Ingress only for sources whose types are **ACK**.
+   * 
    * @param request - UpdateDomainRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5069,6 +5066,9 @@ export default class Client extends OpenApi {
   /**
    * Updates a domain name.
    * 
+   * @remarks
+   * You can update the listening Ingress only for sources whose types are **ACK**.
+   * 
    * @param request - UpdateDomainRequest
    * @returns UpdateDomainResponse
    */
@@ -5079,7 +5079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateEnvironment
+   * Modifies an environment.
    * 
    * @deprecated OpenAPI UpdateEnvironment is deprecated
    * 
@@ -5118,7 +5118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateEnvironment
+   * Modifies an environment.
    * 
    * @deprecated OpenAPI UpdateEnvironment is deprecated
    * 
@@ -5133,7 +5133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the feature configuration of the gateway
+   * Updates the configuration of an instance feature parameter.
    * 
    * @param request - UpdateGatewayFeatureRequest
    * @param headers - map
@@ -5166,7 +5166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the feature configuration of the gateway
+   * Updates the configuration of an instance feature parameter.
    * 
    * @param request - UpdateGatewayFeatureRequest
    * @returns UpdateGatewayFeatureResponse
@@ -5178,7 +5178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the name of a gateway instance
+   * Changes the name of a Cloud-native API Gateway instance.
    * 
    * @param request - UpdateGatewayNameRequest
    * @param headers - map
@@ -5211,7 +5211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the name of a gateway instance
+   * Changes the name of a Cloud-native API Gateway instance.
    * 
    * @param request - UpdateGatewayNameRequest
    * @returns UpdateGatewayNameResponse
@@ -5316,7 +5316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Operation
+   * Updates an operation of an HTTP API.
    * 
    * @param request - UpdateHttpApiOperationRequest
    * @param headers - map
@@ -5349,7 +5349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Operation
+   * Updates an operation of an HTTP API.
    * 
    * @param request - UpdateHttpApiOperationRequest
    * @returns UpdateHttpApiOperationResponse
@@ -5586,7 +5586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Policy
+   * Updates a policy.
    * 
    * @param request - UpdatePolicyRequest
    * @param headers - map
@@ -5627,7 +5627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Policy
+   * Updates a policy.
    * 
    * @param request - UpdatePolicyRequest
    * @returns UpdatePolicyResponse
@@ -5684,7 +5684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务
+   * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
    * 
    * @param request - UpdateServiceRequest
    * @param headers - map
@@ -5749,7 +5749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务
+   * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse
@@ -5806,7 +5806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrade the gateway version
+   * Updates the version of a Cloud-native API Gateway instance.
    * 
    * @param request - UpgradeGatewayRequest
    * @param headers - map
@@ -5839,7 +5839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrade the gateway version
+   * Updates the version of a Cloud-native API Gateway instance.
    * 
    * @param request - UpgradeGatewayRequest
    * @returns UpgradeGatewayResponse

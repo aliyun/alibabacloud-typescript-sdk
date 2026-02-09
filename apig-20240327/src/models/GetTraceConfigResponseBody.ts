@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTraceConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Whether to Enable Tracing:
-   * true: Enabled
-   * false: Disabled
+   * Indicates whether tracing analysis is enabled. Valid values: true and false
    * 
    * @example
    * true
@@ -15,7 +13,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Sampling Rate
+   * The sampling rate.
    * 
    * @example
    * 50
@@ -23,7 +21,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   sampleRatio?: number;
   /**
    * @remarks
-   * Service ID, present when the tracing type is SKYWALKING
+   * The service ID. This parameter exists when the traceType value is SKYWALKING.
    * 
    * @example
    * ss-co370icmjeu****
@@ -31,7 +29,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * 服务端口，链路追踪类型为SKYWALKING时存在该参数
+   * The service port. This parameter exists when the traceType value is SKYWALKING.
    * 
    * @example
    * 8090
@@ -39,11 +37,12 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   servicePort?: string;
   /**
    * @remarks
-   * Tracing Type:
-   * - XTRACE
-   * - SKYWALKING
-   * - OPENTELEMETRY
-   * - OTSKYWALKING
+   * The type of tracing analysis. Valid values:
+   * 
+   * *   XTRACE
+   * *   SKYWALKING
+   * *   OPENTELEMETRY
+   * *   OTSKYWALKING
    * 
    * @example
    * SKYWALKING
@@ -81,7 +80,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
 export class GetTraceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response Code
+   * The response code.
    * 
    * @example
    * 200
@@ -89,12 +88,12 @@ export class GetTraceConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response Data
+   * The data returned.
    */
   data?: GetTraceConfigResponseBodyData;
   /**
    * @remarks
-   * Error Message
+   * The error message.
    * 
    * @example
    * success
@@ -102,7 +101,7 @@ export class GetTraceConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2F46B9E7-67EF-5C8A-BA52-D38D5B32AF2C
@@ -110,9 +109,7 @@ export class GetTraceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Boolean	Request Result, with the following values:
-   * true: Request succeeded.
-   * false: Request failed.
+   * Indicates whether the request was successful. Valid values: true false
    * 
    * @example
    * true

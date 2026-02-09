@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSslCertsRequest extends $dara.Model {
   /**
    * @remarks
-   * Name matching keyword.
+   * The name keyword for matching.
    * 
    * @example
    * ali
@@ -13,7 +13,7 @@ export class ListSslCertsRequest extends $dara.Model {
   certNameLike?: string;
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * @example
    * fun.iot.evideocloud.com.cn
@@ -21,7 +21,7 @@ export class ListSslCertsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Page number, default is 1
+   * The page number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSslCertsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

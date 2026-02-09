@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTraceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Language Type:
-   * zh: Chinese
-   * en: English
+   * The language in which you want results to be returned. Valid values: zh: Chinese. en: English.
    * 
    * @example
    * zh

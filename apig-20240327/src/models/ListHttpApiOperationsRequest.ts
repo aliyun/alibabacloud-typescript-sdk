@@ -11,8 +11,29 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
    * cas-xxx
    */
   consumerAuthorizationRuleId?: string;
+  /**
+   * @remarks
+   * Filter operations by authentication status
+   * 
+   * @example
+   * true
+   */
   enableAuth?: boolean;
+  /**
+   * @remarks
+   * Whether to filter for deployment scenario
+   * 
+   * @example
+   * true
+   */
   forDeploy?: boolean;
+  /**
+   * @remarks
+   * The gateway ID
+   * 
+   * @example
+   * gw-001
+   */
   gatewayId?: string;
   /**
    * @remarks

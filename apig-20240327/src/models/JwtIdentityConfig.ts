@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The key in the JWT payload.
+   * 
+   * @example
+   * uid
+   */
   payloadKeyName?: string;
+  /**
+   * @remarks
+   * The value for the JWT payload key.
+   * 
+   * @example
+   * 2222
+   */
   payloadKeyValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +43,37 @@ export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
 }
 
 export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The key used for the JWT.
+   * 
+   * @example
+   * Authorization
+   */
   key?: string;
+  /**
+   * @remarks
+   * Indicates whether acceptance is granted.
+   * 
+   * @example
+   * true
+   */
   pass?: boolean;
+  /**
+   * @remarks
+   * The location where the JWT is stored.
+   * 
+   * @example
+   * HEADER
+   */
   position?: string;
+  /**
+   * @remarks
+   * The token prefix configuration.
+   * 
+   * @example
+   * test
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,10 +103,44 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
 }
 
 export class JwtIdentityConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The JWKS configuration.
+   * 
+   * @example
+   * xxxx
+   */
   jwks?: string;
+  /**
+   * @remarks
+   * The JWT payload configuration.
+   */
   jwtPayloadConfig?: JwtIdentityConfigJwtPayloadConfig;
+  /**
+   * @remarks
+   * The JWT token configuration.
+   */
   jwtTokenConfig?: JwtIdentityConfigJwtTokenConfig;
+  /**
+   * @remarks
+   * The type of the secret used.
+   * 
+   * Valid values:
+   * 
+   * *   Asymmetry: asymmetric encryption.
+   * *   Symmetry: symmetric encryption.
+   * 
+   * @example
+   * Symmetry
+   */
   secretType?: string;
+  /**
+   * @remarks
+   * The authentication configuration type.
+   * 
+   * @example
+   * Jwt
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,14 +4,74 @@ import { KMSConfig } from "./Kmsconfig";
 
 
 export class ListSecretsResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * Unix timestamp when the secret was created
+   * 
+   * @example
+   * 1234567890
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * Gateway type associated with the secret
+   * 
+   * @example
+   * API
+   */
   gatewayType?: string;
+  /**
+   * @remarks
+   * KMS configuration object
+   */
   kmsConfig?: KMSConfig;
+  /**
+   * @remarks
+   * Name of the secret
+   * 
+   * @example
+   * test-secret
+   */
   name?: string;
+  /**
+   * @remarks
+   * Number of resources referencing this secret
+   * 
+   * @example
+   * 5
+   */
   referenceCount?: number;
+  /**
+   * @remarks
+   * Source of the ID
+   * 
+   * @example
+   * xxxxxx
+   */
   secretId?: string;
+  /**
+   * @remarks
+   * Source of the secret
+   * 
+   * @example
+   * KMS
+   */
   secretSource?: string;
+  /**
+   * @remarks
+   * Current status of the secret
+   * 
+   * @example
+   * ENABLE
+   */
   status?: string;
+  /**
+   * @remarks
+   * Unix timestamp when the secret was last updated
+   * 
+   * @example
+   * 1234567890
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -54,9 +114,34 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListSecretsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Array of secret details
+   */
   items?: ListSecretsResponseBodyDataItems[];
+  /**
+   * @remarks
+   * Page number
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Number of items per page
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Total number of records matching the query
+   * 
+   * @example
+   * 104
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -89,12 +174,33 @@ export class ListSecretsResponseBodyData extends $dara.Model {
 }
 
 export class ListSecretsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Code of the request
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * Data
+   */
   data?: ListSecretsResponseBodyData;
+  /**
+   * @remarks
+   * message
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
    * Id of the request
+   * 
+   * @example
+   * 2F270C0B-7D6A-5DA7-93E2-******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

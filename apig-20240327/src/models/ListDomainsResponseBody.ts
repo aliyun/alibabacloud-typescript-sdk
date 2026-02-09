@@ -6,7 +6,7 @@ import { DomainInfo } from "./DomainInfo";
 export class ListDomainsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the domain names.
+   * The list of domain information.
    */
   items?: DomainInfo[];
   /**
@@ -74,7 +74,7 @@ export class ListDomainsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * Response parameters.
    */
   data?: ListDomainsResponseBodyData;
   /**

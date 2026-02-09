@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TlsCipherSuitesConfigTlsCipherSuite extends $dara.Model {
+  /**
+   * @remarks
+   * The suite name.
+   * 
+   * @example
+   * ECDHE-ECDSA-AES256-GCM-SHA384
+   */
   name?: string;
+  /**
+   * @remarks
+   * The supported versions.
+   */
   supportVersions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -32,7 +43,18 @@ export class TlsCipherSuitesConfigTlsCipherSuite extends $dara.Model {
 }
 
 export class TlsCipherSuitesConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration type.
+   * 
+   * @example
+   * Default
+   */
   configType?: string;
+  /**
+   * @remarks
+   * tlsCipherSuite
+   */
   tlsCipherSuite?: TlsCipherSuitesConfigTlsCipherSuite[];
   static names(): { [key: string]: string } {
     return {

@@ -13,7 +13,7 @@ export class DeployHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 响应消息。
+   * Response message.
    * 
    * @example
    * success

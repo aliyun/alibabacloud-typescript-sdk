@@ -5,16 +5,47 @@ import { HttpApiParameter } from "./HttpApiParameter";
 
 export class HttpApiRequestContractBody extends $dara.Model {
   /**
+   * @remarks
+   * The content type of the request body.
+   * 
    * @example
    * application/json
    */
   contentType?: string;
+  /**
+   * @remarks
+   * The parameter description.
+   * 
+   * @example
+   * This is a description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The sample value.
+   * 
    * @example
-   * {"key":"value"}
+   * {"result":"ok"}
    */
   example?: string;
+  /**
+   * @remarks
+   * The JSON definition description of the request body.
+   * 
+   * @example
+   * {
+   *       "type": "object",
+   *       "required": [
+   *           "result"
+   *       ],
+   *       "properties": {
+   *           "result": {
+   *               "type": "string",
+   *               "description": "Operation result. \\"ok\\" indicates success."
+   *           }
+   *       }
+   *   }
+   */
   jsonSchema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,9 +75,25 @@ export class HttpApiRequestContractBody extends $dara.Model {
 }
 
 export class HttpApiRequestContract extends $dara.Model {
+  /**
+   * @remarks
+   * The body parameters.
+   */
   body?: HttpApiRequestContractBody;
+  /**
+   * @remarks
+   * The request header parameters.
+   */
   headerParameters?: HttpApiParameter[];
+  /**
+   * @remarks
+   * The path parameters.
+   */
   pathParameters?: HttpApiParameter[];
+  /**
+   * @remarks
+   * The query parameters.
+   */
   queryParameters?: HttpApiParameter[];
   static names(): { [key: string]: string } {
     return {

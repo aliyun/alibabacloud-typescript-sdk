@@ -4,7 +4,18 @@ import { HttpApiApiInfo } from "./HttpApiApiInfo";
 
 
 export class ParentResourceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The API information.
+   */
   apiInfo?: HttpApiApiInfo;
+  /**
+   * @remarks
+   * The resource type. Valid values: HttpApi/Operation/GatewayRoute/Gateway/GatewayDomain
+   * 
+   * @example
+   * Gateway
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {

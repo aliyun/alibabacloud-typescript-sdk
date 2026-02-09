@@ -83,6 +83,13 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
    * HttpApiRoute
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The resource types.
+   * 
+   * @example
+   * K8S
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {

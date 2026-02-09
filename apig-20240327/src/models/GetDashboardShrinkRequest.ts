@@ -37,13 +37,27 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plug-in type ID.
    * 
    * @example
    * pls-dn82a9djd8z****
    */
   pluginClassId?: string;
+  /**
+   * @remarks
+   * The plug-in ID.
+   * 
+   * @example
+   * inner-ai-search-cvd3mcum1hks660icn10
+   */
   pluginId?: string;
+  /**
+   * @remarks
+   * The route ID.
+   * 
+   * @example
+   * route-xxx
+   */
   routeId?: string;
   /**
    * @remarks
@@ -55,6 +69,13 @@ export class GetDashboardShrinkRequest extends $dara.Model {
    * SLS
    */
   source?: string;
+  /**
+   * @remarks
+   * The AI service identifier.
+   * 
+   * @example
+   * outbound|443||ds.ai
+   */
   upstreamCluster?: string;
   static names(): { [key: string]: string } {
     return {

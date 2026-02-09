@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Description of the security group rule.
+   * The description of security group rule N.
    * 
    * @example
-   * 商品中心访问安全组
+   * ProductCenterSG
    */
   description?: string;
   /**
    * @remarks
-   * Port ranges.
+   * The port ranges.
    */
   portRanges?: string[];
   /**
    * @remarks
-   * Security group ID.
+   * The security group ID.
    * 
    * @example
    * sg-wz929kxhcdp****

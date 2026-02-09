@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UpgradeGatewayResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpgradeGatewayResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 043360DA-ED3B-5386-9B7A-D94DECF99A30

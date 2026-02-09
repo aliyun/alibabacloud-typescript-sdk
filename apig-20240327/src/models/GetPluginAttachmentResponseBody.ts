@@ -62,7 +62,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The resource details.
+   * The resource information.
    */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {
@@ -141,7 +141,7 @@ export class GetPluginAttachmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129

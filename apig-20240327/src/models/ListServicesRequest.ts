@@ -65,6 +65,13 @@ export class ListServicesRequest extends $dara.Model {
    * MSE_NACOS
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * List of service source types
+   * 
+   * @example
+   * ["K8S", "FC3"]
+   */
   sourceTypes?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GatewayInfoVpcInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The VPC name.
+   * 
+   * @example
+   * test-vpc
+   */
   name?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-uf664nyle5kh***
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +43,34 @@ export class GatewayInfoVpcInfo extends $dara.Model {
 }
 
 export class GatewayInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The instance engine version.
+   * 
+   * @example
+   * 2.0.7
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * gw-cq7og15lhtgi6qasrj60
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * apitest-gw
+   */
   name?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) information.
+   */
   vpcInfo?: GatewayInfoVpcInfo;
   static names(): { [key: string]: string } {
     return {

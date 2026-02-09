@@ -45,6 +45,13 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
    * env-cpqnr6tlhtgubc***
    */
   environmentId?: string;
+  /**
+   * @remarks
+   * Whether to filter for deployment scenario
+   * 
+   * @example
+   * true
+   */
   forDeploy?: boolean;
   /**
    * @remarks

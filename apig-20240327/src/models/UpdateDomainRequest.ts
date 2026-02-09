@@ -34,7 +34,7 @@ export class UpdateDomainRequest extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * Specifies whether to enable HTTPS redirection. If protocol is set to HTTPS, forceHttps is required.
+   * Specifies whether to enable forcible HTTPS redirection. If protocol is set to HTTPS, forceHttps is required.
    * 
    * @example
    * false

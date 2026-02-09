@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * Gateway version.
+   * The destination instance version.
    * 
    * @example
    * 2.0.2

@@ -341,7 +341,7 @@ export class GetDomainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetDomainResponseBodyData;
   /**

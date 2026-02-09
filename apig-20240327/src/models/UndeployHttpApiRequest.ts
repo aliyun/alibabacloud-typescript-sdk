@@ -11,7 +11,21 @@ export class UndeployHttpApiRequest extends $dara.Model {
    * env-cqsmtellhtgvo***
    */
   environmentId?: string;
+  /**
+   * @remarks
+   * Gateway ID.
+   * 
+   * @example
+   * gw-cq7l5s5lhtg***
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The operation ID.
+   * 
+   * @example
+   * op-d4favr6m1hk***
+   */
   operationId?: string;
   /**
    * @remarks

@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LabelDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The label key
+   * 
+   * @example
+   * version
+   */
   key?: string;
+  /**
+   * @remarks
+   * The list of available values for this label
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,10 @@ import { AiServiceConfig } from "./AiServiceConfig";
 
 
 export class CreateServiceRequestServiceConfigsValidationOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Skip AI chat completion verification
+   */
   skipVerifyAIChatCompletion?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -30,9 +34,13 @@ export class CreateServiceRequestServiceConfigsValidationOptions extends $dara.M
 export class CreateServiceRequestServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The list of domain names or fixed addresses.
+   * The list of domain names or fixed IP addresses.
    */
   addresses?: string[];
+  /**
+   * @remarks
+   * Agent service configuration
+   */
   agentServiceConfig?: AgentServiceConfig;
   /**
    * @remarks
@@ -44,6 +52,13 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
    * The list of DNS service addresses.
    */
   dnsServers?: string[];
+  /**
+   * @remarks
+   * Express type
+   * 
+   * @example
+   * Standard
+   */
   expressType?: string;
   /**
    * @remarks
@@ -68,19 +83,32 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
    * *   If sourceType is set to K8S, this parameter specifies the namespace where the K8s service resides.
    * *   If sourceType is set to MSE_NACOS, this parameter specifies a namespace in Nacos.
    * 
+   * This parameter is required if sourceType is set to K8S or MSE_NACOS.
+   * 
    * @example
    * PUBLIC
    */
   namespace?: string;
   /**
    * @remarks
-   * The function version or alias.
+   * The function version/alias.
    * 
    * @example
    * LATEST
    */
   qualifier?: string;
+  /**
+   * @remarks
+   * Service source ID
+   * 
+   * @example
+   * nacos-instance-001
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * Validation options
+   */
   validationOptions?: CreateServiceRequestServiceConfigsValidationOptions;
   static names(): { [key: string]: string } {
     return {
@@ -162,16 +190,16 @@ export class CreateServiceRequest extends $dara.Model {
   serviceConfigs?: CreateServiceRequestServiceConfigs[];
   /**
    * @remarks
-   * The service source. Valid values:
+   * The service source type. Valid values:
    * 
-   * *   MSE_NACOS: a service in an MSE Nacos instance
-   * *   K8S: a service in a Kubernetes (K8s) cluster in Container Service for Kubernetes (ACK)
-   * *   VIP: a fixed IP address
-   * *   DNS: a Domain Name System (DNS) domain name
-   * *   FC3: a service in Function Compute
-   * *   SAE_K8S_SERVICE: a service in a K8s cluster in Serverless App Engine (SAE)
+   * *   MSE_NACOS: MSE Nacos instance services
+   * *   K8S: Container Service for Kubernetes (ACK) cluster services
+   * *   VIP: fixed IP addresses
+   * *   DNS: Domain Name System (DNS) domains
+   * *   FC3: Function Compute services
+   * *   SAE_K8S_SERVICE: Serverless App Engine (SAE) Kubernetes services
    * 
-   * Enumerated values:
+   * Valid values:
    * 
    * *   SAE_K8S_SERVICE
    * *   K8S
@@ -184,6 +212,13 @@ export class CreateServiceRequest extends $dara.Model {
    * MSE_NACOS
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * xxx
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {

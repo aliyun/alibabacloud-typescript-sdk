@@ -8,7 +8,7 @@ import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   /**
    * @remarks
-   * The environment ID.
+   * The authentication configuration.
    * 
    * @example
    * env-cr6ql0tlhtgmc****
@@ -16,7 +16,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress class for listening.
+   * The response parameters.
    * 
    * @example
    * mse
@@ -24,7 +24,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in Ingress Status.
+   * The returned message.
    * 
    * @example
    * false
@@ -32,7 +32,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   overrideIngressIp?: boolean;
   /**
    * @remarks
-   * The source ID.
+   * json
    * 
    * @example
    * src-crdddallhtgtr****
@@ -40,7 +40,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The namespace for listening.
+   * The request ID.
    * 
    * @example
    * default
@@ -76,20 +76,24 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
 }
 
 export class UpdateHttpApiRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of agent protocols
+   */
   agentProtocols?: string[];
   /**
    * @remarks
-   * The AI protocols.
+   * The status code.
    */
   aiProtocols?: string[];
   /**
    * @remarks
-   * The authentication configuration.
+   * The authentication configuration
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The API base path, which must start with a forward slash (/).
+   * The list of API deployment configurations.
    * 
    * This parameter is required.
    * 
@@ -99,38 +103,62 @@ export class UpdateHttpApiRequest extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The deployment configurations.
+   * The deployment configurations
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * The environment ID.
    * 
    * @example
-   * API for testing
+   * The source ID.
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable authentication.
+   * Whether authentication is enabled
+   * 
+   * @example
+   * true
    */
   enableAuth?: boolean;
+  /**
+   * @remarks
+   * The first byte timeout in nanoseconds
+   * 
+   * @example
+   * 30s
+   */
   firstByteTimeout?: number;
   /**
    * @remarks
-   * The HTTP Ingress API configurations.
+   * Specifies whether to enable authentication.
    */
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
+  /**
+   * @remarks
+   * Whether to only change configuration without redeployment
+   * 
+   * @example
+   * true
+   */
   onlyChangeConfig?: boolean;
   /**
    * @remarks
-   * The protocols that are used to access the API.
+   * The listened namespace.
    */
   protocols?: string[];
+  /**
+   * @remarks
+   * Whether to remove base path when forwarding
+   * 
+   * @example
+   * true
+   */
   removeBasePathOnForward?: boolean;
   /**
    * @remarks
-   * The versioning configurations.
+   * A deployment configuration.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {

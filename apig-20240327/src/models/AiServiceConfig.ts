@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AiServiceConfigBedrockServiceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * AWS-AccessKey
+   * 
+   * @example
+   * AKIAIOSFODNN7EXAMPLE
+   */
   awsAccessKey?: string;
+  /**
+   * @remarks
+   * AWS-Region
+   * 
+   * @example
+   * us-west-2
+   */
   awsRegion?: string;
+  /**
+   * @remarks
+   * AWS-SecretKey
+   * 
+   * @example
+   * wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+   */
   awsSecretKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,9 +53,37 @@ export class AiServiceConfigBedrockServiceConfig extends $dara.Model {
 }
 
 export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Type of endpoint.
+   * 
+   * @example
+   * "public"，"private"
+   */
   endpointType?: string;
+  /**
+   * @remarks
+   * Service identifier.
+   * 
+   * @example
+   * svc-d33onfmm1hkn5duhuqjg
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * Name of the service.
+   * 
+   * @example
+   * service-hello
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * Workspace identifier.
+   * 
+   * @example
+   * plw-d5g7qsem1hkmih54g210
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,11 +113,50 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
 }
 
 export class AiServiceConfigVertexServiceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Gemini safety settings.
+   */
   geminiSafetySetting?: { [key: string]: string };
+  /**
+   * @remarks
+   * Vertex AI authentication key.
+   * 
+   * @example
+   * {\\"type\\":\\"service_account\\",\\"project_id\\":\\"xxx\\",\\"private_key\\":\\"-----BEGIN PRIVATE KEY-----\\",\\"client_email\\":\\"xxx@xxx.iam.gserviceaccount.com\\",\\"token_uri\\":\\"https://oauth2.googleapis.com/token\\"}
+   */
   vertexAuthKey?: string;
+  /**
+   * @remarks
+   * Vertex AI auth service name.
+   * 
+   * @example
+   * custom-vertex-auth
+   */
   vertexAuthServiceName?: string;
+  /**
+   * @remarks
+   * Vertex AI project ID.
+   * 
+   * @example
+   * my-gcp-project-123
+   */
   vertexProjectId?: string;
+  /**
+   * @remarks
+   * Vertex AI region.
+   * 
+   * @example
+   * us-central1
+   */
   vertexRegion?: string;
+  /**
+   * @remarks
+   * Vertex token refresh lead time.
+   * 
+   * @example
+   * 300
+   */
   vertexTokenRefreshAhead?: number;
   static names(): { [key: string]: string } {
     return {
@@ -105,25 +193,83 @@ export class AiServiceConfigVertexServiceConfig extends $dara.Model {
 }
 
 export class AiServiceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * API key generation mode.
+   * 
+   * @example
+   * -
+   */
   apiKeyGenerateMode?: string;
   /**
+   * @remarks
+   * The service endpoint.
+   * 
    * @example
    * https://dashscope.aliyun.com
    */
   address?: string;
+  /**
+   * @remarks
+   * The API keys.
+   */
   apiKeys?: string[];
+  /**
+   * @remarks
+   * Bedrock service configuration.
+   */
   bedrockServiceConfig?: AiServiceConfigBedrockServiceConfig;
+  /**
+   * @remarks
+   * Supported compatible protocols.
+   */
   compatibleProtocols?: string[];
+  /**
+   * @remarks
+   * Default model name.
+   * 
+   * @example
+   * qwen-turbo
+   */
   defaultModelName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable health check.
+   * 
+   * @example
+   * true
+   */
   enableHealthCheck?: boolean;
+  /**
+   * @remarks
+   * Enable outlier detection.
+   * 
+   * @example
+   * false
+   */
   enableOutlierDetection?: boolean;
+  /**
+   * @remarks
+   * PAI-EAS service configuration settings.
+   */
   paiEASServiceConfig?: AiServiceConfigPaiEASServiceConfig;
+  /**
+   * @remarks
+   * The LLM protocols.
+   */
   protocols?: string[];
   /**
+   * @remarks
+   * The Large Language Model (LLM) provider.
+   * 
    * @example
    * qwen
    */
   provider?: string;
+  /**
+   * @remarks
+   * Vertex AI service configuration.
+   */
   vertexServiceConfig?: AiServiceConfigVertexServiceConfig;
   static names(): { [key: string]: string } {
     return {

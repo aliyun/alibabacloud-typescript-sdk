@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConsumerInfo extends $dara.Model {
+  /**
+   * @remarks
+   * consumerId
+   * 
+   * @example
+   * cs-ctd4l1um1hkph7ki1k80
+   */
   consumerId?: string;
+  /**
+   * @remarks
+   * enable
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * name
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GatewayLogConfigSlsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to activate Simple Log Service.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +33,10 @@ export class GatewayLogConfigSlsConfig extends $dara.Model {
 }
 
 export class GatewayLogConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
   slsConfig?: GatewayLogConfigSlsConfig;
   static names(): { [key: string]: string } {
     return {

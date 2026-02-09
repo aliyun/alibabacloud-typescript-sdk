@@ -7,32 +7,54 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 
 export class HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The associated service ID.
+   * 
    * @example
    * gs-xxx
    */
   gatewayServiceId?: string;
+  /**
+   * @remarks
+   * The matching conditions.
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The K8s service name.
+   * 
    * @example
    * demo-service
    */
   name?: string;
   /**
+   * @remarks
+   * The K8s namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
+   * @remarks
+   * The service port.
+   * 
    * @example
    * 8080
    */
   port?: number;
   /**
+   * @remarks
+   * The service protocol.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The service weight.
+   * 
    * @example
    * 100
    */
@@ -75,22 +97,38 @@ export class HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs
 
 export class HttpApiPublishRevisionInfoCloudProductConfigFunctionConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The associated service ID.
+   * 
    * @example
    * gs-xxx
    */
   gatewayServiceId?: string;
+  /**
+   * @remarks
+   * The matching conditions.
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The function name.
+   * 
    * @example
    * demo-function
    */
   name?: string;
   /**
+   * @remarks
+   * The function version or alias.
+   * 
    * @example
    * LATEST
    */
   qualifier?: string;
   /**
+   * @remarks
+   * The service weight.
+   * 
    * @example
    * 100
    */
@@ -129,27 +167,46 @@ export class HttpApiPublishRevisionInfoCloudProductConfigFunctionConfigs extends
 
 export class HttpApiPublishRevisionInfoCloudProductConfigMseNacosConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The associated service ID.
+   * 
    * @example
    * gs-xxx
    */
   gatewayServiceId?: string;
   /**
+   * @remarks
+   * The service group.
+   * 
    * @example
    * DEFAULT_GROUP
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The matching conditions.
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The Nacos service name.
+   * 
    * @example
    * spring-demo
    */
   name?: string;
   /**
+   * @remarks
+   * The Nacos namespace.
+   * 
    * @example
    * public
    */
   namespace?: string;
   /**
+   * @remarks
+   * The service weight.
+   * 
    * @example
    * 100
    */
@@ -190,12 +247,27 @@ export class HttpApiPublishRevisionInfoCloudProductConfigMseNacosConfigs extends
 
 export class HttpApiPublishRevisionInfoCloudProductConfig extends $dara.Model {
   /**
+   * @remarks
+   * The type of the cloud service.
+   * 
    * @example
    * FC
    */
   cloudProductType?: string;
+  /**
+   * @remarks
+   * The ACK configurations.
+   */
   containerServiceConfigs?: HttpApiPublishRevisionInfoCloudProductConfigContainerServiceConfigs[];
+  /**
+   * @remarks
+   * The Function Compute configurations.
+   */
   functionConfigs?: HttpApiPublishRevisionInfoCloudProductConfigFunctionConfigs[];
+  /**
+   * @remarks
+   * The MSE Nacos configurations.
+   */
   mseNacosConfigs?: HttpApiPublishRevisionInfoCloudProductConfigMseNacosConfigs[];
   static names(): { [key: string]: string } {
     return {
@@ -234,9 +306,20 @@ export class HttpApiPublishRevisionInfoCloudProductConfig extends $dara.Model {
 }
 
 export class HttpApiPublishRevisionInfoDnsConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The DNS domain names.
+   */
   dnsList?: string[];
+  /**
+   * @remarks
+   * The matching condition. This condition is valid only in content-based routing.
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The weight. Valid values: [1,100]. This parameter is valid only in proportional routing.
+   * 
    * @example
    * 100
    */
@@ -274,13 +357,19 @@ export class HttpApiPublishRevisionInfoDnsConfigs extends $dara.Model {
 
 export class HttpApiPublishRevisionInfoEnvironmentInfoGatewayInfo extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
-   * 实例1
+   * Instance 1
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -308,17 +397,30 @@ export class HttpApiPublishRevisionInfoEnvironmentInfoGatewayInfo extends $dara.
 
 export class HttpApiPublishRevisionInfoEnvironmentInfo extends $dara.Model {
   /**
+   * @remarks
+   * The environment alias.
+   * 
    * @example
-   * 测试
+   * Test
    */
   alias?: string;
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * env-xxx
    */
   environmentId?: string;
+  /**
+   * @remarks
+   * The instance information.
+   */
   gatewayInfo?: HttpApiPublishRevisionInfoEnvironmentInfoGatewayInfo;
   /**
+   * @remarks
+   * The environment name.
+   * 
    * @example
    * test
    */
@@ -355,27 +457,46 @@ export class HttpApiPublishRevisionInfoEnvironmentInfo extends $dara.Model {
 
 export class HttpApiPublishRevisionInfoServiceConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * gs-xxx
    */
   gatewayServiceId?: string;
+  /**
+   * @remarks
+   * The matching conditions.
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The service port.
+   * 
    * @example
    * 8080
    */
   port?: number;
   /**
+   * @remarks
+   * The service protocol.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The service version.
+   * 
    * @example
    * v1
    */
   version?: string;
   /**
+   * @remarks
+   * The service weight.
+   * 
    * @example
    * 100
    */
@@ -415,9 +536,20 @@ export class HttpApiPublishRevisionInfoServiceConfigs extends $dara.Model {
 }
 
 export class HttpApiPublishRevisionInfoVipConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The IP addresses.
+   */
   endpoints?: string[];
+  /**
+   * @remarks
+   * The matching condition. This condition is valid only in content-based routing.
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The weight. Valid values: [1,100]. This parameter is valid only in proportional routing.
+   * 
    * @example
    * 100
    */
@@ -455,45 +587,105 @@ export class HttpApiPublishRevisionInfoVipConfigs extends $dara.Model {
 
 export class HttpApiPublishRevisionInfo extends $dara.Model {
   /**
+   * @remarks
+   * The publishing scenario.
+   * 
+   * Valid values:
+   * 
+   * *   SingleService
+   * *   MultiServiceByRatio
+   * *   MultiServiceByContent
+   * *   MultiServiceByTag
+   * *   Mock
+   * 
    * @example
    * SingleService
    */
   backendScene?: string;
   /**
+   * @remarks
+   * The type of the backend service.
+   * 
+   * Valid values:
+   * 
+   * *   DNS: a DNS domain name
+   * *   Service: an existing service
+   * *   VIP: a fixed IP address
+   * *   CloudProduct: a cloud service
+   * 
    * @example
    * Service
    */
   backendType?: string;
+  /**
+   * @remarks
+   * The cloud service configurations.
+   */
   cloudProductConfig?: HttpApiPublishRevisionInfoCloudProductConfig;
   /**
+   * @remarks
+   * The publishing timestamp.
+   * 
    * @example
    * 1718807057927
    */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The custom domain names.
+   */
   customDomains?: HttpApiDomainInfo[];
+  /**
+   * @remarks
+   * The configurations of DNS domain names. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
+   */
   dnsConfigs?: HttpApiPublishRevisionInfoDnsConfigs[];
   /**
+   * @remarks
+   * The environment information.
+   * 
    * @example
    * env-xxx
    */
   environmentInfo?: HttpApiPublishRevisionInfoEnvironmentInfo;
   /**
+   * @remarks
+   * Specifies whether the current version is used.
+   * 
    * @example
    * true
    */
   isCurrentVersion?: boolean;
+  /**
+   * @remarks
+   * The operations.
+   */
   operations?: HttpApiOperationInfo[];
   /**
+   * @remarks
+   * The published version.
+   * 
    * @example
    * apr-xxx
    */
   revisionId?: string;
+  /**
+   * @remarks
+   * The configurations of existing services. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
+   */
   serviceConfigs?: HttpApiPublishRevisionInfoServiceConfigs[];
   /**
+   * @remarks
+   * The default domain names of the environment.
+   * 
    * @example
    * env-xxx.com
    */
   subDomains?: HttpApiDomainInfo[];
+  /**
+   * @remarks
+   * The configurations of fixed IP addresses. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
+   */
   vipConfigs?: HttpApiPublishRevisionInfoVipConfigs[];
   static names(): { [key: string]: string } {
     return {

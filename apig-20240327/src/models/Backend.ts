@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class BackendServices extends $dara.Model {
   /**
+   * @remarks
+   * The service name.
+   * 
    * @example
    * item-service
    */
   name?: string;
   /**
+   * @remarks
+   * The service port. If you want to use a dynamic port, do not pass this parameter.
+   * 
    * @example
    * port
    */
   port?: number;
   /**
+   * @remarks
+   * The service protocol. Valid values: HTTP, TCP, and DUBBO.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * service-cq2bmmdlhtgj***
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The service version.
+   * 
    * @example
    * v1
    */
   version?: string;
   /**
+   * @remarks
+   * The percentage value of traffic.
+   * 
    * @example
    * 49
    */
@@ -66,10 +84,17 @@ export class BackendServices extends $dara.Model {
 
 export class Backend extends $dara.Model {
   /**
+   * @remarks
+   * The backend service scenario. Valid values: Single, MultiServiceByRatio, MultiServiceByTag, Mock, and Redirect.
+   * 
    * @example
    * Single
    */
   scene?: string;
+  /**
+   * @remarks
+   * The backend services.
+   */
   services?: BackendServices[];
   static names(): { [key: string]: string } {
     return {

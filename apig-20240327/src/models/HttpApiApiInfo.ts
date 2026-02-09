@@ -10,11 +10,17 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 
 export class HttpApiApiInfoEnvironmentsGatewayInfo extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * test
    */
@@ -44,37 +50,62 @@ export class HttpApiApiInfoEnvironmentsGatewayInfo extends $dara.Model {
 
 export class HttpApiApiInfoEnvironmentsServiceConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * gs-xxx
    */
   gatewayServiceId?: string;
+  /**
+   * @remarks
+   * The matching conditions.
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The service name.
+   * 
    * @example
    * demo-service
    */
   name?: string;
   /**
+   * @remarks
+   * The service port.
+   * 
    * @example
    * 8080
    */
   port?: string;
   /**
+   * @remarks
+   * The protocol.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * svc-xxx
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The version of the microservice.
+   * 
    * @example
    * v1
    */
   version?: string;
   /**
+   * @remarks
+   * The service weight.
+   * 
    * @example
    * 100
    */
@@ -119,21 +150,33 @@ export class HttpApiApiInfoEnvironmentsServiceConfigs extends $dara.Model {
 
 export class HttpApiApiInfoEnvironmentsSubDomains extends $dara.Model {
   /**
+   * @remarks
+   * The domain name ID.
+   * 
    * @example
    * d-xxx
    */
   domainId?: string;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * www.example.com
    */
   name?: string;
   /**
+   * @remarks
+   * The network type.
+   * 
    * @example
    * Internet
    */
   networkType?: string;
   /**
+   * @remarks
+   * The communication protocol.
+   * 
    * @example
    * HTTP
    */
@@ -167,38 +210,87 @@ export class HttpApiApiInfoEnvironmentsSubDomains extends $dara.Model {
 
 export class HttpApiApiInfoEnvironments extends $dara.Model {
   /**
+   * @remarks
+   * The environment alias.
+   * 
    * @example
    * test
    */
   alias?: string;
   /**
+   * @remarks
+   * The publishing scenario.
+   * 
+   * Valid values:
+   * 
+   * *   SingleService
+   * *   MultiServiceByRatio
+   * *   MultiServiceByContent
+   * *   MultiServiceByTag
+   * *   Mock
+   * 
    * @example
    * SingleService
    */
   backendScene?: string;
   /**
+   * @remarks
+   * The type of the backend service.
+   * 
+   * Valid values:
+   * 
+   * *   DNS: a DNS domain name
+   * *   Service: an existing service
+   * *   VIP: a fixed IP address
+   * *   CloudProduct: a cloud service
+   * 
    * @example
    * Service
    */
   backendType?: string;
+  /**
+   * @remarks
+   * The custom domain names.
+   */
   customDomains?: HttpApiDomainInfo[];
   /**
+   * @remarks
+   * The publishing status of the API in the current environment.
+   * 
    * @example
    * Deployed
    */
   deployStatus?: string;
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * env-xxx
    */
   environmentId?: string;
+  /**
+   * @remarks
+   * The information about the gateway instance to which the environment belongs.
+   */
   gatewayInfo?: HttpApiApiInfoEnvironmentsGatewayInfo;
   /**
+   * @remarks
+   * The environment name.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The configurations of an existing service.
+   */
   serviceConfigs?: HttpApiApiInfoEnvironmentsServiceConfigs[];
+  /**
+   * @remarks
+   * The default domain names of the environment.
+   */
   subDomains?: HttpApiApiInfoEnvironmentsSubDomains[];
   static names(): { [key: string]: string } {
     return {
@@ -252,6 +344,13 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
 }
 
 export class HttpApiApiInfoIngressInfoEnvironmentInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The environment ID.
+   * 
+   * @example
+   * env-xxx
+   */
   environmentId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -275,6 +374,13 @@ export class HttpApiApiInfoIngressInfoEnvironmentInfo extends $dara.Model {
 }
 
 export class HttpApiApiInfoIngressInfoK8sClusterInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * ca435c77cba1547cca9311957bcxxxxxx
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -298,11 +404,47 @@ export class HttpApiApiInfoIngressInfoK8sClusterInfo extends $dara.Model {
 }
 
 export class HttpApiApiInfoIngressInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The environment information.
+   */
   environmentInfo?: HttpApiApiInfoIngressInfoEnvironmentInfo;
+  /**
+   * @remarks
+   * The Ingress Class for listening.
+   * 
+   * @example
+   * mse
+   */
   ingressClass?: string;
+  /**
+   * @remarks
+   * The information about the Kubernetes cluster.
+   */
   k8sClusterInfo?: HttpApiApiInfoIngressInfoK8sClusterInfo;
+  /**
+   * @remarks
+   * Specifies whether to update the address in Ingress Status.
+   * 
+   * @example
+   * true
+   */
   overrideIngressIp?: boolean;
+  /**
+   * @remarks
+   * The source ID.
+   * 
+   * @example
+   * src-xxx
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * The namespace for listening.
+   * 
+   * @example
+   * default
+   */
   watchNamespace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -342,43 +484,127 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
 }
 
 export class HttpApiApiInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Agent protocol list
+   */
   agentProtocols?: string[];
+  /**
+   * @remarks
+   * The AI protocols.
+   */
   aiProtocols?: string[];
+  /**
+   * @remarks
+   * The authentication configurations.
+   */
   authConfig?: AuthConfig;
   /**
+   * @remarks
+   * The base path of the API.
+   * 
    * @example
    * /v1
    */
   basePath?: string;
+  /**
+   * @remarks
+   * The API publishing status.
+   */
   deployCntMap?: { [key: string]: HttpApiApiInfoDeployCntMapValue };
+  /**
+   * @remarks
+   * The API deployment configurations.
+   */
   deployConfigs?: HttpApiDeployConfig[];
+  /**
+   * @remarks
+   * The API description.
+   * 
+   * @example
+   * for test only
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication.
+   */
   enabelAuth?: boolean;
+  /**
+   * @remarks
+   * The API environment information.
+   */
   environments?: HttpApiApiInfoEnvironments[];
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * gw-cpv4sqdl****
+   */
   gatewayId?: string;
   /**
+   * @remarks
+   * The HTTP API ID.
+   * 
    * @example
    * api-xxx
    */
   httpApiId?: string;
+  /**
+   * @remarks
+   * The information about the HTTP Ingress API.
+   */
   ingressInfo?: HttpApiApiInfoIngressInfo;
+  /**
+   * @remarks
+   * Model category
+   * 
+   * @example
+   * Text
+   */
   modelCategory?: string;
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The protocols.
+   */
   protocols?: string[];
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-xxx
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The API type.
+   * 
+   * Valid values:
+   * 
+   * *   HttpIngress
+   * *   Rest
+   * *   Websocket
+   * *   AI
+   * *   Http
+   * 
    * @example
    * Rest
    */
   type?: string;
+  /**
+   * @remarks
+   * The API versioning information.
+   */
   versionInfo?: HttpApiVersionInfo;
   static names(): { [key: string]: string } {
     return {

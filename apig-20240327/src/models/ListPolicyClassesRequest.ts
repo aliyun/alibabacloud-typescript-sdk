@@ -3,18 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicyClassesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID to attach the policy
+   * 
+   * @example
+   * route-001
+   */
   attachResourceId?: string;
   /**
    * @remarks
-   * Types of attachment points supported by the policy.
+   * The supported mount point type. Valid values:
    * 
-   * - HttpApi: HttpApi.
-   * - Operation: Operation of HttpApi.
-   * - GatewayRoute: Gateway route.
-   * - GatewayService: Gateway service.
-   * - GatewayServicePort: Gateway service port.
-   * - Domain: Gateway domain.
-   * - Gateway: Gateway.
+   * *   HttpApi: an HTTP API
+   * *   Operation: an operation in an HTTP API
+   * *   GatewayRoute: a route
+   * *   GatewayService: a service
+   * *   GatewayServicePort: a service port
+   * *   Domain: a domain name
+   * *   Gateway: an instance
    * 
    * @example
    * Operation
@@ -22,19 +29,27 @@ export class ListPolicyClassesRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * Direction of the policy.
-   * - Outbound: OutBound.
-   * - Inbound: InBound.
-   * - Both directions: Both.
+   * The direction of traffic on which the policy takes effect. Valid values:
+   * 
+   * *   OutBound
+   * *   InBound
+   * *   Both
    * 
    * @example
    * InBound
    */
   direction?: string;
+  /**
+   * @remarks
+   * The gateway ID
+   * 
+   * @example
+   * gw-001
+   */
   gatewayId?: string;
   /**
    * @remarks
-   * Page number, default is 1.
+   * The page number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -42,7 +57,7 @@ export class ListPolicyClassesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -50,7 +65,7 @@ export class ListPolicyClassesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Type of the policy template.
+   * The template type.
    * 
    * @example
    * FlowControl

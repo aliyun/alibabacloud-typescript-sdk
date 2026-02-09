@@ -84,22 +84,38 @@ export class GetResourceOverviewResponseBodyDataGateway extends $dara.Model {
 
 export class GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails extends $dara.Model {
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * gw-xxxxxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The gateway name.
+   * 
    * @example
    * test-gateway
    */
   gatewayName?: string;
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * LOW
    */
   riskLevel?: string;
+  /**
+   * @remarks
+   * The risk name list.
+   */
   riskNames?: string[];
   /**
+   * @remarks
+   * The risk score.
+   * 
    * @example
    * 100
    */
@@ -138,12 +154,22 @@ export class GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails extends 
 
 export class GetResourceOverviewResponseBodyDataRiskOverview extends $dara.Model {
   /**
+   * @remarks
+   * The number of instances at a risk level.
+   * 
    * @example
    * 1
    */
   count?: string;
+  /**
+   * @remarks
+   * The risk details list.
+   */
   riskDetails?: GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails[];
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * LOW
    */
@@ -187,6 +213,10 @@ export class GetResourceOverviewResponseBodyData extends $dara.Model {
    * Gateway information.
    */
   gateway?: GetResourceOverviewResponseBodyDataGateway;
+  /**
+   * @remarks
+   * The risk overview.
+   */
   riskOverview?: GetResourceOverviewResponseBodyDataRiskOverview[];
   static names(): { [key: string]: string } {
     return {
@@ -233,7 +263,7 @@ export class GetResourceOverviewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Resource information.
+   * The resource information.
    */
   data?: GetResourceOverviewResponseBodyData;
   /**

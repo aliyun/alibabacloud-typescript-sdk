@@ -74,7 +74,7 @@ export class ListHttpApiRoutesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The response payload.
    */
   data?: ListHttpApiRoutesResponseBodyData;
   /**

@@ -7,8 +7,29 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 
 
 export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name ID.
+   * 
+   * @example
+   * d-cshee6dlhtgkf4muio3g
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * hello-server.com
+   */
   name?: string;
+  /**
+   * @remarks
+   * The protocol.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,7 +57,21 @@ export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiFallbackConfigServiceConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * Service ID for fallback
+   * 
+   * @example
+   * svc-******
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * targetModelName
+   * 
+   * @example
+   * gpt-4/llama3-70b
+   */
   targetModelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,6 +97,10 @@ export class HttpApiDeployConfigPolicyConfigsAiFallbackConfigServiceConfigs exte
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiFallbackConfig extends $dara.Model {
+  /**
+   * @remarks
+   * List of fallback service configurations
+   */
   serviceConfigs?: HttpApiDeployConfigPolicyConfigsAiFallbackConfigServiceConfigs[];
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +127,45 @@ export class HttpApiDeployConfigPolicyConfigsAiFallbackConfig extends $dara.Mode
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerRequestCheckService extends $dara.Model {
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * exact/prefix
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Modality type
+   * 
+   * @example
+   * text/image
+   */
   modalityType?: string;
+  /**
+   * @remarks
+   * Consumer name for matching
+   * 
+   * @example
+   * API
+   */
   name?: string;
+  /**
+   * @remarks
+   * Request check service name
+   * 
+   * @example
+   * https://checker.example.com/validate
+   */
   requestCheckService?: string;
+  /**
+   * @remarks
+   * requestImageCheckService
+   * 
+   * @example
+   * https://image-check.example.com/scan
+   */
   requestImageCheckService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,10 +197,45 @@ export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerReques
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerResponseCheckService extends $dara.Model {
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * term
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Modality type
+   * 
+   * @example
+   * text/image
+   */
   modalityType?: string;
+  /**
+   * @remarks
+   * Consumer name for matching
+   * 
+   * @example
+   * AI_API
+   */
   name?: string;
+  /**
+   * @remarks
+   * Response check service name
+   * 
+   * @example
+   * https://checker.example.com/validate-response
+   */
   responseCheckService?: string;
+  /**
+   * @remarks
+   * responseImageCheckService
+   * 
+   * @example
+   * https://image-check.example.com/scan-response
+   */
   responseImageCheckService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,9 +267,37 @@ export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerRespon
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerRiskLevel extends $dara.Model {
+  /**
+   * @remarks
+   * Risk alert level
+   * 
+   * @example
+   * Critical
+   */
   level?: string;
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * term
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Consumer name for matching
+   * 
+   * @example
+   * APIG-UI
+   */
   name?: string;
+  /**
+   * @remarks
+   * Risk type
+   * 
+   * @example
+   * K8S
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -190,7 +327,21 @@ export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerRiskLe
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfigConsumerRules extends $dara.Model {
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * term
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Pattern for matching
+   * 
+   * @example
+   * first
+   */
   pattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -216,8 +367,26 @@ export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfigCons
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Consumer-specific rules
+   */
   consumerRules?: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfigConsumerRules;
+  /**
+   * @remarks
+   * Risk alert level
+   * 
+   * @example
+   * Critical
+   */
   level?: string;
+  /**
+   * @remarks
+   * Risk type identifier
+   * 
+   * @example
+   * K8S
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -248,20 +417,113 @@ export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfig ext
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfig extends $dara.Model {
+  /**
+   * @remarks
+   * bufferLimit
+   * 
+   * @example
+   * 50
+   */
   bufferLimit?: number;
+  /**
+   * @remarks
+   * Whether to check request content
+   * 
+   * @example
+   * true
+   */
   checkRequest?: boolean;
+  /**
+   * @remarks
+   * Whether to check request content
+   * 
+   * @example
+   * true
+   */
   checkRequestImage?: boolean;
+  /**
+   * @remarks
+   * Whether to check response content
+   * 
+   * @example
+   * true
+   */
   checkResponse?: boolean;
+  /**
+   * @remarks
+   * Whether to check response content
+   * 
+   * @example
+   * true
+   */
   checkResponseImage?: boolean;
+  /**
+   * @remarks
+   * Consumer-specific request check configs
+   */
   consumerRequestCheckService?: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerRequestCheckService[];
+  /**
+   * @remarks
+   * Consumer-specific Response check configs
+   */
   consumerResponseCheckService?: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerResponseCheckService[];
+  /**
+   * @remarks
+   * Consumer-specific risk level configs
+   */
   consumerRiskLevel?: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerRiskLevel[];
+  /**
+   * @remarks
+   * Request check service name
+   * 
+   * @example
+   * https://checker.example.com/validate-request
+   */
   requestCheckService?: string;
+  /**
+   * @remarks
+   * Request check service name
+   * 
+   * @example
+   * https://image-checker.example.com/scan
+   */
   requestImageCheckService?: string;
+  /**
+   * @remarks
+   * Response check service name
+   * 
+   * @example
+   * https://checker.example.com/validate-response
+   */
   responseCheckService?: string;
+  /**
+   * @remarks
+   * Response check service name
+   * 
+   * @example
+   * https://image-checker.example.com/scan-response
+   */
   responseImageCheckService?: string;
+  /**
+   * @remarks
+   * Risk alert level for content moderation
+   * 
+   * @example
+   * low/medium/high
+   */
   riskAlertLevel?: string;
+  /**
+   * @remarks
+   * riskConfig
+   */
   riskConfig?: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfig[];
+  /**
+   * @remarks
+   * Security guard service address
+   * 
+   * @example
+   * https://api.example.com/v1
+   */
   serviceAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -325,11 +587,53 @@ export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfig extends $dara
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigGlobalRules extends $dara.Model {
+  /**
+   * @remarks
+   * Limit mode for global rules
+   * 
+   * @example
+   * local
+   */
   limitMode?: string;
+  /**
+   * @remarks
+   * Limit type for global rules
+   * 
+   * @example
+   * request
+   */
   limitType?: string;
+  /**
+   * @remarks
+   * Limit value for global rules
+   * 
+   * @example
+   * 100
+   */
   limitValue?: number;
+  /**
+   * @remarks
+   * Match key
+   * 
+   * @example
+   * user_id
+   */
   matchKey?: string;
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * term
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Match value
+   * 
+   * @example
+   * user123
+   */
   matchValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -363,11 +667,53 @@ export class HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigGlobalRules e
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigRules extends $dara.Model {
+  /**
+   * @remarks
+   * Limit mode
+   * 
+   * @example
+   * local
+   */
   limitMode?: string;
+  /**
+   * @remarks
+   * Limit type
+   * 
+   * @example
+   * request/token
+   */
   limitType?: string;
+  /**
+   * @remarks
+   * Limit value
+   * 
+   * @example
+   * 100
+   */
   limitValue?: number;
+  /**
+   * @remarks
+   * Match key
+   * 
+   * @example
+   * user_id/api_path
+   */
   matchKey?: string;
+  /**
+   * @remarks
+   * Match type
+   * 
+   * @example
+   * term
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * Match value
+   * 
+   * @example
+   * user123
+   */
   matchValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -401,8 +747,23 @@ export class HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigRules extends
 }
 
 export class HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable global rate limit rules
+   * 
+   * @example
+   * true
+   */
   enableGlobalRules?: boolean;
+  /**
+   * @remarks
+   * List of global rate limit rules
+   */
   globalRules?: HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigGlobalRules[];
+  /**
+   * @remarks
+   * List of rate limit rules
+   */
   rules?: HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigRules[];
   static names(): { [key: string]: string } {
     return {
@@ -436,15 +797,33 @@ export class HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfig extends $dar
 }
 
 export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The fallback configurations
+   */
   aiFallbackConfig?: HttpApiDeployConfigPolicyConfigsAiFallbackConfig;
+  /**
+   * @remarks
+   * AI Security Guard configuration
+   */
   aiSecurityGuardConfig?: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfig;
+  /**
+   * @remarks
+   * AI Token Rate Limit configuration
+   */
   aiTokenRateLimitConfig?: HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfig;
   /**
+   * @remarks
+   * Specifies whether to enable the policy.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
    * @example
    * AiFallback
    */
@@ -488,24 +867,47 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
 }
 
 export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * Intent classification code
+   * 
+   * @example
+   * INQUIRY
+   */
   intentCode?: string;
+  /**
+   * @remarks
+   * Match conditions
+   */
   match?: HttpApiBackendMatchConditions;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * qwen-max
    */
   modelName?: string;
   /**
+   * @remarks
+   * The model name matching rule.
+   * 
    * @example
    * qwen-*
    */
   modelNamePattern?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * svc-xxx
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The service weight.
+   * 
    * @example
    * 100
    */
@@ -545,9 +947,37 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
 }
 
 export class HttpApiDeployConfigSubDomains extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name ID.
+   * 
+   * @example
+   * d-csmn42um1hksudfk9eng
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The network type.
+   * 
+   * @example
+   * Intranet
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The protocol.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -578,37 +1008,84 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
 
 export class HttpApiDeployConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable automatic deployment.
+   * 
    * @example
    * true
    */
   autoDeploy?: boolean;
   /**
+   * @remarks
+   * The publishing scenario.
+   * 
    * @example
    * SingleService
    */
   backendScene?: string;
+  /**
+   * @remarks
+   * The IDs of the custom domain names.
+   */
   customDomainIds?: string[];
+  /**
+   * @remarks
+   * The information about the custom domain names.
+   */
   customDomainInfos?: HttpApiDeployConfigCustomDomainInfos[];
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * env-xxx
    */
   environmentId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * gw-xx
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The instance information.
+   */
   gatewayInfo?: GatewayInfo;
   /**
+   * @remarks
+   * 网关类型
+   * 
    * @example
    * API
    */
   gatewayType?: string;
+  /**
+   * @remarks
+   * The Mock settings.
+   */
   mock?: HttpApiMockContract;
+  /**
+   * @remarks
+   * The policy configurations.
+   */
   policyConfigs?: HttpApiDeployConfigPolicyConfigs[];
+  /**
+   * @remarks
+   * routeBackend
+   */
   routeBackend?: Backend;
+  /**
+   * @remarks
+   * The service configurations.
+   */
   serviceConfigs?: HttpApiDeployConfigServiceConfigs[];
+  /**
+   * @remarks
+   * The information about the sub-domain names.
+   */
   subDomains?: HttpApiDeployConfigSubDomains[];
   static names(): { [key: string]: string } {
     return {

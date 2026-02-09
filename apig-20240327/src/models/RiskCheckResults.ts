@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class RiskCheckResultsMetadata extends $dara.Model {
   /**
+   * @remarks
+   * The cluster type
+   * 
    * @example
    * Ingress
    */
   clusterType?: string;
   /**
+   * @remarks
+   * The replica count
+   * 
    * @example
    * 3
    */
   replica?: number;
   /**
+   * @remarks
+   * The specification
+   * 
    * @example
    * apigw.small.x1
    */
   spec?: string;
   /**
+   * @remarks
+   * The version
+   * 
    * @example
    * 2.0.14
    */
@@ -53,7 +65,7 @@ export class RiskCheckResultsMetadata extends $dara.Model {
 export class RiskCheckResultsRiskDetails extends $dara.Model {
   /**
    * @remarks
-   * 执行检测的模块名称
+   * The check module
    * 
    * @example
    * BaseInfo
@@ -61,20 +73,20 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   checkModule?: string;
   /**
    * @remarks
-   * 风险相关的详细数据，不同风险类型数据结构不同
+   * The risk detailed data
    */
   data?: { [key: string]: string };
   /**
    * @remarks
-   * 风险的详细描述，JSON字符串格式
+   * The risk description
    * 
    * @example
-   * {"desc":"单节点实例存在架构风险，单点故障会导致服务不可用。建议扩容到2节点及以上。"}
+   * The version is outdated
    */
   description?: string;
   /**
    * @remarks
-   * 该风险项的告警通知是否已被屏蔽
+   * Whether to mute notifications
    * 
    * @example
    * false
@@ -82,7 +94,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   isNoticeMute?: boolean;
   /**
    * @remarks
-   * 风险项的唯一标识码
+   * The risk code
    * 
    * @example
    * 30010010001
@@ -90,7 +102,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   riskCode?: string;
   /**
    * @remarks
-   * 该风险项的等级，可选值：LOW、MEDIUM、HIGH、CRITICAL
+   * The risk level
    * 
    * @example
    * HIGH
@@ -98,15 +110,15 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * 风险项的名称
+   * The risk title
    * 
    * @example
-   * 单节点架构风险
+   * Version Risk
    */
   riskName?: string;
   /**
    * @remarks
-   * 风险分类，可选值：SYSTEM（系统风险）、VERSION（版本风险）、SAFE（安全风险）、CAPACITY（容量风险）
+   * The risk type
    * 
    * @example
    * SYSTEM
@@ -114,18 +126,18 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   riskType?: string;
   /**
    * @remarks
-   * 当前实例的风险现状，JSON字符串格式
+   * The risk situation
    * 
    * @example
-   * {"desc":"集群节点数为1，不具备高可用能力"}
+   * Current version is 2 releases behind
    */
   situation?: string;
   /**
    * @remarks
-   * 针对该风险的优化建议，JSON字符串格式，包含描述和操作链接
+   * The fix suggestion
    * 
    * @example
-   * {"desc":"扩容到2节点及以上","links":[{"descEn":"click to upgrade specification","type":"upgrade","desc":"点击扩容"}]}
+   * Upgrade to the latest version
    */
   suggestion?: string;
   static names(): { [key: string]: string } {
@@ -171,10 +183,17 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
 }
 
 export class RiskCheckResults extends $dara.Model {
+  /**
+   * @remarks
+   * The check time
+   * 
+   * @example
+   * 1234567890000
+   */
   checkTime?: number;
   /**
    * @remarks
-   * 网关实例的唯一标识符
+   * The gateway ID
    * 
    * @example
    * gw-0364f863b1a04474911b48cd6d51d03d
@@ -182,17 +201,17 @@ export class RiskCheckResults extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * 实例的基本信息
+   * The instance metadata
    */
   metadata?: RiskCheckResultsMetadata;
   /**
    * @remarks
-   * 详细的风险项信息列表
+   * The risk details list
    */
   riskDetails?: RiskCheckResultsRiskDetails[];
   /**
    * @remarks
-   * 整体风险等级，可选值：LOW（低风险）、MEDIUM（中风险）、HIGH（高风险）、CRITICAL（严重风险）
+   * The risk level
    * 
    * @example
    * MEDIUM
@@ -200,16 +219,23 @@ export class RiskCheckResults extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * 风险综合评分，取值范围0-100分，分数越高表示风险越低
+   * The risk score
    * 
    * @example
    * 85
    */
   score?: number;
+  /**
+   * @remarks
+   * The snapshot time
+   * 
+   * @example
+   * 1234567890000
+   */
   snapshotTime?: number;
   /**
    * @remarks
-   * 风险检测状态，可选值：SUCCESS（成功）、FAIL（失败）、RUNNING（运行中）
+   * The execution status
    * 
    * @example
    * SUCCESS
@@ -217,7 +243,7 @@ export class RiskCheckResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 检测到的风险项总数量
+   * The total number of risks
    * 
    * @example
    * 1

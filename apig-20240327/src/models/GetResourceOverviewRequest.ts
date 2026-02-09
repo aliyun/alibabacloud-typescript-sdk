@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetResourceOverviewRequest extends $dara.Model {
   /**
+   * @remarks
+   * The gateway type.
+   * 
    * @example
    * AI
    */

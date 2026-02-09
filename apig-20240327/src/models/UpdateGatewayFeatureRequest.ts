@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayFeatureRequest extends $dara.Model {
   /**
    * @remarks
-   * Parameter value.
+   * The parameter value.
    * 
    * @example
    * "true"

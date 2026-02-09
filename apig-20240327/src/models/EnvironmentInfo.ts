@@ -5,19 +5,79 @@ import { SubDomainInfo } from "./SubDomainInfo";
 
 
 export class EnvironmentInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The environment alias.
+   * 
+   * @example
+   * test-env
+   */
   alias?: string;
+  /**
+   * @remarks
+   * The creation timestamp.
+   * 
+   * @example
+   * 1721116090326
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * Specifies whether the environment is the default environment.
+   * 
+   * @example
+   * false
+   */
   default?: boolean;
+  /**
+   * @remarks
+   * The environment descriptiont.
+   * 
+   * @example
+   * This is a test environment.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The environment ID.
+   * 
+   * @example
+   * env-cq7l5s5lhtgi6qasrdc0
+   */
   environmentId?: string;
+  /**
+   * @remarks
+   * The instance information.
+   */
   gatewayInfo?: GatewayInfo;
+  /**
+   * @remarks
+   * The environment name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxxx
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The subdomains.
+   */
   subDomainInfos?: SubDomainInfo[];
+  /**
+   * @remarks
+   * The update timestamp.
+   * 
+   * @example
+   * 1721116090326
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {

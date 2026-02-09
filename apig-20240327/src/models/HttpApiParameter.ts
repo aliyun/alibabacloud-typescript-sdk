@@ -3,25 +3,63 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HttpApiParameter extends $dara.Model {
+  /**
+   * @remarks
+   * The default value of the parameter.
+   * 
+   * @example
+   * 123
+   */
   defaultValue?: string;
+  /**
+   * @remarks
+   * The parameter description.
+   * 
+   * @example
+   * The example description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The sample value of the parameter.
+   * 
+   * @example
+   * 123
+   */
   exampleValue?: string;
   /**
    * @remarks
+   * The parameter name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * userId
    */
   name?: string;
   /**
+   * @remarks
+   * Specifies whether the parameter is required.
+   * 
    * @example
-   * false
+   * true
    */
   required?: boolean;
   /**
    * @remarks
+   * The parameter type.
+   * 
+   * Valid values:
+   * 
+   * *   Integer
+   * *   Number
+   * *   String
+   * *   Boolean
+   * 
    * This parameter is required.
    * 
    * @example
-   * string
+   * String
    */
   type?: string;
   static names(): { [key: string]: string } {

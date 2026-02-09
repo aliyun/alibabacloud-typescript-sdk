@@ -6,7 +6,7 @@ import { Service } from "./Service";
 export class ListServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The services.
+   * The list of services.
    */
   items?: Service[];
   /**
@@ -74,7 +74,7 @@ export class ListServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The response payload.
    */
   data?: ListServicesResponseBodyData;
   /**

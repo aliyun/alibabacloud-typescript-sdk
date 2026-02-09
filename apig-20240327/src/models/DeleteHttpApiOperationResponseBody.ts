@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHttpApiOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteHttpApiOperationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message,
+   * The returned message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteHttpApiOperationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AuthConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication mode.
+   * 
+   * @example
+   * NoAuth
+   */
   authMode?: string;
+  /**
+   * @remarks
+   * The authentication type.
+   * 
+   * @example
+   * Jwt
+   */
   authType?: string;
   static names(): { [key: string]: string } {
     return {

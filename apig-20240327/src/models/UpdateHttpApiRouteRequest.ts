@@ -7,7 +7,7 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service port. If you want to use a dynamic port, do not pass this parameter.
+   * The service port (omit for dynamic ports).
    * 
    * @example
    * 8080
@@ -15,7 +15,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The service protocol. Valid values:
    * 
    * *   HTTP
    * *   HTTPS
@@ -42,7 +42,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * The percentage value of traffic.
+   * The traffic weight percentage.
    * 
    * @example
    * 49
@@ -80,9 +80,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
 export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
-   * The backend service scenario.
-   * 
-   * Valid values:
+   * The backend service scenario. Valid values:
    * 
    * *   SingleService
    * *   MultiServiceByRatio
@@ -95,7 +93,7 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The backend services.
+   * The list of backend services.
    */
   services?: UpdateHttpApiRouteRequestBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -256,6 +254,10 @@ export class UpdateHttpApiRouteRequestPolicyConfigsAiCacheConfigRedisConfig exte
 }
 
 export class UpdateHttpApiRouteRequestPolicyConfigsAiCacheConfigVectorConfig extends $dara.Model {
+  /**
+   * @remarks
+   * apiKey
+   */
   apiKey?: string;
   collectionId?: string;
   serviceHost?: string;
@@ -1566,7 +1568,7 @@ export class UpdateHttpApiRouteRequestPolicyConfigs extends $dara.Model {
 export class UpdateHttpApiRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The backend service configurations of the route.
+   * The backend service configurations for the route.
    */
   backendConfig?: UpdateHttpApiRouteRequestBackendConfig;
   deployConfigs?: HttpApiDeployConfig[];
@@ -1580,7 +1582,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The domain IDs.
+   * The list of domain IDs.
    */
   domainIds?: string[];
   /**
@@ -1593,7 +1595,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The rules for matching the route.
+   * The route match rule.
    */
   match?: HttpRouteMatch;
   mcpRouteConfig?: UpdateHttpApiRouteRequestMcpRouteConfig;

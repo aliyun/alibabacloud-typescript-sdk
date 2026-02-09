@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AkSkIdentityConfig extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
   ak?: string;
+  /**
+   * @example
+   * System
+   */
   generateMode?: string;
+  /**
+   * @example
+   * xxxx
+   */
   sk?: string;
+  /**
+   * @example
+   * Jwt
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
   /**
    * @remarks
-   * The environment alias.
+   * The port information.
    * 
    * @example
-   * Default environment
+   * The protocol. Valid values:
+   * 
+   * *   TCP
+   * *   UDP
    */
   alias?: string;
   /**
    * @remarks
-   * The environment ID.
+   * The load balancer type. Valid values:
+   * 
+   * *   NLB: Network Load Balancer
+   * *   CLB: Classic Load Balancer
    * 
    * @example
    * env-cp9uhudlht***
@@ -21,7 +27,7 @@ export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The environment name.
+   * The list of listened ports.
    * 
    * @example
    * default-gw-cp9ugg5***
@@ -55,7 +61,7 @@ export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
 export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
   /**
    * @remarks
-   * The port number.
+   * The listening port number
    * 
    * @example
    * 443
@@ -63,10 +69,7 @@ export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The protocol. Valid values:
-   * 
-   * *   TCP
-   * *   UDP
+   * The protocol of the port
    * 
    * @example
    * TCP
@@ -98,7 +101,7 @@ export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
 export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * The load balancer IP address.
+   * The IP address of the load balancer
    * 
    * @example
    * nlb-xoh3pghr***.cn-hangzhou.nlb.aliyuncs.com
@@ -106,10 +109,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The IP version of the address. Valid values:
-   * 
-   * *   ipv4
-   * *   ipv6
+   * The IP version of the load balancer address
    * 
    * @example
    * ipv4
@@ -117,10 +117,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The load balancer address type. Valid values:
-   * 
-   * *   Internet
-   * *   Intranet
+   * The address type of the load balancer
    * 
    * @example
    * Internet
@@ -128,17 +125,25 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * Indicates whether the address is the default ingress address of the instance.
+   * Whether this is the default gateway ingress
    * 
    * @example
    * true
    */
   gatewayDefault?: boolean;
+  /**
+   * @remarks
+   * List of IPv4 addresses
+   */
   ipv4Addresses?: string[];
+  /**
+   * @remarks
+   * List of IPv6 addresses
+   */
   ipv6Addresses?: string[];
   /**
    * @remarks
-   * The load balancer ID.
+   * The unique identifier of the load balancer
    * 
    * @example
    * nlb-xoh3pghru7c***
@@ -146,9 +151,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The mode in which the load balancer is provided. Valid values:
-   * 
-   * *   Managed: Cloud-native API Gateway manages and provides the load balancer.
+   * The mode of the load balancer
    * 
    * @example
    * Managed
@@ -156,15 +159,12 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The list of listened ports.
+   * List of port configurations for the load balancer
    */
   ports?: GetGatewayResponseBodyDataLoadBalancersPorts[];
   /**
    * @remarks
-   * The load balancer status. Valid values:
-   * 
-   * *   Ready: The load balancer is available.
-   * *   NotCreate: The load balancer is not associated with the instance.
+   * The current status of the load balancer
    * 
    * @example
    * Ready
@@ -172,10 +172,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The load balancer type. Valid values:
-   * 
-   * *   NLB: Network Load Balancer
-   * *   CLB: Classic Load Balancer
+   * The type of load balancer
    * 
    * @example
    * NLB
@@ -233,11 +230,17 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
 
 export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
   /**
+   * @remarks
+   * The maintenance end time
+   * 
    * @example
    * 06:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The maintenance start time
+   * 
    * @example
    * 02:00
    */
@@ -268,7 +271,7 @@ export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
 export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
   /**
    * @remarks
-   * The security group name.
+   * The resource group ID.
    * 
    * @example
    * APIG-sg-gw-cq7ke5ll***
@@ -276,7 +279,10 @@ export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The load balancer status. Valid values:
+   * 
+   * *   Ready: The load balancer is available.
+   * *   NotCreate: The load balancer is not associated with the instance.
    * 
    * @example
    * sg-bp16tafq9***
@@ -308,7 +314,7 @@ export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
 export class GetGatewayResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key
    * 
    * @example
    * owner
@@ -316,7 +322,7 @@ export class GetGatewayResponseBodyDataTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value
    * 
    * @example
    * zhangsan
@@ -348,15 +354,15 @@ export class GetGatewayResponseBodyDataTags extends $dara.Model {
 export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch name.
+   * The resource tags.
    * 
    * @example
-   * HangzhouVPCvSwitch
+   * The resource tag.
    */
   name?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The tag value.
    * 
    * @example
    * vsw-bp1c7ggkj***
@@ -388,15 +394,15 @@ export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
 export class GetGatewayResponseBodyDataVpc extends $dara.Model {
   /**
    * @remarks
-   * The VPC name.
+   * =
    * 
    * @example
-   * HangzhouVPC
+   * $.errorCode
    */
   name?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * Query Gateway Details
    * 
    * @example
    * vpc-bp1llj52lvj6xc***
@@ -428,15 +434,15 @@ export class GetGatewayResponseBodyDataVpc extends $dara.Model {
 export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch name.
+   * The VSwitch name
    * 
    * @example
-   * HangzhouVPCvSwitch
+   * vswitch-name
    */
   name?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The VSwitch ID
    * 
    * @example
    * vsw-bp1c7ggkj***
@@ -468,20 +474,20 @@ export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
 export class GetGatewayResponseBodyDataZones extends $dara.Model {
   /**
    * @remarks
-   * The zone name.
+   * The zone name
    * 
    * @example
-   * HangzhouZoneE
+   * Hangzhou Zone I
    */
   name?: string;
   /**
    * @remarks
-   * The vSwitch information.
+   * The VSwitch information in the zone
    */
   vSwitch?: GetGatewayResponseBodyDataZonesVSwitch;
   /**
    * @remarks
-   * The zone ID.
+   * The zone ID
    * 
    * @example
    * cn-hangzhou-e
@@ -518,10 +524,7 @@ export class GetGatewayResponseBodyDataZones extends $dara.Model {
 export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The billing method. Valid values:
-   * 
-   * *   POSTPAY: pay-as-you-go
-   * *   PREPAY: subscription
+   * The vSwitch associated with the instance.
    * 
    * @example
    * POSTPAY
@@ -529,9 +532,9 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The creation source of the instance. Valid values:
+   * The mode in which the load balancer is provided. Valid values:
    * 
-   * *   Console
+   * *   Managed: Cloud-native API Gateway manages and provides the load balancer.
    * 
    * @example
    * Console
@@ -539,7 +542,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   createFrom?: string;
   /**
    * @remarks
-   * The creation timestamp. Unit: milliseconds.
+   * The zone ID.
    * 
    * @example
    * 1719386834548
@@ -547,25 +550,31 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The list of environments associated with the instance.
+   * The IP version of the address. Valid values:
+   * 
+   * *   ipv4
+   * *   ipv6
    */
   environments?: GetGatewayResponseBodyDataEnvironments[];
   /**
    * @remarks
-   * The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
+   * The ingress information.
    * 
    * @example
    * 1719386834548
    */
   expireTimestamp?: number;
   /**
+   * @remarks
+   * gatewayEdition
+   * 
    * @example
    * Serverless
    */
   gatewayEdition?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The security group ID.
    * 
    * @example
    * gw-cq2vundlhtg***
@@ -573,24 +582,33 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * the gateway type, which is categorized into the following two types:
-   * - API: indicates an API gateway
-   * - AI: Indicates an AI gateway
+   * The vSwitch ID.
    * 
    * @example
    * API
    */
   gatewayType?: string;
+  /**
+   * @remarks
+   * The ISP type for traffic routing
+   * 
+   * @example
+   * BGP
+   */
   isp?: string;
   /**
    * @remarks
-   * The ingress addresses of the instance.
+   * loadBalancers
    */
   loadBalancers?: GetGatewayResponseBodyDataLoadBalancers[];
+  /**
+   * @remarks
+   * The maintenance period configuration
+   */
   maintenancePeriod?: GetGatewayResponseBodyDataMaintenancePeriod;
   /**
    * @remarks
-   * The instance name.
+   * The security group name.
    * 
    * @example
    * itemcenter-gateway
@@ -598,7 +616,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The node quantity of the instance.
+   * HangzhouZoneE
    * 
    * @example
    * 2
@@ -606,22 +624,20 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   replicas?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The resource group ID
    * 
    * @example
-   * rg-aek2s3cvc4jzfxi
+   * rg-acfm2ij6pwxsvua
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group of the instance.
+   * The port number.
    */
   securityGroup?: GetGatewayResponseBodyDataSecurityGroup;
   /**
    * @remarks
-   * The instance specification. Valid values:
-   * 
-   * *   apigw.small.x1
+   * The zone name.
    * 
    * @example
    * apigw.small.x1
@@ -629,17 +645,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The instance state. Valid values:
-   * 
-   * *   Running: The instance is running.
-   * *   Creating: The instance is being created.
-   * *   CreateFailed: The instance failed to be created.
-   * *   Upgrading: The instance is being upgraded.
-   * *   UpgradeFailed: The instance failed to be upgraded.
-   * *   Restarting: The instance is being restarted.
-   * *   RestartFailed: The instance failed to be restarted.
-   * *   Deleting: The instance is being released.
-   * *   DeleteFailed: The instance failed to be released.
+   * The VPC associated with the instance.
    * 
    * @example
    * Running
@@ -647,12 +653,15 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The resource tags.
+   * List of tags associated with the gateway
    */
   tags?: GetGatewayResponseBodyDataTags[];
   /**
    * @remarks
-   * The destination version of the instance. If the value is inconsistent with the version value, you can upgrade the instance.
+   * The load balancer address type. Valid values:
+   * 
+   * *   Internet
+   * *   Intranet
    * 
    * @example
    * 2.0.2
@@ -660,7 +669,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   targetVersion?: string;
   /**
    * @remarks
-   * The last update timestamp. Unit: milliseconds.
+   * The ingress addresses of the instance.
    * 
    * @example
    * 1719386834548
@@ -668,12 +677,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * The vSwitch associated with the instance.
+   * rg-aek2s3cvc4jzfxi
    */
   vSwitch?: GetGatewayResponseBodyDataVSwitch;
   /**
    * @remarks
-   * The instance version.
+   * The load balancer IP address.
    * 
    * @example
    * 2.0.2
@@ -681,12 +690,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The VPC associated with the instance.
+   * The tag key.
    */
   vpc?: GetGatewayResponseBodyDataVpc;
   /**
    * @remarks
-   * The list of zones associated with the instance.
+   * List of zone information
    */
   zones?: GetGatewayResponseBodyDataZones[];
   static names(): { [key: string]: string } {
@@ -783,7 +792,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
 export class GetGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The environment alias.
    * 
    * @example
    * Ok
@@ -791,12 +800,12 @@ export class GetGatewayResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The security group of the instance.
    */
   data?: GetGatewayResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * Default environment
    * 
    * @example
    * success
@@ -804,7 +813,7 @@ export class GetGatewayResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The environment name.
    * 
    * @example
    * 0F138FFC-6E2B-56C1-9BAB-A67462E339D1

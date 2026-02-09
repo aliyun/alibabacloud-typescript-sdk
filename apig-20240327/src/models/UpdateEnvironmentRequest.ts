@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEnvironmentRequest extends $dara.Model {
   /**
    * @remarks
-   * Environment alias.
+   * Schema of Response
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试环境
+   * The request ID, which is used to trace the API call link.
    */
   alias?: string;
   /**
    * @remarks
-   * Description of the environment, which can include information such as the purpose of the environment and its users.
+   * The status code returned.
    * 
    * @example
-   * 这是xx的xx项目测试环境
+   * The response message returned.
    */
   description?: string;
   static names(): { [key: string]: string } {

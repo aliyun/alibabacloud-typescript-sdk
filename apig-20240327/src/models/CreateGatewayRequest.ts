@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
-   * @remarks
-   * Indicates if enabled.
-   * 
    * @example
    * false
    */
@@ -33,10 +30,6 @@ export class CreateGatewayRequestLogConfigSls extends $dara.Model {
 }
 
 export class CreateGatewayRequestLogConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The Simple Log Service configurations.
-   */
   sls?: CreateGatewayRequestLogConfigSls;
   static names(): { [key: string]: string } {
     return {
@@ -65,13 +58,7 @@ export class CreateGatewayRequestLogConfig extends $dara.Model {
 export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
-   * The network access type.
-   * 
-   * Valid values:
-   * 
-   * *   InternetAndIntranet
-   * *   Intranet
-   * *   Internet
+   * -
    * 
    * @example
    * Internet
@@ -100,17 +87,11 @@ export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
 
 export class CreateGatewayRequestTag extends $dara.Model {
   /**
-   * @remarks
-   * The tag key.
-   * 
    * @example
    * key
    */
   key?: string;
   /**
-   * @remarks
-   * The tag value.
-   * 
    * @example
    * value
    */
@@ -140,17 +121,11 @@ export class CreateGatewayRequestTag extends $dara.Model {
 
 export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
    * @example
    * vsw-xx
    */
   vSwitchId?: string;
   /**
-   * @remarks
-   * The zone ID.
-   * 
    * @example
    * cn-wulanchabu-a
    */
@@ -181,29 +156,17 @@ export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
 export class CreateGatewayRequestZoneConfig extends $dara.Model {
   /**
    * @remarks
-   * The option for selecting the zone.
-   * 
-   * Valid values:
-   * 
-   * *   Auto
-   * *   Manual
+   * The response payload.
    * 
    * @example
    * Manual
    */
   selectOption?: string;
   /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
    * @example
    * vsw-xxx
    */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The supported zones.
-   */
   zones?: CreateGatewayRequestZoneConfigZones[];
   static names(): { [key: string]: string } {
     return {
@@ -236,46 +199,29 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   POSTPAY
-   * *   PREPAY
+   * The logging configurations.
    * 
    * @example
    * POSTPAY
    */
   chargeType?: string;
   /**
-   * @remarks
-   * The gateway edition.
-   * 
    * @example
-   * -
+   * Professional
    */
   gatewayEdition?: string;
   /**
    * @remarks
-   * The type of the gateway.
-   * 
-   * Valid values:
-   * 
-   * *   AI
-   * *   API
+   * The ID of the resource group.
    * 
    * @example
    * API
    */
   gatewayType?: string;
-  /**
-   * @remarks
-   * The logging configurations.
-   */
   logConfig?: CreateGatewayRequestLogConfig;
   /**
    * @remarks
-   * The name of the gateway instance.
+   * The ID of the vSwitch.
    * 
    * @example
    * test-ceshi
@@ -283,33 +229,26 @@ export class CreateGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network access configuration.
+   * The gateway edition.
    */
   networkAccessConfig?: CreateGatewayRequestNetworkAccessConfig;
   /**
-   * @remarks
-   * The ID of the resource group.
-   * 
    * @example
    * rg-ahr5uil8raz0rq3b
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The specifications of the node.
+   * The tag key.
    * 
    * @example
    * apigw.dev.x2
    */
   spec?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tag?: CreateGatewayRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC.
+   * The tag value.
    * 
    * @example
    * vpc-zm0x16tomfiat1mk9f6rs
@@ -317,7 +256,7 @@ export class CreateGatewayRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone settings.
+   * The status message.
    */
   zoneConfig?: CreateGatewayRequestZoneConfig;
   static names(): { [key: string]: string } {

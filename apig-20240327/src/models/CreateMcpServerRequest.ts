@@ -6,7 +6,7 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class CreateMcpServerRequestAssembledSources extends $dara.Model {
   /**
    * @remarks
-   * The MCP server ID.
+   * MCP Server ID
    * 
    * @example
    * mcp-sdfa3qgavz
@@ -14,7 +14,7 @@ export class CreateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The name of the MCP server.
+   * Source MCP server name
    * 
    * @example
    * test-mcp
@@ -22,7 +22,7 @@ export class CreateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerName?: string;
   /**
    * @remarks
-   * The list of the MCP tools.
+   * List of tool names to include
    */
   tools?: string[];
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class CreateMcpServerRequestAssembledSources extends $dara.Model {
 export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The backend node port of the service.
+   * Service port
    * 
    * @example
    * 8080
@@ -64,10 +64,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values:
-   * 
-   * *   HTTP
-   * *   HTTPS
+   * Service protocol
    * 
    * @example
    * HTTP
@@ -75,7 +72,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The service ID.
+   * Service ID
    * 
    * @example
    * svc-crbgq0dlhtgr***
@@ -83,7 +80,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service version.
+   * Service version
    * 
    * @example
    * 2.1.6
@@ -91,7 +88,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The weight.
+   * Service weight
    * 
    * @example
    * 49
@@ -129,7 +126,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
 export class CreateMcpServerRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
-   * The scenario of the backend service.
+   * Backend scene type
    * 
    * @example
    * SingleService
@@ -137,7 +134,7 @@ export class CreateMcpServerRequestBackendConfig extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The backend services.
+   * List of backend services
    */
   services?: CreateMcpServerRequestBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -167,10 +164,45 @@ export class CreateMcpServerRequestBackendConfig extends $dara.Model {
 }
 
 export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices extends $dara.Model {
+  /**
+   * @remarks
+   * Service port number
+   * 
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * Service protocol type
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * Service ID
+   * 
+   * @example
+   * svc-gray
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * Service version
+   * 
+   * @example
+   * v2.0.0
+   */
   version?: string;
+  /**
+   * @remarks
+   * Service weight for load balancing
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -202,7 +234,18 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
 }
 
 export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Must be SingleService
+   * 
+   * @example
+   * SingleService
+   */
   scene?: string;
+  /**
+   * @remarks
+   * Exactly one service
+   */
   services?: CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices[];
   static names(): { [key: string]: string } {
     return {
@@ -231,8 +274,23 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $da
 }
 
 export class CreateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * Backend configuration for gray route
+   */
   backendConfig?: CreateMcpServerRequestGrayMcpServerConfigsBackendConfig;
+  /**
+   * @remarks
+   * Route matching rules
+   */
   match?: HttpRouteMatch;
+  /**
+   * @remarks
+   * Route ID for update operations
+   * 
+   * @example
+   * gray-route-123
+   */
   routeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -266,7 +324,21 @@ export class CreateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
 }
 
 export class CreateMcpServerRequestMcpServerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Converted MCP server spec YAML
+   * 
+   * @example
+   * mcp-spec.yaml
+   */
   mcpServerSpec?: string;
+  /**
+   * @remarks
+   * Raw Swagger/OpenAPI document
+   * 
+   * @example
+   * swagger.yaml
+   */
   swaggerConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -294,22 +366,25 @@ export class CreateMcpServerRequestMcpServerConfig extends $dara.Model {
 export class CreateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
+   * Assembled MCP server sources
    */
   assembledSources?: CreateMcpServerRequestAssembledSources[];
   /**
    * @remarks
-   * The backend service configurations for the route.
+   * Backend configuration
    */
   backendConfig?: CreateMcpServerRequestBackendConfig;
   /**
    * @remarks
-   * Creates the MCP server from the specified type.
+   * Creation source type
+   * 
+   * @example
+   * ApiGatewayMcpHosting
    */
   createFromType?: string;
   /**
    * @remarks
-   * The MCP server description.
+   * MCP server description
    * 
    * @example
    * mcp tool fetch time
@@ -317,12 +392,12 @@ export class CreateMcpServerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The domain IDs.
+   * List of domain IDs for the MCP server
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP, and the type parameter is set to RealMCP.
+   * Exposed URI path for SSE/StreamableHTTP protocols
    * 
    * @example
    * /sse
@@ -330,7 +405,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * The ID of the gateway.
+   * Gateway ID
    * 
    * This parameter is required.
    * 
@@ -338,16 +413,24 @@ export class CreateMcpServerRequest extends $dara.Model {
    * gw-cq7l5s5lhtgi6qac0
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * Gray route configurations
+   */
   grayMcpServerConfigs?: CreateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The route match rule.
+   * Route matching conditions
    */
   match?: HttpRouteMatch;
+  /**
+   * @remarks
+   * MCP server specification
+   */
   mcpServerConfig?: CreateMcpServerRequestMcpServerConfig;
   /**
    * @remarks
-   * Specifies whether MCP observability is enabled. Default: false.
+   * Enable MCP statistics
    * 
    * @example
    * false
@@ -355,7 +438,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The name of the MCP server. The name must match the regular expression ^[a-z0-9](%5B-a-z0-9%5D\\*%5Ba-z0-9%5D)?(.[a-z0-9](%5B-a-z0-9%5D\\*%5Ba-z0-9%5D)?)\\*$ and can be up to 64 characters in length.
+   * MCP server name
    * 
    * This parameter is required.
    * 
@@ -365,7 +448,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP
+   * MCP protocol
    * 
    * @example
    * HTTP
@@ -373,9 +456,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The type. Valid value:
-   * 
-   * RealMCP: regular MCP service
+   * MCP server type
    * 
    * This parameter is required.
    * 

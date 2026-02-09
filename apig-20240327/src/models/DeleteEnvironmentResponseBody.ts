@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEnvironmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The status code returned.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteEnvironmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteEnvironmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the request chain.
+   * The request ID. You can use the ID to trace the request link.
    * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129

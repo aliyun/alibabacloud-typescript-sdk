@@ -10,20 +10,33 @@ export class HttpApiInfoByName extends $dara.Model {
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * test-api
    */
   name?: string;
   /**
+   * @remarks
+   * The API type.
+   * 
    * @example
    * Http
    */
   type?: string;
   /**
+   * @remarks
+   * Specifies whether to enable versioning.
+   * 
    * @example
    * true
    */
   versionEnabled?: boolean;
+  /**
+   * @remarks
+   * The information about the versioned API.
+   */
   versionedHttpApis?: HttpApiApiInfo[];
   static names(): { [key: string]: string } {
     return {

@@ -14,7 +14,7 @@ export class CreateDomainRequest extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * The certificate ID.
+   * The certificate identifier.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -22,7 +22,7 @@ export class CreateDomainRequest extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The client CA certificate.
+   * The client CA certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -34,16 +34,28 @@ export class CreateDomainRequest extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * Specifies whether to enable forcible HTTPS redirection.
+   * Specifies whether to enable forced HTTP to HTTPS redirection.
    * 
    * @example
    * false
    */
   forceHttps?: boolean;
+  /**
+   * @remarks
+   * The gateway type.
+   * 
+   * Valid values:
+   * 
+   * *   AI
+   * *   API
+   * 
+   * @example
+   * API
+   */
   gatewayType?: string;
   /**
    * @remarks
-   * The HTTP/2 configuration.
+   * HTTP/2 configuration options.
    * 
    * Valid values:
    * 
@@ -57,7 +69,7 @@ export class CreateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Specifies whether to enable mutual authentication.
+   * Specifies whether to enable mutual Transport Layer Security (mTLS) authentication.
    */
   mTLSEnabled?: boolean;
   /**
@@ -74,8 +86,8 @@ export class CreateDomainRequest extends $dara.Model {
    * @remarks
    * The protocol type supported by the domain name.
    * 
-   * *   HTTP: Only HTTP is supported.
-   * *   HTTPS: Only HTTPS is supported.
+   * *   HTTP: HTTP only
+   * *   HTTPS: HTTPS only
    * 
    * This parameter is required.
    * 
@@ -98,7 +110,7 @@ export class CreateDomainRequest extends $dara.Model {
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum version of the TLS protocol. Up to TLS 1.3 is supported.
+   * The maximum TLS protocol version (up to TLS 1.3).
    * 
    * @example
    * TLS1.3
@@ -106,7 +118,7 @@ export class CreateDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum version of the TLS protocol. Down to TLS 1.0 is supported.
+   * The minimum TLS protocol version (minimum TLS 1.0).
    * 
    * @example
    * TLS1.0

@@ -105,10 +105,45 @@ export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
 }
 
 export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices extends $dara.Model {
+  /**
+   * @remarks
+   * The service port
+   * 
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * The service protocol
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The gray service ID
+   * 
+   * @example
+   * svc-xxx
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The service version
+   * 
+   * @example
+   * v2.0.0
+   */
   version?: string;
+  /**
+   * @remarks
+   * The service weight
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -140,7 +175,18 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServic
 }
 
 export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The backend scene type
+   * 
+   * @example
+   * SingleService
+   */
   scene?: string;
+  /**
+   * @remarks
+   * List of backend services
+   */
   services?: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices[];
   static names(): { [key: string]: string } {
     return {
@@ -169,8 +215,23 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig exten
 }
 
 export class GetMcpServerResponseBodyDataGrayMcpServerConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The gray route backend configuration
+   */
   backendConfig?: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig;
+  /**
+   * @remarks
+   * The gray route matching rules
+   */
   match?: HttpRouteMatch;
+  /**
+   * @remarks
+   * The gray route ID
+   * 
+   * @example
+   * gray-route-xxx
+   */
   routeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -289,6 +350,9 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The description.
+   * 
+   * @example
+   * A sample MCP server
    */
   description?: string;
   /**
@@ -325,6 +389,10 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * List of gray MCP server configurations
+   */
   grayMcpServerConfigs?: GetMcpServerResponseBodyDataGrayMcpServerConfigs[];
   /**
    * @remarks
@@ -337,6 +405,9 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The HTTP-to-MCP configurations.
+   * 
+   * @example
+   * config-yaml-content
    */
   mcpServerConfig?: string;
   /**

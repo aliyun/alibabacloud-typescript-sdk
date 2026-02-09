@@ -4,20 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class HttpApiResponseContractItems extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response description.
+   * 
    * @example
-   * 正常接口响应
+   * This is a description.
    */
   description?: string;
   /**
+   * @remarks
+   * The sample value.
+   * 
    * @example
    * {"result": "ok"}
    */
   example?: string;
+  /**
+   * @remarks
+   * The JSON definition description of the response body.
+   * 
+   * @example
+   * {
+   *     "type": "object",
+   *     "required": [
+   *         "result"
+   *     ],
+   *     "properties": {
+   *         "result": {
+   *             "type": "string",
+   *             "description": "This is a description."
+   *         }
+   *     }
+   * }
+   */
   jsonSchema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,12 +76,18 @@ export class HttpApiResponseContractItems extends $dara.Model {
 export class HttpApiResponseContract extends $dara.Model {
   /**
    * @remarks
+   * The content type.
+   * 
    * This parameter is required.
    * 
    * @example
    * application/json
    */
   contentType?: string;
+  /**
+   * @remarks
+   * The response definition.
+   */
   items?: HttpApiResponseContractItems[];
   static names(): { [key: string]: string } {
     return {

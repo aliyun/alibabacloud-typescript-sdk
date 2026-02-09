@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHttpApiRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteHttpApiRouteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteHttpApiRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0F138FFC-6E2B-56C1-9BAB-A67462E339D1

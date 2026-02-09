@@ -8,25 +8,63 @@ import { HttpApiResponseContract } from "./HttpApiResponseContract";
 
 
 export class HttpApiOperation extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication configurations.
+   */
   authConfig?: AuthConfig;
+  /**
+   * @remarks
+   * The deployment configurations.
+   */
   deployConfigs?: HttpApiDeployConfig[];
   /**
+   * @remarks
+   * The operation description.
+   * 
    * @example
-   * 获取用户信息
+   * This is a operation description.
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication.
+   * 
+   * @example
+   * true
+   */
   enableAuth?: boolean;
   /**
    * @remarks
+   * The HTTP method.
+   * 
+   * Valid values:
+   * 
+   * *   TRACE
+   * *   HEAD
+   * *   DELETE
+   * *   POST
+   * *   GET
+   * *   CONNECT
+   * *   OPTIONS
+   * *   PUT
+   * *   PATCH
+   * 
    * This parameter is required.
    * 
    * @example
    * GET
    */
   method?: string;
+  /**
+   * @remarks
+   * The mocking configuration of the operation. This field takes effect only when the API publishing scenario is Mock.
+   */
   mock?: HttpApiMockContract;
   /**
    * @remarks
+   * The operation name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,13 +73,23 @@ export class HttpApiOperation extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The operation path.
+   * 
    * This parameter is required.
    * 
    * @example
    * /user
    */
   path?: string;
+  /**
+   * @remarks
+   * The request parameters of the operation.
+   */
   request?: HttpApiRequestContract;
+  /**
+   * @remarks
+   * The response parameters of the operation.
+   */
   response?: HttpApiResponseContract;
   static names(): { [key: string]: string } {
     return {

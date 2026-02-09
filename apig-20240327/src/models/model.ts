@@ -151,6 +151,7 @@ export { CreateSourceResponseBodyData } from './CreateSourceResponseBody';
 export { DeployHttpApiRequestHttpApiConfig } from './DeployHttpApiRequest';
 export { DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs } from './DeployHttpApiRequest';
 export { DeployHttpApiRequestRestApiConfigEnvironment } from './DeployHttpApiRequest';
+export { DeployHttpApiRequestRestApiConfigOperationDeployments } from './DeployHttpApiRequest';
 export { DeployHttpApiRequestRestApiConfig } from './DeployHttpApiRequest';
 export { ExportHttpApiResponseBodyData } from './ExportHttpApiResponseBody';
 export { GetConsumerResponseBodyData } from './GetConsumerResponseBody';

@@ -4,8 +4,15 @@ import { HttpApiBackendMatchCondition } from "./HttpApiBackendMatchCondition";
 
 
 export class HttpApiBackendMatchConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the matching conditions.
+   */
   conditions?: HttpApiBackendMatchCondition[];
   /**
+   * @remarks
+   * Specifies whether the matching condition is the default one.
+   * 
    * @example
    * true
    */

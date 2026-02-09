@@ -289,7 +289,7 @@ export class QueryConsumerAuthorizationRulesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The response payload.
    */
   data?: QueryConsumerAuthorizationRulesResponseBodyData;
   /**

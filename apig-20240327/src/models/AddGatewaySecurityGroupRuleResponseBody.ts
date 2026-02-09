@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewaySecurityGroupRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class AddGatewaySecurityGroupRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class AddGatewaySecurityGroupRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2A6E90D5-A711-54F4-A489-E33C2021EDDF

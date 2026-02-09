@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSecretsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Gateway type for filtering secrets of specific gateway type
+   * 
+   * @example
+   * API
+   */
   gatewayType?: string;
+  /**
+   * @remarks
+   * Secret name for fuzzy matching, supports filtering secrets by name
+   * 
+   * @example
+   * test-secret
+   */
   nameLike?: string;
+  /**
+   * @remarks
+   * Page number
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Number of items per page
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {

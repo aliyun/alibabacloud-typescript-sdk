@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AgentServiceConfigCustomConfig extends $dara.Model {
+  /**
+   * @remarks
+   * apiKey
+   * 
+   * @example
+   * sk-xxx
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * API key generation mode.
+   * 
+   * @example
+   * Reference
+   */
   apiKeyGenerateMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,21 @@ export class AgentServiceConfigCustomConfig extends $dara.Model {
 }
 
 export class AgentServiceConfigDashScopeConfigAppCredentials extends $dara.Model {
+  /**
+   * @remarks
+   * apiKey
+   * 
+   * @example
+   * sk-xxx
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * app-xxx
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,6 +85,10 @@ export class AgentServiceConfigDashScopeConfigAppCredentials extends $dara.Model
 }
 
 export class AgentServiceConfigDashScopeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The application configuration.
+   */
   appCredentials?: AgentServiceConfigDashScopeConfigAppCredentials[];
   static names(): { [key: string]: string } {
     return {
@@ -83,7 +115,21 @@ export class AgentServiceConfigDashScopeConfig extends $dara.Model {
 }
 
 export class AgentServiceConfigDifyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * API Key
+   * 
+   * @example
+   * sk-xxx
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * The interaction type.
+   * 
+   * @example
+   * chatbot
+   */
   botType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,21 +157,58 @@ export class AgentServiceConfigDifyConfig extends $dara.Model {
 export class AgentServiceConfig extends $dara.Model {
   /**
    * @remarks
+   * The address.
+   * 
    * This parameter is required.
    * 
    * @example
    * https://dashscope.aliyuncs.com/api/v1
    */
   address?: string;
+  /**
+   * @remarks
+   * User-defined configuration
+   */
   customConfig?: AgentServiceConfigCustomConfig;
+  /**
+   * @remarks
+   * The Model Studio service configuration.
+   */
   dashScopeConfig?: AgentServiceConfigDashScopeConfig;
+  /**
+   * @remarks
+   * The Dify service configuration.
+   */
   difyConfig?: AgentServiceConfigDifyConfig;
+  /**
+   * @remarks
+   * Specifies whether to enable health check.
+   * 
+   * @example
+   * true
+   */
   enableHealthCheck?: boolean;
+  /**
+   * @remarks
+   * Whether to enable outlier detection
+   * 
+   * @example
+   * true
+   */
   enableOutlierDetection?: boolean;
+  /**
+   * @remarks
+   * The protocol.
+   */
   protocols?: string[];
   /**
    * @remarks
+   * The service provider.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * aliyun
    */
   provider?: string;
   static names(): { [key: string]: string } {
