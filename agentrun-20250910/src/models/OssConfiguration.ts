@@ -6,17 +6,30 @@ export class OssConfiguration extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * a-test-oss
    */
   bucketName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * /mnt/oss1
    */
   mountPoint?: string;
+  /**
+   * @example
+   * READ_WRITE
+   */
   permission?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * /
    */
   prefix?: string;
   /**

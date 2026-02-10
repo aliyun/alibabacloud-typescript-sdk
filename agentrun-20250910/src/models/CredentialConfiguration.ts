@@ -6,6 +6,9 @@ export class CredentialConfiguration extends $dara.Model {
   /**
    * @remarks
    * 凭证的唯一标识符
+   * 
+   * @example
+   * deepagent-key
    */
   credentialName?: string;
   static names(): { [key: string]: string } {

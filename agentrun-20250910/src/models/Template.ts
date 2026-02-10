@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { ContainerConfiguration } from "./ContainerConfiguration";
 import { CredentialConfiguration } from "./CredentialConfiguration";
 import { LogConfiguration } from "./LogConfiguration";
+import { NASConfig } from "./Nasconfig";
 import { NetworkConfiguration } from "./NetworkConfiguration";
 import { OssConfiguration } from "./OssConfiguration";
 
@@ -81,6 +82,7 @@ export class Template extends $dara.Model {
   credentialConfiguration?: CredentialConfiguration;
   description?: string;
   diskSize?: number;
+  enableAgent?: boolean;
   environmentVariables?: { [key: string]: string };
   executionRoleArn?: string;
   lastUpdatedAt?: string;
@@ -92,6 +94,7 @@ export class Template extends $dara.Model {
    * This parameter is required.
    */
   memory?: number;
+  nasConfig?: NASConfig;
   networkConfiguration?: NetworkConfiguration;
   ossConfiguration?: OssConfiguration[];
   resourceName?: string;
@@ -125,6 +128,7 @@ export class Template extends $dara.Model {
       credentialConfiguration: 'credentialConfiguration',
       description: 'description',
       diskSize: 'diskSize',
+      enableAgent: 'enableAgent',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       lastUpdatedAt: 'lastUpdatedAt',
@@ -132,6 +136,7 @@ export class Template extends $dara.Model {
       mcpOptions: 'mcpOptions',
       mcpState: 'mcpState',
       memory: 'memory',
+      nasConfig: 'nasConfig',
       networkConfiguration: 'networkConfiguration',
       ossConfiguration: 'ossConfiguration',
       resourceName: 'resourceName',
@@ -157,6 +162,7 @@ export class Template extends $dara.Model {
       credentialConfiguration: CredentialConfiguration,
       description: 'string',
       diskSize: 'number',
+      enableAgent: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       lastUpdatedAt: 'string',
@@ -164,6 +170,7 @@ export class Template extends $dara.Model {
       mcpOptions: TemplateMcpOptions,
       mcpState: TemplateMcpState,
       memory: 'number',
+      nasConfig: NASConfig,
       networkConfiguration: NetworkConfiguration,
       ossConfiguration: { 'type': 'array', 'itemType': OssConfiguration },
       resourceName: 'string',
@@ -198,6 +205,9 @@ export class Template extends $dara.Model {
     }
     if(this.mcpState && typeof (this.mcpState as any).validate === 'function') {
       (this.mcpState as any).validate();
+    }
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
     }
     if(this.networkConfiguration && typeof (this.networkConfiguration as any).validate === 'function') {
       (this.networkConfiguration as any).validate();

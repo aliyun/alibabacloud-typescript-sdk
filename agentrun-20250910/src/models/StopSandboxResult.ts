@@ -4,8 +4,16 @@ import { Sandbox } from "./Sandbox";
 
 
 export class StopSandboxResult extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
   data?: Sandbox;
+  /**
+   * @example
+   * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

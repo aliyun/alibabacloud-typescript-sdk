@@ -7,11 +7,18 @@ import { OSSMountConfig } from "./OssmountConfig";
 export class CreateSandboxInput extends $dara.Model {
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @example
+   * 01KE8DAJ35JC8SKP9CNFRZ8CW7
+   */
   sandboxId?: string;
   sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
+   * 
+   * @example
+   * 1800
    * 
    * @deprecated
    */
@@ -21,6 +28,9 @@ export class CreateSandboxInput extends $dara.Model {
    * 模板名称（系统内部通过 templateName 查询 template_id）
    * 
    * This parameter is required.
+   * 
+   * @example
+   * templateName
    */
   templateName?: string;
   static names(): { [key: string]: string } {

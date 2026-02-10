@@ -12,16 +12,25 @@ export class ListTemplatesOutput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 10
    */
   total?: number;
   static names(): { [key: string]: string } {

@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动模板的MCP服务器
+   * Enable the TemplateMCP service.
    * 
    * @param request - ActivateTemplateMCPRequest
    * @param headers - map
@@ -67,7 +67,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动模板的MCP服务器
+   * Enable the TemplateMCP service.
    * 
    * @param request - ActivateTemplateMCPRequest
    * @returns ActivateTemplateMCPResponse
@@ -79,7 +79,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an agent runtime
+   * CreateAgentRuntime
    * 
    * @remarks
    * 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -110,7 +110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an agent runtime
+   * CreateAgentRuntime
    * 
    * @remarks
    * 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -549,7 +549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Create a template.
    * 
    * @remarks
    * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
@@ -580,7 +580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Create a template.
    * 
    * @remarks
    * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
@@ -1552,7 +1552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能体运行时端点
+   * Retrieve the list of access endpoints for an agent runtime
    * 
    * @remarks
    * 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
@@ -1600,7 +1600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能体运行时端点
+   * Retrieve the list of access endpoints for an agent runtime
    * 
    * @remarks
    * 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
@@ -2505,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止模板的MCP服务器
+   * Stop the TemplateMCP service.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2530,7 +2530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止模板的MCP服务器
+   * Stop the TemplateMCP service.
    * @returns StopTemplateMCPResponse
    */
   async stopTemplateMCP(templateName: string): Promise<$_model.StopTemplateMCPResponse> {

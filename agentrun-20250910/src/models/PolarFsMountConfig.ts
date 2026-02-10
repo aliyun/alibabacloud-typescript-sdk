@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PolarFsMountConfig extends $dara.Model {
+  /**
+   * @example
+   * pfs-cn-6sa48a6gk001
+   */
   instanceId?: string;
+  /**
+   * @example
+   * /
+   */
   mountDir?: string;
+  /**
+   * @example
+   * /mnt/pfs
+   */
   remoteDir?: string;
   static names(): { [key: string]: string } {
     return {

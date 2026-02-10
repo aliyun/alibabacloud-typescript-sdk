@@ -4,12 +4,16 @@ import { ArmsConfiguration } from "./ArmsConfiguration";
 import { ContainerConfiguration } from "./ContainerConfiguration";
 import { CredentialConfiguration } from "./CredentialConfiguration";
 import { LogConfiguration } from "./LogConfiguration";
+import { NASConfig } from "./Nasconfig";
 import { NetworkConfiguration } from "./NetworkConfiguration";
 import { OssConfiguration } from "./OssConfiguration";
 
 
 export class CreateTemplateInput extends $dara.Model {
   /**
+   * @example
+   * true
+   * 
    * **if can be null:**
    * true
    */
@@ -25,12 +29,24 @@ export class CreateTemplateInput extends $dara.Model {
    * CPU资源配置（单位：核心）
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 2
    */
   cpu?: number;
   credentialConfiguration?: CredentialConfiguration;
   description?: string;
+  /**
+   * @example
+   * 10240
+   */
   diskSize?: number;
+  enableAgent?: boolean;
   environmentVariables?: { [key: string]: string };
+  /**
+   * @example
+   * acs:ram::123456789:role/aliyunfcdefaultrole
+   */
   executionRoleArn?: string;
   logConfiguration?: LogConfiguration;
   /**
@@ -38,8 +54,12 @@ export class CreateTemplateInput extends $dara.Model {
    * 内存资源配置（单位：MB）
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 2048
    */
   memory?: number;
+  nasConfig?: NASConfig;
   /**
    * @remarks
    * This parameter is required.
@@ -49,11 +69,17 @@ export class CreateTemplateInput extends $dara.Model {
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
+   * 
+   * @example
+   * 1800
    */
   sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
    * 沙箱存活时间（秒）
+   * 
+   * @example
+   * 26000
    * 
    * @deprecated
    */
@@ -68,11 +94,17 @@ export class CreateTemplateInput extends $dara.Model {
    * 模板名称（要求账号唯一的）
    * 
    * This parameter is required.
+   * 
+   * @example
+   * browser-1766687911567
    */
   templateName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Browser
    */
   templateType?: string;
   static names(): { [key: string]: string } {
@@ -84,10 +116,12 @@ export class CreateTemplateInput extends $dara.Model {
       credentialConfiguration: 'credentialConfiguration',
       description: 'description',
       diskSize: 'diskSize',
+      enableAgent: 'enableAgent',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       logConfiguration: 'logConfiguration',
       memory: 'memory',
+      nasConfig: 'nasConfig',
       networkConfiguration: 'networkConfiguration',
       ossConfiguration: 'ossConfiguration',
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
@@ -107,10 +141,12 @@ export class CreateTemplateInput extends $dara.Model {
       credentialConfiguration: CredentialConfiguration,
       description: 'string',
       diskSize: 'number',
+      enableAgent: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       logConfiguration: LogConfiguration,
       memory: 'number',
+      nasConfig: NASConfig,
       networkConfiguration: NetworkConfiguration,
       ossConfiguration: { 'type': 'array', 'itemType': OssConfiguration },
       sandboxIdleTimeoutInSeconds: 'number',
@@ -136,6 +172,9 @@ export class CreateTemplateInput extends $dara.Model {
     }
     if(this.logConfiguration && typeof (this.logConfiguration as any).validate === 'function') {
       (this.logConfiguration as any).validate();
+    }
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
     }
     if(this.networkConfiguration && typeof (this.networkConfiguration as any).validate === 'function') {
       (this.networkConfiguration as any).validate();

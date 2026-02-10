@@ -21,7 +21,7 @@ export class BrowserSessionListOut extends $dara.Model {
   pageSize?: number;
   /**
    * @example
-   * 100
+   * 2
    */
   total?: number;
   static names(): { [key: string]: string } {

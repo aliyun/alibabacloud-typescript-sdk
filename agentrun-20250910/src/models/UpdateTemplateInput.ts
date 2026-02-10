@@ -4,6 +4,7 @@ import { ArmsConfiguration } from "./ArmsConfiguration";
 import { ContainerConfiguration } from "./ContainerConfiguration";
 import { CredentialConfiguration } from "./CredentialConfiguration";
 import { LogConfiguration } from "./LogConfiguration";
+import { NASConfig } from "./Nasconfig";
 import { NetworkConfiguration } from "./NetworkConfiguration";
 import { OssConfiguration } from "./OssConfiguration";
 
@@ -27,6 +28,7 @@ export class UpdateTemplateInput extends $dara.Model {
   cpu?: number;
   credentialConfiguration?: CredentialConfiguration;
   description?: string;
+  enableAgent?: boolean;
   environmentVariables?: { [key: string]: string };
   executionRoleArn?: string;
   logConfiguration?: LogConfiguration;
@@ -35,6 +37,7 @@ export class UpdateTemplateInput extends $dara.Model {
    * 内存资源配置（单位：MB）
    */
   memory?: number;
+  nasConfig?: NASConfig;
   networkConfiguration?: NetworkConfiguration;
   ossConfiguration?: OssConfiguration[];
   /**
@@ -62,10 +65,12 @@ export class UpdateTemplateInput extends $dara.Model {
       cpu: 'cpu',
       credentialConfiguration: 'credentialConfiguration',
       description: 'description',
+      enableAgent: 'enableAgent',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       logConfiguration: 'logConfiguration',
       memory: 'memory',
+      nasConfig: 'nasConfig',
       networkConfiguration: 'networkConfiguration',
       ossConfiguration: 'ossConfiguration',
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
@@ -82,10 +87,12 @@ export class UpdateTemplateInput extends $dara.Model {
       cpu: 'number',
       credentialConfiguration: CredentialConfiguration,
       description: 'string',
+      enableAgent: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       logConfiguration: LogConfiguration,
       memory: 'number',
+      nasConfig: NASConfig,
       networkConfiguration: NetworkConfiguration,
       ossConfiguration: { 'type': 'array', 'itemType': OssConfiguration },
       sandboxIdleTimeoutInSeconds: 'number',
@@ -109,6 +116,9 @@ export class UpdateTemplateInput extends $dara.Model {
     }
     if(this.logConfiguration && typeof (this.logConfiguration as any).validate === 'function') {
       (this.logConfiguration as any).validate();
+    }
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
     }
     if(this.networkConfiguration && typeof (this.networkConfiguration as any).validate === 'function') {
       (this.networkConfiguration as any).validate();
