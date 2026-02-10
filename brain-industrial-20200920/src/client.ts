@@ -725,6 +725,10 @@ export default class Client extends OpenApi {
       body["CurrentPage"] = request.currentPage;
     }
 
+    if (!$dara.isNull(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }

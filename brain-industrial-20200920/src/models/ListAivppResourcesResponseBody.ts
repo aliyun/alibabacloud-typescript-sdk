@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAivppResourcesResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 10000
+   */
+  connectNum?: number;
   detail?: string;
   /**
    * @example
@@ -24,6 +29,11 @@ export class ListAivppResourcesResponseBodyData extends $dara.Model {
    * 1
    */
   leftQuantity?: string;
+  /**
+   * @example
+   * 500
+   */
+  messageTps?: number;
   /**
    * @example
    * 231287932080007
@@ -56,11 +66,13 @@ export class ListAivppResourcesResponseBodyData extends $dara.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectNum: 'ConnectNum',
       detail: 'Detail',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
       leftQuantity: 'LeftQuantity',
+      messageTps: 'MessageTps',
       orderId: 'OrderId',
       quantity: 'Quantity',
       specification: 'Specification',
@@ -72,11 +84,13 @@ export class ListAivppResourcesResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectNum: 'number',
       detail: 'string',
       expireTime: 'string',
       instanceId: 'string',
       instanceType: 'string',
       leftQuantity: 'string',
+      messageTps: 'number',
       orderId: 'string',
       quantity: 'string',
       specification: 'string',

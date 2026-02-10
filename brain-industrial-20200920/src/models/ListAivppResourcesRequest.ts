@@ -10,12 +10,18 @@ export class ListAivppResourcesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @example
+   * DATA
+   */
+  instanceType?: string;
+  /**
+   * @example
    * 20
    */
   maxResults?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      instanceType: 'InstanceType',
       maxResults: 'MaxResults',
     };
   }
@@ -23,6 +29,7 @@ export class ListAivppResourcesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      instanceType: 'string',
       maxResults: 'number',
     };
   }
