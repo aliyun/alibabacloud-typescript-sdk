@@ -4,7 +4,15 @@ import { DLStorageDescriptor } from "./DlstorageDescriptor";
 
 
 export class DLPartitionInput extends $dara.Model {
+  /**
+   * @example
+   * 1735109884
+   */
   createTime?: number;
+  /**
+   * @example
+   * 1735109884
+   */
   lastAccessTime?: number;
   parameters?: { [key: string]: string };
   storageDescriptor?: DLStorageDescriptor;

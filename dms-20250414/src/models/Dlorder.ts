@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLOrder extends $dara.Model {
+  /**
+   * @example
+   * col1
+   */
   col?: string;
+  /**
+   * @example
+   * 1
+   */
   order?: number;
   static names(): { [key: string]: string } {
     return {

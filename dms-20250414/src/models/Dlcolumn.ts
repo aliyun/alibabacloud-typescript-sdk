@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLColumn extends $dara.Model {
+  /**
+   * @example
+   * from deserializer
+   */
   comment?: string;
+  /**
+   * @example
+   * col
+   */
   name?: string;
+  /**
+   * @example
+   * string
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

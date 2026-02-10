@@ -3,12 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLSerdeInfo extends $dara.Model {
+  /**
+   * @example
+   * "serialize"
+   */
   description?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.serde2.OpenCSVSerde
+   */
   deserializerClass?: string;
+  /**
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * {
+   *   "serialization.format": "1"
+   * }
+   */
   parameters?: { [key: string]: any };
+  /**
+   * @example
+   * 0
+   */
   serdeType?: number;
+  /**
+   * @example
+   * org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+   */
   serializationLib?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+   */
   serializerClass?: string;
   static names(): { [key: string]: string } {
     return {

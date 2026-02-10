@@ -4,12 +4,32 @@ import { DLStorageDescriptor } from "./DlstorageDescriptor";
 
 
 export class DLPartition extends $dara.Model {
+  /**
+   * @example
+   * hive
+   */
   catalogName?: string;
+  /**
+   * @example
+   * 1735109884
+   */
   createTime?: number;
+  /**
+   * @example
+   * default
+   */
   dbName?: string;
+  /**
+   * @example
+   * 1608707407
+   */
   lastAccessTime?: number;
   parameters?: { [key: string]: string };
   sd?: DLStorageDescriptor;
+  /**
+   * @example
+   * table_name
+   */
   tableName?: string;
   values?: string[];
   static names(): { [key: string]: string } {

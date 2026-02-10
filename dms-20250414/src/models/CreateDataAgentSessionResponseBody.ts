@@ -18,6 +18,8 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
    * true
    */
   enableSearch?: boolean;
+  encryptKey?: string;
+  encryptType?: string;
   /**
    * @example
    * CHINESE
@@ -29,15 +31,21 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
    * ANALYSIS
    */
   mode?: string;
+  reportPageWidth?: number;
+  reportWaterMark?: string;
   userOssBucket?: string;
   static names(): { [key: string]: string } {
     return {
       customAgentId: 'CustomAgentId',
       customAgentStage: 'CustomAgentStage',
       enableSearch: 'EnableSearch',
+      encryptKey: 'EncryptKey',
+      encryptType: 'EncryptType',
       language: 'Language',
       mcpServerIds: 'McpServerIds',
       mode: 'Mode',
+      reportPageWidth: 'ReportPageWidth',
+      reportWaterMark: 'ReportWaterMark',
       userOssBucket: 'UserOssBucket',
     };
   }
@@ -47,9 +55,13 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
       customAgentId: 'string',
       customAgentStage: 'string',
       enableSearch: 'boolean',
+      encryptKey: 'string',
+      encryptType: 'string',
       language: 'string',
       mcpServerIds: { 'type': 'array', 'itemType': 'string' },
       mode: 'string',
+      reportPageWidth: 'number',
+      reportWaterMark: 'string',
       userOssBucket: 'string',
     };
   }

@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLDatabase extends $dara.Model {
+  /**
+   * @example
+   * hive
+   */
   catalogName?: string;
+  /**
+   * @example
+   * 19
+   */
   dbId?: number;
+  /**
+   * @example
+   * Default database for catalog hive
+   */
   description?: string;
+  /**
+   * @example
+   * oss://xxx
+   */
   location?: string;
+  /**
+   * @example
+   * default
+   */
   name?: string;
+  /**
+   * @example
+   * key/value
+   */
   parameters?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

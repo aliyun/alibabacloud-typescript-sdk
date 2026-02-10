@@ -7,12 +7,18 @@ export class OneMetaTableIndex extends $dara.Model {
   description?: string;
   indexName?: string;
   indexType?: string;
+  primary?: boolean;
+  realColumnNames?: string[];
+  unique?: boolean;
   static names(): { [key: string]: string } {
     return {
       columnNames: 'ColumnNames',
       description: 'Description',
       indexName: 'IndexName',
       indexType: 'IndexType',
+      primary: 'Primary',
+      realColumnNames: 'RealColumnNames',
+      unique: 'Unique',
     };
   }
 
@@ -22,12 +28,18 @@ export class OneMetaTableIndex extends $dara.Model {
       description: 'string',
       indexName: 'string',
       indexType: 'string',
+      primary: 'boolean',
+      realColumnNames: { 'type': 'array', 'itemType': 'string' },
+      unique: 'boolean',
     };
   }
 
   validate() {
     if(Array.isArray(this.columnNames)) {
       $dara.Model.validateArray(this.columnNames);
+    }
+    if(Array.isArray(this.realColumnNames)) {
+      $dara.Model.validateArray(this.realColumnNames);
     }
     super.validate();
   }

@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DLSkewedInfo extends $dara.Model {
   skewedColNames?: string[];
+  /**
+   * @example
+   * {“col1”:"val1"}
+   */
   skewedColValueLocationMaps?: { [key: string]: any };
   skewedColValues?: string[][];
   static names(): { [key: string]: string } {

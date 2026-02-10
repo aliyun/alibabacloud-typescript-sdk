@@ -9,12 +9,36 @@ import { DLOrder } from "./Dlorder";
 export class DLStorageDescriptor extends $dara.Model {
   bucketCols?: string[];
   columns?: DLColumn[];
+  /**
+   * @example
+   * org.apache.hadoop.mapred.SequenceFileInputFormat
+   */
   inputFormat?: string;
+  /**
+   * @example
+   * false
+   */
   isCompressed?: boolean;
+  /**
+   * @example
+   * oss://xxx
+   */
   location?: string;
+  /**
+   * @example
+   * -1
+   */
   numBuckets?: number;
   originalColumns?: DLColumn[];
+  /**
+   * @example
+   * org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
+   */
   outputFormat?: string;
+  /**
+   * @example
+   * key/value
+   */
   parameters?: { [key: string]: any };
   serdeInfo?: DLSerdeInfo;
   skewedInfo?: DLSkewedInfo;

@@ -1514,16 +1514,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.GetChatContentResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.GetChatContentResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.GetChatContentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GetChatContentResponse({}));
+      }
+
     }
   }
 

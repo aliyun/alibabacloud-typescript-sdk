@@ -4,15 +4,55 @@ import { DLResourceUri } from "./DlresourceUri";
 
 
 export class DLFunction extends $dara.Model {
+  /**
+   * @example
+   * hive
+   */
   catalogName?: string;
+  /**
+   * @example
+   * com.example.hive.MyCustomUDF
+   */
   className?: string;
+  /**
+   * @example
+   * 1731586286
+   */
   createTime?: number;
+  /**
+   * @example
+   * 12****
+   */
   creatorId?: number;
+  /**
+   * @example
+   * default
+   */
   dbName?: string;
+  /**
+   * @example
+   * my_funciton
+   */
   functionName?: string;
+  /**
+   * @example
+   * JAVA
+   */
   functionType?: string;
+  /**
+   * @example
+   * 26****
+   */
   modifierId?: number;
+  /**
+   * @example
+   * zhangsan
+   */
   ownerName?: string;
+  /**
+   * @example
+   * USER
+   */
   ownerType?: string;
   resourceUris?: DLResourceUri[];
   static names(): { [key: string]: string } {

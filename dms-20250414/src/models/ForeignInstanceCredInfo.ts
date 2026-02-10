@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ForeignInstanceCredInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the credential.
+   */
   credInfo?: { [key: string]: string };
+  /**
+   * @remarks
+   * The type of the credential. Set the value to DEFAULT.
+   * 
+   * @example
+   * DEFAULT
+   */
   credType?: string;
   static names(): { [key: string]: string } {
     return {

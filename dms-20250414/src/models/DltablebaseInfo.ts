@@ -4,23 +4,87 @@ import { DLColumn } from "./Dlcolumn";
 
 
 export class DLTablebaseInfo extends $dara.Model {
+  /**
+   * @example
+   * hive
+   */
   catalogName?: string;
+  /**
+   * @example
+   * 1608707407
+   */
   createTime?: number;
+  /**
+   * @example
+   * 141****
+   */
   creatorId?: number;
+  /**
+   * @example
+   * 19
+   */
   dbId?: number;
+  /**
+   * @example
+   * default
+   */
   dbName?: string;
+  /**
+   * @example
+   * "table"
+   */
   description?: string;
+  /**
+   * @example
+   * 1731586286
+   */
   lastAccessTime?: number;
+  /**
+   * @example
+   * oss://xxx
+   */
   location?: string;
+  /**
+   * @example
+   * 1731585286
+   */
   modifierId?: number;
+  /**
+   * @example
+   * 100g_customer
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   owner?: string;
   ownerType?: string;
+  /**
+   * @example
+   * "EXTERNAL": "TRUE"
+   */
   parameters?: { [key: string]: any };
   partitionKeys?: DLColumn[];
+  /**
+   * @example
+   * 30000
+   */
   retention?: number;
+  /**
+   * @example
+   * EXTERNAL_TABLE
+   */
   tableType?: string;
+  /**
+   * @example
+   * ""
+   */
   viewExpandedText?: string;
+  /**
+   * @example
+   * ""
+   */
   viewOriginalText?: string;
   static names(): { [key: string]: string } {
     return {

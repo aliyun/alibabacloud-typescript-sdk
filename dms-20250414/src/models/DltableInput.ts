@@ -5,21 +5,73 @@ import { DLStorageDescriptor } from "./DlstorageDescriptor";
 
 
 export class DLTableInput extends $dara.Model {
+  /**
+   * @example
+   * 1731586286
+   */
   createTime?: number;
+  /**
+   * @example
+   * 8****
+   */
   creatorId?: number;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * 1608707407
+   */
   lastAccessTime?: number;
+  /**
+   * @example
+   * oss://xxx
+   */
   location?: string;
+  /**
+   * @example
+   * 1410769
+   */
   modifierId?: number;
+  /**
+   * @example
+   * 100g_customer
+   */
   name?: string;
+  /**
+   * @example
+   * zhangsan
+   */
   owner?: string;
+  /**
+   * @example
+   * USER
+   */
   ownerType?: string;
   parameters?: { [key: string]: string };
   partitionKeys?: DLColumn[];
+  /**
+   * @example
+   * 300
+   */
   retention?: number;
   storageDescriptor?: DLStorageDescriptor;
+  /**
+   * @example
+   * EXTERNAL_TABLE
+   */
   tableType?: string;
+  /**
+   * @example
+   * ""
+   */
   viewExpandedText?: string;
+  /**
+   * @example
+   * ""
+   */
   viewOriginalText?: string;
   static names(): { [key: string]: string } {
     return {

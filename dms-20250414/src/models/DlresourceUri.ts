@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLResourceUri extends $dara.Model {
+  /**
+   * @example
+   * JAR
+   */
   resourceType?: string;
+  /**
+   * @example
+   * hdfs://name****.example.com:8020/user/hive/udfs/my_***.jar
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
