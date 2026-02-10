@@ -572,7 +572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+   * (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
    * 
    * @param request - ApplyCoordinationForMonitoringRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -623,7 +623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+   * (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
    * 
    * @param request - ApplyCoordinationForMonitoringRequest
    * @returns ApplyCoordinationForMonitoringResponse
@@ -1206,7 +1206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels monitoring on stream collaboration.
+   * Cancels a remote assistance request to the end user.
    * 
    * @param request - CancelCoordinationForMonitoringRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1249,7 +1249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels monitoring on stream collaboration.
+   * Cancels a remote assistance request to the end user.
    * 
    * @param request - CancelCoordinationForMonitoringRequest
    * @returns CancelCoordinationForMonitoringResponse
@@ -1584,7 +1584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies a file or a directory.
+   * Makes a copy of a file or folder on a drive.
    * 
    * @param request - CopyCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1647,7 +1647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies a file or a directory.
+   * Makes a copy of a file or folder on a drive.
    * 
    * @param request - CopyCdsFileRequest
    * @returns CopyCdsFileResponse
@@ -1960,7 +1960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+   * Creates a NAS file system and associate it with the office network of the shared cloud computer.
    * 
    * @param request - CreateAndBindNasFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2019,7 +2019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+   * Creates a NAS file system and associate it with the office network of the shared cloud computer.
    * 
    * @param request - CreateAndBindNasFileSystemRequest
    * @returns CreateAndBindNasFileSystemResponse
@@ -3882,7 +3882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+   * Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
    * 
    * @param request - CreateDiskEncryptionServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3913,7 +3913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+   * Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
    * 
    * @param request - CreateDiskEncryptionServiceRequest
    * @returns CreateDiskEncryptionServiceResponse
@@ -4702,7 +4702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建限速组
+   * Creates a Quality of Service (QoS) rule.
    * 
    * @param request - CreateQosRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4753,7 +4753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建限速组
+   * Creates a Quality of Service (QoS) rule.
    * 
    * @param request - CreateQosRuleRequest
    * @returns CreateQosRuleResponse
@@ -5557,7 +5557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a center policy
+   * Deletes a global policy.
    * 
    * @param request - DeleteCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5600,7 +5600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a center policy
+   * Deletes a global policy.
    * 
    * @param request - DeleteCenterPolicyRequest
    * @returns DeleteCenterPolicyResponse
@@ -5661,7 +5661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除无影网盘中的终端用户
+   * Deletes users from a cloud disk in Cloud Drive Service.
    * 
    * @param request - DeleteCloudDriveUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5700,7 +5700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除无影网盘中的终端用户
+   * Deletes users from a cloud disk in Cloud Drive Service.
    * 
    * @param request - DeleteCloudDriveUsersRequest
    * @returns DeleteCloudDriveUsersResponse
@@ -6437,6 +6437,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a traffic throttling rule from a QoS policy.
+   * 
    * @param request - DeleteQosRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteQosRulesResponse
@@ -6466,6 +6468,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a traffic throttling rule from a QoS policy.
+   * 
    * @param request - DeleteQosRulesRequest
    * @returns DeleteQosRulesResponse
    */
@@ -6779,7 +6783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete virtual multi-factor authentication (MFA) devices.
+   * Removes a virtual multi-factor authentication (MFA) device that is associated with an Active Directory (AD) account.
    * 
    * @remarks
    * If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
@@ -6817,7 +6821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete virtual multi-factor authentication (MFA) devices.
+   * Removes a virtual multi-factor authentication (MFA) device that is associated with an Active Directory (AD) account.
    * 
    * @remarks
    * If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
@@ -7377,7 +7381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云盘团队空间列表
+   * Queries team spaces in a cloud disk.
    * 
    * @param request - DescribeCloudDiskGroupDrivesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7424,7 +7428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云盘团队空间列表
+   * Queries team spaces in a cloud disk.
    * 
    * @param request - DescribeCloudDiskGroupDrivesRequest
    * @returns DescribeCloudDiskGroupDrivesResponse
@@ -7435,7 +7439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云盘团队列表
+   * Queries team spaces from the drive.
    * 
    * @param request - DescribeCloudDiskGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7482,7 +7486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云盘团队列表
+   * Queries team spaces from the drive.
    * 
    * @param request - DescribeCloudDiskGroupsRequest
    * @returns DescribeCloudDiskGroupsResponse
@@ -7493,7 +7497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of authorized team spaces.
+   * Queries the list and basic information of all team shared disks in an enterprise drive.
    * 
    * @param request - DescribeCloudDriveGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7568,7 +7572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of authorized team spaces.
+   * Queries the list and basic information of all team shared disks in an enterprise drive.
    * 
    * @param request - DescribeCloudDriveGroupsRequest
    * @returns DescribeCloudDriveGroupsResponse
@@ -7579,7 +7583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询pds用户权限
+   * Queries the permission settings on the enterprise drive.
    * 
    * @param request - DescribeCloudDrivePermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7614,7 +7618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询pds用户权限
+   * Queries the permission settings on the enterprise drive.
    * 
    * @param request - DescribeCloudDrivePermissionsRequest
    * @returns DescribeCloudDrivePermissionsResponse
@@ -7625,7 +7629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有无影网盘终端用户的信息
+   * Queries users of cloud disks in Cloud Drive Service.
    * 
    * @param request - DescribeCloudDriveUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7672,7 +7676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有无影网盘终端用户的信息
+   * Queries users of cloud disks in Cloud Drive Service.
    * 
    * @param request - DescribeCloudDriveUsersRequest
    * @returns DescribeCloudDriveUsersResponse
@@ -7757,6 +7761,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the header information of the cloud computer list.
+   * 
    * @param request - DescribeCustomizedListHeadersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCustomizedListHeadersResponse
@@ -7794,6 +7800,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the header information of the cloud computer list.
+   * 
    * @param request - DescribeCustomizedListHeadersRequest
    * @returns DescribeCustomizedListHeadersResponse
    */
@@ -8057,7 +8065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云电脑基础元数据
+   * Queries the list and metadata of cloud computers in a specific region.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8136,7 +8144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云电脑基础元数据
+   * Queries the list and metadata of cloud computers in a specific region.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @returns DescribeDesktopMetadataResponse
@@ -9069,7 +9077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询EIP监控
+   * Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
    * 
    * @param request - DescribeFlowMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9124,7 +9132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询EIP监控
+   * Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
    * 
    * @param request - DescribeFlowMetricRequest
    * @returns DescribeFlowMetricResponse
@@ -9515,7 +9523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局定时任务Batch记录
+   * Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
    * 
    * @param request - DescribeGlobalTimerBatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9566,7 +9574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局定时任务Batch记录
+   * Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
    * 
    * @param request - DescribeGlobalTimerBatchesRequest
    * @returns DescribeGlobalTimerBatchesResponse
@@ -10819,6 +10827,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries Quality of Service (QoS) rules.
+   * 
    * @param request - DescribeQosRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeQosRulesResponse
@@ -10852,6 +10862,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries Quality of Service (QoS) rules.
+   * 
    * @param request - DescribeQosRulesRequest
    * @returns DescribeQosRulesResponse
    */
@@ -10861,7 +10873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录屏文件列表
+   * Queries the screen recording files in all regions.
    * 
    * @param request - DescribeRecordFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10936,7 +10948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录屏文件列表
+   * Queries the screen recording files in all regions.
    * 
    * @param request - DescribeRecordFileRequest
    * @returns DescribeRecordFileResponse
@@ -11199,6 +11211,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries cloud resources that are associated with a global policy.
+   * 
    * @param request - DescribeResourceByCenterPolicyIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceByCenterPolicyIdResponse
@@ -11244,6 +11258,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries cloud resources that are associated with a global policy.
+   * 
    * @param request - DescribeResourceByCenterPolicyIdRequest
    * @returns DescribeResourceByCenterPolicyIdResponse
    */
@@ -12115,7 +12131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the passwords of authorized users of a cloud computer.
+   * Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
    * 
    * @param request - DescribeUsersPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12150,7 +12166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the passwords of authorized users of a cloud computer.
+   * Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
    * 
    * @param request - DescribeUsersPasswordRequest
    * @returns DescribeUsersPasswordResponse
@@ -12161,7 +12177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+   * Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
    * 
    * @param request - DescribeVirtualMFADevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12212,7 +12228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+   * Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
    * 
    * @param request - DescribeVirtualMFADevicesRequest
    * @returns DescribeVirtualMFADevicesResponse
@@ -12427,7 +12443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disconnects from desktop sessions.
+   * Disconnects cloud computer sessions.
    * 
    * @param request - DisconnectDesktopSessionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12466,7 +12482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disconnects from desktop sessions.
+   * Disconnects cloud computer sessions.
    * 
    * @param request - DisconnectDesktopSessionsRequest
    * @returns DisconnectDesktopSessionsResponse
@@ -12933,7 +12949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+   * When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
    * 
    * @param request - GetAsyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12968,7 +12984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+   * When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
    * 
    * @param request - GetAsyncTaskRequest
    * @returns GetAsyncTaskResponse
@@ -13063,7 +13079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the credentials of the stream collaboration
+   * Get the stream collaboration credentials for remote assistance or shared collaboration.
    * 
    * @param request - GetCoordinateTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13110,7 +13126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the credentials of the stream collaboration
+   * Get the stream collaboration credentials for remote assistance or shared collaboration.
    * 
    * @param request - GetCoordinateTicketRequest
    * @returns GetCoordinateTicketResponse
@@ -13167,7 +13183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether single sign-on (SSO) is enabled for a workspace.
+   * Queries whether single sign-on (SSO) is enabled for an office network.
    * 
    * @param request - GetOfficeSiteSsoStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13202,7 +13218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether single sign-on (SSO) is enabled for a workspace.
+   * Queries whether single sign-on (SSO) is enabled for an office network.
    * 
    * @param request - GetOfficeSiteSsoStatusRequest
    * @returns GetOfficeSiteSsoStatusResponse
@@ -13797,7 +13813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件列表
+   * Gets the download URL of the transferred file.
    * 
    * @param request - ListTransferFileDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13832,7 +13848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件列表
+   * Gets the download URL of the transferred file.
    * 
    * @param request - ListTransferFileDownloadUrlRequest
    * @returns ListTransferFileDownloadUrlResponse
@@ -14551,7 +14567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the link for file sharing.
+   * Modify the file sharing settings.
    * 
    * @param request - ModifyCdsFileShareLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14650,7 +14666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the link for file sharing.
+   * Modify the file sharing settings.
    * 
    * @param request - ModifyCdsFileShareLinkRequest
    * @returns ModifyCdsFileShareLinkResponse
@@ -15343,7 +15359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改无影网盘终端用户的属性
+   * Modifies users of a cloud disk in Cloud Drive Service.
    * 
    * @param request - ModifyCloudDriveUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15390,7 +15406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改无影网盘终端用户的属性
+   * Modifies users of a cloud disk in Cloud Drive Service.
    * 
    * @param request - ModifyCloudDriveUsersRequest
    * @returns ModifyCloudDriveUsersResponse
@@ -17223,7 +17239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改限速组资源绑定关系
+   * Modifies the resources that a Quality of Service (QoS) rule applies to.
    * 
    * @param request - ModifyQosEntriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17270,7 +17286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改限速组资源绑定关系
+   * Modifies the resources that a Quality of Service (QoS) rule applies to.
    * 
    * @param request - ModifyQosEntriesRequest
    * @returns ModifyQosEntriesResponse
@@ -17281,6 +17297,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a Quality of Service (QoS) rule.
+   * 
    * @param request - ModifyQosRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyQosRuleResponse
@@ -17322,6 +17340,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a Quality of Service (QoS) rule.
+   * 
    * @param request - ModifyQosRuleRequest
    * @returns ModifyQosRuleResponse
    */
@@ -17331,6 +17351,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a global policy that is associated with a cloud resource.
+   * 
    * @param request - ModifyResourceCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyResourceCenterPolicyResponse
@@ -17380,6 +17402,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a global policy that is associated with a cloud resource.
+   * 
    * @param request - ModifyResourceCenterPolicyRequest
    * @returns ModifyResourceCenterPolicyResponse
    */
@@ -17814,7 +17838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Move files or folders.
+   * Moves a file or folder on the drive to a new location.
    * 
    * @param request - MoveCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17869,7 +17893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Move files or folders.
+   * Moves a file or folder on the drive to a new location.
    * 
    * @param request - MoveCdsFileRequest
    * @returns MoveCdsFileResponse
@@ -18760,7 +18784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+   * Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
    * 
    * @remarks
    * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
@@ -18822,7 +18846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+   * Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
    * 
    * @remarks
    * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
@@ -19114,7 +19138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+   * Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
    * 
    * @remarks
    * This operation is supported only for AD directories, not for RAM directories.
@@ -19156,7 +19180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+   * Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
    * 
    * @remarks
    * This operation is supported only for AD directories, not for RAM directories.
@@ -19230,7 +19254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables single sign-on (SSO) for a workspace.
+   * Enables or disables single sign-on (SSO) for an office network.
    * 
    * @param request - SetOfficeSiteSsoStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19269,7 +19293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables single sign-on (SSO) for a workspace.
+   * Enables or disables single sign-on (SSO) for an office network.
    * 
    * @param request - SetOfficeSiteSsoStatusRequest
    * @returns SetOfficeSiteSsoStatusResponse
@@ -19452,7 +19476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Cloud Assistant command that is running on one or more cloud desktops.
+   * Stop a process that executes the Cloud Assistant script in one or more cloud computers.
    * 
    * @remarks
    * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
@@ -19494,7 +19518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Cloud Assistant command that is running on one or more cloud desktops.
+   * Stop a process that executes the Cloud Assistant script in one or more cloud computers.
    * 
    * @remarks
    * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.

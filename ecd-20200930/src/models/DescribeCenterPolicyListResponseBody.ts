@@ -460,6 +460,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
 }
 
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $dara.Model {
+  academicProxy?: string;
   /**
    * @remarks
    * Indicates whether the admin permissions are granted to end users.
@@ -497,6 +498,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    */
   cameraRedirect?: string;
   clientControlMenu?: string;
+  clientHibernate?: string;
+  clientRestart?: string;
+  clientShutdown?: string;
   /**
    * @remarks
    * The logon method control rules.
@@ -667,6 +671,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    */
   gpuAcceleration?: string;
   hoverConfigMsg?: string;
+  hoverHibernate?: string;
+  hoverRestart?: string;
+  hoverShutdown?: string;
   /**
    * @remarks
    * The web client access policy.
@@ -763,6 +770,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   mobileRestart?: string;
+  mobileSafeMenu?: string;
   /**
    * @remarks
    * Indicates whether the Stop button is displayed in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
@@ -773,6 +781,10 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   mobileShutdown?: string;
+  mobileWuyingKeeper?: string;
+  mobileWyAssistant?: string;
+  modelLibrary?: string;
+  multiScreen?: string;
   /**
    * @remarks
    * The policy name.
@@ -842,6 +854,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * AVAILABLE
    */
   policyStatus?: string;
+  portProxy?: string;
   /**
    * @remarks
    * The printer redirection policy.
@@ -1209,6 +1222,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * on
    */
   watermarkSecurity?: string;
+  watermarkShadow?: string;
   /**
    * @remarks
    * The watermark transparency. A higher value means the watermark is less transparent. Valid values: 10 to 100.
@@ -1235,12 +1249,16 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
+      academicProxy: 'AcademicProxy',
       adminAccess: 'AdminAccess',
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
       authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
+      clientHibernate: 'ClientHibernate',
+      clientRestart: 'ClientRestart',
+      clientShutdown: 'ClientShutdown',
       clientTypes: 'ClientTypes',
       clipboard: 'Clipboard',
       colorEnhancement: 'ColorEnhancement',
@@ -1268,6 +1286,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
       hoverConfigMsg: 'HoverConfigMsg',
+      hoverHibernate: 'HoverHibernate',
+      hoverRestart: 'HoverRestart',
+      hoverShutdown: 'HoverShutdown',
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
@@ -1281,7 +1302,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       memorySampleDuration: 'MemorySampleDuration',
       memorySingleRateLimit: 'MemorySingleRateLimit',
       mobileRestart: 'MobileRestart',
+      mobileSafeMenu: 'MobileSafeMenu',
       mobileShutdown: 'MobileShutdown',
+      mobileWuyingKeeper: 'MobileWuyingKeeper',
+      mobileWyAssistant: 'MobileWyAssistant',
+      modelLibrary: 'ModelLibrary',
+      multiScreen: 'MultiScreen',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
@@ -1290,6 +1316,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       policyGroupId: 'PolicyGroupId',
       policyGroupType: 'PolicyGroupType',
       policyStatus: 'PolicyStatus',
+      portProxy: 'PortProxy',
       printerRedirection: 'PrinterRedirection',
       qualityEnhancement: 'QualityEnhancement',
       recordContent: 'RecordContent',
@@ -1341,6 +1368,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       watermarkPower: 'WatermarkPower',
       watermarkRowAmount: 'WatermarkRowAmount',
       watermarkSecurity: 'WatermarkSecurity',
+      watermarkShadow: 'WatermarkShadow',
       watermarkTransparencyValue: 'WatermarkTransparencyValue',
       watermarkType: 'WatermarkType',
       wyAssistant: 'WyAssistant',
@@ -1349,12 +1377,16 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
 
   static types(): { [key: string]: any } {
     return {
+      academicProxy: 'string',
       adminAccess: 'string',
       appContentProtection: 'string',
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
       authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
       cameraRedirect: 'string',
       clientControlMenu: 'string',
+      clientHibernate: 'string',
+      clientRestart: 'string',
+      clientShutdown: 'string',
       clientTypes: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes },
       clipboard: 'string',
       colorEnhancement: 'string',
@@ -1382,6 +1414,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
       hoverConfigMsg: 'string',
+      hoverHibernate: 'string',
+      hoverRestart: 'string',
+      hoverShutdown: 'string',
       html5Access: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
@@ -1395,7 +1430,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       memorySampleDuration: 'number',
       memorySingleRateLimit: 'number',
       mobileRestart: 'string',
+      mobileSafeMenu: 'string',
       mobileShutdown: 'string',
+      mobileWuyingKeeper: 'string',
+      mobileWyAssistant: 'string',
+      modelLibrary: 'string',
+      multiScreen: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule },
@@ -1404,6 +1444,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       policyGroupId: 'string',
       policyGroupType: 'string',
       policyStatus: 'string',
+      portProxy: 'string',
       printerRedirection: 'string',
       qualityEnhancement: 'string',
       recordContent: 'string',
@@ -1455,6 +1496,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       watermarkPower: 'string',
       watermarkRowAmount: 'number',
       watermarkSecurity: 'string',
+      watermarkShadow: 'string',
       watermarkTransparencyValue: 'number',
       watermarkType: 'string',
       wyAssistant: 'string',
