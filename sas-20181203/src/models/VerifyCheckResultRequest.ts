@@ -8,6 +8,10 @@ export class VerifyCheckResultRequest extends $dara.Model {
    * The IDs of the check items.
    */
   checkIds?: number[];
+  /**
+   * @remarks
+   * List of instance IDs for the check item assets.
+   */
   instanceIds?: string[];
   /**
    * @remarks

@@ -3,7 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentlessRegionResponseBodyVendorRegionList extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the server. Valid values:
+   * 
+   * - **0**: Alibaba Cloud
+   * - **3**: Tencent Cloud
+   * - **4**: Huawei Cloud
+   * - **5**: Azure
+   * - **7**: AWS
+   * 
+   * @example
+   * 0
+   */
   vendor?: number;
   static names(): { [key: string]: string } {
     return {
@@ -42,6 +62,10 @@ export class ListAgentlessRegionResponseBody extends $dara.Model {
    * 7E0618A9-D5EF-4220-9471-C42B5E92****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the regions.
+   */
   vendorRegionList?: ListAgentlessRegionResponseBodyVendorRegionList[];
   static names(): { [key: string]: string } {
     return {

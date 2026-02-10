@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryIncidentTracingSubNodesCountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The key-value pairs that consist of node IDs and node types. A key-value pair is an array.
+   */
   vertexIdAndTypeList?: string[][];
   static names(): { [key: string]: string } {
     return {

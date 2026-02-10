@@ -19,6 +19,13 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $dara.Model 
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The value of NextToken that is returned when the NextToken method is used.
+   * 
+   * @example
+   * B604532DEF982B875E8360A6EFA3B***
+   */
   nextToken?: string;
   /**
    * @remarks

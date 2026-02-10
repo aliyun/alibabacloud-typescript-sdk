@@ -12,7 +12,7 @@ export class DescribeVersionConfigRequest extends $dara.Model {
    * @example
    * 127608589417****
    */
-  resourceDirectoryAccountId?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source IP address of the request.
@@ -30,7 +30,7 @@ export class DescribeVersionConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      resourceDirectoryAccountId: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

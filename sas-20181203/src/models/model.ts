@@ -975,6 +975,7 @@ export { ModifyContainerDefenseRuleRequestWhitelist } from './ModifyContainerDef
 export { ModifyContainerDefenseRuleShrinkRequestScope } from './ModifyContainerDefenseRuleShrinkRequest';
 export { ModifyContainerPluginRuleResponseBodyData } from './ModifyContainerPluginRuleResponseBody';
 export { ModifyCreateVulWhitelistResponseBodyVulWhitelistList } from './ModifyCreateVulWhitelistResponseBody';
+export { ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj } from './ModifyPostPayModuleSwitchRequest';
 export { ModifyPushAllTaskResponseBodyPushTaskRspPushTaskResultList } from './ModifyPushAllTaskResponseBody';
 export { ModifyPushAllTaskResponseBodyPushTaskRsp } from './ModifyPushAllTaskResponseBody';
 export { ModifySasContainerWebDefenseRuleRequestPathConfDTOList } from './ModifySasContainerWebDefenseRuleRequest';
@@ -3315,6 +3316,7 @@ export { ModifyOperateVulRequest } from './ModifyOperateVulRequest';
 export { ModifyOperateVulResponseBody } from './ModifyOperateVulResponseBody';
 export { ModifyOperateVulResponse } from './ModifyOperateVulResponse';
 export { ModifyPostPayModuleSwitchRequest } from './ModifyPostPayModuleSwitchRequest';
+export { ModifyPostPayModuleSwitchShrinkRequest } from './ModifyPostPayModuleSwitchShrinkRequest';
 export { ModifyPostPayModuleSwitchResponseBody } from './ModifyPostPayModuleSwitchResponseBody';
 export { ModifyPostPayModuleSwitchResponse } from './ModifyPostPayModuleSwitchResponse';
 export { ModifyProcessWhiteListRequest } from './ModifyProcessWhiteListRequest';

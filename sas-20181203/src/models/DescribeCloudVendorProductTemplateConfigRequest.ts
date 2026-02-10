@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCloudVendorProductTemplateConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * Set the language type for request and response messages, default is **zh**. Values:
+   * 
+   * - **zh**: Chinese
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * Cloud asset vendor. Values:
+   * - **CHAITIN**: Chaitin Technology
+   * - **FORTINET**: Fortinet
+   * - **THREATBOOK**: ThreatBook
+   * 
    * @example
    * CHAITIN
    */

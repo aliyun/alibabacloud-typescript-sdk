@@ -11,6 +11,21 @@ export class DescribeNoticeConfigResponseBodyNoticeConfigList extends $dara.Mode
    * 12123414****
    */
   aliUid?: number;
+  /**
+   * @remarks
+   * Business categories under cloud monitoring notification configuration. Values:
+   * - **Incident**: Security incidents. 
+   * - **Suspicious**: Security alerts. 
+   * - **Hc**: Baseline checks. 
+   * - **Cspm**: Cloud Security Posture Management. 
+   * - **Agentless**: Agentless detection. 
+   * - **Filedetect**: Malicious file SDK. 
+   * - **Vul**: Vulnerabilities. 
+   * - **Rasp**: Application protection.
+   * 
+   * @example
+   * Cspm
+   */
   category?: string;
   /**
    * @remarks

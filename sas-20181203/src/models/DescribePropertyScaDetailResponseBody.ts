@@ -19,6 +19,13 @@ export class DescribePropertyScaDetailResponseBodyPageInfo extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The value of NextToken that is returned when the NextToken method is used.
+   * 
+   * @example
+   * B60***
+   */
   nextToken?: string;
   /**
    * @remarks

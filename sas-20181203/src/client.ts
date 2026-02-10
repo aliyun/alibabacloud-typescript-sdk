@@ -2091,7 +2091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+   * Checks whether one or more alerts are generated on a specified server based on alert IDs.
    * 
    * @param request - CheckSecurityEventIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2126,7 +2126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+   * Checks whether one or more alerts are generated on a specified server based on alert IDs.
    * 
    * @param request - CheckSecurityEventIdRequest
    * @returns CheckSecurityEventIdResponse
@@ -6046,7 +6046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+   * Deletes a server from a specified anti-ransomware policy.
    * 
    * @param request - DeleteBackupPolicyMachineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6089,7 +6089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+   * Deletes a server from a specified anti-ransomware policy.
    * 
    * @param request - DeleteBackupPolicyMachineRequest
    * @returns DeleteBackupPolicyMachineResponse
@@ -8743,7 +8743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+   * Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
    * 
    * @param request - DescribeAlarmEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8786,7 +8786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+   * Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
    * 
    * @param request - DescribeAlarmEventDetailRequest
    * @returns DescribeAlarmEventDetailResponse
@@ -8864,7 +8864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all server assets, including the asset group IDs and asset names.
+   * Queries the information about all assets. The information includes asset group IDs and asset names.
    * 
    * @param request - DescribeAllEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8887,7 +8887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all server assets, including the asset group IDs and asset names.
+   * Queries the information about all assets. The information includes asset group IDs and asset names.
    * @returns DescribeAllEntityResponse
    */
   async describeAllEntity(): Promise<$_model.DescribeAllEntityResponse> {
@@ -8896,7 +8896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all server groups.
+   * Queries the information about server groups.
    * 
    * @param request - DescribeAllGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8927,7 +8927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all server groups.
+   * Queries the information about server groups.
    * 
    * @param request - DescribeAllGroupsRequest
    * @returns DescribeAllGroupsResponse
@@ -10011,7 +10011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The source IP address of the request.
+   * Queries the statistics of IP address blocking policies that are used to defend against brute-force attacks and trigger alerts.
    * 
    * @param request - DescribeBruteForceSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10046,7 +10046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The source IP address of the request.
+   * Queries the statistics of IP address blocking policies that are used to defend against brute-force attacks and trigger alerts.
    * 
    * @param request - DescribeBruteForceSummaryRequest
    * @returns DescribeBruteForceSummaryResponse
@@ -11111,7 +11111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of cloud services.
+   * Queries the statistics of cloud services whose instances are protected by Security Center.
    * 
    * @deprecated OpenAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
    * 
@@ -11137,7 +11137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of cloud services.
+   * Queries the statistics of cloud services whose instances are protected by Security Center.
    * 
    * @deprecated OpenAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
    * @returns DescribeCloudProductFieldStatisticsResponse
@@ -11182,6 +11182,10 @@ export default class Client extends OpenApi {
       query["SubAccountName"] = request.subAccountName;
     }
 
+    if (!$dara.isNull(request.vendor)) {
+      query["Vendor"] = request.vendor;
+    }
+
     if (!$dara.isNull(request.vendorAuthAlias)) {
       query["VendorAuthAlias"] = request.vendorAuthAlias;
     }
@@ -11215,7 +11219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取厂商云产品接入模板
+   * Get the cloud product access template for vendors
    * 
    * @param request - DescribeCloudVendorProductTemplateConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11250,7 +11254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取厂商云产品接入模板
+   * Get the cloud product access template for vendors
    * 
    * @param request - DescribeCloudVendorProductTemplateConfigRequest
    * @returns DescribeCloudVendorProductTemplateConfigResponse
@@ -12319,7 +12323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert statistics on container assets.
+   * Queries the alert statistics of container assets.
    * 
    * @remarks
    * Only users who created a Container Registry Enterprise Edition instance can call this operation.
@@ -12353,7 +12357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert statistics on container assets.
+   * Queries the alert statistics of container assets.
    * 
    * @remarks
    * Only users who created a Container Registry Enterprise Edition instance can call this operation.
@@ -15001,7 +15005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics on the quota of honeypots.
+   * Queries the statistics about the quota on honeypots.
    * 
    * @param request - DescribeHoneyPotAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15032,7 +15036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics on the quota of honeypots.
+   * Queries the statistics about the quota on honeypots.
    * 
    * @param request - DescribeHoneyPotAuthRequest
    * @returns DescribeHoneyPotAuthResponse
@@ -15043,7 +15047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+   * Queries the information about top 5 virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
    * 
    * @param request - DescribeHoneyPotSuspStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15086,7 +15090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+   * Queries the information about top 5 virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
    * 
    * @param request - DescribeHoneyPotSuspStatisticsRequest
    * @returns DescribeHoneyPotSuspStatisticsResponse
@@ -16488,6 +16492,14 @@ export default class Client extends OpenApi {
   async describeImageListByBuildRiskWithOptions(request: $_model.DescribeImageListByBuildRiskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeImageListByBuildRiskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!$dara.isNull(request.criteriaType)) {
+      query["CriteriaType"] = request.criteriaType;
+    }
+
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -17195,7 +17207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the risk statistics on container images.
+   * Queries the risk statistics of container images.
    * 
    * @remarks
    * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
@@ -17222,7 +17234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the risk statistics on container images.
+   * Queries the risk statistics of container images.
    * 
    * @remarks
    * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
@@ -17453,7 +17465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the verification codes that are used to manually install the Security Center agent.
+   * Queries the verification code for you to manually install the Security Center agent.
    * 
    * @param request - DescribeInstallCaptchaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17492,7 +17504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the verification codes that are used to manually install the Security Center agent.
+   * Queries the verification code for you to manually install the Security Center agent.
    * 
    * @param request - DescribeInstallCaptchaRequest
    * @returns DescribeInstallCaptchaResponse
@@ -17635,7 +17647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the instance that you restart.
+   * Queries the status of the servers that you restart.
    * 
    * @param request - DescribeInstanceRebootStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17666,7 +17678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the instance that you restart.
+   * Queries the status of the servers that you restart.
    * 
    * @param request - DescribeInstanceRebootStatusRequest
    * @returns DescribeInstanceRebootStatusResponse
@@ -18665,7 +18677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of scheduled tasks on the Host page.
+   * Query Asset Fingerprint Scheduled Task Details
    * 
    * @param request - DescribePropertyCronDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18728,7 +18740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of scheduled tasks on the Host page.
+   * Query Asset Fingerprint Scheduled Task Details
    * 
    * @param request - DescribePropertyCronDetailRequest
    * @returns DescribePropertyCronDetailResponse
@@ -18793,7 +18805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fingerprints of ports on a specified server.
+   * Query Details of Asset Fingerprint Port Collection
    * 
    * @param request - DescribePropertyPortDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18864,7 +18876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fingerprints of ports on a specified server.
+   * Query Details of Asset Fingerprint Port Collection
    * 
    * @param request - DescribePropertyPortDetailRequest
    * @returns DescribePropertyPortDetailResponse
@@ -18929,7 +18941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fingerprints of processes on a specified server.
+   * Query Details of Asset Fingerprint Collection Process
    * 
    * @param request - DescribePropertyProcDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19008,7 +19020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fingerprints of processes on a specified server.
+   * Query Details of Asset Fingerprint Collection Process
    * 
    * @param request - DescribePropertyProcDetailRequest
    * @returns DescribePropertyProcDetailResponse
@@ -19073,7 +19085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries middleware fingerprints.
+   * Query Asset Fingerprint Collection Middleware Details
    * 
    * @param request - DescribePropertyScaDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19188,7 +19200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries middleware fingerprints.
+   * Query Asset Fingerprint Collection Middleware Details
    * 
    * @param request - DescribePropertyScaDetailRequest
    * @returns DescribePropertyScaDetailResponse
@@ -19373,7 +19385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a software asset.
+   * Query details of asset fingerprint software collection
    * 
    * @param request - DescribePropertySoftwareDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19448,7 +19460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a software asset.
+   * Query details of asset fingerprint software collection
    * 
    * @param request - DescribePropertySoftwareDetailRequest
    * @returns DescribePropertySoftwareDetailResponse
@@ -19611,7 +19623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset fingerprints for an account to which a server belongs.
+   * Query asset fingerprint user details
    * 
    * @param request - DescribePropertyUserDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19682,7 +19694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset fingerprints for an account to which a server belongs.
+   * Query asset fingerprint user details
    * 
    * @param request - DescribePropertyUserDetailRequest
    * @returns DescribePropertyUserDetailResponse
@@ -20175,7 +20187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+   * Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics about each type of check items.
    * 
    * @remarks
    * This operation is phased out. You can use the GetCheckSummary operation.
@@ -20223,7 +20235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+   * Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics about each type of check items.
    * 
    * @remarks
    * This operation is phased out. You can use the GetCheckSummary operation.
@@ -20482,7 +20494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+   * Queries the servers on which you want to install the CloudMonitor agent.
    * 
    * @param request - DescribeSasPmAgentListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20517,7 +20529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+   * Queries the servers on which you want to install the CloudMonitor agent.
    * 
    * @param request - DescribeSasPmAgentListRequest
    * @returns DescribeSasPmAgentListResponse
@@ -20712,7 +20724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries suggestions on how to handle the risks that affect the security score.
+   * Query Security Risk Handling Suggestions Details
    * 
    * @param request - DescribeSecureSuggestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20759,7 +20771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries suggestions on how to handle the risks that affect the security score.
+   * Query Security Risk Handling Suggestions Details
    * 
    * @param request - DescribeSecureSuggestionRequest
    * @returns DescribeSecureSuggestionResponse
@@ -23231,7 +23243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The source IP address of the request.
+   * Queries whether Security Center is authorized to run configuration checks on cloud services.
    * 
    * @param request - DescribeUserBaselineAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23270,7 +23282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The source IP address of the request.
+   * Queries whether Security Center is authorized to run configuration checks on cloud services.
    * 
    * @param request - DescribeUserBaselineAuthorizationRequest
    * @returns DescribeUserBaselineAuthorizationResponse
@@ -23587,7 +23599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virtual private clouds (VPCs) on which honeypots are deployed.
+   * Queries honeypots.
    * 
    * @remarks
    * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
@@ -23641,7 +23653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virtual private clouds (VPCs) on which honeypots are deployed.
+   * Queries honeypots.
    * 
    * @remarks
    * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
@@ -24763,7 +24775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The number of attempts.
+   * Queries the summary information about the types of files for which web tamper proofing is enabled.
    * 
    * @param request - DescribeWebLockFileTypeSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24786,7 +24798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The number of attempts.
+   * Queries the summary information about the types of files for which web tamper proofing is enabled.
    * @returns DescribeWebLockFileTypeSummaryResponse
    */
   async describeWebLockFileTypeSummary(): Promise<$_model.DescribeWebLockFileTypeSummaryResponse> {
@@ -26392,7 +26404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 容器网络连接
+   * Container Network Connection
    * 
    * @param tmpReq - FindContainerNetworkConnectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26457,7 +26469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 容器网络连接
+   * Container Network Connection
    * 
    * @param request - FindContainerNetworkConnectRequest
    * @returns FindContainerNetworkConnectResponse
@@ -27220,7 +27232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+   * Query detailed information of asset fingerprints
    * 
    * @param request - GetAssetsPropertyDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27287,7 +27299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+   * Query detailed information of asset fingerprints
    * 
    * @param request - GetAssetsPropertyDetailRequest
    * @returns GetAssetsPropertyDetailResponse
@@ -29430,7 +29442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取蜜罐攻击统计数据
+   * 获取蜜罐攻击事件的统计数据。
    * 
    * @param request - GetHoneypotAttackStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29489,7 +29501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取蜜罐攻击统计数据
+   * 获取蜜罐攻击事件的统计数据。
    * 
    * @param request - GetHoneypotAttackStatisticsRequest
    * @returns GetHoneypotAttackStatisticsResponse
@@ -31592,7 +31604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on alerts in one or more asset groups.
+   * Queries the statistics of alerts in one or more asset groups.
    * 
    * @param request - GetSuspiciousStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31627,7 +31639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on alerts in one or more asset groups.
+   * Queries the statistics of alerts in one or more asset groups.
    * 
    * @param request - GetSuspiciousStatisticsRequest
    * @returns GetSuspiciousStatisticsResponse
@@ -32292,7 +32304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+   * Ignores or cancels ignoring multiple baseline risk items at a time.
    * 
    * @deprecated OpenAPI IgnoreHcCheckWarnings is deprecated, please use Sas::2018-12-03::IgnoreCheckItems instead.
    * 
@@ -32349,7 +32361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+   * Ignores or cancels ignoring multiple baseline risk items at a time.
    * 
    * @deprecated OpenAPI IgnoreHcCheckWarnings is deprecated, please use Sas::2018-12-03::IgnoreCheckItems instead.
    * 
@@ -34134,6 +34146,10 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.riskType)) {
       query["RiskType"] = request.riskType;
     }
@@ -34230,6 +34246,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.riskType)) {
@@ -36337,7 +36357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The region ID of the image.
+   * Queries the regions in which you can add self-managed image repositories to Security Center.
    * 
    * @param request - ListImageRegistryRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36368,7 +36388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The region ID of the image.
+   * Queries the regions in which you can add self-managed image repositories to Security Center.
    * 
    * @param request - ListImageRegistryRegionRequest
    * @returns ListImageRegistryRegionResponse
@@ -39239,7 +39259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the server group to which specified servers belong.
+   * Changes the server group to which one or more servers belong.
    * 
    * @remarks
    * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
@@ -39283,7 +39303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the server group to which specified servers belong.
+   * Changes the server group to which one or more servers belong.
    * 
    * @remarks
    * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
@@ -41413,7 +41433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the logon security settings for an asset.
+   * Enables or disables the logon security settings for a specific asset.
    * 
    * @param request - ModifyLoginSwitchConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41448,7 +41468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the logon security settings for an asset.
+   * Enables or disables the logon security settings for a specific asset.
    * 
    * @param request - ModifyLoginSwitchConfigRequest
    * @returns ModifyLoginSwitchConfigResponse
@@ -41627,21 +41647,39 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switch settings of pay-as-you-go modules.
+   * Operate the Postpaid Module Switch
    * 
-   * @param request - ModifyPostPayModuleSwitchRequest
+   * @param tmpReq - ModifyPostPayModuleSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPostPayModuleSwitchResponse
    */
-  async modifyPostPayModuleSwitchWithOptions(request: $_model.ModifyPostPayModuleSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPostPayModuleSwitchResponse> {
-    request.validate();
+  async modifyPostPayModuleSwitchWithOptions(tmpReq: $_model.ModifyPostPayModuleSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPostPayModuleSwitchResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyPostPayModuleSwitchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.postPayModuleSwitchObj)) {
+      request.postPayModuleSwitchObjShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.postPayModuleSwitchObj, "PostPayModuleSwitchObj", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.postPaidHostAutoBind)) {
+      query["PostPaidHostAutoBind"] = request.postPaidHostAutoBind;
+    }
+
+    if (!$dara.isNull(request.postPaidHostAutoBindVersion)) {
+      query["PostPaidHostAutoBindVersion"] = request.postPaidHostAutoBindVersion;
+    }
+
     if (!$dara.isNull(request.postPayInstanceId)) {
       query["PostPayInstanceId"] = request.postPayInstanceId;
     }
 
     if (!$dara.isNull(request.postPayModuleSwitch)) {
       query["PostPayModuleSwitch"] = request.postPayModuleSwitch;
+    }
+
+    if (!$dara.isNull(request.postPayModuleSwitchObjShrink)) {
+      query["PostPayModuleSwitchObj"] = request.postPayModuleSwitchObjShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -41662,7 +41700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switch settings of pay-as-you-go modules.
+   * Operate the Postpaid Module Switch
    * 
    * @param request - ModifyPostPayModuleSwitchRequest
    * @returns ModifyPostPayModuleSwitchResponse
@@ -41979,7 +42017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the time when an automatic configuration check is performed on cloud services.
+   * Specifies the time when an automatic configuration check on cloud services runs.
    * 
    * @remarks
    * This operation is phased out. You can use the ChangeCheckConfig operation.
@@ -42035,7 +42073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the time when an automatic configuration check is performed on cloud services.
+   * Specifies the time when an automatic configuration check on cloud services runs.
    * 
    * @remarks
    * This operation is phased out. You can use the ChangeCheckConfig operation.
@@ -42729,7 +42767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures vulnerability scan for a server.
+   * Configures vulnerability detection for a server.
    * 
    * @param request - ModifyVulTargetConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42772,7 +42810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures vulnerability scan for a server.
+   * Configures vulnerability detection for a server.
    * 
    * @param request - ModifyVulTargetConfigRequest
    * @returns ModifyVulTargetConfigResponse
@@ -43089,7 +43127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables web tamper proofing for a specified server.
+   * Configures and enables web tamper proofing for a specified server.
    * 
    * @param request - ModifyWebLockStartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -43152,7 +43190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables web tamper proofing for a specified server.
+   * Configures and enables web tamper proofing for a specified server.
    * 
    * @param request - ModifyWebLockStartRequest
    * @returns ModifyWebLockStartResponse
@@ -43259,7 +43297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the protection policy for a specified server.
+   * Modifies protection policy for a specified server.
    * 
    * @param request - ModifyWebLockUpdateConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -43338,7 +43376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the protection policy for a specified server.
+   * Modifies protection policy for a specified server.
    * 
    * @param request - ModifyWebLockUpdateConfigRequest
    * @returns ModifyWebLockUpdateConfigResponse
@@ -46503,7 +46541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+   * Checks cloud service configurations. You can check all items or a specific item and verify whether an item is checked.
    * 
    * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated, please use Sas::2018-12-03::SubmitCheck instead.
    * 
@@ -46552,7 +46590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+   * Checks cloud service configurations. You can check all items or a specific item and verify whether an item is checked.
    * 
    * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated, please use Sas::2018-12-03::SubmitCheck instead.
    * 
@@ -47844,7 +47882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds remarks to core file monitoring events reported by the Security Center agent.
+   * Modify Alert Remarks
    * 
    * @param request - UpdateFileProtectRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47927,7 +47965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds remarks to core file monitoring events reported by the Security Center agent.
+   * Modify Alert Remarks
    * 
    * @param request - UpdateFileProtectRemarkRequest
    * @returns UpdateFileProtectRemarkResponse

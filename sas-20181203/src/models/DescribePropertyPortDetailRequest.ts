@@ -27,6 +27,13 @@ export class DescribePropertyPortDetailRequest extends $dara.Model {
    * 1
    */
   extend?: string;
+  /**
+   * @remarks
+   * The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6k+AtdhNE3kgQEK36GujZ5on+tWdc+4WoaoMP/kUNxxxx
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -70,6 +77,16 @@ export class DescribePropertyPortDetailRequest extends $dara.Model {
    * 127608589417****
    */
   resourceDirectoryAccountId?: number;
+  /**
+   * @remarks
+   * Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+   * 
+   * - **true**: The NextToken method is used.
+   * - **false**: The NextToken method is not used.
+   * 
+   * @example
+   * false
+   */
   useNextToken?: boolean;
   /**
    * @remarks

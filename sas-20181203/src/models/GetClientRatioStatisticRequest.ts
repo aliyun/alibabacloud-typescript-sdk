@@ -21,8 +21,6 @@ export class GetClientRatioStatisticRequest extends $dara.Model {
    * @remarks
    * The timestamp that specifies the end of the time range to collect statistics. Unit: milliseconds.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1686412799999
    */
@@ -30,8 +28,6 @@ export class GetClientRatioStatisticRequest extends $dara.Model {
   /**
    * @remarks
    * The timestamp that specifies the beginning of the time range to collect statistics. Unit: milliseconds.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1671382800000

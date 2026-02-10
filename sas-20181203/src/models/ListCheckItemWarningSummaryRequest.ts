@@ -105,6 +105,16 @@ export class ListCheckItemWarningSummaryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 127608589417****
+   */
+  resourceDirectoryAccountId?: number;
+  /**
+   * @remarks
    * The type of the baseline.
    * 
    * @example
@@ -150,6 +160,7 @@ export class ListCheckItemWarningSummaryRequest extends $dara.Model {
       groupId: 'GroupId',
       lang: 'Lang',
       pageSize: 'PageSize',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       riskType: 'RiskType',
       source: 'Source',
       startTime: 'StartTime',
@@ -170,6 +181,7 @@ export class ListCheckItemWarningSummaryRequest extends $dara.Model {
       groupId: 'number',
       lang: 'string',
       pageSize: 'number',
+      resourceDirectoryAccountId: 'number',
       riskType: 'string',
       source: 'string',
       startTime: 'number',

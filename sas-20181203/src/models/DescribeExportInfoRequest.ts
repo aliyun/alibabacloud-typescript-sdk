@@ -15,6 +15,15 @@ export class DescribeExportInfoRequest extends $dara.Model {
    * 111
    */
   exportId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 16670360956*****
+   */
   resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {

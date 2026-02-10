@@ -3,6 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyNoticeConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Notification configuration type, default is SMS/email/in-site message. Value:
+   * - **cms**: Cloud Monitor push
+   * 
+   * @example
+   * cms
+   */
   bizType?: string;
   /**
    * @remarks

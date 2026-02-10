@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetAssetsPropertyDetailRequestSearchCriteriaList extends $dara.Model {
   /**
    * @remarks
-   * The name of the condition. Valid values:
+   * The name of the condition to be queried. Values are as follows:
+   * - **remarkItemName**: The aggregated item name of the asset fingerprint, supporting fuzzy matching
    * 
-   * *   **remarkItemName**: the aggregation item of the asset fingerprints. Fuzzy match is supported.
    * 
-   * > *   If **Biz** is set to **web_server**, **remarkItemName** specifies a domain name. 
-   * > *   If **Biz** is set to **lkm**, **remarkItemName** specifies a module name.
-   * > *   If **Biz** is set to **autorun**, **remarkItemName** specifies the path to a startup item.
+   * >-   - When **Biz** is **web_server**, **remarkItemName** represents the domain name as the search condition.
+   * >-   - When **Biz** is **lkm**, **remarkItemName** represents the module name as the search condition.
+   * >-   - When **Biz** is **autorun**, **remarkItemName** represents the startup item path as the search condition.
    * 
    * @example
    * remarkItemName
@@ -19,7 +19,7 @@ export class GetAssetsPropertyDetailRequestSearchCriteriaList extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The value of the condition.
+   * The value of the condition to be queried.
    * 
    * @example
    * virtio
@@ -51,11 +51,11 @@ export class GetAssetsPropertyDetailRequestSearchCriteriaList extends $dara.Mode
 export class GetAssetsPropertyDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the asset fingerprint that you want to query. Default value: **sca**. Valid values:
+   * The type of asset fingerprint to be queried, with a default value of **sca**. Values:
    * 
-   * *   **lkm**: kernel module
-   * *   **autorun**: startup item
-   * *   **web_server**: website
+   * - **lkm**: Kernel module
+   * - **autorun**: Startup item
+   * - **web_server**: Web site
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
   biz?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * Set the page number from which to start displaying the query results. The default value is **1**, indicating that the display starts from the first page.
    * 
    * @example
    * 1
@@ -73,9 +73,8 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the aggregation item for the asset fingerprint that you want to query.
-   * 
-   * > You can call the [GetAssetsPropertyItem](~~GetAssetsPropertyItem~~) operation to query the names of aggregation items.
+   * The aggregated item name of the asset fingerprint to be queried.
+   * > Call the [GetAssetsPropertyItem](~~GetAssetsPropertyItem~~) API to obtain this parameter.
    * 
    * @example
    * virtio
@@ -83,21 +82,27 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
   itemName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response. Values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * en
    */
   lang?: string;
+  /**
+   * @remarks
+   * Used to mark the current read position. Leave it empty to start from the beginning.
+   * > Do not fill in for the first call; the response will include the NextToken for the second call. Each subsequent call\\"s response will contain the NextToken for the next call.
+   * 
+   * @example
+   * 71640f04f6e7b49764c8d08ae170xxxx
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * Specify the maximum number of data entries per page in a paginated query. The default number of data entries per page is 20. If the PageSize parameter is empty, 20 data entries will be returned by default.
+   * > It is recommended that the PageSize value is not empty.
    * 
    * @example
    * 20
@@ -105,7 +110,7 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name or IP address of the server.
+   * Server name or IP.
    * 
    * @example
    * 1.2.XX.XX
@@ -113,15 +118,24 @@ export class GetAssetsPropertyDetailRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The conditions that are used to query the details about the asset fingerprint.
+   * A set of conditions for querying asset fingerprint details.
    */
   searchCriteriaList?: GetAssetsPropertyDetailRequestSearchCriteriaList[];
+  /**
+   * @remarks
+   * Whether to use the NextToken method to fetch the list of vulnerabilities. If this parameter is used, TotalCount will not be returned. Values:
+   * 
+   * - **true**: Use the NextToken method.
+   * - **false**: Do not use the NextToken method.
+   * 
+   * @example
+   * true
+   */
   useNextToken?: boolean;
   /**
    * @remarks
-   * The UUID of the server.
-   * 
-   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The UUID of the asset to be queried.
+   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) API to obtain this parameter.
    * 
    * @example
    * 38f72ea4-4c9f-4df1-bc6c-0f267614****

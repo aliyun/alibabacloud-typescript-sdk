@@ -57,6 +57,7 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
    * AlibabaCloud_***
    */
   subAccountName?: string;
+  vendor?: string;
   /**
    * @remarks
    * The name of the AccessKey pair.
@@ -73,6 +74,7 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
       pageSize: 'PageSize',
       status: 'Status',
       subAccountName: 'SubAccountName',
+      vendor: 'Vendor',
       vendorAuthAlias: 'VendorAuthAlias',
     };
   }
@@ -85,6 +87,7 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
       pageSize: 'number',
       status: 'number',
       subAccountName: 'string',
+      vendor: 'string',
       vendorAuthAlias: 'string',
     };
   }

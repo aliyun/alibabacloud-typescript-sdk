@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCloudAssetInstancesRequestCloudAssetQueryData extends $dara.Model {
+  /**
+   * @remarks
+   * Query content.
+   * 
+   * @example
+   * 163.8.8.9
+   */
   data?: string;
+  /**
+   * @remarks
+   * Query operator, currently only supports: INCLUDE.
+   * 
+   * @example
+   * INCLUDE
+   */
   operator?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,6 +103,10 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
 }
 
 export class ListCloudAssetInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query data list based on keywords.
+   */
   cloudAssetQueryData?: ListCloudAssetInstancesRequestCloudAssetQueryData[];
   /**
    * @remarks

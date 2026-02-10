@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNoticeConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Notification configuration type, with values:
+   * - **Default (not provided)**: SMS/Email/Site Message 
+   * - **cms**: Cloud Monitor Push
+   * 
+   * @example
+   * cms
+   */
   bizType?: string;
   /**
    * @remarks

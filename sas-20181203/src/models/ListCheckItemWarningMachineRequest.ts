@@ -78,6 +78,16 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 1232428423234****
+   */
+  resourceDirectoryAccountId?: number;
+  /**
+   * @remarks
    * The type of the check item.
    * 
    * @example
@@ -125,6 +135,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       riskType: 'RiskType',
       source: 'Source',
       status: 'Status',
@@ -142,6 +153,7 @@ export class ListCheckItemWarningMachineRequest extends $dara.Model {
       lang: 'string',
       pageSize: 'number',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       riskType: 'string',
       source: 'string',
       status: 'number',

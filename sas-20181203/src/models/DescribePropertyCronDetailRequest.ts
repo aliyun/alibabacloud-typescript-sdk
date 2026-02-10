@@ -19,6 +19,13 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
    * 1
    */
   extend?: string;
+  /**
+   * @remarks
+   * The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * 1426C575705AE8545E8360A6EFA3B***
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -44,6 +51,16 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
    * /etc/cron.d/root
    */
   source?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+   * 
+   * - **true**: The NextToken method is used.
+   * - **false**: The NextToken method is not used.
+   * 
+   * @example
+   * true
+   */
   useNextToken?: boolean;
   /**
    * @remarks

@@ -14,13 +14,6 @@ export class DescribeUserBaselineAuthorizationRequest extends $dara.Model {
    * zh
    */
   lang?: string;
-  /**
-   * @remarks
-   * 资产所有者ID。
-   * 
-   * @example
-   * 1519712934213764
-   */
   resourceOwnerId?: number;
   /**
    * @remarks

@@ -5,6 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   /**
    * @remarks
+   * The attribute value of the condition parameter.
+   * 
+   * @example
+   * sas
+   */
+  criteria?: string;
+  /**
+   * @remarks
+   * The property name of the condition parameters. Values:
+   *  - **RepoNamespace**: Namespace.
+   *  - **RepoName**: Repository name.
+   * 
+   * @example
+   * RepoNamespace
+   */
+  criteriaType?: string;
+  /**
+   * @remarks
    * The page number. Default value: **1**.
    * 
    * @example
@@ -66,6 +84,8 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      criteria: 'Criteria',
+      criteriaType: 'CriteriaType',
       currentPage: 'CurrentPage',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -77,6 +97,8 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      criteria: 'string',
+      criteriaType: 'string',
       currentPage: 'number',
       lang: 'string',
       pageSize: 'number',

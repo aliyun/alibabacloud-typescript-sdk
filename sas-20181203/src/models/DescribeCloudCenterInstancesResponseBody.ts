@@ -109,6 +109,16 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   bind?: boolean;
   /**
    * @remarks
+   * Whether to bind tamper-proof authorization. Values:
+   * - **block**: Yes
+   * - **none**: No
+   * 
+   * @example
+   * block
+   */
+  bindFileProtectType?: string;
+  /**
+   * @remarks
    * The status of the Security Center agent installed on the asset. Valid values:
    * 
    * *   **online**: The Security Center agent is **enabled**.
@@ -627,6 +637,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
       authVersion: 'AuthVersion',
       authVersionName: 'AuthVersionName',
       bind: 'Bind',
+      bindFileProtectType: 'BindFileProtectType',
       clientStatus: 'ClientStatus',
       clientSubStatus: 'ClientSubStatus',
       clusterId: 'ClusterId',
@@ -691,6 +702,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
       authVersion: 'number',
       authVersionName: 'string',
       bind: 'boolean',
+      bindFileProtectType: 'string',
       clientStatus: 'string',
       clientSubStatus: 'string',
       clusterId: 'string',

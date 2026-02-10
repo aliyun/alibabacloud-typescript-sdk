@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertySoftwareDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * Set which page of the returned results to start displaying the query results. The default value is **1**, indicating that the display starts from the first page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether fuzzy search by software name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+   * Whether the software name supports fuzzy search. To enable fuzzy search, set the value of this parameter to 1; other values or an empty value indicate that fuzzy search is not supported.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The timestamp generated when the software update ends. Unit: milliseconds.
+   * The timestamp when the software update ended. Unit: milliseconds.
    * 
    * @example
    * 1650012695000
@@ -29,7 +29,7 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
   installTimeEnd?: number;
   /**
    * @remarks
-   * The timestamp generated when the software update starts. Unit: milliseconds.
+   * The timestamp when the software update started. Unit: milliseconds.
    * 
    * @example
    * 1649321495000
@@ -37,16 +37,25 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
   installTimeStart?: number;
   /**
    * @remarks
-   * The name of the software.
+   * The name of the software to be queried.
    * 
    * @example
    * kernel
    */
   name?: string;
+  /**
+   * @remarks
+   * Used to mark the starting position for reading. Leave it blank to start from the beginning.
+   * 
+   * > For the first call, you do not need to fill this in; the response will include the NextToken for the second call, and each subsequent call\\"s response will contain the NextToken for the next call.
+   * 
+   * @example
+   * E17B501887A2D3AA5E8360A6EFA3B***
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * Set the number of software asset fingerprint information items displayed per page during pagination. The default value is **10**, indicating that 10 items of software asset fingerprint information are displayed per page.
    * 
    * @example
    * 10
@@ -62,7 +71,7 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The name or IP address of the server.
+   * The name or IP address of the server to be queried.
    * 
    * @example
    * 192.168.XX.XX
@@ -70,12 +79,22 @@ export class DescribePropertySoftwareDetailRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The version of the software.
+   * The version information of the software.
    * 
    * @example
    * 3.10.0
    */
   softwareVersion?: string;
+  /**
+   * @remarks
+   * Whether to use the NextToken method to pull asset list data. If this parameter is used, TotalCount will no longer be returned. Values:
+   * 
+   * - **true**: Use the NextToken method.
+   * - **false**: Do not use the NextToken method.
+   * 
+   * @example
+   * true
+   */
   useNextToken?: boolean;
   /**
    * @remarks
