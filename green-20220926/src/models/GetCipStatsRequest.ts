@@ -18,6 +18,7 @@ export class GetCipStatsRequest extends $dara.Model {
    * xx
    */
   label?: string;
+  query?: string;
   /**
    * @example
    * cn-shanghai
@@ -45,6 +46,7 @@ export class GetCipStatsRequest extends $dara.Model {
       byMonth: 'ByMonth',
       endDate: 'EndDate',
       label: 'Label',
+      query: 'Query',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       serviceCode: 'ServiceCode',
@@ -59,6 +61,7 @@ export class GetCipStatsRequest extends $dara.Model {
       byMonth: 'boolean',
       endDate: 'string',
       label: 'string',
+      query: 'string',
       regionId: 'string',
       resourceType: 'string',
       serviceCode: 'string',

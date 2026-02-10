@@ -756,7 +756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在线测试
+   * Online Test
    * 
    * @param request - CreateOnlineTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -799,7 +799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在线测试
+   * Online Test
    * 
    * @param request - CreateOnlineTestRequest
    * @returns CreateOnlineTestResponse
@@ -1272,7 +1272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除在线测试接口
+   * Delete online test
    * 
    * @param request - DeleteOnlineTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1307,7 +1307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除在线测试接口
+   * Delete online test
    * 
    * @param request - DeleteOnlineTestRequest
    * @returns DeleteOnlineTestResponse
@@ -2048,7 +2048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调用量
+   * Query Call Volume
    * 
    * @param request - GetCipStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2057,6 +2057,10 @@ export default class Client extends OpenApi {
   async getCipStatsWithOptions(request: $_model.GetCipStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCipStatsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -2113,7 +2117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调用量
+   * Query Call Volume
    * 
    * @param request - GetCipStatsRequest
    * @returns GetCipStatsResponse
@@ -3860,16 +3864,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.LlmStreamChatResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.LlmStreamChatResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.LlmStreamChatResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.LlmStreamChatResponse({}));
+      }
+
     }
   }
 
@@ -4046,7 +4051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存特性配置
+   * Save Feature Configuration
    * 
    * @param request - ModifyFeatureConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4103,7 +4108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存特性配置
+   * Save Feature Configuration
    * 
    * @param request - ModifyFeatureConfigRequest
    * @returns ModifyFeatureConfigResponse
@@ -4174,7 +4179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss扫描结果查询
+   * OSS scan result query
    * 
    * @param tmpReq - OssCheckResultListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4243,7 +4248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss扫描结果查询
+   * OSS scan result query
    * 
    * @param request - OssCheckResultListRequest
    * @returns OssCheckResultListResponse
