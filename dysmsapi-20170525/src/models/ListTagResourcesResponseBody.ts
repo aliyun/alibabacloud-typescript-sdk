@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * @example
-   * SMS_23423****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of resource.
-   * 
-   * @example
-   * ALIYUN::DYSMS::TEMPLATE
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -116,10 +88,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * A90E4451-FED7-49D2-87C8-00700A8C4D0D
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of tags.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

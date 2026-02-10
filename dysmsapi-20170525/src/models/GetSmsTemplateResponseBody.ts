@@ -127,10 +127,6 @@ export class GetSmsTemplateResponseBody extends $dara.Model {
    * 2024-06-03 10:02:34
    */
   createDate?: string;
-  /**
-   * @remarks
-   * File information, compatible with signatures created by the [AddSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-addsmstemplate?spm) API.
-   */
   fileUrlList?: GetSmsTemplateResponseBodyFileUrlList;
   /**
    * @remarks
@@ -151,10 +147,6 @@ export class GetSmsTemplateResponseBody extends $dara.Model {
    * OK
    */
   message?: string;
-  /**
-   * @remarks
-   * Additional documentation information, supplementing uploaded business proof files or operational screenshots file list.
-   */
   moreDataFileUrlList?: GetSmsTemplateResponseBodyMoreDataFileUrlList;
   /**
    * @remarks

@@ -423,7 +423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a mobile phone number can receive card messages.
+   * Queries whether some mobile phone numbers support card messages.
    * 
    * @remarks
    * ### QPS limit
@@ -462,7 +462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a mobile phone number can receive card messages.
+   * Queries whether some mobile phone numbers support card messages.
    * 
    * @remarks
    * ### QPS limit
@@ -609,7 +609,169 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建短链
+   * 数字短信签名操作订单
+   * 
+   * @param tmpReq - CreateDigitalSignOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDigitalSignOrderResponse
+   */
+  async createDigitalSignOrderWithOptions(tmpReq: $_model.CreateDigitalSignOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDigitalSignOrderResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDigitalSignOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.orderContext)) {
+      request.orderContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderContext, "OrderContext", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.extendMessage)) {
+      query["ExtendMessage"] = request.extendMessage;
+    }
+
+    if (!$dara.isNull(request.orderContextShrink)) {
+      query["OrderContext"] = request.orderContextShrink;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!$dara.isNull(request.qualificationVersion)) {
+      query["QualificationVersion"] = request.qualificationVersion;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signId)) {
+      query["SignId"] = request.signId;
+    }
+
+    if (!$dara.isNull(request.signIndustry)) {
+      query["SignIndustry"] = request.signIndustry;
+    }
+
+    if (!$dara.isNull(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!$dara.isNull(request.signSource)) {
+      query["SignSource"] = request.signSource;
+    }
+
+    if (!$dara.isNull(request.submitter)) {
+      query["Submitter"] = request.submitter;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDigitalSignOrder",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDigitalSignOrderResponse>(await this.callApi(params, req, runtime), new $_model.CreateDigitalSignOrderResponse({}));
+  }
+
+  /**
+   * 数字短信签名操作订单
+   * 
+   * @param request - CreateDigitalSignOrderRequest
+   * @returns CreateDigitalSignOrderResponse
+   */
+  async createDigitalSignOrder(request: $_model.CreateDigitalSignOrderRequest): Promise<$_model.CreateDigitalSignOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDigitalSignOrderWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数字短信模板
+   * 
+   * @param request - CreateDigitalSmsTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDigitalSmsTemplateResponse
+   */
+  async createDigitalSmsTemplateWithOptions(request: $_model.CreateDigitalSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDigitalSmsTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!$dara.isNull(request.templateContents)) {
+      query["TemplateContents"] = request.templateContents;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDigitalSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDigitalSmsTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateDigitalSmsTemplateResponse({}));
+  }
+
+  /**
+   * 创建数字短信模板
+   * 
+   * @param request - CreateDigitalSmsTemplateRequest
+   * @returns CreateDigitalSmsTemplateResponse
+   */
+  async createDigitalSmsTemplate(request: $_model.CreateDigitalSmsTemplateRequest): Promise<$_model.CreateDigitalSmsTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDigitalSmsTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - CreateSmartShortUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -660,7 +822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建短链
+   * Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - CreateSmartShortUrlRequest
    * @returns CreateSmartShortUrlResponse
@@ -2472,6 +2634,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数字短信签名通过签名name
+   * 
+   * @param request - QueryDigitalSignByNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDigitalSignByNameResponse
+   */
+  async queryDigitalSignByNameWithOptions(request: $_model.QueryDigitalSignByNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDigitalSignByNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryDigitalSignByName",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryDigitalSignByNameResponse>(await this.callApi(params, req, runtime), new $_model.QueryDigitalSignByNameResponse({}));
+  }
+
+  /**
+   * 获取数字短信签名通过签名name
+   * 
+   * @param request - QueryDigitalSignByNameRequest
+   * @returns QueryDigitalSignByNameResponse
+   */
+  async queryDigitalSignByName(request: $_model.QueryDigitalSignByNameRequest): Promise<$_model.QueryDigitalSignByNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryDigitalSignByNameWithOptions(request, runtime);
+  }
+
+  /**
    * 查询验证码签名
    * 
    * @param request - QueryExtCodeSignRequest
@@ -2538,7 +2754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a mobile phone number can receive card messages.
+   * Queries whether some mobile phone numbers support card messages.
    * 
    * @param tmpReq - QueryMobilesCardSupportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2583,7 +2799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a mobile phone number can receive card messages.
+   * Queries whether some mobile phone numbers support card messages.
    * 
    * @param request - QueryMobilesCardSupportRequest
    * @returns QueryMobilesCardSupportResponse
@@ -2594,7 +2810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 点击明细查询
+   * Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - QueryPageSmartShortUrlLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2657,7 +2873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 点击明细查询
+   * Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - QueryPageSmartShortUrlLogRequest
    * @returns QueryPageSmartShortUrlLogResponse
