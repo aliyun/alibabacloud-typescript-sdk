@@ -7,7 +7,7 @@ export class ChatBISchemaIndexCreateRequest extends $dara.Model {
   authType?: string;
   /**
    * @example
-   * 空字符串, \"graph_info.time,text_info.ext\"
+   * 空字符串, \\"graph_info.time,text_info.ext\\"
    */
   columnsExcluded?: string;
   /**
@@ -33,7 +33,7 @@ export class ChatBISchemaIndexCreateRequest extends $dara.Model {
   tableNameSuffix?: string;
   /**
    * @example
-   * 空字符串, \"graph_info,image_info,text_info\"
+   * 空字符串, \\"graph_info,image_info,text_info\\"
    */
   tablesIncluded?: string;
   /**

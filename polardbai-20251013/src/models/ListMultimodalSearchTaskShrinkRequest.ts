@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListMultimodalSearchTaskRequest extends $dara.Model {
+export class ListMultimodalSearchTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11,7 +11,7 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   DBClusterId?: string;
-  datasetIds?: string[];
+  datasetIdsShrink?: string;
   /**
    * @example
    * 红绿灯
@@ -35,7 +35,7 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
-      datasetIds: 'DatasetIds',
+      datasetIdsShrink: 'DatasetIds',
       inputField: 'InputField',
       modelMode: 'ModelMode',
       pageNumber: 'PageNumber',
@@ -46,7 +46,7 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
-      datasetIds: { 'type': 'array', 'itemType': 'string' },
+      datasetIdsShrink: 'string',
       inputField: 'string',
       modelMode: 'string',
       pageNumber: 'number',
@@ -55,9 +55,6 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.datasetIds)) {
-      $dara.Model.validateArray(this.datasetIds);
-    }
     super.validate();
   }
 

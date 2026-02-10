@@ -30,6 +30,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入OSS数据集
+   * 
+   * @param request - AddOSSMultimodalFineTuneDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddOSSMultimodalFineTuneDatasetResponse
+   */
+  async addOSSMultimodalFineTuneDatasetWithOptions(request: $_model.AddOSSMultimodalFineTuneDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddOSSMultimodalFineTuneDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.ossUrl)) {
+      query["OssUrl"] = request.ossUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddOSSMultimodalFineTuneDataset",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddOSSMultimodalFineTuneDatasetResponse>(await this.callApi(params, req, runtime), new $_model.AddOSSMultimodalFineTuneDatasetResponse({}));
+  }
+
+  /**
+   * 导入OSS数据集
+   * 
+   * @param request - AddOSSMultimodalFineTuneDatasetRequest
+   * @returns AddOSSMultimodalFineTuneDatasetResponse
+   */
+  async addOSSMultimodalFineTuneDataset(request: $_model.AddOSSMultimodalFineTuneDatasetRequest): Promise<$_model.AddOSSMultimodalFineTuneDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addOSSMultimodalFineTuneDatasetWithOptions(request, runtime);
+  }
+
+  /**
    * 创建chatbi配置表
    * 
    * @param request - ChatBIConfigCreateRequest
@@ -1238,16 +1288,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.ChatBIPredictSseResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.ChatBIPredictSseResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatBIPredictSseResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatBIPredictSseResponse({}));
+      }
+
     }
   }
 
@@ -1704,6 +1755,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建多模态微调数据集
+   * 
+   * @param request - CreateMultimodalFineTuneDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMultimodalFineTuneDatasetResponse
+   */
+  async createMultimodalFineTuneDatasetWithOptions(request: $_model.CreateMultimodalFineTuneDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMultimodalFineTuneDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetDescription)) {
+      query["DatasetDescription"] = request.datasetDescription;
+    }
+
+    if (!$dara.isNull(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMultimodalFineTuneDataset",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMultimodalFineTuneDatasetResponse>(await this.callApi(params, req, runtime), new $_model.CreateMultimodalFineTuneDatasetResponse({}));
+  }
+
+  /**
+   * 创建多模态微调数据集
+   * 
+   * @param request - CreateMultimodalFineTuneDatasetRequest
+   * @returns CreateMultimodalFineTuneDatasetResponse
+   */
+  async createMultimodalFineTuneDataset(request: $_model.CreateMultimodalFineTuneDatasetRequest): Promise<$_model.CreateMultimodalFineTuneDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMultimodalFineTuneDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 部署打标服务
+   * 
+   * @param tmpReq - CreateMultimodalLabelStudioServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMultimodalLabelStudioServiceResponse
+   */
+  async createMultimodalLabelStudioServiceWithOptions(tmpReq: $_model.CreateMultimodalLabelStudioServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMultimodalLabelStudioServiceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMultimodalLabelStudioServiceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.datasetIds)) {
+      request.datasetIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetIds, "DatasetIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetIdsShrink)) {
+      query["DatasetIds"] = request.datasetIdsShrink;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMultimodalLabelStudioService",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMultimodalLabelStudioServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateMultimodalLabelStudioServiceResponse({}));
+  }
+
+  /**
+   * 部署打标服务
+   * 
+   * @param request - CreateMultimodalLabelStudioServiceRequest
+   * @returns CreateMultimodalLabelStudioServiceResponse
+   */
+  async createMultimodalLabelStudioService(request: $_model.CreateMultimodalLabelStudioServiceRequest): Promise<$_model.CreateMultimodalLabelStudioServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMultimodalLabelStudioServiceWithOptions(request, runtime);
+  }
+
+  /**
    * 创建SearchTask
    * 
    * @param tmpReq - CreateMultimodalSearchTaskRequest
@@ -1773,6 +1934,78 @@ export default class Client extends OpenApi {
   async createMultimodalSearchTask(request: $_model.CreateMultimodalSearchTaskRequest): Promise<$_model.CreateMultimodalSearchTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createMultimodalSearchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 从检索结果中创建微调数据集
+   * 
+   * @param tmpReq - CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+   */
+  async createMultimodalSearchTaskResultFineTuneDatasetWithOptions(tmpReq: $_model.CreateMultimodalSearchTaskResultFineTuneDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMultimodalSearchTaskResultFineTuneDatasetResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resultIndex)) {
+      request.resultIndexShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resultIndex, "ResultIndex", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetDescription)) {
+      query["DatasetDescription"] = request.datasetDescription;
+    }
+
+    if (!$dara.isNull(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!$dara.isNull(request.resultIndexShrink)) {
+      query["ResultIndex"] = request.resultIndexShrink;
+    }
+
+    if (!$dara.isNull(request.resultMode)) {
+      query["ResultMode"] = request.resultMode;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      query["TopN"] = request.topN;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMultimodalSearchTaskResultFineTuneDataset",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMultimodalSearchTaskResultFineTuneDatasetResponse>(await this.callApi(params, req, runtime), new $_model.CreateMultimodalSearchTaskResultFineTuneDatasetResponse({}));
+  }
+
+  /**
+   * 从检索结果中创建微调数据集
+   * 
+   * @param request - CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+   * @returns CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+   */
+  async createMultimodalSearchTaskResultFineTuneDataset(request: $_model.CreateMultimodalSearchTaskResultFineTuneDatasetRequest): Promise<$_model.CreateMultimodalSearchTaskResultFineTuneDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMultimodalSearchTaskResultFineTuneDatasetWithOptions(request, runtime);
   }
 
   /**
@@ -1865,6 +2098,144 @@ export default class Client extends OpenApi {
   async deleteMultimodalEmbedding(request: $_model.DeleteMultimodalEmbeddingRequest): Promise<$_model.DeleteMultimodalEmbeddingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMultimodalEmbeddingWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除多模态微调数据集
+   * 
+   * @param request - DeleteMultimodalFineTuneDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMultimodalFineTuneDatasetResponse
+   */
+  async deleteMultimodalFineTuneDatasetWithOptions(request: $_model.DeleteMultimodalFineTuneDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMultimodalFineTuneDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMultimodalFineTuneDataset",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMultimodalFineTuneDatasetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMultimodalFineTuneDatasetResponse({}));
+  }
+
+  /**
+   * 删除多模态微调数据集
+   * 
+   * @param request - DeleteMultimodalFineTuneDatasetRequest
+   * @returns DeleteMultimodalFineTuneDatasetResponse
+   */
+  async deleteMultimodalFineTuneDataset(request: $_model.DeleteMultimodalFineTuneDatasetRequest): Promise<$_model.DeleteMultimodalFineTuneDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMultimodalFineTuneDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型mode可选列表
+   * 
+   * @param request - DeleteMultimodalLabelStudioServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMultimodalLabelStudioServiceResponse
+   */
+  async deleteMultimodalLabelStudioServiceWithOptions(request: $_model.DeleteMultimodalLabelStudioServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMultimodalLabelStudioServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMultimodalLabelStudioService",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMultimodalLabelStudioServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMultimodalLabelStudioServiceResponse({}));
+  }
+
+  /**
+   * 查询模型mode可选列表
+   * 
+   * @param request - DeleteMultimodalLabelStudioServiceRequest
+   * @returns DeleteMultimodalLabelStudioServiceResponse
+   */
+  async deleteMultimodalLabelStudioService(request: $_model.DeleteMultimodalLabelStudioServiceRequest): Promise<$_model.DeleteMultimodalLabelStudioServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMultimodalLabelStudioServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 微调数据集删除导入的OSS路径
+   * 
+   * @param request - DeleteOSSMultimodalFineTuneDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOSSMultimodalFineTuneDatasetResponse
+   */
+  async deleteOSSMultimodalFineTuneDatasetWithOptions(request: $_model.DeleteOSSMultimodalFineTuneDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOSSMultimodalFineTuneDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.ossUrl)) {
+      query["OssUrl"] = request.ossUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOSSMultimodalFineTuneDataset",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOSSMultimodalFineTuneDatasetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOSSMultimodalFineTuneDatasetResponse({}));
+  }
+
+  /**
+   * 微调数据集删除导入的OSS路径
+   * 
+   * @param request - DeleteOSSMultimodalFineTuneDatasetRequest
+   * @returns DeleteOSSMultimodalFineTuneDatasetResponse
+   */
+  async deleteOSSMultimodalFineTuneDataset(request: $_model.DeleteOSSMultimodalFineTuneDatasetRequest): Promise<$_model.DeleteOSSMultimodalFineTuneDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOSSMultimodalFineTuneDatasetWithOptions(request, runtime);
   }
 
   /**
@@ -2110,6 +2481,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询多模态数据集列表
+   * 
+   * @param request - ListMultimodalFineTuneDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultimodalFineTuneDatasetResponse
+   */
+  async listMultimodalFineTuneDatasetWithOptions(request: $_model.ListMultimodalFineTuneDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultimodalFineTuneDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.inputField)) {
+      query["InputField"] = request.inputField;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMultimodalFineTuneDataset",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMultimodalFineTuneDatasetResponse>(await this.callApi(params, req, runtime), new $_model.ListMultimodalFineTuneDatasetResponse({}));
+  }
+
+  /**
+   * 查询多模态数据集列表
+   * 
+   * @param request - ListMultimodalFineTuneDatasetRequest
+   * @returns ListMultimodalFineTuneDatasetResponse
+   */
+  async listMultimodalFineTuneDataset(request: $_model.ListMultimodalFineTuneDatasetRequest): Promise<$_model.ListMultimodalFineTuneDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMultimodalFineTuneDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询打标服务信息
+   * 
+   * @param request - ListMultimodalLabelStudioServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultimodalLabelStudioServiceResponse
+   */
+  async listMultimodalLabelStudioServiceWithOptions(request: $_model.ListMultimodalLabelStudioServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultimodalLabelStudioServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMultimodalLabelStudioService",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMultimodalLabelStudioServiceResponse>(await this.callApi(params, req, runtime), new $_model.ListMultimodalLabelStudioServiceResponse({}));
+  }
+
+  /**
+   * 查询打标服务信息
+   * 
+   * @param request - ListMultimodalLabelStudioServiceRequest
+   * @returns ListMultimodalLabelStudioServiceResponse
+   */
+  async listMultimodalLabelStudioService(request: $_model.ListMultimodalLabelStudioServiceRequest): Promise<$_model.ListMultimodalLabelStudioServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMultimodalLabelStudioServiceWithOptions(request, runtime);
+  }
+
+  /**
    * 查询search模型列表
    * 
    * @param request - ListMultimodalSearchModelRequest
@@ -2162,15 +2629,33 @@ export default class Client extends OpenApi {
   /**
    * 查询search task列表
    * 
-   * @param request - ListMultimodalSearchTaskRequest
+   * @param tmpReq - ListMultimodalSearchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMultimodalSearchTaskResponse
    */
-  async listMultimodalSearchTaskWithOptions(request: $_model.ListMultimodalSearchTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultimodalSearchTaskResponse> {
-    request.validate();
+  async listMultimodalSearchTaskWithOptions(tmpReq: $_model.ListMultimodalSearchTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultimodalSearchTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMultimodalSearchTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.datasetIds)) {
+      request.datasetIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetIds, "DatasetIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetIdsShrink)) {
+      query["DatasetIds"] = request.datasetIdsShrink;
+    }
+
+    if (!$dara.isNull(request.inputField)) {
+      query["InputField"] = request.inputField;
+    }
+
+    if (!$dara.isNull(request.modelMode)) {
+      query["ModelMode"] = request.modelMode;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -2315,6 +2800,112 @@ export default class Client extends OpenApi {
   async updateMultimodalDataset(request: $_model.UpdateMultimodalDatasetRequest): Promise<$_model.UpdateMultimodalDatasetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMultimodalDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新微调数据集信息
+   * 
+   * @param request - UpdateMultimodalFineTuneDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMultimodalFineTuneDatasetResponse
+   */
+  async updateMultimodalFineTuneDatasetWithOptions(request: $_model.UpdateMultimodalFineTuneDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMultimodalFineTuneDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetDescription)) {
+      query["DatasetDescription"] = request.datasetDescription;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMultimodalFineTuneDataset",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMultimodalFineTuneDatasetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMultimodalFineTuneDatasetResponse({}));
+  }
+
+  /**
+   * 更新微调数据集信息
+   * 
+   * @param request - UpdateMultimodalFineTuneDatasetRequest
+   * @returns UpdateMultimodalFineTuneDatasetResponse
+   */
+  async updateMultimodalFineTuneDataset(request: $_model.UpdateMultimodalFineTuneDatasetRequest): Promise<$_model.UpdateMultimodalFineTuneDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMultimodalFineTuneDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 为打标服务覆盖配置白名单
+   * 
+   * @param tmpReq - UpdateMultimodalLabelStudioServiceWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMultimodalLabelStudioServiceWhiteListResponse
+   */
+  async updateMultimodalLabelStudioServiceWhiteListWithOptions(tmpReq: $_model.UpdateMultimodalLabelStudioServiceWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMultimodalLabelStudioServiceWhiteListResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMultimodalLabelStudioServiceWhiteListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.whiteList)) {
+      request.whiteListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whiteList, "WhiteList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.whiteListShrink)) {
+      query["WhiteList"] = request.whiteListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMultimodalLabelStudioServiceWhiteList",
+      version: "2025-10-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMultimodalLabelStudioServiceWhiteListResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMultimodalLabelStudioServiceWhiteListResponse({}));
+  }
+
+  /**
+   * 为打标服务覆盖配置白名单
+   * 
+   * @param request - UpdateMultimodalLabelStudioServiceWhiteListRequest
+   * @returns UpdateMultimodalLabelStudioServiceWhiteListResponse
+   */
+  async updateMultimodalLabelStudioServiceWhiteList(request: $_model.UpdateMultimodalLabelStudioServiceWhiteListRequest): Promise<$_model.UpdateMultimodalLabelStudioServiceWhiteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMultimodalLabelStudioServiceWhiteListWithOptions(request, runtime);
   }
 
   /**

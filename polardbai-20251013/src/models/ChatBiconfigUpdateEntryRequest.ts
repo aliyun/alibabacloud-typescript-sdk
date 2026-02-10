@@ -68,7 +68,7 @@ export class ChatBIConfigUpdateEntryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 若sql_function={"replace":{"status = \"请假\"":"status = 0","status = \"出勤\"":"status = 1"}}，则表示：在sql_condition匹配的情况下，将SQL中的status = \"请假\"替换为status = 0，status = \"出勤\"替换为status = 1。
+   * 若sql_function={"replace":{"status = \\"请假\\"":"status = 0","status = \\"出勤\\"":"status = 1"}}，则表示：在sql_condition匹配的情况下，将SQL中的status = \\"请假\\"替换为status = 0，status = \\"出勤\\"替换为status = 1。
    */
   sqlFunction?: string;
   /**

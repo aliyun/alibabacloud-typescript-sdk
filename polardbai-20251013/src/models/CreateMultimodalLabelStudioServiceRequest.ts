@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListMultimodalSearchTaskRequest extends $dara.Model {
+export class CreateMultimodalLabelStudioServiceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11,35 +11,33 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetIds?: string[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 红绿灯
+   * *****
    */
-  inputField?: string;
+  password?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * flash，plus
+   * service-admin@db4ai.com
    */
-  modelMode?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
+  username?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       datasetIds: 'DatasetIds',
-      inputField: 'InputField',
-      modelMode: 'ModelMode',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
+      password: 'Password',
+      username: 'Username',
     };
   }
 
@@ -47,10 +45,8 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       datasetIds: { 'type': 'array', 'itemType': 'string' },
-      inputField: 'string',
-      modelMode: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
+      password: 'string',
+      username: 'string',
     };
   }
 

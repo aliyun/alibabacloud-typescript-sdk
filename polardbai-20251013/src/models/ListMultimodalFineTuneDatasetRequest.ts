@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListMultimodalSearchTaskRequest extends $dara.Model {
+export class ListMultimodalFineTuneDatasetRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11,17 +11,11 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   DBClusterId?: string;
-  datasetIds?: string[];
   /**
    * @example
-   * 红绿灯
+   * dataset1
    */
   inputField?: string;
-  /**
-   * @example
-   * flash，plus
-   */
-  modelMode?: string;
   /**
    * @example
    * 1
@@ -29,15 +23,13 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @example
-   * 20
+   * 10
    */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
-      datasetIds: 'DatasetIds',
       inputField: 'InputField',
-      modelMode: 'ModelMode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -46,18 +38,13 @@ export class ListMultimodalSearchTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
-      datasetIds: { 'type': 'array', 'itemType': 'string' },
       inputField: 'string',
-      modelMode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.datasetIds)) {
-      $dara.Model.validateArray(this.datasetIds);
-    }
     super.validate();
   }
 
