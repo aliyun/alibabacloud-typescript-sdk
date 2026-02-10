@@ -17178,6 +17178,10 @@ export default class Client extends OpenApi {
       query["ScanRange"] = request.scanRangeShrink;
     }
 
+    if (!$dara.isNull(request.sensitiveKeyList)) {
+      query["SensitiveKeyList"] = request.sensitiveKeyList;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19152,6 +19156,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scaVersion)) {
       query["ScaVersion"] = request.scaVersion;
+    }
+
+    if (!$dara.isNull(request.searchCriteriaList)) {
+      query["SearchCriteriaList"] = request.searchCriteriaList;
     }
 
     if (!$dara.isNull(request.searchInfo)) {
@@ -26262,6 +26270,10 @@ export default class Client extends OpenApi {
       query["VpcInstanceIds"] = request.vpcInstanceIds;
     }
 
+    if (!$dara.isNull(request.vulEntityList)) {
+      query["VulEntityList"] = request.vulEntityList;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27835,6 +27847,10 @@ export default class Client extends OpenApi {
   async getCheckCountStatisticWithOptions(request: $_model.GetCheckCountStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCheckCountStatisticResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     if (!$dara.isNull(request.statisticType)) {
       query["StatisticType"] = request.statisticType;
     }

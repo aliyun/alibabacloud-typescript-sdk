@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribePropertyScaDetailRequestSearchCriteriaList extends $dara.Model {
+  /**
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePropertyScaDetailRequest extends $dara.Model {
   /**
    * @remarks
@@ -146,6 +180,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
    * 1.0.2k
    */
   scaVersion?: string;
+  searchCriteriaList?: DescribePropertyScaDetailRequestSearchCriteriaList[];
   /**
    * @remarks
    * The search keyword. You must specify this parameter based on the value of the **SearchItem** parameter.
@@ -253,6 +288,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
       scaName: 'ScaName',
       scaNamePattern: 'ScaNamePattern',
       scaVersion: 'ScaVersion',
+      searchCriteriaList: 'SearchCriteriaList',
       searchInfo: 'SearchInfo',
       searchInfoSub: 'SearchInfoSub',
       searchItem: 'SearchItem',
@@ -280,6 +316,7 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
       scaName: 'string',
       scaNamePattern: 'string',
       scaVersion: 'string',
+      searchCriteriaList: { 'type': 'array', 'itemType': DescribePropertyScaDetailRequestSearchCriteriaList },
       searchInfo: 'string',
       searchInfoSub: 'string',
       searchItem: 'string',
@@ -291,6 +328,9 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.searchCriteriaList)) {
+      $dara.Model.validateArray(this.searchCriteriaList);
+    }
     super.validate();
   }
 

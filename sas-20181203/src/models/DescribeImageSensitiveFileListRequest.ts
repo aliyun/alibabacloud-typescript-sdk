@@ -193,6 +193,7 @@ export class DescribeImageSensitiveFileListRequest extends $dara.Model {
    * *   **container**
    */
   scanRange?: string[];
+  sensitiveKeyList?: string[];
   static names(): { [key: string]: string } {
     return {
       criteria: 'Criteria',
@@ -203,6 +204,7 @@ export class DescribeImageSensitiveFileListRequest extends $dara.Model {
       pageSize: 'PageSize',
       riskLevel: 'RiskLevel',
       scanRange: 'ScanRange',
+      sensitiveKeyList: 'SensitiveKeyList',
     };
   }
 
@@ -216,12 +218,16 @@ export class DescribeImageSensitiveFileListRequest extends $dara.Model {
       pageSize: 'number',
       riskLevel: 'string',
       scanRange: { 'type': 'array', 'itemType': 'string' },
+      sensitiveKeyList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(Array.isArray(this.scanRange)) {
       $dara.Model.validateArray(this.scanRange);
+    }
+    if(Array.isArray(this.sensitiveKeyList)) {
+      $dara.Model.validateArray(this.sensitiveKeyList);
     }
     super.validate();
   }

@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ExportVulRequestVulEntityList extends $dara.Model {
+  /**
+   * @example
+   * Ollama
+   */
+  entityName?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
+  entityVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityName: 'EntityName',
+      entityVersion: 'EntityVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityName: 'string',
+      entityVersion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportVulRequest extends $dara.Model {
   /**
    * @remarks
@@ -178,6 +212,7 @@ export class ExportVulRequest extends $dara.Model {
    * ins-133****,ins-5414****
    */
   vpcInstanceIds?: string;
+  vulEntityList?: ExportVulRequestVulEntityList[];
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
@@ -197,6 +232,7 @@ export class ExportVulRequest extends $dara.Model {
       type: 'Type',
       uuids: 'Uuids',
       vpcInstanceIds: 'VpcInstanceIds',
+      vulEntityList: 'VulEntityList',
     };
   }
 
@@ -219,10 +255,14 @@ export class ExportVulRequest extends $dara.Model {
       type: 'string',
       uuids: 'string',
       vpcInstanceIds: 'string',
+      vulEntityList: { 'type': 'array', 'itemType': ExportVulRequestVulEntityList },
     };
   }
 
   validate() {
+    if(Array.isArray(this.vulEntityList)) {
+      $dara.Model.validateArray(this.vulEntityList);
+    }
     super.validate();
   }
 

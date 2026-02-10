@@ -140,6 +140,11 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 100
+   */
+  intelligentAnalysisFlow?: number;
+  /**
    * @remarks
    * Indicates whether Security Center runs the latest version of the Ultimate edition.
    * 
@@ -246,6 +251,11 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    * 1
    */
   newThreatAnalysis?: number;
+  /**
+   * @example
+   * 10
+   */
+  onboardedAssets?: number;
   /**
    * @remarks
    * The timestamp when Security Center is purchased. Unit: milliseconds.
@@ -459,6 +469,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       imageScanCapacity: 'ImageScanCapacity',
       instanceBuyType: 'InstanceBuyType',
       instanceId: 'InstanceId',
+      intelligentAnalysisFlow: 'IntelligentAnalysisFlow',
       isNewContainerVersion: 'IsNewContainerVersion',
       isNewMultiVersion: 'IsNewMultiVersion',
       isOverBalance: 'IsOverBalance',
@@ -470,6 +481,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       mergedVersion: 'MergedVersion',
       multiVersion: 'MultiVersion',
       newThreatAnalysis: 'NewThreatAnalysis',
+      onboardedAssets: 'OnboardedAssets',
       openTime: 'OpenTime',
       postPayHostVersion: 'PostPayHostVersion',
       postPayInstanceId: 'PostPayInstanceId',
@@ -510,6 +522,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       imageScanCapacity: 'number',
       instanceBuyType: 'number',
       instanceId: 'string',
+      intelligentAnalysisFlow: 'number',
       isNewContainerVersion: 'boolean',
       isNewMultiVersion: 'boolean',
       isOverBalance: 'boolean',
@@ -521,6 +534,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       mergedVersion: 'number',
       multiVersion: 'string',
       newThreatAnalysis: 'number',
+      onboardedAssets: 'number',
       openTime: 'number',
       postPayHostVersion: 'number',
       postPayInstanceId: 'string',

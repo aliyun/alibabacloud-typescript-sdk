@@ -126,6 +126,11 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    */
   filepath?: string;
   /**
+   * @example
+   * ImageDigest
+   */
+  imageDigest?: string;
+  /**
    * @remarks
    * Image name.
    * 
@@ -279,6 +284,16 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @example
+   * ACR-Example
+   */
+  repoName?: string;
+  /**
+   * @example
+   * Default
+   */
+  repoNamespace?: string;
+  /**
    * @remarks
    * Web site type.
    * > Returned only when **Biz** is **web_server**.
@@ -297,6 +312,11 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    */
   size?: number;
   skillsName?: string;
+  /**
+   * @example
+   * AI
+   */
+  tag?: string;
   transportName?: string;
   /**
    * @remarks
@@ -343,6 +363,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
       endPoint: 'EndPoint',
       file: 'File',
       filepath: 'Filepath',
+      imageDigest: 'ImageDigest',
       imageName: 'ImageName',
       installationPath: 'InstallationPath',
       instanceId: 'InstanceId',
@@ -362,9 +383,12 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
       port: 'Port',
       processStarted: 'ProcessStarted',
       regionId: 'RegionId',
+      repoName: 'RepoName',
+      repoNamespace: 'RepoNamespace',
       serverType: 'ServerType',
       size: 'Size',
       skillsName: 'SkillsName',
+      tag: 'Tag',
       transportName: 'TransportName',
       usedByCount: 'UsedByCount',
       user: 'User',
@@ -383,6 +407,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
       endPoint: 'string',
       file: 'string',
       filepath: 'string',
+      imageDigest: 'string',
       imageName: 'string',
       installationPath: 'string',
       instanceId: 'string',
@@ -402,9 +427,12 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
       port: 'string',
       processStarted: 'number',
       regionId: 'string',
+      repoName: 'string',
+      repoNamespace: 'string',
       serverType: 'string',
       size: 'number',
       skillsName: 'string',
+      tag: 'string',
       transportName: 'string',
       usedByCount: 'number',
       user: 'string',

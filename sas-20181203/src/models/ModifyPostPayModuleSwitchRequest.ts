@@ -14,6 +14,11 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
    */
   agentless?: number;
   /**
+   * @example
+   * 1
+   */
+  aiDigital?: number;
+  /**
    * @remarks
    * Anti-Ransomware Module. Values:
    * - **0**: Off
@@ -128,6 +133,7 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   static names(): { [key: string]: string } {
     return {
       agentless: 'Agentless',
+      aiDigital: 'AiDigital',
       antiRansomware: 'AntiRansomware',
       basicService: 'BasicService',
       cspm: 'Cspm',
@@ -145,6 +151,7 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
   static types(): { [key: string]: any } {
     return {
       agentless: 'number',
+      aiDigital: 'number',
       antiRansomware: 'number',
       basicService: 'number',
       cspm: 'number',

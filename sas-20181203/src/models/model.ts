@@ -352,6 +352,7 @@ export { DescribePropertyProcDetailResponseBodyPageInfo } from './DescribeProper
 export { DescribePropertyProcDetailResponseBodyPropertys } from './DescribePropertyProcDetailResponseBody';
 export { DescribePropertyProcItemResponseBodyPageInfo } from './DescribePropertyProcItemResponseBody';
 export { DescribePropertyProcItemResponseBodyPropertyItems } from './DescribePropertyProcItemResponseBody';
+export { DescribePropertyScaDetailRequestSearchCriteriaList } from './DescribePropertyScaDetailRequest';
 export { DescribePropertyScaDetailResponseBodyPageInfo } from './DescribePropertyScaDetailResponseBody';
 export { DescribePropertyScaDetailResponseBodyPropertys } from './DescribePropertyScaDetailResponseBody';
 export { DescribePropertyScaItemResponseBodyPageInfo } from './DescribePropertyScaItemResponseBody';
@@ -500,6 +501,7 @@ export { DescribeWhiteListEffectiveAssetsResponseBodyAssets } from './DescribeWh
 export { DescribeWhiteListProcessResponseBodyProcesses } from './DescribeWhiteListProcessResponseBody';
 export { DescribeWhiteListStrategyListResponseBodyStrategies } from './DescribeWhiteListStrategyListResponseBody';
 export { DescribeWhiteListStrategyStatisticsResponseBodyStrategies } from './DescribeWhiteListStrategyStatisticsResponseBody';
+export { ExportVulRequestVulEntityList } from './ExportVulRequest';
 export { FindContainerNetworkConnectRequestDstNode } from './FindContainerNetworkConnectRequest';
 export { FindContainerNetworkConnectRequestSrcNode } from './FindContainerNetworkConnectRequest';
 export { FindContainerNetworkConnectResponseBodyConnectsDstContainer } from './FindContainerNetworkConnectResponseBody';

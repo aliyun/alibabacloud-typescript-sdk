@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCheckCountStatisticRequest extends $dara.Model {
   /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
    * @remarks
    * The type of the statistics. Valid values:
    * 
@@ -28,6 +33,7 @@ export class GetCheckCountStatisticRequest extends $dara.Model {
   vendors?: string[];
   static names(): { [key: string]: string } {
     return {
+      lang: 'Lang',
       statisticType: 'StatisticType',
       taskSources: 'TaskSources',
       vendors: 'Vendors',
@@ -36,6 +42,7 @@ export class GetCheckCountStatisticRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      lang: 'string',
       statisticType: 'string',
       taskSources: { 'type': 'array', 'itemType': 'string' },
       vendors: { 'type': 'array', 'itemType': 'string' },

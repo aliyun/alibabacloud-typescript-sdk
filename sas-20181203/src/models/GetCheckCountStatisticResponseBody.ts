@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCheckCountStatisticResponseBodyCheckCountStatisticDTOCheckCountStatisticItems extends $dara.Model {
   /**
+   * @example
+   * 开启公网访问
+   */
+  checkShowName?: string;
+  /**
    * @remarks
    * The number of the CPU cores used by the host instance.
    * 
@@ -179,6 +184,11 @@ export class GetCheckCountStatisticResponseBodyCheckCountStatisticDTOCheckCountS
    */
   vendor?: number;
   /**
+   * @example
+   * 阿里云
+   */
+  vendorShowName?: string;
+  /**
    * @remarks
    * The ID of the VPC to which the host instance belongs.
    * 
@@ -188,6 +198,7 @@ export class GetCheckCountStatisticResponseBodyCheckCountStatisticDTOCheckCountS
   vpcInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      checkShowName: 'CheckShowName',
       cores: 'Cores',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -202,12 +213,14 @@ export class GetCheckCountStatisticResponseBodyCheckCountStatisticDTOCheckCountS
       riskCount: 'RiskCount',
       uuid: 'Uuid',
       vendor: 'Vendor',
+      vendorShowName: 'VendorShowName',
       vpcInstanceId: 'VpcInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      checkShowName: 'string',
       cores: 'number',
       instanceId: 'string',
       instanceName: 'string',
@@ -222,6 +235,7 @@ export class GetCheckCountStatisticResponseBodyCheckCountStatisticDTOCheckCountS
       riskCount: 'number',
       uuid: 'string',
       vendor: 'number',
+      vendorShowName: 'string',
       vpcInstanceId: 'string',
     };
   }
