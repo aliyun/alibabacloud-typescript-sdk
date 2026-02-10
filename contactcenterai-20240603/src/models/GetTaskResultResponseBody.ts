@@ -43,9 +43,128 @@ export class GetTaskResultResponseBodyDataAsrResult extends $dara.Model {
   }
 }
 
+export class GetTaskResultResponseBodyDataUsageRagAdaptive extends $dara.Model {
+  inputTokens?: number;
+  invokeCount?: number;
+  outputTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      invokeCount: 'invokeCount',
+      outputTokens: 'outputTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      invokeCount: 'number',
+      outputTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBodyDataUsageRagDialogSummary extends $dara.Model {
+  inputTokens?: number;
+  invokeCount?: number;
+  outputTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      invokeCount: 'invokeCount',
+      outputTokens: 'outputTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      invokeCount: 'number',
+      outputTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBodyDataUsageRag extends $dara.Model {
+  adaptive?: GetTaskResultResponseBodyDataUsageRagAdaptive;
+  dialogSummary?: GetTaskResultResponseBodyDataUsageRagDialogSummary;
+  static names(): { [key: string]: string } {
+    return {
+      adaptive: 'adaptive',
+      dialogSummary: 'dialogSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adaptive: GetTaskResultResponseBodyDataUsageRagAdaptive,
+      dialogSummary: GetTaskResultResponseBodyDataUsageRagDialogSummary,
+    };
+  }
+
+  validate() {
+    if(this.adaptive && typeof (this.adaptive as any).validate === 'function') {
+      (this.adaptive as any).validate();
+    }
+    if(this.dialogSummary && typeof (this.dialogSummary as any).validate === 'function') {
+      (this.dialogSummary as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBodyDataUsage extends $dara.Model {
+  rag?: GetTaskResultResponseBodyDataUsageRag;
+  static names(): { [key: string]: string } {
+    return {
+      rag: 'rag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rag: GetTaskResultResponseBodyDataUsageRag,
+    };
+  }
+
+  validate() {
+    if(this.rag && typeof (this.rag as any).validate === 'function') {
+      (this.rag as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskResultResponseBodyData extends $dara.Model {
   asrResult?: GetTaskResultResponseBodyDataAsrResult[];
   extra?: string;
+  ragErrorMessage?: string;
+  ragResult?: string;
+  ragStatus?: string;
   taskErrorMessage?: string;
   /**
    * @example
@@ -58,14 +177,19 @@ export class GetTaskResultResponseBodyData extends $dara.Model {
    */
   taskStatus?: string;
   text?: string;
+  usage?: GetTaskResultResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
       asrResult: 'asrResult',
       extra: 'extra',
+      ragErrorMessage: 'ragErrorMessage',
+      ragResult: 'ragResult',
+      ragStatus: 'ragStatus',
       taskErrorMessage: 'taskErrorMessage',
       taskId: 'taskId',
       taskStatus: 'taskStatus',
       text: 'text',
+      usage: 'usage',
     };
   }
 
@@ -73,16 +197,23 @@ export class GetTaskResultResponseBodyData extends $dara.Model {
     return {
       asrResult: { 'type': 'array', 'itemType': GetTaskResultResponseBodyDataAsrResult },
       extra: 'string',
+      ragErrorMessage: 'string',
+      ragResult: 'string',
+      ragStatus: 'string',
       taskErrorMessage: 'string',
       taskId: 'string',
       taskStatus: 'string',
       text: 'string',
+      usage: GetTaskResultResponseBodyDataUsage,
     };
   }
 
   validate() {
     if(Array.isArray(this.asrResult)) {
       $dara.Model.validateArray(this.asrResult);
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
     }
     super.validate();
   }
