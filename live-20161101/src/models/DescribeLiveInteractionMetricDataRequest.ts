@@ -23,6 +23,7 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
    * 1698195600000
    */
   beginTs?: number;
+  channelId?: string;
   /**
    * @remarks
    * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
@@ -68,6 +69,7 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
     return {
       appId: 'AppId',
       beginTs: 'BeginTs',
+      channelId: 'ChannelId',
       endTs: 'EndTs',
       metricType: 'MetricType',
       os: 'Os',
@@ -79,6 +81,7 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
     return {
       appId: 'string',
       beginTs: 'number',
+      channelId: 'string',
       endTs: 'number',
       metricType: 'string',
       os: 'string',

@@ -13884,6 +13884,10 @@ export default class Client extends OpenApi {
       query["BeginTs"] = request.beginTs;
     }
 
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
     if (!$dara.isNull(request.endTs)) {
       query["EndTs"] = request.endTs;
     }
