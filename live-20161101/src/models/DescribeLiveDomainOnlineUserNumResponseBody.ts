@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainOnlineUserNumResponseBodyOnlineUserInfoLiveStreamOnlineUserNumInfoInfosInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The transcoding template. A value of origin indicates that the stream is a source stream.
-   * 
-   * @example
-   * origin
-   */
   transcodeTemplate?: string;
-  /**
-   * @remarks
-   * The number of online users for the stream, which can be a source stream or transcoded stream.
-   * 
-   * @example
-   * 1
-   */
   userNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,18 +55,7 @@ export class DescribeLiveDomainOnlineUserNumResponseBodyOnlineUserInfoLiveStream
 }
 
 export class DescribeLiveDomainOnlineUserNumResponseBodyOnlineUserInfoLiveStreamOnlineUserNumInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The statistics on the stream.
-   */
   infos?: DescribeLiveDomainOnlineUserNumResponseBodyOnlineUserInfoLiveStreamOnlineUserNumInfoInfos;
-  /**
-   * @remarks
-   * The name of the stream.
-   * 
-   * @example
-   * rtmp://example.com/test/liveStream****_3_1
-   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,10 +110,6 @@ export class DescribeLiveDomainOnlineUserNumResponseBodyOnlineUserInfo extends $
 }
 
 export class DescribeLiveDomainOnlineUserNumResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the streams.
-   */
   onlineUserInfo?: DescribeLiveDomainOnlineUserNumResponseBodyOnlineUserInfo;
   /**
    * @remarks

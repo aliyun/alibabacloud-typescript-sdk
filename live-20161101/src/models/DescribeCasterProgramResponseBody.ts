@@ -29,80 +29,14 @@ export class DescribeCasterProgramResponseBodyEpisodesEpisodeComponentIds extend
 }
 
 export class DescribeCasterProgramResponseBodyEpisodesEpisode extends $dara.Model {
-  /**
-   * @remarks
-   * The components.
-   */
   componentIds?: DescribeCasterProgramResponseBodyEpisodesEpisodeComponentIds;
-  /**
-   * @remarks
-   * The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2016-06-29T10:02:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The ID of the episode.
-   * 
-   * @example
-   * 1872639A-F203-4EC5-8E43-CB92E68F****
-   */
   episodeId?: string;
-  /**
-   * @remarks
-   * The name of the episode.
-   * 
-   * @example
-   * program_name_1
-   */
   episodeName?: string;
-  /**
-   * @remarks
-   * The type of the episode. Valid values:
-   * 
-   * *   **Resource**: a video resource
-   * *   **Component**: a component
-   * 
-   * @example
-   * Resource
-   */
   episodeType?: string;
-  /**
-   * @remarks
-   * The ID of the video resource.
-   * 
-   * @example
-   * 1872639A-F203-4EC5-8E43-CB92E837****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2016-06-29T09:00:00Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The status of the episode.
-   * 
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @remarks
-   * The policy for switching episodes. Valid values:
-   * 
-   * *   **TimeFirst**: The episode starts when the previous episode ends and ends when the next episode starts. If no next episode exists, the episode keeps repeating until a new episode is added or the production studio stops. This value is required for live video resources.
-   * *   **ContentFirst**: The episode starts and ends as scheduled.
-   * 
-   * @example
-   * TimeFirst
-   */
   switchType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -179,10 +113,6 @@ export class DescribeCasterProgramResponseBody extends $dara.Model {
    * LIVEPRODUCER_POST-cn-0pp1czt****
    */
   casterId?: string;
-  /**
-   * @remarks
-   * The list of the episodes.
-   */
   episodes?: DescribeCasterProgramResponseBodyEpisodes;
   /**
    * @remarks

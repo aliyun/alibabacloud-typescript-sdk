@@ -3,38 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCasterStreamUrlResponseBodyCasterStreamsCasterStreamStreamInfosStreamInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The streaming URL.
-   * 
-   * @example
-   * http://out/caster/example.net
-   */
   outputStreamUrl?: string;
-  /**
-   * @remarks
-   * The resolution to which the scene transcodes the stream for playback. Valid values:
-   * 
-   * *   **lsd**: standard definition.
-   * *   **lld**: low definition.
-   * *   **lud**: ultra high definition.
-   * *   **lhd**: high definition.
-   * 
-   * @example
-   * lld
-   */
   transcodeConfig?: string;
-  /**
-   * @remarks
-   * The format to which the scene transcodes the stream for playback. Valid values:
-   * 
-   * *   **flv**.
-   * *   **rtmp**.
-   * *   **m3u8**.
-   * 
-   * @example
-   * flv
-   */
   videoFormat?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,45 +58,10 @@ export class DescribeCasterStreamUrlResponseBodyCasterStreamsCasterStreamStreamI
 }
 
 export class DescribeCasterStreamUrlResponseBodyCasterStreamsCasterStream extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the output stream is in preview mode or program mode.
-   * 
-   * *   **0**: indicates that the output videos of the scene are in preview mode.
-   * *   **1**: indicates that the output videos of the scene are in program mode.
-   * 
-   * @example
-   * 1
-   */
   outputType?: number;
-  /**
-   * @remarks
-   * The Real Time Messaging Protocol (RTMP) URL.
-   * 
-   * @example
-   * rtmp://live/caster/example.edu
-   */
   rtmpUrl?: string;
-  /**
-   * @remarks
-   * The ID of the scene.
-   * 
-   * @example
-   * 23ca74e0-aca3-4e7a-8561-9d96f525****
-   */
   sceneId?: string;
-  /**
-   * @remarks
-   * The information about the stream.
-   */
   streamInfos?: DescribeCasterStreamUrlResponseBodyCasterStreamsCasterStreamStreamInfos;
-  /**
-   * @remarks
-   * The streaming URL.
-   * 
-   * @example
-   * http://live/caster/example.org
-   */
   streamUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -195,10 +130,6 @@ export class DescribeCasterStreamUrlResponseBody extends $dara.Model {
    * a2b8e671-2fe5-4642-a2ec-bf93880e****
    */
   casterId?: string;
-  /**
-   * @remarks
-   * The information about the streams of the production studio.
-   */
   casterStreams?: DescribeCasterStreamUrlResponseBodyCasterStreams;
   /**
    * @remarks

@@ -3,68 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveLazyPullStreamConfigResponseBodyLiveLazyPullConfigListLiveLazyPullConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The name of the application for back-to-origin stream pulling. If the application specified in the streaming URL is used, this parameter is left empty.
-   * 
-   * @example
-   * livePullApp****
-   */
   pullAppName?: string;
-  /**
-   * @remarks
-   * The parameters of back-to-origin stream pulling.
-   * 
-   * @example
-   * k=v
-   */
   pullArgs?: string;
-  /**
-   * @remarks
-   * The domain name for back-to-origin stream pulling.
-   * 
-   * @example
-   * guide.aliyundoc.com
-   */
   pullDomainName?: string;
-  /**
-   * @remarks
-   * The protocol for back-to-origin stream pulling. Valid values:
-   * 
-   * *   **rtmp**
-   * *   **httpflv**
-   * *   **hls**
-   * 
-   * @example
-   * RTMP
-   */
   pullProtocol?: string;
-  /**
-   * @remarks
-   * Indicates whether stream pulling is triggered when the transcoded stream is played. Default value: **no**. Valid values:
-   * 
-   * *   **yes**
-   * *   **no**
-   * 
-   * @example
-   * no
-   */
   transcodeLazy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,10 +70,6 @@ export class DescribeLiveLazyPullStreamConfigResponseBodyLiveLazyPullConfigList 
 }
 
 export class DescribeLiveLazyPullStreamConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of triggered stream pulling.
-   */
   liveLazyPullConfigList?: DescribeLiveLazyPullStreamConfigResponseBodyLiveLazyPullConfigList;
   /**
    * @remarks

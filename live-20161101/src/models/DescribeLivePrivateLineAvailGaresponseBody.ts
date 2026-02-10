@@ -3,102 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLivePrivateLineAvailGAResponseBodyLivePrivateLineAvailGAsLivePrivateLineAvailGA extends $dara.Model {
-  /**
-   * @remarks
-   * The acceleration channel.
-   * 
-   * @example
-   * ap-southeast-1
-   */
   accelerationArea?: string;
-  /**
-   * @remarks
-   * The acceleration type. Valid values:
-   * 
-   * *   play: streaming acceleration
-   * *   publish: stream ingest acceleration
-   * 
-   * @example
-   * play
-   */
   accelerationType?: string;
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * live
-   */
   appName?: string;
-  /**
-   * @remarks
-   * Indicates whether the GA instance is bound to an acceleration circuit. Valid values:
-   * 
-   * *   yes
-   * *   no
-   * 
-   * @example
-   * yes
-   */
   bindingStatus?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * demo.aliyundoc.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The accelerated IP address.
-   * 
-   * @example
-   * 127.0.0.1
-   */
   IP?: string;
-  /**
-   * @remarks
-   * The ID of the GA instance.
-   * 
-   * @example
-   * ga-bp1iovsdpf01ym9su****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The status of the GA instance. Valid values:
-   * 
-   * *   active: The GA instance is available.
-   * *   inactive: The GA instance is unavailable.
-   * 
-   * @example
-   * active
-   */
   status?: string;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * testStream
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The user ID (UID).
-   * 
-   * @example
-   * 1833220971116****
-   */
   uid?: string;
-  /**
-   * @remarks
-   * The live center.
-   * 
-   * @example
-   * cn-shanghai
-   */
   videoCenter?: string;
   static names(): { [key: string]: string } {
     return {
@@ -168,10 +82,6 @@ export class DescribeLivePrivateLineAvailGAResponseBodyLivePrivateLineAvailGAs e
 }
 
 export class DescribeLivePrivateLineAvailGAResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The GA instance configuration details.
-   */
   livePrivateLineAvailGAs?: DescribeLivePrivateLineAvailGAResponseBodyLivePrivateLineAvailGAs;
   /**
    * @remarks

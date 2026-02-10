@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveRealtimeDeliveryAccResponseBodyRealTimeDeliveryAccDataAccData extends $dara.Model {
-  /**
-   * @remarks
-   * The number of failed real-time log deliveries.
-   * 
-   * @example
-   * 0
-   */
   failedNum?: number;
-  /**
-   * @remarks
-   * The number of successful real-time log deliveries.
-   * 
-   * @example
-   * 321321
-   */
   successNum?: number;
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2015-12-10T20:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeLiveRealtimeDeliveryAccResponseBodyRealTimeDeliveryAccData 
 }
 
 export class DescribeLiveRealtimeDeliveryAccResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about real-time log deliveries.
-   */
   realTimeDeliveryAccData?: DescribeLiveRealtimeDeliveryAccResponseBodyRealTimeDeliveryAccData;
   /**
    * @remarks

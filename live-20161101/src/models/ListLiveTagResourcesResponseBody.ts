@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLiveTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @example
-   * my-resource-id
-   */
   resourceId?: string;
-  /**
-   * @example
-   * DOMAIN
-   */
   resourceType?: string;
-  /**
-   * @example
-   * env
-   */
   tagKey?: string;
-  /**
-   * @example
-   * dev
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {

@@ -29,38 +29,8 @@ export class DescribeCasterScenesResponseBodySceneListSceneComponentIds extends 
 }
 
 export class DescribeCasterScenesResponseBodySceneListSceneStreamInfosStreamInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The streaming URL.
-   * 
-   * @example
-   * http://live/caster/example.net
-   */
   outputStreamUrl?: string;
-  /**
-   * @remarks
-   * The transcoding configuration. Valid values:
-   * 
-   * *   **sd**: standard definition
-   * *   **lld**: low definition
-   * *   **lud**: ultra-high definition
-   * *   **lhd**: high definition
-   * 
-   * @example
-   * lld
-   */
   transcodeConfig?: string;
-  /**
-   * @remarks
-   * The format. Valid values:
-   * 
-   * *   **flv**
-   * *   **mp4**
-   * *   **m3u8**
-   * 
-   * @example
-   * flv
-   */
   videoFormat?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,69 +84,13 @@ export class DescribeCasterScenesResponseBodySceneListSceneStreamInfos extends $
 }
 
 export class DescribeCasterScenesResponseBodySceneListScene extends $dara.Model {
-  /**
-   * @remarks
-   * The components.
-   */
   componentIds?: DescribeCasterScenesResponseBodySceneListSceneComponentIds;
-  /**
-   * @remarks
-   * The ID of the layout.
-   * 
-   * @example
-   * 37cb2f8b-f152-4338-b928-6704f71d****
-   */
   layoutId?: string;
-  /**
-   * @remarks
-   * Indicates whether the output video is in PVW mode or PGM mode. Valid values:
-   * 
-   * *   **0**: in PVW mode.
-   * *   **1**: in PGM mode.
-   * 
-   * @example
-   * 0
-   */
   outputType?: string;
-  /**
-   * @remarks
-   * The ID of the scene. You can use the ID as a request parameter in the API operation that is used to modify the audio configurations of the scene, query the audio configurations of the scene, start the scene, or stop the scene.
-   * 
-   * @example
-   * b5f8c837-ceeb-424f-b30b-68e94e86****
-   */
   sceneId?: string;
-  /**
-   * @remarks
-   * The name of the scene.
-   * 
-   * @example
-   * scene1
-   */
   sceneName?: string;
-  /**
-   * @remarks
-   * The status of the scene. Valid values:
-   * 
-   * *   **0**: disabled
-   * *   **1**: enabled
-   * 
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @remarks
-   * The information about the stream.
-   */
   streamInfos?: DescribeCasterScenesResponseBodySceneListSceneStreamInfos;
-  /**
-   * @remarks
-   * The URL of the output stream.
-   * 
-   * @example
-   * rtmp://developer.aliyundoc.com/caster/4a82a3d1b7f0462ea37348366201****?auth_key=1608953344-0-0-ac8c628078541d7055a170ec59a5****
-   */
   streamUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -254,10 +168,6 @@ export class DescribeCasterScenesResponseBody extends $dara.Model {
    * The ID of the scene.
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The scenes.
-   */
   sceneList?: DescribeCasterScenesResponseBodySceneList;
   /**
    * @remarks

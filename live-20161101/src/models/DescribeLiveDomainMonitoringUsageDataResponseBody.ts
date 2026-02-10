@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainMonitoringUsageDataResponseBodyMonitoringDataMonitoringDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name. This field is valid only when you specify domain for the **SplitBy** parameter.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The duration. Unit: minutes.
-   * 
-   * @example
-   * 2000
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The ID of the monitoring session. This field is valid only when you specify instance for the **SplitBy** parameter.
-   * 
-   * @example
-   * e62af24d-a354-3b0c-9f1f-da592c4b****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The region of the live center. This field is valid only when you specify Region for the **SplitBy** parameter.
-   * 
-   * @example
-   * cn-shanghai
-   */
   region?: string;
-  /**
-   * @remarks
-   * The resolution. This field is valid only when you specify resolution for the **SplitBy** parameter.
-   * 
-   * @example
-   * 720P
-   */
   resolution?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2022-12-10T20:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -133,10 +91,6 @@ export class DescribeLiveDomainMonitoringUsageDataResponseBody extends $dara.Mod
    * e62af24d-a354-3b0c-9f1f-da592c4b****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The live monitoring data.
-   */
   monitoringData?: DescribeLiveDomainMonitoringUsageDataResponseBodyMonitoringData;
   /**
    * @remarks

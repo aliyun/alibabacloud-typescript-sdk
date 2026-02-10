@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLiveRealtimeLogDeliveryInfosResponseBodyContentRealtimeLogDeliveryInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the Logstore to which log entries are delivered.
-   * 
-   * @example
-   * logstore_example
-   */
   logstore?: string;
-  /**
-   * @remarks
-   * The name of the Log Service project that is used for real-time log delivery.
-   * 
-   * @example
-   * project_example
-   */
   project?: string;
-  /**
-   * @remarks
-   * The ID of the region where the Log Service project is deployed.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class ListLiveRealtimeLogDeliveryInfosResponseBodyContent extends $dara.M
 }
 
 export class ListLiveRealtimeLogDeliveryInfosResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the configuration of real-time log delivery.
-   */
   content?: ListLiveRealtimeLogDeliveryInfosResponseBodyContent;
   /**
    * @remarks

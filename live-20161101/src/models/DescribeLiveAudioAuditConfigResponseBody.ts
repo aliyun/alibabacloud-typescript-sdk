@@ -29,42 +29,10 @@ export class DescribeLiveAudioAuditConfigResponseBodyLiveAudioAuditConfigListLiv
 }
 
 export class DescribeLiveAudioAuditConfigResponseBodyLiveAudioAuditConfigListLiveAudioAuditConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application to which the live stream belongs.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The business type. You can specify a model. The default value is the domain name.
-   * 
-   * @example
-   * example.edu
-   */
   bizType?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The moderation scenarios.
-   */
   scenes?: DescribeLiveAudioAuditConfigResponseBodyLiveAudioAuditConfigListLiveAudioAuditConfigScenes;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * liveStream****
-   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,10 +93,6 @@ export class DescribeLiveAudioAuditConfigResponseBodyLiveAudioAuditConfigList ex
 }
 
 export class DescribeLiveAudioAuditConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of audio moderation configurations.
-   */
   liveAudioAuditConfigList?: DescribeLiveAudioAuditConfigResponseBodyLiveAudioAuditConfigList;
   /**
    * @remarks

@@ -3,25 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteLiveStreamRecordIndexFilesResponseBodyRecordDeleteInfoListRecordDeleteInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The processing result of each file indicated by the file ID. Valid values:
-   * 
-   * *   **OK**: The file has been deleted.
-   * *   **AccessDenied**: Access to the file has been denied.
-   * *   **FileNotFound**: The file fails to be found.
-   * 
-   * @example
-   * OK
-   */
   message?: string;
-  /**
-   * @remarks
-   * The ID of the index file that is used to locate the live stream recording files to be deleted.
-   * 
-   * @example
-   * c4d7f0a4-b506-43f9-8de3-07732c3f**
-   */
   recordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +71,6 @@ export class DeleteLiveStreamRecordIndexFilesResponseBody extends $dara.Model {
    * OK
    */
   message?: string;
-  /**
-   * @remarks
-   * The deletion information.
-   */
   recordDeleteInfoList?: DeleteLiveStreamRecordIndexFilesResponseBodyRecordDeleteInfoList;
   /**
    * @remarks

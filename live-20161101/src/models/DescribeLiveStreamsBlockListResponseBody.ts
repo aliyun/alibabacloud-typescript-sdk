@@ -61,10 +61,6 @@ export class DescribeLiveStreamsBlockListResponseBody extends $dara.Model {
    * 9D855EC8-CF71-4615-B164-F7DFCB23B41D
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The complete URL of each live stream.
-   */
   streamUrls?: DescribeLiveStreamsBlockListResponseBodyStreamUrls;
   /**
    * @remarks

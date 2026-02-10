@@ -3,49 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLiveDelayConfigResponseBodyDelayConfigListDelayConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application to which the live stream belongs.
-   * 
-   * @example
-   * liveApp****
-   */
   app?: string;
-  /**
-   * @remarks
-   * The duration for which the playback of the live stream is delayed. Unit: seconds.
-   * 
-   * @example
-   * 60
-   */
   delayTime?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * liveStream****
-   */
   stream?: string;
-  /**
-   * @remarks
-   * The trigger mode. Valid values:
-   * 
-   * *   **PUBLISH_ONLY**: Stream delay can be triggered only by specifying the stream delay parameter in the ingest URL.
-   * *   **CONFIG_ONLY**: Stream delay can be triggered only by the stream delay configuration.
-   * *   **PUBLISH_CONFIG**: Stream delay can be triggered by the stream delay parameter in the ingest URL or the stream delay configuration. The stream delay parameter takes precedence over the stream delay configuration.
-   * 
-   * @example
-   * PUBLISH_ONLY
-   */
   taskTriggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +64,6 @@ export class ListLiveDelayConfigResponseBodyDelayConfigList extends $dara.Model 
 }
 
 export class ListLiveDelayConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The stream delay configurations.
-   */
   delayConfigList?: ListLiveDelayConfigResponseBodyDelayConfigList;
   /**
    * @remarks

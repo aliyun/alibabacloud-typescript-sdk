@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamCountResponseBodyStreamCountInfosStreamCountInfoStreamCountDetailsStreamCountDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The number of online streams.
-   * 
-   * @example
-   * 2
-   */
   count?: number;
-  /**
-   * @remarks
-   * The video codec. Valid values:
-   * 
-   * *   **h264**
-   * *   **h265**
-   * 
-   * @example
-   * h264
-   */
   format?: string;
-  /**
-   * @remarks
-   * The video bitrate. This parameter is returned only for transcoded streams.
-   * 
-   * @example
-   * 390
-   */
   videoDataRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -82,37 +58,9 @@ export class DescribeLiveStreamCountResponseBodyStreamCountInfosStreamCountInfoS
 }
 
 export class DescribeLiveStreamCountResponseBodyStreamCountInfosStreamCountInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of online streams.
-   * 
-   * @example
-   * 3
-   */
   count?: number;
-  /**
-   * @remarks
-   * The maximum allowed number of concurrently ingested streams. This parameter is available only to users in the whitelist.
-   * 
-   * @example
-   * 10
-   */
   limit?: number;
-  /**
-   * @remarks
-   * The information about the live streams.
-   */
   streamCountDetails?: DescribeLiveStreamCountResponseBodyStreamCountInfosStreamCountInfoStreamCountDetails;
-  /**
-   * @remarks
-   * The type of the live stream. Valid values:
-   * 
-   * *   **raw**: source streams
-   * *   **trans**: transcoded streams
-   * 
-   * @example
-   * raw
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -179,10 +127,6 @@ export class DescribeLiveStreamCountResponseBody extends $dara.Model {
    * FCFFE4A4-F34F-4EEF-B401-36A01689AFBC
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The statistics of the live streams.
-   */
   streamCountInfos?: DescribeLiveStreamCountResponseBodyStreamCountInfos;
   static names(): { [key: string]: string } {
     return {

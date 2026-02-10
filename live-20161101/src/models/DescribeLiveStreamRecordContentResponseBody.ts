@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamRecordContentResponseBodyRecordContentInfoListRecordContentInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The beginning of the time range for which the recordings were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 10
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The recordings.
-   * 
-   * @example
-   * 2015-12-01T07:46:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The recording length. Unit: seconds.
-   * 
-   * @example
-   * liveBucket****
-   */
   ossBucket?: string;
-  /**
-   * @remarks
-   * The naming rule of recordings in OSS.
-   * 
-   * @example
-   * cn-oss-****.aliyuncs.com
-   */
   ossEndpoint?: string;
-  /**
-   * @remarks
-   * The name of the Object Storage Service (OSS) bucket.
-   * 
-   * @example
-   * record/{Date}/{UnixTimestamp}_{Sequence}
-   */
   ossObjectPrefix?: string;
-  /**
-   * @remarks
-   * The end of the time range for which the recordings were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-12-01T07:36:00Z
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,10 +67,6 @@ export class DescribeLiveStreamRecordContentResponseBodyRecordContentInfoList ex
 }
 
 export class DescribeLiveStreamRecordContentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   */
   recordContentInfoList?: DescribeLiveStreamRecordContentResponseBodyRecordContentInfoList;
   /**
    * @remarks

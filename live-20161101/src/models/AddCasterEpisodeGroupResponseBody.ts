@@ -29,10 +29,6 @@ export class AddCasterEpisodeGroupResponseBodyItemIds extends $dara.Model {
 }
 
 export class AddCasterEpisodeGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the episodes.
-   */
   itemIds?: AddCasterEpisodeGroupResponseBodyItemIds;
   /**
    * @remarks

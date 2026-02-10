@@ -3,25 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainUsageDataResponseBodyUsageDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-12-10T20:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The amount of resource usage.
-   * 
-   * *   If the value of the Field parameter is traf or req_traf, the returned data is measured in bytes.
-   * *   If the value of the Field parameter is bps or req_bps, the returned data is measured in bit/s.
-   * *   If the value of the Field parameter is acc, the returned data is measured by count.
-   * 
-   * @example
-   * 423304182
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,10 +111,6 @@ export class DescribeDomainUsageDataResponseBody extends $dara.Model {
    * all
    */
   type?: string;
-  /**
-   * @remarks
-   * The resource usage data that was collected for each time interval.
-   */
   usageDataPerInterval?: DescribeDomainUsageDataResponseBodyUsageDataPerInterval;
   static names(): { [key: string]: string } {
     return {

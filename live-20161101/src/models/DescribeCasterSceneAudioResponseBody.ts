@@ -3,33 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCasterSceneAudioResponseBodyAudioLayersAudioLayer extends $dara.Model {
-  /**
-   * @remarks
-   * The fixed delay of the audio layer. Unit: milliseconds.
-   * 
-   * @example
-   * 2000
-   */
   fixedDelayDuration?: number;
-  /**
-   * @remarks
-   * The sound channel type of the audio layer. Valid values:
-   * 
-   * *   **left**: the left channel
-   * *   **right**: the right channel
-   * *   **all** (default): both the left and right channels
-   * 
-   * @example
-   * all
-   */
   validChannel?: string;
-  /**
-   * @remarks
-   * The volume of the audio layer.
-   * 
-   * @example
-   * 1
-   */
   volumeRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -109,10 +84,6 @@ export class DescribeCasterSceneAudioResponseBodyMixList extends $dara.Model {
 }
 
 export class DescribeCasterSceneAudioResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the audio layers.
-   */
   audioLayers?: DescribeCasterSceneAudioResponseBodyAudioLayers;
   /**
    * @remarks

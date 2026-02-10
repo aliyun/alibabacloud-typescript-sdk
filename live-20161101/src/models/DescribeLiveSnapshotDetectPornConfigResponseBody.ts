@@ -29,58 +29,12 @@ export class DescribeLiveSnapshotDetectPornConfigResponseBodyLiveSnapshotDetectP
 }
 
 export class DescribeLiveSnapshotDetectPornConfigResponseBodyLiveSnapshotDetectPornConfigListLiveSnapshotDetectPornConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The application name.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The interval at which snapshots are captured from the live stream. Unit: seconds.
-   * 
-   * @example
-   * 80
-   */
   interval?: number;
-  /**
-   * @remarks
-   * The name of the OSS bucket.
-   * 
-   * @example
-   * liveBucket****
-   */
   ossBucket?: string;
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket.
-   * 
-   * @example
-   * cn-oss-****.aliyuncs.com
-   */
   ossEndpoint?: string;
-  /**
-   * @remarks
-   * The name of the storage file in Object Storage Service (OSS).
-   * 
-   * @example
-   * {liveApp****}/{liveStream****}/{Date}/{Hour}/{Minute}_{Second}.jpg
-   */
   ossObject?: string;
-  /**
-   * @remarks
-   * The moderation scenario array.
-   */
   scenes?: DescribeLiveSnapshotDetectPornConfigResponseBodyLiveSnapshotDetectPornConfigListLiveSnapshotDetectPornConfigScenes;
   static names(): { [key: string]: string } {
     return {
@@ -145,10 +99,6 @@ export class DescribeLiveSnapshotDetectPornConfigResponseBodyLiveSnapshotDetectP
 }
 
 export class DescribeLiveSnapshotDetectPornConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of video moderation configurations.
-   */
   liveSnapshotDetectPornConfigList?: DescribeLiveSnapshotDetectPornConfigResponseBodyLiveSnapshotDetectPornConfigList;
   /**
    * @remarks

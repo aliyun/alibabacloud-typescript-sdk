@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValueRealTimeCodeProportionData extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * The number of times the HTTP status code was returned.
-   * 
-   * @example
-   * 20
-   */
   count?: string;
-  /**
-   * @remarks
-   * The proportion of the HTTP status code.
-   * 
-   * @example
-   * 66.046511627907
-   */
   proportion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,18 +58,7 @@ export class DescribeLiveDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeD
 }
 
 export class DescribeLiveDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageData extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2015-11-30T05:39:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The proportions of HTTP status codes.
-   */
   value?: DescribeLiveDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
@@ -169,10 +137,6 @@ export class DescribeLiveDomainRealTimeHttpCodeDataResponseBody extends $dara.Mo
    * 2015-11-30T05:40:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The proportions of HTTP status codes at each time interval.
-   */
   realTimeHttpCodeData?: DescribeLiveDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData;
   /**
    * @remarks

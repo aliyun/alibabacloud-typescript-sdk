@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecordRecordFormatListRecordFormat extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of a recording file. Unit: seconds.
-   * 
-   * @example
-   * 3600
-   */
   cycleDuration?: number;
-  /**
-   * @remarks
-   * The format of recording files.
-   * 
-   * @example
-   * M3U8
-   */
   format?: string;
-  /**
-   * @remarks
-   * The naming format of a recording file.
-   * 
-   * @example
-   * record/{liveApp****}/{liveStream****}
-   */
   ossObjectPrefix?: string;
-  /**
-   * @remarks
-   * The duration of a segment file. Unit: seconds.
-   * 
-   * @example
-   * 30
-   */
   sliceDuration?: number;
-  /**
-   * @remarks
-   * The naming format of a segment file.
-   * 
-   * @example
-   * record/{liveApp****}/{liveStream****}/{UnixTimestamp}
-   */
   sliceOssObjectPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,45 +64,10 @@ export class DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecordR
 }
 
 export class DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecordTranscodeRecordFormatListRecordFormat extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of a recording file. Unit: seconds.
-   * 
-   * @example
-   * 3600
-   */
   cycleDuration?: number;
-  /**
-   * @remarks
-   * The format of recording files.
-   * 
-   * @example
-   * M3U8
-   */
   format?: string;
-  /**
-   * @remarks
-   * The naming format of a recording file.
-   * 
-   * @example
-   * record/{liveApp****}/{liveStream****}
-   */
   ossObjectPrefix?: string;
-  /**
-   * @remarks
-   * The duration of a segment file. Unit: seconds.
-   * 
-   * @example
-   * 30
-   */
   sliceDuration?: number;
-  /**
-   * @remarks
-   * The naming format of a segment file.
-   * 
-   * @example
-   * record/{liveApp****}/{liveStream****}/{UnixTimestamp}
-   */
   sliceOssObjectPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -221,107 +151,18 @@ export class DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecordT
 }
 
 export class DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application to which the live stream belongs.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The time when the recording configuration was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2016-05-20T09:33:38Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The maximum interruption duration of the live stream. If the actual interruption duration exceeds the threshold, a new recording is generated. Valid values: 15 to 21600. Unit: seconds.
-   * 
-   * @example
-   * 180
-   */
   delayTime?: number;
-  /**
-   * @remarks
-   * The name of the main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The end time of the recording. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-11-08T03:49:18Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The configuration of on-demand recording. Valid values:
-   * 
-   * *   **0**: disables on-demand recording.
-   * *   **1**: enables on-demand recording that is triggered by HTTP callbacks.
-   * *   **2**: enables on-demand recording that is triggered by stream ingest parameters.
-   * *   **7**: enables on-demand recording by calling the [RealTimeRecordCommand](https://help.aliyun.com/document_detail/85907.html) operation to manually start or stop recording.
-   * 
-   * >  If you set OnDemand to **1**, you must call the [AddLiveRecordNotifyConfig](https://help.aliyun.com/document_detail/51831.html) operation to configure OnDemandUrl. Otherwise, the configuration of on-demand recording is invalid.
-   * 
-   * @example
-   * 0
-   */
   onDemond?: number;
-  /**
-   * @remarks
-   * The name of the Object Storage Service (OSS) bucket in which the recordings are stored.
-   * 
-   * @example
-   * liveBucket****
-   */
   ossBucket?: string;
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket.
-   * 
-   * @example
-   * cn-oss-****.aliyuncs.com
-   */
   ossEndpoint?: string;
-  /**
-   * @remarks
-   * The recording formats of original streams.
-   */
   recordFormatList?: DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecordRecordFormatList;
-  /**
-   * @remarks
-   * The start time of the recording. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-11-08T02:49:18Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * liveStream****
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The recording formats of transcoded streams.
-   */
   transcodeRecordFormatList?: DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecordTranscodeRecordFormatList;
-  /**
-   * @remarks
-   * The transcoding templates.
-   */
   transcodeTemplates?: DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecordTranscodeTemplates;
   static names(): { [key: string]: string } {
     return {
@@ -404,10 +245,6 @@ export class DescribeLiveRecordConfigResponseBodyLiveAppRecordList extends $dara
 }
 
 export class DescribeLiveRecordConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of recording configurations.
-   */
   liveAppRecordList?: DescribeLiveRecordConfigResponseBodyLiveAppRecordList;
   /**
    * @remarks

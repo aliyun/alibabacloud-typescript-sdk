@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2022-03-15T16:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total traffic. Unit: bytes.
-   * 
-   * @example
-   * 331
-   */
   trafficValue?: string;
-  /**
-   * @remarks
-   * The peak bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 0.56
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeLiveDomainBpsDataByLayerResponseBodyBpsDataInterval extends
 }
 
 export class DescribeLiveDomainBpsDataByLayerResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned at each time interval.
-   */
   bpsDataInterval?: DescribeLiveDomainBpsDataByLayerResponseBodyBpsDataInterval;
   /**
    * @remarks

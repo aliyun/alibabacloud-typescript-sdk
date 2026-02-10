@@ -3,72 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLivePackageConfigResponseBodyLivePackageConfigListLivePackageConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The application name.
-   * 
-   * @example
-   * AppName
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * Indicates whether the transcoded stream is ignored. Valid values:
-   * 
-   * *   **true** (default)
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   ignoreTranscode?: boolean;
-  /**
-   * @remarks
-   * The part length. Unit: milliseconds.
-   * 
-   * @example
-   * 0
-   */
   partDuration?: number;
-  /**
-   * @remarks
-   * The streaming protocol and encapsulation format.
-   * 
-   * @example
-   * HLS_CMAF
-   */
   protocol?: string;
-  /**
-   * @remarks
-   * The segment length. Unit: seconds.
-   * 
-   * @example
-   * 5
-   */
   segmentDuration?: number;
-  /**
-   * @remarks
-   * The number of segments.
-   * 
-   * @example
-   * 3
-   */
   segmentNum?: number;
-  /**
-   * @remarks
-   * The stream name.
-   * 
-   * @example
-   * StreamName
-   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,10 +73,6 @@ export class DescribeLivePackageConfigResponseBodyLivePackageConfigList extends 
 }
 
 export class DescribeLivePackageConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The live stream encapsulation configurations.
-   */
   livePackageConfigList?: DescribeLivePackageConfigResponseBodyLivePackageConfigList;
   /**
    * @remarks

@@ -22,6 +22,13 @@ export class StopCasterSceneRequest extends $dara.Model {
    */
   casterId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks

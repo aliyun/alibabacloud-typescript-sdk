@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainPushTrafficDataResponseBodyTrafficDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2017-12-10T20:05:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The traffic. Unit: bytes.
-   * 
-   * @example
-   * 1288111
-   */
   trafficValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,10 +95,6 @@ export class DescribeLiveDomainPushTrafficDataResponseBody extends $dara.Model {
    * 2017-12-10T20:00:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The traffic data that was collected at each interval.
-   */
   trafficDataPerInterval?: DescribeLiveDomainPushTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {

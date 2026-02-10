@@ -3,172 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfoCustomTranscodeParameters extends $dara.Model {
-  /**
-   * @remarks
-   * The bitrate of the output audio. Unit: Kbit/s. Valid values: **1 to 1000**.
-   * 
-   * @example
-   * 64
-   */
   audioBitrate?: number;
-  /**
-   * @remarks
-   * The number of sound channels. Valid values:
-   * 
-   * *   **1**: mono
-   * *   **2**: binaural
-   * 
-   * @example
-   * 2
-   */
   audioChannelNum?: number;
-  /**
-   * @remarks
-   * The audio encoding format.
-   * 
-   * @example
-   * ACC
-   */
   audioCodec?: string;
-  /**
-   * @remarks
-   * The audio encoding profile. Valid values:
-   * 
-   * *   **aac_low**
-   * *   **aac_he**
-   * *   **aac_he_v2**
-   * *   **aac_ld**
-   * 
-   * @example
-   * aac_low
-   */
   audioProfile?: string;
-  /**
-   * @remarks
-   * The audio sampling rate. Valid values: **22050 to 96000**.
-   * 
-   * >  If the value of AudioProfile is **aac_ld**, the audio sampling rate cannot exceed 44100.
-   * 
-   * @example
-   * 44100
-   */
   audioRate?: number;
-  /**
-   * @remarks
-   * Indicates whether B-frame removal is enabled. Fixed value: **0**.
-   * 
-   * @example
-   * 0
-   */
   bframes?: string;
-  /**
-   * @remarks
-   * The source-based bitrate settings.
-   * 
-   * @example
-   * {\\"UpLimit\\":2500,\\"LowerLimit\\":800,\\"Factor\\":1}
-   */
   bitrateWithSource?: { [key: string]: any };
   deInterlaced?: boolean;
-  /**
-   * @remarks
-   * Other source-based settings.
-   * 
-   * @example
-   * {\\"KeyFrameOpen\\":\\"yes\\",\\"Copyts\\":\\"yes\\",\\"SeiMode\\":1}
-   */
   extWithSource?: { [key: string]: any };
-  /**
-   * @remarks
-   * The frame rate of the output video. Unit: frames per second (FPS).
-   * 
-   * @example
-   * 15
-   */
   FPS?: number;
-  /**
-   * @remarks
-   * The source-based frame rate settings.
-   * 
-   * @example
-   * {\\"UpLimit\\":60,\\"LowerLimit\\":1}
-   */
   fpsWithSource?: { [key: string]: any };
-  /**
-   * @remarks
-   * The group of pictures (GOP) size of the output video. Unit: frames. Valid values: **1 to 3000**.
-   * 
-   * @example
-   * 10
-   */
   gop?: string;
-  /**
-   * @remarks
-   * The height of the output video.
-   * 
-   * @example
-   * 1200
-   */
   height?: number;
-  /**
-   * @remarks
-   * The source-based resolution settings.
-   * 
-   * @example
-   * {\\"Type\\":\\"short\\",\\"Value\\":\\"1080\\"}
-   */
   resWithSource?: { [key: string]: any };
-  /**
-   * @remarks
-   * The Real-Time Transcoding (RTS) flag. Fixed value: **true**.
-   * 
-   * >  This parameter is returned only if RTS is used for transcoding.
-   * 
-   * @example
-   * true
-   */
   rtsFlag?: string;
-  /**
-   * @remarks
-   * The type of the custom transcoding template. Valid values:
-   * 
-   * *   **h264**: custom H.264 standard transcoding
-   * *   **h264-nbhd**: custom H.264 Narrowband HD™ transcoding
-   * *   **h265**: custom H.265 standard transcoding
-   * *   **h265-nbhd**: custom H.265 Narrowband HD™ transcoding
-   * *   **audio**: audio-only transcoding
-   * 
-   * @example
-   * h264
-   */
   templateType?: string;
-  /**
-   * @remarks
-   * The bitrate of the output video. Unit: Kbit/s.
-   * 
-   * @example
-   * 3000
-   */
   videoBitrate?: number;
-  /**
-   * @remarks
-   * The video encoding profile. Valid values:
-   * 
-   * *   **baseline**: suitable for mobile devices.
-   * *   **main**: suitable for standard-definition devices.
-   * *   **high**: suitable for high-definition devices.
-   * 
-   * @example
-   * high
-   */
   videoProfile?: string;
-  /**
-   * @remarks
-   * The width of the output video.
-   * 
-   * @example
-   * 1000
-   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -240,29 +92,8 @@ export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomai
 }
 
 export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfoEncryptParameters extends $dara.Model {
-  /**
-   * @remarks
-   * The type of encryption. Fixed value: **aliyun**.
-   * 
-   * @example
-   * aliyun
-   */
   encryptType?: string;
-  /**
-   * @remarks
-   * The rotation period of the CMK. Valid values: **60 to 3600**. Unit: seconds.
-   * 
-   * @example
-   * 3600
-   */
   kmsKeyExpireInterval?: string;
-  /**
-   * @remarks
-   * The ID of the customer master key (CMK) in Key Management Service (KMS).
-   * 
-   * @example
-   * afce5722-81d2-43c3-9930-7601da11****
-   */
   kmsKeyID?: string;
   static names(): { [key: string]: string } {
     return {
@@ -290,64 +121,11 @@ export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomai
 }
 
 export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The custom transcoding configuration.
-   */
   customTranscodeParameters?: DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfoCustomTranscodeParameters;
-  /**
-   * @remarks
-   * The encryption settings.
-   */
   encryptParameters?: DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfoEncryptParameters;
-  /**
-   * @remarks
-   * Indicates whether forcible transcoding is used. Valid values:
-   * 
-   * *   **true**: Delayed transcoding is used.
-   * *   **false**: Forcible transcoding is used.
-   * 
-   * @example
-   * true
-   */
   isLazy?: boolean;
-  /**
-   * @remarks
-   * The application name.
-   * 
-   * @example
-   * liveApp****
-   */
   transcodeApp?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   transcodeName?: string;
-  /**
-   * @remarks
-   * The transcoding template ID. Valid values:
-   * 
-   * *   **Standard transcoding**:
-   * 
-   *     *   **lld**: low definition
-   *     *   **lsd**: standard definition
-   *     *   **lhd**: high definition
-   *     *   **lud**: ultra-high definition
-   * 
-   * *   **Narrowband HD™ transcoding**:
-   * 
-   *     *   **ld**: low definition
-   *     *   **sd**: standard definition
-   *     *   **hd**: high definition
-   *     *   **ud**: ultra-high definition
-   * 
-   * @example
-   * lld
-   */
   transcodeTemplate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -413,10 +191,6 @@ export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeList exte
 }
 
 export class DescribeLiveStreamTranscodeInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The transcoding configurations.
-   */
   domainTranscodeList?: DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeList;
   /**
    * @remarks

@@ -3,107 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamTranscodeMetricDataResponseBodyStreamDetailDataStreamData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * app
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The duration. Unit: seconds.
-   * 
-   * @example
-   * 300
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The frame rate.
-   * 
-   * Valid values:
-   * 
-   * *   <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     normal
-   * 
-   *     <!-- -->
-   * 
-   * *   <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     high
-   * 
-   *     <!-- -->
-   * 
-   * *   <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     def
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * high
-   */
   fps?: string;
-  /**
-   * @remarks
-   * The region.
-   * 
-   * @example
-   * cn-shanghai
-   */
   region?: string;
-  /**
-   * @remarks
-   * The resolution. Valid values:
-   * 
-   * *   2K: 2K resolution
-   * *   4K: 4K resolution
-   * *   LD: low definition
-   * *   SD: standard definition
-   * *   HD: high definition
-   * *   def: audio
-   * 
-   * @example
-   * 4K
-   */
   resolution?: string;
-  /**
-   * @remarks
-   * The name of the stream.
-   * 
-   * @example
-   * stream
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2023-06-11T02:45:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The transcoding type. Valid values:
-   * 
-   * *   H264STD: standard transcoding based on H.264
-   * *   H264NBHD: Narrowband HD™ transcoding based on H.264
-   * *   H265STD: standard transcoding based on H.265
-   * *   AUDIO: audio transcoding
-   * 
-   * @example
-   * H264STD
-   */
   transcodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -217,10 +123,6 @@ export class DescribeLiveStreamTranscodeMetricDataResponseBody extends $dara.Mod
    * 2023-06-11T03:46:40Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The data array returned.
-   */
   streamDetailData?: DescribeLiveStreamTranscodeMetricDataResponseBodyStreamDetailData;
   static names(): { [key: string]: string } {
     return {

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainPvUvDataResponseBodyPvUvDataInfosPvUvDataInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of PVs.
-   * 
-   * @example
-   * 3036
-   */
   PV?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-03-19T16:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The number of UVs.
-   * 
-   * @example
-   * 2
-   */
   UV?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +82,6 @@ export class DescribeLiveDomainPvUvDataResponseBody extends $dara.Model {
    * 2018-03-20T16:00:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The data of PVs and UVs.
-   */
   pvUvDataInfos?: DescribeLiveDomainPvUvDataResponseBodyPvUvDataInfos;
   /**
    * @remarks

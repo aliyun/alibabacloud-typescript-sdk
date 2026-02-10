@@ -3,25 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainMappingResponseBodyLiveDomainModelsLiveDomainModel extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name to which the queried domain name is mapped.
-   * 
-   * @example
-   * example.aliyundoc.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The type of the queried domain name. Valid values:
-   * 
-   * *   **vhost**: main streaming domain
-   * *   **publish**: ingest domain
-   * *   **play**: sub-streaming domain
-   * 
-   * @example
-   * play
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,10 +55,6 @@ export class DescribeLiveDomainMappingResponseBodyLiveDomainModels extends $dara
 }
 
 export class DescribeLiveDomainMappingResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The mappings of the queried domain name.
-   */
   liveDomainModels?: DescribeLiveDomainMappingResponseBodyLiveDomainModels;
   /**
    * @remarks

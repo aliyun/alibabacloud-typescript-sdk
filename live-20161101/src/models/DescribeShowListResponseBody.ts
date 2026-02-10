@@ -3,34 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeShowListResponseBodyShowListInfoShowListShowResourceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The custom type label.
-   * 
-   * @example
-   * 1
-   */
   liveInputType?: number;
-  /**
-   * @remarks
-   * The ID of the video-on-demand (VOD) file.
-   * 
-   * @example
-   * a2b8e671-2fe5-4642-a2ec-bf93880e****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * vod
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The URL of the resource.
-   */
   resourceUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60,44 +35,10 @@ export class DescribeShowListResponseBodyShowListInfoShowListShowResourceInfo ex
 }
 
 export class DescribeShowListResponseBodyShowListInfoShowListShow extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of the episode. Unit: seconds.
-   * 
-   * @example
-   * 20
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The number of times the episode repeats after the first playback is complete.
-   * 
-   * For example, if you set the value to 0, the episode is to be played once. If you set the value to 1, the episode is to be played twice.
-   * 
-   * @example
-   * 5
-   */
   repeatTimes?: number;
-  /**
-   * @remarks
-   * The resource information.
-   */
   resourceInfo?: DescribeShowListResponseBodyShowListInfoShowListShowResourceInfo;
-  /**
-   * @remarks
-   * The ID of the episode.
-   * 
-   * @example
-   * a2b8e671-2fe5-4642-a2ec-bf93880e****
-   */
   showId?: string;
-  /**
-   * @remarks
-   * The name of the episode.
-   * 
-   * @example
-   * liveShow****
-   */
   showName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -194,10 +135,6 @@ export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
    * 2021-11-23T12:30:00
    */
   highPriorityShowStartTime?: string;
-  /**
-   * @remarks
-   * The episodes in the episode list.
-   */
   showList?: DescribeShowListResponseBodyShowListInfoShowList;
   /**
    * @remarks

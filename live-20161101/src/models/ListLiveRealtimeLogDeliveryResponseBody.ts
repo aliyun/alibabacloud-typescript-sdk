@@ -3,56 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLiveRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the domain name.
-   * 
-   * @example
-   * 1001010
-   */
   dmId?: number;
-  /**
-   * @remarks
-   * The streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The name of the Logstore to which log entries are delivered.
-   * 
-   * @example
-   * logstore_example
-   */
   logstore?: string;
-  /**
-   * @remarks
-   * The name of the Log Service project that is used for real-time log delivery.
-   * 
-   * @example
-   * project_example
-   */
   project?: string;
-  /**
-   * @remarks
-   * The ID of the region where the Log Service project is deployed.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The status of real-time log delivery. Valid values:
-   * 
-   * *   **online**: enabled
-   * *   **offline**: disabled
-   * 
-   * @example
-   * online
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,10 +67,6 @@ export class ListLiveRealtimeLogDeliveryResponseBodyContent extends $dara.Model 
 }
 
 export class ListLiveRealtimeLogDeliveryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of real-time log delivery.
-   */
   content?: ListLiveRealtimeLogDeliveryResponseBodyContent;
   /**
    * @remarks

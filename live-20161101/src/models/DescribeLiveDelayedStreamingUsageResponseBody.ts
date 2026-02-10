@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDelayedStreamingUsageResponseBodyDelayDataDelayDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name. If SplitBy is set to domain, the data returned is grouped by domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The duration of stream delay.
-   * 
-   * @example
-   * 84
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The ID of the region. If SplitBy is set to region, the data returned is grouped by region.
-   * 
-   * @example
-   * cn-shanghai
-   */
   region?: string;
-  /**
-   * @remarks
-   * The name of the stream. If SplitBy is set to stream, the data returned is grouped by stream.
-   * 
-   * @example
-   * liveStream****
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2022-10-10T20:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeLiveDelayedStreamingUsageResponseBodyDelayData extends $dar
 }
 
 export class DescribeLiveDelayedStreamingUsageResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the stream delay usage data.
-   */
   delayData?: DescribeLiveDelayedStreamingUsageResponseBodyDelayData;
   /**
    * @remarks

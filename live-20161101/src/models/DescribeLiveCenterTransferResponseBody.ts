@@ -3,64 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveCenterTransferResponseBodyLiveCenterTransferInfoListLiveCenterTransferInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application to which the live stream belongs.
-   * 
-   * @example
-   * teststream
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The third-party URL to which the live stream is relayed.
-   * 
-   * @example
-   * rtmp://push.example2.aliyunlive.com/testapp1/teststream2
-   */
   dstUrl?: string;
-  /**
-   * @remarks
-   * The end time of stream relay.
-   * 
-   * @example
-   * 2022-04-29T15:16:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The start time of stream relay.
-   * 
-   * @example
-   * 2022-04-28T15:16:00Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * teststream
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The validity period of stream relay. Valid values:
-   * 
-   * *   **always**: The stream can always be relayed.
-   * *   **time**: The stream can be relayed in a specified time period.
-   * 
-   * @example
-   * time
-   */
   transferArgs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -122,10 +70,6 @@ export class DescribeLiveCenterTransferResponseBodyLiveCenterTransferInfoList ex
 }
 
 export class DescribeLiveCenterTransferResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The stream relay information.
-   */
   liveCenterTransferInfoList?: DescribeLiveCenterTransferResponseBodyLiveCenterTransferInfoList;
   /**
    * @remarks

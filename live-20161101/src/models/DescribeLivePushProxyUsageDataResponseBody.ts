@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLivePushProxyUsageDataResponseBodyPushProxyDataPushProxyDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name. If the value of SplitBy includes domain, the returned data is grouped by domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The ID of the region. If the value of SplitBy includes region, the returned data is grouped by region.
-   * 
-   * @example
-   * cn-beijing
-   */
   region?: string;
-  /**
-   * @remarks
-   * The peak number of live center stream relay channels.
-   * 
-   * @example
-   * 8
-   */
   streamCount?: number;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2022-10-10T20:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,10 +69,6 @@ export class DescribeLivePushProxyUsageDataResponseBody extends $dara.Model {
    * 2022-10-10T21:00:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The usage data of live center stream relay.
-   */
   pushProxyData?: DescribeLivePushProxyUsageDataResponseBodyPushProxyData;
   /**
    * @remarks

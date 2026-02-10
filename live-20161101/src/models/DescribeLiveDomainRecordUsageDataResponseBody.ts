@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainRecordUsageDataResponseBodyRecordUsageDataDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The number of peak channels.
-   * 
-   * @example
-   * 1
-   */
   count?: number;
-  /**
-   * @remarks
-   * The main streaming domain. This parameter is returned if the value of the request parameter SplitBy contains `domain`.
-   * 
-   * @example
-   * example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The recording length. Unit: seconds.
-   * 
-   * @example
-   * 3560
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-shanghai
-   */
   region?: string;
-  /**
-   * @remarks
-   * The time when recording started.
-   * 
-   * @example
-   * 2021-05-10T20:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The recording file type. This parameter is returned if the value of the request parameter SplitBy contains `record_fmt`.
-   * 
-   * @example
-   * MP4
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -117,10 +75,6 @@ export class DescribeLiveDomainRecordUsageDataResponseBody extends $dara.Model {
    * 2021-05-10T21:00:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The recording data that was collected for each interval.
-   */
   recordUsageData?: DescribeLiveDomainRecordUsageDataResponseBodyRecordUsageData;
   /**
    * @remarks

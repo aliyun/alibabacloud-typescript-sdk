@@ -3,47 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLivePushProxyLogResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The end of the time range during which data was queried.
-   * 
-   * The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1695189600
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The name of the log file.
-   * 
-   * @example
-   * example.com
-   * _2023_09_20_160000_170000.****.gz
-   */
   logName?: string;
-  /**
-   * @remarks
-   * The path of the log file.
-   */
   logPath?: string;
-  /**
-   * @remarks
-   * The size of the log file.
-   * 
-   * @example
-   * 512
-   */
   logSize?: number;
-  /**
-   * @remarks
-   * The beginning of the time range during which data was queried.
-   * 
-   * The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1695193200
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,29 +64,8 @@ export class DescribeLivePushProxyLogResponseBodyDomainLogDetailsDomainLogDetail
 }
 
 export class DescribeLivePushProxyLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 20
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -151,23 +93,8 @@ export class DescribeLivePushProxyLogResponseBodyDomainLogDetailsDomainLogDetail
 }
 
 export class DescribeLivePushProxyLogResponseBodyDomainLogDetailsDomainLogDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The total number of entries returned on the current page.
-   * 
-   * @example
-   * 10
-   */
   logCount?: number;
-  /**
-   * @remarks
-   * Details about the logs.
-   */
   logInfos?: DescribeLivePushProxyLogResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
-  /**
-   * @remarks
-   * The page information.
-   */
   pageInfos?: DescribeLivePushProxyLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
   static names(): { [key: string]: string } {
     return {
@@ -227,10 +154,6 @@ export class DescribeLivePushProxyLogResponseBodyDomainLogDetails extends $dara.
 }
 
 export class DescribeLivePushProxyLogResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The log information.
-   */
   domainLogDetails?: DescribeLivePushProxyLogResponseBodyDomainLogDetails;
   /**
    * @remarks

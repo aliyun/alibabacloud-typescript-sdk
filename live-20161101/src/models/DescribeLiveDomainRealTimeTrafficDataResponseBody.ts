@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-12-10T15:01:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The traffic. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,10 +79,6 @@ export class DescribeLiveDomainRealTimeTrafficDataResponseBody extends $dara.Mod
    * 2015-12-10T15:01:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The traffic that was collected at each interval.
-   */
   realTimeTrafficDataPerInterval?: DescribeLiveDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval;
   /**
    * @remarks

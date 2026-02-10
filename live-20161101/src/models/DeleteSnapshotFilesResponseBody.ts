@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteSnapshotFilesResponseBodySnapshotDeleteInfoListSnapshotDeleteInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp when the snapshot was captured. Unit: milliseconds.
-   * 
-   * @example
-   * 1653641526637
-   */
   createTimestamp?: number;
-  /**
-   * @remarks
-   * The processing result of the snapshot. Valid values:
-   * 
-   * *   **OK**: The snapshot was deleted.
-   * *   **FileNotFound**: The snapshot was not found.
-   * 
-   * @example
-   * OK
-   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +71,6 @@ export class DeleteSnapshotFilesResponseBody extends $dara.Model {
    * 90F60327-ABEC-5A93-BF1F-****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the snapshots.
-   */
   snapshotDeleteInfoList?: DeleteSnapshotFilesResponseBodySnapshotDeleteInfoList;
   /**
    * @remarks

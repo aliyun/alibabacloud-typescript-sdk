@@ -3,111 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeListLiveStreamMerge extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application that generates the output stream.
-   * 
-   * @example
-   * app
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The application that is being used.
-   * 
-   * @example
-   * app1
-   */
   appUsing?: string;
-  /**
-   * @remarks
-   * The streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The end time of the stream mixing.
-   * 
-   * @example
-   * 2020-05-29T01:00:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The names of the applications that generate the input additional streams other than the primary stream and secondary stream, and the names of these additional streams.
-   * 
-   * @example
-   * app3/stream3,app4/stream4,app5/stream5,…,appN/streamN
-   */
   extraInAppStreams?: string;
-  /**
-   * @remarks
-   * The name of the application that generates the input primary stream.
-   * 
-   * @example
-   * app1
-   */
   inAppName1?: string;
-  /**
-   * @remarks
-   * The name of the application that generates the input secondary stream.
-   * 
-   * @example
-   * app2
-   */
   inAppName2?: string;
-  /**
-   * @remarks
-   * The name of the input primary stream.
-   * 
-   * @example
-   * InStream1
-   */
   inStreamName1?: string;
-  /**
-   * @remarks
-   * The name of the input secondary stream.
-   * 
-   * @example
-   * stream2
-   */
   inStreamName2?: string;
   liveMerger?: string;
   mergeParameters?: string;
-  /**
-   * @remarks
-   * The streaming protocol.
-   * 
-   * @example
-   * rtmp
-   */
   protocol?: string;
-  /**
-   * @remarks
-   * The start time of the stream mixing.
-   * 
-   * @example
-   * 2020-05-29T00:00:00Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The name of the output stream.
-   * 
-   * @example
-   * StreamName
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The stream that is being used.
-   * 
-   * @example
-   * InStream1
-   */
   streamUsing?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,10 +94,6 @@ export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeList extends $dar
 }
 
 export class DescribeLiveStreamMergeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Live stream information list.
-   */
   liveStreamMergeList?: DescribeLiveStreamMergeResponseBodyLiveStreamMergeList;
   /**
    * @remarks

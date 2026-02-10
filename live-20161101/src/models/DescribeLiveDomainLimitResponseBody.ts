@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainLimitResponseBodyLiveDomainLimitListLiveDomainLimit extends $dara.Model {
-  /**
-   * @remarks
-   * The current number of ingested streams.
-   * 
-   * @example
-   * 10
-   */
   currentNum?: number;
-  /**
-   * @remarks
-   * The current number of transcoded streams.
-   * 
-   * @example
-   * 10
-   */
   currentTranscodeNum?: number;
-  /**
-   * @remarks
-   * The current number of streams relayed from the live center.
-   * 
-   * @example
-   * 10
-   */
   currentTransferNum?: number;
-  /**
-   * @remarks
-   * The name of the queried main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The maximum number of ingested streams.
-   * 
-   * @example
-   * 100
-   */
   limitNum?: number;
-  /**
-   * @remarks
-   * The maximum number of transcoded streams.
-   * 
-   * @example
-   * 50
-   */
   limitTranscodeNum?: number;
-  /**
-   * @remarks
-   * The maximum allowed number of streams relayed from the live center.
-   * 
-   * @example
-   * 50
-   */
   limitTransferNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -119,10 +70,6 @@ export class DescribeLiveDomainLimitResponseBodyLiveDomainLimitList extends $dar
 }
 
 export class DescribeLiveDomainLimitResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The limits.
-   */
   liveDomainLimitList?: DescribeLiveDomainLimitResponseBodyLiveDomainLimitList;
   /**
    * @remarks

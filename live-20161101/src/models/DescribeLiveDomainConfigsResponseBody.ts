@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgsFunctionArg extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the attribute.
-   * 
-   * @example
-   * domain_name
-   */
   argName?: string;
-  /**
-   * @remarks
-   * The attribute value.
-   * 
-   * @example
-   * developer.aliyundoc.com
-   */
   argValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,39 +55,9 @@ export class DescribeLiveDomainConfigsResponseBodyDomainConfigsDomainConfigFunct
 }
 
 export class DescribeLiveDomainConfigsResponseBodyDomainConfigsDomainConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 5003576
-   */
   configId?: string;
-  /**
-   * @remarks
-   * The attributes of the feature.
-   */
   functionArgs?: DescribeLiveDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs;
-  /**
-   * @remarks
-   * The name of the feature.
-   * 
-   * @example
-   * set_req_host_header
-   */
   functionName?: string;
-  /**
-   * @remarks
-   * The configuration status. Valid values:
-   * 
-   * *   **success**
-   * *   **testing**
-   * *   **failed**
-   * *   **configuring**
-   * 
-   * @example
-   * success
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -160,10 +116,6 @@ export class DescribeLiveDomainConfigsResponseBodyDomainConfigs extends $dara.Mo
 }
 
 export class DescribeLiveDomainConfigsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the domain name.
-   */
   domainConfigs?: DescribeLiveDomainConfigsResponseBodyDomainConfigs;
   /**
    * @remarks

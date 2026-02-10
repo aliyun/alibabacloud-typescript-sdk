@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAacHeadersAacHeaders extends $dara.Model {
-  /**
-   * @remarks
-   * The number of AAC headers in the audio.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 20
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,21 +55,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAacHeader
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioBitRateAudioBitRate extends $dara.Model {
-  /**
-   * @remarks
-   * The bitrate of the audio. Unit: bit/s.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 24552
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -135,21 +107,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioBitR
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioFramesAudioFrames extends $dara.Model {
-  /**
-   * @remarks
-   * The frame rate of the audio. Unit: frames.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 23
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -201,21 +159,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioFram
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioIntervalAudioInterval extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum audio frame interval. Unit: milliseconds.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 254
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -267,21 +211,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioInte
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioStampsAudioStamps extends $dara.Model {
-  /**
-   * @remarks
-   * The audio timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 725053422
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -333,21 +263,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioStam
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAvcHeadersAvcHeaders extends $dara.Model {
-  /**
-   * @remarks
-   * The number of AVC headers in the audio.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 11
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -399,21 +315,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAvcHeader
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemErrorFlagsErrorFlags extends $dara.Model {
-  /**
-   * @remarks
-   * The number of times the error code that indicates interrupted stream ingest was returned.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 0
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -465,21 +367,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemErrorFlag
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoAndAudioStampVAStamp extends $dara.Model {
-  /**
-   * @remarks
-   * The difference between the audio and video timestamps. Unit: milliseconds.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 359
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -531,21 +419,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoAndA
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoBitRateVideoBitRate extends $dara.Model {
-  /**
-   * @remarks
-   * The bitrate of the video. Unit: bit/s.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 3970160
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -597,21 +471,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoBitR
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoFramesVideoFrames extends $dara.Model {
-  /**
-   * @remarks
-   * The frame rate of the video. Unit: frames.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 29
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -663,21 +523,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoFram
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoIntervalVideoInterval extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum video frame interval. Unit: milliseconds.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 278
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -729,21 +575,7 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoInte
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoStampsVideoStamps extends $dara.Model {
-  /**
-   * @remarks
-   * The video timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1538134750408
-   */
   time?: number;
-  /**
-   * @remarks
-   * The query time. The value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 725053781
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -795,145 +627,27 @@ export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoStam
 }
 
 export class DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItem extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the audio and video data of the stream ingest occurrences.
-   */
   aacHeaders?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAacHeaders;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   * 
-   * @example
-   * AppName
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The name of the application to which the ingested stream belongs.
-   */
   audioBitRate?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioBitRate;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   audioFrames?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioFrames;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   audioInterval?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioInterval;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   audioStamps?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAudioStamps;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   avcHeaders?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemAvcHeaders;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   * 
-   * @example
-   * H264/AAC
-   */
   codecInfo?: string;
-  /**
-   * @remarks
-   * The audio and video encoding information.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The ingest domain.
-   */
   errorFlags?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemErrorFlags;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   * 
-   * @example
-   * -
-   */
   publishInterval?: string;
-  /**
-   * @remarks
-   * The stream ingest duration. Unit: seconds. A hyphen (-) indicates that the stream is being ingested and the duration cannot be returned.
-   * 
-   * @example
-   * cn397
-   */
   publishIp?: string;
-  /**
-   * @remarks
-   * The IP address of the stream ingest client.
-   * 
-   * @example
-   * 1
-   */
   publishStatus?: string;
-  /**
-   * @remarks
-   * The stream ingest status. A value of 1 indicates that the stream is being ingested. A value of 0 indicates that the stream was ingested.
-   * 
-   * @example
-   * 2015-12-10T15:00:00Z
-   */
   publishTime?: string;
-  /**
-   * @remarks
-   * The start time of stream ingest. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-12-10T15:10:00Z
-   */
   stopTime?: string;
-  /**
-   * @remarks
-   * The end time of stream ingest. The time is displayed in UTC.
-   * 
-   * @example
-   * StreamName
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The name of the stream.
-   * 
-   * @example
-   * 2.-395_37261_9848098_1538080899396
-   */
   uniqueId?: string;
-  /**
-   * @remarks
-   * The unique ID of each stream ingest occurrence.
-   */
   videoAndAudioStamp?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoAndAudioStamp;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   videoBitRate?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoBitRate;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   videoFrames?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoFrames;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   videoInterval?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoInterval;
-  /**
-   * @remarks
-   * The metric value at a granularity of seconds at the query time.
-   */
   videoStamps?: DescribeLiveUpVideoAudioInfoResponseBodyUpItemsPublishItemVideoStamps;
   static names(): { [key: string]: string } {
     return {
@@ -1069,10 +783,6 @@ export class DescribeLiveUpVideoAudioInfoResponseBody extends $dara.Model {
    * BC858082-736F-4A25-867B-E5B67C85ACF7
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   */
   upItems?: DescribeLiveUpVideoAudioInfoResponseBodyUpItems;
   static names(): { [key: string]: string } {
     return {

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetLiveStreamPreloadTasksResponseBodyPreloadTasksMessagesPreloadTasksMessage extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the prefetch task is successful. Valid values:
-   * 
-   * *   Successfully
-   * *   InternalError
-   * 
-   * @example
-   * Successfully
-   */
   description?: string;
-  /**
-   * @remarks
-   * The streaming URL.
-   */
   playUrl?: string;
-  /**
-   * @remarks
-   * The ID of the prefetch task.
-   * 
-   * @example
-   * yourTaskId
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class SetLiveStreamPreloadTasksResponseBody extends $dara.Model {
    * 0
    */
   failedURL?: number;
-  /**
-   * @remarks
-   * The details of the prefetch task.
-   */
   preloadTasksMessages?: SetLiveStreamPreloadTasksResponseBodyPreloadTasksMessages;
   /**
    * @remarks

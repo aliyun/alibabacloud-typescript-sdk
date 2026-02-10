@@ -3,53 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveGrtnDurationResponseBodyStreamDetailDataStreamData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 4346289a-a790-4869-9e23-22766d5e****
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The co-streaming duration. Unit: minutes.
-   * 
-   * @example
-   * 30
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The media specification. Valid values:
-   * 
-   * *   0: audio-only. This is a basic specification.
-   * *   480P: standard definition (SD). The video resolution is 640 × 480 or lower.
-   * *   720P: high definition (HD). The video resolution is 1280 × 720 or lower.
-   * *   1080P: full HD. The video resolution is 1920 × 1080 or lower.
-   * 
-   * @example
-   * 480P
-   */
   mediaProfile?: string;
-  /**
-   * @remarks
-   * The media type. Valid values:
-   * 
-   * *   audio
-   * *   video
-   * 
-   * @example
-   * audio
-   */
   mediaType?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2022-12-10T20:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,10 +72,6 @@ export class DescribeLiveGrtnDurationResponseBody extends $dara.Model {
    * 4B460F8B-993C-4F48-B98A-910811DEBFEB
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The details of the co-streaming usage data.
-   */
   streamDetailData?: DescribeLiveGrtnDurationResponseBodyStreamDetailData;
   static names(): { [key: string]: string } {
     return {

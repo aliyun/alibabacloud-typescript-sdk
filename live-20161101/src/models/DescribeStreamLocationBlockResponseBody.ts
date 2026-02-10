@@ -3,72 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeStreamLocationBlockResponseBodyStreamBlockListStreamBlock extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application in which the blocking applies.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The blocking type. Valid values:
-   * 
-   * *   blacklist
-   * *   whitelist
-   * 
-   * @example
-   * blacklist
-   */
   blockType?: string;
-  /**
-   * @remarks
-   * The accelerated domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The blocked region. If multiple regions are specified, such as CN and AS, they are separated by commas (,).
-   * 
-   * @example
-   * CN
-   */
   locationList?: string;
-  /**
-   * @remarks
-   * The time when the blocking ends. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-08-13T09:27Z
-   */
   releaseTime?: string;
-  /**
-   * @remarks
-   * The blocking status. Valid values: 0 (not started), 1 (blocking), 2 (successful), 3 (failed), 4 (expired), and 5 (deleting).
-   * 
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @remarks
-   * The name of the stream.
-   * 
-   * @example
-   * stream
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The time when the configuration was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-08-14T09:27Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -164,10 +105,6 @@ export class DescribeStreamLocationBlockResponseBody extends $dara.Model {
    * C7C69682-7F88-40DD-A198-10D0309E439B
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The configurations.
-   */
   streamBlockList?: DescribeStreamLocationBlockResponseBodyStreamBlockList;
   /**
    * @remarks

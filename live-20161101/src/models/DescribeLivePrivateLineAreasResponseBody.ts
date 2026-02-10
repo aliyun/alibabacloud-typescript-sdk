@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLivePrivateLineAreasResponseBodyLiveAreasListLiveAreaRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The region name.
-   * 
-   * @example
-   * cn-shenzhen
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-shenzhen
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,21 +55,7 @@ export class DescribeLivePrivateLineAreasResponseBodyLiveAreasListLiveAreaRegion
 }
 
 export class DescribeLivePrivateLineAreasResponseBodyLiveAreasListLiveArea extends $dara.Model {
-  /**
-   * @remarks
-   * The region type. Valid values:
-   * 
-   * *   domestic: in the Chinese mainland
-   * *   overseas: outside the Chinese mainland
-   * 
-   * @example
-   * domestic
-   */
   regionType?: string;
-  /**
-   * @remarks
-   * The regions.
-   */
   regions?: DescribeLivePrivateLineAreasResponseBodyLiveAreasListLiveAreaRegions;
   static names(): { [key: string]: string } {
     return {
@@ -138,10 +110,6 @@ export class DescribeLivePrivateLineAreasResponseBodyLiveAreasList extends $dara
 }
 
 export class DescribeLivePrivateLineAreasResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the regions.
-   */
   liveAreasList?: DescribeLivePrivateLineAreasResponseBodyLiveAreasList;
   /**
    * @remarks

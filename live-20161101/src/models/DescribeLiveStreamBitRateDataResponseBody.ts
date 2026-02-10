@@ -3,42 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamBitRateDataResponseBodyFrameRateAndBitRateInfosFrameRateAndBitRateInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The audio frame rate of the live stream. Unit: FPS.
-   * 
-   * @example
-   * 100
-   */
   audioFrameRate?: number;
-  /**
-   * @remarks
-   * The bitrate of the live stream. Unit: bit/s.
-   * 
-   * @example
-   * 600
-   */
   bitRate?: number;
-  /**
-   * @remarks
-   * The URL of the live stream.
-   */
   streamUrl?: string;
-  /**
-   * @remarks
-   * The time when the data was collected. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2016-09-13T16:04:00Z
-   */
   time?: string;
-  /**
-   * @remarks
-   * The video frame rate of the live stream. Unit: frames per second (FPS).
-   * 
-   * @example
-   * 30
-   */
   videoFrameRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -96,10 +64,6 @@ export class DescribeLiveStreamBitRateDataResponseBodyFrameRateAndBitRateInfos e
 }
 
 export class DescribeLiveStreamBitRateDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The frame rates and bitrates of the live stream.
-   */
   frameRateAndBitRateInfos?: DescribeLiveStreamBitRateDataResponseBodyFrameRateAndBitRateInfos;
   /**
    * @remarks

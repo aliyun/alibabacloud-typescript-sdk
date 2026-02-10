@@ -3,50 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveShiftConfigsResponseBodyContentConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The application for which you configure time shifting.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The domain name for which you configure time shifting.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * Whether to ignore time shift generation for the transcode stream.
-   * 
-   * *   true: Ignore time shifting generation.
-   * *   false: Generate time shifting.
-   * 
-   * The default value is true.
-   * 
-   * @example
-   * true
-   */
   ignoreTranscode?: boolean;
-  /**
-   * @remarks
-   * The name of the live stream for which you configure time shifting.
-   * 
-   * @example
-   * liveStream****
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The number of days for which the time shifting configurations are retained.
-   * 
-   * @example
-   * 7
-   */
   vision?: number;
   static names(): { [key: string]: string } {
     return {
@@ -104,10 +64,6 @@ export class DescribeLiveShiftConfigsResponseBodyContent extends $dara.Model {
 }
 
 export class DescribeLiveShiftConfigsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The time shifting configurations.
-   */
   content?: DescribeLiveShiftConfigsResponseBodyContent;
   /**
    * @remarks

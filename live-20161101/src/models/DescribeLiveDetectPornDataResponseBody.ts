@@ -3,78 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDetectPornDataResponseBodyDetectPornDataDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application to which the live stream belongs.
-   * 
-   * @example
-   * liveApp****
-   */
   app?: string;
-  /**
-   * @remarks
-   * The number of reviewed images.
-   * 
-   * @example
-   * 2
-   */
   count?: number;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * Indicates whether a quota of free image scanning is available. Valid values:
-   * 
-   * *   **free**
-   * *   **charge**
-   * 
-   * @example
-   * free
-   */
   fee?: string;
-  /**
-   * @remarks
-   * The region in which the domain name resides.
-   * 
-   * @example
-   * cn-shanghai
-   */
   region?: string;
-  /**
-   * @remarks
-   * The moderation scenario. Valid values:
-   * 
-   * *   **porn** (default): pornography
-   * *   **terrorism**: terrorism or politically sensitive content
-   * *   **ad**: ad violation
-   * *   **live**: undesirable scene
-   * *   **logo**
-   * 
-   * @example
-   * porn
-   */
   scene?: string;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * liveStream****
-   */
   stream?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-12-10T15:00:05Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -138,10 +73,6 @@ export class DescribeLiveDetectPornDataResponseBodyDetectPornData extends $dara.
 }
 
 export class DescribeLiveDetectPornDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth data returned at each interval.
-   */
   detectPornData?: DescribeLiveDetectPornDataResponseBodyDetectPornData;
   /**
    * @remarks

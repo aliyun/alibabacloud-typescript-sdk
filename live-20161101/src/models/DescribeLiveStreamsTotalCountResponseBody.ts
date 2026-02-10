@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamsTotalCountResponseBodyStreamCountListStreamCountInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The total number of live streams.
-   * 
-   * @example
-   * 934
-   */
   count?: number;
-  /**
-   * @remarks
-   * The timestamp.
-   * 
-   * @example
-   * 2023-07-24T16:00:00Z
-   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +63,6 @@ export class DescribeLiveStreamsTotalCountResponseBody extends $dara.Model {
    * String	FCFFE4A4-F34F-4EEF-B401-36A01689AFBC
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The statistics about the live streams.
-   */
   streamCountList?: DescribeLiveStreamsTotalCountResponseBodyStreamCountList;
   static names(): { [key: string]: string } {
     return {

@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamPushMetricDetailDataResponseBodyStreamDetailDataStreamData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * app
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The total bandwidth consumed by the stream per minute. Unit: bit/s.
-   * 
-   * @example
-   * 423304182
-   */
   reqBps?: number;
-  /**
-   * @remarks
-   * The total amount of traffic consumed by the stream per minute. Unit: bytes.
-   * 
-   * @example
-   * 423304182.66
-   */
   reqTraffic?: number;
-  /**
-   * @remarks
-   * The name of the stream.
-   * 
-   * @example
-   * test.flv
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2022-09-10T20:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,10 +114,6 @@ export class DescribeLiveStreamPushMetricDetailDataResponseBody extends $dara.Mo
    * 2022-09-10T20:00:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The data array returned.
-   */
   streamDetailData?: DescribeLiveStreamPushMetricDetailDataResponseBodyStreamDetailData;
   static names(): { [key: string]: string } {
     return {

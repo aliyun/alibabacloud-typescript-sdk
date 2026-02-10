@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainTrafficDataResponseBodyTrafficDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The traffic over HTTP. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   httpTrafficValue?: string;
-  /**
-   * @remarks
-   * The traffic over HTTPS. Unit: bytes.
-   * 
-   * @example
-   * 454680793
-   */
   httpsTrafficValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2017-12-10T15:00:05Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total traffic. Unit: bytes.
-   * 
-   * @example
-   * 454680793
-   */
   trafficValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,10 +101,6 @@ export class DescribeLiveDomainTrafficDataResponseBody extends $dara.Model {
    * 2017-12-10T14:00:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The network traffic data that was collected at each interval.
-   */
   trafficDataPerInterval?: DescribeLiveDomainTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {

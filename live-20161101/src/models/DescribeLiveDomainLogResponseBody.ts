@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The end of the time range for which the logs were queried.
-   * 
-   * @example
-   * 2016-10-20T05:00:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The name of the log file.
-   * 
-   * @example
-   * developer.aliyundoc.com_2016_10_20_040000_050000.gz
-   */
   logName?: string;
-  /**
-   * @remarks
-   * The path of the log file.
-   * 
-   * @example
-   * learn.aliyundoc.com/developer.aliyundoc.com/2016_10_20/example.aliyundoc.com_2016_10_20_040000_050000.gz?Expires=1522659931&amp;OSSAccessKeyId=LTAI******eo4ZEuA&amp;Signature=C01p%2BtA%******KP9Sru2Oxwy7Do0%3D
-   */
   logPath?: string;
-  /**
-   * @remarks
-   * The size of the log file.
-   * 
-   * @example
-   * 10
-   */
   logSize?: number;
-  /**
-   * @remarks
-   * The beginning of the time range for which the logs were queried.
-   * 
-   * @example
-   * 2016-10-20T04:00:00Z
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,29 +64,8 @@ export class DescribeLiveDomainLogResponseBodyDomainLogDetailsDomainLogDetailLog
 }
 
 export class DescribeLiveDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
   pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 20
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -149,23 +93,8 @@ export class DescribeLiveDomainLogResponseBodyDomainLogDetailsDomainLogDetailPag
 }
 
 export class DescribeLiveDomainLogResponseBodyDomainLogDetailsDomainLogDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The total number of entries returned on the current page.
-   * 
-   * @example
-   * 10
-   */
   logCount?: number;
-  /**
-   * @remarks
-   * Details about the logs.
-   */
   logInfos?: DescribeLiveDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
-  /**
-   * @remarks
-   * The page information.
-   */
   pageInfos?: DescribeLiveDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
   static names(): { [key: string]: string } {
     return {
@@ -225,10 +154,6 @@ export class DescribeLiveDomainLogResponseBodyDomainLogDetails extends $dara.Mod
 }
 
 export class DescribeLiveDomainLogResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The log information.
-   */
   domainLogDetails?: DescribeLiveDomainLogResponseBodyDomainLogDetails;
   /**
    * @remarks

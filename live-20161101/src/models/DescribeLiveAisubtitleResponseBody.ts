@@ -55,143 +55,23 @@ export class DescribeLiveAISubtitleResponseBodySubtitleConfigsSubtitleConfigRule
 }
 
 export class DescribeLiveAISubtitleResponseBodySubtitleConfigsSubtitleConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The background color of the subtitles.
-   * 
-   * @example
-   * 0xFF0000
-   */
   bgColor?: string;
-  /**
-   * @remarks
-   * The size of the background image.
-   * 
-   * @example
-   * 0.09
-   */
   bgWidthNormalized?: number;
-  /**
-   * @remarks
-   * The font weight.
-   * 
-   * @example
-   * 0.05
-   */
   borderWidthNormalized?: number;
-  /**
-   * @remarks
-   * The description of the template.
-   * 
-   * @example
-   * live AI subtitle template
-   */
   description?: string;
-  /**
-   * @remarks
-   * The language to which the subtitles are translated.
-   * 
-   * @example
-   * zh-CN
-   */
   dstLanguage?: string;
-  /**
-   * @remarks
-   * The font color.
-   * 
-   * @example
-   * 0xFFFFFF
-   */
   fontColor?: string;
-  /**
-   * @remarks
-   * The font.
-   * 
-   * @example
-   * AlibabaPuHuiTi-Regular
-   */
   fontName?: string;
-  /**
-   * @remarks
-   * The font size.
-   * 
-   * @example
-   * 0.037
-   */
   fontSizeNormalized?: string;
-  /**
-   * @remarks
-   * The height of the preview image.
-   * 
-   * @example
-   * 720
-   */
   height?: string;
-  /**
-   * @remarks
-   * The number of displayed lines.
-   * 
-   * @example
-   * 2
-   */
   maxLines?: number;
-  /**
-   * @remarks
-   * The position of the subtitles.
-   */
   positionNormalized?: DescribeLiveAISubtitleResponseBodySubtitleConfigsSubtitleConfigPositionNormalized;
-  /**
-   * @remarks
-   * The ID of the subtitle rule.
-   */
   rulesRefer?: DescribeLiveAISubtitleResponseBodySubtitleConfigsSubtitleConfigRulesRefer;
-  /**
-   * @remarks
-   * Indicates whether the source language of the subtitle is displayed.
-   * 
-   * @example
-   * true
-   */
   showSourceLan?: number;
-  /**
-   * @remarks
-   * The source language of the subtitles.
-   * 
-   * @example
-   * zh-CN
-   */
   srcLanguage?: string;
-  /**
-   * @remarks
-   * The ID of the subtitle template.
-   * 
-   * @example
-   * 597991f3-6ef9-4100-9238-82951de1****
-   */
   subtitleId?: string;
-  /**
-   * @remarks
-   * The name of the subtitle template.
-   * 
-   * @example
-   * sub1
-   */
   subtitleName?: string;
-  /**
-   * @remarks
-   * The width of the preview image.
-   * 
-   * @example
-   * 1280
-   */
   width?: string;
-  /**
-   * @remarks
-   * The number of words per line.
-   * 
-   * @example
-   * 20
-   */
   wordPerline?: number;
   static names(): { [key: string]: string } {
     return {
@@ -289,10 +169,6 @@ export class DescribeLiveAISubtitleResponseBody extends $dara.Model {
    * 5c6a2a0df228-4a64- af62-20e91b96****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the subtitle templates.
-   */
   subtitleConfigs?: DescribeLiveAISubtitleResponseBodySubtitleConfigs;
   static names(): { [key: string]: string } {
     return {

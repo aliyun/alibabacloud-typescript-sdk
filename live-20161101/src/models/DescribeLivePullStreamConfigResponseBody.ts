@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLivePullStreamConfigResponseBodyLiveAppRecordListLiveAppRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application to which the live stream belongs.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The end of the time range for which the configurations were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2016-05-20T01:33:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The origin server of the live stream.
-   * 
-   * @example
-   * guide.aliyundoc.com
-   */
   sourceUrl?: string;
-  /**
-   * @remarks
-   * The live stream origin server that you are using.
-   * 
-   * @example
-   * guide.aliyundoc.com
-   */
   sourceUsing?: string;
-  /**
-   * @remarks
-   * The beginning of the time range for which the configurations were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2016-05-15T01:30:00Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * liveStream****
-   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,10 +70,6 @@ export class DescribeLivePullStreamConfigResponseBodyLiveAppRecordList extends $
 }
 
 export class DescribeLivePullStreamConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the stream pulling configurations.
-   */
   liveAppRecordList?: DescribeLivePullStreamConfigResponseBodyLiveAppRecordList;
   /**
    * @remarks

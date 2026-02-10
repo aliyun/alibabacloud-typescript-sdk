@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveTopDomainsByFlowResponseBodyTopDomainsTopDomain extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The peak bandwidth of the domain name.
-   * 
-   * @example
-   * 22139626
-   */
   maxBps?: number;
-  /**
-   * @remarks
-   * The time when the bandwidth reached the peak value.
-   * 
-   * @example
-   * 1457111400
-   */
   maxBpsTime?: string;
-  /**
-   * @remarks
-   * The ranking of the domain name.
-   * 
-   * @example
-   * 1
-   */
   rank?: number;
-  /**
-   * @remarks
-   * The number of visits to the domain name.
-   * 
-   * @example
-   * 107784230
-   */
   totalAccess?: number;
-  /**
-   * @remarks
-   * The total traffic.
-   * 
-   * @example
-   * 2043859876683.9001
-   */
   totalTraffic?: string;
-  /**
-   * @remarks
-   * The traffic share of the domain name relative to the total traffic.
-   * 
-   * @example
-   * 30.64191989360235
-   */
   trafficPercent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,10 +110,6 @@ export class DescribeLiveTopDomainsByFlowResponseBody extends $dara.Model {
    * 2018-03-17T16:00:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The top domain names ranked by traffic.
-   */
   topDomains?: DescribeLiveTopDomainsByFlowResponseBodyTopDomains;
   static names(): { [key: string]: string } {
     return {

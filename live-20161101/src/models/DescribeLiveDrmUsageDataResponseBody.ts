@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDrmUsageDataResponseBodyDrmUsageDataDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The number of times DRM-encrypted live streams are requested.
-   * 
-   * @example
-   * 1
-   */
   count?: number;
-  /**
-   * @remarks
-   * The domain name. If the value of SplitBy includes domain, the returned data is grouped by domain name.
-   * 
-   * @example
-   * example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The DRM type. If the value of SplitBy includes drm_type, the returned data is grouped by DRM type.
-   * 
-   * @example
-   * Widevine
-   */
   drmType?: string;
-  /**
-   * @remarks
-   * The ID of the region. If the value of SplitBy includes region, the returned data is grouped by region.
-   * 
-   * @example
-   * cn-beijing
-   */
   region?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2021-05-01T16:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeLiveDrmUsageDataResponseBodyDrmUsageData extends $dara.Mode
 }
 
 export class DescribeLiveDrmUsageDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The usage of the DRM encryption service at each time interval.
-   */
   drmUsageData?: DescribeLiveDrmUsageDataResponseBodyDrmUsageData;
   /**
    * @remarks

@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCasterConfigResponseBodyRecordConfigRecordFormatRecordFormat extends $dara.Model {
-  /**
-   * @remarks
-   * The length of the recording.
-   * 
-   * @example
-   * 3600
-   */
   cycleDuration?: number;
-  /**
-   * @remarks
-   * The format of the recording.
-   * 
-   * @example
-   * M3U8
-   */
   format?: string;
-  /**
-   * @remarks
-   * The name of the recording.
-   * 
-   * @example
-   * record/{liveApp****}/{liveStream****}
-   */
   ossObjectPrefix?: string;
-  /**
-   * @remarks
-   * The name of the segment.
-   * 
-   * @example
-   * record/{liveApp****}/{liveStream****}/{UnixTimestamp****}
-   */
   sliceOssObjectPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -117,10 +89,6 @@ export class DescribeCasterConfigResponseBodyRecordConfig extends $dara.Model {
    * oss-cn-shanghai.aliyundoc.com
    */
   ossEndpoint?: string;
-  /**
-   * @remarks
-   * The recording configuration.
-   */
   recordFormat?: DescribeCasterConfigResponseBodyRecordConfigRecordFormat;
   static names(): { [key: string]: string } {
     return {
@@ -179,30 +147,8 @@ export class DescribeCasterConfigResponseBodySyncGroupsConfigSyncGroupResourceId
 }
 
 export class DescribeCasterConfigResponseBodySyncGroupsConfigSyncGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the resource in the production studio.
-   * 
-   * @example
-   * 28768383240243****
-   */
   hostResourceId?: string;
-  /**
-   * @remarks
-   * The cache mode of the Static Page Caching policy. Valid values:
-   * 
-   * *   0: standard mode
-   * *   1: force mode
-   * *   2: no cache
-   * 
-   * @example
-   * 0
-   */
   mode?: number;
-  /**
-   * @remarks
-   * The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
-   */
   resourceIds?: DescribeCasterConfigResponseBodySyncGroupsConfigSyncGroupResourceIds;
   static names(): { [key: string]: string } {
     return {
@@ -397,10 +343,6 @@ export class DescribeCasterConfigResponseBodyTranscodeConfig extends $dara.Model
    * The custom settings.
    */
   customParams?: DescribeCasterConfigResponseBodyTranscodeConfigCustomParams;
-  /**
-   * @remarks
-   * The transcoding setting for live streams.
-   */
   liveTemplateIds?: DescribeCasterConfigResponseBodyTranscodeConfigLiveTemplateIds;
   static names(): { [key: string]: string } {
     return {
@@ -555,10 +497,6 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
    * rtmp://sophon-developer.aliyundoc.com/caster/4a82a3d1b7f0462ea37348366201****?auth_key=1608953344-0-0-ac8c628078541d7055a170ec59a5****
    */
   sideOutputUrlList?: string;
-  /**
-   * @remarks
-   * The storage configuration.
-   */
   syncGroupsConfig?: DescribeCasterConfigResponseBodySyncGroupsConfig;
   /**
    * @remarks

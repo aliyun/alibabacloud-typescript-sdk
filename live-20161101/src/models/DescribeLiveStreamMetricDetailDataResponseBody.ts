@@ -3,211 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamMetricDetailDataResponseBodyStreamDetailDataStreamData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * app
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The total bandwidth consumed by the stream per minute. Unit: bit/s.
-   * 
-   * @example
-   * 423304182.66
-   */
   bps?: number;
-  /**
-   * @remarks
-   * The total number of online viewers for the stream per minute.
-   * 
-   * @example
-   * 423304182
-   */
   count?: number;
-  /**
-   * @remarks
-   * The bandwidth over the Flash Video (FLV) protocol. Unit: bit/s.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 454
-   */
   flvBps?: number;
-  /**
-   * @remarks
-   * The number of online viewers over the FLV protocol.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 32
-   */
   flvCount?: number;
-  /**
-   * @remarks
-   * The amount of traffic over the FLV protocol. Unit: bytes.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 1254
-   */
   flvTraffic?: number;
-  /**
-   * @remarks
-   * The bandwidth over the HTTP Live Streaming (HLS) protocol. Unit: bit/s.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 4456
-   */
   hlsBps?: number;
-  /**
-   * @remarks
-   * The number of online viewers over the HLS protocol.
-   * 
-   * >  Currently, this parameter is not supported.
-   * 
-   * @example
-   * 56
-   */
   hlsCount?: number;
-  /**
-   * @remarks
-   * The amount of traffic over the HLS protocol. Unit: bytes.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 568
-   */
   hlsTraffic?: number;
-  /**
-   * @remarks
-   * Number of new connections established per minute.
-   * 
-   * @example
-   * 450
-   */
   newConns?: string;
-  /**
-   * @remarks
-   * The bandwidth over the P2P protocol. Unit: bit/s.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 6845
-   */
   p2pBps?: number;
-  /**
-   * @remarks
-   * The number of online viewers over the P2P protocol.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 78
-   */
   p2pCount?: number;
-  /**
-   * @remarks
-   * The amount of traffic over the peer-to-peer (P2P) protocol. Unit: bytes.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 4102
-   */
   p2pTraffic?: number;
-  /**
-   * @remarks
-   * The bandwidth over the Real-Time Messaging Protocol (RTMP) protocol. Unit: bit/s.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 3323
-   */
   rtmpBps?: number;
-  /**
-   * @remarks
-   * The number of online viewers over the RTMP protocol.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 63
-   */
   rtmpCount?: number;
-  /**
-   * @remarks
-   * The amount of traffic over the RTMP protocol. Unit: bytes.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 5568
-   */
   rtmpTraffic?: number;
-  /**
-   * @remarks
-   * The bandwidth over the RTS protocol. Unit: bit/s.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 2361
-   */
   rtsBps?: number;
-  /**
-   * @remarks
-   * The number of online viewers over the Real-Time Streaming (RTS) protocol.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 89
-   */
   rtsCount?: number;
-  /**
-   * @remarks
-   * The amount of traffic over the RTS protocol. Unit: bytes.
-   * 
-   * >  This parameter is not returned if no traffic is generated over the protocol.
-   * 
-   * @example
-   * 2322
-   */
   rtsTraffic?: number;
-  /**
-   * @remarks
-   * The name of the stream.
-   * 
-   * @example
-   * test.flv
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2015-12-10T20:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total amount of traffic consumed by the stream per minute. Unit: bytes.
-   * 
-   * @example
-   * 423304182
-   */
   traffic?: number;
   static names(): { [key: string]: string } {
     return {
@@ -347,10 +163,6 @@ export class DescribeLiveStreamMetricDetailDataResponseBody extends $dara.Model 
    * 2015-12-10T20:00:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The data array returned.
-   */
   streamDetailData?: DescribeLiveStreamMetricDetailDataResponseBodyStreamDetailData;
   static names(): { [key: string]: string } {
     return {

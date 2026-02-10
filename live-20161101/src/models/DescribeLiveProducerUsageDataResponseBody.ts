@@ -3,93 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveProducerUsageDataResponseBodyBillProducerDataBillProducerDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name. If domain is specified by the SplitBy parameter, the usage data is returned based on different domain names.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The production studio instance. If instance is specified by the SplitBy parameter, the usage data is returned based on different production studio instances.
-   * 
-   * @example
-   * a17d0184-462d-4630-b2a6-8c26dde2****
-   */
   instance?: string;
-  /**
-   * @remarks
-   * The duration of high definition streaming. Unit: minutes.
-   * 
-   * @example
-   * 6000
-   */
   outputHdDuration?: number;
-  /**
-   * @remarks
-   * The duration of low definition streaming. Unit: minutes.
-   * 
-   * @example
-   * 1001
-   */
   outputLdDuration?: number;
-  /**
-   * @remarks
-   * The duration of standard definition streaming. Unit: minutes.
-   * 
-   * @example
-   * 500
-   */
   outputSdDuration?: number;
-  /**
-   * @remarks
-   * The region. If region is specified by the SplitBy parameter, the usage data is returned based on different regions.
-   * 
-   * @example
-   * cn-shanghai
-   */
   region?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2018-09-30T00:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The duration of high definition transcoding. Unit: minutes.
-   * 
-   * @example
-   * 6777
-   */
   tranHdDuration?: number;
-  /**
-   * @remarks
-   * The duration of low definition transcoding. Unit: minutes.
-   * 
-   * @example
-   * 111
-   */
   tranLdDuration?: number;
-  /**
-   * @remarks
-   * The duration of standard definition transcoding. Unit: minutes.
-   * 
-   * @example
-   * 666
-   */
   tranSdDuration?: number;
-  /**
-   * @remarks
-   * The type of the production studio. If type is specified by the SplitBy parameter, the usage data is returned based on different types of production studios.
-   * 
-   * @example
-   * slidelive
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,10 +82,6 @@ export class DescribeLiveProducerUsageDataResponseBodyBillProducerData extends $
 }
 
 export class DescribeLiveProducerUsageDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The production studio usage data.
-   */
   billProducerData?: DescribeLiveProducerUsageDataResponseBodyBillProducerData;
   /**
    * @remarks

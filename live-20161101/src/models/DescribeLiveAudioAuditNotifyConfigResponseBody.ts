@@ -3,35 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveAudioAuditNotifyConfigResponseBodyLiveAudioAuditNotifyConfigListLiveAudioAuditNotifyConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The callback URL.
-   * 
-   * @example
-   * http://guide.aliyundoc.com/callback
-   */
   callback?: string;
-  /**
-   * @remarks
-   * The callback template. The following fields are configured:
-   * 
-   * *   **{DomainName}**: the streaming domain.
-   * *   **{AppName}**: the name of the application to which the live stream belongs.
-   * *   **{StreamName}**: the name of the live stream.
-   * *   **{Timestamp}**: the time when the callback is returned. The value of this field is a UNIX timestamp. Unit: seconds.
-   * *   **{Result}**: the moderation results.
-   * 
-   * @example
-   * {\\"domain\\":{DomainName},\\"app\\":{AppName},\\"stream\\":{StreamName},\\"timestamp\\":{Timestamp},\\"result\\":{Result}}
-   */
   callbackTemplate?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,10 +58,6 @@ export class DescribeLiveAudioAuditNotifyConfigResponseBodyLiveAudioAuditNotifyC
 }
 
 export class DescribeLiveAudioAuditNotifyConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration of callbacks for audio moderation results.
-   */
   liveAudioAuditNotifyConfigList?: DescribeLiveAudioAuditNotifyConfigResponseBodyLiveAudioAuditNotifyConfigList;
   /**
    * @remarks

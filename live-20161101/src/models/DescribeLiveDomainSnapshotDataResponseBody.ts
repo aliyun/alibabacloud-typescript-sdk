@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainSnapshotDataResponseBodySnapshotDataInfosSnapshotDataInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The date.
-   * 
-   * @example
-   * 20180209
-   */
   date?: string;
-  /**
-   * @remarks
-   * The total number of snapshots that were captured on the day.
-   * 
-   * @example
-   * 110
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +63,6 @@ export class DescribeLiveDomainSnapshotDataResponseBody extends $dara.Model {
    * B955107D-E658-4E77-B913-E0AC3D31693F
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The daily statistics on the number of snapshots.
-   */
   snapshotDataInfos?: DescribeLiveDomainSnapshotDataResponseBodySnapshotDataInfos;
   static names(): { [key: string]: string } {
     return {

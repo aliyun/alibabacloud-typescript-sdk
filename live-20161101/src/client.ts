@@ -3377,7 +3377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据一个或多个用户uid查询用户是否在线
+   * Queries whether users are online by UID.
    * 
    * @remarks
    * ## Usage notes
@@ -3422,7 +3422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据一个或多个用户uid查询用户是否在线
+   * Queries whether users are online by UID.
    * 
    * @remarks
    * ## Usage notes
@@ -5437,7 +5437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+   * Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
    * 
    * @remarks
    * ### [](#)Usage notes
@@ -5477,7 +5477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+   * Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
    * 
    * @remarks
    * ### [](#)Usage notes
@@ -7607,6 +7607,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除直播封装配置
+   * 
    * @remarks
    * You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
    * ## [](#qps-)QPS limit
@@ -7657,6 +7659,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除直播封装配置
+   * 
    * @remarks
    * You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
    * ## [](#qps-)QPS limit
@@ -14227,6 +14231,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询直播封装配置
+   * 
    * @remarks
    * Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
    * ## [](#qps-)QPS limit
@@ -14289,6 +14295,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询直播封装配置
+   * 
    * @remarks
    * Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
    * ## [](#qps-)QPS limit
@@ -15351,7 +15359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time shifting configurations under a domain name.
+   * Queries the time shifting configurations of a domain name.
    * 
    * @remarks
    * This operation is applicable to the streaming domains.
@@ -15395,7 +15403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time shifting configurations under a domain name.
+   * Queries the time shifting configurations of a domain name.
    * 
    * @remarks
    * This operation is applicable to the streaming domains.
@@ -17189,7 +17197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the blacklist of live stream URLs under a main streaming domain.
+   * Queries the live streams that are blacklisted under a domain name.
    * 
    * @remarks
    * The stream URLs refer to the URLs for playing in particular.
@@ -17241,7 +17249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the blacklist of live stream URLs under a main streaming domain.
+   * Queries the live streams that are blacklisted under a domain name.
    * 
    * @remarks
    * The stream URLs refer to the URLs for playing in particular.
@@ -18913,7 +18921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询rtc云端录制文件与任务信息
+   * Queries the information about a real-time communication (RTC) cloud-based recording task.
    * 
    * @param request - DescribeRtcCloudRecordingFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18944,7 +18952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询rtc云端录制文件与任务信息
+   * Queries the information about a real-time communication (RTC) cloud-based recording task.
    * 
    * @param request - DescribeRtcCloudRecordingFilesRequest
    * @returns DescribeRtcCloudRecordingFilesResponse
@@ -18952,6 +18960,52 @@ export default class Client extends OpenApi {
   async describeRtcCloudRecordingFiles(request: $_model.DescribeRtcCloudRecordingFilesRequest): Promise<$_model.DescribeRtcCloudRecordingFilesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRtcCloudRecordingFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云端转码任务
+   * 
+   * @param request - DescribeRtcCloudTranscodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRtcCloudTranscodeResponse
+   */
+  async describeRtcCloudTranscodeWithOptions(request: $_model.DescribeRtcCloudTranscodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRtcCloudTranscodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRtcCloudTranscode",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRtcCloudTranscodeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRtcCloudTranscodeResponse({}));
+  }
+
+  /**
+   * 查询云端转码任务
+   * 
+   * @param request - DescribeRtcCloudTranscodeRequest
+   * @returns DescribeRtcCloudTranscodeResponse
+   */
+  async describeRtcCloudTranscode(request: $_model.DescribeRtcCloudTranscodeRequest): Promise<$_model.DescribeRtcCloudTranscodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRtcCloudTranscodeWithOptions(request, runtime);
   }
 
   /**
@@ -23809,7 +23863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a user.
+   * Modifies the information about one or more users.
    * 
    * @param request - ModifyLiveMessageUserInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23852,7 +23906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a user.
+   * Modifies the information about one or more users.
    * 
    * @param request - ModifyLiveMessageUserInfoRequest
    * @returns ModifyLiveMessageUserInfoResponse
@@ -24933,7 +24987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a specified episode from an episode list.
+   * Removes an episode from an episode list.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -24990,7 +25044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a specified episode from an episode list.
+   * Removes an episode from an episode list.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -27685,6 +27739,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建云端转码任务
+   * 
+   * @param tmpReq - StartRtcCloudTranscodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRtcCloudTranscodeResponse
+   */
+  async startRtcCloudTranscodeWithOptions(tmpReq: $_model.StartRtcCloudTranscodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartRtcCloudTranscodeResponse> {
+    tmpReq.validate();
+    let request = new $_model.StartRtcCloudTranscodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.inputParam)) {
+      request.inputParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputParam, "InputParam", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.outputParams)) {
+      request.outputParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputParams, "OutputParams", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.inputParamShrink)) {
+      query["InputParam"] = request.inputParamShrink;
+    }
+
+    if (!$dara.isNull(request.maxIdleTime)) {
+      query["MaxIdleTime"] = request.maxIdleTime;
+    }
+
+    if (!$dara.isNull(request.outputParamsShrink)) {
+      query["OutputParams"] = request.outputParamsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartRtcCloudTranscode",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartRtcCloudTranscodeResponse>(await this.callApi(params, req, runtime), new $_model.StartRtcCloudTranscodeResponse({}));
+  }
+
+  /**
+   * 创建云端转码任务
+   * 
+   * @param request - StartRtcCloudTranscodeRequest
+   * @returns StartRtcCloudTranscodeResponse
+   */
+  async startRtcCloudTranscode(request: $_model.StartRtcCloudTranscodeRequest): Promise<$_model.StartRtcCloudTranscodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startRtcCloudTranscodeWithOptions(request, runtime);
+  }
+
+  /**
    * Stops a production studio. This stops the PVW and PGM scenes of the production studio.
    * 
    * @remarks
@@ -27745,7 +27867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a specified preview scene.
+   * Stops a specified preview (PVW) scene.
    * 
    * @remarks
    * ## Usage note
@@ -27792,7 +27914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a specified preview scene.
+   * Stops a specified preview (PVW) scene.
    * 
    * @remarks
    * ## Usage note
@@ -28217,7 +28339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止rtc云端录制任务
+   * Stops a real-time communication (RTC) cloud-based recording task.
    * 
    * @param request - StopRtcCloudRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28248,7 +28370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止rtc云端录制任务
+   * Stops a real-time communication (RTC) cloud-based recording task.
    * 
    * @param request - StopRtcCloudRecordingRequest
    * @returns StopRtcCloudRecordingResponse
@@ -28259,7 +28381,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The N tags that you want to add for the resource.
+   * 停止云端转码任务
+   * 
+   * @param request - StopRtcCloudTranscodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRtcCloudTranscodeResponse
+   */
+  async stopRtcCloudTranscodeWithOptions(request: $_model.StopRtcCloudTranscodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopRtcCloudTranscodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopRtcCloudTranscode",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopRtcCloudTranscodeResponse>(await this.callApi(params, req, runtime), new $_model.StopRtcCloudTranscodeResponse({}));
+  }
+
+  /**
+   * 停止云端转码任务
+   * 
+   * @param request - StopRtcCloudTranscodeRequest
+   * @returns StopRtcCloudTranscodeResponse
+   */
+  async stopRtcCloudTranscode(request: $_model.StopRtcCloudTranscodeRequest): Promise<$_model.StopRtcCloudTranscodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopRtcCloudTranscodeWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds tags for domain names.
    * 
    * @remarks
    * The key of the tag. Valid values of N: **1 to 20**.
@@ -28309,7 +28477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The N tags that you want to add for the resource.
+   * Adds tags for domain names.
    * 
    * @remarks
    * The key of the tag. Valid values of N: **1 to 20**.
@@ -28323,7 +28491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑标签
+   * Deletes tags of domain names.
    * 
    * @param request - UnTagLiveResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28374,7 +28542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑标签
+   * Deletes tags of domain names.
    * 
    * @param request - UnTagLiveResourcesRequest
    * @returns UnTagLiveResourcesResponse

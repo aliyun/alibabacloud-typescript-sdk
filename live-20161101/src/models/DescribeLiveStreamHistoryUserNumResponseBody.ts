@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamHistoryUserNumResponseBodyLiveStreamUserNumInfosLiveStreamUserNumInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the stream started. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-10-20T06:20:00Z
-   */
   streamTime?: string;
-  /**
-   * @remarks
-   * The number of users at the current point in time.
-   * 
-   * @example
-   * 1
-   */
   userNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeLiveStreamHistoryUserNumResponseBodyLiveStreamUserNumInfos 
 }
 
 export class DescribeLiveStreamHistoryUserNumResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The number of historical online users for the live stream.
-   */
   liveStreamUserNumInfos?: DescribeLiveStreamHistoryUserNumResponseBodyLiveStreamUserNumInfos;
   /**
    * @remarks

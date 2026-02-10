@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveStreamsControlHistoryResponseBodyControlInfoLiveStreamControlInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the operation performed.
-   * 
-   * @example
-   * DescribeLiveStreamsControlHistory
-   */
   action?: string;
-  /**
-   * @remarks
-   * The IP address that is used by the client for live streaming.
-   * 
-   * @example
-   * 10.207.XX.XX
-   */
   clientIP?: string;
-  /**
-   * @remarks
-   * The name of the live stream.
-   * 
-   * @example
-   * liveStream****
-   */
   streamName?: string;
-  /**
-   * @remarks
-   * The time when the operation was performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-12-01T16:36:18Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeLiveStreamsControlHistoryResponseBodyControlInfo extends $d
 }
 
 export class DescribeLiveStreamsControlHistoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The operation records.
-   */
   controlInfo?: DescribeLiveStreamsControlHistoryResponseBodyControlInfo;
   /**
    * @remarks

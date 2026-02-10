@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveDomainBpsDataResponseBodyBpsDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 11288111
-   */
   bpsValue?: string;
-  /**
-   * @remarks
-   * The bandwidth over HTTP. Unit: bit/s.
-   * 
-   * @example
-   * 11286111
-   */
   httpBpsValue?: string;
-  /**
-   * @remarks
-   * The bandwidth over HTTPS. Unit: bit/s.
-   * 
-   * @example
-   * 2000
-   */
   httpsBpsValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2017-12-10T08:00:05Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeLiveDomainBpsDataResponseBodyBpsDataPerInterval extends $da
 }
 
 export class DescribeLiveDomainBpsDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth data returned at each interval.
-   */
   bpsDataPerInterval?: DescribeLiveDomainBpsDataResponseBodyBpsDataPerInterval;
   /**
    * @remarks

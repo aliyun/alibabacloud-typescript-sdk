@@ -3,77 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveSnapshotConfigResponseBodyLiveStreamSnapshotConfigListLiveStreamSnapshotConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application to which the live stream belongs.
-   * 
-   * @example
-   * liveApp****
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The callback URL that is used to receive notifications about snapshot capture.
-   * 
-   * @example
-   * https://learn.aliyundoc.com
-   */
   callback?: string;
-  /**
-   * @remarks
-   * The time when the configuration was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2016-05-20T01:33:38Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The main streaming domain.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The name of the Object Storage Service (OSS) bucket.
-   * 
-   * @example
-   * liveBucket****
-   */
   ossBucket?: string;
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket.
-   * 
-   * @example
-   * cn-oss-****.aliyuncs.com
-   */
   ossEndpoint?: string;
-  /**
-   * @remarks
-   * The naming format of snapshots that are stored in the overwrite mode, which means that a new snapshot overwrites the previous snapshot.
-   * 
-   * @example
-   * {liveApp****}/{liveStream****}.jpg
-   */
   overwriteOssObject?: string;
-  /**
-   * @remarks
-   * The naming format of snapshots that are stored in sequence, which means that a new snapshot does not overwrite the previous snapshot.
-   * 
-   * @example
-   * snapshot/{liveApp****}/{liveStream****}/{UnixTimestamp}.jpg
-   */
   sequenceOssObject?: string;
-  /**
-   * @remarks
-   * The interval at which snapshots are captured. Unit: seconds.
-   * 
-   * @example
-   * 10
-   */
   timeInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +76,6 @@ export class DescribeLiveSnapshotConfigResponseBodyLiveStreamSnapshotConfigList 
 }
 
 export class DescribeLiveSnapshotConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The snapshot configurations.
-   */
   liveStreamSnapshotConfigList?: DescribeLiveSnapshotConfigResponseBodyLiveStreamSnapshotConfigList;
   /**
    * @remarks

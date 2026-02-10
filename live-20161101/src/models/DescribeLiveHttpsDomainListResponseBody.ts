@@ -3,77 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveHttpsDomainListResponseBodyCertInfosCertInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The primary domain name of the certificate.
-   * 
-   * @example
-   * example.org
-   */
   certCommonName?: string;
-  /**
-   * @remarks
-   * The time when the certificate expires.
-   * 
-   * @example
-   * 2018-12-26 14:45:09
-   */
   certExpireTime?: string;
-  /**
-   * @remarks
-   * The name of the certificate.
-   * 
-   * @example
-   * test
-   */
   certName?: string;
-  /**
-   * @remarks
-   * The time when the certificate became effective.
-   * 
-   * @example
-   * 2018-11-26 14:45:09
-   */
   certStartTime?: string;
-  /**
-   * @remarks
-   * The status of the certificate. Valid values:
-   * 
-   * *   **ok**: The certificate is working as expected.
-   * *   **mismatch**: The certificate does not match the specified domain name.
-   * *   **expired**: The certificate has expired.
-   * *   **expire_soon**: The certificate will expire soon.
-   * 
-   * @example
-   * mismatch
-   */
   certStatus?: string;
-  /**
-   * @remarks
-   * The type of the certificate. Valid values:
-   * 
-   * *   **cas**: a certificate that you purchased from Certificate Management Service
-   * *   **upload**: a custom certificate that you uploaded
-   * 
-   * @example
-   * cas
-   */
   certType?: string;
-  /**
-   * @remarks
-   * The time when the certificate was updated.
-   * 
-   * @example
-   * 2019-01-08 18:33:16
-   */
   certUpdateTime?: string;
-  /**
-   * @remarks
-   * The accelerated domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,10 +73,6 @@ export class DescribeLiveHttpsDomainListResponseBodyCertInfos extends $dara.Mode
 }
 
 export class DescribeLiveHttpsDomainListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the certificates.
-   */
   certInfos?: DescribeLiveHttpsDomainListResponseBodyCertInfos;
   /**
    * @remarks

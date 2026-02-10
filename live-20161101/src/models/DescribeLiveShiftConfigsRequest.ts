@@ -14,6 +14,13 @@ export class DescribeLiveShiftConfigsRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region where the streaming domain resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

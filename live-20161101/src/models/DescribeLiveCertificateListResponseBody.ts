@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveCertificateListResponseBodyCertificateListModelCertListCert extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the certificate.
-   * 
-   * @example
-   * 123456
-   */
   certId?: number;
-  /**
-   * @remarks
-   * The name of the certificate.
-   * 
-   * @example
-   * Cert-****
-   */
   certName?: string;
-  /**
-   * @remarks
-   * The Common Name (CN) attribute of the certificate.
-   * 
-   * @example
-   * example.net
-   */
   common?: string;
-  /**
-   * @remarks
-   * The fingerprint of the certificate.
-   * 
-   * @example
-   * ****
-   */
   fingerprint?: string;
-  /**
-   * @remarks
-   * The certificate authority (CA) that issued the certificate.
-   * 
-   * @example
-   * *****
-   */
   issuer?: string;
-  /**
-   * @remarks
-   * The time when the certificate was issued. Unit: seconds.
-   * 
-   * @example
-   * 1512388659
-   */
   lastTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -109,10 +67,6 @@ export class DescribeLiveCertificateListResponseBodyCertificateListModelCertList
 }
 
 export class DescribeLiveCertificateListResponseBodyCertificateListModel extends $dara.Model {
-  /**
-   * @remarks
-   * The certificates.
-   */
   certList?: DescribeLiveCertificateListResponseBodyCertificateListModelCertList;
   /**
    * @remarks

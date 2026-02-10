@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUpPeakPublishStreamDataResponseBodyDescribeUpPeakPublishStreamDatasDescribeUpPeakPublishStreamData extends $dara.Model {
-  /**
-   * @remarks
-   * The daily peak inbound bandwidth.
-   * 
-   * @example
-   * 777.2727083333333
-   */
   bandWidth?: string;
-  /**
-   * @remarks
-   * The time when the daily peak number of concurrently ingested streams is reached.
-   * 
-   * @example
-   * 1522180000000
-   */
   peakTime?: string;
-  /**
-   * @remarks
-   * The daily peak number of concurrently ingested streams.
-   * 
-   * @example
-   * 36
-   */
   publishStreamNum?: number;
-  /**
-   * @remarks
-   * The time queried on the day.
-   * 
-   * @example
-   * 1522080000000
-   */
   queryTime?: string;
-  /**
-   * @remarks
-   * The category of the statistical data. If the DomainSwitch parameter is set to on, the value of this parameter is the domain name. If the DomainSwitch parameter is set to off or not specified, the value of this parameter is the user ID.
-   * 
-   * @example
-   * push-live.aliyuncs.com
-   */
   statName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeUpPeakPublishStreamDataResponseBodyDescribeUpPeakPublishStr
 }
 
 export class DescribeUpPeakPublishStreamDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the peak number of concurrently ingested streams on each day.
-   */
   describeUpPeakPublishStreamDatas?: DescribeUpPeakPublishStreamDataResponseBodyDescribeUpPeakPublishStreamDatas;
   /**
    * @remarks

@@ -3,38 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartCasterResponseBodyPgmSceneInfosSceneInfoStreamInfosStreamInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The URL.
-   * 
-   * @example
-   * rtmp://abclive/caster/example.net
-   */
   outputStreamUrl?: string;
-  /**
-   * @remarks
-   * The transcoding configuration. Valid values:
-   * 
-   * *   **lsd**: standard definition
-   * *   **lld**: low definition
-   * *   **lud**: ultra-high definition
-   * *   **lhd**: high definition
-   * 
-   * @example
-   * lld
-   */
   transcodeConfig?: string;
-  /**
-   * @remarks
-   * The format. Valid values:
-   * 
-   * *   **flv**
-   * *   **rtmp**
-   * *   **m3u8**
-   * 
-   * @example
-   * flv
-   */
   videoFormat?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,26 +58,8 @@ export class StartCasterResponseBodyPgmSceneInfosSceneInfoStreamInfos extends $d
 }
 
 export class StartCasterResponseBodyPgmSceneInfosSceneInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the scene.
-   * 
-   * @example
-   * b5f8c837-ceeb-424f-b30b-68e94e86****
-   */
   sceneId?: string;
-  /**
-   * @remarks
-   * The stream relay URLs.
-   */
   streamInfos?: StartCasterResponseBodyPgmSceneInfosSceneInfoStreamInfos;
-  /**
-   * @remarks
-   * The streaming URL of the PGM scene in the production studio. The value is not a stream relay URL.
-   * 
-   * @example
-   * rtmp://abclive/caster/example.edu
-   */
   streamUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -164,21 +116,7 @@ export class StartCasterResponseBodyPgmSceneInfos extends $dara.Model {
 }
 
 export class StartCasterResponseBodyPvwSceneInfosSceneInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the scene.
-   * 
-   * @example
-   * b5f8c837-ceeb-424f-b30b-68e94e86****
-   */
   sceneId?: string;
-  /**
-   * @remarks
-   * The streaming URL of the PVW scene in the production studio. The value is not a stream relay URL.
-   * 
-   * @example
-   * rtmp://abclive/caster/example.net
-   */
   streamUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -230,15 +168,7 @@ export class StartCasterResponseBodyPvwSceneInfos extends $dara.Model {
 }
 
 export class StartCasterResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The PGM scenes.
-   */
   pgmSceneInfos?: StartCasterResponseBodyPgmSceneInfos;
-  /**
-   * @remarks
-   * The PVW scenes.
-   */
   pvwSceneInfos?: StartCasterResponseBodyPvwSceneInfos;
   /**
    * @remarks

@@ -3,37 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCasterLayoutsResponseBodyLayoutsLayoutAudioLayersAudioLayer extends $dara.Model {
-  /**
-   * @remarks
-   * The fixed delay of the audio layer. This parameter is used to synchronize the audio with subtitles.
-   * 
-   * Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
-   * 
-   * @example
-   * 20
-   */
   fixedDelayDuration?: number;
-  /**
-   * @remarks
-   * The sound channels that are used for volume input in the audio layer. Valid values:
-   * 
-   * *   **leftChannel**: the left channel
-   * *   **rightChannel**: the right channel
-   * *   **all** (default): both the left and right channels
-   * 
-   * @example
-   * all
-   */
   validChannel?: string;
-  /**
-   * @remarks
-   * The normalized value of the height of the audio layer. The width of the audio layer is proportionally scaled based on this parameter.
-   * 
-   * >  The default value is **0**, which indicates that the audio layer is not scaled.
-   * 
-   * @example
-   * 1
-   */
   volumeRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -165,73 +136,11 @@ export class DescribeCasterLayoutsResponseBodyLayoutsLayoutVideoLayersVideoLayer
 }
 
 export class DescribeCasterLayoutsResponseBodyLayoutsLayoutVideoLayersVideoLayer extends $dara.Model {
-  /**
-   * @remarks
-   * The scaling mode of the video layer. Valid values:
-   * 
-   * *   **none** (default): specifies that the video layer is not scaled. The video layer is displayed based on its original size.
-   * *   **fit**: specifies that the video layer is adapted to the fill area. The video layer is displayed based on the fill area. In this case, the video layer is scaled proportionally, with its original aspect ratio retained. The video layer is placed in the center, with its longer sides aligned with the fill area. If the aspect ratio of the video layer is different from that of the fill area, the content of the lower layer is displayed alongside the shorter sides. If there is no lower layer, black bars are displayed instead.
-   * 
-   * @example
-   * fit
-   */
   fillMode?: string;
-  /**
-   * @remarks
-   * The fixed delay of the video layer. This parameter is used to synchronize the video with subtitles.
-   * 
-   * Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
-   * 
-   * @example
-   * 20
-   */
   fixedDelayDuration?: number;
-  /**
-   * @remarks
-   * The normalized value of the height of the video layer.
-   * 
-   * *   If the FillMode parameter of the video layer is set to none, the width of the video layer is proportionally scaled based on this parameter. The default value is **0**, which indicates that the video layer is not scaled.
-   * *   If the FillMode parameter of the video layer is set to fit, the value of this parameter is greater than **0**.
-   * 
-   * @example
-   * 0.5
-   */
   heightNormalized?: number;
-  /**
-   * @remarks
-   * The normalized value of the position of the video layer, in the format of `[x,y]`. Default value: `[0,0]`.
-   * 
-   * >  The values of x and y are normalized.
-   */
   positionNormalizeds?: DescribeCasterLayoutsResponseBodyLayoutsLayoutVideoLayersVideoLayerPositionNormalizeds;
-  /**
-   * @remarks
-   * The reference coordinates of the video layer. Valid values:
-   * 
-   * *   **topLeft** (default): the upper-left corner
-   * *   **topRight**: the upper-right corner
-   * *   **bottomLeft**: the lower-left corner
-   * *   **bottomRight**: the lower-right corner
-   * *   **center**: the center
-   * *   **topCenter**: the upper center
-   * *   **bottomCenter**: the lower center
-   * *   **leftCenter**: the left center
-   * *   **rightCenter**: the right center
-   * 
-   * @example
-   * topLeft
-   */
   positionRefer?: string;
-  /**
-   * @remarks
-   * The normalized value of the width of the video layer.
-   * 
-   * *   If the FillMode parameter of the video layer is set to none, the height of the video layer is scaled based on this parameter. The default value is **0**, which indicates that the video layer is not scaled.
-   * *   If the FillMode parameter of the video layer is set to fit, the value of this parameter is greater than **0**.
-   * 
-   * @example
-   * 0.5
-   */
   widthNormalized?: number;
   static names(): { [key: string]: string } {
     return {
@@ -294,33 +203,10 @@ export class DescribeCasterLayoutsResponseBodyLayoutsLayoutVideoLayers extends $
 }
 
 export class DescribeCasterLayoutsResponseBodyLayoutsLayout extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the audio layers.
-   */
   audioLayers?: DescribeCasterLayoutsResponseBodyLayoutsLayoutAudioLayers;
-  /**
-   * @remarks
-   * The location IDs of the video layers, which are in the same order as the video layers.
-   */
   blendList?: DescribeCasterLayoutsResponseBodyLayoutsLayoutBlendList;
-  /**
-   * @remarks
-   * The ID of the layout.
-   * 
-   * @example
-   * 72d2ec7a-4cd7-4a01-974b-7cd53947****
-   */
   layoutId?: string;
-  /**
-   * @remarks
-   * The location IDs of the audio layers, which are in the same order as the audio layers.
-   */
   mixList?: DescribeCasterLayoutsResponseBodyLayoutsLayoutMixList;
-  /**
-   * @remarks
-   * The configurations of the video layers, which are in the default array sequence.
-   */
   videoLayers?: DescribeCasterLayoutsResponseBodyLayoutsLayoutVideoLayers;
   static names(): { [key: string]: string } {
     return {
@@ -390,10 +276,6 @@ export class DescribeCasterLayoutsResponseBodyLayouts extends $dara.Model {
 }
 
 export class DescribeCasterLayoutsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The layouts.
-   */
   layouts?: DescribeCasterLayoutsResponseBodyLayouts;
   /**
    * @remarks

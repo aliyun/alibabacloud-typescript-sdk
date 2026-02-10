@@ -3,84 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLiveUserDomainsResponseBodyDomainsPageData extends $dara.Model {
-  /**
-   * @remarks
-   * The CNAME generated for the domain name.
-   * 
-   * @example
-   * learn.developer.aliyundoc.com
-   */
   cname?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * demo.aliyundoc.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The time when the domain name was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-08-29T12:15:36Z
-   */
   gmtCreated?: string;
-  /**
-   * @remarks
-   * The time when the domain name was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-12-29T12:15:36Z
-   */
   gmtModified?: string;
-  /**
-   * @remarks
-   * The status of the domain name. Valid values:
-   * 
-   * *   **online**
-   * *   **offline**
-   * *   **configuring**
-   * 
-   * @example
-   * online
-   */
   liveDomainStatus?: string;
-  /**
-   * @remarks
-   * The type of the domain name. Valid values:
-   * 
-   * *   **liveVideo**: streaming domain
-   * *   **liveEdge**: ingest domain
-   * 
-   * @example
-   * liveVideo
-   */
   liveDomainType?: string;
-  /**
-   * @remarks
-   * The ID of the region in which the domain name resides.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionName?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aekzvyjetyjjmla
-   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -146,10 +76,6 @@ export class DescribeLiveUserDomainsResponseBodyDomains extends $dara.Model {
 }
 
 export class DescribeLiveUserDomainsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The domain names.
-   */
   domains?: DescribeLiveUserDomainsResponseBodyDomains;
   /**
    * @remarks
