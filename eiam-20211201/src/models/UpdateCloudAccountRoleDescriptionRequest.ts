@@ -33,8 +33,6 @@ export class UpdateCloudAccountRoleDescriptionRequest extends $dara.Model {
    * @remarks
    * 描述
    * 
-   * This parameter is required.
-   * 
    * @example
    * cloud_account_role_description
    */

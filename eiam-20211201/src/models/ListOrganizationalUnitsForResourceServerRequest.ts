@@ -70,6 +70,14 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
    * NTxxxxxexample
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * 权限唯一标识。
+   * 
+   * @example
+   * ress_nbte4bb3qqqnaq73rlmkqixxxx
+   */
+  resourceServerScopeId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
@@ -77,6 +85,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
       instanceId: 'InstanceId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      resourceServerScopeId: 'ResourceServerScopeId',
     };
   }
 
@@ -87,6 +96,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
       instanceId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      resourceServerScopeId: 'string',
     };
   }
 

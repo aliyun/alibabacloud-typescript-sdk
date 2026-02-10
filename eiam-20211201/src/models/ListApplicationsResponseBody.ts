@@ -16,6 +16,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  applicationIdentityType?: string;
   /**
    * @remarks
    * The name of the application.
@@ -166,6 +167,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
     return {
       applicationCreationType: 'ApplicationCreationType',
       applicationId: 'ApplicationId',
+      applicationIdentityType: 'ApplicationIdentityType',
       applicationName: 'ApplicationName',
       applicationSourceType: 'ApplicationSourceType',
       applicationTemplateId: 'ApplicationTemplateId',
@@ -190,6 +192,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
     return {
       applicationCreationType: 'string',
       applicationId: 'string',
+      applicationIdentityType: 'string',
       applicationName: 'string',
       applicationSourceType: 'string',
       applicationTemplateId: 'string',

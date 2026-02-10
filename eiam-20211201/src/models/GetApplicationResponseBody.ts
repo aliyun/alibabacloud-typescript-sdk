@@ -27,6 +27,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  applicationIdentityType?: string;
   /**
    * @remarks
    * The name of the application.
@@ -203,6 +204,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       apiInvokeStatus: 'ApiInvokeStatus',
       applicationCreationType: 'ApplicationCreationType',
       applicationId: 'ApplicationId',
+      applicationIdentityType: 'ApplicationIdentityType',
       applicationName: 'ApplicationName',
       applicationSourceType: 'ApplicationSourceType',
       applicationTemplateId: 'ApplicationTemplateId',
@@ -232,6 +234,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       apiInvokeStatus: 'string',
       applicationCreationType: 'string',
       applicationId: 'string',
+      applicationIdentityType: 'string',
       applicationName: 'string',
       applicationSourceType: 'string',
       applicationTemplateId: 'string',

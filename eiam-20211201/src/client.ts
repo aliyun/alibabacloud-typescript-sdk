@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在当前应用下给指定员工添加一个应用账号
+   * 在当前应用下给指定员工添加一个应用账号。
    * 
    * @param request - AddApplicationAccountToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在当前应用下给指定员工添加一个应用账号
+   * 在当前应用下给指定员工添加一个应用账号。
    * 
    * @param request - AddApplicationAccountToUserRequest
    * @returns AddApplicationAccountToUserResponse
@@ -970,7 +970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例删除检查
+   * 实例删除检查。
    * 
    * @param request - CheckInstanceForDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1001,7 +1001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例删除检查
+   * 实例删除检查。
    * 
    * @param request - CheckInstanceForDeleteRequest
    * @returns CheckInstanceForDeleteResponse
@@ -1078,6 +1078,10 @@ export default class Client extends OpenApi {
   async createApplicationWithOptions(request: $_model.CreateApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.applicationIdentityType)) {
+      query["ApplicationIdentityType"] = request.applicationIdentityType;
+    }
+
     if (!$dara.isNull(request.applicationName)) {
       query["ApplicationName"] = request.applicationName;
     }
@@ -3694,7 +3698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+   * Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
    * 
    * @remarks
    * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
@@ -3728,7 +3732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+   * Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
    * 
    * @remarks
    * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
@@ -3880,7 +3884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+   * Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
    * 
    * @param request - DeleteOrganizationalUnitChildrenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3915,7 +3919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+   * Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
    * 
    * @param request - DeleteOrganizationalUnitChildrenRequest
    * @returns DeleteOrganizationalUnitChildrenResponse
@@ -4362,7 +4366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - DisableApplicationProvisioningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4397,7 +4401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - DisableApplicationProvisioningRequest
    * @returns DisableApplicationProvisioningResponse
@@ -5406,7 +5410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - EnableApplicationClientSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5445,7 +5449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - EnableApplicationClientSecretRequest
    * @returns EnableApplicationClientSecretResponse
@@ -5552,7 +5556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - EnableApplicationProvisioningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5587,7 +5591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - EnableApplicationProvisioningRequest
    * @returns EnableApplicationProvisioningResponse
@@ -8820,7 +8824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - GetRootOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8851,7 +8855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - GetRootOrganizationalUnitRequest
    * @returns GetRootOrganizationalUnitResponse
@@ -9378,7 +9382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用支持账户同步类型列表
+   * Queries the synchronization protocol types that are supported by an application.
    * 
    * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9413,7 +9417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用支持账户同步类型列表
+   * Queries the synchronization protocol types that are supported by an application.
    * 
    * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
    * @returns ListApplicationSupportedProvisionProtocolTypesResponse
@@ -9485,6 +9489,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.applicationCreationType)) {
       query["ApplicationCreationType"] = request.applicationCreationType;
+    }
+
+    if (!$dara.isNull(request.applicationIdentityType)) {
+      query["ApplicationIdentityType"] = request.applicationIdentityType;
     }
 
     if (!$dara.isNull(request.applicationIds)) {
@@ -11068,7 +11076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+   * Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11119,7 +11127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+   * Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @returns ListGroupsForApplicationResponse
@@ -11215,6 +11223,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeId)) {
+      query["ResourceServerScopeId"] = request.resourceServerScopeId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -11408,7 +11420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+   * Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11451,7 +11463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+   * Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -11494,7 +11506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取支持NAE的可用区列表
+   * Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - ListNetworkAccessEndpointAvailableZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11525,7 +11537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取支持NAE的可用区列表
+   * Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - ListNetworkAccessEndpointAvailableZonesRequest
    * @returns ListNetworkAccessEndpointAvailableZonesResponse
@@ -11536,7 +11548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询专属网络端点。
+   * List query dedicated network endpoint
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11591,7 +11603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询专属网络端点。
+   * List query dedicated network endpoint
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @returns ListNetworkAccessEndpointsResponse
@@ -11909,6 +11921,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.resourceServerScopeId)) {
+      query["ResourceServerScopeId"] = request.resourceServerScopeId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11938,7 +11954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the supported Alibaba Cloud regions.
+   * Queries a list of supported Alibaba Cloud regions.
    * 
    * @param request - ListRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11961,7 +11977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the supported Alibaba Cloud regions.
+   * Queries a list of supported Alibaba Cloud regions.
    * @returns ListRegionsResponse
    */
   async listRegions(): Promise<$_model.ListRegionsResponse> {
@@ -12028,7 +12044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询同步任务
+   * Queries a list of synchronization jobs.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12103,7 +12119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询同步任务
+   * Queries a list of synchronization jobs.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @returns ListSynchronizationJobsResponse
@@ -12479,6 +12495,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeId)) {
+      query["ResourceServerScopeId"] = request.resourceServerScopeId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

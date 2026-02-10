@@ -9,6 +9,11 @@ export class ListApplicationsRequest extends $dara.Model {
    */
   applicationCreationType?: string;
   /**
+   * @example
+   * application
+   */
+  applicationIdentityType?: string;
+  /**
    * @remarks
    * The IDs of the applications.
    * 
@@ -106,6 +111,7 @@ export class ListApplicationsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationCreationType: 'ApplicationCreationType',
+      applicationIdentityType: 'ApplicationIdentityType',
       applicationIds: 'ApplicationIds',
       applicationName: 'ApplicationName',
       authorizationType: 'AuthorizationType',
@@ -122,6 +128,7 @@ export class ListApplicationsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationCreationType: 'string',
+      applicationIdentityType: 'string',
       applicationIds: { 'type': 'array', 'itemType': 'string' },
       applicationName: 'string',
       authorizationType: 'string',

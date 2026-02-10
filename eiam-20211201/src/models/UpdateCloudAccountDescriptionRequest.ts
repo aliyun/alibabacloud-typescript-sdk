@@ -22,9 +22,6 @@ export class UpdateCloudAccountDescriptionRequest extends $dara.Model {
    */
   cloudAccountId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * cloud_account_description
    */

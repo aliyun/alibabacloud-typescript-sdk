@@ -37,6 +37,21 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleName?: string;
   /**
    * @remarks
+   * 授权规则主体ID，主体类型对应的主体ID。
+   */
+  authorizationRuleSubjectId?: string;
+  /**
+   * @remarks
+   * 授权规则主体范围，枚举类型：shared（共享型，即支持所有主体，包括账户、应用），exclusive（专属类型）
+   */
+  authorizationRuleSubjectScope?: string;
+  /**
+   * @remarks
+   * 授权规则主体类型，枚举类型：application（应用)，user（账户)。
+   */
+  authorizationRuleSubjectType?: string;
+  /**
+   * @remarks
    * 创建时间，Unix时间戳格式，单位为毫秒。
    * 
    * @example
@@ -89,6 +104,9 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
       authorizationRuleCreationType: 'AuthorizationRuleCreationType',
       authorizationRuleId: 'AuthorizationRuleId',
       authorizationRuleName: 'AuthorizationRuleName',
+      authorizationRuleSubjectId: 'AuthorizationRuleSubjectId',
+      authorizationRuleSubjectScope: 'AuthorizationRuleSubjectScope',
+      authorizationRuleSubjectType: 'AuthorizationRuleSubjectType',
       createTime: 'CreateTime',
       description: 'Description',
       instanceId: 'InstanceId',
@@ -104,6 +122,9 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
       authorizationRuleCreationType: 'string',
       authorizationRuleId: 'string',
       authorizationRuleName: 'string',
+      authorizationRuleSubjectId: 'string',
+      authorizationRuleSubjectScope: 'string',
+      authorizationRuleSubjectType: 'string',
       createTime: 'number',
       description: 'string',
       instanceId: 'string',

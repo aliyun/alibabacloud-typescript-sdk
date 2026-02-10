@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateApplicationRequest extends $dara.Model {
   /**
+   * @example
+   * application
+   */
+  applicationIdentityType?: string;
+  /**
    * @remarks
    * The name of the application.
    * 
@@ -75,6 +80,7 @@ export class CreateApplicationRequest extends $dara.Model {
   ssoType?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationIdentityType: 'ApplicationIdentityType',
       applicationName: 'ApplicationName',
       applicationSourceType: 'ApplicationSourceType',
       applicationTemplateId: 'ApplicationTemplateId',
@@ -87,6 +93,7 @@ export class CreateApplicationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationIdentityType: 'string',
       applicationName: 'string',
       applicationSourceType: 'string',
       applicationTemplateId: 'string',
