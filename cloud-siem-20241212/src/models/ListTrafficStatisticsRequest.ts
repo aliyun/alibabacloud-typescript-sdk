@@ -44,6 +44,11 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
    * Region。
    */
   trafficStatisticType?: string;
+  /**
+   * @example
+   * agentAnalysisLogTraffic
+   */
+  trafficType?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
@@ -55,6 +60,7 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
       trafficStatisticPeriod: 'TrafficStatisticPeriod',
       trafficStatisticPeriodType: 'TrafficStatisticPeriodType',
       trafficStatisticType: 'TrafficStatisticType',
+      trafficType: 'TrafficType',
     };
   }
 
@@ -69,6 +75,7 @@ export class ListTrafficStatisticsRequest extends $dara.Model {
       trafficStatisticPeriod: 'string',
       trafficStatisticPeriodType: 'string',
       trafficStatisticType: 'string',
+      trafficType: 'string',
     };
   }
 

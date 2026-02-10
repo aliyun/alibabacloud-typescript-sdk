@@ -10,7 +10,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
   createTime?: number;
   /**
    * @example
-   * 云code，枚举值：\n<br>● alibaba_cloud\n<br>● huawei_cloud\n<br>● tencent_cloud
+   * 云code，枚举值：\\n<br>● alibaba_cloud\\n<br>● huawei_cloud\\n<br>● tencent_cloud
    */
   normalizationFieldDescription?: string;
   /**

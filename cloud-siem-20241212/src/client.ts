@@ -3857,6 +3857,10 @@ export default class Client extends OpenApi {
       body["TrafficStatisticType"] = request.trafficStatisticType;
     }
 
+    if (!$dara.isNull(request.trafficType)) {
+      body["TrafficType"] = request.trafficType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
