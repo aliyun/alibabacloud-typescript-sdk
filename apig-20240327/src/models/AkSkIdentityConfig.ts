@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class AkSkIdentityConfig extends $dara.Model {
   /**
+   * @remarks
+   * Access Key
+   * 
    * @example
    * xxxx
    */
   ak?: string;
   /**
+   * @remarks
+   * Generation mode
+   * 
    * @example
    * System
    */
   generateMode?: string;
   /**
+   * @remarks
+   * Secret Key
+   * 
    * @example
    * xxxx
    */
   sk?: string;
   /**
+   * @remarks
+   * Identity authentication type
+   * 
    * @example
    * Jwt
    */
