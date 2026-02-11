@@ -111,6 +111,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * /v1
    */
   basePath?: string;
+  belongGatewayId?: string;
   /**
    * @remarks
    * $.parameters[0].schema.example
@@ -124,6 +125,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * $.parameters[0].schema.properties.aiProtocols.items.example
    */
   description?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * Create an API of HTTP type
@@ -184,6 +186,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * rg-xxx
    */
   resourceGroupId?: string;
+  strategy?: string;
   /**
    * @remarks
    * $.parameters[0].schema.properties.deployConfigs.description
@@ -203,8 +206,10 @@ export class CreateHttpApiRequest extends $dara.Model {
       aiProtocols: 'aiProtocols',
       authConfig: 'authConfig',
       basePath: 'basePath',
+      belongGatewayId: 'belongGatewayId',
       deployConfigs: 'deployConfigs',
       description: 'description',
+      dryRun: 'dryRun',
       enableAuth: 'enableAuth',
       firstByteTimeout: 'firstByteTimeout',
       ingressConfig: 'ingressConfig',
@@ -213,6 +218,7 @@ export class CreateHttpApiRequest extends $dara.Model {
       protocols: 'protocols',
       removeBasePathOnForward: 'removeBasePathOnForward',
       resourceGroupId: 'resourceGroupId',
+      strategy: 'strategy',
       type: 'type',
       versionConfig: 'versionConfig',
     };
@@ -224,8 +230,10 @@ export class CreateHttpApiRequest extends $dara.Model {
       aiProtocols: { 'type': 'array', 'itemType': 'string' },
       authConfig: AuthConfig,
       basePath: 'string',
+      belongGatewayId: 'string',
       deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
+      dryRun: 'boolean',
       enableAuth: 'boolean',
       firstByteTimeout: 'number',
       ingressConfig: CreateHttpApiRequestIngressConfig,
@@ -234,6 +242,7 @@ export class CreateHttpApiRequest extends $dara.Model {
       protocols: { 'type': 'array', 'itemType': 'string' },
       removeBasePathOnForward: 'boolean',
       resourceGroupId: 'string',
+      strategy: 'string',
       type: 'string',
       versionConfig: HttpApiVersionConfig,
     };

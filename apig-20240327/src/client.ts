@@ -709,12 +709,20 @@ export default class Client extends OpenApi {
       body["basePath"] = request.basePath;
     }
 
+    if (!$dara.isNull(request.belongGatewayId)) {
+      body["belongGatewayId"] = request.belongGatewayId;
+    }
+
     if (!$dara.isNull(request.deployConfigs)) {
       body["deployConfigs"] = request.deployConfigs;
     }
 
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.enableAuth)) {
@@ -747,6 +755,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["strategy"] = request.strategy;
     }
 
     if (!$dara.isNull(request.type)) {

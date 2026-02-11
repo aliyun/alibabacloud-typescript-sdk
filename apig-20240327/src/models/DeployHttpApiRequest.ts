@@ -204,13 +204,19 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
 
 export class DeployHttpApiRequestRestApiConfigOperationDeployments extends $dara.Model {
   /**
+   * @remarks
+   * Operation type
+   * 
    * @example
    * Publish
    */
   action?: string;
   /**
+   * @remarks
+   * Unique identifier of the operation
+   * 
    * @example
-   * op-d5s57hmm1hks653u9dkg
+   * op-xxx
    */
   operationId?: string;
   static names(): { [key: string]: string } {
@@ -258,6 +264,10 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
    * gw-cvn2u46m1hkun04oll8g
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * Operation-level deployment control list
+   */
   operationDeployments?: DeployHttpApiRequestRestApiConfigOperationDeployments[];
   /**
    * @remarks

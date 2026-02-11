@@ -866,7 +866,65 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
   }
 }
 
+export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Routing mode
+   * 
+   * @example
+   * LeastBusy
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * Queue size
+   * 
+   * @example
+   * 100
+   */
+  queueSize?: number;
+  /**
+   * @remarks
+   * Max traffic ratio per single service
+   * 
+   * @example
+   * 0.8
+   */
+  rateLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'mode',
+      queueSize: 'queueSize',
+      rateLimit: 'rateLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: 'string',
+      queueSize: 'number',
+      rateLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * Legacy gateway service ID for backward compatibility
+   * 
+   * @example
+   * gw-svc-abc123
+   */
+  gatewayServiceId?: string;
   /**
    * @remarks
    * Intent classification code
@@ -898,12 +956,57 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   modelNamePattern?: string;
   /**
    * @remarks
+   * Multi-service routing strategy type
+   * 
+   * @example
+   * ByWeight
+   */
+  multiServiceRouteStrategy?: string;
+  /**
+   * @remarks
+   * Service display name
+   * 
+   * @example
+   * Qwen-Max-Service
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Observability metrics-based routing config
+   */
+  observabilityRouteConfig?: HttpApiDeployConfigServiceConfigsObservabilityRouteConfig;
+  /**
+   * @remarks
+   * Service port number
+   * 
+   * @example
+   * 80
+   */
+  port?: number;
+  /**
+   * @remarks
+   * Service protocol
+   * 
+   * @example
+   * HTTP
+   */
+  protocol?: string;
+  /**
+   * @remarks
    * The service ID.
    * 
    * @example
    * svc-xxx
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * Service version tag for tag-based routing scenarios
+   * 
+   * @example
+   * v2
+   */
+  version?: string;
   /**
    * @remarks
    * The service weight.
@@ -914,22 +1017,36 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      gatewayServiceId: 'gatewayServiceId',
       intentCode: 'intentCode',
       match: 'match',
       modelName: 'modelName',
       modelNamePattern: 'modelNamePattern',
+      multiServiceRouteStrategy: 'multiServiceRouteStrategy',
+      name: 'name',
+      observabilityRouteConfig: 'observabilityRouteConfig',
+      port: 'port',
+      protocol: 'protocol',
       serviceId: 'serviceId',
+      version: 'version',
       weight: 'weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      gatewayServiceId: 'string',
       intentCode: 'string',
       match: HttpApiBackendMatchConditions,
       modelName: 'string',
       modelNamePattern: 'string',
+      multiServiceRouteStrategy: 'string',
+      name: 'string',
+      observabilityRouteConfig: HttpApiDeployConfigServiceConfigsObservabilityRouteConfig,
+      port: 'number',
+      protocol: 'string',
       serviceId: 'string',
+      version: 'string',
       weight: 'number',
     };
   }
@@ -937,6 +1054,9 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   validate() {
     if(this.match && typeof (this.match as any).validate === 'function') {
       (this.match as any).validate();
+    }
+    if(this.observabilityRouteConfig && typeof (this.observabilityRouteConfig as any).validate === 'function') {
+      (this.observabilityRouteConfig as any).validate();
     }
     super.validate();
   }

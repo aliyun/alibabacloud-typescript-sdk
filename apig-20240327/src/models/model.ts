@@ -39,6 +39,7 @@ export { HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigGlobalRules } fro
 export { HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigRules } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfig } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigPolicyConfigs } from './HttpApiDeployConfig';
+export { HttpApiDeployConfigServiceConfigsObservabilityRouteConfig } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigServiceConfigs } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigSubDomains } from './HttpApiDeployConfig';
 export { HttpApiPolicyConfigsAiCacheConfigEmbeddingConfig } from './HttpApiPolicyConfigs';
