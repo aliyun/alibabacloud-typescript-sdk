@@ -11,6 +11,8 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
    * cloud_auto
    */
   dataDiskCategory?: string;
+  dataDiskId?: string;
+  dataDiskNo?: string;
   /**
    * @remarks
    * The PL of the data disk.
@@ -30,6 +32,8 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
   static names(): { [key: string]: string } {
     return {
       dataDiskCategory: 'DataDiskCategory',
+      dataDiskId: 'DataDiskId',
+      dataDiskNo: 'DataDiskNo',
       dataDiskPerformanceLevel: 'DataDiskPerformanceLevel',
       dataDiskSize: 'DataDiskSize',
     };
@@ -38,6 +42,8 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
   static types(): { [key: string]: any } {
     return {
       dataDiskCategory: 'string',
+      dataDiskId: 'string',
+      dataDiskNo: 'string',
       dataDiskPerformanceLevel: 'string',
       dataDiskSize: 'number',
     };
@@ -117,6 +123,7 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
    * 196,608
    */
   gpuMemory?: number;
+  gpuSpec?: string;
   /**
    * @remarks
    * The memory size. Unit: MB.
@@ -138,6 +145,7 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
       cpu: 'Cpu',
       gpu: 'Gpu',
       gpuMemory: 'GpuMemory',
+      gpuSpec: 'GpuSpec',
       memory: 'Memory',
       serverInstanceType: 'ServerInstanceType',
     };
@@ -148,6 +156,7 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
       cpu: 'string',
       gpu: 'string',
       gpuMemory: 'number',
+      gpuSpec: 'string',
       memory: 'number',
       serverInstanceType: 'string',
     };
@@ -162,8 +171,36 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
   }
 }
 
+export class ListWuyingServerResponseBodyWuyingServerListSessions extends $dara.Model {
+  resourceSessionStartTime?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceSessionStartTime: 'ResourceSessionStartTime',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceSessionStartTime: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   addVirtualNodePoolStatus?: string;
+  aliUid?: number;
+  bandwidth?: number;
   /**
    * @remarks
    * Region.
@@ -201,6 +238,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * 2025-09-03T16:00:00.000+00:00
    */
   expiredTime?: string;
+  fotaVersion?: string;
   /**
    * @remarks
    * The ID of the custom image.
@@ -260,12 +298,15 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * Linux
    */
   osType?: string;
+  policyGroupIdList?: string[];
+  resourceSessionStatus?: string;
   securityGroupIds?: string[];
   /**
    * @remarks
    * The specifications.
    */
   serverInstanceTypeInfo?: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo;
+  sessions?: ListWuyingServerResponseBodyWuyingServerListSessions[];
   /**
    * @remarks
    * The status of the workstation.
@@ -283,6 +324,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * cloud_auto
    */
   systemDiskCategory?: string;
+  systemDiskId?: string;
   /**
    * @remarks
    * The performance level (PL) of the system disk.
@@ -299,6 +341,8 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * 100
    */
   systemDiskSize?: number;
+  timerGroupId?: string;
+  users?: string[];
   virtualKubeletIp?: string;
   virtualNodePoolId?: string;
   /**
@@ -320,11 +364,14 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addVirtualNodePoolStatus: 'AddVirtualNodePoolStatus',
+      aliUid: 'AliUid',
+      bandwidth: 'Bandwidth',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       createTime: 'CreateTime',
       dataDisk: 'DataDisk',
       expiredTime: 'ExpiredTime',
+      fotaVersion: 'FotaVersion',
       imageId: 'ImageId',
       imageName: 'ImageName',
       instanceInfoList: 'InstanceInfoList',
@@ -334,13 +381,19 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       officeSiteName: 'OfficeSiteName',
       officeSiteType: 'OfficeSiteType',
       osType: 'OsType',
+      policyGroupIdList: 'PolicyGroupIdList',
+      resourceSessionStatus: 'ResourceSessionStatus',
       securityGroupIds: 'SecurityGroupIds',
       serverInstanceTypeInfo: 'ServerInstanceTypeInfo',
+      sessions: 'Sessions',
       status: 'Status',
       subPayType: 'SubPayType',
       systemDiskCategory: 'SystemDiskCategory',
+      systemDiskId: 'SystemDiskId',
       systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
       systemDiskSize: 'SystemDiskSize',
+      timerGroupId: 'TimerGroupId',
+      users: 'Users',
       virtualKubeletIp: 'VirtualKubeletIp',
       virtualNodePoolId: 'VirtualNodePoolId',
       wuyingServerId: 'WuyingServerId',
@@ -351,11 +404,14 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addVirtualNodePoolStatus: 'string',
+      aliUid: 'number',
+      bandwidth: 'number',
       bizRegionId: 'string',
       chargeType: 'string',
       createTime: 'string',
       dataDisk: { 'type': 'array', 'itemType': ListWuyingServerResponseBodyWuyingServerListDataDisk },
       expiredTime: 'string',
+      fotaVersion: 'string',
       imageId: 'string',
       imageName: 'string',
       instanceInfoList: { 'type': 'array', 'itemType': ListWuyingServerResponseBodyWuyingServerListInstanceInfoList },
@@ -365,13 +421,19 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       officeSiteName: 'string',
       officeSiteType: 'string',
       osType: 'string',
+      policyGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      resourceSessionStatus: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       serverInstanceTypeInfo: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo,
+      sessions: { 'type': 'array', 'itemType': ListWuyingServerResponseBodyWuyingServerListSessions },
       status: 'string',
       subPayType: 'string',
       systemDiskCategory: 'string',
+      systemDiskId: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskSize: 'number',
+      timerGroupId: 'string',
+      users: { 'type': 'array', 'itemType': 'string' },
       virtualKubeletIp: 'string',
       virtualNodePoolId: 'string',
       wuyingServerId: 'string',
@@ -386,11 +448,20 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
     if(Array.isArray(this.instanceInfoList)) {
       $dara.Model.validateArray(this.instanceInfoList);
     }
+    if(Array.isArray(this.policyGroupIdList)) {
+      $dara.Model.validateArray(this.policyGroupIdList);
+    }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);
     }
     if(this.serverInstanceTypeInfo && typeof (this.serverInstanceTypeInfo as any).validate === 'function') {
       (this.serverInstanceTypeInfo as any).validate();
+    }
+    if(Array.isArray(this.sessions)) {
+      $dara.Model.validateArray(this.sessions);
+    }
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
     }
     super.validate();
   }

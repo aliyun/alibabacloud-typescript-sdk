@@ -112,6 +112,47 @@ export class ListImageResponseBodyDataImageRegionDistributeList extends $dara.Mo
   }
 }
 
+export class ListImageResponseBodyDataSnapshotList extends $dara.Model {
+  bindType?: string;
+  diskCategory?: string;
+  diskSubType?: string;
+  diskType?: string;
+  size?: number;
+  snapshotId?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindType: 'BindType',
+      diskCategory: 'DiskCategory',
+      diskSubType: 'DiskSubType',
+      diskType: 'DiskType',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindType: 'string',
+      diskCategory: 'string',
+      diskSubType: 'string',
+      diskType: 'string',
+      size: 'number',
+      snapshotId: 'string',
+      versionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListImageResponseBodyDataTagList extends $dara.Model {
   /**
    * @example
@@ -442,6 +483,7 @@ export class ListImageResponseBodyData extends $dara.Model {
    * SINGLE_SESSION
    */
   sessionType?: string;
+  snapshotList?: ListImageResponseBodyDataSnapshotList[];
   /**
    * @remarks
    * The state of the image.
@@ -539,6 +581,7 @@ export class ListImageResponseBodyData extends $dara.Model {
       resourceInstanceCategory: 'ResourceInstanceCategory',
       scene: 'Scene',
       sessionType: 'SessionType',
+      snapshotList: 'SnapshotList',
       status: 'Status',
       supportedLanguageList: 'SupportedLanguageList',
       systemDiskSize: 'SystemDiskSize',
@@ -591,6 +634,7 @@ export class ListImageResponseBodyData extends $dara.Model {
       resourceInstanceCategory: 'string',
       scene: 'string',
       sessionType: 'string',
+      snapshotList: { 'type': 'array', 'itemType': ListImageResponseBodyDataSnapshotList },
       status: 'string',
       supportedLanguageList: { 'type': 'array', 'itemType': 'string' },
       systemDiskSize: 'number',
@@ -617,6 +661,9 @@ export class ListImageResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.imageRegionList)) {
       $dara.Model.validateArray(this.imageRegionList);
+    }
+    if(Array.isArray(this.snapshotList)) {
+      $dara.Model.validateArray(this.snapshotList);
     }
     if(Array.isArray(this.supportedLanguageList)) {
       $dara.Model.validateArray(this.supportedLanguageList);

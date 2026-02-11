@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RestartWuyingServerRequest extends $dara.Model {
+  productType?: string;
   /**
    * @remarks
    * The list of workstation IDs.
@@ -10,12 +11,14 @@ export class RestartWuyingServerRequest extends $dara.Model {
   wuyingServerIdList?: string[];
   static names(): { [key: string]: string } {
     return {
+      productType: 'ProductType',
       wuyingServerIdList: 'WuyingServerIdList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      productType: 'string',
       wuyingServerIdList: { 'type': 'array', 'itemType': 'string' },
     };
   }

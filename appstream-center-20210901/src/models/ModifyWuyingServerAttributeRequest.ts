@@ -11,6 +11,7 @@ export class ModifyWuyingServerAttributeRequest extends $dara.Model {
    * yourPassword
    */
   password?: string;
+  productType?: string;
   /**
    * @remarks
    * The ID of the workstation.
@@ -30,6 +31,7 @@ export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       password: 'Password',
+      productType: 'ProductType',
       wuyingServerId: 'WuyingServerId',
       wuyingServerName: 'WuyingServerName',
     };
@@ -38,6 +40,7 @@ export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       password: 'string',
+      productType: 'string',
       wuyingServerId: 'string',
       wuyingServerName: 'string',
     };

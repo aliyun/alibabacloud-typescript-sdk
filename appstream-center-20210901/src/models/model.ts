@@ -54,6 +54,7 @@ export { ListBindInfoResponseBodyBindInfoModels } from './ListBindInfoResponseBo
 export { ListImageRequestTagList } from './ListImageRequest';
 export { ListImageResponseBodyDataAppList } from './ListImageResponseBody';
 export { ListImageResponseBodyDataImageRegionDistributeList } from './ListImageResponseBody';
+export { ListImageResponseBodyDataSnapshotList } from './ListImageResponseBody';
 export { ListImageResponseBodyDataTagList } from './ListImageResponseBody';
 export { ListImageResponseBodyData } from './ListImageResponseBody';
 export { ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels } from './ListNodeInstanceTypeResponseBody';
@@ -67,6 +68,7 @@ export { ListTenantConfigResponseBodyTenantConfigModel } from './ListTenantConfi
 export { ListWuyingServerResponseBodyWuyingServerListDataDisk } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListInstanceInfoList } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo } from './ListWuyingServerResponseBody';
+export { ListWuyingServerResponseBodyWuyingServerListSessions } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerList } from './ListWuyingServerResponseBody';
 export { ModifyAppInstanceGroupAttributeRequestNetworkDomainRules } from './ModifyAppInstanceGroupAttributeRequest';
 export { ModifyAppInstanceGroupAttributeRequestNetwork } from './ModifyAppInstanceGroupAttributeRequest';

@@ -16,6 +16,7 @@ export class StopWuyingServerRequest extends $dara.Model {
    * True
    */
   force?: boolean;
+  productType?: string;
   /**
    * @remarks
    * The list of workstation IDs.
@@ -24,6 +25,7 @@ export class StopWuyingServerRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       force: 'Force',
+      productType: 'ProductType',
       wuyingServerIdList: 'WuyingServerIdList',
     };
   }
@@ -31,6 +33,7 @@ export class StopWuyingServerRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       force: 'boolean',
+      productType: 'string',
       wuyingServerIdList: { 'type': 'array', 'itemType': 'string' },
     };
   }

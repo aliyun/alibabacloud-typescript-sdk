@@ -88,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权用户
+   * Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
    * 
    * @param tmpReq - AuthorizeInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -162,7 +162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权用户
+   * Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
    * 
    * @param request - AuthorizeInstanceGroupRequest
    * @returns AuthorizeInstanceGroupResponse
@@ -2118,6 +2118,10 @@ export default class Client extends OpenApi {
       body["BizRegionId"] = request.bizRegionId;
     }
 
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
     if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
     }
@@ -2138,12 +2142,20 @@ export default class Client extends OpenApi {
       body["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
     if (!$dara.isNull(request.serverInstanceType)) {
       body["ServerInstanceType"] = request.serverInstanceType;
     }
 
     if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.users)) {
+      bodyFlat["Users"] = request.users;
     }
 
     if (!$dara.isNull(request.virtualNodePoolId)) {
@@ -2678,6 +2690,10 @@ export default class Client extends OpenApi {
       body["Password"] = request.password;
     }
 
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
     if (!$dara.isNull(request.wuyingServerId)) {
       body["WuyingServerId"] = request.wuyingServerId;
     }
@@ -2922,6 +2938,10 @@ export default class Client extends OpenApi {
   async restartWuyingServerWithOptions(request: $_model.RestartWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartWuyingServerResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
     let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.wuyingServerIdList)) {
       bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList;
@@ -3031,6 +3051,10 @@ export default class Client extends OpenApi {
   async startWuyingServerWithOptions(request: $_model.StartWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartWuyingServerResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
     let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.wuyingServerIdList)) {
       bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList;
@@ -3082,6 +3106,10 @@ export default class Client extends OpenApi {
       body["Force"] = request.force;
     }
 
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
     let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.wuyingServerIdList)) {
       bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList;
@@ -3120,7 +3148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为云资源创建并绑定标签
+   * Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
    * 
    * @param request - TagCloudResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3159,7 +3187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为云资源创建并绑定标签
+   * Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
    * 
    * @param request - TagCloudResourcesRequest
    * @returns TagCloudResourcesResponse

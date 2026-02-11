@@ -12,6 +12,7 @@ export class ListWuyingServerRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  bizType?: number;
   /**
    * @remarks
    * The billing method of the Internet access package.
@@ -52,6 +53,7 @@ export class ListWuyingServerRequest extends $dara.Model {
    * 100
    */
   pageSize?: number;
+  productType?: string;
   /**
    * @remarks
    * Workstation specifications.
@@ -68,6 +70,7 @@ export class ListWuyingServerRequest extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  users?: string[];
   virtualNodePoolId?: string;
   /**
    * @remarks
@@ -86,13 +89,16 @@ export class ListWuyingServerRequest extends $dara.Model {
     return {
       addVirtualNodePoolStatusList: 'AddVirtualNodePoolStatusList',
       bizRegionId: 'BizRegionId',
+      bizType: 'BizType',
       chargeType: 'ChargeType',
       imageId: 'ImageId',
       officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      productType: 'ProductType',
       serverInstanceType: 'ServerInstanceType',
       status: 'Status',
+      users: 'Users',
       virtualNodePoolId: 'VirtualNodePoolId',
       wuyingServerIdList: 'WuyingServerIdList',
       wuyingServerNameOrId: 'WuyingServerNameOrId',
@@ -103,13 +109,16 @@ export class ListWuyingServerRequest extends $dara.Model {
     return {
       addVirtualNodePoolStatusList: { 'type': 'array', 'itemType': 'string' },
       bizRegionId: 'string',
+      bizType: 'number',
       chargeType: 'string',
       imageId: 'string',
       officeSiteId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      productType: 'string',
       serverInstanceType: 'string',
       status: 'string',
+      users: { 'type': 'array', 'itemType': 'string' },
       virtualNodePoolId: 'string',
       wuyingServerIdList: { 'type': 'array', 'itemType': 'string' },
       wuyingServerNameOrId: 'string',
@@ -119,6 +128,9 @@ export class ListWuyingServerRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.addVirtualNodePoolStatusList)) {
       $dara.Model.validateArray(this.addVirtualNodePoolStatusList);
+    }
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
     }
     if(Array.isArray(this.wuyingServerIdList)) {
       $dara.Model.validateArray(this.wuyingServerIdList);
