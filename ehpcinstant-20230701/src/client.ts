@@ -656,7 +656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业输出
+   * Query job logs
    * 
    * @param request - DescribeJobResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -707,7 +707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业输出
+   * Query job logs
    * 
    * @param request - DescribeJobResultsRequest
    * @returns DescribeJobResultsResponse

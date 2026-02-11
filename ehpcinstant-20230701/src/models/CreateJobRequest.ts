@@ -694,6 +694,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
    * registry-vpc.cn-hangzhou.aliyuncs.com/ehpc/hpl:latest
    */
   image?: string;
+  imageRegistryOptions?: string;
   /**
    * @remarks
    * The working directory of the container.
@@ -709,6 +710,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
       command: 'Command',
       environmentVars: 'EnvironmentVars',
       image: 'Image',
+      imageRegistryOptions: 'ImageRegistryOptions',
       workingDir: 'WorkingDir',
     };
   }
@@ -720,6 +722,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
       command: { 'type': 'array', 'itemType': 'string' },
       environmentVars: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars },
       image: 'string',
+      imageRegistryOptions: 'string',
       workingDir: 'string',
     };
   }
