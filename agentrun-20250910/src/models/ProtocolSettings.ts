@@ -6,8 +6,12 @@ export class ProtocolSettings extends $dara.Model {
   /**
    * @remarks
    * A2A Agent Card
+   * 
+   * @deprecated
    */
   a2AAgentCard?: string;
+  a2aAgentCard?: string;
+  a2aAgentCardUrl?: string;
   /**
    * @remarks
    * 请求头
@@ -56,6 +60,8 @@ export class ProtocolSettings extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       a2AAgentCard: 'A2AAgentCard',
+      a2aAgentCard: 'a2aAgentCard',
+      a2aAgentCardUrl: 'a2aAgentCardUrl',
       headers: 'headers',
       inputBodyJsonSchema: 'inputBodyJsonSchema',
       method: 'method',
@@ -71,6 +77,8 @@ export class ProtocolSettings extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       a2AAgentCard: 'string',
+      a2aAgentCard: 'string',
+      a2aAgentCardUrl: 'string',
       headers: 'string',
       inputBodyJsonSchema: 'string',
       method: 'string',

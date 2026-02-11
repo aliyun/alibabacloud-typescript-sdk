@@ -177,6 +177,9 @@ export class CreateAgentRuntimeInput extends $dara.Model {
    * {}
    */
   protocolConfiguration?: ProtocolConfiguration;
+  /**
+   * @deprecated
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -194,6 +197,14 @@ export class CreateAgentRuntimeInput extends $dara.Model {
    * 3600
    */
   sessionIdleTimeoutSeconds?: number;
+  /**
+   * @remarks
+   * 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
+   * 
+   * @example
+   * ws-1234567890abcdef
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
@@ -218,6 +229,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       resourceGroupId: 'resourceGroupId',
       sessionConcurrencyLimitPerInstance: 'sessionConcurrencyLimitPerInstance',
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -245,6 +257,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       resourceGroupId: 'string',
       sessionConcurrencyLimitPerInstance: 'number',
       sessionIdleTimeoutSeconds: 'number',
+      workspaceId: 'string',
     };
   }
 

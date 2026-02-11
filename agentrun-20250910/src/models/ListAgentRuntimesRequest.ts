@@ -17,6 +17,8 @@ export class ListAgentRuntimesRequest extends $dara.Model {
    * 
    * @example
    * rg-123456
+   * 
+   * @deprecated
    */
   discoveryResourceGroupId?: string;
   /**
@@ -35,6 +37,9 @@ export class ListAgentRuntimesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @deprecated
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -52,6 +57,14 @@ export class ListAgentRuntimesRequest extends $dara.Model {
    * READY,CREATING
    */
   status?: string;
+  /**
+   * @remarks
+   * 根据工作空间ID进行过滤，用于资源隔离和权限管理
+   * 
+   * @example
+   * ws-1234567890abcdef
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
@@ -61,6 +74,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       resourceGroupId: 'resourceGroupId',
       searchMode: 'searchMode',
       status: 'status',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -73,6 +87,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       resourceGroupId: 'string',
       searchMode: 'string',
       status: 'string',
+      workspaceId: 'string',
     };
   }
 

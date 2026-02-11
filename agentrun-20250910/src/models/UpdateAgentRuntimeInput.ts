@@ -156,6 +156,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
    * 3600
    */
   sessionIdleTimeoutSeconds?: number;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
@@ -178,6 +179,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       protocolConfiguration: 'protocolConfiguration',
       sessionConcurrencyLimitPerInstance: 'sessionConcurrencyLimitPerInstance',
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -203,6 +205,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       protocolConfiguration: ProtocolConfiguration,
       sessionConcurrencyLimitPerInstance: 'number',
       sessionIdleTimeoutSeconds: 'number',
+      workspaceId: 'string',
     };
   }
 

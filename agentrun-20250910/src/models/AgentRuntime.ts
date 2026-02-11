@@ -195,6 +195,9 @@ export class AgentRuntime extends $dara.Model {
    * {}
    */
   protocolConfiguration?: ProtocolConfiguration;
+  /**
+   * @deprecated
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -228,6 +231,14 @@ export class AgentRuntime extends $dara.Model {
    * Runtime is ready for use
    */
   statusReason?: string;
+  /**
+   * @remarks
+   * 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
+   * 
+   * @example
+   * ws-1234567890abcdef
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       agentRuntimeArn: 'agentRuntimeArn',
@@ -258,6 +269,7 @@ export class AgentRuntime extends $dara.Model {
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
       status: 'status',
       statusReason: 'statusReason',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -291,6 +303,7 @@ export class AgentRuntime extends $dara.Model {
       sessionIdleTimeoutSeconds: 'number',
       status: 'string',
       statusReason: 'string',
+      workspaceId: 'string',
     };
   }
 
