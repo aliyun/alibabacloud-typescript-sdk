@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class DescribeCustomerModuleBasicInfoResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks

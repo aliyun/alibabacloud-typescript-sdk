@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeModelFeatureRequest extends $dara.Model {
   /**
+   * @remarks
+   * Customer model ID
+   * 
    * @example
    * 456
    */
   customerModuleId?: number;
   /**
+   * @remarks
+   * Feature template.
+   * 
    * @example
    * FINANCE_51
    */

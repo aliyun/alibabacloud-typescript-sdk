@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFeatureOptionRequest extends $dara.Model {
   /**
    * @remarks
+   * Feature template.
+   * 
    * This parameter is required.
    * 
    * @example

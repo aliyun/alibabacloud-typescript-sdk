@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSafRmmpOrderResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether there is functional permission.
+   * 
    * @example
    * true
    */
@@ -31,22 +34,41 @@ export class DescribeSafRmmpOrderResponseBodyResultObject extends $dara.Model {
 
 export class DescribeSafRmmpOrderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4A91D2D1-AEC9-1658-ABCE-5A39DE66A5C2
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   resultObject?: DescribeSafRmmpOrderResponseBodyResultObject;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

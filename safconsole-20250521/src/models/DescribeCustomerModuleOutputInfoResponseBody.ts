@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCustomerModuleOutputInfoResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Number of decimal places for the output.
+   * 
    * @example
    * 2
    */
   finalScoreFormat?: string;
   /**
+   * @remarks
+   * Score processing logic.
+   * 
    * @example
    * score
    */
   processExpression?: string;
   /**
+   * @remarks
+   * Test file.
+   * 
    * @example
    * customer/xxxxxxxxx/xxxxxxxx.pmml
    */
@@ -45,27 +54,48 @@ export class DescribeCustomerModuleOutputInfoResponseBodyResultObject extends $d
 
 export class DescribeCustomerModuleOutputInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 055f1546-f465-4c92-a2da-bfb86abe6f56
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result.
+   */
   resultObject?: DescribeCustomerModuleOutputInfoResponseBodyResultObject;
   /**
+   * @remarks
+   * Indicates whether the request was successful, with possible values as follows:
+   * - true, indicating the request was successful
+   * - false, indicating the request failed
+   * 
    * @example
    * true
    */

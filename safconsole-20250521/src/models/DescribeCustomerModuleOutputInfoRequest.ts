@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCustomerModuleOutputInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * Authorization type.
+   * 
    * @example
    * READ
    */
   authType?: string;
   /**
+   * @remarks
+   * Customer model ID
+   * 
    * @example
    * 456
    */

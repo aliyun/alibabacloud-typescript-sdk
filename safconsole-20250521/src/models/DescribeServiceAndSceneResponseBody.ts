@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeServiceAndSceneResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Model corresponding scene.
+   * 
    * @example
    * scene_A
    */
   scene?: string;
   /**
+   * @remarks
+   * Model corresponding service.
+   * 
    * @example
    * service_A
    */
@@ -38,22 +44,41 @@ export class DescribeServiceAndSceneResponseBodyResultObject extends $dara.Model
 
 export class DescribeServiceAndSceneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4A91D2D1-AEC9-1658-ABCE-5A39DE66A5C2
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result.
+   */
   resultObject?: DescribeServiceAndSceneResponseBodyResultObject;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: Call succeeded.
+   * - **false**: Call failed.
+   * 
    * @example
    * true
    */

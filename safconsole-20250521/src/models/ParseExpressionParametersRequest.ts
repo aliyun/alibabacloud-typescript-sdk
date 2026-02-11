@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ParseExpressionParametersRequest extends $dara.Model {
   /**
+   * @remarks
+   * Expression.
+   * 
    * @example
    * score
    */

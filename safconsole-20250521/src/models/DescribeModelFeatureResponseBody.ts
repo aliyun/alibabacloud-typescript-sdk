@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeModelFeatureResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Default value of the feature.
+   * 
    * @example
    * 0.1
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * Feature mapping name.
+   * 
    * @example
    * f1
    */
   featureName?: string;
   /**
+   * @remarks
+   * Feature type.
+   * 
    * @example
    * double
    */
   featureType?: string;
   /**
+   * @remarks
+   * Feature name.
+   * 
    * @example
    * f1
    */
@@ -52,22 +64,41 @@ export class DescribeModelFeatureResponseBodyResultObject extends $dara.Model {
 
 export class DescribeModelFeatureResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4A91D2D1-AEC9-1658-ABCE-5A39DE66A5C2
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   resultObject?: DescribeModelFeatureResponseBodyResultObject[];
   /**
+   * @remarks
+   * Whether the call was successful.
+   * 
+   * - **true**: Call succeeded.
+   * - **false**: Call failed.
+   * 
    * @example
    * true
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class TestProcessExpressionRequest extends $dara.Model {
   /**
+   * @remarks
+   * Expression.
+   * 
    * @example
    * score
    */
   expression?: string;
   /**
+   * @remarks
+   * Parameter list.
+   * 
    * @example
    * {"score": "1"}
    */

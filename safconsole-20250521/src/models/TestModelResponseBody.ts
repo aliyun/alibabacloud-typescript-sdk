@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class TestModelResponseBodyResultObjectTestResult extends $dara.Model {
   /**
+   * @remarks
+   * Actual output.
+   * 
    * @example
    * 0.00
    */
   actualResult?: string;
   /**
+   * @remarks
+   * Whether it is consistent.
+   * 
    * @example
    * true
    */
   consistency?: boolean;
   /**
+   * @remarks
+   * Test output.
+   * 
    * @example
    * 0.00
    */
   testResult?: string;
   /**
+   * @remarks
+   * Training output.
+   * 
    * @example
    * 0.00
    */
@@ -52,17 +64,30 @@ export class TestModelResponseBodyResultObjectTestResult extends $dara.Model {
 
 export class TestModelResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Number of consistencies.
+   * 
    * @example
    * 49.0
    */
   consistencyCount?: number;
   /**
+   * @remarks
+   * Consistency rate.
+   * 
    * @example
    * 98.0
    */
   consistencyRate?: number;
+  /**
+   * @remarks
+   * Test results.
+   */
   testResult?: TestModelResponseBodyResultObjectTestResult[];
   /**
+   * @remarks
+   * Total number.
+   * 
    * @example
    * 50
    */
@@ -99,22 +124,41 @@ export class TestModelResponseBodyResultObject extends $dara.Model {
 
 export class TestModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4A91D2D1-AEC9-1658-ABCE-5A39DE66A5C2
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   resultObject?: TestModelResponseBodyResultObject;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: Call succeeded.
+   * - **false**: Call failed.
+   * 
    * @example
    * true
    */

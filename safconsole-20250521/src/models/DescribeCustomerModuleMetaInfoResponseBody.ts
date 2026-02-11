@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCustomerModuleMetaInfoResponseBodyResultObjectFeatureList extends $dara.Model {
   /**
+   * @remarks
+   * Default value of the feature.
+   * 
    * @example
    * 0.1
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * Feature mapping name.
+   * 
    * @example
    * f1
    */
   featureName?: string;
   /**
+   * @remarks
+   * Feature type.
+   * 
    * @example
    * double
    */
   featureType?: string;
   /**
+   * @remarks
+   * Feature name.
+   * 
    * @example
    * f1
    */
@@ -51,8 +63,15 @@ export class DescribeCustomerModuleMetaInfoResponseBodyResultObjectFeatureList e
 }
 
 export class DescribeCustomerModuleMetaInfoResponseBodyResultObject extends $dara.Model {
+  /**
+   * @remarks
+   * Feature list.
+   */
   featureList?: DescribeCustomerModuleMetaInfoResponseBodyResultObjectFeatureList[];
   /**
+   * @remarks
+   * Feature template.
+   * 
    * @example
    * FINANCE_60
    */
@@ -85,22 +104,41 @@ export class DescribeCustomerModuleMetaInfoResponseBodyResultObject extends $dar
 
 export class DescribeCustomerModuleMetaInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 055f1546-f465-4c92-a2da-bfb86abe6f56
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   resultObject?: DescribeCustomerModuleMetaInfoResponseBodyResultObject;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: Call succeeded.
+   * - **false**: Call failed.
+   * 
    * @example
    * true
    */

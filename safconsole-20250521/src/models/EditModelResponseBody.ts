@@ -4,26 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class EditModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4A91D2D1-AEC9-1658-ABCE-5A39DE66A5C2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Result object.
+   * 
    * @example
    * true
    */
   resultObject?: boolean;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

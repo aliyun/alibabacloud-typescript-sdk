@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EditModelRequest extends $dara.Model {
   /**
+   * @remarks
+   * Customer model ID
+   * 
    * @example
    * 456
    */

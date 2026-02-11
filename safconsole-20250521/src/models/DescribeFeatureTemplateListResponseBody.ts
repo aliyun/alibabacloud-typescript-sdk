@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFeatureTemplateListResponseBodyResultObject extends $dara.Model {
+  /**
+   * @remarks
+   * Parameter label.
+   * 
+   * @example
+   * 51维特征
+   */
   label?: string;
   /**
+   * @remarks
+   * Label value.
+   * 
    * @example
    * FINANCE_51
    */
@@ -34,22 +44,38 @@ export class DescribeFeatureTemplateListResponseBodyResultObject extends $dara.M
 
 export class DescribeFeatureTemplateListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4A91D2D1-AEC9-1658-ABCE-5A39DE66A5C2
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result.
+   */
   resultObject?: DescribeFeatureTemplateListResponseBodyResultObject[];
   /**
+   * @remarks
+   * Success flag
+   * 
    * @example
    * true
    */
