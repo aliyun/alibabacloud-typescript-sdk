@@ -196,6 +196,11 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
    */
   alertSrcProdModule?: string;
   /**
+   * @example
+   * 1
+   */
+  alertStatus?: string;
+  /**
    * @remarks
    * The title of the alert.
    * 
@@ -408,6 +413,7 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
       alertNameEn: 'AlertNameEn',
       alertSrcProd: 'AlertSrcProd',
       alertSrcProdModule: 'AlertSrcProdModule',
+      alertStatus: 'AlertStatus',
       alertTitle: 'AlertTitle',
       alertTitleEn: 'AlertTitleEn',
       alertType: 'AlertType',
@@ -451,6 +457,7 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
       alertNameEn: 'string',
       alertSrcProd: 'string',
       alertSrcProdModule: 'string',
+      alertStatus: 'string',
       alertTitle: 'string',
       alertTitleEn: 'string',
       alertType: 'string',

@@ -1025,6 +1025,10 @@ export default class Client extends OpenApi {
       body["AlertName"] = request.alertName;
     }
 
+    if (!$dara.isNull(request.alertStatus)) {
+      body["AlertStatus"] = request.alertStatus;
+    }
+
     if (!$dara.isNull(request.alertTitle)) {
       body["AlertTitle"] = request.alertTitle;
     }
@@ -1531,64 +1535,6 @@ export default class Client extends OpenApi {
   async describeAutomateResponseConfigFeature(request: $_model.DescribeAutomateResponseConfigFeatureRequest): Promise<$_model.DescribeAutomateResponseConfigFeatureResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAutomateResponseConfigFeatureWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries user-defined playbooks.
-   * 
-   * @param request - DescribeAutomateResponseConfigPlayBooksRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeAutomateResponseConfigPlayBooksResponse
-   */
-  async describeAutomateResponseConfigPlayBooksWithOptions(request: $_model.DescribeAutomateResponseConfigPlayBooksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAutomateResponseConfigPlayBooksResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.autoResponseType)) {
-      body["AutoResponseType"] = request.autoResponseType;
-    }
-
-    if (!$dara.isNull(request.entityType)) {
-      body["EntityType"] = request.entityType;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      body["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.roleFor)) {
-      body["RoleFor"] = request.roleFor;
-    }
-
-    if (!$dara.isNull(request.roleType)) {
-      body["RoleType"] = request.roleType;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeAutomateResponseConfigPlayBooks",
-      version: "2022-06-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeAutomateResponseConfigPlayBooksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAutomateResponseConfigPlayBooksResponse({}));
-  }
-
-  /**
-   * Queries user-defined playbooks.
-   * 
-   * @param request - DescribeAutomateResponseConfigPlayBooksRequest
-   * @returns DescribeAutomateResponseConfigPlayBooksResponse
-   */
-  async describeAutomateResponseConfigPlayBooks(request: $_model.DescribeAutomateResponseConfigPlayBooksRequest): Promise<$_model.DescribeAutomateResponseConfigPlayBooksResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeAutomateResponseConfigPlayBooksWithOptions(request, runtime);
   }
 
   /**
@@ -4145,6 +4091,10 @@ export default class Client extends OpenApi {
       body["StartTime"] = request.startTime;
     }
 
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4174,7 +4124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实体列表
+   * Queries entities.
    * 
    * @param request - ListEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4197,6 +4147,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.entityUuid)) {
       body["EntityUuid"] = request.entityUuid;
+    }
+
+    if (!$dara.isNull(request.entityUuids)) {
+      body["EntityUuids"] = request.entityUuids;
     }
 
     if (!$dara.isNull(request.incidentUuid)) {
@@ -4249,7 +4203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实体列表
+   * Queries entities.
    * 
    * @param request - ListEntitiesRequest
    * @returns ListEntitiesResponse
@@ -4953,12 +4907,20 @@ export default class Client extends OpenApi {
   async postEventDisposeAndWhiteruleListWithOptions(request: $_model.PostEventDisposeAndWhiteruleListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PostEventDisposeAndWhiteruleListResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.disposeStrategyIds)) {
+      body["DisposeStrategyIds"] = request.disposeStrategyIds;
+    }
+
     if (!$dara.isNull(request.eventDispose)) {
       body["EventDispose"] = request.eventDispose;
     }
 
     if (!$dara.isNull(request.incidentUuid)) {
       body["IncidentUuid"] = request.incidentUuid;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
     }
 
     if (!$dara.isNull(request.receiverInfo)) {
@@ -4971,6 +4933,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.remark)) {
       body["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.responseSource)) {
+      body["ResponseSource"] = request.responseSource;
     }
 
     if (!$dara.isNull(request.roleFor)) {

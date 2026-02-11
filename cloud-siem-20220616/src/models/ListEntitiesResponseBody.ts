@@ -44,6 +44,10 @@ export class ListEntitiesResponseBodyDataPageInfo extends $dara.Model {
 }
 
 export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
+  agentConfidence?: string;
+  agentDisposalMethod?: string;
+  agentDisposalPlaybookUuid?: string;
+  agentDisposalSuggestion?: string;
   /**
    * @example
    * 1
@@ -129,6 +133,10 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   tags?: string;
   static names(): { [key: string]: string } {
     return {
+      agentConfidence: 'AgentConfidence',
+      agentDisposalMethod: 'AgentDisposalMethod',
+      agentDisposalPlaybookUuid: 'AgentDisposalPlaybookUuid',
+      agentDisposalSuggestion: 'AgentDisposalSuggestion',
       alertNum: 'AlertNum',
       alertUuid: 'AlertUuid',
       aliuid: 'Aliuid',
@@ -153,6 +161,10 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentConfidence: 'string',
+      agentDisposalMethod: 'string',
+      agentDisposalPlaybookUuid: 'string',
+      agentDisposalSuggestion: 'string',
       alertNum: 'number',
       alertUuid: 'string',
       aliuid: 'number',

@@ -3,11 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAlertsRequest extends $dara.Model {
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   alertName?: string;
+  alertStatus?: string[];
   /**
    * @remarks
    * The title of the alert.
@@ -16,10 +13,6 @@ export class DescribeAlertsRequest extends $dara.Model {
    * Unusual Logon-login_common_account
    */
   alertTitle?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   alertType?: string;
   /**
    * @remarks
@@ -29,15 +22,7 @@ export class DescribeAlertsRequest extends $dara.Model {
    * sas_71e24437d2797ce8fc59692905a4****
    */
   alertUuid?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   assetId?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   assetName?: string;
   /**
    * @remarks
@@ -57,15 +42,7 @@ export class DescribeAlertsRequest extends $dara.Model {
    * 1577808000000
    */
   endTime?: number;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   entityId?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   entityName?: string;
   /**
    * @remarks
@@ -161,6 +138,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       alertName: 'AlertName',
+      alertStatus: 'AlertStatus',
       alertTitle: 'AlertTitle',
       alertType: 'AlertType',
       alertUuid: 'AlertUuid',
@@ -186,6 +164,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       alertName: 'string',
+      alertStatus: { 'type': 'array', 'itemType': 'string' },
       alertTitle: 'string',
       alertType: 'string',
       alertUuid: 'string',
@@ -209,6 +188,9 @@ export class DescribeAlertsRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.alertStatus)) {
+      $dara.Model.validateArray(this.alertStatus);
+    }
     if(Array.isArray(this.level)) {
       $dara.Model.validateArray(this.level);
     }

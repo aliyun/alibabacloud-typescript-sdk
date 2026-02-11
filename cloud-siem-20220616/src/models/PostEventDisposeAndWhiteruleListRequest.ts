@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
+  disposeStrategyIds?: string;
   /**
    * @remarks
    * The configuration of event handling. The value is a JSON object.
@@ -44,6 +45,11 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
    */
   incidentUuid?: string;
   /**
+   * @example
+   * 1234567890xxxxxx
+   */
+  owner?: string;
+  /**
    * @remarks
    * The configuration of the alert recipient. The value is a JSON object.
    * 
@@ -74,6 +80,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
    * dealed
    */
   remark?: string;
+  responseSource?: string;
   /**
    * @remarks
    * The ID of the account that you switch from the management account.
@@ -108,11 +115,14 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   threatLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      disposeStrategyIds: 'DisposeStrategyIds',
       eventDispose: 'EventDispose',
       incidentUuid: 'IncidentUuid',
+      owner: 'Owner',
       receiverInfo: 'ReceiverInfo',
       regionId: 'RegionId',
       remark: 'Remark',
+      responseSource: 'ResponseSource',
       roleFor: 'RoleFor',
       roleType: 'RoleType',
       status: 'Status',
@@ -122,11 +132,14 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      disposeStrategyIds: 'string',
       eventDispose: 'string',
       incidentUuid: 'string',
+      owner: 'string',
       receiverInfo: 'string',
       regionId: 'string',
       remark: 'string',
+      responseSource: 'string',
       roleFor: 'number',
       roleType: 'number',
       status: 'number',

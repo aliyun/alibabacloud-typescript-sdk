@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCapacityResponseBodyData extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  agentManagedAssetQuota?: number;
+  /**
+   * @example
+   * 1
+   */
+  agentManagedAssetUsed?: number;
+  /**
    * @remarks
    * Indicates whether the Logstores for the threat analysis feature exist on the user side. Valid values:
    * 
@@ -32,6 +42,8 @@ export class GetCapacityResponseBodyData extends $dara.Model {
   usedCapacity?: number;
   static names(): { [key: string]: string } {
     return {
+      agentManagedAssetQuota: 'AgentManagedAssetQuota',
+      agentManagedAssetUsed: 'AgentManagedAssetUsed',
       existLogStore: 'ExistLogStore',
       preservedCapacity: 'PreservedCapacity',
       usedCapacity: 'UsedCapacity',
@@ -40,6 +52,8 @@ export class GetCapacityResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentManagedAssetQuota: 'number',
+      agentManagedAssetUsed: 'number',
       existLogStore: 'boolean',
       preservedCapacity: 'number',
       usedCapacity: 'number',

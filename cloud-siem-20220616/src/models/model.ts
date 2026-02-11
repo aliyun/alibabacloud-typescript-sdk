@@ -31,7 +31,6 @@ export { DescribeAutomateResponseConfigCounterResponseBodyData } from './Describ
 export { DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnums } from './DescribeAutomateResponseConfigFeatureResponseBody';
 export { DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperators } from './DescribeAutomateResponseConfigFeatureResponseBody';
 export { DescribeAutomateResponseConfigFeatureResponseBodyData } from './DescribeAutomateResponseConfigFeatureResponseBody';
-export { DescribeAutomateResponseConfigPlayBooksResponseBodyData } from './DescribeAutomateResponseConfigPlayBooksResponseBody';
 export { DescribeCloudSiemAssetsResponseBodyDataPageInfo } from './DescribeCloudSiemAssetsResponseBody';
 export { DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo } from './DescribeCloudSiemAssetsResponseBody';
 export { DescribeCloudSiemAssetsResponseBodyDataResponseData } from './DescribeCloudSiemAssetsResponseBody';
@@ -56,6 +55,7 @@ export { DescribeDisposeAndPlaybookResponseBodyDataResponseData } from './Descri
 export { DescribeDisposeAndPlaybookResponseBodyData } from './DescribeDisposeAndPlaybookResponseBody';
 export { DescribeDisposeStrategyPlaybookResponseBodyData } from './DescribeDisposeStrategyPlaybookResponseBody';
 export { DescribeEntityInfoResponseBodyData } from './DescribeEntityInfoResponseBody';
+export { DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum } from './DescribeEventCountByThreatLevelResponseBody';
 export { DescribeEventCountByThreatLevelResponseBodyData } from './DescribeEventCountByThreatLevelResponseBody';
 export { DescribeEventDisposeResponseBodyDataReceiverInfo } from './DescribeEventDisposeResponseBody';
 export { DescribeEventDisposeResponseBodyData } from './DescribeEventDisposeResponseBody';
@@ -190,9 +190,6 @@ export { DescribeAutomateResponseConfigCounterResponse } from './DescribeAutomat
 export { DescribeAutomateResponseConfigFeatureRequest } from './DescribeAutomateResponseConfigFeatureRequest';
 export { DescribeAutomateResponseConfigFeatureResponseBody } from './DescribeAutomateResponseConfigFeatureResponseBody';
 export { DescribeAutomateResponseConfigFeatureResponse } from './DescribeAutomateResponseConfigFeatureResponse';
-export { DescribeAutomateResponseConfigPlayBooksRequest } from './DescribeAutomateResponseConfigPlayBooksRequest';
-export { DescribeAutomateResponseConfigPlayBooksResponseBody } from './DescribeAutomateResponseConfigPlayBooksResponseBody';
-export { DescribeAutomateResponseConfigPlayBooksResponse } from './DescribeAutomateResponseConfigPlayBooksResponse';
 export { DescribeCloudSiemAssetsRequest } from './DescribeCloudSiemAssetsRequest';
 export { DescribeCloudSiemAssetsResponseBody } from './DescribeCloudSiemAssetsResponseBody';
 export { DescribeCloudSiemAssetsResponse } from './DescribeCloudSiemAssetsResponse';

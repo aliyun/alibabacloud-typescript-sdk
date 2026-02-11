@@ -2,7 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum extends $dara.Model {
+  date?: string;
+  eventNum?: number;
+  undealEventNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      eventNum: 'EventNum',
+      undealEventNum: 'UndealEventNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      eventNum: 'number',
+      undealEventNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model {
+  eventDailyNum?: DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum[];
   /**
    * @remarks
    * The total number of events.
@@ -47,6 +77,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   undealEventNum?: number;
   static names(): { [key: string]: string } {
     return {
+      eventDailyNum: 'EventDailyNum',
       eventNum: 'EventNum',
       highLevelEventNum: 'HighLevelEventNum',
       infoLevelEventNum: 'InfoLevelEventNum',
@@ -59,6 +90,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      eventDailyNum: { 'type': 'array', 'itemType': DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum },
       eventNum: 'number',
       highLevelEventNum: 'number',
       infoLevelEventNum: 'number',
@@ -70,6 +102,9 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   }
 
   validate() {
+    if(Array.isArray(this.eventDailyNum)) {
+      $dara.Model.validateArray(this.eventDailyNum);
+    }
     super.validate();
   }
 

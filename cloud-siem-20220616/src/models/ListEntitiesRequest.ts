@@ -26,6 +26,7 @@ export class ListEntitiesRequest extends $dara.Model {
    * 6c740667-80b2-476d-8924-2e706feb****
    */
   entityUuid?: string;
+  entityUuids?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -74,6 +75,7 @@ export class ListEntitiesRequest extends $dara.Model {
       entityName: 'EntityName',
       entityType: 'EntityType',
       entityUuid: 'EntityUuid',
+      entityUuids: 'EntityUuids',
       incidentUuid: 'IncidentUuid',
       isMalwareEntity: 'IsMalwareEntity',
       malwareType: 'MalwareType',
@@ -91,6 +93,7 @@ export class ListEntitiesRequest extends $dara.Model {
       entityName: 'string',
       entityType: 'string',
       entityUuid: 'string',
+      entityUuids: 'string',
       incidentUuid: 'string',
       isMalwareEntity: 'string',
       malwareType: 'string',

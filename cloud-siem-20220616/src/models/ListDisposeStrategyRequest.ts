@@ -165,6 +165,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
    * 1577808000000
    */
   startTime?: number;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -184,6 +185,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
       roleType: 'RoleType',
       sophonTaskId: 'SophonTaskId',
       startTime: 'StartTime',
+      status: 'Status',
     };
   }
 
@@ -206,6 +208,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
       roleType: 'number',
       sophonTaskId: 'string',
       startTime: 'number',
+      status: 'number',
     };
   }
 
