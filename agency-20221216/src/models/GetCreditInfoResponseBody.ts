@@ -54,6 +54,7 @@ export class GetCreditInfoResponseBodyData extends $dara.Model {
    * 200
    */
   outstandingBalance?: string;
+  PAYGFreezeStatus?: string;
   /**
    * @remarks
    * The systematic controlling policy for resource management, specifically when the available Credit of Sub Account falls to 0 or less.</br>
@@ -84,6 +85,7 @@ export class GetCreditInfoResponseBodyData extends $dara.Model {
       consumedUndeductedValue: 'ConsumedUndeductedValue',
       creditLine: 'CreditLine',
       outstandingBalance: 'OutstandingBalance',
+      PAYGFreezeStatus: 'PAYGFreezeStatus',
       zeroCreditShutdownPolicy: 'ZeroCreditShutdownPolicy',
       newBuyStatus: 'newBuyStatus',
     };
@@ -97,6 +99,7 @@ export class GetCreditInfoResponseBodyData extends $dara.Model {
       consumedUndeductedValue: 'string',
       creditLine: 'string',
       outstandingBalance: 'string',
+      PAYGFreezeStatus: 'string',
       zeroCreditShutdownPolicy: 'string',
       newBuyStatus: 'string',
     };

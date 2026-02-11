@@ -3,49 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUnassociatedCustomerResponseBodyInviteInfoListInviteInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The name of Customer who are to be invited.
-   * 
-   * @example
-   * My Client
-   */
   accountNickname?: string;
-  /**
-   * @remarks
-   * The Email of Customer who are to be invited.
-   * 
-   * @example
-   * 12345@qq.com
-   */
   email?: string;
-  /**
-   * @remarks
-   * The time of email been sent out.
-   * 
-   * @example
-   * 2023-05-10
-   */
   gmtCreate?: string;
-  /**
-   * @remarks
-   * Invitation ID
-   * 
-   * @example
-   * 190
-   */
   inviteId?: number;
-  /**
-   * @remarks
-   * Invitation Status:
-   * * 0 No visit on registration URL
-   * * 1 Successful Registration
-   * * 2 Unsuccessful Registration
-   * * 3 Registration URL have been visited, but no submitted sheet/ticket.
-   * 
-   * @example
-   * 1
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -163,10 +124,6 @@ export class GetUnassociatedCustomerResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * List of Invitation Information
-   */
   inviteInfoList?: GetUnassociatedCustomerResponseBodyInviteInfoList;
   /**
    * @remarks

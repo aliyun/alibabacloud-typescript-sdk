@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InviteSubAccountResponseBodyResultsResultResult extends $dara.Model {
-  /**
-   * @remarks
-   * Valid days of registration URL, count on daily basis.
-   * 
-   * @example
-   * 15
-   */
   days?: number;
-  /**
-   * @remarks
-   * Invitation ID, The invitation status tracking code.
-   * 
-   * @example
-   * 12345
-   */
   inviteId?: number;
-  /**
-   * @remarks
-   * URL for Partner Customer Registration.
-   * 
-   * @example
-   * http://agency-intl.console.aliyun.com/customer/register?intl=true&fxinfo=-4uT%2FMWHnnUdvr5GXVd1AYK8luTnGgH3M7Y3lSCd5M1fxRwAkViTWtDJDpckh0HL
-   */
   regUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,34 +32,9 @@ export class InviteSubAccountResponseBodyResultsResultResult extends $dara.Model
 }
 
 export class InviteSubAccountResponseBodyResultsResult extends $dara.Model {
-  /**
-   * @remarks
-   * Error Code, 200 OK
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * Message, Notes of Code
-   * 
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @remarks
-   * Returning Message of Invitation Results
-   */
   result?: InviteSubAccountResponseBodyResultsResultResult;
-  /**
-   * @remarks
-   * Always true.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -165,10 +119,6 @@ export class InviteSubAccountResponseBody extends $dara.Model {
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
    */
   requestId?: string;
-  /**
-   * @remarks
-   * List of invitation sending results
-   */
   results?: InviteSubAccountResponseBodyResults;
   /**
    * @remarks
