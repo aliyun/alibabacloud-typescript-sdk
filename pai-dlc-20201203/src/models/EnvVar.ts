@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnvVar extends $dara.Model {
   /**
+   * @remarks
+   * The name of the environment variable.
+   * 
    * @example
    * ENABLE_DEBUG
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the environment variable.
+   * 
    * @example
    * true
    */

@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ServiceSpec extends $dara.Model {
+  /**
+   * @example
+   * 8080
+   */
   defaultPort?: number;
   extraPorts?: number[];
+  /**
+   * @example
+   * PerRole
+   */
   serviceMode?: string;
   static names(): { [key: string]: string } {
     return {

@@ -401,6 +401,22 @@ export class CreateJobRequest extends $dara.Model {
   successPolicy?: string;
   /**
    * @remarks
+   * 任务模板的 ID。指定后将基于模板创建作业，作业参数需符合模板约束规则。
+   * 
+   * @example
+   * tplxxxxxxxxxxxxxxxx
+   */
+  templateId?: string;
+  /**
+   * @remarks
+   * 指定使用的模板版本号，不传则使用模板默认版本。
+   * 
+   * @example
+   * 1
+   */
+  templateVersion?: number;
+  /**
+   * @remarks
    * The folder in which the third-party Python library file requirements.txt is stored. Before the startup command specified by the UserCommand parameter is run on each node, DLC fetches the requirements.txt file from the folder and runs `pip install -r` to install the required package and library.
    * 
    * @example
@@ -454,6 +470,8 @@ export class CreateJobRequest extends $dara.Model {
       resourceId: 'ResourceId',
       settings: 'Settings',
       successPolicy: 'SuccessPolicy',
+      templateId: 'TemplateId',
+      templateVersion: 'TemplateVersion',
       thirdpartyLibDir: 'ThirdpartyLibDir',
       thirdpartyLibs: 'ThirdpartyLibs',
       userCommand: 'UserCommand',
@@ -481,6 +499,8 @@ export class CreateJobRequest extends $dara.Model {
       resourceId: 'string',
       settings: JobSettings,
       successPolicy: 'string',
+      templateId: 'string',
+      templateVersion: 'number',
       thirdpartyLibDir: 'string',
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
       userCommand: 'string',

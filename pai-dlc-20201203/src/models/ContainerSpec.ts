@@ -5,21 +5,46 @@ import { ResourceRequirements } from "./ResourceRequirements";
 
 
 export class ContainerSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The command parameters.
+   */
   args?: string[];
+  /**
+   * @remarks
+   * The user command.
+   */
   command?: string[];
+  /**
+   * @remarks
+   * The environment variables.
+   */
   env?: EnvVar[];
   /**
+   * @remarks
+   * The endpoint of the container image.
+   * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/pai-dlc/curl:v1.0.0
    */
   image?: string;
   /**
+   * @remarks
+   * The name of the container.
+   * 
    * @example
    * data-init
    */
   name?: string;
+  /**
+   * @remarks
+   * The container resources.
+   */
   resources?: ResourceRequirements;
   /**
+   * @remarks
+   * The working directory in the container.
+   * 
    * @example
    * /root
    */

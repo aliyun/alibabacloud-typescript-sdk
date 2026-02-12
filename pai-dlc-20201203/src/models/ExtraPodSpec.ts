@@ -5,17 +5,39 @@ import { Lifecycle } from "./Lifecycle";
 
 
 export class ExtraPodSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The containers to be initialized.
+   */
   initContainers?: ContainerSpec[];
+  /**
+   * @remarks
+   * The lifecycle object.
+   */
   lifecycle?: Lifecycle;
   /**
+   * @remarks
+   * The pod annotations.
+   * 
    * @deprecated
    */
   podAnnotations?: { [key: string]: string };
   /**
+   * @remarks
+   * The pod labels.
+   * 
    * @deprecated
    */
   podLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The local paths shared between containers.
+   */
   sharedVolumeMountPaths?: string[];
+  /**
+   * @remarks
+   * The sidecar containers.
+   */
   sideCarContainers?: ContainerSpec[];
   static names(): { [key: string]: string } {
     return {

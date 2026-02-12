@@ -4,10 +4,17 @@ import { Metric } from "./Metric";
 
 
 export class PodMetric extends $dara.Model {
+  /**
+   * @remarks
+   * The metrics list.
+   */
   metrics?: Metric[];
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
-   * dlc-20210329110128-746bf7cl47pr8-worker-0
+   * dlc-20210329110128-******-worker-0
    */
   podId?: string;
   static names(): { [key: string]: string } {

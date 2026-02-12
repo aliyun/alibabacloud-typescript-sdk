@@ -51,6 +51,7 @@ export { JobItem } from './JobItem';
 export { JobReplicaStatus } from './JobReplicaStatus';
 export { JobSettings } from './JobSettings';
 export { JobSpec } from './JobSpec';
+export { JobTemplateVersionDetail } from './JobTemplateVersionDetail';
 export { Lifecycle } from './Lifecycle';
 export { LocalMountSpec } from './LocalMountSpec';
 export { LogInfo } from './LogInfo';

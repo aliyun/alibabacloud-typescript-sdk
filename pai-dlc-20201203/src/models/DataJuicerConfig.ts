@@ -4,8 +4,16 @@ import { ResourceLimit } from "./ResourceLimit";
 
 
 export class DataJuicerConfig extends $dara.Model {
+  /**
+   * @example
+   * config
+   */
   commandType?: string;
   enableResourceEstimation?: boolean;
+  /**
+   * @example
+   * standalone
+   */
   executionMode?: string;
   resourceLimit?: ResourceLimit;
   static names(): { [key: string]: string } {

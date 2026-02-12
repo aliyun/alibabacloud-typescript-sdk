@@ -3,13 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ImageConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication information of the image repository.
+   */
   auth?: string;
   /**
+   * @remarks
+   * The address of the image repository.
+   * 
    * @example
-   * registry.cn-hangzhou.aliyuncs.com
+   * docker****registry.com
    */
   dockerRegistry?: string;
+  /**
+   * @remarks
+   * The password that is used to log on to the image repository.
+   * 
+   * @example
+   * password
+   */
   password?: string;
+  /**
+   * @remarks
+   * The username that is used to log on to the image repository.
+   * 
+   * @example
+   * username
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {

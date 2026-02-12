@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Metric extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1616987726587
    */
   time?: number;
   /**
+   * @remarks
+   * The value of the monitoring data.
+   * 
    * @example
    * 23.45
    */

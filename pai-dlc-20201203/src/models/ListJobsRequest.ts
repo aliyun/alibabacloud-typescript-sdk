@@ -217,6 +217,7 @@ export class ListJobsRequest extends $dara.Model {
    * The tags.
    */
   tags?: { [key: string]: string };
+  templateId?: string;
   timeRangeField?: string;
   userCommandSearch?: string;
   /**
@@ -274,6 +275,7 @@ export class ListJobsRequest extends $dara.Model {
       startTime: 'StartTime',
       status: 'Status',
       tags: 'Tags',
+      templateId: 'TemplateId',
       timeRangeField: 'TimeRangeField',
       userCommandSearch: 'UserCommandSearch',
       userIdForFilter: 'UserIdForFilter',
@@ -313,6 +315,7 @@ export class ListJobsRequest extends $dara.Model {
       startTime: 'string',
       status: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateId: 'string',
       timeRangeField: 'string',
       userCommandSearch: 'string',
       userIdForFilter: 'string',

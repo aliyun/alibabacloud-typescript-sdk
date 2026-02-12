@@ -156,6 +156,14 @@ export default class Client extends OpenApi {
       body["SuccessPolicy"] = request.successPolicy;
     }
 
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateVersion)) {
+      body["TemplateVersion"] = request.templateVersion;
+    }
+
     if (!$dara.isNull(request.thirdpartyLibDir)) {
       body["ThirdpartyLibDir"] = request.thirdpartyLibDir;
     }
@@ -564,7 +572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
+   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
    * 
    * @param request - GetJobMetricsRequest
    * @param headers - map
@@ -613,7 +621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
+   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
    * 
    * @param request - GetJobMetricsRequest
    * @returns GetJobMetricsResponse
@@ -1295,6 +1303,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
     }
 
     if (!$dara.isNull(request.timeRangeField)) {

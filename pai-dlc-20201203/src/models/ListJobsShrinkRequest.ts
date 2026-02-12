@@ -217,6 +217,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
    * The tags.
    */
   tagsShrink?: string;
+  templateId?: string;
   timeRangeField?: string;
   userCommandSearch?: string;
   /**
@@ -274,6 +275,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       startTime: 'StartTime',
       status: 'Status',
       tagsShrink: 'Tags',
+      templateId: 'TemplateId',
       timeRangeField: 'TimeRangeField',
       userCommandSearch: 'UserCommandSearch',
       userIdForFilter: 'UserIdForFilter',
@@ -313,6 +315,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       startTime: 'string',
       status: 'string',
       tagsShrink: 'string',
+      templateId: 'string',
       timeRangeField: 'string',
       userCommandSearch: 'string',
       userIdForFilter: 'string',
