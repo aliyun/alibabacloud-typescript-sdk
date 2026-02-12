@@ -1638,6 +1638,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取凭据明文。
+   * 
+   * @param request - ObtainCredentialRequest
+   * @param headers - ObtainCredentialHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ObtainCredentialResponse
+   */
+  async obtainCredentialWithOptions(instanceId: string, request: $_model.ObtainCredentialRequest, headers: $_model.ObtainCredentialHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ObtainCredentialResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialIdentifier)) {
+      query["credentialIdentifier"] = request.credentialIdentifier;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ObtainCredential",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/credentials/_/actions/obtain`,
+      method: "GET",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ObtainCredentialResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ObtainCredentialResponse({}));
+  }
+
+  /**
+   * 获取凭据明文。
+   * 
+   * @param request - ObtainCredentialRequest
+   * @returns ObtainCredentialResponse
+   */
+  async obtainCredential(instanceId: string, request: $_model.ObtainCredentialRequest): Promise<$_model.ObtainCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ObtainCredentialHeaders({ });
+    return await this.obtainCredentialWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Modifies information about an Employee Identity and Access Management (EIAM) group.
    * 
    * @param request - PatchGroupRequest
