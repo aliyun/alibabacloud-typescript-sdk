@@ -1,0 +1,79 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class OnsGroupCreateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group that you want to create. The group ID must meet the following rules:
+   * 
+   * *   The group ID must be 2 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_).
+   * *   If the ApsaraMQ for RocketMQ instance in which you want to create the consumer group uses a namespace, the group ID must be unique in the instance. The group ID cannot be the same as an existing group ID or a topic name in the instance. The group ID can be the same as a group ID or a topic name in another instance that uses a different namespace. For example, if Instance A and Instance B use different namespaces, a group ID in Instance A can be the same as a group ID or a topic name in Instance B.
+   * *   If the instance does not use a namespace, the group ID must be globally unique across instances and regions. The group ID cannot be the same as an existing group ID or topic name in ApsaraMQ for RocketMQ instances that belong to your Alibaba Cloud account.
+   * 
+   * > 
+   * 
+   * *   After the consumer group is created, the group ID cannot be changed.
+   * 
+   * *   To check whether an instance uses a namespace, log on to the ApsaraMQ for RocketMQ console, go to the **Instance Details** page, and then view the value of the Namespace field in the **Basic Information** section.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_groupId
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The protocol over which clients in the consumer group communicate with the ApsaraMQ for RocketMQ broker. All clients in a consumer group communicate with the ApsaraMQ for RocketMQ broker over the same protocol. You must create different groups for TCP clients and HTTP clients. Valid values:
+   * 
+   * *   **tcp**: Clients in the consumer group consume messages over TCP. This is the default value.
+   * *   **http**: Clients in the consumer group consume messages over HTTP.
+   * 
+   * @example
+   * tcp
+   */
+  groupType?: string;
+  /**
+   * @remarks
+   * The ID of the instance in which you want to create the consumer group.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The description of the consumer group.
+   * 
+   * @example
+   * test
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      groupType: 'GroupType',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      groupType: 'string',
+      instanceId: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
