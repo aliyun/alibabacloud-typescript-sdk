@@ -9,6 +9,8 @@ import { VectorStoreConfig } from "./VectorStoreConfig";
 export class CreateMemoryCollectionInput extends $dara.Model {
   description?: string;
   embedderConfig?: EmbedderConfig;
+  enableConversationHistory?: boolean;
+  enableConversationState?: boolean;
   executionRoleArn?: string;
   llmConfig?: LLMConfig;
   memoryCollectionName?: string;
@@ -19,6 +21,8 @@ export class CreateMemoryCollectionInput extends $dara.Model {
     return {
       description: 'description',
       embedderConfig: 'embedderConfig',
+      enableConversationHistory: 'enableConversationHistory',
+      enableConversationState: 'enableConversationState',
       executionRoleArn: 'executionRoleArn',
       llmConfig: 'llmConfig',
       memoryCollectionName: 'memoryCollectionName',
@@ -32,6 +36,8 @@ export class CreateMemoryCollectionInput extends $dara.Model {
     return {
       description: 'string',
       embedderConfig: EmbedderConfig,
+      enableConversationHistory: 'boolean',
+      enableConversationState: 'boolean',
       executionRoleArn: 'string',
       llmConfig: LLMConfig,
       memoryCollectionName: 'string',

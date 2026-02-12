@@ -10,6 +10,8 @@ export class MemoryCollection extends $dara.Model {
   createdAt?: string;
   description?: string;
   embedderConfig?: EmbedderConfig;
+  enableConversationHistory?: boolean;
+  enableConversationState?: boolean;
   executionRoleArn?: string;
   lastUpdatedAt?: string;
   llmConfig?: LLMConfig;
@@ -22,6 +24,8 @@ export class MemoryCollection extends $dara.Model {
       createdAt: 'createdAt',
       description: 'description',
       embedderConfig: 'embedderConfig',
+      enableConversationHistory: 'enableConversationHistory',
+      enableConversationState: 'enableConversationState',
       executionRoleArn: 'executionRoleArn',
       lastUpdatedAt: 'lastUpdatedAt',
       llmConfig: 'llmConfig',
@@ -37,6 +41,8 @@ export class MemoryCollection extends $dara.Model {
       createdAt: 'string',
       description: 'string',
       embedderConfig: EmbedderConfig,
+      enableConversationHistory: 'boolean',
+      enableConversationState: 'boolean',
       executionRoleArn: 'string',
       lastUpdatedAt: 'string',
       llmConfig: LLMConfig,
