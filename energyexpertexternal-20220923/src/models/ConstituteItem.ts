@@ -5,9 +5,37 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ConstituteItemEnvGasEmissions extends $dara.Model {
+  /**
+   * @remarks
+   * Carbon emissions.
+   * 
+   * @example
+   * 1.2
+   */
   carbonEmissionData?: number;
+  /**
+   * @remarks
+   * Gas emissions.
+   * 
+   * @example
+   * 4.33
+   */
   gasEmissionData?: number;
+  /**
+   * @remarks
+   * Name of gas.
+   * 
+   * @example
+   * CO₂
+   */
   name?: string;
+  /**
+   * @remarks
+   * A unique key that identifies the gas type.
+   * 
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,16 +65,87 @@ export class ConstituteItemEnvGasEmissions extends $dara.Model {
 }
 
 export class ConstituteItem extends $dara.Model {
+  /**
+   * @remarks
+   * Carbon emission
+   * 
+   * @example
+   * 3.222
+   */
   carbonEmissionData?: number;
+  /**
+   * @remarks
+   * Data Unit
+   * 
+   * @example
+   * kWh
+   */
   dataUnit?: string;
+  /**
+   * @remarks
+   * Emission source
+   * 
+   * @example
+   * GEC
+   */
   emissionSource?: string;
+  /**
+   * @remarks
+   * Unique identification of emission source.
+   * 
+   * @example
+   * carbonInventory.check.by_electricity_properties/carbonInventory.check.wind_electricity/carbonInventory.check.gec
+   */
   emissionSourceKey?: string;
+  /**
+   * @remarks
+   * The name of enterprise.
+   * 
+   * @example
+   * EnterpriseA
+   */
   enterpriseName?: string;
+  /**
+   * @remarks
+   * Gas Emissions Detail List.
+   */
   envGasEmissions?: ConstituteItemEnvGasEmissions[];
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * Scope 1: Direct GHG emissions
+   */
   name?: string;
+  /**
+   * @remarks
+   * The unique identifier of name.
+   * 
+   * @example
+   * carbonInventory.check.indirect_emissions_from_imported_electricity
+   */
   nameKey?: string;
+  /**
+   * @remarks
+   * Ratio.example value: 0.5 (i. e. 50%).
+   * 
+   * @example
+   * 0.5
+   */
   ratio?: number;
+  /**
+   * @remarks
+   * Raw data
+   * 
+   * @example
+   * 1.2
+   */
   rawData?: number;
+  /**
+   * @remarks
+   * The child detail list.
+   */
   subConstituteItems?: ConstituteItem[];
   static names(): { [key: string]: string } {
     return {

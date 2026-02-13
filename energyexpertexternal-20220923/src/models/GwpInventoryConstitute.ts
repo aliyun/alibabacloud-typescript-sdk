@@ -4,12 +4,55 @@ import { GwpResourceConstitute } from "./GwpResourceConstitute";
 
 
 export class GwpInventoryConstitute extends $dara.Model {
+  /**
+   * @remarks
+   * Grouped by inventory resource type, this data reveals emissions details for each category. It serves the "By type" analysis in the composition breakdown. A nested structure is employed: total carbon emissions are organized first by inventory type, forming a two-level hierarchy, with the innermost level \\"byResource\\" currently empty.
+   */
   byResourceType?: GwpResourceConstitute[];
+  /**
+   * @remarks
+   * Emission quantity
+   * 
+   * @example
+   * 1009.976265540000000000000000000000
+   */
   carbonEmission?: number;
+  /**
+   * @remarks
+   * Organized hierarchically, it cascades from high to low: flow-> process-> inventory level. Employed for "By inventory" analysis in compositional breakdowns, the innermost layer of this nested structure is empty.
+   */
   items?: GwpInventoryConstitute[];
+  /**
+   * @remarks
+   * Name
+   * 
+   * @example
+   * Acquisition of Raw Materials
+   */
   name?: string;
+  /**
+   * @remarks
+   * Percentage of emissions, for example 100.00 means 100.00%.
+   * 
+   * @example
+   * 100.00
+   */
   percent?: number;
+  /**
+   * @remarks
+   * Resouce type of inventory.
+   * 
+   * @example
+   * 1
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * Unit
+   * 
+   * @example
+   * kgCO₂e/kg
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {

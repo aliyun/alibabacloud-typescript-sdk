@@ -4,7 +4,18 @@ import { ChatRefDocPostion } from "./ChatRefDocPostion";
 
 
 export class ChatRefDocPageNum extends $dara.Model {
+  /**
+   * @remarks
+   * Page numbers of content related to Q&A.
+   * 
+   * @example
+   * 123
+   */
   num?: number;
+  /**
+   * @remarks
+   * List of location information for related documents.
+   */
   pos?: ChatRefDocPostion[][];
   static names(): { [key: string]: string } {
     return {

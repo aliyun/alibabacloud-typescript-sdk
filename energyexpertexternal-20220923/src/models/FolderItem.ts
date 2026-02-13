@@ -3,21 +3,82 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FolderItem extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   currentLevel?: number;
+  /**
+   * @example
+   * 0
+   */
   docCount?: number;
+  /**
+   * @example
+   * 0
+   */
   folderDefault?: number;
+  /**
+   * @example
+   * 4b648f6d11344f258df876cbdc24dc1f
+   */
   folderId?: string;
+  /**
+   * @example
+   * “abc” “1234”
+   */
   folderName?: string;
+  /**
+   * @example
+   * 2
+   */
   folderNum?: number;
+  /**
+   * @example
+   * aidoc-energy-api-example.oss-cn-hangzhou.aliyuncs.com
+   */
   ossDomain?: string;
+  /**
+   * @example
+   * test/
+   */
   ossPath?: string;
+  /**
+   * @example
+   * 1696462764375572
+   */
   ossUpdateBy?: string;
+  /**
+   * @example
+   * "0" ：parent folder is root
+   * "4b648f6d11344f258df876cbdc24dc1f" ： folderId
+   */
   parentFolderId?: string;
+  /**
+   * @example
+   * folder/manual/
+   */
   resourcePath?: string;
+  /**
+   * @example
+   * 0
+   */
   storageType?: number;
   subFolderList?: FolderItem[];
+  /**
+   * @example
+   * -1
+   */
   syncParsingStatus?: number;
+  /**
+   * @example
+   * -1
+   */
   syncStatus?: number;
+  /**
+   * @example
+   * 0
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {

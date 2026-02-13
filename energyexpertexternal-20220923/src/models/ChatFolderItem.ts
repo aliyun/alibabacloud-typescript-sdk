@@ -4,8 +4,26 @@ import { ChatItem } from "./ChatItem";
 
 
 export class ChatFolderItem extends $dara.Model {
+  /**
+   * @remarks
+   * Folder ID.
+   * 
+   * @example
+   * aaa
+   */
   folderId?: string;
+  /**
+   * @remarks
+   * Folder name.
+   * 
+   * @example
+   * default folder
+   */
   folderName?: string;
+  /**
+   * @remarks
+   * Subfolder list.
+   */
   subFolders?: ChatItem[];
   static names(): { [key: string]: string } {
     return {

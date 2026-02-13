@@ -1,14 +1,14 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ChatStreamResponseBody } from "./ChatStreamResponseBody";
+import { AISearchStreamResponseBody } from "./AisearchStreamResponseBody";
 
 
-export class ChatStreamResponse extends $dara.Model {
+export class AISearchStreamResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   id?: string;
   event?: string;
-  body?: ChatStreamResponseBody;
+  body?: AISearchStreamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25,7 +25,7 @@ export class ChatStreamResponse extends $dara.Model {
       statusCode: 'number',
       id: 'string',
       event: 'string',
-      body: ChatStreamResponseBody,
+      body: AISearchStreamResponseBody,
     };
   }
 

@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OrgEmissionModuleEmissionList extends $dara.Model {
+  /**
+   * @remarks
+   * Carbon emissions
+   * 
+   * @example
+   * 1.2
+   */
   carbonEmissionData?: number;
+  /**
+   * @remarks
+   * module name
+   * 
+   * @example
+   * Scope 1: Direct GHG emissions
+   */
   name?: string;
+  /**
+   * @remarks
+   * Module key
+   * 
+   * @example
+   * carbonInventory.check.scope_1_direct_ghg_emissions
+   */
   nameKey?: string;
+  /**
+   * @remarks
+   * Proportion of carbon emissions
+   * 
+   * @example
+   * 0.2
+   */
   ratio?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35,14 +63,71 @@ export class OrgEmissionModuleEmissionList extends $dara.Model {
 }
 
 export class OrgEmission extends $dara.Model {
+  /**
+   * @remarks
+   * Carbon Equivalent
+   * 
+   * @example
+   * 1.2
+   */
   carbonEmissionData?: number;
+  /**
+   * @remarks
+   * Sub-module carbon emission data
+   */
   moduleEmissionList?: OrgEmissionModuleEmissionList[];
+  /**
+   * @remarks
+   * The name of the organization.
+   * 
+   * @example
+   * EnterpriseZ
+   */
   name?: string;
+  /**
+   * @remarks
+   * Enterprise type
+   * 
+   * @example
+   * Z-20240115-4
+   */
   nameKey?: string;
+  /**
+   * @remarks
+   * Proportion of carbon emissions
+   * 
+   * @example
+   * 0.2
+   */
   ratio?: number;
+  /**
+   * @remarks
+   * Sub-level data, that is, site data under the organization
+   */
   subEmissionItems?: OrgEmission[];
+  /**
+   * @remarks
+   * Calculate carbon emissions by share ratio
+   * 
+   * @example
+   * 2.3
+   */
   weightingCarbonEmissionData?: number;
+  /**
+   * @remarks
+   * Weight ratio
+   * 
+   * @example
+   * 0.3
+   */
   weightingProportion?: number;
+  /**
+   * @remarks
+   * Share ratio Carbon emissions YoY
+   * 
+   * @example
+   * 0.4
+   */
   weightingRatio?: number;
   static names(): { [key: string]: string } {
     return {

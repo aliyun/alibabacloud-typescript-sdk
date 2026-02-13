@@ -112,6 +112,336 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加AISearch项目中的结构化元素
+   * 
+   * @param request - AISearchResourceAddRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchResourceAddResponse
+   */
+  async aISearchResourceAddWithOptions(request: $_model.AISearchResourceAddRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AISearchResourceAddResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.data)) {
+      body["data"] = request.data;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AISearchResourceAdd",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiSearch/resource/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AISearchResourceAddResponse>(await this.callApi(params, req, runtime), new $_model.AISearchResourceAddResponse({}));
+  }
+
+  /**
+   * 添加AISearch项目中的结构化元素
+   * 
+   * @param request - AISearchResourceAddRequest
+   * @returns AISearchResourceAddResponse
+   */
+  async aISearchResourceAdd(request: $_model.AISearchResourceAddRequest): Promise<$_model.AISearchResourceAddResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aISearchResourceAddWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除AISearch项目中的结构化元素
+   * 
+   * @param request - AISearchResourceDeleteRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchResourceDeleteResponse
+   */
+  async aISearchResourceDeleteWithOptions(request: $_model.AISearchResourceDeleteRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AISearchResourceDeleteResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceId)) {
+      query["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AISearchResourceDelete",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiSearch/resource/delete`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AISearchResourceDeleteResponse>(await this.callApi(params, req, runtime), new $_model.AISearchResourceDeleteResponse({}));
+  }
+
+  /**
+   * 删除AISearch项目中的结构化元素
+   * 
+   * @param request - AISearchResourceDeleteRequest
+   * @returns AISearchResourceDeleteResponse
+   */
+  async aISearchResourceDelete(request: $_model.AISearchResourceDeleteRequest): Promise<$_model.AISearchResourceDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aISearchResourceDeleteWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查找AISearch资源
+   * 
+   * @param tmpReq - AISearchResourceGetListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchResourceGetListResponse
+   */
+  async aISearchResourceGetListWithOptions(tmpReq: $_model.AISearchResourceGetListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AISearchResourceGetListResponse> {
+    tmpReq.validate();
+    let request = new $_model.AISearchResourceGetListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceIds)) {
+      request.resourceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceIds, "resourceIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["currentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceIdsShrink)) {
+      query["resourceIds"] = request.resourceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AISearchResourceGetList",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiSearch/resource/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AISearchResourceGetListResponse>(await this.callApi(params, req, runtime), new $_model.AISearchResourceGetListResponse({}));
+  }
+
+  /**
+   * 查找AISearch资源
+   * 
+   * @param request - AISearchResourceGetListRequest
+   * @returns AISearchResourceGetListResponse
+   */
+  async aISearchResourceGetList(request: $_model.AISearchResourceGetListRequest): Promise<$_model.AISearchResourceGetListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aISearchResourceGetListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改AISearch项目中的结构化元素
+   * 
+   * @param request - AISearchResourceUpdateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchResourceUpdateResponse
+   */
+  async aISearchResourceUpdateWithOptions(request: $_model.AISearchResourceUpdateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AISearchResourceUpdateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.data)) {
+      body["data"] = request.data;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AISearchResourceUpdate",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiSearch/resource/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AISearchResourceUpdateResponse>(await this.callApi(params, req, runtime), new $_model.AISearchResourceUpdateResponse({}));
+  }
+
+  /**
+   * 修改AISearch项目中的结构化元素
+   * 
+   * @param request - AISearchResourceUpdateRequest
+   * @returns AISearchResourceUpdateResponse
+   */
+  async aISearchResourceUpdate(request: $_model.AISearchResourceUpdateRequest): Promise<$_model.AISearchResourceUpdateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aISearchResourceUpdateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * aisearch问答接口
+   * 
+   * @param request - AISearchStreamRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchStreamResponse
+   */
+  async *aISearchStreamWithSSE(request: $_model.AISearchStreamRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.AISearchStreamResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderId)) {
+      body["folderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      body["message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      body["question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.resourceTypeNeeded)) {
+      body["resourceTypeNeeded"] = request.resourceTypeNeeded;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AISearchStream",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiSearch/searchStream`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.AISearchStreamResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.AISearchStreamResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * aisearch问答接口
+   * 
+   * @param request - AISearchStreamRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchStreamResponse
+   */
+  async aISearchStreamWithOptions(request: $_model.AISearchStreamRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AISearchStreamResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderId)) {
+      body["folderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      body["message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      body["question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.resourceTypeNeeded)) {
+      body["resourceTypeNeeded"] = request.resourceTypeNeeded;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AISearchStream",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiSearch/searchStream`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AISearchStreamResponse>(await this.callApi(params, req, runtime), new $_model.AISearchStreamResponse({}));
+  }
+
+  /**
+   * aisearch问答接口
+   * 
+   * @param request - AISearchStreamRequest
+   * @returns AISearchStreamResponse
+   */
+  async aISearchStream(request: $_model.AISearchStreamRequest): Promise<$_model.AISearchStreamResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aISearchStreamWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建文件夹
    * 
    * @param request - AddFolderRequest
@@ -523,7 +853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Knowledge Base Q&A
+   * Knowledge Base Q\\&A
    * 
    * @remarks
    * - The interface provides Q&A services within the scope of the selected directory in the session.
@@ -568,21 +898,22 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.ChatStreamResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.ChatStreamResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatStreamResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatStreamResponse({}));
+      }
+
     }
   }
 
   /**
-   * Knowledge Base Q&A
+   * Knowledge Base Q\\&A
    * 
    * @remarks
    * - The interface provides Q&A services within the scope of the selected directory in the session.
@@ -628,7 +959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Knowledge Base Q&A
+   * Knowledge Base Q\\&A
    * 
    * @remarks
    * - The interface provides Q&A services within the scope of the selected directory in the session.
@@ -645,7 +976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Q&A Window
+   * Create Q\\&A Window
    * 
    * @param request - CreateChatSessionRequest
    * @param headers - map
@@ -686,7 +1017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Q&A Window
+   * Create Q\\&A Window
    * 
    * @param request - CreateChatSessionRequest
    * @returns CreateChatSessionResponse
@@ -1108,7 +1439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Q&A folder List
+   * Get Q\\&A folder List
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1133,7 +1464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Q&A folder List
+   * Get Q\\&A folder List
    * @returns GetChatFolderListResponse
    */
   async getChatFolderList(): Promise<$_model.GetChatFolderListResponse> {
@@ -1206,7 +1537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Q&A Session List
+   * Get Q\\&A Session List
    * 
    * @param request - GetChatSessionListRequest
    * @param headers - map
@@ -1251,7 +1582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Q&A Session List
+   * Get Q\\&A Session List
    * 
    * @param request - GetChatSessionListRequest
    * @returns GetChatSessionListResponse
@@ -1605,7 +1936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+   * null null
    * 
    * @param request - GetDocumentAnalyzeResultRequest
    * @param headers - map
@@ -1638,7 +1969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+   * null null
    * 
    * @param request - GetDocumentAnalyzeResultRequest
    * @returns GetDocumentAnalyzeResultResponse
@@ -2977,7 +3308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [Important] This api is no longer maintained, please use the Chat api.
+   * null null
    * 
    * @param request - SendDocumentAskQuestionRequest
    * @param headers - map
@@ -3018,7 +3349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [Important] This api is no longer maintained, please use the Chat api.
+   * null null
    * 
    * @param request - SendDocumentAskQuestionRequest
    * @returns SendDocumentAskQuestionResponse
@@ -3437,9 +3768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [Important] The api is no longer maintained, please use the following api: 
-   * Document parsing using SubmitDocParsingTask. 
-   * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+   * The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
    * 
    * @param request - SubmitDocumentAnalyzeJobRequest
    * @param headers - map
@@ -3488,9 +3817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [Important] The api is no longer maintained, please use the following api: 
-   * Document parsing using SubmitDocParsingTask. 
-   * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+   * The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
    * 
    * @param request - SubmitDocumentAnalyzeJobRequest
    * @returns SubmitDocumentAnalyzeJobResponse

@@ -2,34 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ChatRefDocPostion extends $dara.Model {
+export class AISearchStreamItem extends $dara.Model {
   /**
-   * @remarks
-   * The x-coordinate of the layout.
-   * 
    * @example
-   * 22
+   * “network problem can be”
    */
-  x?: number;
+  content?: string;
+  params?: any;
   /**
-   * @remarks
-   * The y-coordinate of the layout.
-   * 
    * @example
-   * 86
+   * text
    */
-  y?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      x: 'x',
-      y: 'y',
+      content: 'content',
+      params: 'params',
+      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      x: 'number',
-      y: 'number',
+      content: 'string',
+      params: 'any',
+      type: 'string',
     };
   }
 

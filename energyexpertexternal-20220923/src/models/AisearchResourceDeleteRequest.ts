@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ChatRefDocPostion extends $dara.Model {
+export class AISearchResourceDeleteRequest extends $dara.Model {
   /**
    * @remarks
-   * The x-coordinate of the layout.
+   * This parameter is required.
    * 
    * @example
-   * 22
+   * WzMGQZwB7nQEs3Qk3ajH
    */
-  x?: number;
+  resourceId?: string;
   /**
    * @remarks
-   * The y-coordinate of the layout.
+   * This parameter is required.
    * 
    * @example
-   * 86
+   * miniapp
    */
-  y?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      x: 'x',
-      y: 'y',
+      resourceId: 'resourceId',
+      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      x: 'number',
-      y: 'number',
+      resourceId: 'string',
+      type: 'string',
     };
   }
 
