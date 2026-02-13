@@ -2193,6 +2193,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListDataAgentSession
+   * 
+   * @param request - ListDataAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentSessionResponse
+   */
+  async listDataAgentSessionWithOptions(request: $_model.ListDataAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.createEndTime)) {
+      query["CreateEndTime"] = request.createEndTime;
+    }
+
+    if (!$dara.isNull(request.createStartTime)) {
+      query["CreateStartTime"] = request.createStartTime;
+    }
+
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.isSaved)) {
+      query["IsSaved"] = request.isSaved;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentSession",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentSessionResponse({}));
+  }
+
+  /**
+   * ListDataAgentSession
+   * 
+   * @param request - ListDataAgentSessionRequest
+   * @returns ListDataAgentSessionResponse
+   */
+  async listDataAgentSession(request: $_model.ListDataAgentSessionRequest): Promise<$_model.ListDataAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
    * 获取主账号下的空间（分页）
    * 
    * @param request - ListDataAgentWorkspaceRequest

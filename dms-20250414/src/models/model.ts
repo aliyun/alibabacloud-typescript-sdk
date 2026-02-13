@@ -28,6 +28,8 @@ export { ListCustomAgentResponseBodyDataContentKnowledgeConfigList } from './Lis
 export { ListCustomAgentResponseBodyDataContentScheduleTaskConfig } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponseBodyDataContent } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponseBodyData } from './ListCustomAgentResponseBody';
+export { ListDataAgentSessionResponseBodyDataSessionConfig } from './ListDataAgentSessionResponseBody';
+export { ListDataAgentSessionResponseBodyData } from './ListDataAgentSessionResponseBody';
 export { ListDataAgentWorkspaceResponseBodyDataContent } from './ListDataAgentWorkspaceResponseBody';
 export { ListDataAgentWorkspaceResponseBodyData } from './ListDataAgentWorkspaceResponseBody';
 export { ListDataAgentWorkspaceMemberResponseBodyDataContent } from './ListDataAgentWorkspaceMemberResponseBody';
@@ -180,6 +182,9 @@ export { ListAirflowsResponse } from './ListAirflowsResponse';
 export { ListCustomAgentRequest } from './ListCustomAgentRequest';
 export { ListCustomAgentResponseBody } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponse } from './ListCustomAgentResponse';
+export { ListDataAgentSessionRequest } from './ListDataAgentSessionRequest';
+export { ListDataAgentSessionResponseBody } from './ListDataAgentSessionResponseBody';
+export { ListDataAgentSessionResponse } from './ListDataAgentSessionResponse';
 export { ListDataAgentWorkspaceRequest } from './ListDataAgentWorkspaceRequest';
 export { ListDataAgentWorkspaceResponseBody } from './ListDataAgentWorkspaceResponseBody';
 export { ListDataAgentWorkspaceResponse } from './ListDataAgentWorkspaceResponse';
