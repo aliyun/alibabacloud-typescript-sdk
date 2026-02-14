@@ -442,6 +442,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateCustomAgent
+   * 
+   * @param tmpReq - CreateCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomAgentResponse
+   */
+  async createCustomAgentWithOptions(tmpReq: $_model.CreateCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCustomAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.executionConfig)) {
+      request.executionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executionConfig, "ExecutionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.knowledgeConfigList)) {
+      request.knowledgeConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeConfigList, "KnowledgeConfigList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scheduleTaskConfig)) {
+      request.scheduleTaskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleTaskConfig, "ScheduleTaskConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.dataJson)) {
+      query["DataJson"] = request.dataJson;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.executionConfigShrink)) {
+      query["ExecutionConfig"] = request.executionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.instruction)) {
+      query["Instruction"] = request.instruction;
+    }
+
+    if (!$dara.isNull(request.knowledge)) {
+      query["Knowledge"] = request.knowledge;
+    }
+
+    if (!$dara.isNull(request.knowledgeConfigListShrink)) {
+      query["KnowledgeConfigList"] = request.knowledgeConfigListShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.scheduleTaskConfigShrink)) {
+      query["ScheduleTaskConfig"] = request.scheduleTaskConfigShrink;
+    }
+
+    if (!$dara.isNull(request.textReportConfig)) {
+      query["TextReportConfig"] = request.textReportConfig;
+    }
+
+    if (!$dara.isNull(request.webReportConfig)) {
+      query["WebReportConfig"] = request.webReportConfig;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomAgentResponse({}));
+  }
+
+  /**
+   * CreateCustomAgent
+   * 
+   * @param request - CreateCustomAgentRequest
+   * @returns CreateCustomAgentResponse
+   */
+  async createCustomAgent(request: $_model.CreateCustomAgentRequest): Promise<$_model.CreateCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
    * CreateDataAgentSession
    * 
    * @param tmpReq - CreateDataAgentSessionRequest
@@ -885,6 +985,52 @@ export default class Client extends OpenApi {
   async deleteAirflow(request: $_model.DeleteAirflowRequest): Promise<$_model.DeleteAirflowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAirflowWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteCustomAgent
+   * 
+   * @param request - DeleteCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomAgentResponse
+   */
+  async deleteCustomAgentWithOptions(request: $_model.DeleteCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomAgentResponse({}));
+  }
+
+  /**
+   * DeleteCustomAgent
+   * 
+   * @param request - DeleteCustomAgentRequest
+   * @returns DeleteCustomAgentResponse
+   */
+  async deleteCustomAgent(request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomAgentWithOptions(request, runtime);
   }
 
   /**
@@ -2423,6 +2569,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListDataCenterDatabase
+   * 
+   * @param request - ListDataCenterDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataCenterDatabaseResponse
+   */
+  async listDataCenterDatabaseWithOptions(request: $_model.ListDataCenterDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataCenterDatabaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callFrom)) {
+      query["CallFrom"] = request.callFrom;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.importType)) {
+      query["ImportType"] = request.importType;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataCenterDatabase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataCenterDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.ListDataCenterDatabaseResponse({}));
+  }
+
+  /**
+   * ListDataCenterDatabase
+   * 
+   * @param request - ListDataCenterDatabaseRequest
+   * @returns ListDataCenterDatabaseResponse
+   */
+  async listDataCenterDatabase(request: $_model.ListDataCenterDatabaseRequest): Promise<$_model.ListDataCenterDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataCenterDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * ListDataCenterTable
+   * 
+   * @param request - ListDataCenterTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataCenterTableResponse
+   */
+  async listDataCenterTableWithOptions(request: $_model.ListDataCenterTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataCenterTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callFrom)) {
+      query["CallFrom"] = request.callFrom;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.importType)) {
+      query["ImportType"] = request.importType;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataCenterTable",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataCenterTableResponse>(await this.callApi(params, req, runtime), new $_model.ListDataCenterTableResponse({}));
+  }
+
+  /**
+   * ListDataCenterTable
+   * 
+   * @param request - ListDataCenterTableRequest
+   * @returns ListDataCenterTableResponse
+   */
+  async listDataCenterTable(request: $_model.ListDataCenterTableRequest): Promise<$_model.ListDataCenterTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataCenterTableWithOptions(request, runtime);
+  }
+
+  /**
    * 获取uc的数据库目录列表
    * 
    * @param request - ListDataLakeCatalogRequest
@@ -3156,6 +3434,160 @@ export default class Client extends OpenApi {
   async listFileUpload(request: $_model.ListFileUploadRequest): Promise<$_model.ListFileUploadResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFileUploadWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyCustomAgent
+   * 
+   * @param tmpReq - ModifyCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCustomAgentResponse
+   */
+  async modifyCustomAgentWithOptions(tmpReq: $_model.ModifyCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCustomAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyCustomAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.executionConfig)) {
+      request.executionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executionConfig, "ExecutionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.knowledgeConfigList)) {
+      request.knowledgeConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeConfigList, "KnowledgeConfigList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scheduleTaskConfig)) {
+      request.scheduleTaskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleTaskConfig, "ScheduleTaskConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.dataJson)) {
+      query["DataJson"] = request.dataJson;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.executionConfigShrink)) {
+      query["ExecutionConfig"] = request.executionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.instruction)) {
+      query["Instruction"] = request.instruction;
+    }
+
+    if (!$dara.isNull(request.knowledge)) {
+      query["Knowledge"] = request.knowledge;
+    }
+
+    if (!$dara.isNull(request.knowledgeConfigListShrink)) {
+      query["KnowledgeConfigList"] = request.knowledgeConfigListShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.scheduleTaskConfigShrink)) {
+      query["ScheduleTaskConfig"] = request.scheduleTaskConfigShrink;
+    }
+
+    if (!$dara.isNull(request.textReportConfig)) {
+      query["TextReportConfig"] = request.textReportConfig;
+    }
+
+    if (!$dara.isNull(request.webReportConfig)) {
+      query["WebReportConfig"] = request.webReportConfig;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCustomAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCustomAgentResponse({}));
+  }
+
+  /**
+   * ModifyCustomAgent
+   * 
+   * @param request - ModifyCustomAgentRequest
+   * @returns ModifyCustomAgentResponse
+   */
+  async modifyCustomAgent(request: $_model.ModifyCustomAgentRequest): Promise<$_model.ModifyCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * OperateCustomAgent
+   * 
+   * @param request - OperateCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateCustomAgentResponse
+   */
+  async operateCustomAgentWithOptions(request: $_model.OperateCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateCustomAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateCustomAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.OperateCustomAgentResponse({}));
+  }
+
+  /**
+   * OperateCustomAgent
+   * 
+   * @param request - OperateCustomAgentRequest
+   * @returns OperateCustomAgentResponse
+   */
+  async operateCustomAgent(request: $_model.OperateCustomAgentRequest): Promise<$_model.OperateCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateCustomAgentWithOptions(request, runtime);
   }
 
   /**
