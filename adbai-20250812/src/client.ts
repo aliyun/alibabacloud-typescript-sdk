@@ -340,6 +340,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解锁具身智能平台
+   * 
+   * @param request - LockEmbodiedAIPlatformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LockEmbodiedAIPlatformResponse
+   */
+  async lockEmbodiedAIPlatformWithOptions(request: $_model.LockEmbodiedAIPlatformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LockEmbodiedAIPlatformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.platformName)) {
+      query["PlatformName"] = request.platformName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LockEmbodiedAIPlatform",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LockEmbodiedAIPlatformResponse>(await this.callApi(params, req, runtime), new $_model.LockEmbodiedAIPlatformResponse({}));
+  }
+
+  /**
+   * 解锁具身智能平台
+   * 
+   * @param request - LockEmbodiedAIPlatformRequest
+   * @returns LockEmbodiedAIPlatformResponse
+   */
+  async lockEmbodiedAIPlatform(request: $_model.LockEmbodiedAIPlatformRequest): Promise<$_model.LockEmbodiedAIPlatformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.lockEmbodiedAIPlatformWithOptions(request, runtime);
+  }
+
+  /**
    * 重置具身智能平台密码
    * 
    * @param request - ResetEmbodiedAIPlatformPasswordRequest
@@ -391,6 +441,56 @@ export default class Client extends OpenApi {
   async resetEmbodiedAIPlatformPassword(request: $_model.ResetEmbodiedAIPlatformPasswordRequest): Promise<$_model.ResetEmbodiedAIPlatformPasswordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetEmbodiedAIPlatformPasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * 解锁具身智能平台
+   * 
+   * @param request - UnlockEmbodiedAIPlatformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnlockEmbodiedAIPlatformResponse
+   */
+  async unlockEmbodiedAIPlatformWithOptions(request: $_model.UnlockEmbodiedAIPlatformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnlockEmbodiedAIPlatformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.platformName)) {
+      query["PlatformName"] = request.platformName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnlockEmbodiedAIPlatform",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnlockEmbodiedAIPlatformResponse>(await this.callApi(params, req, runtime), new $_model.UnlockEmbodiedAIPlatformResponse({}));
+  }
+
+  /**
+   * 解锁具身智能平台
+   * 
+   * @param request - UnlockEmbodiedAIPlatformRequest
+   * @returns UnlockEmbodiedAIPlatformResponse
+   */
+  async unlockEmbodiedAIPlatform(request: $_model.UnlockEmbodiedAIPlatformRequest): Promise<$_model.UnlockEmbodiedAIPlatformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unlockEmbodiedAIPlatformWithOptions(request, runtime);
   }
 
 }

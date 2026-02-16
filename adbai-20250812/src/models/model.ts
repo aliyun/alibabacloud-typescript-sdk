@@ -27,6 +27,12 @@ export { DescribeEmbodiedAIPlatformsResponse } from './DescribeEmbodiedAiplatfor
 export { GetEmbodiedAIPlatformResourceUsageInfoRequest } from './GetEmbodiedAiplatformResourceUsageInfoRequest';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBody } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponse } from './GetEmbodiedAiplatformResourceUsageInfoResponse';
+export { LockEmbodiedAIPlatformRequest } from './LockEmbodiedAiplatformRequest';
+export { LockEmbodiedAIPlatformResponseBody } from './LockEmbodiedAiplatformResponseBody';
+export { LockEmbodiedAIPlatformResponse } from './LockEmbodiedAiplatformResponse';
 export { ResetEmbodiedAIPlatformPasswordRequest } from './ResetEmbodiedAiplatformPasswordRequest';
 export { ResetEmbodiedAIPlatformPasswordResponseBody } from './ResetEmbodiedAiplatformPasswordResponseBody';
 export { ResetEmbodiedAIPlatformPasswordResponse } from './ResetEmbodiedAiplatformPasswordResponse';
+export { UnlockEmbodiedAIPlatformRequest } from './UnlockEmbodiedAiplatformRequest';
+export { UnlockEmbodiedAIPlatformResponseBody } from './UnlockEmbodiedAiplatformResponseBody';
+export { UnlockEmbodiedAIPlatformResponse } from './UnlockEmbodiedAiplatformResponse';
