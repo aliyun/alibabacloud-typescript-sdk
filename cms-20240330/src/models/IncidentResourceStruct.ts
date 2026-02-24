@@ -4,12 +4,58 @@ import { IncidentResourceDetail } from "./IncidentResourceDetail";
 
 
 export class IncidentResourceStruct extends $dara.Model {
+  /**
+   * @remarks
+   * Description information.
+   * 
+   * @example
+   * Production environment web server.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Incident ID.
+   * 
+   * @example
+   * incident-001
+   */
   incidentId?: string;
+  /**
+   * @remarks
+   * The unique ID of this resource in the event.
+   * 
+   * @example
+   * res-001
+   */
   incidentResourceId?: string;
+  /**
+   * @remarks
+   * Event resource details object.
+   */
   resource?: IncidentResourceDetail;
+  /**
+   * @remarks
+   * Source.
+   * 
+   * @example
+   * cloudmonitor
+   */
   source?: string;
+  /**
+   * @remarks
+   * Time.
+   * 
+   * @example
+   * 1741234567890
+   */
   time?: number;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * user-12345
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {

@@ -5,19 +5,105 @@ import { IncidentPlanFieldPath } from "./IncidentPlanFieldPath";
 
 
 export class IncidentPlanStruct extends $dara.Model {
+  /**
+   * @remarks
+   * Automatic recovery wait time.
+   * 
+   * @example
+   * 3600
+   */
   autoRecoverSeconds?: number;
+  /**
+   * @remarks
+   * Event closure timeout.
+   * 
+   * @example
+   * 86400000
+   */
   closeExpire?: number;
+  /**
+   * @remarks
+   * List of teams or roles involved in collaboration.
+   */
   corporation?: IncidentPlanCorporationStruct[];
+  /**
+   * @remarks
+   * Contingency plan description.
+   * 
+   * @example
+   * Emergency response plan for excessively high database connection count.
+   */
   description?: string;
+  /**
+   * @remarks
+   * List of escalation policy IDs.
+   */
   escalationId?: string[];
+  /**
+   * @remarks
+   * Creation time.
+   * 
+   * @example
+   * 1741234567890
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * Last modification time.
+   * 
+   * @example
+   * 1741234567890
+   */
   gmtModified?: number;
+  /**
+   * @remarks
+   * Grouping field path.
+   */
   groupBy?: IncidentPlanFieldPath[];
+  /**
+   * @remarks
+   * Event contingency plan ID.
+   * 
+   * @example
+   * plan-001
+   */
   incidentPlanId?: string;
+  /**
+   * @remarks
+   * Contingency plan name.
+   * 
+   * @example
+   * Database connection count alert contingency plan.
+   */
   name?: string;
+  /**
+   * @remarks
+   * List of resource field mapping paths.
+   */
   resourceFiled?: IncidentPlanFieldPath[];
+  /**
+   * @remarks
+   * Status.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * uesr-12345
+   */
   userId?: number;
+  /**
+   * @remarks
+   * Workspace name.
+   * 
+   * @example
+   * workspace-test
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

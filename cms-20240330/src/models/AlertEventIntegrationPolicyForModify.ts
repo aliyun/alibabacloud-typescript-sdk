@@ -8,12 +8,27 @@ export class AlertEventIntegrationPolicyForModify extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * test integration
    */
   alertEventIntegrationPolicyName?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
   filterSetting?: FilterSetting;
+  /**
+   * @example
+   * {"region":"cn-hangzhou"}
+   */
   integrationSetting?: string;
   transformerSetting?: TransformAction[];
+  /**
+   * @example
+   * ALERT_CUSTOM
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

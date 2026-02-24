@@ -3,19 +3,108 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IncidentEventStruct extends $dara.Model {
+  /**
+   * @remarks
+   * Automatic recovery time.
+   * 
+   * @example
+   * 1741234567890
+   */
   autoRecoverTime?: number;
+  /**
+   * @remarks
+   * Content.
+   * 
+   * @example
+   * Detected that the CPU usage of the user-service instance i-abc123 has reached 95%, triggering an alert.
+   */
   content?: string;
+  /**
+   * @remarks
+   * Count.
+   * 
+   * @example
+   * 6
+   */
   count?: number;
+  /**
+   * @remarks
+   * Dimension.
+   */
   dimension?: { [key: string]: string };
+  /**
+   * @remarks
+   * Used for grouping dimensions.
+   */
   groupBy?: { [key: string]: string };
+  /**
+   * @remarks
+   * Incident Event Id.
+   * 
+   * @example
+   * event-001
+   */
   incidentEventId?: string;
+  /**
+   * @remarks
+   * Incident Id.
+   * 
+   * @example
+   * incident-001
+   */
   incidentId?: string;
+  /**
+   * @remarks
+   * Last time.
+   * 
+   * @example
+   * 1741234567890
+   */
   lastTime?: number;
+  /**
+   * @remarks
+   * Manual recovery time.
+   * 
+   * @example
+   * 1741234567890
+   */
   recoverTime?: number;
+  /**
+   * @remarks
+   * Describes the resource information associated with the event.
+   */
   resource?: { [key: string]: string };
+  /**
+   * @remarks
+   * Status.
+   * 
+   * @example
+   * Running
+   */
   status?: number;
+  /**
+   * @remarks
+   * Time.
+   * 
+   * @example
+   * 2025-03-11T08:21:58Z
+   */
   time?: string;
+  /**
+   * @remarks
+   * Title.
+   * 
+   * @example
+   * User service CPU usage is too high.
+   */
   title?: string;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * user-12345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

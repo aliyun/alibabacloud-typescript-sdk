@@ -4,8 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class EffectTimeRange extends $dara.Model {
   dayInWeek?: number[];
+  /**
+   * @example
+   * 1080
+   */
   endTimeInMinute?: number;
+  /**
+   * @example
+   * 360
+   */
   startTimeInMinute?: number;
+  /**
+   * @example
+   * "Asia/Shanghai"
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {

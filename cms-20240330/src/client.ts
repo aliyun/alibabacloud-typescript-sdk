@@ -459,16 +459,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.CreateChatResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.CreateChatResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.CreateChatResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.CreateChatResponse({}));
+      }
+
     }
   }
 
@@ -639,6 +640,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDigitalEmployeeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建技能
+   * 
+   * @param request - CreateDigitalEmployeeSkillRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDigitalEmployeeSkillResponse
+   */
+  async createDigitalEmployeeSkillWithOptions(name: string, request: $_model.CreateDigitalEmployeeSkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDigitalEmployeeSkillResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.files)) {
+      body["files"] = request.files;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      body["skillName"] = request.skillName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDigitalEmployeeSkill",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/skill`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDigitalEmployeeSkillResponse>(await this.callApi(params, req, runtime), new $_model.CreateDigitalEmployeeSkillResponse({}));
+  }
+
+  /**
+   * 创建技能
+   * 
+   * @param request - CreateDigitalEmployeeSkillRequest
+   * @returns CreateDigitalEmployeeSkillResponse
+   */
+  async createDigitalEmployeeSkill(name: string, request: $_model.CreateDigitalEmployeeSkillRequest): Promise<$_model.CreateDigitalEmployeeSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDigitalEmployeeSkillWithOptions(name, request, headers, runtime);
   }
 
   /**
@@ -1477,6 +1543,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDigitalEmployeeWithOptions(name, headers, runtime);
+  }
+
+  /**
+   * 删除技能
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDigitalEmployeeSkillResponse
+   */
+  async deleteDigitalEmployeeSkillWithOptions(name: string, skillName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDigitalEmployeeSkillResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDigitalEmployeeSkill",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/skill/${$dara.URL.percentEncode(skillName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDigitalEmployeeSkillResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDigitalEmployeeSkillResponse({}));
+  }
+
+  /**
+   * 删除技能
+   * @returns DeleteDigitalEmployeeSkillResponse
+   */
+  async deleteDigitalEmployeeSkill(name: string, skillName: string): Promise<$_model.DeleteDigitalEmployeeSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDigitalEmployeeSkillWithOptions(name, skillName, headers, runtime);
   }
 
   /**
@@ -2366,6 +2467,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDigitalEmployeeWithOptions(name, headers, runtime);
+  }
+
+  /**
+   * 获取技能详情
+   * 
+   * @param request - GetDigitalEmployeeSkillRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDigitalEmployeeSkillResponse
+   */
+  async getDigitalEmployeeSkillWithOptions(name: string, skillName: string, request: $_model.GetDigitalEmployeeSkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDigitalEmployeeSkillResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDigitalEmployeeSkill",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/skill/${$dara.URL.percentEncode(skillName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDigitalEmployeeSkillResponse>(await this.callApi(params, req, runtime), new $_model.GetDigitalEmployeeSkillResponse({}));
+  }
+
+  /**
+   * 获取技能详情
+   * 
+   * @param request - GetDigitalEmployeeSkillRequest
+   * @returns GetDigitalEmployeeSkillResponse
+   */
+  async getDigitalEmployeeSkill(name: string, skillName: string, request: $_model.GetDigitalEmployeeSkillRequest): Promise<$_model.GetDigitalEmployeeSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
   }
 
   /**
@@ -3398,6 +3544,94 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBizTracesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出技能版本
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDigitalEmployeeSkillVersionsResponse
+   */
+  async listDigitalEmployeeSkillVersionsWithOptions(name: string, skillName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeeSkillVersionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDigitalEmployeeSkillVersions",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/skill/${$dara.URL.percentEncode(skillName)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDigitalEmployeeSkillVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListDigitalEmployeeSkillVersionsResponse({}));
+  }
+
+  /**
+   * 列出技能版本
+   * @returns ListDigitalEmployeeSkillVersionsResponse
+   */
+  async listDigitalEmployeeSkillVersions(name: string, skillName: string): Promise<$_model.ListDigitalEmployeeSkillVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDigitalEmployeeSkillVersionsWithOptions(name, skillName, headers, runtime);
+  }
+
+  /**
+   * 列出技能
+   * 
+   * @param request - ListDigitalEmployeeSkillsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDigitalEmployeeSkillsResponse
+   */
+  async listDigitalEmployeeSkillsWithOptions(name: string, request: $_model.ListDigitalEmployeeSkillsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeeSkillsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["skillName"] = request.skillName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDigitalEmployeeSkills",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/skills`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDigitalEmployeeSkillsResponse>(await this.callApi(params, req, runtime), new $_model.ListDigitalEmployeeSkillsResponse({}));
+  }
+
+  /**
+   * 列出技能
+   * 
+   * @param request - ListDigitalEmployeeSkillsRequest
+   * @returns ListDigitalEmployeeSkillsResponse
+   */
+  async listDigitalEmployeeSkills(name: string, request: $_model.ListDigitalEmployeeSkillsRequest): Promise<$_model.ListDigitalEmployeeSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDigitalEmployeeSkillsWithOptions(name, request, headers, runtime);
   }
 
   /**
@@ -4908,7 +5142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Webhook
+   * 修改已存在的告警 Webhook 通知配置。
    * 
    * @param request - UpdateAlertWebhookRequest
    * @param headers - map
@@ -4961,7 +5195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Webhook
+   * 修改已存在的告警 Webhook 通知配置。
    * 
    * @param request - UpdateAlertWebhookRequest
    * @returns UpdateAlertWebhookResponse
@@ -5091,6 +5325,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新技能
+   * 
+   * @param request - UpdateDigitalEmployeeSkillRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDigitalEmployeeSkillResponse
+   */
+  async updateDigitalEmployeeSkillWithOptions(name: string, skillName: string, request: $_model.UpdateDigitalEmployeeSkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDigitalEmployeeSkillResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.files)) {
+      body["files"] = request.files;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDigitalEmployeeSkill",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/skill/${$dara.URL.percentEncode(skillName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDigitalEmployeeSkillResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDigitalEmployeeSkillResponse({}));
+  }
+
+  /**
+   * 更新技能
+   * 
+   * @param request - UpdateDigitalEmployeeSkillRequest
+   * @returns UpdateDigitalEmployeeSkillResponse
+   */
+  async updateDigitalEmployeeSkill(name: string, skillName: string, request: $_model.UpdateDigitalEmployeeSkillRequest): Promise<$_model.UpdateDigitalEmployeeSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
    * Update the specified policy
    * 
    * @param request - UpdateIntegrationPolicyRequest
@@ -5148,7 +5443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新通知策略
+   * 修改已存在的告警通知策略
    * 
    * @param request - UpdateNotifyStrategyRequest
    * @param headers - map
@@ -5182,7 +5477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新通知策略
+   * 修改已存在的告警通知策略
    * 
    * @param request - UpdateNotifyStrategyRequest
    * @returns UpdateNotifyStrategyResponse
@@ -5462,7 +5757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新订阅
+   * 更新一个已存在的订阅配置
    * 
    * @param request - UpdateSubscriptionRequest
    * @param headers - map
@@ -5496,7 +5791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新订阅
+   * 更新一个已存在的订阅配置
    * 
    * @param request - UpdateSubscriptionRequest
    * @returns UpdateSubscriptionResponse

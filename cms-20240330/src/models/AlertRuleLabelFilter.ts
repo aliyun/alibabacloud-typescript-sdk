@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class AlertRuleLabelFilter extends $dara.Model {
   labels?: { [key: string]: string };
+  /**
+   * @example
+   * AND
+   */
   opt?: string;
   static names(): { [key: string]: string } {
     return {

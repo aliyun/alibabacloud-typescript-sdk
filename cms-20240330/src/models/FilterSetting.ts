@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FilterSettingConditions extends $dara.Model {
+  /**
+   * @example
+   * severity
+   */
   field?: string;
+  /**
+   * @example
+   * EQ
+   */
   op?: string;
+  /**
+   * @example
+   * CRITICAL
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,7 +45,15 @@ export class FilterSettingConditions extends $dara.Model {
 
 export class FilterSetting extends $dara.Model {
   conditions?: FilterSettingConditions[];
+  /**
+   * @example
+   * 1 and 2 or 3
+   */
   expression?: string;
+  /**
+   * @example
+   * AND
+   */
   relation?: string;
   static names(): { [key: string]: string } {
     return {

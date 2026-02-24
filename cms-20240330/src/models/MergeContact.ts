@@ -3,17 +3,57 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MergeContact extends $dara.Model {
+  /**
+   * @example
+   * zhangsan@company.com
+   */
   email?: string;
+  /**
+   * @example
+   * true
+   */
   emailVerify?: boolean;
   extend?: { [key: string]: any };
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * user-12345
+   */
   identifier?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   lang?: string;
   name?: string;
+  /**
+   * @example
+   * 13800138000
+   */
   phone?: string;
+  /**
+   * @example
+   * 86
+   */
   phoneCode?: string;
+  /**
+   * @example
+   * true
+   */
   phoneVerify?: boolean;
+  /**
+   * @example
+   * dingtalk
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {

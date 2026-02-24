@@ -5,14 +5,48 @@ import { FilterSetting } from "./FilterSetting";
 
 
 export class TransformerForModify extends $dara.Model {
+  /**
+   * @remarks
+   * Transformation operation.
+   */
   actions?: TransformAction[];
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * workspace test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Filter Setting.
+   */
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * Exit after matching processing.
+   * 
+   * @example
+   * true
+   */
   quitAfterMatch?: boolean;
+  /**
+   * @remarks
+   * Sort order.
+   * 
+   * @example
+   * 1
+   */
   sortId?: number;
   /**
    * @remarks
+   * Name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * name
    */
   transformerName?: string;
   static names(): { [key: string]: string } {

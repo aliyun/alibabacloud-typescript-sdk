@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IncidentPlanCorporationStruct extends $dara.Model {
+  /**
+   * @remarks
+   * Channel name.
+   * 
+   * @example
+   * ecs
+   */
   channel?: string;
+  /**
+   * @remarks
+   * Robot ID.
+   * 
+   * @example
+   * robotId-cs-api-test
+   */
   robotId?: string;
   static names(): { [key: string]: string } {
     return {

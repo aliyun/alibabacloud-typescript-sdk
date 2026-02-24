@@ -5,10 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class MergeContactGroup extends $dara.Model {
   contacts?: string[];
   extend?: { [key: string]: any };
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * group-12345
+   */
   identifier?: string;
   name?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {

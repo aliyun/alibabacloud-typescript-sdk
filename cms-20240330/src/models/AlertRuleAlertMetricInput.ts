@@ -5,9 +5,31 @@ import { AlertRuleAlertMetricInputParamValue } from "./AlertRuleAlertMetricInput
 
 
 export class AlertRuleAlertMetricInput extends $dara.Model {
+  /**
+   * @remarks
+   * List of user-provided filter conditions. The supported parameters and filter conditions for the metric can be queried via ListAlertMetrics.
+   */
   filterValues?: AlertRuleAlertMetricInputFilterValue[];
+  /**
+   * @remarks
+   * Key of the metric group selected by the user.
+   * 
+   * @example
+   * apm.jvm
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * Key of the predefined metric selected by the user.
+   * 
+   * @example
+   * appstat.jvm.GcPsMarkSweepCount
+   */
   metricId?: string;
+  /**
+   * @remarks
+   * List of input parameters. The metric\\"s supported parameters and filter conditions can be queried via ListAlertMetrics.
+   */
   paramValues?: AlertRuleAlertMetricInputParamValue[];
   static names(): { [key: string]: string } {
     return {

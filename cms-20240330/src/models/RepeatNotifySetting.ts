@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RepeatNotifySetting extends $dara.Model {
+  /**
+   * @example
+   * "Resolved"
+   */
   endIncidentState?: string;
+  /**
+   * @example
+   * 5
+   */
   repeatInterval?: string;
   static names(): { [key: string]: string } {
     return {

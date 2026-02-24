@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MergeRobotExtend extends $dara.Model {
+  /**
+   * @example
+   * incident-card-template
+   */
   cardTemplate?: string;
+  /**
+   * @example
+   * true
+   */
   dailyNoc?: boolean;
+  /**
+   * @example
+   * 09:00
+   */
   dailyNocTime?: string;
+  /**
+   * @example
+   * abc123
+   */
   dingSignKey?: string;
+  /**
+   * @example
+   * false
+   */
   enableOutgoing?: boolean;
+  /**
+   * @example
+   * token-abc123
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,14 +65,42 @@ export class MergeRobotExtend extends $dara.Model {
 }
 
 export class MergeRobot extends $dara.Model {
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   createTime?: string;
   extend?: MergeRobotExtend;
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * robot-12345
+   */
   identifier?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   lang?: string;
   name?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   source?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
+  /**
+   * @example
+   * https://oapi.dingtalk.com/robot/send?access_token=abc123
+   */
   webhook?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,20 +5,64 @@ import { RepeatNotifySetting } from "./RepeatNotifySetting";
 
 
 export class IncidentResponsePlanForView extends $dara.Model {
+  /**
+   * @example
+   * 300
+   */
   autoRecoverSeconds?: number;
+  /**
+   * @example
+   * "2025-04-05T10:30:00Z"
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * true
+   */
   enabled?: boolean;
   escalationId?: string[];
+  /**
+   * @example
+   * "Manual"
+   */
   mode?: string;
+  /**
+   * @example
+   * "P1-Critical-Response-Plan"
+   */
   name?: string;
   pushingSetting?: PushingSetting;
   repeatNotifySetting?: RepeatNotifySetting;
+  /**
+   * @example
+   * "MANUAL"
+   */
   source?: string;
+  /**
+   * @example
+   * "ARMS"
+   */
   syncFromType?: string;
+  /**
+   * @example
+   * "Standard"
+   */
   type?: string;
+  /**
+   * @example
+   * "2025-04-06T09:15:00Z"
+   */
   updateTime?: string;
+  /**
+   * @example
+   * "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+   */
   uuid?: string;
+  /**
+   * @example
+   * "ws-xyz789"
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

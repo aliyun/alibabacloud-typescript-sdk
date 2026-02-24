@@ -3,17 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MergeWebhook extends $dara.Model {
+  /**
+   * @example
+   * application/json
+   */
   contentType?: string;
+  /**
+   * @example
+   * {"timeout": 3000}
+   */
   extend?: string;
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2025-03-11T08:21:58.789Z
+   */
   gmtModified?: { [key: string]: any };
+  /**
+   * @example
+   * {"Authorization": "Bearer abc123"}
+   */
   headers?: string;
+  /**
+   * @example
+   * webhook-12345
+   */
   identifier?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   lang?: string;
+  /**
+   * @example
+   * POST
+   */
   method?: string;
   name?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   source?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
+  /**
+   * @example
+   * https://oapi.dingtalk.com/robot/send?access_token=abc123
+   */
   webhook?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,16 +5,35 @@ import { NotifyChannel } from "./NotifyChannel";
 
 
 export class IncidentEscalationStageForView extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   cycleNotifyCount?: number;
+  /**
+   * @example
+   * 5
+   */
   cycleNotifyInterval?: number;
   effectTimeRange?: EffectTimeRange;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   index?: number;
   notifyChannels?: NotifyChannel[];
+  /**
+   * @example
+   * "Open"
+   */
   targetIncidentState?: string;
+  /**
+   * @example
+   * 30
+   */
   triggerDelay?: number;
   static names(): { [key: string]: string } {
     return {

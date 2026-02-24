@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IncidentPlanFieldPath extends $dara.Model {
+  /**
+   * @remarks
+   * Field alias.
+   * 
+   * @example
+   * Service name.
+   */
   fieldAlias?: string;
+  /**
+   * @remarks
+   * List of field paths.
+   */
   fieldPath?: string[];
   static names(): { [key: string]: string } {
     return {

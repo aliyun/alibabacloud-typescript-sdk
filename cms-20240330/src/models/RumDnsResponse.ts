@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RumDnsResponse extends $dara.Model {
+  /**
+   * @example
+   * rum
+   */
   domain?: string;
+  /**
+   * @example
+   * ""
+   */
   message?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {

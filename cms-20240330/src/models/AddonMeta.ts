@@ -7,6 +7,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddonMetaDashboards extends $dara.Model {
   description?: string;
   name?: string;
+  /**
+   * @example
+   * assets/dashboards/ecs.png
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +38,15 @@ export class AddonMetaDashboards extends $dara.Model {
 }
 
 export class AddonMetaEnvironmentsCommonSchemaRefs extends $dara.Model {
+  /**
+   * @example
+   * acs-ecs
+   */
   group?: string;
+  /**
+   * @example
+   * 0.1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -98,9 +110,25 @@ export class AddonMetaEnvironmentsDependencies extends $dara.Model {
 }
 
 export class AddonMetaEnvironmentsPoliciesBindEntity extends $dara.Model {
+  /**
+   * @example
+   * true/false
+   */
   entityGroupMode?: boolean;
+  /**
+   * @example
+   * acs.ecs.instance
+   */
   entityType?: string;
+  /**
+   * @example
+   * true/false
+   */
   singleEntityMode?: boolean;
+  /**
+   * @example
+   * vpcId
+   */
   vpcIdFieldKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,8 +185,16 @@ export class AddonMetaEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
 
 export class AddonMetaEnvironmentsPoliciesProtocols extends $dara.Model {
   description?: string;
+  /**
+   * @example
+   * assets/logos/ecs.svg
+   */
   icon?: string;
   label?: string;
+  /**
+   * @example
+   * Prometheus
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -188,14 +224,38 @@ export class AddonMetaEnvironmentsPoliciesProtocols extends $dara.Model {
 }
 
 export class AddonMetaEnvironmentsPolicies extends $dara.Model {
+  /**
+   * @example
+   * RUNNING
+   */
   alertDefaultStatus?: string;
+  /**
+   * @example
+   * true/false
+   */
   bindDefaultPolicy?: boolean;
   bindEntity?: AddonMetaEnvironmentsPoliciesBindEntity;
+  /**
+   * @example
+   * true/false
+   */
   defaultInstall?: boolean;
+  /**
+   * @example
+   * true/false
+   */
   enableServiceAccount?: boolean;
   metricCheckRule?: AddonMetaEnvironmentsPoliciesMetricCheckRule;
+  /**
+   * @example
+   * true/false
+   */
   needRestartAfterIntegration?: boolean;
   protocols?: AddonMetaEnvironmentsPoliciesProtocols[];
+  /**
+   * @example
+   * cloud-acs-ecs
+   */
   targetAddonName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,10 +307,22 @@ export class AddonMetaEnvironments extends $dara.Model {
   commonSchemaRefs?: AddonMetaEnvironmentsCommonSchemaRefs[];
   dependencies?: AddonMetaEnvironmentsDependencies;
   description?: string;
+  /**
+   * @example
+   * true/false
+   */
   enable?: boolean;
   label?: string;
+  /**
+   * @example
+   * CS/ECS/Cloud/Client
+   */
   name?: string;
   policies?: AddonMetaEnvironmentsPolicies;
+  /**
+   * @example
+   * ECS
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -300,16 +372,52 @@ export class AddonMeta extends $dara.Model {
   alias?: string;
   categories?: string[];
   dashboards?: AddonMetaDashboards[];
+  /**
+   * @example
+   * The out-of-the-box and comprehensive ECS observe dashboards and alarm rules. Based on AliYun CloudMonitor agentless metrics, exporter agent metrics, host audit logs, host events and other data.
+   */
   description?: string;
   environments?: AddonMetaEnvironments[];
+  /**
+   * @example
+   * assets/logos/ecs.svg
+   */
   icon?: string;
   keywords?: string[];
+  /**
+   * @example
+   * zh
+   */
   language?: string;
+  /**
+   * @example
+   * 2025-10-25 09:12:12
+   */
   latestReleaseCreateTime?: string;
+  /**
+   * @example
+   * cloud-acs-ecs
+   */
   name?: string;
+  /**
+   * @example
+   * true/false
+   */
   once?: boolean;
+  /**
+   * @example
+   * feature
+   */
   scene?: string;
+  /**
+   * @example
+   * 0.0.1
+   */
   version?: string;
+  /**
+   * @example
+   * 1000
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {

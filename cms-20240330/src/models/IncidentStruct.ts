@@ -6,15 +6,76 @@ import { IncidentResourceDetail } from "./IncidentResourceDetail";
 
 
 export class IncidentStruct extends $dara.Model {
+  /**
+   * @remarks
+   * Content.
+   * 
+   * @example
+   * Detected that the connection count of RDS instance rds-bp1234567890abcdef has reached 1000, triggering an alert.
+   */
   content?: string;
+  /**
+   * @remarks
+   * List of escalation policies.
+   */
   escalations?: IncidentEscalationStruct[];
+  /**
+   * @remarks
+   * Incident ID.
+   * 
+   * @example
+   * incident-001
+   */
   incidentId?: string;
+  /**
+   * @remarks
+   * Associated incident contingency plan.
+   */
   incidentPlan?: IncidentPlanStruct;
+  /**
+   * @remarks
+   * Associated resource details.
+   */
   resource?: IncidentResourceDetail;
+  /**
+   * @remarks
+   * Incident severity level.
+   * 
+   * @example
+   * P1
+   */
   severity?: string;
+  /**
+   * @remarks
+   * Status.
+   * 
+   * @example
+   * OPEN
+   */
   status?: string;
+  /**
+   * @remarks
+   * Time.
+   * 
+   * @example
+   * 1741234567890
+   */
   time?: number;
+  /**
+   * @remarks
+   * Title.
+   * 
+   * @example
+   * Excessively high database connection count.
+   */
   title?: string;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * user-12345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

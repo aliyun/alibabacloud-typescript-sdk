@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EntityDiscoverRuleAnnotations extends $dara.Model {
+  /**
+   * @example
+   * in
+   */
   op?: string;
+  /**
+   * @example
+   * instanceId
+   */
   tagKey?: string;
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -35,8 +43,16 @@ export class EntityDiscoverRuleAnnotations extends $dara.Model {
 }
 
 export class EntityDiscoverRuleFieldRules extends $dara.Model {
+  /**
+   * @example
+   * instanceId
+   */
   fieldKey?: string;
   fieldValues?: string[];
+  /**
+   * @example
+   * in
+   */
   op?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,7 +83,15 @@ export class EntityDiscoverRuleFieldRules extends $dara.Model {
 }
 
 export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
+  /**
+   * @example
+   * 192.168.0.1/10
+   */
   ipCIDR?: string;
+  /**
+   * @example
+   * hostIp
+   */
   ipFieldKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,7 +117,15 @@ export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
 }
 
 export class EntityDiscoverRuleLabels extends $dara.Model {
+  /**
+   * @example
+   * in
+   */
   op?: string;
+  /**
+   * @example
+   * project
+   */
   tagKey?: string;
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -125,7 +157,15 @@ export class EntityDiscoverRuleLabels extends $dara.Model {
 }
 
 export class EntityDiscoverRuleTags extends $dara.Model {
+  /**
+   * @example
+   * in
+   */
   op?: string;
+  /**
+   * @example
+   * project
+   */
   tagKey?: string;
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -164,6 +204,10 @@ export class EntityDiscoverRule extends $dara.Model {
   ipMatchRule?: EntityDiscoverRuleIpMatchRule[];
   labels?: EntityDiscoverRuleLabels[];
   regionIds?: string[];
+  /**
+   * @example
+   * rg-acfm2m7atreujs1
+   */
   resourceGroupId?: string;
   tags?: EntityDiscoverRuleTags[];
   static names(): { [key: string]: string } {

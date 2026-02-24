@@ -4,7 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class AlertRuleAlertMetricParamDefValues extends $dara.Model {
   labelCn?: string;
+  /**
+   * @example
+   * Staging
+   */
   labelEn?: string;
+  /**
+   * @example
+   * staging
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,12 +40,36 @@ export class AlertRuleAlertMetricParamDefValues extends $dara.Model {
 }
 
 export class AlertRuleAlertMetricParamDef extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   maxWidth?: number;
+  /**
+   * @example
+   * 100
+   */
   minWidth?: number;
+  /**
+   * @example
+   * env
+   */
   name?: string;
   placeholderCn?: string;
+  /**
+   * @example
+   * Enter value
+   */
   placeholderEn?: string;
+  /**
+   * @example
+   * TEXT_PARAM
+   */
   type?: string;
+  /**
+   * @example
+   * staging
+   */
   value?: string;
   values?: AlertRuleAlertMetricParamDefValues[];
   static names(): { [key: string]: string } {

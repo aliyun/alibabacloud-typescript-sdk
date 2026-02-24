@@ -5,9 +5,31 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 
 
 export class SubscriptionForViewPushingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * Alert push action integration ID list.
+   */
   alertActionIds?: string[];
+  /**
+   * @remarks
+   * Action plan ID.
+   * 
+   * @example
+   * 123123123
+   */
   responsePlanId?: string;
+  /**
+   * @remarks
+   * Recovery push action integration ID list.
+   */
   restoreActionIds?: string[];
+  /**
+   * @remarks
+   * Template UUID.
+   * 
+   * @example
+   * 123123123
+   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,21 +65,90 @@ export class SubscriptionForViewPushingSetting extends $dara.Model {
 }
 
 export class SubscriptionForView extends $dara.Model {
+  /**
+   * @remarks
+   * Create Time.
+   * 
+   * @example
+   * 2025-03-11T08:21:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * workspace test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Whether enabled.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Filtering settings.
+   */
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * Notification policy UUID.
+   * 
+   * @example
+   * 23123123
+   */
   notifyStrategyId?: string;
+  /**
+   * @remarks
+   * Push settings.
+   */
   pushingSetting?: SubscriptionForViewPushingSetting;
+  /**
+   * @remarks
+   * UUID
+   * 
+   * @example
+   * 123123123123
+   */
   subscriptionId?: string;
   /**
    * @remarks
+   * Name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Subscription test.
    */
   subscriptionName?: string;
   syncFromType?: string;
+  /**
+   * @remarks
+   * Update Time.
+   * 
+   * @example
+   * 2025-05-23T02:29:02Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * 123123123
+   */
   userId?: string;
+  /**
+   * @remarks
+   * workspace
+   * 
+   * @example
+   * workspace-test
+   */
   workspace?: string;
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {

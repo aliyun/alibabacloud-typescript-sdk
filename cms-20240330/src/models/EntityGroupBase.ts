@@ -4,7 +4,15 @@ import { EntityDiscoverRule } from "./EntityDiscoverRule";
 
 
 export class EntityGroupBaseEntityQueries extends $dara.Model {
+  /**
+   * @example
+   * acs.ecs.instance
+   */
   entityType?: string;
+  /**
+   * @example
+   * .entity with(type=\\"acs.ecs.instance\\") | where region_id in (\\"cn-beijing\\")
+   */
   spl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,12 +39,28 @@ export class EntityGroupBaseEntityQueries extends $dara.Model {
 
 export class EntityGroupBase extends $dara.Model {
   description?: string;
+  /**
+   * @example
+   * eg-1234567890
+   */
   entityGroupId?: string;
   entityGroupName?: string;
   entityQueries?: EntityGroupBaseEntityQueries[];
   entityRules?: EntityDiscoverRule;
+  /**
+   * @example
+   * cn-heyuan
+   */
   regionId?: string;
+  /**
+   * @example
+   * 1654218***343050
+   */
   userId?: string;
+  /**
+   * @example
+   * default-cms-1654218***343050-cn-hangzhou
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

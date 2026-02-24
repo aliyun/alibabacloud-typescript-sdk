@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IncidentContactStruct extends $dara.Model {
+  /**
+   * @remarks
+   * Channel list.
+   */
   channel?: string[];
+  /**
+   * @remarks
+   * Contact ID.
+   * 
+   * @example
+   * 627415
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * Contact type.
+   * 
+   * @example
+   * GROUP
+   */
   contactType?: string;
   static names(): { [key: string]: string } {
     return {

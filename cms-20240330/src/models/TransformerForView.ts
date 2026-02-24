@@ -5,21 +5,97 @@ import { FilterSetting } from "./FilterSetting";
 
 
 export class TransformerForView extends $dara.Model {
+  /**
+   * @remarks
+   * Transformation operation.
+   */
   actions?: TransformAction[];
+  /**
+   * @remarks
+   * Create Time.
+   * 
+   * @example
+   * 2025-03-11T08:21:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * workspace test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Whether enabled.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Filter Setting.
+   */
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * Exit after matching processing.
+   * 
+   * @example
+   * false
+   */
   quitAfterMatch?: boolean;
+  /**
+   * @remarks
+   * Sort order.
+   * 
+   * @example
+   * 1
+   */
   sortId?: number;
+  /**
+   * @remarks
+   * transformer Id
+   * 
+   * @example
+   * 1123123123123
+   */
   transformerId?: string;
   /**
    * @remarks
+   * Name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Test processing flow.
    */
   transformerName?: string;
+  /**
+   * @remarks
+   * Update Time.
+   * 
+   * @example
+   * 2025-01-16T02:27:01Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * 123123123**
+   */
   userId?: string;
+  /**
+   * @remarks
+   * workspace
+   * 
+   * @example
+   * workspace-test
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

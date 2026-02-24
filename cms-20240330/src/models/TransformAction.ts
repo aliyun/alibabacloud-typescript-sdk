@@ -5,13 +5,41 @@ import { FilterSetting } from "./FilterSetting";
 
 export class TransformAction extends $dara.Model {
   filterSetting?: FilterSetting;
+  /**
+   * @example
+   * labelkey1
+   */
   labelKey?: string;
   mapping?: { [key: string]: string };
+  /**
+   * @example
+   * (.*):(.*)
+   */
   regExp?: string;
+  /**
+   * @example
+   * data.subject
+   */
   source?: string;
+  /**
+   * @example
+   * SUBJECT
+   */
   target?: string;
+  /**
+   * @example
+   * SET_FIELD
+   */
   type?: string;
+  /**
+   * @example
+   * value1
+   */
   value?: string;
+  /**
+   * @example
+   * var1
+   */
   variable?: string;
   static names(): { [key: string]: string } {
     return {

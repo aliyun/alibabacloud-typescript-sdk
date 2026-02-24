@@ -6,11 +6,17 @@ export class AlertRuleAlertMetricInputParamValue extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * paramName
    */
   name?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * paramValue
    */
   value?: string;
   static names(): { [key: string]: string } {

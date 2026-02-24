@@ -4,9 +4,34 @@ import { FilterSetting } from "./FilterSetting";
 
 
 export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * Effective days (Monday to Sunday).
+   */
   dayInWeek?: number[];
+  /**
+   * @remarks
+   * End time (in minutes).
+   * 
+   * @example
+   * 360
+   */
   endTimeInMinute?: number;
+  /**
+   * @remarks
+   * Start time (in minutes).
+   * 
+   * @example
+   * 60
+   */
   startTimeInMinute?: number;
+  /**
+   * @remarks
+   * Time Zone.
+   * 
+   * @example
+   * +08:00
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,22 +64,105 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
 }
 
 export class MaintainWindowForView extends $dara.Model {
+  /**
+   * @remarks
+   * Creation time.
+   * 
+   * @example
+   * 2025-03-11T08:21:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Effective time range.
+   */
   effectTimeRange?: MaintainWindowForViewEffectTimeRange;
+  /**
+   * @remarks
+   * Crontab expression.
+   * 
+   * @example
+   * * * 14-18 ? * *
+   */
   effective?: string;
+  /**
+   * @remarks
+   * Whether enabled.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Effective end time.
+   * 
+   * @example
+   * 2024-11-26 12:02:01
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * Filtering conditions.
+   */
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * UUID
+   * 
+   * @example
+   * 123-12-312-31-23123
+   */
   maintainWindowId?: string;
   /**
    * @remarks
+   * Name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Test policy.
    */
   maintainWindowName?: string;
+  /**
+   * @remarks
+   * Effective start time.
+   * 
+   * @example
+   * 2024-11-26 10:02:01
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * Update time.
+   * 
+   * @example
+   * 2025-05-07T02:19:05Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * 12312312***
+   */
   userId?: string;
+  /**
+   * @remarks
+   * workspace
+   * 
+   * @example
+   * workspace-test
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

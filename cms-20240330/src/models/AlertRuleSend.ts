@@ -2,18 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 import { AlertRuleAction } from "./AlertRuleAction";
 import { AlertRuleNotification } from "./AlertRuleNotification";
+import { AlertRuleRcaConfig } from "./AlertRuleRcaConfig";
 
 
 export class AlertRuleSend extends $dara.Model {
+  /**
+   * @remarks
+   * Alert Action Integration Configuration.
+   */
   action?: AlertRuleAction;
+  /**
+   * @remarks
+   * Alert Notification Configuration.
+   */
   notification?: AlertRuleNotification;
   notifyStrategies?: string[];
+  rcaConfig?: AlertRuleRcaConfig;
+  /**
+   * @remarks
+   * Whether to deliver alert events to ARMS Alert Management.
+   * 
+   * @example
+   * true
+   */
   sendToArms?: boolean;
   static names(): { [key: string]: string } {
     return {
       action: 'action',
       notification: 'notification',
       notifyStrategies: 'notifyStrategies',
+      rcaConfig: 'rcaConfig',
       sendToArms: 'sendToArms',
     };
   }
@@ -23,6 +41,7 @@ export class AlertRuleSend extends $dara.Model {
       action: AlertRuleAction,
       notification: AlertRuleNotification,
       notifyStrategies: { 'type': 'array', 'itemType': 'string' },
+      rcaConfig: AlertRuleRcaConfig,
       sendToArms: 'boolean',
     };
   }
@@ -36,6 +55,9 @@ export class AlertRuleSend extends $dara.Model {
     }
     if(Array.isArray(this.notifyStrategies)) {
       $dara.Model.validateArray(this.notifyStrategies);
+    }
+    if(this.rcaConfig && typeof (this.rcaConfig as any).validate === 'function') {
+      (this.rcaConfig as any).validate();
     }
     super.validate();
   }

@@ -5,17 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleSlsQueryJoinConditions extends $dara.Model {
   /**
    * @remarks
-   * 条件的左操作参数，格式为$<query_idx>.<结果集字段名>
+   * Left-hand operand of the condition, formatted as $<query_idx>.<result_set_field_name>.
+   * 
+   * @example
+   * $0.__topic__
    */
   firstField?: string;
   /**
    * @remarks
-   * <, >, ==, !=, <=, >=
+   * Comparison operator; valid values: <, >, ==, !=, <=, >=.
+   * 
+   * @example
+   * ==
    */
   oper?: string;
   /**
    * @remarks
-   * 条件的右操作参数，格式为$<query_idx>.<结果集字段名>
+   * Right-hand operand of the condition, formatted as $<query_idx>.<result_set_field_name>.
+   * 
+   * @example
+   * $0.__topic__
    */
   secondField?: string;
   static names(): { [key: string]: string } {
@@ -44,22 +53,30 @@ export class AlertRuleSlsQueryJoinConditions extends $dara.Model {
 }
 
 export class AlertRuleSlsQueryJoin extends $dara.Model {
+  /**
+   * @remarks
+   * List of connection conditions.
+   */
   conditions?: AlertRuleSlsQueryJoinConditions[];
   /**
    * @remarks
-   * 集合操作类型。
-   *   ● CrossJoin： 笛卡尔积
-   *   ● FullJoin：全联
-   *   ● InnerJoin：内联
-   *   ● LeftExclude： 左斥
-   *   ● RightExclude：右斥
-   *   ● LeftJoin：左联
-   *   ● RightJoin：右联
-   *   ● NoJoin：不合并
-   *   ● Concat： 拼接
-   *   https://help.aliyun.com/zh/sls/user-guide/set-query-statistics-statement
+   * Set operation type.
+   * CrossJoin: Cartesian product
+   * FullJoin: Full outer join
+   * InnerJoin: Inner join
+   * LeftExclude: Left anti join
+   * RightExclude: Right anti join
+   * LeftJoin: Left outer join
+   * RightJoin: Right outer join
+   * NoJoin: No merge
+   * Concat: Concatenation
+   * 
+   * See also: https://help.aliyun.com/zh/sls/user-guide/set-query-statistics-statement
    * 
    * This parameter is required.
+   * 
+   * @example
+   * CrossJoin
    */
   type?: string;
   static names(): { [key: string]: string } {
