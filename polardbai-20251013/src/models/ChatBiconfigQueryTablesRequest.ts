@@ -26,6 +26,11 @@ export class ChatBIConfigQueryTablesRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   instanceName?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
@@ -33,6 +38,7 @@ export class ChatBIConfigQueryTablesRequest extends $dara.Model {
       dbName: 'DbName',
       inputField: 'InputField',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -43,6 +49,7 @@ export class ChatBIConfigQueryTablesRequest extends $dara.Model {
       dbName: 'string',
       inputField: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
     };
   }
 

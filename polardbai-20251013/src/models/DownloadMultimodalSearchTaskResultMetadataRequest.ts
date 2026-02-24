@@ -13,12 +13,18 @@ export class DownloadMultimodalSearchTaskResultMetadataRequest extends $dara.Mod
   DBClusterId?: string;
   /**
    * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
    * 白色汽车
    */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      sourceRegionId: 'SourceRegionId',
       taskId: 'TaskId',
     };
   }
@@ -26,6 +32,7 @@ export class DownloadMultimodalSearchTaskResultMetadataRequest extends $dara.Mod
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      sourceRegionId: 'string',
       taskId: 'string',
     };
   }

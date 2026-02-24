@@ -18,12 +18,18 @@ export class ChatBIFileUploadRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   instanceName?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
       authType: 'AuthType',
       fileName: 'FileName',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -33,6 +39,7 @@ export class ChatBIFileUploadRequest extends $dara.Model {
       authType: 'string',
       fileName: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
     };
   }
 

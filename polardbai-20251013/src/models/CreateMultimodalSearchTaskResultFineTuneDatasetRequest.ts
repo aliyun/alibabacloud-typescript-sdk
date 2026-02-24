@@ -28,6 +28,11 @@ export class CreateMultimodalSearchTaskResultFineTuneDatasetRequest extends $dar
    */
   resultMode?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -47,6 +52,7 @@ export class CreateMultimodalSearchTaskResultFineTuneDatasetRequest extends $dar
       datasetName: 'DatasetName',
       resultIndex: 'ResultIndex',
       resultMode: 'ResultMode',
+      sourceRegionId: 'SourceRegionId',
       taskId: 'TaskId',
       topN: 'TopN',
     };
@@ -59,6 +65,7 @@ export class CreateMultimodalSearchTaskResultFineTuneDatasetRequest extends $dar
       datasetName: 'string',
       resultIndex: { 'type': 'array', 'itemType': 'number' },
       resultMode: 'string',
+      sourceRegionId: 'string',
       taskId: 'string',
       topN: 'number',
     };

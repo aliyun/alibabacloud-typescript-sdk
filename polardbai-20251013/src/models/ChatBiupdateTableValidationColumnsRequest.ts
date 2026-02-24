@@ -22,6 +22,11 @@ export class ChatBIUpdateTableValidationColumnsRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -43,6 +48,7 @@ export class ChatBIUpdateTableValidationColumnsRequest extends $dara.Model {
       authType: 'AuthType',
       dbName: 'DbName',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
       tableName: 'TableName',
       tableType: 'TableType',
     };
@@ -54,6 +60,7 @@ export class ChatBIUpdateTableValidationColumnsRequest extends $dara.Model {
       authType: 'string',
       dbName: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
       tableName: 'string',
       tableType: 'string',
     };

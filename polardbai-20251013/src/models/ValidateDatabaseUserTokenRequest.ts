@@ -35,12 +35,18 @@ export class ValidateDatabaseUserTokenRequest extends $dara.Model {
    * ai_test
    */
   DBName?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
       authType: 'AuthType',
       DBClusterId: 'DBClusterId',
       DBName: 'DBName',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -50,6 +56,7 @@ export class ValidateDatabaseUserTokenRequest extends $dara.Model {
       authType: 'string',
       DBClusterId: 'string',
       DBName: 'string',
+      sourceRegionId: 'string',
     };
   }
 

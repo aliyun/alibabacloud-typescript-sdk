@@ -29,6 +29,11 @@ export class ChatBIConfigDeleteEntryRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   instanceName?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
@@ -36,6 +41,7 @@ export class ChatBIConfigDeleteEntryRequest extends $dara.Model {
       dbName: 'DbName',
       id: 'Id',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -46,6 +52,7 @@ export class ChatBIConfigDeleteEntryRequest extends $dara.Model {
       dbName: 'string',
       id: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
     };
   }
 

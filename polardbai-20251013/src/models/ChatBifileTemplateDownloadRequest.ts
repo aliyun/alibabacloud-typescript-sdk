@@ -14,6 +14,11 @@ export class ChatBIFileTemplateDownloadRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -26,6 +31,7 @@ export class ChatBIFileTemplateDownloadRequest extends $dara.Model {
       authMessage: 'AuthMessage',
       authType: 'AuthType',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
       tableType: 'TableType',
     };
   }
@@ -35,6 +41,7 @@ export class ChatBIFileTemplateDownloadRequest extends $dara.Model {
       authMessage: 'string',
       authType: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
       tableType: 'string',
     };
   }

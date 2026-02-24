@@ -28,6 +28,11 @@ export class ChatBIPatternIndexCreateRequest extends $dara.Model {
   patternTableName?: string;
   /**
    * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
    * 空字符串
    */
   tableNameSuffix?: string;
@@ -38,6 +43,7 @@ export class ChatBIPatternIndexCreateRequest extends $dara.Model {
       dbName: 'DbName',
       instanceName: 'InstanceName',
       patternTableName: 'PatternTableName',
+      sourceRegionId: 'SourceRegionId',
       tableNameSuffix: 'TableNameSuffix',
     };
   }
@@ -49,6 +55,7 @@ export class ChatBIPatternIndexCreateRequest extends $dara.Model {
       dbName: 'string',
       instanceName: 'string',
       patternTableName: 'string',
+      sourceRegionId: 'string',
       tableNameSuffix: 'string',
     };
   }

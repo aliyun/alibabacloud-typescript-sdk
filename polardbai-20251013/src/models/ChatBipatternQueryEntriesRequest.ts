@@ -37,6 +37,11 @@ export class ChatBIPatternQueryEntriesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -53,6 +58,7 @@ export class ChatBIPatternQueryEntriesRequest extends $dara.Model {
       instanceName: 'InstanceName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sourceRegionId: 'SourceRegionId',
       tableName: 'TableName',
     };
   }
@@ -66,6 +72,7 @@ export class ChatBIPatternQueryEntriesRequest extends $dara.Model {
       instanceName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sourceRegionId: 'string',
       tableName: 'string',
     };
   }

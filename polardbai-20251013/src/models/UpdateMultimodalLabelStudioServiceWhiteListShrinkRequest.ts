@@ -11,10 +11,16 @@ export class UpdateMultimodalLabelStudioServiceWhiteListShrinkRequest extends $d
    * pc-2ze454l20me07****
    */
   DBClusterId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   whiteListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      sourceRegionId: 'SourceRegionId',
       whiteListShrink: 'WhiteList',
     };
   }
@@ -22,6 +28,7 @@ export class UpdateMultimodalLabelStudioServiceWhiteListShrinkRequest extends $d
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      sourceRegionId: 'string',
       whiteListShrink: 'string',
     };
   }

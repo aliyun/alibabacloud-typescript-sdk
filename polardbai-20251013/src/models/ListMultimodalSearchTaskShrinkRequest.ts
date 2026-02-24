@@ -32,6 +32,11 @@ export class ListMultimodalSearchTaskShrinkRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -40,6 +45,7 @@ export class ListMultimodalSearchTaskShrinkRequest extends $dara.Model {
       modelMode: 'ModelMode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -51,6 +57,7 @@ export class ListMultimodalSearchTaskShrinkRequest extends $dara.Model {
       modelMode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sourceRegionId: 'string',
     };
   }
 

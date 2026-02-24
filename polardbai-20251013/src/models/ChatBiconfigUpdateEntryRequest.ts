@@ -52,6 +52,11 @@ export class ChatBIConfigUpdateEntryRequest extends $dara.Model {
    */
   queryFunction?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -94,6 +99,7 @@ export class ChatBIConfigUpdateEntryRequest extends $dara.Model {
       instanceName: 'InstanceName',
       isFunctional: 'IsFunctional',
       queryFunction: 'QueryFunction',
+      sourceRegionId: 'SourceRegionId',
       sqlCondition: 'SqlCondition',
       sqlFunction: 'SqlFunction',
       textCondition: 'TextCondition',
@@ -110,6 +116,7 @@ export class ChatBIConfigUpdateEntryRequest extends $dara.Model {
       instanceName: 'string',
       isFunctional: 'number',
       queryFunction: 'string',
+      sourceRegionId: 'string',
       sqlCondition: 'string',
       sqlFunction: 'string',
       textCondition: 'string',

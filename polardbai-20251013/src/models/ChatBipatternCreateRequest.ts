@@ -23,6 +23,11 @@ export class ChatBIPatternCreateRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
    * 空字符串
    */
   tableNameSuffix?: string;
@@ -32,6 +37,7 @@ export class ChatBIPatternCreateRequest extends $dara.Model {
       authType: 'AuthType',
       dbName: 'DbName',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
       tableNameSuffix: 'TableNameSuffix',
     };
   }
@@ -42,6 +48,7 @@ export class ChatBIPatternCreateRequest extends $dara.Model {
       authType: 'string',
       dbName: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
       tableNameSuffix: 'string',
     };
   }

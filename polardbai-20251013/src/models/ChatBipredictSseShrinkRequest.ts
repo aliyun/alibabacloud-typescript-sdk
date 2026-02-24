@@ -57,6 +57,11 @@ export class ChatBIPredictSseShrinkRequest extends $dara.Model {
   selectData?: boolean;
   /**
    * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
    * false
    */
   thinkingMode?: boolean;
@@ -73,6 +78,7 @@ export class ChatBIPredictSseShrinkRequest extends $dara.Model {
       question: 'Question',
       schemaIndexTableName: 'SchemaIndexTableName',
       selectData: 'SelectData',
+      sourceRegionId: 'SourceRegionId',
       thinkingMode: 'ThinkingMode',
     };
   }
@@ -90,6 +96,7 @@ export class ChatBIPredictSseShrinkRequest extends $dara.Model {
       question: 'string',
       schemaIndexTableName: 'string',
       selectData: 'boolean',
+      sourceRegionId: 'string',
       thinkingMode: 'boolean',
     };
   }

@@ -21,11 +21,17 @@ export class AddOSSMultimodalFineTuneDatasetRequest extends $dara.Model {
    * https://bucket-name.oss-cn-beijing.aliyuncs.com/005ed960-6a07-11ef-ab81-f32551c4afe8
    */
   ossUrl?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       datasetId: 'DatasetId',
       ossUrl: 'OssUrl',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -34,6 +40,7 @@ export class AddOSSMultimodalFineTuneDatasetRequest extends $dara.Model {
       DBClusterId: 'string',
       datasetId: 'string',
       ossUrl: 'string',
+      sourceRegionId: 'string',
     };
   }
 

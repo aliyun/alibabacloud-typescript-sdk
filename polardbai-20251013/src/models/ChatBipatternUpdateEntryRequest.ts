@@ -63,6 +63,11 @@ export class ChatBIPatternUpdateEntryRequest extends $dara.Model {
    */
   patternSql?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -81,6 +86,7 @@ export class ChatBIPatternUpdateEntryRequest extends $dara.Model {
       patternParams: 'PatternParams',
       patternQuestion: 'PatternQuestion',
       patternSql: 'PatternSql',
+      sourceRegionId: 'SourceRegionId',
       tableName: 'TableName',
     };
   }
@@ -96,6 +102,7 @@ export class ChatBIPatternUpdateEntryRequest extends $dara.Model {
       patternParams: 'string',
       patternQuestion: 'string',
       patternSql: 'string',
+      sourceRegionId: 'string',
       tableName: 'string',
     };
   }

@@ -11,10 +11,16 @@ export class UpdateMultimodalLabelStudioServiceWhiteListRequest extends $dara.Mo
    * pc-2ze454l20me07****
    */
   DBClusterId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   whiteList?: string[];
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      sourceRegionId: 'SourceRegionId',
       whiteList: 'WhiteList',
     };
   }
@@ -22,6 +28,7 @@ export class UpdateMultimodalLabelStudioServiceWhiteListRequest extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      sourceRegionId: 'string',
       whiteList: { 'type': 'array', 'itemType': 'string' },
     };
   }

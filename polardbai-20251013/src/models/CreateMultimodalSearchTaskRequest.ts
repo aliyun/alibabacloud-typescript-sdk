@@ -38,6 +38,11 @@ export class CreateMultimodalSearchTaskRequest extends $dara.Model {
   searchModel?: string;
   /**
    * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
    * 20
    */
   topK?: number;
@@ -49,6 +54,7 @@ export class CreateMultimodalSearchTaskRequest extends $dara.Model {
       modelMode: 'ModelMode',
       query: 'Query',
       searchModel: 'SearchModel',
+      sourceRegionId: 'SourceRegionId',
       topK: 'TopK',
     };
   }
@@ -61,6 +67,7 @@ export class CreateMultimodalSearchTaskRequest extends $dara.Model {
       modelMode: 'string',
       query: 'string',
       searchModel: 'string',
+      sourceRegionId: 'string',
       topK: 'number',
     };
   }

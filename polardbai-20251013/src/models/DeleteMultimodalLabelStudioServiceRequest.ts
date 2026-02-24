@@ -11,15 +11,22 @@ export class DeleteMultimodalLabelStudioServiceRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   DBClusterId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      sourceRegionId: 'string',
     };
   }
 

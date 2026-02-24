@@ -20,6 +20,11 @@ export class GetUserTokenRequest extends $dara.Model {
    */
   password?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -31,6 +36,7 @@ export class GetUserTokenRequest extends $dara.Model {
     return {
       DBClusterId: 'DBClusterId',
       password: 'Password',
+      sourceRegionId: 'SourceRegionId',
       username: 'Username',
     };
   }
@@ -39,6 +45,7 @@ export class GetUserTokenRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       password: 'string',
+      sourceRegionId: 'string',
       username: 'string',
     };
   }

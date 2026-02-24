@@ -19,10 +19,16 @@ export class DeleteMultimodalEmbeddingRequest extends $dara.Model {
    * polar4ai_multimodal_embedding_****
    */
   embedding?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       embedding: 'Embedding',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -30,6 +36,7 @@ export class DeleteMultimodalEmbeddingRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       embedding: 'string',
+      sourceRegionId: 'string',
     };
   }
 

@@ -28,6 +28,11 @@ export class ChatBISchemaIndexCreateRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
    * 空字符串
    */
   tableNameSuffix?: string;
@@ -48,6 +53,7 @@ export class ChatBISchemaIndexCreateRequest extends $dara.Model {
       columnsExcluded: 'ColumnsExcluded',
       dbName: 'DbName',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
       tableNameSuffix: 'TableNameSuffix',
       tablesIncluded: 'TablesIncluded',
       toSample: 'ToSample',
@@ -61,6 +67,7 @@ export class ChatBISchemaIndexCreateRequest extends $dara.Model {
       columnsExcluded: 'string',
       dbName: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
       tableNameSuffix: 'string',
       tablesIncluded: 'string',
       toSample: 'number',

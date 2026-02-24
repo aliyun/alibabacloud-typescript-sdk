@@ -36,6 +36,11 @@ export class ChatBIPatternIndexQueryTablesRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
@@ -45,6 +50,7 @@ export class ChatBIPatternIndexQueryTablesRequest extends $dara.Model {
       instanceName: 'InstanceName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -57,6 +63,7 @@ export class ChatBIPatternIndexQueryTablesRequest extends $dara.Model {
       instanceName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sourceRegionId: 'string',
     };
   }
 

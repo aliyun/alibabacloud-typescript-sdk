@@ -26,12 +26,18 @@ export class ListMultimodalDatasetRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       inputField: 'InputField',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -41,6 +47,7 @@ export class ListMultimodalDatasetRequest extends $dara.Model {
       inputField: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sourceRegionId: 'string',
     };
   }
 

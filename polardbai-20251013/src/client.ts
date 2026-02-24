@@ -51,6 +51,10 @@ export default class Client extends OpenApi {
       query["OssUrl"] = request.ossUrl;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -105,6 +109,10 @@ export default class Client extends OpenApi {
       query["InstanceName"] = request.instanceName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -157,6 +165,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -215,6 +227,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -283,6 +299,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -339,6 +359,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -411,6 +435,10 @@ export default class Client extends OpenApi {
       query["QueryFunction"] = request.queryFunction;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.sqlCondition)) {
       query["SqlCondition"] = request.sqlCondition;
     }
@@ -473,6 +501,10 @@ export default class Client extends OpenApi {
       query["InstanceName"] = request.instanceName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.tableType)) {
       query["TableType"] = request.tableType;
     }
@@ -529,6 +561,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -593,6 +629,10 @@ export default class Client extends OpenApi {
       query["InstanceName"] = request.instanceName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.tableName)) {
       query["TableName"] = request.tableName;
     }
@@ -655,6 +695,10 @@ export default class Client extends OpenApi {
       query["InstanceName"] = request.instanceName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.tableNameSuffix)) {
       query["TableNameSuffix"] = request.tableNameSuffix;
     }
@@ -711,6 +755,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -775,6 +823,10 @@ export default class Client extends OpenApi {
       query["InstanceName"] = request.instanceName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.tableName)) {
       query["TableName"] = request.tableName;
     }
@@ -837,6 +889,10 @@ export default class Client extends OpenApi {
       query["PatternTableName"] = request.patternTableName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.tableNameSuffix)) {
       query["TableNameSuffix"] = request.tableNameSuffix;
     }
@@ -893,6 +949,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -965,6 +1025,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1029,6 +1093,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -1099,6 +1167,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1173,6 +1245,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.patternSql)) {
       query["PatternSql"] = request.patternSql;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -1265,6 +1341,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.selectData)) {
       query["SelectData"] = request.selectData;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.thinkingMode)) {
@@ -1362,6 +1442,10 @@ export default class Client extends OpenApi {
       query["SelectData"] = request.selectData;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.thinkingMode)) {
       query["ThinkingMode"] = request.thinkingMode;
     }
@@ -1422,6 +1506,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.tableNameSuffix)) {
@@ -1488,6 +1576,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -1560,6 +1652,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1612,6 +1708,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -1672,6 +1772,10 @@ export default class Client extends OpenApi {
       query["DatasetName"] = request.datasetName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1726,6 +1830,10 @@ export default class Client extends OpenApi {
       query["ModelMode"] = request.modelMode;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1774,6 +1882,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1830,6 +1942,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.username)) {
@@ -1904,6 +2020,10 @@ export default class Client extends OpenApi {
       query["SearchModel"] = request.searchModel;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.topK)) {
       query["TopK"] = request.topK;
     }
@@ -1972,6 +2092,10 @@ export default class Client extends OpenApi {
       query["ResultMode"] = request.resultMode;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -2026,6 +2150,10 @@ export default class Client extends OpenApi {
       query["DatasetId"] = request.datasetId;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2070,6 +2198,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.embedding)) {
       query["Embedding"] = request.embedding;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2118,6 +2250,10 @@ export default class Client extends OpenApi {
       query["DatasetId"] = request.datasetId;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2158,6 +2294,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2210,6 +2350,10 @@ export default class Client extends OpenApi {
       query["OssUrl"] = request.ossUrl;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2250,6 +2394,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.taskId)) {
@@ -2300,6 +2448,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.username)) {
@@ -2360,6 +2512,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2410,6 +2566,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2450,6 +2610,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2506,6 +2670,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2546,6 +2714,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2596,6 +2768,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2666,6 +2842,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2714,6 +2894,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.taskId)) {
@@ -2774,6 +2958,10 @@ export default class Client extends OpenApi {
       query["DatasetName"] = request.datasetName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2828,6 +3016,10 @@ export default class Client extends OpenApi {
       query["DatasetName"] = request.datasetName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2874,6 +3066,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     if (!$dara.isNull(request.whiteListShrink)) {
@@ -2930,6 +3126,10 @@ export default class Client extends OpenApi {
       query["OssUrl"] = request.ossUrl;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2984,6 +3184,10 @@ export default class Client extends OpenApi {
       query["DBName"] = request.DBName;
     }
 
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3032,6 +3236,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

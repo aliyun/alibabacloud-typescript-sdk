@@ -27,11 +27,17 @@ export class ValidateUserTokenRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   DBClusterId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
       authType: 'AuthType',
       DBClusterId: 'DBClusterId',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -40,6 +46,7 @@ export class ValidateUserTokenRequest extends $dara.Model {
       authMessage: 'string',
       authType: 'string',
       DBClusterId: 'string',
+      sourceRegionId: 'string',
     };
   }
 

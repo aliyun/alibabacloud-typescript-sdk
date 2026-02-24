@@ -29,12 +29,18 @@ export class CreateMultimodalDatasetEmbeddingRequest extends $dara.Model {
    * flash
    */
   modelMode?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       datasetId: 'DatasetId',
       model: 'Model',
       modelMode: 'ModelMode',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -44,6 +50,7 @@ export class CreateMultimodalDatasetEmbeddingRequest extends $dara.Model {
       datasetId: 'string',
       model: 'string',
       modelMode: 'string',
+      sourceRegionId: 'string',
     };
   }
 

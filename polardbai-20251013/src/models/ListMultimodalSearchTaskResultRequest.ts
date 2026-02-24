@@ -22,6 +22,11 @@ export class ListMultimodalSearchTaskResultRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -34,6 +39,7 @@ export class ListMultimodalSearchTaskResultRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sourceRegionId: 'SourceRegionId',
       taskId: 'TaskId',
     };
   }
@@ -43,6 +49,7 @@ export class ListMultimodalSearchTaskResultRequest extends $dara.Model {
       DBClusterId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sourceRegionId: 'string',
       taskId: 'string',
     };
   }

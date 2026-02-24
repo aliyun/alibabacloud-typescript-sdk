@@ -35,6 +35,11 @@ export class ChatBIFileUploadCallbackRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -58,6 +63,7 @@ export class ChatBIFileUploadCallbackRequest extends $dara.Model {
       dbName: 'DbName',
       fileName: 'FileName',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
       tableName: 'TableName',
       tableType: 'TableType',
     };
@@ -71,6 +77,7 @@ export class ChatBIFileUploadCallbackRequest extends $dara.Model {
       dbName: 'string',
       fileName: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
       tableName: 'string',
       tableType: 'string',
     };

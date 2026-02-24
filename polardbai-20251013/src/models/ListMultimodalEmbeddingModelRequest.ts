@@ -21,11 +21,17 @@ export class ListMultimodalEmbeddingModelRequest extends $dara.Model {
    * 30
    */
   pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -34,6 +40,7 @@ export class ListMultimodalEmbeddingModelRequest extends $dara.Model {
       DBClusterId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sourceRegionId: 'string',
     };
   }
 

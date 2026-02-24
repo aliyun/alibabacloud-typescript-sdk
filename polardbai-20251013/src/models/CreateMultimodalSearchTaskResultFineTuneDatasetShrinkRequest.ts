@@ -28,6 +28,11 @@ export class CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest extend
    */
   resultMode?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -47,6 +52,7 @@ export class CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest extend
       datasetName: 'DatasetName',
       resultIndexShrink: 'ResultIndex',
       resultMode: 'ResultMode',
+      sourceRegionId: 'SourceRegionId',
       taskId: 'TaskId',
       topN: 'TopN',
     };
@@ -59,6 +65,7 @@ export class CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest extend
       datasetName: 'string',
       resultIndexShrink: 'string',
       resultMode: 'string',
+      sourceRegionId: 'string',
       taskId: 'string',
       topN: 'number',
     };

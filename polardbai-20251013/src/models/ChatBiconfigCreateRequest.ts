@@ -21,12 +21,18 @@ export class ChatBIConfigCreateRequest extends $dara.Model {
    * pc-2ze454l20me07****
    */
   instanceName?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       authMessage: 'AuthMessage',
       authType: 'AuthType',
       dbName: 'DbName',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -36,6 +42,7 @@ export class ChatBIConfigCreateRequest extends $dara.Model {
       authType: 'string',
       dbName: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
     };
   }
 

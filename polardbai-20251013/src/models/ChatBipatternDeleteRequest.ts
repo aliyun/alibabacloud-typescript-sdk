@@ -22,6 +22,11 @@ export class ChatBIPatternDeleteRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -35,6 +40,7 @@ export class ChatBIPatternDeleteRequest extends $dara.Model {
       authType: 'AuthType',
       dbName: 'DbName',
       instanceName: 'InstanceName',
+      sourceRegionId: 'SourceRegionId',
       tableName: 'TableName',
     };
   }
@@ -45,6 +51,7 @@ export class ChatBIPatternDeleteRequest extends $dara.Model {
       authType: 'string',
       dbName: 'string',
       instanceName: 'string',
+      sourceRegionId: 'string',
       tableName: 'string',
     };
   }

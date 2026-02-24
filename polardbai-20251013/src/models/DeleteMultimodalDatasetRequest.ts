@@ -19,10 +19,16 @@ export class DeleteMultimodalDatasetRequest extends $dara.Model {
    * ds-*****ab0
    */
   datasetId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       datasetId: 'DatasetId',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -30,6 +36,7 @@ export class DeleteMultimodalDatasetRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       datasetId: 'string',
+      sourceRegionId: 'string',
     };
   }
 

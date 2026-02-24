@@ -26,12 +26,18 @@ export class UpdateMultimodalFineTuneDatasetRequest extends $dara.Model {
    * 车辆
    */
   datasetName?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       datasetDescription: 'DatasetDescription',
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -41,6 +47,7 @@ export class UpdateMultimodalFineTuneDatasetRequest extends $dara.Model {
       datasetDescription: 'string',
       datasetId: 'string',
       datasetName: 'string',
+      sourceRegionId: 'string',
     };
   }
 

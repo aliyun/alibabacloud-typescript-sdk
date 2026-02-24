@@ -100,6 +100,11 @@ export class ChatBIPredictSseRequest extends $dara.Model {
   selectData?: boolean;
   /**
    * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @example
    * false
    */
   thinkingMode?: boolean;
@@ -116,6 +121,7 @@ export class ChatBIPredictSseRequest extends $dara.Model {
       question: 'Question',
       schemaIndexTableName: 'SchemaIndexTableName',
       selectData: 'SelectData',
+      sourceRegionId: 'SourceRegionId',
       thinkingMode: 'ThinkingMode',
     };
   }
@@ -133,6 +139,7 @@ export class ChatBIPredictSseRequest extends $dara.Model {
       question: 'string',
       schemaIndexTableName: 'string',
       selectData: 'boolean',
+      sourceRegionId: 'string',
       thinkingMode: 'boolean',
     };
   }

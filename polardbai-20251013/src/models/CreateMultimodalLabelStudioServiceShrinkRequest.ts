@@ -25,6 +25,11 @@ export class CreateMultimodalLabelStudioServiceShrinkRequest extends $dara.Model
    */
   password?: string;
   /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -37,6 +42,7 @@ export class CreateMultimodalLabelStudioServiceShrinkRequest extends $dara.Model
       DBClusterId: 'DBClusterId',
       datasetIdsShrink: 'DatasetIds',
       password: 'Password',
+      sourceRegionId: 'SourceRegionId',
       username: 'Username',
     };
   }
@@ -46,6 +52,7 @@ export class CreateMultimodalLabelStudioServiceShrinkRequest extends $dara.Model
       DBClusterId: 'string',
       datasetIdsShrink: 'string',
       password: 'string',
+      sourceRegionId: 'string',
       username: 'string',
     };
   }

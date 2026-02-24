@@ -21,11 +21,17 @@ export class CreateMultimodalFineTuneDatasetRequest extends $dara.Model {
    * 用户输入数据集名
    */
   datasetName?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       datasetDescription: 'DatasetDescription',
       datasetName: 'DatasetName',
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
@@ -34,6 +40,7 @@ export class CreateMultimodalFineTuneDatasetRequest extends $dara.Model {
       DBClusterId: 'string',
       datasetDescription: 'string',
       datasetName: 'string',
+      sourceRegionId: 'string',
     };
   }
 
