@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member.
+   * The member ID.
    * 
    * @example
    * 171322098523****
@@ -13,7 +13,7 @@ export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $dara
   accountId?: number;
   /**
    * @remarks
-   * The display name of the member.
+   * The member name.
    * 
    * @example
    * Alice
@@ -24,7 +24,7 @@ export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $dara
   accountName?: string;
   /**
    * @remarks
-   * The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
+   * The type of the account. Only ResourceDirectory is supported.
    * 
    * @example
    * ResourceDirectory
@@ -32,12 +32,15 @@ export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $dara
   accountType?: string;
   /**
    * @remarks
-   * The status of the configuration recorder for the member. Valid values:
+   * The status of Resource Monitoring for the member. Valid values:
    * 
-   * *   REGISTRABLE: The configuration recorder is not registered.
-   * *   BUILDING: The configuration recorder is being deployed.
-   * *   REGISTERED: The configuration recorder is registered.
-   * *   REBUILDING: The configuration recorder is being redeployed.
+   * - REGISTRABLE: Not registered.
+   * 
+   * - BUILDING: Building.
+   * 
+   * - REGISTERED: Registered.
+   * 
+   * - REBUILDING: Rebuilding.
    * 
    * @example
    * REGISTERED
@@ -134,7 +137,7 @@ export class GetAggregatorResponseBodyAggregator extends $dara.Model {
   aggregatorAccounts?: GetAggregatorResponseBodyAggregatorAggregatorAccounts[];
   /**
    * @remarks
-   * The timestamp generated when the account group was created.
+   * The timestamp when the account group was created.
    * 
    * Unit: milliseconds.
    * 
@@ -155,15 +158,16 @@ export class GetAggregatorResponseBodyAggregator extends $dara.Model {
    * The name of the account group.
    * 
    * @example
-   * Test-Group
+   * Test_Group
    */
   aggregatorName?: string;
   /**
    * @remarks
    * The status of the account group. Valid values:
    * 
-   * *   0: The account group is being created.
-   * *   1: The account group was created.
+   * - 0: The account group is being created.
+   * 
+   * - 1: The account group is created.
    * 
    * @example
    * 1
@@ -173,9 +177,11 @@ export class GetAggregatorResponseBodyAggregator extends $dara.Model {
    * @remarks
    * The type of the account group. Valid values:
    * 
-   * *   RD: a global account group.
-   * *   FOLDER: an account group for a folder.
-   * *   CUSTOM: a custom account group.
+   * - RD: global account group.
+   * 
+   * - FOLDER: folder account group.
+   * 
+   * - CUSTOM: custom account group.
    * 
    * @example
    * CUSTOM
@@ -186,21 +192,28 @@ export class GetAggregatorResponseBodyAggregator extends $dara.Model {
    * The description of the account group.
    * 
    * @example
-   * The description of the test account group.
+   * The description of the aggregator.
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the attached folder of the account group.
+   * The ID of the folder to which the folder account group is attached.
    * 
    * @example
    * fd-brHdgv****
    */
   folderId?: string;
+  /**
+   * @remarks
+   * The name of the folder to which the folder account group is attached. Multiple names are separated by commas (,).
+   * 
+   * @example
+   * Example-name
+   */
   folderName?: string;
   /**
    * @remarks
-   * tags
+   * The resource tags.
    */
   tags?: GetAggregatorResponseBodyAggregatorTags[];
   static names(): { [key: string]: string } {
@@ -255,7 +268,7 @@ export class GetAggregatorResponseBodyAggregator extends $dara.Model {
 export class GetAggregatorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the account group.
+   * The information about the account group.
    */
   aggregator?: GetAggregatorResponseBodyAggregator;
   /**

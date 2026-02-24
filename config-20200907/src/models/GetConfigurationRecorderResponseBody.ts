@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetConfigurationRecorderResponseBodyConfigurationRecorder extends $dara.Model {
   /**
    * @remarks
-   * The status of the configuration recorder. Valid values:
+   * The status of resource monitoring. Valid values:
    * 
-   * *   REGISTRABLE: The configuration recorder has not been registered.
-   * *   BUILDING: The configuration recorder is being deployed.
-   * *   REGISTERED: The configuration recorder has been registered.
-   * *   REBUILDING: The configuration recorder is being redeployed.
+   * - REGISTRABLE: Not registered.
+   * 
+   * - BUILDING: Building.
+   * 
+   * - REGISTERED: Registered.
+   * 
+   * - REBUILDING: Rebuilding.
    * 
    * @example
    * REGISTERED
@@ -18,7 +21,7 @@ export class GetConfigurationRecorderResponseBodyConfigurationRecorder extends $
   configurationRecorderStatus?: string;
   /**
    * @remarks
-   * The types of resources that are monitored.
+   * A list of monitored resource types.
    */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
@@ -50,7 +53,7 @@ export class GetConfigurationRecorderResponseBodyConfigurationRecorder extends $
 export class GetConfigurationRecorderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the configuration recorder that monitors resources.
+   * The resource monitoring information.
    */
   configurationRecorder?: GetConfigurationRecorderResponseBodyConfigurationRecorder;
   /**

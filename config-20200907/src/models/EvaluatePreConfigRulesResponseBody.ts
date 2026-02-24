@@ -15,9 +15,11 @@ export class EvaluatePreConfigRulesResponseBodyResourceEvaluationsRules extends 
    * @remarks
    * The compliance type of the resource that was evaluated by using the evaluation rule. Valid values:
    * 
-   * *   COMPLIANT: The resource was evaluated as compliant.
-   * *   NON_COMPLIANT: The resource was evaluated as incompliant.
-   * *   NOT_APPLICABLE: The evaluation rule does not apply to the resource.
+   * - COMPLIANT: The resource is evaluated as compliant.
+   * 
+   * - NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
    * 
    * @example
    * NON_COMPLIANT
@@ -25,7 +27,7 @@ export class EvaluatePreConfigRulesResponseBodyResourceEvaluationsRules extends 
   complianceType?: string;
   /**
    * @remarks
-   * The URL of the topic that describes how the managed rule remediates the incompliant configurations.
+   * The URL of the topic that describes how the managed rule remediates the non-compliant configurations.
    * 
    * @example
    * https://example.aliyundoc.com
@@ -33,7 +35,7 @@ export class EvaluatePreConfigRulesResponseBodyResourceEvaluationsRules extends 
   helpUrl?: string;
   /**
    * @remarks
-   * The identifier of the evaluation rule.
+   * The identifier of the rule.
    * 
    * @example
    * ecs-instance-deletion-protection-enabled
@@ -71,7 +73,7 @@ export class EvaluatePreConfigRulesResponseBodyResourceEvaluations extends $dara
    * @remarks
    * The logical ID of the resource.
    * 
-   * >  If the ResourceLogicalId request parameter is left empty, the value of the ResourceLogicalId response parameter is generated based on the value of the `ResourceProperties` parameter.
+   * > If the request parameter is empty, it is automatically generated based on the Base64 value of `ResourceProperties`.
    * 
    * @example
    * ResourceLogicId-test
@@ -129,7 +131,7 @@ export class EvaluatePreConfigRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the compliance evaluation result.
+   * The array that contains the compliance evaluation results.
    */
   resourceEvaluations?: EvaluatePreConfigRulesResponseBodyResourceEvaluations[];
   static names(): { [key: string]: string } {

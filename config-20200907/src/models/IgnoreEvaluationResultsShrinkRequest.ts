@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class IgnoreEvaluationResultsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
-   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * For more information about how to obtain the rule ID, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class IgnoreEvaluationResultsShrinkRequest extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * The date on which the ignored evaluation results are automatically restored.
    * 
-   * >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * > If this parameter is left empty, the ignored evaluation results are not automatically restored. You must manually restore them.
    * 
    * @example
    * 2022-06-01
@@ -27,15 +27,15 @@ export class IgnoreEvaluationResultsShrinkRequest extends $dara.Model {
   ignoreDate?: string;
   /**
    * @remarks
-   * The reason why you want to ignore the resource.
+   * The reason for ignoring the resources.
    * 
    * @example
-   * Test ignore.
+   * 无需检测。
    */
   reason?: string;
   /**
    * @remarks
-   * The resources to be ignored.
+   * The list of resources to be ignored.
    * 
    * This parameter is required.
    */

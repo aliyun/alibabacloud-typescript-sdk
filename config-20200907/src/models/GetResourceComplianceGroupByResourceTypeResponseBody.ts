@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances extends $dara.Model {
-  /**
-   * @remarks
-   * The evaluation result. Valid values:
-   * 
-   * *   COMPLIANT: The resource is evaluated as compliant.
-   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to the resource.
-   * *   INSUFFICIENT_DATA: No data is available.
-   * 
-   * @example
-   * COMPLIANT
-   */
   complianceType?: string;
-  /**
-   * @remarks
-   * The total number of evaluation results.
-   * 
-   * @example
-   * 1
-   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -48,18 +29,7 @@ export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResul
 }
 
 export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList extends $dara.Model {
-  /**
-   * @remarks
-   * The queried evaluation results.
-   */
   compliances?: GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances[];
-  /**
-   * @remarks
-   * The type of the evaluated resource.
-   * 
-   * @example
-   * ACS::ECS::Instance
-   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +58,6 @@ export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResul
 }
 
 export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult extends $dara.Model {
-  /**
-   * @remarks
-   * The evaluation results grouped by resource type.
-   */
   complianceResultList?: GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -118,18 +84,7 @@ export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResul
 }
 
 export class GetResourceComplianceGroupByResourceTypeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried evaluation results.
-   */
   complianceResult?: GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 84610B68-2DD3-5AF0-B68D-E1FA8F051F7D
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -11,8 +11,31 @@ export class GetResourceComplianceByPackResponseBodyResourceComplianceResult ext
    * cp-541e626622af0087****
    */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The number of compliant resources.
+   * 
+   * > Note: A resource is counted each time a rule evaluates it as compliant. For example, if a resource is evaluated as compliant by two rules, it is counted twice.
+   * 
+   * @example
+   * 1
+   */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of resources whose evaluation results are ignored.
+   * 
+   * @example
+   * 1
+   */
   ignoredCount?: number;
+  /**
+   * @remarks
+   * The total number of resources that the rules in the compliance package evaluate as Insufficient Data.
+   * 
+   * @example
+   * 1
+   */
   insufficientDataCount?: number;
   /**
    * @remarks
@@ -22,6 +45,15 @@ export class GetResourceComplianceByPackResponseBodyResourceComplianceResult ext
    * 7
    */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The number of resources that are not applicable.
+   * 
+   * > Note: A resource is counted each time a rule evaluates it as not applicable. For example, if a resource is evaluated as not applicable by two rules, it is counted twice.
+   * 
+   * @example
+   * 1
+   */
   notApplicableCount?: number;
   /**
    * @remarks
@@ -75,7 +107,7 @@ export class GetResourceComplianceByPackResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The compliance evaluation results returned.
+   * The compliance results of the resources in the compliance package.
    */
   resourceComplianceResult?: GetResourceComplianceByPackResponseBodyResourceComplianceResult;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRemediationRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that is used to ensure the idempotence of the request. Generate a token that is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 2014295338-e7361358-5822-4276-8d30-b5183fac****
@@ -15,10 +15,13 @@ export class UpdateRemediationRequest extends $dara.Model {
    * @remarks
    * The execution mode of the remediation. Valid values:
    * 
-   * *   NON_EXECUTION: The remediation is not executed.
-   * *   AUTO_EXECUTION: The remediation is automatically executed.
-   * *   MANUAL_EXECUTION: The remediation is manually executed.
-   * *   NOT_CONFIG: The execution mode is not specified.
+   * - NON_EXECUTION: The remediation is not executed.
+   * 
+   * - AUTO_EXECUTION: The remediation is automatically executed.
+   * 
+   * - MANUAL_EXECUTION: The remediation is manually executed.
+   * 
+   * - NOT_CONFIG: The execution mode is not specified.
    * 
    * @example
    * AUTO_EXECUTION
@@ -26,17 +29,17 @@ export class UpdateRemediationRequest extends $dara.Model {
   invokeType?: string;
   /**
    * @remarks
-   * The desired parameter values of the remediation setting.
+   * The parameters of the remediation setting.
    * 
    * @example
-   * {"properties":[{"name":"regionId","type":"STRING","value":"{regionId}","allowedValues":[]},{"name":"bucketName","type":"STRING","value":"{resourceId}","allowedValues":[],"description":"OSS Bucket Name."},{"name":"permissionName","type":"STRING","value":"private","allowedValues":["public-read-write","public-read","private"],"description":"ACL Permission Name."}]}
+   * {"properties":[{"name":"regionId","type":"STRING","value":"{regionId}","allowedValues":[]},{"name":"bucketName","type":"STRING","value":"{resourceId}","allowedValues":[],"description":"OSS Bucket名称。"},{"name":"permissionName","type":"STRING","value":"private","allowedValues":["public-read-write","public-read","private"],"description":"ACL权限名称。"}]}
    */
   params?: string;
   /**
    * @remarks
    * The ID of the remediation setting.
    * 
-   * You can call the [ListRemediations](https://help.aliyun.com/document_detail/270772.html) operation to obtain the ID of the remediation setting.
+   * For more information about how to obtain the ID of a remediation setting, see [ListRemediations](https://help.aliyun.com/document_detail/270772.html).
    * 
    * This parameter is required.
    * 
@@ -48,7 +51,7 @@ export class UpdateRemediationRequest extends $dara.Model {
    * @remarks
    * The ID of the remediation template.
    * 
-   * You can call the [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html) operation to obtain the ID of the remediation template.
+   * For more information about how to obtain the ID of a remediation template, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html).
    * 
    * @example
    * ACS-OSS-PutBucketAcl
@@ -56,10 +59,11 @@ export class UpdateRemediationRequest extends $dara.Model {
   remediationTemplateId?: string;
   /**
    * @remarks
-   * The type of the remediation template. Valid values:
+   * The type of the remediation. Valid values:
    * 
-   * *   OOS: Operation Orchestration Service (OOS)
-   * *   FC: Function Compute. You can use Function Compute to configure custom remediation settings.
+   * - OOS: Operation Orchestration Service (template-based remediation).
+   * 
+   * - FC: Function Compute (custom remediation).
    * 
    * @example
    * OOS
@@ -67,11 +71,13 @@ export class UpdateRemediationRequest extends $dara.Model {
   remediationType?: string;
   /**
    * @remarks
-   * The source of the remediation setting. Valid values:
+   * The source of the remediation. Valid values:
    * 
-   * *   ALIYUN: the default remediation setting of Alibaba Cloud.
-   * *   CUSTOM: a custom remediation setting.
-   * *   NONE: The source is not specified.
+   * - ALIYUN: official remediation.
+   * 
+   * - CUSTOM: custom remediation.
+   * 
+   * - NONE: none.
    * 
    * @example
    * ALIYUN

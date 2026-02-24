@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiscoveredResourceBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * 6CE4ABA1-9A57-41A9-8EA9-E8B17D4671CD
+   * 6CE4ABA1-9A57-41A9-8EA9-E8B17D46****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

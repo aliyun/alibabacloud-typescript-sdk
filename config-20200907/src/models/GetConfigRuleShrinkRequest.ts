@@ -7,7 +7,7 @@ export class GetConfigRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The rule ID.
    * 
-   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * For more information, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class GetConfigRuleShrinkRequest extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * The tags of the resource. This parameter is deprecated and has no effect.
    * 
-   * You can add up to 20 tags to a resource.
+   * You can add a maximum of 20 tags to a resource.
    * 
    * @deprecated
    */

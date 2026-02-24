@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList extends $dara.Model {
   /**
    * @remarks
-   * The field names.
+   * The list of field names returned by the search.
    */
   columns?: string[];
   /**
    * @remarks
-   * The resource data.
+   * The list of resource data returned by the search.
    */
   values?: any[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQuery
 export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults extends $dara.Model {
   /**
    * @remarks
-   * The queried resources. A maximum of 1,000 data records can be returned. To view more data, use the download URL of the resource file.
+   * The list of resources returned by the query. A maximum of 1,000 entries are returned. To view more data, download the search file.
    */
   queryResultList?: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults exte
 export class ListAggregateResourcesByAdvancedSearchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The query results.
    */
   queryResults?: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults;
   /**

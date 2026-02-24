@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPreManagedRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class ListPreManagedRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * Default value: 10.
+   * The default value is 10.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class ListPreManagedRulesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the resource.
+   * A list of resource types.
    */
   resourceTypesShrink?: string;
   static names(): { [key: string]: string } {

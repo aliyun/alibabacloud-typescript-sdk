@@ -7,7 +7,7 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
    * @remarks
    * The ID of the account group.
    * 
-   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
   aggregatorId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The default value indicates the time when the GetAggregateResourceConfigurationTimeline operation is called. Unit: milliseconds.
+   * The end time of the query. This is a UNIX timestamp in milliseconds. By default, data up to the current time is queried.
    * 
    * @example
    * 1625821156000
@@ -25,7 +25,7 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
   endTime?: number;
   /**
    * @remarks
-   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -33,7 +33,7 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
+   * If the output is truncated, you can use the `NextToken` to start the next query from the truncation point.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -41,9 +41,9 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region in which the resource resides.
+   * The ID of the region where the resource resides.
    * 
-   * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * For more information, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
   region?: string;
   /**
    * @remarks
-   * Required. The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
+   * The ID of the Alibaba Cloud account that owns the resource in the account group.
    * 
    * @example
    * 100931896542****
@@ -61,9 +61,9 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
   resourceAccountId?: number;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
-   * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * For more information, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
    * @remarks
    * The type of the resource.
    * 
-   * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * For more information, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $dara.Mode
   resourceType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+   * The start time of the query. This is a UNIX timestamp in milliseconds. By default, data from the last 30 days is queried.
    * 
    * @example
    * 1623211156000

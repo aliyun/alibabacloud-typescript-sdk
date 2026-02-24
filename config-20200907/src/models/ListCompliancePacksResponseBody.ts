@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags extends $dara.Model {
   /**
    * @remarks
-   * tag key
+   * The tag key.
    * 
    * @example
    * key-1
@@ -13,7 +13,7 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   tagKey?: string;
   /**
    * @remarks
-   * tag value
+   * The tag value.
    * 
    * @example
    * value-1
@@ -45,7 +45,7 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
 export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the compliance package belongs.
+   * The ID of the Alibaba Cloud account to which the compliance pack belongs.
    * 
    * @example
    * 120886317861****
@@ -53,7 +53,7 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   accountId?: number;
   /**
    * @remarks
-   * The compliance package ID.
+   * The ID of the compliance pack.
    * 
    * @example
    * cp-fdc8626622af00f9****
@@ -61,23 +61,23 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   compliancePackId?: string;
   /**
    * @remarks
-   * The name of the compliance package.
+   * The name of the compliance pack.
    * 
    * @example
-   * ClassifiedProtectionPreCheck
+   * BestPracticesForResourceStability
    */
   compliancePackName?: string;
   /**
    * @remarks
-   * The ID of the compliance package template.
+   * The ID of the compliance pack template.
    * 
    * @example
-   * ct-5f26ff4e06a300c4****
+   * ct-484cff4e06a30062****
    */
   compliancePackTemplateId?: string;
   /**
    * @remarks
-   * The timestamp when the compliance package was created. Unit: milliseconds.
+   * The timestamp when the compliance pack was created. Unit: milliseconds.
    * 
    * @example
    * 1621325046000
@@ -85,19 +85,21 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   createTimestamp?: number;
   /**
    * @remarks
-   * The description of the compliance package.
+   * The description of the compliance pack.
    * 
    * @example
-   * Based on the Level 3 standards Equal Protection 2.0, this template provides continuous compliance monitoring recommendations to help you perform self-inspections and fix issues in advance, ensuring a quick pass during the official inspection.
+   * Check the stability of Alibaba Cloud resources based on the high-availability infrastructure, capacity protection, change management, monitoring management, backup management, and fault isolation. This helps you identify issues at the earliest opportunity and improve stability and the efficiency of O&M.
    */
   description?: string;
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * The risk level of the compliance pack. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -105,10 +107,11 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   riskLevel?: number;
   /**
    * @remarks
-   * The status of the compliance package. Valid values:
+   * The status of the compliance pack. Valid values:
    * 
-   * *   ACTIVE: The compliance package is normal.
-   * *   CREATING: The compliance package is being created.
+   * - ACTIVE: The compliance pack is active.
+   * 
+   * - CREATING: The compliance pack is being created.
    * 
    * @example
    * ACTIVE
@@ -116,7 +119,7 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The tags of the resource.
    */
   tags?: ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags[];
   static names(): { [key: string]: string } {
@@ -162,12 +165,12 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
 export class ListCompliancePacksResponseBodyCompliancePacksResult extends $dara.Model {
   /**
    * @remarks
-   * The compliance packages.
+   * A list of compliance packs.
    */
   compliancePacks?: ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -175,7 +178,7 @@ export class ListCompliancePacksResponseBodyCompliancePacksResult extends $dara.
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -183,7 +186,7 @@ export class ListCompliancePacksResponseBodyCompliancePacksResult extends $dara.
   pageSize?: number;
   /**
    * @remarks
-   * The total number of compliance packages returned.
+   * The total number of compliance packs.
    * 
    * @example
    * 1
@@ -222,12 +225,12 @@ export class ListCompliancePacksResponseBodyCompliancePacksResult extends $dara.
 export class ListCompliancePacksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The compliance packages returned.
+   * The query results for the compliance packs.
    */
   compliancePacksResult?: ListCompliancePacksResponseBodyCompliancePacksResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EC7AED1-172F-42AE-9C12-295BC2ADB751

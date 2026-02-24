@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList extends $dara.Model {
   /**
    * @remarks
-   * The type of the relationship between the resource and the object. Valid values:
+   * The type of the resource relation. Valid values:
    * 
-   * *   IsContained: The object is included as part of the resource.
-   * *   IsAttachedTo: The object is added to the resource.
-   * *   IsAssociatedIn: The object is associated with the resource.
-   * *   Contains: The actual value contains the expected value.
+   * - IsContained: Is contained in.
+   * 
+   * - IsAttachedTo: Is attached to.
+   * 
+   * - IsAssociatedIn: Is associated with.
+   * 
+   * - Contains: Contains.
    * 
    * @example
    * IsAttachedTo
@@ -18,7 +21,7 @@ export class GetSupportedResourceRelationConfigResponseBodyResourceRelationConfi
   relationType?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type of the relation target.
    * 
    * @example
    * ACS::ECS::Disk
@@ -58,7 +61,7 @@ export class GetSupportedResourceRelationConfigResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * An array that contains the relationships.
+   * The list of resource relations.
    */
   resourceRelationConfigList?: GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList[];
   static names(): { [key: string]: string } {

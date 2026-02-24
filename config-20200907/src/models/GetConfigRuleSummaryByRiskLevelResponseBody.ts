@@ -23,9 +23,11 @@ export class GetConfigRuleSummaryByRiskLevelResponseBodyConfigRuleSummaries exte
    * @remarks
    * The risk level of the resources that are not compliant with the rules. Valid values:
    * 
-   * *   1: high risk level.
-   * *   2: medium risk level.
-   * *   3: low risk level.
+   * - 1: high risk level.
+   * 
+   * - 2: medium risk level.
+   * 
+   * - 3: low risk level.
    * 
    * @example
    * 1

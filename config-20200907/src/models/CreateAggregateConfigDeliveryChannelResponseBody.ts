@@ -13,7 +13,7 @@ export class CreateAggregateConfigDeliveryChannelResponseBody extends $dara.Mode
   deliveryChannelId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG

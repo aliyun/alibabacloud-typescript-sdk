@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAggregatorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The account group ID.
+   * The ID of the account group.
    * 
    * @example
    * ca-dacf86d8314e00eb****

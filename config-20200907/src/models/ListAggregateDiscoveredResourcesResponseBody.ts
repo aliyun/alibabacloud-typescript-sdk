@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs. We recommend that you use the ResourceOwnerId parameter.
+   * The ID of the Alibaba Cloud account that owns the resource. We recommend that you use the ResourceOwnerId parameter.
    * 
    * @example
    * 161259599160****
@@ -13,7 +13,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   accountId?: number;
   /**
    * @remarks
-   * The ID of the zone in which the resource resides.
+   * The zone where the resource resides.
    * 
    * @example
    * cn-huhehaote-a
@@ -29,7 +29,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   region?: string;
   /**
    * @remarks
-   * The time when the resource was created. Unit: milliseconds.
+   * The timestamp when the resource was created. Unit: milliseconds.
    * 
    * @example
    * 1618675206000
@@ -39,8 +39,9 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
    * @remarks
    * The status of the resource. Valid values:
    * 
-   * *   0: The resource is deleted.
-   * *   1: The resource is retained.
+   * - 0: The resource is deleted.
+   * 
+   * - 1: The resource is in use.
    * 
    * @example
    * 1
@@ -64,7 +65,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   resourceName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The ID of the Alibaba Cloud account that owns the resource.
    * 
    * @example
    * 161259599160****
@@ -72,10 +73,11 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the resource. The value of this parameter varies with the resource type and may be empty. Examples:
+   * The status of the resource. The status of a resource is defined by the corresponding Alibaba Cloud service. This parameter can be empty. For example:
    * 
-   * *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
-   * *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
+   * - If the resource type is ACS::ECS::Instance, the resource is stateful. The value of this parameter can be Running or Stopped.
+   * 
+   * - If the resource type is ACS::OSS::Bucket, the resource is stateless. The value of this parameter is empty.
    * 
    * @example
    * InUse
@@ -91,7 +93,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   resourceType?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * The resource tags.
    * 
    * @example
    * {\\"key1\\":[\\"value2\\"]}
@@ -99,7 +101,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   tags?: string;
   /**
    * @remarks
-   * The time when the resource was last updated. The value must be a timestamp in milliseconds.
+   * The timestamp of the last update to the resource. This is a timestamp in milliseconds.
    * 
    * @example
    * 1722441600000
@@ -107,6 +109,8 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   updateTime?: number;
   /**
    * @remarks
+   * The ID of the vSwitch to which the resource belongs. The format is vsw-t4n7pokxxxxxxxxxxxxxx. If the resource belongs to multiple vSwitches, the vSwitch IDs are separated by commas (,). An empty string is returned if the resource does not belong to a vSwitch.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -118,7 +122,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   vSwitchId?: string;
   /**
    * @remarks
-   * The build version of the resource.
+   * The resource build version.
    * 
    * @example
    * 1
@@ -126,6 +130,8 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   version?: number;
   /**
    * @remarks
+   * The ID of the VPC to which the resource belongs. The format is vpc-t4nhheyvay74fp7n0hxxx. An empty string is returned if the resource does not belong to a VPC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -192,7 +198,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   discoveredResourceProfileList?: ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList[];
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 10
@@ -200,7 +206,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   maxResults?: number;
   /**
    * @remarks
-   * The token that was used to initiate the next request.
+   * The token used to start the next query.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -247,7 +253,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
 export class ListAggregateDiscoveredResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the resources.
+   * The list of resources.
    */
   discoveredResourceProfiles?: ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfiles;
   /**

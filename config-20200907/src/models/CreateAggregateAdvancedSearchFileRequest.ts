@@ -17,7 +17,7 @@ export class CreateAggregateAdvancedSearchFileRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The SQL statement used to query resources.
+   * The SQL statement for the advanced search.
    * 
    * This parameter is required.
    * 

@@ -15,7 +15,7 @@ export class ListAggregateResourcesByAdvancedSearchRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The SQL query statement.
+   * The SQL search statement.
    * 
    * This parameter is required.
    * 

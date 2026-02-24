@@ -13,7 +13,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   accountId?: number;
   /**
    * @remarks
-   * The zone ID.
+   * The availability zone of the resource.
    * 
    * @example
    * cn-hangzhou-h
@@ -29,7 +29,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   region?: string;
   /**
    * @remarks
-   * The timestamp when the resource was created. Unit: milliseconds.
+   * The time when the resource was created. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1618675206000
@@ -39,8 +39,9 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
    * @remarks
    * The status of the resource. Valid values:
    * 
-   * *   0: The resource is deleted.
-   * *   1: The resource is retained.
+   * - 0: Deleted.
+   * 
+   * - 1: Active.
    * 
    * @example
    * 1
@@ -48,6 +49,8 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   resourceDeleted?: number;
   /**
    * @remarks
+   * The ID of the resource group to which the resource belongs. Example: rg-acfmvoh45rhxxxx
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,10 +78,11 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   resourceName?: string;
   /**
    * @remarks
-   * The status of the resource. The value of this parameter varies based on the resource type and may be empty. Examples:
+   * The status of the resource. The status is defined by the corresponding Alibaba Cloud service. This parameter can be empty. For example:
    * 
-   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
-   * *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+   * - If the resource type is ACS::ECS::Instance, the resource is stateful. The value can be Running or Stopped.
+   * 
+   * - If the resource type is ACS::OSS::Bucket, the resource is stateless. The value is empty.
    * 
    * @example
    * InUse
@@ -86,7 +90,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   resourceStatus?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * ACS::ECS::NetworkInterface
@@ -102,7 +106,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   tags?: string;
   /**
    * @remarks
-   * The time when the resource was last updated. The value must be a timestamp in milliseconds.
+   * The time when the resource was last updated. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1722441600000
@@ -110,6 +114,8 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   updateTime?: number;
   /**
    * @remarks
+   * The ID of the vSwitch to which the resource belongs. Multiple vSwitch IDs are separated by commas (,). An empty string ("") is returned if the resource does not belong to a vSwitch.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -129,6 +135,8 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
   version?: number;
   /**
    * @remarks
+   * The ID of the virtual private cloud (VPC) to which the resource belongs. An empty string ("") is returned if the resource does not belong to a VPC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -203,10 +211,10 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles exten
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
-   * 161259599160****
+   * IWBjqMYSy0is7zSMGu16****
    */
   nextToken?: string;
   /**
@@ -250,7 +258,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles exten
 export class ListDiscoveredResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the resources.
+   * The list of resources.
    */
   discoveredResourceProfiles?: ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles;
   /**

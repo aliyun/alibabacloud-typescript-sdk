@@ -27,13 +27,17 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
   compliancePackId?: string;
   /**
    * @remarks
-   * The compliance evaluation result of the resource. Valid values:
+   * The compliance evaluation result. Valid values:
    * 
-   * *   COMPLIANT: The resource is evaluated as compliant.
-   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to your resource.
-   * *   INSUFFICIENT_DATA: No data is available.
-   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * - COMPLIANT: The resource is compliant.
+   * 
+   * - NON_COMPLIANT: The resource is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
+   * 
+   * - IGNORED: The evaluation result is ignored.
    * 
    * @example
    * NON_COMPLIANT
@@ -43,7 +47,7 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
    * @remarks
    * The rule ID.
    * 
-   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * For more information about how to obtain a rule ID, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
    * 
    * @example
    * cr-888f626622af00ae****
@@ -51,7 +55,7 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
   configRuleId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a request. Valid values: 1 to 100.
+   * The maximum number of entries to return on a single page. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -59,7 +63,7 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * The pagination token that is returned when the response is truncated. Use this token in the next request to retrieve the next page of results.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -67,7 +71,7 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region whose resources you want to evaluate. Separate multiple region IDs with commas (,).
+   * The ID of the region where the resource resides. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-shanghai
@@ -75,7 +79,9 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
   regions?: string;
   /**
    * @remarks
-   * Member accountId to which the resource to be queried belongs.
+   * The ID of the Alibaba Cloud account to which the resource in the account group belongs.
+   * 
+   * > Specify this parameter or \\`ResourceOwnerId\\`. We recommend that you specify this parameter.
    * 
    * @example
    * 100931896542****
@@ -83,7 +89,7 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
   resourceAccountId?: number;
   /**
    * @remarks
-   * The ID of the resource group whose resources you want to evaluate. Separate multiple resource group IDs with commas (,).
+   * The ID of the resource group to which the resource belongs. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aek2cqyzvuj****
@@ -95,7 +101,7 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $dara.Model
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resources that you want to evaluate. Separate multiple resource types with commas (,).
+   * The resource type. Separate multiple resource types with commas (,).
    * 
    * @example
    * ACS::ECS::Instance

@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationResults extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the account group.
-   * 
-   * @example
-   * ca-edd3626622af00b3****
-   */
   aggregatorId?: string;
-  /**
-   * @remarks
-   * The number of resources that are evaluated as non-compliant.
-   * 
-   * @example
-   * 25
-   */
   nonCompliantResourceCnt?: number;
-  /**
-   * @remarks
-   * The number of rules based on which resources are evaluated as non-compliant.
-   * 
-   * @example
-   * 3
-   */
   nonCompliantRuleCnt?: number;
-  /**
-   * @remarks
-   * The date on which the statistics are obtained.
-   * 
-   * @example
-   * 2023-06-27
-   */
   statisticDate?: string;
-  /**
-   * @remarks
-   * The total number of resources.
-   * 
-   * @example
-   * 153
-   */
   totalResourceCnt?: number;
-  /**
-   * @remarks
-   * The total number of rules.
-   * 
-   * @example
-   * 10
-   */
   totalRuleCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -83,18 +41,7 @@ export class ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationRe
 }
 
 export class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The statistics of compliance evaluation results.
-   */
   evaluationResults?: ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationResults[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9EFA436B-FC6F-513B-9DB8-C96E6CEBE5E0
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

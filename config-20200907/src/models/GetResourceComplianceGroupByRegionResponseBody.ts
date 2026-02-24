@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances extends $dara.Model {
-  /**
-   * @remarks
-   * The evaluation result. Valid values:
-   * 
-   * *   COMPLIANT: The resources are evaluated as compliant.
-   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to the resources.
-   * *   INSUFFICIENT_DATA: No resource data is available.
-   * 
-   * @example
-   * COMPLIANT
-   */
   complianceType?: string;
-  /**
-   * @remarks
-   * The total number of evaluation results.
-   * 
-   * @example
-   * 1
-   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -48,18 +29,7 @@ export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultCompl
 }
 
 export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList extends $dara.Model {
-  /**
-   * @remarks
-   * The queried evaluation results.
-   */
   compliances?: GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances[];
-  /**
-   * @remarks
-   * The region ID of the evaluated resource.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +58,6 @@ export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultCompl
 }
 
 export class GetResourceComplianceGroupByRegionResponseBodyComplianceResult extends $dara.Model {
-  /**
-   * @remarks
-   * The evaluation results grouped by region.
-   */
   complianceResultList?: GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -118,18 +84,7 @@ export class GetResourceComplianceGroupByRegionResponseBodyComplianceResult exte
 }
 
 export class GetResourceComplianceGroupByRegionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried evaluation results.
-   */
   complianceResult?: GetResourceComplianceGroupByRegionResponseBodyComplianceResult;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0FDF8006-34A0-5334-8C79-48F64EAB34F1
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

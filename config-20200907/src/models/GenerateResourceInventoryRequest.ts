@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateResourceInventoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The region IDs of the resources. Separate multiple region IDs with commas (,).
+   * The regions where the resources are located. Separate multiple regions with commas (,).
    * 
    * @example
    * cn-shanghai
@@ -13,10 +13,11 @@ export class GenerateResourceInventoryRequest extends $dara.Model {
   regions?: string;
   /**
    * @remarks
-   * Indicates whether the resource is deleted. Valid values:
+   * The resource status. Valid values:
    * 
-   * *   1 (default): The resource is retained.
-   * *   0: The resource is deleted.
+   * - 1 (default): The resource is retained.
+   * 
+   * - 0: The resource is deleted.
    * 
    * @example
    * 1

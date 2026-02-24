@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that is added to the resource.
+   * The tag key of the resource.
    * 
-   * You can add up to 20 tag keys to a resource.
+   * You can attach a maximum of 20 tag keys.
    * 
    * @example
    * Env
@@ -15,9 +15,9 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that is added to the resource.
+   * The tag value of the resource.
    * 
-   * You can add up to 20 tag values to a resource.
+   * You can attach a maximum of 20 tag values.
    * 
    * @example
    * prod
@@ -49,7 +49,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the tags.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 
@@ -59,20 +59,24 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can add tags to up to 50 resources.
+   * The resource ID.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The type of the resource in CloudConfig. Valid values:
    * 
-   * *   `ACS::Config::Rule`
-   * *   `ACS::Config::AggregateConfigRule`
-   * *   `ACS::Config::Aggregator`
-   * *   `ACS::Config::CompliancePack`
-   * *   `ACS::Config::AggregateCompliancePack`
+   * - `ACS::Config::Rule`: a rule for a single account.
+   * 
+   * - `ACS::Config::AggregateConfigRule`: a rule for multiple accounts.
+   * 
+   * - `ACS::Config::Aggregator`: an account group.
+   * 
+   * - `ACS::Config::CompliancePack`: a compliance package for a single account.
+   * 
+   * - `ACS::Config::AggregateCompliancePack`: a compliance package for multiple accounts.
    * 
    * This parameter is required.
    * 
@@ -82,9 +86,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag value of the resource.
+   * The tags of the resource.
    * 
-   * You can specify up to 20 tag values.
+   * You can attach a maximum of 20 tags.
    * 
    * This parameter is required.
    */

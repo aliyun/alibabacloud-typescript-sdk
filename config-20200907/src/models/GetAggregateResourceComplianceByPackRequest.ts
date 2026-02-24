@@ -7,7 +7,7 @@ export class GetAggregateResourceComplianceByPackRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class GetAggregateResourceComplianceByPackRequest extends $dara.Model {
    * @remarks
    * The ID of the compliance package.
    * 
-   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * For more information, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
    * 
    * This parameter is required.
    * 

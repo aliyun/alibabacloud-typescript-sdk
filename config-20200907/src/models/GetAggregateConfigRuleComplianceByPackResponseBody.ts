@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances extends $dara.Model {
   /**
    * @remarks
-   * The compliance evaluation result returned by the rule. Valid values:
+   * The compliance result. Valid values:
    * 
-   * *   COMPLIANT: The relevant resources are evaluated as compliant.
-   * *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to your resources.
-   * *   INSUFFICIENT_DATA: No resource data is available.
+   * - COMPLIANT: The rule is compliant.
+   * 
+   * - NON_COMPLIANT: The rule is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule is not applicable.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
    * 
    * @example
    * COMPLIANT
@@ -18,7 +21,7 @@ export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplia
   complianceType?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The ID of the rule in the compliance pack.
    * 
    * @example
    * cr-fdc8626622af00f9****
@@ -26,10 +29,10 @@ export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplia
   configRuleId?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The name of the rule in the compliance pack.
    * 
    * @example
-   * test-rule-name
+   * The bandwidth of the Elastic IP instance meets the minimum requirements.
    */
   configRuleName?: string;
   static names(): { [key: string]: string } {
@@ -60,35 +63,63 @@ export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplia
 export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compliance package.
+   * The ID of the compliance pack.
    * 
    * @example
    * cp-541e626622af0087****
    */
   compliancePackId?: string;
-  compliantCount?: number;
   /**
    * @remarks
-   * The information about rules in the compliance package.
-   */
-  configRuleCompliances?: GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances[];
-  ignoredCount?: number;
-  insufficientDataCount?: number;
-  /**
-   * @remarks
-   * The number of rules against which specific resources are evaluated as non-compliant.
+   * The total number of rules for which all evaluation results are **Compliant**.
    * 
    * @example
    * 0
    */
-  nonCompliantCount?: number;
-  notApplicableCount?: number;
+  compliantCount?: number;
   /**
    * @remarks
-   * The total number of rules in the compliance package.
+   * A list of rule compliance results.
+   */
+  configRuleCompliances?: GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances[];
+  /**
+   * @remarks
+   * The total number of rules whose evaluation results include **Ignored**.
    * 
    * @example
    * 1
+   */
+  ignoredCount?: number;
+  /**
+   * @remarks
+   * The total number of rules whose evaluation results include **Insufficient Data**.
+   * 
+   * @example
+   * 1
+   */
+  insufficientDataCount?: number;
+  /**
+   * @remarks
+   * The number of non-compliant rules.
+   * 
+   * @example
+   * 1
+   */
+  nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of rules whose evaluation results include **Not Applicable**.
+   * 
+   * @example
+   * 1
+   */
+  notApplicableCount?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 2
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -132,12 +163,12 @@ export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplia
 export class GetAggregateConfigRuleComplianceByPackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The compliance evaluation results that are returned by rules in the compliance package.
+   * The compliance results of the rules in the compliance pack.
    */
   configRuleComplianceResult?: GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C6B0C0A8-3245-48F1-AEAB-BC1A446E99D0

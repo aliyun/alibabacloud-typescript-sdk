@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiscoveredResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the time range for querying resources. The value is a timestamp in the UTC format. When you specify this parameter, take note of the following limits:
+   * The end of the time range to query resources, specified as a UNIX timestamp in milliseconds. Note:
    * 
-   * *   The value must be a timestamp in milliseconds.
-   * *   The value cannot be less than the value of the StartUpdateTimestamp parameter. The interval between the value and the value of the StartUpdateTimestamp parameter must be less than or equal to 30 days.
-   * *   The StartUpdateTimestamp and EndUpdateTimestamp parameters must be specified at the same time or left empty at the same time.
+   * - The value cannot be earlier than StartUpdateTimestamp.
+   * 
+   * - The time interval between StartUpdateTimestamp and EndUpdateTimestamp cannot exceed 30 days.
+   * 
+   * - Specify both StartUpdateTimestamp and EndUpdateTimestamp, or leave both blank.
    * 
    * @example
    * 1724947200000
@@ -17,7 +19,7 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
   endUpdateTimestamp?: number;
   /**
    * @remarks
-   * The types of resources that are excluded. Separate multiple values with commas (,). If this parameter conflicts with the ResourceTypes parameter, this parameter prevails.
+   * The resource types to exclude. Separate multiple resource types with commas (,). This parameter takes precedence over the ResourceTypes parameter.
    * 
    * @example
    * ACS::ECS::Instance,ACS::ECS::NetworkInterface
@@ -25,7 +27,7 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
   excludeResourceTypes?: string;
   /**
    * @remarks
-   * The maximum number of entries returned for a single request. Valid values: 1 to 100.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -38,7 +40,7 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The `token` that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.
+   * A pagination token. If the response is truncated, use this token in a subsequent request to retrieve the next page of results.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -56,8 +58,9 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
    * @remarks
    * The status of the resource. Valid values:
    * 
-   * *   0: The resource is deleted. If a resource is deleted from the desired cloud service, **Deleted** is displayed in the resource list in the Cloud Config console.
-   * *   1 (default): The resource is retained. If a resource is managed as expected, **Active** is displayed in the resource list in the Cloud Config console.
+   * - 0: The resource is deleted. If you delete a resource in the corresponding Alibaba Cloud service, Cloud Config displays the resource as **Deleted**.
+   * 
+   * - 1 (Default): The resource is active. If a resource is managed, Cloud Config displays the resource as **Active**.
    * 
    * @example
    * 1
@@ -71,10 +74,17 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
    * eni-hp31cqoba96jagtz****
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * test-resource-name
+   */
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource. Separate multiple resource types with commas (,).
+   * The resource type. Separate multiple resource types with commas (,).
    * 
    * @example
    * ACS::ECS::NetworkInterface
@@ -82,11 +92,13 @@ export class ListDiscoveredResourcesRequest extends $dara.Model {
   resourceTypes?: string;
   /**
    * @remarks
-   * The start time of the time range for querying resources. The value is a timestamp in the UTC format. When you specify this parameter, take note of the following limits:
+   * The start of the time range to query resources, specified as a UNIX timestamp in milliseconds. Note:
    * 
-   * *   The value must be a timestamp in milliseconds.
-   * *   The value cannot be greater than the value of the EndUpdateTimestamp parameter. The interval between the value and the value of the EndUpdateTimestamp parameter must be less than or equal to 30 days.
-   * *   The StartUpdateTimestamp and EndUpdateTimestamp parameters must be specified at the same time or left blank at the same time.
+   * - The value cannot be later than EndUpdateTimestamp.
+   * 
+   * - The time interval between StartUpdateTimestamp and EndUpdateTimestamp cannot exceed 30 days.
+   * 
+   * - Specify both StartUpdateTimestamp and EndUpdateTimestamp, or leave both blank.
    * 
    * @example
    * 1722441600000

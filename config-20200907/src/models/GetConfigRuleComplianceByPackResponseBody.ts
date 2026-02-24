@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances extends $dara.Model {
   /**
    * @remarks
-   * The compliance evaluation result. Valid values:
+   * The compliance evaluation result of the rule. Valid values:
    * 
-   * *   COMPLIANT: The relevant resources are evaluated as compliant.
-   * *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to your resources.
-   * *   INSUFFICIENT_DATA: No resource data is available.
+   * - COMPLIANT: The rule is compliant.
+   * 
+   * - NON_COMPLIANT: The rule is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule is not applicable.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
    * 
    * @example
    * COMPLIANT
@@ -18,7 +21,7 @@ export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult
   complianceType?: string;
   /**
    * @remarks
-   * The ID of the rule enabled in the compliance package.
+   * The ID of the rule in the compliance package.
    * 
    * @example
    * cr-fdc8626622af00f9****
@@ -26,10 +29,10 @@ export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult
   configRuleId?: string;
   /**
    * @remarks
-   * The name of the rule enabled in the compliance package.
+   * The name of the rule in the compliance package.
    * 
    * @example
-   * test-rule-name
+   * The bandwidth of the Elastic IP instance meets the minimum requirements.
    */
   configRuleName?: string;
   static names(): { [key: string]: string } {
@@ -66,26 +69,54 @@ export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult
    * cp-541e626622af0087****
    */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The number of compliant rules.
+   * 
+   * @example
+   * 0
+   */
   compliantCount?: number;
   /**
    * @remarks
-   * The rule enabled in the compliance package and the compliance evaluation result returned by the rule.
+   * The list of rules in the compliance package and their compliance results.
    */
   configRuleCompliances?: GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances[];
+  /**
+   * @remarks
+   * The number of ignored rules.
+   * 
+   * @example
+   * 1
+   */
   ignoredCount?: number;
+  /**
+   * @remarks
+   * The total number of rules within the compliance package whose evaluation results are "No Data" when assessing resources.
+   * 
+   * @example
+   * 1
+   */
   insufficientDataCount?: number;
   /**
    * @remarks
-   * The number of rules against which specific resources are evaluated as non-compliant.
+   * The number of non-compliant rules.
    * 
    * @example
    * 0
    */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The number of rules that are not applicable.
+   * 
+   * @example
+   * 1
+   */
   notApplicableCount?: number;
   /**
    * @remarks
-   * The total number of rules enabled in the compliance package.
+   * The total number of rules in the compliance package.
    * 
    * @example
    * 1
@@ -132,12 +163,12 @@ export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult
 export class GetConfigRuleComplianceByPackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the compliance evaluation results returned.
+   * The compliance results for the rules in the compliance package.
    */
   configRuleComplianceResult?: GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EC7AED1-172F-42AE-9C12-295BC2ADB751

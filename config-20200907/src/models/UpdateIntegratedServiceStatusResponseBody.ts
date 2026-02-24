@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateIntegratedServiceStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 02EB7638-B029-5ABB-93F5-A2ABEEAC282D
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

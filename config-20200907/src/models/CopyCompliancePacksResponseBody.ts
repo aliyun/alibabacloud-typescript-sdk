@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CopyCompliancePacksResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the compliance packages are replicated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   copyRulesResult?: boolean;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9E1E69DE-BDED-581E-B559-0C15690901D0
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

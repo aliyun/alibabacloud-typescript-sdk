@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 100931896542****
@@ -29,12 +29,15 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   configRuleId?: string;
   /**
    * @remarks
-   * The execution mode of the remediation template. Valid values:
+   * The execution mode of the remediation. Valid values:
    * 
-   * *   NON_EXECUTION: The remediation template is not executed.
-   * *   AUTO_EXECUTION: The remediation template is automatically executed.
-   * *   MANUAL_EXECUTION: The remediation template is manually executed.
-   * *   NOT_CONFIG: The execution mode is not specified.
+   * - NON_EXECUTION: The remediation is not executed.
+   * 
+   * - AUTO_EXECUTION: The remediation is automatically executed.
+   * 
+   * - MANUAL_EXECUTION: The remediation is manually executed.
+   * 
+   * - NOT_CONFIG: The remediation is not configured.
    * 
    * @example
    * AUTO_EXECUTION
@@ -42,7 +45,7 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   invokeType?: string;
   /**
    * @remarks
-   * The ID of the last successful execution of the remediation template.
+   * The ID of the last successful remediation.
    * 
    * @example
    * bd7629fb-cac8-42fe-bcb1-e362c5a6****
@@ -50,7 +53,7 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   lastSuccessfulInvocationId?: string;
   /**
    * @remarks
-   * The timestamp of the last successful execution of the remediation template. Unit: milliseconds.
+   * The timestamp of the last successful remediation. Unit: milliseconds.
    * 
    * @example
    * 1625451393589
@@ -58,12 +61,15 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   lastSuccessfulInvocationTime?: number;
   /**
    * @remarks
-   * The mode of the last successful execution of the remediation template. Valid values:
+   * The mode of the last successful remediation. Valid values:
    * 
-   * *   NON_EXECUTION: The remediation template is not executed.
-   * *   AUTO_EXECUTION: The remediation template is automatically executed.
-   * *   MANUAL_EXECUTION: The remediation template is manually executed.
-   * *   NOT_CONFIG: The execution mode is not specified.
+   * - NON_EXECUTION: The remediation was not executed.
+   * 
+   * - AUTO_EXECUTION: The remediation was automatically executed.
+   * 
+   * - MANUAL_EXECUTION: The remediation was manually executed.
+   * 
+   * - NOT_CONFIG: The remediation was not configured.
    * 
    * @example
    * AUTO_EXECUTION
@@ -71,7 +77,7 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   lastSuccessfulInvocationType?: string;
   /**
    * @remarks
-   * The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+   * The converted format of the remediation setting parameters. This parameter is used only to convert the parameters of an OOS template.
    * 
    * @example
    * {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
@@ -79,7 +85,7 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   remediaitonOriginParams?: string;
   /**
    * @remarks
-   * The ID of the remediation template.
+   * The ID of the remediation setting.
    * 
    * @example
    * crr-6b7c626622af0026****
@@ -87,11 +93,13 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   remediationId?: string;
   /**
    * @remarks
-   * The source of remediation template. Valid values:
+   * The source of the remediation template. Valid values:
    * 
-   * *   ALIYUN: official template.
-   * *   CUSTOM: custom template.
-   * *   NONE: none.
+   * - ALIYUN: official template.
+   * 
+   * - CUSTOM: custom template.
+   * 
+   * - NONE: none.
    * 
    * @example
    * ALIYUN
@@ -107,10 +115,11 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
   remediationTemplateId?: string;
   /**
    * @remarks
-   * The type of the remediation template. Valid values:
+   * The type of the remediation. Valid values:
    * 
-   * *   OOS: Operation Orchestration Service (official remediation).
-   * *   FC: Function Compute (custom remediation).
+   * - OOS: Operation Orchestration Service (official remediation).
+   * 
+   * - FC: Function Compute (custom remediation).
    * 
    * @example
    * OOS
@@ -162,7 +171,7 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $dara.Mod
 export class ListAggregateRemediationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that contains remediation templates.
+   * The remediation settings.
    */
   remediations?: ListAggregateRemediationsResponseBodyRemediations[];
   /**

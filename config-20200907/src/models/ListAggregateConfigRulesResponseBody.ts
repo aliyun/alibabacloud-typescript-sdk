@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompliance extends $dara.Model {
   /**
    * @remarks
-   * The compliance evaluation result. Valid values:
+   * The summary of the compliance evaluation result. Valid values:
    * 
-   * *   COMPLIANT: The resources are evaluated as compliant.
-   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to the resources.
-   * *   INSUFFICIENT_DATA: No data is available.
+   * - COMPLIANT: The resource is compliant.
+   * 
+   * - NON_COMPLIANT: The resource is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
    * 
    * @example
    * COMPLIANT
@@ -18,7 +21,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompli
   complianceType?: string;
   /**
    * @remarks
-   * The number of evaluation resources that correspond to the summary result of the rule compliance evaluation.
+   * The number of resources that are evaluated based on the summary of the compliance evaluation.
    * 
    * @example
    * 2
@@ -50,7 +53,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompli
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy extends $dara.Model {
   /**
    * @remarks
-   * The account group ID.
+   * The ID of the account group.
    * 
    * @example
    * ca-f632626622af0079****
@@ -66,7 +69,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreate
   aggregatorName?: string;
   /**
    * @remarks
-   * The compliance package ID.
+   * The ID of the compliance package.
    * 
    * @example
    * cp-fdc8626622af00f9****
@@ -77,7 +80,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreate
    * The name of the compliance package.
    * 
    * @example
-   * test-pack-name
+   * The name of the compliance package.
    */
   compliancePackName?: string;
   /**
@@ -90,7 +93,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreate
   creatorId?: string;
   /**
    * @remarks
-   * The name of the management account that create the rule.
+   * The name of the management account that created the rule.
    * 
    * @example
    * Alice
@@ -98,7 +101,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreate
   creatorName?: string;
   /**
    * @remarks
-   * The type of the creator of the rule. The value is fixed to AGGREGATOR, which indicates an account group.
+   * The type of the creator. The value is fixed to AGGREGATOR.
    * 
    * @example
    * AGGREGATOR
@@ -140,7 +143,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreate
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the rule.
+   * The key of the tag.
    * 
    * @example
    * env
@@ -148,7 +151,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListTags e
   key?: string;
   /**
    * @remarks
-   * The tag value of the rule.
+   * The value of the tag.
    * 
    * @example
    * prod
@@ -180,7 +183,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListTags e
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account to which the rules belong.
+   * The ID of the management account to which the rule belongs.
    * 
    * @example
    * 100931896542****
@@ -188,7 +191,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
   accountId?: number;
   /**
    * @remarks
-   * The type of the remediation template. Only OOS is returned, which indicates CloudOps Orchestration Service.
+   * The remediation type. The value is fixed to OOS, which indicates Operation Orchestration Service.
    * 
    * @example
    * OOS
@@ -209,7 +212,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
   configRuleArn?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * cr-fdc8626622af00f9****
@@ -220,17 +223,20 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
    * The name of the rule.
    * 
    * @example
-   * test-rule-name
+   * The name of the rule.
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The state of the rule. Valid values:
    * 
-   * *   ACTIVE: The rule is being used to monitor resource configurations.
-   * *   DELETING: The rule is being deleted.
-   * *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
-   * *   INACTIVE: The rule is disabled.
+   * - ACTIVE: The rule is enabled.
+   * 
+   * - DELETING: The rule is being deleted.
+   * 
+   * - EVALUATING: The rule is being evaluated.
+   * 
+   * - INACTIVE: The rule is disabled.
    * 
    * @example
    * ACTIVE
@@ -238,21 +244,28 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
   configRuleState?: string;
   /**
    * @remarks
-   * The information about the creation of the rule.
+   * The information about the creator of the rule.
    */
   createBy?: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy;
+  /**
+   * @remarks
+   * The time when the rule was created. The time is displayed in UTC+8.
+   * 
+   * @example
+   * 2025-09-19T15:51:00
+   */
   createDate?: string;
   /**
    * @remarks
    * The description of the rule.
    * 
    * @example
-   * The description of the test rule.
+   * The description of the rule.
    */
   description?: string;
   /**
    * @remarks
-   * The types of resources evaluated by the rule. Multiple resource types are separated with commas (,).
+   * The types of the resources that are evaluated by the rule. Multiple resource types are separated by commas (,).
    * 
    * @example
    * ACS::EIP::EipAddress
@@ -260,11 +273,13 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
   resourceTypesScope?: string;
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high
+   * 
+   * - 2: medium
+   * 
+   * - 3: low
    * 
    * @example
    * 1
@@ -274,8 +289,9 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
    * @remarks
    * The identifier of the rule.
    * 
-   * *   If the rule is a managed rule, the value of this parameter is the name of the managed rule.
-   * *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
+   * - If the rule is a managed rule, the value of this parameter is the identifier of the rule template.
+   * 
+   * - If the rule is a custom rule, the value of this parameter is the ARN of the function.
    * 
    * @example
    * eip-bandwidth-limit
@@ -283,10 +299,11 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
   sourceIdentifier?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
+   * The owner of the rule. Valid values:
    * 
-   * *   CUSTOM_FC: a custom rule.
-   * *   ALIYUN: a managed rule.
+   * - CUSTOM_FC: a custom rule.
+   * 
+   * - ALIYUN: a managed rule.
    * 
    * @example
    * ALIYUN
@@ -358,12 +375,12 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
 export class ListAggregateConfigRulesResponseBodyConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The details of the rule.
+   * The details of the rules.
    */
   configRuleList?: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList[];
   /**
    * @remarks
-   * The number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -371,7 +388,7 @@ export class ListAggregateConfigRulesResponseBodyConfigRules extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -418,12 +435,12 @@ export class ListAggregateConfigRulesResponseBodyConfigRules extends $dara.Model
 export class ListAggregateConfigRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried rules.
+   * The rules.
    */
   configRules?: ListAggregateConfigRulesResponseBodyConfigRules;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 22EF8287-2C9A-4F1F-80A6-CEFA7612689D

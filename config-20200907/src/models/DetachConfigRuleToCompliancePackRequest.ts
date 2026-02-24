@@ -19,7 +19,7 @@ export class DetachConfigRuleToCompliancePackRequest extends $dara.Model {
    * @remarks
    * The rule ID. Separate multiple rule IDs with commas (,).
    * 
-   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * For more information about how to obtain a rule ID, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
    * 
    * This parameter is required.
    * 

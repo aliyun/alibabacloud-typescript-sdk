@@ -3,35 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $dara.Model {
-  /**
-   * @remarks
-   * The rule ID.
-   * 
-   * @example
-   * cr-5772ba41209e007b****
-   */
   configRuleId?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * *   If the rule is disabled, no error code is returned.
-   * *   If the rule fails to be disabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
-   * 
-   * @example
-   * ConfigRuleNotExists
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +32,6 @@ export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRul
 }
 
 export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResult extends $dara.Model {
-  /**
-   * @remarks
-   * The operations that are performed to disable the rule.
-   */
   operateRuleItemList?: DeactiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -89,18 +58,7 @@ export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResult extends $
 }
 
 export class DeactiveAggregateConfigRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The results of the operations that are performed to disable the specified rules.
-   */
   operateRuleResult?: DeactiveAggregateConfigRulesResponseBodyOperateRuleResult;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

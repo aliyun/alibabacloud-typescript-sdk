@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the resource. Valid values:
+   * Specifies whether to detach all tags from the resources. Valid values:
    * 
-   * *   true: All tags are removed from the resource.
-   * *   false (default): The specified tags are removed from the resource.
+   * - true: Detach all tags from the resources.
+   * 
+   * - false (default): Detach the specified tags.
    * 
    * @example
    * false
@@ -16,7 +17,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The region ID of the tag.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 
@@ -26,22 +27,26 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The IDs of the resources. You can specify a maximum of 50 resource IDs.
    * 
-   * You can remove tags from up to 50 resources at a time.
+   * You can detach tags from up to 50 resources at a time.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The type of the CloudConfig resource. Valid values:
    * 
-   * *   `ACS::Config::Rule`
-   * *   `ACS::Config::AggregateConfigRule`
-   * *   `ACS::Config::Aggregator`
-   * *   `ACS::Config::CompliancePack`
-   * *   `ACS::Config::AggregateCompliancePack`
+   * - `ACS::Config::Rule`: a rule for a single account.
+   * 
+   * - `ACS::Config::AggregateConfigRule`: a rule for multiple accounts.
+   * 
+   * - `ACS::Config::Aggregator`: an account group.
+   * 
+   * - `ACS::Config::CompliancePack`: a compliance package for a single account.
+   * 
+   * - `ACS::Config::AggregateCompliancePack`: a compliance package for multiple accounts.
    * 
    * This parameter is required.
    * 
@@ -51,7 +56,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * The tag keys of the tags to detach.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

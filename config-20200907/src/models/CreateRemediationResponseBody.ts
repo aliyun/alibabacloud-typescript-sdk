@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRemediationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the remediation template.
+   * The ID of the remediation.
    * 
    * @example
    * crr-909ba2d4716700eb****

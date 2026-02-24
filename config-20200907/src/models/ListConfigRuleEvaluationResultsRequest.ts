@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compliance package.
+   * The compliance package ID.
    * 
-   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * For more information about how to obtain a compliance package ID, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
    * 
    * @example
    * cp-f1e3326622af00cb****
@@ -15,13 +15,17 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   compliancePackId?: string;
   /**
    * @remarks
-   * The compliance evaluation result of the resource. Valid values:
+   * The compliance evaluation result. Valid values:
    * 
-   * *   COMPLIANT: The resource is evaluated as compliant.
-   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to the resources.
-   * *   INSUFFICIENT_DATA: No data is available.
-   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * - COMPLIANT: The resource is compliant.
+   * 
+   * - NON_COMPLIANT: The resource is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
+   * 
+   * - IGNORED: The evaluation result is ignored.
    * 
    * @example
    * NON_COMPLIANT
@@ -34,7 +38,7 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
    * @remarks
    * The rule ID.
    * 
-   * You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+   * For more information about how to obtain a rule ID, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
    * 
    * @example
    * cr-cac56457e0d900d3****
@@ -42,7 +46,7 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a request. Valid values: 1 to 100.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -50,7 +54,7 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * If the response is truncated, use the `NextToken` to retrieve the next page of results.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -58,7 +62,7 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region where the resources that you want to evaluate reside. Separate multiple region IDs with commas (,).
+   * The region where the evaluated resource resides. Separate multiple regions with commas (,).
    * 
    * @example
    * cn-shanghai
@@ -66,7 +70,7 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   regions?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the resources that you want to evaluate belong. Separate multiple resource group IDs with commas (,).
+   * The ID of the resource group to which the evaluated resource belongs. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aek2indxn3g****
@@ -74,10 +78,10 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   resourceGroupIds?: string;
   /**
    * @remarks
-   * The type of the resources that you want to evaluate. Separate multiple resource types with commas (,).
+   * The type of the evaluated resource. Separate multiple resource types with commas (,).
    * 
    * @example
-   * ACS::ECS::Instane
+   * ACS::ECS::Instance
    */
   resourceTypes?: string;
   static names(): { [key: string]: string } {

@@ -7,7 +7,7 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token. It is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -27,7 +27,7 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
    * @remarks
    * The rule ID.
    * 
-   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * For more information about how to obtain the rule ID, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
    * 
    * This parameter is required.
    * 
@@ -37,12 +37,15 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The execution mode of the remediation template. Valid values:
+   * The execution mode of the remediation. Valid values:
    * 
-   * *   NON_EXECUTION: The remediation template is not executed.
-   * *   AUTO_EXECUTION: The remediation template is automatically executed.
-   * *   MANUAL_EXECUTION: The remediation template is manually executed.
-   * *   NOT_CONFIG: The execution mode is not specified.
+   * - NON_EXECUTION: The remediation is not executed.
+   * 
+   * - AUTO_EXECUTION: The remediation is automatically executed.
+   * 
+   * - MANUAL_EXECUTION: The remediation is manually executed.
+   * 
+   * - NOT_CONFIG: The execution mode is not set.
    * 
    * This parameter is required.
    * 
@@ -52,9 +55,9 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
   invokeType?: string;
   /**
    * @remarks
-   * The configuration of the remediation template.
+   * The parameters of the remediation.
    * 
-   * For more information about how to obtain the configuration of the remediation template, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html). You can view the `TemplateDefinition` response parameter to obtain the configuration of the remediation template.
+   * For more information about how to obtain the parameters of the remediation, see the `TemplateDefinition` parameter in [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
    * 
    * This parameter is required.
    * 
@@ -64,10 +67,11 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The ID of the remediation template.
+   * The remediation template ID.
    * 
-   * *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template identifier, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
-   * *   If you set the `RemediationType` parameter to `FC`, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant Function Compute resource, such as `acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/test-php`.
+   * - If you set `RemediationType` to `OOS`, set this parameter to `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template ID, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
+   * 
+   * - If you set `RemediationType` to `FC`, set this parameter to the Alibaba Cloud Resource Name (ARN) of the function in Function Compute. Example: `acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/test-php`.
    * 
    * This parameter is required.
    * 
@@ -77,10 +81,11 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
   remediationTemplateId?: string;
   /**
    * @remarks
-   * The type of the remediation template. Valid values:
+   * The remediation type. Valid values:
    * 
-   * *   OOS: stands for Operation Orchestration Service and indicates official remediation.
-   * *   FC: stands for Function Compute and indicates custom remediation.
+   * - OOS: OOS (template-based remediation).
+   * 
+   * - FC: FC (custom remediation).
    * 
    * This parameter is required.
    * 
@@ -90,11 +95,13 @@ export class CreateAggregateRemediationRequest extends $dara.Model {
   remediationType?: string;
   /**
    * @remarks
-   * The source of remediation template. Valid values:
+   * The source of the remediation template. Valid values:
    * 
-   * *   ALIYUN (default): official template.
-   * *   CUSTOM: custom template.
-   * *   NONE: none.
+   * - ALIYUN (default): official template.
+   * 
+   * - CUSTOM: custom template. This value must be specified for custom FC remediations.
+   * 
+   * - NONE: none.
    * 
    * @example
    * ALIYUN

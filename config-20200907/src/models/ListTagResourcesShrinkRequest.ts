@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token to retrieve the next page of results.
    * 
    * @example
    * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJ****
@@ -13,7 +13,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the tag.
+   * The ID of the region to which the tags belong.
    * 
    * This parameter is required.
    * 
@@ -25,30 +25,34 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
    * @remarks
    * The resource ID.
    * 
-   * You can add tags to up to 50 resources.
+   * You can query tags for a maximum of 50 resources.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The resource type in CloudConfig. Valid values:
    * 
-   * *   `ACS::Config::Rule`
-   * *   `ACS::Config::AggregateConfigRule`
-   * *   `ACS::Config::Aggregator`
-   * *   `ACS::Config::CompliancePack`
-   * *   `ACS::Config::AggregateCompliancePack`
+   * - `ACS::Config::Rule`: a rule for a single account.
+   * 
+   * - `ACS::Config::AggregateConfigRule`: a rule for multiple accounts.
+   * 
+   * - `ACS::Config::Aggregator`: an account group.
+   * 
+   * - `ACS::Config::CompliancePack`: a compliance package for a single account.
+   * 
+   * - `ACS::Config::AggregateCompliancePack`: a compliance package for multiple accounts.
    * 
    * This parameter is required.
    * 
    * @example
-   * ACS::Config:rule
+   * ACS::Config::Rule
    */
   resourceType?: string;
   /**
    * @remarks
    * The tags of the resource.
    * 
-   * You can add up to 20 tags to a resource.
+   * You can filter resources by a maximum of 20 tags.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

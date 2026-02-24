@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of the input parameter.
+   * The name of the rule parameter.
    * 
    * @example
    * bandwidth
@@ -13,7 +13,7 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRulePar
   parameterName?: string;
   /**
    * @remarks
-   * The value of the input parameter.
+   * The value of the rule parameter.
    * 
    * @example
    * 10
@@ -21,10 +21,11 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRulePar
   parameterValue?: string;
   /**
    * @remarks
-   * Indicates whether the input parameters are required. Valid values:
+   * Indicates whether the parameter is required for the rule. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The parameter is required.
+   * 
+   * - false: The parameter is not required.
    * 
    * @example
    * true
@@ -66,28 +67,28 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $dar
   configRuleId?: string;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
-   * eip-bandwidth-limit
+   * 弹性IP实例带宽满足最低要求
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The input parameters of the rule.
+   * The information about the rule parameters.
    */
   configRuleParameters?: GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
   /**
    * @remarks
-   * The rule description.
+   * The description of the rule.
    * 
    * @example
-   * example-description
+   * 弹性IP实例可用带宽大于等于指定参数值，视为“合规”。默认值：10 MB。
    */
   description?: string;
   /**
    * @remarks
-   * The identifier of the managed rule.
+   * The identifier of the rule template.
    * 
    * @example
    * eip-bandwidth-limit
@@ -95,7 +96,7 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $dar
   managedRuleIdentifier?: string;
   /**
    * @remarks
-   * The type of the resource evaluated based on the rule. Separate multiple resource types with commas (,).
+   * The types of resources that are evaluated by the rule. Separate multiple resource types with commas (,).
    * 
    * @example
    * ACS::EIP::EipAddress
@@ -103,11 +104,13 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $dar
   resourceTypesScope?: string;
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -152,7 +155,7 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $dar
 export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key-2
@@ -160,7 +163,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope ex
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * value-2
@@ -192,7 +195,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope ex
 export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key-1
@@ -200,7 +203,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * value-1
@@ -232,7 +235,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $
 export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Model {
   /**
    * @remarks
-   * The IDs of regions that are excluded. Separate multiple region IDs with commas (,).
+   * The IDs of the regions from which resources are excluded. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-hangzhou
@@ -240,7 +243,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resource groups whose resources you do not want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * The compliance package is not effective for the resources in the resource groups with the specified IDs. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -248,7 +251,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource that you do not want to evaluate by using the compliance package.
+   * The compliance package is not effective for the resources with the specified IDs. The resources are not evaluated.
    * 
    * @example
    * eip-8vbf3x310fn56ijfd****
@@ -256,14 +259,14 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * The scope of the tag that is excluded.
+   * The excluded tag scope.
    * 
    * This parameter is required.
    */
   excludeTagsScope?: GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope[];
   /**
    * @remarks
-   * The ID of the region whose resources you want to evaluate by using the compliance package.
+   * The compliance package is effective only for resources in the specified regions.
    * 
    * @example
    * cn-hangzhou
@@ -271,7 +274,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   regionIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource group whose resources you want to evaluate by using the compliance package.
+   * The compliance package is effective only for the resources in the resource groups with the specified IDs.
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -279,7 +282,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
+   * The compliance package is effective only for resources with the specified IDs. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * eip-8vbf3x310fn56ijfd****
@@ -287,7 +290,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * The compliance package is effective only for the resources that have the specified tag key.
    * 
    * @example
    * ECS
@@ -295,7 +298,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   tagKeyScope?: string;
   /**
    * @remarks
-   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * The compliance package is effective only for the resources that have the specified tag key-value pair.
    * 
    * @example
    * test
@@ -356,7 +359,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
 export class GetCompliancePackResponseBodyCompliancePackTags extends $dara.Model {
   /**
    * @remarks
-   * The tag keys of the resource.
+   * The tag key.
    * 
    * @example
    * key-1
@@ -364,7 +367,7 @@ export class GetCompliancePackResponseBodyCompliancePackTags extends $dara.Model
   tagKey?: string;
   /**
    * @remarks
-   * The tag values of the resource.
+   * The tag value.
    * 
    * @example
    * value-1
@@ -404,7 +407,7 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * The ID of the compliance package.
+   * The compliance package ID.
    * 
    * @example
    * cp-a8a8626622af0082****
@@ -415,7 +418,7 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
    * The name of the compliance package.
    * 
    * @example
-   * example-pack-name
+   * 等保三级预检合规包
    */
   compliancePackName?: string;
   /**
@@ -428,7 +431,7 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
   compliancePackTemplateId?: string;
   /**
    * @remarks
-   * The rules in the compliance package.
+   * The list of rules in the compliance package.
    */
   configRules?: GetCompliancePackResponseBodyCompliancePackConfigRules[];
   /**
@@ -444,16 +447,18 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
    * The description of the compliance package.
    * 
    * @example
-   * example-name
+   * 基于等保2.0三级标准，提供持续检测合规性的建议模板，帮助您提前自检并修复问题，以便快速通过正式检测。
    */
   description?: string;
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * The risk level of the compliance package. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -461,15 +466,16 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The resource group for which the compliance package took effect.
+   * The evaluation scope.
    */
   scope?: GetCompliancePackResponseBodyCompliancePackScope;
   /**
    * @remarks
    * The status of the compliance package. Valid values:
    * 
-   * *   ACTIVE: The compliance package is normal.
-   * *   CREATING: The compliance package is being created.
+   * - ACTIVE: The compliance package is active.
+   * 
+   * - CREATING: The compliance package is being created.
    * 
    * @example
    * ACTIVE
@@ -477,18 +483,18 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The resource tags.
    */
   tags?: GetCompliancePackResponseBodyCompliancePackTags[];
   /**
    * @remarks
-   * The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
+   * The template information for the compliance package. The rule list in the template does not include user-defined function rules. You can use this template to quickly create the same compliance package for other accounts or account groups.
    * 
    * @example
    * {
    *     "configRuleTemplates": [
    *         {
-   *             "configRuleName": "rule-example",
+   *             "configRuleName": "自定义条件规则示例",
    *             "scope": {
    *                 "complianceResourceTypes": [
    *                     "ACS::ECS::Instance"
@@ -512,13 +518,13 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
    *             "inputParameters": {}
    *         },
    *         {
-   *             "configRuleName": "name",
+   *             "configRuleName": "OSS存储空间Referer在指定的防盗链白名单中",
    *             "scope": {
    *                 "complianceResourceTypes": [
    *                     "ACS::OSS::Bucket"
    *                 ]
    *             },
-   *             "description": "description-1",
+   *             "description": "OSS存储空间开启防盗链并且Referer在指定白名单中，视为“合规”。",
    *             "source": {
    *                 "owner": "ALIYUN",
    *                 "identifier": "oss-bucket-referer-limit",
@@ -592,7 +598,7 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
 export class GetCompliancePackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the compliance package.
+   * The information about the compliance package.
    */
   compliancePack?: GetCompliancePackResponseBodyCompliancePack;
   /**

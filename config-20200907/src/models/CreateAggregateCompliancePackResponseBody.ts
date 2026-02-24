@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAggregateCompliancePackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The compliance package ID.
+   * The ID of the compliance pack.
    * 
    * @example
    * cp-fc56626622af00f9****

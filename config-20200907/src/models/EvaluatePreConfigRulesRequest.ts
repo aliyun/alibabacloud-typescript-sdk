@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class EvaluatePreConfigRulesRequestResourceEvaluateItemsRules extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the evaluation rule.
+   * The identifier of the rule.
    * 
-   * For more information about how to obtain the identifier of an evaluation rule, see [ListManagedRules](https://help.aliyun.com/document_detail/467810.html).
+   * For information about how to obtain the identifier of a rule, see [ListPreManagedRules](https://help.aliyun.com/document_detail/467810.html).
+   * 
+   * > The `ResourceType`, `Identifier`, and `ResourceProperties` parameters must be specified at the same time.
    * 
    * @example
    * ecs-instance-deletion-protection-enabled
@@ -15,7 +17,7 @@ export class EvaluatePreConfigRulesRequestResourceEvaluateItemsRules extends $da
   identifier?: string;
   /**
    * @remarks
-   * The input parameters of the evaluation rule.
+   * The input parameters of the rule.
    * 
    * @example
    * {}
@@ -49,26 +51,29 @@ export class EvaluatePreConfigRulesRequestResourceEvaluateItems extends $dara.Mo
    * @remarks
    * The logical ID of the resource.
    * 
+   * > If this parameter is empty, it is generated based on the Base64 value of `ResourceProperties`.
+   * 
    * @example
    * ResourceLogicId-test
    */
   resourceLogicalId?: string;
   /**
    * @remarks
-   * The properties of the resource.
+   * The resource configuration items (properties of the resource to be created), such as the specifications, region, name, status, and port or network interface switch status of the resource.
+   * 
+   * > The `ResourceType`, `Identifier`, and `ResourceProperties` parameters must be specified at the same time.
    * 
    * @example
-   * {
-   *     "ImageId": "ubuntu_18_04_64_20G_alibase_20190624.vhd",
-   *     "SecurityGroupId": "sg-bp15ed6xe1yxeycg****",
-   *     "HostName": "LocalHostName",
-   *     "RegionId": "cn-hangzhou"
-   * }
+   * {"ResourceGroupId":"","Memory":8192,"InstanceChargeType":"PostPaid","Cpu":2}
    */
   resourceProperties?: string;
   /**
    * @remarks
    * The type of the resource.
+   * 
+   * For information about how to obtain the identifier of an evaluation rule, see [ListPreManagedRules](https://help.aliyun.com/document_detail/467810.html).
+   * 
+   * > The `ResourceType`, `Identifier`, and `ResourceProperties` parameters must be specified at the same time.
    * 
    * @example
    * ACS::ECS::Instance
@@ -76,7 +81,7 @@ export class EvaluatePreConfigRulesRequestResourceEvaluateItems extends $dara.Mo
   resourceType?: string;
   /**
    * @remarks
-   * The evaluation rules.
+   * An array that contains the evaluation rules.
    */
   rules?: EvaluatePreConfigRulesRequestResourceEvaluateItemsRules[];
   static names(): { [key: string]: string } {
@@ -112,12 +117,11 @@ export class EvaluatePreConfigRulesRequestResourceEvaluateItems extends $dara.Mo
 export class EvaluatePreConfigRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the managed rule. Valid values:
+   * Specifies whether to enable rule templates. Valid values:
    * 
-   * *   true: enables the managed rule.
-   * *   false: does not enable the managed rule. This is the default value.
+   * - true: enables rule templates.
    * 
-   * >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+   * - false (default): does not enable rule templates.
    * 
    * @example
    * false
@@ -125,14 +129,14 @@ export class EvaluatePreConfigRulesRequest extends $dara.Model {
   enableManagedRules?: boolean;
   /**
    * @remarks
-   * The resources that you want to evaluate.
+   * An array that contains the resources that you want to evaluate.
    * 
    * This parameter is required.
    */
   resourceEvaluateItems?: EvaluatePreConfigRulesRequestResourceEvaluateItems[];
   /**
    * @remarks
-   * 下一个查询开始Token
+   * The query start token
    * 
    * @example
    * ros

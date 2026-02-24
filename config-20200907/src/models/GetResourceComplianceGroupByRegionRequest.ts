@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResourceComplianceGroupByRegionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The rule IDs. Separate multiple rule IDs with commas (,).
-   * 
-   * @example
-   * cr-2541626622af0000****
-   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPreManagedRulesResponseBodyManagedRules extends $dara.Model {
   /**
    * @remarks
-   * The details of the required input parameters of the rule.
+   * The details of the required input parameters for the rule.
    * 
    * @example
    * {}
@@ -16,7 +16,7 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $dara.Model {
    * The name of the rule.
    * 
    * @example
-   * ram-user-ak-used-expired-check
+   * ECS实例开启释放保护
    */
   configRuleName?: string;
   /**
@@ -24,12 +24,12 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $dara.Model {
    * The description of the rule.
    * 
    * @example
-   * Example description
+   * ECS实例开启释放保护，视为“合规”。
    */
   description?: string;
   /**
    * @remarks
-   * The URL of the topic that describes how the evaluation rule remediates the incompliant configurations.
+   * The URL of the documentation that provides guidance on how to fix a non-compliant resource.
    * 
    * @example
    * https://example.aliyundoc.com
@@ -45,7 +45,7 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The details of the optional input parameters of the rule.
+   * The details of the optional input parameters for the rule.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $dara.Model {
   optionalInputParameterDetails?: { [key: string]: any };
   /**
    * @remarks
-   * The type of resource.
+   * The resource type.
    * 
    * @example
    * ACS::ECS::Instance
@@ -101,12 +101,12 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $dara.Model {
 export class ListPreManagedRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The evaluation rules.
+   * The list of proactive rules.
    */
   managedRules?: ListPreManagedRulesResponseBodyManagedRules[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -114,7 +114,7 @@ export class ListPreManagedRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 1
@@ -122,7 +122,7 @@ export class ListPreManagedRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A2A9F1BE-0712-1B26-9899-D82F7DA8476C

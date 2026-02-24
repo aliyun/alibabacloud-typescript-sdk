@@ -3,34 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAggregatorsResponseBodyOperateAggregatorsResultOperateAggregators extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the account group.
-   * 
-   * @example
-   * ca-dacf86d8314e00eb****
-   */
   aggregatorId?: string;
-  /**
-   * @remarks
-   * The error code returned.
-   * 
-   * > No error code is returned for the account group if the account group is deleted.
-   * 
-   * @example
-   * AccountNotExisted
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
-   * 
-   * @example
-   * false
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -58,10 +32,6 @@ export class DeleteAggregatorsResponseBodyOperateAggregatorsResultOperateAggrega
 }
 
 export class DeleteAggregatorsResponseBodyOperateAggregatorsResult extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the account group.
-   */
   operateAggregators?: DeleteAggregatorsResponseBodyOperateAggregatorsResultOperateAggregators[];
   static names(): { [key: string]: string } {
     return {
@@ -88,18 +58,7 @@ export class DeleteAggregatorsResponseBodyOperateAggregatorsResult extends $dara
 }
 
 export class DeleteAggregatorsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
   operateAggregatorsResult?: DeleteAggregatorsResponseBodyOperateAggregatorsResult;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 8195B664-9565-4685-89AC-8B5F04B44B92
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

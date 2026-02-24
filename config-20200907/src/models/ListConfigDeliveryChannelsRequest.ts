@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigDeliveryChannelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery channel. Separate multiple IDs with commas (,).
+   * The ID of the delivery channel. Separate multiple delivery channel IDs with a comma (,).
    * 
    * @example
    * cdc-d9106457e0d900b1****

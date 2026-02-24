@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagedRuleResponseBodyManagedRuleScope extends $dara.Model {
   /**
    * @remarks
-   * The types of resources to which the managed rule applies.
+   * The resource types for which the rule template is effective.
    */
   complianceResourceTypes?: string[];
   static names(): { [key: string]: string } {
@@ -35,13 +35,17 @@ export class GetManagedRuleResponseBodyManagedRuleScope extends $dara.Model {
 export class GetManagedRuleResponseBodyManagedRuleSourceDetails extends $dara.Model {
   /**
    * @remarks
-   * The interval at which the rule is triggered. Valid values: Valid values:
+   * The execution period of the rule. Valid values:
    * 
-   * *   One_Hour
-   * *   Three_Hours
-   * *   Six_Hours
-   * *   Twelve_Hours
-   * *   TwentyFour_Hours
+   * - One_Hour: 1 hour.
+   * 
+   * - Three_Hours: 3 hours.
+   * 
+   * - Six_Hours: 6 hours.
+   * 
+   * - Twelve_Hours: 12 hours.
+   * 
+   * - TwentyFour_Hours: 24 hours.
    * 
    * @example
    * TwentyFour_Hours
@@ -51,8 +55,9 @@ export class GetManagedRuleResponseBodyManagedRuleSourceDetails extends $dara.Mo
    * @remarks
    * The trigger type of the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-   * *   ScheduledNotification: The rule is periodically triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by a configuration change.
+   * 
+   * - ScheduledNotification: The rule is triggered periodically.
    * 
    * @example
    * ConfigurationItemChangeNotification
@@ -84,7 +89,7 @@ export class GetManagedRuleResponseBodyManagedRuleSourceDetails extends $dara.Mo
 export class GetManagedRuleResponseBodyManagedRule extends $dara.Model {
   /**
    * @remarks
-   * The details of the required input parameters for the managed rule.
+   * The information about the required input parameters for the rule template.
    * 
    * @example
    * {}
@@ -92,23 +97,23 @@ export class GetManagedRuleResponseBodyManagedRule extends $dara.Model {
   compulsoryInputParameterDetails?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the managed rule.
+   * The name of the rule template.
    * 
    * @example
-   * cdn-domain-https-enabled
+   * CDN域名开启HTTPS加密
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The description of the managed rule.
+   * The description of the rule template.
    * 
    * @example
-   * If HTTPS encryption is enabled for the CDN domain name, the configuration is considered compliant.
+   * CDN域名开启HTTPS协议加密，视为“合规”。
    */
   description?: string;
   /**
    * @remarks
-   * The URL of the topic that provides guidance on remediation for the managed rule.
+   * The URL of the document that provides guidance on how to fix the issue.
    * 
    * @example
    * https://example.aliyundoc.com
@@ -116,7 +121,7 @@ export class GetManagedRuleResponseBodyManagedRule extends $dara.Model {
   helpUrls?: string;
   /**
    * @remarks
-   * The identifier of the managed rule.
+   * The identifier of the rule template.
    * 
    * @example
    * cdn-domain-https-enabled
@@ -124,12 +129,12 @@ export class GetManagedRuleResponseBodyManagedRule extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The tags of the managed rule.
+   * The labels of the rule template.
    */
   labels?: string[];
   /**
    * @remarks
-   * The details of the optional input parameters for the managed rule.
+   * The information about the optional input parameters for the rule template.
    * 
    * @example
    * {}
@@ -137,11 +142,13 @@ export class GetManagedRuleResponseBodyManagedRule extends $dara.Model {
   optionalInputParameterDetails?: { [key: string]: any };
   /**
    * @remarks
-   * The risk level of the managed rule. Valid values:
+   * The risk level of the rule template. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -149,12 +156,12 @@ export class GetManagedRuleResponseBodyManagedRule extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The effective scope of the managed rule.
+   * The effective scope of the rule template.
    */
   scope?: GetManagedRuleResponseBodyManagedRuleScope;
   /**
    * @remarks
-   * The information about the trigger type of the managed rule.
+   * The trigger methods for the rule.
    */
   sourceDetails?: GetManagedRuleResponseBodyManagedRuleSourceDetails[];
   static names(): { [key: string]: string } {
@@ -214,12 +221,12 @@ export class GetManagedRuleResponseBodyManagedRule extends $dara.Model {
 export class GetManagedRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the managed rule.
+   * The details of the rule template.
    */
   managedRule?: GetManagedRuleResponseBodyManagedRule;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7E6DDC09-87C1-5310-A924-3491EAAE6F90

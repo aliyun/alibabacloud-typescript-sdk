@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList extends $dara.Model {
-  /**
-   * @remarks
-   * The field names.
-   */
   columns?: string[];
-  /**
-   * @remarks
-   * The resource data.
-   */
   values?: any[];
   static names(): { [key: string]: string } {
     return {
@@ -43,10 +35,6 @@ export class ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultLis
 }
 
 export class ListResourcesByAdvancedSearchResponseBodyQueryResults extends $dara.Model {
-  /**
-   * @remarks
-   * The queried resources. A maximum of 1,000 data records can be returned. To view more data, use the download URL of the resource file.
-   */
   queryResultList?: ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList;
   static names(): { [key: string]: string } {
     return {
@@ -73,18 +61,7 @@ export class ListResourcesByAdvancedSearchResponseBodyQueryResults extends $dara
 }
 
 export class ListResourcesByAdvancedSearchResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The query result.
-   */
   queryResults?: ListResourcesByAdvancedSearchResponseBodyQueryResults;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * D241DEBF-67A2-56AF-88CF-57BF78F0A850
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

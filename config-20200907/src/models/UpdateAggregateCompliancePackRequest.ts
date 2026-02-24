@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of the input parameter.
+   * The name of the rule parameter.
    * 
-   * You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * You must specify `ParameterName` and `ParameterValue` together, or leave both empty. If a rule template has a parameter without a default value, you must specify the parameter. For more information, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
    * 
    * @example
    * bandwidth
@@ -15,9 +15,9 @@ export class UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters
   parameterName?: string;
   /**
    * @remarks
-   * The value of the input parameter.
+   * The value of the rule parameter.
    * 
-   * You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the value of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * You must specify `ParameterName` and `ParameterValue` together, or leave both empty. If a rule template has a parameter without a default value, you must specify the parameter. For more information, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
    * 
    * @example
    * 20
@@ -49,9 +49,9 @@ export class UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters
 export class UpdateAggregateCompliancePackRequestConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The rule ID. If you specify this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+   * The rule ID. CloudConfig adds the existing rule to the compliance pack.
    * 
-   * You only need to configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * You must specify either `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, `ConfigRuleId` takes precedence. For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
    * 
    * @example
    * cr-e918626622af000f****
@@ -59,30 +59,30 @@ export class UpdateAggregateCompliancePackRequestConfigRules extends $dara.Model
   configRuleId?: string;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
-   * test-rule-name
+   * 检测闲置弹性公网IP
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The details of the input parameter of the rule.
+   * The parameters of the rule.
    */
   configRuleParameters?: UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters[];
   /**
    * @remarks
-   * The rule description.
+   * The description of the rule.
    * 
    * @example
-   * The description of the test rule.
+   * 弹性公网已绑定到ECS或者NAT实例，非闲置状态，视为“合规”。
    */
   description?: string;
   /**
    * @remarks
-   * The identifier of the managed rule. Cloud Config automatically creates a rule based on the identifier of the managed rule and adds the rule to the current compliance package.
+   * The identifier of the rule template. CloudConfig automatically creates a rule based on the rule template identifier and adds the rule to the compliance pack.
    * 
-   * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the identifier of the managed rule.
+   * You must specify either `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, `ConfigRuleId` takes precedence. For more information, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
    * 
    * @example
    * eip-bandwidth-limit
@@ -90,11 +90,13 @@ export class UpdateAggregateCompliancePackRequestConfigRules extends $dara.Model
   managedRuleIdentifier?: string;
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high risk level
-   * *   2: medium risk level
-   * *   3: low risk level
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -177,9 +179,9 @@ export class UpdateAggregateCompliancePackRequestExcludeTagsScope extends $dara.
 export class UpdateAggregateCompliancePackRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * You can add up to 20 tag keys.
    * 
    * @example
    * key-1
@@ -187,11 +189,9 @@ export class UpdateAggregateCompliancePackRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag value of the resource.
    * 
-   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
-   * 
-   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * You can add up to 20 tag values.
    * 
    * @example
    * value-1
@@ -265,7 +265,7 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -275,7 +275,7 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * A client token. It is used to ensure the idempotence of the request. Generate a value that is unique among different requests. The `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
@@ -283,9 +283,9 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the compliance package.
+   * The ID of the compliance pack.
    * 
-   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * For more information, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
    * 
    * This parameter is required.
    * 
@@ -295,32 +295,32 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   compliancePackId?: string;
   /**
    * @remarks
-   * The name of the compliance package.
+   * The name of the compliance pack.
    * 
-   * For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * For more information, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
    * 
    * @example
-   * test-pack-name
+   * 等保三级预检合规包
    */
   compliancePackName?: string;
   /**
    * @remarks
-   * The rules in the compliance package.
+   * The rules in the compliance pack.
    * 
-   * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you set this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+   * If you leave this parameter empty when you modify the compliance pack, the existing rules are not changed. If you specify new rules, the new rules replace the existing ones.
    */
   configRules?: UpdateAggregateCompliancePackRequestConfigRules[];
   /**
    * @remarks
-   * The description of the compliance package.
+   * The description of the compliance pack.
    * 
    * @example
-   * Test compliance pack description.
+   * 基于等保2.0三级标准，提供持续检测合规性的建议模板，帮助您提前自检并修复问题，以便快速通过正式检测。
    */
   description?: string;
   /**
    * @remarks
-   * The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+   * The rules are not effective for resources in the specified regions. Resources in these regions are not evaluated. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-shanghai
@@ -328,7 +328,7 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+   * The rules are not effective for resources in the specified resource groups. Resources in these resource groups are not evaluated. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-bnczc6r7rml****
@@ -336,7 +336,7 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * The compliance pack is not effective for the specified resources. The specified resources are not evaluated. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * eip-8vbf3x310fn56ijfd****
@@ -344,12 +344,12 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * ExcludeTagsScope
+   * The excluded tag scope.
    */
   excludeTagsScope?: UpdateAggregateCompliancePackRequestExcludeTagsScope[];
   /**
    * @remarks
-   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * The compliance pack is effective only for resources in the specified regions. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-hangzhou
@@ -357,7 +357,7 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * The compliance pack is effective only for resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -365,7 +365,7 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * The rules are effective only for the specified resources. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * lb-5cmbowstbkss9ta03****
@@ -373,11 +373,13 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * The risk level of the compliance pack. Valid values:
    * 
-   * *   1: high risk level
-   * *   2: medium risk level
-   * *   3: low risk level
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -385,16 +387,16 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The tags of the resource.
+   * The tags of the resource. This parameter is deprecated and no longer takes effect.
    * 
-   * You can add up to 20 tags to a resource.
+   * You can add up to 20 tags.
    * 
    * @deprecated
    */
   tag?: UpdateAggregateCompliancePackRequestTag[];
   /**
    * @remarks
-   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * The compliance pack is effective only for resources that have the specified tag key.
    * 
    * @example
    * ECS
@@ -402,9 +404,9 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   tagKeyScope?: string;
   /**
    * @remarks
-   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * The compliance pack is effective only for resources that have the specified tag key and tag value.
    * 
-   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+   * > You must specify TagValueScope together with TagKeyScope.
    * 
    * @example
    * test
@@ -412,7 +414,7 @@ export class UpdateAggregateCompliancePackRequest extends $dara.Model {
   tagValueScope?: string;
   /**
    * @remarks
-   * TagsScope
+   * The tag scope.
    */
   tagsScope?: UpdateAggregateCompliancePackRequestTagsScope[];
   static names(): { [key: string]: string } {

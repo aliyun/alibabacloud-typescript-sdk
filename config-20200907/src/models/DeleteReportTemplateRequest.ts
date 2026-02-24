@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteReportTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the report template.
+   * 
    * This parameter is required.
    * 
    * @example

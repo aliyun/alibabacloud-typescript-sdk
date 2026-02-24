@@ -45,9 +45,8 @@ export class UpdateAggregateConfigRuleRequestExcludeTagsScope extends $dara.Mode
 export class UpdateAggregateConfigRuleRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys.
-   * 
-   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * The tag key of the resource.
+   * You can add up to 20 tag keys.
    * 
    * @example
    * key-1
@@ -55,11 +54,8 @@ export class UpdateAggregateConfigRuleRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag values.
-   * 
-   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
-   * 
-   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * The tag value of the resource.
+   * You can add up to 20 tag values.
    * 
    * @example
    * value-1
@@ -131,7 +127,9 @@ export class UpdateAggregateConfigRuleRequestTagsScope extends $dara.Model {
 export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the member accounts to which the rule applies, which means that the resources within the member accounts are evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * The rule applies only to resources of the specified member accounts. Separate multiple member account IDs with a comma (,).
+   * 
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * 115748125982****
@@ -141,7 +139,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information about how to query the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -151,17 +149,22 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token used to ensure the idempotence of the request. Make sure that the client token is unique for each request. The `ClientToken` can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
    */
   clientToken?: string;
   /**
+   * @example
+   * {"ComplianceConditions":"{\"operator\":\"and\",\"children\":[{\"operator\":\"StringEquals\",\"featurePath\":\"$.Status\",\"desired\":\"1\",\"featureSource\":\"CONFIGURATION\"}]}"}
+   */
+  conditions?: string;
+  /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
-   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
    * 
    * This parameter is required.
    * 
@@ -173,20 +176,21 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * @remarks
    * The name of the rule.
    * 
-   * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
    * 
    * @example
-   * test_rule
+   * 存在所有指定标签
    */
   configRuleName?: string;
   /**
    * @remarks
    * The trigger type of the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-   * *   ScheduledNotification: The rule is periodically triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
    * 
-   * >  This parameter applies only to a custom rule.
+   * - ScheduledNotification: The rule is triggered on a regular basis.
+   * 
+   * > You can modify this parameter only for custom rules.
    * 
    * @example
    * ConfigurationItemChangeNotification
@@ -197,14 +201,14 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * The description of the rule.
    * 
    * @example
-   * test_description
+   * 最多可以定义6组标签。如果资源同时具有指定的所有标签，则视为“合规”。
    */
   description?: string;
   /**
    * @remarks
-   * The IDs of the member accounts to which the rule does not apply, which means that the resources within the member accounts are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * The member accounts to exclude. The rule does not apply to resources of these member accounts. Separate multiple member account IDs with a comma (,).
    * 
-   * >  This parameter applies only to a managed rule.
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * 120886317861****
@@ -212,13 +216,11 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   excludeAccountIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resource directories to which the rule does not apply, which means that the resources within member accounts in the resource directories are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+   * The folders to exclude. The rule does not apply to resources of member accounts in these folders. Separate multiple folder IDs with a comma (,).
    * 
-   * > 
-   * 
-   * *   This parameter applies only to a rule of a global account group.
-   * 
-   * *   This parameter applies only to a managed rule.
+   * > - This parameter applies only to rules in a global account group.
+   * >
+   * > - This parameter applies only to rule templates.
    * 
    * @example
    * fd-pWmkqZ****
@@ -226,7 +228,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   excludeFolderIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+   * The regions to exclude. The rule does not apply to resources in these regions. Separate multiple region IDs with a comma (,).
    * 
    * @example
    * cn-shanghai
@@ -234,7 +236,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resource groups to which the rule not applies. Separate multiple resource group IDs with commas (,).
+   * The resource groups to exclude. The rule does not apply to resources in these resource groups. Separate multiple resource group IDs with a comma (,).
    * 
    * @example
    * rg-bnczc6r7rml****
@@ -242,9 +244,9 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resources excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * The resources to exclude. The rule does not apply to these resources. Separate multiple resource IDs with a comma (,).
    * 
-   * >  This parameter applies only to a managed rule.
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * lb-t4nbowvtbkss7t326****
@@ -252,18 +254,16 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * Exclude the specific tag scope of resources .
+   * The excluded tag scope.
    */
   excludeTagsScope?: UpdateAggregateConfigRuleRequestExcludeTagsScope[];
   /**
    * @remarks
-   * The IDs of the resource directories to which the rule applies, which means that the resources within member accounts in the resource directories are evaluated based on the rule.
+   * The rule applies only to resources of member accounts in the specified folders.
    * 
-   * > 
-   * 
-   * *   This parameter applies only to a rule of a global account group.
-   * 
-   * *   This parameter applies only to a managed rule.
+   * > - This parameter applies only to rules in a global account group.
+   * >
+   * > - This parameter applies only to rule templates.
    * 
    * @example
    * fd-ZtHsRH****
@@ -279,15 +279,19 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   inputParameters?: { [key: string]: any };
   /**
    * @remarks
-   * The interval at which the rule is triggered. Valid values:
+   * The frequency at which the rule is run. Valid values:
    * 
-   * *   One_Hour
-   * *   Three_Hours
-   * *   Six_Hours
-   * *   Twelve_Hours
-   * *   TwentyFour_Hours
+   * - One_Hour: 1 hour.
    * 
-   * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
+   * - Three_Hours: 3 hours.
+   * 
+   * - Six_Hours: 6 hours.
+   * 
+   * - Twelve_Hours: 12 hours.
+   * 
+   * - TwentyFour_Hours: 24 hours.
+   * 
+   * > This parameter is required if you set `ConfigRuleTriggerTypes` to `ScheduledNotification`.
    * 
    * @example
    * One_Hour
@@ -295,9 +299,9 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   maximumExecutionFrequency?: string;
   /**
    * @remarks
-   * The IDs of the regions to which the rule applies. Separate multiple region IDs with commas (,).
+   * The rule applies only to resources in the specified regions. Separate multiple region IDs with a comma (,).
    * 
-   * >  This parameter applies only to a managed rule.
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * cn-hangzhou
@@ -305,9 +309,9 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resource groups to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * The rule applies only to resources in the specified resource groups. Separate multiple resource group IDs with a comma (,).
    * 
-   * >  This parameter applies only to a managed rule.
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -315,7 +319,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * The rule applies only to the specified resources. Separate multiple resource IDs with a comma (,).
    * 
    * @example
    * lb-5cmbowstbkss9ta03****
@@ -323,7 +327,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The names of the resource to which the rule applies.
+   * The rule applies only to resources with the specified name.
    * 
    * @example
    * i-xxx
@@ -334,7 +338,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceNameScope?: string;
   /**
    * @remarks
-   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * The resource types that the rule evaluates. Separate multiple resource types with a comma (,).
    * 
    * @example
    * ACS::ECS::Instance
@@ -342,11 +346,13 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceTypesScope?: string[];
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 3
@@ -354,24 +360,24 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The tags of the resource.
+   * The tags of the resource. This input parameter is deprecated and is ignored if specified.
    * 
-   * You can add up to 20 tags to a resource.
+   * A maximum of 20 tags can be attached.
    * 
    * @deprecated
    */
   tag?: UpdateAggregateConfigRuleRequestTag[];
   /**
    * @remarks
-   * The logical relationship when parameter `TagsScope` takes multiple values, for example: When the parameter `TagsScope` is `"TagsScope.1.TagKey":"a", "TagsScope.1.TagValue":"a", "TagsScope.2.TagKey":"b", "TagsScope.2.TagValue":"b"`, if this parameter is set to` AND`, it means that the rule only applies to resources bound with both tags `a:a` and `b:b`. If not specified, the default logic is `OR`.
+   * The logical relationship for multiple tags in the `TagsScope` parameter. For example, if you set the `TagsScope` parameter to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. If you do not set this parameter, the default value is `OR`.
    * 
-   * It can also be used for the deprecated field `TagKeyScope` (not recommended), for example: When the parameter `TagKeyScope` has a value of `ECS`,`OSS`, if this parameter is set to `AND`, it means that the rule only applies to resources bound with both labels `ECS` and `OSS`.
+   * This parameter also works with the deprecated `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
    * 
-   * Values:
+   * Valid values:
    * 
-   *  - AND: And.
+   * - AND
    * 
-   *  - OR: Or.
+   * - OR
    * 
    * @example
    * AND
@@ -379,11 +385,11 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   tagKeyLogicScope?: string;
   /**
    * @remarks
-   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * The rule applies only to resources that have the specified tag.
    * 
-   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * > This parameter applies only to rule templates. You must specify both `TagKeyScope` and `TagValueScope`.
    * 
    * @example
    * ECS
@@ -393,11 +399,11 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   tagKeyScope?: string;
   /**
    * @remarks
-   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * The rule applies only to resources that have the specified tag.
    * 
-   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * > This parameter applies only to rule templates. You must specify both `TagKeyScope` and `TagValueScope`.
    * 
    * @example
    * test
@@ -407,7 +413,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   tagValueScope?: string;
   /**
    * @remarks
-   * The valid tag scope of resources.
+   * The tag scope.
    */
   tagsScope?: UpdateAggregateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -415,6 +421,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
       accountIdsScope: 'AccountIdsScope',
       aggregatorId: 'AggregatorId',
       clientToken: 'ClientToken',
+      conditions: 'Conditions',
       configRuleId: 'ConfigRuleId',
       configRuleName: 'ConfigRuleName',
       configRuleTriggerTypes: 'ConfigRuleTriggerTypes',
@@ -447,6 +454,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
       accountIdsScope: 'string',
       aggregatorId: 'string',
       clientToken: 'string',
+      conditions: 'string',
       configRuleId: 'string',
       configRuleName: 'string',
       configRuleTriggerTypes: 'string',

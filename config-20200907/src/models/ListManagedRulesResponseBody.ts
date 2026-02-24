@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListManagedRulesResponseBodyManagedRulesManagedRuleListScope extends $dara.Model {
   /**
    * @remarks
-   * The types of resources to which the managed rule applies.
+   * The types of resources that are evaluated based on the rule template.
    */
   complianceResourceTypes?: string[];
   static names(): { [key: string]: string } {
@@ -35,23 +35,23 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleListScope extend
 export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $dara.Model {
   /**
    * @remarks
-   * The name of the managed rule.
+   * The name of the rule template.
    * 
    * @example
-   * test-rule-name
+   * CDN域名开启HTTPS加密
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The description of the managed rule.
+   * The description of the rule template.
    * 
    * @example
-   * The description of the test rule.
+   * CDN域名开启HTTPS协议加密，视为“合规”。
    */
   description?: string;
   /**
    * @remarks
-   * The URL of the topic that describes how the managed rule remediates the incompliant configurations.
+   * The URL of the document that provides remediation guidance.
    * 
    * @example
    * https://example.aliyundoc.com
@@ -59,7 +59,7 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $da
   helpUrls?: string;
   /**
    * @remarks
-   * The unique identifier of the managed rule.
+   * The unique identifier of the rule template.
    * 
    * @example
    * cdn-domain-https-enabled
@@ -67,12 +67,12 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $da
   identifier?: string;
   /**
    * @remarks
-   * The classification description of the managed rule.
+   * The list of labels of the rule template.
    */
   labels?: string[];
   /**
    * @remarks
-   * The ID of the remediation template.
+   * The identifier of the supported remediation template.
    * 
    * @example
    * ACS-CDN-SetDomainServerCertificate
@@ -80,19 +80,21 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $da
   remediationTemplateIdentifier?: string;
   /**
    * @remarks
-   * The name of the remediation template.
+   * The name of the supported remediation template.
    * 
    * @example
-   * Configure encryption rules for OSS buckets
+   * 开启CDN域名HTTPS监听
    */
   remediationTemplateName?: string;
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high
+   * 
+   * - 2: medium
+   * 
+   * - 3: low
    * 
    * @example
    * 1
@@ -100,15 +102,16 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $da
   riskLevel?: number;
   /**
    * @remarks
-   * The effective scope of the managed rule.
+   * The effective scope of the rule template.
    */
   scope?: ListManagedRulesResponseBodyManagedRulesManagedRuleListScope;
   /**
    * @remarks
-   * Indicates whether precheck is supported. Valid values:
+   * Indicates whether the rule supports dry runs. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The rule supports dry runs.
+   * 
+   * - false: The rule does not support dry runs.
    * 
    * @example
    * true
@@ -162,14 +165,14 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $da
 export class ListManagedRulesResponseBodyManagedRules extends $dara.Model {
   /**
    * @remarks
-   * The details of the managed rule.
+   * The details of the rule templates.
    */
   managedRuleList?: ListManagedRulesResponseBodyManagedRulesManagedRuleList[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
-   * Page start from page 1.
+   * The value must be greater than or equal to 1.
    * 
    * @example
    * 10
@@ -185,10 +188,10 @@ export class ListManagedRulesResponseBodyManagedRules extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of rule templates.
    * 
    * @example
-   * 1
+   * 21
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -224,12 +227,12 @@ export class ListManagedRulesResponseBodyManagedRules extends $dara.Model {
 export class ListManagedRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The managed rules.
+   * The rule templates.
    */
   managedRules?: ListManagedRulesResponseBodyManagedRules;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B3E605AB-63D5-1EE0-BFA6-0BAC247B0461

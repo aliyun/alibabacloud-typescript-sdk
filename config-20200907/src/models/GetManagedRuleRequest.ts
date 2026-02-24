@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagedRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the managed rule.
+   * The identifier of the rule template.
    * 
-   * For more information about how to obtain the identifier of a managed rule, see [ListManagedRules](https://help.aliyun.com/document_detail/421144.html).
+   * For more information about how to obtain the rule template identifier, see [ListManagedRules](https://help.aliyun.com/document_detail/421144.html).
    * 
    * This parameter is required.
    * 

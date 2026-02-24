@@ -17,7 +17,7 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The compliance package ID.
+   * The ID of the compliance package.
    * 
    * @example
    * cp-fe416457e0d90022****
@@ -27,10 +27,13 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The compliance evaluation result. Valid values:
    * 
-   * *   COMPLIANT: The resources are evaluated as compliant.
-   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to the resources.
-   * *   INSUFFICIENT_DATA: No data is available.
+   * - COMPLIANT: The resource is compliant.
+   * 
+   * - NON_COMPLIANT: The resource is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
    * 
    * @example
    * COMPLIANT
@@ -41,17 +44,20 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
    * The name of the rule.
    * 
    * @example
-   * test-rule-name
+   * The name of the rule.
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The state of the rule. Valid values:
    * 
-   * *   ACTIVE: The rule is being used to monitor resource configurations.
-   * *   DELETING: The rule is being deleted.
-   * *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
-   * *   INACTIVE: The rule is disabled.
+   * - ACTIVE: The rule is enabled.
+   * 
+   * - DELETING: The rule is being deleted.
+   * 
+   * - EVALUATING: The rule is being evaluated.
+   * 
+   * - INACTIVE: The rule is disabled.
    * 
    * @example
    * ACTIVE
@@ -59,9 +65,9 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
   configRuleState?: string;
   /**
    * @remarks
-   * The keyword that is used for queries.
+   * The keyword for a fuzzy query.
    * 
-   * You can perform a fuzzy search by rule ID, rule name, rule description, or managed rule ID.
+   * The keyword can be a rule ID, rule name, rule description, or rule template identifier.
    * 
    * @example
    * ecs
@@ -71,7 +77,7 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Pages start from page 1. Default value: 1
+   * Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -79,9 +85,9 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
-   * Valid values: 1 to 100. Minimum value: 1. Default value: 10
+   * Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -89,7 +95,7 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource type for the rule to evaluate.
+   * The resource type to be evaluated by the rule.
    * 
    * @example
    * ACS::ECS::Instance
@@ -97,22 +103,31 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
   resourceTypes?: string;
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * - 1: high
+   * 
+   * - 2: medium
+   * 
+   * - 3: low
    * 
    * @example
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The method that is used to sort the rules. By default, this parameter is not specified. Set the value to `CreateDate-Desc` to sort the rules in descending order of their creation time.
+   * 
+   * @example
+   * CreateDate-Desc
+   */
   sortBy?: string;
   /**
    * @remarks
    * The tags of the resource.
    * 
-   * You can add up to 20 tags to a resource.
+   * You can add a maximum of 20 tags.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

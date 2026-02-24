@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggregateCompliancePacksRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys.
-   * 
-   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * The tag key.
    * 
    * @example
    * key-1
@@ -15,11 +13,7 @@ export class ListAggregateCompliancePacksRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag values.
-   * 
-   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
-   * 
-   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * The tag value.
    * 
    * @example
    * value-1
@@ -63,9 +57,9 @@ export class ListAggregateCompliancePacksRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -75,19 +69,33 @@ export class ListAggregateCompliancePacksRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * Valid values: 1 to 100. Default value: 10.
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The risk level of the compliance pack. Valid values:
+   * 
+   * - 1: high
+   * 
+   * - 2: medium
+   * 
+   * - 3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   /**
    * @remarks
-   * The status of the one or more compliance packages to be queried. Valid values:
+   * The status of the compliance pack. Valid values:
    * 
-   * *   ACTIVE: compliance packages that are available for use.
-   * *   CREATING: compliance packages that are being created.
+   * - ACTIVE: The compliance pack is active.
+   * 
+   * - CREATING: The compliance pack is being created.
    * 
    * @example
    * ACTIVE
@@ -95,7 +103,9 @@ export class ListAggregateCompliancePacksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
    */
   tag?: ListAggregateCompliancePacksRequestTag[];
   static names(): { [key: string]: string } {

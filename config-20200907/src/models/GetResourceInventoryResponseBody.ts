@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceInventoryResponseBodyResourceInventory extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the resource inventory.
+   * The download URL of the global resource inventory.
    */
   downloadUrl?: string;
   /**
    * @remarks
-   * The time when the resource inventory was generated. The value is a timestamp.
+   * The UNIX timestamp when the inventory started to be generated.
    * 
    * @example
    * 1687674634220
@@ -18,10 +18,11 @@ export class GetResourceInventoryResponseBodyResourceInventory extends $dara.Mod
   resourceInventoryGenerateTime?: number;
   /**
    * @remarks
-   * The generation status of the resource inventory. Valid values:
+   * The generation status of the inventory. Valid values:
    * 
-   * *   CREATING: The resource inventory is being generated.
-   * *   COMPLETE: The resource inventory is generated.
+   * - CREATING: The inventory is being generated.
+   * 
+   * - COMPLETE: The inventory is generated.
    * 
    * @example
    * COMPLETE
@@ -63,7 +64,7 @@ export class GetResourceInventoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the resource inventory.
+   * The information about the global resource inventory.
    */
   resourceInventory?: GetResourceInventoryResponseBodyResourceInventory;
   static names(): { [key: string]: string } {

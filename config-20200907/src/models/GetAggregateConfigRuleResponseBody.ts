@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregateConfigRuleResponseBodyConfigRuleCompliance extends $dara.Model {
   /**
    * @remarks
-   * The statistics on the compliance evaluation results by compliance type. Valid values:
+   * The compliance evaluation result. Valid values:
    * 
-   * *   COMPLIANT: The resources are evaluated as compliant.
-   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to your resources.
-   * *   INSUFFICIENT_DATA: No resource data is available.
+   * - COMPLIANT: The resource is compliant.
+   * 
+   * - NON_COMPLIANT: The resource is not compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
    * 
    * @example
    * NON_COMPLIANT
@@ -18,7 +21,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCompliance extends $dar
   complianceType?: string;
   /**
    * @remarks
-   * The number of evaluated resources.
+   * The number of resources that have the corresponding compliance evaluation result.
    * 
    * @example
    * 3
@@ -50,7 +53,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCompliance extends $dar
 export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the rule was first triggered.
+   * The timestamp when the rule was first activated.
    * 
    * @example
    * 1624932221993
@@ -58,10 +61,11 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
   firstActivatedTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether resources were evaluated based on the rule. Valid values:
+   * Indicates whether the rule has been evaluated. Valid values:
    * 
-   * *   true: Resources were evaluated based on the rule.
-   * *   false: Resources were not evaluated based on the rule.
+   * - true: The rule has been evaluated.
+   * 
+   * - false: The rule has not been evaluated.
    * 
    * @example
    * true
@@ -69,7 +73,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
   firstEvaluationStarted?: boolean;
   /**
    * @remarks
-   * The error code returned for the last failed compliance evaluation.
+   * The error code returned for the last failed execution of the rule.
    * 
    * @example
    * TimeOut
@@ -77,7 +81,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
   lastErrorCode?: string;
   /**
    * @remarks
-   * The error message returned for the last failed compliance evaluation.
+   * The error message returned for the last failed execution of the rule.
    * 
    * @example
    * time out
@@ -85,7 +89,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
   lastErrorMessage?: string;
   /**
    * @remarks
-   * The timestamp when the last failed compliance evaluation of the rule ended. Unit: milliseconds.
+   * The timestamp of the last failed evaluation. Unit: milliseconds.
    * 
    * @example
    * 1614687022000
@@ -93,7 +97,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
   lastFailedEvaluationTimestamp?: number;
   /**
    * @remarks
-   * The timestamp when the last failed compliance evaluation of the rule started. Unit: milliseconds.
+   * The timestamp of the last failed invocation. Unit: milliseconds.
    * 
    * @example
    * 1614687022000
@@ -101,7 +105,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
   lastFailedInvocationTimestamp?: number;
   /**
    * @remarks
-   * The timestamp when the last successful compliance evaluation of the rule ended. Unit: milliseconds.
+   * The timestamp of the last successful evaluation. Unit: milliseconds.
    * 
    * @example
    * 1624932227486
@@ -109,7 +113,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
   lastSuccessfulEvaluationTimestamp?: number;
   /**
    * @remarks
-   * The timestamp when the last successful compliance evaluation of the rule started. Unit: milliseconds.
+   * The timestamp of the last successful invocation. Unit: milliseconds.
    * 
    * @example
    * 1624932227476
@@ -180,12 +184,12 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCreateBy extends $dara.
    * The name of the compliance package.
    * 
    * @example
-   * The name of the compliance package.
+   * OSS合规基线
    */
   compliancePackName?: string;
   /**
    * @remarks
-   * The ID of the account that was used to create the rule.
+   * The ID of the account that created the rule.
    * 
    * @example
    * 100931896542****
@@ -193,7 +197,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCreateBy extends $dara.
   creatorId?: string;
   /**
    * @remarks
-   * The name of the account that was used to create the rule.
+   * The name of the rule creator.
    * 
    * @example
    * Alice
@@ -201,7 +205,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCreateBy extends $dara.
   creatorName?: string;
   /**
    * @remarks
-   * The type of the entity to which the rule belongs. The value is fixed to `AGGREGATOR`, which indicates an account group.
+   * The type of the rule creator. Only `AGGREGATOR` (account group) is supported.
    * 
    * @example
    * AGGREGATOR
@@ -243,7 +247,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCreateBy extends $dara.
 export class GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key-2
@@ -251,7 +255,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope extend
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * value-2
@@ -283,9 +287,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope extend
 export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails extends $dara.Model {
   /**
    * @remarks
-   * The event source of the managed rule.
+   * The event source.
    * 
-   * >  Only events related to Cloud Config are supported. The value is fixed to aliyun.config.
+   * > Only Cloud Config events are supported: aliyun.config.
    * 
    * @example
    * aliyun.config
@@ -293,13 +297,17 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetail
   eventSource?: string;
   /**
    * @remarks
-   * The intervals at which the managed rule is triggered. Valid values:
+   * The frequency at which the rule is executed.
    * 
-   * *   One_Hour: 1 hour.
-   * *   Three_Hours: 3 hours.
-   * *   Six_Hours: 6 hours.
-   * *   Twelve_Hours: 12 hours
-   * *   TwentyFour_Hours: 24 hours
+   * - One_Hour: 1 hour.
+   * 
+   * - Three_Hours: 3 hours.
+   * 
+   * - Six_Hours: 6 hours.
+   * 
+   * - Twelve_Hours: 12 hours.
+   * 
+   * - TwentyFour_Hours: 24 hours.
    * 
    * @example
    * One_Hour
@@ -309,8 +317,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetail
    * @remarks
    * The trigger type of the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
-   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * 
+   * - ScheduledNotification: The rule is triggered periodically.
    * 
    * @example
    * ConfigurationItemChangeNotification
@@ -344,7 +353,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetail
 export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $dara.Model {
   /**
    * @remarks
-   * The required input parameters of the managed rule.
+   * The details of the required input parameters for the managed rule.
    * 
    * @example
    * {}
@@ -355,7 +364,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $da
    * The description of the managed rule.
    * 
    * @example
-   * The description of the managed rule.
+   * ECS磁盘未因欠费或安全等原因而被锁定，视为“合规”。
    */
   description?: string;
   /**
@@ -368,7 +377,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $da
   identifier?: string;
   /**
    * @remarks
-   * The tags of the managed rule.
+   * A list of labels for the managed rule.
    */
   labels?: string[];
   /**
@@ -376,12 +385,12 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $da
    * The name of the managed rule.
    * 
    * @example
-   * ram-user-mfa-check
+   * RAM用户开启MFA
    */
   managedRuleName?: string;
   /**
    * @remarks
-   * The optional input parameters of the managed rule.
+   * The details of the optional input parameters for the managed rule.
    * 
    * @example
    * {}
@@ -389,7 +398,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $da
   optionalInputParameterDetails?: { [key: string]: any };
   /**
    * @remarks
-   * The details of the source of the managed rule.
+   * The details of the managed rule source.
    */
   sourceDetails?: GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails[];
   static names(): { [key: string]: string } {
@@ -440,9 +449,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $da
 export class GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails extends $dara.Model {
   /**
    * @remarks
-   * The event source of the managed rule.
+   * The event source.
    * 
-   * >  Only events related to Cloud Config are supported. The value is fixed to aliyun.config.
+   * > Only Cloud Config events are supported: aliyun.config.
    * 
    * @example
    * aliyun.config
@@ -450,13 +459,17 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails ext
   eventSource?: string;
   /**
    * @remarks
-   * The intervals at which the managed rule is triggered. Valid values:
+   * The frequency at which the rule is executed. Valid values:
    * 
-   * *   One_Hour: 1 hour.
-   * *   Three_Hours: 3 hours.
-   * *   Six_Hours: 6 hours.
-   * *   Twelve_Hours: 12 hours
-   * *   TwentyFour_Hours: 24 hours
+   * - One_Hour: 1 hour.
+   * 
+   * - Three_Hours: 3 hours.
+   * 
+   * - Six_Hours: 6 hours.
+   * 
+   * - Twelve_Hours: 12 hours.
+   * 
+   * - TwentyFour_Hours: 24 hours.
    * 
    * @example
    * One_Hour
@@ -466,8 +479,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails ext
    * @remarks
    * The trigger type of the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
-   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * 
+   * - ScheduledNotification: The rule is triggered periodically.
    * 
    * @example
    * ConfigurationItemChangeNotification
@@ -503,8 +517,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $dara.Mo
    * @remarks
    * The identifier of the rule.
    * 
-   * *   If the rule was created based on a managed rule, the value of this parameter is the name of the managed rule.
-   * *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+   * - If the rule is a managed rule, the value of this parameter is the identifier of the managed rule.
+   * 
+   * - If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the function.
    * 
    * @example
    * acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/specific-config
@@ -512,10 +527,11 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $dara.Mo
   identifier?: string;
   /**
    * @remarks
-   * The way in which the rule was created. Valid values:
+   * The owner of the rule. Valid values:
    * 
-   * *   CUSTOM_FC: The rule is a custom rule.
-   * *   ALIYUN: The rule was created based on a managed rule of Alibaba Cloud.
+   * - CUSTOM_FC: a custom rule.
+   * 
+   * - ALIYUN: a managed rule.
    * 
    * @example
    * ALIYUN
@@ -523,7 +539,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $dara.Mo
   owner?: string;
   /**
    * @remarks
-   * The details of the source of the rule.
+   * The details of the rule source.
    */
   sourceDetails?: GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails[];
   static names(): { [key: string]: string } {
@@ -597,7 +613,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleTags extends $dara.Mode
 export class GetAggregateConfigRuleResponseBodyConfigRuleTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key-1
@@ -605,7 +621,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleTagsScope extends $dara
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * value-1
@@ -645,7 +661,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * The IDs of the members to which the rule applies. Separate multiple member IDs with commas (,).
+   * The rule applies only to resources in the specified member accounts. Separate multiple member account IDs with a comma (,).
    * 
    * @example
    * 120886317861****
@@ -653,12 +669,12 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   accountIdsScope?: string;
   /**
    * @remarks
-   * The details of compliance evaluation results.
+   * The compliance statistics of the rule.
    */
   compliance?: GetAggregateConfigRuleResponseBodyConfigRuleCompliance;
   /**
    * @remarks
-   * The ARN of the managed rule.
+   * The ARN of the rule.
    * 
    * @example
    * acs:config::100931896542****:rule/cr-7f7d626622af0041****
@@ -666,12 +682,12 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   configRuleArn?: string;
   /**
    * @remarks
-   * The information about compliance evaluations performed by the rule.
+   * The execution status of the rule.
    */
   configRuleEvaluationStatus?: GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * cr-7f7d626622af0041****
@@ -679,20 +695,23 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The name of the monitoring rule.
+   * The name of the rule.
    * 
    * @example
-   * The name of the rule.
+   * RAM用户开启MFA
    */
   configRuleName?: string;
   /**
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   ACTIVE: The rule is being used to monitor resource configurations.
-   * *   DELETING: The rule is being deleted.
-   * *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
-   * *   INACTIVE: The rule is disabled and is no longer used to monitor resource configurations.
+   * - ACTIVE: The rule is enabled.
+   * 
+   * - DELETING: The rule is being deleted.
+   * 
+   * - EVALUATING: The rule is being evaluated.
+   * 
+   * - INACTIVE: The rule is disabled.
    * 
    * @example
    * ACTIVE
@@ -702,8 +721,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
    * @remarks
    * The trigger type of the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
-   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * 
+   * - ScheduledNotification: The rule is triggered periodically.
    * 
    * @example
    * ConfigurationItemChangeNotification
@@ -711,7 +731,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   configRuleTriggerTypes?: string;
   /**
    * @remarks
-   * The information about the creation of the rule.
+   * The information about the creator of the rule.
    */
   createBy?: GetAggregateConfigRuleResponseBodyConfigRuleCreateBy;
   /**
@@ -724,17 +744,15 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The description of the managed rule.
+   * The description of the rule.
    * 
    * @example
-   * The description of the managed rule.
+   * RAM用户开启MFA，视为“合规”。
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule.
-   * 
-   * >  This parameter applies only to a managed rule.
+   * The rule does not apply to resources in the specified member accounts. The system does not evaluate resources in these accounts.
    * 
    * @example
    * 120886317861****
@@ -742,11 +760,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   excludeAccountIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule.
-   * 
-   * > 
-   * *   This parameter applies only to a rule of a global account group.
-   * *   This parameter applies only to a managed rule.
+   * The rule does not apply to resources within the member accounts in the specified folders of the resource directory. The system does not evaluate resources in these folders.
    * 
    * @example
    * fd-pWmkqZ****
@@ -754,7 +768,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   excludeFolderIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the regions excluded from the compliance evaluations performed by the rule. Separate multiple region IDs with commas (,).
+   * The rule does not apply to resources in the specified regions. The system does not evaluate resources in these regions. Separate multiple region IDs with a comma (,).
    * 
    * @example
    * cn-hangzhou
@@ -762,7 +776,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resource groups excluded from the compliance evaluations performed by the rule. Separate multiple resource group IDs with commas (,).
+   * The rule does not apply to resources in the specified resource groups. The system does not evaluate resources in these resource groups. Separate multiple resource group IDs with a comma (,).
    * 
    * @example
    * rg-aekzdibsjjc****
@@ -770,7 +784,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource excluded from the compliance evaluations performed by the rule.
+   * The IDs of the resources that are not evaluated by the rule.
    * 
    * @example
    * 23642660635687****
@@ -778,12 +792,12 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * The scope of the tag that is excluded.
+   * The excluded scope of the tags.
    */
   excludeTagsScope?: GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope[];
   /**
    * @remarks
-   * The extended content, which is temporarily only used to configure the trigger time with a 24-hour cycle trigger.
+   * The extended content. This parameter is used to configure the trigger time for a rule that is triggered on a 24-hour cycle.
    * 
    * @example
    * {"fixedHour":"12"}
@@ -791,11 +805,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   extendContent?: string;
   /**
    * @remarks
-   * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
-   * 
-   * > 
-   * *   This parameter applies only to rules of a global account group.
-   * *   This parameter applies only to managed rules.
+   * The rule applies only to resources within the member accounts in the specified folders of the resource directory.
    * 
    * @example
    * fd-ZtHsRH****
@@ -816,13 +826,17 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   managedRule?: GetAggregateConfigRuleResponseBodyConfigRuleManagedRule;
   /**
    * @remarks
-   * The intervals at which the managed rule is triggered. Valid values:
+   * The frequency at which the rule is executed.
    * 
-   * *   One_Hour: 1 hour.
-   * *   Three_Hours: 3 hours.
-   * *   Six_Hours: 6 hours.
-   * *   Twelve_Hours: 12 hours
-   * *   TwentyFour_Hours: 24 hours
+   * - One_Hour: 1 hour.
+   * 
+   * - Three_Hours: 3 hours.
+   * 
+   * - Six_Hours: 6 hours.
+   * 
+   * - Twelve_Hours: 12 hours.
+   * 
+   * - TwentyFour_Hours: 24 hours.
    * 
    * @example
    * One_Hour
@@ -838,7 +852,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   modifiedTimestamp?: number;
   /**
    * @remarks
-   * The ID of the region to which the rule applies.
+   * The rule applies only to resources in the specified regions.
    * 
    * @example
    * global
@@ -846,7 +860,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the rule applies.
+   * The rule applies only to resources in the specified resource groups.
    * 
    * @example
    * rg-aekzdibsjjc****
@@ -854,7 +868,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
+   * The rule applies only to the specified resources. Separate multiple resource IDs with a comma (,).
    * 
    * @example
    * eip-8vbf3x310fn56ijfd****
@@ -862,7 +876,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The names of the resource to which the rule applies.
+   * The rule applies only to resources that have the specified names.
    * 
    * @example
    * i-xxx
@@ -873,7 +887,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   resourceNameScope?: string;
   /**
    * @remarks
-   * The type of the resource evaluated by the rule.
+   * The resource types that are evaluated by the rule.
    * 
    * @example
    * ACS::RAM::User
@@ -881,11 +895,13 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   resourceTypesScope?: string;
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high risk level
-   * *   2: medium risk level
-   * *   3: low risk level
+   * - 1: high
+   * 
+   * - 2: medium
+   * 
+   * - 3: low
    * 
    * @example
    * 1
@@ -893,20 +909,20 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The information about how the rule was created.
+   * The source of the rule.
    */
   source?: GetAggregateConfigRuleResponseBodyConfigRuleSource;
   /**
    * @remarks
-   * When retrieving details of rules created using the parameter `TagsScope`, this field will not be returned.
+   * This parameter is not returned for rules that are created using the `TagsScope` parameter.
    * 
-   * To retrieve rules created using the deprecated field `TagKeyScope` (not recommended): for example, when the parameter `TagKeyScope` has a value of ECS,OSS, if this parameter is set to `AND`, it means that the rule only applies to resources bound with both labels ECS and OSS.
+   * This parameter is returned only for rules that are created using the deprecated `TagKeyScope` parameter. For example, if `TagKeyScope` is set to `ECS,OSS` and this parameter is set to `AND`, the rule applies to resources that have both the `ECS` and `OSS` tags.
    * 
-   * Values:
+   * Valid values:
    * 
-   *  - AND: And.
+   * - AND
    * 
-   *  - OR: Or.
+   * - OR
    * 
    * @example
    * AND
@@ -914,9 +930,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   tagKeyLogicScope?: string;
   /**
    * @remarks
-   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * The rule applies only to resources that have the specified tag key.
    * 
    * @example
    * RAM
@@ -926,9 +942,9 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   tagKeyScope?: string;
   /**
    * @remarks
-   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+   * The rule applies only to resources that have the specified tag value.
    * 
    * @example
    * MFA
@@ -938,12 +954,12 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   tagValueScope?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The resource tags.
    */
   tags?: GetAggregateConfigRuleResponseBodyConfigRuleTags[];
   /**
    * @remarks
-   * The tag scope.
+   * The scope of the tags.
    */
   tagsScope?: GetAggregateConfigRuleResponseBodyConfigRuleTagsScope[];
   static names(): { [key: string]: string } {
@@ -1067,12 +1083,12 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
 export class GetAggregateConfigRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the rules.
+   * The details of the rule.
    */
   configRule?: GetAggregateConfigRuleResponseBodyConfigRule;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 811234F4-C3AB-4D15-B90B-F55016D1B5AA

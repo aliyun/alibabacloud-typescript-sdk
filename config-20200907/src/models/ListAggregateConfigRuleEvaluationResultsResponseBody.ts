@@ -13,7 +13,7 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   compliancePackId?: string;
   /**
    * @remarks
-   * The ARN of the rule.
+   * The Alibaba Cloud Resource Name (ARN) of the rule.
    * 
    * @example
    * acs:config::100931896542****:rule/cr-888f626622af00ae****
@@ -29,17 +29,17 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   configRuleId?: string;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
-   * test-rule-name
+   * OSS存储空间开启同城冗余存储
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The date on which the system automatically re-evaluates the ignored incompliant resources.
+   * The date when the ignored evaluation result is automatically restored.
    * 
-   * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * > If this parameter is empty, the result is not automatically restored. You must manually restore it.
    * 
    * @example
    * 2022-06-01
@@ -47,7 +47,7 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   ignoreDate?: string;
   /**
    * @remarks
-   * The ID of the region in which your resources reside.
+   * The ID of the region to which the resource belongs.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,12 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   regionId?: string;
   /**
    * @remarks
+   * The ID of the resource group to which the resource belongs.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rg-acfm26cicib****
    * 
    * **if can be null:**
    * true
@@ -87,7 +92,7 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * ACS::OSS::Bucket
@@ -137,14 +142,14 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $dara.Model {
   /**
    * @remarks
-   * The information about the evaluated resource in the compliance evaluation result.
+   * The information about the resource that is evaluated.
    */
   evaluationResultQualifier?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
   /**
    * @remarks
-   * The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+   * The timestamp that is displayed on the timeline. Unit: milliseconds.
    * 
-   * >  This timestamp indicates the time when the rule was triggered. You can obtain the timestamp from the `ConfigRuleInvokedTimestamp` parameter.
+   * > This is the timestamp when the rule was triggered to evaluate the resource. It is the same as the value of the `ConfigRuleInvokedTimestamp` parameter.
    * 
    * @example
    * 1624869012713
@@ -179,13 +184,17 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList extends $dara.Model {
   /**
    * @remarks
-   * The annotation to the resource that is evaluated as non-compliant. The following parameters may be returned:
+   * The annotation of the non-compliant resource. The annotation may include the following information:
    * 
-   * *   `configuration`: the current resource configuration that is evaluated as incompliant by using the rule.
-   * *   `desiredValue`: the expected resource configuration that is evaluated as compliant.
-   * *   `operator`: the operator that compares the current configuration with the expected configuration of the resource.
-   * *   `property`: the JSON path of the current configuration in the resource property struct.
-   * *   `reason`: the reason why the resource is evaluated as non-compliant.
+   * - `configuration`: the current configuration of the resource, which is the non-compliant configuration.
+   * 
+   * - `desiredValue`: the expected configuration of the resource, which is the compliant configuration.
+   * 
+   * - `operator`: the comparison operator that is used to compare the current configuration with the expected configuration.
+   * 
+   * - `property`: the JSON path of the current configuration in the resource property struct.
+   * 
+   * - `reason`: the reason why the resource is non-compliant.
    * 
    * @example
    * {\\"configuration\\":\\"LRS\\",\\"desiredValue\\":\\"ZRS\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.DataRedundancyType\\"}
@@ -193,13 +202,17 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   annotation?: string;
   /**
    * @remarks
-   * The compliance evaluation result of the resource. Valid values:
+   * The compliance evaluation result. Valid values:
    * 
-   * *   COMPLIANT: The resource is evaluated as compliant.
-   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to your resource.
-   * *   INSUFFICIENT_DATA: No data is available.
-   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * - COMPLIANT: The resource is compliant.
+   * 
+   * - NON_COMPLIANT: The resource is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
+   * 
+   * - INSUFFICIENT_DATA: No data is available.
+   * 
+   * - IGNORED: The evaluation result is ignored.
    * 
    * @example
    * NON_COMPLIANT
@@ -207,52 +220,63 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   complianceType?: string;
   /**
    * @remarks
-   * The timestamp when the rule was triggered for the compliance evaluation. Unit: milliseconds.
+   * The timestamp when the rule was triggered to evaluate the resource. Unit: milliseconds.
    * 
    * @example
    * 1624869012713
    */
   configRuleInvokedTimestamp?: number;
   /**
+   * @remarks
+   * The unique ID of the evaluation result.
+   * 
    * @example
    * 00000089-4e0d-58b5-a96a-8e54112110f3
    */
   evaluationId?: string;
   /**
    * @remarks
-   * The identifying information about the compliance evaluation result.
+   * The identifier of the evaluation result.
    */
   evaluationResultIdentifier?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
   /**
    * @remarks
    * The trigger type of the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-   * *   ScheduledNotification: The rule is periodically triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by a configuration change.
+   * 
+   * - ScheduledNotification: The rule is triggered periodically.
    * 
    * @example
    * ScheduledNotification
    */
   invokingEventMessageType?: string;
   /**
+   * @remarks
+   * The timestamp when the resource was last remediated to a compliant state. This parameter is not returned if a new resource or rule is evaluated as compliant for the first time.
+   * 
    * @example
-   * 1768788515725
+   * 1768788515723
    * 
    * **if can be null:**
    * false
    */
   lastCompliantFixedTimestamp?: number;
   /**
+   * @remarks
+   * The timestamp when the resource last became non-compliant.
+   * 
    * @example
    * 1744696393000
    */
   lastNonCompliantRecordTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether the remediation template is enabled. Valid values:
+   * Indicates whether the remediation setting is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The remediation setting is enabled.
+   * 
+   * - false: The remediation setting is not enabled.
    * 
    * @example
    * false
@@ -260,7 +284,7 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   remediationEnabled?: boolean;
   /**
    * @remarks
-   * The timestamp when the compliance evaluation result was recorded. The value of this parameter is a UNIX timestamp in milliseconds.
+   * The timestamp when the evaluation result was recorded. Unit: milliseconds.
    * 
    * @example
    * 1624869013065
@@ -268,11 +292,13 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   resultRecordedTimestamp?: number;
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high
-   * *   2: medium.
-   * *   3: low.
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -325,12 +351,12 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResults extends $dara.Model {
   /**
    * @remarks
-   * The details of the compliance evaluation result.
+   * A list of evaluation results.
    */
   evaluationResultList?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList[];
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 10
@@ -338,7 +364,7 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -375,7 +401,7 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 export class ListAggregateConfigRuleEvaluationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the compliance evaluation results returned.
+   * The collection of evaluation results.
    */
   evaluationResults?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResults;
   /**

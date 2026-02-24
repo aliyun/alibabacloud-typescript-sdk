@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the rule.
+   * The ARN of the rule.
    * 
    * @example
    * acs:config::100931896542****:rule/cr-7f7d626622af0041****
@@ -13,7 +13,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   configRuleArn?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * cr-7f7d626622af0041****
@@ -21,17 +21,17 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   configRuleId?: string;
   /**
    * @remarks
-   * The name of the monitoring rule.
+   * The rule name.
    * 
    * @example
-   * test-rule-name
+   * ram-user-mfa-check
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * The date when the ignored evaluation result is automatically resumed.
    * 
-   * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must re-evaluate the ignored incompliant resources.
+   * > If this parameter is empty, the evaluation result is not automatically resumed. You must manually resume the result.
    * 
    * @example
    * 2022-06-01
@@ -39,7 +39,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   ignoreDate?: string;
   /**
    * @remarks
-   * The ID of the region where your resources reside.
+   * The ID of the region where the resource resides.
    * 
    * @example
    * global
@@ -47,7 +47,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * 23642660635396****
@@ -55,7 +55,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * @example
    * Alice
@@ -63,7 +63,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * ACS::RAM::User
@@ -107,12 +107,12 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
 export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $dara.Model {
   /**
    * @remarks
-   * The information about the evaluated resource returned in the compliance evaluation result.
+   * The resource information in the evaluation result.
    */
   evaluationResultQualifier?: ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
   /**
    * @remarks
-   * The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+   * The timestamp that is displayed on the timeline. Unit: milliseconds.
    * 
    * @example
    * 1624932227157
@@ -147,13 +147,17 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
 export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList extends $dara.Model {
   /**
    * @remarks
-   * The annotation to the resource that is evaluated as incompliant. The following section describes the parameters that can be returned:
+   * Additional information about the non-compliant resource. The value of this parameter can contain the following information:
    * 
-   * *   `configuration`: the current resource configuration that is evaluated as incompliant by using the rule.
-   * *   `desiredValue`: the expected resource configuration that is evaluated as compliant by using the rule.
-   * *   `operator`: the operator that is used to compare the current configuration with the expected configuration of the resource.
-   * *   `property`: the JSON path of the current configuration in the resource property struct.
-   * *   `reason`: the reason why the resource is evaluated as incompliant.
+   * - `configuration`: The current configuration of the resource, which is the non-compliant configuration.
+   * 
+   * - `desiredValue`: The expected configuration of the resource, which is the compliant configuration.
+   * 
+   * - `operator`: The comparison operator that is used to compare the current configuration with the expected configuration.
+   * 
+   * - `property`: The JSON path of the current configuration in the resource property struct.
+   * 
+   * - `reason`: The reason why the resource is non-compliant.
    * 
    * @example
    * {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.LoginProfile.MFABindRequired\\"}
@@ -161,13 +165,17 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   annotation?: string;
   /**
    * @remarks
-   * The compliance evaluation result of the resources. Valid values:
+   * The compliance evaluation result. Valid values:
    * 
-   * *   COMPLIANT: The resources are evaluated as compliant.
-   * *   NON_COMPLIANT: The resources are evaluated as incompliant.
-   * *   NOT_APPLICABLE: The rule does not apply to your resources.
-   * *   INSUFFICIENT_DATA: No resource data is available.
-   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * - COMPLIANT: The resource is compliant.
+   * 
+   * - NON_COMPLIANT: The resource is non-compliant.
+   * 
+   * - NOT_APPLICABLE: The rule does not apply to the resource.
+   * 
+   * - INSUFFICIENT_DATA: The data is insufficient.
+   * 
+   * - IGNORED: The evaluation result is ignored.
    * 
    * @example
    * NON_COMPLIANT
@@ -175,45 +183,54 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   complianceType?: string;
   /**
    * @remarks
-   * The timestamp when the rule was triggered for the compliance evaluation. Unit: milliseconds.
+   * The timestamp when the rule was triggered for evaluation. Unit: milliseconds.
    * 
    * @example
    * 1624932227157
    */
   configRuleInvokedTimestamp?: number;
   /**
+   * @remarks
+   * The unique ID of the evaluation result.
+   * 
    * @example
    * 00000089-4e0d-58b5-a96a-8e54112110f3
    */
   evaluationId?: string;
   /**
    * @remarks
-   * The identifying information about the compliance evaluation result.
+   * The identifier of the resource evaluation result.
    */
   evaluationResultIdentifier?: ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
   /**
    * @remarks
-   * The trigger type of the managed rule. Valid values:
+   * The trigger type of the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
-   * *   ScheduledNotification: The managed rule is periodically triggered.
-   * *   Manual: The rule is manually triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by a configuration change.
+   * 
+   * - ScheduledNotification: The rule is triggered periodically.
+   * 
+   * - Manual: The rule is triggered manually.
    * 
    * @example
    * ScheduledNotification
    */
   invokingEventMessageType?: string;
   /**
+   * @remarks
+   * The start time of the last non-compliance.
+   * 
    * @example
    * 1744696393000
    */
   lastNonCompliantRecordTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether the remediation template is enabled. Valid values:
+   * Indicates whether the remediation setting is enabled. Valid values:
    * 
-   * - true: The remediation template is enabled.
-   * - false: The remediation template is disabled.
+   * - true: The remediation setting is enabled.
+   * 
+   * - false: The remediation setting is not enabled.
    * 
    * @example
    * true
@@ -221,7 +238,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   remediationEnabled?: boolean;
   /**
    * @remarks
-   * The timestamp when the compliance evaluation result was recorded. Unit: milliseconds.
+   * The timestamp when the resource evaluation result was generated. Unit: milliseconds.
    * 
    * @example
    * 1624932227595
@@ -229,11 +246,13 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
   resultRecordedTimestamp?: number;
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high risk level
-   * *   2: medium risk level
-   * *   3: low risk level
+   * - 1: high risk.
+   * 
+   * - 2: medium risk.
+   * 
+   * - 3: low risk.
    * 
    * @example
    * 1
@@ -284,12 +303,12 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
 export class ListResourceEvaluationResultsResponseBodyEvaluationResults extends $dara.Model {
   /**
    * @remarks
-   * The details of the compliance evaluation result.
+   * The list of resource evaluation results.
    */
   evaluationResultList?: ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList[];
   /**
    * @remarks
-   * The maximum number of entries to return for a single request.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 10
@@ -297,7 +316,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResults extends 
   maxResults?: number;
   /**
    * @remarks
-   * The token that was used to initiate the next request.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -334,12 +353,12 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResults extends 
 export class ListResourceEvaluationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the compliance evaluation results returned.
+   * The resource evaluation results.
    */
   evaluationResults?: ListResourceEvaluationResultsResponseBodyEvaluationResults;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25C89DDB-BB79-487D-88C3-4A561F21EFC4

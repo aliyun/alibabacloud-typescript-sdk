@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartConfigRuleEvaluationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D31EEAD7-BF1E-5927-977A-AFF9342A7273
@@ -13,10 +13,11 @@ export class StartConfigRuleEvaluationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * The result of the request. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConfigRuleRequestExcludeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * TagKey
+   * The tag key.
    * 
    * @example
    * key-2
@@ -13,7 +13,7 @@ export class CreateConfigRuleRequestExcludeTagsScope extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * TagValue
+   * The tag value.
    * 
    * @example
    * value-2
@@ -45,11 +45,9 @@ export class CreateConfigRuleRequestExcludeTagsScope extends $dara.Model {
 export class CreateConfigRuleRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag keys.
+   * The tag key of the resource.
    * 
-   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
-   * 
-   * You can specify at most 20 tag keys in each call.
+   * You can attach up to 20 tag keys.
    * 
    * @example
    * key-1
@@ -57,9 +55,9 @@ export class CreateConfigRuleRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * You can attach up to 20 tag values.
    * 
    * @example
    * value-1
@@ -91,7 +89,7 @@ export class CreateConfigRuleRequestTag extends $dara.Model {
 export class CreateConfigRuleRequestTagsScope extends $dara.Model {
   /**
    * @remarks
-   * TagKey
+   * The tag key.
    * 
    * @example
    * key-1
@@ -99,7 +97,7 @@ export class CreateConfigRuleRequestTagsScope extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * TagValue
+   * The tag value.
    * 
    * @example
    * value-1
@@ -131,12 +129,17 @@ export class CreateConfigRuleRequestTagsScope extends $dara.Model {
 export class CreateConfigRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * A client token. It is used to ensure the idempotence of the request. You can use the client to generate a token, but you must make sure that the token is unique among different requests. The `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
    */
   clientToken?: string;
+  /**
+   * @example
+   * {"ComplianceConditions":"{\"operator\":\"and\",\"children\":[{\"operator\":\"StringEquals\",\"featurePath\":\"$.Status\",\"desired\":\"1\",\"featureSource\":\"CONFIGURATION\"}]}"}
+   */
+  conditions?: string;
   /**
    * @remarks
    * The name of the rule.
@@ -144,17 +147,18 @@ export class CreateConfigRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * required-tags
+   * 存在所有指定标签
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The trigger type of the rule. Valid values:
+   * The trigger that invokes the rule. Valid values:
    * 
-   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-   * *   ScheduledNotification: The rule is periodically triggered.
+   * - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
    * 
-   * >  If a rule supports the preceding trigger types, separate the types with a comma (,).
+   * - ScheduledNotification: The rule is triggered on a regular basis.
+   * 
+   * > If a rule has multiple triggers, separate them with commas (,).
    * 
    * This parameter is required.
    * 
@@ -167,12 +171,12 @@ export class CreateConfigRuleRequest extends $dara.Model {
    * The description of the rule.
    * 
    * @example
-   * example-description
+   * 最多可以定义6组标签。如果资源同时具有指定的所有标签，则视为“合规”。
    */
   description?: string;
   /**
    * @remarks
-   * ExcludeRegionIdsScope
+   * The rule does not apply to resources in the specified regions. The compliance of resources in these regions is not evaluated. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-shanghai
@@ -180,7 +184,7 @@ export class CreateConfigRuleRequest extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * ExcludeResourceGroupIdsScope
+   * The rule does not apply to resources in the specified resource groups. The compliance of resources in these resource groups is not evaluated. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-bnczc6r7rml****
@@ -188,9 +192,9 @@ export class CreateConfigRuleRequest extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * The rule does not apply to the specified resources. The compliance of these resources is not evaluated. Separate multiple resource IDs with commas (,).
    * 
-   * >  This parameter applies only to managed rules.
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * lb-t4nbowvtbkss7t326****
@@ -198,12 +202,12 @@ export class CreateConfigRuleRequest extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * ExcludeTagsScope
+   * The scope of the tags to exclude.
    */
   excludeTagsScope?: CreateConfigRuleRequestExcludeTagsScope[];
   /**
    * @remarks
-   * Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
+   * Extended content. This parameter is used only to specify the trigger time for a 24-hour evaluation cycle.
    * 
    * @example
    * {"fixedHour":"13"}
@@ -211,23 +215,31 @@ export class CreateConfigRuleRequest extends $dara.Model {
   extendContent?: string;
   /**
    * @remarks
-   * The input parameter of the rule.
+   * The input parameters of the rule.
+   * 
+   * You can obtain the input parameters of a rule by calling the [GetManagedRule](https://help.aliyun.com/document_detail/606993.html) operation. View the `CompulsoryInputParameterDetails` and `OptionalInputParameterDetails` parameters to learn about the required and optional parameters.
+   * 
+   * The format of the input parameters is `{"Parameter 1 Name":"Parameter 1 Value","Parameter 2 Name":"Parameter 2 Value"}`.
    * 
    * @example
-   * {"tag1Key":"ECS","tag1Value":"test"}
+   * {"key1":"value1","key2":"value2"}
    */
   inputParameters?: { [key: string]: any };
   /**
    * @remarks
-   * The intervals at which the rule is triggered. Valid values:
+   * The frequency at which the rule is executed. Valid values:
    * 
-   * *   One_Hour: 1 hour.
-   * *   Three_Hours: 3 hours.
-   * *   Six_Hours: 6 hours.
-   * *   Twelve_Hours: 12 hours.
-   * *   TwentyFour_Hours (default): 24 hours.
+   * - One_Hour: 1 hour.
    * 
-   * >  This parameter is required if the ConfigRuleTriggerTypes parameter is set to ScheduledNotification.
+   * - Three_Hours: 3 hours.
+   * 
+   * - Six_Hours: 6 hours.
+   * 
+   * - Twelve_Hours: 12 hours.
+   * 
+   * - TwentyFour_Hours (default): 24 hours.
+   * 
+   * > This parameter is required if you set ConfigRuleTriggerTypes to ScheduledNotification.
    * 
    * @example
    * One_Hour
@@ -235,9 +247,9 @@ export class CreateConfigRuleRequest extends $dara.Model {
   maximumExecutionFrequency?: string;
   /**
    * @remarks
-   * The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+   * The rule applies only to resources in the specified regions. Separate multiple region IDs with commas (,).
    * 
-   * >  This parameter applies only to managed rules.
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * cn-hangzhou
@@ -245,9 +257,9 @@ export class CreateConfigRuleRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * The rule applies only to resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
    * 
-   * >  This parameter applies only to managed rules.
+   * > This parameter applies only to rule templates.
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -255,7 +267,7 @@ export class CreateConfigRuleRequest extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * ResourceIdsScope
+   * The rule applies to the specified resources. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * lb-5cmbowstbkss9ta03****
@@ -263,7 +275,7 @@ export class CreateConfigRuleRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The names of the resource to which the rule applies.
+   * The rule applies only to resources that have the specified names.
    * 
    * @example
    * i-xxx
@@ -274,7 +286,7 @@ export class CreateConfigRuleRequest extends $dara.Model {
   resourceNameScope?: string;
   /**
    * @remarks
-   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * The resource types to be evaluated by the rule. Separate multiple resource types with commas (,).
    * 
    * This parameter is required.
    * 
@@ -284,11 +296,13 @@ export class CreateConfigRuleRequest extends $dara.Model {
   resourceTypesScope?: string[];
   /**
    * @remarks
-   * The risk level of the resources that do not comply with the rule. Valid values:
+   * The risk level of the rule. Valid values:
    * 
-   * *   1: high.
-   * *   2: medium.
-   * *   3: low.
+   * - 1: high.
+   * 
+   * - 2: medium.
+   * 
+   * - 3: low.
    * 
    * This parameter is required.
    * 
@@ -298,12 +312,17 @@ export class CreateConfigRuleRequest extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The ID of the rule.
+   * The identifier of the rule.
    * 
-   * *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
-   * *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+   * - If you set `SourceOwner` to `ALIYUN`, specify the identifier of the rule template. Example: `required-tags`.
    * 
-   * For more information about how to query the name of a managed rule, see [Managed rules](https://help.aliyun.com/document_detail/127404.html).
+   *   > To query the identifier of a rule template, see [List of rule templates](https://help.aliyun.com/document_detail/127404.html).
+   * 
+   * - If you set `SourceOwner` to `CUSTOM_FC`, specify the Alibaba Cloud Resource Name (ARN) of the function.
+   * 
+   *   The ARN must be in the format of `acs:fc:{Region}:{AccountID}:services/{ServiceName}.LATEST/functions/{FunctionName}`. Example: `acs:fc:cn-hangzhou:120886317861****:services/service-test.LATEST/functions/config-test`.
+   * 
+   *   > To obtain the ARN of a function, see [ListFunctions](https://help.aliyun.com/document_detail/415752.html).
    * 
    * This parameter is required.
    * 
@@ -313,10 +332,11 @@ export class CreateConfigRuleRequest extends $dara.Model {
   sourceIdentifier?: string;
   /**
    * @remarks
-   * The type of the rule Valid values:
+   * The type of the rule to create. Valid values:
    * 
-   * *   ALIYUN: managed rule.
-   * *   CUSTOM_FC: custom rule.
+   * - ALIYUN: rule template.
+   * 
+   * - CUSTOM_FC: custom rule.
    * 
    * This parameter is required.
    * 
@@ -326,20 +346,20 @@ export class CreateConfigRuleRequest extends $dara.Model {
   sourceOwner?: string;
   /**
    * @remarks
-   * rule attached tags
+   * The tags of the rule to be created.
    */
   tag?: CreateConfigRuleRequestTag[];
   /**
    * @remarks
-   * The logical relationship when parameter `TagsScope` takes multiple values, for example: When the parameter `TagsScope` is `"TagsScope.1.TagKey":"a", "TagsScope.1.TagValue":"a", "TagsScope.2.TagKey":"b", "TagsScope.2.TagValue":"b"`, if this parameter is set to` AND`, it means that the rule only applies to resources bound with both tags `a:a` and `b:b`. If not specified, the default logic is `OR`.
+   * The logical operator that applies if you specify multiple tags for the `TagsScope` parameter. For example, if you set `TagsScope` to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. If you do not specify this parameter, the default value `OR` is used.
    * 
-   * It can also be used for the deprecated field `TagKeyScope` (not recommended), for example: When the parameter `TagKeyScope` has a value of `ECS`,`OSS`, if this parameter is set to `AND`, it means that the rule only applies to resources bound with both labels `ECS` and `OSS`.
+   * This parameter also works with the deprecated `TagKeyScope` parameter. For example, if you set `TagKeyScope` to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
    * 
-   * Values:
+   * Valid values:
    * 
-   *  - AND: And.
+   * - AND: The AND logic applies.
    * 
-   *  - OR: Or.
+   * - OR: The OR logic applies.
    * 
    * @example
    * AND
@@ -347,9 +367,11 @@ export class CreateConfigRuleRequest extends $dara.Model {
   tagKeyLogicScope?: string;
   /**
    * @remarks
-   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+   * The rule applies only to resources that have the specified tag key.
+   * 
+   * > This parameter applies only to managed rules. You must set both `TagKeyScope` and `TagValueScope`.
    * 
    * @example
    * ECS
@@ -359,9 +381,11 @@ export class CreateConfigRuleRequest extends $dara.Model {
   tagKeyScope?: string;
   /**
    * @remarks
-   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+   * The rule applies only to resources that have the specified tag value.
+   * 
+   * > This parameter applies only to rule templates. You must set both `TagKeyScope` and `TagValueScope`.
    * 
    * @example
    * test
@@ -371,12 +395,13 @@ export class CreateConfigRuleRequest extends $dara.Model {
   tagValueScope?: string;
   /**
    * @remarks
-   * TagsScope
+   * The scope of the tags.
    */
   tagsScope?: CreateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      conditions: 'Conditions',
       configRuleName: 'ConfigRuleName',
       configRuleTriggerTypes: 'ConfigRuleTriggerTypes',
       description: 'Description',
@@ -406,6 +431,7 @@ export class CreateConfigRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      conditions: 'string',
       configRuleName: 'string',
       configRuleTriggerTypes: 'string',
       description: 'string',

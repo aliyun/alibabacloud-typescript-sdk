@@ -45,7 +45,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
 export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account to which the compliance package belongs.
+   * The ID of the management account to which the compliance pack belongs.
    * 
    * @example
    * 100931896542****
@@ -61,7 +61,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   aggregatorId?: string;
   /**
    * @remarks
-   * The ID of the compliance package.
+   * The compliance pack ID.
    * 
    * @example
    * cp-fdc8626622af00f9****
@@ -69,23 +69,23 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   compliancePackId?: string;
   /**
    * @remarks
-   * The name of the compliance package.
+   * The name of the compliance pack.
    * 
    * @example
-   * example-name
+   * BestPracticesForResourceStability
    */
   compliancePackName?: string;
   /**
    * @remarks
-   * The ID of the compliance package template.
+   * The ID of the compliance pack template.
    * 
    * @example
-   * ct-5f26ff4e06a300c4****
+   * ct-484cff4e06a30062****
    */
   compliancePackTemplateId?: string;
   /**
    * @remarks
-   * The timestamp when the compliance package was created. Unit: milliseconds.
+   * The timestamp when the compliance pack was created. Unit: milliseconds.
    * 
    * @example
    * 1624243657000
@@ -93,19 +93,21 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   createTimestamp?: number;
   /**
    * @remarks
-   * The description of the compliance package.
+   * The description of the compliance pack.
    * 
    * @example
-   * example-description
+   * Check the stability of Alibaba Cloud resources based on the high-availability infrastructure, capacity protection, change management, monitoring management, backup management, and fault isolation. This helps you identify issues at the earliest opportunity and improve stability and the efficiency of O&M.
    */
   description?: string;
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
+   * The risk level of the compliance pack. Valid values:
    * 
-   * *   1: high risk level.
-   * *   2: medium risk level.
-   * *   3: low risk level.
+   * - 1: high
+   * 
+   * - 2: medium
+   * 
+   * - 3: low
    * 
    * @example
    * 1
@@ -113,10 +115,11 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   riskLevel?: number;
   /**
    * @remarks
-   * The status of the compliance package. Valid values:
+   * The status of the compliance pack. Valid values:
    * 
-   * *   ACTIVE: The compliance package is available for use.
-   * *   CREATING: The compliance package is being created.
+   * - ACTIVE: The compliance pack is active.
+   * 
+   * - CREATING: The compliance pack is being created.
    * 
    * @example
    * ACTIVE
@@ -124,7 +127,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag of the resource.
    */
   tags?: ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags[];
   static names(): { [key: string]: string } {
@@ -172,12 +175,12 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
 export class ListAggregateCompliancePacksResponseBodyCompliancePacksResult extends $dara.Model {
   /**
    * @remarks
-   * The compliance packages.
+   * The compliance packs.
    */
   compliancePacks?: ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -193,7 +196,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResult exten
   pageSize?: number;
   /**
    * @remarks
-   * The total number of compliance packages returned.
+   * The total number of compliance packs.
    * 
    * @example
    * 1
@@ -232,12 +235,12 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResult exten
 export class ListAggregateCompliancePacksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The compliance packages returned.
+   * The results of the query.
    */
   compliancePacksResult?: ListAggregateCompliancePacksResponseBodyCompliancePacksResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B5806142-3090-4F86-A84E-12B3FE52C1C4

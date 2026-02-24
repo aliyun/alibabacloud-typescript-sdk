@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances extends $dara.Model {
-  /**
-   * @remarks
-   * The evaluation result. Valid values:
-   * 
-   * *   COMPLIANT: The resource is evaluated as compliant.
-   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-   * *   NOT_APPLICABLE: The rule does not apply to the resource.
-   * *   INSUFFICIENT_DATA: No data is available.
-   * 
-   * @example
-   * COMPLIANT
-   */
   complianceType?: string;
-  /**
-   * @remarks
-   * The total number of evaluation results.
-   * 
-   * @example
-   * 1
-   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -48,18 +29,7 @@ export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceRe
 }
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList extends $dara.Model {
-  /**
-   * @remarks
-   * The queried evaluation results.
-   */
   compliances?: GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances[];
-  /**
-   * @remarks
-   * The region ID of the evaluated resource.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +58,6 @@ export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceRe
 }
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult extends $dara.Model {
-  /**
-   * @remarks
-   * The evaluation results grouped by region.
-   */
   complianceResultList?: GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -118,18 +84,7 @@ export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceRe
 }
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried evaluation results.
-   */
   complianceResult?: GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 5E3A847A-5D40-54A1-A2CE-77A87823ED07
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

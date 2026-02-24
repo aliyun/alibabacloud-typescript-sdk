@@ -7,8 +7,9 @@ export class GetDiscoveredResourceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query the compliance results of the resource. Valid values:
    * 
-   * *   0 (default): does not query the compliance results of the resource.
-   * *   1: queries the compliance results of the resource.
+   * - 0 (default): The compliance results are not queried.
+   * 
+   * - 1: The compliance results are queried.
    * 
    * @example
    * 0
@@ -16,9 +17,9 @@ export class GetDiscoveredResourceRequest extends $dara.Model {
   complianceOption?: number;
   /**
    * @remarks
-   * The ID of the region in which the resource resides.
+   * The ID of the region where the resource resides.
    * 
-   * For more information about how to query the region ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
+   * For more information about how to obtain the region ID of the resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
    * 
    * @example
    * cn-hangzhou
@@ -28,24 +29,24 @@ export class GetDiscoveredResourceRequest extends $dara.Model {
    * @remarks
    * The resource ID.
    * 
-   * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
+   * For more information about how to obtain the resource ID, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * new-bucket
+   * i-bp12g4xbl4i0brkn****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
-   * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
+   * For more information about how to obtain the resource type, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * ACS::OSS::Bucket
+   * ACS::ECS::Instance
    */
   resourceType?: string;
   static names(): { [key: string]: string } {

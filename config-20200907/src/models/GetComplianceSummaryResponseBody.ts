@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule extends $dara.Model {
   /**
    * @remarks
-   * The time when the compliance summary was generated. Unit: milliseconds.
+   * The timestamp when the compliance summary was generated. Unit: milliseconds.
    * 
    * @example
    * 1589853712165
@@ -13,7 +13,7 @@ export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryB
   complianceSummaryTimestamp?: number;
   /**
    * @remarks
-   * The number of rules evaluated as compliant.
+   * The number of compliant rules.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryB
   compliantCount?: number;
   /**
    * @remarks
-   * The number of rules evaluated as non-compliant.
+   * The number of non-compliant rules.
    * 
    * @example
    * 11
@@ -65,7 +65,7 @@ export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryB
 export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource extends $dara.Model {
   /**
    * @remarks
-   * The time when the compliance summary was generated. Unit: milliseconds.
+   * The timestamp when the compliance summary was generated. Unit: milliseconds.
    * 
    * @example
    * 1589853712165
@@ -73,18 +73,45 @@ export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryB
   complianceSummaryTimestamp?: number;
   /**
    * @remarks
-   * The number of resources evaluated as compliant.
+   * The number of compliant resources.
    * 
    * @example
    * 1
    */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of non-compliant resources detected by high-risk rules.
+   * 
+   * > Note: This value can be greater than the total number of resources in your account. Resources are counted based on each rule. For example, if a resource is evaluated as non-compliant by two rules, the value of this parameter increases by 2.
+   * 
+   * @example
+   * 2
+   */
   highRiskRuleNonCompliantResourceCount?: number;
+  /**
+   * @remarks
+   * The number of non-compliant resources detected by low-risk rules.
+   * 
+   * > Note: This value can be greater than the total number of resources in your account. Resources are counted based on each rule. For example, if a resource is evaluated as non-compliant by two low-risk rules, the value of this parameter increases by 2.
+   * 
+   * @example
+   * 2
+   */
   lowRiskRuleNonCompliantResourceCount?: number;
+  /**
+   * @remarks
+   * The number of non-compliant resources detected by medium-risk rules.
+   * 
+   * > Note: This value can be greater than the total number of resources in your account. Resources are counted based on each rule. For example, if a resource is evaluated as non-compliant by two rules, the value of this parameter increases by 2.
+   * 
+   * @example
+   * 6
+   */
   mediumRiskRuleNonCompliantResourceCount?: number;
   /**
    * @remarks
-   * The number of resources evaluated as non-compliant.
+   * The number of non-compliant resources.
    * 
    * @example
    * 12
@@ -134,12 +161,12 @@ export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryB
 export class GetComplianceSummaryResponseBodyComplianceSummary extends $dara.Model {
   /**
    * @remarks
-   * The summary of compliance statistics from the rule dimension.
+   * The compliance summary by rule.
    */
   complianceSummaryByConfigRule?: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule;
   /**
    * @remarks
-   * The summary of compliance statistics from the resource dimension.
+   * The compliance summary by resource.
    */
   complianceSummaryByResource?: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource;
   static names(): { [key: string]: string } {
@@ -174,7 +201,7 @@ export class GetComplianceSummaryResponseBodyComplianceSummary extends $dara.Mod
 export class GetComplianceSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The summary of compliance statistics.
+   * The compliance summary.
    */
   complianceSummary?: GetComplianceSummaryResponseBodyComplianceSummary;
   /**
