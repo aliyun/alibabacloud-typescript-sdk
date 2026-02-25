@@ -140,6 +140,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将参数集关联资源
+   * 
+   * @param request - AssociateParameterSetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateParameterSetResponse
+   */
+  async associateParameterSetWithOptions(request: $_model.AssociateParameterSetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateParameterSetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.parameterSetIds)) {
+      body["parameterSetIds"] = request.parameterSetIds;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateParameterSet",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets/operations/associate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssociateParameterSetResponse>(await this.callApi(params, req, runtime), new $_model.AssociateParameterSetResponse({}));
+  }
+
+  /**
+   * 将参数集关联资源
+   * 
+   * @param request - AssociateParameterSetRequest
+   * @returns AssociateParameterSetResponse
+   */
+  async associateParameterSet(request: $_model.AssociateParameterSetRequest): Promise<$_model.AssociateParameterSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.associateParameterSetWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 取消资源导出任务
    * 
    * @param request - CancelResourceExportTaskRequest
@@ -343,7 +396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Create Module
    * 
    * @param request - CreateModuleRequest
    * @param headers - map
@@ -408,7 +461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Create Module
    * 
    * @param request - CreateModuleRequest
    * @returns CreateModuleResponse
@@ -470,6 +523,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createModuleVersionWithOptions(moduleId, request, headers, runtime);
+  }
+
+  /**
+   * 创建参数集
+   * 
+   * @param request - CreateParameterSetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateParameterSetResponse
+   */
+  async createParameterSetWithOptions(request: $_model.CreateParameterSetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateParameterSetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateParameterSet",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateParameterSetResponse>(await this.callApi(params, req, runtime), new $_model.CreateParameterSetResponse({}));
+  }
+
+  /**
+   * 创建参数集
+   * 
+   * @param request - CreateParameterSetRequest
+   * @returns CreateParameterSetResponse
+   */
+  async createParameterSet(request: $_model.CreateParameterSetRequest): Promise<$_model.CreateParameterSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createParameterSetWithOptions(request, headers, runtime);
   }
 
   /**
@@ -912,6 +1022,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除参数集
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteParameterSetResponse
+   */
+  async deleteParameterSetWithOptions(parameterSetId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteParameterSetResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteParameterSet",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets/${$dara.URL.percentEncode(parameterSetId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteParameterSetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteParameterSetResponse({}));
+  }
+
+  /**
+   * 删除参数集
+   * @returns DeleteParameterSetResponse
+   */
+  async deleteParameterSet(parameterSetId: string): Promise<$_model.DeleteParameterSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteParameterSetWithOptions(parameterSetId, headers, runtime);
+  }
+
+  /**
    * 删除项目
    * 
    * @param headers - map
@@ -1172,6 +1317,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.dissociateGroupWithOptions(projectId, groupId, request, headers, runtime);
+  }
+
+  /**
+   * 解除参数集关联资源关系
+   * 
+   * @param request - DissociateParameterSetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateParameterSetResponse
+   */
+  async dissociateParameterSetWithOptions(request: $_model.DissociateParameterSetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DissociateParameterSetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.parameterSetIds)) {
+      body["parameterSetIds"] = request.parameterSetIds;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DissociateParameterSet",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets/operations/dissociate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DissociateParameterSetResponse>(await this.callApi(params, req, runtime), new $_model.DissociateParameterSetResponse({}));
+  }
+
+  /**
+   * 解除参数集关联资源关系
+   * 
+   * @param request - DissociateParameterSetRequest
+   * @returns DissociateParameterSetResponse
+   */
+  async dissociateParameterSet(request: $_model.DissociateParameterSetRequest): Promise<$_model.DissociateParameterSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.dissociateParameterSetWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1608,7 +1806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板详情
+   * Get Module Details
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1633,7 +1831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板详情
+   * Get Module Details
    * @returns GetModuleResponse
    */
   async getModule(moduleId: string): Promise<$_model.GetModuleResponse> {
@@ -1675,6 +1873,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModuleVersionWithOptions(moduleId, moduleVersion, headers, runtime);
+  }
+
+  /**
+   * 参数集详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetParameterSetResponse
+   */
+  async getParameterSetWithOptions(parameterSetId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetParameterSetResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetParameterSet",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets/${$dara.URL.percentEncode(parameterSetId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetParameterSetResponse>(await this.callApi(params, req, runtime), new $_model.GetParameterSetResponse({}));
+  }
+
+  /**
+   * 参数集详情
+   * @returns GetParameterSetResponse
+   */
+  async getParameterSet(parameterSetId: string): Promise<$_model.GetParameterSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getParameterSetWithOptions(parameterSetId, headers, runtime);
   }
 
   /**
@@ -2399,6 +2632,108 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listModulesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 关联到资源的参数集列表
+   * 
+   * @param request - ListParameterSetRelationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListParameterSetRelationResponse
+   */
+  async listParameterSetRelationWithOptions(request: $_model.ListParameterSetRelationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListParameterSetRelationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceId)) {
+      query["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListParameterSetRelation",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets/operations/relation`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListParameterSetRelationResponse>(await this.callApi(params, req, runtime), new $_model.ListParameterSetRelationResponse({}));
+  }
+
+  /**
+   * 关联到资源的参数集列表
+   * 
+   * @param request - ListParameterSetRelationRequest
+   * @returns ListParameterSetRelationResponse
+   */
+  async listParameterSetRelation(request: $_model.ListParameterSetRelationRequest): Promise<$_model.ListParameterSetRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listParameterSetRelationWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 参数集列表
+   * 
+   * @param request - ListParameterSetsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListParameterSetsResponse
+   */
+  async listParameterSetsWithOptions(request: $_model.ListParameterSetsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListParameterSetsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListParameterSets",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListParameterSetsResponse>(await this.callApi(params, req, runtime), new $_model.ListParameterSetsResponse({}));
+  }
+
+  /**
+   * 参数集列表
+   * 
+   * @param request - ListParameterSetsRequest
+   * @returns ListParameterSetsResponse
+   */
+  async listParameterSets(request: $_model.ListParameterSetsRequest): Promise<$_model.ListParameterSetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listParameterSetsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3442,7 +3777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模板
+   * Update Module
    * 
    * @param request - UpdateModuleAttributeRequest
    * @param headers - map
@@ -3503,7 +3838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模板
+   * Update Module
    * 
    * @param request - UpdateModuleAttributeRequest
    * @returns UpdateModuleAttributeResponse
@@ -3512,6 +3847,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModuleAttributeWithOptions(moduleId, request, headers, runtime);
+  }
+
+  /**
+   * 更新参数集
+   * 
+   * @param request - UpdateParameterSetAttributeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateParameterSetAttributeResponse
+   */
+  async updateParameterSetAttributeWithOptions(parameterSetId: string, request: $_model.UpdateParameterSetAttributeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateParameterSetAttributeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateParameterSetAttribute",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/parameterSets/${$dara.URL.percentEncode(parameterSetId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateParameterSetAttributeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateParameterSetAttributeResponse({}));
+  }
+
+  /**
+   * 更新参数集
+   * 
+   * @param request - UpdateParameterSetAttributeRequest
+   * @returns UpdateParameterSetAttributeResponse
+   */
+  async updateParameterSetAttribute(parameterSetId: string, request: $_model.UpdateParameterSetAttributeRequest): Promise<$_model.UpdateParameterSetAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateParameterSetAttributeWithOptions(parameterSetId, request, headers, runtime);
   }
 
   /**
@@ -3900,16 +4288,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.ValidateModuleResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.ValidateModuleResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ValidateModuleResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ValidateModuleResponse({}));
+      }
+
     }
   }
 
