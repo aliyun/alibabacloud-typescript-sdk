@@ -30,7 +30,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * 新建网关
+   * 
+   * @param request - AddGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGatewayResponse
+   */
+  async addGatewayWithOptions(request: $_model.AddGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddGatewayResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.feNodeNumber)) {
+      query["FeNodeNumber"] = request.feNodeNumber;
+    }
+
+    if (!$dara.isNull(request.gatewayName)) {
+      query["GatewayName"] = request.gatewayName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddGateway",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/gateway/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddGatewayResponse>(await this.callApi(params, req, runtime), new $_model.AddGatewayResponse({}));
+  }
+
+  /**
+   * 新建网关
+   * 
+   * @param request - AddGatewayRequest
+   * @returns AddGatewayResponse
+   */
+  async addGateway(request: $_model.AddGatewayRequest): Promise<$_model.AddGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addGatewayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * This interface is used to modify the resource group of a Serverless StarRocks instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -75,7 +128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * This interface is used to modify the resource group of a Serverless StarRocks instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -252,7 +305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为用户创建AliyunServiceRoleForEMRStarRocks
+   * This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -277,7 +330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为用户创建AliyunServiceRoleForEMRStarRocks
+   * This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
    * @returns CreateServiceLinkedRoleResponse
    */
   async createServiceLinkedRole(): Promise<$_model.CreateServiceLinkedRoleResponse> {
@@ -287,7 +340,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据集群ID或者名称等信息过滤集群
+   * 删除网关
+   * 
+   * @param request - DeleteGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayResponse
+   */
+  async deleteGatewayWithOptions(request: $_model.DeleteGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGateway",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/gateway/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGatewayResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGatewayResponse({}));
+  }
+
+  /**
+   * 删除网关
+   * 
+   * @param request - DeleteGatewayRequest
+   * @returns DeleteGatewayResponse
+   */
+  async deleteGateway(request: $_model.DeleteGatewayRequest): Promise<$_model.DeleteGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteGatewayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
    * 
    * @param tmpReq - DescribeInstancesRequest
    * @param headers - map
@@ -354,7 +456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据集群ID或者名称等信息过滤集群
+   * This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
@@ -438,6 +540,320 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeNodeGroupsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * StarRocks关闭SSL
+   * 
+   * @param request - DisableSSLConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSSLConnectionResponse
+   */
+  async disableSSLConnectionWithOptions(request: $_model.DisableSSLConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableSSLConnectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableSSLConnection",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/disableSSLConnection`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableSSLConnectionResponse>(await this.callApi(params, req, runtime), new $_model.DisableSSLConnectionResponse({}));
+  }
+
+  /**
+   * StarRocks关闭SSL
+   * 
+   * @param request - DisableSSLConnectionRequest
+   * @returns DisableSSLConnectionResponse
+   */
+  async disableSSLConnection(request: $_model.DisableSSLConnectionRequest): Promise<$_model.DisableSSLConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableSSLConnectionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * StarRocks开启SSL
+   * 
+   * @param request - EnableSSLConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSSLConnectionResponse
+   */
+  async enableSSLConnectionWithOptions(request: $_model.EnableSSLConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableSSLConnectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customSSLCertificate)) {
+      body["CustomSSLCertificate"] = request.customSSLCertificate;
+    }
+
+    if (!$dara.isNull(request.enableCustom)) {
+      body["EnableCustom"] = request.enableCustom;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.renewal)) {
+      body["Renewal"] = request.renewal;
+    }
+
+    if (!$dara.isNull(request.sslKeyPassword)) {
+      body["SslKeyPassword"] = request.sslKeyPassword;
+    }
+
+    if (!$dara.isNull(request.sslKeystorePassword)) {
+      body["SslKeystorePassword"] = request.sslKeystorePassword;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableSSLConnection",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/enableSSLConnection`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableSSLConnectionResponse>(await this.callApi(params, req, runtime), new $_model.EnableSSLConnectionResponse({}));
+  }
+
+  /**
+   * StarRocks开启SSL
+   * 
+   * @param request - EnableSSLConnectionRequest
+   * @returns EnableSSLConnectionResponse
+   */
+  async enableSSLConnection(request: $_model.EnableSSLConnectionRequest): Promise<$_model.EnableSSLConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableSSLConnectionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取StarRocks集群实例的特性开关
+   * 
+   * @param request - GetInstanceFeatureGateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceFeatureGateResponse
+   */
+  async getInstanceFeatureGateWithOptions(request: $_model.GetInstanceFeatureGateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceFeatureGateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceFeatureGate",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/features/featureGate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceFeatureGateResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceFeatureGateResponse({}));
+  }
+
+  /**
+   * 获取StarRocks集群实例的特性开关
+   * 
+   * @param request - GetInstanceFeatureGateRequest
+   * @returns GetInstanceFeatureGateResponse
+   */
+  async getInstanceFeatureGate(request: $_model.GetInstanceFeatureGateRequest): Promise<$_model.GetInstanceFeatureGateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceFeatureGateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 默认网关开启内网SLB
+   * 
+   * @param request - IsolateLeaderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IsolateLeaderResponse
+   */
+  async isolateLeaderWithOptions(request: $_model.IsolateLeaderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.IsolateLeaderResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.isolateLeader)) {
+      query["IsolateLeader"] = request.isolateLeader;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IsolateLeader",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/gateway/isolateLeader`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IsolateLeaderResponse>(await this.callApi(params, req, runtime), new $_model.IsolateLeaderResponse({}));
+  }
+
+  /**
+   * 默认网关开启内网SLB
+   * 
+   * @param request - IsolateLeaderRequest
+   * @returns IsolateLeaderResponse
+   */
+  async isolateLeader(request: $_model.IsolateLeaderRequest): Promise<$_model.IsolateLeaderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.isolateLeaderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取网关列表
+   * 
+   * @param request - ListGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayResponse
+   */
+  async listGatewayWithOptions(request: $_model.ListGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGateway",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/gateway/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayResponse({}));
+  }
+
+  /**
+   * 获取网关列表
+   * 
+   * @param request - ListGatewayRequest
+   * @returns ListGatewayResponse
+   */
+  async listGateway(request: $_model.ListGatewayRequest): Promise<$_model.ListGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改实例的付费类型
+   * 
+   * @param request - ModifyChargeTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyChargeTypeResponse
+   */
+  async modifyChargeTypeWithOptions(request: $_model.ModifyChargeTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyChargeTypeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.billingInstanceIds)) {
+      query["BillingInstanceIds"] = request.billingInstanceIds;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyChargeType",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/cluster/modifyChargeType`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyChargeTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyChargeTypeResponse({}));
+  }
+
+  /**
+   * 修改实例的付费类型
+   * 
+   * @param request - ModifyChargeTypeRequest
+   * @returns ModifyChargeTypeResponse
+   */
+  async modifyChargeType(request: $_model.ModifyChargeTypeRequest): Promise<$_model.ModifyChargeTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyChargeTypeWithOptions(request, headers, runtime);
   }
 
   /**
@@ -814,6 +1230,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改计算组的节点磁盘类型
+   * 
+   * @param request - ModifyDiskTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDiskTypeResponse
+   */
+  async modifyDiskTypeWithOptions(request: $_model.ModifyDiskTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDiskTypeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.targetDiskType)) {
+      query["TargetDiskType"] = request.targetDiskType;
+    }
+
+    if (!$dara.isNull(request.targetPerformanceLevel)) {
+      query["TargetPerformanceLevel"] = request.targetPerformanceLevel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDiskType",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/resourceChange/modifyDiskType`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDiskTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDiskTypeResponse({}));
+  }
+
+  /**
+   * 修改计算组的节点磁盘类型
+   * 
+   * @param request - ModifyDiskTypeRequest
+   * @returns ModifyDiskTypeResponse
+   */
+  async modifyDiskType(request: $_model.ModifyDiskTypeRequest): Promise<$_model.ModifyDiskTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyDiskTypeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @remarks
@@ -1107,7 +1584,245 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标
+   * 重启指定的node group
+   * 
+   * @param request - RestartNodeGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartNodeGroupResponse
+   */
+  async restartNodeGroupWithOptions(request: $_model.RestartNodeGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RestartNodeGroupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fastMode)) {
+      query["FastMode"] = request.fastMode;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartNodeGroup",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/nodegroup/restart`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartNodeGroupResponse>(await this.callApi(params, req, runtime), new $_model.RestartNodeGroupResponse({}));
+  }
+
+  /**
+   * 重启指定的node group
+   * 
+   * @param request - RestartNodeGroupRequest
+   * @returns RestartNodeGroupResponse
+   */
+  async restartNodeGroup(request: $_model.RestartNodeGroupRequest): Promise<$_model.RestartNodeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.restartNodeGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 重启集群中的节点
+   * 
+   * @param request - RestartNodesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartNodesResponse
+   */
+  async restartNodesWithOptions(request: $_model.RestartNodesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RestartNodesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.restartNodeGroups)) {
+      body["RestartNodeGroups"] = request.restartNodeGroups;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartNodes",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/restart/restart`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartNodesResponse>(await this.callApi(params, req, runtime), new $_model.RestartNodesResponse({}));
+  }
+
+  /**
+   * 重启集群中的节点
+   * 
+   * @param request - RestartNodesRequest
+   * @returns RestartNodesResponse
+   */
+  async restartNodes(request: $_model.RestartNodesRequest): Promise<$_model.RestartNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.restartNodesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 从备份中恢复实例
+   * 
+   * @param request - RestoreInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreInstanceResponse
+   */
+  async restoreInstanceWithOptions(request: $_model.RestoreInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RestoreInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adminPassword)) {
+      body["AdminPassword"] = request.adminPassword;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.backupTaskId)) {
+      body["BackupTaskId"] = request.backupTaskId;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      body["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      body["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.vSwitches)) {
+      body["VSwitches"] = request.vSwitches;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestoreInstance",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/restore/restoreInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestoreInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RestoreInstanceResponse({}));
+  }
+
+  /**
+   * 从备份中恢复实例
+   * 
+   * @param request - RestoreInstanceRequest
+   * @returns RestoreInstanceResponse
+   */
+  async restoreInstance(request: $_model.RestoreInstanceRequest): Promise<$_model.RestoreInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.restoreInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 该接口用于恢复来自openlake自动停机的实例。
+   * 
+   * @param request - ResumeInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeInstanceResponse
+   */
+  async resumeInstanceWithOptions(request: $_model.ResumeInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeInstance",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/lifecycle/resumeInstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ResumeInstanceResponse({}));
+  }
+
+  /**
+   * 该接口用于恢复来自openlake自动停机的实例。
+   * 
+   * @param request - ResumeInstanceRequest
+   * @returns ResumeInstanceResponse
+   */
+  async resumeInstance(request: $_model.ResumeInstanceRequest): Promise<$_model.ResumeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Adds a tag to a resource.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -1152,7 +1867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标
+   * Adds a tag to a resource.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -1164,7 +1879,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除标签
+   * 公网SLB开关
+   * 
+   * @param request - TogglePublicSlbRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TogglePublicSlbResponse
+   */
+  async togglePublicSlbWithOptions(request: $_model.TogglePublicSlbRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TogglePublicSlbResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enablePublicSlb)) {
+      query["EnablePublicSlb"] = request.enablePublicSlb;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TogglePublicSlb",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/gateway/togglePublicSlb`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TogglePublicSlbResponse>(await this.callApi(params, req, runtime), new $_model.TogglePublicSlbResponse({}));
+  }
+
+  /**
+   * 公网SLB开关
+   * 
+   * @param request - TogglePublicSlbRequest
+   * @returns TogglePublicSlbResponse
+   */
+  async togglePublicSlb(request: $_model.TogglePublicSlbRequest): Promise<$_model.TogglePublicSlbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.togglePublicSlbWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Removes tags from specified resources.
    * 
    * @param tmpReq - UnTagResourcesRequest
    * @param headers - map
@@ -1223,7 +1991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除标签
+   * Removes tags from specified resources.
    * 
    * @param request - UnTagResourcesRequest
    * @returns UnTagResourcesResponse
@@ -1232,6 +2000,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.unTagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新网关
+   * 
+   * @param request - UpdateGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayResponse
+   */
+  async updateGatewayWithOptions(request: $_model.UpdateGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.feNodeNumber)) {
+      query["FeNodeNumber"] = request.feNodeNumber;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.gatewayName)) {
+      query["GatewayName"] = request.gatewayName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGateway",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/gateway/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayResponse({}));
+  }
+
+  /**
+   * 更新网关
+   * 
+   * @param request - UpdateGatewayRequest
+   * @returns UpdateGatewayResponse
+   */
+  async updateGateway(request: $_model.UpdateGatewayRequest): Promise<$_model.UpdateGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayWithOptions(request, headers, runtime);
   }
 
   /**
