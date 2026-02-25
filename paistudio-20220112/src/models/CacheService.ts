@@ -9,8 +9,10 @@ export class CacheService extends $dara.Model {
   cacheServiceId?: string;
   createdBy?: string;
   gmtCreated?: string;
+  networkType?: string;
   quotaId?: string;
   status?: string;
+  supportRDMA?: string;
   supportedClientQuotaIds?: string[];
   tenantId?: string;
   userId?: string;
@@ -21,8 +23,10 @@ export class CacheService extends $dara.Model {
       cacheServiceId: 'CacheServiceId',
       createdBy: 'CreatedBy',
       gmtCreated: 'GmtCreated',
+      networkType: 'NetworkType',
       quotaId: 'QuotaId',
       status: 'Status',
+      supportRDMA: 'SupportRDMA',
       supportedClientQuotaIds: 'SupportedClientQuotaIds',
       tenantId: 'TenantId',
       userId: 'UserId',
@@ -36,8 +40,10 @@ export class CacheService extends $dara.Model {
       cacheServiceId: 'string',
       createdBy: 'string',
       gmtCreated: 'string',
+      networkType: 'string',
       quotaId: 'string',
       status: 'string',
+      supportRDMA: 'string',
       supportedClientQuotaIds: { 'type': 'array', 'itemType': 'string' },
       tenantId: 'string',
       userId: 'string',

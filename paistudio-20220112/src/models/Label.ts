@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Label extends $dara.Model {
+  /**
+   * @example
+   * testAccTag
+   */
   key?: string;
+  /**
+   * @example
+   * nihao
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

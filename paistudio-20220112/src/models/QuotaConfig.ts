@@ -14,7 +14,7 @@ export class QuotaConfig extends $dara.Model {
   ACS?: ACS;
   /**
    * @example
-   * ceeb37xxxx
+   * ceeb3724255364664
    */
   clusterId?: string;
   controlPlaneClusterId?: string;

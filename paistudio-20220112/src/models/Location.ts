@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Location extends $dara.Model {
+  /**
+   * @example
+   * OSS
+   */
   locationType?: string;
+  /**
+   * @example
+   * oss://${bucket_name}.oss-${region}.aliyuncs.com/oss/location/path/
+   */
   locationValue?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

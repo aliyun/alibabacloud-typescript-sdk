@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SpotStockPreview extends $dara.Model {
+  availableQuantity?: number;
+  clusterId?: string;
   /**
    * @example
    * ml.gu8xf.8xlarge-gu108
@@ -20,6 +22,8 @@ export class SpotStockPreview extends $dara.Model {
   stockStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      availableQuantity: 'AvailableQuantity',
+      clusterId: 'ClusterId',
       instanceType: 'InstanceType',
       spotDiscount: 'SpotDiscount',
       stockStatus: 'StockStatus',
@@ -28,6 +32,8 @@ export class SpotStockPreview extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availableQuantity: 'number',
+      clusterId: 'string',
       instanceType: 'string',
       spotDiscount: 'number',
       stockStatus: 'string',

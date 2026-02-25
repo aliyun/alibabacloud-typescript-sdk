@@ -3,17 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MetricDefinition extends $dara.Model {
-  /**
-   * @example
-   * train dataset oob score
-   */
   description?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * train:oob_score
+   * loss
    */
   name?: string;
   /**
@@ -21,7 +17,7 @@ export class MetricDefinition extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * .*train:oob_score=([-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?).*
+   * .*train:loss=([-+]?[0-9]*\\\\.?[0-9]+(?:[eE][-+]?[0-9]+)?).*
    */
   regex?: string;
   static names(): { [key: string]: string } {

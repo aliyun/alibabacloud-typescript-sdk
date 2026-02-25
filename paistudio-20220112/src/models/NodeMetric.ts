@@ -4,6 +4,10 @@ import { Metric } from "./Metric";
 
 
 export class NodeMetric extends $dara.Model {
+  /**
+   * @example
+   * GU108
+   */
   GPUType?: string;
   /**
    * @example

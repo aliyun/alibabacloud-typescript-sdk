@@ -4,23 +4,64 @@ import { UserVpc } from "./UserVpc";
 
 
 export class ResourceGroup extends $dara.Model {
+  /**
+   * @remarks
+   * CreatorID
+   * 
+   * @example
+   * 1612285282502324
+   */
   creatorID?: string;
+  /**
+   * @remarks
+   * pai resource created time
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
+   */
   gmtCreatedTime?: string;
+  /**
+   * @remarks
+   * GmtModified
+   * 
+   * @example
+   * 2023-06-22T00:00:00Z
+   */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * pai resource group name
+   * 
    * @example
    * RG1
    */
   name?: string;
+  /**
+   * @remarks
+   * NodeCount
+   * 
+   * @example
+   * 3
+   */
   nodeCount?: number;
   /**
+   * @remarks
+   * pai resource group id
+   * 
    * @example
    * rg17tmvwiokhzaxg
    */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * UserVpc
+   */
   userVpc?: UserVpc;
   version?: string;
   /**
+   * @remarks
+   * pworkspace id
+   * 
    * @example
    * 23000
    */

@@ -1832,6 +1832,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取当前资源配额用户列表和其所使用的资源
+   * 
+   * @param request - ListQuotaActiveUserUsagesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQuotaActiveUserUsagesResponse
+   */
+  async listQuotaActiveUserUsagesWithOptions(QuotaId: string, request: $_model.ListQuotaActiveUserUsagesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListQuotaActiveUserUsagesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.selfOnly)) {
+      query["SelfOnly"] = request.selfOnly;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQuotaActiveUserUsages",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v1/quotas/${$dara.URL.percentEncode(QuotaId)}/activeuserusages`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQuotaActiveUserUsagesResponse>(await this.callApi(params, req, runtime), new $_model.ListQuotaActiveUserUsagesResponse({}));
+  }
+
+  /**
+   * 获取当前资源配额用户列表和其所使用的资源
+   * 
+   * @param request - ListQuotaActiveUserUsagesRequest
+   * @returns ListQuotaActiveUserUsagesResponse
+   */
+  async listQuotaActiveUserUsages(QuotaId: string, request: $_model.ListQuotaActiveUserUsagesRequest): Promise<$_model.ListQuotaActiveUserUsagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listQuotaActiveUserUsagesWithOptions(QuotaId, request, headers, runtime);
+  }
+
+  /**
    * 您可以通过此API获取Quota上的任务信息列表
    * 
    * @param request - ListQuotaWorkloadsRequest

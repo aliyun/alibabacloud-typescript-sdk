@@ -6,6 +6,10 @@ export class MachineGroup extends $dara.Model {
   allocatableCpu?: number;
   allocatableMemory?: number;
   cpu?: number;
+  /**
+   * @example
+   * 1612285282502324
+   */
   creatorID?: string;
   /**
    * @example
@@ -14,11 +18,35 @@ export class MachineGroup extends $dara.Model {
   defaultDriver?: string;
   diskCapacity?: number;
   diskPL?: string;
+  /**
+   * @example
+   * 1
+   */
   ecsCount?: number;
+  /**
+   * @example
+   * ecs.c6.large
+   */
   ecsSpec?: string;
+  /**
+   * @example
+   * 2023-06-22T00:00:00Z
+   */
   gmtCreatedTime?: string;
+  /**
+   * @example
+   * 2023-08-22T00:00:00Z
+   */
   gmtExpiredTime?: string;
+  /**
+   * @example
+   * 2023-06-22T00:00:00Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 2023-06-22T00:00:00Z
+   */
   gmtStartedTime?: string;
   gpu?: number;
   gpuMemory?: number;
@@ -29,14 +57,49 @@ export class MachineGroup extends $dara.Model {
    */
   machineGroupID?: string;
   memory?: number;
+  /**
+   * @example
+   * “”
+   */
   orderInstanceId?: string;
+  /**
+   * @example
+   * 2
+   */
   paymentDuration?: string;
+  /**
+   * @remarks
+   * region ID
+   * 
+   * @example
+   * Monthly
+   */
   paymentDurationUnit?: string;
+  /**
+   * @example
+   * PREPAY
+   */
   paymentType?: string;
+  /**
+   * @example
+   * “”
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * “”
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * rgf0zhfqn1d4ity2
+   */
   resourceGroupID?: string;
   resourceType?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   supportedDrivers?: string[];
   systemReservedCpu?: number;

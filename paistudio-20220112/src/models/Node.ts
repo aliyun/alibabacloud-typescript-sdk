@@ -5,47 +5,155 @@ import { UserInfo } from "./UserInfo";
 
 
 export class Node extends $dara.Model {
+  /**
+   * @example
+   * CPU
+   */
   acceleratorType?: string;
   allocatableCPU?: string;
   allocatableMemory?: string;
   ancestorQuotaWorkloadNum?: number;
   availabilityZone?: string;
   boundQuotas?: QuotaIdName[];
+  /**
+   * @example
+   * 4
+   */
   CPU?: string;
+  /**
+   * @example
+   * 281044699048527748
+   */
   creatorId?: string;
   descendantQuotaWorkloadNum?: number;
   diskCapacity?: number;
   diskPL?: string;
+  /**
+   * @example
+   * 0
+   */
   GPU?: string;
   GPUMemory?: string;
+  /**
+   * @example
+   * ""
+   */
   GPUType?: string;
+  /**
+   * @example
+   * 2024-07-10T11:49:47Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2025-06-22T00:00:00Z
+   */
   gmtExpiredTime?: string;
+  /**
+   * @example
+   * 2024-07-10T11:49:47Z
+   */
   gmtModifiedTime?: string;
   hyperZone?: string;
+  /**
+   * @example
+   * false
+   */
   isBound?: boolean;
+  /**
+   * @example
+   * 4
+   */
   limitCPU?: string;
+  /**
+   * @example
+   * 0
+   */
   limitGPU?: string;
+  /**
+   * @example
+   * 8
+   */
   limitMemory?: string;
+  /**
+   * @example
+   * mg1234456
+   */
   machineGroupId?: string;
+  /**
+   * @example
+   * 8
+   */
   memory?: string;
+  /**
+   * @example
+   * lingjxxxx
+   */
   nodeName?: string;
+  /**
+   * @example
+   * Ready
+   */
   nodeStatus?: string;
+  /**
+   * @example
+   * ecs.c8i.xlarge
+   */
   nodeType?: string;
+  /**
+   * @example
+   * Ready
+   */
   orderStatus?: string;
+  /**
+   * @example
+   * 2
+   */
   podNum?: number;
+  /**
+   * @example
+   * ""
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * ""
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * 4
+   */
   requestCPU?: string;
+  /**
+   * @example
+   * 0
+   */
   requestGPU?: string;
+  /**
+   * @example
+   * 8
+   */
   requestMemory?: string;
+  /**
+   * @example
+   * rgf0zhfqn1d4ity2
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * test
+   */
   resourceGroupName?: string;
   selfQuotaWorkloadNum?: number;
   subNodes?: string[];
   systemReservedCPU?: string;
   systemReservedMemory?: string;
   users?: UserInfo[];
+  /**
+   * @example
+   * 2
+   */
   workloadNum?: number;
   static names(): { [key: string]: string } {
     return {

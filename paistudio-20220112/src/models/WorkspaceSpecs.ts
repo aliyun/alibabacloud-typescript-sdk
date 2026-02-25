@@ -4,8 +4,16 @@ import { WorkspaceSpec } from "./WorkspaceSpec";
 
 
 export class WorkspaceSpecs extends $dara.Model {
+  /**
+   * @example
+   * DLC
+   */
   product?: string;
   specs?: WorkspaceSpec[];
+  /**
+   * @example
+   * 122421
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

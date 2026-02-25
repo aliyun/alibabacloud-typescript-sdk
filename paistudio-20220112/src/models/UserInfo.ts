@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UserInfo extends $dara.Model {
+  /**
+   * @example
+   * 161222222222
+   */
   userId?: string;
+  /**
+   * @example
+   * test
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {

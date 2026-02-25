@@ -4,19 +4,37 @@ import { HyperParameterRange } from "./HyperParameterRange";
 
 
 export class HyperParameterDefinition extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   defaultValue?: string;
   description?: string;
+  /**
+   * @example
+   * Batch Size
+   */
   displayName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * batch_size
    */
   name?: string;
   range?: HyperParameterRange;
+  /**
+   * @example
+   * true
+   */
   required?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Integer
    */
   type?: string;
   static names(): { [key: string]: string } {

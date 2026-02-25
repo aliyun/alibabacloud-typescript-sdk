@@ -7,9 +7,20 @@ export class Channel extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Model
    */
   name?: string;
+  /**
+   * @example
+   * {}
+   */
   properties?: { [key: string]: any };
+  /**
+   * @example
+   * true
+   */
   required?: boolean;
   supportedChannelTypes?: string[];
   static names(): { [key: string]: string } {

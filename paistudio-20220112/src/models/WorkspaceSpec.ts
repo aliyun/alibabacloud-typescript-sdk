@@ -4,12 +4,36 @@ import { ResourceAmount } from "./ResourceAmount";
 
 
 export class WorkspaceSpec extends $dara.Model {
+  /**
+   * @example
+   * ""
+   */
   code?: string;
+  /**
+   * @example
+   * ""
+   */
   codeType?: string;
+  /**
+   * @example
+   * true
+   */
   isGuaranteedValid?: boolean;
+  /**
+   * @example
+   * true
+   */
   isOverSoldValid?: boolean;
+  /**
+   * @example
+   * ""
+   */
   reason?: string;
   spec?: ResourceAmount;
+  /**
+   * @example
+   * spec_test
+   */
   specName?: string;
   static names(): { [key: string]: string } {
     return {

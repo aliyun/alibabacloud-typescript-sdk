@@ -5,11 +5,50 @@ import { ForwardInfo } from "./ForwardInfo";
 
 export class UserVpc extends $dara.Model {
   defaultForwardInfo?: ForwardInfo;
+  /**
+   * @remarks
+   * DefaultRoute
+   * 
+   * @example
+   * eth0
+   */
   defaultRoute?: string;
+  /**
+   * @remarks
+   * ExtendedCIDRs
+   */
   extendedCIDRs?: string[];
+  /**
+   * @remarks
+   * RoleArn
+   * 
+   * @example
+   * acs:ram::25xxxx:role/AliyunPAIDLCDefaultRole
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * SecurityGroupID
+   * 
+   * @example
+   * sg-abcdef****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * VSW ID
+   * 
+   * @example
+   * vs-abcdef****
+   */
   switchId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-abcdef****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

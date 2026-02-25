@@ -18,14 +18,30 @@ export class UserViewMetric extends $dara.Model {
   networkInputRate?: string;
   networkOutputRate?: string;
   nodeNames?: string[];
+  /**
+   * @example
+   * 100
+   */
   requestCPU?: number;
+  /**
+   * @example
+   * 10
+   */
   requestGPU?: number;
+  /**
+   * @example
+   * 102400000
+   */
   requestMemory?: number;
   /**
    * @example
    * rg17tmvwiokhzaxg
    */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalCPU?: number;
   totalGPU?: number;
   totalMemory?: number;

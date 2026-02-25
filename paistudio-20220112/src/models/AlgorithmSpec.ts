@@ -12,12 +12,20 @@ import { ConditionExpression } from "./ConditionExpression";
 export class AlgorithmSpecComputeResourcePolicy extends $dara.Model {
   /**
    * @remarks
+   * Policy Value
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   value?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * V1
    */
   version?: string;
   static names(): { [key: string]: string } {
@@ -74,6 +82,10 @@ export class AlgorithmSpecComputeResource extends $dara.Model {
 }
 
 export class AlgorithmSpecCustomization extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   codeDir?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -97,7 +109,15 @@ export class AlgorithmSpecCustomization extends $dara.Model {
 }
 
 export class AlgorithmSpecProgressDefinitionsOverallProgress extends $dara.Model {
+  /**
+   * @example
+   * training progress
+   */
   description?: string;
+  /**
+   * @example
+   * ^[0-9]+([.][0-9]+){0,1}$
+   */
   regex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,7 +143,15 @@ export class AlgorithmSpecProgressDefinitionsOverallProgress extends $dara.Model
 }
 
 export class AlgorithmSpecProgressDefinitionsRemainingTime extends $dara.Model {
+  /**
+   * @example
+   * training remaining time
+   */
   description?: string;
+  /**
+   * @example
+   * ^[0-9]+([.][0-9]+){0,1}$
+   */
   regex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -193,12 +221,18 @@ export class AlgorithmSpec extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai-training/kmeans:v1.0.0
    */
   image?: string;
   inputChannels?: Channel[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * TFJob
    */
   jobType?: string;
   metricDefinitions?: MetricDefinition[];
@@ -206,6 +240,10 @@ export class AlgorithmSpec extends $dara.Model {
   progressDefinitions?: AlgorithmSpecProgressDefinitions;
   resourceRequirements?: ConditionExpression[];
   supportedInstanceTypes?: string[];
+  /**
+   * @example
+   * true
+   */
   supportsDistributedTraining?: boolean;
   static names(): { [key: string]: string } {
     return {

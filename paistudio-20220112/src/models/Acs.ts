@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ACS extends $dara.Model {
+  /**
+   * @remarks
+   * ACS Identifier
+   * 
+   * @example
+   * rq-3kbt2gtimmyw7fgfgothocvh
+   */
   ACSQuotaId?: string;
   associatedProducts?: string[];
   static names(): { [key: string]: string } {
