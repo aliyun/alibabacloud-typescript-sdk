@@ -3,33 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the media fingerprint library.
-   * 
-   * @example
-   * 2288c6ca184c0e47098a5b665e2a12****
-   */
   fpDBId?: string;
-  /**
-   * @remarks
-   * The unique primary key of the video.
-   * 
-   * @example
-   * 3ca84a39a9024f19853b21be9cf9****
-   */
   primaryKey?: string;
-  /**
-   * @remarks
-   * The storage type. Valid values:
-   * 
-   * *   **nosave**: The fingerprints of the job input are not saved to the media fingerprint library.
-   * *   **save**: The fingerprints of the job input are saved to the media fingerprint library only if the job input is not duplicated with media content in the media fingerprint library.
-   * *   **forcesave**: The fingerprints of the job input are forcibly saved to the media fingerprint library.
-   * 
-   * @example
-   * save
-   */
   saveType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,21 +32,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig ex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceDuplication extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
-   * 
-   * @example
-   * 3
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The start point in time of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
-   * 
-   * @example
-   * 0
-   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,21 +58,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceInput extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of the similar audio clip in the input audio.
-   * 
-   * @example
-   * 5
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The start point in time of the similar audio clip in the input audio.
-   * 
-   * @example
-   * 0
-   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,23 +84,8 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSlice extends $dara.Model {
-  /**
-   * @remarks
-   * The start point in time and duration of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
-   */
   duplication?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceDuplication;
-  /**
-   * @remarks
-   * The start point in time and duration of the similar audio clip in the input audio.
-   */
   input?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceInput;
-  /**
-   * @remarks
-   * The similarity of the input audio against the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
-   * 
-   * @example
-   * 0
-   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,26 +145,8 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShot extends $dara.Model {
-  /**
-   * @remarks
-   * The audio files that have similar fingerprints to the input audio in the audio fingerprint library.
-   */
   fpShotSlices?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlices;
-  /**
-   * @remarks
-   * The unique primary key of the input audio.
-   * 
-   * @example
-   * 498ac941373341599c4777c8d884****
-   */
   primaryKey?: string;
-  /**
-   * @remarks
-   * The overall similarity of the input audio against audio files that have similar fingerprints to the input audio in the audio fingerprint library.
-   * 
-   * @example
-   * 0
-   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -289,21 +203,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceDuplication extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
-   * 
-   * @example
-   * 48
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The start point in time of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
-   * 
-   * @example
-   * 1260
-   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -329,21 +229,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceInput extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of the similar video clip in the input video.
-   * 
-   * @example
-   * 48
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The start point in time of the similar video clip in the input video.
-   * 
-   * @example
-   * 46
-   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -369,23 +255,8 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSlice extends $dara.Model {
-  /**
-   * @remarks
-   * The start point in time and duration of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
-   */
   duplication?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceDuplication;
-  /**
-   * @remarks
-   * The start time and duration of the similar video clip in the input video.
-   */
   input?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceInput;
-  /**
-   * @remarks
-   * The similarity of the input video clip against the video file that has similar fingerprints to the input video in the video fingerprint library.
-   * 
-   * @example
-   * 0
-   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -445,28 +316,8 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShot extends $dara.Model {
-  /**
-   * @remarks
-   * The video files that have similar fingerprints to the input video in the video fingerprint library.
-   */
   fpShotSlices?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlices;
-  /**
-   * @remarks
-   * The unique primary key of the input video.
-   * 
-   * @example
-   * 498ac941373341599c4777c8d884****
-   */
   primaryKey?: string;
-  /**
-   * @remarks
-   * The overall similarity of the input video against video files that have similar fingerprints to the input video in the video fingerprint library.
-   * 
-   * >  The overall similarity is the average value of the similarities of the input video clips with the clips of the video that has a similar fingerprint. If multiple video files that have similar fingerprints to the input video exist in the video fingerprint library, the similarities of the input video against multiple similar video clips are returned.
-   * 
-   * @example
-   * 0.8914769887924194
-   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -523,21 +374,7 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlicesTextFpShotSliceInputFragment extends $dara.Model {
-  /**
-   * @remarks
-   * The duration of the similar text snippet in the input text.
-   * 
-   * @example
-   * 3
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The start time of the similar text snippet in the input text.
-   * 
-   * @example
-   * 0
-   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -563,34 +400,9 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlicesTextFpShotSlice extends $dara.Model {
-  /**
-   * @remarks
-   * The text snippet that has similar fingerprints to the input text in the text fingerprint library.
-   * 
-   * @example
-   * It\\"s snowy today.
-   */
   duplicationText?: string;
-  /**
-   * @remarks
-   * The start point in time and duration of the similar text snippet in the input text.
-   */
   inputFragment?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlicesTextFpShotSliceInputFragment;
-  /**
-   * @remarks
-   * The input text for text fingerprint analysis.
-   * 
-   * @example
-   * It\\"s snowy today.
-   */
   inputText?: string;
-  /**
-   * @remarks
-   * The similarity of the input text against the text snippet that has similar fingerprints to the input text in the text fingerprint library.
-   * 
-   * @example
-   * 1.0
-   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -649,26 +461,8 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShot extends $dara.Model {
-  /**
-   * @remarks
-   * The unique primary key of the input text.
-   * 
-   * @example
-   * 3e34ac649945b53a1b0f863ce030****
-   */
   primaryKey?: string;
-  /**
-   * @remarks
-   * The similarity of the input text against text snippets that have similar fingerprints to the input text in the text fingerprint library.
-   * 
-   * @example
-   * 1.0
-   */
   similarity?: string;
-  /**
-   * @remarks
-   * The text snippets that have similar fingerprints to the input text in the text fingerprint library.
-   */
   textFpShotSlices?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlices;
   static names(): { [key: string]: string } {
     return {
@@ -725,20 +519,8 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResult extends $dara.Model {
-  /**
-   * @remarks
-   * The audio fingerprint analysis results.
-   */
   audioFpShots?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShots;
-  /**
-   * @remarks
-   * The video fingerprint analysis results.
-   */
   fpShots?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShots;
-  /**
-   * @remarks
-   * The text fingerprint analysis results.
-   */
   textFpShots?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShots;
   static names(): { [key: string]: string } {
     return {
@@ -775,29 +557,8 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResult ex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobInputFile extends $dara.Model {
-  /**
-   * @remarks
-   * The OSS bucket in which the job input resides.
-   * 
-   * @example
-   * oss-test
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The OSS region in which the job input resides.
-   * 
-   * @example
-   * oss-cn-beijing
-   */
   location?: string;
-  /**
-   * @remarks
-   * The Object Storage Service (OSS) object that is used as the job input.
-   * 
-   * @example
-   * test.mp4
-   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -825,114 +586,19 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobInputFile exten
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJob extends $dara.Model {
-  /**
-   * @remarks
-   * The error code returned if the job fails.
-   * 
-   * @example
-   * InvalidParameter.UUIDFormatInvalid
-   */
   code?: string;
-  /**
-   * @remarks
-   * The time when the job was created.
-   * 
-   * @example
-   * 2017-01-10T12:00:00Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The length of the input file.
-   * Unit: seconds.
-   * 
-   * @example
-   * 5
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The ID of the uploaded file.
-   * 
-   * @example
-   * ebb51ee30f0b49aba959823fa991****
-   */
   fileId?: string;
-  /**
-   * @remarks
-   * The time when the job was complete.
-   * 
-   * @example
-   * 0
-   */
   finishTime?: string;
-  /**
-   * @remarks
-   * The configurations of the job.
-   */
   fpShotConfig?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig;
-  /**
-   * @remarks
-   * The results of the media fingerprint analysis job.
-   */
   fpShotResult?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResult;
-  /**
-   * @remarks
-   * The ID of the job.
-   * 
-   * @example
-   * 88c6ca184c0e47098a5b665e2a12****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The information about the job input.
-   * 
-   * @example
-   * {"Bucket":"oss-test","Location":"oss-cn-beijing","Object":"test.mp4"}
-   */
   input?: string;
-  /**
-   * @remarks
-   * The information about the job input.
-   */
   inputFile?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobInputFile;
-  /**
-   * @remarks
-   * The error message returned if the job fails. This parameter is not returned if the job is successful.
-   * 
-   * @example
-   * The parameter \\"Id\\" is invalid.A uuid must:1)be comprised of chracters[a-f],numbers[0-9];2)be 32 characters long
-   */
   message?: string;
-  /**
-   * @remarks
-   * The ID of the MPS queue to which the analysis job is submitted.
-   * 
-   * @example
-   * 88c6ca184c0e47098a5b665e2a12****
-   */
   pipelineId?: string;
-  /**
-   * @remarks
-   * The status of the job. Valid values:
-   * 
-   * *   **Queuing**: The job is waiting in the queue.
-   * *   **Analysing**: The job is in progress.
-   * *   **Success**: The job is successful.
-   * *   **Fail**: The job fails.
-   * 
-   * @example
-   * Success
-   */
   state?: string;
-  /**
-   * @remarks
-   * The custom data.
-   * 
-   * @example
-   * testid-001
-   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1043,10 +709,6 @@ export class QueryFpShotJobListResponseBodyNonExistIds extends $dara.Model {
 }
 
 export class QueryFpShotJobListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about media fingerprint analysis jobs.
-   */
   fpShotJobList?: QueryFpShotJobListResponseBodyFpShotJobList;
   /**
    * @remarks
@@ -1056,10 +718,6 @@ export class QueryFpShotJobListResponseBody extends $dara.Model {
    * b11c171cced04565b1f38f1ecc39****
    */
   nextPageToken?: string;
-  /**
-   * @remarks
-   * The IDs of the jobs that do not exist.
-   */
   nonExistIds?: QueryFpShotJobListResponseBodyNonExistIds;
   /**
    * @remarks

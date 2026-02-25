@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCustomPersonsResponseBodyCategoriesCategoryPersonsPersonFacesFace extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the face.
-   * 
-   * @example
-   * 15****
-   */
   faceId?: string;
-  /**
-   * @remarks
-   * The URL of the facial image that was registered for the figure.
-   * 
-   * @example
-   * http://example-****.jpeg
-   */
   imageUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,34 +55,9 @@ export class ListCustomPersonsResponseBodyCategoriesCategoryPersonsPersonFaces e
 }
 
 export class ListCustomPersonsResponseBodyCategoriesCategoryPersonsPerson extends $dara.Model {
-  /**
-   * @remarks
-   * The array of the faces.
-   */
   faces?: ListCustomPersonsResponseBodyCategoriesCategoryPersonsPersonFaces;
-  /**
-   * @remarks
-   * The description of the figure.
-   * 
-   * @example
-   * PersonDescription-****
-   */
   personDescription?: string;
-  /**
-   * @remarks
-   * The ID of the figure.
-   * 
-   * @example
-   * PersonId-****
-   */
   personId?: string;
-  /**
-   * @remarks
-   * The name of the figure.
-   * 
-   * @example
-   * PersonName-****
-   */
   personName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,34 +116,9 @@ export class ListCustomPersonsResponseBodyCategoriesCategoryPersons extends $dar
 }
 
 export class ListCustomPersonsResponseBodyCategoriesCategory extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the figure library.
-   * 
-   * @example
-   * CategoryDescription-****
-   */
   categoryDescription?: string;
-  /**
-   * @remarks
-   * The ID of the figure library.
-   * 
-   * @example
-   * CategoryId-****
-   */
   categoryId?: string;
-  /**
-   * @remarks
-   * The name of the figure library.
-   * 
-   * @example
-   * CategoryName-****
-   */
   categoryName?: string;
-  /**
-   * @remarks
-   * The array of the figures.
-   */
   persons?: ListCustomPersonsResponseBodyCategoriesCategoryPersons;
   static names(): { [key: string]: string } {
     return {
@@ -241,10 +177,6 @@ export class ListCustomPersonsResponseBodyCategories extends $dara.Model {
 }
 
 export class ListCustomPersonsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The array of the figure libraries.
-   */
   categories?: ListCustomPersonsResponseBodyCategories;
   /**
    * @remarks

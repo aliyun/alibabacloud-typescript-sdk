@@ -3,58 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControlCrop extends $dara.Model {
-  /**
-   * @remarks
-   * The height of the video image after the margins are cropped out.
-   * 
-   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
-   * 
-   * @example
-   * 8
-   */
   height?: string;
-  /**
-   * @remarks
-   * The left margin to be cropped out.
-   * 
-   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
-   * 
-   * @example
-   * 8
-   */
   left?: string;
-  /**
-   * @remarks
-   * The cropping mode. Valid values:
-   * 
-   * *   **Auto**: Cropping was automatically run.
-   * *   **Force**: Cropping was forced to run.
-   * *   **None**: Cropping was forced not to run.
-   * *   This parameter is required if the value of the Crop parameter is not an empty JSON {}.
-   * 
-   * @example
-   * Auto
-   */
   mode?: string;
-  /**
-   * @remarks
-   * The top margin to be cropped out.
-   * 
-   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
-   * 
-   * @example
-   * 8
-   */
   top?: string;
-  /**
-   * @remarks
-   * The width of the video image after the margins are cropped out.
-   * 
-   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
-   * 
-   * @example
-   * 8
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,22 +38,7 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControl extends $dara.Model {
-  /**
-   * @remarks
-   * The cropping configuration of the video image.
-   */
   crop?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControlCrop;
-  /**
-   * @remarks
-   * Specifies whether deinterlacing was forced to run. Valid values:
-   * 
-   * *   **Auto**: Deinterlacing was automatically run.
-   * *   **Force**: Deinterlacing was forced to run.
-   * *   **None**: Deinterlacing was forced not to run.
-   * 
-   * @example
-   * Auto
-   */
   deinterlace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -130,25 +67,7 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigQualityControl extends $dara.Model {
-  /**
-   * @remarks
-   * The playback mode. Valid values:
-   * 
-   * *   **network**: online playback.
-   * *   **local**: playback on on-premises devices.
-   * *   Default value: **network**.
-   * 
-   * @example
-   * network
-   */
   methodStreaming?: string;
-  /**
-   * @remarks
-   * The quality level of the job output. Default value: **25**.
-   * 
-   * @example
-   * 25
-   */
   rateQuality?: string;
   static names(): { [key: string]: string } {
     return {
@@ -174,15 +93,7 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The control on the attributes of the job output.
-   */
   propertiesControl?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControl;
-  /**
-   * @remarks
-   * The quality control on the job output.
-   */
   qualityControl?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigQualityControl;
   static names(): { [key: string]: string } {
     return {
@@ -214,29 +125,8 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobInputFile extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the OSS bucket in which the input file is stored.
-   * 
-   * @example
-   * example-bucket
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The region in which OSS resides.
-   * 
-   * @example
-   * oss-cn-hangzhou
-   */
   location?: string;
-  /**
-   * @remarks
-   * The name of the Object Storage Service (OSS) object that is used as the input file.
-   * 
-   * @example
-   * example.flv
-   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -264,29 +154,8 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobInputFile
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobMNSMessageResult extends $dara.Model {
-  /**
-   * @remarks
-   * The error code returned if the job failed. This parameter is not returned if the job was successful.
-   * 
-   * @example
-   * InvalidParameter.ResourceNotFound
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The error message returned if the job failed. This parameter is not returned if the job was successful.
-   * 
-   * @example
-   * The resource operated \\"PipelineId\\" cannot be found
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The ID of the message returned if the job was successful. This parameter is not returned if the job failed.
-   * 
-   * @example
-   * 3ca84a39a9024f19853b21be9cf9****
-   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -314,71 +183,11 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobMNSMessag
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateAudio extends $dara.Model {
-  /**
-   * @remarks
-   * The audio bitrate of the output file.
-   * 
-   * *   Valid values: **8 to 1000**.
-   * *   Unit: Kbit/s.
-   * *   Default value: **128**.
-   * 
-   * @example
-   * 128
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The number of sound channels. Default value: **2**.
-   * 
-   * @example
-   * 2
-   */
   channels?: string;
-  /**
-   * @remarks
-   * The audio codec. Default value: **aac**. Valid values:
-   * 
-   * *   **aac**
-   * *   **mp3**
-   * *   **vorbis**
-   * *   **flac**
-   * 
-   * @example
-   * aac
-   */
   codec?: string;
-  /**
-   * @remarks
-   * The codec profile of the audio. Valid values when the **Codec** parameter is set to **aac**:
-   * 
-   * *   **aac_low**
-   * *   **aac_he**
-   * *   **aac_he_v2**
-   * *   **aac_ld**
-   * *   **aac_eld**
-   * 
-   * @example
-   * aac_low
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The level of quality control on the audio.
-   * 
-   * @example
-   * 15
-   */
   qscale?: string;
-  /**
-   * @remarks
-   * The sampling rate.
-   * 
-   * *   Unit: Hz.
-   * *   Default value: **44100**.
-   * 
-   * @example
-   * 44100
-   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -412,13 +221,6 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateContainer extends $dara.Model {
-  /**
-   * @remarks
-   * The container format.
-   * 
-   * @example
-   * flv
-   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -442,21 +244,7 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigGif extends $dara.Model {
-  /**
-   * @remarks
-   * The interval between two consecutive loops for the GIF format. Unit: 0.01 second. For example, a value of 500 indicates 5 seconds.
-   * 
-   * @example
-   * 0
-   */
   finalDelay?: string;
-  /**
-   * @remarks
-   * The number of loops for the GIF or WebP format. Default value: 0.
-   * 
-   * @example
-   * 0
-   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -482,13 +270,6 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigSegment extends $dara.Model {
-  /**
-   * @remarks
-   * The segment length. Unit: seconds.
-   * 
-   * @example
-   * 10
-   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -512,15 +293,7 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The transmuxing configurations for the GIF format.
-   */
   gif?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigGif;
-  /**
-   * @remarks
-   * The segment configurations.
-   */
   segment?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -552,17 +325,6 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateTransConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The transcoding mode. Default value: **onepass**. Valid values:
-   * 
-   * *   **onepass**
-   * *   **twopass**
-   * *   **CBR**
-   * 
-   * @example
-   * onepass
-   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -586,21 +348,7 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideoBitrateBnd extends $dara.Model {
-  /**
-   * @remarks
-   * The upper limit of the total bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 1500
-   */
   max?: string;
-  /**
-   * @remarks
-   * The lower limit of the total bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 800
-   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -626,156 +374,21 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideo extends $dara.Model {
-  /**
-   * @remarks
-   * The average bitrate of the video. Unit: Kbit/s.
-   * 
-   * @example
-   * 1000
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The average bitrate range of the video.
-   */
   bitrateBnd?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideoBitrateBnd;
-  /**
-   * @remarks
-   * The buffer size.
-   * 
-   * *   Unit: KB.
-   * *   Default value: **6000**.
-   * 
-   * @example
-   * 6000
-   */
   bufsize?: string;
-  /**
-   * @remarks
-   * The codec. Valid values: H.264 and H.265. Default value: **H.264**.
-   * 
-   * @example
-   * H.264
-   */
   codec?: string;
-  /**
-   * @remarks
-   * The constant rate factor.
-   * 
-   * *   Default value when the the Codec parameter is set to H.264: **23**, default value when the the Codec parameter is set to H.265: **26**.
-   * *   If this parameter is specified, the value of the Bitrate parameter becomes invalid.
-   * 
-   * @example
-   * 26
-   */
   crf?: string;
-  /**
-   * @remarks
-   * The strength of the independent noise reduction algorithm.
-   * 
-   * @example
-   * 5
-   */
   degrain?: string;
-  /**
-   * @remarks
-   * The frame rate of the video.
-   * 
-   * *   The value is 60 if the frame rate of the input file exceeds 60.
-   * *   Default value: **the frame rate of the input video**.
-   * 
-   * @example
-   * 25
-   */
   fps?: string;
-  /**
-   * @remarks
-   * The maximum number of frames between two keyframes. Default value: **250**.
-   * 
-   * @example
-   * 250
-   */
   gop?: string;
-  /**
-   * @remarks
-   * The height of the video.
-   * 
-   * *   Unit: pixel.
-   * *   Default value: **the height of the input video**.
-   * 
-   * @example
-   * 720
-   */
   height?: string;
-  /**
-   * @remarks
-   * The maximum bitrate of the video.
-   * 
-   * *   Valid values: **10 to 50000**.
-   * *   Unit: Kbit/s.
-   * 
-   * @example
-   * 2000
-   */
   maxrate?: string;
-  /**
-   * @remarks
-   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
-   * 
-   * @example
-   * yuv420p
-   */
   pixFmt?: string;
-  /**
-   * @remarks
-   * The preset video algorithm. Valid values: veryfast, fast, medium, slow, and slower. Default value: **medium**.
-   * 
-   * @example
-   * medium
-   */
   preset?: string;
-  /**
-   * @remarks
-   * The codec profile. Valid values:
-   * 
-   * *   **baseline**: applicable to mobile devices.
-   * *   **main**: applicable to standard-definition devices.
-   * *   **high**: applicable to high-definition devices.
-   * *   Default value: **high**.
-   * 
-   * @example
-   * high
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The level of quality control on the video.
-   * 
-   * @example
-   * 15
-   */
   qscale?: string;
-  /**
-   * @remarks
-   * The scan mode. Valid values:
-   * 
-   * *   **interlaced**
-   * *   **progressive**
-   * 
-   * @example
-   * interlaced
-   */
   scanMode?: string;
-  /**
-   * @remarks
-   * The width of the video.
-   * 
-   * *   Unit: pixel.
-   * *   Default value: **the width of the input video**.
-   * 
-   * @example
-   * 1280
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -832,57 +445,13 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * The audio codec configurations.
-   */
   audio?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateAudio;
-  /**
-   * @remarks
-   * The container format configurations.
-   */
   container?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateContainer;
-  /**
-   * @remarks
-   * The transcoding template ID.
-   * 
-   * @example
-   * S00000000-00****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The transmuxing configurations.
-   */
   muxConfig?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfig;
-  /**
-   * @remarks
-   * The name of the template.
-   * 
-   * @example
-   * FLV-UD
-   */
   name?: string;
-  /**
-   * @remarks
-   * The state of the template. Valid values:
-   * 
-   * *   **Normal**
-   * *   **Deleted**
-   * 
-   * @example
-   * Normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The general transcoding configurations.
-   */
   transConfig?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateTransConfig;
-  /**
-   * @remarks
-   * The video codec configurations.
-   */
   video?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -961,105 +530,18 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJob extends $dara.Model {
-  /**
-   * @remarks
-   * The job configurations.
-   */
   analysisConfig?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfig;
-  /**
-   * @remarks
-   * The error code returned if the job fails.
-   * 
-   * @example
-   * InvalidParameter.ResourceNotFound
-   */
   code?: string;
-  /**
-   * @remarks
-   * The time when the job was created.
-   * 
-   * @example
-   * 2014-01-10T12:00:00Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The ID of the template analysis job.
-   * 
-   * @example
-   * 57f6aa3f84824309bcba67231b406****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The information about the job input.
-   */
   inputFile?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobInputFile;
-  /**
-   * @remarks
-   * The message sent by Message Service (MNS) to notify users of the job result.
-   */
   MNSMessageResult?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobMNSMessageResult;
-  /**
-   * @remarks
-   * The error message returned if the job failed.
-   * 
-   * @example
-   * The resource operated \\"PipelineId\\" cannot be found
-   */
   message?: string;
-  /**
-   * @remarks
-   * The transcoding progress.
-   * 
-   * @example
-   * 86
-   */
   percent?: number;
-  /**
-   * @remarks
-   * The ID of the MPS queue to which the job was submitted.
-   * 
-   * @example
-   * bb558c1cc25b45309aab5be44d19****
-   */
   pipelineId?: string;
-  /**
-   * @remarks
-   * The priority of the job in the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
-   * 
-   * *   Valid values: **1 to 10**. The value 10 indicates the highest priority.
-   * *   Default value: **10**.
-   * 
-   * @example
-   * 8
-   */
   priority?: string;
-  /**
-   * @remarks
-   * The job status.
-   * 
-   * *   **Submitted**: The job was submitted.
-   * *   **Analyzing**: The job is in progress.
-   * *   **Success**: The job was successful.
-   * *   **Fail**: The job failed.
-   * 
-   * @example
-   * Success
-   */
   state?: string;
-  /**
-   * @remarks
-   * The matched preset templates.
-   */
   templateList?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateList;
-  /**
-   * @remarks
-   * The custom data.
-   * 
-   * @example
-   * testid-001
-   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1171,15 +653,7 @@ export class QueryAnalysisJobListResponseBodyNonExistAnalysisJobIds extends $dar
 }
 
 export class QueryAnalysisJobListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of template analysis jobs.
-   */
   analysisJobList?: QueryAnalysisJobListResponseBodyAnalysisJobList;
-  /**
-   * @remarks
-   * The message sent by Message Service (MNS) to notify the user of the job result.
-   */
   nonExistAnalysisJobIds?: QueryAnalysisJobListResponseBodyNonExistAnalysisJobIds;
   /**
    * @remarks

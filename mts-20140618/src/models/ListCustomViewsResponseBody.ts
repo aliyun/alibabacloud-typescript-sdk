@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCustomViewsResponseBodyCustomViewsCustomView extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   customViewId?: string;
-  /**
-   * @example
-   * http://``127.66.**.**``/photo.jpeg
-   */
   imageUrl?: string;
   static names(): { [key: string]: string } {
     return {

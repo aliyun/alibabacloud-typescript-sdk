@@ -165,98 +165,9 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCen
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResultsResult extends $dara.Model {
-  /**
-   * @remarks
-   * The labels of the moderation result. Multiple labels are separated with commas (,).
-   * 
-   * *   Valid values in the pornographic content moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **sexy**: sexy content
-   *     *   **porn**: pornographic content
-   * 
-   * *   Valid values in the terrorist content moderation scenario:
-   * 
-   *     *   **narmal**: normal content
-   *     *   **bloody**: bloody content
-   *     *   **explosion**: explosion and smoke
-   *     *   **outfit**: special costume
-   *     *   **logo**: special logo
-   *     *   **weapon**: weapon
-   *     *   **politics**: political content
-   *     *   **violence**: violence
-   *     *   **crowd**: crowd
-   *     *   **parade**: parade
-   *     *   **carcrash**: car accident
-   *     *   **flag**: flag
-   *     *   **location**: landmark
-   *     *   **others**: other content
-   * 
-   * *   Valid values in the ad moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **ad**: other ads
-   *     *   **politics**: political content in text
-   *     *   **porn**: pornographic content in text
-   *     *   **abuse**: abuse in text
-   *     *   **terrorism**: terrorist content in text
-   *     *   **contraband**: prohibited content in text
-   *     *   **spam**: spam in text
-   *     *   **npx**: illegal ads
-   *     *   **qrcode**: QR code
-   *     *   **programCode**: mini program code
-   * 
-   * *   Valid values in the live moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **meaningless**: meaningless content, such as a black or white screen
-   *     *   **PIP**: picture-in-picture
-   *     *   **smoking**: smoking
-   *     *   **drivelive**: live broadcasting in a running vehicle
-   * 
-   * *   Valid values in the logo moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **TV**: controlled TV station logo
-   *     *   **trademark**: trademark
-   * 
-   * @example
-   * normal
-   */
   label?: string;
-  /**
-   * @remarks
-   * The score. Valid values: **0 to 100**.
-   * 
-   * @example
-   * 100
-   */
   rate?: string;
-  /**
-   * @remarks
-   * The moderation scenario. Valid values:
-   * 
-   * *   **porn**: pornographic content moderation
-   * *   **terrorism**: terrorist content moderation
-   * *   **ad**: ad violation moderation
-   * *   **live**: undesirable scene moderation
-   * *   **logo**: logo moderation
-   * 
-   * @example
-   * porn
-   */
   scene?: string;
-  /**
-   * @remarks
-   * The recommended subsequent operation. Valid values:
-   * 
-   * *   **pass**: The content passes the moderation.
-   * *   **review**: The content needs to be manually reviewed again.
-   * *   **block**: The content needs to be blocked.
-   * 
-   * @example
-   * pass
-   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -312,34 +223,9 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImage
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResult extends $dara.Model {
-  /**
-   * @remarks
-   * The OSS bucket that stores the video thumbnail.
-   * 
-   * @example
-   * bucket-out-test-****
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The OSS region in which the video thumbnail resides.
-   * 
-   * @example
-   * oss-cn-shanghai
-   */
   location?: string;
-  /**
-   * @remarks
-   * The Object Storage Service (OSS) object that is used as the video thumbnail.
-   * 
-   * @example
-   * test/ai/censor/v2/vme-****.jpg
-   */
   object?: string;
-  /**
-   * @remarks
-   * The moderation results.
-   */
   results?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResults;
   static names(): { [key: string]: string } {
     return {
@@ -592,98 +478,9 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResultsCensorResult extends $dara.Model {
-  /**
-   * @remarks
-   * The labels of the moderation result. Multiple labels are separated with commas (,). Valid values:
-   * 
-   * *   Valid values in the pornographic content moderation scenario:
-   * 
-   *     *   **porn**: pornographic content
-   *     *   **sexy**: sexy content
-   *     *   **normal**: normal content
-   * 
-   * *   Valid values in the terrorist content moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **bloody**: bloody content
-   *     *   **explosion**: explosion and smoke
-   *     *   **outfit**: special costume
-   *     *   **logo**: special logo
-   *     *   **weapon**: weapon
-   *     *   **politics**: political content
-   *     *   **violence**: violence
-   *     *   **crowd**: crowd
-   *     *   **parade**: parade
-   *     *   **carcrash**: car accident
-   *     *   **flag**: flag
-   *     *   **location**: landmark
-   *     *   **others**: other content
-   * 
-   * *   Valid values in the ad moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **ad**: other ads
-   *     *   **politics**: political content in text
-   *     *   **porn**: pornographic content in text
-   *     *   **abuse**: abuse in text
-   *     *   **terrorism**: terrorist content in text
-   *     *   **contraband**: prohibited content in text
-   *     *   **spam**: spam in text
-   *     *   **npx**: illegal ads
-   *     *   **qrcode**: QR code
-   *     *   **programCode**: mini program code
-   * 
-   * *   Valid values in the live moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **meaningless**: meaningless content, such as a black or white screen
-   *     *   **PIP**: picture-in-picture
-   *     *   **smoking**: smoking
-   *     *   **drivelive**: live broadcasting in a running vehicle
-   * 
-   * *   Valid values in the logo moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **TV**: controlled TV station logo
-   *     *   **trademark**: trademark
-   * 
-   * @example
-   * meaningless
-   */
   label?: string;
-  /**
-   * @remarks
-   * The score.
-   * 
-   * @example
-   * 100
-   */
   rate?: string;
-  /**
-   * @remarks
-   * The moderation scenario. Valid values:
-   * 
-   * *   **porn**: pornographic content moderation
-   * *   **terrorism**: terrorist content moderation
-   * *   **ad**: ad violation moderation
-   * *   **live**: undesirable scene moderation
-   * *   **logo**: logo moderation
-   * 
-   * @example
-   * terrorism
-   */
   scene?: string;
-  /**
-   * @remarks
-   * The recommended subsequent operation. Valid values:
-   * 
-   * *   **pass**: The content passes the moderation.
-   * *   **review**: The content needs to be manually reviewed again.
-   * *   **block**: The content needs to be blocked.
-   * 
-   * @example
-   * review
-   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -739,98 +536,9 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResultsCensorResult extends $dara.Model {
-  /**
-   * @remarks
-   * The labels of the moderation result. Multiple labels are separated with commas (,). Valid values:
-   * 
-   * *   Valid values in the pornographic content moderation scenario:
-   * 
-   *     *   **porn**: pornographic content
-   *     *   **sexy**: sexy content
-   *     *   **normal**: normal content
-   * 
-   * *   Valid values in the terrorist content moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **bloody**: bloody content
-   *     *   **explosion**: explosion and smoke
-   *     *   **outfit**: special costume
-   *     *   **logo**: special logo
-   *     *   **weapon**: weapon
-   *     *   **politics**: political content
-   *     *   **violence**: violence
-   *     *   **crowd**: crowd
-   *     *   **parade**: parade
-   *     *   **carcrash**: car accident
-   *     *   **flag**: flag
-   *     *   **location**: landmark
-   *     *   **others**: other content
-   * 
-   * *   Valid values in the ad moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **ad**: other ads
-   *     *   **politics**: political content in text
-   *     *   **porn**: pornographic content in text
-   *     *   **abuse**: abuse in text
-   *     *   **terrorism**: terrorist content in text
-   *     *   **contraband**: prohibited content in text
-   *     *   **spam**: spam in text
-   *     *   **npx**: illegal ads
-   *     *   **qrcode**: QR code
-   *     *   **programCode**: mini program code
-   * 
-   * *   Valid values in the live moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **meaningless**: meaningless content, such as a black or white screen
-   *     *   **PIP**: picture-in-picture
-   *     *   **smoking**: smoking
-   *     *   **drivelive**: live broadcasting in a running vehicle
-   * 
-   * *   Valid values in the logo moderation scenario:
-   * 
-   *     *   **normal**: normal content
-   *     *   **TV**: controlled TV station logo
-   *     *   **trademark**: trademark
-   * 
-   * @example
-   * porn,ad
-   */
   label?: string;
-  /**
-   * @remarks
-   * The score.
-   * 
-   * @example
-   * 99.99
-   */
   rate?: string;
-  /**
-   * @remarks
-   * The moderation scenario. Valid values:
-   * 
-   * *   **porn**: pornographic content moderation
-   * *   **terrorism**: terrorist content moderation
-   * *   **ad**: ad violation moderation
-   * *   **live**: undesirable scene moderation
-   * *   **logo**: logo moderation
-   * 
-   * @example
-   * porn
-   */
   scene?: string;
-  /**
-   * @remarks
-   * The recommended subsequent operation. Valid values:
-   * 
-   * *   **pass**: The content passes the moderation.
-   * *   **review**: The content needs to be manually reviewed again.
-   * *   **block**: The content needs to be blocked.
-   * 
-   * @example
-   * block
-   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -886,28 +594,8 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimeline extends $dara.Model {
-  /**
-   * @remarks
-   * The moderation results that include information such as labels and scores.
-   */
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResults;
-  /**
-   * @remarks
-   * The one or more OSS objects that are generated as the output snapshots.
-   * 
-   * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
-   * 
-   * @example
-   * output{Count}.jpg
-   */
   object?: string;
-  /**
-   * @remarks
-   * The position in the video. Format: `hh:mm:ss[.SSS]`.
-   * 
-   * @example
-   * 00:02:59.999
-   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -964,10 +652,6 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult extends $dara.Model {
-  /**
-   * @remarks
-   * A collection of the moderation results. The information includes the summary of various scenarios such as pornographic content and terrorist content.
-   */
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResults;
   /**
    * @remarks
@@ -977,10 +661,6 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
    * ea04afcca7cd4e80b9ece8fbb251****
    */
   nextPageToken?: string;
-  /**
-   * @remarks
-   * The moderation results that are sorted in ascending order by time.
-   */
   videoTimelines?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelines;
   static names(): { [key: string]: string } {
     return {
@@ -1133,10 +813,6 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
    * InvalidParameter.ResourceNotFound
    */
   code?: string;
-  /**
-   * @remarks
-   * The moderation results of thumbnails.
-   */
   coverImageCensorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResults;
   /**
    * @remarks

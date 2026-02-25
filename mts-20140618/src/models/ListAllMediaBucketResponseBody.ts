@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAllMediaBucketResponseBodyMediaBucketListMediaBucket extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the media bucket.
-   * 
-   * @example
-   * example-bucket-****
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The settings of Object Storage Service (OSS) hotlink protection. For more information, see [Hotlink protection](https://help.aliyun.com/document_detail/31869.html).
-   * 
-   * @example
-   * http://www.example.com
-   */
   referer?: string;
-  /**
-   * @remarks
-   * The type of the media bucket. Valid values:
-   * 
-   * *   Input: input media bucket
-   * *   Output: output media bucket
-   * 
-   * @example
-   * Input
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,10 +58,6 @@ export class ListAllMediaBucketResponseBodyMediaBucketList extends $dara.Model {
 }
 
 export class ListAllMediaBucketResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The media buckets returned.
-   */
   mediaBucketList?: ListAllMediaBucketResponseBodyMediaBucketList;
   /**
    * @remarks

@@ -167,6 +167,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat extends 
    * 0.000000
    */
   startTime?: string;
+  tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       bitrate: 'Bitrate',
@@ -177,6 +178,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat extends 
       numStreams: 'NumStreams',
       size: 'Size',
       startTime: 'StartTime',
+      tags: 'Tags',
     };
   }
 
@@ -190,10 +192,14 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat extends 
       numStreams: 'string',
       size: 'string',
       startTime: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
   validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
     super.validate();
   }
 
@@ -203,140 +209,22 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat extends 
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsAudioStreamListAudioStream extends $dara.Model {
-  /**
-   * @remarks
-   * The bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 128.806
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The output layout of the sound channels.
-   * 
-   * @example
-   * stereo
-   */
   channelLayout?: string;
-  /**
-   * @remarks
-   * The number of sound channels.
-   * 
-   * @example
-   * 2
-   */
   channels?: string;
-  /**
-   * @remarks
-   * The full name of the encoding format.
-   * 
-   * @example
-   * AAC (Advanced Audio Coding)
-   */
   codecLongName?: string;
-  /**
-   * @remarks
-   * The short name of the encoding format. Default value: acc. Valid values:
-   * 
-   * *   **acc**
-   * *   **mp3**
-   * *   **mp4**
-   * *   **ogg**
-   * *   **flac**
-   * 
-   * @example
-   * aac
-   */
   codecName?: string;
-  /**
-   * @remarks
-   * The tag of the encoding format.
-   * 
-   * @example
-   * 0x6134706d
-   */
   codecTag?: string;
-  /**
-   * @remarks
-   * The tag string of the encoding format.
-   * 
-   * @example
-   * mp4a
-   */
   codecTagString?: string;
-  /**
-   * @remarks
-   * The codec time base.
-   * 
-   * @example
-   * 1/44100
-   */
   codecTimeBase?: string;
-  /**
-   * @remarks
-   * The duration of the audio stream. Unit: seconds.
-   * 
-   * @example
-   * 17.159546
-   */
   duration?: string;
   durationInaccurate?: string;
-  /**
-   * @remarks
-   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
-   * 
-   * @example
-   * 1
-   */
   index?: string;
-  /**
-   * @remarks
-   * The language.
-   * 
-   * @example
-   * eng
-   */
   lang?: string;
-  /**
-   * @remarks
-   * The total number of frames.
-   * 
-   * @example
-   * 123
-   */
   numFrames?: string;
-  /**
-   * @remarks
-   * The sampling format.
-   * 
-   * @example
-   * fltp
-   */
   sampleFmt?: string;
-  /**
-   * @remarks
-   * The sampling rate. Unit: Hz.
-   * 
-   * @example
-   * 44100
-   */
   samplerate?: string;
-  /**
-   * @remarks
-   * The start time of the audio stream.
-   * 
-   * @example
-   * 0.000000
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The time base.
-   * 
-   * @example
-   * 1/44100
-   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -418,88 +306,15 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsAudioStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsSubtitleStreamListSubtitleStream extends $dara.Model {
-  /**
-   * @remarks
-   * The full name of the encoding format.
-   * 
-   * @example
-   * ASS (Advanced SSA) subtitle
-   */
   codecLongName?: string;
-  /**
-   * @remarks
-   * The short name of the encoding format. Valid values:
-   * 
-   * *   **srt**
-   * *   **ass**
-   * 
-   * @example
-   * ass
-   */
   codecName?: string;
-  /**
-   * @remarks
-   * The tag of the encoding format.
-   * 
-   * @example
-   * 0x0000
-   */
   codecTag?: string;
-  /**
-   * @remarks
-   * The tag string of the encoding format.
-   * 
-   * @example
-   * [0][0][0][0]
-   */
   codecTagString?: string;
-  /**
-   * @remarks
-   * The codec time base.
-   * 
-   * @example
-   * 0/1
-   */
   codecTimeBase?: string;
-  /**
-   * @remarks
-   * The duration of the audio stream. Unit: seconds.
-   * 
-   * @example
-   * 1370.116000
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
-   * 
-   * @example
-   * 3
-   */
   index?: string;
-  /**
-   * @remarks
-   * The language.
-   * 
-   * @example
-   * eng
-   */
   lang?: string;
-  /**
-   * @remarks
-   * The start time of the subtitle stream.
-   * 
-   * @example
-   * 0.000000
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The time base.
-   * 
-   * @example
-   * 1/1000
-   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -566,30 +381,35 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsSubtitle
   }
 }
 
+export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamDolbyVision extends $dara.Model {
+  level?: string;
+  profile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      profile: 'Profile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      profile: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $dara.Model {
-  /**
-   * @remarks
-   * The average bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 300.34
-   */
   avgBitrate?: string;
-  /**
-   * @remarks
-   * The maximum bandwidth that is consumed.
-   * 
-   * @example
-   * 10
-   */
   costBandwidth?: string;
-  /**
-   * @remarks
-   * The time consumed to preload the video.
-   * 
-   * @example
-   * 8
-   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -617,224 +437,34 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStream extends $dara.Model {
-  /**
-   * @remarks
-   * The average frame rate.
-   * 
-   * @example
-   * 23.976025
-   */
   avgFPS?: string;
-  /**
-   * @remarks
-   * The bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 1496.46
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The full name of the encoding format.
-   * 
-   * @example
-   * H.264/AVC/MPEG-4 AVC/MPEG-4 part 10
-   */
   codecLongName?: string;
-  /**
-   * @remarks
-   * The short name of the encoding format. Valid values:
-   * 
-   * *   **h264**
-   * *   **h265**
-   * *   **gif**
-   * *   **webp**
-   * 
-   * @example
-   * h264
-   */
   codecName?: string;
-  /**
-   * @remarks
-   * The tag of the encoding format.
-   * 
-   * @example
-   * 0x31637661
-   */
   codecTag?: string;
-  /**
-   * @remarks
-   * The tag string of the encoding format.
-   * 
-   * @example
-   * avc1
-   */
   codecTagString?: string;
-  /**
-   * @remarks
-   * The codec time base.
-   * 
-   * @example
-   * 1001/48000
-   */
   codecTimeBase?: string;
-  /**
-   * @remarks
-   * The level of color reconstruction.
-   * 
-   * @example
-   * 700
-   */
   colorPrimaries?: string;
-  /**
-   * @remarks
-   * The color range.
-   * 
-   * @example
-   * 700
-   */
   colorRange?: string;
-  /**
-   * @remarks
-   * The color channel.
-   * 
-   * @example
-   * R255 G83 B170
-   */
   colorTransfer?: string;
-  /**
-   * @remarks
-   * The display aspect ratio (DAR). DAR is the proportional relationship between the width and the height of a video. The value is used to determine whether the video is in portrait mode or landscape mode.
-   * 
-   * @example
-   * 16:9
-   */
   dar?: string;
-  /**
-   * @remarks
-   * The duration of the video stream. Unit: seconds.
-   * 
-   * @example
-   * 17.225542
-   */
+  dolbyVision?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamDolbyVision;
   duration?: string;
   durationInaccurate?: string;
-  /**
-   * @remarks
-   * The frame rate.
-   * 
-   * @example
-   * 25
-   */
   fps?: string;
-  /**
-   * @remarks
-   * Indicates whether the video stream contains bidirectional frames (B-frames). A value of 1 indicates that the video stream contains B-frames. A value of 0 indicates that the video stream does not contain B-frames.
-   * 
-   * @example
-   * 0
-   */
   hasBFrames?: string;
-  /**
-   * @remarks
-   * The height of the video. Unit: pixel.
-   * 
-   * @example
-   * 1080
-   */
   height?: string;
-  /**
-   * @remarks
-   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams. The sequence number of the first video stream to be played can be specified in some players. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
   index?: string;
-  /**
-   * @remarks
-   * The language.
-   * 
-   * @example
-   * eng
-   */
   lang?: string;
-  /**
-   * @remarks
-   * The codec level.
-   * 
-   * @example
-   * 41
-   */
   level?: string;
-  /**
-   * @remarks
-   * The network bandwidth that is consumed.
-   */
   networkCost?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
-  /**
-   * @remarks
-   * The total number of frames.
-   * 
-   * @example
-   * 100
-   */
   numFrames?: string;
-  /**
-   * @remarks
-   * The pixel format.
-   * 
-   * @example
-   * yuv420p
-   */
   pixFmt?: string;
-  /**
-   * @remarks
-   * The codec profile.
-   * 
-   * @example
-   * High
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The rotation angle of the video.
-   * 
-   * @example
-   * 90
-   */
   rotate?: string;
-  /**
-   * @remarks
-   * The sample aspect ratio (SAR).
-   * 
-   * @example
-   * 1:1
-   */
   sar?: string;
-  /**
-   * @remarks
-   * The start time of the video stream.
-   * 
-   * @example
-   * 0.042000
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The time base.
-   * 
-   * @example
-   * 1/24000
-   */
   timebase?: string;
-  /**
-   * @remarks
-   * The width of the video. Unit: pixel.
-   * 
-   * @example
-   * 1920
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -849,6 +479,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStr
       colorRange: 'ColorRange',
       colorTransfer: 'ColorTransfer',
       dar: 'Dar',
+      dolbyVision: 'DolbyVision',
       duration: 'Duration',
       durationInaccurate: 'DurationInaccurate',
       fps: 'Fps',
@@ -882,6 +513,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStr
       colorRange: 'string',
       colorTransfer: 'string',
       dar: 'string',
+      dolbyVision: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamDolbyVision,
       duration: 'string',
       durationInaccurate: 'string',
       fps: 'string',
@@ -903,6 +535,9 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStr
   }
 
   validate() {
+    if(this.dolbyVision && typeof (this.dolbyVision as any).validate === 'function') {
+      (this.dolbyVision as any).validate();
+    }
     if(this.networkCost && typeof (this.networkCost as any).validate === 'function') {
       (this.networkCost as any).validate();
     }
@@ -941,20 +576,8 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreams extends $dara.Model {
-  /**
-   * @remarks
-   * The audio streams. A media file can contain up to four audio streams.
-   */
   audioStreamList?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsAudioStreamList;
-  /**
-   * @remarks
-   * The subtitle streams. A media file can contain up to four subtitle streams.
-   */
   subtitleStreamList?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsSubtitleStreamList;
-  /**
-   * @remarks
-   * The video streams. A media file can contain up to four video streams.
-   */
   videoStreamList?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {

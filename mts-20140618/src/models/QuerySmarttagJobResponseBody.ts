@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuerySmarttagJobResponseBodyResultsResult extends $dara.Model {
-  /**
-   * @example
-   * {"title":"example-title-****"}
-   */
   data?: string;
-  /**
-   * @example
-   * Meta
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -29,84 +29,11 @@ export class QueryTemplateListResponseBodyNonExistTids extends $dara.Model {
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateAudioVolume extends $dara.Model {
-  /**
-   * @remarks
-   * The output volume.
-   * 
-   * *   This parameter takes effect only if the value of Method is dynamic.
-   * *   Unit: dB.
-   * *   Valid values: [-70,-5].
-   * *   Default value: -6.
-   * 
-   * @example
-   * -6
-   */
   integratedLoudnessTarget?: string;
-  /**
-   * @remarks
-   * The increased volume relative to the volume of the input audio.
-   * 
-   * *   This parameter takes effect only if the value of Method is linear.
-   * *   Unit: dB.
-   * *   Valid values: less than or equal to 20.
-   * *   Default value: -20.
-   * 
-   * @example
-   * -20
-   */
   level?: string;
-  /**
-   * @remarks
-   * The range of the volume relative to the output volume.
-   * 
-   * *   This parameter takes effect only if the value of Method is dynamic.
-   * *   Unit: dB.
-   * *   Valid values: [1,20].
-   * *   Default value: 8.
-   * 
-   * @example
-   * 8
-   */
   loudnessRangeTarget?: string;
-  /**
-   * @remarks
-   * The method that is used to adjust the volume. Valid values:
-   * 
-   * *   **auto**
-   * *   **dynamic**
-   * *   **linear**
-   * *   Default value: dynamic.
-   * 
-   * @example
-   * auto
-   */
   method?: string;
-  /**
-   * @remarks
-   * The volume adjustment coefficient.
-   * 
-   * This parameter takes effect only if the value of Method is adaptive.
-   * 
-   * Valid values: [0,1].
-   * 
-   * Default value: 0.9.
-   * 
-   * @example
-   * 0.9
-   */
   peakLevel?: string;
-  /**
-   * @remarks
-   * The peak volume.
-   * 
-   * *   This parameter takes effect only if the value of Method is dynamic.
-   * *   Unit: dB.
-   * *   Valid values: [-9,0].
-   * *   Default value: -1.
-   * 
-   * @example
-   * -1
-   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -140,88 +67,13 @@ export class QueryTemplateListResponseBodyTemplateListTemplateAudioVolume extend
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $dara.Model {
-  /**
-   * @remarks
-   * The audio bitrate of the output file.
-   * 
-   * *   Valid values: **[8,1000]**.
-   * *   Unit: Kbit/s.
-   * *   Default value: **128**.
-   * 
-   * @example
-   * 500
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The number of sound channels. Default value: **2**.
-   * 
-   * @example
-   * 2
-   */
   channels?: string;
-  /**
-   * @remarks
-   * The audio codec format. Default value: **aac**. Valid values:
-   * 
-   * *   **aac**
-   * *   **mp3**
-   * *   **vorbis**
-   * *   **flac**
-   * 
-   * @example
-   * aac
-   */
   codec?: string;
-  /**
-   * @remarks
-   * The codec profile of the audio. Valid values when the value of Codec is aac:
-   * 
-   * *   **aac_low**
-   * *   **aac_he**
-   * *   **aac_he_v2**
-   * *   **aac_ld**
-   * *   **aac_eld**
-   * 
-   * @example
-   * aac_low
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The strength of the independent denoising algorithm.
-   * 
-   * @example
-   * 1
-   */
   qscale?: string;
-  /**
-   * @remarks
-   * Indicates whether the audio stream is deleted. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   remove?: string;
-  /**
-   * @remarks
-   * The sampling rate.
-   * 
-   * *   Unit: Hz
-   * *   Default value: **44100**.
-   * 
-   * @example
-   * 44100
-   */
   samplerate?: string;
-  /**
-   * @remarks
-   * The volume control configurations.
-   */
   volume?: QueryTemplateListResponseBodyTemplateListTemplateAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -262,13 +114,6 @@ export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $dar
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateContainer extends $dara.Model {
-  /**
-   * @remarks
-   * The format of the container. Valid values: flv, mp4, ts, m3u8, gif, mp3, ogg, and flac.
-   * 
-   * @example
-   * flv
-   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -292,37 +137,9 @@ export class QueryTemplateListResponseBodyTemplateListTemplateContainer extends 
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigGif extends $dara.Model {
-  /**
-   * @remarks
-   * The color dithering algorithm of the palette. Valid values: sierra and bayer.
-   * 
-   * @example
-   * sierra
-   */
   ditherMode?: string;
-  /**
-   * @remarks
-   * The duration for which the final frame is paused.
-   * 
-   * @example
-   * 0
-   */
   finalDelay?: string;
-  /**
-   * @remarks
-   * Indicates whether a custom palette is used.
-   * 
-   * @example
-   * false
-   */
   isCustomPalette?: string;
-  /**
-   * @remarks
-   * The loop count.
-   * 
-   * @example
-   * 0
-   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -352,13 +169,6 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigGif exten
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigSegment extends $dara.Model {
-  /**
-   * @remarks
-   * The length of the segment. Unit: seconds.
-   * 
-   * @example
-   * 10
-   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -382,13 +192,6 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigSegment e
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigWebp extends $dara.Model {
-  /**
-   * @remarks
-   * The loop count.
-   * 
-   * @example
-   * 0
-   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -412,20 +215,8 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigWebp exte
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The transmuxing configurations for GIF.
-   */
   gif?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfigGif;
-  /**
-   * @remarks
-   * The segment configurations.
-   */
   segment?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfigSegment;
-  /**
-   * @remarks
-   * The transmuxing configurations for WebP.
-   */
   webp?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfigWebp;
   static names(): { [key: string]: string } {
     return {
@@ -462,106 +253,13 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfig extends 
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateTransConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The method of resolution adjustment. Default value: **none**. Valid values:
-   * 
-   * *   rescale
-   * *   crop
-   * *   none
-   * 
-   * @example
-   * none
-   */
   adjDarMethod?: string;
-  /**
-   * @remarks
-   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input bitrate is retained and the specified audio bitrate does not take effect. This parameter has a lower priority than IsCheckAudioBitrateFail. Valid values:
-   * 
-   * *   **true**
-   * 
-   * *   **false**
-   * 
-   * *   Default value:
-   * 
-   *     *   If this parameter is not specified and the codec of the output audio is different from that of the input audio, the default value is false.
-   *     *   If this parameter is not specified and the codec of the output audio is the same as that of the input audio, the default value is true.
-   * 
-   * @example
-   * false
-   */
   isCheckAudioBitrate?: string;
-  /**
-   * @remarks
-   * Indicates whether audio bitrate check errors are allowed. This parameter has a greater priority than IsCheckAudioBitrate. Valid values:
-   * 
-   * *   **true**: If the audio bitrate check fails, the input file is not transcoded.
-   * *   **false**: The audio bitrate is not checked.
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   isCheckAudioBitrateFail?: string;
-  /**
-   * @remarks
-   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   isCheckReso?: string;
-  /**
-   * @remarks
-   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, a transcoding failure is returned. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   isCheckResoFail?: string;
-  /**
-   * @remarks
-   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input bitrate is retained. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   isCheckVideoBitrate?: string;
-  /**
-   * @remarks
-   * Indicates whether video bitrate check errors are allowed. This parameter has a higher priority than IsCheckVideoBitrate. Valid values:
-   * 
-   * *   **true**: If the video bitrate check fails, the input file is not transcoded.
-   * *   **false**: The video bitrate is not checked.
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   isCheckVideoBitrateFail?: string;
-  /**
-   * @remarks
-   * The transcoding mode. Default value: **onepass**. Valid values:
-   * 
-   * *   **onepass**
-   * *   **twopass**
-   * *   **CBR**
-   * 
-   * @example
-   * onepass
-   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -599,21 +297,7 @@ export class QueryTemplateListResponseBodyTemplateListTemplateTransConfig extend
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd extends $dara.Model {
-  /**
-   * @remarks
-   * The upper limit of the total bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 100
-   */
   max?: string;
-  /**
-   * @remarks
-   * The lower limit of the total bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 500
-   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -639,29 +323,8 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd ex
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand extends $dara.Model {
-  /**
-   * @remarks
-   * The upper limit of the dynamic bitrate. If this parameter is set, the average bitrate is in the range of (0, 1000000].
-   * 
-   * @example
-   * 3000
-   */
   abrmax?: number;
-  /**
-   * @remarks
-   * The maximum ratio of the upper limit of dynamic bitrate. If this parameter is set, the value of Abrmax does not exceed x times of the source video bitrate. Valid values: (0,1.0].
-   * 
-   * @example
-   * 1.0
-   */
   maxAbrRatio?: number;
-  /**
-   * @remarks
-   * The Narrowband HD version. Only 1.0 may be returned.
-   * 
-   * @example
-   * 1.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -689,226 +352,29 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand ex
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $dara.Model {
-  /**
-   * @remarks
-   * The average bitrate of the video. Unit: Kbit/s.
-   * 
-   * @example
-   * 200
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The average bitrate range of the video.
-   */
   bitrateBnd?: QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd;
-  /**
-   * @remarks
-   * The buffer size.
-   * 
-   * *   Unit: KB.
-   * *   Default value: **6000**.
-   * 
-   * @example
-   * 6000
-   */
   bufsize?: string;
-  /**
-   * @remarks
-   * The codec. Default value: **H.264**.
-   * 
-   * @example
-   * H.264
-   */
   codec?: string;
-  /**
-   * @remarks
-   * The constant rate factor.
-   * 
-   * *   Default value when the encoding format is H.264: **23**. Default value when the encoding format is H.265: **26**.
-   * *   If this parameter is set, the value of Bitrate becomes invalid.
-   * 
-   * @example
-   * 15
-   */
   crf?: string;
-  /**
-   * @remarks
-   * The method of video cropping. Valid values:
-   * 
-   * *   **border**: automatically detects and removes black bars.
-   * *   **Value in the width:height:left:top format**: crops the video based on custom settings. Format: width:height:left:top. Example: 1280:800:0:140.
-   * 
-   * @example
-   * border
-   */
   crop?: string;
-  /**
-   * @remarks
-   * The level of video quality control.
-   * 
-   * @example
-   * 10
-   */
   degrain?: string;
-  /**
-   * @remarks
-   * The frame rate.
-   * 
-   * *   The value is 60 if the frame rate of the input file exceeds 60.
-   * *   Default value: **the frame rate of the input file**.
-   * 
-   * @example
-   * 25
-   */
   fps?: string;
-  /**
-   * @remarks
-   * The maximum number of frames between two keyframes. Default value: **250**.
-   * 
-   * @example
-   * 10
-   */
   gop?: string;
-  /**
-   * @remarks
-   * Indicates whether the HDR2SDR conversion feature is enabled. If this feature is enabled, high dynamic range (HDR) videos are transcoded to standard dynamic range (SDR) videos.
-   * 
-   * @example
-   * true
-   */
   hdr2sdr?: string;
-  /**
-   * @remarks
-   * The height of the video.
-   * 
-   * *   Unit: pixel.
-   * *   Default value: **the height of the input video**.
-   * 
-   * @example
-   * 800
-   */
   height?: string;
-  /**
-   * @remarks
-   * Indicates whether the auto-rotate screen feature is enabled.
-   * 
-   * *   If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode. Valid values:
-   * *   **true**
-   * *   **false**
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   longShortMode?: string;
-  /**
-   * @remarks
-   * The maximum frame rate.
-   * 
-   * @example
-   * 60
-   */
   maxFps?: string;
-  /**
-   * @remarks
-   * The maximum bitrate of the video. Unit: Kbit/s.
-   * 
-   * @example
-   * 500
-   */
   maxrate?: string;
-  /**
-   * @remarks
-   * The Narrowband HD settings.
-   */
   narrowBand?: QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand;
-  /**
-   * @remarks
-   * The black bars that are added to the video. Format: width:height:left:top. Example: 1280:800:0:140.
-   * 
-   * @example
-   * 1280:800:0:140
-   */
   pad?: string;
-  /**
-   * @remarks
-   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
-   * 
-   * @example
-   * yuv420p
-   */
   pixFmt?: string;
-  /**
-   * @remarks
-   * The preset video algorithm. Valid values: veryfast, fast, medium, slow, and slower. Default value: **medium**.
-   * 
-   * @example
-   * medium
-   */
   preset?: string;
-  /**
-   * @remarks
-   * The encoding profile. Valid values:
-   * 
-   * *   **baseline**: applicable to mobile devices.
-   * *   **main**: applicable to standard-definition devices.
-   * *   **high**: applicable to high-definition devices.
-   * *   Default value: **high**.
-   * 
-   * @example
-   * high
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The strength of the independent denoising algorithm.
-   * 
-   * @example
-   * 1
-   */
   qscale?: string;
-  /**
-   * @remarks
-   * Indicates whether the video stream is deleted. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * *   Default value: **false**.
-   * 
-   * @example
-   * false
-   */
   remove?: string;
-  /**
-   * @remarks
-   * The policy of resolution adjustment. Valid values: cropFirst, widthFirst, and heightFirst.
-   * 
-   * @example
-   * heightFirst
-   */
   resoPriority?: string;
-  /**
-   * @remarks
-   * The scan mode. Valid values:
-   * 
-   * *   **interlaced**
-   * *   **progressive**
-   * 
-   * @example
-   * interlaced
-   */
   scanMode?: string;
-  /**
-   * @remarks
-   * The width of the video.
-   * 
-   * *   Unit: pixel.
-   * *   Default value: **the width of the input video**.
-   * 
-   * @example
-   * 256
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -984,65 +450,14 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $dar
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * The audio codec configurations.
-   */
   audio?: QueryTemplateListResponseBodyTemplateListTemplateAudio;
-  /**
-   * @remarks
-   * The container format configurations.
-   */
   container?: QueryTemplateListResponseBodyTemplateListTemplateContainer;
-  /**
-   * @remarks
-   * The time when the template was created.
-   * 
-   * @example
-   * 2021-03-04T06:44:43Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The transcoding template ID.
-   * 
-   * @example
-   * 16f01ad6175e4230ac42bb5182cd****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The transmuxing configurations.
-   */
   muxConfig?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfig;
-  /**
-   * @remarks
-   * The name of the template.
-   * 
-   * @example
-   * MPS-example
-   */
   name?: string;
-  /**
-   * @remarks
-   * The status of the template. Valid values:
-   * 
-   * *   **Normal**
-   * *   **Deleted**
-   * 
-   * @example
-   * Normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The general transcoding configurations.
-   */
   transConfig?: QueryTemplateListResponseBodyTemplateListTemplateTransConfig;
-  /**
-   * @remarks
-   * The video codec configurations.
-   */
   video?: QueryTemplateListResponseBodyTemplateListTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -1123,10 +538,6 @@ export class QueryTemplateListResponseBodyTemplateList extends $dara.Model {
 }
 
 export class QueryTemplateListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the templates that do not exist. This parameter is not returned if all specified transcoding templates are found.
-   */
   nonExistTids?: QueryTemplateListResponseBodyNonExistTids;
   /**
    * @remarks
@@ -1136,10 +547,6 @@ export class QueryTemplateListResponseBody extends $dara.Model {
    * BC860F04-778A-472F-AB39-E1BF329C1EA8
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The transcoding templates.
-   */
   templateList?: QueryTemplateListResponseBodyTemplateList;
   static names(): { [key: string]: string } {
     return {

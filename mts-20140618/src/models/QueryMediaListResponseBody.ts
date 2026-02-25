@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMediaListResponseBodyMediaListMediaFile extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the input file. Valid values:
-   * 
-   * *   **Normal**: normal
-   * *   **Deleted**: deleted
-   * 
-   * @example
-   * Normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The OSS URL of the input file.
-   * 
-   * @example
-   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
-   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -46,69 +29,13 @@ export class QueryMediaListResponseBodyMediaListMediaFile extends $dara.Model {
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoFormat extends $dara.Model {
-  /**
-   * @remarks
-   * The bitrate.
-   * 
-   * @example
-   * 2659.326
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The total duration.
-   * 
-   * @example
-   * 7.965000
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The full name of the container format.
-   * 
-   * @example
-   * QuickTime/MOV
-   */
   formatLongName?: string;
-  /**
-   * @remarks
-   * The short name of the container format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
-   * 
-   * @example
-   * mov
-   */
   formatName?: string;
-  /**
-   * @remarks
-   * The total number of program streams.
-   * 
-   * @example
-   * 2
-   */
   numPrograms?: string;
-  /**
-   * @remarks
-   * The total number of media streams.
-   * 
-   * @example
-   * 2
-   */
   numStreams?: string;
-  /**
-   * @remarks
-   * The size of the file.
-   * 
-   * @example
-   * 2647692
-   */
   size?: string;
-  /**
-   * @remarks
-   * The start time.
-   * 
-   * @example
-   * 0.000000
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -146,133 +73,21 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoFormat extends $da
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsAudioStreamListAudioStream extends $dara.Model {
-  /**
-   * @remarks
-   * The bitrate.
-   * 
-   * @example
-   * 160.008
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The output layout of the sound channels.
-   * 
-   * @example
-   * stereo
-   */
   channelLayout?: string;
-  /**
-   * @remarks
-   * The number of sound channels.
-   * 
-   * @example
-   * 2
-   */
   channels?: string;
-  /**
-   * @remarks
-   * The full name of the encoding format.
-   * 
-   * @example
-   * AAC(Advanced Audio Coding)
-   */
   codecLongName?: string;
-  /**
-   * @remarks
-   * The short name of the encoding format. Valid values: H264, mov, aac, avc, and mpeg.
-   * 
-   * @example
-   * mov
-   */
   codecName?: string;
-  /**
-   * @remarks
-   * The tag of the encoding format.
-   * 
-   * @example
-   * 0x6134706d
-   */
   codecTag?: string;
-  /**
-   * @remarks
-   * The tag string of the encoding format.
-   * 
-   * @example
-   * mp4a
-   */
   codecTagString?: string;
-  /**
-   * @remarks
-   * The codec time base.
-   * 
-   * @example
-   * 1/44100
-   */
   codecTimeBase?: string;
-  /**
-   * @remarks
-   * The duration.
-   * 
-   * @example
-   * 182.591995
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
-   * 
-   * @example
-   * 1
-   */
   index?: string;
-  /**
-   * @remarks
-   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
-   * 
-   * @example
-   * und
-   */
   lang?: string;
-  /**
-   * @remarks
-   * The total number of frames.
-   * 
-   * @example
-   * 100
-   */
   numFrames?: string;
-  /**
-   * @remarks
-   * The sampling format.
-   * 
-   * @example
-   * fltp
-   */
   sampleFmt?: string;
-  /**
-   * @remarks
-   * The sampling rate.
-   * 
-   * @example
-   * 44100
-   */
   samplerate?: string;
-  /**
-   * @remarks
-   * The start time.
-   * 
-   * @example
-   * 0.000000
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The time base.
-   * 
-   * @example
-   * 1/44100
-   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -352,21 +167,7 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsAudioStream
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsSubtitleStreamListSubtitleStream extends $dara.Model {
-  /**
-   * @remarks
-   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
-   * 
-   * @example
-   * 3
-   */
   index?: string;
-  /**
-   * @remarks
-   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
-   * 
-   * @example
-   * und
-   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -418,29 +219,8 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsSubtitleStr
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStreamNetworkCost extends $dara.Model {
-  /**
-   * @remarks
-   * The average bitrate.
-   * 
-   * @example
-   * 2659.326
-   */
   avgBitrate?: string;
-  /**
-   * @remarks
-   * The maximum bandwidth that was consumed.
-   * 
-   * @example
-   * 100
-   */
   costBandwidth?: string;
-  /**
-   * @remarks
-   * The amount of preload time.
-   * 
-   * @example
-   * 0.01
-   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -468,194 +248,29 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStream
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStream extends $dara.Model {
-  /**
-   * @remarks
-   * The average frame rate.
-   * 
-   * @example
-   * 29.97003
-   */
   avgFPS?: string;
-  /**
-   * @remarks
-   * The bitrate.
-   * 
-   * @example
-   * 2659.326
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The full name of the encoding format.
-   * 
-   * @example
-   * QuickTime/MOV
-   */
   codecLongName?: string;
-  /**
-   * @remarks
-   * The short name of the encoding format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
-   * 
-   * @example
-   * mov
-   */
   codecName?: string;
-  /**
-   * @remarks
-   * The tag of the encoding format.
-   * 
-   * @example
-   * 0x31637661
-   */
   codecTag?: string;
-  /**
-   * @remarks
-   * The tag string of the encoding format.
-   * 
-   * @example
-   * avc1
-   */
   codecTagString?: string;
-  /**
-   * @remarks
-   * The codec time base.
-   * 
-   * @example
-   * 1001/60000
-   */
   codecTimeBase?: string;
-  /**
-   * @remarks
-   * The display aspect ratio (DAR).
-   * 
-   * @example
-   * 16:9
-   */
   dar?: string;
-  /**
-   * @remarks
-   * The duration.
-   * 
-   * @example
-   * 182.683000
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The frame rate.
-   * 
-   * @example
-   * 29.97003
-   */
   fps?: string;
-  /**
-   * @remarks
-   * Indicates whether the video stream contains bidirectional frames (B-frames). A value of **1** indicates that the video stream contains B-frames. A value of **2** indicates that the video stream does not contain B-frames.
-   * 
-   * @example
-   * 2
-   */
   hasBFrames?: string;
-  /**
-   * @remarks
-   * The latter number in the video resolution. The number indicates the video height.
-   * 
-   * @example
-   * 1080
-   */
   height?: string;
-  /**
-   * @remarks
-   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
-   * 
-   * @example
-   * 5
-   */
   index?: string;
-  /**
-   * @remarks
-   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
-   * 
-   * @example
-   * und
-   */
   lang?: string;
-  /**
-   * @remarks
-   * The codec level.
-   * 
-   * @example
-   * 40
-   */
   level?: string;
-  /**
-   * @remarks
-   * The network bandwidth consumption.
-   */
   networkCost?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStreamNetworkCost;
-  /**
-   * @remarks
-   * The total number of frames.
-   * 
-   * @example
-   * 12
-   */
   numFrames?: string;
-  /**
-   * @remarks
-   * The pixel format.
-   * 
-   * @example
-   * yuv420p
-   */
   pixFmt?: string;
-  /**
-   * @remarks
-   * The codec profile.
-   * 
-   * @example
-   * High
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The video rotation angle.
-   * 
-   * @example
-   * 90
-   */
   rotate?: string;
-  /**
-   * @remarks
-   * The sample aspect ratio (SAR).
-   * 
-   * @example
-   * 1:1
-   */
   sar?: string;
-  /**
-   * @remarks
-   * The start time.
-   * 
-   * @example
-   * 0.000000
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The time base.
-   * 
-   * @example
-   * 1/30000
-   */
   timebase?: string;
-  /**
-   * @remarks
-   * The former number in the video resolution. The number indicates the video width.
-   * 
-   * @example
-   * 100
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -754,20 +369,8 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStream
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreams extends $dara.Model {
-  /**
-   * @remarks
-   * The list of audio streams.
-   */
   audioStreamList?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsAudioStreamList;
-  /**
-   * @remarks
-   * The list of subtitle streams.
-   */
   subtitleStreamList?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsSubtitleStreamList;
-  /**
-   * @remarks
-   * The list of video streams.
-   */
   videoStreamList?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -804,15 +407,7 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreams extends $d
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The format information.
-   */
   format?: QueryMediaListResponseBodyMediaListMediaMediaInfoFormat;
-  /**
-   * @remarks
-   * The stream information.
-   */
   streams?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreams;
   static names(): { [key: string]: string } {
     return {
@@ -844,24 +439,7 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfo extends $dara.Mod
 }
 
 export class QueryMediaListResponseBodyMediaListMediaPlayListPlayFile extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the file. Valid values:
-   * 
-   * *   **Normal**: normal
-   * *   **Deleted**: deleted
-   * 
-   * @example
-   * Normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The Object Storage Service (OSS) URL of the output file.
-   * 
-   * @example
-   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
-   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -887,101 +465,17 @@ export class QueryMediaListResponseBodyMediaListMediaPlayListPlayFile extends $d
 }
 
 export class QueryMediaListResponseBodyMediaListMediaPlayListPlay extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the workflow activity.
-   * 
-   * @example
-   * example-activity-****
-   */
   activityName?: string;
-  /**
-   * @remarks
-   * The bitrate of the media file.
-   * 
-   * @example
-   * 2659.326
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The duration of the media file.
-   * 
-   * @example
-   * 7.965000
-   */
   duration?: string;
-  /**
-   * @remarks
-   * Indicates whether the media file is encrypted. Valid values:
-   * 
-   * *   **0**: The media file is not encrypted.
-   * *   **1**: The media file is encrypted.
-   * 
-   * @example
-   * 0
-   */
   encryption?: string;
-  /**
-   * @remarks
-   * The playback file.
-   */
   file?: QueryMediaListResponseBodyMediaListMediaPlayListPlayFile;
-  /**
-   * @remarks
-   * The encoding format of the media file. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
-   * 
-   * @example
-   * mp4
-   */
   format?: string;
-  /**
-   * @remarks
-   * The frame rate of the media file.
-   * 
-   * @example
-   * 25.0
-   */
   fps?: string;
-  /**
-   * @remarks
-   * The height.
-   * 
-   * @example
-   * 1080
-   */
   height?: string;
-  /**
-   * @remarks
-   * The ID of the workflow that generates the playback file.
-   * 
-   * @example
-   * 93ab850b4f6f44eab54b6e91d24d****
-   */
   mediaWorkflowId?: string;
-  /**
-   * @remarks
-   * The name of the workflow that generates the playback file.
-   * 
-   * @example
-   * example-mediaworkflow-****
-   */
   mediaWorkflowName?: string;
-  /**
-   * @remarks
-   * The size of the media file.
-   * 
-   * @example
-   * 2647692
-   */
   size?: string;
-  /**
-   * @remarks
-   * The width of the media file.
-   * 
-   * @example
-   * 760
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1082,24 +576,7 @@ export class QueryMediaListResponseBodyMediaListMediaRunIdList extends $dara.Mod
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshotFile extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the file. Valid values:
-   * 
-   * - **Normal**: normal
-   * - **Deleted**: deleted
-   * 
-   * @example
-   * Normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The OSS URL of the snapshot.
-   * 
-   * @example
-   * http://example1-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example111-****.png
-   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1125,53 +602,11 @@ export class QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshotFile ex
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshot extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the workflow activity that generates the snapshot.
-   * 
-   * @example
-   * example-activity1-****
-   */
   activityName?: string;
-  /**
-   * @remarks
-   * The number of snapshots. This parameter is valid only when the value of the **Type** parameter is **Sequence**.
-   * 
-   * @example
-   * 5
-   */
   count?: string;
-  /**
-   * @remarks
-   * The snapshot.
-   */
   file?: QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshotFile;
-  /**
-   * @remarks
-   * The ID of the workflow that generates the snapshot.
-   * 
-   * @example
-   * 6cc3aa66d1cb4bb2adf14e726c0a****
-   */
   mediaWorkflowId?: string;
-  /**
-   * @remarks
-   * The name of the workflow that generates the snapshot.
-   * 
-   * @example
-   * example-workflow-****
-   */
   mediaWorkflowName?: string;
-  /**
-   * @remarks
-   * The type of the snapshot. Valid values:
-   * 
-   * - **Single**
-   * - **Sequence**
-   * 
-   * @example
-   * Sequence
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1234,24 +669,7 @@ export class QueryMediaListResponseBodyMediaListMediaSnapshotList extends $dara.
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSummaryListSummaryFile extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the file. Valid values:
-   * 
-   * *   **Normal**: normal
-   * *   **Deleted**: deleted
-   * 
-   * @example
-   * Normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The OSS URL of the input file.
-   * 
-   * @example
-   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
-   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1277,45 +695,10 @@ export class QueryMediaListResponseBodyMediaListMediaSummaryListSummaryFile exte
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSummaryListSummary extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the workflow activity.
-   * 
-   * @example
-   * example-activity-****
-   */
   activityName?: string;
-  /**
-   * @remarks
-   * The information about the input file.
-   */
   file?: QueryMediaListResponseBodyMediaListMediaSummaryListSummaryFile;
-  /**
-   * @remarks
-   * The ID of the workflow that generates the summary.
-   * 
-   * @example
-   * 93ab850b4f6f44eab54b6e91d24d****
-   */
   mediaWorkflowId?: string;
-  /**
-   * @remarks
-   * The name of the workflow that generates the summary.
-   * 
-   * @example
-   * example-mediaworkflow-****
-   */
   mediaWorkflowName?: string;
-  /**
-   * @remarks
-   * The type of the summary. Valid values:
-   * 
-   * *   **Video**: video
-   * *   **Gif**: dynamic image
-   * 
-   * @example
-   * Video
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1402,168 +785,27 @@ export class QueryMediaListResponseBodyMediaListMediaTags extends $dara.Model {
 }
 
 export class QueryMediaListResponseBodyMediaListMedia extends $dara.Model {
-  /**
-   * @remarks
-   * The bitrate.
-   * 
-   * @example
-   * 2659.326
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The ID of the category to which the media file belongs.
-   * 
-   * @example
-   * 1
-   */
   cateId?: number;
-  /**
-   * @remarks
-   * The review status of the media file. Valid values:
-   * 
-   * *   **Initiated**: The media file is uploaded but not reviewed.
-   * *   **Pass**: The media file is uploaded and passes the review.
-   * 
-   * @example
-   * Initiated
-   */
   censorState?: string;
-  /**
-   * @remarks
-   * The OSS URL of the thumbnail.
-   * 
-   * @example
-   * http://example-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example-****.png
-   */
   coverURL?: string;
-  /**
-   * @remarks
-   * The time when the media file was created.
-   * 
-   * @example
-   * 2016-09-14T08:30:33Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * This is description ****
-   */
   description?: string;
-  /**
-   * @remarks
-   * The duration.
-   * 
-   * @example
-   * 7.965000
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The details of the input file.
-   */
   file?: QueryMediaListResponseBodyMediaListMediaFile;
-  /**
-   * @remarks
-   * The encoding format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
-   * 
-   * @example
-   * mov
-   */
   format?: string;
-  /**
-   * @remarks
-   * The frame rate.
-   * 
-   * @example
-   * 25.0
-   */
   fps?: string;
-  /**
-   * @remarks
-   * The height of the media file.
-   * 
-   * @example
-   * 1080
-   */
   height?: string;
-  /**
-   * @remarks
-   * The ID of the media file.
-   * 
-   * @example
-   * 3e1cd21131a94525be55acf65888****
-   */
   mediaId?: string;
-  /**
-   * @remarks
-   * The media information.
-   */
   mediaInfo?: QueryMediaListResponseBodyMediaListMediaMediaInfo;
-  /**
-   * @remarks
-   * The playlist.
-   */
   playList?: QueryMediaListResponseBodyMediaListMediaPlayList;
-  /**
-   * @remarks
-   * The publishing status of the media file. Valid values:
-   * 
-   * - **Initiated**: The media file is in the initial state.
-   * - **UnPublish**: The media file has not been published, and the playback permission on the OSS object is Private.
-   * - **Published**: The media file has been published, and the playback permission on the OSS object is Default.
-   * - **Deleted**: The media file has been deleted.
-   * 
-   * @example
-   * Published
-   */
   publishState?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   */
   runIdList?: QueryMediaListResponseBodyMediaListMediaRunIdList;
-  /**
-   * @remarks
-   * The size of the file.
-   * 
-   * @example
-   * 2647692
-   */
   size?: string;
-  /**
-   * @remarks
-   * The list of snapshots.
-   */
   snapshotList?: QueryMediaListResponseBodyMediaListMediaSnapshotList;
-  /**
-   * @remarks
-   * The list of video summaries.
-   */
   summaryList?: QueryMediaListResponseBodyMediaListMediaSummaryList;
-  /**
-   * @remarks
-   * The tags of the media file.
-   */
   tags?: QueryMediaListResponseBodyMediaListMediaTags;
-  /**
-   * @remarks
-   * The title.
-   * 
-   * @example
-   * example-title-****
-   */
   title?: string;
-  /**
-   * @remarks
-   * The width.
-   * 
-   * @example
-   * 1920
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1702,15 +944,7 @@ export class QueryMediaListResponseBodyNonExistMediaIds extends $dara.Model {
 }
 
 export class QueryMediaListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of media files.
-   */
   mediaList?: QueryMediaListResponseBodyMediaList;
-  /**
-   * @remarks
-   * The IDs of the media files that do not exist. This parameter is not returned when all specified media files exist.
-   */
   nonExistMediaIds?: QueryMediaListResponseBodyNonExistMediaIds;
   /**
    * @remarks

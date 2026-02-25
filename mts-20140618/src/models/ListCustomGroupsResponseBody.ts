@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomGroupsResponseBodyCustomGroupsCustomGroup extends $dara.Model {
   customGroupDescription?: string;
-  /**
-   * @example
-   * 1
-   */
   customGroupId?: string;
   customGroupName?: string;
   static names(): { [key: string]: string } {

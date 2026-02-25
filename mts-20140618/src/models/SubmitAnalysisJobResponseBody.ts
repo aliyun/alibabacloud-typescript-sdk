@@ -313,59 +313,11 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobMNSMessageResult extends $d
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateAudio extends $dara.Model {
-  /**
-   * @remarks
-   * The audio bitrate of the output file.
-   * 
-   * *   Unit: Kbit/s.
-   * *   Default value: **128**.
-   * 
-   * @example
-   * 8
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The number of sound channels. Default value: **2**.
-   * 
-   * @example
-   * 1
-   */
   channels?: string;
-  /**
-   * @remarks
-   * The audio codec format. Default value: **acc**.
-   * 
-   * @example
-   * mp3
-   */
   codec?: string;
-  /**
-   * @remarks
-   * The codec profile of the audio. Valid values if the **Codec** parameter is set to **aac**: aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
-   * 
-   * @example
-   * aac_low
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The level of quality control on the audio.
-   * 
-   * @example
-   * 10
-   */
   qscale?: string;
-  /**
-   * @remarks
-   * The sampling rate.
-   * 
-   * *   Unit: Hz.
-   * *   Default value: **44100**.
-   * 
-   * @example
-   * 32000
-   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -399,13 +351,6 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateAudio e
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateContainer extends $dara.Model {
-  /**
-   * @remarks
-   * The container format.
-   * 
-   * @example
-   * flv
-   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -429,21 +374,7 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateContain
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigGif extends $dara.Model {
-  /**
-   * @remarks
-   * The interval between two consecutive loops for the GIF format. Unit: 0.01s. For example, a value of 500 indicates 5 seconds.
-   * 
-   * @example
-   * 0
-   */
   finalDelay?: string;
-  /**
-   * @remarks
-   * The number of loops for the GIF or WebP format. Default value: 0.
-   * 
-   * @example
-   * 0
-   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -469,13 +400,6 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConf
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigSegment extends $dara.Model {
-  /**
-   * @remarks
-   * The length of the segment. Unit: seconds.
-   * 
-   * @example
-   * 60
-   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -499,15 +423,7 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConf
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The transmuxing configurations for the GIF format.
-   */
   gif?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigGif;
-  /**
-   * @remarks
-   * The segment configurations.
-   */
   segment?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -539,13 +455,6 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConf
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateTransConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The transcoding mode. Valid values: onepass, twopass, and CBR. Default value: **onepass**.
-   * 
-   * @example
-   * onepass
-   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -569,21 +478,7 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateTransCo
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideoBitrateBnd extends $dara.Model {
-  /**
-   * @remarks
-   * The upper limit of the total bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 20
-   */
   max?: string;
-  /**
-   * @remarks
-   * The lower limit of the total bitrate. Unit: Kbit/s.
-   * 
-   * @example
-   * 10
-   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -609,153 +504,21 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideoBi
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideo extends $dara.Model {
-  /**
-   * @remarks
-   * The average bitrate of the video. Unit: Kbit/s.
-   * 
-   * @example
-   * 10
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The average bitrate range of the video.
-   */
   bitrateBnd?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideoBitrateBnd;
-  /**
-   * @remarks
-   * The size of the buffer.
-   * 
-   * *   Unit: KB.
-   * *   Default value: **6000**.
-   * 
-   * @example
-   * 5000
-   */
   bufsize?: string;
-  /**
-   * @remarks
-   * The video codec. Default value: **H.264**.
-   * 
-   * @example
-   * H.264
-   */
   codec?: string;
-  /**
-   * @remarks
-   * The constant rate factor.
-   * 
-   * *   Default value if the Codec parameter is set to H.264: **23**. Default value if the Codec parameter is set to H.265: **26**.
-   * *   If this parameter is returned, the setting of the Bitrate parameter is invalid.
-   * 
-   * @example
-   * 27
-   */
   crf?: string;
-  /**
-   * @remarks
-   * The strength of the independent noise reduction algorithm.
-   * 
-   * @example
-   * 5
-   */
   degrain?: string;
-  /**
-   * @remarks
-   * The frame rate.
-   * 
-   * *   The value is 60 if the frame rate of the input video exceeds 60.
-   * *   Default value: the frame rate of the input video.
-   * 
-   * @example
-   * 60
-   */
   fps?: string;
-  /**
-   * @remarks
-   * The maximum number of frames between two keyframes. Default value: **250**.
-   * 
-   * @example
-   * 1
-   */
   gop?: string;
-  /**
-   * @remarks
-   * The height of the video.
-   * 
-   * *   Unit: pixel.
-   * *   Default value: the height of the input video.
-   * 
-   * @example
-   * 1880
-   */
   height?: string;
-  /**
-   * @remarks
-   * The maximum bitrate of the video. Unit: Kbit/s.
-   * 
-   * @example
-   * 10
-   */
   maxrate?: string;
-  /**
-   * @remarks
-   * The pixel format for video color encoding. Valid values: standard pixel formats such as yuv420p and yuvj420p.
-   * 
-   * @example
-   * yuvj420p
-   */
   pixFmt?: string;
-  /**
-   * @remarks
-   * The preset video algorithm. Valid values: veryfast, fast, medium, slow, and slower. Default value: **medium**.
-   * 
-   * @example
-   * medium
-   */
   preset?: string;
-  /**
-   * @remarks
-   * The codec profile. Valid values:
-   * 
-   * *   **baseline**: applicable to mobile devices.
-   * *   **main**: applicable to standard-definition devices.
-   * *   **high**: applicable to high-definition devices.
-   * *   Default value: **high**.
-   * 
-   * @example
-   * baseline
-   */
   profile?: string;
-  /**
-   * @remarks
-   * The level of quality control on the video.
-   * 
-   * @example
-   * 15
-   */
   qscale?: string;
-  /**
-   * @remarks
-   * The scan mode. Valid values:
-   * 
-   * *   **interlaced**
-   * *   **progressive**
-   * 
-   * @example
-   * progressive
-   */
   scanMode?: string;
-  /**
-   * @remarks
-   * The width of the video.
-   * 
-   * *   Unit: pixel.
-   * *   Default value: the width of the input video.
-   * 
-   * @example
-   * 1990
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -812,57 +575,13 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideo e
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * The audio codec configurations.
-   */
   audio?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateAudio;
-  /**
-   * @remarks
-   * The container format configurations.
-   */
   container?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateContainer;
-  /**
-   * @remarks
-   * The ID of the transcoding template.
-   * 
-   * @example
-   * S00000000-00****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The transmuxing configurations.
-   */
   muxConfig?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfig;
-  /**
-   * @remarks
-   * The name of the template.
-   * 
-   * @example
-   * FLV-UD
-   */
   name?: string;
-  /**
-   * @remarks
-   * The status of the template.
-   * 
-   * *   **Normal**: The template is normal.
-   * *   **Deleted**: The template is deleted.
-   * 
-   * @example
-   * Normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The general transcoding configurations.
-   */
   transConfig?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateTransConfig;
-  /**
-   * @remarks
-   * The video codec configurations.
-   */
   video?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -1028,10 +747,6 @@ export class SubmitAnalysisJobResponseBodyAnalysisJob extends $dara.Model {
    * Success
    */
   state?: string;
-  /**
-   * @remarks
-   * The matched preset templates.
-   */
   templateList?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateList;
   /**
    * @remarks

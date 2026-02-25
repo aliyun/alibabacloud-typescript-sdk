@@ -203,10 +203,6 @@ export class AddMediaResponseBodyMedia extends $dara.Model {
    * Published
    */
   publishState?: string;
-  /**
-   * @remarks
-   * The IDs of the media workflow execution instances.
-   */
   runIdList?: AddMediaResponseBodyMediaRunIdList;
   /**
    * @remarks
@@ -216,10 +212,6 @@ export class AddMediaResponseBodyMedia extends $dara.Model {
    * 379860
    */
   size?: string;
-  /**
-   * @remarks
-   * The tags of the media file.
-   */
   tags?: AddMediaResponseBodyMediaTags;
   /**
    * @remarks

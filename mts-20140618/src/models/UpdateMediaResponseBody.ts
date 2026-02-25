@@ -207,10 +207,6 @@ export class UpdateMediaResponseBodyMedia extends $dara.Model {
    * Published
    */
   publishState?: string;
-  /**
-   * @remarks
-   * The IDs of the media workflow execution instances.
-   */
   runIdList?: UpdateMediaResponseBodyMediaRunIdList;
   /**
    * @remarks
@@ -220,10 +216,6 @@ export class UpdateMediaResponseBodyMedia extends $dara.Model {
    * 2647692
    */
   size?: string;
-  /**
-   * @remarks
-   * The information about the tags.
-   */
   tags?: UpdateMediaResponseBodyMediaTags;
   /**
    * @remarks

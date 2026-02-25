@@ -29,37 +29,9 @@ export class QuerySnapshotJobListResponseBodyNonExistSnapshotJobIds extends $dar
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobInput extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the snapshot job.
-   * 
-   * @example
-   * example
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The ID of the MPS queue to which the snapshot job was submitted.
-   * 
-   * @example
-   * example-location
-   */
   location?: string;
-  /**
-   * @remarks
-   * The error code returned when the job fails. This parameter is not returned if the job is successfully processed.
-   * 
-   * @example
-   * example.flv
-   */
   object?: string;
-  /**
-   * @remarks
-   * The custom data.
-   * 
-   * @example
-   * acs:ram::1:role/testrole
-   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,29 +61,8 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobInput ext
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobMNSMessageResult extends $dara.Model {
-  /**
-   * @remarks
-   * The number of snapshots that were taken.
-   * 
-   * @example
-   * InvalidParameter
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The OSS bucket that stores the input file.
-   * 
-   * @example
-   * The resource operated InputFile is bad
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The ID of the region in which the input OSS bucket is located.
-   * 
-   * @example
-   * 799454621135656C7F815F198A76****
-   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,37 +90,9 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobMNSMessag
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigOutputFile extends $dara.Model {
-  /**
-   * @remarks
-   * The OSS bucket that stores the output file.
-   * 
-   * @example
-   * example
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The ID of the region in which the output OSS bucket is located.
-   * 
-   * @example
-   * example-location
-   */
   location?: string;
-  /**
-   * @remarks
-   * The OSS object that is generated as the output file of the tiling job.
-   * 
-   * @example
-   * example.png
-   */
   object?: string;
-  /**
-   * @remarks
-   * The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
-   * 
-   * @example
-   * acs:ram::1:role/testrole
-   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -199,85 +122,14 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOut extends $dara.Model {
-  /**
-   * @remarks
-   * The interval for taking snapshots.
-   * 
-   * *   If this Interval parameter is specified in the request, snapshots are taken at intervals. The value must be greater than 0.
-   * *   Unit: seconds.
-   * *   Default value: **10**.
-   * 
-   * @example
-   * 8
-   */
   cellHeight?: string;
-  /**
-   * @remarks
-   * The number of rows that the tiled image can contain. Default value: **10**.
-   * 
-   * @example
-   * 3
-   */
   cellSelStep?: string;
-  /**
-   * @remarks
-   * The type of the snapshot. Valid values:
-   * 
-   * *   **normal**: normal frames.
-   * *   **intra**: I-frames.
-   * *   Default value: **intra**.
-   * 
-   * @example
-   * 8
-   */
   cellWidth?: string;
-  /**
-   * @remarks
-   * Indicates whether the single images are retained. Default value: **true**.
-   * 
-   * @example
-   * black
-   */
   color?: string;
-  /**
-   * @remarks
-   * The height of the output snapshot.
-   * 
-   * @example
-   * 10
-   */
   columns?: string;
-  /**
-   * @remarks
-   * The Object Storage Service (OSS) output file of the snapshot job.
-   * 
-   * @example
-   * false
-   */
   isKeepCellPic?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
-   * 
-   * @example
-   * 10
-   */
   lines?: string;
-  /**
-   * @remarks
-   * The width of the output snapshot.
-   * 
-   * @example
-   * 0
-   */
   margin?: string;
-  /**
-   * @remarks
-   * The number of columns that the tiled image can contain. Default value: **10**.
-   * 
-   * @example
-   * 0
-   */
   padding?: string;
   static names(): { [key: string]: string } {
     return {
@@ -317,37 +169,9 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOutputFile extends $dara.Model {
-  /**
-   * @remarks
-   * The error code returned when the job fails. This parameter is not returned if the job is successfully processed.
-   * 
-   * @example
-   * example
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The error message returned when the job fails. This parameter is not returned if the job is successfully processed.
-   * 
-   * @example
-   * example-location
-   */
   location?: string;
-  /**
-   * @remarks
-   * The ID of the message. This parameter is not returned if the job fails.
-   * 
-   * @example
-   * example.png
-   */
   object?: string;
-  /**
-   * @remarks
-   * The message sent by MNS to notify the user of the job result.
-   * 
-   * @example
-   * acs:ram::1:role/testrole
-   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -403,77 +227,15 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region in which the output OSS bucket is located.
-   * 
-   * @example
-   * intra
-   */
   frameType?: string;
-  /**
-   * @remarks
-   * The number of snapshots to take. If the Num parameter is set in the request, snapshots are taken at intervals.
-   * 
-   * @example
-   * 8
-   */
   height?: string;
-  /**
-   * @remarks
-   * The OSS object that is generated as the output file of the snapshot job.
-   * 
-   * @example
-   * 10
-   */
   interval?: string;
-  /**
-   * @remarks
-   * The status of the snapshot job. 
-   * 
-   * - **Submitted**: The job was submitted.
-   * - **Snapshoting**: The job is being processed.
-   * - **Success**: The job was successfully processed.
-   * - **Fail**: The job failed.
-   * 
-   * @example
-   * 10
-   */
   num?: string;
-  /**
-   * @remarks
-   * The OSS output file of the tiling job.
-   */
   outputFile?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigOutputFile;
-  /**
-   * @remarks
-   * The margin width of the tiled image.
-   * 
-   * *   Default value: **0**.
-   * *   Unit: pixel.
-   */
   tileOut?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOut;
-  /**
-   * @remarks
-   * The error message returned when the job fails. This parameter is not returned if the job is successfully processed.
-   */
   tileOutputFile?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOutputFile;
-  /**
-   * @remarks
-   * The width of a single image. The default value is the width of the output snapshot.
-   * 
-   * @example
-   * 4
-   */
   time?: string;
   timeArray?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTimeArray;
-  /**
-   * @remarks
-   * The OSS bucket that stores the output file.
-   * 
-   * @example
-   * 8
-   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -527,97 +289,17 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJob extends $dara.Model {
-  /**
-   * @remarks
-   * You can call this operation to query up to 10 snapshot jobs at a time.
-   * 
-   * 
-   * ## Limits on QPS
-   * 
-   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   * 
-   * @example
-   * InvalidParameter
-   */
   code?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1
-   */
   count?: string;
-  /**
-   * @remarks
-   * The stride of a single image.
-   * 
-   * @example
-   * 2021-06-30T12:34:29Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The OSS output file of the tiling job.
-   * 
-   * @example
-   * cc6cbef8e8d5481ca536f5d2a466****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The number of snapshots that are contained in the tiled image.
-   */
   input?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobInput;
-  /**
-   * @remarks
-   * The OSS object that is used as the input file.
-   */
   MNSMessageResult?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobMNSMessageResult;
-  /**
-   * @remarks
-   * The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
-   * 
-   * @example
-   * The resource operated InputFile is bad
-   */
   message?: string;
-  /**
-   * @remarks
-   * The start time for taking snapshots. Unit: milliseconds.
-   * 
-   * @example
-   * b11c171cced04565b1f38f1ecc39****
-   */
   pipelineId?: string;
-  /**
-   * @remarks
-   * The height of a single image. The default value is the height of the output snapshot.
-   */
   snapshotConfig?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfig;
-  /**
-   * @remarks
-   * The information about the job input.
-   * 
-   * @example
-   * Snapshoting
-   */
   state?: string;
-  /**
-   * @remarks
-   * The snapshot job IDs that do not exist. This parameter is not returned if all specified snapshot jobs are found.
-   * 
-   * @example
-   * 7
-   */
   tileCount?: string;
-  /**
-   * @remarks
-   * The token that is used to retrieve the next page of the query results. The value is a 32-bit UUID. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
-   * 
-   * @example
-   * testid-001
-   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -706,10 +388,6 @@ export class QuerySnapshotJobListResponseBody extends $dara.Model {
    * b11c171cced04565b1f38f1ecc39****
    */
   nextPageToken?: string;
-  /**
-   * @remarks
-   * The OSS object that is generated as the output file of the tiling job.
-   */
   nonExistSnapshotJobIds?: QuerySnapshotJobListResponseBodyNonExistSnapshotJobIds;
   /**
    * @remarks
@@ -719,13 +397,6 @@ export class QuerySnapshotJobListResponseBody extends $dara.Model {
    * 34BCAB31-2833-43A7-9FBD-B34302AB23EQ
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The distance between images.
-   * 
-   * *   Default value: **0**.
-   * *   Unit: pixel.
-   */
   snapshotJobList?: QuerySnapshotJobListResponseBodySnapshotJobList;
   static names(): { [key: string]: string } {
     return {

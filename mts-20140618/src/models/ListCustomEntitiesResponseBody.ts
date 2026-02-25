@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCustomEntitiesResponseBodyCustomEntitiesCustomEntity extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   customEntityId?: string;
-  /**
-   * @example
-   * { "finegrainName":"example" }
-   */
   customEntityInfo?: string;
-  /**
-   * @example
-   * exampleName
-   */
   customEntityName?: string;
   static names(): { [key: string]: string } {
     return {
