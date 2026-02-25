@@ -154,6 +154,10 @@ export class ForwardInfoResponse extends $dara.Model {
    * ngw-bp1uewa15k4iy5770****
    */
   natGatewayId?: string;
+  /**
+   * @example
+   * ssh-rsa AAAAB3****************************
+   */
   SSHPublicKey?: string;
   static names(): { [key: string]: string } {
     return {

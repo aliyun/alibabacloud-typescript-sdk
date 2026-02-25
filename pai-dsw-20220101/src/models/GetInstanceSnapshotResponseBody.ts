@@ -75,7 +75,7 @@ export class GetInstanceSnapshotResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @example
-   * {\"foo\": \"bar\"}
+   * {\\"foo\\": \\"bar\\"}
    */
   labels?: GetInstanceSnapshotResponseBodyLabels[];
   /**

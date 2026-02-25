@@ -4,6 +4,10 @@ import { DynamicMountPoint } from "./DynamicMountPoint";
 
 
 export class DynamicMount extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   enable?: boolean;
   mountPoints?: DynamicMountPoint[];
   static names(): { [key: string]: string } {

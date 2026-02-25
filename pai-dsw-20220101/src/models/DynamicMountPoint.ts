@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DynamicMountPoint extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   options?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * /mnt/dynamic/
    */
   rootPath?: string;
   static names(): { [key: string]: string } {

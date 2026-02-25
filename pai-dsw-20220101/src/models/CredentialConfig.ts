@@ -22,7 +22,7 @@ export class CredentialConfigConfigsRolesUserInfo extends $dara.Model {
   securityToken?: string;
   /**
    * @example
-   * sub
+   * S
    */
   type?: string;
   static names(): { [key: string]: string } {
