@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListReplicaEdgeSupportedResponseBodySupportedRegionsZones extends $dara.Model {
+  supportRtc?: boolean;
   /**
    * @example
    * cn-hangzhou-i
@@ -10,12 +11,14 @@ export class ListReplicaEdgeSupportedResponseBodySupportedRegionsZones extends $
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      supportRtc: 'SupportRtc',
       zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      supportRtc: 'boolean',
       zoneId: 'string',
     };
   }

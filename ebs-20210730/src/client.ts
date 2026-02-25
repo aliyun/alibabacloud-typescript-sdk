@@ -100,7 +100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables CloudLens for EBS.
+   * Cancels Elastic Block Storage data insight (CloudLens for EBS).
    * 
    * @remarks
    * ## Usage notes
@@ -127,7 +127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables CloudLens for EBS.
+   * Cancels Elastic Block Storage data insight (CloudLens for EBS).
    * 
    * @remarks
    * ## Usage notes
@@ -194,7 +194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables CloudLens for EBS.
+   * Cancels Elastic Block Storage data insight (CloudLens for EBS).
    * 
    * @remarks
    * ## Usage notes
@@ -221,7 +221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables CloudLens for EBS.
+   * Cancels Elastic Block Storage data insight (CloudLens for EBS).
    * 
    * @remarks
    * ## Usage notes
@@ -1184,7 +1184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more disks in a dedicated block storage cluster.
+   * Queries information about cloud disks in a dedicated block storage cluster.
    * 
    * @remarks
    *   You can use one of the following methods to check the responses:
@@ -1235,7 +1235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more disks in a dedicated block storage cluster.
+   * Queries information about cloud disks in a dedicated block storage cluster.
    * 
    * @remarks
    *   You can use one of the following methods to check the responses:
@@ -1254,7 +1254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dedicated block storage clusters that are created.
+   * Queries dedicated clusters.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -1337,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dedicated block storage clusters that are created.
+   * Queries dedicated clusters.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -1354,7 +1354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the risk events of a disk.
+   * Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
    * 
    * @remarks
    * ## Usage notes
@@ -1417,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the risk events of a disk.
+   * Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
    * 
    * @remarks
    * ## Usage notes
@@ -1432,7 +1432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the near real-time monitoring data of a disk.
+   * Queries fine-grained monitoring data of a disk.
    * 
    * @remarks
    * ## Usage notes
@@ -1489,7 +1489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the near real-time monitoring data of a disk.
+   * Queries fine-grained monitoring data of a disk.
    * 
    * @remarks
    * ## Usage notes
@@ -1506,7 +1506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
+   * Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
    * 
    * @remarks
    * ## Usage notes
@@ -1565,7 +1565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
+   * Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
    * 
    * @remarks
    * ## Usage notes
@@ -2030,7 +2030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户开通ebs数据洞察服务状态
+   * Queries the status of CloudLens for EBS.
    * 
    * @remarks
    * ## Usage notes
@@ -2057,7 +2057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户开通ebs数据洞察服务状态
+   * Queries the status of CloudLens for EBS.
    * 
    * @remarks
    * ## Usage notes
@@ -2332,7 +2332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询解决方案实例默认配置
+   * Queries the default configurations of a solution.
    * 
    * @param request - DescribeSolutionInstanceConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2375,7 +2375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询解决方案实例默认配置
+   * Queries the default configurations of a solution.
    * 
    * @param request - DescribeSolutionInstanceConfigurationRequest
    * @returns DescribeSolutionInstanceConfigurationResponse
@@ -2754,7 +2754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Centralized Role: Query Historical Reports
+   * Queries historical reports of a specific application.
    * 
    * @param request - ListReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2807,7 +2807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Centralized Role: Query Historical Reports
+   * Queries historical reports of a specific application.
    * 
    * @param request - ListReportsRequest
    * @returns ListReportsResponse
@@ -2818,7 +2818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
+   * Queries the tags that are added to EBS resources, or queries the IDs and tags of resources in a non-default resource group.
    * 
    * @remarks
    * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
@@ -2875,7 +2875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
+   * Queries the tags that are added to EBS resources, or queries the IDs and tags of resources in a non-default resource group.
    * 
    * @remarks
    * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
@@ -2970,7 +2970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改专属集群属性OpenApi
+   * Modifies the information of a dedicated elastic block storage cluster.
    * 
    * @remarks
    * You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
@@ -3020,7 +3020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改专属集群属性OpenApi
+   * Modifies the information of a dedicated elastic block storage cluster.
    * 
    * @remarks
    * You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
@@ -3246,7 +3246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
+   * Queries the capacity trend data of a dedicated Elastic Block Storage (EBS) cluster within a specific time period, including the available capacity and total capacity.
    * 
    * @remarks
    * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
@@ -3302,7 +3302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
+   * Queries the capacity trend data of a dedicated Elastic Block Storage (EBS) cluster within a specific time period, including the available capacity and total capacity.
    * 
    * @remarks
    * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
@@ -3576,7 +3576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
+   * Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. The first time the async replication feature is enabled for the replication pairs, the system performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks). Then, the system periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -3626,7 +3626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
+   * Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. The first time the async replication feature is enabled for the replication pairs, the system performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks). Then, the system periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -3644,7 +3644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates a replication pair.
+   * Activates the async replication feature for a specific replication pair.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -3693,7 +3693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates a replication pair.
+   * Activates the async replication feature for a specific replication pair.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -4236,7 +4236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新解决方案实例属性
+   * Updates the attributes of a solution instance.
    * 
    * @param request - UpdateSolutionInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4283,7 +4283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新解决方案实例属性
+   * Updates the attributes of a solution instance.
    * 
    * @param request - UpdateSolutionInstanceAttributeRequest
    * @returns UpdateSolutionInstanceAttributeResponse
