@@ -4,7 +4,18 @@ import { WebCustomDomain } from "./WebCustomDomain";
 
 
 export class ListWebCustomDomainOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * A2RN
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The custom domain names.
+   */
   webCustomDomains?: WebCustomDomain[];
   static names(): { [key: string]: string } {
     return {

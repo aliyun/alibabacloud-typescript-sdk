@@ -4,6 +4,10 @@ import { WebOSSMountPoint } from "./WebOssmountPoint";
 
 
 export class WebOSSConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The mount point.
+   */
   mountPoints?: WebOSSMountPoint[];
   static names(): { [key: string]: string } {
     return {

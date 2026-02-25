@@ -4,7 +4,18 @@ import { WebApplicationWithInstanceCount } from "./WebApplicationWithInstanceCou
 
 
 export class ListWebApplicationsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * A2RN
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The applications.
+   */
   webApplicationWithInstanceCount?: WebApplicationWithInstanceCount[];
   static names(): { [key: string]: string } {
     return {

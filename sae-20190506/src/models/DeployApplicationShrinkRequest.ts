@@ -341,6 +341,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
    */
   kafkaConfigs?: string;
+  labelsShrink?: string;
   /**
    * @remarks
    * The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
@@ -924,6 +925,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
+      labelsShrink: 'Labels',
       liveness: 'Liveness',
       lokiConfigs: 'LokiConfigs',
       maxSurgeInstanceRatio: 'MaxSurgeInstanceRatio',
@@ -1013,6 +1015,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       kafkaConfigs: 'string',
+      labelsShrink: 'string',
       liveness: 'string',
       lokiConfigs: 'string',
       maxSurgeInstanceRatio: 'number',

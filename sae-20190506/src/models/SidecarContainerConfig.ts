@@ -3,15 +3,85 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SidecarContainerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Container Registry Enterprise Edition instance. This parameter is required if the ImageUrl parameter is set to the URL of an image in a Container Registry Enterprise Edition instance.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The startup command of the image.
+   * 
+   * @example
+   * python
+   */
   command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command.
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The description of the ConfigMap mounted to the application.
+   * 
+   * @example
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   */
   configMapMountDesc?: string;
+  /**
+   * @remarks
+   * Cpu
+   * 
+   * @example
+   * 1000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The EmptyDir description.
+   * 
+   * @example
+   * [{\\"name\\":\\"workdir\\",\\"mountPath\\":\\"/usr/local/tomcat/webapps\\"}]
+   */
   emptyDirDesc?: string;
+  /**
+   * @remarks
+   * The environment variables of the container.
+   * 
+   * @example
+   * [{"name":"TEST_ENV_KEY","value":"TEST_ENV_VAR"}]
+   */
   envs?: string;
+  /**
+   * @remarks
+   * The image address.
+   * 
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * Memory
+   * 
+   * @example
+   * 1024
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The container name.
+   * 
+   * @example
+   * name
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

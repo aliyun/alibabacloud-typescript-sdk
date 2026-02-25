@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class WebAclEntryConfig extends $dara.Model {
   /**
    * @remarks
+   * The IP address.
+   * 
+   * >  CIDR notation is not supported.
+   * 
    * This parameter is required.
    * 
    * @example

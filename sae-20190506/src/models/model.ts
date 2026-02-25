@@ -372,6 +372,7 @@ export { OSSMountPoint } from './OssmountPoint';
 export { PathConfig } from './PathConfig';
 export { PermissionAssistantApi } from './PermissionAssistantApi';
 export { PolicyItem } from './PolicyItem';
+export { PortProtocol } from './PortProtocol';
 export { PriceEstimateFeature } from './PriceEstimateFeature';
 export { PriceEstimateOutput } from './PriceEstimateOutput';
 export { Probe } from './Probe';

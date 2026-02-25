@@ -9,6 +9,8 @@ import { WebTrafficConfig } from "./WebTrafficConfig";
 export class CreateWebApplicationInput extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,17 +18,36 @@ export class CreateWebApplicationInput extends $dara.Model {
    */
   applicationName?: string;
   /**
+   * @remarks
+   * The description of the application.
+   * 
    * @example
    * my sae app
    */
   description?: string;
   /**
    * @remarks
+   * The configuration on the application revision.
+   * 
    * This parameter is required.
    */
   revisionConfig?: RevisionConfig;
+  /**
+   * @remarks
+   * The network configurations.
+   * 
+   * >  This field is used to configure network for the application.
+   */
   webNetworkConfig?: WebNetworkConfig;
+  /**
+   * @remarks
+   * The scaling configurations of the applications.
+   */
   webScalingConfig?: WebScalingConfig;
+  /**
+   * @remarks
+   * The traffic configurations of the applications.
+   */
   webTrafficConfig?: WebTrafficConfig;
   static names(): { [key: string]: string } {
     return {

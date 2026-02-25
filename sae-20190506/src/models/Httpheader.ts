@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HTTPHeader extends $dara.Model {
+  /**
+   * @remarks
+   * The header name.
+   * 
+   * @example
+   * Content-Type
+   */
   name?: string;
+  /**
+   * @remarks
+   * The header value.
+   * 
+   * @example
+   * application/json
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

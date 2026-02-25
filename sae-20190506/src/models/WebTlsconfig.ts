@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebTLSConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The supported cipher suites.
+   */
   cipherSuites?: string[];
+  /**
+   * @remarks
+   * The supported maximum TLS protocol version.
+   * 
+   * @example
+   * TLSv1.3
+   */
   maxVersion?: string;
+  /**
+   * @remarks
+   * The supported minimum TLS protocol version.
+   * 
+   * @example
+   * TLSv1.0
+   */
   minVersion?: string;
   static names(): { [key: string]: string } {
     return {

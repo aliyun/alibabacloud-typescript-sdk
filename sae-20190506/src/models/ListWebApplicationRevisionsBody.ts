@@ -4,10 +4,42 @@ import { ListWebApplicationRevisionsOutput } from "./ListWebApplicationRevisions
 
 
 export class ListWebApplicationRevisionsBody extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: ListWebApplicationRevisionsOutput;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

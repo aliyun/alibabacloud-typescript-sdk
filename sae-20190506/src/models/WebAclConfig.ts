@@ -6,6 +6,8 @@ import { WebAclEntryConfig } from "./WebAclEntryConfig";
 export class WebAclConfig extends $dara.Model {
   /**
    * @remarks
+   * The IP addresses.
+   * 
    * This parameter is required.
    * 
    * **if can be null:**

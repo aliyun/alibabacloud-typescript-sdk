@@ -4,7 +4,18 @@ import { WebStaticsInfo } from "./WebStaticsInfo";
 
 
 export class DescribeWebAppStaticsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   length?: number;
+  /**
+   * @remarks
+   * The static resources in the web application.
+   */
   webAppStatics?: WebStaticsInfo[];
   static names(): { [key: string]: string } {
     return {

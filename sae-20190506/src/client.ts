@@ -340,6 +340,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Binds a Server Load Balancer (SLB) instance to the application.
+   * 
    * @param request - BindSlbRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -395,6 +397,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Binds a Server Load Balancer (SLB) instance to the application.
+   * 
    * @param request - BindSlbRequest
    * @returns BindSlbResponse
    */
@@ -467,6 +471,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.initContainersConfig)) {
       request.initContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.initContainersConfig, "InitContainersConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.labels)) {
+      request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
     }
 
     if (!$dara.isNull(tmpReq.sidecarContainersConfig)) {
@@ -600,6 +608,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.kafkaConfigs)) {
       query["KafkaConfigs"] = request.kafkaConfigs;
+    }
+
+    if (!$dara.isNull(request.labelsShrink)) {
+      query["Labels"] = request.labelsShrink;
     }
 
     if (!$dara.isNull(request.liveness)) {
@@ -1911,7 +1923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*
    * 
    * @param request - DeleteApplicationScalingRuleRequest
    * @param headers - map
@@ -1948,7 +1960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*
    * 
    * @param request - DeleteApplicationScalingRuleRequest
    * @returns DeleteApplicationScalingRuleResponse
@@ -2238,7 +2250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace.
+   * Delete a namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @param headers - map
@@ -2275,7 +2287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace.
+   * Delete a namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @returns DeleteNamespaceResponse
@@ -2553,6 +2565,10 @@ export default class Client extends OpenApi {
       request.initContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.initContainersConfig, "InitContainersConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.labels)) {
+      request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sidecarContainersConfig)) {
       request.sidecarContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sidecarContainersConfig, "SidecarContainersConfig", "json");
     }
@@ -2676,6 +2692,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.kafkaConfigs)) {
       query["KafkaConfigs"] = request.kafkaConfigs;
+    }
+
+    if (!$dara.isNull(request.labelsShrink)) {
+      query["Labels"] = request.labelsShrink;
     }
 
     if (!$dara.isNull(request.liveness)) {
@@ -3404,7 +3424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * Obtain the SLB configuration of an application.
    * 
    * @param request - DescribeApplicationSlbsRequest
    * @param headers - map
@@ -3437,7 +3457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * Obtain the SLB configuration of an application.
    * 
    * @param request - DescribeApplicationSlbsRequest
    * @returns DescribeApplicationSlbsResponse
@@ -4821,6 +4841,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables an auto scaling policy for an application.
+   * 
    * @param request - DisableApplicationScalingRuleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4856,6 +4878,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables an auto scaling policy for an application.
+   * 
    * @param request - DisableApplicationScalingRuleRequest
    * @returns DisableApplicationScalingRuleResponse
    */
@@ -5139,7 +5163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The application name.
+   * Queries the top N applications in Application Monitoring.
    * 
    * @param request - GetArmsTopNMetricRequest
    * @param headers - map
@@ -5196,7 +5220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The application name.
+   * Queries the top N applications in Application Monitoring.
    * 
    * @param request - GetArmsTopNMetricRequest
    * @returns GetArmsTopNMetricResponse
@@ -5395,7 +5419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The number of Warning events.
+   * Queries the top N applications in which Warning events occur.
    * 
    * @param request - GetWarningEventMetricRequest
    * @param headers - map
@@ -5448,7 +5472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The number of Warning events.
+   * Queries the top N applications in which Warning events occur.
    * 
    * @param request - GetWarningEventMetricRequest
    * @returns GetWarningEventMetricResponse
@@ -5908,7 +5932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of applications.
+   * Query a list of applications.
    * 
    * @param request - ListApplicationsRequest
    * @param headers - map
@@ -5985,7 +6009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of applications.
+   * Query a list of applications.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse
@@ -8460,7 +8484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a ConfigMap instance.
+   * Update a ConfigMap.
    * 
    * @param request - UpdateConfigMapRequest
    * @param headers - map
@@ -8503,7 +8527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a ConfigMap instance.
+   * Update a ConfigMap.
    * 
    * @param request - UpdateConfigMapRequest
    * @returns UpdateConfigMapResponse
@@ -8926,7 +8950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a namespace.
+   * Update the information about a namespace.
    * 
    * @param request - UpdateNamespaceRequest
    * @param headers - map
@@ -8975,7 +8999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a namespace.
+   * Update the information about a namespace.
    * 
    * @param request - UpdateNamespaceRequest
    * @returns UpdateNamespaceResponse
@@ -8987,7 +9011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新命名空间级别sls配置
+   * Updates the Simple Log Service configuration for a namespace.
    * 
    * @param request - UpdateNamespaceSlsConfigsRequest
    * @param headers - map
@@ -9032,7 +9056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新命名空间级别sls配置
+   * Updates the Simple Log Service configuration for a namespace.
    * 
    * @param request - UpdateNamespaceSlsConfigsRequest
    * @returns UpdateNamespaceSlsConfigsResponse
@@ -9098,10 +9122,10 @@ export default class Client extends OpenApi {
 
   /**
    * The HTTP status code. Valid values:
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * \\*   \\*\\*2xx\\*\\*: The call was successful.
+   * \\*   \\*\\*3xx\\*\\*: The call was redirected.
+   * \\*   \\*\\*4xx\\*\\*: The call failed.
+   * \\*   \\*\\*5xx\\*\\*: A server error occurred.
    * 
    * @param tmpReq - UpdateSecretRequest
    * @param headers - map
@@ -9149,10 +9173,10 @@ export default class Client extends OpenApi {
 
   /**
    * The HTTP status code. Valid values:
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * \\*   \\*\\*2xx\\*\\*: The call was successful.
+   * \\*   \\*\\*3xx\\*\\*: The call was redirected.
+   * \\*   \\*\\*4xx\\*\\*: The call failed.
+   * \\*   \\*\\*5xx\\*\\*: A server error occurred.
    * 
    * @param request - UpdateSecretRequest
    * @returns UpdateSecretResponse

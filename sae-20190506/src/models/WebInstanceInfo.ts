@@ -3,14 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebInstanceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The instance image.
+   * 
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/******:0.0.1
+   */
   imageUrl?: string;
   /**
+   * @remarks
+   * The ID of the application instance.
+   * 
    * @example
-   * c-66691780-1522405d-3021e147e0c3
+   * c-66691780-1522405d-3021e1******
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * Idle
+   */
   status?: string;
   /**
+   * @remarks
+   * The ID of the application version.
+   * 
    * @example
    * 1
    */

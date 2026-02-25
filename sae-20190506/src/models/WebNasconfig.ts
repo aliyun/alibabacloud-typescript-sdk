@@ -4,6 +4,10 @@ import { WebNASMountPoint } from "./WebNasmountPoint";
 
 
 export class WebNASConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The mount targets.
+   */
   mountPoints?: WebNASMountPoint[];
   static names(): { [key: string]: string } {
     return {

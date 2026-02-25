@@ -11,49 +11,96 @@ import { WebOSSConfig } from "./WebOssconfig";
 
 export class Container extends $dara.Model {
   /**
+   * @remarks
+   * The startup parameters of the container.
+   * 
    * @example
    * ["abc", ">", "file0"]
    */
   args?: string;
   /**
+   * @remarks
+   * The startup command of the container.
+   * 
    * @example
    * ["/bin/sh"]
    */
   command?: string;
+  /**
+   * @remarks
+   * The container environment variables.
+   */
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
+   * The container image.
+   * 
    * This parameter is required.
    * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/serverless_devsxxxxx
    */
   image?: string;
+  /**
+   * @remarks
+   * The configuration of the image repository.
+   */
   imageRegistryConfig?: ImageRegistryConfig;
+  /**
+   * @remarks
+   * The configuration for collecting monitoring records.
+   */
   metricsCollectConfig?: MetricsCollectConfig;
   /**
+   * @remarks
+   * The port of the container.
+   * 
    * @example
    * 8080
    */
   port?: number;
   /**
+   * @remarks
+   * The number of concurrent requests on a single instance.
+   * 
    * @example
    * 100
    */
   requestConcurrency?: number;
   /**
+   * @remarks
+   * The timeout period of the container request.
+   * 
    * @example
    * 60
    */
   requestTimeout?: number;
   /**
    * @remarks
+   * The configurations of the container resources.
+   * 
    * This parameter is required.
    */
   resources?: ContainerResources;
+  /**
+   * @remarks
+   * The configuration of container log collection.
+   */
   SLSCollectConfigs?: SLSCollectConfigs;
+  /**
+   * @remarks
+   * The container startup check configuration.
+   */
   startupProbe?: StartupProbe;
+  /**
+   * @remarks
+   * The container NAS configuration.
+   */
   webNASConfig?: WebNASConfig;
+  /**
+   * @remarks
+   * The container OSS mount configuration.
+   */
   webOSSConfig?: WebOSSConfig;
   static names(): { [key: string]: string } {
     return {

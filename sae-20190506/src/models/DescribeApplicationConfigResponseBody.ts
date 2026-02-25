@@ -1091,6 +1091,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * *   **region**: the region where the Message Queue for Apache Kafka instance resides.
    */
   kafkaConfigs?: string;
+  labels?: { [key: string]: string };
   /**
    * @remarks
    * The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
@@ -1666,6 +1667,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
+      labels: 'Labels',
       liveness: 'Liveness',
       lokiConfigs: 'LokiConfigs',
       maxSurgeInstanceRatio: 'MaxSurgeInstanceRatio',
@@ -1772,6 +1774,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       kafkaConfigs: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       liveness: 'string',
       lokiConfigs: 'string',
       maxSurgeInstanceRatio: 'number',
@@ -1840,6 +1843,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.initContainersConfig)) {
       $dara.Model.validateArray(this.initContainersConfig);
+    }
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
     }
     if(Array.isArray(this.mountDesc)) {
       $dara.Model.validateArray(this.mountDesc);

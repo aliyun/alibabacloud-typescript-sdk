@@ -4,7 +4,18 @@ import { WebApplication } from "./WebApplication";
 
 
 export class WebApplicationWithInstanceCount extends $dara.Model {
+  /**
+   * @remarks
+   * The number of application instances.
+   * 
+   * @example
+   * 1
+   */
   instanceCount?: number;
+  /**
+   * @remarks
+   * The application information.
+   */
   webApplication?: WebApplication;
   static names(): { [key: string]: string } {
     return {

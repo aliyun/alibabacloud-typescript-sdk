@@ -2,27 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class WebWAFConfig extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable Web Application Firewall (WAF). Valid values:
-   * 
-   * *   **true**: enables WAF.
-   * *   **false**: disables WAF.
-   * 
-   * @example
-   * true
-   */
-  enableWAF?: boolean;
+export class PortProtocol extends $dara.Model {
+  port?: number;
+  protocol?: string;
+  targetPort?: number;
   static names(): { [key: string]: string } {
     return {
-      enableWAF: 'EnableWAF',
+      port: 'Port',
+      protocol: 'Protocol',
+      targetPort: 'TargetPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableWAF: 'boolean',
+      port: 'number',
+      protocol: 'string',
+      targetPort: 'number',
     };
   }
 

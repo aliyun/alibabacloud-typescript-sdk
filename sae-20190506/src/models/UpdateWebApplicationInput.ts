@@ -5,10 +5,17 @@ import { WebNetworkConfig } from "./WebNetworkConfig";
 
 export class UpdateWebApplicationInput extends $dara.Model {
   /**
+   * @remarks
+   * The application description.
+   * 
    * @example
    * sae-app
    */
   description?: string;
+  /**
+   * @remarks
+   * The network configurations of the application.
+   */
   webNetworkConfig?: WebNetworkConfig;
   static names(): { [key: string]: string } {
     return {

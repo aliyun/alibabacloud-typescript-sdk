@@ -5,12 +5,30 @@ import { WebAclConfig } from "./WebAclConfig";
 
 export class UpdateWebApplicationTrafficConfigInput extends $dara.Model {
   /**
+   * @remarks
+   * The authentication type. Valid values: Anonymous (default): does not require authentication. Application: requires authentication.
+   * 
    * @example
    * Anonymous
    */
   authType?: string;
+  /**
+   * @remarks
+   * Specifies whether to disable access to the default Internet domain. If you set this parameter to true, a 403 error is returned if you access the default public URL provided by the application. A value of false does not have affect the running of the function.
+   * 
+   * @example
+   * true
+   */
   disableURLInternet?: boolean;
+  /**
+   * @remarks
+   * The traffic distribution for the application versions. The sum of traffic percentages for all versions must be equal to 1.
+   */
   revisionsTrafficWeight?: { [key: string]: number };
+  /**
+   * @remarks
+   * The configurations of the access control list (ACL) that consists of IP addresses.
+   */
   webAclConfig?: WebAclConfig;
   static names(): { [key: string]: string } {
     return {

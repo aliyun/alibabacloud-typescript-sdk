@@ -5,8 +5,20 @@ import { WebVersionStatus } from "./WebVersionStatus";
 
 
 export class ListWebInstancesOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The error message of instance creation. If the instance creation was successful, this parameter is not returned.
+   */
   currentError?: string;
+  /**
+   * @remarks
+   * The application instance.
+   */
   webInstances?: WebInstanceInfo[];
+  /**
+   * @remarks
+   * The instance status.
+   */
   webVersionStatus?: { [key: string]: WebVersionStatus };
   static names(): { [key: string]: string } {
     return {

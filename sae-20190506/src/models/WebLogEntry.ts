@@ -3,6 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebLogEntry extends $dara.Model {
+  /**
+   * @remarks
+   * The message returned. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.
+   * *   If the request failed, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PathConfig extends $dara.Model {
+  /**
+   * @remarks
+   * applicationName
+   * 
+   * @example
+   * applicationName
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * path
+   * 
+   * @example
+   * /packages
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {

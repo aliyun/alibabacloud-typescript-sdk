@@ -5,7 +5,15 @@ import { TCPSocketAction } from "./TcpsocketAction";
 
 
 export class ProbeHandler extends $dara.Model {
+  /**
+   * @remarks
+   * The action that specifies the HTTP request to execute.
+   */
   httpGet?: HTTPGetAction;
+  /**
+   * @remarks
+   * The action that specifies the involved TCP port.
+   */
   tcpSocket?: TCPSocketAction;
   static names(): { [key: string]: string } {
     return {

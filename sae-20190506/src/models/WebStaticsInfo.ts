@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebStaticsInfo extends $dara.Model {
+  /**
+   * @remarks
+   * CPU usage
+   * 
+   * @example
+   * 1327
+   */
   cpuUsage?: number;
+  /**
+   * @remarks
+   * Indicates outbound traffic.
+   * 
+   * @example
+   * 2792
+   */
   internetTrafficOut?: number;
+  /**
+   * @remarks
+   * The number of times that the SQL statement is invoked.
+   * 
+   * @example
+   * 2
+   */
   invocations?: number;
+  /**
+   * @remarks
+   * The peak memory usage for the query.
+   * 
+   * @example
+   * 5045929297920
+   */
   memoryUsage?: number;
   static names(): { [key: string]: string } {
     return {

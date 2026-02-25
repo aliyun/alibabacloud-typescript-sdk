@@ -343,6 +343,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
    */
   kafkaConfigs?: string;
+  labels?: { [key: string]: string };
   /**
    * @remarks
    * The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
@@ -926,6 +927,7 @@ export class DeployApplicationRequest extends $dara.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
+      labels: 'Labels',
       liveness: 'Liveness',
       lokiConfigs: 'LokiConfigs',
       maxSurgeInstanceRatio: 'MaxSurgeInstanceRatio',
@@ -1015,6 +1017,7 @@ export class DeployApplicationRequest extends $dara.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       kafkaConfigs: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       liveness: 'string',
       lokiConfigs: 'string',
       maxSurgeInstanceRatio: 'number',
@@ -1069,6 +1072,9 @@ export class DeployApplicationRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.initContainersConfig)) {
       $dara.Model.validateArray(this.initContainersConfig);
+    }
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
     }
     if(Array.isArray(this.sidecarContainersConfig)) {
       $dara.Model.validateArray(this.sidecarContainersConfig);

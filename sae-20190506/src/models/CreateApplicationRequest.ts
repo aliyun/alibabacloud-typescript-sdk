@@ -341,6 +341,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
    */
   kafkaConfigs?: string;
+  labels?: { [key: string]: string };
   /**
    * @remarks
    * Container health check. If the container fails this check, it will be revoked and relaunch again. Use one of the following methods to perform the health check:
@@ -889,6 +890,7 @@ export class CreateApplicationRequest extends $dara.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
+      labels: 'Labels',
       liveness: 'Liveness',
       lokiConfigs: 'LokiConfigs',
       memory: 'Memory',
@@ -980,6 +982,7 @@ export class CreateApplicationRequest extends $dara.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       kafkaConfigs: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       liveness: 'string',
       lokiConfigs: 'string',
       memory: 'number',
@@ -1033,6 +1036,9 @@ export class CreateApplicationRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.initContainersConfig)) {
       $dara.Model.validateArray(this.initContainersConfig);
+    }
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
     }
     if(Array.isArray(this.sidecarContainersConfig)) {
       $dara.Model.validateArray(this.sidecarContainersConfig);

@@ -4,10 +4,53 @@ import { WebCustomDomain } from "./WebCustomDomain";
 
 
 export class WebCustomDomainBody extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The data returned for the operation.
+   */
   data?: WebCustomDomain;
+  /**
+   * @remarks
+   * The message returned for the operation. Valid values:
+   * 
+   * *   success is returned when the request succeeds.
+   * *   An error code is returned if the request failed.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**: The request is successful.
+   * *   **false**: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

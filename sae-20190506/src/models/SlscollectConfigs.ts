@@ -4,6 +4,10 @@ import { SLSCollectConfig } from "./SlscollectConfig";
 
 
 export class SLSCollectConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of log collection.
+   */
   collectConfigs?: SLSCollectConfig[];
   static names(): { [key: string]: string } {
     return {

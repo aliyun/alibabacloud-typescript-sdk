@@ -4,6 +4,10 @@ import { WebLogEntry } from "./WebLogEntry";
 
 
 export class DescribeInstanceLogsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The log entries.
+   */
   webLogEntrys?: WebLogEntry[];
   static names(): { [key: string]: string } {
     return {

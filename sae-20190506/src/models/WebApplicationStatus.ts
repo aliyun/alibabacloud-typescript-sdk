@@ -4,7 +4,18 @@ import { WebScalingConfig } from "./WebScalingConfig";
 
 
 export class WebApplicationStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The number of application instances.
+   * 
+   * @example
+   * 3
+   */
   instanceCount?: number;
+  /**
+   * @remarks
+   * The scaling configurations of the application.
+   */
   webScalingConfig?: WebScalingConfig;
   static names(): { [key: string]: string } {
     return {

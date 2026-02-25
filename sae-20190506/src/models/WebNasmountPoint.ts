@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebNASMountPoint extends $dara.Model {
+  /**
+   * @remarks
+   * The local mount directory.
+   * 
+   * @example
+   * /test/consumer/log
+   */
   mountDir?: string;
+  /**
+   * @remarks
+   * The mount target.
+   * 
+   * @example
+   * /home
+   */
   nasAddr?: string;
+  /**
+   * @remarks
+   * The mount directory.
+   * 
+   * @example
+   * /
+   */
   nasPath?: string;
   static names(): { [key: string]: string } {
     return {

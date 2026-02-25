@@ -5,7 +5,15 @@ import { WebApplication } from "./WebApplication";
 
 
 export class WebApplicationWithStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the application.
+   */
   status?: WebApplicationStatus;
+  /**
+   * @remarks
+   * The details of the application.
+   */
   webApplication?: WebApplication;
   static names(): { [key: string]: string } {
     return {

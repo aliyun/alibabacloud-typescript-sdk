@@ -4,7 +4,18 @@ import { Revision } from "./Revision";
 
 
 export class ListWebApplicationRevisionsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * A2RN
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The versions.
+   */
   revisions?: Revision[];
   static names(): { [key: string]: string } {
     return {

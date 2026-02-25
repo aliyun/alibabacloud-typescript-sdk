@@ -4,7 +4,18 @@ import { WebStaticsInfo } from "./WebStaticsInfo";
 
 
 export class DescribeWebStaticsQueryOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   length?: number;
+  /**
+   * @remarks
+   * The statistics.
+   */
   webStatics?: WebStaticsInfo[];
   static names(): { [key: string]: string } {
     return {

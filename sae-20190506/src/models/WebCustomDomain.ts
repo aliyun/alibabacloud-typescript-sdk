@@ -8,36 +8,77 @@ import { WebWAFConfig } from "./WebWafconfig";
 
 export class WebCustomDomain extends $dara.Model {
   /**
+   * @remarks
+   * The time when the custom domain name was created.
+   * 
    * @example
    * 2023-03-30T08:02:19Z
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The name of the application that is forwarded by the domain name by default.
+   * 
    * @example
    * appxxxxx
    */
   defaultForwardingAppName?: string;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The time when the custom domain name was last updated.
+   * 
    * @example
    * 2023-03-30T08:02:19Z
    */
   lastModifiedTime?: string;
+  /**
+   * @remarks
+   * The ID of the namespace to which the domain name belongs.
+   * 
+   * @example
+   * cn-chengdu
+   */
   namespaceId?: string;
   /**
+   * @remarks
+   * The protocol type that is supported by the custom domain name. HTTP: Only HTTP is supported. HTTPS: Only HTTPS is supported. HTTP, HTTPS: Both HTTP and HTTPS are supported.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The route configurations.
+   */
   routeConfig?: RouteConfig;
+  /**
+   * @remarks
+   * The information about the HTTPS certificate.
+   */
   webCertConfig?: WebCertConfig;
+  /**
+   * @remarks
+   * The Transport Layer Security (TLS) configurations.
+   */
   webTLSConfig?: WebTLSConfig;
+  /**
+   * @remarks
+   * The WAF configurations.
+   */
   webWAFConfig?: WebWAFConfig;
   /**
+   * @remarks
+   * The ID of your Alibaba Cloud account
+   * 
    * @example
    * 123xxxxxx
    */

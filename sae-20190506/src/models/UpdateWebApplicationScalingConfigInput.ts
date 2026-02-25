@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWebApplicationScalingConfigInput extends $dara.Model {
   /**
    * @remarks
+   * The maximum number of instances.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class UpdateWebApplicationScalingConfigInput extends $dara.Model {
   maximumInstanceCount?: number;
   /**
    * @remarks
+   * The minimum number of instances.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   minimumInstanceCount?: number;
   static names(): { [key: string]: string } {

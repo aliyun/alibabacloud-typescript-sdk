@@ -339,6 +339,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
    */
   kafkaConfigs?: string;
+  labelsShrink?: string;
   /**
    * @remarks
    * Container health check. If the container fails this check, it will be revoked and relaunch again. Use one of the following methods to perform the health check:
@@ -887,6 +888,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
+      labelsShrink: 'Labels',
       liveness: 'Liveness',
       lokiConfigs: 'LokiConfigs',
       memory: 'Memory',
@@ -978,6 +980,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       kafkaConfigs: 'string',
+      labelsShrink: 'string',
       liveness: 'string',
       lokiConfigs: 'string',
       memory: 'number',

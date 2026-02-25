@@ -7,10 +7,28 @@ import { WebNetworkConfig } from "./WebNetworkConfig";
 export class RevisionConfig extends $dara.Model {
   /**
    * @remarks
+   * The container configurations. You can deploy only one container for each application. The maximum length of this array is 1.
+   * 
    * This parameter is required.
    */
   containers?: Container[];
+  /**
+   * @remarks
+   * Specifies whether to enable Application Real-Time Monitoring Service (ARMS) monitoring. Valid values:
+   * 
+   * *   **`true`**: Enables the ARMS monitoring.
+   * *   **`false`**: Disables the ARMS monitoring.
+   * 
+   * @example
+   * true
+   */
   enableArmsMetrics?: boolean;
+  /**
+   * @remarks
+   * The network configurations.
+   * 
+   * >  This parameter is used to configure network settings for a version of the application.
+   */
   webNetworkConfig?: WebNetworkConfig;
   static names(): { [key: string]: string } {
     return {
