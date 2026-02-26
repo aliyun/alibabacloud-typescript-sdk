@@ -2768,6 +2768,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 测试特性配置
+   * 
+   * @param request - GetPromptTestResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPromptTestResultResponse
+   */
+  async getPromptTestResultWithOptions(request: $_model.GetPromptTestResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPromptTestResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPromptTestResult",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPromptTestResultResponse>(await this.callApi(params, req, runtime), new $_model.GetPromptTestResultResponse({}));
+  }
+
+  /**
+   * 测试特性配置
+   * 
+   * @param request - GetPromptTestResultRequest
+   * @returns GetPromptTestResultResponse
+   */
+  async getPromptTestResult(request: $_model.GetPromptTestResultRequest): Promise<$_model.GetPromptTestResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPromptTestResultWithOptions(request, runtime);
+  }
+
+  /**
    * User OSS Check Task Pending Inspection Information
    * 
    * @param request - GetScanNumRequest

@@ -35,6 +35,8 @@ export { GetOssCheckStatResponseBodyBarChart } from './GetOssCheckStatResponseBo
 export { GetOssCheckTaskInfoResponseBodyConfigScanServiceInfos } from './GetOssCheckTaskInfoResponseBody';
 export { GetOssCheckTaskInfoResponseBodyConfigUserFreezeConfig } from './GetOssCheckTaskInfoResponseBody';
 export { GetOssCheckTaskInfoResponseBodyConfig } from './GetOssCheckTaskInfoResponseBody';
+export { GetPromptTestResultResponseBodyResultLabelDetails } from './GetPromptTestResultResponseBody';
+export { GetPromptTestResultResponseBodyResult } from './GetPromptTestResultResponseBody';
 export { GetScanResultResponseBodyDataItemsResult } from './GetScanResultResponseBody';
 export { GetScanResultResponseBodyDataItems } from './GetScanResultResponseBody';
 export { GetScanResultResponseBodyData } from './GetScanResultResponseBody';
@@ -217,6 +219,9 @@ export { GetOssCheckStatusResponse } from './GetOssCheckStatusResponse';
 export { GetOssCheckTaskInfoRequest } from './GetOssCheckTaskInfoRequest';
 export { GetOssCheckTaskInfoResponseBody } from './GetOssCheckTaskInfoResponseBody';
 export { GetOssCheckTaskInfoResponse } from './GetOssCheckTaskInfoResponse';
+export { GetPromptTestResultRequest } from './GetPromptTestResultRequest';
+export { GetPromptTestResultResponseBody } from './GetPromptTestResultResponseBody';
+export { GetPromptTestResultResponse } from './GetPromptTestResultResponse';
 export { GetScanNumRequest } from './GetScanNumRequest';
 export { GetScanNumResponseBody } from './GetScanNumResponseBody';
 export { GetScanNumResponse } from './GetScanNumResponse';
