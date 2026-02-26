@@ -1814,6 +1814,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建凭据
+   * 
+   * @param request - CreateCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCredentialResponse
+   */
+  async createCredentialWithOptions(request: $_model.CreateCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.credentialContent)) {
+      query["CredentialContent"] = request.credentialContent;
+    }
+
+    if (!$dara.isNull(request.credentialIdentifier)) {
+      query["CredentialIdentifier"] = request.credentialIdentifier;
+    }
+
+    if (!$dara.isNull(request.credentialName)) {
+      query["CredentialName"] = request.credentialName;
+    }
+
+    if (!$dara.isNull(request.credentialScenarioLabel)) {
+      query["CredentialScenarioLabel"] = request.credentialScenarioLabel;
+    }
+
+    if (!$dara.isNull(request.credentialSubjectId)) {
+      query["CredentialSubjectId"] = request.credentialSubjectId;
+    }
+
+    if (!$dara.isNull(request.credentialSubjectType)) {
+      query["CredentialSubjectType"] = request.credentialSubjectType;
+    }
+
+    if (!$dara.isNull(request.credentialType)) {
+      query["CredentialType"] = request.credentialType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCredentialResponse>(await this.callApi(params, req, runtime), new $_model.CreateCredentialResponse({}));
+  }
+
+  /**
+   * 创建凭据
+   * 
+   * @param request - CreateCredentialRequest
+   * @returns CreateCredentialResponse
+   */
+  async createCredential(request: $_model.CreateCredentialRequest): Promise<$_model.CreateCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * 创建扩展字段
    * 
    * @param request - CreateCustomFieldRequest
@@ -3372,6 +3450,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除凭据
+   * 
+   * @param request - DeleteCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCredentialResponse
+   */
+  async deleteCredentialWithOptions(request: $_model.DeleteCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCredentialResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCredentialResponse({}));
+  }
+
+  /**
+   * 删除凭据
+   * 
+   * @param request - DeleteCredentialRequest
+   * @returns DeleteCredentialResponse
+   */
+  async deleteCredential(request: $_model.DeleteCredentialRequest): Promise<$_model.DeleteCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * 删除扩展字段
    * 
    * @param request - DeleteCustomFieldRequest
@@ -4812,6 +4936,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用凭据
+   * 
+   * @param request - DisableCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableCredentialResponse
+   */
+  async disableCredentialWithOptions(request: $_model.DisableCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableCredentialResponse>(await this.callApi(params, req, runtime), new $_model.DisableCredentialResponse({}));
+  }
+
+  /**
+   * 禁用凭据
+   * 
+   * @param request - DisableCredentialRequest
+   * @returns DisableCredentialResponse
+   */
+  async disableCredential(request: $_model.DisableCredentialRequest): Promise<$_model.DisableCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * 禁用字段
    * 
    * @param request - DisableCustomFieldRequest
@@ -5999,6 +6173,56 @@ export default class Client extends OpenApi {
   async enableConditionalAccessPolicy(request: $_model.EnableConditionalAccessPolicyRequest): Promise<$_model.EnableConditionalAccessPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用凭据
+   * 
+   * @param request - EnableCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCredentialResponse
+   */
+  async enableCredentialWithOptions(request: $_model.EnableCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCredentialResponse>(await this.callApi(params, req, runtime), new $_model.EnableCredentialResponse({}));
+  }
+
+  /**
+   * 启用凭据
+   * 
+   * @param request - EnableCredentialRequest
+   * @returns EnableCredentialResponse
+   */
+  async enableCredential(request: $_model.EnableCredentialRequest): Promise<$_model.EnableCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -7559,6 +7783,52 @@ export default class Client extends OpenApi {
   async getConditionalAccessPolicy(request: $_model.GetConditionalAccessPolicyRequest): Promise<$_model.GetConditionalAccessPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取凭据
+   * 
+   * @param request - GetCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCredentialResponse
+   */
+  async getCredentialWithOptions(request: $_model.GetCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetCredentialResponse({}));
+  }
+
+  /**
+   * 获取凭据
+   * 
+   * @param request - GetCredentialRequest
+   * @returns GetCredentialResponse
+   */
+  async getCredential(request: $_model.GetCredentialRequest): Promise<$_model.GetCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -10616,6 +10886,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询凭据列表
+   * 
+   * @param request - ListCredentialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCredentialsResponse
+   */
+  async listCredentialsWithOptions(request: $_model.ListCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCredentialsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialIds)) {
+      query["CredentialIds"] = request.credentialIds;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.statuses)) {
+      query["Statuses"] = request.statuses;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCredentials",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCredentialsResponse>(await this.callApi(params, req, runtime), new $_model.ListCredentialsResponse({}));
+  }
+
+  /**
+   * 查询凭据列表
+   * 
+   * @param request - ListCredentialsRequest
+   * @returns ListCredentialsResponse
+   */
+  async listCredentials(request: $_model.ListCredentialsRequest): Promise<$_model.ListCredentialsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCredentialsWithOptions(request, runtime);
+  }
+
+  /**
    * 自定义条款列表查询。
    * 
    * @param request - ListCustomPrivacyPoliciesRequest
@@ -12627,6 +12959,52 @@ export default class Client extends OpenApi {
   async obtainApplicationToken(request: $_model.ObtainApplicationTokenRequest): Promise<$_model.ObtainApplicationTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.obtainApplicationTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取凭据
+   * 
+   * @param request - ObtainCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ObtainCredentialResponse
+   */
+  async obtainCredentialWithOptions(request: $_model.ObtainCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ObtainCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ObtainCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ObtainCredentialResponse>(await this.callApi(params, req, runtime), new $_model.ObtainCredentialResponse({}));
+  }
+
+  /**
+   * 获取凭据
+   * 
+   * @param request - ObtainCredentialRequest
+   * @returns ObtainCredentialResponse
+   */
+  async obtainCredential(request: $_model.ObtainCredentialRequest): Promise<$_model.ObtainCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.obtainCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -16151,6 +16529,118 @@ export default class Client extends OpenApi {
   async updateConditionalAccessPolicyDescription(request: $_model.UpdateConditionalAccessPolicyDescriptionRequest): Promise<$_model.UpdateConditionalAccessPolicyDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新凭据
+   * 
+   * @param request - UpdateCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCredentialResponse
+   */
+  async updateCredentialWithOptions(request: $_model.UpdateCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.credentialContent)) {
+      query["CredentialContent"] = request.credentialContent;
+    }
+
+    if (!$dara.isNull(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.credentialName)) {
+      query["CredentialName"] = request.credentialName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCredentialResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCredentialResponse({}));
+  }
+
+  /**
+   * 更新凭据
+   * 
+   * @param request - UpdateCredentialRequest
+   * @returns UpdateCredentialResponse
+   */
+  async updateCredential(request: $_model.UpdateCredentialRequest): Promise<$_model.UpdateCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCredentialWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新凭据描述
+   * 
+   * @param request - UpdateCredentialDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCredentialDescriptionResponse
+   */
+  async updateCredentialDescriptionWithOptions(request: $_model.UpdateCredentialDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCredentialDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCredentialDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCredentialDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCredentialDescriptionResponse({}));
+  }
+
+  /**
+   * 更新凭据描述
+   * 
+   * @param request - UpdateCredentialDescriptionRequest
+   * @returns UpdateCredentialDescriptionResponse
+   */
+  async updateCredentialDescription(request: $_model.UpdateCredentialDescriptionRequest): Promise<$_model.UpdateCredentialDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCredentialDescriptionWithOptions(request, runtime);
   }
 
   /**
