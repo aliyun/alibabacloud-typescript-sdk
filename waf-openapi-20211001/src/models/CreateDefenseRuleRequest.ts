@@ -59,7 +59,14 @@ export class CreateDefenseRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
+   * The configurations of the protection rule. The value is a JSON string that contains multiple parameters.
+   * 
+   * >  The parameters vary based on the **protection module**, which is specified by **DefenseScene**. For more information, see the "**Parameters of protection rules**" section in this topic.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * For more information, see the following section
    */
   rules?: string;
   /**

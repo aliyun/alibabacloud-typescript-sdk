@@ -141,6 +141,9 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * true
    */
   focusHttps?: boolean;
+  hstsIncludeSubDomain?: boolean;
+  hstsMaxAge?: number;
+  hstsPreload?: boolean;
   /**
    * @remarks
    * Indicates whether HTTP/2 is enabled. Valid values:
@@ -251,6 +254,9 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
       enableTLSv3: 'EnableTLSv3',
       exclusiveIp: 'ExclusiveIp',
       focusHttps: 'FocusHttps',
+      hstsIncludeSubDomain: 'HstsIncludeSubDomain',
+      hstsMaxAge: 'HstsMaxAge',
+      hstsPreload: 'HstsPreload',
       http2Enabled: 'Http2Enabled',
       httpPorts: 'HttpPorts',
       httpsPorts: 'HttpsPorts',
@@ -273,6 +279,9 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
       enableTLSv3: 'boolean',
       exclusiveIp: 'boolean',
       focusHttps: 'boolean',
+      hstsIncludeSubDomain: 'boolean',
+      hstsMaxAge: 'number',
+      hstsPreload: 'boolean',
       http2Enabled: 'boolean',
       httpPorts: { 'type': 'array', 'itemType': 'number' },
       httpsPorts: { 'type': 'array', 'itemType': 'number' },
@@ -531,6 +540,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * 2
    */
   maxBodySize?: number;
+  proxyProtocol?: boolean;
   /**
    * @remarks
    * The read timeout period. Unit: seconds. Valid values: 5 to 1800.
@@ -613,6 +623,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
       keepaliveTimeout: 'KeepaliveTimeout',
       loadbalance: 'Loadbalance',
       maxBodySize: 'MaxBodySize',
+      proxyProtocol: 'ProxyProtocol',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
       retry: 'Retry',
@@ -643,6 +654,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
       keepaliveTimeout: 'number',
       loadbalance: 'string',
       maxBodySize: 'number',
+      proxyProtocol: 'boolean',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectRequestHeaders },
       retry: 'boolean',

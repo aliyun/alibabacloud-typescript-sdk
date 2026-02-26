@@ -67,6 +67,13 @@ export class CreateDomainRequestListen extends $dara.Model {
    * true
    */
   focusHttps?: boolean;
+  hstsIncludeSubDomain?: boolean;
+  /**
+   * @example
+   * 365000
+   */
+  hstsMaxAge?: number;
+  hstsPreload?: boolean;
   /**
    * @remarks
    * Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
@@ -183,6 +190,9 @@ export class CreateDomainRequestListen extends $dara.Model {
       enableTLSv3: 'EnableTLSv3',
       exclusiveIp: 'ExclusiveIp',
       focusHttps: 'FocusHttps',
+      hstsIncludeSubDomain: 'HstsIncludeSubDomain',
+      hstsMaxAge: 'HstsMaxAge',
+      hstsPreload: 'HstsPreload',
       http2Enabled: 'Http2Enabled',
       httpPorts: 'HttpPorts',
       httpsPorts: 'HttpsPorts',
@@ -205,6 +215,9 @@ export class CreateDomainRequestListen extends $dara.Model {
       enableTLSv3: 'boolean',
       exclusiveIp: 'boolean',
       focusHttps: 'boolean',
+      hstsIncludeSubDomain: 'boolean',
+      hstsMaxAge: 'number',
+      hstsPreload: 'boolean',
       http2Enabled: 'boolean',
       httpPorts: { 'type': 'array', 'itemType': 'number' },
       httpsPorts: { 'type': 'array', 'itemType': 'number' },
@@ -407,6 +420,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
    * 2
    */
   maxBodySize?: number;
+  proxyProtocol?: boolean;
   /**
    * @remarks
    * The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
@@ -512,6 +526,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
       keepaliveTimeout: 'KeepaliveTimeout',
       loadbalance: 'Loadbalance',
       maxBodySize: 'MaxBodySize',
+      proxyProtocol: 'ProxyProtocol',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
       retry: 'Retry',
@@ -542,6 +557,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
       keepaliveTimeout: 'number',
       loadbalance: 'string',
       maxBodySize: 'number',
+      proxyProtocol: 'boolean',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': CreateDomainRequestRedirectRequestHeaders },
       retry: 'boolean',
