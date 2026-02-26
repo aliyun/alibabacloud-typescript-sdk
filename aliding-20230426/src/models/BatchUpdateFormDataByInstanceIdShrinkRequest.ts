@@ -52,7 +52,7 @@ export class BatchUpdateFormDataByInstanceIdShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {\"countrySelectField_l0c1cwiu\":[{\"value\":\"US\"}],\"addressField_l0c1cwiy\":{\"address\":\"111\",\"regionIds\":[460000,469027,469023401],\"regionText\":[{\"en_US\":\"hai+nan+sheng\",\"zh_CN\":\"海南省\"},{\"en_US\":\"cheng+mai+xian\",\"zh_CN\":\"澄迈县\"},{\"en_US\":\"guo+ying+hong+gang+nong+chang\",\"zh_CN\":\"国营红岗农场\"}]}}
+   * {\\"countrySelectField_l0c1cwiu\\":[{\\"value\\":\\"US\\"}],\\"addressField_l0c1cwiy\\":{\\"address\\":\\"111\\",\\"regionIds\\":[460000,469027,469023401],\\"regionText\\":[{\\"en_US\\":\\"hai+nan+sheng\\",\\"zh_CN\\":\\"海南省\\"},{\\"en_US\\":\\"cheng+mai+xian\\",\\"zh_CN\\":\\"澄迈县\\"},{\\"en_US\\":\\"guo+ying+hong+gang+nong+chang\\",\\"zh_CN\\":\\"国营红岗农场\\"}]}}
    */
   updateFormDataJson?: string;
   /**

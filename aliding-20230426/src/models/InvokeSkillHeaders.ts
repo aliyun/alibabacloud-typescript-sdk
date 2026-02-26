@@ -11,10 +11,12 @@ export class InvokeSkillHeadersAccountContext extends $dara.Model {
    * 012345
    */
   accountId?: string;
+  alidingSsoTicket?: string;
   ssoTicket?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'accountId',
+      alidingSsoTicket: 'alidingSsoTicket',
       ssoTicket: 'ssoTicket',
     };
   }
@@ -22,6 +24,7 @@ export class InvokeSkillHeadersAccountContext extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+      alidingSsoTicket: 'string',
       ssoTicket: 'string',
     };
   }

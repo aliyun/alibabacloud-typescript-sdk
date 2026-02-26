@@ -16,7 +16,7 @@ export class SaveFormDataRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {\"textField_jcpm6agt\": \"单行\",\"employeeField_jcos0sar\": [\"workno\"]}
+   * {\\"textField_jcpm6agt\\": \\"单行\\",\\"employeeField_jcos0sar\\": [\\"workno\\"]}
    */
   formDataJson?: string;
   /**

@@ -35,7 +35,7 @@ export class QueryGroupLiveInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 333d
+   * Eijxxx
    */
   anchorUnionId?: string;
   /**
@@ -43,7 +43,7 @@ export class QueryGroupLiveInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 4d38xxxxx
+   * 123456
    */
   liveUuid?: string;
   tenantContext?: QueryGroupLiveInfoRequestTenantContext;

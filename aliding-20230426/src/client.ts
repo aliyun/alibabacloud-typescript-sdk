@@ -3811,16 +3811,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.CreateRunResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.CreateRunResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.CreateRunResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.CreateRunResponse({}));
+      }
+
     }
   }
 
@@ -13662,6 +13663,10 @@ export default class Client extends OpenApi {
       realHeaders["accountId"] = String(headers.accountId);
     }
 
+    if (!$dara.isNull(headers.alidingSsoTicket)) {
+      realHeaders["alidingSsoTicket"] = String(headers.alidingSsoTicket);
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
@@ -13680,16 +13685,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.InvokeAssistantResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.InvokeAssistantResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.InvokeAssistantResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.InvokeAssistantResponse({}));
+      }
+
     }
   }
 
@@ -13747,6 +13753,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(headers.accountId)) {
       realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    if (!$dara.isNull(headers.alidingSsoTicket)) {
+      realHeaders["alidingSsoTicket"] = String(headers.alidingSsoTicket);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -13845,16 +13855,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.InvokeSkillResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.InvokeSkillResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.InvokeSkillResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.InvokeSkillResponse({}));
+      }
+
     }
   }
 
