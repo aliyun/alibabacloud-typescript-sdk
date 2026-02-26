@@ -3,15 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AppMaterialTask extends $dara.Model {
+  /**
+   * @example
+   * 2025-12-26 11:30:05
+   */
   completeTime?: string;
   completeTimeFormat?: string;
   failReason?: string;
   finalFileUrls?: string[];
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * PENDING
+   */
   subStatus?: string;
+  /**
+   * @example
+   * 2025-12-26 11:30:05
+   */
   submitTime?: string;
+  /**
+   * @example
+   * 81d04d62c3483b32bacf1d306d2622b2
+   */
   taskId?: string;
   taskParam?: string;
+  /**
+   * @example
+   * IMAGE_LOGO
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {

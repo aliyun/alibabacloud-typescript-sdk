@@ -1740,7 +1740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材文件列表
+   * Query Material File List
    * 
    * @param tmpReq - QueryMaterialFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1837,7 +1837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材文件列表
+   * Query Material File List
    * 
    * @param request - QueryMaterialFileListRequest
    * @returns QueryMaterialFileListResponse
