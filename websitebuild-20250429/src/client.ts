@@ -2054,6 +2054,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Supabase实例信息
+   * 
+   * @param request - QuerySupabaseInstanceInfoForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySupabaseInstanceInfoForAdminResponse
+   */
+  async querySupabaseInstanceInfoForAdminWithOptions(request: $_model.QuerySupabaseInstanceInfoForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySupabaseInstanceInfoForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySupabaseInstanceInfoForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySupabaseInstanceInfoForAdminResponse>(await this.callApi(params, req, runtime), new $_model.QuerySupabaseInstanceInfoForAdminResponse({}));
+  }
+
+  /**
+   * 查询Supabase实例信息
+   * 
+   * @param request - QuerySupabaseInstanceInfoForAdminRequest
+   * @returns QuerySupabaseInstanceInfoForAdminResponse
+   */
+  async querySupabaseInstanceInfoForAdmin(request: $_model.QuerySupabaseInstanceInfoForAdminRequest): Promise<$_model.QuerySupabaseInstanceInfoForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySupabaseInstanceInfoForAdminWithOptions(request, runtime);
+  }
+
+  /**
    * Refresh ticket
    * 
    * @param request - RefreshAppInstanceTicketRequest

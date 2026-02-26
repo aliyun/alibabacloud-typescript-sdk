@@ -42,6 +42,7 @@ export { QueryMaterialDirectoryTreeResponseBodyModule } from './QueryMaterialDir
 export { QueryMaterialFileListResponseBodyModule } from './QueryMaterialFileListResponseBody';
 export { QueryMaterialFileSummaryInfoResponseBodyModule } from './QueryMaterialFileSummaryInfoResponseBody';
 export { QueryMaterialTaskListResponseBodyModule } from './QueryMaterialTaskListResponseBody';
+export { QuerySupabaseInstanceInfoForAdminResponseBodyModule } from './QuerySupabaseInstanceInfoForAdminResponseBody';
 export { RefreshAppInstanceTicketResponseBodyModule } from './RefreshAppInstanceTicketResponseBody';
 export { RefundAppInstanceForPartnerResponseBodyModule } from './RefundAppInstanceForPartnerResponseBody';
 export { RenewAppInstanceResponseBodyModule } from './RenewAppInstanceResponseBody';
@@ -184,6 +185,9 @@ export { QueryMaterialTaskListRequest } from './QueryMaterialTaskListRequest';
 export { QueryMaterialTaskListShrinkRequest } from './QueryMaterialTaskListShrinkRequest';
 export { QueryMaterialTaskListResponseBody } from './QueryMaterialTaskListResponseBody';
 export { QueryMaterialTaskListResponse } from './QueryMaterialTaskListResponse';
+export { QuerySupabaseInstanceInfoForAdminRequest } from './QuerySupabaseInstanceInfoForAdminRequest';
+export { QuerySupabaseInstanceInfoForAdminResponseBody } from './QuerySupabaseInstanceInfoForAdminResponseBody';
+export { QuerySupabaseInstanceInfoForAdminResponse } from './QuerySupabaseInstanceInfoForAdminResponse';
 export { RefreshAppInstanceTicketRequest } from './RefreshAppInstanceTicketRequest';
 export { RefreshAppInstanceTicketResponseBody } from './RefreshAppInstanceTicketResponseBody';
 export { RefreshAppInstanceTicketResponse } from './RefreshAppInstanceTicketResponse';
