@@ -3257,6 +3257,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 资源列表
+   * 
+   * @param request - ListResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourcesResponse
+   */
+  async listResourcesWithOptions(request: $_model.ListResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["sourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.sourceValue)) {
+      query["sourceValue"] = request.sourceValue;
+    }
+
+    if (!$dara.isNull(request.specType)) {
+      query["specType"] = request.specType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResources",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/resources/stateparser`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListResourcesResponse({}));
+  }
+
+  /**
+   * 资源列表
+   * 
+   * @param request - ListResourcesRequest
+   * @returns ListResourcesResponse
+   */
+  async listResources(request: $_model.ListResourcesRequest): Promise<$_model.ListResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 任务列表
    * 
    * @param tmpReq - ListTasksRequest

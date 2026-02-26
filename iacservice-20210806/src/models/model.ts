@@ -72,6 +72,8 @@ export { ListResourceExportTasksResponseBodyExportTasksModules } from './ListRes
 export { ListResourceExportTasksResponseBodyExportTasksVariables } from './ListResourceExportTasksResponseBody';
 export { ListResourceExportTasksResponseBodyExportTasks } from './ListResourceExportTasksResponseBody';
 export { ListResourceTypesResponseBodyResourceTypes } from './ListResourceTypesResponseBody';
+export { ListResourcesResponseBodyResourcesTags } from './ListResourcesResponseBody';
+export { ListResourcesResponseBodyResources } from './ListResourcesResponseBody';
 export { ListTasksRequestTag } from './ListTasksRequest';
 export { ListTasksResponseBodyTasksGroupInfo } from './ListTasksResponseBody';
 export { ListTasksResponseBodyTasksTags } from './ListTasksResponseBody';
@@ -257,6 +259,9 @@ export { ListResourceTypesRequest } from './ListResourceTypesRequest';
 export { ListResourceTypesShrinkRequest } from './ListResourceTypesShrinkRequest';
 export { ListResourceTypesResponseBody } from './ListResourceTypesResponseBody';
 export { ListResourceTypesResponse } from './ListResourceTypesResponse';
+export { ListResourcesRequest } from './ListResourcesRequest';
+export { ListResourcesResponseBody } from './ListResourcesResponseBody';
+export { ListResourcesResponse } from './ListResourcesResponse';
 export { ListTasksRequest } from './ListTasksRequest';
 export { ListTasksShrinkRequest } from './ListTasksShrinkRequest';
 export { ListTasksResponseBody } from './ListTasksResponseBody';
