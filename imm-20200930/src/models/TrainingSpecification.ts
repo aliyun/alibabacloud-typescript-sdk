@@ -6,24 +6,42 @@ import { CustomParams } from "./CustomParams";
 
 
 export class TrainingSpecification extends $dara.Model {
+  /**
+   * @remarks
+   * Name of the dataset
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
   /**
    * @remarks
+   * The endpoint of the storage where the dataset is stored.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * http://1111111111.mns.cn-hangzhou.aliyuncs.com
    */
   endpoint?: string;
   /**
    * @remarks
+   * The model specification details.
+   * 
    * This parameter is required.
    */
   modelSpecification?: ModelSpecification;
   /**
    * @remarks
+   * The information about the runtime for model training.
+   * 
    * This parameter is required.
    */
   runtime?: Runtime;
   /**
    * @remarks
+   * URI of the dataset
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,19 +50,31 @@ export class TrainingSpecification extends $dara.Model {
   sourceURI?: string;
   /**
    * @remarks
+   * The storage path to the model data. Only an Object Storage Service (OSS) path is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * oss://imm-alg-dataset-bj/model_training_test/
    */
   targetURI?: string;
+  /**
+   * @remarks
+   * Local preprocessing parameters for the dataset.
+   */
   transforms?: CustomParams[];
   /**
+   * @remarks
+   * The URI of the evaluation dataset. You must specify this parameter or the ValidationSplit parameter.
+   * 
    * @example
    * oss://imm-alg-dataset-bj/cifar10/test_index.json
    */
   validationSourceURI?: string;
   /**
+   * @remarks
+   * The ratio for splitting the training dataset into the evaluation dataset. You must specify this parameter or the ValidationSourceURI parameter.
+   * 
    * @example
    * 0.95
    */

@@ -1,9 +1,11 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DatasetConfig } from "./DatasetConfig";
 import { WorkflowParameter } from "./WorkflowParameter";
 
 
 export class CreateDatasetRequest extends $dara.Model {
+  datasetConfig?: DatasetConfig;
   /**
    * @remarks
    * The maximum number of bindings per dataset. The range is 1~10, with a default value of 10.
@@ -90,6 +92,7 @@ export class CreateDatasetRequest extends $dara.Model {
   workflowParameters?: WorkflowParameter[];
   static names(): { [key: string]: string } {
     return {
+      datasetConfig: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -105,6 +108,7 @@ export class CreateDatasetRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      datasetConfig: DatasetConfig,
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',
@@ -119,6 +123,9 @@ export class CreateDatasetRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.datasetConfig && typeof (this.datasetConfig as any).validate === 'function') {
+      (this.datasetConfig as any).validate();
+    }
     if(Array.isArray(this.workflowParameters)) {
       $dara.Model.validateArray(this.workflowParameters);
     }

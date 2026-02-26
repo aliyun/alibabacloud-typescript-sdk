@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class MetaData extends $dara.Model {
   /**
+   * @remarks
+   * The model type identifier.
+   * 
    * @example
    * detection
    */
   identifier?: string;
   /**
+   * @remarks
+   * The model provider.
+   * 
    * @example
    * imm
    */
   provider?: string;
   /**
+   * @remarks
+   * The model version.
+   * 
    * @example
    * v1
    */

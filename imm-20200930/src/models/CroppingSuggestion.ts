@@ -4,8 +4,26 @@ import { Boundary } from "./Boundary";
 
 
 export class CroppingSuggestion extends $dara.Model {
+  /**
+   * @remarks
+   * The aspect ratio.
+   * 
+   * @example
+   * 2:3
+   */
   aspectRatio?: string;
+  /**
+   * @remarks
+   * The boundary of the cropping.
+   */
   boundary?: Boundary;
+  /**
+   * @remarks
+   * The confidence score. Valid values: 0 to 1. A higher score indicates greater confidence in the result.
+   * 
+   * @example
+   * 0.7079545259475708
+   */
   confidence?: number;
   static names(): { [key: string]: string } {
     return {

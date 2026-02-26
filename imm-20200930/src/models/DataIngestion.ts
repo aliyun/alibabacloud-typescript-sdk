@@ -7,8 +7,23 @@ import { FastFailPolicy } from "./FastFailPolicy";
 
 
 export class DataIngestionActions extends $dara.Model {
+  /**
+   * @remarks
+   * The on-error policy that is used to quickly troubleshoot an error.
+   */
   fastFailPolicy?: FastFailPolicy;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * doc/convert
+   */
   name?: string;
+  /**
+   * @remarks
+   * The template parameters.
+   */
   parameters?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -42,9 +57,31 @@ export class DataIngestionActions extends $dara.Model {
 }
 
 export class DataIngestionNotification extends $dara.Model {
+  /**
+   * @remarks
+   * The Simple Message Queue (SMQ) endpoint.
+   * 
+   * @example
+   * http://1111111111.mns.cn-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * MNS
+   */
   MNS?: MNS;
+  /**
+   * @remarks
+   * RocketMQ
+   */
   rocketMQ?: RocketMQ;
+  /**
+   * @remarks
+   * The SMQ topic.
+   * 
+   * @example
+   * topic1
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -80,8 +117,29 @@ export class DataIngestionNotification extends $dara.Model {
 }
 
 export class DataIngestionStatistic extends $dara.Model {
+  /**
+   * @remarks
+   * The number of files that are skipped.
+   * 
+   * @example
+   * 0
+   */
   skipFiles?: number;
+  /**
+   * @remarks
+   * The number of files that fail to be submitted.
+   * 
+   * @example
+   * 1
+   */
   submitFailure?: number;
+  /**
+   * @remarks
+   * The number of files that are submitted.
+   * 
+   * @example
+   * 10
+   */
   submitSuccess?: number;
   static names(): { [key: string]: string } {
     return {
@@ -109,26 +167,100 @@ export class DataIngestionStatistic extends $dara.Model {
 }
 
 export class DataIngestion extends $dara.Model {
+  /**
+   * @remarks
+   * The templates.
+   */
   actions?: DataIngestionActions[];
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2020-11-10T03:50:28Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * api returns error: SDKError: StatusCode: 404 Code: ResourceNotFound
+   */
   error?: string;
+  /**
+   * @remarks
+   * The unique ID of the data ingestion.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27bfe****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The information about the data source.
+   */
   input?: Input;
+  /**
+   * @remarks
+   * The task execution location.
+   * 
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The notification for task completion.
+   */
   notification?: DataIngestionNotification;
   /**
+   * @remarks
+   * The scanning phase.
+   * 
    * @example
    * IncrementalScanning
    */
   phase?: string;
   /**
+   * @remarks
+   * The service-linked role.
+   * 
    * @example
    * AliyunIMMBatchTriggerRole
    */
   serviceRole?: string;
+  /**
+   * @remarks
+   * The status of the batch processing task.
+   * 
+   * *   Ready: The task is created.
+   * *   Running: The task is running.
+   * *   Failed: The task fails and cannot be automatically recovered.
+   * *   Suspended: The task is suspended.
+   * *   Succeeded: The task is successful.
+   * 
+   * @example
+   * Succeeded
+   */
   state?: string;
+  /**
+   * @remarks
+   * The statistical information.
+   */
   statistic?: DataIngestionStatistic;
+  /**
+   * @remarks
+   * The task tags.
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the task was updated.
+   * 
+   * @example
+   * 2021-12-18T07:40:29Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

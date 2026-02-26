@@ -5,12 +5,19 @@ import { ContextualFile } from "./ContextualFile";
 
 export class ContextualMessage extends $dara.Model {
   /**
-   * @example
-   * 你好
+   * @remarks
+   * The message content.
    */
   content?: string;
+  /**
+   * @remarks
+   * The files involved in the dialogue.
+   */
   files?: ContextualFile[];
   /**
+   * @remarks
+   * The role in the dialogue.
+   * 
    * @example
    * user
    */

@@ -5,10 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class InputOSS extends $dara.Model {
   /**
    * @remarks
+   * The name of the OSS bucket.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-bucket
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The match expressions.
+   */
   matchExpressions?: string[];
+  /**
+   * @remarks
+   * The object key prefix.
+   * 
+   * @example
+   * test-object
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,10 +5,17 @@ import { ReferenceFile } from "./ReferenceFile";
 
 export class Answer extends $dara.Model {
   /**
+   * @remarks
+   * The answer.
+   * 
    * @example
-   * 你好
+   * Hello
    */
   content?: string;
+  /**
+   * @remarks
+   * The reference sources of the answer.
+   */
   references?: ReferenceFile[];
   static names(): { [key: string]: string } {
     return {

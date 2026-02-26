@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class Schedule extends $dara.Model {
   /**
+   * @remarks
+   * The learning rate decay. This parameter takes effect only when LRScheduler is set to StepLR.
+   * 
    * @example
    * 0.97
    */
   gamma?: number;
   /**
+   * @remarks
+   * The learning rate scheduler.
+   * 
    * @example
    * StepLR
    */
   LRScheduler?: string;
   /**
+   * @remarks
+   * The number of epochs the learning rate is changed after. This parameter takes effect only when LRScheduler is set to StepLR.
+   * 
    * @example
    * 1
    */

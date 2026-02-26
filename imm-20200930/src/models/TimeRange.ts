@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end time.
+   * 
+   * @example
+   * 2016-12-31T00:00:00+08:00
+   */
   end?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 2016-12-31T00:00:00+08:00
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {

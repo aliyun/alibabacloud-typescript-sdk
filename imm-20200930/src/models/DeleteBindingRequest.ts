@@ -7,8 +7,6 @@ export class DeleteBindingRequest extends $dara.Model {
    * @remarks
    * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
-   * This parameter is required.
-   * 
    * @example
    * dataset001
    */

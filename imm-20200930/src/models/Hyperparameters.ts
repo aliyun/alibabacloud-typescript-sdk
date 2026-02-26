@@ -7,36 +7,60 @@ import { Schedule } from "./Schedule";
 
 export class Hyperparameters extends $dara.Model {
   /**
+   * @remarks
+   * The frequency at which the model configuration is saved. If you set this parameter to 1, model configuration is saved every epoch.
+   * 
    * @example
    * 1
    */
   backupInterval?: number;
   /**
+   * @remarks
+   * The batch size for model training.
+   * 
    * @example
    * 32
    */
   batchSize?: number;
   /**
+   * @remarks
+   * The number of threads used to read the training data.
+   * 
    * @example
    * 4
    */
   dataLoaderWorkers?: number;
   /**
    * @remarks
+   * The custom parameters for model training.
+   * 
    * This parameter is required.
    */
   evaluator?: CustomParams;
   /**
    * @remarks
+   * The image size. The array contains the width and height of the image.
+   * 
    * This parameter is required.
    */
   inputSize?: number[];
   /**
+   * @remarks
+   * The number of epochs.
+   * 
    * @example
    * 10
    */
   maxEpoch?: number;
+  /**
+   * @remarks
+   * The optimization algorithm.
+   */
   optimization?: Optimization;
+  /**
+   * @remarks
+   * The learning rate scheduler.
+   */
   schedule?: Schedule;
   static names(): { [key: string]: string } {
     return {

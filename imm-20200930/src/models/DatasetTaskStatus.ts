@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DatasetTaskStatus extends $dara.Model {
   /**
+   * @remarks
+   * The time of the last completion.
+   * 
    * @example
    * 2024-06-29T14:50:13.011643661+08:00
    */
   lastSucceededTime?: string;
   /**
+   * @remarks
+   * The start time of the task.
+   * 
    * @example
    * 2024-06-29T14:50:13.011643661+08:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the task.
+   * 
    * @example
    * Succeeded
    */

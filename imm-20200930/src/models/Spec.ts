@@ -4,34 +4,64 @@ import { CustomParams } from "./CustomParams";
 
 
 export class Spec extends $dara.Model {
+  /**
+   * @remarks
+   * The custom parameters for model training.
+   */
   backbone?: CustomParams;
   /**
+   * @remarks
+   * The number of output classes of the last layer.
+   * 
    * @example
    * 10
    */
   classNum?: number;
+  /**
+   * @remarks
+   * The custom parameters for model training.
+   */
   head?: CustomParams;
   /**
+   * @remarks
+   * 3
+   * 
    * @example
    * 3
    */
   inputChannel?: number;
+  /**
+   * @remarks
+   * The custom parameters for model training.
+   */
   loss?: CustomParams;
   /**
    * @remarks
+   * The name of the model. The available model names vary with the model category.
+   * 
    * This parameter is required.
    * 
    * @example
    * ClsResNet
    */
   name?: string;
+  /**
+   * @remarks
+   * The custom parameters for model training.
+   */
   neck?: CustomParams;
   /**
+   * @remarks
+   * The number of face landmarks. This parameter is required for face detection. In most cases, you can set the parameter to 5.
+   * 
    * @example
    * 5
    */
   numLandmarks?: number;
   /**
+   * @remarks
+   * The path to the pretrained model.
+   * 
    * @example
    * oss://bucket/abc/xxx.json
    */

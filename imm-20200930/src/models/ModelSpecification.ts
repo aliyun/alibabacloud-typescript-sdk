@@ -7,11 +7,15 @@ import { Spec } from "./Spec";
 export class ModelSpecification extends $dara.Model {
   /**
    * @remarks
+   * The basic model information.
+   * 
    * This parameter is required.
    */
   metaData?: MetaData;
   /**
    * @remarks
+   * The model specification information.
+   * 
    * This parameter is required.
    */
   spec?: Spec;

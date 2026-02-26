@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Optimization extends $dara.Model {
   /**
+   * @remarks
+   * The initial learning rate.
+   * 
    * @example
    * 0.01
    */
   learningRate?: number;
   /**
+   * @remarks
+   * The optimization method.
+   * 
    * @example
    * SGD
    */

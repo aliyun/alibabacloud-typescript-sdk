@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImageInsight extends $dara.Model {
   /**
+   * @remarks
+   * Image summary.
+   * 
+   * >  Not supported.
+   * 
    * **if can be null:**
    * true
    */
   caption?: string;
   /**
+   * @remarks
+   * The description of the image.
+   * 
    * **if can be null:**
    * true
    */

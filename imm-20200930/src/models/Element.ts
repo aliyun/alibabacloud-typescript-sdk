@@ -5,10 +5,39 @@ import { ElementRelation } from "./ElementRelation";
 
 
 export class Element extends $dara.Model {
+  /**
+   * @remarks
+   * The element contents.
+   */
   elementContents?: ElementContent[];
+  /**
+   * @remarks
+   * The relationships between the current element and other elements.
+   */
   elementRelations?: ElementRelation[];
+  /**
+   * @remarks
+   * The element type.
+   * 
+   * @example
+   * title; image; table; narrative-text
+   */
   elementType?: string;
+  /**
+   * @remarks
+   * The unique ID of the element.
+   * 
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * The similarity between the current file and its extracted semantics.
+   * 
+   * @example
+   * 0.8
+   */
   semanticSimilarity?: number;
   static names(): { [key: string]: string } {
     return {

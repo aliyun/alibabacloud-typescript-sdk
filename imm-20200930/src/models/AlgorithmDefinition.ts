@@ -5,38 +5,67 @@ import { TrainingSpecification } from "./TrainingSpecification";
 
 export class AlgorithmDefinition extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the algorithm definition.
+   * 
    * @example
    * 8fc6e718-8d19-495f-a510-bcee3c598588
    */
   algorithmDefinitionId?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2023-05-31T10:19:40.572325888+08:00
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Custom labels.
+   */
   customLabels?: { [key: string]: string }[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the algorithm.
+   * 
    * @example
    * algoName
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * user1
    */
   ownerId?: string;
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * traningtest
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The model training parameters.
+   */
   trainingSpecification?: TrainingSpecification;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2023-05-31T10:19:40.572325888+08:00
    */

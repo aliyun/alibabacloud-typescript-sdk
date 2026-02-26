@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ElementRelation extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the element.
+   * 
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * child，parent
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

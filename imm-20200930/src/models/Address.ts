@@ -3,12 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Address extends $dara.Model {
+  /**
+   * @remarks
+   * The full address.
+   */
   addressLine?: string;
+  /**
+   * @remarks
+   * The city.
+   */
   city?: string;
+  /**
+   * @remarks
+   * The country or region.
+   */
   country?: string;
+  /**
+   * @remarks
+   * The district.
+   */
   district?: string;
+  /**
+   * @remarks
+   * The BCP 47 language code.
+   * 
+   * @example
+   * zh-hans
+   */
   language?: string;
+  /**
+   * @remarks
+   * The province.
+   */
   province?: string;
+  /**
+   * @remarks
+   * The street.
+   */
   township?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReferenceFile extends $dara.Model {
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * test-dataset
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The unique ID of the file.
+   * 
    * @example
    * 75d5de2c50754e3dadd5c35dbca5f9949369e37eb342a73821f690c94c36c7f7
    */
   objectId?: string;
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The URI of the file.
+   * 
    * @example
    * oss://test-bucket/test-object.jpg
    */

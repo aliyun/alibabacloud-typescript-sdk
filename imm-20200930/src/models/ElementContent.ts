@@ -3,9 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ElementContent extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the element.
+   * 
+   * If the value of the Type parameter is image or link, this parameter indicates the placeholder text.
+   * 
+   * @example
+   * Text
+   */
   content?: string;
+  /**
+   * @remarks
+   * The time range. The array length is fixed to 2. One element indicates the start time and the other one indicates the end time. Unit: milliseconds.
+   */
   timeRange?: number[];
+  /**
+   * @remarks
+   * The type of the element content.
+   * 
+   * Valid values:
+   * 
+   * *   text
+   * *   image
+   * *   link
+   * 
+   * @example
+   * text
+   */
   type?: string;
+  /**
+   * @remarks
+   * The link to the element content. This parameter takes effect only if the Type parameter is set to image or link.
+   * 
+   * @example
+   * http://aliyun.com
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {

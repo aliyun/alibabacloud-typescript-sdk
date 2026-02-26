@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SmartClusterRule extends $dara.Model {
+  /**
+   * @remarks
+   * Keywords
+   */
   keywords?: string[];
   /**
+   * @remarks
+   * Sensitivity
+   * 
    * @example
    * 0.5
    */

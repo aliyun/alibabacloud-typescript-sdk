@@ -4,11 +4,22 @@ import { Boundary } from "./Boundary";
 
 
 export class LicensePlate extends $dara.Model {
+  /**
+   * @remarks
+   * The boundary information of the license plate.
+   */
   boundary?: Boundary;
+  /**
+   * @remarks
+   * The confidence level.
+   * 
+   * @example
+   * 0.789
+   */
   confidence?: number;
   /**
-   * @example
-   * 川A0123
+   * @remarks
+   * The license plate number.
    */
   content?: string;
   static names(): { [key: string]: string } {

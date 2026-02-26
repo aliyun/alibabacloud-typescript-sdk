@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class VideoInsight extends $dara.Model {
   /**
+   * @remarks
+   * Video summary.
+   * 
    * **if can be null:**
    * true
    */
   caption?: string;
   /**
+   * @remarks
+   * The description of the video file.
+   * 
+   * >  Not supported.
+   * 
    * **if can be null:**
    * true
    */

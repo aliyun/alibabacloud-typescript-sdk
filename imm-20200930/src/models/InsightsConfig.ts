@@ -1,30 +1,22 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InputOSS } from "./InputOss";
 
 
-export class Input extends $dara.Model {
-  /**
-   * @remarks
-   * The input data source from Object Storage Service (OSS).
-   */
-  OSS?: InputOSS;
+export class InsightsConfig extends $dara.Model {
+  language?: string;
   static names(): { [key: string]: string } {
     return {
-      OSS: 'OSS',
+      language: 'Language',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      OSS: InputOSS,
+      language: 'string',
     };
   }
 
   validate() {
-    if(this.OSS && typeof (this.OSS as any).validate === 'function') {
-      (this.OSS as any).validate();
-    }
     super.validate();
   }
 

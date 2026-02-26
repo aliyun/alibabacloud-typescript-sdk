@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RegionType extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

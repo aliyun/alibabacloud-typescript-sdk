@@ -651,7 +651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Phase II of AI Assistant, Q\\&A API
+   * Phase II of AI Assistant, Q\\\\\\&A API
    * 
    * @remarks
    * ### Precautions
@@ -710,21 +710,22 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.ContextualAnswerResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.ContextualAnswerResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ContextualAnswerResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ContextualAnswerResponse({}));
+      }
+
     }
   }
 
   /**
-   * Phase II of AI Assistant, Q\\&A API
+   * Phase II of AI Assistant, Q\\\\\\&A API
    * 
    * @remarks
    * ### Precautions
@@ -784,7 +785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Phase II of AI Assistant, Q\\&A API
+   * Phase II of AI Assistant, Q\\\\\\&A API
    * 
    * @remarks
    * ### Precautions
@@ -1354,7 +1355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Dataset
+   * Creates a dataset.
    * 
    * @remarks
    * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -1370,11 +1371,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateDatasetShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.datasetConfig)) {
+      request.datasetConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetConfig, "DatasetConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.workflowParameters)) {
       request.workflowParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowParameters, "WorkflowParameters", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.datasetConfigShrink)) {
+      query["DatasetConfig"] = request.datasetConfigShrink;
+    }
+
     if (!$dara.isNull(request.datasetMaxBindCount)) {
       query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
     }
@@ -1433,7 +1442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Dataset
+   * Creates a dataset.
    * 
    * @remarks
    * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -2484,7 +2493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Transcoding Service
+   * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
    * 
    * @remarks
    * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/88317.html) of the Intelligent Media Management product before using this interface.**
@@ -2573,7 +2582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Transcoding Service
+   * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
    * 
    * @remarks
    * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/88317.html) of the Intelligent Media Management product before using this interface.**
@@ -4972,7 +4981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates an access token for document preview or editing.
+   * Obtain Document Preview and Edit Token
    * 
    * @remarks
    * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -5102,7 +5111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates an access token for document preview or editing.
+   * Obtain Document Preview and Edit Token
    * 
    * @remarks
    * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -5234,7 +5243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * drmlicense获取
+   * Obtains a Digital Rights Management (DRM) license for encrypted video playback.
    * 
    * @deprecated OpenAPI GetDRMLicense is deprecated
    * 
@@ -5283,7 +5292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * drmlicense获取
+   * Obtains a Digital Rights Management (DRM) license for encrypted video playback.
    * 
    * @deprecated OpenAPI GetDRMLicense is deprecated
    * 
@@ -7923,11 +7932,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateDatasetShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.datasetConfig)) {
+      request.datasetConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetConfig, "DatasetConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.workflowParameters)) {
       request.workflowParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowParameters, "WorkflowParameters", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.datasetConfigShrink)) {
+      query["DatasetConfig"] = request.datasetConfigShrink;
+    }
+
     if (!$dara.isNull(request.datasetMaxBindCount)) {
       query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
     }

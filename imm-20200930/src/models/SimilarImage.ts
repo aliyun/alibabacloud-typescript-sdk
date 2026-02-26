@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SimilarImage extends $dara.Model {
+  /**
+   * @remarks
+   * The aesthetic score.
+   * 
+   * @example
+   * 0.709
+   */
   imageScore?: number;
+  /**
+   * @remarks
+   * The URI of the image.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {

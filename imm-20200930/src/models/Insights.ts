@@ -6,11 +6,17 @@ import { VideoInsight } from "./VideoInsight";
 
 export class Insights extends $dara.Model {
   /**
+   * @remarks
+   * The summary and description of the image.
+   * 
    * **if can be null:**
    * true
    */
   image?: ImageInsight;
   /**
+   * @remarks
+   * The summary and description of the video.
+   * 
    * **if can be null:**
    * true
    */

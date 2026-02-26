@@ -5,6 +5,13 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ClusterForReqCoverFigures extends $dara.Model {
+  /**
+   * @remarks
+   * The person ID.
+   * 
+   * @example
+   * 2cb3c51e-b406-4b0c-af1b-897d88e1****
+   */
   figureId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,6 +35,10 @@ export class ClusterForReqCoverFigures extends $dara.Model {
 }
 
 export class ClusterForReqCover extends $dara.Model {
+  /**
+   * @remarks
+   * The persons.
+   */
   figures?: ClusterForReqCoverFigures[];
   static names(): { [key: string]: string } {
     return {
@@ -54,10 +65,42 @@ export class ClusterForReqCover extends $dara.Model {
 }
 
 export class ClusterForReq extends $dara.Model {
+  /**
+   * @remarks
+   * The cover.
+   */
   cover?: ClusterForReqCover;
+  /**
+   * @remarks
+   * The custom ID.
+   * 
+   * @example
+   * abc
+   */
   customId?: string;
+  /**
+   * @remarks
+   * The custom labels.
+   * 
+   * @example
+   * {"Bucket": "examplebucket"}
+   */
   customLabels?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the cluster.
+   * 
+   * @example
+   * abc
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * @example
+   * Cluster-99b1c333-86dc-45da-8c6****
+   */
   objectId?: string;
   static names(): { [key: string]: string } {
     return {

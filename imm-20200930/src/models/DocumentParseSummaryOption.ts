@@ -1,30 +1,25 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InputOSS } from "./InputOss";
 
 
-export class Input extends $dara.Model {
-  /**
-   * @remarks
-   * The input data source from Object Storage Service (OSS).
-   */
-  OSS?: InputOSS;
+export class DocumentParseSummaryOption extends $dara.Model {
+  chapterSummarize?: boolean;
+  summarize?: boolean;
   static names(): { [key: string]: string } {
     return {
-      OSS: 'OSS',
+      chapterSummarize: 'ChapterSummarize',
+      summarize: 'Summarize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      OSS: InputOSS,
+      chapterSummarize: 'boolean',
+      summarize: 'boolean',
     };
   }
 
   validate() {
-    if(this.OSS && typeof (this.OSS as any).validate === 'function') {
-      (this.OSS as any).validate();
-    }
     super.validate();
   }
 

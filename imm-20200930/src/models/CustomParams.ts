@@ -5,10 +5,17 @@ import { Property } from "./Property";
 
 export class CustomParams extends $dara.Model {
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
    * Normalize
    */
   name?: string;
+  /**
+   * @remarks
+   * The properties.
+   */
   properties?: Property[];
   static names(): { [key: string]: string } {
     return {

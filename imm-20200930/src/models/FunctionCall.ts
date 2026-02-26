@@ -3,10 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FunctionCall extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters detected by the large language model.
+   */
   arguments?: string;
   /**
    * @remarks
+   * The function name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * search_file
    */
   name?: string;
   static names(): { [key: string]: string } {

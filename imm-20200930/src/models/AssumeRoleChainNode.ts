@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class AssumeRoleChainNode extends $dara.Model {
   /**
    * @remarks
+   * The UID of the account.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1023210024677934
+   * 10232100********
    */
   ownerId?: string;
   /**
    * @remarks
+   * The role.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,11 @@ export class AssumeRoleChainNode extends $dara.Model {
   role?: string;
   /**
    * @remarks
+   * The type of the account. Valid values:
+   * 
+   * *   user: Alibaba Cloud account.
+   * *   service: Alibaba Cloud service.
+   * 
    * This parameter is required.
    * 
    * @example

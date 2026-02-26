@@ -5,23 +5,137 @@ import { File } from "./File";
 
 
 export class Story extends $dara.Model {
+  /**
+   * @remarks
+   * The addresses.
+   */
   addresses?: Address[];
+  /**
+   * @remarks
+   * The story cover.
+   */
   cover?: File;
+  /**
+   * @remarks
+   * The time when the story was created.
+   * 
+   * @example
+   * 2022-01-14T10:17:18.102700407+08:00
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The custom ID.
+   * 
+   * @example
+   * test
+   */
   customId?: string;
+  /**
+   * @remarks
+   * The custom labels.
+   * 
+   * @example
+   * {"key": "val"}
+   */
   customLabels?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the dataset.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * The fluster IDs.
+   */
   figureClusterIds?: string[];
+  /**
+   * @remarks
+   * The story files.
+   */
   files?: File[];
+  /**
+   * @remarks
+   * The ID of the story object.
+   * 
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * The type of the object.
+   * 
+   * @example
+   * story
+   */
   objectType?: string;
+  /**
+   * @remarks
+   * The ID of the owner to which the story belongs.
+   * 
+   * @example
+   * 102321002****
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * The name of the project.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * The time when the story ends.
+   * 
+   * @example
+   * 2022-01-14T10:17:18.102700407+08:00
+   */
   storyEndTime?: string;
+  /**
+   * @remarks
+   * The name of the story.
+   * 
+   * @example
+   * name1
+   */
   storyName?: string;
+  /**
+   * @remarks
+   * The time when the story starts.
+   * 
+   * @example
+   * 2022-01-14T10:17:18.102700407+08:00
+   */
   storyStartTime?: string;
+  /**
+   * @remarks
+   * The subtype of the story.
+   * 
+   * @example
+   * ImportantPerson
+   */
   storySubType?: string;
+  /**
+   * @remarks
+   * The story type.
+   * 
+   * @example
+   * PeopleMemory
+   */
   storyType?: string;
+  /**
+   * @remarks
+   * The time when the story was updated.
+   * 
+   * @example
+   * 2022-01-14T10:17:18.102700407+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

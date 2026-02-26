@@ -49,14 +49,29 @@ export class SemanticQueryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The content of the query that you input.
+   * 
+   * @example
+   * Scenery of Hangzhou in April 2021
    */
   query?: string;
+  /**
+   * @remarks
+   * > Either this parameter or the Query parameter must be specified. This parameter is valid only for image searches on datasets configured with a search-by-image workflow.
+   * >
+   * URI of the source data for retrieval.
+   * The URI must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+   * 
+   * Contact us if you need to configure a workflow template.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   /**
    * @remarks
-   * The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
+   * >  Either this parameter or the SourceURI parameter must be specified.
    * 
-   * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
+   * The content of the query that you input.
    */
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {

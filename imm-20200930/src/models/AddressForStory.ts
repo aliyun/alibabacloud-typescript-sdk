@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddressForStory extends $dara.Model {
+  /**
+   * @remarks
+   * The city.
+   */
   city?: string;
+  /**
+   * @remarks
+   * The country.
+   */
   country?: string;
+  /**
+   * @remarks
+   * The district.
+   */
   district?: string;
+  /**
+   * @remarks
+   * The province.
+   */
   province?: string;
+  /**
+   * @remarks
+   * The township.
+   */
   township?: string;
   static names(): { [key: string]: string } {
     return {

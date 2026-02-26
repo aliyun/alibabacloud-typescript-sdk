@@ -1,29 +1,24 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InputOSS } from "./InputOss";
 
 
-export class Input extends $dara.Model {
-  /**
-   * @remarks
-   * The input data source from Object Storage Service (OSS).
-   */
-  OSS?: InputOSS;
+export class Clip extends $dara.Model {
+  timeRange?: number[];
   static names(): { [key: string]: string } {
     return {
-      OSS: 'OSS',
+      timeRange: 'TimeRange',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      OSS: InputOSS,
+      timeRange: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
   validate() {
-    if(this.OSS && typeof (this.OSS as any).validate === 'function') {
-      (this.OSS as any).validate();
+    if(Array.isArray(this.timeRange)) {
+      $dara.Model.validateArray(this.timeRange);
     }
     super.validate();
   }

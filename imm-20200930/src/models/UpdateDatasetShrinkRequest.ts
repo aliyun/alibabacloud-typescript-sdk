@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDatasetShrinkRequest extends $dara.Model {
+  datasetConfigShrink?: string;
   /**
    * @remarks
    * The maximum number of bindings per dataset. The value range is from 1 to 10.
@@ -88,6 +89,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   workflowParametersShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      datasetConfigShrink: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -103,6 +105,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      datasetConfigShrink: 'string',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',

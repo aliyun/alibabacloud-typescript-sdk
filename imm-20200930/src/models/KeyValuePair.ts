@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class KeyValuePair extends $dara.Model {
+  /**
+   * @remarks
+   * The key.
+   * 
+   * @example
+   * bucket
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * testbucket
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

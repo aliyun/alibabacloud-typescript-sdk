@@ -7,11 +7,15 @@ import { Resource } from "./Resource";
 export class Runtime extends $dara.Model {
   /**
    * @remarks
+   * The hyperparameters.
+   * 
    * This parameter is required.
    */
   hyperparameters?: Hyperparameters;
   /**
    * @remarks
+   * The resource.
+   * 
    * This parameter is required.
    */
   resource?: Resource;

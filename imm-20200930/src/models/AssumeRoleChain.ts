@@ -4,7 +4,18 @@ import { AssumeRoleChainNode } from "./AssumeRoleChainNode";
 
 
 export class AssumeRoleChain extends $dara.Model {
+  /**
+   * @remarks
+   * The authorization chains.
+   */
   chain?: AssumeRoleChainNode[];
+  /**
+   * @remarks
+   * The policy.
+   * 
+   * @example
+   * test
+   */
   policy?: string;
   static names(): { [key: string]: string } {
     return {

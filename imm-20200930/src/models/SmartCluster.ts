@@ -4,16 +4,87 @@ import { SmartClusterRule } from "./SmartClusterRule";
 
 
 export class SmartCluster extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
+   * @example
+   * 2022-01-14T10:17:18.102700407+08:00
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The name of the dataset.
+   * 
+   * @example
+   * MyDataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * The description of the cluster.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the cluster.
+   * 
+   * @example
+   * MySmartCluster1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * @example
+   * SmartCluster-12cd1645-deae-4b5e-9434-613747b75f6d
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * The status of the cluster.
+   * 
+   * @example
+   * Succeeded
+   */
   objectStatus?: string;
+  /**
+   * @remarks
+   * The type of the cluster.
+   * 
+   * @example
+   * smart-cluster
+   */
   objectType?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 1023210024677934
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * The name of the project.
+   * 
+   * @example
+   * MyProject
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * The clustering rule.
+   */
   rule?: SmartClusterRule;
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 2022-01-14T10:17:18.102700407+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

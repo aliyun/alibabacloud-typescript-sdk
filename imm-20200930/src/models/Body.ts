@@ -4,7 +4,18 @@ import { Boundary } from "./Boundary";
 
 
 export class Body extends $dara.Model {
+  /**
+   * @remarks
+   * The boundary of the human body.
+   */
   boundary?: Boundary;
+  /**
+   * @remarks
+   * The confidence level of the result. A higher value indicates greater confidence. Specifically, a value exceeding 0.8 signifies a high degree of confidence in the result.
+   * 
+   * @example
+   * 0.75
+   */
   confidence?: number;
   static names(): { [key: string]: string } {
     return {

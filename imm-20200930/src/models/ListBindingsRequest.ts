@@ -7,8 +7,6 @@ export class ListBindingsRequest extends $dara.Model {
    * @remarks
    * The name of the dataset.[](~~478160~~)
    * 
-   * This parameter is required.
-   * 
    * @example
    * test-dataset
    */
