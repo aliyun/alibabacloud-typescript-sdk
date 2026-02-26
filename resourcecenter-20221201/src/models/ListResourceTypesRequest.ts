@@ -7,8 +7,9 @@ export class ListResourceTypesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - zh-CN: Chinese
+   * 
+   * - en-US: English
    * 
    * @example
    * zh-CN

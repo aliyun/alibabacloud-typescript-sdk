@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMultiAccountResourceGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account or member of the resource directory.
+   * The ID of the management account or a member in the resource directory.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListMultiAccountResourceGroupsRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The number of entries to return on each page.
    * 
    * Maximum value: 100. Default value: 10.
    * 
@@ -33,7 +33,7 @@ export class ListMultiAccountResourceGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The IDs of resource groups.
+   * The resource group IDs.
    */
   resourceGroupIds?: string[];
   static names(): { [key: string]: string } {

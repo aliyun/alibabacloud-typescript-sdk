@@ -3,26 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourceRelationshipsRequestRelatedResourceFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the filter condition. For more information, see `Supported filter parameters`.
-   * 
-   * @example
-   * RelatedResourceRegionId
-   */
   key?: string;
-  /**
-   * @remarks
-   * The matching method.
-   * 
-   * @example
-   * Equals
-   */
   matchType?: string;
-  /**
-   * @remarks
-   * The values of the filter condition.
-   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -53,59 +35,22 @@ export class ListResourceRelationshipsRequestRelatedResourceFilter extends $dara
 }
 
 export class ListResourceRelationshipsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum number of entries per page.
-   * 
-   * Valid values: 1 to 500.
-   * 
-   * Default value: 20.
-   * 
-   * @example
-   * 10
-   */
   maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
-   */
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the resource.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The filter conditions for resources associated with the resource.
-   */
   relatedResourceFilter?: ListResourceRelationshipsRequestRelatedResourceFilter[];
   /**
    * @remarks
-   * The ID of the resource.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * m-eb3hji****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * ACS::ACK::Cluster
    */
   resourceType?: string;
   static names(): { [key: string]: string } {

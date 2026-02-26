@@ -8,7 +8,7 @@ export class CreateSavedQueryResponseBody extends $dara.Model {
    * The template ID.
    * 
    * @example
-   * sq-GeAck****
+   * cq-GeAck****
    */
   queryId?: string;
   /**

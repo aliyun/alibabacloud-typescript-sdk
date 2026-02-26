@@ -16,28 +16,28 @@ export class ListSavedQueriesResponseBodySavedQueries extends $dara.Model {
    * The description of the template.
    * 
    * @example
-   * Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
+   * 查询我的所有资源，返回所有的列。
    */
   description?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
-   * Query of All Alibaba Cloud Resources
+   * 查询我的所有资源。
    */
   name?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
-   * sq-GeAck****
+   * cq-GeAck****
    */
   queryId?: string;
   /**
    * @remarks
-   * The time when the template was updated. The time is displayed in UTC.
+   * The time when the template was last updated. The time is displayed in UTC.
    * 
    * @example
    * 2023-03-14 10:27:07
@@ -75,7 +75,7 @@ export class ListSavedQueriesResponseBodySavedQueries extends $dara.Model {
 export class ListSavedQueriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries returned on each page.
    * 
    * @example
    * 10
@@ -83,7 +83,7 @@ export class ListSavedQueriesResponseBody extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * AAAAARfZmVDe9NvRXloR5+8CK9nNJufMdRA7W1miLC1P****

@@ -1,3 +1,7 @@
+export { BatchGetResourceConfigurationsRequestResources } from './BatchGetResourceConfigurationsRequest';
+export { BatchGetResourceConfigurationsResponseBodyResourcesIpAddressAttributes } from './BatchGetResourceConfigurationsResponseBody';
+export { BatchGetResourceConfigurationsResponseBodyResourcesTags } from './BatchGetResourceConfigurationsResponseBody';
+export { BatchGetResourceConfigurationsResponseBodyResources } from './BatchGetResourceConfigurationsResponseBody';
 export { CreateDeliveryChannelRequestDeliveryChannelFilter } from './CreateDeliveryChannelRequest';
 export { CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties } from './CreateDeliveryChannelRequest';
 export { CreateDeliveryChannelRequestResourceChangeDelivery } from './CreateDeliveryChannelRequest';
@@ -71,6 +75,9 @@ export { UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery } from
 export { AssociateDefaultFilterRequest } from './AssociateDefaultFilterRequest';
 export { AssociateDefaultFilterResponseBody } from './AssociateDefaultFilterResponseBody';
 export { AssociateDefaultFilterResponse } from './AssociateDefaultFilterResponse';
+export { BatchGetResourceConfigurationsRequest } from './BatchGetResourceConfigurationsRequest';
+export { BatchGetResourceConfigurationsResponseBody } from './BatchGetResourceConfigurationsResponseBody';
+export { BatchGetResourceConfigurationsResponse } from './BatchGetResourceConfigurationsResponse';
 export { CreateDeliveryChannelRequest } from './CreateDeliveryChannelRequest';
 export { CreateDeliveryChannelResponseBody } from './CreateDeliveryChannelResponseBody';
 export { CreateDeliveryChannelResponse } from './CreateDeliveryChannelResponse';

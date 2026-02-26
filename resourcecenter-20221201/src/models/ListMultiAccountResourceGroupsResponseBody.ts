@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account or member of the resource directory.
+   * The ID of the management account or a member in the resource directory.
    * 
    * @example
    * 1394339739****
@@ -29,7 +29,7 @@ export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $d
   displayName?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -45,11 +45,13 @@ export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $d
   name?: string;
   /**
    * @remarks
-   * The status of the resource group. Valid values:
+   * The status of the resource group.
    * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
+   * - Creating: The resource group is being created.
+   * 
+   * - OK: The resource group is created.
+   * 
+   * - PendingDelete: The resource group is pending deletion.
    * 
    * @example
    * OK
@@ -97,7 +99,7 @@ export class ListMultiAccountResourceGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0FF0A66E-781F-51EE-9531-928F197558F2
@@ -105,7 +107,7 @@ export class ListMultiAccountResourceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the resource groups.
+   * The resource groups.
    */
   resourceGroups?: ListMultiAccountResourceGroupsResponseBodyResourceGroups[];
   static names(): { [key: string]: string } {

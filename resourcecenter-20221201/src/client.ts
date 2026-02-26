@@ -72,13 +72,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a single-account delivery channel.
+   * Queries the configurations of multiple resources in your account.
+   * 
+   * @param request - BatchGetResourceConfigurationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetResourceConfigurationsResponse
+   */
+  async batchGetResourceConfigurationsWithOptions(request: $_model.BatchGetResourceConfigurationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetResourceConfigurationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetResourceConfigurations",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchGetResourceConfigurationsResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetResourceConfigurationsResponse({}));
+  }
+
+  /**
+   * Queries the configurations of multiple resources in your account.
+   * 
+   * @param request - BatchGetResourceConfigurationsRequest
+   * @returns BatchGetResourceConfigurationsResponse
+   */
+  async batchGetResourceConfigurations(request: $_model.BatchGetResourceConfigurationsRequest): Promise<$_model.BatchGetResourceConfigurationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchGetResourceConfigurationsWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a resource delivery channel for the current account.
    * 
    * @remarks
-   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
-   * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
-   * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
+   * Resource delivery supports the scheduled delivery of resource snapshots and the delivery of resource configuration changes.
+   * Scheduled delivery of resource snapshots supports two scenarios:
+   * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - CreateDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -125,13 +167,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a single-account delivery channel.
+   * Creates a resource delivery channel for the current account.
    * 
    * @remarks
-   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
-   * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
-   * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
+   * Resource delivery supports the scheduled delivery of resource snapshots and the delivery of resource configuration changes.
+   * Scheduled delivery of resource snapshots supports two scenarios:
+   * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - CreateDeliveryChannelRequest
    * @returns CreateDeliveryChannelResponse
@@ -191,10 +233,10 @@ export default class Client extends OpenApi {
    * Creates a multi-account delivery channel.
    * 
    * @remarks
-   * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+   * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service (SLS). Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
    * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
-   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+   * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - CreateMultiAccountDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -244,10 +286,10 @@ export default class Client extends OpenApi {
    * Creates a multi-account delivery channel.
    * 
    * @remarks
-   * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+   * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service (SLS). Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
    * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
-   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+   * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - CreateMultiAccountDeliveryChannelRequest
    * @returns CreateMultiAccountDeliveryChannelResponse
@@ -476,7 +518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+   * 关闭跨账号搜索功能
    * 
    * @param request - DisableMultiAccountResourceCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -499,7 +541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+   * 关闭跨账号搜索功能
    * @returns DisableMultiAccountResourceCenterResponse
    */
   async disableMultiAccountResourceCenter(): Promise<$_model.DisableMultiAccountResourceCenterResponse> {
@@ -508,7 +550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deactivates the Resource Center service.
+   * 禁用资源中心
    * 
    * @param request - DisableResourceCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -531,7 +573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deactivates the Resource Center service.
+   * 禁用资源中心
    * @returns DisableResourceCenterResponse
    */
   async disableResourceCenter(): Promise<$_model.DisableResourceCenterResponse> {
@@ -572,10 +614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-   * 
-   * @remarks
-   * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+   * 开通跨账号搜索功能
    * 
    * @param request - EnableMultiAccountResourceCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -598,10 +637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-   * 
-   * @remarks
-   * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+   * 开通跨账号搜索功能
    * @returns EnableMultiAccountResourceCenterResponse
    */
   async enableMultiAccountResourceCenter(): Promise<$_model.EnableMultiAccountResourceCenterResponse> {
@@ -642,7 +678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes an SQL statement to query resources across accounts.
+   * 执行多账号查询
    * 
    * @param request - ExecuteMultiAccountSQLQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -685,7 +721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes an SQL statement to query resources across accounts.
+   * 执行多账号查询
    * 
    * @param request - ExecuteMultiAccountSQLQueryRequest
    * @returns ExecuteMultiAccountSQLQueryResponse
@@ -750,7 +786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a single-account delivery channel.
+   * Queries the information about a delivery channel within the current account.
    * 
    * @param request - GetDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -781,7 +817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a single-account delivery channel.
+   * Queries the information about a delivery channel within the current account.
    * 
    * @param request - GetDeliveryChannelRequest
    * @returns GetDeliveryChannelResponse
@@ -792,7 +828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on a single-account delivery channel.
+   * Queries the statistics of a resource delivery channel in the current account.
    * 
    * @param request - GetDeliveryChannelStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on a single-account delivery channel.
+   * Queries the statistics of a resource delivery channel in the current account.
    * 
    * @param request - GetDeliveryChannelStatisticsRequest
    * @returns GetDeliveryChannelStatisticsResponse
@@ -876,7 +912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a multi-account delivery channel.
+   * Queries the information about a cross-account resource delivery channel.
    * 
    * @param request - GetMultiAccountDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -907,7 +943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a multi-account delivery channel.
+   * Queries the information about a cross-account resource delivery channel.
    * 
    * @param request - GetMultiAccountDeliveryChannelRequest
    * @returns GetMultiAccountDeliveryChannelResponse
@@ -960,7 +996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+   * 获取跨账号资源中心服务状态
    * 
    * @param request - GetMultiAccountResourceCenterServiceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -983,7 +1019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+   * 获取跨账号资源中心服务状态
    * @returns GetMultiAccountResourceCenterServiceStatusResponse
    */
   async getMultiAccountResourceCenterServiceStatus(): Promise<$_model.GetMultiAccountResourceCenterServiceStatusResponse> {
@@ -1046,7 +1082,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取多账号资源数量
+   * Queries the number of resources within the management account and multiple members of a resource directory.
+   * 
+   * @remarks
+   * You can query only resources supported by Resource Center. For more information, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
    * 
    * @param request - GetMultiAccountResourceCountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1085,7 +1124,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取多账号资源数量
+   * Queries the number of resources within the management account and multiple members of a resource directory.
+   * 
+   * @remarks
+   * You can query only resources supported by Resource Center. For more information, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
    * 
    * @param request - GetMultiAccountResourceCountsRequest
    * @returns GetMultiAccountResourceCountsResponse
@@ -1128,7 +1170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a resource within the current account.
+   * 获取资源配置
    * 
    * @param request - GetResourceConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1167,7 +1209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a resource within the current account.
+   * 获取资源配置
    * 
    * @param request - GetResourceConfigurationRequest
    * @returns GetResourceConfigurationResponse
@@ -1178,7 +1220,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the numbers of resources on which the current account has access permissions.
+   * Queries the number of resources in your account that you have permission to access.
+   * 
+   * @remarks
+   * - You can query the number of resources in your account that you have permission to access.
+   * - You can query only the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
    * 
    * @param request - GetResourceCountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1221,7 +1267,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the numbers of resources on which the current account has access permissions.
+   * Queries the number of resources in your account that you have permission to access.
+   * 
+   * @remarks
+   * - You can query the number of resources in your account that you have permission to access.
+   * - You can query only the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
    * 
    * @param request - GetResourceCountsRequest
    * @returns GetResourceCountsResponse
@@ -1274,7 +1324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of single-account delivery channels.
+   * Queries a list of delivery channels within the current account.
    * 
    * @param request - ListDeliveryChannelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1309,7 +1359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of single-account delivery channels.
+   * Queries a list of delivery channels within the current account.
    * 
    * @param request - ListDeliveryChannelsRequest
    * @returns ListDeliveryChannelsResponse
@@ -1366,7 +1416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of filters.
+   * 获取过滤器列表
    * 
    * @param request - ListFiltersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1389,7 +1439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of filters.
+   * 获取过滤器列表
    * @returns ListFiltersResponse
    */
   async listFilters(): Promise<$_model.ListFiltersResponse> {
@@ -1398,7 +1448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of multi-account delivery channels.
+   * Queries a list of delivery channels in resource directory mode.
    * 
    * @param request - ListMultiAccountDeliveryChannelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of multi-account delivery channels.
+   * Queries a list of delivery channels in resource directory mode.
    * 
    * @param request - ListMultiAccountDeliveryChannelsRequest
    * @returns ListMultiAccountDeliveryChannelsResponse
@@ -1444,7 +1494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+   * Queries the resource groups within the management account or a member in a resource directory.
    * 
    * @param request - ListMultiAccountResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1487,7 +1537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+   * Queries the resource groups within the management account or a member in a resource directory.
    * 
    * @param request - ListMultiAccountResourceGroupsRequest
    * @returns ListMultiAccountResourceGroupsResponse
@@ -1498,13 +1548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the relationships between resources within the management account or members of your resource directory.
-   * 
-   * @remarks
-   *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
-   * *   By default, the operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the search. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+   * 跨账号列出资源关系
    * 
    * @param request - ListMultiAccountResourceRelationshipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1559,13 +1603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the relationships between resources within the management account or members of your resource directory.
-   * 
-   * @remarks
-   *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
-   * *   By default, the operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the search. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+   * 跨账号列出资源关系
    * 
    * @param request - ListMultiAccountResourceRelationshipsRequest
    * @returns ListMultiAccountResourceRelationshipsResponse
@@ -1576,7 +1614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag keys of resources within the management account or a member of your resource directory.
+   * 查询多账号标签键
    * 
    * @param request - ListMultiAccountTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1623,7 +1661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag keys of resources within the management account or a member of your resource directory.
+   * 查询多账号标签键
    * 
    * @param request - ListMultiAccountTagKeysRequest
    * @returns ListMultiAccountTagKeysResponse
@@ -1634,7 +1672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+   * 查询多账号标签值
    * 
    * @param request - ListMultiAccountTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1685,7 +1723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+   * 查询多账号标签值
    * 
    * @param request - ListMultiAccountTagValuesRequest
    * @returns ListMultiAccountTagValuesResponse
@@ -1696,13 +1734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of resource relationships on which the current account has access permissions.
-   * 
-   * @remarks
-   *   You can call this operation to query only the resource relationships on which the current account has access permissions.
-   * *   By default, this operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the query scope. For information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only entries that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Entries that meet any value of the filter condition are returned.
+   * 列出资源关系
    * 
    * @param request - ListResourceRelationshipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1753,13 +1785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of resource relationships on which the current account has access permissions.
-   * 
-   * @remarks
-   *   You can call this operation to query only the resource relationships on which the current account has access permissions.
-   * *   By default, this operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the query scope. For information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only entries that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Entries that meet any value of the filter condition are returned.
+   * 列出资源关系
    * 
    * @param request - ListResourceRelationshipsRequest
    * @returns ListResourceRelationshipsResponse
@@ -1920,7 +1946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of resources within the current account.
+   * 查询标签值
    * 
    * @param request - ListTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1967,7 +1993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of resources within the current account.
+   * 查询标签值
    * 
    * @param request - ListTagValuesRequest
    * @returns ListTagValuesResponse
@@ -1978,15 +2004,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches for resources within the management account or members of a resource directory.
+   * Searches for resources in the management account and multiple member accounts of a resource directory.
    * 
    * @remarks
-   *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
-   * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
-   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-   * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+   * - You can search only for [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+   * - To search for resources across accounts as a RAM user or RAM role, you must have been attached the `resourcecenter:SearchMultiAccountResources` policy. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+   * - By default, this operation returns a maximum of 20 entries. To change the maximum number of entries that can be returned, specify the `MaxResults` parameter.
+   * - If the response does not include `NextToken`, no more data is available. To query the next page of results, set the `NextToken` parameter to the value that was returned from the previous call. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+   * - You can set one or more filter conditions to narrow the search scope. For information about supported filter parameters and matching methods, see the information below. Multiple filter conditions are joined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a single filter condition are joined by a logical `OR`. Resources that meet any value for a filter condition are returned.
+   * - For more query examples, visit <props="china">[示例中心](https://api.aliyun.com/api-tools/demo/ResourceCenter) <props="intl">[OpenAPI Portal](https://api.alibabacloud.com/api-tools/demo/ResourceCenter).
    * 
    * @param request - SearchMultiAccountResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2033,15 +2059,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches for resources within the management account or members of a resource directory.
+   * Searches for resources in the management account and multiple member accounts of a resource directory.
    * 
    * @remarks
-   *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
-   * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
-   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-   * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+   * - You can search only for [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+   * - To search for resources across accounts as a RAM user or RAM role, you must have been attached the `resourcecenter:SearchMultiAccountResources` policy. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+   * - By default, this operation returns a maximum of 20 entries. To change the maximum number of entries that can be returned, specify the `MaxResults` parameter.
+   * - If the response does not include `NextToken`, no more data is available. To query the next page of results, set the `NextToken` parameter to the value that was returned from the previous call. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+   * - You can set one or more filter conditions to narrow the search scope. For information about supported filter parameters and matching methods, see the information below. Multiple filter conditions are joined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a single filter condition are joined by a logical `OR`. Resources that meet any value for a filter condition are returned.
+   * - For more query examples, visit <props="china">[示例中心](https://api.aliyun.com/api-tools/demo/ResourceCenter) <props="intl">[OpenAPI Portal](https://api.alibabacloud.com/api-tools/demo/ResourceCenter).
    * 
    * @param request - SearchMultiAccountResourcesRequest
    * @returns SearchMultiAccountResourcesResponse
@@ -2052,14 +2078,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for resources that you can access within the current account.
+   * Searches for resources in your current account that you are permitted to access.
    * 
    * @remarks
-   *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
-   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-   * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+   * - You can search only for resources in your current account that you are permitted to access.
+   * - You can search only for the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
+   * - By default, the SearchResources operation returns a maximum of 20 entries. You can specify the `MaxResults` parameter to change the maximum number of entries that are returned.
+   * - If the response does not include a `NextToken` value, no more results are available. To retrieve the next page of results, include the `NextToken` value from the previous response in your next request. If you do not specify the `NextToken` parameter, the first page of results is returned.
+   * - You can set one or more filter conditions to narrow the search scope. For information about the supported filter parameters and matching methods, see the following sections. Multiple filter conditions are combined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a filter condition are combined by a logical `OR`. Resources that meet any value of the filter condition are returned.
+   * - For more query examples, see [API Explorer](https://api.aliyun.com/api-tools/demo/ResourceCenter).
    * 
    * @param request - SearchResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2114,14 +2141,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for resources that you can access within the current account.
+   * Searches for resources in your current account that you are permitted to access.
    * 
    * @remarks
-   *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
-   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-   * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+   * - You can search only for resources in your current account that you are permitted to access.
+   * - You can search only for the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
+   * - By default, the SearchResources operation returns a maximum of 20 entries. You can specify the `MaxResults` parameter to change the maximum number of entries that are returned.
+   * - If the response does not include a `NextToken` value, no more results are available. To retrieve the next page of results, include the `NextToken` value from the previous response in your next request. If you do not specify the `NextToken` parameter, the first page of results is returned.
+   * - You can set one or more filter conditions to narrow the search scope. For information about the supported filter parameters and matching methods, see the following sections. Multiple filter conditions are combined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a filter condition are combined by a logical `OR`. Resources that meet any value of the filter condition are returned.
+   * - For more query examples, see [API Explorer](https://api.aliyun.com/api-tools/demo/ResourceCenter).
    * 
    * @param request - SearchResourcesRequest
    * @returns SearchResourcesResponse
@@ -2132,13 +2160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a single-account delivery channel.
-   * 
-   * @remarks
-   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
-   * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
-   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+   * 更新投递渠道
    * 
    * @param request - UpdateDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2189,13 +2211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a single-account delivery channel.
-   * 
-   * @remarks
-   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
-   * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
-   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+   * 更新投递渠道
    * 
    * @param request - UpdateDeliveryChannelRequest
    * @returns UpdateDeliveryChannelResponse
@@ -2257,8 +2273,8 @@ export default class Client extends OpenApi {
    * @remarks
    * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
    * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
-   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+   * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - UpdateMultiAccountDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2314,8 +2330,8 @@ export default class Client extends OpenApi {
    * @remarks
    * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
    * Scheduled resource snapshots support the following delivery scenarios:
-   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
-   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+   * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - UpdateMultiAccountDeliveryChannelRequest
    * @returns UpdateMultiAccountDeliveryChannelResponse

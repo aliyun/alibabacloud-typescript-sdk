@@ -21,8 +21,9 @@ export class ExecuteSQLQueryRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   Valid values: 1 to 1000.
-   * *   Default value: 1000.
+   * - Valid values: 1 to 1000.
+   * 
+   * - Default value: 1000.
    * 
    * @example
    * 1000

@@ -5,30 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListFiltersResponseBodyFilters extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the filter.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * {
-   *   "regions": [],
-   *   "tagFilters": [
-   *     [{ "type": "notContainTagKey", "tagKey": "xxx", "tagValue": "" }],
-   *     [{ "tagKey": "xxx", "tagValue": "xxx" }]
-   *   ],
-   *   "resourceTypes": [
-   *     "ACS::ECS::AutoSnapshotPolicy"
-   *   ]
-   * }
    */
   filterConfiguration?: string;
-  /**
-   * @remarks
-   * The name of the filter.
-   * 
-   * @example
-   * My devices
-   */
   filterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,26 +33,8 @@ export class ListFiltersResponseBodyFilters extends $dara.Model {
 }
 
 export class ListFiltersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the default filter.
-   * 
-   * @example
-   * My Filters
-   */
   defaultFilterName?: string;
-  /**
-   * @remarks
-   * The configurations of the filter.
-   */
   filters?: ListFiltersResponseBodyFilters[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AA39FB9C-CB74-5E73-8DFE-3A2B096F0759
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

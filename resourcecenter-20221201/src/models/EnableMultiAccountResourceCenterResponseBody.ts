@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EnableMultiAccountResourceCenterResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 767038B7-2027-5508-858B-E213232D57D5
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The status of the feature. Valid values:
-   * 
-   * *   Pending: The feature is being enabled.
-   * *   Enabled: The feature is enabled.
-   * 
-   * @example
-   * Pending
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

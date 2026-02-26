@@ -90,7 +90,7 @@ export class GetResourceCountsResponseBody extends $dara.Model {
   filters?: GetResourceCountsResponseBodyFilters[];
   /**
    * @remarks
-   * The dimension by which resources are queried.
+   * The dimension by which the queried resources are grouped.
    * 
    * @example
    * ResourceType
@@ -106,7 +106,7 @@ export class GetResourceCountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The numbers of resources.
+   * The list of resource counts.
    */
   resourceCounts?: GetResourceCountsResponseBodyResourceCounts[];
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class ListExampleQueriesResponseBodyExampleQueries extends $dara.Model {
    * The description of the template.
    * 
    * @example
-   * Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
+   * 返回所有有权限的资源，并按照资源类型和资源ID排列。
    */
   description?: string;
   /**
@@ -16,7 +16,7 @@ export class ListExampleQueriesResponseBodyExampleQueries extends $dara.Model {
    * The name of the template.
    * 
    * @example
-   * Query of All Alibaba Cloud Resources
+   * 列出所有阿里云资源
    */
   name?: string;
   /**

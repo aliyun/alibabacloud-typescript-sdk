@@ -10,12 +10,12 @@ export class UpdateSavedQueryRequest extends $dara.Model {
    * The description must be 1 to 256 characters in length.
    * 
    * @example
-   * Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
+   * 查询我的所有资源，返回所有的列。
    */
   description?: string;
   /**
    * @remarks
-   * The query statement in the template.
+   * The expression of the template.
    * 
    * @example
    * SELECT * FROM resources;
@@ -25,22 +25,24 @@ export class UpdateSavedQueryRequest extends $dara.Model {
    * @remarks
    * The name of the template.
    * 
-   * *   The name must be 1 to 64 characters in length.
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must be unique.
+   * - The name must be 1 to 64 characters in length.
+   * 
+   * - It can contain letters, digits, underscores (_), and hyphens (-).
+   * 
+   * - It must be globally unique.
    * 
    * @example
-   * Query of All Alibaba Cloud Resources
+   * 查询我的所有资源。
    */
   name?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * This parameter is required.
    * 
    * @example
-   * sq-GeAck****
+   * cq-GeAck****
    */
   queryId?: string;
   static names(): { [key: string]: string } {

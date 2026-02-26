@@ -8,7 +8,7 @@ export class CreateDeliveryChannelResponseBody extends $dara.Model {
    * The ID of the delivery channel.
    * 
    * @example
-   * dc-0bzhsqpnk***
+   * dc-0bzhsqpn****
    */
   deliveryChannelId?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateDeliveryChannelResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 42A89312-0616-591E-B614-07BC87D3D***
+   * 42A89312-0616-591E-B614-07BC87D3D
    */
   requestId?: string;
   static names(): { [key: string]: string } {

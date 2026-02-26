@@ -259,6 +259,9 @@ export class UpdateDeliveryChannelRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the delivery channel.
+   * 
+   * @example
+   * 投递描述
    */
   deliveryChannelDescription?: string;
   /**

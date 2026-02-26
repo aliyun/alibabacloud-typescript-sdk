@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMultiAccountResourcesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The key of the filter condition. For more information, see `Supported filter parameters`.
+   * The key of the filter condition. For more information, see the "`Supported filter parameters`" section below.
    * 
    * @example
    * ResourceGroupId
@@ -13,9 +13,9 @@ export class SearchMultiAccountResourcesRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The matching mode.
+   * The matching method.
    * 
-   * The value Equals indicates an equal match.
+   * Set this parameter to `Equals`, which means an exact match.
    * 
    * @example
    * Equals
@@ -57,9 +57,9 @@ export class SearchMultiAccountResourcesRequestFilter extends $dara.Model {
 export class SearchMultiAccountResourcesRequestSortCriterion extends $dara.Model {
   /**
    * @remarks
-   * The attribute based on which the entries are sorted.
+   * The sort key.
    * 
-   * The value CreateTime indicates the creation time of resources.
+   * Set this parameter to `CreateTime`, which means the results are sorted by resource creation time.
    * 
    * @example
    * CreateTime
@@ -67,10 +67,13 @@ export class SearchMultiAccountResourcesRequestSortCriterion extends $dara.Model
   key?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   ASC: The entries are sorted in ascending order. This value is the default value.
-   * *   DESC: The entries are sorted in descending order.
+   * - ASC: Ascending order.
+   * 
+   * - DESC: Descending order.
+   * 
+   * Default value: ASC.
    * 
    * @example
    * ASC
@@ -119,9 +122,7 @@ export class SearchMultiAccountResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the token to initiate another request and obtain the remaining entries.``
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
    * 
    * @example
    * eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
@@ -129,12 +130,15 @@ export class SearchMultiAccountResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The search scope. You can set the value to one of the following items:
+   * The scope of the accounts in which you want to search for resources. Valid values:
    * 
-   * *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched. You can call the [GetResourceDirectory](https://help.aliyun.com/document_detail/159995.html) operation to obtain the ID.
-   * *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched. You can call the [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html) operation to obtain the ID.
-   * *   ID of a folder: Resources within all members in the folder are searched. You can call the [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html) operation to obtain the ID.
-   * *   ID of a member: Resources within the member are searched. You can call the [ListAccounts](https://help.aliyun.com/document_detail/160016.html) operation to obtain the ID.
+   * - The ID of a resource directory: Searches for resources in the management account and all its member accounts. For more information, see [GetResourceDirectory](https://help.aliyun.com/document_detail/159995.html).
+   * 
+   * - The ID of the Root folder: Searches for resources in all member accounts under the Root folder and its subfolders. For more information, see [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html).
+   * 
+   * - The ID of a folder: Searches for resources in all member accounts under the folder. For more information, see [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html).
+   * 
+   * - The ID of a member account: Searches for resources in the member account. For more information, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
    * 
    * This parameter is required.
    * 
@@ -144,7 +148,7 @@ export class SearchMultiAccountResourcesRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The method that is used to sort the entries returned.
+   * The sorting parameters.
    */
   sortCriterion?: SearchMultiAccountResourcesRequestSortCriterion;
   static names(): { [key: string]: string } {

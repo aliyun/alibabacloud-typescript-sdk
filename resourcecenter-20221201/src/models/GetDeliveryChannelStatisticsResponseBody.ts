@@ -21,7 +21,7 @@ export class GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics e
   deliveryChannelName?: string;
   /**
    * @remarks
-   * The last delivery time of resource configuration change events.
+   * The last time a resource configuration change was delivered.
    * 
    * @example
    * 2025-06-03T16:05:15Z
@@ -29,7 +29,7 @@ export class GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics e
   latestChangeDeliveryTime?: string;
   /**
    * @remarks
-   * The last delivery time of scheduled resource snapshots.
+   * The last time a scheduled resource snapshot was delivered.
    * 
    * @example
    * 2025-06-03T16:00:00Z
@@ -65,7 +65,7 @@ export class GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics e
 export class GetDeliveryChannelStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics on the delivery channel.
+   * The statistics of the delivery channel.
    */
   deliveryChannelStatistics?: GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics;
   /**

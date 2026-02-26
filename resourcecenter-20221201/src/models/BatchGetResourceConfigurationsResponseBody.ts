@@ -2,22 +2,22 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes extends $dara.Model {
+export class BatchGetResourceConfigurationsResponseBodyResourcesIpAddressAttributes extends $dara.Model {
   /**
    * @remarks
    * The IP address.
    * 
    * @example
-   * 172.27.199.42
+   * 192.168.1.2
    */
   ipAddress?: string;
   /**
    * @remarks
    * The network type. Valid values:
    * 
-   * - **Public**: Internet
+   * - **Public**: Internet.
    * 
-   * - **Private**: internal network
+   * - **Private**: Private network.
    * 
    * @example
    * Public
@@ -56,13 +56,13 @@ export class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes
   }
 }
 
-export class GetMultiAccountResourceConfigurationResponseBodyTags extends $dara.Model {
+export class BatchGetResourceConfigurationsResponseBodyResourcesTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
    * 
    * @example
-   * tag-key
+   * test_key
    */
   key?: string;
   /**
@@ -70,7 +70,7 @@ export class GetMultiAccountResourceConfigurationResponseBodyTags extends $dara.
    * The tag value.
    * 
    * @example
-   * tag-value
+   * test_value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -96,18 +96,18 @@ export class GetMultiAccountResourceConfigurationResponseBodyTags extends $dara.
   }
 }
 
-export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Model {
+export class BatchGetResourceConfigurationsResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account or member.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
-   * 1619302****
+   * 151266687691****
    */
   accountId?: string;
   /**
    * @remarks
-   * The configurations of the resource.
+   * The details of the resource configuration.
    */
   configuration?: { [key: string]: any };
   /**
@@ -115,51 +115,43 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
    * The time when the resource was created.
    * 
    * @example
-   * 2023-02-14T03:12:11Z
+   * 2021-06-30T09:20:08Z
    */
   createTime?: string;
   /**
    * @remarks
-   * The time when the resource expires.
+   * The expiration time of the resource.
    * 
    * @example
-   * 2023-09-18T07:04:21Z
+   * 2021-07-30T09:20:08Z
    */
   expireTime?: string;
   /**
    * @remarks
    * The properties of the IP addresses.
    */
-  ipAddressAttributes?: GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes[];
+  ipAddressAttributes?: BatchGetResourceConfigurationsResponseBodyResourcesIpAddressAttributes[];
   /**
    * @remarks
    * The IP addresses.
    * 
-   * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
+   * > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
    */
   ipAddresses?: string[];
   /**
    * @remarks
-   * The ID of the region where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
-   * cn-shanghai
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The resource group ID.
    * 
    * @example
-   * B2DCC08B-C12A-5705-879C-5A1450016156
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of your Alibaba Cloud resource group.
-   * 
-   * @example
-   * rg-acfmzy6d****
+   * rg-acfmzawhxxc****
    */
   resourceGroupId?: string;
   /**
@@ -167,7 +159,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
    * The resource ID.
    * 
    * @example
-   * m-eb3hji****
+   * eip-wz9gdtce0q6h48h*****
    */
   resourceId?: string;
   /**
@@ -175,7 +167,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
    * The resource name.
    * 
    * @example
-   * test_resource
+   * group1
    */
   resourceName?: string;
   /**
@@ -183,20 +175,20 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
    * The resource type.
    * 
    * @example
-   * ACS::VPC::RouteTable
+   * ACS::ECS::Instance
    */
   resourceType?: string;
   /**
    * @remarks
    * The tags.
    */
-  tags?: GetMultiAccountResourceConfigurationResponseBodyTags[];
+  tags?: BatchGetResourceConfigurationsResponseBodyResourcesTags[];
   /**
    * @remarks
    * The zone ID.
    * 
    * @example
-   * cn-shanghai-a
+   * cn-hangzhou-k
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -208,7 +200,6 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
       ipAddressAttributes: 'IpAddressAttributes',
       ipAddresses: 'IpAddresses',
       regionId: 'RegionId',
-      requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
@@ -224,15 +215,14 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
       configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       createTime: 'string',
       expireTime: 'string',
-      ipAddressAttributes: { 'type': 'array', 'itemType': GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes },
+      ipAddressAttributes: { 'type': 'array', 'itemType': BatchGetResourceConfigurationsResponseBodyResourcesIpAddressAttributes },
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
-      requestId: 'string',
       resourceGroupId: 'string',
       resourceId: 'string',
       resourceName: 'string',
       resourceType: 'string',
-      tags: { 'type': 'array', 'itemType': GetMultiAccountResourceConfigurationResponseBodyTags },
+      tags: { 'type': 'array', 'itemType': BatchGetResourceConfigurationsResponseBodyResourcesTags },
       zoneId: 'string',
     };
   }
@@ -249,6 +239,46 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetResourceConfigurationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F1CE0D52-32DA-531A-87A4-B9A5B68*****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The list of resources.
+   */
+  resources?: BatchGetResourceConfigurationsResponseBodyResources[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': BatchGetResourceConfigurationsResponseBodyResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
     }
     super.validate();
   }

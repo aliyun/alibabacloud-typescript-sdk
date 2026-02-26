@@ -14,6 +14,9 @@ export class ListDeliveryChannelsResponseBodyDeliveryChannels extends $dara.Mode
   /**
    * @remarks
    * The description of the delivery channel.
+   * 
+   * @example
+   * This is a description.
    */
   deliveryChannelDescription?: string;
   /**
@@ -75,7 +78,7 @@ export class ListDeliveryChannelsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * A pagination token.
    * 
    * This parameter is required.
    * 
