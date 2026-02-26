@@ -55,103 +55,31 @@ export class DescribeAIDBClustersResponseBodyItemsDBClusterTags extends $dara.Mo
 }
 
 export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model {
-  /**
-   * @example
-   * vnode
-   */
   aiNodeType?: string;
-  /**
-   * @example
-   * 2021-09-13T15:45:27Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * ocpx
-   */
   DBClusterDescription?: string;
-  /**
-   * @example
-   * pc-**************
-   */
   DBClusterId?: string;
-  /**
-   * @example
-   * Creating
-   */
   DBClusterStatus?: string;
-  /**
-   * @example
-   * polar.pg.g8.8xlarge.gu30
-   */
   DBNodeClass?: string;
-  /**
-   * @example
-   * polardb_ai
-   */
   DBType?: string;
-  /**
-   * @example
-   * 2028-09-01T16:00:00Z
-   */
   expireTime?: string;
-  /**
-   * @example
-   * False
-   */
   expired?: boolean;
-  /**
-   * @example
-   * xxxxxxxxxxxx
-   */
   kubeClusterId?: string;
-  /**
-   * @example
-   * Unlock
-   */
   lockMode?: string;
   modelType?: string;
-  /**
-   * @example
-   * Postpaid
-   */
   payType?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   /**
    * @example
    * pc-**************
    */
   relativeDBClusterId?: string;
-  /**
-   * @example
-   * container
-   */
   runType?: string;
-  /**
-   * @example
-   * 10
-   */
   storageSpace?: number;
-  /**
-   * @example
-   * essdpl0
-   */
   storageType?: string;
   tags?: DescribeAIDBClustersResponseBodyItemsDBClusterTags;
-  /**
-   * @example
-   * vpc-***************
-   */
   vpcId?: string;
   vswitchId?: string;
-  /**
-   * @example
-   * cn-hangzhou-j
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

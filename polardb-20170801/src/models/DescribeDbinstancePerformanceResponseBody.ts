@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $dara.Model {
-  /**
-   * @example
-   * 1737424822
-   */
   timestamp?: number;
-  /**
-   * @example
-   * 12.33
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,15 +55,7 @@ export class DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformance
 }
 
 export class DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceItem extends $dara.Model {
-  /**
-   * @example
-   * PolarDBDiskUsage
-   */
   measurement?: string;
-  /**
-   * @example
-   * mean_data_size
-   */
   metricName?: string;
   points?: DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceItemPoints;
   static names(): { [key: string]: string } {

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApplicationsResponseBodyItemsApplicationsEndpointsEndpoint extends $dara.Model {
-  /**
-   * @example
-   * 192.168.0.3
-   */
   IP?: string;
-  /**
-   * @example
-   * Public
-   */
   netType?: string;
-  /**
-   * @example
-   * 8080
-   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -130,72 +118,24 @@ export class DescribeApplicationsResponseBodyItemsApplicationsTags extends $dara
 }
 
 export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Model {
-  /**
-   * @example
-   * pa-**************
-   */
   applicationId?: string;
-  /**
-   * @example
-   * supabase
-   */
   applicationType?: string;
-  /**
-   * @example
-   * 2025-03-25T09:37:10Z
-   */
   creationTime?: string;
   /**
    * @example
    * pc-xxxxxx
    */
   DBClusterId?: string;
-  /**
-   * @example
-   * myapp
-   */
   description?: string;
   endpoints?: DescribeApplicationsResponseBodyItemsApplicationsEndpoints;
-  /**
-   * @example
-   * 1.0.0
-   */
   engineVersion?: string;
-  /**
-   * @example
-   * 2025-06-25T09:37:10Z
-   */
   expireTime?: string;
-  /**
-   * @example
-   * false
-   */
   expired?: string;
-  /**
-   * @example
-   * Postpaid
-   */
   payType?: string;
-  /**
-   * @example
-   * pcs-**************
-   */
   polarFSInstanceId?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * Activated
-   */
   status?: string;
   tags?: DescribeApplicationsResponseBodyItemsApplicationsTags;
-  /**
-   * @example
-   * cn-hangzhou-b
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

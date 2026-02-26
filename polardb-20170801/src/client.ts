@@ -439,7 +439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels O\\&M events at a time.
+   * Cancels O\\\\\\&M events at a time.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -494,7 +494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels O\\&M events at a time.
+   * Cancels O\\\\\\&M events at a time.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @returns CancelActiveOperationTasksResponse
@@ -1171,7 +1171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭DB4AI
+   * Disables the PolarDB for AI feature for a cluster.
    * 
    * @param request - CloseAITaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1222,7 +1222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭DB4AI
+   * Disables the PolarDB for AI feature for a cluster.
    * 
    * @param request - CloseAITaskRequest
    * @returns CloseAITaskResponse
@@ -3213,7 +3213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建全球数据网络
+   * Creates a global data network (GDN).
    * 
    * @param request - CreateGlobalDataNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3280,7 +3280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建全球数据网络
+   * Creates a global data network (GDN).
    * 
    * @param request - CreateGlobalDataNetworkRequest
    * @returns CreateGlobalDataNetworkResponse
@@ -4955,7 +4955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteGlobalDataNetwork
+   * Deletes a global data network (GDN).
    * 
    * @param request - DeleteGlobalDataNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4986,7 +4986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteGlobalDataNetwork
+   * Deletes a global data network (GDN).
    * 
    * @param request - DeleteGlobalDataNetworkRequest
    * @returns DeleteGlobalDataNetworkResponse
@@ -5271,7 +5271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a parameter template of a PolarDB cluster.
+   * Deletes a parameter template from a PolarDB cluster.
    * 
    * @remarks
    * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
@@ -5330,7 +5330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a parameter template of a PolarDB cluster.
+   * Deletes a parameter template from a PolarDB cluster.
    * 
    * @remarks
    * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
@@ -6199,7 +6199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户侧查询运维任务
+   * Queries the O\\\\\\&M event details of an instance.
    * 
    * @param request - DescribeActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6286,7 +6286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户侧查询运维任务
+   * Queries the O\\\\\\&M event details of an instance.
    * 
    * @param request - DescribeActiveOperationTasksRequest
    * @returns DescribeActiveOperationTasksResponse
@@ -6829,7 +6829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup tasks of a PolarDB cluster.
+   * Queries the details of backup tasks of a cluster.
    * 
    * @param request - DescribeBackupTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6884,7 +6884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup tasks of a PolarDB cluster.
+   * Queries the details of backup tasks of a cluster.
    * 
    * @param request - DescribeBackupTasksRequest
    * @returns DescribeBackupTasksResponse
@@ -9125,7 +9125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   * Queries the database links of a PolarDB for Oracle cluster.
    * 
    * @remarks
    * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
@@ -9179,7 +9179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   * Queries the database links of a PolarDB for Oracle cluster.
    * 
    * @remarks
    * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
@@ -9193,7 +9193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例日志
+   * Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
    * 
    * @param request - DescribeDBLogFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9280,7 +9280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例日志
+   * Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
    * 
    * @param request - DescribeDBLogFilesRequest
    * @returns DescribeDBLogFilesResponse
@@ -10187,7 +10187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeGlobalDataNetworkList
+   * Queries the PolarFS global data network (GDN) details in all regions.
    * 
    * @param request - DescribeGlobalDataNetworkListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10222,7 +10222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeGlobalDataNetworkList
+   * Queries the PolarFS global data network (GDN) details in all regions.
    * 
    * @param request - DescribeGlobalDataNetworkListRequest
    * @returns DescribeGlobalDataNetworkListResponse
@@ -10525,7 +10525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例高可用相关日志
+   * Queries the HA logs of a cluster.
    * 
    * @param request - DescribeHALogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10580,7 +10580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例高可用相关日志
+   * Queries the HA logs of a cluster.
    * 
    * @param request - DescribeHALogsRequest
    * @returns DescribeHALogsResponse
@@ -10689,7 +10689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务列表
+   * Queries historical tasks.
    * 
    * @param request - DescribeHistoryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10784,7 +10784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务列表
+   * Queries historical tasks.
    * 
    * @param request - DescribeHistoryTasksRequest
    * @returns DescribeHistoryTasksResponse
@@ -12211,7 +12211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions and zones available for PolarDB.
+   * Queries the regions and zones that are supported by PolarDB.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12254,7 +12254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions and zones available for PolarDB.
+   * Queries the regions and zones that are supported by PolarDB.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -13213,6 +13213,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭DynamoDB兼容性能力
+   * 
+   * @param request - DisableDBClusterDynamoDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableDBClusterDynamoDBResponse
+   */
+  async disableDBClusterDynamoDBWithOptions(request: $_model.DisableDBClusterDynamoDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableDBClusterDynamoDBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableDBClusterDynamoDB",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableDBClusterDynamoDBResponse>(await this.callApi(params, req, runtime), new $_model.DisableDBClusterDynamoDBResponse({}));
+  }
+
+  /**
+   * 关闭DynamoDB兼容性能力
+   * 
+   * @param request - DisableDBClusterDynamoDBRequest
+   * @returns DisableDBClusterDynamoDBResponse
+   */
+  async disableDBClusterDynamoDB(request: $_model.DisableDBClusterDynamoDBRequest): Promise<$_model.DisableDBClusterDynamoDBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableDBClusterDynamoDBWithOptions(request, runtime);
+  }
+
+  /**
    * 关闭集群的关系性
    * 
    * @param request - DisableDBClusterOrcaRequest
@@ -13330,6 +13372,48 @@ export default class Client extends OpenApi {
   async disableDBClusterServerless(request: $_model.DisableDBClusterServerlessRequest): Promise<$_model.DisableDBClusterServerlessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableDBClusterServerlessWithOptions(request, runtime);
+  }
+
+  /**
+   * 开启DynamoDB兼容性能力
+   * 
+   * @param request - EnableDBClusterDynamoDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableDBClusterDynamoDBResponse
+   */
+  async enableDBClusterDynamoDBWithOptions(request: $_model.EnableDBClusterDynamoDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableDBClusterDynamoDBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableDBClusterDynamoDB",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableDBClusterDynamoDBResponse>(await this.callApi(params, req, runtime), new $_model.EnableDBClusterDynamoDBResponse({}));
+  }
+
+  /**
+   * 开启DynamoDB兼容性能力
+   * 
+   * @param request - EnableDBClusterDynamoDBRequest
+   * @returns EnableDBClusterDynamoDBResponse
+   */
+  async enableDBClusterDynamoDB(request: $_model.EnableDBClusterDynamoDBRequest): Promise<$_model.EnableDBClusterDynamoDBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableDBClusterDynamoDBWithOptions(request, runtime);
   }
 
   /**
@@ -14017,16 +14101,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.GetPolarAgentResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.GetPolarAgentResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.GetPolarAgentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GetPolarAgentResponse({}));
+      }
+
     }
   }
 
@@ -15017,7 +15102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switching time of scheduled O\\&M events for an instance.
+   * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15080,7 +15165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switching time of scheduled O\\&M events for an instance.
+   * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @returns ModifyActiveOperationTasksResponse
@@ -17165,7 +17250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改存储性能
+   * Changes the storage performance of a PolarDB for MySQL cluster.
    * 
    * @param request - ModifyDBClusterStoragePerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17228,7 +17313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改存储性能
+   * Changes the storage performance of a PolarDB for MySQL cluster.
    * 
    * @param request - ModifyDBClusterStoragePerformanceRequest
    * @returns ModifyDBClusterStoragePerformanceResponse
@@ -20165,6 +20250,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Switches over the primary and secondary clusters in a global database network (GDN).
+   * 
    * @param request - SwitchOverGlobalDatabaseNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchOverGlobalDatabaseNetworkResponse
@@ -20230,6 +20317,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Switches over the primary and secondary clusters in a global database network (GDN).
+   * 
    * @param request - SwitchOverGlobalDatabaseNetworkRequest
    * @returns SwitchOverGlobalDatabaseNetworkResponse
    */

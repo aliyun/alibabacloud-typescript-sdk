@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBClusterNetInfoResponseBodyDBClusterNetInfosDBClusterNetInfo extends $dara.Model {
-  /**
-   * @example
-   * pc-****************.pg.polardb.pre.rds.aliyuncs.com
-   */
   connectionString?: string;
-  /**
-   * @example
-   * MPP
-   */
   connectionStringType?: string;
-  /**
-   * @example
-   * 121.*.*.173
-   */
   IPAddress?: string;
-  /**
-   * @example
-   * Public
-   */
   IPType?: string;
-  /**
-   * @example
-   * 1521
-   */
   port?: string;
-  /**
-   * @example
-   * vpc-***************
-   */
   VPCId?: string;
-  /**
-   * @example
-   * vsw-bp1li3eavsz8oaexq15dw
-   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -98,35 +70,11 @@ export class DescribeDBClusterNetInfoResponseBodyDBClusterNetInfos extends $dara
 }
 
 export class DescribeDBClusterNetInfoResponseBodyDBNodeNetInfosDBNodeNetInfoNetInfosNetInfo extends $dara.Model {
-  /**
-   * @example
-   * pc-****************.pg.polardb.pre.rds.aliyuncs.com
-   */
   connectionString?: string;
-  /**
-   * @example
-   * 47.*.*.203
-   */
   IPAddress?: string;
-  /**
-   * @example
-   * Public
-   */
   IPType?: string;
-  /**
-   * @example
-   * 5432
-   */
   port?: string;
-  /**
-   * @example
-   * vpc-****************
-   */
   VPCId?: string;
-  /**
-   * @example
-   * vsw-*************
-   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,15 +134,7 @@ export class DescribeDBClusterNetInfoResponseBodyDBNodeNetInfosDBNodeNetInfoNetI
 }
 
 export class DescribeDBClusterNetInfoResponseBodyDBNodeNetInfosDBNodeNetInfo extends $dara.Model {
-  /**
-   * @example
-   * pc-*************
-   */
   DBInstanceId?: string;
-  /**
-   * @example
-   * Writer
-   */
   DBNodeRole?: string;
   netInfos?: DescribeDBClusterNetInfoResponseBodyDBNodeNetInfosDBNodeNetInfoNetInfos;
   static names(): { [key: string]: string } {

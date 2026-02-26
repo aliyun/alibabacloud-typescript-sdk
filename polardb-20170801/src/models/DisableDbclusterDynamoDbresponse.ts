@@ -1,20 +1,16 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetPolarAgentResponseBody } from "./GetPolarAgentResponseBody";
+import { DisableDBClusterDynamoDBResponseBody } from "./DisableDbclusterDynamoDbresponseBody";
 
 
-export class GetPolarAgentResponse extends $dara.Model {
+export class DisableDBClusterDynamoDBResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  id?: string;
-  event?: string;
-  body?: GetPolarAgentResponseBody;
+  body?: DisableDBClusterDynamoDBResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
-      id: 'id',
-      event: 'event',
       body: 'body',
     };
   }
@@ -23,9 +19,7 @@ export class GetPolarAgentResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      id: 'string',
-      event: 'string',
-      body: GetPolarAgentResponseBody,
+      body: DisableDBClusterDynamoDBResponseBody,
     };
   }
 

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the metric. This value is a UNIX timestamp. Unit: millisecond.
-   * 
-   * @example
-   * 1600822800000
-   */
   timestamp?: number;
-  /**
-   * @remarks
-   * The value of the metric.
-   * 
-   * @example
-   * 42.38
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,36 +55,9 @@ export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysPerformanceI
 }
 
 export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysPerformanceItem extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cluster node.
-   * 
-   * >  The value of this parameter is not returned if the `Key` parameter is set to `PolarDBDiskUsage`.
-   * 
-   * @example
-   * pi-*************
-   */
   DBNodeId?: string;
-  /**
-   * @remarks
-   * The performance metrics that are returned.
-   * 
-   * @example
-   * PolarDBDiskUsage
-   */
   measurement?: string;
-  /**
-   * @remarks
-   * The name of the performance metric.
-   * 
-   * @example
-   * mean_data_size
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The performance metrics.
-   */
   points?: DescribeDBClusterPerformanceResponseBodyPerformanceKeysPerformanceItemPoints;
   static names(): { [key: string]: string } {
     return {
@@ -189,10 +148,6 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
    * 2020-09-23T01:01:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The cluster performance metrics.
-   */
   performanceKeys?: DescribeDBClusterPerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks

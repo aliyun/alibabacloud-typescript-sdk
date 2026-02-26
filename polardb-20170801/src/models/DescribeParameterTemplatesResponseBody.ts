@@ -3,78 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParameterTemplatesResponseBodyParametersTemplateRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   * 
-   * @example
-   * [ROW|STATEMENT|MIXED]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter setting can be modified. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   forceModify?: string;
-  /**
-   * @remarks
-   * Indicates whether a cluster restart is required to make the parameter modification take effect. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
   forceRestart?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter is a global parameter. Valid values:
-   * 
-   * *   **0**: yes. The modified parameter value is synchronized to other nodes by default.
-   * *   **1**: no. You can customize the nodes to which the modified parameter value can be synchronized.
-   * 
-   * @example
-   * 1
-   */
   isNodeAvailable?: string;
-  /**
-   * @remarks
-   * The parameter dependencies.
-   * 
-   * @example
-   * utf8
-   */
   paramRelyRule?: string;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * What form of binary logging the master will use.
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * binlog_format
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The default value of the parameter.
-   * 
-   * @example
-   * ROW
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -170,10 +105,6 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
    * 183
    */
   parameterCount?: string;
-  /**
-   * @remarks
-   * The details of the parameters.
-   */
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
   /**
    * @remarks

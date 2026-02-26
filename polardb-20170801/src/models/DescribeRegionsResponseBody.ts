@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether virtual private clouds (VPCs) are supported.
-   * 
-   * @example
-   * true
-   */
   vpcEnabled?: boolean;
-  /**
-   * @remarks
-   * The ID of the zone.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,18 +55,7 @@ export class DescribeRegionsResponseBodyRegionsRegionZones extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The list of zones.
-   */
   zones?: DescribeRegionsResponseBodyRegionsRegionZones;
   static names(): { [key: string]: string } {
     return {
@@ -135,10 +110,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of regions.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

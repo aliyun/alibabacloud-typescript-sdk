@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the metric. This value is a UNIX timestamp. Unit: millisecond.
-   * 
-   * @example
-   * 1600822800000
-   */
   timestamp?: number;
-  /**
-   * @remarks
-   * The value of the metric.
-   * 
-   * @example
-   * 9.33
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,26 +55,8 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem
 }
 
 export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem extends $dara.Model {
-  /**
-   * @remarks
-   * The performance metrics that you want to query.
-   * 
-   * @example
-   * PolarDBDiskUsage
-   */
   measurement?: string;
-  /**
-   * @remarks
-   * The name of the performance metric.
-   * 
-   * @example
-   * mean_sys_dir_size
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The performance metrics.
-   */
   points?: DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPoints;
   static names(): { [key: string]: string } {
     return {
@@ -177,10 +145,6 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
    * 2020-09-23T01:01:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The cluster performance metrics.
-   */
   performanceKeys?: DescribeDBNodePerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks

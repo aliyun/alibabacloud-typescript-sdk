@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the metric value was collected. This value is a timestamp in milliseconds.
-   * 
-   * @example
-   * 1600822800000
-   */
   timestamp?: number;
-  /**
-   * @remarks
-   * The value of the metric.
-   * 
-   * @example
-   * 10
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,34 +55,9 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceIte
 }
 
 export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceItem extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * @example
-   * pi-*************
-   */
   DBNodeId?: string;
-  /**
-   * @remarks
-   * The performance metric.
-   * 
-   * @example
-   * PolarProxy_CpuUsage
-   */
   measurement?: string;
-  /**
-   * @remarks
-   * The name of the performance metric.
-   * 
-   * @example
-   * service_connections_ps
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The list of the performance metrics.
-   */
   points?: DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceItemPoints;
   static names(): { [key: string]: string } {
     return {
@@ -187,10 +148,6 @@ export class DescribeDBProxyPerformanceResponseBody extends $dara.Model {
    * 2020-09-23T01:01:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * Details about the performance metrics.
-   */
   performanceKeys?: DescribeDBProxyPerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks

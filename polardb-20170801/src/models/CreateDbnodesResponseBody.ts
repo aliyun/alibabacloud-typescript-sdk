@@ -37,10 +37,6 @@ export class CreateDBNodesResponseBody extends $dara.Model {
    * pc-***************
    */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * Details about the nodes.
-   */
   DBNodeIds?: CreateDBNodesResponseBodyDBNodeIds;
   /**
    * @remarks
