@@ -4,11 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCreateVulWhitelistResponseBodyVulWhitelistList extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the whitelist.
-   * 
    * @example
-   * 30376
+   * 1002
    */
   id?: number;
   static names(): { [key: string]: string } {
@@ -45,7 +42,7 @@ export class ModifyCreateVulWhitelistResponseBody extends $dara.Model {
    * @remarks
    * An array that consists of the information about the whitelist.
    */
-  vulWhitelistList?: ModifyCreateVulWhitelistResponseBodyVulWhitelistList[];
+  vulWhitelistList?: ModifyCreateVulWhitelistResponseBodyVulWhitelistList;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -56,13 +53,13 @@ export class ModifyCreateVulWhitelistResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      vulWhitelistList: { 'type': 'array', 'itemType': ModifyCreateVulWhitelistResponseBodyVulWhitelistList },
+      vulWhitelistList: ModifyCreateVulWhitelistResponseBodyVulWhitelistList,
     };
   }
 
   validate() {
-    if(Array.isArray(this.vulWhitelistList)) {
-      $dara.Model.validateArray(this.vulWhitelistList);
+    if(this.vulWhitelistList && typeof (this.vulWhitelistList as any).validate === 'function') {
+      (this.vulWhitelistList as any).validate();
     }
     super.validate();
   }
