@@ -94,6 +94,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
    * true
    */
   useComputeNode?: boolean;
+  supportCompactionService?: boolean;
   static names(): { [key: string]: string } {
     return {
       consoleControlRestart: 'ConsoleControlRestart',
@@ -115,6 +116,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       supportModifyTimezone: 'SupportModifyTimezone',
       supportMultiAZ: 'SupportMultiAZ',
       useComputeNode: 'UseComputeNode',
+      supportCompactionService: 'supportCompactionService',
     };
   }
 
@@ -139,6 +141,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       supportModifyTimezone: 'boolean',
       supportMultiAZ: 'boolean',
       useComputeNode: 'boolean',
+      supportCompactionService: 'boolean',
     };
   }
 
