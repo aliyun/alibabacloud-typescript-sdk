@@ -58,6 +58,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
    * 更新后的智能体运行时描述
    */
   description?: string;
+  diskSize?: number;
   /**
    * @remarks
    * 智能体运行时的环境变量配置，用于在运行时传递配置参数
@@ -166,6 +167,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       cpu: 'cpu',
       credentialName: 'credentialName',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       externalAgentEndpointUrl: 'externalAgentEndpointUrl',
@@ -192,6 +194,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       cpu: 'number',
       credentialName: 'string',
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       externalAgentEndpointUrl: 'string',

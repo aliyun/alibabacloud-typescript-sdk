@@ -37,6 +37,11 @@ export class ListTemplatesRequest extends $dara.Model {
    * Browser
    */
   templateType?: string;
+  /**
+   * @example
+   * aaa
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'pageNumber',
@@ -44,6 +49,7 @@ export class ListTemplatesRequest extends $dara.Model {
       status: 'status',
       templateName: 'templateName',
       templateType: 'templateType',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -54,6 +60,7 @@ export class ListTemplatesRequest extends $dara.Model {
       status: 'string',
       templateName: 'string',
       templateType: 'string',
+      workspaceId: 'string',
     };
   }
 

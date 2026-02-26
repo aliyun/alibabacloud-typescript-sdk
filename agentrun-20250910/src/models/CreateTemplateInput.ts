@@ -107,6 +107,7 @@ export class CreateTemplateInput extends $dara.Model {
    * Browser
    */
   templateType?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       allowAnonymousManage: 'allowAnonymousManage',
@@ -129,6 +130,7 @@ export class CreateTemplateInput extends $dara.Model {
       templateConfiguration: 'templateConfiguration',
       templateName: 'templateName',
       templateType: 'templateType',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -154,6 +156,7 @@ export class CreateTemplateInput extends $dara.Model {
       templateConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       templateName: 'string',
       templateType: 'string',
+      workspaceId: 'string',
     };
   }
 

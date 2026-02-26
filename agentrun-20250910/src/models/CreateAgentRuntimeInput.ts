@@ -83,6 +83,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
    * AI agent runtime for customer service automation
    */
   description?: string;
+  diskSize?: number;
   /**
    * @remarks
    * 智能体运行时的环境变量配置，用于在运行时传递配置参数
@@ -215,6 +216,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       credentialId: 'credentialId',
       credentialName: 'credentialName',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       externalAgentEndpointUrl: 'externalAgentEndpointUrl',
@@ -243,6 +245,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       credentialId: 'string',
       credentialName: 'string',
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       externalAgentEndpointUrl: 'string',

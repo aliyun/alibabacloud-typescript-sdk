@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/agentrun20250910",
-  "version": "5.3.8",
+  "version": "5.3.9",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

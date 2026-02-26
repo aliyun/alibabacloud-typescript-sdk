@@ -4,15 +4,18 @@ import { DiscoveryEndpoint } from "./DiscoveryEndpoint";
 
 
 export class UpdateDiscoveryEndpointsInput extends $dara.Model {
+  credentialName?: string;
   discoveryEndpoints?: DiscoveryEndpoint[];
   static names(): { [key: string]: string } {
     return {
+      credentialName: 'credentialName',
       discoveryEndpoints: 'discoveryEndpoints',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      credentialName: 'string',
       discoveryEndpoints: { 'type': 'array', 'itemType': DiscoveryEndpoint },
     };
   }

@@ -57,6 +57,7 @@ export class UpdateTemplateInput extends $dara.Model {
    * 模板配置（灵活的对象结构，根据 templateType 不同而不同）
    */
   templateConfiguration?: { [key: string]: any };
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       allowAnonymousManage: 'allowAnonymousManage',
@@ -76,6 +77,7 @@ export class UpdateTemplateInput extends $dara.Model {
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
       sandboxTTLInSeconds: 'sandboxTTLInSeconds',
       templateConfiguration: 'templateConfiguration',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -98,6 +100,7 @@ export class UpdateTemplateInput extends $dara.Model {
       sandboxIdleTimeoutInSeconds: 'number',
       sandboxTTLInSeconds: 'number',
       templateConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      workspaceId: 'string',
     };
   }
 

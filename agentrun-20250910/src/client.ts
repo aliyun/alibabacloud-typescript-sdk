@@ -2388,6 +2388,10 @@ export default class Client extends OpenApi {
       query["templateType"] = request.templateType;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),

@@ -119,6 +119,7 @@ export class Template extends $dara.Model {
   templateName?: string;
   templateType?: string;
   templateVersion?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       allowAnonymousManage: 'allowAnonymousManage',
@@ -150,6 +151,7 @@ export class Template extends $dara.Model {
       templateName: 'templateName',
       templateType: 'templateType',
       templateVersion: 'templateVersion',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -184,6 +186,7 @@ export class Template extends $dara.Model {
       templateName: 'string',
       templateType: 'string',
       templateVersion: 'string',
+      workspaceId: 'string',
     };
   }
 
