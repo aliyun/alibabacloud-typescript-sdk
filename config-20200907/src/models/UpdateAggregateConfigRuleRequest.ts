@@ -137,9 +137,9 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   accountIdsScope?: string;
   /**
    * @remarks
-   * The ID of the account group.
+   * The account group ID.
    * 
-   * For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information, see [ListAggregators]().
    * 
    * This parameter is required.
    * 
@@ -156,15 +156,18 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The conditions for the custom rule, specified in JSON format.
+   * 
    * @example
-   * {"ComplianceConditions":"{\"operator\":\"and\",\"children\":[{\"operator\":\"StringEquals\",\"featurePath\":\"$.Status\",\"desired\":\"1\",\"featureSource\":\"CONFIGURATION\"}]}"}
+   * {"ComplianceConditions":"{\\"operator\\":\\"and\\",\\"children\\":[{\\"operator\\":\\"StringEquals\\",\\"featurePath\\":\\"$.Status\\",\\"desired\\":\\"1\\",\\"featureSource\\":\\"CONFIGURATION\\"}]}"}
    */
   conditions?: string;
   /**
    * @remarks
    * The rule ID.
    * 
-   * For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * For more information, see [ListAggregateConfigRules]().
    * 
    * This parameter is required.
    * 
@@ -174,9 +177,9 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
-   * For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * For more information, see [ListAggregateConfigRules]().
    * 
    * @example
    * 存在所有指定标签
@@ -184,11 +187,11 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   configRuleName?: string;
   /**
    * @remarks
-   * The trigger type of the rule. Valid values:
+   * The trigger mechanism of the rule. Valid values:
    * 
-   * - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * - ConfigurationItemChangeNotification: Configuration changes.
    * 
-   * - ScheduledNotification: The rule is triggered on a regular basis.
+   * - ScheduledNotification: Scheduled execution.
    * 
    * > You can modify this parameter only for custom rules.
    * 
@@ -259,7 +262,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   excludeTagsScope?: UpdateAggregateConfigRuleRequestExcludeTagsScope[];
   /**
    * @remarks
-   * The rule applies only to resources of member accounts in the specified folders.
+   * The rule applies only to resources of member accounts in the specified resource directory IDs.
    * 
    * > - This parameter applies only to rules in a global account group.
    * >
@@ -271,7 +274,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   folderIdsScope?: string;
   /**
    * @remarks
-   * The input parameters of the rule.
+   * The rule parameters.
    * 
    * @example
    * {"tag1Key":"ECS","tag1Value":"test"}
@@ -279,7 +282,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   inputParameters?: { [key: string]: any };
   /**
    * @remarks
-   * The frequency at which the rule is run. Valid values:
+   * The frequency at which the rule runs. Valid values:
    * 
    * - One_Hour: 1 hour.
    * 
@@ -299,7 +302,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   maximumExecutionFrequency?: string;
   /**
    * @remarks
-   * The rule applies only to resources in the specified regions. Separate multiple region IDs with a comma (,).
+   * The rule applies only to resources in the specified region IDs. Separate multiple region IDs with a comma (,).
    * 
    * > This parameter applies only to rule templates.
    * 
@@ -309,7 +312,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The rule applies only to resources in the specified resource groups. Separate multiple resource group IDs with a comma (,).
+   * The rule applies only to resources in the specified resource group IDs. Separate multiple resource group IDs with a comma (,).
    * 
    * > This parameter applies only to rule templates.
    * 
@@ -319,7 +322,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The rule applies only to the specified resources. Separate multiple resource IDs with a comma (,).
+   * The rule applies only to the specified resource IDs. Separate multiple resource IDs with a comma (,).
    * 
    * @example
    * lb-5cmbowstbkss9ta03****
@@ -327,7 +330,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The rule applies only to resources with the specified name.
+   * The rule applies only to resources with the specified resource name.
    * 
    * @example
    * i-xxx
@@ -360,9 +363,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The tags of the resource. This input parameter is deprecated and is ignored if specified.
-   * 
-   * A maximum of 20 tags can be attached.
+   * The rule applies only to resources with the specified resource name.
    * 
    * @deprecated
    */
@@ -371,13 +372,13 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * @remarks
    * The logical relationship for multiple tags in the `TagsScope` parameter. For example, if you set the `TagsScope` parameter to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. If you do not set this parameter, the default value is `OR`.
    * 
-   * This parameter also works with the deprecated `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
+   * This parameter also works with the deprecated `TagKeyScope` parameter (not recommended). For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
    * 
    * Valid values:
    * 
-   * - AND
+   * - AND: Logical AND.
    * 
-   * - OR
+   * - OR: Logical OR.
    * 
    * @example
    * AND
@@ -387,7 +388,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * @remarks
    * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The rule applies only to resources that have the specified tag.
+   * The rule applies only to resources with the specified tag.
    * 
    * > This parameter applies only to rule templates. You must specify both `TagKeyScope` and `TagValueScope`.
    * 
@@ -401,7 +402,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * @remarks
    * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The rule applies only to resources that have the specified tag.
+   * The rule applies only to resources with the specified tag.
    * 
    * > This parameter applies only to rule templates. You must specify both `TagKeyScope` and `TagValueScope`.
    * 

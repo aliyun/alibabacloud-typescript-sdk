@@ -125,15 +125,18 @@ export class UpdateConfigRuleRequestTagsScope extends $dara.Model {
 export class UpdateConfigRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token used to ensure the idempotence of the request. You can use a client to generate the token, but you must make sure that the token is unique for different requests. The `ClientToken` parameter can contain only ASCII characters and cannot be more than 64 characters in length.
+   * A client token used to ensure the idempotence of the request. Generate a unique token on your client for each request. The `ClientToken` parameter supports only ASCII characters and must not exceed 64 characters in length.
    * 
    * @example
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The condition for a custom conditional rule, in JSON format.
+   * 
    * @example
-   * {"ComplianceConditions":"{\"operator\":\"and\",\"children\":[{\"operator\":\"StringEquals\",\"featurePath\":\"$.Status\",\"desired\":\"1\",\"featureSource\":\"CONFIGURATION\"}]}"}
+   * {"ComplianceConditions":"{\\"operator\\":\\"and\\",\\"children\\":[{\\"operator\\":\\"StringEquals\\",\\"featurePath\\":\\"$.Status\\",\\"desired\\":\\"1\\",\\"featureSource\\":\\"CONFIGURATION\\"}]}"}
    * 
    * **if can be null:**
    * true
@@ -165,11 +168,11 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * @remarks
    * The trigger type of the rule. Valid values:
    * 
-   * - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * - ConfigurationItemChangeNotification: The rule triggers on configuration changes.
    * 
-   * - ScheduledNotification: The rule is triggered on a regular basis.
+   * - ScheduledNotification: The rule triggers on a schedule.
    * 
-   * > This parameter can be modified only for custom rules.
+   * > You can modify this parameter only for custom rules.
    * 
    * @example
    * ConfigurationItemChangeNotification
@@ -177,7 +180,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   configRuleTriggerTypes?: string;
   /**
    * @remarks
-   * The description of the rule. The description can be up to 500 characters in length.
+   * The rule description. The description can be up to 500 characters long.
    * 
    * @example
    * 最多可以定义6组标签。如果资源同时具有指定的所有标签，则视为“合规”。
@@ -185,7 +188,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The regions where the rule is not effective. The system does not evaluate resources in these regions. To specify multiple region IDs, separate them with a comma (,).
+   * The regions where the rule does not apply. To specify multiple region IDs, separate them with a comma (,).
    * 
    * @example
    * cn-shanghai
@@ -193,7 +196,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The resource groups where the rule is not effective. The system does not evaluate resources in these resource groups. To specify multiple resource group IDs, separate them with a comma (,).
+   * The resource groups where the rule does not apply. To specify multiple resource group IDs, separate them with a comma (,).
    * 
    * @example
    * rg-bnczc6r7rml****
@@ -201,7 +204,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The resources that are not evaluated by the rule. The system does not evaluate these resources. To specify multiple resource IDs, separate them with a comma (,).
+   * The resources that the rule does not evaluate. To specify multiple resource IDs, separate them with a comma (,).
    * 
    * > This parameter applies only to managed rules.
    * 
@@ -211,12 +214,12 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * The tags that are used to exclude resources.
+   * The tags used to exclude resources.
    */
   excludeTagsScope?: UpdateConfigRuleRequestExcludeTagsScope[];
   /**
    * @remarks
-   * The extended content. This parameter is optional. You can use this parameter with a 24-hour trigger period to set the trigger time.
+   * Optional. Extended content used with a 24-hour trigger period to set the trigger time.
    * 
    * @example
    * {"fixedHour":"12"}
@@ -227,7 +230,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   extendContent?: string;
   /**
    * @remarks
-   * The input parameters of the rule.
+   * The rule parameters.
    * 
    * @example
    * {"tag1Key":"ECS","tag1Value":"test"}
@@ -235,7 +238,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   inputParameters?: { [key: string]: any };
   /**
    * @remarks
-   * The frequency at which the rule is run. Valid values:
+   * The frequency at which the rule runs. Valid values:
    * 
    * - One_Hour: 1 hour.
    * 
@@ -247,7 +250,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * 
    * - TwentyFour_Hours (default): 24 hours.
    * 
-   * > This parameter is required when `ConfigRuleTriggerTypes` is set to `ScheduledNotification`.
+   * > Set this parameter when `ConfigRuleTriggerTypes` is set to `ScheduledNotification`.
    * 
    * @example
    * One_Hour
@@ -255,7 +258,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   maximumExecutionFrequency?: string;
   /**
    * @remarks
-   * The regions where the rule is effective. The rule evaluates only resources in these regions. To specify multiple region IDs, separate them with a comma (,).
+   * The regions where the rule applies. To specify multiple region IDs, separate them with a comma (,).
    * 
    * > This parameter applies only to managed rules.
    * 
@@ -265,7 +268,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The resource groups where the rule is effective. The rule evaluates only resources in these resource groups. To specify multiple resource group IDs, separate them with a comma (,).
+   * The resource groups where the rule applies. To specify multiple resource group IDs, separate them with a comma (,).
    * 
    * > This parameter applies only to managed rules.
    * 
@@ -283,7 +286,9 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The names of the resources that the rule evaluates.
+   * The tags of the resource. This parameter is deprecated. Ignore it. Values passed for this parameter have no effect.
+   * 
+   * You can add up to 20 tags.
    * 
    * @example
    * i-xxx
@@ -316,7 +321,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The tags of the resource. This parameter is deprecated. The value that you specify for this parameter does not take effect.
+   * The tags of the resource. This parameter is deprecated. Ignore it. Values passed for this parameter have no effect.
    * 
    * You can add up to 20 tags.
    * 
@@ -325,9 +330,9 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   tag?: UpdateConfigRuleRequestTag[];
   /**
    * @remarks
-   * The logical relationship for the tags that you specify for the `TagsScope` parameter. For example, if you set the `TagsScope` parameter to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. If you do not specify this parameter, the `OR` logic is used by default.
+   * The logical relationship between tags in the `TagsScope` parameter. For example, if you set `TagsScope` to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. If you omit this parameter, the default logic is `OR`.
    * 
-   * This parameter also applies to the deprecated `TagKeyScope` parameter, but this is not recommended. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
+   * This parameter also works with the deprecated `TagKeyScope` parameter, but this is not recommended. For example, if you set `TagKeyScope` to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
    * 
    * Valid values:
    * 
@@ -343,9 +348,9 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * @remarks
    * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The rule is effective only for resources that have the specified tag.
+   * The rule applies only to resources that have the specified tag.
    * 
-   * > This parameter applies only to managed rules. The `TagKeyScope` and `TagValueScope` parameters must be specified at the same time.
+   * > This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
    * 
    * @example
    * ECS
@@ -357,9 +362,9 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * @remarks
    * This parameter is deprecated. Use the `TagsScope` parameter instead.
    * 
-   * The rule is effective only for resources that have the specified tag.
+   * The rule applies only to resources that have the specified tag.
    * 
-   * > This parameter applies only to managed rules. The `TagKeyScope` and `TagValueScope` parameters must be specified at the same time.
+   * > This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
    * 
    * @example
    * test
@@ -369,7 +374,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
   tagValueScope?: string;
   /**
    * @remarks
-   * The tags that are used to filter resources.
+   * Scope of the tag
    */
   tagsScope?: UpdateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
