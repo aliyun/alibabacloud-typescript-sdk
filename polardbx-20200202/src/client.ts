@@ -825,7 +825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例
+   * Creates a PolarDB-X instance.
    * 
    * @param tmpReq - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -974,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例
+   * Creates a PolarDB-X instance.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -2079,6 +2079,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 描述备份策略
+   * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupPolicyResponse
@@ -2112,6 +2114,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 描述备份策略
+   * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
    */
@@ -6964,6 +6968,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新备份策略
+   * 
    * @param request - UpdateBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateBackupPolicyResponse
@@ -7001,6 +7007,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.crossRegionDataBackupRetention)) {
       query["CrossRegionDataBackupRetention"] = request.crossRegionDataBackupRetention;
+    }
+
+    if (!$dara.isNull(request.crossRegionFilterValue)) {
+      query["CrossRegionFilterValue"] = request.crossRegionFilterValue;
     }
 
     if (!$dara.isNull(request.crossRegionLogBackupRetention)) {
@@ -7069,6 +7079,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新备份策略
+   * 
    * @param request - UpdateBackupPolicyRequest
    * @returns UpdateBackupPolicyResponse
    */

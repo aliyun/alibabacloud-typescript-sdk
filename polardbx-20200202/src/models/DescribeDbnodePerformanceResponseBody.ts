@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $dara.Model {
-  /**
-   * @example
-   * 1600822800000
-   */
   timestamp?: number;
-  /**
-   * @example
-   * 42.38
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,20 +55,8 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem
 }
 
 export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem extends $dara.Model {
-  /**
-   * @example
-   * pxc-i-********
-   */
   DBNodeId?: string;
-  /**
-   * @example
-   * Logic_TPS
-   */
   measurement?: string;
-  /**
-   * @example
-   * logic_tps
-   */
   metricName?: string;
   points?: DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPoints;
   static names(): { [key: string]: string } {

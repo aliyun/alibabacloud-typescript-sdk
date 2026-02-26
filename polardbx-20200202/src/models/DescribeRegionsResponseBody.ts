@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   vpcEnabled?: boolean;
-  /**
-   * @example
-   * cn-hangzhou-a
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,20 +55,8 @@ export class DescribeRegionsResponseBodyRegionsRegionZones extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @example
-   * ch-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * true
-   */
   supportPolarx10?: boolean;
-  /**
-   * @example
-   * true
-   */
   supportPolarx20?: boolean;
   zones?: DescribeRegionsResponseBodyRegionsRegionZones;
   static names(): { [key: string]: string } {

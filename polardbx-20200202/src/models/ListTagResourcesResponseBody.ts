@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @example
-   * pxc-xxxx
-   */
   resourceId?: string;
-  /**
-   * @example
-   * PolarDBXInstance
-   */
   resourceType?: string;
-  /**
-   * @example
-   * 1
-   */
   tagKey?: string;
-  /**
-   * @example
-   * 1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {

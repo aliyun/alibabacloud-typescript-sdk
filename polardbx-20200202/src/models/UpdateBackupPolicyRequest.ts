@@ -39,6 +39,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
    */
   coldDataBackupRetention?: number;
   crossRegionDataBackupRetention?: number;
+  crossRegionFilterValue?: string;
   crossRegionLogBackupRetention?: number;
   /**
    * @remarks
@@ -95,6 +96,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
       coldDataBackupInterval: 'ColdDataBackupInterval',
       coldDataBackupRetention: 'ColdDataBackupRetention',
       crossRegionDataBackupRetention: 'CrossRegionDataBackupRetention',
+      crossRegionFilterValue: 'CrossRegionFilterValue',
       crossRegionLogBackupRetention: 'CrossRegionLogBackupRetention',
       DBInstanceName: 'DBInstanceName',
       destCrossRegion: 'DestCrossRegion',
@@ -120,6 +122,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
       coldDataBackupInterval: 'number',
       coldDataBackupRetention: 'number',
       crossRegionDataBackupRetention: 'number',
+      crossRegionFilterValue: 'string',
       crossRegionLogBackupRetention: 'number',
       DBInstanceName: 'string',
       destCrossRegion: 'string',
