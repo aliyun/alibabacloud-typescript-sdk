@@ -3,56 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the data disk.
-   * 
-   * @example
-   * cloud_essd
-   */
   category?: string;
-  /**
-   * @remarks
-   * Indicates whether the data disk is released when the instance is released. Valid values:
-   * 
-   * *   **true**: The data disk is released when the instance is released.
-   * *   **false**: The data disk is reserved when the instance is released.
-   * 
-   * @example
-   * true
-   */
   deleteWithInstance?: boolean;
   /**
    * @example
    * /dev/xvdb
    */
   device?: string;
-  /**
-   * @remarks
-   * Indicates whether the data disk is encrypted. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   encrypted?: string;
-  /**
-   * @remarks
-   * The performance level of data disk. This parameter is available when the data disk is an Enterprise SSD (ESSD).
-   * 
-   * @example
-   * PL1
-   */
   performanceLevel?: string;
-  /**
-   * @remarks
-   * The size of the data disk. Unit: GiB.
-   * 
-   * @example
-   * 40
-   */
   size?: number;
   /**
    * @example
@@ -250,19 +209,6 @@ export class DescribeRCInstanceAttributeResponseBodyInnerIpAddress extends $dara
 }
 
 export class DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason extends $dara.Model {
-  /**
-   * @remarks
-   * The reason why the instance is locked. Valid values:
-   * 
-   * *   **financial**: The instance is locked due to overdue payments.
-   * *   **security**: The instance is locked for security purposes.
-   * *   **recycling**: The instance is locked because the instance is a preemptible instance and pending to be released.
-   * *   **dedicatedhostfinancial**: The instance is locked due to overdue payments for the dedicated host.
-   * *   **refunded**: The instance is locked because a refund was made for the instance.
-   * 
-   * @example
-   * None
-   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -491,10 +437,6 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $dara.
    * None
    */
   natIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP addresses of the instance.
-   */
   privateIpAddress?: DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress;
   /**
    * @remarks
@@ -579,10 +521,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * None
    */
   creditSpecification?: string;
-  /**
-   * @remarks
-   * The details of the data disk.
-   */
   dataDisks?: DescribeRCInstanceAttributeResponseBodyDataDisks;
   dbType?: string;
   /**
@@ -679,10 +617,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * m-2oqiu973jwcxe****
    */
   imageId?: string;
-  /**
-   * @remarks
-   * The private IP addresses of the instance in the classic network.
-   */
   innerIpAddress?: DescribeRCInstanceAttributeResponseBodyInnerIpAddress;
   instanceChargeType?: string;
   /**
@@ -777,15 +711,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    */
   memory?: number;
   nodeType?: string;
-  /**
-   * @remarks
-   * The reasons why the instance is locked.
-   */
   operationLocks?: DescribeRCInstanceAttributeResponseBodyOperationLocks;
-  /**
-   * @remarks
-   * The public IP address of the instance.
-   */
   publicIpAddress?: DescribeRCInstanceAttributeResponseBodyPublicIpAddress;
   /**
    * @remarks
@@ -804,10 +730,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    */
   requestId?: string;
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The security groups.
-   */
   securityGroupIds?: DescribeRCInstanceAttributeResponseBodySecurityGroupIds;
   /**
    * @remarks

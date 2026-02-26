@@ -3,69 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeModifyPGHbaConfigLogResponseBodyHbaLogItemsHbaLogItemAfterHbaItemsHbaItem extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
   address?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * all
-   */
   database?: string;
-  /**
-   * @remarks
-   * The mask of the IP address.
-   * 
-   * @example
-   * null
-   */
   mask?: string;
-  /**
-   * @remarks
-   * The authentication method.
-   * 
-   * @example
-   * ldap
-   */
   method?: string;
-  /**
-   * @remarks
-   * The value of this parameter was set based on the value of the Method parameter.
-   * 
-   * @example
-   * null
-   */
   option?: string;
-  /**
-   * @remarks
-   * The priority.
-   * 
-   * @example
-   * 0
-   */
   priorityId?: number;
-  /**
-   * @remarks
-   * The connection type.
-   * 
-   * @example
-   * host
-   */
   type?: string;
-  /**
-   * @remarks
-   * The username of the account.
-   * 
-   * @example
-   * ldapuser
-   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,69 +73,13 @@ export class DescribeModifyPGHbaConfigLogResponseBodyHbaLogItemsHbaLogItemAfterH
 }
 
 export class DescribeModifyPGHbaConfigLogResponseBodyHbaLogItemsHbaLogItemBeforeHbaItemsHbaItem extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
   address?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * all
-   */
   database?: string;
-  /**
-   * @remarks
-   * The mask of the IP address.
-   * 
-   * @example
-   * null
-   */
   mask?: string;
-  /**
-   * @remarks
-   * The authentication method.
-   * 
-   * @example
-   * md5
-   */
   method?: string;
-  /**
-   * @remarks
-   * The value of this parameter varies based on the value of the Method parameter.
-   * 
-   * @example
-   * null
-   */
   option?: string;
-  /**
-   * @remarks
-   * The priority.
-   * 
-   * @example
-   * 0
-   */
   priorityId?: number;
-  /**
-   * @remarks
-   * The connection type.
-   * 
-   * @example
-   * host
-   */
   type?: string;
-  /**
-   * @remarks
-   * The username of the account.
-   * 
-   * @example
-   * all
-   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -255,43 +143,10 @@ export class DescribeModifyPGHbaConfigLogResponseBodyHbaLogItemsHbaLogItemBefore
 }
 
 export class DescribeModifyPGHbaConfigLogResponseBodyHbaLogItemsHbaLogItem extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the pg_hba.conf file after modification.
-   */
   afterHbaItems?: DescribeModifyPGHbaConfigLogResponseBodyHbaLogItemsHbaLogItemAfterHbaItems;
-  /**
-   * @remarks
-   * The configurations of the pg_hba.conf file before modification.
-   */
   beforeHbaItems?: DescribeModifyPGHbaConfigLogResponseBodyHbaLogItemsHbaLogItemBeforeHbaItems;
-  /**
-   * @remarks
-   * The status of the modification.
-   * 
-   * *   **success**: The modification is successful.
-   * *   **failed**: The modification failed.
-   * *   **setting**: The modification is being applied.
-   * 
-   * @example
-   * success
-   */
   modifyStatus?: string;
-  /**
-   * @remarks
-   * The time when the pg_hba.conf file was modified. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-11-25T06:00:40Z
-   */
   modifyTime?: string;
-  /**
-   * @remarks
-   * The reason why the modification failed.
-   * 
-   * @example
-   * null
-   */
   statusReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -363,10 +218,6 @@ export class DescribeModifyPGHbaConfigLogResponseBody extends $dara.Model {
    * pgm-bp1lymyn1v3i****
    */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * An array that consists of the modifications to the pg_hba.conf file.
-   */
   hbaLogItems?: DescribeModifyPGHbaConfigLogResponseBodyHbaLogItems;
   /**
    * @remarks

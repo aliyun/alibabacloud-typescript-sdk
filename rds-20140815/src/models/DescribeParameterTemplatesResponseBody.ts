@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParameterTemplatesResponseBodyParametersTemplateRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   * 
-   * @example
-   * [0-1024]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter can be modified. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   forceModify?: string;
-  /**
-   * @remarks
-   * Indicates whether you must restart the instance for the modifications to take effect. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
   forceRestart?: string;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * Page numbers of multi blocks reading once in some ddl query.
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * loose_multi_blocks_ddl_count
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The default value of the parameter.
-   * 
-   * @example
-   * 0
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +91,6 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
    * 2
    */
   parameterCount?: string;
-  /**
-   * @remarks
-   * The details of the parameters.
-   */
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
   /**
    * @remarks

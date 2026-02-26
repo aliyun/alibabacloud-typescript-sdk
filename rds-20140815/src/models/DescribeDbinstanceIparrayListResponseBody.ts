@@ -3,39 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstanceIPArrayListResponseBodyItemsDBInstanceIPArray extends $dara.Model {
-  /**
-   * @remarks
-   * The attribute of the IP address whitelist. By default, this parameter is empty.
-   * 
-   * >  A whitelist with the hidden attribute does not appear in the console. Such IP address whitelists are used to access Alibaba Cloud services, such as Data Transmission Service (DTS).
-   * 
-   * @example
-   * hidden
-   */
   DBInstanceIPArrayAttribute?: string;
-  /**
-   * @remarks
-   * The name of the IP address whitelist.
-   * 
-   * @example
-   * rds_default
-   */
   DBInstanceIPArrayName?: string;
-  /**
-   * @remarks
-   * The IP addresses in the IP address whitelist.
-   * 
-   * @example
-   * 192.168.1.0/24
-   */
   securityIPList?: string;
-  /**
-   * @remarks
-   * The type of the IP address.
-   * 
-   * @example
-   * IPv4
-   */
   securityIPType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,10 +61,6 @@ export class DescribeDBInstanceIPArrayListResponseBodyItems extends $dara.Model 
 }
 
 export class DescribeDBInstanceIPArrayListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of the details about the IP address whitelists.
-   */
   items?: DescribeDBInstanceIPArrayListResponseBodyItems;
   /**
    * @remarks

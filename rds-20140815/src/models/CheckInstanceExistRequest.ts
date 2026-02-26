@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceExistRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   ownerId?: number;

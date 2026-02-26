@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetaListResponseBodyItemsMeta extends $dara.Model {
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * testdb1
-   */
   database?: string;
-  /**
-   * @remarks
-   * The table size. Unit: KB.
-   * 
-   * @example
-   * 64
-   */
   size?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * test1
-   */
   tables?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribeMetaListResponseBody extends $dara.Model {
    * rm-uf6wjk5xxxxxxx
    */
   DBInstanceName?: string;
-  /**
-   * @remarks
-   * The information about the databases and tables whose data is included in the backup set.
-   */
   items?: DescribeMetaListResponseBodyItems;
   /**
    * @remarks

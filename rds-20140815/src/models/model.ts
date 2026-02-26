@@ -118,6 +118,7 @@ export { DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKeyV
 export { DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKeyValues } from './DescribeDbinstancePerformanceResponseBody';
 export { DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKey } from './DescribeDbinstancePerformanceResponseBody';
 export { DescribeDBInstancePerformanceResponseBodyPerformanceKeys } from './DescribeDbinstancePerformanceResponseBody';
+export { DescribeDBInstanceReplicationResponseBodySlaveStatusList } from './DescribeDbinstanceReplicationResponseBody';
 export { DescribeDBInstanceTDEResponseBodyDatabasesDatabase } from './DescribeDbinstanceTderesponseBody';
 export { DescribeDBInstanceTDEResponseBodyDatabases } from './DescribeDbinstanceTderesponseBody';
 export { DescribeDBInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceIdsReadOnlyDBInstanceId } from './DescribeDbinstancesResponseBody';
@@ -509,6 +510,9 @@ export { CreateDBInstanceEndpointAddressResponse } from './CreateDbinstanceEndpo
 export { CreateDBInstanceForRebuildRequest } from './CreateDbinstanceForRebuildRequest';
 export { CreateDBInstanceForRebuildResponseBody } from './CreateDbinstanceForRebuildResponseBody';
 export { CreateDBInstanceForRebuildResponse } from './CreateDbinstanceForRebuildResponse';
+export { CreateDBInstanceReplicationRequest } from './CreateDbinstanceReplicationRequest';
+export { CreateDBInstanceReplicationResponseBody } from './CreateDbinstanceReplicationResponseBody';
+export { CreateDBInstanceReplicationResponse } from './CreateDbinstanceReplicationResponse';
 export { CreateDBInstanceSecurityGroupRuleRequest } from './CreateDbinstanceSecurityGroupRuleRequest';
 export { CreateDBInstanceSecurityGroupRuleResponseBody } from './CreateDbinstanceSecurityGroupRuleResponseBody';
 export { CreateDBInstanceSecurityGroupRuleResponse } from './CreateDbinstanceSecurityGroupRuleResponse';
@@ -609,6 +613,9 @@ export { DeleteDBInstanceEndpointResponse } from './DeleteDbinstanceEndpointResp
 export { DeleteDBInstanceEndpointAddressRequest } from './DeleteDbinstanceEndpointAddressRequest';
 export { DeleteDBInstanceEndpointAddressResponseBody } from './DeleteDbinstanceEndpointAddressResponseBody';
 export { DeleteDBInstanceEndpointAddressResponse } from './DeleteDbinstanceEndpointAddressResponse';
+export { DeleteDBInstanceReplicationRequest } from './DeleteDbinstanceReplicationRequest';
+export { DeleteDBInstanceReplicationResponseBody } from './DeleteDbinstanceReplicationResponseBody';
+export { DeleteDBInstanceReplicationResponse } from './DeleteDbinstanceReplicationResponse';
 export { DeleteDBInstanceSecurityGroupRuleRequest } from './DeleteDbinstanceSecurityGroupRuleRequest';
 export { DeleteDBInstanceSecurityGroupRuleResponseBody } from './DeleteDbinstanceSecurityGroupRuleResponseBody';
 export { DeleteDBInstanceSecurityGroupRuleResponse } from './DeleteDbinstanceSecurityGroupRuleResponse';
@@ -1612,6 +1619,9 @@ export { UnlockAccountResponse } from './UnlockAccountResponse';
 export { UntagResourcesRequest } from './UntagResourcesRequest';
 export { UntagResourcesResponseBody } from './UntagResourcesResponseBody';
 export { UntagResourcesResponse } from './UntagResourcesResponse';
+export { UpdateDBInstanceReplicationRequest } from './UpdateDbinstanceReplicationRequest';
+export { UpdateDBInstanceReplicationResponseBody } from './UpdateDbinstanceReplicationResponseBody';
+export { UpdateDBInstanceReplicationResponse } from './UpdateDbinstanceReplicationResponse';
 export { UpdatePostgresExtensionsRequest } from './UpdatePostgresExtensionsRequest';
 export { UpdatePostgresExtensionsResponseBody } from './UpdatePostgresExtensionsResponseBody';
 export { UpdatePostgresExtensionsResponse } from './UpdatePostgresExtensionsResponse';

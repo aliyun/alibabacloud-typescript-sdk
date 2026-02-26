@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSQLServerUpgradeVersionsResponseBodyItemsItemSQLServerUpgradeVersionsSQLServerUpgradeVersionDBInstanceClassItemsDBInstanceClassItem extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
   CPU?: string;
-  /**
-   * @example
-   * mssql.x4.medium.s2
-   */
   DBInstanceClass?: string;
   DBInstanceClassType?: string;
-  /**
-   * @example
-   * 2
-   */
   group?: string;
-  /**
-   * @example
-   * 8GB
-   */
   memory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,15 +65,7 @@ export class DescribeSQLServerUpgradeVersionsResponseBodyItemsItemSQLServerUpgra
 
 export class DescribeSQLServerUpgradeVersionsResponseBodyItemsItemSQLServerUpgradeVersionsSQLServerUpgradeVersion extends $dara.Model {
   DBInstanceClassItems?: DescribeSQLServerUpgradeVersionsResponseBodyItemsItemSQLServerUpgradeVersionsSQLServerUpgradeVersionDBInstanceClassItems;
-  /**
-   * @example
-   * NO/YES
-   */
   enableUpgrade?: string;
-  /**
-   * @example
-   * 2016_std
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -146,10 +122,6 @@ export class DescribeSQLServerUpgradeVersionsResponseBodyItemsItemSQLServerUpgra
 }
 
 export class DescribeSQLServerUpgradeVersionsResponseBodyItemsItem extends $dara.Model {
-  /**
-   * @example
-   * 2016_web
-   */
   currentVersion?: string;
   SQLServerUpgradeVersions?: DescribeSQLServerUpgradeVersionsResponseBodyItemsItemSQLServerUpgradeVersions;
   static names(): { [key: string]: string } {

@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceAutoRenewalAttributeResponseBodyItemsItem extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether to enable auto-renewal for the instance.
-   * 
-   * @example
-   * True
-   */
   autoRenew?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-bpxxxxxxx
-   */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * The renewal period.
-   * 
-   * @example
-   * 1
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The instance status.
-   * 
-   * @example
-   * Normal
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeInstanceAutoRenewalAttributeResponseBodyItems extends $dara
 }
 
 export class DescribeInstanceAutoRenewalAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The renewal information about the instance.
-   */
   items?: DescribeInstanceAutoRenewalAttributeResponseBodyItems;
   /**
    * @remarks

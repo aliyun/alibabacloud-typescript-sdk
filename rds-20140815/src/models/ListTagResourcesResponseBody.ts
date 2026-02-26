@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The resource type. The value `ALIYUN::RDS::INSTANCE` indicates ApsaraDB RDS instances.
-   * 
-   * @example
-   * ALIYUN::RDS::INSTANCE
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * testkey1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value that is associated with the specified tag key.
-   * 
-   * @example
-   * testvalue1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,10 +77,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * 47A514A1-4B77-4E30-B4C5-2A880650B3FD
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of queried instances and tags.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

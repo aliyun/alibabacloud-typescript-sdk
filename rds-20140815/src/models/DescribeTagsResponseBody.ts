@@ -29,26 +29,8 @@ export class DescribeTagsResponseBodyItemsTagInfosDBInstanceIds extends $dara.Mo
 }
 
 export class DescribeTagsResponseBodyItemsTagInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the instances to which the tag is added.
-   */
   DBInstanceIds?: DescribeTagsResponseBodyItemsTagInfosDBInstanceIds;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,10 +87,6 @@ export class DescribeTagsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeTagsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The tags that are added to the instance.
-   */
   items?: DescribeTagsResponseBodyItems;
   /**
    * @remarks

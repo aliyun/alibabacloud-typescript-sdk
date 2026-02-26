@@ -29,10 +29,6 @@ export class DescribeCharacterSetNameResponseBodyCharacterSetNameItems extends $
 }
 
 export class DescribeCharacterSetNameResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The character sets that are supported.
-   */
   characterSetNameItems?: DescribeCharacterSetNameResponseBodyCharacterSetNameItems;
   /**
    * @remarks

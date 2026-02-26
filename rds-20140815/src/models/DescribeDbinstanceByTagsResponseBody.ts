@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstanceByTagsResponseBodyItemsDBInstanceTagTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,18 +55,7 @@ export class DescribeDBInstanceByTagsResponseBodyItemsDBInstanceTagTags extends 
 }
 
 export class DescribeDBInstanceByTagsResponseBodyItemsDBInstanceTag extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-uf6w**********
-   */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * The details about the tag.
-   */
   tags?: DescribeDBInstanceByTagsResponseBodyItemsDBInstanceTagTags;
   static names(): { [key: string]: string } {
     return {
@@ -135,10 +110,6 @@ export class DescribeDBInstanceByTagsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeDBInstanceByTagsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the instance.
-   */
   items?: DescribeDBInstanceByTagsResponseBodyItems;
   /**
    * @remarks

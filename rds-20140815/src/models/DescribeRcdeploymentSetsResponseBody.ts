@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacitiesCapacity extends $dara.Model {
-  /**
-   * @remarks
-   * The number of RDS Custom instances that reside in the zone and can be added to the deployment set.
-   * 
-   * @example
-   * 18
-   */
   availableAmount?: number;
-  /**
-   * @remarks
-   * The number of RDS Custom instances that reside in the zone in the deployment set.
-   * 
-   * @example
-   * 2
-   */
   usedAmount?: number;
-  /**
-   * @remarks
-   * The zone ID. Only the IDs of the zones to which the existing RDS Custom instances in the deployment set belong are returned.
-   * 
-   * @example
-   * cn-hangzhou-j
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,97 +142,17 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags
 }
 
 export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the capacities of the deployment set. This parameter is valid only when the deployment set contains existing RDS Custom instances. The value contains the details of the capacities of the deployment set in different zones.
-   */
   capacities?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities;
-  /**
-   * @remarks
-   * The time when the deployment set was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2024-06-19T07:15:44Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The deployment set description.
-   * 
-   * @example
-   * test
-   */
   deploymentSetDescription?: string;
-  /**
-   * @remarks
-   * The deployment set ID.
-   * 
-   * @example
-   * ds-ob5n4rbgy****
-   */
   deploymentSetId?: string;
-  /**
-   * @remarks
-   * The deployment set name.
-   * 
-   * @example
-   * deployment_test
-   */
   deploymentSetName?: string;
-  /**
-   * @remarks
-   * The deployment strategy. The return value of this parameter is the value of the `Strategy` request parameter.
-   * 
-   * @example
-   * Availability
-   */
   deploymentStrategy?: string;
-  /**
-   * @remarks
-   * The deployment domain.
-   * 
-   * @example
-   * default
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The deployment granularity.
-   * 
-   * @example
-   * None
-   */
   granularity?: string;
-  /**
-   * @remarks
-   * The number of groups in the deployment set.
-   * 
-   * >  This parameter is valid only when the Strategy request parameter is set to AvailabilityGroup.
-   * 
-   * @example
-   * 3
-   */
   groupCount?: number;
-  /**
-   * @remarks
-   * The number of RDS Custom instances in the deployment set.
-   * 
-   * @example
-   * 1
-   */
   instanceAmount?: number;
-  /**
-   * @remarks
-   * The ID of the RDS Custom instance in the deployment set.
-   */
   instanceIds?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstanceIds;
-  /**
-   * @remarks
-   * The deployment strategy.
-   * 
-   * @example
-   * LooseDispersion
-   */
   strategy?: string;
   tags?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags;
   static names(): { [key: string]: string } {
@@ -337,10 +236,6 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSets extends $dara.Mo
 }
 
 export class DescribeRCDeploymentSetsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the deployment set.
-   */
   deploymentSets?: DescribeRCDeploymentSetsResponseBodyDeploymentSets;
   /**
    * @remarks

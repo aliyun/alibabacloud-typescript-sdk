@@ -29,10 +29,6 @@ export class DescribeAvailableCrossRegionResponseBodyRegions extends $dara.Model
 }
 
 export class DescribeAvailableCrossRegionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of destination regions for cross-region backups.
-   */
   regions?: DescribeAvailableCrossRegionResponseBodyRegions;
   /**
    * @remarks

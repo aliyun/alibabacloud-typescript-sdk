@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstanceTDEResponseBodyDatabasesDatabase extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * test02
-   */
   DBName?: string;
-  /**
-   * @remarks
-   * The TDE status at the database level. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
-   * 
-   * @example
-   * Enabled
-   */
   TDEStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,12 +55,6 @@ export class DescribeDBInstanceTDEResponseBodyDatabases extends $dara.Model {
 }
 
 export class DescribeDBInstanceTDEResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The TDE status at the database level.
-   * 
-   * >  If your instance runs SQL Server 2019 SE or SQL Server EE, you can specify whether to enable TDE at the database level when you enable TDE at the instance level.
-   */
   databases?: DescribeDBInstanceTDEResponseBodyDatabases;
   /**
    * @remarks

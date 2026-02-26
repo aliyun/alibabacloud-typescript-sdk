@@ -55,69 +55,13 @@ export class DescribeReadDBInstanceDelayResponseBodyItemsItemsReadDelayTimes ext
 }
 
 export class DescribeReadDBInstanceDelayResponseBodyItemsItemsReadonlyInstanceDelayReadonlyInstanceDelay extends $dara.Model {
-  /**
-   * @remarks
-   * The duration that is allowed for the latency in the persistence of WAL data. Unit: seconds.
-   * 
-   * @example
-   * 0
-   */
   flushLag?: string;
-  /**
-   * @remarks
-   * The data size that is allowed for the latency in the persistence of WAL data. Unit: MB.
-   * 
-   * @example
-   * 0
-   */
   flushLatency?: string;
-  /**
-   * @remarks
-   * The read-only instance ID.
-   * 
-   * @example
-   * rr-bp*****
-   */
   readDBInstanceName?: string;
-  /**
-   * @remarks
-   * The duration that is allowed for the latency in the playback of WAL data. Unit: seconds.
-   * 
-   * @example
-   * 0
-   */
   replayLag?: string;
-  /**
-   * @remarks
-   * The data size that is allowed for the latency in the playback of WAL data. Unit: MB.
-   * 
-   * @example
-   * 0
-   */
   replayLatency?: string;
-  /**
-   * @remarks
-   * The data size that is allowed for the latency in the sending of WAL data. Unit: MB.
-   * 
-   * @example
-   * 0
-   */
   sendLatency?: string;
-  /**
-   * @remarks
-   * The duration that is allowed for the latency in the write-back of WAL data. Unit: seconds.
-   * 
-   * @example
-   * 0
-   */
   writeLag?: string;
-  /**
-   * @remarks
-   * The data size that is allowed for the latency in the write-back of WAL data. Unit: MB.
-   * 
-   * @example
-   * 0
-   */
   writeLatency?: string;
   static names(): { [key: string]: string } {
     return {
@@ -181,30 +125,9 @@ export class DescribeReadDBInstanceDelayResponseBodyItemsItemsReadonlyInstanceDe
 }
 
 export class DescribeReadDBInstanceDelayResponseBodyItemsItems extends $dara.Model {
-  /**
-   * @remarks
-   * The primary instance ID.
-   * 
-   * @example
-   * rm-bp*****
-   */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * An array that consists of information about the read-only instance.
-   */
   readDBInstanceNames?: DescribeReadDBInstanceDelayResponseBodyItemsItemsReadDBInstanceNames;
-  /**
-   * @remarks
-   * The latency of data replication.
-   */
   readDelayTimes?: DescribeReadDBInstanceDelayResponseBodyItemsItemsReadDelayTimes;
-  /**
-   * @remarks
-   * The information about the write-ahead log (WAL) latency.
-   * 
-   * >  This parameter is returned only when the primary instance runs PostgreSQL.
-   */
   readonlyInstanceDelay?: DescribeReadDBInstanceDelayResponseBodyItemsItemsReadonlyInstanceDelay;
   static names(): { [key: string]: string } {
     return {
@@ -285,10 +208,6 @@ export class DescribeReadDBInstanceDelayResponseBody extends $dara.Model {
    * 0
    */
   delayTime?: number;
-  /**
-   * @remarks
-   * The latency information.
-   */
   items?: DescribeReadDBInstanceDelayResponseBodyItems;
   /**
    * @remarks

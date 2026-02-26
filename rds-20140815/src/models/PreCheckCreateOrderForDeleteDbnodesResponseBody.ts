@@ -3,27 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PreCheckCreateOrderForDeleteDBNodesResponseBodyFailuresFailures extends $dara.Model {
-  /**
-   * @remarks
-   * The response code. Valid values:
-   * 
-   * *   **200**: success
-   * *   **400**: client error
-   * *   **401**: identity authentication failed
-   * *   **404**: requested page not found
-   * *   **500**: server error
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,10 +55,6 @@ export class PreCheckCreateOrderForDeleteDBNodesResponseBodyFailures extends $da
 }
 
 export class PreCheckCreateOrderForDeleteDBNodesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the failed order.
-   */
   failures?: PreCheckCreateOrderForDeleteDBNodesResponseBodyFailures;
   /**
    * @remarks

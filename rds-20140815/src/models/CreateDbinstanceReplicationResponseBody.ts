@@ -2,35 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CheckInstanceExistResponseBody extends $dara.Model {
+export class CreateDBInstanceReplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance exists. Valid values:
-   * - **true**: The instance exists.
-   * - **false**: The instance does not exist.
+   * Id of the request
    * 
    * @example
-   * true
-   */
-  isExistInstance?: boolean;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 11439B36-F703-49EB-8656-D3C87BE28B57
+   * 76364A52-E0AB-5CC8-9818-CF1DC482C092
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      isExistInstance: 'IsExistInstance',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isExistInstance: 'boolean',
       requestId: 'string',
     };
   }

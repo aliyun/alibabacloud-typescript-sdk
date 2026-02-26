@@ -53,37 +53,9 @@ export class DescribeRenewalPriceResponseBodyPriceInfoActivityInfo extends $dara
 }
 
 export class DescribeRenewalPriceResponseBodyPriceInfoCouponsCoupon extends $dara.Model {
-  /**
-   * @remarks
-   * The coupon ID.
-   * 
-   * @example
-   * 123456
-   */
   couponNo?: string;
-  /**
-   * @remarks
-   * The description of the coupon.
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether the coupon is selected.
-   * 
-   * @example
-   * true
-   */
   isSelected?: string;
-  /**
-   * @remarks
-   * The name of the coupon.
-   * 
-   * @example
-   * test
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -170,10 +142,6 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
    * The information about the promotion.
    */
   activityInfo?: DescribeRenewalPriceResponseBodyPriceInfoActivityInfo;
-  /**
-   * @remarks
-   * An array that consists of information about the coupon.
-   */
   coupons?: DescribeRenewalPriceResponseBodyPriceInfoCoupons;
   /**
    * @remarks
@@ -199,10 +167,6 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
    * 138
    */
   originalPrice?: number;
-  /**
-   * @remarks
-   * An array that consists of the ID of the promotion rule.
-   */
   ruleIds?: DescribeRenewalPriceResponseBodyPriceInfoRuleIds;
   /**
    * @remarks
@@ -255,29 +219,8 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
 }
 
 export class DescribeRenewalPriceResponseBodyRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the activity.
-   * 
-   * @example
-   * Content
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the rule.
-   * 
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the promotion rule.
-   * 
-   * @example
-   * 1001199213
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -344,10 +287,6 @@ export class DescribeRenewalPriceResponseBody extends $dara.Model {
    * DC9F4EF6-D038-4405-B497-1F48E722C9F2
    */
   requestId?: string;
-  /**
-   * @remarks
-   * An array that consists of the details of the promotion rule.
-   */
   rules?: DescribeRenewalPriceResponseBodyRules;
   static names(): { [key: string]: string } {
     return {

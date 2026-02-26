@@ -29,10 +29,6 @@ export class DeleteBackupFileResponseBodyDeletedBaksetIds extends $dara.Model {
 }
 
 export class DeleteBackupFileResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of the IDs of deleted backup sets.
-   */
   deletedBaksetIds?: DeleteBackupFileResponseBodyDeletedBaksetIds;
   /**
    * @remarks

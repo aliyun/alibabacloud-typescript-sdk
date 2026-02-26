@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCollationTimeZonesResponseBodyCollationTimeZonesCollationTimeZone extends $dara.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * Kabul
-   */
   description?: string;
-  /**
-   * @remarks
-   * The offset of the UTC time. The offset is in the following format: (UTC+*HH:mm*).
-   * 
-   * @example
-   * (UTC+04:30)
-   */
   standardTimeOffset?: string;
-  /**
-   * @remarks
-   * The time zone.
-   * 
-   * @example
-   * Afghanistan Standard Time
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeCollationTimeZonesResponseBodyCollationTimeZones extends $d
 }
 
 export class DescribeCollationTimeZonesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of the character set collations and time zones that are available.
-   */
   collationTimeZones?: DescribeCollationTimeZonesResponseBodyCollationTimeZones;
   /**
    * @remarks

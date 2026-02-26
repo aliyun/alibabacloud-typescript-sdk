@@ -29,84 +29,14 @@ export class DescribeDBProxyResponseBodyDBProxyAVZones extends $dara.Model {
 }
 
 export class DescribeDBProxyResponseBodyDBProxyConnectStringItemsDBProxyConnectStringItems extends $dara.Model {
-  /**
-   * @remarks
-   * The database proxy endpoint.
-   * 
-   * @example
-   * gos787jog2wk0ye1****-rw4rm.rwlb.rds.aliyuncs.com
-   */
   DBProxyConnectString?: string;
-  /**
-   * @remarks
-   * The network type of the database proxy endpoint. A database proxy endpoint is formerly referred to as a proxy terminal. Valid values:
-   * 
-   * *   OuterString: Internet
-   * *   InnerString: internal network
-   * 
-   * @example
-   * InnerString
-   */
   DBProxyConnectStringNetType?: string;
-  /**
-   * @remarks
-   * The network type of the database proxy. Valid values:
-   * 
-   * *   0: Internet
-   * *   1: classic network
-   * *   2: virtual private cloud (VPC)
-   * 
-   * @example
-   * 2
-   */
   DBProxyConnectStringNetWorkType?: string;
-  /**
-   * @remarks
-   * The port that is associated with the database proxy endpoint.
-   * 
-   * @example
-   * 3306
-   */
   DBProxyConnectStringPort?: string;
-  /**
-   * @remarks
-   * The ID of the backend database proxy endpoint.
-   * 
-   * @example
-   * 20****
-   */
   DBProxyEndpointId?: string;
-  /**
-   * @remarks
-   * The name of the database proxy endpoint. The name can be replaced by the ID of the database proxy endpoint.
-   * 
-   * @example
-   * gos787jog2wk0ye1****
-   */
   DBProxyEndpointName?: string;
-  /**
-   * @remarks
-   * The VPC of the database proxy.
-   * 
-   * @example
-   * vpc-uf6oobt****
-   */
   DBProxyVpcId?: string;
-  /**
-   * @remarks
-   * The ID of the database proxy instance.
-   * 
-   * @example
-   * rm-bp145737x5****131161274792****
-   */
   DBProxyVpcInstanceId?: string;
-  /**
-   * @remarks
-   * The vSwitch of the database proxy.
-   * 
-   * @example
-   * vsw-uf6l0pic17****
-   */
   DBProxyVswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -198,29 +128,12 @@ export class DescribeDBProxyResponseBodyDBProxyInstanceMinorVersions extends $da
 }
 
 export class DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes extends $dara.Model {
-  /**
-   * @remarks
-   * The number of CPU cores of the node.
-   * 
-   * @example
-   * 2
-   */
   cpuCores?: string;
   /**
-   * @remarks
-   * The ID of the proxy node.
-   * 
    * @example
    * pn-xxxxxxx01
    */
   nodeId?: string;
-  /**
-   * @remarks
-   * The ID of the zone in which the node is deployed.
-   * 
-   * @example
-   * cn-hangzhou-c
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -274,43 +187,9 @@ export class DescribeDBProxyResponseBodyDBProxyNodes extends $dara.Model {
 }
 
 export class DescribeDBProxyResponseBodyDbProxyEndpointItemsDbProxyEndpointItems extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the database proxy endpoint.
-   * 
-   * @example
-   * proxy-test
-   */
   dbProxyEndpointAliases?: string;
-  /**
-   * @remarks
-   * The ID of the database proxy endpoint.
-   * 
-   * @example
-   * gos787jog2wk0ye1****
-   */
   dbProxyEndpointName?: string;
-  /**
-   * @remarks
-   * The type of the database proxy endpoint. Valid values:
-   * 
-   * *   Custom: custom database proxy endpoint
-   * *   RWSplit: default database proxy endpoint
-   * 
-   * @example
-   * RWSplit
-   */
   dbProxyEndpointType?: string;
-  /**
-   * @remarks
-   * The read and write attributes of the database proxy endpoint.
-   * 
-   * *   ReadOnly
-   * *   ReadWrite
-   * 
-   * @example
-   * ReadWrite
-   */
   dbProxyReadWriteMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -366,15 +245,7 @@ export class DescribeDBProxyResponseBodyDbProxyEndpointItems extends $dara.Model
 }
 
 export class DescribeDBProxyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of zones that are available for the database proxy.
-   */
   DBProxyAVZones?: DescribeDBProxyResponseBodyDBProxyAVZones;
-  /**
-   * @remarks
-   * An array consisting of the information about the database proxy endpoint that is created for the instance.
-   */
   DBProxyConnectStringItems?: DescribeDBProxyResponseBodyDBProxyConnectStringItems;
   /**
    * @remarks
@@ -464,10 +335,6 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
    * 18
    */
   DBProxyKindCode?: string;
-  /**
-   * @remarks
-   * The proxy nodes.
-   */
   DBProxyNodes?: DescribeDBProxyResponseBodyDBProxyNodes;
   /**
    * @remarks
@@ -492,10 +359,6 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
    * Startup
    */
   DBProxyServiceStatus?: string;
-  /**
-   * @remarks
-   * The proxy terminals of the instance.
-   */
   dbProxyEndpointItems?: DescribeDBProxyResponseBodyDbProxyEndpointItems;
   /**
    * @remarks

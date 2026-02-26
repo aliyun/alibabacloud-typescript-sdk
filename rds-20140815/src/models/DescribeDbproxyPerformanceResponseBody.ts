@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKeyValuesPerformanceValue extends $dara.Model {
-  /**
-   * @remarks
-   * The date and time when the value of the performance metric was recorded. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-10-10T09:00:00Z
-   */
   date?: string;
-  /**
-   * @remarks
-   * The value of the performance metric.
-   * 
-   * @example
-   * 2.83
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,36 +55,11 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
 }
 
 export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey extends $dara.Model {
-  /**
-   * @remarks
-   * The performance parameter.
-   * 
-   * @example
-   * cpu_ratio
-   */
   key?: string;
   node?: string;
   server?: string;
-  /**
-   * @remarks
-   * The service dimension.
-   * 
-   * @example
-   * reserve_3
-   */
   service?: string;
-  /**
-   * @remarks
-   * The format in which the value of the performance metric is returned.
-   * 
-   * @example
-   * docker_container_cpu
-   */
   valueFormat?: string;
-  /**
-   * @remarks
-   * The performance metrics.
-   */
   values?: DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKeyValues;
   static names(): { [key: string]: string } {
     return {
@@ -185,10 +146,6 @@ export class DescribeDBProxyPerformanceResponseBody extends $dara.Model {
    * 2019-09-21T18:00:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The performance list.
-   */
   performanceKeys?: DescribeDBProxyPerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks

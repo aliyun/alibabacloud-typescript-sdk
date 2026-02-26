@@ -3,34 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDatabasesResponseBodyDatabasesDatabaseAccountsAccountPrivilegeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The account username.
-   * 
-   * @example
-   * test
-   */
   account?: string;
-  /**
-   * @remarks
-   * The permissions that the account has on the database. Valid values:
-   * 
-   * *   **ReadWrite**: read and write permissions
-   * *   **ReadOnly**: read-only permissions
-   * *   **DMLOnly**: DML-only permissions
-   * *   **DDLOnly**: DDL-only permissions
-   * 
-   * @example
-   * DMLOnly
-   */
   accountPrivilege?: string;
-  /**
-   * @remarks
-   * The permission that the account has on the database.
-   * 
-   * @example
-   * SELECT
-   */
   accountPrivilegeDetail?: string;
   static names(): { [key: string]: string } {
     return {
@@ -162,151 +136,23 @@ export class DescribeDatabasesResponseBodyDatabasesDatabaseRuntimeInfo extends $
 }
 
 export class DescribeDatabasesResponseBodyDatabasesDatabase extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the account. Each account has specific permissions on the database.
-   */
   accounts?: DescribeDatabasesResponseBodyDatabasesDatabaseAccounts;
-  /**
-   * @remarks
-   * The advanced information about the database.
-   * 
-   * >  This parameter is returned only for instances that run SQL Server.
-   */
   advancedInfo?: DescribeDatabasesResponseBodyDatabasesDatabaseAdvancedInfo;
-  /**
-   * @remarks
-   * The basic information about the database.
-   * 
-   * >  This parameter is returned only for instances that run SQL Server.
-   */
   basicInfo?: DescribeDatabasesResponseBodyDatabasesDatabaseBasicInfo;
-  /**
-   * @remarks
-   * The name of the character set.
-   * 
-   * @example
-   * utf8
-   */
   characterSetName?: string;
-  /**
-   * @remarks
-   * The collation of the character set. The example value C indicates localization.
-   * 
-   * >  This parameter is returned only for instances that run PostgreSQL.
-   * 
-   * @example
-   * C
-   */
   collate?: string;
-  /**
-   * @remarks
-   * The limit on the number of concurrent requests. The value -1 indicates that the number of concurrent requests is unlimited.
-   * 
-   * >  This parameter is returned only for instances that run PostgreSQL.
-   * 
-   * @example
-   * -1
-   */
   connLimit?: string;
-  /**
-   * @remarks
-   * The type of the character set.
-   * 
-   * >  This parameter is returned only for instances that run PostgreSQL.
-   * 
-   * @example
-   * en_US.utf8
-   */
   ctype?: string;
-  /**
-   * @remarks
-   * The description of the database.
-   * 
-   * @example
-   * testdb
-   */
   DBDescription?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the database belongs.
-   * 
-   * @example
-   * rm-uf6wjk5****
-   */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * testDB01
-   */
   DBName?: string;
-  /**
-   * @remarks
-   * The database status. Valid values:
-   * 
-   * *   **Creating**
-   * *   **Running**
-   * *   **Deleting**
-   * *   **Cold**
-   * 
-   * @example
-   * Creating
-   */
   DBStatus?: string;
   duckDBEnabled?: boolean;
-  /**
-   * @remarks
-   * The database engine of the instance.
-   * 
-   * @example
-   * MySQL
-   */
   engine?: string;
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 30
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The runtime information about the database.
-   * 
-   * >  This parameter is returned only for instances that run SQL Server.
-   */
   runtimeInfo?: DescribeDatabasesResponseBodyDatabasesDatabaseRuntimeInfo;
-  /**
-   * @remarks
-   * The database tablespace.
-   * 
-   * >  This parameter is returned only for instances that run PostgreSQL.
-   * 
-   * @example
-   * pg_default
-   */
   tablespace?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * >  This parameter is returned only for instances that run SQL Server.
-   * 
-   * @example
-   * 100
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -402,10 +248,6 @@ export class DescribeDatabasesResponseBodyDatabases extends $dara.Model {
 }
 
 export class DescribeDatabasesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the databases.
-   */
   databases?: DescribeDatabasesResponseBodyDatabases;
   /**
    * @remarks

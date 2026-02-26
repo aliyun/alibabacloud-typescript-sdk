@@ -3,40 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecurityGroupConfigurationResponseBodyItemsEcsSecurityGroupRelation extends $dara.Model {
-  /**
-   * @remarks
-   * The network type of the ECS security group. Valid values:
-   * 
-   * *   **Classic**
-   * *   **VPC**
-   * 
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the ECS security group.
-   * 
-   * @example
-   * sg-xxxxxxx
-   */
   securityGroupId?: string;
-  /**
-   * @remarks
-   * The security group name.
-   * 
-   * @example
-   * security-group-emraccess
-   */
   securityGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,10 +69,6 @@ export class DescribeSecurityGroupConfigurationResponseBody extends $dara.Model 
    * rm-uf6wjk5xxxxxx
    */
   DBInstanceName?: string;
-  /**
-   * @remarks
-   * The information about the ECS security group.
-   */
   items?: DescribeSecurityGroupConfigurationResponseBodyItems;
   /**
    * @remarks

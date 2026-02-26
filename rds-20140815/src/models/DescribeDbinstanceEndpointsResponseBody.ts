@@ -3,56 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpointsDBInstanceEndpointAddressItemsAddressItem extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoints of the instance.
-   * 
-   * @example
-   * rm****.mysql.rds.aliyuncs.com
-   */
   connectionString?: string;
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 10.71.XX.XX
-   */
   ipAddress?: string;
-  /**
-   * @remarks
-   * The type of the IP address. Valid values:
-   * 
-   * *   **Public**: Internet
-   * *   **Private**: internal network
-   * 
-   * @example
-   * Private
-   */
   ipType?: string;
-  /**
-   * @remarks
-   * The port number of the endpoint.
-   * 
-   * @example
-   * 3306
-   */
   port?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-bp12u14ecz****
-   */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-bp17xdic25d****
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,31 +67,8 @@ export class DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpointsDBIns
 }
 
 export class DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpointsDBInstanceEndpointNodeItemsNodeItem extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-u****
-   */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * The node ID.
-   * 
-   * @example
-   * rn-****13p6tum4289h
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The weight of the node. Read requests are distributed based on the weight.
-   * 
-   * Valid values: 0 to 100.
-   * 
-   * @example
-   * 50
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -190,42 +122,10 @@ export class DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpointsDBIns
 }
 
 export class DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpointsDBInstanceEndpoint extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the endpoint.
-   */
   addressItems?: DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpointsDBInstanceEndpointAddressItems;
-  /**
-   * @remarks
-   * The user-defined description of the endpoint.
-   * 
-   * @example
-   * for readonly business
-   */
   endpointDescription?: string;
-  /**
-   * @remarks
-   * The endpoint ID of the instance.
-   * 
-   * @example
-   * ep-****
-   */
   endpointId?: string;
-  /**
-   * @remarks
-   * The type of the endpoint. Valid values:
-   * 
-   * *   **Primary**: the read/write endpoint of the instance
-   * *   **Readonly**: the read-only endpoint of the instance
-   * 
-   * @example
-   * Readonly
-   */
   endpointType?: string;
-  /**
-   * @remarks
-   * The information about the node that is configured for the endpoint.
-   */
   nodeItems?: DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpointsDBInstanceEndpointNodeItems;
   static names(): { [key: string]: string } {
     return {
@@ -289,10 +189,6 @@ export class DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpoints exte
 }
 
 export class DescribeDBInstanceEndpointsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the endpoints of the instance.
-   */
   DBInstanceEndpoints?: DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpoints;
   /**
    * @remarks

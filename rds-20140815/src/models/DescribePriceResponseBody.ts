@@ -53,37 +53,9 @@ export class DescribePriceResponseBodyPriceInfoActivityInfo extends $dara.Model 
 }
 
 export class DescribePriceResponseBodyPriceInfoCouponsCoupon extends $dara.Model {
-  /**
-   * @remarks
-   * The coupon ID.
-   * 
-   * @example
-   * 123456
-   */
   couponNo?: string;
-  /**
-   * @remarks
-   * The description of the coupon.
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether the coupon is selected.
-   * 
-   * @example
-   * true
-   */
   isSelected?: string;
-  /**
-   * @remarks
-   * The coupon name.
-   * 
-   * @example
-   * test
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -170,10 +142,6 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
    * The information about the promotion.
    */
   activityInfo?: DescribePriceResponseBodyPriceInfoActivityInfo;
-  /**
-   * @remarks
-   * The information about the coupon.
-   */
   coupons?: DescribePriceResponseBodyPriceInfoCoupons;
   /**
    * @remarks
@@ -207,10 +175,6 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
    * 2504
    */
   originalPrice?: number;
-  /**
-   * @remarks
-   * An array that consists of the ID of the promotion rule.
-   */
   ruleIds?: DescribePriceResponseBodyPriceInfoRuleIds;
   /**
    * @remarks
@@ -285,29 +249,8 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
 }
 
 export class DescribePriceResponseBodyRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the promotion rule.
-   * 
-   * @example
-   * Activity Description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the promotion rule.
-   * 
-   * @example
-   * Rule1
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the promotion rule.
-   * 
-   * @example
-   * 1020021003939076
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -504,10 +447,6 @@ export class DescribePriceResponseBody extends $dara.Model {
    * CA0ADDDC-0BEB-4381-A3ED-73B4C79B8CC6
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The details of the promotion rule.
-   */
   rules?: DescribePriceResponseBodyRules;
   /**
    * @remarks

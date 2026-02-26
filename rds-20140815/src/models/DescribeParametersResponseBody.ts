@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParametersResponseBodyConfigParametersDBInstanceParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * This parameter sets the default fill factor value at the server scope. A fill factor is provided to optimize index data storage and performance.
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * fill factor
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * 50
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,45 +118,10 @@ export class DescribeParametersResponseBodyParamGroupInfo extends $dara.Model {
 }
 
 export class DescribeParametersResponseBodyRunningParametersDBInstanceParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The default value of the parameter.
-   * 
-   * @example
-   * 100
-   */
   parameterDefaultValue?: string;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * This parameter sets the default fill factor value at the server scope. A fill factor is provided to optimize index data storage and performance.
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * fill factor
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * 0
-   */
   parameterValue?: string;
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   * 
-   * @example
-   * 1~100
-   */
   parameterValueRange?: string;
   static names(): { [key: string]: string } {
     return {
@@ -235,12 +179,6 @@ export class DescribeParametersResponseBodyRunningParameters extends $dara.Model
 }
 
 export class DescribeParametersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of parameters that are being synchronized.
-   * 
-   * > After you modify and submit the parameters, you must wait for the parameters to be synchronized to the instance. After the synchronization, you can delete the parameters from the list.
-   */
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   /**
    * @remarks
@@ -271,10 +209,6 @@ export class DescribeParametersResponseBody extends $dara.Model {
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The parameters that are in use.
-   */
   runningParameters?: DescribeParametersResponseBodyRunningParameters;
   static names(): { [key: string]: string } {
     return {

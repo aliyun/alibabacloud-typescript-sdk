@@ -45,10 +45,6 @@ export class DescribeInstanceKeywordsResponseBody extends $dara.Model {
    * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The reserved keywords.
-   */
   words?: DescribeInstanceKeywordsResponseBodyWords;
   static names(): { [key: string]: string } {
     return {

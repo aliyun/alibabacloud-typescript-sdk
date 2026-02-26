@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCrossBackupMetaListResponseBodyItemsMeta extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * testdb1
-   */
   database?: string;
-  /**
-   * @remarks
-   * The size of the table. Unit: KB. If the database contains more than one table, the names of these tables are separated by commas (,).
-   * 
-   * @example
-   * 1000
-   */
   size?: string;
-  /**
-   * @remarks
-   * An array that consists of the names of the tables that the database contains. If the database contains more than one table, the names of these tables are separated by commas (,).
-   * 
-   * @example
-   * test1,test2
-   */
   tables?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribeCrossBackupMetaListResponseBody extends $dara.Model {
    * rm-uf6wjk5xxxxxxx
    */
   DBInstanceName?: string;
-  /**
-   * @remarks
-   * An array that consists of the information about the databases and tables whose data is included in the cross-region backup file.
-   */
   items?: DescribeCrossBackupMetaListResponseBodyItems;
   /**
    * @remarks

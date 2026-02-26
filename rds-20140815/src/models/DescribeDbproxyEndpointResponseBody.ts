@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes extends $dara.Model {
-  /**
-   * @remarks
-   * The number of CPU cores of the node.
-   * 
-   * @example
-   * 2
-   */
   cpuCores?: string;
-  /**
-   * @remarks
-   * The ID of the node in the zone.
-   * 
-   * @example
-   * pn-xxxxxxx01
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The zone ID of the node.
-   * 
-   * @example
-   * cn-hangzhou-c
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,33 +58,8 @@ export class DescribeDBProxyEndpointResponseBodyDBProxyNodes extends $dara.Model
 }
 
 export class DescribeDBProxyEndpointResponseBodyEndpointConnectItemsEndpointConnectItems extends $dara.Model {
-  /**
-   * @remarks
-   * The proxy endpoint queried.
-   * 
-   * @example
-   * testproxy****.rwlb.rds.aliyuncs.com
-   */
   dbProxyEndpointConnectString?: string;
-  /**
-   * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * *   **0**: Internet
-   * *   **1**: classic network
-   * *   **2**: virtual private cloud (VPC)
-   * 
-   * @example
-   * 2
-   */
   dbProxyEndpointNetType?: string;
-  /**
-   * @remarks
-   * The port number that is associated with the proxy endpoint. Default value: **3306**.
-   * 
-   * @example
-   * 3306
-   */
   dbProxyEndpointPort?: string;
   static names(): { [key: string]: string } {
     return {
@@ -235,10 +189,6 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
    * TransactionReadSqlRouteOptimizeStatus:1;ConnectionPersist:0;ReadWriteSpliting:1
    */
   DBProxyFeatures?: string;
-  /**
-   * @remarks
-   * The proxy nodes that are associated with the proxy terminal.
-   */
   DBProxyNodes?: DescribeDBProxyEndpointResponseBodyDBProxyNodes;
   /**
    * @remarks
@@ -283,10 +233,6 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
    * cn-hangzhou-c
    */
   dbProxyEndpointZoneId?: string;
-  /**
-   * @remarks
-   * An array that consists of the information about the proxy endpoint.
-   */
   endpointConnectItems?: DescribeDBProxyEndpointResponseBodyEndpointConnectItems;
   /**
    * @remarks

@@ -3,31 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSQLLogReportListResponseBodyItemsItemLatencyTopNItemsLatencyTopNItem extends $dara.Model {
-  /**
-   * @remarks
-   * The average time that is required to execute the SQL statement. Unit: milliseconds.
-   * 
-   * @example
-   * 500
-   */
   avgLatency?: number;
-  /**
-   * @remarks
-   * The number of times that the SQL statement is executed.
-   * 
-   * @example
-   * 5
-   */
   SQLExecuteTimes?: number;
-  /**
-   * @remarks
-   * The SQL statement.
-   * 
-   * >  Only the first 128 characters of the SQL statement are returned. In addition, only the SQL statements that take more than 100 ms to execute are returned.
-   * 
-   * @example
-   * SELECT * FROM table_name;
-   */
   SQLText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,23 +58,7 @@ export class DescribeSQLLogReportListResponseBodyItemsItemLatencyTopNItems exten
 }
 
 export class DescribeSQLLogReportListResponseBodyItemsItemQPSTopNItemsQPSTopNItem extends $dara.Model {
-  /**
-   * @remarks
-   * The number of times that the SQL statement is executed.
-   * 
-   * @example
-   * 5
-   */
   SQLExecuteTimes?: number;
-  /**
-   * @remarks
-   * The SQL statement.
-   * 
-   * >  Only the first 128 characters of the SQL statement are returned. In addition, only the SQL statements that take more than 5 ms to execute are returned.
-   * 
-   * @example
-   * SELECT * FROM table_name;
-   */
   SQLText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,23 +110,8 @@ export class DescribeSQLLogReportListResponseBodyItemsItemQPSTopNItems extends $
 }
 
 export class DescribeSQLLogReportListResponseBodyItemsItem extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of SQL statements executed with the highest latency.
-   */
   latencyTopNItems?: DescribeSQLLogReportListResponseBodyItemsItemLatencyTopNItems;
-  /**
-   * @remarks
-   * An array that consists of SQL statements executed the most frequently.
-   */
   QPSTopNItems?: DescribeSQLLogReportListResponseBodyItemsItemQPSTopNItems;
-  /**
-   * @remarks
-   * The time when the report was generated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-03-27T16:00:00Z
-   */
   reportTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -225,10 +171,6 @@ export class DescribeSQLLogReportListResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeSQLLogReportListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of SQL log reports.
-   */
   items?: DescribeSQLLogReportListResponseBodyItems;
   /**
    * @remarks

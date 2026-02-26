@@ -915,7 +915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels O\\&M tasks that are not started.
+   * Cancels O\\\\\\&M tasks that are not started.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -984,7 +984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels O\\&M tasks that are not started.
+   * Cancels O\\\\\\&M tasks that are not started.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -3106,6 +3106,76 @@ export default class Client extends OpenApi {
   async createDBInstanceForRebuild(request: $_model.CreateDBInstanceForRebuildRequest): Promise<$_model.CreateDBInstanceForRebuildResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDBInstanceForRebuildWithOptions(request, runtime);
+  }
+
+  /**
+   * 原生复制实例创建复制通道
+   * 
+   * @param request - CreateDBInstanceReplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDBInstanceReplicationResponse
+   */
+  async createDBInstanceReplicationWithOptions(request: $_model.CreateDBInstanceReplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBInstanceReplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!$dara.isNull(request.masterHost)) {
+      query["MasterHost"] = request.masterHost;
+    }
+
+    if (!$dara.isNull(request.masterPassword)) {
+      query["MasterPassword"] = request.masterPassword;
+    }
+
+    if (!$dara.isNull(request.masterPort)) {
+      query["MasterPort"] = request.masterPort;
+    }
+
+    if (!$dara.isNull(request.masterUser)) {
+      query["MasterUser"] = request.masterUser;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDBInstanceReplication",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDBInstanceReplicationResponse>(await this.callApi(params, req, runtime), new $_model.CreateDBInstanceReplicationResponse({}));
+  }
+
+  /**
+   * 原生复制实例创建复制通道
+   * 
+   * @param request - CreateDBInstanceReplicationRequest
+   * @returns CreateDBInstanceReplicationResponse
+   */
+  async createDBInstanceReplication(request: $_model.CreateDBInstanceReplicationRequest): Promise<$_model.CreateDBInstanceReplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDBInstanceReplicationWithOptions(request, runtime);
   }
 
   /**
@@ -6257,6 +6327,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 原生复制实例删除复制通道
+   * 
+   * @param request - DeleteDBInstanceReplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDBInstanceReplicationResponse
+   */
+  async deleteDBInstanceReplicationWithOptions(request: $_model.DeleteDBInstanceReplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDBInstanceReplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDBInstanceReplication",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDBInstanceReplicationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDBInstanceReplicationResponse({}));
+  }
+
+  /**
+   * 原生复制实例删除复制通道
+   * 
+   * @param request - DeleteDBInstanceReplicationRequest
+   * @returns DeleteDBInstanceReplicationResponse
+   */
+  async deleteDBInstanceReplication(request: $_model.DeleteDBInstanceReplicationRequest): Promise<$_model.DeleteDBInstanceReplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDBInstanceReplicationWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a security group rule that is configured for an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
@@ -7843,7 +7967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全密态用户权限
+   * Query the encryption or data masking permission configuration of an account in a specified instance.
    * 
    * @param request - DescribeAccountMaskingPrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7898,7 +8022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全密态用户权限
+   * Query the encryption or data masking permission configuration of an account in a specified instance.
    * 
    * @param request - DescribeAccountMaskingPrivilegeRequest
    * @returns DescribeAccountMaskingPrivilegeResponse
@@ -11445,7 +11569,19 @@ export default class Client extends OpenApi {
    */
   async describeDBInstanceReplicationWithOptions(request: $_model.DescribeDBInstanceReplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceReplicationResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11454,7 +11590,7 @@ export default class Client extends OpenApi {
       version: "2014-08-15",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -20657,7 +20793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为实例安装云助手Agent
+   * Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
    * 
    * @param tmpReq - InstallRCCloudAssistantRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20698,7 +20834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为实例安装云助手Agent
+   * Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
    * 
    * @param request - InstallRCCloudAssistantRequest
    * @returns InstallRCCloudAssistantResponse
@@ -22107,7 +22243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+   * Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -22179,7 +22315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+   * Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -32578,6 +32714,80 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 原生复制实例更新复制通道
+   * 
+   * @param request - UpdateDBInstanceReplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDBInstanceReplicationResponse
+   */
+  async updateDBInstanceReplicationWithOptions(request: $_model.UpdateDBInstanceReplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDBInstanceReplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!$dara.isNull(request.masterHost)) {
+      query["MasterHost"] = request.masterHost;
+    }
+
+    if (!$dara.isNull(request.masterPassword)) {
+      query["MasterPassword"] = request.masterPassword;
+    }
+
+    if (!$dara.isNull(request.masterPort)) {
+      query["MasterPort"] = request.masterPort;
+    }
+
+    if (!$dara.isNull(request.masterUser)) {
+      query["MasterUser"] = request.masterUser;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDBInstanceReplication",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDBInstanceReplicationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDBInstanceReplicationResponse({}));
+  }
+
+  /**
+   * 原生复制实例更新复制通道
+   * 
+   * @param request - UpdateDBInstanceReplicationRequest
+   * @returns UpdateDBInstanceReplicationResponse
+   */
+  async updateDBInstanceReplication(request: $_model.UpdateDBInstanceReplicationRequest): Promise<$_model.UpdateDBInstanceReplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDBInstanceReplicationWithOptions(request, runtime);
   }
 
   /**
