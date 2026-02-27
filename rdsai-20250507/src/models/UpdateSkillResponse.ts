@@ -1,20 +1,16 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ChatMessagesResponseBody } from "./ChatMessagesResponseBody";
+import { UpdateSkillResponseBody } from "./UpdateSkillResponseBody";
 
 
-export class ChatMessagesResponse extends $dara.Model {
+export class UpdateSkillResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  id?: string;
-  event?: string;
-  body?: ChatMessagesResponseBody;
+  body?: UpdateSkillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
-      id: 'id',
-      event: 'event',
       body: 'body',
     };
   }
@@ -23,9 +19,7 @@ export class ChatMessagesResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      id: 'string',
-      event: 'string',
-      body: ChatMessagesResponseBody,
+      body: UpdateSkillResponseBody,
     };
   }
 

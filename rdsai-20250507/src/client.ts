@@ -82,16 +82,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.ChatMessagesResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.ChatMessagesResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatMessagesResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatMessagesResponse({}));
+      }
+
     }
   }
 
@@ -504,6 +505,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Skill
+   * 
+   * @param tmpReq - CreateSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillResponse
+   */
+  async createSkillWithOptions(tmpReq: $_model.CreateSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSkillShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dbtypes)) {
+      request.dbtypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dbtypes, "Dbtypes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.contentShrink)) {
+      query["Content"] = request.contentShrink;
+    }
+
+    if (!$dara.isNull(request.dbtypesShrink)) {
+      query["Dbtypes"] = request.dbtypesShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSkill",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSkillResponse>(await this.callApi(params, req, runtime), new $_model.CreateSkillResponse({}));
+  }
+
+  /**
+   * 创建Skill
+   * 
+   * @param request - CreateSkillRequest
+   * @returns CreateSkillResponse
+   */
+  async createSkill(request: $_model.CreateSkillRequest): Promise<$_model.CreateSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSkillWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an RDS Supabase instance.
    * 
    * @remarks
@@ -651,6 +716,48 @@ export default class Client extends OpenApi {
   async deleteScheduledTask(request: $_model.DeleteScheduledTaskRequest): Promise<$_model.DeleteScheduledTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteScheduledTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Skill
+   * 
+   * @param request - DeleteSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSkillResponse
+   */
+  async deleteSkillWithOptions(request: $_model.DeleteSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSkill",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSkillResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSkillResponse({}));
+  }
+
+  /**
+   * 删除Skill
+   * 
+   * @param request - DeleteSkillRequest
+   * @returns DeleteSkillResponse
+   */
+  async deleteSkill(request: $_model.DeleteSkillRequest): Promise<$_model.DeleteSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSkillWithOptions(request, runtime);
   }
 
   /**
@@ -1490,6 +1597,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取Skill详情
+   * 
+   * @param request - GetSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillResponse
+   */
+  async getSkillWithOptions(request: $_model.GetSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkill",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillResponse({}));
+  }
+
+  /**
+   * 获取Skill详情
+   * 
+   * @param request - GetSkillRequest
+   * @returns GetSkillResponse
+   */
+  async getSkill(request: $_model.GetSkillRequest): Promise<$_model.GetSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSkillWithOptions(request, runtime);
+  }
+
+  /**
    * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
    * 
    * @param request - GetStandAloneReportsRequest
@@ -1669,6 +1822,56 @@ export default class Client extends OpenApi {
   async listScheduledTasks(request: $_model.ListScheduledTasksRequest): Promise<$_model.ListScheduledTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listScheduledTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Skill列表
+   * 
+   * @param request - ListSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillResponse
+   */
+  async listSkillWithOptions(request: $_model.ListSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSkill",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSkillResponse>(await this.callApi(params, req, runtime), new $_model.ListSkillResponse({}));
+  }
+
+  /**
+   * 获取Skill列表
+   * 
+   * @param request - ListSkillRequest
+   * @returns ListSkillResponse
+   */
+  async listSkill(request: $_model.ListSkillRequest): Promise<$_model.ListSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSkillWithOptions(request, runtime);
   }
 
   /**
@@ -2591,6 +2794,74 @@ export default class Client extends OpenApi {
   async updateCustomAgent(request: $_model.UpdateCustomAgentRequest): Promise<$_model.UpdateCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新Skill
+   * 
+   * @param tmpReq - UpdateSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSkillResponse
+   */
+  async updateSkillWithOptions(tmpReq: $_model.UpdateSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSkillResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSkillShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dbtypes)) {
+      request.dbtypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dbtypes, "Dbtypes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.contentShrink)) {
+      query["Content"] = request.contentShrink;
+    }
+
+    if (!$dara.isNull(request.dbtypesShrink)) {
+      query["Dbtypes"] = request.dbtypesShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSkill",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSkillResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSkillResponse({}));
+  }
+
+  /**
+   * 更新Skill
+   * 
+   * @param request - UpdateSkillRequest
+   * @returns UpdateSkillResponse
+   */
+  async updateSkill(request: $_model.UpdateSkillRequest): Promise<$_model.UpdateSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSkillWithOptions(request, runtime);
   }
 
 }
