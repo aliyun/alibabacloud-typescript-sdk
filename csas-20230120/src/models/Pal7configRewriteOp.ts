@@ -3,14 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PAL7ConfigRewriteOp extends $dara.Model {
+  /**
+   * @example
+   * X-Test-Param
+   */
   key?: string;
+  /**
+   * @example
+   * old_value
+   */
   oldValue?: string;
   /**
    * @example
-   * add,set,delete,replace
+   * add
    */
   op?: string;
+  /**
+   * @example
+   * new_value
+   */
   value?: string;
+  /**
+   * @example
+   * sase_app_name
+   */
   valueVariable?: string;
   static names(): { [key: string]: string } {
     return {

@@ -38,6 +38,10 @@ export class PAL7ConfigBypassConfigUrlBypassRules extends $dara.Model {
 
 export class PAL7ConfigBypassConfig extends $dara.Model {
   appBypassFroms?: string[];
+  /**
+   * @example
+   * disabled
+   */
   mode?: string;
   urlBypassRules?: PAL7ConfigBypassConfigUrlBypassRules[];
   static names(): { [key: string]: string } {
@@ -98,6 +102,10 @@ export class PAL7ConfigDnsConfig extends $dara.Model {
 }
 
 export class PAL7ConfigJsHookConfig extends $dara.Model {
+  /**
+   * @example
+   * disabled
+   */
   mode?: string;
   replaceRules?: PAL7ConfigReplaceRule[];
   static names(): { [key: string]: string } {
@@ -205,6 +213,10 @@ export class PAL7ConfigResponseHeaderRewriteConfig extends $dara.Model {
 }
 
 export class PAL7ConfigResponseRewriteConfig extends $dara.Model {
+  /**
+   * @example
+   * auto
+   */
   mode?: string;
   replaceRules?: PAL7ConfigReplaceRule[];
   static names(): { [key: string]: string } {
@@ -235,12 +247,16 @@ export class PAL7ConfigResponseRewriteConfig extends $dara.Model {
 
 export class PAL7Config extends $dara.Model {
   bypassConfig?: PAL7ConfigBypassConfig;
+  /**
+   * @example
+   * cert-xxxx
+   */
   certId?: string;
   dnsConfig?: PAL7ConfigDnsConfig;
   jsHookConfig?: PAL7ConfigJsHookConfig;
   /**
    * @example
-   * 逗号分隔的枚举值：automatic,custom
+   * automatic
    */
   proxyDomainTypes?: Buffer;
   requestHeaderRewriteConfig?: PAL7ConfigRequestHeaderRewriteConfig;

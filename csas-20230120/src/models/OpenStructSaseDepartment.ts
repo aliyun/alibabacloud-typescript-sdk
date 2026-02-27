@@ -4,13 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class OpenStructSaseDepartment extends $dara.Model {
   departmentId?: string;
+  fullDepartmentIdPath?: string;
   fullDn?: string;
+  idpId?: number;
   name?: string;
   parentDepartmentId?: string;
   static names(): { [key: string]: string } {
     return {
       departmentId: 'DepartmentId',
+      fullDepartmentIdPath: 'FullDepartmentIdPath',
       fullDn: 'FullDn',
+      idpId: 'IdpId',
       name: 'Name',
       parentDepartmentId: 'ParentDepartmentId',
     };
@@ -19,7 +23,9 @@ export class OpenStructSaseDepartment extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       departmentId: 'string',
+      fullDepartmentIdPath: 'string',
       fullDn: 'string',
+      idpId: 'number',
       name: 'string',
       parentDepartmentId: 'string',
     };

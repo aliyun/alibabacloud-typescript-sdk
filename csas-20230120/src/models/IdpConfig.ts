@@ -21,6 +21,7 @@ export class IdpConfig extends $dara.Model {
   feishuConfig?: IdpFeishuSubConfig;
   idaasConfig?: IdpIdaas2SubConfig;
   idpConfigId?: string;
+  idpId?: number;
   lastSyncTimeUnix?: number;
   ldapConfig?: IdpLdapSubConfig;
   loginConfig?: IdpLoginConfig;
@@ -41,6 +42,7 @@ export class IdpConfig extends $dara.Model {
       feishuConfig: 'FeishuConfig',
       idaasConfig: 'IdaasConfig',
       idpConfigId: 'IdpConfigId',
+      idpId: 'IdpId',
       lastSyncTimeUnix: 'LastSyncTimeUnix',
       ldapConfig: 'LdapConfig',
       loginConfig: 'LoginConfig',
@@ -64,6 +66,7 @@ export class IdpConfig extends $dara.Model {
       feishuConfig: IdpFeishuSubConfig,
       idaasConfig: IdpIdaas2SubConfig,
       idpConfigId: 'string',
+      idpId: 'number',
       lastSyncTimeUnix: 'number',
       ldapConfig: IdpLdapSubConfig,
       loginConfig: IdpLoginConfig,

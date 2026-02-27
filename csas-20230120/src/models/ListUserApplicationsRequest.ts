@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserApplicationsRequest extends $dara.Model {
+  address?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -34,6 +35,7 @@ export class ListUserApplicationsRequest extends $dara.Model {
   saseUserId?: string;
   static names(): { [key: string]: string } {
     return {
+      address: 'Address',
       currentPage: 'CurrentPage',
       name: 'Name',
       pageSize: 'PageSize',
@@ -43,6 +45,7 @@ export class ListUserApplicationsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      address: 'string',
       currentPage: 'number',
       name: 'string',
       pageSize: 'number',

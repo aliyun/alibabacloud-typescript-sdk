@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AddressGroupPorts extends $dara.Model {
+  /**
+   * @example
+   * 123
+   */
   begin?: number;
+  /**
+   * @example
+   * 1234
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {

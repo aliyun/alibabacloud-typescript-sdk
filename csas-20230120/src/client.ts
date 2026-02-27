@@ -1786,7 +1786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除用户非在线设备
+   * Deletes multiple user terminals at a time.
    * 
    * @param request - DeleteUserDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1822,7 +1822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除用户非在线设备
+   * Deletes multiple user terminals at a time.
    * 
    * @param request - DeleteUserDevicesRequest
    * @returns DeleteUserDevicesResponse
@@ -2066,7 +2066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询用户设备列表
+   * Exports the information about user terminals in an Excel file.
    * 
    * @param request - ExportUserDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2158,7 +2158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询用户设备列表
+   * Exports the information about user terminals in an Excel file.
    * 
    * @param request - ExportUserDevicesRequest
    * @returns ExportUserDevicesResponse
@@ -2347,7 +2347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义身份源指定用户
+   * Query a specified user from a custom identity source
    * 
    * @param request - GetClientUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2374,7 +2374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义身份源指定用户
+   * Query a specified user from a custom identity source
    * 
    * @param request - GetClientUserRequest
    * @returns GetClientUserResponse

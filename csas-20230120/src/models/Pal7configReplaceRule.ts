@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PAL7ConfigReplaceRule extends $dara.Model {
   /**
    * @example
-   * aaa
+   * before
    */
   from?: string;
   /**
    * @example
-   * bbb
+   * after
    */
   to?: string;
   static names(): { [key: string]: string } {
