@@ -154,6 +154,11 @@ export class ListRowPermissionResponseBodyPageResultDataRulesUserMappingList ext
 
 export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Model {
   expressions?: ListRowPermissionResponseBodyPageResultDataRulesExpressions[];
+  /**
+   * @example
+   * 123
+   */
+  id?: number;
   isDelete?: boolean;
   ruleName?: string;
   /**
@@ -170,6 +175,7 @@ export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       expressions: 'Expressions',
+      id: 'Id',
       isDelete: 'IsDelete',
       ruleName: 'RuleName',
       scopeType: 'ScopeType',
@@ -181,6 +187,7 @@ export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       expressions: { 'type': 'array', 'itemType': ListRowPermissionResponseBodyPageResultDataRulesExpressions },
+      id: 'number',
       isDelete: 'boolean',
       ruleName: 'string',
       scopeType: 'string',

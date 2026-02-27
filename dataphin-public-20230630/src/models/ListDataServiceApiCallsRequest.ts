@@ -19,8 +19,15 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
    * 
    * @example
    * 1021
+   * 
+   * @deprecated
    */
   appKey?: number;
+  /**
+   * @example
+   * app12345
+   */
+  appKeyStr?: string;
   /**
    * @example
    * 192.168.1.1
@@ -58,6 +65,7 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
       apiId: 'ApiId',
       apiName: 'ApiName',
       appKey: 'AppKey',
+      appKeyStr: 'AppKeyStr',
       clientIp: 'ClientIp',
       endTime: 'EndTime',
       pageNo: 'PageNo',
@@ -72,6 +80,7 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
       apiId: 'number',
       apiName: 'string',
       appKey: 'number',
+      appKeyStr: 'string',
       clientIp: 'string',
       endTime: 'string',
       pageNo: 'number',

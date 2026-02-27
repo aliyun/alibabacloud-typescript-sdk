@@ -2,54 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListApiByAppRequestPageQuery extends $dara.Model {
+export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * appKey
+   * This parameter is required.
    * 
    * @example
-   * 10121101
-   * 
-   * @deprecated
+   * 12345
    */
-  appKey?: number;
+  appId?: number;
   /**
    * @example
-   * app12345
+   * 200000001
    */
-  appKeyStr?: string;
+  appKey?: string;
   /**
    * @example
-   * apiName
+   * abc123456789
    */
-  keyword?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
+  appSecret?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       appKey: 'AppKey',
-      appKeyStr: 'AppKeyStr',
-      keyword: 'Keyword',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
+      appSecret: 'AppSecret',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'number',
-      appKeyStr: 'string',
-      keyword: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
+      appId: 'number',
+      appKey: 'string',
+      appSecret: 'string',
     };
   }
 
@@ -62,7 +46,7 @@ export class ListApiByAppRequestPageQuery extends $dara.Model {
   }
 }
 
-export class ListApiByAppRequest extends $dara.Model {
+export class ResetDataServiceAppSecretRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -75,24 +59,24 @@ export class ListApiByAppRequest extends $dara.Model {
    * @remarks
    * This parameter is required.
    */
-  pageQuery?: ListApiByAppRequestPageQuery;
+  updateCommand?: ResetDataServiceAppSecretRequestUpdateCommand;
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
-      pageQuery: 'PageQuery',
+      updateCommand: 'UpdateCommand',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
-      pageQuery: ListApiByAppRequestPageQuery,
+      updateCommand: ResetDataServiceAppSecretRequestUpdateCommand,
     };
   }
 
   validate() {
-    if(this.pageQuery && typeof (this.pageQuery as any).validate === 'function') {
-      (this.pageQuery as any).validate();
+    if(this.updateCommand && typeof (this.updateCommand as any).validate === 'function') {
+      (this.updateCommand as any).validate();
     }
     super.validate();
   }

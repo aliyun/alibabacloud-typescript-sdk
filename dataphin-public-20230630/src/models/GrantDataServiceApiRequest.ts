@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GrantDataServiceApiRequestGrantCommandDevFieldList extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,10 +26,6 @@ export class GrantDataServiceApiRequestGrantCommandDevFieldList extends $dara.Mo
 }
 
 export class GrantDataServiceApiRequestGrantCommandProdFieldList extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,14 +61,13 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
    * @remarks
    * AppID
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1201
    */
   appId?: number;
   applyDev?: boolean;
   applyProd?: boolean;
+  authTypes?: string[];
   devFieldList?: GrantDataServiceApiRequestGrantCommandDevFieldList[];
   /**
    * @remarks
@@ -86,6 +77,11 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
    * 2025-06-30
    */
   expireDate?: string;
+  /**
+   * @example
+   * APP
+   */
+  granteeType?: string;
   prodFieldList?: GrantDataServiceApiRequestGrantCommandProdFieldList[];
   /**
    * @remarks
@@ -95,16 +91,24 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
    * test
    */
   reason?: string;
+  /**
+   * @example
+   * 12345
+   */
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
       appId: 'AppId',
       applyDev: 'ApplyDev',
       applyProd: 'ApplyProd',
+      authTypes: 'AuthTypes',
       devFieldList: 'DevFieldList',
       expireDate: 'ExpireDate',
+      granteeType: 'GranteeType',
       prodFieldList: 'ProdFieldList',
       reason: 'Reason',
+      userId: 'UserId',
     };
   }
 
@@ -114,14 +118,20 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
       appId: 'number',
       applyDev: 'boolean',
       applyProd: 'boolean',
+      authTypes: { 'type': 'array', 'itemType': 'string' },
       devFieldList: { 'type': 'array', 'itemType': GrantDataServiceApiRequestGrantCommandDevFieldList },
       expireDate: 'string',
+      granteeType: 'string',
       prodFieldList: { 'type': 'array', 'itemType': GrantDataServiceApiRequestGrantCommandProdFieldList },
       reason: 'string',
+      userId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.authTypes)) {
+      $dara.Model.validateArray(this.authTypes);
+    }
     if(Array.isArray(this.devFieldList)) {
       $dara.Model.validateArray(this.devFieldList);
     }

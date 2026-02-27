@@ -2,7 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDataServiceAppGroupsRequest extends $dara.Model {
+export class CreateDataServiceAppGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default_app_group
+   */
+  groupName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -11,24 +19,17 @@ export class GetDataServiceAppGroupsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
-  /**
-   * @example
-   * 102102
-   * 
-   * @deprecated
-   */
-  projectId?: number;
   static names(): { [key: string]: string } {
     return {
+      groupName: 'GroupName',
       opTenantId: 'OpTenantId',
-      projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupName: 'string',
       opTenantId: 'number',
-      projectId: 'number',
     };
   }
 

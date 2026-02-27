@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataServiceAuthorizedAppsByGroupIdRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 202102
    */

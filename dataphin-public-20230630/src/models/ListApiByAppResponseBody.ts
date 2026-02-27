@@ -692,6 +692,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
    * exampleApp
    */
   appName?: string;
+  authTypes?: string[];
   /**
    * @example
    * exampleModule
@@ -884,6 +885,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
       apiNo: 'ApiNo',
       apiTimeout: 'ApiTimeout',
       appName: 'AppName',
+      authTypes: 'AuthTypes',
       bizModuleEnName: 'BizModuleEnName',
       cacheSwitch: 'CacheSwitch',
       cacheTime: 'CacheTime',
@@ -931,6 +933,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
       apiNo: 'number',
       apiTimeout: 'number',
       appName: 'string',
+      authTypes: { 'type': 'array', 'itemType': 'string' },
       bizModuleEnName: 'string',
       cacheSwitch: 'string',
       cacheTime: 'string',
@@ -974,6 +977,9 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.authTypes)) {
+      $dara.Model.validateArray(this.authTypes);
+    }
     if(Array.isArray(this.publicParamList)) {
       $dara.Model.validateArray(this.publicParamList);
     }

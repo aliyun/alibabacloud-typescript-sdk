@@ -16,8 +16,15 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   /**
    * @example
    * 201211
+   * 
+   * @deprecated
    */
   appKey?: number;
+  /**
+   * @example
+   * abc12345
+   */
+  appKeyStr?: string;
   /**
    * @example
    * test
@@ -139,6 +146,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
       apiId: 'ApiId',
       apiName: 'ApiName',
       appKey: 'AppKey',
+      appKeyStr: 'AppKeyStr',
       appName: 'AppName',
       bizCode: 'BizCode',
       bizCodeDescription: 'BizCodeDescription',
@@ -171,6 +179,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
       apiId: 'number',
       apiName: 'string',
       appKey: 'number',
+      appKeyStr: 'string',
       appName: 'string',
       bizCode: 'string',
       bizCodeDescription: 'string',

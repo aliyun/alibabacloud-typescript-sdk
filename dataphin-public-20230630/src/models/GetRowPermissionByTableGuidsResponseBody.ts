@@ -2,50 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * AppKey
-   * 
-   * @example
-   * 202212
-   * 
-   * @deprecated
-   */
-  appKey?: number;
+export class GetRowPermissionByTableGuidsResponseBodyData extends $dara.Model {
   /**
    * @example
-   * app12345
+   * Restrict query region
    */
-  appKeyStr?: string;
-  /**
-   * @remarks
-   * AppId
-   * 
-   * @example
-   * 1021
-   */
-  id?: number;
+  rowPermissionDesc?: string;
   /**
    * @example
-   * test
+   * 300000001
    */
-  name?: string;
+  rowPermissionId?: string;
+  /**
+   * @example
+   * Region
+   */
+  rowPermissionName?: string;
   static names(): { [key: string]: string } {
     return {
-      appKey: 'AppKey',
-      appKeyStr: 'AppKeyStr',
-      id: 'Id',
-      name: 'Name',
+      rowPermissionDesc: 'RowPermissionDesc',
+      rowPermissionId: 'RowPermissionId',
+      rowPermissionName: 'RowPermissionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'number',
-      appKeyStr: 'string',
-      id: 'number',
-      name: 'string',
+      rowPermissionDesc: 'string',
+      rowPermissionId: 'string',
+      rowPermissionName: 'string',
     };
   }
 
@@ -58,13 +43,13 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
   }
 }
 
-export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Model {
-  appInfoList?: GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList[];
+export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   /**
    * @example
    * OK
    */
   code?: string;
+  data?: GetRowPermissionByTableGuidsResponseBodyData[];
   /**
    * @example
    * 200
@@ -72,22 +57,19 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   httpStatusCode?: number;
   /**
    * @example
-   * internal error
+   * successful
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
-   * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
+   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      appInfoList: 'AppInfoList',
       code: 'Code',
+      data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -97,8 +79,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
-      appInfoList: { 'type': 'array', 'itemType': GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList },
       code: 'string',
+      data: { 'type': 'array', 'itemType': GetRowPermissionByTableGuidsResponseBodyData },
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -107,8 +89,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   }
 
   validate() {
-    if(Array.isArray(this.appInfoList)) {
-      $dara.Model.validateArray(this.appInfoList);
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
     }
     super.validate();
   }

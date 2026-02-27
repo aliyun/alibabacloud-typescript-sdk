@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyDataServiceApiRequestApplyCommandDevFieldList extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 22
    */
@@ -34,9 +31,6 @@ export class ApplyDataServiceApiRequestApplyCommandDevFieldList extends $dara.Mo
 
 export class ApplyDataServiceApiRequestApplyCommandProdFieldList extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 22
    */
@@ -75,12 +69,18 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
    * @remarks
    * AppId
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1203
    */
   appId?: number;
+  applyDev?: boolean;
+  applyProd?: boolean;
+  /**
+   * @example
+   * APP
+   */
+  applyType?: string;
+  authTypes?: string[];
   devFieldList?: ApplyDataServiceApiRequestApplyCommandDevFieldList[];
   /**
    * @remarks
@@ -103,6 +103,10 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
     return {
       apiId: 'ApiId',
       appId: 'AppId',
+      applyDev: 'ApplyDev',
+      applyProd: 'ApplyProd',
+      applyType: 'ApplyType',
+      authTypes: 'AuthTypes',
       devFieldList: 'DevFieldList',
       expireDate: 'ExpireDate',
       prodFieldList: 'ProdFieldList',
@@ -114,6 +118,10 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
     return {
       apiId: 'number',
       appId: 'number',
+      applyDev: 'boolean',
+      applyProd: 'boolean',
+      applyType: 'string',
+      authTypes: { 'type': 'array', 'itemType': 'string' },
       devFieldList: { 'type': 'array', 'itemType': ApplyDataServiceApiRequestApplyCommandDevFieldList },
       expireDate: 'string',
       prodFieldList: { 'type': 'array', 'itemType': ApplyDataServiceApiRequestApplyCommandProdFieldList },
@@ -122,6 +130,9 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.authTypes)) {
+      $dara.Model.validateArray(this.authTypes);
+    }
     if(Array.isArray(this.devFieldList)) {
       $dara.Model.validateArray(this.devFieldList);
     }

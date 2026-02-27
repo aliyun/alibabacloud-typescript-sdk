@@ -30,6 +30,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增数据服务应用的普通成员。
+   * 
+   * @param tmpReq - AddDataServiceAppMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDataServiceAppMemberResponse
+   */
+  async addDataServiceAppMemberWithOptions(tmpReq: $_model.AddDataServiceAppMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDataServiceAppMemberResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddDataServiceAppMemberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addCommand)) {
+      request.addCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addCommand, "AddCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addCommandShrink)) {
+      body["AddCommand"] = request.addCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddDataServiceAppMember",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddDataServiceAppMemberResponse>(await this.callApi(params, req, runtime), new $_model.AddDataServiceAppMemberResponse({}));
+  }
+
+  /**
+   * 新增数据服务应用的普通成员。
+   * 
+   * @param request - AddDataServiceAppMemberRequest
+   * @returns AddDataServiceAppMemberResponse
+   */
+  async addDataServiceAppMember(request: $_model.AddDataServiceAppMemberRequest): Promise<$_model.AddDataServiceAppMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addDataServiceAppMemberWithOptions(request, runtime);
+  }
+
+  /**
    * 添加数据服务项目用户并设置角色。
    * 
    * @param tmpReq - AddDataServiceProjectMemberRequest
@@ -1261,6 +1315,106 @@ export default class Client extends OpenApi {
   async createDataServiceApi(request: $_model.CreateDataServiceApiRequest): Promise<$_model.CreateDataServiceApiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDataServiceApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据服务应用。
+   * 
+   * @param tmpReq - CreateDataServiceAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataServiceAppResponse
+   */
+  async createDataServiceAppWithOptions(tmpReq: $_model.CreateDataServiceAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataServiceAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDataServiceAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataServiceApp",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataServiceAppResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataServiceAppResponse({}));
+  }
+
+  /**
+   * 创建数据服务应用。
+   * 
+   * @param request - CreateDataServiceAppRequest
+   * @returns CreateDataServiceAppResponse
+   */
+  async createDataServiceApp(request: $_model.CreateDataServiceAppRequest): Promise<$_model.CreateDataServiceAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataServiceAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据服务应用分组。
+   * 
+   * @param request - CreateDataServiceAppGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataServiceAppGroupResponse
+   */
+  async createDataServiceAppGroupWithOptions(request: $_model.CreateDataServiceAppGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataServiceAppGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataServiceAppGroup",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataServiceAppGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataServiceAppGroupResponse({}));
+  }
+
+  /**
+   * 创建数据服务应用分组。
+   * 
+   * @param request - CreateDataServiceAppGroupRequest
+   * @returns CreateDataServiceAppGroupResponse
+   */
+  async createDataServiceAppGroup(request: $_model.CreateDataServiceAppGroupRequest): Promise<$_model.CreateDataServiceAppGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataServiceAppGroupWithOptions(request, runtime);
   }
 
   /**
@@ -2823,6 +2977,98 @@ export default class Client extends OpenApi {
   async deleteDataDomain(request: $_model.DeleteDataDomainRequest): Promise<$_model.DeleteDataDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据服务应用。
+   * 
+   * @param request - DeleteDataServiceAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataServiceAppResponse
+   */
+  async deleteDataServiceAppWithOptions(request: $_model.DeleteDataServiceAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataServiceAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataServiceApp",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataServiceAppResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataServiceAppResponse({}));
+  }
+
+  /**
+   * 删除数据服务应用。
+   * 
+   * @param request - DeleteDataServiceAppRequest
+   * @returns DeleteDataServiceAppResponse
+   */
+  async deleteDataServiceApp(request: $_model.DeleteDataServiceAppRequest): Promise<$_model.DeleteDataServiceAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataServiceAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据服务应用分组。
+   * 
+   * @param request - DeleteDataServiceAppGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataServiceAppGroupResponse
+   */
+  async deleteDataServiceAppGroupWithOptions(request: $_model.DeleteDataServiceAppGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataServiceAppGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataServiceAppGroup",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataServiceAppGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataServiceAppGroupResponse({}));
+  }
+
+  /**
+   * 删除数据服务应用分组。
+   * 
+   * @param request - DeleteDataServiceAppGroupRequest
+   * @returns DeleteDataServiceAppGroupResponse
+   */
+  async deleteDataServiceAppGroup(request: $_model.DeleteDataServiceAppGroupRequest): Promise<$_model.DeleteDataServiceAppGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataServiceAppGroupWithOptions(request, runtime);
   }
 
   /**
@@ -5446,6 +5692,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据服务应用详情。
+   * 
+   * @param request - GetDataServiceAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataServiceAppResponse
+   */
+  async getDataServiceAppWithOptions(request: $_model.GetDataServiceAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataServiceAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataServiceApp",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataServiceAppResponse>(await this.callApi(params, req, runtime), new $_model.GetDataServiceAppResponse({}));
+  }
+
+  /**
+   * 查询数据服务应用详情。
+   * 
+   * @param request - GetDataServiceAppRequest
+   * @returns GetDataServiceAppResponse
+   */
+  async getDataServiceApp(request: $_model.GetDataServiceAppRequest): Promise<$_model.GetDataServiceAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataServiceAppWithOptions(request, runtime);
+  }
+
+  /**
    * 获取应用有权限的用户列表。
    * 
    * @param request - GetDataServiceAppAuthorizedUsersRequest
@@ -5539,6 +5831,52 @@ export default class Client extends OpenApi {
   async getDataServiceAppGroups(request: $_model.GetDataServiceAppGroupsRequest): Promise<$_model.GetDataServiceAppGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataServiceAppGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据服务应用的成员列表。
+   * 
+   * @param request - GetDataServiceAppMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataServiceAppMembersResponse
+   */
+  async getDataServiceAppMembersWithOptions(request: $_model.GetDataServiceAppMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataServiceAppMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataServiceAppMembers",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataServiceAppMembersResponse>(await this.callApi(params, req, runtime), new $_model.GetDataServiceAppMembersResponse({}));
+  }
+
+  /**
+   * 查询数据服务应用的成员列表。
+   * 
+   * @param request - GetDataServiceAppMembersRequest
+   * @returns GetDataServiceAppMembersResponse
+   */
+  async getDataServiceAppMembers(request: $_model.GetDataServiceAppMembersRequest): Promise<$_model.GetDataServiceAppMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataServiceAppMembersWithOptions(request, runtime);
   }
 
   /**
@@ -7678,6 +8016,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据表Guid检索行级权限
+   * 
+   * @param tmpReq - GetRowPermissionByTableGuidsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRowPermissionByTableGuidsResponse
+   */
+  async getRowPermissionByTableGuidsWithOptions(tmpReq: $_model.GetRowPermissionByTableGuidsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRowPermissionByTableGuidsResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetRowPermissionByTableGuidsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.getRowPermissionByTableGuidsQuery)) {
+      request.getRowPermissionByTableGuidsQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.getRowPermissionByTableGuidsQuery, "GetRowPermissionByTableGuidsQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.getRowPermissionByTableGuidsQueryShrink)) {
+      body["GetRowPermissionByTableGuidsQuery"] = request.getRowPermissionByTableGuidsQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRowPermissionByTableGuids",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRowPermissionByTableGuidsResponse>(await this.callApi(params, req, runtime), new $_model.GetRowPermissionByTableGuidsResponse({}));
+  }
+
+  /**
+   * 根据表Guid检索行级权限
+   * 
+   * @param request - GetRowPermissionByTableGuidsRequest
+   * @returns GetRowPermissionByTableGuidsResponse
+   */
+  async getRowPermissionByTableGuids(request: $_model.GetRowPermissionByTableGuidsRequest): Promise<$_model.GetRowPermissionByTableGuidsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRowPermissionByTableGuidsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取数据分类详情。
    * 
    * @param request - GetSecurityClassifyRequest
@@ -9751,6 +10143,60 @@ export default class Client extends OpenApi {
   async listDataServiceApiImpacts(request: $_model.ListDataServiceApiImpactsRequest): Promise<$_model.ListDataServiceApiImpactsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataServiceApiImpactsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询租户下所有的应用列表。
+   * 
+   * @param tmpReq - ListDataServiceAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataServiceAppsResponse
+   */
+  async listDataServiceAppsWithOptions(tmpReq: $_model.ListDataServiceAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataServiceAppsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDataServiceAppsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataServiceApps",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataServiceAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataServiceAppsResponse({}));
+  }
+
+  /**
+   * 查询租户下所有的应用列表。
+   * 
+   * @param request - ListDataServiceAppsRequest
+   * @returns ListDataServiceAppsResponse
+   */
+  async listDataServiceApps(request: $_model.ListDataServiceAppsRequest): Promise<$_model.ListDataServiceAppsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataServiceAppsWithOptions(request, runtime);
   }
 
   /**
@@ -12024,6 +12470,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据服务应用的普通成员。
+   * 
+   * @param tmpReq - RemoveDataServiceAppMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveDataServiceAppMemberResponse
+   */
+  async removeDataServiceAppMemberWithOptions(tmpReq: $_model.RemoveDataServiceAppMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveDataServiceAppMemberResponse> {
+    tmpReq.validate();
+    let request = new $_model.RemoveDataServiceAppMemberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.removeCommand)) {
+      request.removeCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.removeCommand, "RemoveCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.removeCommandShrink)) {
+      body["RemoveCommand"] = request.removeCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveDataServiceAppMember",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveDataServiceAppMemberResponse>(await this.callApi(params, req, runtime), new $_model.RemoveDataServiceAppMemberResponse({}));
+  }
+
+  /**
+   * 删除数据服务应用的普通成员。
+   * 
+   * @param request - RemoveDataServiceAppMemberRequest
+   * @returns RemoveDataServiceAppMemberResponse
+   */
+  async removeDataServiceAppMember(request: $_model.RemoveDataServiceAppMemberRequest): Promise<$_model.RemoveDataServiceAppMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeDataServiceAppMemberWithOptions(request, runtime);
+  }
+
+  /**
    * 删除项目成员。
    * 
    * @param tmpReq - RemoveProjectMemberRequest
@@ -12299,6 +12799,60 @@ export default class Client extends OpenApi {
   async replaceProjectWhiteLists(request: $_model.ReplaceProjectWhiteListsRequest): Promise<$_model.ReplaceProjectWhiteListsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.replaceProjectWhiteListsWithOptions(request, runtime);
+  }
+
+  /**
+   * 重置数据服务应用密钥。
+   * 
+   * @param tmpReq - ResetDataServiceAppSecretRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetDataServiceAppSecretResponse
+   */
+  async resetDataServiceAppSecretWithOptions(tmpReq: $_model.ResetDataServiceAppSecretRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetDataServiceAppSecretResponse> {
+    tmpReq.validate();
+    let request = new $_model.ResetDataServiceAppSecretShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetDataServiceAppSecret",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetDataServiceAppSecretResponse>(await this.callApi(params, req, runtime), new $_model.ResetDataServiceAppSecretResponse({}));
+  }
+
+  /**
+   * 重置数据服务应用密钥。
+   * 
+   * @param request - ResetDataServiceAppSecretRequest
+   * @returns ResetDataServiceAppSecretResponse
+   */
+  async resetDataServiceAppSecret(request: $_model.ResetDataServiceAppSecretRequest): Promise<$_model.ResetDataServiceAppSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetDataServiceAppSecretWithOptions(request, runtime);
   }
 
   /**
@@ -13329,6 +13883,168 @@ export default class Client extends OpenApi {
   async updateDataDomain(request: $_model.UpdateDataDomainRequest): Promise<$_model.UpdateDataDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据服务应用。
+   * 
+   * @param tmpReq - UpdateDataServiceAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataServiceAppResponse
+   */
+  async updateDataServiceAppWithOptions(tmpReq: $_model.UpdateDataServiceAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataServiceAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDataServiceAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataServiceApp",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataServiceAppResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataServiceAppResponse({}));
+  }
+
+  /**
+   * 更新数据服务应用。
+   * 
+   * @param request - UpdateDataServiceAppRequest
+   * @returns UpdateDataServiceAppResponse
+   */
+  async updateDataServiceApp(request: $_model.UpdateDataServiceAppRequest): Promise<$_model.UpdateDataServiceAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataServiceAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据服务应用分组。
+   * 
+   * @param tmpReq - UpdateDataServiceAppGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataServiceAppGroupResponse
+   */
+  async updateDataServiceAppGroupWithOptions(tmpReq: $_model.UpdateDataServiceAppGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataServiceAppGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDataServiceAppGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataServiceAppGroup",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataServiceAppGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataServiceAppGroupResponse({}));
+  }
+
+  /**
+   * 更新数据服务应用分组。
+   * 
+   * @param request - UpdateDataServiceAppGroupRequest
+   * @returns UpdateDataServiceAppGroupResponse
+   */
+  async updateDataServiceAppGroup(request: $_model.UpdateDataServiceAppGroupRequest): Promise<$_model.UpdateDataServiceAppGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataServiceAppGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据服务应用的普通成员。
+   * 
+   * @param tmpReq - UpdateDataServiceAppMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataServiceAppMemberResponse
+   */
+  async updateDataServiceAppMemberWithOptions(tmpReq: $_model.UpdateDataServiceAppMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataServiceAppMemberResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDataServiceAppMemberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataServiceAppMember",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataServiceAppMemberResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataServiceAppMemberResponse({}));
+  }
+
+  /**
+   * 更新数据服务应用的普通成员。
+   * 
+   * @param request - UpdateDataServiceAppMemberRequest
+   * @returns UpdateDataServiceAppMemberResponse
+   */
+  async updateDataServiceAppMember(request: $_model.UpdateDataServiceAppMemberRequest): Promise<$_model.UpdateDataServiceAppMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataServiceAppMemberWithOptions(request, runtime);
   }
 
   /**

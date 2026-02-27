@@ -2,53 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList extends $dara.Model {
+/**
+ */
+export class AddDataServiceAppMemberRequestAddCommandMemberList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * xx@aliyuncs.com
+   * 2026-12-12
    */
-  accountName?: string;
+  effectiveEnd?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * test
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  role?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 30012011
+   * 12345
    */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
-      accountName: 'AccountName',
-      displayName: 'DisplayName',
-      role: 'Role',
+      effectiveEnd: 'EffectiveEnd',
       userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountName: 'string',
-      displayName: 'string',
-      role: 'number',
+      effectiveEnd: 'string',
       userId: 'string',
     };
   }
@@ -62,27 +44,37 @@ export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList exten
   }
 }
 
-export class AddDataServiceProjectMemberRequestAddCommand extends $dara.Model {
+export class AddDataServiceAppMemberRequestAddCommand extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200000000
+   */
+  appId?: number;
   /**
    * @remarks
    * This parameter is required.
    */
-  projectMemberList?: AddDataServiceProjectMemberRequestAddCommandProjectMemberList[];
+  memberList?: AddDataServiceAppMemberRequestAddCommandMemberList[];
   static names(): { [key: string]: string } {
     return {
-      projectMemberList: 'ProjectMemberList',
+      appId: 'AppId',
+      memberList: 'MemberList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      projectMemberList: { 'type': 'array', 'itemType': AddDataServiceProjectMemberRequestAddCommandProjectMemberList },
+      appId: 'number',
+      memberList: { 'type': 'array', 'itemType': AddDataServiceAppMemberRequestAddCommandMemberList },
     };
   }
 
   validate() {
-    if(Array.isArray(this.projectMemberList)) {
-      $dara.Model.validateArray(this.projectMemberList);
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
     }
     super.validate();
   }
@@ -92,12 +84,12 @@ export class AddDataServiceProjectMemberRequestAddCommand extends $dara.Model {
   }
 }
 
-export class AddDataServiceProjectMemberRequest extends $dara.Model {
+export class AddDataServiceAppMemberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    */
-  addCommand?: AddDataServiceProjectMemberRequestAddCommand;
+  addCommand?: AddDataServiceAppMemberRequestAddCommand;
   /**
    * @remarks
    * This parameter is required.
@@ -106,27 +98,17 @@ export class AddDataServiceProjectMemberRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 102102
-   */
-  projectId?: number;
   static names(): { [key: string]: string } {
     return {
       addCommand: 'AddCommand',
       opTenantId: 'OpTenantId',
-      projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      addCommand: AddDataServiceProjectMemberRequestAddCommand,
+      addCommand: AddDataServiceAppMemberRequestAddCommand,
       opTenantId: 'number',
-      projectId: 'number',
     };
   }
 

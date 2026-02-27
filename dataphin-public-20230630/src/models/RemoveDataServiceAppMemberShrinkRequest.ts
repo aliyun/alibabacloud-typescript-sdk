@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDataServiceAppGroupsRequest extends $dara.Model {
+export class RemoveDataServiceAppMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -12,23 +12,21 @@ export class GetDataServiceAppGroupsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
-   * @example
-   * 102102
-   * 
-   * @deprecated
+   * @remarks
+   * This parameter is required.
    */
-  projectId?: number;
+  removeCommandShrink?: string;
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
-      projectId: 'ProjectId',
+      removeCommandShrink: 'RemoveCommand',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
-      projectId: 'number',
+      removeCommandShrink: 'string',
     };
   }
 

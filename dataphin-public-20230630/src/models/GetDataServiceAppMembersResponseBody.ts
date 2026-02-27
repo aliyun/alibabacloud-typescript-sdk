@@ -2,50 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * AppKey
-   * 
-   * @example
-   * 202212
-   * 
-   * @deprecated
-   */
-  appKey?: number;
+export class GetDataServiceAppMembersResponseBodyDataMemberList extends $dara.Model {
   /**
    * @example
-   * app12345
+   * 2026-12-12
    */
-  appKeyStr?: string;
-  /**
-   * @remarks
-   * AppId
-   * 
-   * @example
-   * 1021
-   */
-  id?: number;
+  effectiveEnd?: string;
   /**
    * @example
-   * test
+   * general
    */
-  name?: string;
+  role?: string;
+  /**
+   * @example
+   * 200000245
+   */
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      appKey: 'AppKey',
-      appKeyStr: 'AppKeyStr',
-      id: 'Id',
-      name: 'Name',
+      effectiveEnd: 'EffectiveEnd',
+      role: 'Role',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'number',
-      appKeyStr: 'string',
-      id: 'number',
-      name: 'string',
+      effectiveEnd: 'string',
+      role: 'string',
+      userId: 'string',
     };
   }
 
@@ -58,13 +43,39 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
   }
 }
 
-export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Model {
-  appInfoList?: GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList[];
+export class GetDataServiceAppMembersResponseBodyData extends $dara.Model {
+  memberList?: GetDataServiceAppMembersResponseBodyDataMemberList[];
+  static names(): { [key: string]: string } {
+    return {
+      memberList: 'MemberList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberList: { 'type': 'array', 'itemType': GetDataServiceAppMembersResponseBodyDataMemberList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceAppMembersResponseBody extends $dara.Model {
   /**
    * @example
    * OK
    */
   code?: string;
+  data?: GetDataServiceAppMembersResponseBodyData;
   /**
    * @example
    * 200
@@ -86,8 +97,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      appInfoList: 'AppInfoList',
       code: 'Code',
+      data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -97,8 +108,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
-      appInfoList: { 'type': 'array', 'itemType': GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList },
       code: 'string',
+      data: GetDataServiceAppMembersResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -107,8 +118,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   }
 
   validate() {
-    if(Array.isArray(this.appInfoList)) {
-      $dara.Model.validateArray(this.appInfoList);
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

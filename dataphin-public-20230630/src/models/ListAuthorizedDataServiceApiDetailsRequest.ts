@@ -7,12 +7,17 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
    * @remarks
    * AppKey
    * 
-   * This parameter is required.
-   * 
    * @example
    * 200000000
+   * 
+   * @deprecated
    */
   appKey?: number;
+  /**
+   * @example
+   * app12345
+   */
+  appKeyStr?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -32,6 +37,7 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
+      appKeyStr: 'AppKeyStr',
       page: 'Page',
       pageSize: 'PageSize',
     };
@@ -40,6 +46,7 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
+      appKeyStr: 'string',
       page: 'number',
       pageSize: 'number',
     };

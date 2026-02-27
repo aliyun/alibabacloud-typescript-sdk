@@ -12,13 +12,25 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
    */
   apiId?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 1203
    */
   appId?: number;
+  /**
+   * @example
+   * USE
+   */
+  authType?: string;
+  /**
+   * @example
+   * DEV
+   */
+  env?: string;
+  /**
+   * @example
+   * APP
+   */
+  granteeType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -27,11 +39,20 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
    * test
    */
   reason?: string;
+  /**
+   * @example
+   * 12345
+   */
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
       appId: 'AppId',
+      authType: 'AuthType',
+      env: 'Env',
+      granteeType: 'GranteeType',
       reason: 'Reason',
+      userId: 'UserId',
     };
   }
 
@@ -39,7 +60,11 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
     return {
       apiId: 'number',
       appId: 'number',
+      authType: 'string',
+      env: 'string',
+      granteeType: 'string',
       reason: 'string',
+      userId: 'string',
     };
   }
 

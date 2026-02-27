@@ -2,54 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListApiByAppRequestPageQuery extends $dara.Model {
+export class UpdateDataServiceAppGroupRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * appKey
+   * This parameter is required.
    * 
    * @example
-   * 10121101
+   * 12345
+   */
+  groupId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
    * 
-   * @deprecated
-   */
-  appKey?: number;
-  /**
    * @example
-   * app12345
+   * 默认应用分组
    */
-  appKeyStr?: string;
-  /**
-   * @example
-   * apiName
-   */
-  keyword?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
+  groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      appKey: 'AppKey',
-      appKeyStr: 'AppKeyStr',
-      keyword: 'Keyword',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'number',
-      appKeyStr: 'string',
-      keyword: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
+      groupId: 'number',
+      groupName: 'string',
     };
   }
 
@@ -62,7 +42,7 @@ export class ListApiByAppRequestPageQuery extends $dara.Model {
   }
 }
 
-export class ListApiByAppRequest extends $dara.Model {
+export class UpdateDataServiceAppGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -75,24 +55,24 @@ export class ListApiByAppRequest extends $dara.Model {
    * @remarks
    * This parameter is required.
    */
-  pageQuery?: ListApiByAppRequestPageQuery;
+  updateCommand?: UpdateDataServiceAppGroupRequestUpdateCommand;
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
-      pageQuery: 'PageQuery',
+      updateCommand: 'UpdateCommand',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
-      pageQuery: ListApiByAppRequestPageQuery,
+      updateCommand: UpdateDataServiceAppGroupRequestUpdateCommand,
     };
   }
 
   validate() {
-    if(this.pageQuery && typeof (this.pageQuery as any).validate === 'function') {
-      (this.pageQuery as any).validate();
+    if(this.updateCommand && typeof (this.updateCommand as any).validate === 'function') {
+      (this.updateCommand as any).validate();
     }
     super.validate();
   }

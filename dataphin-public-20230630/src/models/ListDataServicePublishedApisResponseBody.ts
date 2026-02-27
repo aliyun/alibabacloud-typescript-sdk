@@ -14,8 +14,15 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoLis
    * 
    * @example
    * 1201
+   * 
+   * @deprecated
    */
   appKey?: number;
+  /**
+   * @example
+   * app12345
+   */
+  appKeyStr?: string;
   /**
    * @example
    * test
@@ -25,6 +32,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoLis
     return {
       appId: 'AppId',
       appKey: 'AppKey',
+      appKeyStr: 'AppKeyStr',
       appName: 'AppName',
     };
   }
@@ -33,6 +41,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoLis
     return {
       appId: 'number',
       appKey: 'number',
+      appKeyStr: 'string',
       appName: 'string',
     };
   }

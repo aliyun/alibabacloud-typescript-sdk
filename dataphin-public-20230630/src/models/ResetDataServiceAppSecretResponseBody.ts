@@ -2,50 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * AppKey
-   * 
-   * @example
-   * 202212
-   * 
-   * @deprecated
-   */
-  appKey?: number;
+export class ResetDataServiceAppSecretResponseBodyData extends $dara.Model {
   /**
    * @example
-   * app12345
+   * 200000001
    */
-  appKeyStr?: string;
-  /**
-   * @remarks
-   * AppId
-   * 
-   * @example
-   * 1021
-   */
-  id?: number;
+  appKey?: string;
   /**
    * @example
-   * test
+   * abc123456789
    */
-  name?: string;
+  appSecret?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
-      appKeyStr: 'AppKeyStr',
-      id: 'Id',
-      name: 'Name',
+      appSecret: 'AppSecret',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'number',
-      appKeyStr: 'string',
-      id: 'number',
-      name: 'string',
+      appKey: 'string',
+      appSecret: 'string',
     };
   }
 
@@ -58,13 +36,13 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
   }
 }
 
-export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Model {
-  appInfoList?: GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList[];
+export class ResetDataServiceAppSecretResponseBody extends $dara.Model {
   /**
    * @example
    * OK
    */
   code?: string;
+  data?: ResetDataServiceAppSecretResponseBodyData;
   /**
    * @example
    * 200
@@ -86,8 +64,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      appInfoList: 'AppInfoList',
       code: 'Code',
+      data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -97,8 +75,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
-      appInfoList: { 'type': 'array', 'itemType': GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList },
       code: 'string',
+      data: ResetDataServiceAppSecretResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -107,8 +85,8 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   }
 
   validate() {
-    if(Array.isArray(this.appInfoList)) {
-      $dara.Model.validateArray(this.appInfoList);
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

@@ -119,6 +119,11 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRules extends $d
   expressions?: ListRowPermissionByUserIdResponseBodyPageResultDataRulesExpressions[];
   /**
    * @example
+   * 123
+   */
+  id?: number;
+  /**
+   * @example
    * 0
    */
   isDelete?: boolean;
@@ -137,6 +142,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRules extends $d
   static names(): { [key: string]: string } {
     return {
       expressions: 'Expressions',
+      id: 'Id',
       isDelete: 'IsDelete',
       ruleName: 'RuleName',
       scopeType: 'ScopeType',
@@ -148,6 +154,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRules extends $d
   static types(): { [key: string]: any } {
     return {
       expressions: { 'type': 'array', 'itemType': ListRowPermissionByUserIdResponseBodyPageResultDataRulesExpressions },
+      id: 'number',
       isDelete: 'boolean',
       ruleName: 'string',
       scopeType: 'string',

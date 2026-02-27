@@ -2,7 +2,74 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
+  batchInputDataSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  dataVolumeType?: number;
+  /**
+   * @example
+   * 1
+   */
+  errorHandlingType?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxInputDataSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  parallelNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  transactionType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      batchInputDataSize: 'BatchInputDataSize',
+      dataVolumeType: 'DataVolumeType',
+      errorHandlingType: 'ErrorHandlingType',
+      maxInputDataSize: 'MaxInputDataSize',
+      parallelNum: 'ParallelNum',
+      transactionType: 'TransactionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchInputDataSize: 'number',
+      dataVolumeType: 'number',
+      errorHandlingType: 'number',
+      maxInputDataSize: 'number',
+      parallelNum: 'number',
+      transactionType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestParameters extends $dara.Model {
+  /**
+   * @example
+   * 123
+   */
+  defaultValue?: string;
   /**
    * @example
    * test
@@ -43,6 +110,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestP
   parameterValueType?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultValue: 'DefaultValue',
       exampleValue: 'ExampleValue',
       isRequiredParameter: 'IsRequiredParameter',
       parameterDataType: 'ParameterDataType',
@@ -54,6 +122,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestP
 
   static types(): { [key: string]: any } {
     return {
+      defaultValue: 'string',
       exampleValue: 'string',
       isRequiredParameter: 'boolean',
       parameterDataType: 'string',
@@ -88,6 +157,11 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponse
   parameterDataType?: string;
   parameterDescription?: string;
   /**
+   * @example
+   * success
+   */
+  parameterLocation?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -100,6 +174,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponse
       exampleValue: 'ExampleValue',
       parameterDataType: 'ParameterDataType',
       parameterDescription: 'ParameterDescription',
+      parameterLocation: 'ParameterLocation',
       parameterName: 'ParameterName',
     };
   }
@@ -109,6 +184,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponse
       exampleValue: 'string',
       parameterDataType: 'string',
       parameterDescription: 'string',
+      parameterLocation: 'string',
       parameterName: 'string',
     };
   }
@@ -149,15 +225,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetails extends $dara
    * select a,b,c from table1 where d = ${d}
    */
   script?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   scriptRequestParameters?: CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestParameters[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   scriptResponseParameters?: CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponseParameters[];
   /**
    * @example
@@ -249,9 +317,6 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    */
   bizProtocol?: number[];
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 600
    */
@@ -267,6 +332,7 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * test
    */
   description?: string;
+  dmlConfig?: CreateDataServiceApiRequestCreateCommandDmlConfig;
   /**
    * @example
    * 30
@@ -296,6 +362,8 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * 1
    */
   requestType?: number;
+  returnSqlSwitch?: boolean;
+  rowPermissionIds?: number[];
   /**
    * @remarks
    * This parameter is required.
@@ -333,10 +401,13 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
       callMode: 'CallMode',
       customUpdateRate: 'CustomUpdateRate',
       description: 'Description',
+      dmlConfig: 'DmlConfig',
       executionTimeout: 'ExecutionTimeout',
       mode: 'Mode',
       projectId: 'ProjectId',
       requestType: 'RequestType',
+      returnSqlSwitch: 'ReturnSqlSwitch',
+      rowPermissionIds: 'RowPermissionIds',
       scriptDetails: 'ScriptDetails',
       timeout: 'Timeout',
       updateRate: 'UpdateRate',
@@ -355,10 +426,13 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
       callMode: 'number',
       customUpdateRate: 'string',
       description: 'string',
+      dmlConfig: CreateDataServiceApiRequestCreateCommandDmlConfig,
       executionTimeout: 'number',
       mode: 'number',
       projectId: 'number',
       requestType: 'number',
+      returnSqlSwitch: 'boolean',
+      rowPermissionIds: { 'type': 'array', 'itemType': 'number' },
       scriptDetails: CreateDataServiceApiRequestCreateCommandScriptDetails,
       timeout: 'number',
       updateRate: 'number',
@@ -369,6 +443,12 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
   validate() {
     if(Array.isArray(this.bizProtocol)) {
       $dara.Model.validateArray(this.bizProtocol);
+    }
+    if(this.dmlConfig && typeof (this.dmlConfig as any).validate === 'function') {
+      (this.dmlConfig as any).validate();
+    }
+    if(Array.isArray(this.rowPermissionIds)) {
+      $dara.Model.validateArray(this.rowPermissionIds);
     }
     if(this.scriptDetails && typeof (this.scriptDetails as any).validate === 'function') {
       (this.scriptDetails as any).validate();

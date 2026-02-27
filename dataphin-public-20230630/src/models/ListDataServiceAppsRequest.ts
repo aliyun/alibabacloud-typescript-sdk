@@ -2,32 +2,22 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListApiByAppRequestPageQuery extends $dara.Model {
+export class ListDataServiceAppsRequestListQuery extends $dara.Model {
   /**
-   * @remarks
-   * appKey
-   * 
    * @example
-   * 10121101
-   * 
-   * @deprecated
+   * 12345
    */
-  appKey?: number;
+  appGroupId?: number;
   /**
    * @example
-   * app12345
-   */
-  appKeyStr?: string;
-  /**
-   * @example
-   * apiName
+   * 营销看板
    */
   keyword?: string;
   /**
    * @example
    * 1
    */
-  pageNum?: number;
+  pageNo?: number;
   /**
    * @example
    * 20
@@ -35,20 +25,18 @@ export class ListApiByAppRequestPageQuery extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      appKey: 'AppKey',
-      appKeyStr: 'AppKeyStr',
+      appGroupId: 'AppGroupId',
       keyword: 'Keyword',
-      pageNum: 'PageNum',
+      pageNo: 'PageNo',
       pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'number',
-      appKeyStr: 'string',
+      appGroupId: 'number',
       keyword: 'string',
-      pageNum: 'number',
+      pageNo: 'number',
       pageSize: 'number',
     };
   }
@@ -62,7 +50,12 @@ export class ListApiByAppRequestPageQuery extends $dara.Model {
   }
 }
 
-export class ListApiByAppRequest extends $dara.Model {
+export class ListDataServiceAppsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQuery?: ListDataServiceAppsRequestListQuery;
   /**
    * @remarks
    * This parameter is required.
@@ -71,28 +64,23 @@ export class ListApiByAppRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  pageQuery?: ListApiByAppRequestPageQuery;
   static names(): { [key: string]: string } {
     return {
+      listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
-      pageQuery: 'PageQuery',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      listQuery: ListDataServiceAppsRequestListQuery,
       opTenantId: 'number',
-      pageQuery: ListApiByAppRequestPageQuery,
     };
   }
 
   validate() {
-    if(this.pageQuery && typeof (this.pageQuery as any).validate === 'function') {
-      (this.pageQuery as any).validate();
+    if(this.listQuery && typeof (this.listQuery as any).validate === 'function') {
+      (this.listQuery as any).validate();
     }
     super.validate();
   }
