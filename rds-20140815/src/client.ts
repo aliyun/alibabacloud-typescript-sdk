@@ -31038,6 +31038,10 @@ export default class Client extends OpenApi {
       request.dataDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataDisk, "DataDisk", "json");
     }
 
+    if (!$dara.isNull(tmpReq.securityGroupIds)) {
+      request.securityGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityGroupIds, "SecurityGroupIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.systemDisk)) {
       request.systemDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.systemDisk, "SystemDisk", "json");
     }
@@ -31151,6 +31155,10 @@ export default class Client extends OpenApi {
       query["PeriodUnit"] = request.periodUnit;
     }
 
+    if (!$dara.isNull(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
     if (!$dara.isNull(request.promotionCode)) {
       query["PromotionCode"] = request.promotionCode;
     }
@@ -31173,6 +31181,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.securityGroupIdsShrink)) {
+      query["SecurityGroupIds"] = request.securityGroupIdsShrink;
     }
 
     if (!$dara.isNull(request.spotStrategy)) {

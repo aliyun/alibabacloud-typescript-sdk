@@ -208,6 +208,11 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * Year
    */
   periodUnit?: string;
+  /**
+   * @example
+   * ``10.1.**.**``
+   */
+  privateIpAddress?: string;
   promotionCode?: string;
   /**
    * @remarks
@@ -243,6 +248,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * sg-uf6av412xaxixuezol6w
    */
   securityGroupId?: string;
+  securityGroupIdsShrink?: string;
   spotStrategy?: string;
   supportCase?: string;
   /**
@@ -304,12 +310,14 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       passwordInherit: 'PasswordInherit',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      privateIpAddress: 'PrivateIpAddress',
       promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       scheduledRule: 'ScheduledRule',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
+      securityGroupIdsShrink: 'SecurityGroupIds',
       spotStrategy: 'SpotStrategy',
       supportCase: 'SupportCase',
       systemDiskShrink: 'SystemDisk',
@@ -350,12 +358,14 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       passwordInherit: 'boolean',
       period: 'number',
       periodUnit: 'string',
+      privateIpAddress: 'string',
       promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       scheduledRule: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
+      securityGroupIdsShrink: 'string',
       spotStrategy: 'string',
       supportCase: 'string',
       systemDiskShrink: 'string',

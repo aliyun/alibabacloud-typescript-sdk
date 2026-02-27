@@ -102,6 +102,7 @@ export class DescribeRCInstancesResponseBodyRCInstancesVpcAttributes extends $da
 }
 
 export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
+  autoRenew?: boolean;
   /**
    * @remarks
    * The cluster name.
@@ -239,6 +240,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenew: 'AutoRenew',
       clusterName: 'ClusterName',
       cpu: 'Cpu',
       createMode: 'CreateMode',
@@ -277,6 +279,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRenew: 'boolean',
       clusterName: 'string',
       cpu: 'number',
       createMode: 'string',

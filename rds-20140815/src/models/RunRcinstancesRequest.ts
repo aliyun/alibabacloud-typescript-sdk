@@ -356,6 +356,11 @@ export class RunRCInstancesRequest extends $dara.Model {
    * Year
    */
   periodUnit?: string;
+  /**
+   * @example
+   * ``10.1.**.**``
+   */
+  privateIpAddress?: string;
   promotionCode?: string;
   /**
    * @remarks
@@ -391,6 +396,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    * sg-uf6av412xaxixuezol6w
    */
   securityGroupId?: string;
+  securityGroupIds?: string[];
   spotStrategy?: string;
   supportCase?: string;
   /**
@@ -452,12 +458,14 @@ export class RunRCInstancesRequest extends $dara.Model {
       passwordInherit: 'PasswordInherit',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      privateIpAddress: 'PrivateIpAddress',
       promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       scheduledRule: 'ScheduledRule',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
+      securityGroupIds: 'SecurityGroupIds',
       spotStrategy: 'SpotStrategy',
       supportCase: 'SupportCase',
       systemDisk: 'SystemDisk',
@@ -498,12 +506,14 @@ export class RunRCInstancesRequest extends $dara.Model {
       passwordInherit: 'boolean',
       period: 'number',
       periodUnit: 'string',
+      privateIpAddress: 'string',
       promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       scheduledRule: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       spotStrategy: 'string',
       supportCase: 'string',
       systemDisk: RunRCInstancesRequestSystemDisk,
@@ -521,6 +531,9 @@ export class RunRCInstancesRequest extends $dara.Model {
     }
     if(Array.isArray(this.dataDisk)) {
       $dara.Model.validateArray(this.dataDisk);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
     }
     if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
       (this.systemDisk as any).validate();
