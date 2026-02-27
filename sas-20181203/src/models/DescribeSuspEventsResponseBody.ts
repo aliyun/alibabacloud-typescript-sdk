@@ -295,6 +295,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * The details of the alert event.
    */
   details?: DescribeSuspEventsResponseBodySuspEventsDetails[];
+  detectSource?: string;
   /**
    * @remarks
    * Indicates whether the alert event can be detected by cloud sandbox. Valid values:
@@ -648,6 +649,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
       dataSource: 'DataSource',
       desc: 'Desc',
       details: 'Details',
+      detectSource: 'DetectSource',
       displaySandboxResult: 'DisplaySandboxResult',
       eventNotes: 'EventNotes',
       eventStatus: 'EventStatus',
@@ -709,6 +711,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
       dataSource: 'string',
       desc: 'string',
       details: { 'type': 'array', 'itemType': DescribeSuspEventsResponseBodySuspEventsDetails },
+      detectSource: 'string',
       displaySandboxResult: 'boolean',
       eventNotes: { 'type': 'array', 'itemType': DescribeSuspEventsResponseBodySuspEventsEventNotes },
       eventStatus: 'number',

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCreateVulWhitelistResponseBodyVulWhitelistList extends $dara.Model {
   /**
+   * @remarks
+   * Vulnerability whitelist ID.
+   * 
    * @example
    * 1002
    */
@@ -40,7 +43,8 @@ export class ModifyCreateVulWhitelistResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the information about the whitelist.
+   * Vulnerability whitelist information. 
+   * <notice> This data is not returned when adding or updating the vulnerability whitelist in batches, it is only returned when adding or updating a single vulnerability whitelist entry. </notice>
    */
   vulWhitelistList?: ModifyCreateVulWhitelistResponseBodyVulWhitelistList;
   static names(): { [key: string]: string } {

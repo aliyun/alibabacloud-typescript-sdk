@@ -22318,6 +22318,10 @@ export default class Client extends OpenApi {
       query["Dealed"] = request.dealed;
     }
 
+    if (!$dara.isNull(request.detectSource)) {
+      query["DetectSource"] = request.detectSource;
+    }
+
     if (!$dara.isNull(request.eventNames)) {
       query["EventNames"] = request.eventNames;
     }

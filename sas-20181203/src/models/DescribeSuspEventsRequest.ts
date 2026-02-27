@@ -74,6 +74,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * N
    */
   dealed?: string;
+  detectSource?: string;
   /**
    * @remarks
    * The subtype of the alert event. Separate multiple subtypes with commas (,).
@@ -373,6 +374,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
       containerFieldValue: 'ContainerFieldValue',
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
+      detectSource: 'DetectSource',
       eventNames: 'EventNames',
       from: 'From',
       groupId: 'GroupId',
@@ -414,6 +416,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
       containerFieldValue: 'string',
       currentPage: 'string',
       dealed: 'string',
+      detectSource: 'string',
       eventNames: 'string',
       from: 'string',
       groupId: 'number',
