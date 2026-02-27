@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ContainerdConfig extends $dara.Model {
   ignoreImageDefinedVolume?: boolean;
+  /**
+   * @remarks
+   * Insecure image repositories that skipped the TLS certificate verification.
+   */
   insecureRegistries?: string[];
   limitCore?: number;
   limitMemLock?: number;
   limitNoFile?: number;
   maxConcurrentDownloads?: number;
+  /**
+   * @remarks
+   * The image accelerator configuration.
+   */
   registryMirrors?: string[];
   static names(): { [key: string]: string } {
     return {

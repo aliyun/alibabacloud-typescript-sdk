@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class Addon extends $dara.Model {
   /**
+   * @remarks
+   * The configuration of the component.
+   * 
    * @example
-   * {\"IngressSlbNetworkType\":\"internet\"}
+   * {\\"IngressSlbNetworkType\\":\\"internet\\"}
    */
   config?: string;
   /**
+   * @remarks
+   * Specifies whether to disable automatic installation. When you create a cluster, some additional log components are automatically installed in addition to the required components. You can disable the automatic installations of a component and install the component later by calling the component API or in the corresponding console. Valid values:
+   * 
+   * *   `true`: disables the automatic installation of a component.
+   * *   `false`: allows the automatic installation of a component.
+   * 
    * @example
    * false
    */
   disabled?: boolean;
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * nginx-ingress-controller
    */
   name?: string;
   /**
+   * @remarks
+   * The version of the component.
+   * 
    * @example
    * v1.9.3-aliyun.1
    */

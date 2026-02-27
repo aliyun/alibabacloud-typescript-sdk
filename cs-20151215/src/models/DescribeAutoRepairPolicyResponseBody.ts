@@ -2,84 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAutoRepairPolicyResponseBodyRulesIncidentsConditions extends $dara.Model {
-  /**
-   * @example
-   * xxxx
-   */
-  reason?: string;
-  /**
-   * @example
-   * False
-   */
-  status?: string;
-  /**
-   * @example
-   * KubeletReady
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reason: 'reason',
-      status: 'status',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reason: 'string',
-      status: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAutoRepairPolicyResponseBodyRulesIncidentsEvents extends $dara.Model {
-  /**
-   * @example
-   * xxxx
-   */
-  reason?: string;
-  /**
-   * @example
-   * xxxx
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reason: 'reason',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reason: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Model {
-  conditions?: DescribeAutoRepairPolicyResponseBodyRulesIncidentsConditions[];
-  events?: DescribeAutoRepairPolicyResponseBodyRulesIncidentsEvents[];
   /**
    * @example
    * Node.FaultNeedReboot.HOST
@@ -92,8 +15,6 @@ export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Mo
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      conditions: 'conditions',
-      events: 'events',
       name: 'name',
       type: 'type',
     };
@@ -101,20 +22,12 @@ export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
-      conditions: { 'type': 'array', 'itemType': DescribeAutoRepairPolicyResponseBodyRulesIncidentsConditions },
-      events: { 'type': 'array', 'itemType': DescribeAutoRepairPolicyResponseBodyRulesIncidentsEvents },
       name: 'string',
       type: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.conditions)) {
-      $dara.Model.validateArray(this.conditions);
-    }
-    if(Array.isArray(this.events)) {
-      $dara.Model.validateArray(this.events);
-    }
     super.validate();
   }
 
@@ -197,7 +110,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
    * @example
    * true
    */
-  enable?: string;
+  enable?: boolean;
   inquiringLabel?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionInquiringLabel;
   /**
    * @example
@@ -216,7 +129,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
   static types(): { [key: string]: any } {
     return {
       approvedLabel: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionApprovedLabel,
-      enable: 'string',
+      enable: 'boolean',
       inquiringLabel: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionInquiringLabel,
       type: 'string',
     };

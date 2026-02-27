@@ -2,84 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyAutoRepairPolicyRequestRulesIncidentsConditions extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
-  reason?: string;
-  /**
-   * @example
-   * False
-   */
-  status?: string;
-  /**
-   * @example
-   * KubeletReady
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reason: 'reason',
-      status: 'status',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reason: 'string',
-      status: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAutoRepairPolicyRequestRulesIncidentsEvents extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
-  reason?: string;
-  /**
-   * @example
-   * xxx
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reason: 'reason',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reason: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
-  conditions?: ModifyAutoRepairPolicyRequestRulesIncidentsConditions[];
-  events?: ModifyAutoRepairPolicyRequestRulesIncidentsEvents[];
   /**
    * @example
    * Node.FaultNeedReboot.HOST
@@ -92,8 +15,6 @@ export class ModifyAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      conditions: 'conditions',
-      events: 'events',
       name: 'name',
       type: 'type',
     };
@@ -101,20 +22,12 @@ export class ModifyAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      conditions: { 'type': 'array', 'itemType': ModifyAutoRepairPolicyRequestRulesIncidentsConditions },
-      events: { 'type': 'array', 'itemType': ModifyAutoRepairPolicyRequestRulesIncidentsEvents },
       name: 'string',
       type: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.conditions)) {
-      $dara.Model.validateArray(this.conditions);
-    }
-    if(Array.isArray(this.events)) {
-      $dara.Model.validateArray(this.events);
-    }
     super.validate();
   }
 

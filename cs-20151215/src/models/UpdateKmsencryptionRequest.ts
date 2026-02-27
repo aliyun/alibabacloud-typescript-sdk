@@ -2,24 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeClusterAddonMetadataRequest extends $dara.Model {
+export class UpdateKMSEncryptionRequest extends $dara.Model {
   /**
-   * @remarks
-   * The component version.
-   * 
    * @example
-   * 1.8.4.1
+   * false
    */
-  version?: string;
+  disableEncryption?: boolean;
+  /**
+   * @example
+   * key-abc***
+   */
+  kmsKeyId?: string;
   static names(): { [key: string]: string } {
     return {
-      version: 'version',
+      disableEncryption: 'disable_encryption',
+      kmsKeyId: 'kms_key_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      version: 'string',
+      disableEncryption: 'boolean',
+      kmsKeyId: 'string',
     };
   }
 

@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class KubeletConfigReservedMemory extends $dara.Model {
+  /**
+   * @remarks
+   * The memory limit.
+   * 
+   * @example
+   * {"memory": "1Gi"}
+   */
   limits?: { [key: string]: any };
+  /**
+   * @remarks
+   * The NUMA node identifier.
+   * 
+   * @example
+   * 0
+   */
   numaNode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35,10 +49,20 @@ export class KubeletConfigReservedMemory extends $dara.Model {
 
 export class KubeletConfigTracing extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint of the collector.
+   * 
    * @example
    * localhost:4317
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The number of samples to be collected per million spans.
+   * 
+   * @example
+   * 200000
+   */
   samplingRatePerMillion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -64,121 +88,224 @@ export class KubeletConfigTracing extends $dara.Model {
 }
 
 export class KubeletConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The whitelisted unsafe sysctls.
+   */
   allowedUnsafeSysctls?: string[];
+  /**
+   * @remarks
+   * The list of IP addresses of the DNS servers.
+   */
   clusterDNS?: string[];
   /**
+   * @remarks
+   * The maximum number of log files that can be stored in each container.
+   * 
    * @example
    * 5
    */
   containerLogMaxFiles?: number;
   /**
+   * @remarks
+   * The maximum size that a log file can reach before it is rotated.
+   * 
    * @example
    * 10Mi
    */
   containerLogMaxSize?: string;
   /**
+   * @remarks
+   * The maximum number of concurrent programs that rotate logs
+   * 
    * @example
    * 1
    */
   containerLogMaxWorkers?: number;
   /**
+   * @remarks
+   * The duration at which the container logs are monitored for rotating logs.
+   * 
    * @example
    * 10s
    */
   containerLogMonitorInterval?: string;
   /**
+   * @remarks
+   * Specifies whether to use Completely Fair Scheduler (CFS) quota to enforce pod CPU limits.
+   * 
    * @example
    * true
    */
   cpuCFSQuota?: boolean;
   /**
+   * @remarks
+   * The duration for the CPU CFS quota.
+   * 
    * @example
    * 100ms
    */
   cpuCFSQuotaPeriod?: string;
   /**
+   * @remarks
+   * The CPU management policy used by kubelet.
+   * 
    * @example
    * none
    */
   cpuManagerPolicy?: string;
   /**
+   * @remarks
+   * The maximum number of burst peaks for the event records.
+   * 
    * @example
    * 10
    */
   eventBurst?: number;
   /**
+   * @remarks
+   * Specifies the maximum number of events that can be generated per second.
+   * 
    * @example
    * 5
    */
   eventRecordQPS?: number;
+  /**
+   * @remarks
+   * A set of eviction thresholds that will trigger a pod eviction if met.
+   */
   evictionHard?: { [key: string]: any };
+  /**
+   * @remarks
+   * A set of eviction thresholds that will trigger a pod eviction if met over a corresponding grace period.
+   */
   evictionSoft?: { [key: string]: any };
+  /**
+   * @remarks
+   * A set of grace periods for eviction thresholds.
+   */
   evictionSoftGracePeriod?: { [key: string]: any };
+  /**
+   * @remarks
+   * A feature gate that is used to enable an experimental feature.
+   */
   featureGates?: { [key: string]: any };
   /**
+   * @remarks
+   * The percentage of disk usage after which image garbage collection always runs.
+   * 
    * @example
    * 85
    */
   imageGCHighThresholdPercent?: number;
   /**
+   * @remarks
+   * The percentage of disk usage before which image garbage collection never runs.
+   * 
    * @example
    * 80
    */
   imageGCLowThresholdPercent?: number;
   /**
+   * @remarks
+   * The maximum number of burst requests sent to the API server per second.
+   * 
    * @example
    * 10
    */
   kubeAPIBurst?: number;
   /**
+   * @remarks
+   * The QPS when kubelet communicates with the Kubernetes API server.
+   * 
    * @example
    * 5
    */
   kubeAPIQPS?: number;
+  /**
+   * @remarks
+   * A set of configurations that specify resources reserved for the Kubernetes system.
+   */
   kubeReserved?: { [key: string]: any };
   /**
+   * @remarks
+   * The maximum number of running pods.
+   * 
    * @example
    * 110
    */
   maxPods?: number;
   /**
+   * @remarks
+   * The name of the policy to be used by the memory manager.
+   * 
    * @example
    * none
    */
   memoryManagerPolicy?: string;
   /**
+   * @remarks
+   * The maximum number of processes per pod.
+   * 
    * @example
    * -1
    */
   podPidsLimit?: number;
   /**
+   * @remarks
+   * The read-only port.
+   * 
    * @example
    * 0
    */
   readOnlyPort?: number;
   /**
+   * @remarks
+   * The maximum number of images that can be pulled from bursty image pulls.
+   * 
    * @example
    * 10
    */
   registryBurst?: number;
   /**
+   * @remarks
+   * The maximum queries per second (QPS) of the image repository.
+   * 
    * @example
    * 5
    */
   registryPullQPS?: number;
+  /**
+   * @remarks
+   * A list of configurations that specify memory reservations for non-uniform memory access (NUMA) nodes.
+   */
   reservedMemory?: KubeletConfigReservedMemory[];
   /**
+   * @remarks
+   * Specifies whether to pull one image at a time.
+   * 
    * @example
    * true
    */
   serializeImagePulls?: boolean;
   serverTLSBootstrap?: boolean;
+  /**
+   * @remarks
+   * A set of configurations that specify reserved resources for the system.
+   */
   systemReserved?: { [key: string]: any };
   /**
+   * @remarks
+   * The name of the Topology Manager policy that you want to use.
+   * 
    * @example
    * restricted
    */
   topologyManagerPolicy?: string;
+  /**
+   * @remarks
+   * The versioned configuration information for the Managed Service for OpenTelemetry client.
+   */
   tracing?: KubeletConfigTracing;
   static names(): { [key: string]: string } {
     return {
