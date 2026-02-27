@@ -9,6 +9,7 @@ export { DescribeInstancesRequestTag } from './DescribeInstancesRequest';
 export { DescribeInstancesResponseBodyDataTags } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyDataVSwitches } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyData } from './DescribeInstancesResponseBody';
+export { DescribeNodeGroupsRequestTags } from './DescribeNodeGroupsRequest';
 export { DescribeNodeGroupsResponseBodyDataNodeInfo } from './DescribeNodeGroupsResponseBody';
 export { DescribeNodeGroupsResponseBodyDataTags } from './DescribeNodeGroupsResponseBody';
 export { DescribeNodeGroupsResponseBodyData } from './DescribeNodeGroupsResponseBody';

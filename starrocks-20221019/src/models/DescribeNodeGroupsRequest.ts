@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeNodeGroupsRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNodeGroupsRequest extends $dara.Model {
   /**
    * @example
@@ -39,6 +65,7 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  tags?: DescribeNodeGroupsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -49,6 +76,7 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
       nodeGroupIds: 'nodeGroupIds',
       nodeGroupName: 'nodeGroupName',
       status: 'status',
+      tags: 'tags',
     };
   }
 
@@ -62,12 +90,16 @@ export class DescribeNodeGroupsRequest extends $dara.Model {
       nodeGroupIds: { 'type': 'array', 'itemType': 'string' },
       nodeGroupName: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeNodeGroupsRequestTags },
     };
   }
 
   validate() {
     if(Array.isArray(this.nodeGroupIds)) {
       $dara.Model.validateArray(this.nodeGroupIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

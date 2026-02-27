@@ -511,6 +511,10 @@ export default class Client extends OpenApi {
       body["status"] = request.status;
     }
 
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
