@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourcesResponseBodyResourcesResource extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the resource was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-uPJpP****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the resource.
-   * 
-   * @example
-   * i-23v38****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * instance
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud service.
-   * 
-   * @example
-   * ecs
-   */
   service?: string;
   static names(): { [key: string]: string } {
     return {
@@ -133,10 +91,6 @@ export class ListResourcesResponseBody extends $dara.Model {
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the resources.
-   */
   resources?: ListResourcesResponseBodyResources;
   /**
    * @remarks

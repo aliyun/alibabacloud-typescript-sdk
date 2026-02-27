@@ -3,75 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListControlPoliciesResponseBodyControlPoliciesControlPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The number of times that the access control policy is referenced.
-   * 
-   * @example
-   * 44
-   */
   attachmentCount?: string;
-  /**
-   * @remarks
-   * The time when the access control policy was created.
-   * 
-   * @example
-   * 2020-08-05T06:32:24Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The description of the access control policy.
-   * 
-   * @example
-   * System access control policy available for all operations on the cloud
-   */
   description?: string;
-  /**
-   * @remarks
-   * The effective scope of the access control policy. Valid values:
-   * 
-   * - All: The access control policy is in effect for Alibaba Cloud accounts, RAM users, and RAM roles.
-   * - RAM: The access control policy is in effect only for RAM users and RAM roles.
-   * 
-   * @example
-   * All
-   */
   effectScope?: string;
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * @example
-   * cp-FullAliyunAccess
-   */
   policyId?: string;
-  /**
-   * @remarks
-   * The name of the access control policy.
-   * 
-   * @example
-   * FullAliyunAccess
-   */
   policyName?: string;
-  /**
-   * @remarks
-   * The type of the access control policy. Valid values:
-   * 
-   * - System: system access control policy
-   * - Custom: custom access control policy
-   * 
-   * @example
-   * System
-   */
   policyType?: string;
-  /**
-   * @remarks
-   * The time when the access control policy was updated.
-   * 
-   * @example
-   * 2020-08-05T06:32:24Z
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,10 +73,6 @@ export class ListControlPoliciesResponseBodyControlPolicies extends $dara.Model 
 }
 
 export class ListControlPoliciesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The access control policies.
-   */
   controlPolicies?: ListControlPoliciesResponseBodyControlPolicies;
   /**
    * @remarks

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAccountsForParentResponseBodyAccountsAccountTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * A tag key.
-   * 
-   * @example
-   * tag_key
-   */
   key?: string;
-  /**
-   * @remarks
-   * A tag value.
-   * 
-   * @example
-   * tag_value
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,96 +55,15 @@ export class ListAccountsForParentResponseBodyAccountsAccountTags extends $dara.
 }
 
 export class ListAccountsForParentResponseBodyAccountsAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the member.
-   * 
-   * @example
-   * 184311716100****
-   */
   accountId?: string;
-  /**
-   * @remarks
-   * The display name of the member.
-   * 
-   * @example
-   * admin
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the folder.
-   * 
-   * @example
-   * fd-bVaRIG****
-   */
   folderId?: string;
-  /**
-   * @remarks
-   * The way in which the member joins the resource directory.
-   * 
-   * *   invited: The member is invited to join the resource directory.
-   * *   created: The member is directly created in the resource directory.
-   * 
-   * @example
-   * created
-   */
   joinMethod?: string;
-  /**
-   * @remarks
-   * The time when the member joined the resource directory. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   joinTime?: string;
-  /**
-   * @remarks
-   * The time when the member was modified. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   modifyTime?: string;
-  /**
-   * @remarks
-   * The ID of the resource directory.
-   * 
-   * @example
-   * rd-k4****
-   */
   resourceDirectoryId?: string;
-  /**
-   * @remarks
-   * The status of the member. Valid values:
-   * 
-   * *   CreateSuccess: The member is created.
-   * *   PromoteVerifying: The upgrade of the member is being confirmed.
-   * *   PromoteFailed: The upgrade of the member fails.
-   * *   PromoteExpired: The upgrade of the member expires.
-   * *   PromoteCancelled: The upgrade of the member is canceled.
-   * *   PromoteSuccess: The member is upgraded.
-   * *   InviteSuccess: The member accepts the invitation.
-   * 
-   * @example
-   * CreateSuccess
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tags that are added to the member.
-   */
   tags?: ListAccountsForParentResponseBodyAccountsAccountTags;
-  /**
-   * @remarks
-   * The type of the member.
-   * 
-   * *   CloudAccount: cloud account
-   * *   ResourceAccount: resource account
-   * 
-   * @example
-   * ResourceAccount
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -229,10 +134,6 @@ export class ListAccountsForParentResponseBodyAccounts extends $dara.Model {
 }
 
 export class ListAccountsForParentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the members.
-   */
   accounts?: ListAccountsForParentResponseBodyAccounts;
   /**
    * @remarks

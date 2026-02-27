@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAncestorsResponseBodyFoldersFolder extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the folder was created.
-   * 
-   * @example
-   * 2019-01-18T10:03:35.217Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The ID of the folder.
-   * 
-   * @example
-   * r-b1****
-   */
   folderId?: string;
-  /**
-   * @remarks
-   * The name of the folder.
-   * 
-   * @example
-   * root
-   */
   folderName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class ListAncestorsResponseBodyFolders extends $dara.Model {
 }
 
 export class ListAncestorsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the folders.
-   */
   folders?: ListAncestorsResponseBodyFolders;
   /**
    * @remarks

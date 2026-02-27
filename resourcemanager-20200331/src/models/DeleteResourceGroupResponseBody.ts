@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteResourceGroupResponseBodyResourceGroupRegionStatusesRegionStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-qingdao
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The status of the resource group. Valid values:
-   * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
-   * *   Deleting: The resource group is being deleted.
-   * 
-   * @example
-   * PendingDelete
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,10 +95,6 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * my-project
    */
   name?: string;
-  /**
-   * @remarks
-   * The status of the resource group in all regions.
-   */
   regionStatuses?: DeleteResourceGroupResponseBodyResourceGroupRegionStatuses;
   /**
    * @remarks

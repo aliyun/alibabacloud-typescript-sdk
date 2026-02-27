@@ -3,102 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListHandshakesForAccountResponseBodyHandshakesHandshake extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the invitation was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-08-10T09:55:41Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The time when the invitation expires. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-08-24T09:55:41Z
-   */
   expireTime?: string;
-  /**
-   * @remarks
-   * The ID of the invitation.
-   * 
-   * @example
-   * h-4N57QZzCTtES****
-   */
   handshakeId?: string;
-  /**
-   * @remarks
-   * The ID of the management account of the resource directory.
-   * 
-   * @example
-   * 172841235500****
-   */
   masterAccountId?: string;
-  /**
-   * @remarks
-   * The name of the management account of the resource directory.
-   * 
-   * @example
-   * CompanyA
-   */
   masterAccountName?: string;
-  /**
-   * @remarks
-   * The time when the invitation was modified. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-08-10T09:55:41Z
-   */
   modifyTime?: string;
-  /**
-   * @remarks
-   * The comment on the invitation.
-   * 
-   * @example
-   * Welcome
-   */
   note?: string;
-  /**
-   * @remarks
-   * The ID of the resource directory.
-   * 
-   * @example
-   * rd-abcdef****
-   */
   resourceDirectoryId?: string;
-  /**
-   * @remarks
-   * The status of the invitation. Valid values:
-   * 
-   * *   Pending: The invitation is waiting for confirmation.
-   * *   Accepted: The invitation is accepted.
-   * *   Cancelled: The invitation is canceled.
-   * *   Declined: The invitation is rejected.
-   * *   Expired: The invitation expires.
-   * 
-   * @example
-   * Pending
-   */
   status?: string;
-  /**
-   * @remarks
-   * The ID or logon email address of the invited Alibaba Cloud account.
-   * 
-   * @example
-   * someone@example.com
-   */
   targetEntity?: string;
-  /**
-   * @remarks
-   * The type of the invited Alibaba Cloud account. Valid values:
-   * 
-   * *   Account: indicates the ID of the account.
-   * *   Email: indicates the logon email address of the account.
-   * 
-   * @example
-   * Email
-   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -168,10 +82,6 @@ export class ListHandshakesForAccountResponseBodyHandshakes extends $dara.Model 
 }
 
 export class ListHandshakesForAccountResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the invitations.
-   */
   handshakes?: ListHandshakesForAccountResponseBodyHandshakes;
   /**
    * @remarks

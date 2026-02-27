@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the policy version was created.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * Indicates whether the policy version is the default version.
-   * 
-   * @example
-   * false
-   */
   isDefaultVersion?: boolean;
-  /**
-   * @remarks
-   * The ID of the policy version.
-   * 
-   * @example
-   * v3
-   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class ListPolicyVersionsResponseBodyPolicyVersions extends $dara.Model {
 }
 
 export class ListPolicyVersionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the policy version.
-   */
   policyVersions?: ListPolicyVersionsResponseBodyPolicyVersions;
   /**
    * @remarks

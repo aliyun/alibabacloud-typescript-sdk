@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabledServicePrincipal extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the trusted service was enabled.
-   * 
-   * @example
-   * 2019-02-18T15:32:10.473Z
-   */
   enableTime?: string;
-  /**
-   * @remarks
-   * The identification of the trusted service.
-   * 
-   * @example
-   * config.aliyuncs.com
-   */
   servicePrincipal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipals extend
 }
 
 export class ListTrustedServiceStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The trusted services that are enabled.
-   */
   enabledServicePrincipals?: ListTrustedServiceStatusResponseBodyEnabledServicePrincipals;
   /**
    * @remarks

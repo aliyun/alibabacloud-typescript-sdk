@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResourceGroupResponseBodyResourceGroupRegionStatusesRegionStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-qingdao
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The status of the resource group. Valid values:
-   * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
-   * *   Deleting: The resource group is being deleted.
-   * 
-   * @example
-   * OK
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,21 +55,7 @@ export class GetResourceGroupResponseBodyResourceGroupRegionStatuses extends $da
 }
 
 export class GetResourceGroupResponseBodyResourceGroupTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * k1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * v1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,10 +147,6 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * my-project
    */
   name?: string;
-  /**
-   * @remarks
-   * The status of the resource group in all regions.
-   */
   regionStatuses?: GetResourceGroupResponseBodyResourceGroupRegionStatuses;
   /**
    * @remarks
@@ -197,10 +160,6 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * OK
    */
   status?: string;
-  /**
-   * @remarks
-   * The tags that are added to the resource group.
-   */
   tags?: GetResourceGroupResponseBodyResourceGroupTags;
   static names(): { [key: string]: string } {
     return {

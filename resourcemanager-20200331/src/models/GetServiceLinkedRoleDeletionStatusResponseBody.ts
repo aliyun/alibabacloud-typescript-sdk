@@ -29,18 +29,7 @@ export class GetServiceLinkedRoleDeletionStatusResponseBodyReasonRoleUsagesRoleU
 }
 
 export class GetServiceLinkedRoleDeletionStatusResponseBodyReasonRoleUsagesRoleUsage extends $dara.Model {
-  /**
-   * @remarks
-   * The region.
-   * 
-   * @example
-   * global
-   */
   region?: string;
-  /**
-   * @remarks
-   * The information about resources.
-   */
   resources?: GetServiceLinkedRoleDeletionStatusResponseBodyReasonRoleUsagesRoleUsageResources;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +92,6 @@ export class GetServiceLinkedRoleDeletionStatusResponseBodyReason extends $dara.
    * Service-Linked Role acs:ram::196813227629****:role/aliyunserviceroleforhdr cannot be deleted as it is in use by hdr.aliyuncs.com.
    */
   message?: string;
-  /**
-   * @remarks
-   * The information about the resources that the service-linked role can use.
-   */
   roleUsages?: GetServiceLinkedRoleDeletionStatusResponseBodyReasonRoleUsages;
   static names(): { [key: string]: string } {
     return {

@@ -3,41 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTargetAttachment extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the control policy was attached to the object.
-   * 
-   * @example
-   * 2021-03-19T02:56:24Z
-   */
   attachDate?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * @example
-   * fd-ZDNPiT****
-   */
   targetId?: string;
-  /**
-   * @remarks
-   * The name of the object.
-   * 
-   * @example
-   * Dev_Department
-   */
   targetName?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   Root: Root folder
-   * *   Folder: child folder of the Root folder
-   * *   Account: member account
-   * 
-   * @example
-   * Folder
-   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -117,10 +85,6 @@ export class ListTargetAttachmentsForControlPolicyResponseBody extends $dara.Mod
    * B32BD3D6-1089-41F3-8E70-E0079BC7D760
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of objects to which the control policy is attached.
-   */
   targetAttachments?: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments;
   /**
    * @remarks

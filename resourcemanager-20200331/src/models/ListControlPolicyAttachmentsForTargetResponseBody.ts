@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachmentsControlPolicyAttachment extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the access control policy was attached.
-   * 
-   * @example
-   * 2021-03-19T02:56:24Z
-   */
   attachDate?: string;
-  /**
-   * @remarks
-   * The description of the access control policy.
-   * 
-   * @example
-   * ExampleControlPolicy
-   */
   description?: string;
-  /**
-   * @remarks
-   * The effective scope of the access control policy. Valid values:
-   * 
-   * *   All: The access control policy is in effect for Alibaba Cloud accounts, RAM users, and RAM roles.
-   * *   RAM: The access control policy is in effect only for RAM users and RAM roles.
-   * 
-   * @example
-   * RAM
-   */
   effectScope?: string;
-  /**
-   * @remarks
-   * The ID of the access control policy.
-   * 
-   * @example
-   * cp-jExXAqIYkwHN****
-   */
   policyId?: string;
-  /**
-   * @remarks
-   * The name of the access control policy.
-   * 
-   * @example
-   * ExampleControlPolicy
-   */
   policyName?: string;
-  /**
-   * @remarks
-   * The type of the access control policy. Valid values:
-   * 
-   * *   System: system access control policy
-   * *   Custom: custom access control policy
-   * 
-   * @example
-   * Custom
-   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,10 +67,6 @@ export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttac
 }
 
 export class ListControlPolicyAttachmentsForTargetResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The attached access control policies.
-   */
   controlPolicyAttachments?: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments;
   /**
    * @remarks

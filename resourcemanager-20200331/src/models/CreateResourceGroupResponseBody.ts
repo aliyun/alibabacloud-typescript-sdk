@@ -3,7 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateResourceGroupResponseBodyResourceGroupRegionStatusesRegionStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-qingdao
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The status of the resource group. Valid values:
+   * 
+   * *   Creating: The resource group is being created.
+   * *   OK: The resource group is created.
+   * 
+   * @example
+   * Creating
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

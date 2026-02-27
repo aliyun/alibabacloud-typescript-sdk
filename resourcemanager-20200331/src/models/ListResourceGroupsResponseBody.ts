@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourceGroupsResponseBodyResourceGroupsResourceGroupTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * k1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * v1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,62 +55,12 @@ export class ListResourceGroupsResponseBodyResourceGroupsResourceGroupTags exten
 }
 
 export class ListResourceGroupsResponseBodyResourceGroupsResourceGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the resource group belongs.
-   * 
-   * @example
-   * 123456789****
-   */
   accountId?: string;
-  /**
-   * @remarks
-   * The time when the resource group was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The display name of the resource group.
-   * 
-   * @example
-   * my-project
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-9gLOoK****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The identifier of the resource group.
-   * 
-   * @example
-   * my-project
-   */
   name?: string;
-  /**
-   * @remarks
-   * The status of the resource group. Valid values:
-   * 
-   * *   Creating: The resource group is being created.
-   * *   OK: The resource group is created.
-   * *   PendingDelete: The resource group is waiting to be deleted.
-   * 
-   * @example
-   * OK
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tags that are added to the resource group.
-   */
   tags?: ListResourceGroupsResponseBodyResourceGroupsResourceGroupTags;
   static names(): { [key: string]: string } {
     return {
@@ -213,10 +149,6 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
    * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information of the resource groups.
-   */
   resourceGroups?: ListResourceGroupsResponseBodyResourceGroups;
   /**
    * @remarks

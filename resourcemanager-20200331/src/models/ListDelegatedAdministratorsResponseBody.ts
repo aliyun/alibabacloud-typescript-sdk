@@ -3,48 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDelegatedAdministratorsResponseBodyAccountsAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the member.
-   * 
-   * @example
-   * 138660628348****
-   */
   accountId?: string;
-  /**
-   * @remarks
-   * The time when the member was specified as a delegated administrator account.
-   * 
-   * @example
-   * 1616652684164
-   */
   delegationEnabledTime?: string;
-  /**
-   * @remarks
-   * The display name of the member.
-   * 
-   * @example
-   * abc
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The way in which the member joins the resource directory. Valid values:
-   * 
-   * *   invited: The member is invited to join the resource directory.
-   * *   created: The member is directly created in the resource directory.
-   * 
-   * @example
-   * created
-   */
   joinMethod?: string;
-  /**
-   * @remarks
-   * The identifier of the trusted service.
-   * 
-   * @example
-   * cloudfw.aliyuncs.com
-   */
   servicePrincipal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -102,10 +64,6 @@ export class ListDelegatedAdministratorsResponseBodyAccounts extends $dara.Model
 }
 
 export class ListDelegatedAdministratorsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the delegated administrator accounts.
-   */
   accounts?: ListDelegatedAdministratorsResponseBodyAccounts;
   /**
    * @remarks

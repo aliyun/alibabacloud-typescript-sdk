@@ -3,68 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicyAttachmentsResponseBodyPolicyAttachmentsPolicyAttachment extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the permission policy is attached.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   attachDate?: string;
-  /**
-   * @remarks
-   * The description of the permission policy.
-   * 
-   * @example
-   * The description of the policy.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the permission policy.
-   * 
-   * @example
-   * AdministratorAccess
-   */
   policyName?: string;
-  /**
-   * @remarks
-   * The type of the permission policy. Valid values:
-   * 
-   * *   Custom
-   * *   System
-   * 
-   * @example
-   * System
-   */
   policyType?: string;
-  /**
-   * @remarks
-   * The name of the object to which the permission policy is attached.
-   * 
-   * @example
-   * alice@demo.onaliyun.com
-   */
   principalName?: string;
-  /**
-   * @remarks
-   * The type of the object to which the permission policy is attached. Valid values:
-   * 
-   * *   IMSUser: RAM user
-   * *   IMSGroup: RAM user group
-   * *   ServiceRole: RAM role
-   * 
-   * @example
-   * IMSUser
-   */
   principalType?: string;
-  /**
-   * @remarks
-   * The ID of the resource group or the ID of the Alibaba Cloud account to which the resource group belongs.
-   * 
-   * @example
-   * rg-9gLOoK****
-   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -142,10 +86,6 @@ export class ListPolicyAttachmentsResponseBody extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The information about the permission policies.
-   */
   policyAttachments?: ListPolicyAttachmentsResponseBodyPolicyAttachments;
   /**
    * @remarks

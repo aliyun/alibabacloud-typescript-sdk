@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the member was specified as a delegated administrator account of the trusted service.
-   * 
-   * @example
-   * 1616652684164
-   */
   delegationEnabledTime?: string;
-  /**
-   * @remarks
-   * The identification of the trusted service.
-   * 
-   * @example
-   * cloudfw.aliyuncs.com
-   */
   servicePrincipal?: string;
-  /**
-   * @remarks
-   * The status of the trusted service. Valid values:
-   * 
-   * *   ENABLED: enabled
-   * *   DISABLED: disabled
-   * 
-   * @example
-   * ENABLED
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,12 +58,6 @@ export class ListDelegatedServicesForAccountResponseBodyDelegatedServices extend
 }
 
 export class ListDelegatedServicesForAccountResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The trusted services.
-   * 
-   * >  If the value of this parameter is empty, the member is not specified as a delegated administrator account.
-   */
   delegatedServices?: ListDelegatedServicesForAccountResponseBodyDelegatedServices;
   /**
    * @remarks

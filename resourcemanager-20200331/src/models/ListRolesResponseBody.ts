@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRolesResponseBodyRolesRoleLatestDeletionTask extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the deletion task was created.
-   * 
-   * @example
-   * 2018-10-23T12:33:18Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The ID of the deletion task.
-   * 
-   * @example
-   * ECSAdmin/cc61514b-26eb-4453-ab53-b142eb70****
-   */
   deletionTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,82 +29,15 @@ export class ListRolesResponseBodyRolesRoleLatestDeletionTask extends $dara.Mode
 }
 
 export class ListRolesResponseBodyRolesRole extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role.
-   * 
-   * @example
-   * acs:ram::123456789012****:role/ECSAdmin
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The time when the role was created.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The description of the role.
-   * 
-   * @example
-   * ECS administrator
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether the role is a service-linked role.
-   * 
-   * @example
-   * true
-   */
   isServiceLinkedRole?: boolean;
-  /**
-   * @remarks
-   * The information of the most recent deletion task.
-   */
   latestDeletionTask?: ListRolesResponseBodyRolesRoleLatestDeletionTask;
-  /**
-   * @remarks
-   * The maximum session duration of the role.
-   * 
-   * @example
-   * 3600
-   */
   maxSessionDuration?: number;
-  /**
-   * @remarks
-   * The ID of the role.
-   * 
-   * @example
-   * 90123456789****
-   */
   roleId?: string;
-  /**
-   * @remarks
-   * The name of the role.
-   * 
-   * @example
-   * ECSAdmin
-   */
   roleName?: string;
-  /**
-   * @remarks
-   * The name of the role after authorization.
-   * 
-   * @example
-   * ECSAdmin@role.123456.onaliyunservice.com
-   */
   rolePrincipalName?: string;
-  /**
-   * @remarks
-   * The time when the role was updated.
-   * 
-   * @example
-   * 2016-01-23T12:33:18Z
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,10 +132,6 @@ export class ListRolesResponseBody extends $dara.Model {
    * 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the roles.
-   */
   roles?: ListRolesResponseBodyRoles;
   /**
    * @remarks

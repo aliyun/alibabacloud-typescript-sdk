@@ -3,64 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPoliciesResponseBodyPoliciesPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The number of references to the permission policy.
-   * 
-   * @example
-   * 1
-   */
   attachmentCount?: number;
-  /**
-   * @remarks
-   * The time when the permission policy was created.
-   * 
-   * @example
-   * 2015-01-23T12:33:18Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The default version of the permission policy.
-   * 
-   * @example
-   * v1
-   */
   defaultVersion?: string;
-  /**
-   * @remarks
-   * The description of the permission policy.
-   * 
-   * @example
-   * OSS administrator
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the permission policy.
-   * 
-   * @example
-   * OSS-Administrator
-   */
   policyName?: string;
-  /**
-   * @remarks
-   * The type of the permission policy. Valid values:
-   * 
-   * *   Custom
-   * *   System
-   * 
-   * @example
-   * Custom
-   */
   policyType?: string;
-  /**
-   * @remarks
-   * The time when the permission policy was updated.
-   * 
-   * @example
-   * 2016-02-11T18:39:12Z
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -138,10 +86,6 @@ export class ListPoliciesResponseBody extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The information about the permission policies.
-   */
   policies?: ListPoliciesResponseBodyPolicies;
   /**
    * @remarks

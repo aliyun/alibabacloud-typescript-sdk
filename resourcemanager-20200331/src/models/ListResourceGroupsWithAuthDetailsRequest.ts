@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourceGroupsWithAuthDetailsRequestResourceTypes extends $dara.Model {
   /**
+   * @remarks
+   * The resource type.
+   * 
+   * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * 
    * @example
    * instance
    */
   resourceTypeCode?: string;
   /**
+   * @remarks
+   * The service code.
+   * 
+   * You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+   * 
    * @example
    * ecs
    */
@@ -38,11 +48,17 @@ export class ListResourceGroupsWithAuthDetailsRequestResourceTypes extends $dara
 
 export class ListResourceGroupsWithAuthDetailsRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * k1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * v1
    */
@@ -72,42 +88,88 @@ export class ListResourceGroupsWithAuthDetailsRequestTag extends $dara.Model {
 
 export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The display name of the resource group. This parameter specifies a filter condition for the query. Fuzzy search is supported.
+   * 
+   * The display name can be a maximum of 50 characters in length.
+   * 
    * @example
    * TestRG-BVT1
    */
   displayName?: string;
   /**
+   * @remarks
+   * Specifies whether to return the information of tags. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
+   * >  If you set a tag filter condition, the tag information is returned regardless of the `IncludeTags` value.
+   * 
    * @example
    * true
    */
   includeTags?: boolean;
   /**
+   * @remarks
+   * The identifier of the resource group. This parameter specifies a filter condition for the query. Fuzzy search is supported.
+   * 
+   * The identifier can be a maximum of 50 characters in length and can contain letters, digits, and hyphens (-).
+   * 
    * @example
    * prod-rg
    */
   name?: string;
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The IDs of the resource groups that you want to query.
+   */
   resourceGroupIds?: string[];
   /**
+   * @remarks
+   * The ID of the region where the resource resides.
+   * 
    * @example
    * cn-shenzhen
    */
   resourceRegionId?: string;
+  /**
+   * @remarks
+   * The resource types.
+   */
   resourceTypes?: ListResourceGroupsWithAuthDetailsRequestResourceTypes[];
   /**
+   * @remarks
+   * The status of the resource group. This parameter specifies a filter condition for the query. Valid values:
+   * 
+   * *   Creating: The resource group is being created.
+   * *   OK: The resource group is created.
+   * *   PendingDelete: The resource group is waiting to be deleted.
+   * 
    * @example
    * OK
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListResourceGroupsWithAuthDetailsRequestTag[];
   static names(): { [key: string]: string } {
     return {
