@@ -34,6 +34,7 @@ export class SetInstanceRecordConfigRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       enabled: 'Enabled',
@@ -41,6 +42,7 @@ export class SetInstanceRecordConfigRequest extends $dara.Model {
       instanceId: 'InstanceId',
       recordStorageTarget: 'RecordStorageTarget',
       regionId: 'RegionId',
+      resourceRegionId: 'ResourceRegionId',
     };
   }
 
@@ -51,6 +53,7 @@ export class SetInstanceRecordConfigRequest extends $dara.Model {
       instanceId: 'string',
       recordStorageTarget: 'string',
       regionId: 'string',
+      resourceRegionId: 'string',
     };
   }
 

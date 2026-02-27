@@ -263,6 +263,10 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceRegionId)) {
+      body["ResourceRegionId"] = request.resourceRegionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
