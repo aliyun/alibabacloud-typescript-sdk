@@ -411,6 +411,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
    */
   instances?: number;
   isStateful?: boolean;
+  labels?: { [key: string]: string };
   /**
    * @remarks
    * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
@@ -533,6 +534,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       imageUrl: 'ImageUrl',
       instances: 'Instances',
       isStateful: 'IsStateful',
+      labels: 'Labels',
       mem: 'Mem',
       mseEnabled: 'MseEnabled',
       mseNamespaceId: 'MseNamespaceId',
@@ -564,6 +566,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       imageUrl: 'string',
       instances: 'number',
       isStateful: 'boolean',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       mem: 'number',
       mseEnabled: 'boolean',
       mseNamespaceId: 'string',
@@ -583,6 +586,9 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   validate() {
     if(Array.isArray(this.children)) {
       $dara.Model.validateArray(this.children);
+    }
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
