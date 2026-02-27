@@ -286,6 +286,10 @@ export { QueryAuditTaskResponseBodyDataResponsePayloadUsage } from './QueryAudit
 export { QueryAuditTaskResponseBodyDataResponsePayload } from './QueryAuditTaskResponseBody';
 export { QueryAuditTaskResponseBodyDataResponse } from './QueryAuditTaskResponseBody';
 export { QueryAuditTaskResponseBodyData } from './QueryAuditTaskResponseBody';
+export { QueryVideoAuditResultResponseBodyDataImageUrls } from './QueryVideoAuditResultResponseBody';
+export { QueryVideoAuditResultResponseBodyDataResultsResult } from './QueryVideoAuditResultResponseBody';
+export { QueryVideoAuditResultResponseBodyDataResults } from './QueryVideoAuditResultResponseBody';
+export { QueryVideoAuditResultResponseBodyData } from './QueryVideoAuditResultResponseBody';
 export { RunAbbreviationContentResponseBodyHeader } from './RunAbbreviationContentResponseBody';
 export { RunAbbreviationContentResponseBodyPayloadOutput } from './RunAbbreviationContentResponseBody';
 export { RunAbbreviationContentResponseBodyPayloadUsage } from './RunAbbreviationContentResponseBody';
@@ -612,6 +616,7 @@ export { SubmitSmartClipTaskResponseBodyData } from './SubmitSmartClipTaskRespon
 export { SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments } from './SubmitTopicSelectionPerspectiveAnalysisTaskRequest';
 export { SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments } from './SubmitTopicSelectionPerspectiveAnalysisTaskRequest';
 export { SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData } from './SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody';
+export { SubmitVideoAuditResponseBodyData } from './SubmitVideoAuditResponseBody';
 export { UpdateDatasetRequestDatasetConfigSearchSourceConfig } from './UpdateDatasetRequest';
 export { UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders } from './UpdateDatasetRequest';
 export { UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams } from './UpdateDatasetRequest';
@@ -1083,6 +1088,9 @@ export { QueryAsyncTaskResponse } from './QueryAsyncTaskResponse';
 export { QueryAuditTaskRequest } from './QueryAuditTaskRequest';
 export { QueryAuditTaskResponseBody } from './QueryAuditTaskResponseBody';
 export { QueryAuditTaskResponse } from './QueryAuditTaskResponse';
+export { QueryVideoAuditResultRequest } from './QueryVideoAuditResultRequest';
+export { QueryVideoAuditResultResponseBody } from './QueryVideoAuditResultResponseBody';
+export { QueryVideoAuditResultResponse } from './QueryVideoAuditResultResponse';
 export { RunAbbreviationContentRequest } from './RunAbbreviationContentRequest';
 export { RunAbbreviationContentResponseBody } from './RunAbbreviationContentResponseBody';
 export { RunAbbreviationContentResponse } from './RunAbbreviationContentResponse';
@@ -1287,6 +1295,9 @@ export { SubmitTopicSelectionPerspectiveAnalysisTaskRequest } from './SubmitTopi
 export { SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest } from './SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest';
 export { SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody } from './SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody';
 export { SubmitTopicSelectionPerspectiveAnalysisTaskResponse } from './SubmitTopicSelectionPerspectiveAnalysisTaskResponse';
+export { SubmitVideoAuditRequest } from './SubmitVideoAuditRequest';
+export { SubmitVideoAuditResponseBody } from './SubmitVideoAuditResponseBody';
+export { SubmitVideoAuditResponse } from './SubmitVideoAuditResponse';
 export { UpdateCustomTextRequest } from './UpdateCustomTextRequest';
 export { UpdateCustomTextResponseBody } from './UpdateCustomTextResponseBody';
 export { UpdateCustomTextResponse } from './UpdateCustomTextResponse';

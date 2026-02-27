@@ -7868,6 +7868,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询视频审校结果
+   * 
+   * @remarks
+   * 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+   * 
+   * @param request - QueryVideoAuditResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryVideoAuditResultResponse
+   */
+  async queryVideoAuditResultWithOptions(request: $_model.QueryVideoAuditResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVideoAuditResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryVideoAuditResult",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryVideoAuditResultResponse>(await this.callApi(params, req, runtime), new $_model.QueryVideoAuditResultResponse({}));
+  }
+
+  /**
+   * 查询视频审校结果
+   * 
+   * @remarks
+   * 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+   * 
+   * @param request - QueryVideoAuditResultRequest
+   * @returns QueryVideoAuditResultResponse
+   */
+  async queryVideoAuditResult(request: $_model.QueryVideoAuditResultRequest): Promise<$_model.QueryVideoAuditResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryVideoAuditResultWithOptions(request, runtime);
+  }
+
+  /**
    * 内容缩写
    * 
    * @param request - RunAbbreviationContentRequest
@@ -14410,6 +14462,70 @@ export default class Client extends OpenApi {
   async submitTopicSelectionPerspectiveAnalysisTask(request: $_model.SubmitTopicSelectionPerspectiveAnalysisTaskRequest): Promise<$_model.SubmitTopicSelectionPerspectiveAnalysisTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交视频审校
+   * 
+   * @remarks
+   * 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+   * 
+   * @param request - SubmitVideoAuditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoAuditResponse
+   */
+  async submitVideoAuditWithOptions(request: $_model.SubmitVideoAuditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoAuditResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ext)) {
+      body["Ext"] = request.ext;
+    }
+
+    if (!$dara.isNull(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.snapshotInterval)) {
+      body["SnapshotInterval"] = request.snapshotInterval;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoAudit",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoAuditResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoAuditResponse({}));
+  }
+
+  /**
+   * 提交视频审校
+   * 
+   * @remarks
+   * 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+   * 
+   * @param request - SubmitVideoAuditRequest
+   * @returns SubmitVideoAuditResponse
+   */
+  async submitVideoAudit(request: $_model.SubmitVideoAuditRequest): Promise<$_model.SubmitVideoAuditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoAuditWithOptions(request, runtime);
   }
 
   /**
