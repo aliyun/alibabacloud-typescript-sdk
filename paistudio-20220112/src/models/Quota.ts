@@ -13,6 +13,7 @@ export class Quota extends $dara.Model {
   allocateStrategy?: string;
   creatorId?: string;
   description?: string;
+  GPUType?: string;
   gmtCreatedTime?: string;
   gmtModifiedTime?: string;
   hyperZones?: string[];
@@ -47,6 +48,7 @@ export class Quota extends $dara.Model {
       allocateStrategy: 'AllocateStrategy',
       creatorId: 'CreatorId',
       description: 'Description',
+      GPUType: 'GPUType',
       gmtCreatedTime: 'GmtCreatedTime',
       gmtModifiedTime: 'GmtModifiedTime',
       hyperZones: 'HyperZones',
@@ -76,6 +78,7 @@ export class Quota extends $dara.Model {
       allocateStrategy: 'string',
       creatorId: 'string',
       description: 'string',
+      GPUType: 'string',
       gmtCreatedTime: 'string',
       gmtModifiedTime: 'string',
       hyperZones: { 'type': 'array', 'itemType': 'string' },

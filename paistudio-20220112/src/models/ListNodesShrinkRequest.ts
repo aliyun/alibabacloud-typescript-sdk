@@ -10,6 +10,7 @@ export class ListNodesShrinkRequest extends $dara.Model {
   acceleratorType?: string;
   availabilityZone?: string;
   cliqueID?: string;
+  diskPL?: string;
   /**
    * @example
    * quotamtl37ge7gkvdz
@@ -72,6 +73,7 @@ export class ListNodesShrinkRequest extends $dara.Model {
    */
   pageSize?: number;
   paymentType?: string;
+  podNum?: number;
   /**
    * @example
    * quotamtl37ge7gkvdz
@@ -83,6 +85,7 @@ export class ListNodesShrinkRequest extends $dara.Model {
    * rg69rj0leslwdnbe
    */
   resourceGroupIds?: string;
+  resourceGroupName?: string;
   /**
    * @example
    * GmtCreateTime
@@ -93,12 +96,14 @@ export class ListNodesShrinkRequest extends $dara.Model {
    * false
    */
   verbose?: boolean;
+  workloadNum?: number;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
       availabilityZone: 'AvailabilityZone',
       cliqueID: 'CliqueID',
+      diskPL: 'DiskPL',
       filterByQuotaId: 'FilterByQuotaId',
       filterByResourceGroupIds: 'FilterByResourceGroupIds',
       GPUType: 'GPUType',
@@ -117,11 +122,14 @@ export class ListNodesShrinkRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       paymentType: 'PaymentType',
+      podNum: 'PodNum',
       quotaId: 'QuotaId',
       reasonCodes: 'ReasonCodes',
       resourceGroupIds: 'ResourceGroupIds',
+      resourceGroupName: 'ResourceGroupName',
       sortBy: 'SortBy',
       verbose: 'Verbose',
+      workloadNum: 'WorkloadNum',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -131,6 +139,7 @@ export class ListNodesShrinkRequest extends $dara.Model {
       acceleratorType: 'string',
       availabilityZone: 'string',
       cliqueID: 'string',
+      diskPL: 'string',
       filterByQuotaId: 'string',
       filterByResourceGroupIds: 'string',
       GPUType: 'string',
@@ -149,11 +158,14 @@ export class ListNodesShrinkRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       paymentType: 'string',
+      podNum: 'number',
       quotaId: 'string',
       reasonCodes: 'string',
       resourceGroupIds: 'string',
+      resourceGroupName: 'string',
       sortBy: 'string',
       verbose: 'boolean',
+      workloadNum: 'number',
       workspaceId: 'string',
     };
   }

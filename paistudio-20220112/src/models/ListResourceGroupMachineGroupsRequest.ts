@@ -8,6 +8,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
    * 1612285282502326
    */
   creatorID?: string;
+  diskPL?: string;
   /**
    * @example
    * ecs.c6.large
@@ -67,6 +68,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       creatorID: 'CreatorID',
+      diskPL: 'DiskPL',
       ecsSpec: 'EcsSpec',
       machineGroupIDs: 'MachineGroupIDs',
       name: 'Name',
@@ -85,6 +87,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       creatorID: 'string',
+      diskPL: 'string',
       ecsSpec: 'string',
       machineGroupIDs: 'string',
       name: 'string',

@@ -38,6 +38,7 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
    * test
    */
   username?: string;
+  workloadCount?: number;
   /**
    * @example
    * 12345
@@ -52,6 +53,7 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
       sortBy: 'SortBy',
       userId: 'UserId',
       username: 'Username',
+      workloadCount: 'WorkloadCount',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -65,6 +67,7 @@ export class ListQuotaActiveUserUsagesRequest extends $dara.Model {
       sortBy: 'string',
       userId: 'string',
       username: 'string',
+      workloadCount: 'number',
       workspaceId: 'string',
     };
   }

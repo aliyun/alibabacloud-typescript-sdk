@@ -12,6 +12,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   gmtDequeuedTimeRange?: TimeRangeFilter;
   gmtEnqueuedTimeRange?: TimeRangeFilter;
   gmtPositionModifiedTimeRange?: TimeRangeFilter;
+  instanceId?: string;
   /**
    * @example
    * lrn48278127617
@@ -32,6 +33,8 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  position?: number;
+  priority?: number;
   /**
    * @example
    * true
@@ -52,6 +55,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
    * quota12344666,quota64432233
    */
   subQuotaIds?: string;
+  useOversoldResource?: boolean;
   /**
    * @example
    * 29043893812,23829093093
@@ -64,6 +68,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
    * dlc12344556
    */
   workloadIds?: string;
+  workloadNames?: string;
   /**
    * @example
    * Pending
@@ -85,18 +90,23 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
       gmtDequeuedTimeRange: 'GmtDequeuedTimeRange',
       gmtEnqueuedTimeRange: 'GmtEnqueuedTimeRange',
       gmtPositionModifiedTimeRange: 'GmtPositionModifiedTimeRange',
+      instanceId: 'InstanceId',
       nodeName: 'NodeName',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      position: 'Position',
+      priority: 'Priority',
       showOwn: 'ShowOwn',
       sortBy: 'SortBy',
       status: 'Status',
       subQuotaIds: 'SubQuotaIds',
+      useOversoldResource: 'UseOversoldResource',
       userIds: 'UserIds',
       withHistoricalData: 'WithHistoricalData',
       workloadCreatedTimeRange: 'WorkloadCreatedTimeRange',
       workloadIds: 'WorkloadIds',
+      workloadNames: 'WorkloadNames',
       workloadStatuses: 'WorkloadStatuses',
       workloadType: 'WorkloadType',
       workspaceIds: 'WorkspaceIds',
@@ -109,18 +119,23 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
       gmtDequeuedTimeRange: TimeRangeFilter,
       gmtEnqueuedTimeRange: TimeRangeFilter,
       gmtPositionModifiedTimeRange: TimeRangeFilter,
+      instanceId: 'string',
       nodeName: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      position: 'number',
+      priority: 'number',
       showOwn: 'boolean',
       sortBy: 'string',
       status: 'string',
       subQuotaIds: 'string',
+      useOversoldResource: 'boolean',
       userIds: 'string',
       withHistoricalData: 'boolean',
       workloadCreatedTimeRange: TimeRangeFilter,
       workloadIds: 'string',
+      workloadNames: 'string',
       workloadStatuses: 'string',
       workloadType: 'string',
       workspaceIds: 'string',

@@ -1705,6 +1705,10 @@ export default class Client extends OpenApi {
       query["CliqueID"] = request.cliqueID;
     }
 
+    if (!$dara.isNull(request.diskPL)) {
+      query["DiskPL"] = request.diskPL;
+    }
+
     if (!$dara.isNull(request.filterByQuotaId)) {
       query["FilterByQuotaId"] = request.filterByQuotaId;
     }
@@ -1777,6 +1781,10 @@ export default class Client extends OpenApi {
       query["PaymentType"] = request.paymentType;
     }
 
+    if (!$dara.isNull(request.podNum)) {
+      query["PodNum"] = request.podNum;
+    }
+
     if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
     }
@@ -1789,12 +1797,20 @@ export default class Client extends OpenApi {
       query["ResourceGroupIds"] = request.resourceGroupIds;
     }
 
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
     if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
     if (!$dara.isNull(request.verbose)) {
       query["Verbose"] = request.verbose;
+    }
+
+    if (!$dara.isNull(request.workloadNum)) {
+      query["WorkloadNum"] = request.workloadNum;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -1870,6 +1886,10 @@ export default class Client extends OpenApi {
       query["Username"] = request.username;
     }
 
+    if (!$dara.isNull(request.workloadCount)) {
+      query["WorkloadCount"] = request.workloadCount;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -1931,6 +1951,10 @@ export default class Client extends OpenApi {
       query["GmtPositionModifiedTimeRange"] = request.gmtPositionModifiedTimeRange;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.nodeName)) {
       query["NodeName"] = request.nodeName;
     }
@@ -1945,6 +1969,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.position)) {
+      query["Position"] = request.position;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!$dara.isNull(request.showOwn)) {
@@ -1963,6 +1995,10 @@ export default class Client extends OpenApi {
       query["SubQuotaIds"] = request.subQuotaIds;
     }
 
+    if (!$dara.isNull(request.useOversoldResource)) {
+      query["UseOversoldResource"] = request.useOversoldResource;
+    }
+
     if (!$dara.isNull(request.userIds)) {
       query["UserIds"] = request.userIds;
     }
@@ -1977,6 +2013,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.workloadIds)) {
       query["WorkloadIds"] = request.workloadIds;
+    }
+
+    if (!$dara.isNull(request.workloadNames)) {
+      query["WorkloadNames"] = request.workloadNames;
     }
 
     if (!$dara.isNull(request.workloadStatuses)) {
@@ -2034,6 +2074,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clusterType)) {
       query["ClusterType"] = request.clusterType;
+    }
+
+    if (!$dara.isNull(request.GPUType)) {
+      query["GPUType"] = request.GPUType;
     }
 
     if (!$dara.isNull(request.hasResource)) {
@@ -2143,6 +2187,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.creatorID)) {
       query["CreatorID"] = request.creatorID;
+    }
+
+    if (!$dara.isNull(request.diskPL)) {
+      query["DiskPL"] = request.diskPL;
     }
 
     if (!$dara.isNull(request.ecsSpec)) {

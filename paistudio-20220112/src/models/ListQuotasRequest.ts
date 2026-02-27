@@ -8,6 +8,7 @@ export class ListQuotasRequest extends $dara.Model {
    * RayCluster
    */
   clusterType?: string;
+  GPUType?: string;
   hasResource?: string;
   /**
    * @example
@@ -75,6 +76,7 @@ export class ListQuotasRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterType: 'ClusterType',
+      GPUType: 'GPUType',
       hasResource: 'HasResource',
       labels: 'Labels',
       layoutMode: 'LayoutMode',
@@ -97,6 +99,7 @@ export class ListQuotasRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterType: 'string',
+      GPUType: 'string',
       hasResource: 'string',
       labels: 'string',
       layoutMode: 'string',
