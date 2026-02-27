@@ -154,6 +154,7 @@ export class ForwardInfoResponse extends $dara.Model {
    * ngw-bp1uewa15k4iy5770****
    */
   natGatewayId?: string;
+  nlbGatewayId?: string;
   /**
    * @example
    * ssh-rsa AAAAB3****************************
@@ -170,6 +171,7 @@ export class ForwardInfoResponse extends $dara.Model {
       forwardPort: 'ForwardPort',
       name: 'Name',
       natGatewayId: 'NatGatewayId',
+      nlbGatewayId: 'NlbGatewayId',
       SSHPublicKey: 'SSHPublicKey',
     };
   }
@@ -185,6 +187,7 @@ export class ForwardInfoResponse extends $dara.Model {
       forwardPort: 'string',
       name: 'string',
       natGatewayId: 'string',
+      nlbGatewayId: 'string',
       SSHPublicKey: 'string',
     };
   }
