@@ -13,6 +13,13 @@ export class DeleteErRouteMapRequest extends $dara.Model {
    * er-kkopgtne
    */
   erId?: string;
+  /**
+   * @remarks
+   * routing policy ID
+   * 
+   * @example
+   * er-rmap-uwglhzom
+   */
   erRouteMapId?: string;
   /**
    * @remarks
