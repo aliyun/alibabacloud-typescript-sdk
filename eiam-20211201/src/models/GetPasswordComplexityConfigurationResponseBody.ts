@@ -42,6 +42,8 @@ export class GetPasswordComplexityConfigurationResponseBodyPasswordComplexityCon
 }
 
 export class GetPasswordComplexityConfigurationResponseBodyPasswordComplexityConfiguration extends $dara.Model {
+  disabledWeakPasswordLogin?: boolean;
+  disabledWeakPasswordLoginStartedAt?: number;
   /**
    * @remarks
    * The password complexity rules.
@@ -57,6 +59,8 @@ export class GetPasswordComplexityConfigurationResponseBodyPasswordComplexityCon
   passwordMinLength?: number;
   static names(): { [key: string]: string } {
     return {
+      disabledWeakPasswordLogin: 'DisabledWeakPasswordLogin',
+      disabledWeakPasswordLoginStartedAt: 'DisabledWeakPasswordLoginStartedAt',
       passwordComplexityRules: 'PasswordComplexityRules',
       passwordMinLength: 'PasswordMinLength',
     };
@@ -64,6 +68,8 @@ export class GetPasswordComplexityConfigurationResponseBodyPasswordComplexityCon
 
   static types(): { [key: string]: any } {
     return {
+      disabledWeakPasswordLogin: 'boolean',
+      disabledWeakPasswordLoginStartedAt: 'number',
       passwordComplexityRules: { 'type': 'array', 'itemType': GetPasswordComplexityConfigurationResponseBodyPasswordComplexityConfigurationPasswordComplexityRules },
       passwordMinLength: 'number',
     };

@@ -14747,6 +14747,10 @@ export default class Client extends OpenApi {
   async setPasswordComplexityConfigurationWithOptions(request: $_model.SetPasswordComplexityConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetPasswordComplexityConfigurationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.disabledWeakPasswordLogin)) {
+      query["DisabledWeakPasswordLogin"] = request.disabledWeakPasswordLogin;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

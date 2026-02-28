@@ -42,6 +42,7 @@ export class SetPasswordComplexityConfigurationRequestPasswordComplexityRules ex
 }
 
 export class SetPasswordComplexityConfigurationRequest extends $dara.Model {
+  disabledWeakPasswordLogin?: boolean;
   /**
    * @remarks
    * The instance ID.
@@ -69,6 +70,7 @@ export class SetPasswordComplexityConfigurationRequest extends $dara.Model {
   passwordMinLength?: number;
   static names(): { [key: string]: string } {
     return {
+      disabledWeakPasswordLogin: 'DisabledWeakPasswordLogin',
       instanceId: 'InstanceId',
       passwordComplexityRules: 'PasswordComplexityRules',
       passwordMinLength: 'PasswordMinLength',
@@ -77,6 +79,7 @@ export class SetPasswordComplexityConfigurationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      disabledWeakPasswordLogin: 'boolean',
       instanceId: 'string',
       passwordComplexityRules: { 'type': 'array', 'itemType': SetPasswordComplexityConfigurationRequestPasswordComplexityRules },
       passwordMinLength: 'number',
