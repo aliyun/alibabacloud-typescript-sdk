@@ -3,50 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEipMonitorDataResponseBodyEipMonitorDatasEipMonitorData extends $dara.Model {
-  /**
-   * @example
-   * 10
-   */
   eipBandwidth?: number;
-  /**
-   * @remarks
-   * The sum of inbound and outbound traffic.
-   * 
-   * @example
-   * 465
-   */
   eipFlow?: number;
-  /**
-   * @remarks
-   * The number of packets.
-   * 
-   * @example
-   * 3434
-   */
   eipPackets?: number;
-  /**
-   * @remarks
-   * The inbound traffic. Unit: bytes.
-   * 
-   * @example
-   * 122
-   */
   eipRX?: number;
-  /**
-   * @remarks
-   * The outbound traffic. Unit: bytes.
-   * 
-   * @example
-   * 343
-   */
   eipTX?: number;
-  /**
-   * @remarks
-   * The timestamp of the monitoring data. Specify the time in the ISO8601 standard. Example: `2020-01-21T09:50:23Z`.
-   * 
-   * @example
-   * 2020-01-21T09:50:23Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,10 +67,6 @@ export class DescribeEipMonitorDataResponseBodyEipMonitorDatas extends $dara.Mod
 }
 
 export class DescribeEipMonitorDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The detailed information about the monitoring data of the EIP.
-   */
   eipMonitorDatas?: DescribeEipMonitorDataResponseBodyEipMonitorDatas;
   /**
    * @remarks

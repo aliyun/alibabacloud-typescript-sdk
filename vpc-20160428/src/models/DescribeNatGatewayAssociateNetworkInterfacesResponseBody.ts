@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set extends $dara.Model {
-  /**
-   * @remarks
-   * The primary private IP address of the ENI.
-   * 
-   * @example
-   * ``172.17.**.**``
-   */
   IPv4Address?: string;
-  /**
-   * @remarks
-   * Indicates whether the IP address is the primary private IP address. Valid values:
-   * 
-   * *   true: Primary private IP address
-   * *   false: Secondary private IP addresses
-   * 
-   * @example
-   * true
-   */
   primary?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -72,58 +55,12 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNe
 }
 
 export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 addresses of the ENIs.
-   */
   IPv4Sets?: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets;
-  /**
-   * @remarks
-   * The ID of the ENI.
-   * 
-   * @example
-   * eni-gw8g131ef2dnbu3k****
-   */
   networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The ID of the service resource.
-   * 
-   * @example
-   * ep-8psre8c8936596cd****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The UID of the account to which the service resource belongs.
-   * 
-   * @example
-   * 138859086900****
-   */
   resourceOwnerId?: string;
-  /**
-   * @remarks
-   * The type of the service resource.
-   * 
-   * @example
-   * PrivateLink
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * VPC ID of the service resource
-   * 
-   * @example
-   * vpc-bp1di7uewzmtvfuq8****
-   */
   resourceVpcId?: string;
-  /**
-   * @remarks
-   * The ID of the tunnel index.
-   * 
-   * @example
-   * 41a5489ea2a0****
-   */
   tunnelIndex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -188,10 +125,6 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNe
 }
 
 export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ENIs associated with the VPC NAT gateway.
-   */
   associateNetworkInterfaces?: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces;
   /**
    * @remarks

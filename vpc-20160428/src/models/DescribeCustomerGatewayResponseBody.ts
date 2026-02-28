@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomerGatewayResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TagKey
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TagValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,10 +131,6 @@ export class DescribeCustomerGatewayResponseBody extends $dara.Model {
    * rg-acfmzs372yg****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The list of tags added to the customer gateway.
-   */
   tags?: DescribeCustomerGatewayResponseBodyTags;
   static names(): { [key: string]: string } {
     return {

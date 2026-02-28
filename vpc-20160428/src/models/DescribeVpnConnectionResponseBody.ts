@@ -181,21 +181,7 @@ export class DescribeVpnConnectionResponseBodyIpsecConfig extends $dara.Model {
 }
 
 export class DescribeVpnConnectionResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TagKey
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TagValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,56 +233,11 @@ export class DescribeVpnConnectionResponseBodyTags extends $dara.Model {
 }
 
 export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The negotiation state of BGP. Valid values:
-   * 
-   * *   **success**
-   * *   **false**
-   * 
-   * @example
-   * success
-   */
   bgpStatus?: string;
-  /**
-   * @remarks
-   * The ASN on the Alibaba Cloud side.
-   * 
-   * @example
-   * 65530
-   */
   localAsn?: string;
-  /**
-   * @remarks
-   * The BGP address on the Alibaba Cloud side.
-   * 
-   * @example
-   * 169.254.10.1
-   */
   localBgpIp?: string;
-  /**
-   * @remarks
-   * The ASN of the tunnel peer.
-   * 
-   * @example
-   * 65531
-   */
   peerAsn?: string;
-  /**
-   * @remarks
-   * The BGP IP address of the tunnel peer.
-   * 
-   * @example
-   * 169.254.10.2
-   */
   peerBgpIp?: string;
-  /**
-   * @remarks
-   * The BGP CIDR block of the tunnel.
-   * 
-   * @example
-   * 169.254.10.0/30
-   */
   tunnelCidr?: string;
   static names(): { [key: string]: string } {
     return {
@@ -330,80 +271,14 @@ export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOp
 }
 
 export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The authentication algorithm in the IKE phase.
-   * 
-   * @example
-   * sha1
-   */
   ikeAuthAlg?: string;
-  /**
-   * @remarks
-   * The encryption algorithm in the IKE phase.
-   * 
-   * @example
-   * aes
-   */
   ikeEncAlg?: string;
-  /**
-   * @remarks
-   * The lifetime in the IKE phase. Unit: seconds.
-   * 
-   * @example
-   * 86400
-   */
   ikeLifetime?: string;
-  /**
-   * @remarks
-   * The IKE negotiation mode.
-   * 
-   * *   **main**: This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
-   * 
-   * @example
-   * main
-   */
   ikeMode?: string;
-  /**
-   * @remarks
-   * The Diffie-Hellman (DH) group in the IKE phase.
-   * 
-   * @example
-   * group2
-   */
   ikePfs?: string;
-  /**
-   * @remarks
-   * The version of the IKE protocol.
-   * 
-   * @example
-   * ikev1
-   */
   ikeVersion?: string;
-  /**
-   * @remarks
-   * The identifier of the tunnel on the Alibaba Cloud side.
-   * 
-   * @example
-   * 47.21.XX.XX
-   */
   localId?: string;
-  /**
-   * @remarks
-   * The pre-shared key.
-   * 
-   * @example
-   * 123456****
-   */
   psk?: string;
-  /**
-   * @remarks
-   * The identifier of the tunnel peer.
-   * 
-   * @example
-   * 47.42.XX.XX
-   */
   remoteId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -443,37 +318,9 @@ export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOp
 }
 
 export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The authentication algorithm in the IPsec phase.
-   * 
-   * @example
-   * sha1
-   */
   ipsecAuthAlg?: string;
-  /**
-   * @remarks
-   * The encryption algorithm in the IPsec phase.
-   * 
-   * @example
-   * aes
-   */
   ipsecEncAlg?: string;
-  /**
-   * @remarks
-   * The lifetime in the IPsec phase. Unit: seconds.
-   * 
-   * @example
-   * 86400
-   */
   ipsecLifetime?: string;
-  /**
-   * @remarks
-   * The DH group in the IPsec phase.
-   * 
-   * @example
-   * group2
-   */
   ipsecPfs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -503,135 +350,19 @@ export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOp
 }
 
 export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the customer gateway associated with the tunnel.
-   * 
-   * @example
-   * cgw-p0wy363lucf1uyae8****
-   */
   customerGatewayId?: string;
-  /**
-   * @remarks
-   * Indicates whether the DPD feature is enabled for the tunnel. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
-   * 
-   * @example
-   * true
-   */
   enableDpd?: string;
-  /**
-   * @remarks
-   * Indicates whether NAT traversal is enabled for the tunnel. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
-   * 
-   * @example
-   * true
-   */
   enableNatTraversal?: string;
-  /**
-   * @remarks
-   * The tunnel IP address.
-   * 
-   * @example
-   * 47.21.XX.XX
-   */
   internetIp?: string;
-  /**
-   * @remarks
-   * The CA certificate of the tunnel peer.
-   * 
-   * This parameter is returned only if the VPN gateway is of the ShangMi (SM) type.
-   * 
-   * @example
-   * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
-   */
   remoteCaCertificate?: string;
-  /**
-   * @remarks
-   * The tunnel role. Valid values:
-   * 
-   * *   **master**: The tunnel is an active tunnel.
-   * *   **slave**: The tunnel is a standby tunnel.
-   * 
-   * @example
-   * master
-   */
   role?: string;
-  /**
-   * @remarks
-   * The tunnel status. Valid values:
-   * 
-   * *   **active**
-   * *   **updating**
-   * *   **deleting**
-   * 
-   * @example
-   * active
-   */
   state?: string;
-  /**
-   * @remarks
-   * The state of the IPsec-VPN connection. Valid values:
-   * 
-   * *   **ike_sa_not_established**: Phase 1 negotiations failed.
-   * *   **ike_sa_established**: Phase 1 negotiations succeeded.
-   * *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
-   * *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
-   * 
-   * @example
-   * ipsec_sa_established
-   */
   status?: string;
-  /**
-   * @remarks
-   * The BGP configurations.
-   */
   tunnelBgpConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig;
-  /**
-   * @remarks
-   * The tunnel ID.
-   * 
-   * @example
-   * tun-opsqc4d97wni27****
-   */
   tunnelId?: string;
-  /**
-   * @remarks
-   * The configuration of Phase 1 negotiations.
-   */
   tunnelIkeConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
-  /**
-   * @remarks
-   * The order in which the tunnel is created.
-   * 
-   * *   **1**: Tunnel 1.
-   * *   **2**: Tunnel 2.
-   * 
-   * >  This parameter is returned only if the IPsec-VPN connection is associated with a transit router.
-   * 
-   * @example
-   * 1
-   */
   tunnelIndex?: number;
-  /**
-   * @remarks
-   * The configurations of Phase 2 negotiations.
-   */
   tunnelIpsecConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig;
-  /**
-   * @remarks
-   * The zone where the tunnel is deployed.
-   * 
-   * You can call [DescribeZones](https://help.aliyun.com/document_detail/36064.html) to query zone IDs.
-   * 
-   * @example
-   * cn-hangzhou-i
-   */
   zoneNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1141,10 +872,6 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
    * ike_sa_not_established
    */
   status?: string;
-  /**
-   * @remarks
-   * The list of tags added to the IPsec-VPN connection.
-   */
   tags?: DescribeVpnConnectionResponseBodyTags;
   /**
    * @remarks
@@ -1163,12 +890,6 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
    */
   transitRouterName?: string;
   tunnelBandwidth?: string;
-  /**
-   * @remarks
-   * The tunnel configurations of the IPsec-VPN connection.
-   * 
-   * Parameters in **TunnelOptionsSpecification** are returned only if you query an IPsec-VPN connection in dual-tunnel mode.
-   */
   tunnelOptionsSpecification?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecification;
   /**
    * @remarks

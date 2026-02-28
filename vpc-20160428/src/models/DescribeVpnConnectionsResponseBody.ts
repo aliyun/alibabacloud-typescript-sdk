@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IKE phase.
+   * IKE阶段认证算法。
    * 
    * @example
    * sha1
@@ -13,7 +13,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   ikeAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IKE phase.
+   * IKE阶段加密算法。
    * 
    * @example
    * aes
@@ -21,7 +21,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IKE phase. Unit: seconds.
+   * IKE阶段生存时间。单位：秒。
    * 
    * @example
    * 86400
@@ -29,10 +29,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   ikeLifetime?: number;
   /**
    * @remarks
-   * The IKE negotiation mode.
+   * IKE阶段协商模式。
    * 
-   * *   **main**: This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * - **main**：主模式，协商过程安全性高。
+   * - **aggressive**：野蛮模式，协商快速且协商成功率高。
    * 
    * @example
    * main
@@ -40,7 +40,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   ikeMode?: string;
   /**
    * @remarks
-   * The DH group in the IKE phase.
+   * IKE阶段DH分组。
    * 
    * @example
    * group2
@@ -48,12 +48,12 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   ikePfs?: string;
   /**
    * @remarks
-   * The version of the IKE protocol.
+   * IKE协议版本。
    * 
-   * *   **ikev1**
-   * *   **ikev2**
+   * - **ikev1**
+   * - **ikev2**
    * 
-   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+   * 相对于IKEv1版本，IKEv2版本简化了SA的协商过程并且对于多网段的场景提供了更好的支持。
    * 
    * @example
    * ikev1
@@ -61,7 +61,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier of the IPsec-VPN connection on the data center side.
+   * IPsec连接对端本地数据中心侧的标识。
    * 
    * @example
    * 116.64.XX.XX
@@ -69,7 +69,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   localId?: string;
   /**
    * @remarks
-   * The pre-shared key.
+   * 预共享密钥。
    * 
    * @example
    * pgw6dy7****
@@ -77,7 +77,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
   psk?: string;
   /**
    * @remarks
-   * The identifier of the IPsec-VPN connection on the Alibaba Cloud side.
+   * IPsec连接阿里云侧的标识。
    * 
    * @example
    * 139.17.XX.XX
@@ -123,7 +123,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeCon
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IPsec phase.
+   * IPsec阶段认证算法。
    * 
    * @example
    * sha1
@@ -131,7 +131,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecC
   ipsecAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IPsec phase.
+   * IPsec阶段加密算法。
    * 
    * @example
    * aes
@@ -139,7 +139,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecC
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IPsec phase. Unit: seconds.
+   * IPsec阶段生存时间。单位：秒。
    * 
    * @example
    * 86400
@@ -147,7 +147,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecC
   ipsecLifetime?: number;
   /**
    * @remarks
-   * The DH group in the IPsec phase.
+   * IPsec阶段DH分组。
    * 
    * @example
    * group2
@@ -183,7 +183,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecC
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTagTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the IPsec-VPN connection.
+   * 标签键。
    * 
    * @example
    * TagKey
@@ -191,7 +191,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTagTag
   key?: string;
   /**
    * @remarks
-   * The tag value of the IPsec-VPN connection.
+   * 标签值。
    * 
    * @example
    * TagValue
@@ -249,10 +249,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag ex
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig extends $dara.Model {
   /**
    * @remarks
-   * The negotiation state of BGP. Valid values:
+   * BGP的协商状态。
    * 
-   * *   **success**
-   * *   **false**
+   * - **success**：正常。
+   * - **failed**：异常。
    * 
    * @example
    * success
@@ -260,7 +260,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   bgpStatus?: string;
   /**
    * @remarks
-   * The ASN on the Alibaba Cloud side.
+   * 隧道本端（阿里云侧）的自治系统号。
    * 
    * @example
    * 65530
@@ -268,7 +268,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   localAsn?: string;
   /**
    * @remarks
-   * The BGP address on the Alibaba Cloud side.
+   * 隧道本端（阿里云侧）的BGP地址。
    * 
    * @example
    * 169.254.10.1
@@ -276,7 +276,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   localBgpIp?: string;
   /**
    * @remarks
-   * The ASN of the tunnel peer.
+   * 隧道对端的自治系统号。
    * 
    * @example
    * 65531
@@ -284,7 +284,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   peerAsn?: string;
   /**
    * @remarks
-   * The BGP IP address of the tunnel peer.
+   * 隧道对端的BGP地址。
    * 
    * @example
    * 169.254.10.2
@@ -292,7 +292,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   peerBgpIp?: string;
   /**
    * @remarks
-   * The BGP CIDR block of the tunnel.
+   * 隧道的BGP网段。
    * 
    * @example
    * 169.254.10.0/30
@@ -332,7 +332,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IKE phase.
+   * IKE阶段认证算法。
    * 
    * @example
    * sha1
@@ -340,7 +340,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ikeAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IKE phase.
+   * IKE阶段加密算法。
    * 
    * @example
    * aes
@@ -348,7 +348,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IKE phase. Unit: seconds.
+   * IKE阶段生存时间。单位：秒。
    * 
    * @example
    * 86400
@@ -356,10 +356,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ikeLifetime?: string;
   /**
    * @remarks
-   * The IKE negotiation mode.
+   * IKE协商模式。
    * 
-   * *   **main**: This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * - **main**：主模式，协商过程安全性高。
+   * - **aggressive**：野蛮模式，协商快速且协商成功率高。
    * 
    * @example
    * main
@@ -367,7 +367,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ikeMode?: string;
   /**
    * @remarks
-   * The DH group in the IKE phase.
+   * IKE阶段DH分组。
    * 
    * @example
    * group2
@@ -375,7 +375,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ikePfs?: string;
   /**
    * @remarks
-   * The version of the IKE protocol.
+   * IKE协议版本。
    * 
    * @example
    * ikev1
@@ -383,7 +383,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier of the tunnel on the Alibaba Cloud side.
+   * 隧道本端（阿里云侧）的标识。
    * 
    * @example
    * 47.21.XX.XX
@@ -391,7 +391,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   localId?: string;
   /**
    * @remarks
-   * The pre-shared key.
+   * 预共享密钥。
    * 
    * @example
    * 123456****
@@ -399,7 +399,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   psk?: string;
   /**
    * @remarks
-   * The identifier of the tunnel peer.
+   * 隧道对端的标识。
    * 
    * @example
    * 47.42.XX.XX
@@ -445,7 +445,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IPsec phase.
+   * IPsec阶段认证算法。
    * 
    * @example
    * sha1
@@ -453,7 +453,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ipsecAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IPsec phase.
+   * IPsec阶段加密算法。
    * 
    * @example
    * aes
@@ -461,7 +461,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IPsec phase. Unit: seconds.
+   * IPsec阶段生存时间。单位：秒。
    * 
    * @example
    * 86400
@@ -469,7 +469,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   ipsecLifetime?: string;
   /**
    * @remarks
-   * The DH group in the IPsec phase.
+   * IPsec阶段DH分组。
    * 
    * @example
    * group2
@@ -505,7 +505,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the customer gateway associated with the tunnel.
+   * 隧道关联的用户网关ID。
    * 
    * @example
    * cgw-p0wy363lucf1uyae8****
@@ -513,10 +513,9 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   customerGatewayId?: string;
   /**
    * @remarks
-   * Indicates whether the DPD feature is enabled for the tunnel. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
+   * 隧道是否已开启DPD（对等体存活检测）功能。
+   * - **false**：未开启。
+   * - **true**：已开启。
    * 
    * @example
    * true
@@ -524,10 +523,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   enableDpd?: string;
   /**
    * @remarks
-   * Indicates whether NAT traversal is enabled for the tunnel. Valid values:
+   * 隧道是否已开启NAT穿越功能。
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**：未开启。
+   * - **true**：已开启。
    * 
    * @example
    * true
@@ -535,7 +534,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   enableNatTraversal?: string;
   /**
    * @remarks
-   * The tunnel IP address.
+   * 隧道的IP地址。
    * 
    * @example
    * 47.21.XX.XX
@@ -543,9 +542,9 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   internetIp?: string;
   /**
    * @remarks
-   * The CA certificate of the tunnel peer.
+   * 隧道对端的CA证书。
    * 
-   * This parameter is returned only if the VPN gateway is of the SM type.
+   * 仅VPN网关实例的类型为国密型时才会返回当前参数。
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
@@ -553,10 +552,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   remoteCaCertificate?: string;
   /**
    * @remarks
-   * The tunnel role. Valid values:
+   * 隧道的角色。
    * 
-   * *   **master**: The tunnel is an active tunnel.
-   * *   **slave**: The tunnel is a standby tunnel.
+   * - **master**：表示当前隧道为主隧道。
+   * - **slave**：表示当前隧道为备隧道。
    * 
    * @example
    * master
@@ -564,11 +563,11 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   role?: string;
   /**
    * @remarks
-   * The tunnel status. Valid values:
+   * 隧道的状态。
    * 
-   * *   **active**
-   * *   **updating**
-   * *   **deleting**
+   * - **active**：状态正常。
+   * - **updating**：更新中。
+   * - **deleting**：删除中。
    * 
    * @example
    * active
@@ -576,12 +575,15 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   state?: string;
   /**
    * @remarks
-   * The state of the IPsec-VPN connection. Valid values:
+   * IPsec连接的状态。
    * 
-   * *   **ike_sa_not_established**: Phase 1 negotiations failed.
-   * *   **ike_sa_established**: Phase 1 negotiations succeeded.
-   * *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
-   * *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
+   * - **ike_sa_not_established**：第一阶段协商失败。
+   * 
+   * - **ike_sa_established**：第一阶段协商成功。
+   * 
+   * - **ipsec_sa_not_established**：第二阶段协商失败。
+   * 
+   * - **ipsec_sa_established**：第二阶段协商成功。
    * 
    * @example
    * ipsec_sa_established
@@ -589,12 +591,12 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   status?: string;
   /**
    * @remarks
-   * The BGP configurations.
+   * 隧道的BGP配置信息。
    */
   tunnelBgpConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig;
   /**
    * @remarks
-   * The tunnel ID.
+   * 隧道ID。
    * 
    * @example
    * tun-opsqc4d97wni27****
@@ -602,17 +604,16 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   tunnelId?: string;
   /**
    * @remarks
-   * The configuration of Phase 1 negotiations.
+   * 第一阶段协商的配置。
    */
   tunnelIkeConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
   /**
    * @remarks
-   * The order in which the tunnel is created.
+   * 隧道的创建顺序。
+   * - **1**：第一条隧道。
+   * - **2**：第二条隧道。
    * 
-   * *   **1**: Tunnel 1.
-   * *   **2**: Tunnel 2.
-   * 
-   * >  This parameter is returned only if the IPsec-VPN connection is associated with a transit router.
+   * > 仅IPsec连接绑定转发路由器时会返回该参数。
    * 
    * @example
    * 1
@@ -620,12 +621,12 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
   tunnelIndex?: number;
   /**
    * @remarks
-   * The configurations of Phase 2 negotiations.
+   * 第二阶段协商的配置。
    */
   tunnelIpsecConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig;
   /**
    * @remarks
-   * The zone of the tunnel.
+   * 隧道部署的可用区。
    * 
    * @example
    * ap-southeast-5a
@@ -716,7 +717,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHealthCheck extends $dara.Model {
   /**
    * @remarks
-   * The destination IP address.
+   * 目的IP地址。
    * 
    * @example
    * 192.168.0.1
@@ -724,10 +725,11 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHea
   dip?: string;
   /**
    * @remarks
-   * Indicates whether the health check feature is enabled.
+   * 健康检查的开启状态。
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：已开启。
+   * 
+   * - **false**：未开启。
    * 
    * @example
    * true
@@ -735,7 +737,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHea
   enable?: string;
   /**
    * @remarks
-   * The interval between two consecutive health checks. Unit: seconds.
+   * 健康检查的时间间隔。单位：秒。
    * 
    * @example
    * 2
@@ -743,10 +745,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHea
   interval?: number;
   /**
    * @remarks
-   * Indicates whether advertised routes are withdrawn when the health check fails.
+   * 健康检查失败时是否撤销已发布的路由。
    * 
-   * *   **revoke_route**: Advertised routes are withdrawn.
-   * *   **reserve_route**: Advertised routes are not withdrawn.
+   * - **revoke_route**：撤销路由。
+   * - **reserve_route**：不撤销路由。
    * 
    * @example
    * revoke_route
@@ -754,7 +756,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHea
   policy?: string;
   /**
    * @remarks
-   * The maximum number of health check retries.
+   * 健康检查的重试发包次数。
    * 
    * @example
    * 3
@@ -762,7 +764,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHea
   retry?: number;
   /**
    * @remarks
-   * The source IP address.
+   * 源IP地址。
    * 
    * @example
    * 192.168.0.50
@@ -770,10 +772,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHea
   sip?: string;
   /**
    * @remarks
-   * The state of the health check. Valid values:
+   * 健康检查状态。
    * 
-   * *   **success**
-   * *   **failed**
+   * - **success**：正常。
+   * - **failed**：异常。
    * 
    * @example
    * success
@@ -815,7 +817,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHea
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgpConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication key of the BGP routing protocol.
+   * BGP路由协议的认证密钥。
    * 
    * @example
    * AuthKey****
@@ -823,7 +825,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgp
   authKey?: string;
   /**
    * @remarks
-   * The ASN on the Alibaba Cloud side.
+   * 阿里云侧自治系统号。
    * 
    * @example
    * 65531
@@ -831,7 +833,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgp
   localAsn?: number;
   /**
    * @remarks
-   * The BGP IP address on the Alibaba Cloud side.
+   * 阿里云侧BGP地址。
    * 
    * @example
    * 169.254.10.2
@@ -839,7 +841,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgp
   localBgpIp?: string;
   /**
    * @remarks
-   * The ASN of the peer.
+   * 对端自治系统号。
    * 
    * @example
    * 65530
@@ -847,7 +849,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgp
   peerAsn?: number;
   /**
    * @remarks
-   * The BGP IP address of the peer.
+   * 对端BGP地址。
    * 
    * @example
    * 169.254.10.1
@@ -855,10 +857,11 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgp
   peerBgpIp?: string;
   /**
    * @remarks
-   * The negotiation state of the BGP routing protocol. Valid values:
+   * BGP路由协议的协商状态。
    * 
-   * *   **success**
-   * *   **false**
+   * - **success**：正常。
+   * 
+   * - **false**：异常。
    * 
    * @example
    * success
@@ -866,7 +869,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgp
   status?: string;
   /**
    * @remarks
-   * The BGP CIDR block of the IPsec-VPN connection. The CIDR block falls within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+   * IPsec连接BGP网段。该网段是一个在169.254.0.0/16内的子网掩码长度为30的网段。
    * 
    * @example
    * 169.254.10.0/30
@@ -908,7 +911,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgp
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance to which the transit router belongs.
+   * 转发路由器实例所属的云企业网实例ID。
    * 
    * @example
    * cen-lxxpbpalc776qz****
@@ -916,11 +919,11 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   attachInstanceId?: string;
   /**
    * @remarks
-   * The type of resource that is associated with the IPsec-VPN connection. Valid values:
+   * IPsec连接绑定的资源类型。
    * 
-   * *   **CEN**: indicates that the IPsec-VPN connection is associated with a transit router of a Cloud Enterprise Network (CEN) instance.
-   * *   **NO_ASSOCIATED**: indicates that the IPsec-VPN connection is not associated with any resource.
-   * *   **VPNGW**: indicates that the IPsec-VPN connection is associated with a VPN gateway.
+   * - **CEN**：表示IPsec连接已绑定云企业网实例下的转发路由器实例。
+   * - **NO_ASSOCIATED**：表示IPsec连接未绑定任何资源。
+   * - **VPNGW**：表示IPsec连接绑定了VPN网关实例。
    * 
    * @example
    * CEN
@@ -928,9 +931,9 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   attachType?: string;
   /**
    * @remarks
-   * The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
+   * 创建IPsec连接的时间戳。单位：毫秒。
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * 时间戳的格式采用Unix时间戳，表示从格林威治时间1970年01月01日00时00分00秒至创建IPsec连接时的总时长。
    * 
    * @example
    * 1492753817000
@@ -938,10 +941,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether the IPsec-VPN connection is associated with a transit router that belongs to another Alibaba Cloud account. Valid values:
+   * IPsec连接是否绑定了跨账号的转发路由器实例。
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：是。
+   * - **false**：否。
    * 
    * @example
    * false
@@ -949,7 +952,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   crossAccountAuthorized?: boolean;
   /**
    * @remarks
-   * The ID of the customer gateway associated with the IPsec-VPN connection.
+   * IPsec连接关联的用户网关的实例ID。
    * 
    * @example
    * cgw-bp1mvj4g9kogw****
@@ -957,10 +960,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   customerGatewayId?: string;
   /**
    * @remarks
-   * Indicates whether IPsec negotiations immediately start.
+   * IPsec连接的配置是否立即生效。
    * 
-   * *   **true**: Negotiations are reinitiated after the configuration is changed.
-   * *   **false**: Negotiations are reinitiated after traffic is detected.
+   * - **true**：是，配置变更完成后触发重连。
+   * - **false**：否，有流量时触发重连。
    * 
    * @example
    * true
@@ -968,13 +971,13 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   effectImmediately?: boolean;
   /**
    * @remarks
-   * Indicates whether dead peer detection (DPD) is enabled for the IPsec-VPN connection. Valid values:
+   * IPsec连接是否已开启DPD（对等体存活检测）功能。
    * 
-   * *   **true**
+   * - **true**：开启DPD功能。
    * 
-   *     The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within a specific period of time, the connection fails. Then, the ISAKMP security association (SA), IPsec SA, and IPsec tunnel are deleted.
+   *     IPsec发起端会发送DPD报文用来检测对端的设备是否存活，如果在设定时间内未收到正确回应则认为对端已经断线，IPsec将删除ISAKMP SA和相应的IPsec SA，安全隧道同样也会被删除。
    * 
-   * *   **false**
+   * - **false**：不开启DPD功能，IPsec发起端不会发送DPD探测报文。
    * 
    * @example
    * true
@@ -982,13 +985,13 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   enableDpd?: boolean;
   /**
    * @remarks
-   * Indicates whether NAT traversal is enabled for the IPsec-VPN connection.
+   * IPsec连接是否已开启NAT穿越功能。
    * 
-   * *   **true**
+   * - **true**：开启NAT穿越功能。
    * 
-   *     After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec tunnel.
+   *    开启后，IKE协商过程会删除对UDP端口号的验证过程，同时实现对VPN隧道中NAT网关设备的发现功能。
    * 
-   * *   **false**
+   * - **false**：不开启NAT穿越功能。
    * 
    * @example
    * true
@@ -996,10 +999,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   enableNatTraversal?: boolean;
   /**
    * @remarks
-   * Indicates whether BGP is enabled for the tunnel. Valid values:
+   * 隧道BGP的开启状态。
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：已开启。
+   * - **false**：未开启。
    * 
    * @example
    * true
@@ -1007,14 +1010,14 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   enableTunnelsBgp?: boolean;
   /**
    * @remarks
-   * The configurations of Phase 1 negotiations.
+   * 第一阶段协商的配置。
    */
   ikeConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig;
   /**
    * @remarks
-   * The gateway IP address of the IPsec-VPN connection.
+   * IPsec连接的网关IP地址。
    * 
-   * >  This parameter is returned only if the IPsec-VPN connection is associated with a transit router.
+   * > 仅IPsec连接绑定转发路由器实例时会返回当前参数。
    * 
    * @example
    * 10.XX.XX.10
@@ -1022,14 +1025,14 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   internetIp?: string;
   /**
    * @remarks
-   * The configurations of Phase 2 negotiations.
+   * 第二阶段协商的配置。
    */
   ipsecConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecConfig;
   /**
    * @remarks
-   * The CIDR block on the Alibaba Cloud side.
+   * IPsec连接阿里云侧的网段。
    * 
-   * Multiple CIDR blocks are separated by commas (,).
+   * 在多个网段的情况下，网段之间使用半角逗号（,）分隔。
    * 
    * @example
    * 192.168.0.0/16,172.17.0.0/16
@@ -1037,7 +1040,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   localSubnet?: string;
   /**
    * @remarks
-   * The name of the IPsec-VPN connection.
+   * IPsec连接的名称。
    * 
    * @example
    * nametest
@@ -1045,10 +1048,10 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   name?: string;
   /**
    * @remarks
-   * The network type of the IPsec-VPN connection. Valid values:
+   * IPsec连接的网络类型。
    * 
-   * *   **public**
-   * *   **private**
+   * - **public**：公网，表示IPsec连接通过公网建立加密通信通道。
+   * - **private**：私网，表示IPsec连接通过私网建立加密通信通道。
    * 
    * @example
    * public
@@ -1056,7 +1059,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   networkType?: string;
   /**
    * @remarks
-   * The certificate authority (CA) certificate of the peer.
+   * 对端的CA证书。
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
@@ -1064,9 +1067,9 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   remoteCaCertificate?: string;
   /**
    * @remarks
-   * The CIDR block of the data center.
+   * 本地数据中心侧的网段。
    * 
-   * Multiple CIDR blocks are separated by commas (,).
+   * 在多个网段的情况下，网段之间使用半角逗号（,）分隔。
    * 
    * @example
    * 10.0.0.0/8,172.16.0.0/16
@@ -1074,9 +1077,9 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   remoteSubnet?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the IPsec-VPN connection belongs.
+   * IPsec连接所属的资源组ID。
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+   * 您可以调用[ListResourceGroups](https://help.aliyun.com/document_detail/158855.html)接口查询资源组信息。
    * 
    * @example
    * rg-acfmzs372yg****
@@ -1084,7 +1087,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   resourceGroupId?: string;
   /**
    * @remarks
-   * The bandwidth specification of the IPsec-VPN connection. Unit: **Mbit/s**.
+   * IPsec连接的带宽规格。单位：**Mbps**。
    * 
    * @example
    * 1000M
@@ -1092,18 +1095,18 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   spec?: string;
   /**
    * @remarks
-   * The association state of the IPsec-VPN connection. Valid values:
+   * IPsec连接与转发路由器实例的绑定状态。
    * 
-   * *   **active**: The IPsec-VPN connection is associated with a VPN gateway.
-   * *   **init**: The IPsec-VPN connection is not associated with any resource and is being initialized.
-   * *   **attaching**: The IPsec-VPN connection is being associated with a transit router.
-   * *   **attached**: The IPsec-VPN connection is associated with a transit router.
-   * *   **detaching**: The IPsec-VPN connection is being disassociated from a transit router.
-   * *   **financialLocked**: The IPsec-VPN connection is locked due to overdue payments.
-   * *   **provisioning**: The IPsec-VPN connection is being prepared.
-   * *   **updating**: The IPsec-VPN connection is being updated.
-   * *   **Upgrading**: The IPsec-VPN connection is being upgraded.
-   * *   **deleted**: The IPsec-VPN connection is deleted.
+   * - **active**：IPsec连接已与VPN网关实例绑定，状态正常。
+   * - **init**：IPsec连接未绑定任何资源，IPsec连接初始化。
+   * - **attaching**：IPsec连接与转发路由器实例绑定中。
+   * - **attached**：IPsec连接已与转发路由器实例绑定。
+   * - **detaching**：IPsec连接与转发路由器实例解绑中。
+   * - **financialLocked**：欠费锁定。
+   * - **provisioning**：资源准备中。
+   * - **updating**：更新中。
+   * - **upgrading**：升级中。
+   * - **deleted**：已删除。
    * 
    * @example
    * attached
@@ -1111,12 +1114,15 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   state?: string;
   /**
    * @remarks
-   * The status of the IPsec-VPN connection. Valid values:
+   * IPsec连接的状态。
    * 
-   * *   **ike_sa_not_established**: Phase 1 negotiations failed.
-   * *   **ike_sa_established**: Phase 1 negotiations succeeded.
-   * *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
-   * *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
+   * - **ike_sa_not_established**：第一阶段协商失败。
+   * 
+   * - **ike_sa_established**：第一阶段协商成功。
+   * 
+   * - **ipsec_sa_not_established**：第二阶段协商失败。
+   * 
+   * - **ipsec_sa_established**：第二阶段协商成功。
    * 
    * @example
    * ipsec_sa_established
@@ -1124,12 +1130,12 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   status?: string;
   /**
    * @remarks
-   * The list of tags to be added to the IPsec-VPN connection.
+   * IPsec连接绑定的标签列表。
    */
   tag?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag;
   /**
    * @remarks
-   * The ID of the transit router with which the IPsec-VPN connection is associated.
+   * IPsec连接绑定的转发路由器实例ID。
    * 
    * @example
    * tr-p0we2edef9qr44a85****
@@ -1137,33 +1143,42 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   transitRouterId?: string;
   /**
    * @remarks
-   * The name of the transit router.
+   * 转发路由器实例的名称。
    * 
    * @example
    * nametest
    */
   transitRouterName?: string;
+  /**
+   * @remarks
+   * 用于说明VPN单条隧道的带宽规格，取值：
+   * Standard（默认值）：标准型，默认带宽1Gbps
+   * Large（大型）：大型，默认带宽3Gbps
+   * 
+   * @example
+   * Standard
+   */
   tunnelBandwidth?: string;
   /**
    * @remarks
-   * The tunnel configurations of the IPsec-VPN connection.
+   * IPsec连接的隧道配置信息。
    * 
-   * Parameters in **TunnelOptionsSpecification** are returned only if you query an IPsec-VPN connection in dual-tunnel mode.
+   * 仅查询双隧道模式的IPsec连接会返回**TunnelOptionsSpecification**数组下的参数。
    */
   tunnelOptionsSpecification?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification;
   /**
    * @remarks
-   * The health check configuration of the IPsec-VPN connection.
+   * IPsec连接的健康检查配置。
    */
   vcoHealthCheck?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHealthCheck;
   /**
    * @remarks
-   * The BGP configuration of the IPsec-VPN connection.
+   * IPsec连接BGP路由协议的配置。
    */
   vpnBgpConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgpConfig;
   /**
    * @remarks
-   * The ID of the IPsec-VPN connection.
+   * IPsec连接的ID。
    * 
    * @example
    * vco-bp10lz7aejumd****
@@ -1171,7 +1186,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   vpnConnectionId?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * VPN网关的实例ID。
    * 
    * @example
    * vpn-bp1q8bgx4xnkm****
@@ -1333,10 +1348,6 @@ export class DescribeVpnConnectionsResponseBody extends $dara.Model {
    * 2
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The information about the IPsec-VPN connections.
-   */
   vpnConnections?: DescribeVpnConnectionsResponseBodyVpnConnections;
   static names(): { [key: string]: string } {
     return {

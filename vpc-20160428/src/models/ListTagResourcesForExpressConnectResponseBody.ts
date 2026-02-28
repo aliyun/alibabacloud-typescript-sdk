@@ -3,41 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesForExpressConnectResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * pc-bp16qjewdsunr41m1****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   **PHYSICALCONNECTION**: Express Connect circuit.
-   * *   **VIRTUALBORDERROUTER**: VBR.
-   * *   **ROUTERINTERFACE**: router interface.
-   * 
-   * @example
-   * PHYSICALCONNECTION
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The key of the tag that is added to the resource.
-   * 
-   * @example
-   * FinanceDept
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of the tag that is added to the resource.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,10 +80,6 @@ export class ListTagResourcesForExpressConnectResponseBody extends $dara.Model {
    * 54B48E3D-DF70-471B-AA93-08E683A1B45
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tags that are added to the resource.
-   */
   tagResources?: ListTagResourcesForExpressConnectResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

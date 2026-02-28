@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AllocateEipAddressProRequestTag extends $dara.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -124,9 +132,9 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * *   **PayByBandwidth** (default): pay-by-bandwidth.
    * *   **PayByTraffic**: pay-by-data-transfer.
    * 
-   * When **InstanceChargeType** is set to **PrePaid**, you must set **InternetChargeType** to **PayByBandwidth**.
+   * If **InstanceChargeType** is set to **PrePaid**, you must set **InternetChargeType** to **PayByBandwidth**.
    * 
-   * When **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
+   * If **InstanceChargeType** is set to **PostPaid**, **InternetChargeType** can be set to **PayByBandwidth** or **PayByTraffic**.
    * 
    * @example
    * PayByBandwidth
@@ -186,7 +194,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * 
    * The EIP is allocated from the IP address pool.
    * 
-   * By default, you cannot use the IP address pool. To use this feature, apply for the privilege in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section of [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html).
+   * By default, the IP address pool feature is unavailable. If you need to use this feature, contact your account manager.
    * 
    * @example
    * pippool-2vc0kxcedhquybdsz****

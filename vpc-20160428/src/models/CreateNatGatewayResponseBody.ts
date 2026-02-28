@@ -81,15 +81,7 @@ export class CreateNatGatewayResponseBodySnatTableIds extends $dara.Model {
 }
 
 export class CreateNatGatewayResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of DNAT entries.
-   */
   forwardTableIds?: CreateNatGatewayResponseBodyForwardTableIds;
-  /**
-   * @remarks
-   * A list of FULLNAT entries.
-   */
   fullNatTableIds?: CreateNatGatewayResponseBodyFullNatTableIds;
   /**
    * @remarks
@@ -107,10 +99,6 @@ export class CreateNatGatewayResponseBody extends $dara.Model {
    * 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3
    */
   requestId?: string;
-  /**
-   * @remarks
-   * A list of SNAT entries.
-   */
   snatTableIds?: CreateNatGatewayResponseBodySnatTableIds;
   static names(): { [key: string]: string } {
     return {

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTagsResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * FinanceDept
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +74,6 @@ export class DescribeTagsResponseBody extends $dara.Model {
    * C46FF5A8-C5F0-4024-8262-B16B639225A0
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of tags that meet the filter conditions.
-   */
   tagResources?: DescribeTagsResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

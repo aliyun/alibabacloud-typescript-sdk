@@ -46,21 +46,7 @@ export class DescribeVSwitchAttributesResponseBodyRouteTable extends $dara.Model
 }
 
 export class DescribeVSwitchAttributesResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N added to the resource.
-   * 
-   * @example
-   * FinanceDept
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of tag N added to the resource.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -234,10 +220,6 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * Pending
    */
   status?: string;
-  /**
-   * @remarks
-   * The information about the tags.
-   */
   tags?: DescribeVSwitchAttributesResponseBodyTags;
   /**
    * @remarks

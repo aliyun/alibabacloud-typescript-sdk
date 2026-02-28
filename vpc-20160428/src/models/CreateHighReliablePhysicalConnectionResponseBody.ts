@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * Error codes.
-   * 
-   * @example
-   * pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The returned error message.
-   * 
-   * @example
-   * pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The ID of the Express Connect circuit.
-   * 
-   * @example
-   * pc-j5e5qqo616p81ncspbll1
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,21 +58,7 @@ export class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList exten
 }
 
 export class CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the Express Connect circuit.
-   * 
-   * @example
-   * pc-j5e5qqo616p81ncspbll1
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The region ID of the Express Connect circuit.
-   * 
-   * @example
-   * cn-shanghai
-   */
   regionNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,20 +110,7 @@ export class CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionL
 }
 
 export class CreateHighReliablePhysicalConnectionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the request fails the dry run, the following error codes and error messages may be returned:
-   * 
-   * - pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing. Billing for outbound data transfer is not enabled.
-   * - pconn.high.reliable.dryrun.error.incompatable.device.capacity. No device in the access point supports advanced features.
-   * - pconn.high.reliable.dryrun.error.quota.exceeded. The quota is insufficient.
-   * - pconn.high.reliable.dryrun.error.not.enough.resource. The access point resources are insufficient.
-   */
   errorInfoList?: CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList;
-  /**
-   * @remarks
-   * The Express Connect circuits.
-   */
   physicalConnectionList?: CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList;
   /**
    * @remarks

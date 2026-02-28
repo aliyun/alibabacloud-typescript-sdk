@@ -136,7 +136,7 @@ export class DescribeVpnGatewayResponseBodyReservationData extends $dara.Model {
 export class DescribeVpnGatewayResponseBodyTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * 标签键。
    * 
    * @example
    * aaa
@@ -144,7 +144,7 @@ export class DescribeVpnGatewayResponseBodyTagsTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * 标签值。
    * 
    * @example
    * bbb
@@ -229,7 +229,7 @@ export class DescribeVpnGatewayResponseBody extends $dara.Model {
    * **POSTPAY**: pay-as-you-go
    * 
    * @example
-   * China site (aliyun.com): Prepay. International site (alibabacloud.com): POSTPAY.
+   * 中国站示例值：Prepay，国际站示例值：POSTPAY
    */
   chargeType?: string;
   /**
@@ -291,11 +291,16 @@ export class DescribeVpnGatewayResponseBody extends $dara.Model {
    * 1544666102000
    */
   endTime?: number;
+  eniInstanceIds?: DescribeVpnGatewayResponseBodyEniInstanceIds;
   /**
    * @remarks
-   * The ENIs created by the system for the VPN gateway.
+   * Type of VPN gateway:
+   * - **Traditional**: Traditional-type VPN gateway, supports both IPSec and SSL.
+   * - **Enhanced.SiteToSite**: Enhanced Site-to-Site VPN gateway, only supports IPSec.
+   * 
+   * @example
+   * Enhanced.SiteToSite
    */
-  eniInstanceIds?: DescribeVpnGatewayResponseBodyEniInstanceIds;
   gatewayType?: string;
   /**
    * @remarks
@@ -449,13 +454,9 @@ export class DescribeVpnGatewayResponseBody extends $dara.Model {
    *     *   **false**
    * 
    * @example
-   * {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
+   * {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"转发1.3.24\\",\\"VpnVersion\\":\\"v1.2.4\\",\\"IDaaSNewVersion\\":\\"true\\"}
    */
   tag?: string;
-  /**
-   * @remarks
-   * The tags that are added to the VPN gateway.
-   */
   tags?: DescribeVpnGatewayResponseBodyTags;
   /**
    * @remarks

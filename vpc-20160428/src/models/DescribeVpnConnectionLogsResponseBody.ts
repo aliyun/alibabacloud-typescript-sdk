@@ -37,10 +37,6 @@ export class DescribeVpnConnectionLogsResponseBody extends $dara.Model {
    * 10
    */
   count?: number;
-  /**
-   * @remarks
-   * The log list.
-   */
   data?: DescribeVpnConnectionLogsResponseBodyData;
   /**
    * @remarks

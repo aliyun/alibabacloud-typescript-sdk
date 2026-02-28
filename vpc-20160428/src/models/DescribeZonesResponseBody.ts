@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeZonesResponseBodyZonesZone extends $dara.Model {
-  /**
-   * @remarks
-   * The zone name.
-   * 
-   * @example
-   * Hangzhou Zone B
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-b
-   */
   zoneId?: string;
-  /**
-   * @remarks
-   * The zone type. Default value: **AvailabilityZone**.
-   * 
-   * @example
-   * AvailabilityZone
-   */
   zoneType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribeZonesResponseBody extends $dara.Model {
    * 6FEA0CF3-D3B9-43E5-A304-D217037876A8
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The zone list.
-   */
   zones?: DescribeZonesResponseBodyZones;
   static names(): { [key: string]: string } {
     return {

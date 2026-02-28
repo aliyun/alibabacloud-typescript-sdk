@@ -85,6 +85,16 @@ export class ModifySslVpnServerRequest extends $dara.Model {
    * true
    */
   compress?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to only precheck the request. Valid values:
+   * 
+   * *   **true**: prechecks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * *   **false** (default): sends the request. After the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks

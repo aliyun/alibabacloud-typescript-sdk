@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyFullNatEntryAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The backend domain name of the FULLNAT address translation that needs to be modified.
+   * 
+   * @example
+   * xxx.com
+   */
   accessDomain?: string;
   /**
    * @remarks

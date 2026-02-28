@@ -3,96 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAclEntriesEgressAclEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the outbound rule.
-   * 
-   * @example
-   * This is EgressAclEntries.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The destination CIDR block.
-   * 
-   * @example
-   * 10.0.0.0/24
-   */
   destinationCidrIp?: string;
-  /**
-   * @remarks
-   * The type of the inbound rule.
-   * 
-   * - **custom**
-   * 
-   * - **system**
-   * 
-   * @example
-   * custom
-   */
   entryType?: string;
-  /**
-   * @remarks
-   * The IP version. Valid values:
-   * 
-   * *   **IPv4**
-   * *   **IPv6**
-   * 
-   * @example
-   * IPv4
-   */
   ipVersion?: string;
-  /**
-   * @remarks
-   * The ID of the outbound rule.
-   * 
-   * @example
-   * nae-a2d447uw4tillxdcv****
-   */
   networkAclEntryId?: string;
-  /**
-   * @remarks
-   * The name of the outbound rule.
-   * 
-   * @example
-   * acl-2
-   */
   networkAclEntryName?: string;
-  /**
-   * @remarks
-   * The action to be performed on network traffic that matches the rule. Valid values:
-   * 
-   * *   **accept**
-   * *   **drop**
-   * 
-   * @example
-   * accept
-   */
   policy?: string;
-  /**
-   * @remarks
-   * The destination port range of the outbound traffic.
-   * 
-   * *   If the **protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specified all ports.
-   * *   If the **protocol** of the outbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
-   * 
-   * @example
-   * -1/-1
-   */
   port?: string;
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   **icmp**
-   * *   **gre**
-   * *   **tcp**
-   * *   **udp**
-   * *   **all**
-   * 
-   * @example
-   * all
-   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,96 +76,14 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAc
 }
 
 export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeIngressAclEntriesIngressAclEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the inbound rule.
-   * 
-   * @example
-   * This is IngressAclEntries.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The type of the inbound rule.
-   * 
-   * - **custom**
-   * 
-   * - **system**
-   * 
-   * @example
-   * custom
-   */
   entryType?: string;
-  /**
-   * @remarks
-   * The IP version. Valid values:
-   * 
-   * *   **IPv4**
-   * *   **IPv6**
-   * 
-   * @example
-   * IPv4
-   */
   ipVersion?: string;
-  /**
-   * @remarks
-   * The ID of the inbound rule.
-   * 
-   * @example
-   * nae-a2dk86arlydmevfbg****
-   */
   networkAclEntryId?: string;
-  /**
-   * @remarks
-   * The name of the inbound rule.
-   * 
-   * @example
-   * acl-3
-   */
   networkAclEntryName?: string;
-  /**
-   * @remarks
-   * The action to be performed on network traffic that matches the rule. Valid values:
-   * 
-   * *   **accept**
-   * *   **drop**
-   * 
-   * @example
-   * accept
-   */
   policy?: string;
-  /**
-   * @remarks
-   * The destination port range of the inbound traffic.
-   * 
-   * *   If the **protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specifies all ports.
-   * *   If the **protocol** of the inbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid ports: **1** to **65535**.
-   * 
-   * @example
-   * -1/-1
-   */
   port?: string;
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   **icmp**
-   * *   **gre**
-   * *   **tcp**
-   * *   **udp**
-   * *   **all**
-   * 
-   * @example
-   * all
-   */
   protocol?: string;
-  /**
-   * @remarks
-   * The source CIDR block.
-   * 
-   * @example
-   * 10.0.0.0/24
-   */
   sourceCidrIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -313,33 +149,8 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeIngressA
 }
 
 export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeResourcesResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the associated resource.
-   * 
-   * @example
-   * vsw-bp1de348lntdwxscd****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of resource with which you want to associate the network ACL. The value is set to **VSwitch**.
-   * 
-   * @example
-   * VSwitch
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The association status of the resource. Valid values:
-   * 
-   * *   **BINDED**
-   * *   **BINDING**
-   * *   **UNBINDING**
-   * 
-   * @example
-   * BINDED
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -393,21 +204,7 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeResource
 }
 
 export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N added to the resource.
-   * 
-   * @example
-   * FinanceDept
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of tag N added to the resource.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -475,15 +272,7 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
    * This is my NetworkAcl.
    */
   description?: string;
-  /**
-   * @remarks
-   * The information about the outbound rules of the network ACL.
-   */
   egressAclEntries?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAclEntries;
-  /**
-   * @remarks
-   * The information about the inbound rules of the network ACL.
-   */
   ingressAclEntries?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeIngressAclEntries;
   /**
    * @remarks
@@ -517,10 +306,6 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The resources that are associated with the network ACL.
-   */
   resources?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeResources;
   /**
    * @remarks
@@ -533,10 +318,6 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
    * Available
    */
   status?: string;
-  /**
-   * @remarks
-   * The information about the tags.
-   */
   tags?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTags;
   /**
    * @remarks

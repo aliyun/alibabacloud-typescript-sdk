@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAclsIPv6TranslatorAcl extends $dara.Model {
-  /**
-   * @remarks
-   * The ACL ID.
-   * 
-   * @example
-   * ipv6transacl-bp1de2****
-   */
   aclId?: string;
-  /**
-   * @remarks
-   * The ACL name.
-   * 
-   * @example
-   * acl1
-   */
   aclName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAcls extend
 }
 
 export class DescribeIPv6TranslatorAclListsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of network ACLs.
-   */
   ipv6TranslatorAcls?: DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAcls;
   /**
    * @remarks

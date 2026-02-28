@@ -31,9 +31,9 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds 
 export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData extends $dara.Model {
   /**
    * @remarks
-   * If the value of ReservationOrderType is **TEMP_UPGRADE**, this parameter indicates the time when the temporary upgrade expires.
+   * 如果未生效订单类型为**TEMP_UPGRADE**（临时升配）时，该参数表示为临时升配的还原时间。
    * 
-   * If the value of ReservationOrderType is **RENEWCHANGE** or **RENEW**, this parameter indicates the time when the renewal or renewal with a specification change takes effect.
+   * 如果未生效订单类型为**RENEWCHANGE**（续费变配）或**RENEW**（续费）时，该参数表示为续费或续费变配开始生效时间。
    * 
    * @example
    * 2021-07-20T16:00:00Z
@@ -41,10 +41,11 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData
   reservationEndTime?: string;
   /**
    * @remarks
-   * The IPsec-VPN status of the pending order. Valid values:
+   * 未生效订单IPsec-VPN功能开启状态。
    * 
-   * *   **enable**
-   * *   **disable**
+   * - **enable**：已开启。
+   * 
+   * - **disable**：未开启。
    * 
    * @example
    * enable
@@ -52,7 +53,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData
   reservationIpsec?: string;
   /**
    * @remarks
-   * The maximum number of concurrent SSL-VPN connections of the pending order.
+   * 未生效订单SSL-VPN并发连接用户数的规格。
    * 
    * @example
    * 5
@@ -60,11 +61,13 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData
   reservationMaxConnections?: number;
   /**
    * @remarks
-   * The type of the order that has not taken effect. Valid values:
+   * 未生效订单类型。
    * 
-   * *   **RENEWCHANGE**: renewal with upgrade or downgrade
-   * *   **TEMP_UPGRADE**: temporary upgrade
-   * *   **RENEW**: renewal
+   * - **RENEWCHANGE**：续费变配。
+   * 
+   * - **TEMP_UPGRADE**：临时升配。
+   * 
+   * - **RENEW**：续费。
    * 
    * @example
    * TEMP_UPGRADE
@@ -72,7 +75,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData
   reservationOrderType?: string;
   /**
    * @remarks
-   * The bandwidth of the pending order. Unit: Mbit/s.
+   * 未生效订单的带宽规格。单位：Mbps。
    * 
    * @example
    * 5
@@ -80,10 +83,10 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData
   reservationSpec?: string;
   /**
    * @remarks
-   * The SSL-VPN status of the pending order. Valid values:
+   * 未生效订单SSL-VPN功能开启状态。
+   * - **enable**：已开启。
    * 
-   * *   **enable**
-   * *   **disable**
+   * - **disable**：未开启。
    * 
    * @example
    * enable
@@ -91,10 +94,11 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData
   reservationSsl?: string;
   /**
    * @remarks
-   * The status of the pending order.
+   * 未生效订单状态。
    * 
-   * *   **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
-   * *   **2**: indicates that the order of the temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, the values of **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specifications of the VPN gateway.
+   * - **1**：表示续费或续费变配的订单未生效。
+   * 
+   * - **2**：表示临时升配的订单已生效。在到达还原时间后，系统会将VPN网关规格恢复到临时升配前的规格。此时**ReservationIpsec**、**ReservationMaxConnections**、**ReservationSpec**、**ReservationSsl**表示为VPN网关临时升配前的规格。
    * 
    * @example
    * 1
@@ -136,7 +140,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData
 export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * 标签键。
    * 
    * @example
    * FinanceDept
@@ -144,7 +148,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayTagsTag extends
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * 标签值。
    * 
    * @example
    * FinanceJoshua
@@ -202,10 +206,11 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayTags extends $d
 export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether BGP routes are automatically advertised to the VPC.
+   * 是否已开启VPN网关的路由自动传播功能。
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：已开启。
+   * 
+   * - **false**：未开启。
    * 
    * @example
    * true
@@ -213,10 +218,11 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   autoPropagate?: boolean;
   /**
    * @remarks
-   * The payment status of the VPN gateway.
+   * VPN网关的付费状态。
    * 
-   * *   **Normal**
-   * *   **FinancialLocked**
+   * - **Normal**：正常。
+   * 
+   * - **FinancialLocked**：欠费锁定。
    * 
    * @example
    * Normal
@@ -224,19 +230,23 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   businessStatus?: string;
   /**
    * @remarks
-   * The billing method of the VPN gateway.
+   * VPN网关的付费类型。
    * 
-   * Only **POSTPAY** may be returned, which indicates the pay-as-you-go billing method.
+   * <props="china">仅取值：**Prepay**，包年包月。
+   * 
+   * <props="intl">仅取值：**POSTPAY**，按量计费。
+   * 
+   * <props="partner">仅取值： **POSTPAY**，按量计费。
    * 
    * @example
-   * Example value for the China site (aliyun.com): Prepay. Example value for the International site (alibabacloud.com): POSTPAY.
+   * 中国站示例值：Prepay，国际站示例值：POSTPAY
    */
   chargeType?: string;
   /**
    * @remarks
-   * The timestamp generated when the VPN gateway was created. Unit: milliseconds.
+   * 创建VPN网关的时间戳。单位：毫秒。
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 时间戳的格式采用Unix时间戳，表示从格林威治时间1970年01月01日00时00分00秒至创建VPN网关实例时的总时长。
    * 
    * @example
    * 1515383700000
@@ -244,7 +254,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   createTime?: number;
   /**
    * @remarks
-   * The description of the VPN gateway.
+   * VPN网关的描述信息。
    * 
    * @example
    * test
@@ -252,9 +262,9 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   description?: string;
   /**
    * @remarks
-   * The second IP address that is assigned to the VPN gateway to create IPsec-VPN connections.
+   * 系统为VPN网关实例分配的用于创建IPsec-VPN连接的第二个IP地址。
    * 
-   * This parameter is returned only if the VPN gateway supports IPsec-VPN connections in dual-tunnel mode.
+   * 仅支持创建双隧道模式IPsec-VPN连接的VPN网关实例会返回当前参数。
    * 
    * @example
    * 47.91.XX.XX
@@ -262,9 +272,9 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   disasterRecoveryInternetIp?: string;
   /**
    * @remarks
-   * The ID of the second vSwitch that is associated with the VPN gateway.
+   * VPN网关实例关联的第二个交换机ID。
    * 
-   * This parameter is returned only if the VPN gateway supports IPsec-VPN connections in dual-tunnel mode.
+   * 仅支持创建双隧道模式IPsec-VPN连接的VPN网关实例会返回当前参数。
    * 
    * @example
    * vsw-p0w95ql6tmr2ludkt****
@@ -272,10 +282,11 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   disasterRecoveryVSwitchId?: string;
   /**
    * @remarks
-   * The BGP status of the VPN gateway. Valid values:
+   * VPN网关BGP功能的开启状态。
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：已开启。
+   * 
+   * - **false**：未开启。
    * 
    * @example
    * true
@@ -283,9 +294,9 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   enableBgp?: boolean;
   /**
    * @remarks
-   * The timestamp generated when the VPN gateway expires. Unit: milliseconds.
+   * VPN网关到期时间戳。单位：毫秒。
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 时间戳的格式采用Unix时间戳，表示从格林威治时间1970年01月01日00时00分00秒至VPN网关实例到期时的总时长。
    * 
    * @example
    * 1518105600000
@@ -293,17 +304,23 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   endTime?: number;
   /**
    * @remarks
-   * The ENIs created by the system for the VPN gateway.
+   * 系统为VPN网关实例创建的弹性网卡ENI（Elastic Network Interfaces）列表。
    */
   eniInstanceIds?: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds;
+  /**
+   * @remarks
+   * VPN 网关类型，取值：
+   * Traditional：传统型VPN网关，覆盖IPsec功能和SSL功能
+   * Enhance.SiteToSite：增强型站点入云VPN，只覆盖IPsec功能
+   */
   gatewayType?: string;
   /**
    * @remarks
-   * *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the value of this parameter is the IP address of the VPN gateway, which can be used to create IPsec-VPN or SSL-VPN connections.
+   * - 在VPN网关实例支持创建单隧道模式IPsec-VPN连接的场景下，该地址为VPN网关实例的IP地址，可用于创建IPsec-VPN连接或SSL-VPN连接。
    * 
-   * *   If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the value of this parameter is the first IP address that is used to create an IPsec-VPN connection. The IP address cannot be used to create SSL-VPN connections.
+   * - 在VPN网关实例支持创建双隧道模式IPsec-VPN连接的场景下，该地址为用于创建IPsec-VPN连接的第一个IP地址，不能用于创建SSL-VPN连接。
    * 
-   *     If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IPsec addresses to the VPN gateway to create IPsec-VPN connections in dual-tunnel mode.
+   *     在VPN网关实例支持创建双隧道模式IPsec-VPN连接的场景下，系统会为VPN网关实例分配两个IPsec地址，用于创建双隧道模式的IPsec-VPN连接。
    * 
    * @example
    * 47.12.XX.XX
@@ -311,10 +328,11 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   internetIp?: string;
   /**
    * @remarks
-   * Indicates whether IPsec-VPN is enabled for the VPN gateway. Valid values:
+   * VPN网关是否开启了IPsec-VPN功能。
    * 
-   * *   **enable**
-   * *   **disable**
+   * - **enable**：已开启。
+   * 
+   * - **disable**：未开启。
    * 
    * @example
    * enable
@@ -322,7 +340,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   ipsecVpn?: string;
   /**
    * @remarks
-   * The name of the VPN gateway.
+   * VPN网关的名称。
    * 
    * @example
    * test
@@ -330,10 +348,10 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   name?: string;
   /**
    * @remarks
-   * The network type of the VPN gateway.
+   * VPN网关的网络类型。
    * 
-   * *   **public**
-   * *   **private**
+   * - **public**：公网VPN网关。
+   * - **private**：私网VPN网关。
    * 
    * @example
    * public
@@ -341,16 +359,16 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   networkType?: string;
   /**
    * @remarks
-   * The information about pending orders.
+   * 未生效的订购数据。
    * 
-   * > This parameter is returned only if **IncludeReservationData** is set to **true**.
+   * >仅**IncludeReservationData**传入**true**才会返回该组参数。
    */
   reservationData?: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData;
   /**
    * @remarks
-   * The ID of the resource group to which the VPN gateway belongs.
+   * VPN网关所属的资源组ID。
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+   * 您可以调用[ListResourceGroups](https://help.aliyun.com/document_detail/158855.html)接口查询资源组信息。
    * 
    * @example
    * rg-acfmzs372yg****
@@ -358,7 +376,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   resourceGroupId?: string;
   /**
    * @remarks
-   * The maximum bandwidth of the VPN gateway. Unit: **M**, which indicates Mbit/s.
+   * VPN网关的带宽峰值。**M**表示单位Mbps。
    * 
    * @example
    * 5M
@@ -366,7 +384,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   spec?: string;
   /**
    * @remarks
-   * The number of SSL-VPN connections supported by the VPN gateway.
+   * VPN网关SSL连接数的规格。
    * 
    * @example
    * 5
@@ -374,10 +392,11 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   sslMaxConnections?: number;
   /**
    * @remarks
-   * Indicates whether SSL-VPN is enabled for the VPN gateway. Valid values:
+   * VPN网关是否开启了SSL-VPN功能。
    * 
-   * *   **enable**
-   * *   **disable**
+   * - **enable**：已开启。
+   * 
+   * - **disable**：未开启。
    * 
    * @example
    * enable
@@ -385,9 +404,9 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   sslVpn?: string;
   /**
    * @remarks
-   * The IP address of the SSL-VPN connection.
+   * SSL-VPN连接的IP地址。
    * 
-   * This parameter is returned only if the VPN gateway is a public VPN gateway and supports IPsec-VPN connections in dual-tunnel mode. In addition, SSL-VPN must be enabled for the VPN gateway.
+   * 仅支持创建双隧道模式IPsec-VPN连接的公网网络类型的VPN网关实例开启SSL-VPN功能后，才会返回当前参数。
    * 
    * @example
    * 47.74.XX.XX
@@ -395,13 +414,17 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   sslVpnInternetIp?: string;
   /**
    * @remarks
-   * The status of the VPN gateway. Valid values:
+   * VPN网关的状态。
    * 
-   * *   **init**
-   * *   **provisioning**
-   * *   **active**
-   * *   **updating**
-   * *   **deleting**
+   * - **init** ：初始化。
+   * 
+   * - **provisioning** ：准备中。
+   * 
+   * - **active** ：正常。
+   * 
+   * - **updating** ：更新中。
+   * 
+   * - **deleting** ：删除中。
    * 
    * @example
    * active
@@ -409,49 +432,38 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   status?: string;
   /**
    * @remarks
-   * The tag that is automatically generated for the VPN gateway.
+   * 系统自动生成的VPN网关标签。
    * 
-   * *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
-   * 
-   *     *   **true**
-   *     *   **false**
-   * 
-   * *   **VisuallySsl**: indicates whether the VPN gateway allows you to view the connection information of SSL clients. Valid values:
-   * 
-   *     *   **true**
-   *     *   **false**
-   * 
-   * *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes. Valid values:
-   * 
-   *     *   **true**
-   *     *   **false**
-   * 
-   * *   **VpnNewImage**: indicates whether the VPN gateway is upgraded. Valid values:
-   * 
-   *     *   **true**: queries only SQL templates that need to be optimized.
-   *     *   **false**: does not query only SQL statements that need to be optimized.
-   * 
-   * *   **description**: the description of the VPN gateway. This parameter is only for internal use.
-   * 
-   * *   **VpnVersion**: the version of the VPN gateway.
-   * 
-   * *   **IDaaSNewVersion**: indicates whether the VPN gateway can be associated with an EIAM 2.0 instance.
-   * 
-   *     *   **true**
-   *     *   **false**
+   * - **VpnEnableBgp**：表示VPN网关是否支持BGP功能。
+   *     - **true**：支持。
+   *     - **false**：不支持。
+   * - **VisuallySsl**：表示VPN网关是否支持查看SSL客户端的连接信息。
+   *     - **true**：支持。
+   *     - **false**：不支持。
+   * - **PbrPriority**：表示VPN网关是否支持为策略路由配置策略优先级。
+   *     - **true**：支持。
+   *     - **false**：不支持。
+   * - **VpnNewImage**：表示VPN网关是否为新型VPN网关。
+   *     - **true**：是。
+   *     - **false**：否。
+   * - **description**：表示VPN网关的描述信息，仅供系统内部使用。
+   * - **VpnVersion**：表示VPN网关的版本号。
+   * - **IDaaSNewVersion**：表示VPN网关是否支持绑定EIAM 2.0实例。
+   *     - **true**：支持。
+   *     - **false**：不支持。
    * 
    * @example
-   * {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
+   * {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"转发1.3.24\\",\\"VpnVersion\\":\\"v1.2.4\\",\\"IDaaSNewVersion\\":\\"true\\"}
    */
   tag?: string;
   /**
    * @remarks
-   * The tags that are added to the VPN gateway.
+   * VPN网关绑定的标签列表。
    */
   tags?: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayTags;
   /**
    * @remarks
-   * The ID of the vSwitch to which the VPN gateway belongs.
+   * VPN网关所属交换机的ID。
    * 
    * @example
    * vsw-bp15lbk8sgtr6r5b0****
@@ -459,7 +471,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the VPN gateway belongs.
+   * VPN网关所属VPC的ID。
    * 
    * @example
    * vpc-bp1m3i0kn1nd4wiw9****
@@ -467,7 +479,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * VPN网关的ID。
    * 
    * @example
    * vpn-bp17lofy9fd0dnvzv****
@@ -475,9 +487,16 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $dara.
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The type of VPN gateway.
+   * VPN网关类型。
+   * 	
+   * <props="china">
    * 
-   * Only **Normal** may be returned, which indicates a standard VPN gateway.
+   * - **Normal**：普通型。
+   * - **NationalStandard**：国密型。
+   * 
+   * 
+   * 
+   * <props="intl">取值：**Normal**，表示普通型。
    * 
    * @example
    * Normal
@@ -626,10 +645,6 @@ export class DescribeVpnGatewaysResponseBody extends $dara.Model {
    * 1
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The information about the VPN gateways.
-   */
   vpnGateways?: DescribeVpnGatewaysResponseBodyVpnGateways;
   static names(): { [key: string]: string } {
     return {

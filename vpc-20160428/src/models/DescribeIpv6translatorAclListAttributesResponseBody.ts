@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeIPv6TranslatorAclListAttributesResponseBodyAclEntriesAclEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The remarks of the ACL entry.
-   * 
-   * @example
-   * client IP
-   */
   aclEntryComment?: string;
-  /**
-   * @remarks
-   * The ID of the ACL entry.
-   * 
-   * @example
-   * ipv6transaclentry-bp105jrs****
-   */
   aclEntryId?: string;
-  /**
-   * @remarks
-   * The IP address specified in the ACL entry.
-   * 
-   * @example
-   * 12ab:0:0:XXXX::0102/128
-   */
   aclEntryIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeIPv6TranslatorAclListAttributesResponseBodyAclEntries exten
 }
 
 export class DescribeIPv6TranslatorAclListAttributesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ACLs.
-   */
   aclEntries?: DescribeIPv6TranslatorAclListAttributesResponseBodyAclEntries;
   /**
    * @remarks

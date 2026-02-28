@@ -3,28 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocksIpv6CidrBlock extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 CIDR block of the VPC.
-   * 
-   * @example
-   * 2408:XXXX:0:a600::/56
-   */
   ipv6CidrBlock?: string;
-  /**
-   * @remarks
-   * The type of IPv6 CIDR block. Valid values:
-   * 
-   * *   **BGP**
-   * *   **ChinaMobile**
-   * *   **ChinaUnicom**
-   * *   **ChinaTelecom**
-   * 
-   * >  If your Alibaba Cloud account is allowed to activate single-ISP bandwidth, you can set this parameter to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
-   * 
-   * @example
-   * BGP
-   */
   ipv6Isp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -154,21 +133,7 @@ export class DescribeVpcsResponseBodyVpcsVpcSecondaryCidrBlocks extends $dara.Mo
 }
 
 export class DescribeVpcsResponseBodyVpcsVpcTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N.
-   * 
-   * @example
-   * env
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of tag N.
-   * 
-   * @example
-   * internal
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -272,195 +237,29 @@ export class DescribeVpcsResponseBodyVpcsVpcVSwitchIds extends $dara.Model {
 }
 
 export class DescribeVpcsResponseBodyVpcsVpc extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the Cloud Enterprise Network (CEN) instance to which the VPC is attached. **Attached** is returned only if the VPC is attached to a CEN instance.
-   * 
-   * @example
-   * Attached
-   */
   cenStatus?: string;
-  /**
-   * @remarks
-   * The IPv4 CIDR block of the VPC.
-   * 
-   * @example
-   * 192.168.0.0/16
-   */
   cidrBlock?: string;
-  /**
-   * @remarks
-   * The time when the VPC was created.
-   * 
-   * @example
-   * 2021-04-18T15:02:37Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the VPC.
-   * 
-   * @example
-   * This is my VPC.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the DHCP options set.
-   * 
-   * @example
-   * dopt-o6w0df4epg9zo8isy****
-   */
   dhcpOptionsSetId?: string;
-  /**
-   * @remarks
-   * The status of the DHCP options set. Valid values:
-   * 
-   * *   **Available**
-   * *   **InUse**
-   * *   **Deleted**
-   * *   **Pending**
-   * 
-   * @example
-   * Available
-   */
   dhcpOptionsSetStatus?: string;
-  /**
-   * @remarks
-   * Indicates whether the Domain Name System (DNS) feature is enabled.
-   * 
-   * @example
-   * DISABLED
-   */
   dnsHostnameStatus?: string;
-  /**
-   * @remarks
-   * Indicates whether the IPv6 is enabled.
-   * 
-   * Valid values:
-   * 
-   * - false: false
-   * 
-   * - true: true
-   * 
-   * @example
-   * false
-   */
   enabledIpv6?: boolean;
-  /**
-   * @remarks
-   * The IPv6 CIDR block of the VPC.
-   * 
-   * @example
-   * 2408:XXXX:0:a600::/56
-   */
   ipv6CidrBlock?: string;
-  /**
-   * @remarks
-   * The IPv6 CIDR block of the VPC.
-   */
   ipv6CidrBlocks?: DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocks;
-  /**
-   * @remarks
-   * Indicates whether the VPC is the default VPC in the region. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
   isDefault?: boolean;
-  /**
-   * @remarks
-   * The ID of the Internet NAT gateway.
-   */
   natGatewayIds?: DescribeVpcsResponseBodyVpcsVpcNatGatewayIds;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the VPC belongs.
-   * 
-   * @example
-   * 253460731706911258
-   */
   ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the region to which the VPC belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the VPC belongs.
-   * 
-   * @example
-   * rg-acfmxazb4ph****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The information about the route table.
-   */
   routerTableIds?: DescribeVpcsResponseBodyVpcsVpcRouterTableIds;
-  /**
-   * @remarks
-   * The information about the secondary CIDR block.
-   */
   secondaryCidrBlocks?: DescribeVpcsResponseBodyVpcsVpcSecondaryCidrBlocks;
-  /**
-   * @remarks
-   * The status of the VPC. Valid values:
-   * 
-   * *   **Pending**
-   * *   **Available**
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tag information about the VPC.
-   */
   tags?: DescribeVpcsResponseBodyVpcsVpcTags;
-  /**
-   * @remarks
-   * The list of user CIDR blocks.
-   */
   userCidrs?: DescribeVpcsResponseBodyVpcsVpcUserCidrs;
-  /**
-   * @remarks
-   * The ID of the vRouter.
-   * 
-   * @example
-   * vrt-bp1jcg5cmxjbl9xgc****
-   */
   VRouterId?: string;
-  /**
-   * @remarks
-   * The vSwitches in the VPC.
-   * 
-   * You can query up to 300 vSwitches in the VPC. The information about the latest vSwitches is returned. If you want to query the information about all vSwitches in a VPC, call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation.
-   */
   vSwitchIds?: DescribeVpcsResponseBodyVpcsVpcVSwitchIds;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-bp1qpo0kug3a20qqe****
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The name of the VPC.
-   * 
-   * @example
-   * vpc1
-   */
   vpcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -609,10 +408,6 @@ export class DescribeVpcsResponseBody extends $dara.Model {
    * 2
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The details of the VPC.
-   */
   vpcs?: DescribeVpcsResponseBodyVpcs;
   static names(): { [key: string]: string } {
     return {

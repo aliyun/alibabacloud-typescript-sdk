@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTagKeysResponseBodyTagKeysTagKey extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * FinanceDept
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The type of the tag key. Valid values:
-   * 
-   * *   **Custom**: custom
-   * *   **System**: system
-   * 
-   * @example
-   * Custom
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,10 +74,6 @@ export class DescribeTagKeysResponseBody extends $dara.Model {
    * DE65F6B7-7566-4802-9007-96F2494AC512
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of tag keys.
-   */
   tagKeys?: DescribeTagKeysResponseBodyTagKeys;
   static names(): { [key: string]: string } {
     return {

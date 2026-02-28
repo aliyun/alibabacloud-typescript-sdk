@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * Tag key.
-   * 
-   * @example
-   * FinanceDept
-   */
   key?: string;
-  /**
-   * @remarks
-   * Tag value.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,186 +81,25 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath extends $dar
 }
 
 export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
-  /**
-   * @remarks
-   * The sampling interval of the flow log. Unit: minutes.
-   * 
-   * @example
-   * 10
-   */
   aggregationInterval?: number;
-  /**
-   * @remarks
-   * The business status. Values:
-   * 
-   * - **Normal**: Normal status.
-   * - **FinancialLocked**: Locked due to unpaid bills.
-   * 
-   * @example
-   * Normal
-   */
   businessStatus?: string;
-  /**
-   * @remarks
-   * The creation time of the flow log.
-   * 
-   * @example
-   * 2022-01-21T03:08:50Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the flow log.
-   * 
-   * @example
-   * Description
-   */
   description?: string;
-  /**
-   * @remarks
-   * When log delivery fails, you can troubleshoot based on the error messages. Possible error messages include:
-   * - **UnavaliableTarget**: The Logstore of the Log Service SLS is unavailable and cannot receive logs. It is recommended to check if the corresponding Logstore actually exists and is accessible. 
-   * - **ProjectNotExist**: The Project of the Log Service SLS does not exist. It is suggested to delete the original flow log and create a new one pointing to an existing Project. 
-   * - **UnknownError**: An internal error has occurred. Please try again later.
-   * 
-   * @example
-   * UnavaliableTarget
-   */
   flowLogDeliverErrorMessage?: string;
-  /**
-   * @remarks
-   * The delivery status of the flow log, with values:
-   * - **SUCCESS**: Delivery succeeded. 
-   * - **FAILED**: Delivery failed.
-   * 
-   * @example
-   * FAILED
-   */
   flowLogDeliverStatus?: string;
-  /**
-   * @remarks
-   * The ID of the flow log.
-   * 
-   * @example
-   * fl-bp1f6qqhsrc2c12ta****
-   */
   flowLogId?: string;
-  /**
-   * @remarks
-   * The name of the flow log.
-   * 
-   * @example
-   * myFlowlog
-   */
   flowLogName?: string;
-  /**
-   * @remarks
-   * The type of IP address for collecting flow log traffic.
-   * 
-   * @example
-   * IPv4
-   */
   ipVersion?: string;
-  /**
-   * @remarks
-   * The Logstore where the captured traffic is stored.
-   * 
-   * @example
-   * FlowLogStore
-   */
   logStoreName?: string;
-  /**
-   * @remarks
-   * The Project that manages the captured traffic.
-   * 
-   * @example
-   * FlowLogProject
-   */
   projectName?: string;
-  /**
-   * @remarks
-   * The region ID to which the flow log belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the flow log belongs.
-   * 
-   * @example
-   * rg-bp67acfmxazb4ph****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The resource ID of the traffic captured by the flow log.
-   * 
-   * @example
-   * eni-askldfas****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The resource type of the traffic captured by the flow log:
-   * 
-   * - **NetworkInterface**: Elastic network interface.
-   * - **VSwitch**: All elastic network interfaces within a VSwitch.
-   * - **VPC**: All elastic network interfaces within a VPC.
-   * 
-   * @example
-   * NetworkInterface
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The hosting type of the cloud service.
-   * - It can be empty, indicating that the flow log was created by the user. 
-   * - When not empty, the only supported value is: **sls**, indicating that the flow log was created through the Log Service console.
-   * > Flow log instances created through the Log Service console can be displayed in the VPC list, but they cannot be modified, started, stopped, or deleted within the VPC. If you need to perform these operations on the flow log, you can log in to the [Log Service console](https://sls.console.aliyun.com) to modify, start, stop, or delete it.
-   * 
-   * @example
-   * sls
-   */
   serviceType?: string;
-  /**
-   * @remarks
-   * The status of the flow log. Values:
-   * - **Active**: The flow log is in an active state.
-   * 
-   * - **Activating**: The flow log is being created.
-   * 
-   * - **Inactive**: The flow log is in an inactive state.
-   * 
-   * @example
-   * Active
-   */
   status?: string;
-  /**
-   * @remarks
-   * List of tags
-   */
   tags?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTags;
-  /**
-   * @remarks
-   * The path of the captured traffic. Values:
-   * 
-   * - **all**: Indicates full collection.
-   * - **internetGateway**: Indicates public network traffic collection.
-   */
   trafficPath?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath;
-  /**
-   * @remarks
-   * The type of traffic captured by the flow log. Values:
-   * 
-   * - **All**: All traffic.
-   * - **Allow**: Traffic allowed by access control.
-   * - **Drop**: Traffic denied by access control.
-   * 
-   * @example
-   * All
-   */
   trafficType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -368,10 +193,6 @@ export class DescribeFlowLogsResponseBodyFlowLogs extends $dara.Model {
 }
 
 export class DescribeFlowLogsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * List of flow logs.
-   */
   flowLogs?: DescribeFlowLogsResponseBodyFlowLogs;
   /**
    * @remarks

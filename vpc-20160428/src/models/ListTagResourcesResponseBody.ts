@@ -3,45 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the resource.
-   * 
-   * @example
-   * vpc-bp16qjewdsunr41m1****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VSWITCH**: vSwitch
-   * *   **ROUTETABLE**: route table
-   * *   **EIP**: EIP
-   * *   **VpnGateWay**: VPN gateway
-   * *   **NATGATEWAY**: NAT gateway
-   * *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
-   * 
-   * @example
-   * VPC
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * FinanceDept
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -116,10 +80,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * DE65F6B7-7566-4802-9007-96F2494AC512
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tag key.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

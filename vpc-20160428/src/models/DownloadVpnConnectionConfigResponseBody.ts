@@ -242,7 +242,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IKE phase.
+   * IKE阶段认证算法。
    * 
    * @example
    * sha1
@@ -250,7 +250,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ikeAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IKE phase.
+   * IKE阶段加密算法。
    * 
    * @example
    * aes
@@ -258,7 +258,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IKE phase. Unit: seconds.
+   * IKE阶段生存时间。单位：秒。
    * 
    * @example
    * 86400
@@ -266,10 +266,10 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ikeLifetime?: number;
   /**
    * @remarks
-   * The IKE negotiation mode. Valid values:
+   * IKE协商模式。
    * 
-   * *   **main**: This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * - **main**：主模式，协商过程安全性高。
+   * - **aggressive**：野蛮模式，协商快速且协商成功率高。
    * 
    * @example
    * main
@@ -277,7 +277,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ikeMode?: string;
   /**
    * @remarks
-   * The DH group in the IKE phase.
+   * IKE阶段DH分组。
    * 
    * @example
    * group2
@@ -285,15 +285,15 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ikePfs?: string;
   /**
    * @remarks
-   * The IKE version.
+   * IKE协议的版本。
    * 
    * @example
-   * ikev1
+   * ikev2
    */
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier of the tunnel on the data center side.
+   * 本地IDC侧隧道的标识。
    * 
    * @example
    * 47.21.XX.XX
@@ -301,7 +301,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   localId?: string;
   /**
    * @remarks
-   * The pre-shared key.
+   * 预共享密钥。
    * 
    * @example
    * pgw6dy7d1i8i****
@@ -309,7 +309,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   psk?: string;
   /**
    * @remarks
-   * The identifier of the tunnel on the Alibaba Cloud side.
+   * 阿里云侧隧道的标识。
    * 
    * @example
    * 47.24.XX.XX
@@ -355,7 +355,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IPsec phase.
+   * IPsec阶段认证算法。
    * 
    * @example
    * sha1
@@ -363,7 +363,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ipsecAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IPsec phase.
+   * IPsec阶段加密算法。
    * 
    * @example
    * aes
@@ -371,7 +371,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IPsec phase. Unit: seconds.
+   * IPsec阶段生存时间。单位：秒。
    * 
    * @example
    * 86400
@@ -379,7 +379,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   ipsecLifetime?: number;
   /**
    * @remarks
-   * The DH group in the IPsec phase.
+   * IPsec阶段DH分组。
    * 
    * @example
    * group2
@@ -415,17 +415,17 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig extends $dara.Model {
   /**
    * @remarks
-   * The configurations of Phase 1 negotiations.
+   * 第一阶段协商的配置信息。
    */
   ikeConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig;
   /**
    * @remarks
-   * The configurations of Phase 2 negotiations.
+   * 第二阶段协商的配置信息。
    */
   ipsecConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig;
   /**
    * @remarks
-   * The identifier of the tunnel on the data center side.
+   * 本地IDC侧隧道的标识。
    * 
    * @example
    * 47.21.XX.XX
@@ -433,7 +433,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   local?: string;
   /**
    * @remarks
-   * The identifier of the tunnel on the Alibaba Cloud side.
+   * 阿里云侧隧道的标识。
    * 
    * @example
    * 47.24.XX.XX
@@ -441,7 +441,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
   remote?: string;
   /**
    * @remarks
-   * The tunnel ID.
+   * 隧道ID。
    * 
    * @example
    * tun-opsqc4d97wni27****
@@ -552,12 +552,6 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends 
    * 192.168.0.0/16
    */
   remoteSubnet?: string;
-  /**
-   * @remarks
-   * The tunnel configurations of the peer gateway device.
-   * 
-   * The parameters in **TunnelsConfig** are returned only when the IPsec-VPN connection supports the dual-tunnel mode.
-   */
   tunnelsConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig;
   static names(): { [key: string]: string } {
     return {

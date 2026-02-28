@@ -3,17 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLocksLockReason extends $dara.Model {
-  /**
-   * @remarks
-   * The reason why the EIP is locked. Valid values:
-   * 
-   * *   **financial**: The EIP is locked due to overdue payments.
-   * *   **security**: The instance is locked for security purposes.
-   * *   **sharedPool**: The shared IP address pool is locked due to overdue payments.
-   * 
-   * @example
-   * financial
-   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,21 +78,7 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddressSecurityProte
 }
 
 export class DescribeEipAddressesResponseBodyEipAddressesEipAddressTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the EIP.
-   * 
-   * @example
-   * KeyTest
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value of the EIP.
-   * 
-   * @example
-   * ValueTest
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,411 +130,47 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddressTags extends 
 }
 
 export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the EIP.
-   * 
-   * @example
-   * eip-2zeerraiwb7ujcdvf****
-   */
   allocationId?: string;
-  /**
-   * @remarks
-   * The time when the EIP was created. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
-   * 
-   * @example
-   * 2021-04-23T01:37:38Z
-   */
   allocationTime?: string;
-  /**
-   * @remarks
-   * The maximum bandwidth of the EIP. Unit: Mbit/s.
-   * 
-   * @example
-   * 5
-   */
   bandwidth?: string;
-  /**
-   * @remarks
-   * The maximum bandwidth of the Internet Shared Bandwidth instance with which the EIP is associated. Unit: Mbit/s.
-   * 
-   * @example
-   * 50
-   */
   bandwidthPackageBandwidth?: string;
-  /**
-   * @remarks
-   * The ID of the Internet Shared Bandwidth instance.
-   * 
-   * @example
-   * cbwp-bp1ego3i4j07ccdvf****
-   */
   bandwidthPackageId?: string;
-  /**
-   * @remarks
-   * The type of the bandwidth. Only **CommonBandwidthPackage** may be returned, which indicates Internet Shared Bandwidth.
-   * 
-   * @example
-   * CommonBandwidthPackage
-   */
   bandwidthPackageType?: string;
-  /**
-   * @remarks
-   * The service type. Valid values:
-   * 
-   * *   **CloudBox** Only cloud box users can select this type.
-   * *   **Default** (default)
-   * 
-   * @example
-   * CloudBox
-   */
   bizType?: string;
-  /**
-   * @remarks
-   * The service status of the EIP. Valid values:
-   * 
-   * *   **Normal**
-   * *   **OperationLock**
-   * *   **Unactivated**
-   * 
-   * @example
-   * Normal
-   */
   businessStatus?: string;
-  /**
-   * @remarks
-   * The billing method of the EIP. Valid values:
-   * 
-   * *   **PostPaid**: pay-as-you-go.
-   * *   **PrePaid**: subscription.
-   * 
-   * @example
-   * PostPaid
-   */
   chargeType?: string;
-  /**
-   * @remarks
-   * Indicates whether deletion protection is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   deletionProtection?: boolean;
-  /**
-   * @remarks
-   * The description of the EIP.
-   * 
-   * @example
-   * abc
-   */
   description?: string;
-  /**
-   * @remarks
-   * The maximum bandwidth of the EIP when it is not associated with an Internet Shared Bandwidth instance. Unit: Mbit/s.
-   * 
-   * @example
-   * 101
-   */
   eipBandwidth?: string;
-  /**
-   * @remarks
-   * The time when the EIP expires. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
-   * 
-   * @example
-   * 2021-05-23T02:00:00Z
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * Indicates whether fine-grained monitoring is enabled for the EIP. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
-   * 
-   * @example
-   * false
-   */
   HDMonitorStatus?: string;
-  /**
-   * @remarks
-   * Indicates whether renewal data is included. Valid values:
-   * 
-   * *   **false**
-   * *   **true** A value of **true** is returned only when **IncludeReservationData** is set to **true** and some orders have not taken effect.
-   * 
-   * @example
-   * false
-   */
   hasReservationData?: string;
-  /**
-   * @remarks
-   * The line type. Valid values:
-   * 
-   * *   **BGP**: BGP (Multi-ISP). The BGP (Multi-ISP) line is supported in all regions.
-   * *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. BGP (Multi-ISP) Pro line is supported only in the China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok) regions.
-   * 
-   * For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro, see the [Line types](https://help.aliyun.com/document_detail/32321.html) section of the "What is EIP?" topic.
-   * 
-   * If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
-   * 
-   * *   **ChinaTelecom**
-   * *   **ChinaUnicom**
-   * *   **ChinaMobile**
-   * *   **ChinaTelecom_L2**
-   * *   **ChinaUnicom_L2**
-   * *   **ChinaMobile_L2**
-   * 
-   * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
-   * 
-   * @example
-   * BGP
-   */
   ISP?: string;
-  /**
-   * @remarks
-   * The ID of the associated instance.
-   * 
-   * @example
-   * i-bp15zckdt37cdvf****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The region ID of the associated instance.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   instanceRegionId?: string;
-  /**
-   * @remarks
-   * The type of the associated instance. Valid values:
-   * 
-   * *   **EcsInstance**: an ECS instance in a VPC.
-   * *   **SlbInstance**: a CLB instance in a VPC.
-   * *   **Nat**: a NAT gateway.
-   * *   **HaVip**: an HAVIP.
-   * *   **NetworkInterface**: a secondary ENI.
-   * *   **IpAddress**: an IP address.
-   * 
-   * @example
-   * EcsInstance
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The metering method of the EIP. Valid values:
-   * 
-   * *   **PayByBandwidth**
-   * *   **PayByTraffic**
-   * 
-   * @example
-   * PayByBandwidth
-   */
   internetChargeType?: string;
-  /**
-   * @remarks
-   * The EIP.
-   * 
-   * @example
-   * 47.75.XX.XX
-   */
   ipAddress?: string;
-  /**
-   * @remarks
-   * The association mode. Valid values:
-   * - **NAT**: NAT mode
-   * - **MULTI_BINDED**: multi-EIP-to-ENI mode
-   * - **BINDED**: cut-through mode
-   * 
-   * @example
-   * NAT
-   */
   mode?: string;
-  /**
-   * @remarks
-   * The name of the EIP.
-   * 
-   * @example
-   * EIP-01
-   */
   name?: string;
-  /**
-   * @remarks
-   * The network type. Only **public** may be returned.
-   * 
-   * @example
-   * public
-   */
   netmode?: string;
-  /**
-   * @remarks
-   * The details about the locked EIP.
-   */
   operationLocks?: DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLocks;
-  /**
-   * @remarks
-   * The private IP address of the secondary ENI with which the EIP is associated.
-   * 
-   * @example
-   * 192.168.XX.XX
-   */
   privateIpAddress?: string;
-  /**
-   * @remarks
-   * The ID of the IP address pool to which the EIP belongs.
-   * 
-   * @example
-   * pippool-2vc0kxcedhquybdsz****
-   */
   publicIpAddressPoolId?: string;
-  /**
-   * @remarks
-   * The region ID of the EIP.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The time when the renewal took effect. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
-   * 
-   * @example
-   * 2021-05-23T16:00:00Z
-   */
   reservationActiveTime?: string;
-  /**
-   * @remarks
-   * The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
-   * 
-   * @example
-   * 12
-   */
   reservationBandwidth?: string;
-  /**
-   * @remarks
-   * The metering method that is used after the renewal takes effect. Valid values:
-   * 
-   * *   **PayByBandwidth**
-   * *   **PayByTraffic**
-   * 
-   * @example
-   * PayByBandwidth
-   */
   reservationInternetChargeType?: string;
-  /**
-   * @remarks
-   * The type of the renewal order. Valid values:
-   * 
-   * *   **RENEWCHANGE**: renewal with an upgrade or a downgrade.
-   * *   **TEMP_UPGRADE**: temporary upgrade.
-   * *   **UPGRADE**: upgrade.
-   * 
-   * @example
-   * RENEWCHANGE
-   */
   reservationOrderType?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmxazcdxs****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * Indicates whether level-2 throttling is configured. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
   secondLimited?: boolean;
-  /**
-   * @remarks
-   * The edition of Anti-DDoS.
-   * 
-   * *   If an empty value is returned, it indicates that Anti-DDoS Origin Basic is used.
-   * *   If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium is used.
-   */
   securityProtectionTypes?: DescribeEipAddressesResponseBodyEipAddressesEipAddressSecurityProtectionTypes;
-  /**
-   * @remarks
-   * The ID of the contiguous EIP group.
-   * 
-   * This value is returned only when you query contiguous EIPs.
-   * 
-   * @example
-   * eipsg-t4nr90yik5oy38xd****
-   */
   segmentInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the service provider to which the managed instance belongs.
-   * > This is only valid when the ServiceManaged parameter is set to True.
-   * 
-   * @example
-   * 197*************
-   */
   serviceID?: number;
-  /**
-   * @remarks
-   * Indicates whether the instance is managed. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 0
-   */
   serviceManaged?: number;
-  /**
-   * @remarks
-   * The status of the EIP. Valid values:
-   * 
-   * *   **Associating**
-   * *   **Unassociating**
-   * *   **InUse**
-   * *   **Available**
-   * *   **Releasing**
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the EIP.
-   */
   tags?: DescribeEipAddressesResponseBodyEipAddressesEipAddressTags;
-  /**
-   * @remarks
-   * The ID of the VPC in which an IPv4 gateway is created and that is deployed in the same region as the EIP.
-   * 
-   * When you associate an EIP with an IP address, the system can enable the IP address to access the Internet based on VPC route configurations.
-   * 
-   * >  This parameter is returned if the value of **InstanceType** is **IpAddress**. In this case, the EIP is associated with an IP address.
-   * 
-   * @example
-   * vpc-bp15zckdt37pq72zv****
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The zone of the EIP.
-   * 
-   * This parameter is returned only when the service type is CloudBox.
-   * 
-   * @example
-   * cn-hangzhou-a
-   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -700,10 +311,6 @@ export class DescribeEipAddressesResponseBodyEipAddresses extends $dara.Model {
 }
 
 export class DescribeEipAddressesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of the EIPs.
-   */
   eipAddresses?: DescribeEipAddressesResponseBodyEipAddresses;
   /**
    * @remarks

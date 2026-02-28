@@ -29,58 +29,12 @@ export class DescribeVRoutersResponseBodyVRoutersVRouterRouteTableIds extends $d
 }
 
 export class DescribeVRoutersResponseBodyVRoutersVRouter extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the vRouter was created.
-   * 
-   * @example
-   * 2018-03-22T07:46:20Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the vRouter.
-   * 
-   * @example
-   * abc
-   */
   description?: string;
-  /**
-   * @remarks
-   * The region to which the vRouter belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The IDs of the route tables.
-   */
   routeTableIds?: DescribeVRoutersResponseBodyVRoutersVRouterRouteTableIds;
-  /**
-   * @remarks
-   * The ID of the vRouter.
-   * 
-   * @example
-   * vrt-rj98khsezfqpjrxmv****
-   */
   VRouterId?: string;
-  /**
-   * @remarks
-   * The name of the vRouter.
-   * 
-   * @example
-   * doctest
-   */
   VRouterName?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC) to which the vRouter belongs.
-   * 
-   * @example
-   * vpc-rj905wotv6y030t1****
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -177,10 +131,6 @@ export class DescribeVRoutersResponseBody extends $dara.Model {
    * 1
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The details about the vRouters.
-   */
   VRouters?: DescribeVRoutersResponseBodyVRouters;
   static names(): { [key: string]: string } {
     return {

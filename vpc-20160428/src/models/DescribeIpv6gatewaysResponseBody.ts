@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * FinanceDept
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,108 +55,18 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTags extends
 }
 
 export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the IPv6 gateway. Valid values:
-   * 
-   * *   **Normal**
-   * *   **FinancialLocked**
-   * *   **SecurityLocked**
-   * 
-   * @example
-   * Normal
-   */
   businessStatus?: string;
-  /**
-   * @remarks
-   * The time when the IPv6 gateway was created.
-   * 
-   * @example
-   * 2020-12-20T14:51:23Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the IPv6 gateway.
-   * 
-   * @example
-   * descriptionforIPv6GW
-   */
   description?: string;
-  /**
-   * @remarks
-   * The time when the IPv6 gateway expires.
-   * 
-   * @example
-   * 2021-12-20T14:51:23Z
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The billing method of the IPv6 gateway.
-   * 
-   * Only **PostPaid** may be returned, which indicates that the IPv6 gateway uses the pay-as-you-go billing method.
-   * 
-   * @example
-   * PostPaid
-   */
   instanceChargeType?: string;
-  /**
-   * @remarks
-   * The ID of the IPv6 gateway.
-   * 
-   * @example
-   * ipv6gw-hp3rwmtmfhgisipv6gw-hp3rwmtmfhgis****
-   */
   ipv6GatewayId?: string;
-  /**
-   * @remarks
-   * The name of the IPv6 gateway.
-   * 
-   * @example
-   * ipv6GW
-   */
   name?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the region in which the IPv6 gateway is deployed.
-   * 
-   * @example
-   * cn-huhehaote
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-bp67acfmxazb4ph****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The status of the IPv6 gateway. Valid values:
-   * 
-   * *   **Pending**
-   * *   **Available**
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The information about the tags.
-   */
   tags?: DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6GatewayTags;
-  /**
-   * @remarks
-   * The ID of the VPC to which the IPv6 gateway belongs.
-   * 
-   * @example
-   * vpc-123sedrfswd23****
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,10 +143,6 @@ export class DescribeIpv6GatewaysResponseBodyIpv6Gateways extends $dara.Model {
 }
 
 export class DescribeIpv6GatewaysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the IPv6 gateway.
-   */
   ipv6Gateways?: DescribeIpv6GatewaysResponseBodyIpv6Gateways;
   /**
    * @remarks

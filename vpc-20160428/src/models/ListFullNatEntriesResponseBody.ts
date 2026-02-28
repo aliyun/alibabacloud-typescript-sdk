@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
+  /**
+   * @remarks
+   * The backend domain name for FULLNAT address translation in a FULLNAT entry.
+   * 
+   * @example
+   * xxx.com
+   */
   accessDomain?: string;
   /**
    * @remarks
@@ -28,6 +35,13 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
    * 2021-10-27T02:44:40Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The IP resolved from the backend domain name for address translation in the FULLNAT entry.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
   domainResolve?: string;
   /**
    * @remarks

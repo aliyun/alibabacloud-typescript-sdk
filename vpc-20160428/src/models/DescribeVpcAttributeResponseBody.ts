@@ -3,31 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVpcAttributeResponseBodyAssociatedCensAssociatedCen extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the CEN instance to which the VPC is attached.
-   * 
-   * @example
-   * cen-7qthudw0ll6jmc****
-   */
   cenId?: string;
-  /**
-   * @remarks
-   * The ID of the account to which the CEN instance belongs.
-   * 
-   * @example
-   * 28311773240248****
-   */
   cenOwnerId?: number;
-  /**
-   * @remarks
-   * The status of the CEN instance.
-   * 
-   * **Attached** is returned only when the VPC is attached to a CEN instance.
-   * 
-   * @example
-   * Attached
-   */
   cenStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,54 +58,10 @@ export class DescribeVpcAttributeResponseBodyAssociatedCens extends $dara.Model 
 }
 
 export class DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether routes are advertised to the VPC.
-   * 
-   * @example
-   * true
-   */
   routePropagated?: boolean;
-  /**
-   * @remarks
-   * The instance ID of the source.
-   * 
-   * @example
-   * cen-dc4vwznpwbobrl****
-   */
   sourceInstanceId?: string;
-  /**
-   * @remarks
-   * The account ID of the source.
-   * 
-   * @example
-   * 153980532164****
-   */
   sourceOwnerId?: number;
-  /**
-   * @remarks
-   * The source type.
-   * 
-   * *   **CEN**
-   * *   **VPN**
-   * *   **TR**
-   * *   **ECR**
-   * 
-   * @example
-   * CEN
-   */
   sourceType?: string;
-  /**
-   * @remarks
-   * The binding status.
-   * 
-   * *   **Attaching**
-   * *   **Attached**
-   * *   **Detaching**
-   * 
-   * @example
-   * Attaching
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,25 +119,7 @@ export class DescribeVpcAttributeResponseBodyAssociatedPropagationSources extend
 }
 
 export class DescribeVpcAttributeResponseBodyCloudResourcesCloudResourceSetType extends $dara.Model {
-  /**
-   * @remarks
-   * The number of resources in the VPC.
-   * 
-   * @example
-   * 1
-   */
   resourceCount?: number;
-  /**
-   * @remarks
-   * The type of resource deployed in the VPC. Valid values: Valid values:
-   * 
-   * *   **VSwitch**
-   * *   **VRouter**
-   * *   **RouteTable**
-   * 
-   * @example
-   * VSwitch
-   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -256,28 +171,7 @@ export class DescribeVpcAttributeResponseBodyCloudResources extends $dara.Model 
 }
 
 export class DescribeVpcAttributeResponseBodyIpv6CidrBlocksIpv6CidrBlock extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 CIDR block of the VPC.
-   * 
-   * @example
-   * 2408:XXXX:0:6a::/56
-   */
   ipv6CidrBlock?: string;
-  /**
-   * @remarks
-   * The IPv6 CIDR block type of the VPC. Valid values:
-   * 
-   * *   **BGP** (default)
-   * *   **ChinaMobile**
-   * *   **ChinaUnicom**
-   * *   **ChinaTelecom**
-   * 
-   * >  If you are allowed to use single-ISP bandwidth, valid values are **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**
-   * 
-   * @example
-   * BGP
-   */
   ipv6Isp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -355,21 +249,7 @@ export class DescribeVpcAttributeResponseBodySecondaryCidrBlocks extends $dara.M
 }
 
 export class DescribeVpcAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N.
-   * 
-   * @example
-   * FinanceDept
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of tag N.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -473,17 +353,7 @@ export class DescribeVpcAttributeResponseBodyVSwitchIds extends $dara.Model {
 }
 
 export class DescribeVpcAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of Cloud Enterprise Network (CEN) instances to which the VPC is attached.
-   * 
-   * If the VPC is not attached to a CEN instance, the parameter is not returned.
-   */
   associatedCens?: DescribeVpcAttributeResponseBodyAssociatedCens;
-  /**
-   * @remarks
-   * The route source associated with the VPC.
-   */
   associatedPropagationSources?: DescribeVpcAttributeResponseBodyAssociatedPropagationSources;
   /**
    * @remarks
@@ -502,12 +372,10 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   classicLinkEnabled?: boolean;
-  /**
-   * @remarks
-   * The list of resources deployed in the VPC.
-   */
   cloudResources?: DescribeVpcAttributeResponseBodyCloudResources;
   /**
    * @remarks
@@ -580,10 +448,6 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * 2408:XXXX:0:a600::/56
    */
   ipv6CidrBlock?: string;
-  /**
-   * @remarks
-   * The IPv6 CIDR block of the VPC.
-   */
   ipv6CidrBlocks?: DescribeVpcAttributeResponseBodyIpv6CidrBlocks;
   /**
    * @remarks
@@ -628,10 +492,6 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * rg-acfmxazbvgb4ph****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The secondary IPv4 CIDR block of the VPC.
-   */
   secondaryCidrBlocks?: DescribeVpcAttributeResponseBodySecondaryCidrBlocks;
   /**
    * @remarks
@@ -655,15 +515,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * true
    */
   supportIpv4Gateway?: boolean;
-  /**
-   * @remarks
-   * The information about the tags.
-   */
   tags?: DescribeVpcAttributeResponseBodyTags;
-  /**
-   * @remarks
-   * The user CIDR block. Multiple CIDR blocks are separated by commas (,). At most three CIDR blocks are returned.
-   */
   userCidrs?: DescribeVpcAttributeResponseBodyUserCidrs;
   /**
    * @remarks
@@ -673,10 +525,6 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * vrt-bp1jso6ng1at0ajsc****
    */
   VRouterId?: string;
-  /**
-   * @remarks
-   * The list of vSwitches deployed in the VPC.
-   */
   vSwitchIds?: DescribeVpcAttributeResponseBodyVSwitchIds;
   /**
    * @remarks

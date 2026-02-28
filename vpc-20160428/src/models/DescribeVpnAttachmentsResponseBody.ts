@@ -122,6 +122,15 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
    * nametest2
    */
   transitRouterName?: string;
+  /**
+   * @remarks
+   * Specifies the bandwidth specifications for a single tunnel in VPN attachment. Available options:
+   * - **Standard**: Standard, 1Gbps
+   * - **Large**:  Large-sized, 3Gbps
+   * 
+   * @example
+   * Standard
+   */
   tunnelBandwidth?: string;
   static names(): { [key: string]: string } {
     return {

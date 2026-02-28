@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveCommonBandwidthPackageIpResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 54B48E3D-DF70-471B-AA93-08E683A1B45
    */

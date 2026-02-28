@@ -55,21 +55,7 @@ export class DescribeHaVipsResponseBodyHaVipsHaVipAssociatedInstances extends $d
 }
 
 export class DescribeHaVipsResponseBodyHaVipsHaVipTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N added to the resource.
-   * 
-   * @example
-   * FinanceDept
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of tag N added to the resource.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,131 +107,21 @@ export class DescribeHaVipsResponseBodyHaVipsHaVipTags extends $dara.Model {
 }
 
 export class DescribeHaVipsResponseBodyHaVipsHaVip extends $dara.Model {
-  /**
-   * @remarks
-   * The list of EIPs associated with the HaVip.
-   */
   associatedEipAddresses?: DescribeHaVipsResponseBodyHaVipsHaVipAssociatedEipAddresses;
-  /**
-   * @remarks
-   * The type of the instance with which the HaVip is associated. Valid values:
-   * 
-   * *   **EcsInstance**: Elastic Compute Service (ECS) instance
-   * *   **NetworkInterface**: elastic network interface (ENI)
-   * 
-   * @example
-   * EcsInstance
-   */
   associatedInstanceType?: string;
-  /**
-   * @remarks
-   * The information about the instance associated with the HaVip.
-   */
   associatedInstances?: DescribeHaVipsResponseBodyHaVipsHaVipAssociatedInstances;
-  /**
-   * @remarks
-   * The parameter is invalid. No value is returned.
-   * 
-   * @example
-   * none
-   */
   chargeType?: string;
-  /**
-   * @remarks
-   * The time when the HaVip was created.
-   * 
-   * @example
-   * 2021-07-03T14:25:26Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The description of the HaVip.
-   * 
-   * @example
-   * My HaVip
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the HaVip.
-   * 
-   * @example
-   * havip-bp149uyvut73dpld****
-   */
   haVipId?: string;
-  /**
-   * @remarks
-   * The private IP address of the HaVip.
-   * 
-   * @example
-   * 192.168.24.5
-   */
   ipAddress?: string;
-  /**
-   * @remarks
-   * The ID of the active instance that is associated with the HaVip.
-   * 
-   * @example
-   * i-bp145q7glnuzdvz****
-   */
   masterInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the HaVip.
-   * 
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the region to which the HaVip belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the HaVip belongs.
-   * 
-   * @example
-   * rg-bp67acfmxazb4ph****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The status of the HaVip. Valid values:
-   * 
-   * *   **Creating**: The server group is being created.
-   * *   **Available**: The FULLNAT entry is available.
-   * *   **Deleting**
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tag list.
-   */
   tags?: DescribeHaVipsResponseBodyHaVipsHaVipTags;
-  /**
-   * @remarks
-   * The ID of the vSwitch to which the HaVip belongs.
-   * 
-   * @example
-   * vsw-bp1pkt1fba8e824ez****
-   */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the VPC to which the HaVip belongs.
-   * 
-   * @example
-   * vpc-bp1kcm36tevkpms97****
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -334,10 +210,6 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
 }
 
 export class DescribeHaVipsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the HaVip.
-   */
   haVips?: DescribeHaVipsResponseBodyHaVips;
   /**
    * @remarks

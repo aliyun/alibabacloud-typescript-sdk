@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEipGatewayInfoResponseBodyEipInfosEipInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address of the EIP.
-   * 
-   * @example
-   * 47.XX.XX.236
-   */
   ip?: string;
-  /**
-   * @remarks
-   * The IP address of the gateway that is associated with the EIP.
-   * 
-   * @example
-   * 47.XX.XX.1
-   */
   ipGw?: string;
-  /**
-   * @remarks
-   * The subnet mask of the EIP.
-   * 
-   * @example
-   * 255.255.255.0
-   */
   ipMask?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribeEipGatewayInfoResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The detailed information about the EIP.
-   */
   eipInfos?: DescribeEipGatewayInfoResponseBodyEipInfos;
   /**
    * @remarks

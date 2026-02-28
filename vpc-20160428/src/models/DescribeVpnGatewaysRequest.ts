@@ -58,6 +58,12 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
    * Normal
    */
   businessStatus?: string;
+  /**
+   * @remarks
+   * VPN 网关类型，取值：
+   * Traditional：传统型VPN网关，覆盖IPsec功能和SSL功能
+   * Enhance.SiteToSite：增强型站点入云VPN，只覆盖IPsec功能
+   */
   gatewayType?: string;
   /**
    * @remarks
@@ -97,7 +103,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-zhangjiakou
+   * cn-hangzhou
    */
   regionId?: string;
   /**

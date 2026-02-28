@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTagKeysForExpressConnectResponseBodyTagKeysTagKey extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * FinanceDept
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The type of the resource. The value is set to **PHYSICALCONNECTION**, which indicates an Express Connect circuit.
-   * 
-   * @example
-   * PHYSICALCONNECTION
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +74,6 @@ export class DescribeTagKeysForExpressConnectResponseBody extends $dara.Model {
    * 54B48E3D-DF70-471B-AA93-08E683A1B45
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tag keys.
-   */
   tagKeys?: DescribeTagKeysForExpressConnectResponseBodyTagKeys;
   static names(): { [key: string]: string } {
     return {

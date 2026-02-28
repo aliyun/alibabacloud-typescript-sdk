@@ -3,35 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVpnRouteEntriesResponseBodyVpnRouteCountsVpnRouteCount extends $dara.Model {
-  /**
-   * @remarks
-   * The number of route entries.
-   * 
-   * @example
-   * 3
-   */
   routeCount?: number;
-  /**
-   * @remarks
-   * The route type. Valid values:
-   * 
-   * *   **custom** (default): destination-based route.
-   * *   **bgp** : BGP route entry.
-   * 
-   * @example
-   * bgp
-   */
   routeEntryType?: string;
-  /**
-   * @remarks
-   * The source of the BGP route. Valid values:
-   * 
-   * *   **CLOUD**: advertised from a cloud service associated with the VPN gateway.
-   * *   **VPN_BGP**: indicates that the current route is learned by using BGP of the VPN gateway. For example, the BGP is used to learn the route of the on-premises data center.
-   * 
-   * @example
-   * VPN_BGP
-   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,108 +58,16 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
 }
 
 export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The AS path of the route entry.
-   * 
-   * @example
-   * 65501,65001,60011
-   */
   asPath?: string;
-  /**
-   * @remarks
-   * The community attributes of the route entry.
-   * 
-   * @example
-   * 65001:1000,65501:2000
-   */
   community?: string;
-  /**
-   * @remarks
-   * The timestamp when the route entry was created.
-   * 
-   * @example
-   * 1563874074000
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The next hop of the route entry.
-   * 
-   * @example
-   * vco-bp1tui07ob10fmuro****
-   */
   nextHop?: string;
-  /**
-   * @remarks
-   * The ID of the tunnel associated with the next hop. 
-   * 
-   * 
-   * > This parameter is returned only if the VPN gateway supports the dual-tunnel mode.
-   * 
-   * @example
-   * tun-36cfgpwjn58axj****
-   */
   nextHopTunnelId?: string;
-  /**
-   * @remarks
-   * The destination CIDR block of the route entry.
-   * 
-   * @example
-   * 10.0.0.0/24
-   */
   routeDest?: string;
-  /**
-   * @remarks
-   * The type of the route entry. Valid values:
-   * 
-   * *   **Custom**: custom
-   * *   **System**: system
-   * 
-   * @example
-   * System
-   */
   routeEntryType?: string;
-  /**
-   * @remarks
-   * The source of the BGP route. Valid values:
-   * 
-   * *   **CLOUD**: advertised from a cloud service associated with the VPN gateway.
-   * *   **VPN_BGP**: indicates that the current route is learned by using BGP of the VPN gateway. For example, the BGP is used to learn the route of the on-premises data center.
-   * 
-   * @example
-   * 192.168.10.0/24
-   */
   source?: string;
-  /**
-   * @remarks
-   * The status of the route entry. Valid values:
-   * 
-   * *   **published**: advertised
-   * *   **normal**: not advertised
-   * 
-   * @example
-   * normal
-   */
   state?: string;
-  /**
-   * @remarks
-   * The ID of the VPN gateway.
-   * 
-   * @example
-   * vpn-bp1cmw7jh1nfe43m9****
-   */
   vpnInstanceId?: string;
-  /**
-   * @remarks
-   * The weight of the route entry. Valid values: **0** and **100**.
-   * 
-   * *   **0**: a low priority
-   * *   **100**: a high priority
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -288,17 +169,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
    * 1
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The information about route entries of the VPN gateway in dual-tunnel mode.
-   * 
-   * > This parameter is returned only if the VPN gateway supports IPsec-VPN connections in dual-tunnel mode.
-   */
   vpnRouteCounts?: DescribeVpnRouteEntriesResponseBodyVpnRouteCounts;
-  /**
-   * @remarks
-   * The route entry list.
-   */
   vpnRouteEntries?: DescribeVpnRouteEntriesResponseBodyVpnRouteEntries;
   static names(): { [key: string]: string } {
     return {

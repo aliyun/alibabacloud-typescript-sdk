@@ -25,7 +25,7 @@ export class DescribeVpnGatewayRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-zhangjiakou
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
