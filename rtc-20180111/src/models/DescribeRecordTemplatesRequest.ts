@@ -11,10 +11,6 @@ export class DescribeRecordTemplatesRequest extends $dara.Model {
    * yourAppId
    */
   appId?: string;
-  /**
-   * @remarks
-   * 1
-   */
   ownerId?: number;
   /**
    * @example

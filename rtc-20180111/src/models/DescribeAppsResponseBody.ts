@@ -29,36 +29,12 @@ export class DescribeAppsResponseBodyAppListAppServiceAreas extends $dara.Model 
 }
 
 export class DescribeAppsResponseBodyAppListApp extends $dara.Model {
-  /**
-   * @example
-   * rgf1****"
-   */
   appId?: string;
-  /**
-   * @example
-   * Default AppName
-   */
   appName?: string;
-  /**
-   * @example
-   * universal
-   */
   appType?: string;
-  /**
-   * @example
-   * paybyduration
-   */
   billType?: string;
-  /**
-   * @example
-   * 2020-01-09T02:02:29Z
-   */
   createTime?: string;
   serviceAreas?: DescribeAppsResponseBodyAppListAppServiceAreas;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   version?: string;
   static names(): { [key: string]: string } {

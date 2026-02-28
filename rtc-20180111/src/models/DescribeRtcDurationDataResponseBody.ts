@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRtcDurationDataResponseBodyDurationDataPerIntervalDurationModule extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   audioDuration?: number;
-  /**
-   * @example
-   * 200
-   */
   contentDuration?: number;
-  /**
-   * @example
-   * 2020-02-04T05:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @example
-   * 1000
-   */
   totalDuration?: number;
-  /**
-   * @example
-   * 300
-   */
   v1080Duration?: number;
-  /**
-   * @example
-   * 300
-   */
   v360Duration?: number;
-  /**
-   * @example
-   * 200
-   */
   v720Duration?: number;
   static names(): { [key: string]: string } {
     return {

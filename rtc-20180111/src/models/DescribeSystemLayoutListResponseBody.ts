@@ -8,13 +8,6 @@ export class DescribeSystemLayoutListResponseBodyLayoutsLayoutPanesPanes extends
    * 0.25
    */
   height?: number;
-  /**
-   * @remarks
-   * MajorPane。
-   * 
-   * @example
-   * 0
-   */
   majorPane?: number;
   /**
    * @example
@@ -101,18 +94,7 @@ export class DescribeSystemLayoutListResponseBodyLayoutsLayoutPanes extends $dar
 }
 
 export class DescribeSystemLayoutListResponseBodyLayoutsLayout extends $dara.Model {
-  /**
-   * @remarks
-   * AudioMixCount。
-   * 
-   * @example
-   * 3
-   */
   audioMixCount?: number;
-  /**
-   * @example
-   * 22
-   */
   layoutId?: number;
   name?: string;
   panes?: DescribeSystemLayoutListResponseBodyLayoutsLayoutPanes;

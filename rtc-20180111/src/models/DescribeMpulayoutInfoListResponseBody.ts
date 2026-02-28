@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMPULayoutInfoListResponseBodyLayoutsLayoutPanesPanes extends $dara.Model {
-  /**
-   * @example
-   * 0.5
-   */
   height?: number;
-  /**
-   * @example
-   * 0
-   */
   majorPane?: number;
-  /**
-   * @example
-   * 0
-   */
   paneId?: number;
-  /**
-   * @example
-   * 0.5
-   */
   width?: number;
-  /**
-   * @example
-   * 0.5
-   */
   x?: number;
-  /**
-   * @example
-   * 0.5
-   */
   y?: number;
-  /**
-   * @example
-   * 0
-   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -98,20 +70,8 @@ export class DescribeMPULayoutInfoListResponseBodyLayoutsLayoutPanes extends $da
 }
 
 export class DescribeMPULayoutInfoListResponseBodyLayoutsLayout extends $dara.Model {
-  /**
-   * @example
-   * 3
-   */
   audioMixCount?: number;
-  /**
-   * @example
-   * 2
-   */
   layoutId?: number;
-  /**
-   * @example
-   * LayoutName
-   */
   name?: string;
   panes?: DescribeMPULayoutInfoListResponseBodyLayoutsLayoutPanes;
   static names(): { [key: string]: string } {

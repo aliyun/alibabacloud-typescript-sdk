@@ -44,7 +44,7 @@ export class StartCloudNoteRequestCustomPromptCustomPromptContents extends $dara
    * This parameter is required.
    * 
    * @example
-   * 请帮我将下面的对话进行总结，根据发言人来总结:\n {Transcription}
+   * 请帮我将下面的对话进行总结，根据发言人来总结:\\n {Transcription}
    */
   prompt?: string;
   /**

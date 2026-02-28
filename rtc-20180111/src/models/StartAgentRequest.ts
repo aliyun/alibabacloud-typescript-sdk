@@ -272,6 +272,8 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
    * 0.7
    */
   temperature?: number;
+  toolExecutionConfig?: any;
+  tools?: any[];
   /**
    * @example
    * 0.8
@@ -297,6 +299,8 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
       params: 'Params',
       prompt: 'Prompt',
       temperature: 'Temperature',
+      toolExecutionConfig: 'ToolExecutionConfig',
+      tools: 'Tools',
       topP: 'TopP',
       url: 'Url',
       vendor: 'Vendor',
@@ -313,6 +317,8 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
       params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       prompt: 'string',
       temperature: 'number',
+      toolExecutionConfig: 'any',
+      tools: { 'type': 'array', 'itemType': 'any' },
       topP: 'number',
       url: 'string',
       vendor: 'string',
@@ -322,6 +328,9 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
   validate() {
     if(this.params) {
       $dara.Model.validateMap(this.params);
+    }
+    if(Array.isArray(this.tools)) {
+      $dara.Model.validateArray(this.tools);
     }
     super.validate();
   }

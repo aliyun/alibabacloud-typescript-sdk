@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveTerminalsResponseBodyTerminalsTerminal extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: number;
-  /**
-   * @example
-   * 1811****
-   */
   id?: string;
-  /**
-   * @example
-   * Success
-   */
   message?: string;
   static names(): { [key: string]: string } {
     return {

@@ -30,25 +30,9 @@ export class DescribeRtcChannelListResponseBodyChannelListChannelListCallArea ex
 
 export class DescribeRtcChannelListResponseBodyChannelListChannelList extends $dara.Model {
   callArea?: DescribeRtcChannelListResponseBodyChannelListChannelListCallArea;
-  /**
-   * @example
-   * testChannel
-   */
   channelId?: string;
-  /**
-   * @example
-   * 2018-01-29T02:00:00Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * 2018-01-29T01:00:00Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * 2
-   */
   totalUserCnt?: number;
   static names(): { [key: string]: string } {
     return {

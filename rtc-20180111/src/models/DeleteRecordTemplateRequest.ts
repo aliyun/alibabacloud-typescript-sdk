@@ -11,10 +11,6 @@ export class DeleteRecordTemplateRequest extends $dara.Model {
    * yourAppId
    */
   appId?: string;
-  /**
-   * @remarks
-   * 1
-   */
   ownerId?: number;
   /**
    * @remarks
