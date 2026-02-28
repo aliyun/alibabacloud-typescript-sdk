@@ -716,6 +716,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生码-获取插件配置信息
+   * 
+   * @param request - GetAppPluginConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppPluginConfigResponse
+   */
+  async getAppPluginConfigWithOptions(request: $_model.GetAppPluginConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppPluginConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizId)) {
+      body["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      body["PluginId"] = request.pluginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppPluginConfig",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppPluginConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetAppPluginConfigResponse({}));
+  }
+
+  /**
+   * 生码-获取插件配置信息
+   * 
+   * @param request - GetAppPluginConfigRequest
+   * @returns GetAppPluginConfigResponse
+   */
+  async getAppPluginConfig(request: $_model.GetAppPluginConfigRequest): Promise<$_model.GetAppPluginConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppPluginConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 查询Logo创建任务
    * 
    * @param request - GetCreateLogoTaskRequest

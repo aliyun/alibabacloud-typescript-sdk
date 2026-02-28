@@ -11,6 +11,7 @@ export { DeleteAppDomainRedirectResponseBodyModule } from './DeleteAppDomainRedi
 export { DescribeAppDomainDnsRecordResponseBodyModule } from './DescribeAppDomainDnsRecordResponseBody';
 export { DispatchConsoleAPIForPartnerResponseBodyModule } from './DispatchConsoleApiforPartnerResponseBody';
 export { ExportMaterialFileResponseBodyModule } from './ExportMaterialFileResponseBody';
+export { GetAppPluginConfigResponseBodyModule } from './GetAppPluginConfigResponseBody';
 export { GetCreateLogoTaskResponseBodyTask } from './GetCreateLogoTaskResponseBody';
 export { GetDomainInfoForPartnerResponseBodyDataOwnership } from './GetDomainInfoForPartnerResponseBody';
 export { GetDomainInfoForPartnerResponseBodyData } from './GetDomainInfoForPartnerResponseBody';
@@ -110,6 +111,9 @@ export { ExportMaterialFileResponse } from './ExportMaterialFileResponse';
 export { GetAppInstanceRequest } from './GetAppInstanceRequest';
 export { GetAppInstanceResponseBody } from './GetAppInstanceResponseBody';
 export { GetAppInstanceResponse } from './GetAppInstanceResponse';
+export { GetAppPluginConfigRequest } from './GetAppPluginConfigRequest';
+export { GetAppPluginConfigResponseBody } from './GetAppPluginConfigResponseBody';
+export { GetAppPluginConfigResponse } from './GetAppPluginConfigResponse';
 export { GetCreateLogoTaskRequest } from './GetCreateLogoTaskRequest';
 export { GetCreateLogoTaskResponseBody } from './GetCreateLogoTaskResponseBody';
 export { GetCreateLogoTaskResponse } from './GetCreateLogoTaskResponse';
