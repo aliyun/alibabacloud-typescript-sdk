@@ -43,6 +43,11 @@ export class CreateUserRequest extends $dara.Model {
    * 1382114****
    */
   mobile?: string;
+  /**
+   * @example
+   * true
+   */
+  needEmailNotification?: string;
   nickname?: string;
   /**
    * @example
@@ -76,6 +81,7 @@ export class CreateUserRequest extends $dara.Model {
       instanceId: 'InstanceId',
       loginName: 'LoginName',
       mobile: 'Mobile',
+      needEmailNotification: 'NeedEmailNotification',
       nickname: 'Nickname',
       resetPassword: 'ResetPassword',
       roleId: 'RoleId',
@@ -93,6 +99,7 @@ export class CreateUserRequest extends $dara.Model {
       instanceId: 'string',
       loginName: 'string',
       mobile: 'string',
+      needEmailNotification: 'string',
       nickname: 'string',
       resetPassword: 'boolean',
       roleId: 'string',

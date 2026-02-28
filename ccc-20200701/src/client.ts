@@ -2172,6 +2172,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建坐席
+   * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateUserResponse
@@ -2205,6 +2207,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.mobile)) {
       query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.needEmailNotification)) {
+      query["NeedEmailNotification"] = request.needEmailNotification;
     }
 
     if (!$dara.isNull(request.nickname)) {
@@ -2245,6 +2251,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建坐席
+   * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
    */
@@ -3718,6 +3726,10 @@ export default class Client extends OpenApi {
   async getConversationDetailWithOptions(request: $_model.GetConversationDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConversationDetailResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
     if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
@@ -5207,6 +5219,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入自有线路号码
+   * 
    * @param request - ImportCorpNumbersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImportCorpNumbersResponse
@@ -5256,6 +5270,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入自有线路号码
+   * 
    * @param request - ImportCorpNumbersRequest
    * @returns ImportCorpNumbersResponse
    */
@@ -8153,6 +8169,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取单轨录音
+   * 
    * @param request - ListMonoRecordingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMonoRecordingsResponse
@@ -8160,6 +8178,14 @@ export default class Client extends OpenApi {
   async listMonoRecordingsWithOptions(request: $_model.ListMonoRecordingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMonoRecordingsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentChannelId)) {
+      query["AgentChannelId"] = request.agentChannelId;
+    }
+
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
     if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
@@ -8186,6 +8212,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取单轨录音
+   * 
    * @param request - ListMonoRecordingsRequest
    * @returns ListMonoRecordingsResponse
    */
@@ -8195,6 +8223,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取分轨录音
+   * 
    * @param request - ListMultiChannelRecordingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMultiChannelRecordingsResponse
@@ -8202,6 +8232,14 @@ export default class Client extends OpenApi {
   async listMultiChannelRecordingsWithOptions(request: $_model.ListMultiChannelRecordingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultiChannelRecordingsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentChannelId)) {
+      query["AgentChannelId"] = request.agentChannelId;
+    }
+
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
     if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
@@ -8228,6 +8266,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取分轨录音
+   * 
    * @param request - ListMultiChannelRecordingsRequest
    * @returns ListMultiChannelRecordingsResponse
    */
@@ -9001,6 +9041,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 使用ListSmsMetadata获取短信配置信息。
+   * 
    * @param request - ListSmsMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSmsMetadataResponse
@@ -9042,6 +9084,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 使用ListSmsMetadata获取短信配置信息。
+   * 
    * @param request - ListSmsMetadataRequest
    * @returns ListSmsMetadataResponse
    */
@@ -9481,6 +9525,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询语音信箱列表
+   * 
    * @param request - ListVoicemailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVoicemailsResponse
@@ -9538,6 +9584,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询语音信箱列表
+   * 
    * @param request - ListVoicemailsRequest
    * @returns ListVoicemailsResponse
    */

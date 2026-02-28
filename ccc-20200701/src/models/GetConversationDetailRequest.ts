@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConversationDetailRequest extends $dara.Model {
   /**
+   * @example
+   * agent@ccc-test
+   */
+  agentId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -21,6 +26,7 @@ export class GetConversationDetailRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentId: 'AgentId',
       contactId: 'ContactId',
       instanceId: 'InstanceId',
     };
@@ -28,6 +34,7 @@ export class GetConversationDetailRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentId: 'string',
       contactId: 'string',
       instanceId: 'string',
     };
