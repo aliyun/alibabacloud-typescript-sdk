@@ -35,6 +35,7 @@ export { HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigConsumerRiskLevel 
 export { HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfigConsumerRules } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfigRiskConfig } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfig } from './HttpApiDeployConfig';
+export { HttpApiDeployConfigPolicyConfigsAiStatisticsConfig } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigGlobalRules } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigRules } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfig } from './HttpApiDeployConfig';
@@ -105,6 +106,8 @@ export { JwtIdentityConfigJwtTokenConfig } from './JwtIdentityConfig';
 export { RiskCheckResultsMetadata } from './RiskCheckResults';
 export { RiskCheckResultsRiskDetails } from './RiskCheckResults';
 export { ServicePorts } from './Service';
+export { ServiceVersionsLabels } from './Service';
+export { ServiceVersions } from './Service';
 export { TlsCipherSuitesConfigTlsCipherSuite } from './TlsCipherSuitesConfig';
 export { CreateAndAttachPolicyResponseBodyData } from './CreateAndAttachPolicyResponseBody';
 export { CreateConsumerResponseBodyData } from './CreateConsumerResponseBody';

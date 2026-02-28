@@ -56,6 +56,61 @@ export class ServicePorts extends $dara.Model {
   }
 }
 
+export class ServiceVersionsLabels extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ServiceVersions extends $dara.Model {
+  labels?: ServiceVersionsLabels[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'labels',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'array', 'itemType': ServiceVersionsLabels },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Service extends $dara.Model {
   /**
    * @remarks
@@ -206,6 +261,7 @@ export class Service extends $dara.Model {
    * 1725868548440
    */
   updateTimestamp?: number;
+  versions?: ServiceVersions[];
   static names(): { [key: string]: string } {
     return {
       addresses: 'addresses',
@@ -229,6 +285,7 @@ export class Service extends $dara.Model {
       sourceType: 'sourceType',
       unhealthyEndpoints: 'unhealthyEndpoints',
       updateTimestamp: 'updateTimestamp',
+      versions: 'versions',
     };
   }
 
@@ -255,6 +312,7 @@ export class Service extends $dara.Model {
       sourceType: 'string',
       unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },
       updateTimestamp: 'number',
+      versions: { 'type': 'array', 'itemType': ServiceVersions },
     };
   }
 
@@ -282,6 +340,9 @@ export class Service extends $dara.Model {
     }
     if(Array.isArray(this.unhealthyEndpoints)) {
       $dara.Model.validateArray(this.unhealthyEndpoints);
+    }
+    if(Array.isArray(this.versions)) {
+      $dara.Model.validateArray(this.versions);
     }
     super.validate();
   }

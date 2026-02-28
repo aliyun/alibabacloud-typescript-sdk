@@ -586,6 +586,32 @@ export class HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfig extends $dara
   }
 }
 
+export class HttpApiDeployConfigPolicyConfigsAiStatisticsConfig extends $dara.Model {
+  logRequestContent?: boolean;
+  logResponseContent?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      logRequestContent: 'logRequestContent',
+      logResponseContent: 'logResponseContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logRequestContent: 'boolean',
+      logResponseContent: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfigGlobalRules extends $dara.Model {
   /**
    * @remarks
@@ -807,6 +833,7 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
    * AI Security Guard configuration
    */
   aiSecurityGuardConfig?: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfig;
+  aiStatisticsConfig?: HttpApiDeployConfigPolicyConfigsAiStatisticsConfig;
   /**
    * @remarks
    * AI Token Rate Limit configuration
@@ -832,6 +859,7 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
     return {
       aiFallbackConfig: 'aiFallbackConfig',
       aiSecurityGuardConfig: 'aiSecurityGuardConfig',
+      aiStatisticsConfig: 'aiStatisticsConfig',
       aiTokenRateLimitConfig: 'aiTokenRateLimitConfig',
       enable: 'enable',
       type: 'type',
@@ -842,6 +870,7 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
     return {
       aiFallbackConfig: HttpApiDeployConfigPolicyConfigsAiFallbackConfig,
       aiSecurityGuardConfig: HttpApiDeployConfigPolicyConfigsAiSecurityGuardConfig,
+      aiStatisticsConfig: HttpApiDeployConfigPolicyConfigsAiStatisticsConfig,
       aiTokenRateLimitConfig: HttpApiDeployConfigPolicyConfigsAiTokenRateLimitConfig,
       enable: 'boolean',
       type: 'string',
@@ -854,6 +883,9 @@ export class HttpApiDeployConfigPolicyConfigs extends $dara.Model {
     }
     if(this.aiSecurityGuardConfig && typeof (this.aiSecurityGuardConfig as any).validate === 'function') {
       (this.aiSecurityGuardConfig as any).validate();
+    }
+    if(this.aiStatisticsConfig && typeof (this.aiStatisticsConfig as any).validate === 'function') {
+      (this.aiStatisticsConfig as any).validate();
     }
     if(this.aiTokenRateLimitConfig && typeof (this.aiTokenRateLimitConfig as any).validate === 'function') {
       (this.aiTokenRateLimitConfig as any).validate();

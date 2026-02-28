@@ -125,6 +125,9 @@ export class CreateHttpApiRequest extends $dara.Model {
    * $.parameters[0].schema.properties.aiProtocols.items.example
    */
   description?: string;
+  /**
+   * @deprecated
+   */
   dryRun?: boolean;
   /**
    * @remarks
