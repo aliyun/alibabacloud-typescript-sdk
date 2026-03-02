@@ -3,34 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the permission.
-   * 
-   * @example
-   * Obtain the OpenID of the user. This is the default permission that you cannot remove.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the permission.
-   * 
-   * @example
-   * openid
-   */
   name?: string;
-  /**
-   * @remarks
-   * Indicates whether the permission is automatically selected by default when you install the application. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * `openid` is required by default.
-   * 
-   * @example
-   * true
-   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -84,10 +58,6 @@ export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePr
 }
 
 export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the permissions that are granted on the application.
-   */
   predefinedScopes?: ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -140,108 +110,19 @@ export class ListApplicationsResponseBodyApplicationsApplicationRedirectUris ext
 }
 
 export class ListApplicationsResponseBodyApplicationsApplication extends $dara.Model {
-  /**
-   * @remarks
-   * The validity period of the access token. Unit: seconds.
-   * 
-   * @example
-   * 3600
-   */
   accessTokenValidity?: number;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the application belongs.
-   * 
-   * @example
-   * 177242285274****
-   */
   accountId?: string;
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 441442900344560****
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The application name.
-   * 
-   * @example
-   * myapp
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The application type. Valid values:
-   * 
-   * *   WebApp: a web application.
-   * *   NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
-   * *   ServerApp: an application that can access Alibaba Cloud services without the need for user logon. Only applications that synchronize user information based on the System for Cross-domain Identity Management (SCIM) protocol are supported.
-   * 
-   * @example
-   * WebApp
-   */
   appType?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2020-10-23T09:33:22Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The information about the permissions that are granted on the application.
-   */
   delegatedScope?: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope;
-  /**
-   * @remarks
-   * The display name of the application.
-   * 
-   * @example
-   * myapp
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * Indicates whether the application can be installed by using other Alibaba Cloud accounts.
-   * 
-   * @example
-   * true
-   */
   isMultiTenant?: boolean;
   protocolVersion?: string;
-  /**
-   * @remarks
-   * The callback URLs.
-   */
   redirectUris?: ListApplicationsResponseBodyApplicationsApplicationRedirectUris;
-  /**
-   * @remarks
-   * The validity period of the refresh token. Unit: seconds.
-   * 
-   * @example
-   * 7776000
-   */
   refreshTokenValidity?: number;
-  /**
-   * @remarks
-   * Indicates whether a secret is required.
-   * 
-   * @example
-   * true
-   */
   secretRequired?: boolean;
-  /**
-   * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2020-10-23T09:33:22Z
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -323,14 +204,10 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
 }
 
 export class ListApplicationsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the application.
-   */
   applications?: ListApplicationsResponseBodyApplications;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CE458B58-8C40-46F7-A9D4-CB85136B0C06

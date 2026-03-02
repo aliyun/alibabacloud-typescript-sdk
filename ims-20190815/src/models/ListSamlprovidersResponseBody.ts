@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSAMLProvidersResponseBodySAMLProvidersSAMLProvider extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the IdP.
-   * 
-   * @example
-   * acs:ram::177242285274****:saml-provider/test-provider
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2020-10-22T06:26:15Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * This is a provider.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the IdP.
-   * 
-   * @example
-   * test-provider
-   */
   SAMLProviderName?: string;
-  /**
-   * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2020-10-22T06:26:15Z
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,37 +64,9 @@ export class ListSAMLProvidersResponseBodySAMLProviders extends $dara.Model {
 }
 
 export class ListSAMLProvidersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   isTruncated?: boolean;
-  /**
-   * @remarks
-   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
-   * 
-   * @example
-   * EXAMPLE
-   */
   marker?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2D8B70D3-E194-41C9-93C5-F6A10D716D24
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about IdPs.
-   */
   SAMLProviders?: ListSAMLProvidersResponseBodySAMLProviders;
   static names(): { [key: string]: string } {
     return {

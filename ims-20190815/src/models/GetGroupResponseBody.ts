@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGroupResponseBodyGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * Dev-Team
-   */
   comments?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2020-10-19T16:15:17Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The display name of the RAM user group.
-   * 
-   * @example
-   * Dev-Team
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the RAM user group.
-   * 
-   * @example
-   * 740317625433843****
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Dev-Team
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2020-10-19T16:15:17Z
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,18 +41,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
 }
 
 export class GetGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the RAM user group.
-   */
   group?: GetGroupResponseBodyGroup;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 86ECEC3C-7262-4C3C-94B4-A98F7CC1F060
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

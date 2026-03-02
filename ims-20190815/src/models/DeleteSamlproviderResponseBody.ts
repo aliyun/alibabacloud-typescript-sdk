@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteSAMLProviderResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListExternalApplicationsResponseBodyExternalApplicationsExternalApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the permission.
-   * 
-   * @example
-   * Obtains the OpenID of the user. This is the default scope and cannot be deleted.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the permission.
-   * 
-   * @example
-   * openid
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class ListExternalApplicationsResponseBodyExternalApplicationsExternalApp
 }
 
 export class ListExternalApplicationsResponseBodyExternalApplicationsExternalApplicationDelegatedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the permissions that are granted to the external application.
-   */
   predefinedScopes?: ListExternalApplicationsResponseBodyExternalApplicationsExternalApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -99,58 +81,12 @@ export class ListExternalApplicationsResponseBodyExternalApplicationsExternalApp
 }
 
 export class ListExternalApplicationsResponseBodyExternalApplicationsExternalApplication extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the external application principal. The value is in the `<app_name>@app.<account_id>.onaliyun.com` format.
-   * 
-   * @example
-   * GiteePrd@app.153082740420****.onaliyun.com
-   */
   appPrincipalName?: string;
-  /**
-   * @remarks
-   * The time when the external application was installed. The value is a timestamp.
-   * 
-   * @example
-   * 1603693318000
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The information about the permissions that are granted to the external application.
-   */
   delegatedScope?: ListExternalApplicationsResponseBodyExternalApplicationsExternalApplicationDelegatedScope;
-  /**
-   * @remarks
-   * The display name of the external application.
-   * 
-   * @example
-   * GiteeAliyun
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the external application.
-   * 
-   * @example
-   * 407426893752729****
-   */
   foreignAppId?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account for which the external application was installed.
-   * 
-   * @example
-   * 173082740420****
-   */
   tenantId?: string;
-  /**
-   * @remarks
-   * The update time of the external application. The value is a timestamp.
-   * 
-   * @example
-   * 1603693518000
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -215,17 +151,14 @@ export class ListExternalApplicationsResponseBodyExternalApplications extends $d
 }
 
 export class ListExternalApplicationsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the external applications.
-   */
   externalApplications?: ListExternalApplicationsResponseBodyExternalApplications;
   /**
    * @remarks
    * Indicates whether the response is truncated. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -235,7 +168,7 @@ export class ListExternalApplicationsResponseBody extends $dara.Model {
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
-   * >  This parameter is returned only when `IsTruncated` is `true`.
+   * > This parameter is returned only when `IsTruncated` is `true`.
    * 
    * @example
    * EXAMPLE

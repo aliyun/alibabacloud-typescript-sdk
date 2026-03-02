@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser extends $dara.Model {
-  /**
-   * @remarks
-   * The display name of the RAM user.
-   * 
-   * @example
-   * test
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the RAM user.
-   * 
-   * @example
-   * 20732900249392****
-   */
   userId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * @example
-   * test@177242285274****.onaliyun.com
-   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,26 +32,8 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceU
 }
 
 export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the MFA device was activated.
-   * 
-   * @example
-   * 2020-10-16T06:02:09Z
-   */
   activateDate?: string;
-  /**
-   * @remarks
-   * The serial number of the MFA device.
-   * 
-   * @example
-   * acs:ram::177242285274****:mfa/test
-   */
   serialNumber?: string;
-  /**
-   * @remarks
-   * The information of the RAM user that has an MFA device bound.
-   */
   user?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser;
   static names(): { [key: string]: string } {
     return {
@@ -133,8 +94,9 @@ export class ListVirtualMFADevicesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the response is truncated. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -144,7 +106,7 @@ export class ListVirtualMFADevicesResponseBody extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
    * 
-   * >  This parameter is returned only when `IsTruncated` is `true`.
+   * > This parameter is returned only when `IsTruncated` is `true`.
    * 
    * @example
    * EXAMPLE
@@ -158,10 +120,6 @@ export class ListVirtualMFADevicesResponseBody extends $dara.Model {
    * 32272612-DF82-485E-8BA9-AFA4E0C3D0BA
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the MFA device.
-   */
   virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
   static names(): { [key: string]: string } {
     return {

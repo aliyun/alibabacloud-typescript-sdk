@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of AccessKey pairs that a Resource Access Management (RAM) user can have.
+   * The maximum number of AccessKey pairs that a RAM user can have.
    * 
    * @example
    * 2
    */
   accessKeysPerUserQuota?: number;
+  /**
+   * @remarks
+   * The maximum number of AccessKeys for an Alibaba Cloud account.
+   * 
+   * @example
+   * 2
+   */
   accountAccessKeysPerAccountQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be added to a RAM user group.
+   * The maximum number of custom policies that can be attached to a user group.
    * 
    * @example
    * 5
@@ -22,7 +29,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerGroupQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be added to a RAM role.
+   * The maximum number of custom policies that can be attached to a RAM role.
    * 
    * @example
    * 5
@@ -30,7 +37,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerRoleQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be added to a RAM user.
+   * The maximum number of custom policies that can be attached to a RAM user.
    * 
    * @example
    * 10
@@ -38,7 +45,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be added to a RAM user group.
+   * The maximum number of system policies that can be attached to a user group.
    * 
    * @example
    * 20
@@ -46,7 +53,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedSystemPoliciesPerGroupQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be added to a RAM role.
+   * The maximum number of system policies that can be attached to a RAM role.
    * 
    * @example
    * 20
@@ -54,7 +61,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedSystemPoliciesPerRoleQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be added to a RAM user.
+   * The maximum number of system policies that can be attached to a RAM user.
    * 
    * @example
    * 20
@@ -62,7 +69,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedSystemPoliciesPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of network access control policies that can be configured for an Alibaba Cloud account or AccessKey pair.
+   * The maximum number of conditions that can be set in an account-level or AccessKey-level network access control policy.
    * 
    * @example
    * 8
@@ -70,7 +77,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   conditionsPerAKPolicyQuota?: number;
   /**
    * @remarks
-   * The number of RAM user groups.
+   * The number of user groups.
    * 
    * @example
    * 7
@@ -78,7 +85,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groups?: number;
   /**
    * @remarks
-   * The maximum number of RAM user groups to which a RAM user can be added.
+   * The maximum number of user groups that a RAM user can join.
    * 
    * @example
    * 5
@@ -86,7 +93,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groupsPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of RAM user groups that can be created.
+   * The maximum number of user groups that can be created.
    * 
    * @example
    * 50
@@ -94,7 +101,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groupsQuota?: number;
   /**
    * @remarks
-   * The maximum number of IP addresses that can be specified in an account-level AccessKey pair-based or AccessKey pair-level policy for network access control.
+   * The maximum number of IP addresses that can be set in an account-level or AccessKey-level network access control policy.
    * 
    * @example
    * 50
@@ -110,7 +117,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   MFADevices?: number;
   /**
    * @remarks
-   * The number of virtual MFA devices in use.
+   * The number of virtual MFA devices that are in use.
    * 
    * @example
    * 2
@@ -134,7 +141,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   policiesQuota?: number;
   /**
    * @remarks
-   * The maximum length of the policy content.
+   * The maximum length of a policy document.
    * 
    * @example
    * 2048
@@ -266,7 +273,7 @@ export class GetAccountSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The overview information about the Alibaba Cloud account.
+   * The summary information of the Alibaba Cloud account.
    */
   summaryMap?: GetAccountSummaryResponseBodySummaryMap;
   static names(): { [key: string]: string } {

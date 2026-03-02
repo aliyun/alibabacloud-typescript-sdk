@@ -5,16 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to disable logon after the password expires.
+   * Indicates whether logon is prevented after the password expires.
    * 
    * @example
    * false
    */
   hardExpire?: boolean;
-  initialPasswordAge?: number;
   /**
    * @remarks
-   * The maximum number of password retries.
+   * The validity period of the initial password.
+   * 
+   * @example
+   * 14
+   */
+  initialPasswordAge?: number;
+  interceptRiskPasswordOnApi?: boolean;
+  /**
+   * @remarks
+   * The maximum number of consecutive logon failures that are allowed.
    * 
    * @example
    * 0
@@ -38,7 +46,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordDifferentCharacter?: number;
   /**
    * @remarks
-   * The minimum number of characters in the password.
+   * The minimum length of the password.
    * 
    * @example
    * 8
@@ -46,7 +54,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordLength?: number;
   /**
    * @remarks
-   * Indicates whether to exclude the username from the password.
+   * Prevents passwords from containing the username.
    * 
    * @example
    * false
@@ -54,7 +62,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   passwordNotContainUserName?: boolean;
   /**
    * @remarks
-   * The policy for password history check.
+   * The number of previous passwords that cannot be reused.
    * 
    * @example
    * 0
@@ -78,7 +86,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   requireNumbers?: boolean;
   /**
    * @remarks
-   * Indicates whether the password must contain special characters.
+   * Indicates whether the password must contain symbols.
    * 
    * @example
    * false
@@ -96,6 +104,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
     return {
       hardExpire: 'HardExpire',
       initialPasswordAge: 'InitialPasswordAge',
+      interceptRiskPasswordOnApi: 'InterceptRiskPasswordOnApi',
       maxLoginAttemps: 'MaxLoginAttemps',
       maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
@@ -113,6 +122,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
     return {
       hardExpire: 'boolean',
       initialPasswordAge: 'number',
+      interceptRiskPasswordOnApi: 'boolean',
       maxLoginAttemps: 'number',
       maxPasswordAge: 'number',
       minimumPasswordDifferentCharacter: 'number',
@@ -138,7 +148,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
 export class SetPasswordPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the password policy.
+   * The password strength policy.
    */
   passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
   /**

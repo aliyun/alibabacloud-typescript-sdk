@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAppSecretIdsResponseBodyAppSecretsAppSecret extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 472457090344041****
-   */
   appId?: string;
-  /**
-   * @remarks
-   * The ID of the application secret.
-   * 
-   * @example
-   * 2efd5004-005c-4f05-83c6-5b1dd176****
-   */
   appSecretId?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2020-10-26T03:18:39Z
-   */
   createDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,18 +58,7 @@ export class ListAppSecretIdsResponseBodyAppSecrets extends $dara.Model {
 }
 
 export class ListAppSecretIdsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the application secret.
-   */
   appSecrets?: ListAppSecretIdsResponseBodyAppSecrets;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 5F2FD500-7173-47D6-BD2F-EB60879B4F16
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

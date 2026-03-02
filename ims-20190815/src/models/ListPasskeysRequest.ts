@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPasskeysRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {

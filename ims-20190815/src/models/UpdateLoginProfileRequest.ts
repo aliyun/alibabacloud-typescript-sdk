@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoginProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to forcefully enable multi-factor authentication (MFA) for the RAM user. Valid values:
+   * Specifies whether to enforce multi-factor authentication (MFA) for the RAM user. Valid values:
    * 
-   * *   true: forcefully enables MFA for the RAM user. The RAM user must bind an MFA device upon the next logon.
-   * *   false: does not forcefully enable MFA for the RAM user.
+   * - true: Enforce MFA. The RAM user must attach an MFA device at the next logon.
+   * 
+   * - false: Do not enforce MFA.
    * 
    * @example
    * false
@@ -16,9 +17,9 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * The new password that is used to log on to the console.
+   * The new console logon password for the RAM user.
    * 
-   * The new password must meet the complexity requirements.
+   * The password must meet the password strength requirements.
    * 
    * @example
    * mypassword
@@ -26,10 +27,11 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether the RAM user is required to reset the password upon the next logon. Valid values:
+   * Specifies whether the RAM user must reset the password at the next logon. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -37,10 +39,11 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable password-based logons to the console. Valid values:
+   * Specifies whether to enable or disable password-based logon to the console. Valid values:
    * 
-   * *   Active: enables password-based logons to the console.
-   * *   Inactive: disables password-based logons to the console.
+   * - Active: Enabled.
+   * 
+   * - Inactive: Disabled.
    * 
    * @example
    * Active

@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGroupsForUserResponseBodyGroupsGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * Test-Team
-   */
   comments?: string;
-  /**
-   * @remarks
-   * The display name of the RAM user group.
-   * 
-   * @example
-   * Test-Team
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the RAM user group.
-   * 
-   * @example
-   * 740317625433843****
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * Test-Team
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The time when the RAM user was added.
-   * 
-   * @example
-   * 2020-10-20T06:57:00Z
-   */
   joinDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,18 +64,7 @@ export class ListGroupsForUserResponseBodyGroups extends $dara.Model {
 }
 
 export class ListGroupsForUserResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the RAM user groups.
-   */
   groups?: ListGroupsForUserResponseBodyGroups;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7158A935-FB5E-49A7-8E52-FDA5B2B67247
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

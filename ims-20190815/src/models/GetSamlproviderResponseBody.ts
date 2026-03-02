@@ -5,51 +5,41 @@ import * as $dara from '@darabonba/typescript';
 export class GetSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the IdP.
-   * 
-   * @example
-   * acs:ram::177242285274****:saml-provider/test-provider
+   * The Alibaba Cloud Resource Name (ARN) of the SAML provider.
    */
   arn?: string;
+  /**
+   * @remarks
+   * The signature algorithm supported by the Alibaba Cloud service provider (SP). Valid values:
+   * 
+   * - rsa-sha256
+   * 
+   * - rsa-sha1
+   */
   authnSignAlgo?: string;
   /**
    * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2020-10-22T02:37:05Z
+   * The time when the SAML provider was created.
    */
   createDate?: string;
   /**
    * @remarks
    * The description.
-   * 
-   * @example
-   * This is a provider.
    */
   description?: string;
   /**
    * @remarks
-   * The metadata file, which is Base64 encoded.
-   * 
-   * @example
-   * PD94bWwgdmVy****
+   * The Base64-encoded metadata file.
    */
   encodedSAMLMetadataDocument?: string;
   /**
    * @remarks
-   * The name of the IdP.
-   * 
-   * @example
-   * test-provider
+   * The name of the SAML provider.
    */
   SAMLProviderName?: string;
   /**
    * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2020-10-22T02:51:20Z
+   * The time when the SAML provider was last updated.
    */
   updateDate?: string;
   static names(): { [key: string]: string } {
@@ -89,14 +79,11 @@ export class GetSAMLProviderResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
-   * 
-   * @example
-   * BAADB995-0C7A-476D-B293-7E94568EEDFB
    */
   requestId?: string;
   /**
    * @remarks
-   * The information about the IdP.
+   * The information about the SAML provider.
    */
   SAMLProvider?: GetSAMLProviderResponseBodySAMLProvider;
   static names(): { [key: string]: string } {

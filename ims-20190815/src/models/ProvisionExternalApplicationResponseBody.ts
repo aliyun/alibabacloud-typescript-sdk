@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ProvisionExternalApplicationResponseBodyExternalApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the permission scope.
-   * 
-   * @example
-   * Obtains the OpenID of the user. This is the default scope and cannot be deleted.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the permission scope.
-   * 
-   * @example
-   * openid
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class ProvisionExternalApplicationResponseBodyExternalApplicationDelegate
 }
 
 export class ProvisionExternalApplicationResponseBodyExternalApplicationDelegatedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the scopes of permissions that are granted to the application.
-   */
   predefinedScopes?: ProvisionExternalApplicationResponseBodyExternalApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -99,58 +81,12 @@ export class ProvisionExternalApplicationResponseBodyExternalApplicationDelegate
 }
 
 export class ProvisionExternalApplicationResponseBodyExternalApplication extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application principal. The value is in the `<app_name>@app.<account_id>.onaliyun.com` format.
-   * 
-   * @example
-   * GiteePrd@app.177242285274****.onaliyun.com
-   */
   appPrincipalName?: string;
-  /**
-   * @remarks
-   * The time when the application was installed. The value is a timestamp.
-   * 
-   * @example
-   * 1603693518000
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The information about the scopes of permissions that are granted to the application.
-   */
   delegatedScope?: ProvisionExternalApplicationResponseBodyExternalApplicationDelegatedScope;
-  /**
-   * @remarks
-   * The display name of the application.
-   * 
-   * @example
-   * GiteeAliyun
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 403550611646604****
-   */
   foreignAppId?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the external application belongs.
-   * 
-   * @example
-   * 157242285274****
-   */
   tenantId?: string;
-  /**
-   * @remarks
-   * The update time. The value is a timestamp.
-   * 
-   * @example
-   * 1603693518000
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,18 +125,7 @@ export class ProvisionExternalApplicationResponseBodyExternalApplication extends
 }
 
 export class ProvisionExternalApplicationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the external application.
-   */
   externalApplication?: ProvisionExternalApplicationResponseBodyExternalApplication;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 55535873-9A6B-5C87-853F-C7CD258826F2
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

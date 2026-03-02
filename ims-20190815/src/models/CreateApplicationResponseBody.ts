@@ -3,34 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the permission.
-   * 
-   * @example
-   * Obtain the OpenID of the user. This is the default permission that you cannot remove.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the permission.
-   * 
-   * @example
-   * openid
-   */
   name?: string;
-  /**
-   * @remarks
-   * Indicates whether the permission is automatically selected by default when you install the application. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * `openid` is required by default.
-   * 
-   * @example
-   * true
-   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -84,10 +58,6 @@ export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
 }
 
 export class CreateApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the permissions that are granted on the application.
-   */
   predefinedScopes?: CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -158,7 +128,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 472457090344041****
@@ -182,7 +152,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the application was created.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -190,7 +160,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The information about the permissions that are granted on the application.
+   * The information about the application scopes.
    */
   delegatedScope?: CreateApplicationResponseBodyApplicationDelegatedScope;
   /**
@@ -203,17 +173,24 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the application can be installed by using other Alibaba Cloud accounts.
+   * Indicates whether the application can be installed by other Alibaba Cloud accounts.
    * 
    * @example
    * true
    */
   isMultiTenant?: boolean;
-  protocolVersion?: string;
   /**
    * @remarks
-   * The callback URLs.
+   * The OAuth protocol version of the application. Valid values:
+   * 
+   * - `2.0`: OAuth 2.0.
+   * 
+   * - `2.1`: OAuth 2.1.
+   * 
+   * @example
+   * 2.0
    */
+  protocolVersion?: string;
   redirectUris?: CreateApplicationResponseBodyApplicationRedirectUris;
   /**
    * @remarks
@@ -225,7 +202,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   refreshTokenValidity?: number;
   /**
    * @remarks
-   * Indicates whether a secret is required.
+   * Indicates whether an application key is required.
    * 
    * @example
    * true
@@ -233,7 +210,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The update time.
+   * The time when the application was last updated.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -295,7 +272,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
 export class CreateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the application.
+   * The application information.
    */
   application?: CreateApplicationResponseBodyApplication;
   /**

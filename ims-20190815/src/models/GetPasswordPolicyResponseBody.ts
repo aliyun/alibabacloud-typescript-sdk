@@ -5,16 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to disable logon after the password expires.
+   * Indicates whether logon is restricted after the password expires.
    * 
    * @example
    * false
    */
   hardExpire?: boolean;
+  /**
+   * @remarks
+   * The validity period of the initial password.
+   * 
+   * @example
+   * 14
+   */
   initialPasswordAge?: number;
   /**
    * @remarks
-   * The maximum number of password retries.
+   * Indicates whether to block threat passwords when a password is set using OpenAPI.
+   * 
+   * Valid values:
+   * 
+   * - true: Threat passwords are blocked when you set a password using OpenAPI.
+   * 
+   * - false: Threat passwords are not blocked when you set a password using OpenAPI.
+   * 
+   * Default value: false
+   * 
+   * @example
+   * false
+   */
+  interceptRiskPasswordOnApi?: boolean;
+  /**
+   * @remarks
+   * The maximum number of logon attempts.
    * 
    * @example
    * 0
@@ -22,7 +45,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   maxLoginAttemps?: number;
   /**
    * @remarks
-   * The validity period of the password.
+   * The password validity period.
    * 
    * @example
    * 0
@@ -30,7 +53,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   maxPasswordAge?: number;
   /**
    * @remarks
-   * The minimum number of unique characters in the password.
+   * The minimum number of different characters in the password.
    * 
    * @example
    * 0
@@ -38,7 +61,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordDifferentCharacter?: number;
   /**
    * @remarks
-   * The minimum required number of characters in a password.
+   * The minimum password length.
    * 
    * @example
    * 8
@@ -46,7 +69,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordLength?: number;
   /**
    * @remarks
-   * Indicates whether to exclude the username from the password.
+   * Indicates whether the password must not contain the username.
    * 
    * @example
    * false
@@ -54,7 +77,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   passwordNotContainUserName?: boolean;
   /**
    * @remarks
-   * The policy for password history check.
+   * The password reuse prevention policy.
    * 
    * @example
    * 0
@@ -70,7 +93,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   requireLowercaseCharacters?: boolean;
   /**
    * @remarks
-   * Indicates whether the password must contain digits.
+   * Indicates whether the password must contain numbers.
    * 
    * @example
    * false
@@ -78,7 +101,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   requireNumbers?: boolean;
   /**
    * @remarks
-   * Indicates whether the password must contain special characters.
+   * Indicates whether the password must contain symbols.
    * 
    * @example
    * false
@@ -96,6 +119,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
     return {
       hardExpire: 'HardExpire',
       initialPasswordAge: 'InitialPasswordAge',
+      interceptRiskPasswordOnApi: 'InterceptRiskPasswordOnApi',
       maxLoginAttemps: 'MaxLoginAttemps',
       maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
@@ -113,6 +137,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
     return {
       hardExpire: 'boolean',
       initialPasswordAge: 'number',
+      interceptRiskPasswordOnApi: 'boolean',
       maxLoginAttemps: 'number',
       maxPasswordAge: 'number',
       minimumPasswordDifferentCharacter: 'number',
@@ -138,7 +163,7 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
 export class GetPasswordPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the password policy.
+   * The password strength policy information.
    */
   passwordPolicy?: GetPasswordPolicyResponseBodyPasswordPolicy;
   /**

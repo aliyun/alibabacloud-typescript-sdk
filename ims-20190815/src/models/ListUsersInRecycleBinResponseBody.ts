@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUsersInRecycleBinResponseBodyUsersUser extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the RAM user was created.
-   * 
-   * @example
-   * 2020-10-12T09:12:00Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The time when the RAM user will be permanently deleted from the recycle bin.
-   * 
-   * @example
-   * 2020-11-15T09:12:00Z
-   */
   deleteDate?: string;
-  /**
-   * @remarks
-   * The display name of the RAM user.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The time when the RAM user was deleted and moved to the recycle bin.
-   * 
-   * @example
-   * 2020-10-15T09:12:00Z
-   */
   recycleDate?: string;
-  /**
-   * @remarks
-   * The ID of the RAM user.
-   * 
-   * @example
-   * 20732900249392****
-   */
   userId?: string;
-  /**
-   * @remarks
-   * The logon name of the RAM user.
-   * 
-   * @example
-   * test@example.onaliyun.com
-   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,37 +67,9 @@ export class ListUsersInRecycleBinResponseBodyUsers extends $dara.Model {
 }
 
 export class ListUsersInRecycleBinResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the response is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   isTruncated?: boolean;
-  /**
-   * @remarks
-   * The parameter that is used to obtain the truncated part. It takes effect only when `IsTruncated` is set to `true`.
-   * 
-   * @example
-   * EXAMPLE
-   */
   marker?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 3687BD52-49FD-585B-AB14-CD05B7C76963
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the RAM users.
-   */
   users?: ListUsersInRecycleBinResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {

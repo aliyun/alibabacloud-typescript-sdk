@@ -3,40 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
-  /**
-   * @remarks
-   * The AccessKey ID.
-   * 
-   * @example
-   * yourAccessKeyID
-   */
   accessKeyId?: string;
-  /**
-   * @remarks
-   * The AccessKey secret.
-   * 
-   * @example
-   * yourAccessKeySecret
-   */
   accessKeySecret?: string;
-  /**
-   * @remarks
-   * The time when the AccessKey pair was created.
-   * 
-   * @example
-   * 2020-10-15T08:08:54Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The status of the AccessKey pair. Valid values:
-   * 
-   * *   Active
-   * *   Inactive
-   * 
-   * @example
-   * Active
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,18 +35,7 @@ export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
 }
 
 export class CreateAccessKeyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the AccessKey pair.
-   */
   accessKey?: CreateAccessKeyResponseBodyAccessKey;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 19DDD9F7-AFCC-4D72-8CBA-CCE5A142E7AB
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

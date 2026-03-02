@@ -3,33 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecentGovernanceMetricsResponseBodyGovernanceMetricsGovernanceMetric extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the governance item.
-   * 
-   * @example
-   * RecentAccountLoginTimes
-   */
   governanceItem?: string;
-  /**
-   * @remarks
-   * The type of the metric value. Valid values:
-   * 
-   * *   Number
-   * *   String
-   * *   Boolean
-   * 
-   * @example
-   * Number
-   */
   metricType?: string;
-  /**
-   * @remarks
-   * The metric value. The type of the metric value is determined by `MetricType`.
-   * 
-   * @example
-   * 5
-   */
   metricValue?: any;
   static names(): { [key: string]: string } {
     return {
@@ -91,10 +66,6 @@ export class ListRecentGovernanceMetricsResponseBody extends $dara.Model {
    * 2025-02-10T02:11:23Z
    */
   generateTime?: string;
-  /**
-   * @remarks
-   * The metric values of all governance items. The value of the parameter is an array, and each row in the array contains the metric value of a governance item.
-   */
   governanceMetrics?: ListRecentGovernanceMetricsResponseBodyGovernanceMetrics;
   /**
    * @remarks

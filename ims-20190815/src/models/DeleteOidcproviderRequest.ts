@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteOIDCProviderRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the OIDC IdP.
-   * 
-   * @example
-   * TestOIDCProvider
-   */
   OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {

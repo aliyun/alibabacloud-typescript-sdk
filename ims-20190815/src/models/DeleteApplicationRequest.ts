@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 472457090344041****
    */
   appId?: string;
   static names(): { [key: string]: string } {

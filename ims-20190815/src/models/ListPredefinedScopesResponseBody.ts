@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPredefinedScopesResponseBodyPredefinedScopesPredefinedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the permission scope.
-   * 
-   * @example
-   * Obtain the OpenID of the user. This is the default permission that you cannot remove.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the permission scope.
-   * 
-   * @example
-   * openid
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class ListPredefinedScopesResponseBodyPredefinedScopes extends $dara.Mode
 }
 
 export class ListPredefinedScopesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about application permissions.
-   */
   predefinedScopes?: ListPredefinedScopesResponseBodyPredefinedScopes;
   /**
    * @remarks

@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGroupsResponseBodyGroupsGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * Dev-Team
-   */
   comments?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2020-10-19T12:33:18Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The display name of the RAM user group.
-   * 
-   * @example
-   * Dev-Team
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The ID of the RAM user group.
-   * 
-   * @example
-   * 740317625433843****
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the RAM user group.
-   * 
-   * @example
-   * dev-team
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2020-10-19T12:33:18Z
-   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,17 +67,14 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
 }
 
 export class ListGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the RAM user groups.
-   */
   groups?: ListGroupsResponseBodyGroups;
   /**
    * @remarks
    * Indicates whether the response is truncated. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoginProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to forcefully enable multi-factor authentication (MFA) for the RAM user. Valid values:
+   * Specifies whether the RAM user must enable multi-factor authentication (MFA). Valid values:
    * 
-   * *   true: forcefully enables MFA for the RAM user. The RAM user must bind an MFA device upon the next logon.
-   * *   false (default): does not forcefully enable MFA for the RAM user.
+   * - true: MFA is required. The RAM user must bind an MFA device at the next logon.
+   * 
+   * - false (default): MFA is not required.
    * 
    * @example
    * false
@@ -16,9 +17,9 @@ export class CreateLoginProfileRequest extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * The password that the RAM user uses to log on to the console.
+   * The logon password for the RAM user.
    * 
-   * The password must meet the complexity requirements.
+   * The password must meet the password strength requirements.
    * 
    * @example
    * mypassword
@@ -26,10 +27,11 @@ export class CreateLoginProfileRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether the RAM user is required to reset the password upon the next logon. Valid values:
+   * Specifies whether the RAM user must reset the password at the next logon. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * false
@@ -37,10 +39,11 @@ export class CreateLoginProfileRequest extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable password-based logons to the console. Valid values:
+   * Specifies whether to enable password-based logon for the console. Valid values:
    * 
-   * *   Active: Password-based logon is enabled. This is the default value.
-   * *   Inactive: Password-based logon is disabled.
+   * - Active (default): Enables logon.
+   * 
+   * - Inactive: Disables logon.
    * 
    * @example
    * Active

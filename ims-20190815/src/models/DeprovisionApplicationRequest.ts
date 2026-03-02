@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeprovisionApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 452392483381546****
    */
   appId?: string;
   static names(): { [key: string]: string } {

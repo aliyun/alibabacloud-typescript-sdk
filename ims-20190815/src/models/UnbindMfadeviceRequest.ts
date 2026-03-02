@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindMFADeviceRequest extends $dara.Model {
   /**
    * @remarks
-   * The logon name of the RAM user.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * test@example.onaliyun.com
    */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {

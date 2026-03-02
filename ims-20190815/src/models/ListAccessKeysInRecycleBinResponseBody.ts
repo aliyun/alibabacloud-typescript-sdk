@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAccessKeysInRecycleBinResponseBodyAccessKeysAccessKey extends $dara.Model {
-  /**
-   * @remarks
-   * The AccessKey ID.
-   * 
-   * @example
-   * LTAI*******************
-   */
   accessKeyId?: string;
-  /**
-   * @remarks
-   * The time when the AccessKey pair was created.
-   * 
-   * @example
-   * 2020-10-11T09:12:00Z
-   */
   createDate?: string;
-  /**
-   * @remarks
-   * The time when the AccessKey pair will be permanently deleted from the recycle bin.
-   * 
-   * @example
-   * 2020-11-12T09:12:00Z
-   */
   deleteDate?: string;
-  /**
-   * @remarks
-   * The time when the AccessKey pair was deleted and moved to the recycle bin.
-   * 
-   * @example
-   * 2020-10-12T09:12:00Z
-   */
   recycleDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,18 +61,7 @@ export class ListAccessKeysInRecycleBinResponseBodyAccessKeys extends $dara.Mode
 }
 
 export class ListAccessKeysInRecycleBinResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the AccessKey pairs.
-   */
   accessKeys?: ListAccessKeysInRecycleBinResponseBodyAccessKeys;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4507D1CD-526A-4E2B-A1E2-3AB045D1EE0B
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
