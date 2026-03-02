@@ -240,6 +240,7 @@ export class CreateImageCacheRequest extends $dara.Model {
    * This parameter is required.
    */
   networkConfig?: CreateImageCacheRequestNetworkConfig;
+  platform?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -262,6 +263,7 @@ export class CreateImageCacheRequest extends $dara.Model {
       imageRegistryCredentials: 'ImageRegistryCredentials',
       images: 'Images',
       networkConfig: 'NetworkConfig',
+      platform: 'Platform',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
@@ -276,6 +278,7 @@ export class CreateImageCacheRequest extends $dara.Model {
       imageRegistryCredentials: { 'type': 'array', 'itemType': CreateImageCacheRequestImageRegistryCredentials },
       images: { 'type': 'array', 'itemType': 'string' },
       networkConfig: CreateImageCacheRequestNetworkConfig,
+      platform: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': CreateImageCacheRequestTags },

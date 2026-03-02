@@ -37,6 +37,7 @@ export class ListImageCachesRequestTags extends $dara.Model {
 }
 
 export class ListImageCachesRequest extends $dara.Model {
+  image?: string;
   /**
    * @example
    * my-imc
@@ -73,6 +74,7 @@ export class ListImageCachesRequest extends $dara.Model {
   tags?: ListImageCachesRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      image: 'Image',
       imageCacheName: 'ImageCacheName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -85,6 +87,7 @@ export class ListImageCachesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      image: 'string',
       imageCacheName: 'string',
       maxResults: 'number',
       nextToken: 'string',

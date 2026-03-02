@@ -151,6 +151,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   networkConfigShrink?: string;
+  platform?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -173,6 +174,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
       imageRegistryCredentials: 'ImageRegistryCredentials',
       images: 'Images',
       networkConfigShrink: 'NetworkConfig',
+      platform: 'Platform',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
@@ -187,6 +189,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
       imageRegistryCredentials: { 'type': 'array', 'itemType': CreateImageCacheShrinkRequestImageRegistryCredentials },
       images: { 'type': 'array', 'itemType': 'string' },
       networkConfigShrink: 'string',
+      platform: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': CreateImageCacheShrinkRequestTags },

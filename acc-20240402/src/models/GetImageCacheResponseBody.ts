@@ -209,6 +209,7 @@ export class GetImageCacheResponseBody extends $dara.Model {
    * PayAsYouGo
    */
   paymentType?: string;
+  platform?: string;
   /**
    * @example
    * 2025-**-**T07:58:25Z
@@ -249,6 +250,7 @@ export class GetImageCacheResponseBody extends $dara.Model {
       images: 'Images',
       networkConfig: 'NetworkConfig',
       paymentType: 'PaymentType',
+      platform: 'Platform',
       readyTime: 'ReadyTime',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -268,6 +270,7 @@ export class GetImageCacheResponseBody extends $dara.Model {
       images: { 'type': 'array', 'itemType': 'string' },
       networkConfig: GetImageCacheResponseBodyNetworkConfig,
       paymentType: 'string',
+      platform: 'string',
       readyTime: 'string',
       regionId: 'string',
       requestId: 'string',

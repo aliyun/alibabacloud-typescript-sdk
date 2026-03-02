@@ -107,6 +107,10 @@ export default class Client extends OpenApi {
       query["NetworkConfig"] = request.networkConfigShrink;
     }
 
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -253,6 +257,10 @@ export default class Client extends OpenApi {
   async listImageCachesWithOptions(request: $_model.ListImageCachesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageCachesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.image)) {
+      query["Image"] = request.image;
+    }
+
     if (!$dara.isNull(request.imageCacheName)) {
       query["ImageCacheName"] = request.imageCacheName;
     }
