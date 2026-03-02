@@ -834,6 +834,11 @@ export class InvokeAssistantResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @example
+   * done
+   */
+  sessionStatus?: string;
+  /**
+   * @example
    * true
    */
   streamEnd?: boolean;
@@ -842,6 +847,7 @@ export class InvokeAssistantResponseBody extends $dara.Model {
       messages: 'messages',
       requestId: 'requestId',
       sessionId: 'sessionId',
+      sessionStatus: 'sessionStatus',
       streamEnd: 'streamEnd',
     };
   }
@@ -851,6 +857,7 @@ export class InvokeAssistantResponseBody extends $dara.Model {
       messages: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyMessages },
       requestId: 'string',
       sessionId: 'string',
+      sessionStatus: 'string',
       streamEnd: 'boolean',
     };
   }

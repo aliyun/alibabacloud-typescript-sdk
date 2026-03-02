@@ -1246,6 +1246,35 @@ export class CreateRunResponseBodyRun extends $dara.Model {
   }
 }
 
+export class CreateRunResponseBodyThread extends $dara.Model {
+  createAt?: number;
+  id?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createAt: 'createAt',
+      id: 'id',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createAt: 'number',
+      id: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRunResponseBody extends $dara.Model {
   messages?: CreateRunResponseBodyMessages[];
   /**
@@ -1254,11 +1283,13 @@ export class CreateRunResponseBody extends $dara.Model {
    */
   requestId?: string;
   run?: CreateRunResponseBodyRun;
+  thread?: CreateRunResponseBodyThread;
   static names(): { [key: string]: string } {
     return {
       messages: 'messages',
       requestId: 'requestId',
       run: 'run',
+      thread: 'thread',
     };
   }
 
@@ -1267,6 +1298,7 @@ export class CreateRunResponseBody extends $dara.Model {
       messages: { 'type': 'array', 'itemType': CreateRunResponseBodyMessages },
       requestId: 'string',
       run: CreateRunResponseBodyRun,
+      thread: CreateRunResponseBodyThread,
     };
   }
 
@@ -1276,6 +1308,9 @@ export class CreateRunResponseBody extends $dara.Model {
     }
     if(this.run && typeof (this.run as any).validate === 'function') {
       (this.run as any).validate();
+    }
+    if(this.thread && typeof (this.thread as any).validate === 'function') {
+      (this.thread as any).validate();
     }
     super.validate();
   }

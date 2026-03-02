@@ -217,6 +217,7 @@ export { CreateRunResponseBodyMessagesContentStructParts } from './CreateRunResp
 export { CreateRunResponseBodyMessagesContentStruct } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessages } from './CreateRunResponseBody';
 export { CreateRunResponseBodyRun } from './CreateRunResponseBody';
+export { CreateRunResponseBodyThread } from './CreateRunResponseBody';
 export { CreateScenegroupHeadersAccountContext } from './CreateScenegroupHeaders';
 export { CreateScheduleConferenceHeadersAccountContext } from './CreateScheduleConferenceHeaders';
 export { CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting } from './CreateScheduleConferenceRequest';
