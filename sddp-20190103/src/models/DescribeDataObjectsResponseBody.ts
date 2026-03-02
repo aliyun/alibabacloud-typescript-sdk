@@ -76,6 +76,11 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
    */
   riskLevelName?: string;
   /**
+   * @example
+   * “个人信息”-“身份证”
+   */
+  ruleCategoryNameList?: string;
+  /**
    * @remarks
    * Number of matched identification models.
    * 
@@ -99,13 +104,20 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
    * name
    */
   ruleName?: string;
+  /**
+   * @example
+   * ["张三"，"李四"]
+   */
+  sampleList?: string;
   static names(): { [key: string]: string } {
     return {
       riskLevelId: 'RiskLevelId',
       riskLevelName: 'RiskLevelName',
+      ruleCategoryNameList: 'RuleCategoryNameList',
       ruleCount: 'RuleCount',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      sampleList: 'SampleList',
     };
   }
 
@@ -113,9 +125,11 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
     return {
       riskLevelId: 'number',
       riskLevelName: 'string',
+      ruleCategoryNameList: 'string',
       ruleCount: 'number',
       ruleId: 'number',
       ruleName: 'string',
+      sampleList: 'string',
     };
   }
 
@@ -134,6 +148,26 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    * List of industry categories for the sensitive data.
    */
   categories?: string[];
+  /**
+   * @example
+   * 备注
+   */
+  comment?: string;
+  /**
+   * @example
+   * varchar
+   */
+  dataType?: string;
+  /**
+   * @example
+   * DataBaseName
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 1
+   */
+  fileCategoryCode?: number;
   /**
    * @remarks
    * The unique identifier ID of the data object.
@@ -159,6 +193,11 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * -1
+   */
+  isRevision?: number;
+  /**
    * @remarks
    * Latest file modification time, in milliseconds.
    * 
@@ -174,6 +213,16 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    * 1687676649830
    */
   lastScanTime?: number;
+  /**
+   * @example
+   * logStore
+   */
+  logStore?: string;
+  /**
+   * @example
+   * -1
+   */
+  maskStatus?: number;
   /**
    * @remarks
    * Member account ID.
@@ -260,6 +309,11 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    */
   productId?: number;
   /**
+   * @example
+   * project
+   */
+  project?: string;
+  /**
    * @remarks
    * The region ID to which the OSS storage object belongs.
    * 
@@ -276,6 +330,16 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    */
   regionName?: string;
   /**
+   * @example
+   * 1
+   */
+  riskLevelId?: number;
+  /**
+   * @example
+   * 10
+   */
+  ruleCount?: number;
+  /**
    * @remarks
    * List of matched identification models.
    */
@@ -289,6 +353,36 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    */
   sensitiveCount?: number;
   /**
+   * @example
+   * 1000
+   */
+  size?: number;
+  /**
+   * @example
+   * 1,2,3
+   */
+  sx?: string;
+  /**
+   * @example
+   * tableName
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 1
+   */
+  taskId?: number;
+  /**
+   * @example
+   * 任务名
+   */
+  taskName?: string;
+  /**
+   * @example
+   * 1000
+   */
+  taskNumber?: number;
+  /**
    * @remarks
    * Industry template ID
    * 
@@ -296,14 +390,26 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    * 1
    */
   templateId?: number;
+  /**
+   * @example
+   * 模板名
+   */
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
       categories: 'Categories',
+      comment: 'Comment',
+      dataType: 'DataType',
+      dbName: 'DbName',
+      fileCategoryCode: 'FileCategoryCode',
       id: 'Id',
       instanceDescription: 'InstanceDescription',
       instanceId: 'InstanceId',
+      isRevision: 'IsRevision',
       lastModifiedTime: 'LastModifiedTime',
       lastScanTime: 'LastScanTime',
+      logStore: 'LogStore',
+      maskStatus: 'MaskStatus',
       memberAccount: 'MemberAccount',
       modelTags: 'ModelTags',
       name: 'Name',
@@ -312,22 +418,39 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
       path: 'Path',
       productCode: 'ProductCode',
       productId: 'ProductId',
+      project: 'Project',
       regionId: 'RegionId',
       regionName: 'RegionName',
+      riskLevelId: 'RiskLevelId',
+      ruleCount: 'RuleCount',
       ruleList: 'RuleList',
       sensitiveCount: 'SensitiveCount',
+      size: 'Size',
+      sx: 'Sx',
+      tableName: 'TableName',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskNumber: 'TaskNumber',
       templateId: 'TemplateId',
+      templateName: 'TemplateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       categories: { 'type': 'array', 'itemType': 'string' },
+      comment: 'string',
+      dataType: 'string',
+      dbName: 'string',
+      fileCategoryCode: 'number',
       id: 'string',
       instanceDescription: 'string',
       instanceId: 'string',
+      isRevision: 'number',
       lastModifiedTime: 'number',
       lastScanTime: 'number',
+      logStore: 'string',
+      maskStatus: 'number',
       memberAccount: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsModelTags },
       name: 'string',
@@ -336,11 +459,21 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
       path: 'string',
       productCode: 'string',
       productId: 'number',
+      project: 'string',
       regionId: 'string',
       regionName: 'string',
+      riskLevelId: 'number',
+      ruleCount: 'number',
       ruleList: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsRuleList },
       sensitiveCount: 'number',
+      size: 'number',
+      sx: 'string',
+      tableName: 'string',
+      taskId: 'number',
+      taskName: 'string',
+      taskNumber: 'number',
       templateId: 'number',
+      templateName: 'string',
     };
   }
 

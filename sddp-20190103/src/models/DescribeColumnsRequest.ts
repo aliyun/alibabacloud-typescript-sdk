@@ -159,6 +159,11 @@ export class DescribeColumnsRequest extends $dara.Model {
    */
   sensLevelName?: string;
   /**
+   * @example
+   * cn-zhangjiakou
+   */
+  serviceRegionId?: string;
+  /**
    * @remarks
    * The ID of the table to which the column belongs.
    * 
@@ -212,6 +217,7 @@ export class DescribeColumnsRequest extends $dara.Model {
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       sensLevelName: 'SensLevelName',
+      serviceRegionId: 'ServiceRegionId',
       tableId: 'TableId',
       tableName: 'TableName',
       templateId: 'TemplateId',
@@ -235,6 +241,7 @@ export class DescribeColumnsRequest extends $dara.Model {
       ruleId: 'number',
       ruleName: 'string',
       sensLevelName: 'string',
+      serviceRegionId: 'string',
       tableId: 'number',
       tableName: 'string',
       templateId: 'string',

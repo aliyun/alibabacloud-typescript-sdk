@@ -977,6 +977,10 @@ export default class Client extends OpenApi {
       query["SensLevelName"] = request.sensLevelName;
     }
 
+    if (!$dara.isNull(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
     if (!$dara.isNull(request.tableId)) {
       query["TableId"] = request.tableId;
     }
@@ -1285,7 +1289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+   * Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
    * 
    * @remarks
    * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
@@ -1337,7 +1341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+   * Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
    * 
    * @remarks
    * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
@@ -1768,8 +1772,20 @@ export default class Client extends OpenApi {
   async describeDataObjectsWithOptions(request: $_model.DescribeDataObjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataObjectsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.APIVersion)) {
+      query["APIVersion"] = request.APIVersion;
+    }
+
+    if (!$dara.isNull(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
     }
 
     if (!$dara.isNull(request.domainId)) {
@@ -1796,6 +1812,14 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.logStore)) {
+      query["LogStore"] = request.logStore;
+    }
+
+    if (!$dara.isNull(request.logStoreFlag)) {
+      query["LogStoreFlag"] = request.logStoreFlag;
+    }
+
     if (!$dara.isNull(request.memberAccount)) {
       query["MemberAccount"] = request.memberAccount;
     }
@@ -1816,20 +1840,52 @@ export default class Client extends OpenApi {
       query["ParentCategoryIds"] = request.parentCategoryIds;
     }
 
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
     if (!$dara.isNull(request.productIds)) {
       query["ProductIds"] = request.productIds;
+    }
+
+    if (!$dara.isNull(request.project)) {
+      query["Project"] = request.project;
     }
 
     if (!$dara.isNull(request.queryName)) {
       query["QueryName"] = request.queryName;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.riskLevelIdList)) {
+      query["RiskLevelIdList"] = request.riskLevelIdList;
+    }
+
     if (!$dara.isNull(request.riskLevels)) {
       query["RiskLevels"] = request.riskLevels;
     }
 
+    if (!$dara.isNull(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
     if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
     }
 
     if (!$dara.isNull(request.templateId)) {
@@ -2917,7 +2973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   * Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
    * 
    * @remarks
    * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
@@ -2997,7 +3053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   * Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
    * 
    * @remarks
    * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.

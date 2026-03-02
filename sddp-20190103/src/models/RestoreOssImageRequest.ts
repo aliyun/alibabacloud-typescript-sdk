@@ -11,10 +11,6 @@ export class RestoreOssImageRequest extends $dara.Model {
    * test-sddp
    */
   bucket?: string;
-  /**
-   * @example
-   * zh
-   */
   lang?: string;
   /**
    * @remarks

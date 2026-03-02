@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDataObjectsRequest extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  APIVersion?: number;
+  /**
+   * @example
+   * bucketName
+   */
+  bucket?: string;
+  /**
    * @remarks
    * Page number for the paginated query. Default value: 1.
    * 
@@ -11,6 +21,11 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  /**
+   * @example
+   * dataBaseName
+   */
+  dbName?: string;
   /**
    * @remarks
    * ID of the data domain to which the data asset belongs.
@@ -64,6 +79,16 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    */
   lang?: string;
   /**
+   * @example
+   * logstore
+   */
+  logStore?: string;
+  /**
+   * @example
+   * 1
+   */
+  logStoreFlag?: number;
+  /**
    * @remarks
    * Member account ID.
    * 
@@ -108,6 +133,16 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    */
   parentCategoryIds?: string;
   /**
+   * @example
+   * road
+   */
+  path?: string;
+  /**
+   * @example
+   * 5
+   */
+  productId?: number;
+  /**
    * @remarks
    * It is recommended to fill in the list of product IDs to be queried, separated by commas. Values:
    * - **1**: MaxCompute
@@ -130,6 +165,11 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    */
   productIds?: string;
   /**
+   * @example
+   * project
+   */
+  project?: string;
+  /**
    * @remarks
    * Keyword for the data object to be queried.
    * 
@@ -137,6 +177,16 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    * t_sddp_selfmysql_pers0
    */
   queryName?: string;
+  /**
+   * @example
+   * cn-zhangjiakou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 1,2,3
+   */
+  riskLevelIdList?: string;
   /**
    * @remarks
    * Specify the risk levels of the data assets to be queried, separated by commas if multiple.
@@ -149,6 +199,11 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    * 2
    */
   riskLevels?: string;
+  /**
+   * @example
+   * 1,2,3
+   */
+  ruleIds?: string;
   /**
    * @remarks
    * Region where the asset is located. Values:
@@ -165,6 +220,16 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    */
   serviceRegionId?: string;
   /**
+   * @example
+   * TableName
+   */
+  tableName?: string;
+  /**
+   * @example
+   * 1
+   */
+  taskId?: number;
+  /**
    * @remarks
    * Industry template ID.
    * 
@@ -178,44 +243,70 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      APIVersion: 'APIVersion',
+      bucket: 'Bucket',
       currentPage: 'CurrentPage',
+      dbName: 'DbName',
       domainId: 'DomainId',
       featureType: 'FeatureType',
       fileCategoryCode: 'FileCategoryCode',
       fileType: 'FileType',
       instanceId: 'InstanceId',
       lang: 'Lang',
+      logStore: 'LogStore',
+      logStoreFlag: 'LogStoreFlag',
       memberAccount: 'MemberAccount',
       modelIds: 'ModelIds',
       modelTagIds: 'ModelTagIds',
       pageSize: 'PageSize',
       parentCategoryIds: 'ParentCategoryIds',
+      path: 'Path',
+      productId: 'ProductId',
       productIds: 'ProductIds',
+      project: 'Project',
       queryName: 'QueryName',
+      regionId: 'RegionId',
+      riskLevelIdList: 'RiskLevelIdList',
       riskLevels: 'RiskLevels',
+      ruleIds: 'RuleIds',
       serviceRegionId: 'ServiceRegionId',
+      tableName: 'TableName',
+      taskId: 'TaskId',
       templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      APIVersion: 'number',
+      bucket: 'string',
       currentPage: 'number',
+      dbName: 'string',
       domainId: 'number',
       featureType: 'number',
       fileCategoryCode: 'number',
       fileType: 'number',
       instanceId: 'string',
       lang: 'string',
+      logStore: 'string',
+      logStoreFlag: 'number',
       memberAccount: 'number',
       modelIds: 'string',
       modelTagIds: 'string',
       pageSize: 'number',
       parentCategoryIds: 'string',
+      path: 'string',
+      productId: 'number',
       productIds: 'string',
+      project: 'string',
       queryName: 'string',
+      regionId: 'string',
+      riskLevelIdList: 'string',
       riskLevels: 'string',
+      ruleIds: 'string',
       serviceRegionId: 'string',
+      tableName: 'string',
+      taskId: 'number',
       templateId: 'number',
     };
   }

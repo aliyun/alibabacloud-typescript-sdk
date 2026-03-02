@@ -17,10 +17,6 @@ export class MaskOssImageRequest extends $dara.Model {
    */
   isAlwaysUpload?: boolean;
   isSupportRestore?: boolean;
-  /**
-   * @example
-   * zh
-   */
   lang?: string;
   /**
    * @remarks
