@@ -769,7 +769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a certificate signing request (CSR) file.
+   * Deletes a Certificate Signing Request (CSR) that is no longer required.
    * 
    * @param request - DeleteCsrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -800,7 +800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a certificate signing request (CSR) file.
+   * Deletes a Certificate Signing Request (CSR) that is no longer required.
    * 
    * @param request - DeleteCsrRequest
    * @returns DeleteCsrResponse
@@ -1327,7 +1327,39 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota for certificate repositories.
+   * 统计资产数量
+   * 
+   * @param request - GetAssetCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAssetCountResponse
+   */
+  async getAssetCountWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetAssetCountResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAssetCount",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAssetCountResponse>(await this.callApi(params, req, runtime), new $_model.GetAssetCountResponse({}));
+  }
+
+  /**
+   * 统计资产数量
+   * @returns GetAssetCountResponse
+   */
+  async getAssetCount(): Promise<$_model.GetAssetCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAssetCountWithOptions(runtime);
+  }
+
+  /**
+   * Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
    * 
    * @remarks
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -1353,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota for certificate repositories.
+   * Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
    * 
    * @remarks
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -1533,6 +1565,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计风险资产数量
+   * 
+   * @param request - GetRiskCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRiskCountResponse
+   */
+  async getRiskCountWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetRiskCountResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRiskCount",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRiskCountResponse>(await this.callApi(params, req, runtime), new $_model.GetRiskCountResponse({}));
+  }
+
+  /**
+   * 统计风险资产数量
+   * @returns GetRiskCountResponse
+   */
+  async getRiskCount(): Promise<$_model.GetRiskCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRiskCountWithOptions(runtime);
+  }
+
+  /**
    * 查询异步任务状态
    * 
    * @param request - GetTaskAttributeRequest
@@ -1579,7 +1643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a certificate.
+   * Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
    * 
    * @remarks
    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -1617,7 +1681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a certificate.
+   * Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
    * 
    * @remarks
    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -1628,6 +1692,60 @@ export default class Client extends OpenApi {
   async getUserCertificateDetail(request: $_model.GetUserCertificateDetailRequest): Promise<$_model.GetUserCertificateDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserCertificateDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云产品资源统计列表
+   * 
+   * @param request - ListAssetCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAssetCountResponse
+   */
+  async listAssetCountWithOptions(request: $_model.ListAssetCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAssetCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAssetCount",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAssetCountResponse>(await this.callApi(params, req, runtime), new $_model.ListAssetCountResponse({}));
+  }
+
+  /**
+   * 查询云产品资源统计列表
+   * 
+   * @param request - ListAssetCountRequest
+   * @returns ListAssetCountResponse
+   */
+  async listAssetCount(request: $_model.ListAssetCountRequest): Promise<$_model.ListAssetCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAssetCountWithOptions(request, runtime);
   }
 
   /**
@@ -2013,7 +2131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries certificate signing requests (CSRs).
+   * Queries the details of Certificate Signing Requests (CSRs).
    * 
    * @param request - ListCsrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2056,7 +2174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries certificate signing requests (CSRs).
+   * Queries the details of Certificate Signing Requests (CSRs).
    * 
    * @param request - ListCsrRequest
    * @returns ListCsrResponse
@@ -2677,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the private key of a certificate signing request (CSR).
+   * Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
    * 
    * @param request - UpdateCsrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2712,7 +2830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the private key of a certificate signing request (CSR).
+   * Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
    * 
    * @param request - UpdateCsrRequest
    * @returns UpdateCsrResponse
@@ -2979,7 +3097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a certificate signing request (CSR) file
+   * Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
    * 
    * @param request - UploadCsrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3018,7 +3136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a certificate signing request (CSR) file
+   * Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
    * 
    * @param request - UploadCsrRequest
    * @returns UploadCsrResponse
