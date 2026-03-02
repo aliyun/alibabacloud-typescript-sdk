@@ -82,6 +82,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
    */
   regionId?: string;
   tenantId?: string;
+  vSwitchId?: string[];
   static names(): { [key: string]: string } {
     return {
       authorityHost: 'AuthorityHost',
@@ -96,6 +97,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
       officeSiteName: 'OfficeSiteName',
       regionId: 'RegionId',
       tenantId: 'TenantId',
+      vSwitchId: 'VSwitchId',
     };
   }
 
@@ -113,10 +115,14 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
       officeSiteName: 'string',
       regionId: 'string',
       tenantId: 'string',
+      vSwitchId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.vSwitchId)) {
+      $dara.Model.validateArray(this.vSwitchId);
+    }
     super.validate();
   }
 

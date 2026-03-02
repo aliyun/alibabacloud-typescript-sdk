@@ -13,6 +13,7 @@ export class DescribeZonesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  vpcAccessZone?: boolean;
   /**
    * @remarks
    * The type of the zone. Default value: `AvailabilityZone`. This value indicates Alibaba Cloud zones.
@@ -24,6 +25,7 @@ export class DescribeZonesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      vpcAccessZone: 'VpcAccessZone',
       zoneType: 'ZoneType',
     };
   }
@@ -31,6 +33,7 @@ export class DescribeZonesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      vpcAccessZone: 'boolean',
       zoneType: 'string',
     };
   }

@@ -4430,6 +4430,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables global acceleration for office networks.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+   * 
+   * @param request - CreateOfficeSiteAcceleratorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOfficeSiteAcceleratorResponse
+   */
+  async createOfficeSiteAcceleratorWithOptions(request: $_model.CreateOfficeSiteAcceleratorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOfficeSiteAcceleratorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accelerateRegion)) {
+      query["AccelerateRegion"] = request.accelerateRegion;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOfficeSiteAccelerator",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOfficeSiteAcceleratorResponse>(await this.callApi(params, req, runtime), new $_model.CreateOfficeSiteAcceleratorResponse({}));
+  }
+
+  /**
+   * Enables global acceleration for office networks.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+   * 
+   * @param request - CreateOfficeSiteAcceleratorRequest
+   * @returns CreateOfficeSiteAcceleratorResponse
+   */
+  async createOfficeSiteAccelerator(request: $_model.CreateOfficeSiteAcceleratorRequest): Promise<$_model.CreateOfficeSiteAcceleratorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOfficeSiteAcceleratorWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a cloud computer policy.
    * 
    * @remarks
@@ -6322,6 +6386,52 @@ export default class Client extends OpenApi {
   async deleteNetworkPackages(request: $_model.DeleteNetworkPackagesRequest): Promise<$_model.DeleteNetworkPackagesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNetworkPackagesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes Global Accelerator (GA) configuration.
+   * 
+   * @param request - DeleteOfficeSiteAcceleratorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOfficeSiteAcceleratorResponse
+   */
+  async deleteOfficeSiteAcceleratorWithOptions(request: $_model.DeleteOfficeSiteAcceleratorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOfficeSiteAcceleratorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOfficeSiteAccelerator",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOfficeSiteAcceleratorResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOfficeSiteAcceleratorResponse({}));
+  }
+
+  /**
+   * Deletes Global Accelerator (GA) configuration.
+   * 
+   * @param request - DeleteOfficeSiteAcceleratorRequest
+   * @returns DeleteOfficeSiteAcceleratorResponse
+   */
+  async deleteOfficeSiteAccelerator(request: $_model.DeleteOfficeSiteAcceleratorRequest): Promise<$_model.DeleteOfficeSiteAcceleratorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOfficeSiteAcceleratorWithOptions(request, runtime);
   }
 
   /**
@@ -12252,6 +12362,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.vpcAccessZone)) {
+      query["VpcAccessZone"] = request.vpcAccessZone;
+    }
+
     if (!$dara.isNull(request.zoneType)) {
       query["ZoneType"] = request.zoneType;
     }
@@ -16725,6 +16839,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改全球加速配置
+   * 
+   * @param request - ModifyOfficeSiteAcceleratorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOfficeSiteAcceleratorResponse
+   */
+  async modifyOfficeSiteAcceleratorWithOptions(request: $_model.ModifyOfficeSiteAcceleratorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOfficeSiteAcceleratorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accelerateRegion)) {
+      query["AccelerateRegion"] = request.accelerateRegion;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyOfficeSiteAccelerator",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyOfficeSiteAcceleratorResponse>(await this.callApi(params, req, runtime), new $_model.ModifyOfficeSiteAcceleratorResponse({}));
+  }
+
+  /**
+   * 修改全球加速配置
+   * 
+   * @param request - ModifyOfficeSiteAcceleratorRequest
+   * @returns ModifyOfficeSiteAcceleratorResponse
+   */
+  async modifyOfficeSiteAccelerator(request: $_model.ModifyOfficeSiteAcceleratorRequest): Promise<$_model.ModifyOfficeSiteAcceleratorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyOfficeSiteAcceleratorWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the basic properties of an office network, including the name and local administrator permission settings.
    * 
    * @param request - ModifyOfficeSiteAttributeRequest
@@ -16780,6 +16944,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tenantId)) {
       query["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
