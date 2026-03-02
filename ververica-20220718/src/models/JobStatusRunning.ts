@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class JobStatusRunning extends $dara.Model {
   /**
+   * @remarks
+   * The number of times the job is restarted.
+   * 
    * @example
    * 4
    */
   observedFlinkJobRestarts?: number;
   /**
+   * @remarks
+   * The status of the Flink job.
+   * 
    * @example
    * RUNNING
    */

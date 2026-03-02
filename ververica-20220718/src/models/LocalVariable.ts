@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class LocalVariable extends $dara.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * datagen
    */

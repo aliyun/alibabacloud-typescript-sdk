@@ -8,15 +8,22 @@ export class GetFolderRequest extends $dara.Model {
    * 89097
    */
   folderId?: string;
+  /**
+   * @example
+   * DEVELOPMENT
+   */
+  rootType?: string;
   static names(): { [key: string]: string } {
     return {
       folderId: 'folderId',
+      rootType: 'rootType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       folderId: 'string',
+      rootType: 'string',
     };
   }
 

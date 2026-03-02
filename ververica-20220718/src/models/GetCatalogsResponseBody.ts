@@ -4,6 +4,10 @@ import { Catalog } from "./Catalog";
 
 
 export class GetCatalogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * If the value of success was true, the list of catalogs that meet the specified condition was returned. If the value of success was false, a null value was returned.
+   */
   data?: Catalog[];
   /**
    * @example

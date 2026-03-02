@@ -2,35 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class HotUpdateJobFailureInfo extends $dara.Model {
-  /**
-   * @example
-   * LOW
-   */
-  failureSeverity?: string;
-  /**
-   * @example
-   * “”
-   */
+export class SqlStatement extends $dara.Model {
+  index?: number;
   message?: string;
-  /**
-   * @example
-   * “”
-   */
-  reason?: string;
+  sqlScript?: string;
+  statusState?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      failureSeverity: 'failureSeverity',
+      index: 'index',
       message: 'message',
-      reason: 'reason',
+      sqlScript: 'sqlScript',
+      statusState: 'statusState',
+      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      failureSeverity: 'string',
+      index: 'number',
       message: 'string',
-      reason: 'string',
+      sqlScript: 'string',
+      statusState: 'string',
+      type: 'string',
     };
   }
 

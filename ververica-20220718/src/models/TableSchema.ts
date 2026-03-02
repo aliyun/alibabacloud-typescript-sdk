@@ -4,10 +4,12 @@ import { Schema } from "./Schema";
 
 
 export class TableSchema extends $dara.Model {
+  collectSinkOperatorId?: string;
   schema?: Schema;
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
+      collectSinkOperatorId: 'collectSinkOperatorId',
       schema: 'schema',
       tableName: 'tableName',
     };
@@ -15,6 +17,7 @@ export class TableSchema extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      collectSinkOperatorId: 'string',
       schema: Schema,
       tableName: 'string',
     };

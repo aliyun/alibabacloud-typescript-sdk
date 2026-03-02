@@ -4,7 +4,15 @@ import { Relation } from "./Relation";
 
 
 export class Edge extends $dara.Model {
+  /**
+   * @remarks
+   * The field-level data lineage.
+   */
   columnLineage?: Relation[];
+  /**
+   * @remarks
+   * The table-level data lineage.
+   */
   tableLineage?: Relation[];
   static names(): { [key: string]: string } {
     return {

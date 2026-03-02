@@ -4,30 +4,63 @@ import { SubFolder } from "./SubFolder";
 
 
 export class Folder extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the folder was created.
+   * 
+   * @example
+   * 1723537978
+   */
   createdAt?: number;
   /**
+   * @remarks
+   * The ID of the folder.
+   * 
    * @example
    * 00000000-0000-0000-0000-0000012312****
    */
   folderId?: string;
+  /**
+   * @remarks
+   * The time when the folder was modified.
+   * 
+   * @example
+   * 1723537978
+   */
   modifiedAt?: number;
   /**
+   * @remarks
+   * The name of the folder.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * default-namespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
    * @example
    * 00000000-0000-0000-0000-0000012390****
    */
   parentId?: string;
+  /**
+   * @remarks
+   * The list of subfolders.
+   */
   subFolder?: SubFolder[];
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * edcef******b4f
    */

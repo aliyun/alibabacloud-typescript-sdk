@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateJobConfigParam extends $dara.Model {
+  /**
+   * @example
+   * {"table.exec.parallelism：4"}
+   */
   newFlinkConf?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

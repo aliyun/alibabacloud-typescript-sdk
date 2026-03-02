@@ -6,68 +6,134 @@ import { Lock } from "./Lock";
 
 
 export class DeploymentDraft extends $dara.Model {
+  /**
+   * @remarks
+   * The script of the SQL deployment.
+   */
   artifact?: Artifact;
+  /**
+   * @remarks
+   * The time when the draft was created.
+   * 
+   * @example
+   * 1723537978
+   */
   createdAt?: number;
   /**
+   * @remarks
+   * The ID of the account that is used to create the draft.
+   * 
    * @example
    * 27846363877456****
    */
   creator?: string;
   /**
+   * @remarks
+   * The name of the account that is used to create the draft.
+   * 
    * @example
    * ****@streamcompute.onaliyun.com
    */
   creatorName?: string;
   /**
+   * @remarks
+   * The draft ID.
+   * 
    * @example
    * 00000000-0000-0000-0000-00000012****
    */
   deploymentDraftId?: string;
   /**
+   * @remarks
+   * The engine version of the deployment.
+   * 
    * @example
    * vvr-6.0.7-flink-1.15
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The execution mode.
+   * 
    * @example
    * STREAMING
    */
   executionMode?: string;
+  /**
+   * @remarks
+   * The labels of the deployment.
+   */
   labels?: { [key: string]: any };
+  /**
+   * @remarks
+   * The variables.
+   */
   localVariables?: LocalVariable[];
+  /**
+   * @remarks
+   * The lock of the draft.
+   */
   lock?: Lock;
+  /**
+   * @remarks
+   * The time when the draft was modified.
+   * 
+   * @example
+   * 1723537978
+   */
   modifiedAt?: number;
   /**
+   * @remarks
+   * The ID of the account that is used to modify the draft.
+   * 
    * @example
    * 27846363877456****
    */
   modifier?: string;
   /**
+   * @remarks
+   * The name of the account that is used to modify the draft.
+   * 
    * @example
    * ****@streamcompute.onaliyun.com
    */
   modifierName?: string;
   /**
+   * @remarks
+   * The name of the draft.
+   * 
    * @example
    * test-draft
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * default-namespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
    * @example
    * 00000000-0000-0000-0000-00000013****
    */
   parentId?: string;
   /**
+   * @remarks
+   * The ID of the associated deployment.
+   * 
    * @example
    * 00000000-0000-0000-0000-0000012312****
    */
   referencedDeploymentId?: string;
   /**
+   * @remarks
+   * The workspace.
+   * 
    * @example
    * edcef******b4f
    */

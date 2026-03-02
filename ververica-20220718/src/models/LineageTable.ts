@@ -4,10 +4,36 @@ import { LineageColumn } from "./LineageColumn";
 
 
 export class LineageTable extends $dara.Model {
+  /**
+   * @remarks
+   * The information about columns.
+   */
   columns?: LineageColumn[];
+  /**
+   * @remarks
+   * The table ID.
+   * 
+   * @example
+   * 434508
+   */
   id?: string;
+  /**
+   * @remarks
+   * The information about the table. The information includes the user who creates the table, the user who modifies the table, and the creation time and modification time of the table.
+   */
   properties?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * order-test
+   */
   tableName?: string;
+  /**
+   * @remarks
+   * The parameters of the table.
+   */
   with?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

@@ -4,10 +4,12 @@ import { RowUpdate } from "./RowUpdate";
 
 
 export class TableResult extends $dara.Model {
+  collectSinkOperatorId?: string;
   rowUpdates?: RowUpdate[];
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
+      collectSinkOperatorId: 'collectSinkOperatorId',
       rowUpdates: 'rowUpdates',
       tableName: 'tableName',
     };
@@ -15,6 +17,7 @@ export class TableResult extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      collectSinkOperatorId: 'string',
       rowUpdates: { 'type': 'array', 'itemType': RowUpdate },
       tableName: 'string',
     };

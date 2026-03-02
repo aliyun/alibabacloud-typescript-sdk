@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JobDiagnosisSymptom extends $dara.Model {
+  /**
+   * @remarks
+   * The diagnostic result.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The diagnostic task name.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The fixing suggestions.
+   */
   recommendation?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,10 @@ import { Database } from "./Database";
 
 
 export class GetDatabasesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * If the value of success was true, the list of databases that meet the specified condition was returned. If the value of success was false, a null value was returned.
+   */
   data?: Database[];
   /**
    * @example

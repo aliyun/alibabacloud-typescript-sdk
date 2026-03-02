@@ -4,15 +4,45 @@ import { MetadataInfo } from "./MetadataInfo";
 
 
 export class TableColumn extends $dara.Model {
+  /**
+   * @remarks
+   * The computed column.
+   * 
+   * @example
+   * “”
+   */
   expression?: string;
   logicalType?: string;
+  /**
+   * @remarks
+   * The metadata information.
+   */
   metadataInfo?: MetadataInfo;
   /**
    * @remarks
+   * The column name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * name
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the column can have a null value.
+   * 
+   * @example
+   * true
+   */
   nullable?: boolean;
+  /**
+   * @remarks
+   * The data type of the column.
+   * 
+   * @example
+   * string
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

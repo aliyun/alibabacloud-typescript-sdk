@@ -4,8 +4,19 @@ import { SavepointFailure } from "./SavepointFailure";
 
 
 export class SavepointStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the failure to create a savepoint for the deployment.
+   */
   failure?: SavepointFailure;
   /**
+   * @remarks
+   * The status of the savepoint that is created for the deployment. Valid values:
+   * 
+   * *   STARTED
+   * *   COMPLETED
+   * *   FAILED
+   * 
    * @example
    * COMPLETED
    */

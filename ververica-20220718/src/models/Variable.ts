@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Variable extends $dara.Model {
   /**
+   * @remarks
+   * The description of the variable.
+   * 
    * @example
    * This is a variable description
    */
   description?: string;
   /**
    * @remarks
+   * The type of the variable. Valid value: Plain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class Variable extends $dara.Model {
   kind?: string;
   /**
    * @remarks
+   * The name of the variable.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class Variable extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The value of the variable.
+   * 
    * This parameter is required.
    * 
    * @example

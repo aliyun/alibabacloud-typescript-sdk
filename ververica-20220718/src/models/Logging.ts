@@ -6,13 +6,27 @@ import { LogReservePolicy } from "./LogReservePolicy";
 
 export class Logging extends $dara.Model {
   /**
-   * @example
-   * xml格式文本
+   * @remarks
+   * Custom log templates.
    */
   log4j2ConfigurationTemplate?: string;
+  /**
+   * @remarks
+   * The Log4j configuration.
+   */
   log4jLoggers?: Log4jLogger[];
+  /**
+   * @remarks
+   * The log retention policy.
+   */
   logReservePolicy?: LogReservePolicy;
   /**
+   * @remarks
+   * The type of the system log template.
+   * 
+   * *   default: The default template is used.
+   * *   oss: Logs are delivered to Object Storage Service (OSS).
+   * 
    * @example
    * oss
    */

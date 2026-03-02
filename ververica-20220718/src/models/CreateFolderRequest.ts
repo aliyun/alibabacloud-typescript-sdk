@@ -4,6 +4,10 @@ import { Folder } from "./Folder";
 
 
 export class CreateFolderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The structure of data in the folder.
+   */
   body?: Folder;
   static names(): { [key: string]: string } {
     return {

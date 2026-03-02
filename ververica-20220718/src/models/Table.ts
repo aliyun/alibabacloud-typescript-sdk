@@ -4,18 +4,43 @@ import { Schema } from "./Schema";
 
 
 export class Table extends $dara.Model {
+  /**
+   * @remarks
+   * The comment.
+   */
   comment?: string;
   metadata?: { [key: string]: string };
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * order-test
    */
   name?: string;
+  /**
+   * @remarks
+   * The partition key column.
+   */
   partitionKeys?: string[];
+  /**
+   * @remarks
+   * The parameter configurations of the table.
+   */
   properties?: { [key: string]: any };
+  /**
+   * @remarks
+   * The schema information about the table.
+   */
   schema?: Schema;
   /**
    * @remarks
+   * TABLE;
+   *   MATERIALIZED_TABLE;
+   *   VIEW;
+   * 
    * This parameter is required.
    */
   tableType?: string;

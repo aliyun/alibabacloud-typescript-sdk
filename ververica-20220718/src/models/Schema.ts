@@ -6,8 +6,20 @@ import { WatermarkSpec } from "./WatermarkSpec";
 
 
 export class Schema extends $dara.Model {
+  /**
+   * @remarks
+   * The information about columns.
+   */
   columns?: TableColumn[];
+  /**
+   * @remarks
+   * The information about the primary key.
+   */
   primaryKey?: PrimaryKey;
+  /**
+   * @remarks
+   * The watermark information.
+   */
   watermarkSpecs?: WatermarkSpec[];
   static names(): { [key: string]: string } {
     return {

@@ -6,13 +6,32 @@ import { SqlArtifact } from "./SqlArtifact";
 
 
 export class Artifact extends $dara.Model {
+  /**
+   * @remarks
+   * The information required for the SQL deployment.
+   */
   jarArtifact?: JarArtifact;
   /**
+   * @remarks
+   * The type of the deployment. This parameter is required and cannot be modified after the deployment is created.
+   * 
+   * *   SQLSCRIPT
+   * *   JAR
+   * *   PYTHON
+   * 
    * @example
    * SQLSCRIPT
    */
   kind?: string;
+  /**
+   * @remarks
+   * The information required for the Python deployment.
+   */
   pythonArtifact?: PythonArtifact;
+  /**
+   * @remarks
+   * The information required for the JAR deployment.
+   */
   sqlArtifact?: SqlArtifact;
   static names(): { [key: string]: string } {
     return {

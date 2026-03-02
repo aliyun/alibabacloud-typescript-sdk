@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class JobSummary extends $dara.Model {
   /**
+   * @remarks
+   * The number of jobs that are in the cancelled state.
+   * 
    * @example
-   * 1
+   * 5
    */
   cancelled?: number;
   /**
+   * @remarks
+   * The number of jobs that are in the cancelling state.
+   * 
    * @example
-   * 1
+   * 0
    */
   cancelling?: number;
   /**
+   * @remarks
+   * The number of jobs that are in the failed state.
+   * 
    * @example
-   * 1
+   * 6
    */
   failed?: number;
   /**
+   * @remarks
+   * The number of jobs that are in the finished state.
+   * 
    * @example
-   * 1
+   * 4
    */
   finished?: number;
   /**
+   * @remarks
+   * The number of jobs that are in the running state.
+   * 
    * @example
-   * 1
+   * 2
    */
   running?: number;
   /**
+   * @remarks
+   * The number of jobs that are in the starting state.
+   * 
    * @example
    * 1
    */

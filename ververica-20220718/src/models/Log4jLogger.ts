@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Log4jLogger extends $dara.Model {
   /**
+   * @remarks
+   * The level of the output log.
+   * 
    * @example
    * ERROR
    */
   loggerLevel?: string;
   /**
+   * @remarks
+   * The name of the class of the output log.
+   * 
    * @example
    * StdOutErrConsoleAppender
    */

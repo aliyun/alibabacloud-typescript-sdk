@@ -4,6 +4,10 @@ import { SqlStatementExecuteResult } from "./SqlStatementExecuteResult";
 
 
 export class ExecuteSqlStatementResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result of executing the SQL statement to query the metadata.
+   */
   data?: SqlStatementExecuteResult;
   /**
    * @example

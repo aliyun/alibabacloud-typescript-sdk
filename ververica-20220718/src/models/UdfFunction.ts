@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UdfFunction extends $dara.Model {
+  /**
+   * @example
+   * myFunctionTest
+   */
   className?: string;
+  /**
+   * @example
+   * myFunction
+   */
   functionName?: string;
+  /**
+   * @example
+   * udfCollection.jar
+   */
   udfArtifactName?: string;
   static names(): { [key: string]: string } {
     return {

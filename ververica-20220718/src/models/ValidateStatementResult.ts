@@ -4,8 +4,15 @@ import { ValidationErrorDetails } from "./ValidationErrorDetails";
 
 
 export class ValidateStatementResult extends $dara.Model {
+  /**
+   * @remarks
+   * The details of verification errors of the SQL syntax.
+   */
   errorDetails?: ValidationErrorDetails;
   /**
+   * @remarks
+   * The verification result.
+   * 
    * @example
    * "there have some errors""
    */

@@ -7,6 +7,9 @@ export class Catalog extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * paimon-test
    */
   name?: string;
   /**

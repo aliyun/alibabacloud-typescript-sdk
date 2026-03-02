@@ -3,11 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ErrorDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the column at which the error starts.
+   * 
+   * @example
+   * 2
+   */
   columnNumber?: string;
+  /**
+   * @remarks
+   * The number of the column at which the error ends.
+   * 
+   * @example
+   * 11
+   */
   endColumnNumber?: string;
+  /**
+   * @remarks
+   * The number of the row at which the error ends.
+   * 
+   * @example
+   * 5
+   */
   endLineNumber?: string;
+  /**
+   * @remarks
+   * The list of invalid configurations of Realtime Compute for Apache Flink.
+   */
   invalidflinkConf?: string[];
+  /**
+   * @remarks
+   * The number the row at which the error starts.
+   * 
+   * @example
+   * 3
+   */
   lineNumber?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * ""
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {

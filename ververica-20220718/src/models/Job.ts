@@ -11,84 +11,186 @@ import { StreamingResourceSetting } from "./StreamingResourceSetting";
 
 
 export class Job extends $dara.Model {
+  /**
+   * @remarks
+   * The content template of the job.
+   */
   artifact?: Artifact;
+  /**
+   * @remarks
+   * The resource configuration of the job in batch mode.
+   */
   batchResourceSetting?: BatchResourceSetting;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 1714058507
+   */
   createdAt?: string;
   /**
+   * @remarks
+   * The ID of the account that is used to create the job.
+   * 
    * @example
    * 27846363877456****
    */
   creator?: string;
   /**
+   * @remarks
+   * The name of the account that is used to create the job.
+   * 
    * @example
    * ****@streamcompute.onaliyun.com
    */
   creatorName?: string;
   /**
+   * @remarks
+   * The deployment ID.
+   * 
    * @example
    * 354dde66-a3ae-463e-967a-0b4107fd****
    */
   deploymentId?: string;
   /**
+   * @remarks
+   * The name of the deployment.
+   * 
    * @example
    * flinktest
    */
   deploymentName?: string;
   /**
+   * @remarks
+   * The end time of the job.
+   * 
    * @example
    * 1660277235
    */
   endTime?: number;
   /**
+   * @remarks
+   * The engine version of the deployment.
+   * 
    * @example
    * vvr-4.0.14-flink-1.13
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The execution mode of the job. Valid values:
+   * 
+   * *   STREAM
+   * *   BATCH
+   * 
    * @example
    * BATCH
    */
   executionMode?: string;
+  /**
+   * @remarks
+   * The configuration of the job.
+   * 
+   * @example
+   * {execution.checkpointing.unaligned: false}
+   */
   flinkConf?: { [key: string]: any };
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 354dde66-a3ae-463e-967a-0b4107fd****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The variables.
+   */
   localVariables?: LocalVariable[];
+  /**
+   * @remarks
+   * The logging configuration of the job.
+   */
   logging?: Logging;
+  /**
+   * @remarks
+   * The resource information of the job.
+   */
   metric?: JobMetric;
+  /**
+   * @remarks
+   * The time when the job was modified.
+   * 
+   * @example
+   * 1714058800
+   */
   modifiedAt?: string;
   /**
+   * @remarks
+   * The ID of the account that is used to modify the job.
+   * 
    * @example
    * 27846363877456****
    */
   modifier?: string;
   /**
+   * @remarks
+   * The name of the account that is used to modify the job.
+   * 
    * @example
    * ****@streamcompute.onaliyun.com
    */
   modifierName?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * namespacetest
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The startup strategy of the job.
+   */
   restoreStrategy?: DeploymentRestoreStrategy;
   /**
+   * @remarks
+   * If the job runs in a session cluster, the value of this parameter is the name of the session cluster. Otherwise, the value of this parameter is null.
+   * 
    * @example
    * preview
    */
   sessionClusterName?: string;
   /**
+   * @remarks
+   * The start time of the job.
+   * 
    * @example
    * 1660190835
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the job.
+   */
   status?: JobStatus;
+  /**
+   * @remarks
+   * The resource configuration of the job in streaming mode.
+   */
   streamingResourceSetting?: StreamingResourceSetting;
+  /**
+   * @remarks
+   * The Flink configuration.
+   */
   userFlinkConf?: { [key: string]: any };
   /**
+   * @remarks
+   * The workspace.
+   * 
    * @example
    * edcef******b4f
    */

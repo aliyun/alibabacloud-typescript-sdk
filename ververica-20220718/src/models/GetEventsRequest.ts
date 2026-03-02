@@ -8,6 +8,7 @@ export class GetEventsRequest extends $dara.Model {
    * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
    */
   deploymentId?: string;
+  deploymentName?: string;
   /**
    * @example
    * 1
@@ -21,6 +22,7 @@ export class GetEventsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       deploymentId: 'deploymentId',
+      deploymentName: 'deploymentName',
       pageIndex: 'pageIndex',
       pageSize: 'pageSize',
     };
@@ -29,6 +31,7 @@ export class GetEventsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       deploymentId: 'string',
+      deploymentName: 'string',
       pageIndex: 'number',
       pageSize: 'number',
     };

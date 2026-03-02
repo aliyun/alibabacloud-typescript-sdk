@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RescaleJobParam extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   jobParallelism?: number;
   static names(): { [key: string]: string } {
     return {

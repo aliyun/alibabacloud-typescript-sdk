@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class JobMetric extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
   totalCpu?: number;
   /**
+   * @remarks
+   * The memory size. Unit: bytes.
+   * 
    * @example
    * 4096
    */

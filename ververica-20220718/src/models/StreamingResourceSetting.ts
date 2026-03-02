@@ -5,9 +5,23 @@ import { ExpertResourceSetting } from "./ExpertResourceSetting";
 
 
 export class StreamingResourceSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The resource parameters in basic mode.
+   */
   basicResourceSetting?: BasicResourceSetting;
+  /**
+   * @remarks
+   * The resource parameters in expert mode.
+   */
   expertResourceSetting?: ExpertResourceSetting;
   /**
+   * @remarks
+   * The resource configuration mode used by a deployment that runs in streaming mode. Valid values:
+   * 
+   * *   EXPERT
+   * *   BASIC
+   * 
    * @example
    * EXPERT
    */

@@ -4,8 +4,26 @@ import { ErrorDetails } from "./ErrorDetails";
 
 
 export class SqlStatementExecuteResult extends $dara.Model {
+  /**
+   * @remarks
+   * The error details returned.
+   */
   errorDetails?: ErrorDetails;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   executeSuccess?: boolean;
+  /**
+   * @remarks
+   * The statement that was executed.
+   * 
+   * @example
+   * “show create table order”
+   */
   statement?: string;
   static names(): { [key: string]: string } {
     return {

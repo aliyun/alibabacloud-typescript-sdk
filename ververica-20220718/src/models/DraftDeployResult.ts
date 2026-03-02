@@ -4,18 +4,31 @@ import { ValidateStatementResult } from "./ValidateStatementResult";
 
 
 export class DraftDeployResult extends $dara.Model {
+  /**
+   * @remarks
+   * The verification result of the SQL syntax.
+   */
   artifactValidationDetail?: ValidateStatementResult;
   /**
+   * @remarks
+   * The deployment ID.
+   * 
    * @example
    * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
    */
   deploymentId?: string;
   /**
+   * @remarks
+   * The deployment information.
+   * 
    * @example
    * ""
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

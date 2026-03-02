@@ -7,7 +7,15 @@ import { BriefResourceSetting } from "./BriefResourceSetting";
 
 export class HotUpdateJobResult extends $dara.Model {
   hotUpdateParams?: HotUpdateJobParams;
+  /**
+   * @example
+   * 123hashd****
+   */
   jobHotUpdateId?: string;
+  /**
+   * @example
+   * 5af678c0-7db0-4650-94c2-d2604f0a****
+   */
   jobId?: string;
   status?: HotUpdateJobStatus;
   targetResourceSetting?: BriefResourceSetting;

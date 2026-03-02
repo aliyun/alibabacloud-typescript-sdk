@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Relation extends $dara.Model {
+  /**
+   * @example
+   * TableB
+   */
   destination?: string;
+  /**
+   * @example
+   * 664cc64d-5dea-4ad3-9ee4-8432a874****
+   */
   jobId?: string;
+  /**
+   * @example
+   * TableA
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,14 +5,32 @@ import { DeploymentRestoreStrategy } from "./DeploymentRestoreStrategy";
 
 
 export class JobStartParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The deployment ID.
+   * 
+   * @example
+   * 737d0921-c5ac-47fc-9ba9-07a1e0b4****
+   */
   deploymentId?: string;
   jobId?: string;
+  /**
+   * @remarks
+   * The variables.
+   */
   localVariables?: LocalVariable[];
   /**
+   * @remarks
+   * The queue in which the deployment is running.
+   * 
    * @example
    * default-queue
    */
   resourceQueueName?: string;
+  /**
+   * @remarks
+   * The configuration of the start offset of the deployment.
+   */
   restoreStrategy?: DeploymentRestoreStrategy;
   static names(): { [key: string]: string } {
     return {

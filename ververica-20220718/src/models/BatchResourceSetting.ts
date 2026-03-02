@@ -4,8 +4,15 @@ import { BasicResourceSetting } from "./BasicResourceSetting";
 
 
 export class BatchResourceSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The resource parameters in basic mode.
+   */
   basicResourceSetting?: BasicResourceSetting;
   /**
+   * @remarks
+   * The maximum number of slots.
+   * 
    * @example
    * 10
    */

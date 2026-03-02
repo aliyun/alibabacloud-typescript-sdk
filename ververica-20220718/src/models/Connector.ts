@@ -4,17 +4,92 @@ import { Property } from "./Property";
 
 
 export class Connector extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the user who creates the connector.
+   * 
+   * @example
+   * 183899668*******
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The nickname of the user who creates the connector.
+   * 
+   * @example
+   * userA
+   */
   creatorName?: string;
+  /**
+   * @remarks
+   * The additional dependency files.
+   */
   dependencies?: string[];
+  /**
+   * @remarks
+   * Indicates whether the connector can be used as a lookup table.
+   * 
+   * @example
+   * true
+   */
   lookup?: boolean;
+  /**
+   * @remarks
+   * The ID of the user who modifies the connector.
+   * 
+   * @example
+   * 183899668*******
+   */
   modifier?: string;
+  /**
+   * @remarks
+   * The nickname of the user who modifies the connector.
+   * 
+   * @example
+   * userA
+   */
   modifierName?: string;
+  /**
+   * @remarks
+   * The name of the connector.
+   * 
+   * @example
+   * mysql-test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The parameter configurations.
+   */
   properties?: Property[];
+  /**
+   * @remarks
+   * Indicates whether the connector can be used as the sink.
+   * 
+   * @example
+   * true
+   */
   sink?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the connector can be used as the source.
+   * 
+   * @example
+   * flase
+   */
   source?: boolean;
+  /**
+   * @remarks
+   * The array of formats that are supported by the connector.
+   */
   supportedFormats?: string[];
+  /**
+   * @remarks
+   * The type of the connector.
+   * 
+   * @example
+   * mysql-test
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

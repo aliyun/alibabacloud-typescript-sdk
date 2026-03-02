@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Database extends $dara.Model {
+  /**
+   * @remarks
+   * The comment.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * database-test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The parameters of the database.
+   * 
+   * @example
+   * “”
+   */
   properties?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

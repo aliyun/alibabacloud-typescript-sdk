@@ -4,12 +4,23 @@ import { BasicResourceSettingSpec } from "./BasicResourceSettingSpec";
 
 
 export class BasicResourceSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The resource configuration of the JobManager.
+   */
   jobmanagerResourceSettingSpec?: BasicResourceSettingSpec;
   /**
+   * @remarks
+   * The parallelism for a deployment.
+   * 
    * @example
    * 4
    */
   parallelism?: number;
+  /**
+   * @remarks
+   * The resource configuration of a TaskManager.
+   */
   taskmanagerResourceSettingSpec?: BasicResourceSettingSpec;
   static names(): { [key: string]: string } {
     return {

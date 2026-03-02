@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WatermarkSpec extends $dara.Model {
+  /**
+   * @example
+   * time
+   */
   column?: string;
+  /**
+   * @example
+   * INTERVAL \\"5\\" SECOND
+   */
   watermarkExpression?: string;
   watermarkType?: string;
   static names(): { [key: string]: string } {

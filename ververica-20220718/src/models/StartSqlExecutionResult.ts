@@ -2,31 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class MetadataInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The metadata field.
-   * 
-   * @example
-   * topic
-   */
-  key?: string;
-  /**
-   * @remarks
-   * Specifies whether the metadata is read only.
-   */
-  virtual?: boolean;
+export class StartSqlExecutionResult extends $dara.Model {
+  newlyCreated?: boolean;
+  sqlExecutionId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      key: 'key',
-      virtual: 'virtual',
+      newlyCreated: 'newlyCreated',
+      sqlExecutionId: 'sqlExecutionId',
+      success: 'success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      virtual: 'boolean',
+      newlyCreated: 'boolean',
+      sqlExecutionId: 'string',
+      success: 'boolean',
     };
   }
 

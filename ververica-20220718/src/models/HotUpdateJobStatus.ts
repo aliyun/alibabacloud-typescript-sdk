@@ -4,8 +4,26 @@ import { HotUpdateJobFailureInfo } from "./HotUpdateJobFailureInfo";
 
 
 export class HotUpdateJobStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The error message of the dynamical update.
+   */
   failure?: HotUpdateJobFailureInfo;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the dynamic update.
+   * 
+   * @example
+   * HOT_UPDATED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,9 +4,23 @@ import { BriefDeploymentTarget } from "./BriefDeploymentTarget";
 
 
 export class DraftDeployParams extends $dara.Model {
+  /**
+   * @remarks
+   * The draft ID.
+   * 
+   * @example
+   * c84d73be-40ad-4627-8bdd-fa1eba51****
+   */
   deploymentDraftId?: string;
+  /**
+   * @remarks
+   * The cluster on which the deployment is deployed.
+   */
   deploymentTarget?: BriefDeploymentTarget;
   /**
+   * @remarks
+   * Specifies whether to skip the syntax check.
+   * 
    * @example
    * false
    */

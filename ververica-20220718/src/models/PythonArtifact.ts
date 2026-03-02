@@ -3,14 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PythonArtifact extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the additional dependency file.
+   */
   additionalDependencies?: string[];
+  /**
+   * @remarks
+   * The Python archive file on which the deployment depends.
+   */
   additionalPythonArchives?: string[];
+  /**
+   * @remarks
+   * The Python library file on which the deployment depends.
+   */
   additionalPythonLibraries?: string[];
+  /**
+   * @remarks
+   * The startup module for the Python deployment.
+   * 
+   * @example
+   * test.py
+   */
   entryModule?: string;
+  /**
+   * @remarks
+   * The startup parameter.
+   * 
+   * @example
+   * start from main
+   */
   mainArgs?: string;
   /**
+   * @remarks
+   * The full URL for the Python deployment.
+   * 
    * @example
-   * https://oss//bucket//test.py
+   * https://oss/bucket/test.py
    */
   pythonArtifactUri?: string;
   static names(): { [key: string]: string } {

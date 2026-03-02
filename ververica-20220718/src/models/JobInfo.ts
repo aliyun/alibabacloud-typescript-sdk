@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JobInfo extends $dara.Model {
+  /**
+   * @example
+   * 664cc64d-5dea-4ad3-9ee4-8432a874****
+   */
   id?: string;
+  /**
+   * @example
+   * {"id:xxx","createTime:v"}
+   */
   properties?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

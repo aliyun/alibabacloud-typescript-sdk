@@ -4,9 +4,34 @@ import { ErrorDetails } from "./ErrorDetails";
 
 
 export class SqlStatementValidationResult extends $dara.Model {
+  /**
+   * @remarks
+   * The error message of the verification result.
+   */
   errorDetails?: ErrorDetails;
+  /**
+   * @remarks
+   * The verification information.
+   * 
+   * @example
+   * “”
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The verification result.
+   * 
+   * @example
+   * VALIDATION_RESULT_INVALID
+   */
   validationResult?: string;
   static names(): { [key: string]: string } {
     return {

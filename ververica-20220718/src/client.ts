@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行定时计划
+   * Executes a scheduled plan.
    * 
    * @param headers - ApplyScheduledPlanHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行定时计划
+   * Executes a scheduled plan.
    * @returns ApplyScheduledPlanResponse
    */
   async applyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<$_model.ApplyScheduledPlanResponse> {
@@ -185,7 +185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * create a deploymentDraft
+   * Creates an SQL draft.
    * 
    * @param request - CreateDeploymentDraftRequest
    * @param headers - CreateDeploymentDraftHeaders
@@ -222,7 +222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * create a deploymentDraft
+   * Creates an SQL draft.
    * 
    * @param request - CreateDeploymentDraftRequest
    * @returns CreateDeploymentDraftResponse
@@ -234,7 +234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建deploymentTarget
+   * Creates a deployment target.
    * 
    * @param request - CreateDeploymentTargetRequest
    * @param headers - CreateDeploymentTargetHeaders
@@ -277,7 +277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建deploymentTarget
+   * Creates a deployment target.
    * 
    * @param request - CreateDeploymentTargetRequest
    * @returns CreateDeploymentTargetResponse
@@ -344,7 +344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * create a folder
+   * Creates a folder.
    * 
    * @param request - CreateFolderRequest
    * @param headers - CreateFolderHeaders
@@ -381,7 +381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * create a folder
+   * Creates a folder.
    * 
    * @param request - CreateFolderRequest
    * @returns CreateFolderResponse
@@ -504,7 +504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建定时执行计划
+   * Creates a scheduled tuning plan.
    * 
    * @param request - CreateScheduledPlanRequest
    * @param headers - CreateScheduledPlanHeaders
@@ -541,7 +541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建定时执行计划
+   * Creates a scheduled tuning plan.
    * 
    * @param request - CreateScheduledPlanRequest
    * @returns CreateScheduledPlanResponse
@@ -553,7 +553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建session集群
+   * Create a session cluster
    * 
    * @param request - CreateSessionClusterRequest
    * @param headers - CreateSessionClusterHeaders
@@ -590,7 +590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建session集群
+   * Create a session cluster
    * 
    * @param request - CreateSessionClusterRequest
    * @returns CreateSessionClusterResponse
@@ -788,7 +788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete a deploymentDraft
+   * Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
    * 
    * @param headers - DeleteDeploymentDraftHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -822,7 +822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete a deploymentDraft
+   * Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
    * @returns DeleteDeploymentDraftResponse
    */
   async deleteDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<$_model.DeleteDeploymentDraftResponse> {
@@ -832,7 +832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除deploymentTarget
+   * Deletes a deployment target.
    * 
    * @param headers - DeleteDeploymentTargetHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -866,7 +866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除deploymentTarget
+   * Deletes a deployment target.
    * @returns DeleteDeploymentTargetResponse
    */
   async deleteDeploymentTarget(namespace: string, deploymentTargetName: string): Promise<$_model.DeleteDeploymentTargetResponse> {
@@ -876,7 +876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete a folder
+   * Deletes an empty folder. If files or folders exist in a folder, the folder cannot be deleted.
    * 
    * @param headers - DeleteFolderHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -910,7 +910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete a folder
+   * Deletes an empty folder. If files or folders exist in a folder, the folder cannot be deleted.
    * @returns DeleteFolderResponse
    */
   async deleteFolder(namespace: string, folderId: string): Promise<$_model.DeleteFolderResponse> {
@@ -1052,7 +1052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除定时执行计划
+   * Deletes a scheduled tuning plan.
    * 
    * @param headers - DeleteScheduledPlanHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1086,7 +1086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除定时执行计划
+   * Deletes a scheduled tuning plan.
    * @returns DeleteScheduledPlanResponse
    */
   async deleteScheduledPlan(namespace: string, scheduledPlanId: string): Promise<$_model.DeleteScheduledPlanResponse> {
@@ -1096,7 +1096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除session集群
+   * Deletes a session cluster.
    * 
    * @param headers - DeleteSessionClusterHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1130,7 +1130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除session集群
+   * Deletes a session cluster.
    * @returns DeleteSessionClusterResponse
    */
   async deleteSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.DeleteSessionClusterResponse> {
@@ -1140,7 +1140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除UdfArtifact
+   * Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
    * 
    * @param headers - DeleteUdfArtifactHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1174,7 +1174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除UdfArtifact
+   * Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
    * @returns DeleteUdfArtifactResponse
    */
   async deleteUdfArtifact(namespace: string, udfArtifactName: string): Promise<$_model.DeleteUdfArtifactResponse> {
@@ -1286,7 +1286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * deploy deploymentDraft async
+   * Deploys an SQL draft.
    * 
    * @param request - DeployDeploymentDraftAsyncRequest
    * @param headers - DeployDeploymentDraftAsyncHeaders
@@ -1323,7 +1323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * deploy deploymentDraft async
+   * Deploys an SQL draft.
    * 
    * @param request - DeployDeploymentDraftAsyncRequest
    * @returns DeployDeploymentDraftAsyncResponse
@@ -1335,7 +1335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行sql语句
+   * Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
    * 
    * @param request - ExecuteSqlStatementRequest
    * @param headers - ExecuteSqlStatementHeaders
@@ -1372,7 +1372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行sql语句
+   * Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
    * 
    * @param request - ExecuteSqlStatementRequest
    * @returns ExecuteSqlStatementResponse
@@ -1446,7 +1446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a Flink request proxy.
+   * Provides a proxy for Realtime Compute for Apache Flink requests.
    * 
    * @param request - FlinkApiProxyRequest
    * @param headers - FlinkApiProxyHeaders
@@ -1500,7 +1500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a Flink request proxy.
+   * Provides a proxy for Realtime Compute for Apache Flink requests.
    * 
    * @param request - FlinkApiProxyRequest
    * @returns FlinkApiProxyResponse
@@ -1561,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用中的执行定时计划
+   * Queries the scheduled plan of an application.
    * 
    * @param request - GetAppliedScheduledPlanRequest
    * @param headers - GetAppliedScheduledPlanHeaders
@@ -1603,7 +1603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用中的执行定时计划
+   * Queries the scheduled plan of an application.
    * 
    * @param request - GetAppliedScheduledPlanRequest
    * @returns GetAppliedScheduledPlanResponse
@@ -1615,7 +1615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取catalog
+   * Obtains details of the specified catalog or all catalogs.
    * 
    * @param request - GetCatalogsRequest
    * @param headers - GetCatalogsHeaders
@@ -1657,7 +1657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取catalog
+   * Obtains details of the specified catalog or all catalogs.
    * 
    * @param request - GetCatalogsRequest
    * @returns GetCatalogsResponse
@@ -1669,7 +1669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取database
+   * Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
    * 
    * @param request - GetDatabasesRequest
    * @param headers - GetDatabasesHeaders
@@ -1711,7 +1711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取database
+   * Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
    * 
    * @param request - GetDatabasesRequest
    * @returns GetDatabasesResponse
@@ -1723,7 +1723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get deploy deploymentDraft result
+   * Obtains the deployment result based on the ID of the asynchronous ticket.
    * 
    * @param headers - GetDeployDeploymentDraftResultHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1757,7 +1757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get deploy deploymentDraft result
+   * Obtains the deployment result based on the ID of the asynchronous ticket.
    * @returns GetDeployDeploymentDraftResultResponse
    */
   async getDeployDeploymentDraftResult(namespace: string, ticketId: string): Promise<$_model.GetDeployDeploymentDraftResultResponse> {
@@ -1811,7 +1811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get a deploymentDraft
+   * Obtains the details of an SQL draft.
    * 
    * @param headers - GetDeploymentDraftHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1845,7 +1845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get a deploymentDraft
+   * Obtains the details of an SQL draft.
    * @returns GetDeploymentDraftResponse
    */
   async getDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<$_model.GetDeploymentDraftResponse> {
@@ -1855,7 +1855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get deploymentDraft lock
+   * Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
    * 
    * @param request - GetDeploymentDraftLockRequest
    * @param headers - GetDeploymentDraftLockHeaders
@@ -1897,7 +1897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get deploymentDraft lock
+   * Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
    * 
    * @param request - GetDeploymentDraftLockRequest
    * @returns GetDeploymentDraftLockResponse
@@ -2107,7 +2107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取运行事件
+   * Queries events.
    * 
    * @param request - GetEventsRequest
    * @param headers - GetEventsHeaders
@@ -2119,6 +2119,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
       query["deploymentId"] = request.deploymentId;
+    }
+
+    if (!$dara.isNull(request.deploymentName)) {
+      query["deploymentName"] = request.deploymentName;
     }
 
     if (!$dara.isNull(request.pageIndex)) {
@@ -2157,7 +2161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取运行事件
+   * Queries events.
    * 
    * @param request - GetEventsRequest
    * @returns GetEventsResponse
@@ -2169,7 +2173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get a folder
+   * Obtains the details of a folder.
    * 
    * @param request - GetFolderRequest
    * @param headers - GetFolderHeaders
@@ -2181,6 +2185,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.folderId)) {
       query["folderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.rootType)) {
+      query["rootType"] = request.rootType;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -2211,7 +2219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get a folder
+   * Obtains the details of a folder.
    * 
    * @param request - GetFolderRequest
    * @returns GetFolderResponse
@@ -2267,7 +2275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询动态更新结果
+   * Obtains the dynamic update result of a deployment when you dynamically update the deployment.
    * 
    * @param headers - GetHotUpdateJobResultHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2301,7 +2309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询动态更新结果
+   * Obtains the dynamic update result of a deployment when you dynamically update the deployment.
    * @returns GetHotUpdateJobResultResponse
    */
   async getHotUpdateJobResult(namespace: string, jobHotUpdateId: string): Promise<$_model.GetHotUpdateJobResultResponse> {
@@ -2355,7 +2363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业诊断信息
+   * Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
    * 
    * @param headers - GetJobDiagnosisHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2389,7 +2397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业诊断信息
+   * Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
    * @returns GetJobDiagnosisResponse
    */
   async getJobDiagnosis(namespace: string, deploymentId: string, jobId: string): Promise<$_model.GetJobDiagnosisResponse> {
@@ -2634,7 +2642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取session集群
+   * Queries the information about a session cluster.
    * 
    * @param headers - GetSessionClusterHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2668,7 +2676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取session集群
+   * Queries the information about a session cluster.
    * @returns GetSessionClusterResponse
    */
   async getSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.GetSessionClusterResponse> {
@@ -2678,7 +2686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取table
+   * Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
    * 
    * @param request - GetTablesRequest
    * @param headers - GetTablesHeaders
@@ -2720,7 +2728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取table
+   * Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
    * 
    * @param request - GetTablesRequest
    * @returns GetTablesResponse
@@ -2918,7 +2926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * list deploymentDrafts
+   * Queries a list of SQL drafts.
    * 
    * @param request - ListDeploymentDraftsRequest
    * @param headers - ListDeploymentDraftsHeaders
@@ -2964,7 +2972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * list deploymentDrafts
+   * Queries a list of SQL drafts.
    * 
    * @param request - ListDeploymentDraftsRequest
    * @returns ListDeploymentDraftsResponse
@@ -3423,7 +3431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表定时执行计划
+   * Obtains a list of scheduled tuning plans.
    * 
    * @param request - ListScheduledPlanRequest
    * @param headers - ListScheduledPlanHeaders
@@ -3473,7 +3481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表定时执行计划
+   * Obtains a list of scheduled tuning plans.
    * 
    * @param request - ListScheduledPlanRequest
    * @returns ListScheduledPlanResponse
@@ -3485,7 +3493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业资源变更历史
+   * Queries the execution history of a scheduled plan.
    * 
    * @param request - ListScheduledPlanExecutedHistoryRequest
    * @param headers - ListScheduledPlanExecutedHistoryHeaders
@@ -3531,7 +3539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业资源变更历史
+   * Queries the execution history of a scheduled plan.
    * 
    * @param request - ListScheduledPlanExecutedHistoryRequest
    * @returns ListScheduledPlanExecutedHistoryResponse
@@ -3543,7 +3551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举session集群
+   * Queries a list of session clusters.
    * 
    * @param headers - ListSessionClustersHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3577,7 +3585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举session集群
+   * Queries a list of session clusters.
    * @returns ListSessionClustersResponse
    */
   async listSessionClusters(namespace: string): Promise<$_model.ListSessionClustersResponse> {
@@ -3864,7 +3872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动session集群
+   * Starts a session cluster.
    * 
    * @param headers - StartSessionClusterHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3898,7 +3906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动session集群
+   * Starts a session cluster.
    * @returns StartSessionClusterResponse
    */
   async startSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.StartSessionClusterResponse> {
@@ -3908,7 +3916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止应用执行定时计划
+   * Stops the scheduled plan of an application.
    * 
    * @param headers - StopApplyScheduledPlanHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3942,7 +3950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止应用执行定时计划
+   * Stops the scheduled plan of an application.
    * @returns StopApplyScheduledPlanResponse
    */
   async stopApplyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<$_model.StopApplyScheduledPlanResponse> {
@@ -4001,7 +4009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止session集群
+   * Stops a session cluster.
    * 
    * @param headers - StopSessionClusterHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4035,7 +4043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止session集群
+   * Stops a session cluster.
    * @returns StopSessionClusterResponse
    */
   async stopSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.StopSessionClusterResponse> {
@@ -4149,7 +4157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * update a deploymentDraft
+   * Updates an SQL draft.
    * 
    * @param request - UpdateDeploymentDraftRequest
    * @param headers - UpdateDeploymentDraftHeaders
@@ -4186,7 +4194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * update a deploymentDraft
+   * Updates an SQL draft.
    * 
    * @param request - UpdateDeploymentDraftRequest
    * @returns UpdateDeploymentDraftResponse
@@ -4198,7 +4206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改deploymentTarget
+   * Updates a cluster on which the deployment is deployed.
    * 
    * @param request - UpdateDeploymentTargetRequest
    * @param headers - UpdateDeploymentTargetHeaders
@@ -4235,7 +4243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改deploymentTarget
+   * Updates a cluster on which the deployment is deployed.
    * 
    * @param request - UpdateDeploymentTargetRequest
    * @returns UpdateDeploymentTargetResponse
@@ -4296,7 +4304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * update a folder
+   * Updates a folder.
    * 
    * @param request - UpdateFolderRequest
    * @param headers - UpdateFolderHeaders
@@ -4333,7 +4341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * update a folder
+   * Updates a folder.
    * 
    * @param request - UpdateFolderRequest
    * @returns UpdateFolderResponse
@@ -4394,7 +4402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新定时执行计划
+   * Update a scheduled tuning plan.
    * 
    * @param request - UpdateScheduledPlanRequest
    * @param headers - UpdateScheduledPlanHeaders
@@ -4431,7 +4439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新定时执行计划
+   * Update a scheduled tuning plan.
    * 
    * @param request - UpdateScheduledPlanRequest
    * @returns UpdateScheduledPlanResponse
@@ -4443,7 +4451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新session集群
+   * Updates a session cluster.
    * 
    * @param request - UpdateSessionClusterRequest
    * @param headers - UpdateSessionClusterHeaders
@@ -4480,7 +4488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新session集群
+   * Updates a session cluster.
    * 
    * @param request - UpdateSessionClusterRequest
    * @returns UpdateSessionClusterResponse
@@ -4541,7 +4549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新秘钥
+   * Updates the information about a variable in a namespace.
    * 
    * @param request - UpdateVariableRequest
    * @param headers - UpdateVariableHeaders
@@ -4578,7 +4586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新秘钥
+   * Updates the information about a variable in a namespace.
    * 
    * @param request - UpdateVariableRequest
    * @returns UpdateVariableResponse

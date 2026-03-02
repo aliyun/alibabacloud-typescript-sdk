@@ -11,6 +11,9 @@ export class PrimaryKey extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * pk
    */
   constraintName?: string;
   /**

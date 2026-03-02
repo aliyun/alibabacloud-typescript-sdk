@@ -4,23 +4,39 @@ import { ValidateStatementResult } from "./ValidateStatementResult";
 
 
 export class AsyncDraftDeployResult extends $dara.Model {
+  /**
+   * @remarks
+   * The verification result of the SQL syntax.
+   */
   artifactValidationDetail?: ValidateStatementResult;
   /**
+   * @remarks
+   * The deployment ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   deploymentId?: string;
   /**
+   * @remarks
+   * The information about the deployment result.
+   * 
    * @example
    * "Validation error: SQL validate failed"
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The state of the execution.
+   * 
    * @example
    * FINISHED
    */

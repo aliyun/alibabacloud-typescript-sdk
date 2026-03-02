@@ -4,6 +4,10 @@ import { SqlStatementWithContext } from "./SqlStatementWithContext";
 
 
 export class ExecuteSqlStatementRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The SQL statement to query the metadata.
+   */
   body?: SqlStatementWithContext;
   static names(): { [key: string]: string } {
     return {

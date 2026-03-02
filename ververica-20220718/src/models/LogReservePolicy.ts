@@ -4,11 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class LogReservePolicy extends $dara.Model {
   /**
+   * @remarks
+   * The number of days for which logs are retained after you enable the
+   * log archiving feature.
+   * 
    * @example
    * 7
    */
   expirationDays?: number;
   /**
+   * @remarks
+   * Specifies whether to enable the log archiving feature.
+   * 
    * @example
    * true
    */

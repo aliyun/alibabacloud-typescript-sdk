@@ -10,71 +10,148 @@ import { StreamingResourceSetting } from "./StreamingResourceSetting";
 
 
 export class Deployment extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters that are required for starting a deployment.
+   */
   artifact?: Artifact;
+  /**
+   * @remarks
+   * The resource configuration of the batch deployment.
+   */
   batchResourceSetting?: BatchResourceSetting;
+  /**
+   * @remarks
+   * The time at which the deployment was created.
+   * 
+   * @example
+   * 1714058507
+   */
   createdAt?: string;
   /**
+   * @remarks
+   * The ID of the account that is used to create the deployment.
+   * 
    * @example
    * 27846363877456****
    */
   creator?: string;
   /**
+   * @remarks
+   * The name of the account that is used to create the deployment.
+   * 
    * @example
    * ****@streamcompute.onaliyun.com
    */
   creatorName?: string;
   /**
+   * @remarks
+   * Specifies whether the deployment is modified after the deployment is started.
+   * 
    * @example
    * true
    */
   deploymentHasChanged?: boolean;
   /**
+   * @remarks
+   * The ID of the deployment.
+   * 
    * @example
-   * 00000000-0000-0000-0000-000000000001
+   * 00000000-0000-0000-0000-0000012312****
    */
   deploymentId?: string;
+  /**
+   * @remarks
+   * The cluster on which the deployment is deployed.
+   */
   deploymentTarget?: BriefDeploymentTarget;
   /**
+   * @remarks
+   * The description of the deployment.
+   * 
    * @example
    * this is a deployment description
    */
   description?: string;
   /**
+   * @remarks
+   * The engine version of the deployment.
+   * 
    * @example
    * vvr-6.0.0-flink-1.15
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The execution mode of the deployment. Valid values:
+   * 
+   * *   STREAMING
+   * *   BATCH
+   * 
    * @example
-   * STREAMING | BATCH
+   * STREAMING
    */
   executionMode?: string;
   /**
+   * @remarks
+   * The Realtime Compute for Apache Flink configuration.
+   * 
    * @example
    * {"taskmanager.numberOfTaskSlots":"1"}
    */
   flinkConf?: { [key: string]: any };
+  /**
+   * @remarks
+   * The summary of jobs in the deployment.
+   */
   jobSummary?: JobSummary;
   labels?: { [key: string]: any };
+  /**
+   * @remarks
+   * The variables of the deployment.
+   */
   localVariables?: LocalVariable[];
+  /**
+   * @remarks
+   * The logging configuration.
+   */
   logging?: Logging;
+  /**
+   * @remarks
+   * The time at which the deployment was modified.
+   * 
+   * @example
+   * 1714058843
+   */
   modifiedAt?: string;
   /**
+   * @remarks
+   * The ID of the account that is used to modify the deployment.
+   * 
    * @example
    * 27846363877456****
    */
   modifier?: string;
   /**
+   * @remarks
+   * The name of the account that is used to modify the deployment.
+   * 
    * @example
    * ****@streamcompute.onaliyun.com
    */
   modifierName?: string;
   /**
+   * @remarks
+   * The name of the deployment.
+   * 
    * @example
    * deploymentName
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * default-namespace
    */
@@ -84,8 +161,15 @@ export class Deployment extends $dara.Model {
    * 00000000-0000-0000-0000-000000000003
    */
   referencedDeploymentDraftId?: string;
+  /**
+   * @remarks
+   * The resource configuration of the streaming deployment.
+   */
   streamingResourceSetting?: StreamingResourceSetting;
   /**
+   * @remarks
+   * The workspace to which the deployment belongs.
+   * 
    * @example
    * edcef******b4f
    */

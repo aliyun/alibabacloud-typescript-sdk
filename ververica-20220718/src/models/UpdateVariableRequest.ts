@@ -6,6 +6,8 @@ import { Variable } from "./Variable";
 export class UpdateVariableRequest extends $dara.Model {
   /**
    * @remarks
+   * The information about the variable after the update.
+   * 
    * This parameter is required.
    */
   body?: Variable;

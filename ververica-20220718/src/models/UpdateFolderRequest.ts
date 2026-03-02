@@ -6,6 +6,8 @@ import { Folder } from "./Folder";
 export class UpdateFolderRequest extends $dara.Model {
   /**
    * @remarks
+   * The data structure of the folder.
+   * 
    * This parameter is required.
    */
   body?: Folder;

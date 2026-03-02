@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TableMeta extends $dara.Model {
+  /**
+   * @example
+   * paimon
+   */
   catalogName?: string;
+  /**
+   * @example
+   * paimon-ods
+   */
   databaseName?: string;
+  /**
+   * @example
+   * order-table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {

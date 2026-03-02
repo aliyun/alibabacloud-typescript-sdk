@@ -4,11 +4,50 @@ import { LineageTable } from "./LineageTable";
 
 
 export class Node extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the catalog.
+   * 
+   * @example
+   * paimon
+   */
   catalogName?: string;
+  /**
+   * @remarks
+   * The name of the connector.
+   * 
+   * @example
+   * paimon
+   */
   connector?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * paimon-ods
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * 97383
+   */
   id?: string;
+  /**
+   * @remarks
+   * Specifies whether the table is a temporary table.
+   * 
+   * @example
+   * false
+   */
   isTemporary?: boolean;
+  /**
+   * @remarks
+   * The information about the table.
+   */
   tables?: LineageTable[];
   static names(): { [key: string]: string } {
     return {

@@ -4,8 +4,26 @@ import { UdfClass } from "./UdfClass";
 
 
 export class DeleteUdfArtifactResult extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the JAR file was deleted.
+   * 
+   * @example
+   * true
+   */
   deleteSuccess?: boolean;
+  /**
+   * @remarks
+   * The message used to delete the JAR file.
+   * 
+   * @example
+   * “”
+   */
   message?: string;
+  /**
+   * @remarks
+   * All associated classes.
+   */
   referencedClasses?: UdfClass[];
   static names(): { [key: string]: string } {
     return {

@@ -6,8 +6,20 @@ import { Node } from "./Node";
 
 
 export class LineageInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The edge information.
+   */
   edges?: Edge;
+  /**
+   * @remarks
+   * The deployments.
+   */
   jobInfos?: JobInfo[];
+  /**
+   * @remarks
+   * The nodes.
+   */
   nodes?: Node[];
   static names(): { [key: string]: string } {
     return {

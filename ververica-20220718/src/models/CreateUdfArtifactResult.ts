@@ -5,9 +5,31 @@ import { UdfArtifact } from "./UdfArtifact";
 
 
 export class CreateUdfArtifactResult extends $dara.Model {
+  /**
+   * @remarks
+   * All classes in conflict.
+   */
   collidingClasses?: UdfClass[];
+  /**
+   * @remarks
+   * Indicates whether the JAR file was created.
+   * 
+   * @example
+   * true
+   */
   createSuccess?: boolean;
+  /**
+   * @remarks
+   * The message used to create the JAR file.
+   * 
+   * @example
+   * “”
+   */
   message?: string;
+  /**
+   * @remarks
+   * The JAR file that you created.
+   */
   udfArtifact?: UdfArtifact;
   static names(): { [key: string]: string } {
     return {
