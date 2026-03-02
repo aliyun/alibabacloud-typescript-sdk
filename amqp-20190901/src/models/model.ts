@@ -39,6 +39,8 @@ export { GetVhostErrorByTaskIdResponseBodyDataVoList } from './GetVhostErrorByTa
 export { GetVhostErrorByTaskIdResponseBodyData } from './GetVhostErrorByTaskIdResponseBody';
 export { GetVhostRateResponseBodyData } from './GetVhostRateResponseBody';
 export { ImportDefinitionAsynchronousResponseBodyData } from './ImportDefinitionAsynchronousResponseBody';
+export { InstancePreivewResponseBodyDataInstancesInstancesVOPvlParamsPvlVO } from './InstancePreivewResponseBody';
+export { InstancePreivewResponseBodyDataInstancesInstancesVOPvlParams } from './InstancePreivewResponseBody';
 export { InstancePreivewResponseBodyDataInstancesInstancesVOTagsTagsVO } from './InstancePreivewResponseBody';
 export { InstancePreivewResponseBodyDataInstancesInstancesVOTags } from './InstancePreivewResponseBody';
 export { InstancePreivewResponseBodyDataInstancesInstancesVO } from './InstancePreivewResponseBody';

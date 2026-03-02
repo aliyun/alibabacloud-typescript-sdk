@@ -2,6 +2,66 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class InstancePreivewResponseBodyDataInstancesInstancesVOPvlParamsPvlVO extends $dara.Model {
+  /**
+   * @example
+   * epId
+   */
+  key?: string;
+  /**
+   * @example
+   * ep-xxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstancePreivewResponseBodyDataInstancesInstancesVOPvlParams extends $dara.Model {
+  pvlVO?: InstancePreivewResponseBodyDataInstancesInstancesVOPvlParamsPvlVO[];
+  static names(): { [key: string]: string } {
+    return {
+      pvlVO: 'PvlVO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pvlVO: { 'type': 'array', 'itemType': InstancePreivewResponseBodyDataInstancesInstancesVOPvlParamsPvlVO },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pvlVO)) {
+      $dara.Model.validateArray(this.pvlVO);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstancePreivewResponseBodyDataInstancesInstancesVOTagsTagsVO extends $dara.Model {
   key?: string;
   value?: string;
@@ -66,6 +126,11 @@ export class InstancePreivewResponseBodyDataInstancesInstancesVO extends $dara.M
   instanceType?: string;
   invisibleTime?: number;
   kmsKeyId?: string;
+  /**
+   * @example
+   * tcp_and_ssl
+   */
+  listenerMode?: string;
   maxBindingCount?: number;
   maxConnectionChannelCount?: number;
   maxConnectionCount?: number;
@@ -84,7 +149,13 @@ export class InstancePreivewResponseBodyDataInstancesInstancesVO extends $dara.M
   orderCreate?: number;
   orderType?: string;
   privateEndpoint?: string;
+  /**
+   * @example
+   * pvl
+   */
+  privateEndpointType?: string;
   publicEndpoint?: string;
+  pvlParams?: InstancePreivewResponseBodyDataInstancesInstancesVOPvlParams;
   resourceGroupId?: string;
   serverlessRate?: number;
   serverlessSwitch?: boolean;
@@ -110,6 +181,7 @@ export class InstancePreivewResponseBodyDataInstancesInstancesVO extends $dara.M
       instanceType: 'InstanceType',
       invisibleTime: 'InvisibleTime',
       kmsKeyId: 'KmsKeyId',
+      listenerMode: 'ListenerMode',
       maxBindingCount: 'MaxBindingCount',
       maxConnectionChannelCount: 'MaxConnectionChannelCount',
       maxConnectionCount: 'MaxConnectionCount',
@@ -128,7 +200,9 @@ export class InstancePreivewResponseBodyDataInstancesInstancesVO extends $dara.M
       orderCreate: 'OrderCreate',
       orderType: 'OrderType',
       privateEndpoint: 'PrivateEndpoint',
+      privateEndpointType: 'PrivateEndpointType',
       publicEndpoint: 'PublicEndpoint',
+      pvlParams: 'PvlParams',
       resourceGroupId: 'ResourceGroupId',
       serverlessRate: 'ServerlessRate',
       serverlessSwitch: 'ServerlessSwitch',
@@ -157,6 +231,7 @@ export class InstancePreivewResponseBodyDataInstancesInstancesVO extends $dara.M
       instanceType: 'string',
       invisibleTime: 'number',
       kmsKeyId: 'string',
+      listenerMode: 'string',
       maxBindingCount: 'number',
       maxConnectionChannelCount: 'number',
       maxConnectionCount: 'number',
@@ -175,7 +250,9 @@ export class InstancePreivewResponseBodyDataInstancesInstancesVO extends $dara.M
       orderCreate: 'number',
       orderType: 'string',
       privateEndpoint: 'string',
+      privateEndpointType: 'string',
       publicEndpoint: 'string',
+      pvlParams: InstancePreivewResponseBodyDataInstancesInstancesVOPvlParams,
       resourceGroupId: 'string',
       serverlessRate: 'number',
       serverlessSwitch: 'boolean',
@@ -192,6 +269,9 @@ export class InstancePreivewResponseBodyDataInstancesInstancesVO extends $dara.M
   }
 
   validate() {
+    if(this.pvlParams && typeof (this.pvlParams as any).validate === 'function') {
+      (this.pvlParams as any).validate();
+    }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
     }
