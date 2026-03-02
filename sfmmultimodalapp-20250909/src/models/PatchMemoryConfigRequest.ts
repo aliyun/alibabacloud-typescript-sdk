@@ -2,57 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateCommandShrinkRequest extends $dara.Model {
+export class PatchMemoryConfigRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * mm_axaxaaa
+   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   /**
    * @example
-   * 659864545
+   * true
    */
-  domainCode?: string;
+  autoUpdate?: boolean;
   /**
    * @example
-   * shopping_t
+   * 30
    */
-  domainName?: string;
+  expirationTime?: number;
+  prompt?: string;
+  /**
+   * @example
+   * 0.03
+   */
+  threshold?: number;
+  /**
+   * @example
+   * 3
+   */
+  topK?: number;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * xxxx
+   * 110b6d4359977d1
    */
-  toolDescription?: string;
-  toolExamplesShrink?: string;
+  userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * open_bx
-   */
-  toolName?: string;
-  toolParamsShrink?: string;
-  /**
-   * @example
-   * llm-xxx
+   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      domainCode: 'DomainCode',
-      domainName: 'DomainName',
-      toolDescription: 'ToolDescription',
-      toolExamplesShrink: 'ToolExamples',
-      toolName: 'ToolName',
-      toolParamsShrink: 'ToolParams',
+      autoUpdate: 'AutoUpdate',
+      expirationTime: 'ExpirationTime',
+      prompt: 'Prompt',
+      threshold: 'Threshold',
+      topK: 'TopK',
+      userDefinedId: 'UserDefinedId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -60,12 +64,12 @@ export class CreateCommandShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      domainCode: 'string',
-      domainName: 'string',
-      toolDescription: 'string',
-      toolExamplesShrink: 'string',
-      toolName: 'string',
-      toolParamsShrink: 'string',
+      autoUpdate: 'boolean',
+      expirationTime: 'number',
+      prompt: 'string',
+      threshold: 'number',
+      topK: 'number',
+      userDefinedId: 'string',
       workspaceId: 'string',
     };
   }

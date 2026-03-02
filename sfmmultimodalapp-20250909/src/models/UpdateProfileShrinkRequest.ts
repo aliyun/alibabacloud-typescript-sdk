@@ -2,57 +2,45 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateCommandShrinkRequest extends $dara.Model {
+export class UpdateProfileShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * mm_axaxaaa
+   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
+  attributesOperationsShrink?: string;
+  description?: string;
   /**
    * @example
-   * 659864545
+   * example
    */
-  domainCode?: string;
-  /**
-   * @example
-   * shopping_t
-   */
-  domainName?: string;
+  name?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * xxxx
+   * 10b6d435
    */
-  toolDescription?: string;
-  toolExamplesShrink?: string;
+  userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * open_bx
-   */
-  toolName?: string;
-  toolParamsShrink?: string;
-  /**
-   * @example
-   * llm-xxx
+   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      domainCode: 'DomainCode',
-      domainName: 'DomainName',
-      toolDescription: 'ToolDescription',
-      toolExamplesShrink: 'ToolExamples',
-      toolName: 'ToolName',
-      toolParamsShrink: 'ToolParams',
+      attributesOperationsShrink: 'AttributesOperations',
+      description: 'Description',
+      name: 'Name',
+      userDefinedId: 'UserDefinedId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -60,12 +48,10 @@ export class CreateCommandShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      domainCode: 'string',
-      domainName: 'string',
-      toolDescription: 'string',
-      toolExamplesShrink: 'string',
-      toolName: 'string',
-      toolParamsShrink: 'string',
+      attributesOperationsShrink: 'string',
+      description: 'string',
+      name: 'string',
+      userDefinedId: 'string',
       workspaceId: 'string',
     };
   }

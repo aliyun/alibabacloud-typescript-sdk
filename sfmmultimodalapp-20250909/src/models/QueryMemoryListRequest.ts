@@ -2,57 +2,59 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateCommandShrinkRequest extends $dara.Model {
+export class QueryMemoryListRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * mm_axaxaaa
+   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 659864545
+   * 1
    */
-  domainCode?: string;
-  /**
-   * @example
-   * shopping_t
-   */
-  domainName?: string;
+  pageNumber?: number;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * xxxx
+   * 10
    */
-  toolDescription?: string;
-  toolExamplesShrink?: string;
+  pageSize?: number;
+  /**
+   * @example
+   * profile_project
+   */
+  projectId?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * open_bx
+   * b6d4359977d16
    */
-  toolName?: string;
-  toolParamsShrink?: string;
+  userDefinedId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * llm-xxx
+   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      domainCode: 'DomainCode',
-      domainName: 'DomainName',
-      toolDescription: 'ToolDescription',
-      toolExamplesShrink: 'ToolExamples',
-      toolName: 'ToolName',
-      toolParamsShrink: 'ToolParams',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      userDefinedId: 'UserDefinedId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -60,12 +62,10 @@ export class CreateCommandShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      domainCode: 'string',
-      domainName: 'string',
-      toolDescription: 'string',
-      toolExamplesShrink: 'string',
-      toolName: 'string',
-      toolParamsShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'string',
+      userDefinedId: 'string',
       workspaceId: 'string',
     };
   }

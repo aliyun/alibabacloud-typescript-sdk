@@ -2,57 +2,55 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateCommandShrinkRequest extends $dara.Model {
+export class UpdateMemoryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * mm_axaxaaa
+   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   /**
    * @example
-   * 659864545
+   * True
    */
-  domainCode?: string;
+  content?: string;
   /**
    * @example
-   * shopping_t
+   * 384dc4786b9d4f5a8cab0d83112cd5a8
    */
-  domainName?: string;
+  memoryNodeId?: string;
+  metaDataShrink?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * xxxx
+   * []
    */
-  toolDescription?: string;
-  toolExamplesShrink?: string;
+  source?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * open_bx
+   * bfaf7e110b6d435997
    */
-  toolName?: string;
-  toolParamsShrink?: string;
+  userDefinedId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * llm-xxx
+   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      domainCode: 'DomainCode',
-      domainName: 'DomainName',
-      toolDescription: 'ToolDescription',
-      toolExamplesShrink: 'ToolExamples',
-      toolName: 'ToolName',
-      toolParamsShrink: 'ToolParams',
+      content: 'Content',
+      memoryNodeId: 'MemoryNodeId',
+      metaDataShrink: 'MetaData',
+      source: 'Source',
+      userDefinedId: 'UserDefinedId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -60,12 +58,11 @@ export class CreateCommandShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      domainCode: 'string',
-      domainName: 'string',
-      toolDescription: 'string',
-      toolExamplesShrink: 'string',
-      toolName: 'string',
-      toolParamsShrink: 'string',
+      content: 'string',
+      memoryNodeId: 'string',
+      metaDataShrink: 'string',
+      source: 'string',
+      userDefinedId: 'string',
       workspaceId: 'string',
     };
   }

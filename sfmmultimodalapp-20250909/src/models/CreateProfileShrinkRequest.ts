@@ -2,57 +2,53 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateCommandShrinkRequest extends $dara.Model {
+export class CreateProfileShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * mm_axaxaaa
+   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   /**
-   * @example
-   * 659864545
+   * @remarks
+   * This parameter is required.
    */
-  domainCode?: string;
+  attributesShrink?: string;
   /**
-   * @example
-   * shopping_t
+   * @remarks
+   * This parameter is required.
    */
-  domainName?: string;
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * xxxx
+   * 6e18191727f747ec9de06a2
    */
-  toolDescription?: string;
-  toolExamplesShrink?: string;
+  userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * open_bx
-   */
-  toolName?: string;
-  toolParamsShrink?: string;
-  /**
-   * @example
-   * llm-xxx
+   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      domainCode: 'DomainCode',
-      domainName: 'DomainName',
-      toolDescription: 'ToolDescription',
-      toolExamplesShrink: 'ToolExamples',
-      toolName: 'ToolName',
-      toolParamsShrink: 'ToolParams',
+      attributesShrink: 'Attributes',
+      description: 'Description',
+      name: 'Name',
+      userDefinedId: 'UserDefinedId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -60,12 +56,10 @@ export class CreateCommandShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      domainCode: 'string',
-      domainName: 'string',
-      toolDescription: 'string',
-      toolExamplesShrink: 'string',
-      toolName: 'string',
-      toolParamsShrink: 'string',
+      attributesShrink: 'string',
+      description: 'string',
+      name: 'string',
+      userDefinedId: 'string',
       workspaceId: 'string',
     };
   }

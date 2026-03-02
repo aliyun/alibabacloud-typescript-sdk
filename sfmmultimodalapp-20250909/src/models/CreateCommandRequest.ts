@@ -87,9 +87,6 @@ export class CreateCommandRequest extends $dara.Model {
    */
   domainCode?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * shopping_t
    */

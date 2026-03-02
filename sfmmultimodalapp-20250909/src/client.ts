@@ -110,6 +110,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增用户记忆
+   * 
+   * @param tmpReq - CreateMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemoryResponse
+   */
+  async createMemoryWithOptions(tmpReq: $_model.CreateMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMemoryResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMemoryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.metaData)) {
+      request.metaDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metaData, "MetaData", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.messagesJson)) {
+      query["MessagesJson"] = request.messagesJson;
+    }
+
+    if (!$dara.isNull(request.metaDataShrink)) {
+      query["MetaData"] = request.metaDataShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMemory",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMemoryResponse>(await this.callApi(params, req, runtime), new $_model.CreateMemoryResponse({}));
+  }
+
+  /**
+   * 新增用户记忆
+   * 
+   * @param request - CreateMemoryRequest
+   * @returns CreateMemoryResponse
+   */
+  async createMemory(request: $_model.CreateMemoryRequest): Promise<$_model.CreateMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMemoryWithOptions(request, runtime);
+  }
+
+  /**
    * 创建多模态应用
    * 
    * @param tmpReq - CreateMmAppRequest
@@ -186,6 +258,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建用户画像配置
+   * 
+   * @param tmpReq - CreateProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProfileResponse
+   */
+  async createProfileWithOptions(tmpReq: $_model.CreateProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "Attributes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.attributesShrink)) {
+      query["Attributes"] = request.attributesShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProfile",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProfileResponse>(await this.callApi(params, req, runtime), new $_model.CreateProfileResponse({}));
+  }
+
+  /**
+   * 创建用户画像配置
+   * 
+   * @param request - CreateProfileRequest
+   * @returns CreateProfileResponse
+   */
+  async createProfile(request: $_model.CreateProfileRequest): Promise<$_model.CreateProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProfileWithOptions(request, runtime);
+  }
+
+  /**
    * 删除指令
    * 
    * @param request - DeleteCommandRequest
@@ -240,6 +380,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除用户记忆
+   * 
+   * @param request - DeleteMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemoryWithOptions(request: $_model.DeleteMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.memoryNodeId)) {
+      query["MemoryNodeId"] = request.memoryNodeId;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemory",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMemoryResponse({}));
+  }
+
+  /**
+   * 删除用户记忆
+   * 
+   * @param request - DeleteMemoryRequest
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemory(request: $_model.DeleteMemoryRequest): Promise<$_model.DeleteMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMemoryWithOptions(request, runtime);
+  }
+
+  /**
    * 删除多模态应用
    * 
    * @param request - DeleteMmAppRequest
@@ -283,6 +477,56 @@ export default class Client extends OpenApi {
   async deleteMmApp(request: $_model.DeleteMmAppRequest): Promise<$_model.DeleteMmAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMmAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除用户画像配置
+   * 
+   * @param request - DeleteProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProfileResponse
+   */
+  async deleteProfileWithOptions(request: $_model.DeleteProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProfileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProfile",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProfileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProfileResponse({}));
+  }
+
+  /**
+   * 删除用户画像配置
+   * 
+   * @param request - DeleteProfileRequest
+   * @returns DeleteProfileResponse
+   */
+  async deleteProfile(request: $_model.DeleteProfileRequest): Promise<$_model.DeleteProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProfileWithOptions(request, runtime);
   }
 
   /**
@@ -560,6 +804,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 变更用户记忆配置
+   * 
+   * @param request - PatchMemoryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PatchMemoryConfigResponse
+   */
+  async patchMemoryConfigWithOptions(request: $_model.PatchMemoryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PatchMemoryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.autoUpdate)) {
+      query["AutoUpdate"] = request.autoUpdate;
+    }
+
+    if (!$dara.isNull(request.expirationTime)) {
+      query["ExpirationTime"] = request.expirationTime;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PatchMemoryConfig",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PatchMemoryConfigResponse>(await this.callApi(params, req, runtime), new $_model.PatchMemoryConfigResponse({}));
+  }
+
+  /**
+   * 变更用户记忆配置
+   * 
+   * @param request - PatchMemoryConfigRequest
+   * @returns PatchMemoryConfigResponse
+   */
+  async patchMemoryConfig(request: $_model.PatchMemoryConfigRequest): Promise<$_model.PatchMemoryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.patchMemoryConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 多模态应用发布
    * 
    * @param request - PublishMmAppRequest
@@ -607,6 +921,218 @@ export default class Client extends OpenApi {
   async publishMmApp(request: $_model.PublishMmAppRequest): Promise<$_model.PublishMmAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.publishMmAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户记忆配置
+   * 
+   * @param request - QueryMemoryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMemoryConfigResponse
+   */
+  async queryMemoryConfigWithOptions(request: $_model.QueryMemoryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMemoryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMemoryConfig",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMemoryConfigResponse>(await this.callApi(params, req, runtime), new $_model.QueryMemoryConfigResponse({}));
+  }
+
+  /**
+   * 查询用户记忆配置
+   * 
+   * @param request - QueryMemoryConfigRequest
+   * @returns QueryMemoryConfigResponse
+   */
+  async queryMemoryConfig(request: $_model.QueryMemoryConfigRequest): Promise<$_model.QueryMemoryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMemoryConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户记忆列表
+   * 
+   * @param request - QueryMemoryListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMemoryListResponse
+   */
+  async queryMemoryListWithOptions(request: $_model.QueryMemoryListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMemoryListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMemoryList",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMemoryListResponse>(await this.callApi(params, req, runtime), new $_model.QueryMemoryListResponse({}));
+  }
+
+  /**
+   * 查询用户记忆列表
+   * 
+   * @param request - QueryMemoryListRequest
+   * @returns QueryMemoryListResponse
+   */
+  async queryMemoryList(request: $_model.QueryMemoryListRequest): Promise<$_model.QueryMemoryListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMemoryListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户画像配置
+   * 
+   * @param request - QueryProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryProfileResponse
+   */
+  async queryProfileWithOptions(request: $_model.QueryProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryProfileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryProfile",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryProfileResponse>(await this.callApi(params, req, runtime), new $_model.QueryProfileResponse({}));
+  }
+
+  /**
+   * 查询用户画像配置
+   * 
+   * @param request - QueryProfileRequest
+   * @returns QueryProfileResponse
+   */
+  async queryProfile(request: $_model.QueryProfileRequest): Promise<$_model.QueryProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryProfileWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户画像
+   * 
+   * @param request - QueryUserProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserProfileResponse
+   */
+  async queryUserProfileWithOptions(request: $_model.QueryUserProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUserProfileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryUserProfile",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryUserProfileResponse>(await this.callApi(params, req, runtime), new $_model.QueryUserProfileResponse({}));
+  }
+
+  /**
+   * 查询用户画像
+   * 
+   * @param request - QueryUserProfileRequest
+   * @returns QueryUserProfileResponse
+   */
+  async queryUserProfile(request: $_model.QueryUserProfileRequest): Promise<$_model.QueryUserProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryUserProfileWithOptions(request, runtime);
   }
 
   /**
@@ -694,6 +1220,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新用户记忆
+   * 
+   * @param tmpReq - UpdateMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemoryWithOptions(tmpReq: $_model.UpdateMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMemoryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.metaData)) {
+      request.metaDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metaData, "MetaData", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.memoryNodeId)) {
+      query["MemoryNodeId"] = request.memoryNodeId;
+    }
+
+    if (!$dara.isNull(request.metaDataShrink)) {
+      query["MetaData"] = request.metaDataShrink;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemory",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMemoryResponse({}));
+  }
+
+  /**
+   * 更新用户记忆
+   * 
+   * @param request - UpdateMemoryRequest
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemory(request: $_model.UpdateMemoryRequest): Promise<$_model.UpdateMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMemoryWithOptions(request, runtime);
+  }
+
+  /**
    * 多模态应用更新
    * 
    * @param tmpReq - UpdateMmAppRequest
@@ -771,6 +1369,74 @@ export default class Client extends OpenApi {
   async updateMmApp(request: $_model.UpdateMmAppRequest): Promise<$_model.UpdateMmAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMmAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 变更用户画像配置
+   * 
+   * @param tmpReq - UpdateProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProfileResponse
+   */
+  async updateProfileWithOptions(tmpReq: $_model.UpdateProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributesOperations)) {
+      request.attributesOperationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributesOperations, "AttributesOperations", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.attributesOperationsShrink)) {
+      query["AttributesOperations"] = request.attributesOperationsShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.userDefinedId)) {
+      query["UserDefinedId"] = request.userDefinedId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProfile",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProfileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProfileResponse({}));
+  }
+
+  /**
+   * 变更用户画像配置
+   * 
+   * @param request - UpdateProfileRequest
+   * @returns UpdateProfileResponse
+   */
+  async updateProfile(request: $_model.UpdateProfileRequest): Promise<$_model.UpdateProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProfileWithOptions(request, runtime);
   }
 
 }
