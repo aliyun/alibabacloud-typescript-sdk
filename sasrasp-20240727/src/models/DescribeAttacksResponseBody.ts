@@ -143,6 +143,7 @@ export class DescribeAttacksResponseBodyAttacks extends $dara.Model {
    * 1.0
    */
   languageVersion?: string;
+  llmAsset?: boolean;
   /**
    * @example
    * 1727281449756
@@ -281,6 +282,7 @@ export class DescribeAttacksResponseBodyAttacks extends $dara.Model {
       jdk: 'Jdk',
       language: 'Language',
       languageVersion: 'LanguageVersion',
+      llmAsset: 'LlmAsset',
       maxTimestamp: 'MaxTimestamp',
       message: 'Message',
       method: 'Method',
@@ -331,6 +333,7 @@ export class DescribeAttacksResponseBodyAttacks extends $dara.Model {
       jdk: 'string',
       language: 'string',
       languageVersion: 'string',
+      llmAsset: 'boolean',
       maxTimestamp: 'number',
       message: 'string',
       method: 'string',
