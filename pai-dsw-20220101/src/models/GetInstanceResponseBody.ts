@@ -272,6 +272,43 @@ export class GetInstanceResponseBodyDatasets extends $dara.Model {
   }
 }
 
+export class GetInstanceResponseBodyDockerConfig extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  containersLimit?: number;
+  enable?: boolean;
+  /**
+   * @example
+   * /etc/docker/dockerboard/mount_access.json
+   */
+  mountAccessConfigPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containersLimit: 'ContainersLimit',
+      enable: 'Enable',
+      mountAccessConfigPath: 'MountAccessConfigPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containersLimit: 'number',
+      enable: 'boolean',
+      mountAccessConfigPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyIdleInstanceCuller extends $dara.Model {
   /**
    * @remarks
@@ -954,6 +991,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * CPU
    */
   acceleratorType?: string;
+  accessRestrictionRules?: { [key: string]: string };
   /**
    * @remarks
    * The accessibility. Valid values:
@@ -1007,6 +1045,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * The datasets.
    */
   datasets?: GetInstanceResponseBodyDatasets[];
+  dockerConfig?: GetInstanceResponseBodyDockerConfig;
   /**
    * @remarks
    * The NVIDIA driver configuration.
@@ -1365,6 +1404,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
+      accessRestrictionRules: 'AccessRestrictionRules',
       accessibility: 'Accessibility',
       accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
       affinity: 'Affinity',
@@ -1372,6 +1412,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       code: 'Code',
       credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
+      dockerConfig: 'DockerConfig',
       driver: 'Driver',
       dynamicMount: 'DynamicMount',
       ecsSpec: 'EcsSpec',
@@ -1424,6 +1465,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceleratorType: 'string',
+      accessRestrictionRules: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       accessibility: 'string',
       accumulatedRunningTimeInMs: 'number',
       affinity: GetInstanceResponseBodyAffinity,
@@ -1431,6 +1473,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       code: 'string',
       credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': GetInstanceResponseBodyDatasets },
+      dockerConfig: GetInstanceResponseBodyDockerConfig,
       driver: 'string',
       dynamicMount: DynamicMount,
       ecsSpec: 'string',
@@ -1481,6 +1524,9 @@ export class GetInstanceResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.accessRestrictionRules) {
+      $dara.Model.validateMap(this.accessRestrictionRules);
+    }
     if(this.affinity && typeof (this.affinity as any).validate === 'function') {
       (this.affinity as any).validate();
     }
@@ -1492,6 +1538,9 @@ export class GetInstanceResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.datasets)) {
       $dara.Model.validateArray(this.datasets);
+    }
+    if(this.dockerConfig && typeof (this.dockerConfig as any).validate === 'function') {
+      (this.dockerConfig as any).validate();
     }
     if(this.dynamicMount && typeof (this.dynamicMount as any).validate === 'function') {
       (this.dynamicMount as any).validate();

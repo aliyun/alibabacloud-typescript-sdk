@@ -146,6 +146,10 @@ export default class Client extends OpenApi {
   async createInstanceWithOptions(request: $_model.CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessRestrictionRules)) {
+      body["AccessRestrictionRules"] = request.accessRestrictionRules;
+    }
+
     if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
     }
@@ -168,6 +172,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.datasets)) {
       body["Datasets"] = request.datasets;
+    }
+
+    if (!$dara.isNull(request.dockerConfig)) {
+      body["DockerConfig"] = request.dockerConfig;
     }
 
     if (!$dara.isNull(request.driver)) {

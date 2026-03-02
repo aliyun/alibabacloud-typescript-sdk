@@ -360,6 +360,39 @@ export class CreateInstanceRequestDatasets extends $dara.Model {
   }
 }
 
+export class CreateInstanceRequestDockerConfig extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  containersLimit?: number;
+  enable?: boolean;
+  mountAccessConfigPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containersLimit: 'ContainersLimit',
+      enable: 'Enable',
+      mountAccessConfigPath: 'MountAccessConfigPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containersLimit: 'number',
+      enable: 'boolean',
+      mountAccessConfigPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestLabels extends $dara.Model {
   /**
    * @remarks
@@ -709,6 +742,7 @@ export class CreateInstanceRequestUserVpc extends $dara.Model {
 }
 
 export class CreateInstanceRequest extends $dara.Model {
+  accessRestrictionRules?: { [key: string]: string };
   /**
    * @remarks
    * The instance accessibility.
@@ -746,6 +780,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * The datasets.
    */
   datasets?: CreateInstanceRequestDatasets[];
+  dockerConfig?: CreateInstanceRequestDockerConfig;
   /**
    * @remarks
    * The NVIDIA driver configuration.
@@ -897,12 +932,14 @@ export class CreateInstanceRequest extends $dara.Model {
   workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
+      accessRestrictionRules: 'AccessRestrictionRules',
       accessibility: 'Accessibility',
       affinity: 'Affinity',
       assignNodeSpec: 'AssignNodeSpec',
       cloudDisks: 'CloudDisks',
       credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
+      dockerConfig: 'DockerConfig',
       driver: 'Driver',
       dynamicMount: 'DynamicMount',
       ecsSpec: 'EcsSpec',
@@ -929,12 +966,14 @@ export class CreateInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessRestrictionRules: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       accessibility: 'string',
       affinity: CreateInstanceRequestAffinity,
       assignNodeSpec: CreateInstanceRequestAssignNodeSpec,
       cloudDisks: { 'type': 'array', 'itemType': CreateInstanceRequestCloudDisks },
       credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': CreateInstanceRequestDatasets },
+      dockerConfig: CreateInstanceRequestDockerConfig,
       driver: 'string',
       dynamicMount: DynamicMount,
       ecsSpec: 'string',
@@ -960,6 +999,9 @@ export class CreateInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.accessRestrictionRules) {
+      $dara.Model.validateMap(this.accessRestrictionRules);
+    }
     if(this.affinity && typeof (this.affinity as any).validate === 'function') {
       (this.affinity as any).validate();
     }
@@ -974,6 +1016,9 @@ export class CreateInstanceRequest extends $dara.Model {
     }
     if(Array.isArray(this.datasets)) {
       $dara.Model.validateArray(this.datasets);
+    }
+    if(this.dockerConfig && typeof (this.dockerConfig as any).validate === 'function') {
+      (this.dockerConfig as any).validate();
     }
     if(this.dynamicMount && typeof (this.dynamicMount as any).validate === 'function') {
       (this.dynamicMount as any).validate();
