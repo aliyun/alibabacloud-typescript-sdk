@@ -5822,56 +5822,19 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.categoryUuidsShrink)) {
-      query["CategoryUuids"] = request.categoryUuidsShrink;
+      body["CategoryUuids"] = request.categoryUuidsShrink;
     }
 
     if (!$dara.isNull(request.createTimeEnd)) {
-      query["CreateTimeEnd"] = request.createTimeEnd;
+      body["CreateTimeEnd"] = request.createTimeEnd;
     }
 
     if (!$dara.isNull(request.createTimeStart)) {
-      query["CreateTimeStart"] = request.createTimeStart;
+      body["CreateTimeStart"] = request.createTimeStart;
     }
 
-    if (!$dara.isNull(request.docIdsShrink)) {
-      query["DocIds"] = request.docIdsShrink;
-    }
-
-    if (!$dara.isNull(request.docUuidsShrink)) {
-      query["DocUuids"] = request.docUuidsShrink;
-    }
-
-    if (!$dara.isNull(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!$dara.isNull(request.extend1)) {
-      query["Extend1"] = request.extend1;
-    }
-
-    if (!$dara.isNull(request.extend2)) {
-      query["Extend2"] = request.extend2;
-    }
-
-    if (!$dara.isNull(request.extend3)) {
-      query["Extend3"] = request.extend3;
-    }
-
-    if (!$dara.isNull(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!$dara.isNull(request.tagsShrink)) {
-      query["Tags"] = request.tagsShrink;
-    }
-
-    if (!$dara.isNull(request.title)) {
-      query["Title"] = request.title;
-    }
-
-    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.datasetDescription)) {
       body["DatasetDescription"] = request.datasetDescription;
     }
@@ -5884,12 +5847,36 @@ export default class Client extends OpenApi {
       body["DatasetName"] = request.datasetName;
     }
 
+    if (!$dara.isNull(request.docIdsShrink)) {
+      body["DocIds"] = request.docIdsShrink;
+    }
+
     if (!$dara.isNull(request.docType)) {
       body["DocType"] = request.docType;
     }
 
+    if (!$dara.isNull(request.docUuidsShrink)) {
+      body["DocUuids"] = request.docUuidsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.excludeFieldsShrink)) {
       body["ExcludeFields"] = request.excludeFieldsShrink;
+    }
+
+    if (!$dara.isNull(request.extend1)) {
+      body["Extend1"] = request.extend1;
+    }
+
+    if (!$dara.isNull(request.extend2)) {
+      body["Extend2"] = request.extend2;
+    }
+
+    if (!$dara.isNull(request.extend3)) {
+      body["Extend3"] = request.extend3;
     }
 
     if (!$dara.isNull(request.includeFieldsShrink)) {
@@ -5908,8 +5895,20 @@ export default class Client extends OpenApi {
       body["Query"] = request.query;
     }
 
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
     if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["Title"] = request.title;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -5917,7 +5916,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -13313,56 +13311,19 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.categoryUuidsShrink)) {
-      query["CategoryUuids"] = request.categoryUuidsShrink;
+      body["CategoryUuids"] = request.categoryUuidsShrink;
     }
 
     if (!$dara.isNull(request.createTimeEnd)) {
-      query["CreateTimeEnd"] = request.createTimeEnd;
+      body["CreateTimeEnd"] = request.createTimeEnd;
     }
 
     if (!$dara.isNull(request.createTimeStart)) {
-      query["CreateTimeStart"] = request.createTimeStart;
+      body["CreateTimeStart"] = request.createTimeStart;
     }
 
-    if (!$dara.isNull(request.docIdsShrink)) {
-      query["DocIds"] = request.docIdsShrink;
-    }
-
-    if (!$dara.isNull(request.docTypesShrink)) {
-      query["DocTypes"] = request.docTypesShrink;
-    }
-
-    if (!$dara.isNull(request.docUuidsShrink)) {
-      query["DocUuids"] = request.docUuidsShrink;
-    }
-
-    if (!$dara.isNull(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!$dara.isNull(request.extend2)) {
-      query["Extend2"] = request.extend2;
-    }
-
-    if (!$dara.isNull(request.extend3)) {
-      query["Extend3"] = request.extend3;
-    }
-
-    if (!$dara.isNull(request.searchMode)) {
-      query["SearchMode"] = request.searchMode;
-    }
-
-    if (!$dara.isNull(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!$dara.isNull(request.tagsShrink)) {
-      query["Tags"] = request.tagsShrink;
-    }
-
-    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.datasetId)) {
       body["DatasetId"] = request.datasetId;
     }
@@ -13371,8 +13332,32 @@ export default class Client extends OpenApi {
       body["DatasetName"] = request.datasetName;
     }
 
+    if (!$dara.isNull(request.docIdsShrink)) {
+      body["DocIds"] = request.docIdsShrink;
+    }
+
+    if (!$dara.isNull(request.docTypesShrink)) {
+      body["DocTypes"] = request.docTypesShrink;
+    }
+
+    if (!$dara.isNull(request.docUuidsShrink)) {
+      body["DocUuids"] = request.docUuidsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.extend1)) {
       body["Extend1"] = request.extend1;
+    }
+
+    if (!$dara.isNull(request.extend2)) {
+      body["Extend2"] = request.extend2;
+    }
+
+    if (!$dara.isNull(request.extend3)) {
+      body["Extend3"] = request.extend3;
     }
 
     if (!$dara.isNull(request.includeContent)) {
@@ -13387,12 +13372,23 @@ export default class Client extends OpenApi {
       body["Query"] = request.query;
     }
 
+    if (!$dara.isNull(request.searchMode)) {
+      body["SearchMode"] = request.searchMode;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
