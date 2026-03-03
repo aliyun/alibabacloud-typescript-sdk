@@ -37,10 +37,6 @@ export class GetAutonomousNotifyEventsInRangeResponseBodyData extends $dara.Mode
    * None
    */
   extra?: string;
-  /**
-   * @remarks
-   * The detailed information, including the error codes and the number of entries that are returned.
-   */
   list?: GetAutonomousNotifyEventsInRangeResponseBodyDataList;
   /**
    * @remarks

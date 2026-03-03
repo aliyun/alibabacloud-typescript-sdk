@@ -1,14 +1,14 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetDasAgentSSEResponseBody } from "./GetDasAgentSseresponseBody";
+import { GetYaoChiAgentResponseBody } from "./GetYaoChiAgentResponseBody";
 
 
-export class GetDasAgentSSEResponse extends $dara.Model {
+export class GetYaoChiAgentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   id?: string;
   event?: string;
-  body?: GetDasAgentSSEResponseBody;
+  body?: GetYaoChiAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25,7 +25,7 @@ export class GetDasAgentSSEResponse extends $dara.Model {
       statusCode: 'number',
       id: 'string',
       event: 'string',
-      body: GetDasAgentSSEResponseBody,
+      body: GetYaoChiAgentResponseBody,
     };
   }
 

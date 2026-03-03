@@ -3,69 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCacheAnalysisJobsResponseBodyDataListCacheAnalysisJobBigKeysKeyInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of bytes that are occupied by the key.
-   * 
-   * @example
-   * 12345
-   */
   bytes?: number;
-  /**
-   * @remarks
-   * The number of elements in the key.
-   * 
-   * @example
-   * 127
-   */
   count?: number;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * 0
-   */
   db?: number;
-  /**
-   * @remarks
-   * The data type of the key.
-   * 
-   * @example
-   * hashtable
-   */
   encoding?: string;
-  /**
-   * @remarks
-   * The expiration period of the key. Unit: milliseconds. A value of 0 indicates that the key does not expire.
-   * 
-   * @example
-   * 1596256542547
-   */
   expirationTimeMillis?: number;
-  /**
-   * @remarks
-   * The name of the key.
-   * 
-   * @example
-   * task_*****
-   */
   key?: string;
-  /**
-   * @remarks
-   * The ID of the data node on the instance.
-   * 
-   * @example
-   * r-****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The data type of the instance.
-   * 
-   * @example
-   * hash
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,59 +73,11 @@ export class DescribeCacheAnalysisJobsResponseBodyDataListCacheAnalysisJobBigKey
 }
 
 export class DescribeCacheAnalysisJobsResponseBodyDataListCacheAnalysisJob extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the large keys.
-   * 
-   * > The sub-parameters of this parameter and the content of the sub-parameters are not returned. To query the detailed information about the cache analysis tasks, call the [DescribeCacheAnalysisJob](https://help.aliyun.com/document_detail/443012.html) operation.
-   */
   bigKeys?: DescribeCacheAnalysisJobsResponseBodyDataListCacheAnalysisJobBigKeys;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * r-bp18ff4a195d****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the cache analysis task.
-   * 
-   * @example
-   * sf79-sd99-sa37-****
-   */
   jobId?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
-   * 
-   * @example
-   * Successful
-   */
   message?: string;
-  /**
-   * @remarks
-   * The ID of the data node on the instance.
-   * 
-   * @example
-   * r-x****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The state of the cache analysis task. Valid values:
-   * 
-   * * **BACKUP**: The data is being backed up.
-   * * **ANALYZING**: The data is being analyzed.
-   * * **FINISHED**: The data is analyzed.
-   * * **FAILED**: An error occurred.
-   * 
-   * @example
-   * BACKUP
-   */
   taskState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -252,10 +148,6 @@ export class DescribeCacheAnalysisJobsResponseBodyData extends $dara.Model {
    * None
    */
   extra?: string;
-  /**
-   * @remarks
-   * The ID of the data node on the instance.
-   */
   list?: DescribeCacheAnalysisJobsResponseBodyDataList;
   /**
    * @remarks

@@ -201,6 +201,8 @@ export { GetStorageAnalysisResultResponseBodyDataStorageAnalysisResultNeedOptimi
 export { GetStorageAnalysisResultResponseBodyDataStorageAnalysisResultTableStats } from './GetStorageAnalysisResultResponseBody';
 export { GetStorageAnalysisResultResponseBodyDataStorageAnalysisResult } from './GetStorageAnalysisResultResponseBody';
 export { GetStorageAnalysisResultResponseBodyData } from './GetStorageAnalysisResultResponseBody';
+export { GetYaoChiAgentResponseBodyFunctionCall } from './GetYaoChiAgentResponseBody';
+export { GetYaoChiAgentResponseBodyUiFunctionCall } from './GetYaoChiAgentResponseBody';
 export { ModifyAutoScalingConfigRequestBandwidth } from './ModifyAutoScalingConfigRequest';
 export { ModifyAutoScalingConfigRequestResource } from './ModifyAutoScalingConfigRequest';
 export { ModifyAutoScalingConfigRequestShard } from './ModifyAutoScalingConfigRequest';
@@ -534,6 +536,9 @@ export { GetSqlOptimizeAdviceResponse } from './GetSqlOptimizeAdviceResponse';
 export { GetStorageAnalysisResultRequest } from './GetStorageAnalysisResultRequest';
 export { GetStorageAnalysisResultResponseBody } from './GetStorageAnalysisResultResponseBody';
 export { GetStorageAnalysisResultResponse } from './GetStorageAnalysisResultResponse';
+export { GetYaoChiAgentRequest } from './GetYaoChiAgentRequest';
+export { GetYaoChiAgentResponseBody } from './GetYaoChiAgentResponseBody';
+export { GetYaoChiAgentResponse } from './GetYaoChiAgentResponse';
 export { KillInstanceAllSessionRequest } from './KillInstanceAllSessionRequest';
 export { KillInstanceAllSessionResponseBody } from './KillInstanceAllSessionResponseBody';
 export { KillInstanceAllSessionResponse } from './KillInstanceAllSessionResponse';

@@ -3,69 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCacheAnalysisJobResponseBodyDataBigKeysKeyInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of bytes that are occupied by the key.
-   * 
-   * @example
-   * 12345
-   */
   bytes?: number;
-  /**
-   * @remarks
-   * The number of elements in the key.
-   * 
-   * @example
-   * 127
-   */
   count?: number;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * 0
-   */
   db?: number;
-  /**
-   * @remarks
-   * The data type of the key.
-   * 
-   * @example
-   * hashtable
-   */
   encoding?: string;
-  /**
-   * @remarks
-   * The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
-   * 
-   * @example
-   * 1596256542547
-   */
   expirationTimeMillis?: number;
-  /**
-   * @remarks
-   * The key name.
-   * 
-   * @example
-   * task_x****
-   */
   key?: string;
-  /**
-   * @remarks
-   * The ID of the data node on the instance.
-   * 
-   * @example
-   * r-x****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The data type of the instance.
-   * 
-   * @example
-   * hash
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,69 +73,13 @@ export class DescribeCacheAnalysisJobResponseBodyDataBigKeys extends $dara.Model
 }
 
 export class DescribeCacheAnalysisJobResponseBodyDataBigKeysOfNumKeyInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of bytes that are occupied by the key.
-   * 
-   * @example
-   * 12345
-   */
   bytes?: number;
-  /**
-   * @remarks
-   * The number of elements in the key.
-   * 
-   * @example
-   * 127
-   */
   count?: number;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * 0
-   */
   db?: number;
-  /**
-   * @remarks
-   * The data type of the key.
-   * 
-   * @example
-   * hashtable
-   */
   encoding?: string;
-  /**
-   * @remarks
-   * The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
-   * 
-   * @example
-   * 1596256542547
-   */
   expirationTimeMillis?: number;
-  /**
-   * @remarks
-   * The key name.
-   * 
-   * @example
-   * task_x****
-   */
   key?: string;
-  /**
-   * @remarks
-   * The ID of the data node on the instance.
-   * 
-   * @example
-   * r-x****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The data type of the instance.
-   * 
-   * @example
-   * hash
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -255,47 +143,9 @@ export class DescribeCacheAnalysisJobResponseBodyDataBigKeysOfNum extends $dara.
 }
 
 export class DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the cache analysis task was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1717469347000
-   */
   analysisTs?: number;
-  /**
-   * @remarks
-   * The expiration level. Valid values:
-   * 
-   * *   **0**: The key never expires.
-   * *   **1**: The key has expired.
-   * *   **2**: The key has expired for 0 to 1 hour.
-   * *   **3**: The key has expired for 1 to 3 hours.
-   * *   **4**: The key has expired for 3 to 12 hours.
-   * *   **5**: The key has expired for 12 to 24 hours.
-   * *   **6**: The key has expired for one to two days.
-   * *   **7**: The key has expired for three to seven days.
-   * *   **8**: The key has expired for more than seven days.
-   * 
-   * @example
-   * 0
-   */
   level?: number;
-  /**
-   * @remarks
-   * The number of bytes occupied by the keys that have expired.
-   * 
-   * @example
-   * 8064
-   */
   totalBytes?: number;
-  /**
-   * @remarks
-   * The total number of the keys that have expired.
-   * 
-   * @example
-   * 62
-   */
   totalKeys?: number;
   static names(): { [key: string]: string } {
     return {
@@ -351,45 +201,10 @@ export class DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount extend
 }
 
 export class DescribeCacheAnalysisJobResponseBodyDataKeyPrefixesPrefix extends $dara.Model {
-  /**
-   * @remarks
-   * The number of bytes that are occupied by the key.
-   * 
-   * @example
-   * 12345
-   */
   bytes?: number;
-  /**
-   * @remarks
-   * The number of elements in the key.
-   * 
-   * @example
-   * 127
-   */
   count?: number;
-  /**
-   * @remarks
-   * The number of keys that contain the prefix.
-   * 
-   * @example
-   * 123
-   */
   keyNum?: number;
-  /**
-   * @remarks
-   * The prefix of the key.
-   * 
-   * @example
-   * task_
-   */
   prefix?: string;
-  /**
-   * @remarks
-   * The data type of the instance.
-   * 
-   * @example
-   * hash
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -447,69 +262,13 @@ export class DescribeCacheAnalysisJobResponseBodyDataKeyPrefixes extends $dara.M
 }
 
 export class DescribeCacheAnalysisJobResponseBodyDataUnexBigKeysOfBytesKeyInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of bytes that are occupied by the key.
-   * 
-   * @example
-   * 12345
-   */
   bytes?: number;
-  /**
-   * @remarks
-   * The number of elements in the key.
-   * 
-   * @example
-   * 127
-   */
   count?: number;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * 0
-   */
   db?: number;
-  /**
-   * @remarks
-   * The data type of the key.
-   * 
-   * @example
-   * hashtable
-   */
   encoding?: string;
-  /**
-   * @remarks
-   * The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
-   * 
-   * @example
-   * 1596256542547
-   */
   expirationTimeMillis?: number;
-  /**
-   * @remarks
-   * The key name.
-   * 
-   * @example
-   * task_x****
-   */
   key?: string;
-  /**
-   * @remarks
-   * The ID of the data node on the instance.
-   * 
-   * @example
-   * r-x****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The data type of the instance.
-   * 
-   * @example
-   * hash
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -573,69 +332,13 @@ export class DescribeCacheAnalysisJobResponseBodyDataUnexBigKeysOfBytes extends 
 }
 
 export class DescribeCacheAnalysisJobResponseBodyDataUnexBigKeysOfNumKeyInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The number of bytes that are occupied by the key.
-   * 
-   * @example
-   * 12345
-   */
   bytes?: number;
-  /**
-   * @remarks
-   * The number of elements in the key.
-   * 
-   * @example
-   * 127
-   */
   count?: number;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * 0
-   */
   db?: number;
-  /**
-   * @remarks
-   * The data type of the key.
-   * 
-   * @example
-   * hashtable
-   */
   encoding?: string;
-  /**
-   * @remarks
-   * The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
-   * 
-   * @example
-   * 1596256542547
-   */
   expirationTimeMillis?: number;
-  /**
-   * @remarks
-   * The key name.
-   * 
-   * @example
-   * task_x****
-   */
   key?: string;
-  /**
-   * @remarks
-   * The ID of the data node on the instance.
-   * 
-   * @example
-   * r-x****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The data type of the instance.
-   * 
-   * @example
-   * hash
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -699,20 +402,8 @@ export class DescribeCacheAnalysisJobResponseBodyDataUnexBigKeysOfNum extends $d
 }
 
 export class DescribeCacheAnalysisJobResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the large keys. The returned large keys are sorted in descending order based on the number of bytes occupied by the keys.
-   */
   bigKeys?: DescribeCacheAnalysisJobResponseBodyDataBigKeys;
-  /**
-   * @remarks
-   * The details of the large keys. The returned large keys are sorted in descending order based on the number of keys.
-   */
   bigKeysOfNum?: DescribeCacheAnalysisJobResponseBodyDataBigKeysOfNum;
-  /**
-   * @remarks
-   * The statistics of the keys that have expired.
-   */
   expiryKeysLevelCount?: DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount;
   /**
    * @remarks
@@ -730,10 +421,6 @@ export class DescribeCacheAnalysisJobResponseBodyData extends $dara.Model {
    * sf79-sd99-sa37-****
    */
   jobId?: string;
-  /**
-   * @remarks
-   * The prefixes of the keys.
-   */
   keyPrefixes?: DescribeCacheAnalysisJobResponseBodyDataKeyPrefixes;
   /**
    * @remarks
@@ -766,15 +453,7 @@ export class DescribeCacheAnalysisJobResponseBodyData extends $dara.Model {
    * BACKUP
    */
   taskState?: string;
-  /**
-   * @remarks
-   * The details of permanent keys. The returned keys are sorted in descending order based on the number of bytes occupied by the keys.
-   */
   unexBigKeysOfBytes?: DescribeCacheAnalysisJobResponseBodyDataUnexBigKeysOfBytes;
-  /**
-   * @remarks
-   * The details of permanent keys. The returned keys are sorted in descending order based on the number of keys.
-   */
   unexBigKeysOfNum?: DescribeCacheAnalysisJobResponseBodyDataUnexBigKeysOfNum;
   static names(): { [key: string]: string } {
     return {

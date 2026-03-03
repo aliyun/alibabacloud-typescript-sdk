@@ -567,7 +567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建最近死锁分析任务
+   * Creates a recent deadlock analysis task.
    * 
    * @param request - CreateLatestDeadLockAnalysisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -602,7 +602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建最近死锁分析任务
+   * Creates a recent deadlock analysis task.
    * 
    * @param request - CreateLatestDeadLockAnalysisRequest
    * @returns CreateLatestDeadLockAnalysisResponse
@@ -1841,7 +1841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取执行计划
+   * Queries the execution plan of an SQL statement.
    * 
    * @param request - DescribeQueryExplainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1888,7 +1888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取执行计划
+   * Queries the execution plan of an SQL statement.
    * 
    * @param request - DescribeQueryExplainRequest
    * @returns DescribeQueryExplainResponse
@@ -1987,7 +1987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeSlowLogHistogramAsync
+   * Asynchronously queries the trend data of slow query logs of an instance.
    * 
    * @param request - DescribeSlowLogHistogramAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2034,7 +2034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeSlowLogHistogramAsync
+   * Asynchronously queries the trend data of slow query logs of an instance.
    * 
    * @param request - DescribeSlowLogHistogramAsyncRequest
    * @returns DescribeSlowLogHistogramAsyncResponse
@@ -2045,7 +2045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看慢日志明细接口
+   * Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2110,7 +2110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看慢日志明细接口
+   * Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @returns DescribeSlowLogRecordsResponse
@@ -2121,7 +2121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 慢日志统计信息
+   * Queries statistical information about slow query logs.
    * 
    * @param request - DescribeSlowLogStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2192,7 +2192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 慢日志统计信息
+   * Queries statistical information about slow query logs.
    * 
    * @param request - DescribeSlowLogStatisticRequest
    * @returns DescribeSlowLogStatisticResponse
@@ -3877,16 +3877,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.GetDasAgentSSEResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.GetDasAgentSSEResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.GetDasAgentSSEResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GetDasAgentSSEResponse({}));
+      }
+
     }
   }
 
@@ -4169,7 +4170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个死锁详情
+   * Queries the details of a deadlock.
    * 
    * @param request - GetDeadLockDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4212,7 +4213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个死锁详情
+   * Queries the details of a deadlock.
    * 
    * @param request - GetDeadLockDetailRequest
    * @returns GetDeadLockDetailResponse
@@ -4295,7 +4296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取历史死锁记录
+   * Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
    * 
    * @param request - GetDeadLockHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4350,7 +4351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取历史死锁记录
+   * Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
    * 
    * @param request - GetDeadLockHistoryRequest
    * @returns GetDeadLockHistoryResponse
@@ -4361,7 +4362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询时间范围内基于错误日志分析的死锁数量
+   * Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
    * 
    * @param request - GetDeadlockHistogramRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4408,7 +4409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询时间范围内基于错误日志分析的死锁数量
+   * Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
    * 
    * @param request - GetDeadlockHistogramRequest
    * @returns GetDeadlockHistogramResponse
@@ -7032,6 +7033,117 @@ export default class Client extends OpenApi {
   async getStorageAnalysisResult(request: $_model.GetStorageAnalysisResultRequest): Promise<$_model.GetStorageAnalysisResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getStorageAnalysisResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 瑶池AI助理大模型能力接口
+   * 
+   * @param request - GetYaoChiAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYaoChiAgentResponse
+   */
+  async *getYaoChiAgentWithSSE(request: $_model.GetYaoChiAgentRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GetYaoChiAgentResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extraInfo)) {
+      query["ExtraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYaoChiAgent",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.GetYaoChiAgentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GetYaoChiAgentResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 瑶池AI助理大模型能力接口
+   * 
+   * @param request - GetYaoChiAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYaoChiAgentResponse
+   */
+  async getYaoChiAgentWithOptions(request: $_model.GetYaoChiAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYaoChiAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extraInfo)) {
+      query["ExtraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYaoChiAgent",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYaoChiAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetYaoChiAgentResponse({}));
+  }
+
+  /**
+   * 瑶池AI助理大模型能力接口
+   * 
+   * @param request - GetYaoChiAgentRequest
+   * @returns GetYaoChiAgentResponse
+   */
+  async getYaoChiAgent(request: $_model.GetYaoChiAgentRequest): Promise<$_model.GetYaoChiAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYaoChiAgentWithOptions(request, runtime);
   }
 
   /**

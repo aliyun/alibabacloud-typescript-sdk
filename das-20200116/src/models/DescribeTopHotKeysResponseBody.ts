@@ -4,54 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTopHotKeysResponseBodyDataHotKey extends $dara.Model {
   category?: string;
-  /**
-   * @remarks
-   * The database in which the key is stored.
-   * 
-   * @example
-   * 0
-   */
   db?: number;
-  /**
-   * @remarks
-   * The frequency at which the key is accessed, which indicates the QPS of the key.
-   * 
-   * @example
-   * 5500~6000
-   */
   hot?: string;
   inBytes?: number;
-  /**
-   * @remarks
-   * The key.
-   * 
-   * @example
-   * abc:def:eng
-   */
   key?: string;
-  /**
-   * @remarks
-   * The type of the key.
-   * 
-   * @example
-   * zset
-   */
   keyType?: string;
-  /**
-   * @remarks
-   * The statistical value that is calculated based on the least frequently used (LFU) caching algorithm.
-   * 
-   * @example
-   * 253
-   */
   lfu?: number;
-  /**
-   * @remarks
-   * The ID of the data shard on the ApsaraDB for Redis instance.
-   * 
-   * @example
-   * r-x****-db-0
-   */
   nodeId?: string;
   outBytes?: number;
   static names(): { [key: string]: string } {
@@ -126,10 +84,6 @@ export class DescribeTopHotKeysResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The detailed information about the hot keys.
-   */
   data?: DescribeTopHotKeysResponseBodyData;
   /**
    * @remarks

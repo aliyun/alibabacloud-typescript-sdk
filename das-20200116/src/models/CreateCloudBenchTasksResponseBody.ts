@@ -37,10 +37,6 @@ export class CreateCloudBenchTasksResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The detailed information.
-   */
   data?: CreateCloudBenchTasksResponseBodyData;
   /**
    * @remarks
