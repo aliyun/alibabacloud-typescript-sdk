@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查账号是否存在ServiceLinkedRole授权
+   * Checks whether a service-linked role is created for an Alibaba Cloud account.
    * 
    * @param request - CheckServiceLinkedRoleForProductRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61,7 +61,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查账号是否存在ServiceLinkedRole授权
+   * Checks whether a service-linked role is created for an Alibaba Cloud account.
    * 
    * @param request - CheckServiceLinkedRoleForProductRequest
    * @returns CheckServiceLinkedRoleForProductResponse
@@ -1024,7 +1024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发现EventSource(例如：Mysql)的Schema和SimpleData
+   * Discovers the schema and simple data of an event source (such as MySQL).
    * 
    * @param tmpReq - DiscoverEventSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1061,7 +1061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发现EventSource(例如：Mysql)的Schema和SimpleData
+   * Discovers the schema and simple data of an event source (such as MySQL).
    * 
    * @param request - DiscoverEventSourceRequest
    * @returns DiscoverEventSourceResponse
@@ -2810,7 +2810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件流
+   * This API operation allows you to query event streams.
    * 
    * @param request - UpdateEventStreamingBusinessOptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2853,7 +2853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件流
+   * This API operation allows you to query event streams.
    * 
    * @param request - UpdateEventStreamingBusinessOptionRequest
    * @returns UpdateEventStreamingBusinessOptionResponse

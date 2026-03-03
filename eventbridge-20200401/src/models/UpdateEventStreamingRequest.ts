@@ -2312,6 +2312,134 @@ export class UpdateEventStreamingRequestSinkSinkDorisParameters extends $dara.Mo
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkEventHouseParametersMappingRulesColumnValue extends $dara.Model {
+  /**
+   * @example
+   * JSONPATH
+   */
+  form?: string;
+  /**
+   * @example
+   * The value of ${key} is ${value}!
+   */
+  template?: string;
+  /**
+   * @example
+   * $.data.value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkEventHouseParametersMappingRules extends $dara.Model {
+  /**
+   * @example
+   * age
+   */
+  columnName?: string;
+  /**
+   * @example
+   * text
+   */
+  columnType?: string;
+  columnValue?: UpdateEventStreamingRequestSinkSinkEventHouseParametersMappingRulesColumnValue;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      columnType: 'ColumnType',
+      columnValue: 'ColumnValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      columnType: 'string',
+      columnValue: UpdateEventStreamingRequestSinkSinkEventHouseParametersMappingRulesColumnValue,
+    };
+  }
+
+  validate() {
+    if(this.columnValue && typeof (this.columnValue as any).validate === 'function') {
+      (this.columnValue as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkEventHouseParameters extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  catalogName?: string;
+  /**
+   * @example
+   * demo-table
+   */
+  eventTableName?: string;
+  mappingRules?: UpdateEventStreamingRequestSinkSinkEventHouseParametersMappingRules[];
+  /**
+   * @example
+   * name1
+   */
+  namespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      eventTableName: 'EventTableName',
+      mappingRules: 'MappingRules',
+      namespaceName: 'NamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      eventTableName: 'string',
+      mappingRules: { 'type': 'array', 'itemType': UpdateEventStreamingRequestSinkSinkEventHouseParametersMappingRules },
+      namespaceName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mappingRules)) {
+      $dara.Model.validateArray(this.mappingRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkFcParametersBody extends $dara.Model {
   /**
    * @remarks
@@ -6791,6 +6919,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
    * The type of the event source.
    */
   sinkDorisParameters?: UpdateEventStreamingRequestSinkSinkDorisParameters;
+  sinkEventHouseParameters?: UpdateEventStreamingRequestSinkSinkEventHouseParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify Function Compute as the event target.
@@ -6858,6 +6987,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkDataWorksTriggerParameters: 'SinkDataWorksTriggerParameters',
       sinkDorisParameters: 'SinkDorisParameters',
+      sinkEventHouseParameters: 'SinkEventHouseParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkHttpsParameters: 'SinkHttpsParameters',
@@ -6888,6 +7018,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkDataHubParameters: UpdateEventStreamingRequestSinkSinkDataHubParameters,
       sinkDataWorksTriggerParameters: SinkDataWorksTriggerParameters,
       sinkDorisParameters: UpdateEventStreamingRequestSinkSinkDorisParameters,
+      sinkEventHouseParameters: UpdateEventStreamingRequestSinkSinkEventHouseParameters,
       sinkFcParameters: UpdateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
       sinkHttpsParameters: SinkHttpsParameters,
@@ -6936,6 +7067,9 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
       (this.sinkDorisParameters as any).validate();
+    }
+    if(this.sinkEventHouseParameters && typeof (this.sinkEventHouseParameters as any).validate === 'function') {
+      (this.sinkEventHouseParameters as any).validate();
     }
     if(this.sinkFcParameters && typeof (this.sinkFcParameters as any).validate === 'function') {
       (this.sinkFcParameters as any).validate();

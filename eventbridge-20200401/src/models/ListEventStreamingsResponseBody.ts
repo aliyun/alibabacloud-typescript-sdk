@@ -1603,6 +1603,134 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParametersMappingRulesColumnValue extends $dara.Model {
+  /**
+   * @example
+   * JSONPATH
+   */
+  form?: string;
+  /**
+   * @example
+   * The value of ${key} is ${value}!
+   */
+  template?: string;
+  /**
+   * @example
+   * $.data.value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParametersMappingRules extends $dara.Model {
+  /**
+   * @example
+   * age
+   */
+  columnName?: string;
+  /**
+   * @example
+   * text
+   */
+  columnType?: string;
+  columnValue?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParametersMappingRulesColumnValue;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      columnType: 'ColumnType',
+      columnValue: 'ColumnValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      columnType: 'string',
+      columnValue: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParametersMappingRulesColumnValue,
+    };
+  }
+
+  validate() {
+    if(this.columnValue && typeof (this.columnValue as any).validate === 'function') {
+      (this.columnValue as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParameters extends $dara.Model {
+  /**
+   * @example
+   * cat1
+   */
+  catalogName?: string;
+  /**
+   * @example
+   * table1
+   */
+  eventTableName?: string;
+  mappingRules?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParametersMappingRules[];
+  /**
+   * @example
+   * name1
+   */
+  namespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      eventTableName: 'EventTableName',
+      mappingRules: 'MappingRules',
+      namespaceName: 'NamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      eventTableName: 'string',
+      mappingRules: { 'type': 'array', 'itemType': ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParametersMappingRules },
+      namespaceName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mappingRules)) {
+      $dara.Model.validateArray(this.mappingRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersBody extends $dara.Model {
   /**
    * @remarks
@@ -5031,6 +5159,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   sinkDashVectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters;
   sinkDataHubParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters;
   sinkDorisParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters;
+  sinkEventHouseParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParameters;
   /**
    * @remarks
    * The parameters that are returned if Function Compute is specified as the event target.
@@ -5083,6 +5212,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkDorisParameters: 'SinkDorisParameters',
+      sinkEventHouseParameters: 'SinkEventHouseParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkHttpsParameters: 'SinkHttpsParameters',
@@ -5110,6 +5240,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkDashVectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters,
       sinkDataHubParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters,
       sinkDorisParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters,
+      sinkEventHouseParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkEventHouseParameters,
       sinkFcParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters,
       sinkFnfParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters,
       sinkHttpsParameters: SinkHttpsParameters,
@@ -5151,6 +5282,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
     }
     if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
       (this.sinkDorisParameters as any).validate();
+    }
+    if(this.sinkEventHouseParameters && typeof (this.sinkEventHouseParameters as any).validate === 'function') {
+      (this.sinkEventHouseParameters as any).validate();
     }
     if(this.sinkFcParameters && typeof (this.sinkFcParameters as any).validate === 'function') {
       (this.sinkFcParameters as any).validate();

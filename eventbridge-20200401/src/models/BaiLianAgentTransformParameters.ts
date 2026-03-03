@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class BaiLianAgentTransformParametersPrompt extends $dara.Model {
   form?: string;
   template?: string;
