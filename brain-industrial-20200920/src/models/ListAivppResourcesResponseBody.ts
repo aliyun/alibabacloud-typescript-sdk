@@ -8,6 +8,11 @@ export class ListAivppResourcesResponseBodyData extends $dara.Model {
    * 10000
    */
   connectNum?: number;
+  /**
+   * @example
+   * industry-brain.aliyun.com
+   */
+  consoleUrl?: string;
   detail?: string;
   /**
    * @example
@@ -67,6 +72,7 @@ export class ListAivppResourcesResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       connectNum: 'ConnectNum',
+      consoleUrl: 'ConsoleUrl',
       detail: 'Detail',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
@@ -85,6 +91,7 @@ export class ListAivppResourcesResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       connectNum: 'number',
+      consoleUrl: 'string',
       detail: 'string',
       expireTime: 'string',
       instanceId: 'string',
