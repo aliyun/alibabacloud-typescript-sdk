@@ -8,15 +8,18 @@ export class WorkspaceIdName extends $dara.Model {
    * ws123456
    */
   workspaceId?: string;
+  workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
       workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       workspaceId: 'string',
+      workspaceName: 'string',
     };
   }
 

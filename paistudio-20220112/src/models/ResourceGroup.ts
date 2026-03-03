@@ -52,6 +52,8 @@ export class ResourceGroup extends $dara.Model {
    * rg17tmvwiokhzaxg
    */
   resourceGroupID?: string;
+  resourceType?: string;
+  status?: string;
   /**
    * @remarks
    * UserVpc
@@ -74,6 +76,8 @@ export class ResourceGroup extends $dara.Model {
       name: 'Name',
       nodeCount: 'NodeCount',
       resourceGroupID: 'ResourceGroupID',
+      resourceType: 'ResourceType',
+      status: 'Status',
       userVpc: 'UserVpc',
       version: 'Version',
       workspaceID: 'WorkspaceID',
@@ -88,6 +92,8 @@ export class ResourceGroup extends $dara.Model {
       name: 'string',
       nodeCount: 'number',
       resourceGroupID: 'string',
+      resourceType: 'string',
+      status: 'string',
       userVpc: UserVpc,
       version: 'string',
       workspaceID: 'string',

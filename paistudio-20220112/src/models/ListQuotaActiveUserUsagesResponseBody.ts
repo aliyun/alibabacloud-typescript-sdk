@@ -5,6 +5,7 @@ import { QuotaUser } from "./QuotaUser";
 
 export class ListQuotaActiveUserUsagesResponseBody extends $dara.Model {
   quotaUserUsage?: QuotaUser[];
+  quotaUserUsages?: QuotaUser[];
   /**
    * @remarks
    * Id of the request
@@ -21,6 +22,7 @@ export class ListQuotaActiveUserUsagesResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       quotaUserUsage: 'QuotaUserUsage',
+      quotaUserUsages: 'QuotaUserUsages',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
     };
@@ -29,6 +31,7 @@ export class ListQuotaActiveUserUsagesResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       quotaUserUsage: { 'type': 'array', 'itemType': QuotaUser },
+      quotaUserUsages: { 'type': 'array', 'itemType': QuotaUser },
       requestId: 'string',
       totalCount: 'number',
     };
@@ -37,6 +40,9 @@ export class ListQuotaActiveUserUsagesResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.quotaUserUsage)) {
       $dara.Model.validateArray(this.quotaUserUsage);
+    }
+    if(Array.isArray(this.quotaUserUsages)) {
+      $dara.Model.validateArray(this.quotaUserUsages);
     }
     super.validate();
   }
