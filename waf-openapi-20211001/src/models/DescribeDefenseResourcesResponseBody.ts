@@ -110,6 +110,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
    * 1665633032000
    */
   gmtModified?: number;
+  instanceId?: string;
   /**
    * @remarks
    * The Alibaba Cloud account to which the protected object belongs. You can specify this parameter to query protected objects that belong to a specific Alibaba Cloud account. Exact match is supported.
@@ -189,6 +190,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
       detail: 'Detail',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      instanceId: 'InstanceId',
       ownerUserId: 'OwnerUserId',
       pattern: 'Pattern',
       product: 'Product',
@@ -211,6 +213,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
       detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreate: 'number',
       gmtModified: 'number',
+      instanceId: 'string',
       ownerUserId: 'string',
       pattern: 'string',
       product: 'string',

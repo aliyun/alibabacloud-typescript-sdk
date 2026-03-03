@@ -118,6 +118,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
    * 1691720010000
    */
   gmtModified?: number;
+  instanceId?: string;
   /**
    * @remarks
    * The user ID (UID) of the Alibaba Cloud account to which the protected object belongs.
@@ -203,6 +204,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
       detail: 'Detail',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      instanceId: 'InstanceId',
       ownerUserId: 'OwnerUserId',
       pattern: 'Pattern',
       product: 'Product',
@@ -225,6 +227,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
       detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreate: 'number',
       gmtModified: 'number',
+      instanceId: 'string',
       ownerUserId: 'string',
       pattern: 'string',
       product: 'string',
