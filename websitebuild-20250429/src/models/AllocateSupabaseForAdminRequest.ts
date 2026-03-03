@@ -2,36 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
+export class AllocateSupabaseForAdminRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * WD20250703155602000001
+   * WS20250801154628000001
    */
   bizId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * staging
+   * gmtCreated
    */
-  env?: string;
   orderColumn?: string;
+  /**
+   * @example
+   * BUY
+   */
   orderType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @example
-   * 123
+   * 111
    */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
-      env: 'Env',
       orderColumn: 'OrderColumn',
       orderType: 'OrderType',
       pageNum: 'PageNum',
@@ -43,7 +50,6 @@ export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
-      env: 'string',
       orderColumn: 'string',
       orderType: 'string',
       pageNum: 'number',

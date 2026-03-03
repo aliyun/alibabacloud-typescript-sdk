@@ -1,6 +1,7 @@
 export { AppInstanceAggregatePartnerDetailBindData } from './AppInstanceAggregate';
 export { AppInstanceAggregatePartnerDetail } from './AppInstanceAggregate';
 export { AppInstanceAggregateTags } from './AppInstanceAggregate';
+export { AllocateSupabaseForAdminResponseBodyModule } from './AllocateSupabaseForAdminResponseBody';
 export { BindAppDomainResponseBodyModule } from './BindAppDomainResponseBody';
 export { CreateAppInstanceRequestTags } from './CreateAppInstanceRequest';
 export { CreateAppInstanceResponseBodyModule } from './CreateAppInstanceResponseBody';
@@ -69,6 +70,9 @@ export { AppService } from './AppService';
 export { AppServiceAggregate } from './AppServiceAggregate';
 export { AppServiceGroup } from './AppServiceGroup';
 export { AppServiceProfile } from './AppServiceProfile';
+export { AllocateSupabaseForAdminRequest } from './AllocateSupabaseForAdminRequest';
+export { AllocateSupabaseForAdminResponseBody } from './AllocateSupabaseForAdminResponseBody';
+export { AllocateSupabaseForAdminResponse } from './AllocateSupabaseForAdminResponse';
 export { BindAppDomainRequest } from './BindAppDomainRequest';
 export { BindAppDomainResponseBody } from './BindAppDomainResponseBody';
 export { BindAppDomainResponse } from './BindAppDomainResponse';
@@ -168,6 +172,9 @@ export { OperateAppInstanceForPartnerResponse } from './OperateAppInstanceForPar
 export { OperateAppServiceForPartnerRequest } from './OperateAppServiceForPartnerRequest';
 export { OperateAppServiceForPartnerResponseBody } from './OperateAppServiceForPartnerResponseBody';
 export { OperateAppServiceForPartnerResponse } from './OperateAppServiceForPartnerResponse';
+export { OperateSupabaseForAdminRequest } from './OperateSupabaseForAdminRequest';
+export { OperateSupabaseForAdminResponseBody } from './OperateSupabaseForAdminResponseBody';
+export { OperateSupabaseForAdminResponse } from './OperateSupabaseForAdminResponse';
 export { QueryMaterialDirectoryTreeRequest } from './QueryMaterialDirectoryTreeRequest';
 export { QueryMaterialDirectoryTreeResponseBody } from './QueryMaterialDirectoryTreeResponseBody';
 export { QueryMaterialDirectoryTreeResponse } from './QueryMaterialDirectoryTreeResponse';

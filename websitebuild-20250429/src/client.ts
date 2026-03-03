@@ -30,6 +30,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分配Supabase实例
+   * 
+   * @param request - AllocateSupabaseForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateSupabaseForAdminResponse
+   */
+  async allocateSupabaseForAdminWithOptions(request: $_model.AllocateSupabaseForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateSupabaseForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocateSupabaseForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocateSupabaseForAdminResponse>(await this.callApi(params, req, runtime), new $_model.AllocateSupabaseForAdminResponse({}));
+  }
+
+  /**
+   * 分配Supabase实例
+   * 
+   * @param request - AllocateSupabaseForAdminRequest
+   * @returns AllocateSupabaseForAdminResponse
+   */
+  async allocateSupabaseForAdmin(request: $_model.AllocateSupabaseForAdminRequest): Promise<$_model.AllocateSupabaseForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocateSupabaseForAdminWithOptions(request, runtime);
+  }
+
+  /**
    * Bind Application Domain
    * 
    * @param request - BindAppDomainRequest
@@ -1690,6 +1752,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通用Supabase操作
+   * 
+   * @param request - OperateSupabaseForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateSupabaseForAdminResponse
+   */
+  async operateSupabaseForAdminWithOptions(request: $_model.OperateSupabaseForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateSupabaseForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.executeSql)) {
+      query["ExecuteSql"] = request.executeSql;
+    }
+
+    if (!$dara.isNull(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!$dara.isNull(request.orderByClause)) {
+      query["OrderByClause"] = request.orderByClause;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.whereClause)) {
+      query["WhereClause"] = request.whereClause;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateSupabaseForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateSupabaseForAdminResponse>(await this.callApi(params, req, runtime), new $_model.OperateSupabaseForAdminResponse({}));
+  }
+
+  /**
+   * 通用Supabase操作
+   * 
+   * @param request - OperateSupabaseForAdminRequest
+   * @returns OperateSupabaseForAdminResponse
+   */
+  async operateSupabaseForAdmin(request: $_model.OperateSupabaseForAdminRequest): Promise<$_model.OperateSupabaseForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateSupabaseForAdminWithOptions(request, runtime);
+  }
+
+  /**
    * 查询素材中心文件夹树结构
    * 
    * @param request - QueryMaterialDirectoryTreeRequest
@@ -2115,6 +2259,22 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.env)) {
       query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.userId)) {
