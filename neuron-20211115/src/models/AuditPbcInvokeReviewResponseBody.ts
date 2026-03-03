@@ -4,6 +4,10 @@ import { CatalogCommonResult } from "./CatalogCommonResult";
 
 
 export class AuditPbcInvokeReviewResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 210548f617721779253531433de6e0
+   */
   requestId?: string;
   result?: CatalogCommonResult;
   static names(): { [key: string]: string } {

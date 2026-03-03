@@ -3,11 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMicroServiceRequest extends $dara.Model {
+  /**
+   * @example
+   * gmtCreated
+   */
   orderBy?: string;
+  /**
+   * @example
+   * desc
+   */
   orderDirection?: string;
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   pbcId?: number;
+  /**
+   * @example
+   * 1
+   */
   serviceIds?: string;
   static names(): { [key: string]: string } {
     return {

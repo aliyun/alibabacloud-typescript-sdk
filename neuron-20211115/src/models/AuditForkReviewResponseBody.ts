@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AuditForkReviewResponseBody extends $dara.Model {
+  /**
+   * @example
+   * fsahkfkjsjfsdjlfalsf
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {

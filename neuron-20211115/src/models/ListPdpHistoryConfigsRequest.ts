@@ -4,10 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPdpHistoryConfigsRequest extends $dara.Model {
   configId?: number;
+  /**
+   * @example
+   * gmtCreated
+   */
   orderBy?: string;
+  /**
+   * @example
+   * desc
+   */
   orderDirection?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
   type?: string;
   static names(): { [key: string]: string } {

@@ -52,6 +52,9 @@ export class SearchTracesByPageRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   serviceGroupId?: number;
   /**

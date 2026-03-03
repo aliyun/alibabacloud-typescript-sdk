@@ -3,15 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPdpConfigsRequest extends $dara.Model {
+  /**
+   * @example
+   * gmtCreated
+   */
   orderBy?: string;
+  /**
+   * @example
+   * desc
+   */
   orderDirection?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

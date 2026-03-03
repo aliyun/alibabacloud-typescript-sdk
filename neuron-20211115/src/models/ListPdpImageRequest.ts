@@ -3,13 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPdpImageRequest extends $dara.Model {
+  /**
+   * @example
+   * gmtCreated
+   */
   orderBy?: string;
+  /**
+   * @example
+   * desc
+   */
   orderDirection?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {

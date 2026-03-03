@@ -14,7 +14,15 @@ export class GetMonitorAlertHistoryRequest extends $dara.Model {
   orderDirection?: string;
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @example
+   * 123
+   */
   pbcId?: number;
+  /**
+   * @example
+   * 123
+   */
   serviceGroupId?: number;
   startTime?: string;
   /**

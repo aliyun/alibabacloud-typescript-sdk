@@ -41,6 +41,10 @@ export class ListMonitorTasksRequest extends $dara.Model {
    * 2
    */
   pbcId?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: string;
   /**
    * @example
