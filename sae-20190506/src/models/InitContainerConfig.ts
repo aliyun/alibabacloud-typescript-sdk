@@ -10,6 +10,7 @@ export class InitContainerConfig extends $dara.Model {
   envs?: string;
   imageUrl?: string;
   name?: string;
+  secretMountDesc?: string;
   static names(): { [key: string]: string } {
     return {
       command: 'Command',
@@ -19,6 +20,7 @@ export class InitContainerConfig extends $dara.Model {
       envs: 'Envs',
       imageUrl: 'ImageUrl',
       name: 'Name',
+      secretMountDesc: 'SecretMountDesc',
     };
   }
 
@@ -31,6 +33,7 @@ export class InitContainerConfig extends $dara.Model {
       envs: 'string',
       imageUrl: 'string',
       name: 'string',
+      secretMountDesc: 'string',
     };
   }
 

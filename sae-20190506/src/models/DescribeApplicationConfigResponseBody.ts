@@ -174,6 +174,38 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyD
   }
 }
 
+export class DescribeApplicationConfigResponseBodyDataInitContainersConfigSecretMountDesc extends $dara.Model {
+  key?: string;
+  mountPath?: string;
+  secretId?: number;
+  secretName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      mountPath: 'MountPath',
+      secretId: 'SecretId',
+      secretName: 'SecretName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      mountPath: 'string',
+      secretId: 'number',
+      secretName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationConfigResponseBodyDataInitContainersConfig extends $dara.Model {
   /**
    * @remarks
@@ -245,6 +277,7 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
    * init-container
    */
   name?: string;
+  secretMountDesc?: DescribeApplicationConfigResponseBodyDataInitContainersConfigSecretMountDesc[];
   static names(): { [key: string]: string } {
     return {
       command: 'Command',
@@ -254,6 +287,7 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
       envs: 'Envs',
       imageUrl: 'ImageUrl',
       name: 'Name',
+      secretMountDesc: 'SecretMountDesc',
     };
   }
 
@@ -266,6 +300,7 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
       envs: 'string',
       imageUrl: 'string',
       name: 'string',
+      secretMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfigSecretMountDesc },
     };
   }
 
@@ -275,6 +310,9 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
     }
     if(Array.isArray(this.emptyDirDesc)) {
       $dara.Model.validateArray(this.emptyDirDesc);
+    }
+    if(Array.isArray(this.secretMountDesc)) {
+      $dara.Model.validateArray(this.secretMountDesc);
     }
     super.validate();
   }

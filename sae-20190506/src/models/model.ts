@@ -80,6 +80,7 @@ export { DescribeApplicationConfigResponseBodyDataConfigMapMountDesc } from './D
 export { DescribeApplicationConfigResponseBodyDataEmptyDirDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc } from './DescribeApplicationConfigResponseBody';
+export { DescribeApplicationConfigResponseBodyDataInitContainersConfigSecretMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataInitContainersConfig } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataOssMountDescs } from './DescribeApplicationConfigResponseBody';
