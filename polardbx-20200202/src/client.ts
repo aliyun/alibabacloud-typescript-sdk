@@ -900,6 +900,10 @@ export default class Client extends OpenApi {
       query["NetworkType"] = request.networkType;
     }
 
+    if (!$dara.isNull(request.originMinorVersion)) {
+      query["OriginMinorVersion"] = request.originMinorVersion;
+    }
+
     if (!$dara.isNull(request.payType)) {
       query["PayType"] = request.payType;
     }
@@ -930,6 +934,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.series)) {
       query["Series"] = request.series;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
     }
 
     if (!$dara.isNull(request.tertiaryZone)) {

@@ -49,6 +49,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * vpc
    */
   networkType?: string;
+  originMinorVersion?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -91,6 +92,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   secondaryZone?: string;
   series?: string;
+  storageType?: string;
   /**
    * @example
    * cn-shenzhen-e
@@ -144,6 +146,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       isColumnarReadDBInstance: 'IsColumnarReadDBInstance',
       isReadDBInstance: 'IsReadDBInstance',
       networkType: 'NetworkType',
+      originMinorVersion: 'OriginMinorVersion',
       payType: 'PayType',
       period: 'Period',
       primaryDBInstanceName: 'PrimaryDBInstanceName',
@@ -152,6 +155,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       secondaryZone: 'SecondaryZone',
       series: 'Series',
+      storageType: 'StorageType',
       tertiaryZone: 'TertiaryZone',
       topologyType: 'TopologyType',
       usedTime: 'UsedTime',
@@ -178,6 +182,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       isColumnarReadDBInstance: 'boolean',
       isReadDBInstance: 'boolean',
       networkType: 'string',
+      originMinorVersion: 'string',
       payType: 'string',
       period: 'string',
       primaryDBInstanceName: 'string',
@@ -186,6 +191,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       resourceGroupId: 'string',
       secondaryZone: 'string',
       series: 'string',
+      storageType: 'string',
       tertiaryZone: 'string',
       topologyType: 'string',
       usedTime: 'number',
