@@ -3,23 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecognitionLibsResponseBodyLibsLib extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the recognition library.
-   */
   libDescription?: string;
-  /**
-   * @remarks
-   * The ID of the recognition library.
-   * 
-   * @example
-   * *************24b47865c6**************
-   */
   libId?: string;
-  /**
-   * @remarks
-   * The name of the recognition library.
-   */
   libName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,10 +58,6 @@ export class ListRecognitionLibsResponseBodyLibs extends $dara.Model {
 }
 
 export class ListRecognitionLibsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The recognition libraries.
-   */
   libs?: ListRecognitionLibsResponseBodyLibs;
   /**
    * @remarks

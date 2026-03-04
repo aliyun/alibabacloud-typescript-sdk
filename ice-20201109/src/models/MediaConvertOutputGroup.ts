@@ -5,8 +5,23 @@ import { MediaConvertOutputGroupOutput } from "./MediaConvertOutputGroupOutput";
 
 
 export class MediaConvertOutputGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The output group configuration.
+   */
   groupConfig?: MediaConvertOutputGroupConfig;
+  /**
+   * @remarks
+   * The name of the output group.
+   * 
+   * @example
+   * hls-group
+   */
   name?: string;
+  /**
+   * @remarks
+   * A list of individual output stream configurations. Each object in this array defines a specific rendition.
+   */
   outputs?: MediaConvertOutputGroupOutput[];
   static names(): { [key: string]: string } {
     return {

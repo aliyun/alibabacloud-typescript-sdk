@@ -4,13 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class TranspositionResult extends $dara.Model {
   /**
+   * @remarks
+   * *   The target language of the translation.
+   * *   This field is only used in translation-related scenarios.
+   * 
    * @example
    * zh
    */
   targetLanguage?: string;
   /**
-   * @example
-   * 你好
+   * @remarks
+   * *   The translated text corresponding to the matched hotwords. Maximum length: 100 characters.
+   * *   This field is only used in translation-related scenarios.
    */
   translatedText?: string;
   static names(): { [key: string]: string } {

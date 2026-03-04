@@ -4,76 +4,121 @@ import * as $dara from '@darabonba/typescript';
 
 export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 0.f
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The layout of the audio channels.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of audio channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The full name of the codec.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The short name of the codec.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the codec.
+   * 
    * @example
    * 0x000f
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag of the codec.
+   * 
    * @example
    * [15][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base used by the codec.
+   * 
    * @example
    * 1/44100
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The index of this stream within the file.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language code for the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The audio sample format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sample rate. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time of the stream. Unit: seconds.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base of the stream\\"s presentation timestamps.
+   * 
    * @example
    * 1/90000
    */
@@ -129,57 +174,97 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
 
 export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 888.563
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The total duration of the media file. Unit: seconds.
+   * 
    * @example
    * 403.039999
    */
   duration?: string;
   /**
+   * @remarks
+   * The name of the file.
+   * 
    * @example
    * file.m3u8
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 31737
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The status of the file.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * Indicates if this is the source or a transcoded output. Valid values: source_file and transcode_file.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The container format name.
+   * 
    * @example
    * hls,applehttp
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height of the video, in pixels.
+   * 
    * @example
    * 478
    */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the media asset.
+   * 
+   * @example
+   * 9066406c306771f0bfa35107e0c90102
+   */
   mediaId?: string;
   /**
+   * @remarks
+   * The storage region of the file.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width of the video, in pixels.
+   * 
    * @example
    * 848
    */
@@ -229,112 +314,189 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
 
 export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.Model {
   /**
+   * @remarks
+   * The average frame rate.
+   * 
    * @example
    * 25.0
    */
   avgFps?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 888.563
    */
   bitRate?: string;
   /**
+   * @remarks
+   * The full name of the codec.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The short name of the codec.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the codec.
+   * 
    * @example
    * 0x001b
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag of the codec.
+   * 
    * @example
    * [27][0][0][0]
    */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The time base used by the codec.
+   * 
+   * @example
+   * 1/50
+   */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio.
+   * 
    * @example
    * 16:9
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
    * @example
    * 25.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video stream contains B-frames. Valid value:
+   * 
+   * *   0: None.
+   * *   1: One B-frame.
+   * *   2: Multiple consecutive B-frames.
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height of the video stream, in pixels.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The index of this stream within the file.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language code for the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 31
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 10040
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The codec profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle applied to the video. Valid values: 0, 90, 180, and 270. Default value: 0.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The sample aspect ratio.
+   * 
    * @example
    * 478:477
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base of the stream\\"s presentation timestamps.
+   * 
    * @example
    * 1/90000
    */
   timeBase?: string;
   /**
+   * @remarks
+   * The width of the video stream, in pixels.
+   * 
    * @example
    * 848
    */
@@ -405,8 +567,20 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
 }
 
 export class MediaConvertOutputDetailFileMeta extends $dara.Model {
+  /**
+   * @remarks
+   * The audio stream information.
+   */
   audioStreamInfoList?: MediaConvertOutputDetailFileMetaAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic information of the media file.
+   */
   fileBasicInfo?: MediaConvertOutputDetailFileMetaFileBasicInfo;
+  /**
+   * @remarks
+   * The video stream information.
+   */
   videoStreamInfoList?: MediaConvertOutputDetailFileMetaVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {

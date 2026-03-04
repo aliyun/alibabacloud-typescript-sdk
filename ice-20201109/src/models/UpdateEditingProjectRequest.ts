@@ -53,6 +53,13 @@ export class UpdateEditingProjectRequest extends $dara.Model {
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The timeline of the online editing project, in the JSON format.
+   * 
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****cc3308ac500ca54328bc3443****"},{"MediaId":"****da87a9cff64*d88bc6d8326e4****"}]}]}
+   */
   timeline?: string;
   /**
    * @remarks

@@ -3,26 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecognitionEntitiesResponseBodyEntitiesEntity extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the entity.
-   * 
-   * @example
-   * **************544cb84754************
-   */
   entityId?: string;
-  /**
-   * @remarks
-   * The additional information of the entity, in JSON format.
-   * 
-   * @example
-   * {}
-   */
   entityInfo?: string;
-  /**
-   * @remarks
-   * The name of the entity.
-   */
   entityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76,10 +58,6 @@ export class ListRecognitionEntitiesResponseBodyEntities extends $dara.Model {
 }
 
 export class ListRecognitionEntitiesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The entities.
-   */
   entities?: ListRecognitionEntitiesResponseBodyEntities;
   /**
    * @remarks

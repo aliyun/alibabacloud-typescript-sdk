@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AIAgentRuntimeConfigAvatarChat3D extends $dara.Model {
+  /**
+   * @remarks
+   * Required. The name of the agent in the ARTC channel.
+   * 
+   * @example
+   * 877ae632caae49b1afc81c2e8194ffb4
+   */
   agentUserId?: string;
+  /**
+   * @remarks
+   * Required. The authentication token for the agent to join the channel. This must be generated using your AppKey.
+   * 
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
   authToken?: string;
+  /**
+   * @remarks
+   * Required. The ID of the ARTC channel.
+   * 
+   * @example
+   * 70f22d5784194938a7e387052f2b3208
+   */
   channelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +53,29 @@ export class AIAgentRuntimeConfigAvatarChat3D extends $dara.Model {
 }
 
 export class AIAgentRuntimeConfigVisionChat extends $dara.Model {
+  /**
+   * @remarks
+   * Required. The name of the agent in the ARTC channel.
+   * 
+   * @example
+   * 877ae632caae49b1afc81c2e8194ffb4
+   */
   agentUserId?: string;
+  /**
+   * @remarks
+   * Required. The authentication token for the agent to join the channel. This must be generated using your AppKey.
+   * 
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
   authToken?: string;
+  /**
+   * @remarks
+   * Required. The ID of the ARTC channel.
+   * 
+   * @example
+   * 70f22d5784194938a7e387052f2b3208
+   */
   channelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,8 +103,29 @@ export class AIAgentRuntimeConfigVisionChat extends $dara.Model {
 }
 
 export class AIAgentRuntimeConfigVoiceChat extends $dara.Model {
+  /**
+   * @remarks
+   * Required. The name of the agent in the ARTC channel.
+   * 
+   * @example
+   * 877ae632caae49b1afc81c2e8194ffb4
+   */
   agentUserId?: string;
+  /**
+   * @remarks
+   * Required. The authentication token for the agent to join the channel. This must be generated using your AppKey.
+   * 
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
   authToken?: string;
+  /**
+   * @remarks
+   * Required. The ID of the ARTC channel.
+   * 
+   * @example
+   * 70f22d5784194938a7e387052f2b3208
+   */
   channelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,18 +153,48 @@ export class AIAgentRuntimeConfigVoiceChat extends $dara.Model {
 }
 
 export class AIAgentRuntimeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the agent in the ARTC channel.
+   * 
+   * @example
+   * 877ae632caae49b1afc81c2e8194ffb4
+   */
   agentUserId?: string;
+  /**
+   * @remarks
+   * The authentication token for the agent to join the channel. This must be generated using your AppKey.
+   * 
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
   authToken?: string;
   /**
+   * @remarks
+   * The runtime parameters of the avatar call.
+   * 
    * @deprecated
    */
   avatarChat3D?: AIAgentRuntimeConfigAvatarChat3D;
+  /**
+   * @remarks
+   * The ID of the ARTC channel.
+   * 
+   * @example
+   * 70f22d5784194938a7e387052f2b3208
+   */
   channelId?: string;
   /**
+   * @remarks
+   * The runtime parameters of the vision call.
+   * 
    * @deprecated
    */
   visionChat?: AIAgentRuntimeConfigVisionChat;
   /**
+   * @remarks
+   * The runtime parameters of the voice call.
+   * 
    * @deprecated
    */
   voiceChat?: AIAgentRuntimeConfigVoiceChat;

@@ -814,7 +814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改库
+   * Modifies a search library.
    * 
    * @param request - AlterSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -849,7 +849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改库
+   * Modifies a search library.
    * 
    * @param request - AlterSearchLibRequest
    * @returns AlterSearchLibResponse
@@ -1310,7 +1310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+   * Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
    * 
    * @param request - CreateAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1365,7 +1365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+   * Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
    * 
    * @param request - CreateAvatarTrainingJobRequest
    * @returns CreateAvatarTrainingJobResponse
@@ -1446,7 +1446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom template.
+   * Creates a custom media processing template.
    * 
    * @param request - CreateCustomTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1489,7 +1489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom template.
+   * Creates a custom media processing template.
    * 
    * @param request - CreateCustomTemplateRequest
    * @returns CreateCustomTemplateResponse
@@ -1770,7 +1770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * IPC下单
+   * Creates an IPC order. The purchased capacity is shared at the account level.
    * 
    * @param request - CreateIpcOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1809,7 +1809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * IPC下单
+   * Creates an IPC order. The purchased capacity is shared at the account level.
    * 
    * @param request - CreateIpcOrderRequest
    * @returns CreateIpcOrderResponse
@@ -2180,7 +2180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a live stream transcoding template to submit live stream transcoding jobs.
+   * Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
    * 
    * @param tmpReq - CreateLiveTranscodeTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2225,7 +2225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a live stream transcoding template to submit live stream transcoding jobs.
+   * Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
    * 
    * @param request - CreateLiveTranscodeTemplateRequest
    * @returns CreateLiveTranscodeTemplateResponse
@@ -2862,7 +2862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建搜索索引
+   * Creates a search index in a search library. Each search library can contain multiple indexes.
    * 
    * @remarks
    * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
@@ -2908,7 +2908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建搜索索引
+   * Creates a search index in a search library. Each search library can contain multiple indexes.
    * 
    * @remarks
    * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
@@ -3342,7 +3342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a packaging configuration.
+   * Creates a VOD packaging configuration.
    * 
    * @param tmpReq - CreateVodPackagingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3395,7 +3395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a packaging configuration.
+   * Creates a VOD packaging configuration.
    * 
    * @param request - CreateVodPackagingConfigurationRequest
    * @returns CreateVodPackagingConfigurationResponse
@@ -3406,7 +3406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a packaging group.
+   * Creates a VOD packaging group.
    * 
    * @param request - CreateVodPackagingGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3441,7 +3441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a packaging group.
+   * Creates a VOD packaging group.
    * 
    * @param request - CreateVodPackagingGroupRequest
    * @returns CreateVodPackagingGroupResponse
@@ -3449,6 +3449,48 @@ export default class Client extends OpenApi {
   async createVodPackagingGroup(request: $_model.CreateVodPackagingGroupRequest): Promise<$_model.CreateVodPackagingGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createVodPackagingGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一刻媒资上传凭证
+   * 
+   * @param request - CreateYikeAssetUploadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateYikeAssetUploadResponse
+   */
+  async createYikeAssetUploadWithOptions(request: $_model.CreateYikeAssetUploadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateYikeAssetUploadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileExt)) {
+      query["FileExt"] = request.fileExt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateYikeAssetUpload",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateYikeAssetUploadResponse>(await this.callApi(params, req, runtime), new $_model.CreateYikeAssetUploadResponse({}));
+  }
+
+  /**
+   * 获取一刻媒资上传凭证
+   * 
+   * @param request - CreateYikeAssetUploadRequest
+   * @returns CreateYikeAssetUploadResponse
+   */
+  async createYikeAssetUpload(request: $_model.CreateYikeAssetUploadRequest): Promise<$_model.CreateYikeAssetUploadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createYikeAssetUploadWithOptions(request, runtime);
   }
 
   /**
@@ -5566,7 +5608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a packaging configuration.
+   * Deletes a VOD packaging configuration.
    * 
    * @param request - DeleteVodPackagingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5597,7 +5639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a packaging configuration.
+   * Deletes a VOD packaging configuration.
    * 
    * @param request - DeleteVodPackagingConfigurationRequest
    * @returns DeleteVodPackagingConfigurationResponse
@@ -5608,7 +5650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a packaging group.
+   * Deletes a VOD packaging group.
    * 
    * @param request - DeleteVodPackagingGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5639,7 +5681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a packaging group.
+   * Deletes a VOD packaging group.
    * 
    * @param request - DeleteVodPackagingGroupRequest
    * @returns DeleteVodPackagingGroupResponse
@@ -6090,7 +6132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例
+   * Queries the information about an AI agent for real-time communication (RTC).
    * 
    * @param request - DescribeRtcRobotInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6121,7 +6163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例
+   * Queries the information about an AI agent for real-time communication (RTC).
    * 
    * @param request - DescribeRtcRobotInstanceRequest
    * @returns DescribeRtcRobotInstanceResponse
@@ -7532,7 +7574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询IPC设备信息
+   * Retrieves information about IPC devices.
    * 
    * @param request - GetIpcDeviceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7583,7 +7625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询IPC设备信息
+   * Retrieves information about IPC devices.
    * 
    * @param request - GetIpcDeviceInfoRequest
    * @returns GetIpcDeviceInfoResponse
@@ -8776,7 +8818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the playback URL of a video or audio file based on its ID.
+   * Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
    * 
    * @remarks
    * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
@@ -8818,7 +8860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the playback URL of a video or audio file based on its ID.
+   * Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
    * 
    * @remarks
    * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
@@ -9754,7 +9796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a packaging group.
+   * Queries a VOD packaging group.
    * 
    * @param request - GetVodPackagingGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9785,7 +9827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a packaging group.
+   * Queries a VOD packaging group.
    * 
    * @param request - GetVodPackagingGroupRequest
    * @returns GetVodPackagingGroupResponse
@@ -9835,6 +9877,90 @@ export default class Client extends OpenApi {
   async getWorkflowTask(request: $_model.GetWorkflowTaskRequest): Promise<$_model.GetWorkflowTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkflowTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一刻AI应用任务
+   * 
+   * @param request - GetYikeAIAppJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeAIAppJobResponse
+   */
+  async getYikeAIAppJobWithOptions(request: $_model.GetYikeAIAppJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeAIAppJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeAIAppJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeAIAppJobResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeAIAppJobResponse({}));
+  }
+
+  /**
+   * 获取一刻AI应用任务
+   * 
+   * @param request - GetYikeAIAppJobRequest
+   * @returns GetYikeAIAppJobResponse
+   */
+  async getYikeAIAppJob(request: $_model.GetYikeAIAppJobRequest): Promise<$_model.GetYikeAIAppJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeAIAppJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一刻媒资内容信息
+   * 
+   * @param request - GetYikeAssetMediaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeAssetMediaInfoResponse
+   */
+  async getYikeAssetMediaInfoWithOptions(request: $_model.GetYikeAssetMediaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeAssetMediaInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeAssetMediaInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeAssetMediaInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeAssetMediaInfoResponse({}));
+  }
+
+  /**
+   * 获取一刻媒资内容信息
+   * 
+   * @param request - GetYikeAssetMediaInfoRequest
+   * @returns GetYikeAssetMediaInfoResponse
+   */
+  async getYikeAssetMediaInfo(request: $_model.GetYikeAssetMediaInfoRequest): Promise<$_model.GetYikeAssetMediaInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeAssetMediaInfoWithOptions(request, runtime);
   }
 
   /**
@@ -10040,7 +10166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 罗列用户电话资源接口
+   * Lists available phone numbers.
    * 
    * @param request - ListAIAgentPhoneNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10083,7 +10209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 罗列用户电话资源接口
+   * Lists available phone numbers.
    * 
    * @param request - ListAIAgentPhoneNumberRequest
    * @returns ListAIAgentPhoneNumberResponse
@@ -12282,7 +12408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of packaging jobs.
+   * Queries packaging jobs.
    * 
    * @param request - ListPackageJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12337,7 +12463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of packaging jobs.
+   * Queries packaging jobs.
    * 
    * @param request - ListPackageJobsRequest
    * @returns ListPackageJobsResponse
@@ -13496,7 +13622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists packaging configurations.
+   * Lists VOD packaging configurations.
    * 
    * @param request - ListVodPackagingConfigurationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13543,7 +13669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists packaging configurations.
+   * Lists VOD packaging configurations.
    * 
    * @param request - ListVodPackagingConfigurationsRequest
    * @returns ListVodPackagingConfigurationsResponse
@@ -13554,7 +13680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists packaging groups.
+   * Lists VOD packaging groups.
    * 
    * @param request - ListVodPackagingGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13597,7 +13723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists packaging groups.
+   * Lists VOD packaging groups.
    * 
    * @param request - ListVodPackagingGroupsRequest
    * @returns ListVodPackagingGroupsResponse
@@ -13677,6 +13803,110 @@ export default class Client extends OpenApi {
   async listWorkflowTasks(request: $_model.ListWorkflowTasksRequest): Promise<$_model.ListWorkflowTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listWorkflowTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一刻文件夹列表
+   * 
+   * @param request - ListYikeAssetFoldersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListYikeAssetFoldersResponse
+   */
+  async listYikeAssetFoldersWithOptions(request: $_model.ListYikeAssetFoldersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListYikeAssetFoldersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListYikeAssetFolders",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListYikeAssetFoldersResponse>(await this.callApi(params, req, runtime), new $_model.ListYikeAssetFoldersResponse({}));
+  }
+
+  /**
+   * 获取一刻文件夹列表
+   * 
+   * @param request - ListYikeAssetFoldersRequest
+   * @returns ListYikeAssetFoldersResponse
+   */
+  async listYikeAssetFolders(request: $_model.ListYikeAssetFoldersRequest): Promise<$_model.ListYikeAssetFoldersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listYikeAssetFoldersWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一刻项目列表
+   * 
+   * @param request - ListYikeProductionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListYikeProductionsResponse
+   */
+  async listYikeProductionsWithOptions(request: $_model.ListYikeProductionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListYikeProductionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListYikeProductions",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListYikeProductionsResponse>(await this.callApi(params, req, runtime), new $_model.ListYikeProductionsResponse({}));
+  }
+
+  /**
+   * 获取一刻项目列表
+   * 
+   * @param request - ListYikeProductionsRequest
+   * @returns ListYikeProductionsResponse
+   */
+  async listYikeProductions(request: $_model.ListYikeProductionsRequest): Promise<$_model.ListYikeProductionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listYikeProductionsWithOptions(request, runtime);
   }
 
   /**
@@ -13944,7 +14174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询IPC用量
+   * Queries the usage for the IPC service.
    * 
    * @param request - QueryIpcQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13991,7 +14221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询IPC用量
+   * Queries the usage for the IPC service.
    * 
    * @param request - QueryIpcQuotaRequest
    * @returns QueryIpcQuotaResponse
@@ -14789,6 +15019,60 @@ export default class Client extends OpenApi {
   async registerMediaStream(request: $_model.RegisterMediaStreamRequest): Promise<$_model.RegisterMediaStreamResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.registerMediaStreamWithOptions(request, runtime);
+  }
+
+  /**
+   * 注册一刻媒资
+   * 
+   * @param request - RegisterYikeAssetMediaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterYikeAssetMediaInfoResponse
+   */
+  async registerYikeAssetMediaInfoWithOptions(request: $_model.RegisterYikeAssetMediaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterYikeAssetMediaInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.folderId)) {
+      query["FolderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.inputURL)) {
+      query["InputURL"] = request.inputURL;
+    }
+
+    if (!$dara.isNull(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RegisterYikeAssetMediaInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RegisterYikeAssetMediaInfoResponse>(await this.callApi(params, req, runtime), new $_model.RegisterYikeAssetMediaInfoResponse({}));
+  }
+
+  /**
+   * 注册一刻媒资
+   * 
+   * @param request - RegisterYikeAssetMediaInfoRequest
+   * @returns RegisterYikeAssetMediaInfoResponse
+   */
+  async registerYikeAssetMediaInfo(request: $_model.RegisterYikeAssetMediaInfoRequest): Promise<$_model.RegisterYikeAssetMediaInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.registerYikeAssetMediaInfoWithOptions(request, runtime);
   }
 
   /**
@@ -16248,7 +16532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * Initiates an outbound phone call for an AI agent.
    * 
    * @param tmpReq - StartAIAgentOutboundCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16309,7 +16593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * Initiates an outbound phone call for an AI agent.
    * 
    * @param request - StartAIAgentOutboundCallRequest
    * @returns StartAIAgentOutboundCallResponse
@@ -16474,7 +16758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启一个机器人实例
+   * Starts an AI agent and joins a real-time communication (RTC) call.
    * 
    * @param tmpReq - StartRtcRobotInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16531,7 +16815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启一个机器人实例
+   * Starts an AI agent and joins a real-time communication (RTC) call.
    * 
    * @param request - StartRtcRobotInstanceRequest
    * @returns StartRtcRobotInstanceResponse
@@ -16796,7 +17080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个机器人实例
+   * Stops an AI agent for real-time communication (RTC).
    * 
    * @param request - StopRtcRobotInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16827,7 +17111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个机器人实例
+   * Stops an AI agent for real-time communication (RTC).
    * 
    * @param request - StopRtcRobotInstanceRequest
    * @returns StopRtcRobotInstanceResponse
@@ -16986,7 +17270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an audio production job that converts text into an audio file.
+   * Converts the provided text content into a high-quality audio file.
    * 
    * @param request - SubmitAudioProduceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17041,7 +17325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an audio production job that converts text into an audio file.
+   * Converts the provided text content into a high-quality audio file.
    * 
    * @param request - SubmitAudioProduceJobRequest
    * @returns SubmitAudioProduceJobResponse
@@ -17386,7 +17670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+   * Submits a basic voice cloning job.
    * 
    * @param request - SubmitCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17421,7 +17705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+   * Submits a basic voice cloning job.
    * 
    * @param request - SubmitCustomizedVoiceJobRequest
    * @returns SubmitCustomizedVoiceJobResponse
@@ -19794,7 +20078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+   * Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
    * 
    * @remarks
    * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
@@ -19872,7 +20156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+   * Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
    * 
    * @remarks
    * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
@@ -19883,6 +20167,60 @@ export default class Client extends OpenApi {
   async submitVideoTranslationJob(request: $_model.SubmitVideoTranslationJobRequest): Promise<$_model.SubmitVideoTranslationJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitVideoTranslationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交一刻AI应用任务
+   * 
+   * @param request - SubmitYikeAIAppJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitYikeAIAppJobResponse
+   */
+  async submitYikeAIAppJobWithOptions(request: $_model.SubmitYikeAIAppJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitYikeAIAppJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appParams)) {
+      body["AppParams"] = request.appParams;
+    }
+
+    if (!$dara.isNull(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.productionId)) {
+      body["ProductionId"] = request.productionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitYikeAIAppJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitYikeAIAppJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitYikeAIAppJobResponse({}));
+  }
+
+  /**
+   * 提交一刻AI应用任务
+   * 
+   * @param request - SubmitYikeAIAppJobRequest
+   * @returns SubmitYikeAIAppJobResponse
+   */
+  async submitYikeAIAppJob(request: $_model.SubmitYikeAIAppJobRequest): Promise<$_model.SubmitYikeAIAppJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitYikeAIAppJobWithOptions(request, runtime);
   }
 
   /**
@@ -21790,7 +22128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的配置
+   * Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
    * 
    * @param tmpReq - UpdateRtcRobotInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21831,7 +22169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的配置
+   * Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
    * 
    * @param request - UpdateRtcRobotInstanceRequest
    * @returns UpdateRtcRobotInstanceResponse
@@ -21842,7 +22180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a source in MediaWeaver.
+   * Modifies a source.
    * 
    * @param request - UpdateSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21885,7 +22223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a source in MediaWeaver.
+   * Modifies a source.
    * 
    * @param request - UpdateSourceRequest
    * @returns UpdateSourceResponse

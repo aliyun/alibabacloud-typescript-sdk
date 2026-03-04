@@ -4,22 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecognitionSamplesResponseBodySamplesSample extends $dara.Model {
   entityId?: string;
-  /**
-   * @remarks
-   * The URL of the image sample.
-   * 
-   * @example
-   * https://example.com/sample.png
-   */
   imageUrl?: string;
   libId?: string;
-  /**
-   * @remarks
-   * The sample ID.
-   * 
-   * @example
-   * xxxxxxxxxxxxx
-   */
   sampleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +85,6 @@ export class ListRecognitionSamplesResponseBody extends $dara.Model {
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The samples.
-   */
   samples?: ListRecognitionSamplesResponseBodySamples;
   /**
    * @remarks

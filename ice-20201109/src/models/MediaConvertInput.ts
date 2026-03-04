@@ -4,7 +4,18 @@ import { MediaObject } from "./MediaObject";
 
 
 export class MediaConvertInput extends $dara.Model {
+  /**
+   * @remarks
+   * The input file.
+   */
   inputFile?: MediaObject;
+  /**
+   * @remarks
+   * The name of the input file. If Output contains InputRef, use this name to reference the input file.
+   * 
+   * @example
+   * InputVideo
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

@@ -108,6 +108,15 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The timeline of the online editing job. For more information about the parameters, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.html).
+   * 
+   * > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty.
+   * 
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+   */
   timeline?: string;
   /**
    * @remarks

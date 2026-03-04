@@ -4,8 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The template configurations. For more information, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
+   * 
    * @example
-   * 参见模板Config文档
+   * {
+   *     "VideoTracks": [
+   *         {
+   *             "VideoTrackClips": [
+   *                 {
+   *                     "Sys_Type" : "ArrayItems",
+   *                     "Sys_ArrayObject" : "$VideoArray",
+   *                     "Sys_Template" : {
+   *                         "MediaId" : "$MediaId"
+   *                     }
+   *                 }
+   *             ]
+   *         }
+   *     ]
+   * }
    */
   config?: string;
   /**

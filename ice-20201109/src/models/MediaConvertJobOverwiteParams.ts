@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MediaConvertJobOverwiteParamsSubtitles extends $dara.Model {
+  /**
+   * @remarks
+   * The encoding format for the subtitle stream.
+   * 
+   * @example
+   * VTT
+   */
   codec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +33,10 @@ export class MediaConvertJobOverwiteParamsSubtitles extends $dara.Model {
 }
 
 export class MediaConvertJobOverwiteParams extends $dara.Model {
+  /**
+   * @remarks
+   * Subtitle stream configurations.
+   */
   subtitles?: MediaConvertJobOverwiteParamsSubtitles[];
   static names(): { [key: string]: string } {
     return {

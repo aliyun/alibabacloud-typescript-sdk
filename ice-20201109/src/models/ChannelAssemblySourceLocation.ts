@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChannelAssemblySourceLocation extends $dara.Model {
+  /**
+   * @remarks
+   * The ARN of the source location.
+   * 
+   * @example
+   * acs:ims:mediaweaver:<regionId>:<UserId>:sourcelocation/MySourceLocation
+   */
   arn?: string;
+  /**
+   * @remarks
+   * The base URL of the source location.
+   * 
+   * @example
+   * http://xxxx.com
+   */
   baseUrl?: string;
+  /**
+   * @remarks
+   * The time when the source location was created.
+   * 
+   * @example
+   * 2024-03-29T02:03:17Z
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the source location was last modified.
+   * 
+   * @example
+   * 2024-03-29T02:03:17Z
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The segment delivery server configurations.
+   * 
+   * @example
+   * http://segmentdelivery.com
+   */
   segmentDeliveryConfigurations?: string;
+  /**
+   * @remarks
+   * The name of the source location.
+   * 
+   * @example
+   * MySourceLocation
+   */
   sourceLocationName?: string;
+  /**
+   * @remarks
+   * The status of the source location. 0: normal. 1: deleted.
+   * 
+   * @example
+   * 0
+   */
   state?: number;
   static names(): { [key: string]: string } {
     return {

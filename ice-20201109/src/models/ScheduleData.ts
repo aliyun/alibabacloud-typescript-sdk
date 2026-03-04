@@ -3,11 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ScheduleDataAdBreaks extends $dara.Model {
+  /**
+   * @remarks
+   * MessageType
+   * 
+   * @example
+   * SPLICE_INSERT
+   */
   messageType?: string;
+  /**
+   * @remarks
+   * The time offset.
+   * 
+   * @example
+   * 100000
+   */
   offsetMillis?: string;
+  /**
+   * @remarks
+   * The name of the source location.
+   * 
+   * @example
+   * MySourceLocation
+   */
   sourceLocationName?: string;
+  /**
+   * @remarks
+   * The name of the source.
+   * 
+   * @example
+   * MySource
+   */
   sourceName?: string;
+  /**
+   * @remarks
+   * The SpliceInsert configurations.
+   * 
+   * @example
+   * {"AvailNumber":0,"AvailExpected":0,"SpliceEventID":1,"UniqueProgramID":0}
+   */
   spliceInsertSettings?: string;
+  /**
+   * @remarks
+   * The TimeSignal configurations.
+   * 
+   * @example
+   * {"segmentationEventID":0,"segmentationUPIDType":14,"segmentationUPID":"upid","segmentationTypeID":48,"segmentNumber":0,"segmentsExpected":0,"subSegmentNumber":1,"subSegmentsExpected":0}
+   */
   timeSignalSettings?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,13 +83,71 @@ export class ScheduleDataAdBreaks extends $dara.Model {
 }
 
 export class ScheduleData extends $dara.Model {
+  /**
+   * @remarks
+   * The information about ad breaks.
+   */
   adBreaks?: ScheduleDataAdBreaks[];
+  /**
+   * @remarks
+   * The scheduled playback duration.
+   * 
+   * @example
+   * 100000
+   */
   approximateDurationSeconds?: number;
+  /**
+   * @remarks
+   * The scheduled start time.
+   * 
+   * @example
+   * 1989128002313
+   */
   approximateStartTime?: string;
+  /**
+   * @remarks
+   * The entry type.
+   * 
+   * Valid values:
+   * 
+   * *   FillerSlate
+   * *   program
+   * 
+   * @example
+   * program
+   */
   entryType?: string;
+  /**
+   * @remarks
+   * The name of the program.
+   * 
+   * @example
+   * program1
+   */
   programName?: string;
+  /**
+   * @remarks
+   * The name of the source location.
+   * 
+   * @example
+   * MySourceLocation
+   */
   sourceLocationName?: string;
+  /**
+   * @remarks
+   * The name of the source.
+   * 
+   * @example
+   * MySource
+   */
   sourceName?: string;
+  /**
+   * @remarks
+   * The source type.
+   * 
+   * @example
+   * vodSource
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
