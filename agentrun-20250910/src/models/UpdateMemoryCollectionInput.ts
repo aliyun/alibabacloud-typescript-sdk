@@ -15,6 +15,7 @@ export class UpdateMemoryCollectionInput extends $dara.Model {
   llmConfig?: LLMConfig;
   networkConfiguration?: NetworkConfiguration;
   vectorStoreConfig?: VectorStoreConfig;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
@@ -25,6 +26,7 @@ export class UpdateMemoryCollectionInput extends $dara.Model {
       llmConfig: 'llmConfig',
       networkConfiguration: 'networkConfiguration',
       vectorStoreConfig: 'vectorStoreConfig',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -38,6 +40,7 @@ export class UpdateMemoryCollectionInput extends $dara.Model {
       llmConfig: LLMConfig,
       networkConfiguration: NetworkConfiguration,
       vectorStoreConfig: VectorStoreConfig,
+      workspaceId: 'string',
     };
   }
 

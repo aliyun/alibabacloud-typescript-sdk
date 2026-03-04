@@ -24,6 +24,7 @@ export class PathConfig extends $dara.Model {
    * /login
    */
   path?: string;
+  removeBasePathOnForward?: boolean;
   /**
    * @remarks
    * 资源名称
@@ -42,6 +43,7 @@ export class PathConfig extends $dara.Model {
       agentRuntimeEndpointName: 'agentRuntimeEndpointName',
       methods: 'methods',
       path: 'path',
+      removeBasePathOnForward: 'removeBasePathOnForward',
       resourceName: 'resourceName',
       resourceType: 'resourceType',
     };
@@ -52,6 +54,7 @@ export class PathConfig extends $dara.Model {
       agentRuntimeEndpointName: 'string',
       methods: { 'type': 'array', 'itemType': 'string' },
       path: 'string',
+      removeBasePathOnForward: 'boolean',
       resourceName: 'string',
       resourceType: 'string',
     };

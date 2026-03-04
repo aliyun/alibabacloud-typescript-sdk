@@ -17,6 +17,7 @@ export class CreateMemoryCollectionInput extends $dara.Model {
   networkConfiguration?: NetworkConfiguration;
   type?: string;
   vectorStoreConfig?: VectorStoreConfig;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
@@ -29,6 +30,7 @@ export class CreateMemoryCollectionInput extends $dara.Model {
       networkConfiguration: 'networkConfiguration',
       type: 'type',
       vectorStoreConfig: 'vectorStoreConfig',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -44,6 +46,7 @@ export class CreateMemoryCollectionInput extends $dara.Model {
       networkConfiguration: NetworkConfiguration,
       type: 'string',
       vectorStoreConfig: VectorStoreConfig,
+      workspaceId: 'string',
     };
   }
 

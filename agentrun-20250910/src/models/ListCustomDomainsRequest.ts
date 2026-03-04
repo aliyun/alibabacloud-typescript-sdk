@@ -8,6 +8,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
    * mydomain.com
    */
   domainName?: string;
+  domainType?: string;
   /**
    * @example
    * 1
@@ -31,6 +32,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       domainName: 'domainName',
+      domainType: 'domainType',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       resourceName: 'resourceName',
@@ -41,6 +43,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
+      domainType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceName: 'string',

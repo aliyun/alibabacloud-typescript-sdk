@@ -65,6 +65,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
    * ws-1234567890abcdef
    */
   workspaceId?: string;
+  workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
@@ -75,6 +76,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       searchMode: 'searchMode',
       status: 'status',
       workspaceId: 'workspaceId',
+      workspaceIds: 'workspaceIds',
     };
   }
 
@@ -88,6 +90,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       searchMode: 'string',
       status: 'string',
       workspaceId: 'string',
+      workspaceIds: 'string',
     };
   }
 

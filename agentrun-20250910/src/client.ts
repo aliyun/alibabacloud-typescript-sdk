@@ -595,6 +595,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建工作空间
+   * 
+   * @remarks
+   * 创建工作空间
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspaceWithOptions(request: $_model.CreateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkspace",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/workspaces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建工作空间
+   * 
+   * @remarks
+   * 创建工作空间
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspace(request: $_model.CreateWorkspaceRequest): Promise<$_model.CreateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 删除智能体运行时
    * 
    * @remarks
@@ -1036,6 +1082,47 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTemplateWithOptions(templateName, headers, runtime);
+  }
+
+  /**
+   * 删除工作空间
+   * 
+   * @remarks
+   * 删除工作空间
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkspace",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkspaceResponse({}));
+  }
+
+  /**
+   * 删除工作空间
+   * 
+   * @remarks
+   * 删除工作空间
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspace(workspaceId: string): Promise<$_model.DeleteWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkspaceWithOptions(workspaceId, headers, runtime);
   }
 
   /**
@@ -1552,6 +1639,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看工作空间
+   * 
+   * @remarks
+   * 查看工作空间
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspace",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceResponse({}));
+  }
+
+  /**
+   * 查看工作空间
+   * 
+   * @remarks
+   * 查看工作空间
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspace(workspaceId: string): Promise<$_model.GetWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceWithOptions(workspaceId, headers, runtime);
+  }
+
+  /**
+   * 获取工作空间下的发现端点
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceDiscoveryEndpointsResponse
+   */
+  async getWorkspaceDiscoveryEndpointsWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceDiscoveryEndpointsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspaceDiscoveryEndpoints",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/workspaces/${$dara.URL.percentEncode(workspaceId)}/discovery/endpoints`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceDiscoveryEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceDiscoveryEndpointsResponse({}));
+  }
+
+  /**
+   * 获取工作空间下的发现端点
+   * @returns GetWorkspaceDiscoveryEndpointsResponse
+   */
+  async getWorkspaceDiscoveryEndpoints(workspaceId: string): Promise<$_model.GetWorkspaceDiscoveryEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceDiscoveryEndpointsWithOptions(workspaceId, headers, runtime);
+  }
+
+  /**
    * Retrieve the list of access endpoints for an agent runtime
    * 
    * @remarks
@@ -1707,6 +1870,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceIds)) {
+      query["workspaceIds"] = request.workspaceIds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1948,6 +2115,10 @@ export default class Client extends OpenApi {
       query["domainName"] = request.domainName;
     }
 
+    if (!$dara.isNull(request.domainType)) {
+      query["domainType"] = request.domainType;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
@@ -2076,6 +2247,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.type)) {
       query["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2923,6 +3098,92 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTemplateWithOptions(templateName, request, headers, runtime);
+  }
+
+  /**
+   * 更新工作空间
+   * 
+   * @remarks
+   * 更新工作空间
+   * 
+   * @param request - UpdateWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspaceWithOptions(workspaceId: string, request: $_model.UpdateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkspace",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkspaceResponse({}));
+  }
+
+  /**
+   * 更新工作空间
+   * 
+   * @remarks
+   * 更新工作空间
+   * 
+   * @param request - UpdateWorkspaceRequest
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspace(workspaceId: string, request: $_model.UpdateWorkspaceRequest): Promise<$_model.UpdateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkspaceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取工作空间下的发现端点
+   * 
+   * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceDiscoveryEndpointsResponse
+   */
+  async updateWorkspaceDiscoveryEndpointsWithOptions(workspaceId: string, request: $_model.UpdateWorkspaceDiscoveryEndpointsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceDiscoveryEndpointsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkspaceDiscoveryEndpoints",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/workspaces/${$dara.URL.percentEncode(workspaceId)}/discovery/endpoints`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkspaceDiscoveryEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkspaceDiscoveryEndpointsResponse({}));
+  }
+
+  /**
+   * 获取工作空间下的发现端点
+   * 
+   * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
+   * @returns UpdateWorkspaceDiscoveryEndpointsResponse
+   */
+  async updateWorkspaceDiscoveryEndpoints(workspaceId: string, request: $_model.UpdateWorkspaceDiscoveryEndpointsRequest): Promise<$_model.UpdateWorkspaceDiscoveryEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkspaceDiscoveryEndpointsWithOptions(workspaceId, request, headers, runtime);
   }
 
 }

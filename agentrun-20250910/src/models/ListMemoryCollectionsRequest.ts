@@ -28,6 +28,7 @@ export class ListMemoryCollectionsRequest extends $dara.Model {
    * mem0
    */
   type?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       memoryCollectionName: 'memoryCollectionName',
@@ -35,6 +36,7 @@ export class ListMemoryCollectionsRequest extends $dara.Model {
       pageSize: 'pageSize',
       status: 'status',
       type: 'type',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -45,6 +47,7 @@ export class ListMemoryCollectionsRequest extends $dara.Model {
       pageSize: 'number',
       status: 'string',
       type: 'string',
+      workspaceId: 'string',
     };
   }
 

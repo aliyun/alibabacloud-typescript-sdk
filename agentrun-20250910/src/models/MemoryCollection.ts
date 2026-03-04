@@ -19,6 +19,7 @@ export class MemoryCollection extends $dara.Model {
   memoryCollectionName?: string;
   networkConfiguration?: NetworkConfiguration;
   vectorStoreConfig?: VectorStoreConfig;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
@@ -33,6 +34,7 @@ export class MemoryCollection extends $dara.Model {
       memoryCollectionName: 'memoryCollectionName',
       networkConfiguration: 'networkConfiguration',
       vectorStoreConfig: 'vectorStoreConfig',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -50,6 +52,7 @@ export class MemoryCollection extends $dara.Model {
       memoryCollectionName: 'string',
       networkConfiguration: NetworkConfiguration,
       vectorStoreConfig: VectorStoreConfig,
+      workspaceId: 'string',
     };
   }
 
