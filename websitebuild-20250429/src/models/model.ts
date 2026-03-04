@@ -1,6 +1,9 @@
 export { AppInstanceAggregatePartnerDetailBindData } from './AppInstanceAggregate';
 export { AppInstanceAggregatePartnerDetail } from './AppInstanceAggregate';
 export { AppInstanceAggregateTags } from './AppInstanceAggregate';
+export { ModuleVersionsValueComponentsValueInstancePropertyValues } from './ModuleVersionsValueComponentsValue';
+export { ModuleVersionsValueComponentsValueInstanceProperty } from './ModuleVersionsValueComponentsValue';
+export { ModuleVersionsValueComponentsValuePropertiesValueValues } from './ModuleVersionsValueComponentsValuePropertiesValue';
 export { AllocateSupabaseForAdminResponseBodyModule } from './AllocateSupabaseForAdminResponseBody';
 export { BindAppDomainResponseBodyModule } from './BindAppDomainResponseBody';
 export { CreateAppInstanceRequestTags } from './CreateAppInstanceRequest';
@@ -21,6 +24,7 @@ export { GetUserAccessTokenForPartnerResponseBodyModule } from './GetUserAccessT
 export { GetUserTmpIdentityForPartnerResponseBodyDataCredentials } from './GetUserTmpIdentityForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyData } from './GetUserTmpIdentityForPartnerResponseBody';
 export { IntrospectAppInstanceTicketForPreviewResponseBodyModule } from './IntrospectAppInstanceTicketForPreviewResponseBody';
+export { ListAppCommoditySpecificationsForPartnerResponseBodyModule } from './ListAppCommoditySpecificationsForPartnerResponseBody';
 export { ListAppDomainRedirectRecordsResponseBodyModuleData } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppDomainRedirectRecordsResponseBodyModuleNext } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppDomainRedirectRecordsResponseBodyModule } from './ListAppDomainRedirectRecordsResponseBody';
@@ -70,6 +74,9 @@ export { AppService } from './AppService';
 export { AppServiceAggregate } from './AppServiceAggregate';
 export { AppServiceGroup } from './AppServiceGroup';
 export { AppServiceProfile } from './AppServiceProfile';
+export { ModuleVersionsValue } from './ModuleVersionsValue';
+export { ModuleVersionsValueComponentsValue } from './ModuleVersionsValueComponentsValue';
+export { ModuleVersionsValueComponentsValuePropertiesValue } from './ModuleVersionsValueComponentsValuePropertiesValue';
 export { AllocateSupabaseForAdminRequest } from './AllocateSupabaseForAdminRequest';
 export { AllocateSupabaseForAdminResponseBody } from './AllocateSupabaseForAdminResponseBody';
 export { AllocateSupabaseForAdminResponse } from './AllocateSupabaseForAdminResponse';
@@ -136,6 +143,8 @@ export { GetUserTmpIdentityForPartnerResponse } from './GetUserTmpIdentityForPar
 export { IntrospectAppInstanceTicketForPreviewRequest } from './IntrospectAppInstanceTicketForPreviewRequest';
 export { IntrospectAppInstanceTicketForPreviewResponseBody } from './IntrospectAppInstanceTicketForPreviewResponseBody';
 export { IntrospectAppInstanceTicketForPreviewResponse } from './IntrospectAppInstanceTicketForPreviewResponse';
+export { ListAppCommoditySpecificationsForPartnerResponseBody } from './ListAppCommoditySpecificationsForPartnerResponseBody';
+export { ListAppCommoditySpecificationsForPartnerResponse } from './ListAppCommoditySpecificationsForPartnerResponse';
 export { ListAppDomainRedirectRecordsRequest } from './ListAppDomainRedirectRecordsRequest';
 export { ListAppDomainRedirectRecordsResponseBody } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppDomainRedirectRecordsResponse } from './ListAppDomainRedirectRecordsResponse';

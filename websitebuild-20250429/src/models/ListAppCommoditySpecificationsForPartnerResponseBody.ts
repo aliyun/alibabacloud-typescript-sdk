@@ -1,8 +1,35 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ModuleVersionsValue } from "./ModuleVersionsValue";
 
 
-export class OperateSupabaseForAdminResponseBody extends $dara.Model {
+export class ListAppCommoditySpecificationsForPartnerResponseBodyModule extends $dara.Model {
+  versions?: { [key: string]: ModuleVersionsValue };
+  static names(): { [key: string]: string } {
+    return {
+      versions: 'Versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versions: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleVersionsValue },
+    };
+  }
+
+  validate() {
+    if(this.versions) {
+      $dara.Model.validateMap(this.versions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.Model {
   /**
    * @example
    * {}
@@ -29,11 +56,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
    */
   dynamicMessage?: string;
   errorArgs?: any[];
-  /**
-   * @example
-   * true
-   */
-  module?: string;
+  module?: ListAppCommoditySpecificationsForPartnerResponseBodyModule;
   /**
    * @remarks
    * Id of the request
@@ -77,7 +100,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
       dynamicCode: 'string',
       dynamicMessage: 'string',
       errorArgs: { 'type': 'array', 'itemType': 'any' },
-      module: 'string',
+      module: ListAppCommoditySpecificationsForPartnerResponseBodyModule,
       requestId: 'string',
       rootErrorCode: 'string',
       rootErrorMsg: 'string',
@@ -88,6 +111,9 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.errorArgs)) {
       $dara.Model.validateArray(this.errorArgs);
+    }
+    if(this.module && typeof (this.module as any).validate === 'function') {
+      (this.module as any).validate();
     }
     super.validate();
   }

@@ -1112,6 +1112,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取商品配置信息
+   * 
+   * @param request - ListAppCommoditySpecificationsForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppCommoditySpecificationsForPartnerResponse
+   */
+  async listAppCommoditySpecificationsForPartnerWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListAppCommoditySpecificationsForPartnerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppCommoditySpecificationsForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppCommoditySpecificationsForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.ListAppCommoditySpecificationsForPartnerResponse({}));
+  }
+
+  /**
+   * 获取商品配置信息
+   * @returns ListAppCommoditySpecificationsForPartnerResponse
+   */
+  async listAppCommoditySpecificationsForPartner(): Promise<$_model.ListAppCommoditySpecificationsForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppCommoditySpecificationsForPartnerWithOptions(runtime);
+  }
+
+  /**
    * Query the list of domain redirection rules
    * 
    * @param request - ListAppDomainRedirectRecordsRequest
