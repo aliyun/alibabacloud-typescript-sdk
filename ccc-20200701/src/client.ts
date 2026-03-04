@@ -8277,6 +8277,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询消息推送记录
+   * 
+   * @param request - ListNotificationRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNotificationRecordsResponse
+   */
+  async listNotificationRecordsWithOptions(request: $_model.ListNotificationRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNotificationRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.notificationKeys)) {
+      query["NotificationKeys"] = request.notificationKeys;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNotificationRecords",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNotificationRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListNotificationRecordsResponse({}));
+  }
+
+  /**
+   * 查询消息推送记录
+   * 
+   * @param request - ListNotificationRecordsRequest
+   * @returns ListNotificationRecordsResponse
+   */
+  async listNotificationRecords(request: $_model.ListNotificationRecordsRequest): Promise<$_model.ListNotificationRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNotificationRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * 该坐席可用的外呼号码列表
    * 
    * @param request - ListOutboundNumbersOfUserRequest
@@ -13180,6 +13226,84 @@ export default class Client extends OpenApi {
   async updateSchemaProperty(request: $_model.UpdateSchemaPropertyRequest): Promise<$_model.UpdateSchemaPropertyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSchemaPropertyWithOptions(request, runtime);
+  }
+
+  /**
+   * UpdateSubscription
+   * 
+   * @param request - UpdateSubscriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSubscriptionResponse
+   */
+  async updateSubscriptionWithOptions(request: $_model.UpdateSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSubscriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessPoint)) {
+      query["AccessPoint"] = request.accessPoint;
+    }
+
+    if (!$dara.isNull(request.aliyunUid)) {
+      query["AliyunUid"] = request.aliyunUid;
+    }
+
+    if (!$dara.isNull(request.defaultTopic)) {
+      query["DefaultTopic"] = request.defaultTopic;
+    }
+
+    if (!$dara.isNull(request.eventSubscriptionsJson)) {
+      query["EventSubscriptionsJson"] = request.eventSubscriptionsJson;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mqInstanceId)) {
+      query["MqInstanceId"] = request.mqInstanceId;
+    }
+
+    if (!$dara.isNull(request.mqType)) {
+      query["MqType"] = request.mqType;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.producerId)) {
+      query["ProducerId"] = request.producerId;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSubscription",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSubscriptionResponse({}));
+  }
+
+  /**
+   * UpdateSubscription
+   * 
+   * @param request - UpdateSubscriptionRequest
+   * @returns UpdateSubscriptionResponse
+   */
+  async updateSubscription(request: $_model.UpdateSubscriptionRequest): Promise<$_model.UpdateSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSubscriptionWithOptions(request, runtime);
   }
 
   /**
