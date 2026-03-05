@@ -14,6 +14,7 @@ export class CreateAndroidInstanceGroupRequestNetworkInfo extends $dara.Model {
   payType?: string;
   period?: number;
   periodUnit?: string;
+  promotionId?: string;
   visibleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,6 +29,7 @@ export class CreateAndroidInstanceGroupRequestNetworkInfo extends $dara.Model {
       payType: 'PayType',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
       visibleType: 'VisibleType',
     };
   }
@@ -45,6 +47,7 @@ export class CreateAndroidInstanceGroupRequestNetworkInfo extends $dara.Model {
       payType: 'string',
       period: 'number',
       periodUnit: 'string',
+      promotionId: 'string',
       visibleType: 'string',
     };
   }

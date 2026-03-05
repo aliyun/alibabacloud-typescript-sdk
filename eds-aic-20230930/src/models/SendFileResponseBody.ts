@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendFileResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the cloud phone instance.
+   * 
+   * @example
+   * acp-34pqe4r0kd9kn****
+   */
   androidInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * t-4ks224ujixw****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
