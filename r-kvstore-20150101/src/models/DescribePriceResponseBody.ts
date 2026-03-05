@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePriceResponseBodyOrderCouponsCoupon extends $dara.Model {
-  /**
-   * @remarks
-   * The coupon ID.
-   * 
-   * @example
-   * youhuiquan_promotion_option_id_for_blank
-   */
   couponNo?: string;
-  /**
-   * @remarks
-   * The coupon description.
-   * 
-   * @example
-   * coupondemo
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether the coupon is selected.
-   * 
-   * @example
-   * true
-   */
   isSelected?: string;
-  /**
-   * @remarks
-   * The coupon name.
-   * 
-   * @example
-   * test
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,10 +121,6 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
    * ****
    */
   optionCode?: string;
-  /**
-   * @remarks
-   * The promotion IDs.
-   */
   optionIds?: DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds;
   /**
    * @remarks
@@ -353,10 +321,6 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
    * ""
    */
   code?: string;
-  /**
-   * @remarks
-   * Details about coupons.
-   */
   coupons?: DescribePriceResponseBodyOrderCoupons;
   /**
    * @remarks
@@ -411,10 +375,6 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
    * 0.21
    */
   originalAmount?: string;
-  /**
-   * @remarks
-   * The rule IDs.
-   */
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
   /**
    * @remarks
@@ -502,29 +462,8 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
 }
 
 export class DescribePriceResponseBodyRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the rule.
-   * 
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * 1111111111
-   */
   ruleDescId?: number;
-  /**
-   * @remarks
-   * The title of the rule.
-   * 
-   * @example
-   * test
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -604,58 +543,12 @@ export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractAct
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity extends $dara.Model {
-  /**
-   * @remarks
-   * The activity ID.
-   * 
-   * @example
-   * 1412025702634847
-   */
   activityId?: number;
-  /**
-   * @remarks
-   * The activity name.
-   * 
-   * @example
-   * ****
-   */
   activityName?: string;
-  /**
-   * @remarks
-   * The preferential price.
-   * 
-   * @example
-   * ****
-   */
   finalFee?: number;
-  /**
-   * @remarks
-   * The total discount amount.
-   * 
-   * @example
-   * ****
-   */
   finalPromFee?: number;
-  /**
-   * @remarks
-   * The promotion ID.
-   * 
-   * @example
-   * ****
-   */
   optionCode?: string;
-  /**
-   * @remarks
-   * The promotion IDs.
-   */
   optionIds?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds;
-  /**
-   * @remarks
-   * The original price.
-   * 
-   * @example
-   * ****
-   */
   prodFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -694,82 +587,15 @@ export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractAct
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The price reduction rate.
-   * 
-   * @example
-   * ****
-   */
   cheapRate?: number;
-  /**
-   * @remarks
-   * The new total price displayed on the official website.
-   * 
-   * @example
-   * ****
-   */
   cheapStandAmount?: number;
-  /**
-   * @remarks
-   * The contract promotion.
-   */
   contractActivity?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity;
-  /**
-   * @remarks
-   * The promotional offer (displayed in the total order amount).
-   * 
-   * @example
-   * ****
-   */
   differential?: number;
-  /**
-   * @remarks
-   * The name of the promotional offer.
-   * 
-   * @example
-   * ****
-   */
   differentialName?: string;
-  /**
-   * @remarks
-   * Indicates whether eligibility for the contracted discount is met.
-   * 
-   * @example
-   * false
-   */
   isContractActivity?: boolean;
-  /**
-   * @remarks
-   * The list price.
-   * 
-   * @example
-   * ****
-   */
   listPrice?: number;
-  /**
-   * @remarks
-   * The monthly price.
-   * 
-   * @example
-   * ****
-   */
   monthPrice?: number;
-  /**
-   * @remarks
-   * The original total price displayed on the official website.
-   * 
-   * @example
-   * ****
-   */
   originalStandAmount?: number;
-  /**
-   * @remarks
-   * The start time of the activity.
-   * 
-   * @example
-   * 2024-11-18T00:00:00Z
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -814,85 +640,15 @@ export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $d
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The price reduction rate.
-   * 
-   * @example
-   * ******
-   */
   cheapRate?: number;
-  /**
-   * @remarks
-   * The new total price displayed on the official website.
-   * 
-   * @example
-   * ****
-   */
   cheapStandAmount?: number;
-  /**
-   * @remarks
-   * The promotional offer (displayed in the total order amount).
-   * 
-   * @example
-   * ****
-   */
   differential?: number;
-  /**
-   * @remarks
-   * The name of the promotional offer.
-   * 
-   * @example
-   * ****
-   */
   differentialName?: string;
-  /**
-   * @remarks
-   * Indicates whether eligibility for the contracted discount is met.
-   * 
-   * @example
-   * ****
-   */
   isContractActivity?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the price reduction rate is displayed.
-   * 
-   * @example
-   * true
-   */
   isShow?: boolean;
-  /**
-   * @remarks
-   * The list price.
-   * 
-   * @example
-   * ****
-   */
   listPrice?: number;
-  /**
-   * @remarks
-   * The monthly price.
-   * 
-   * @example
-   * ****
-   */
   monthPrice?: number;
-  /**
-   * @remarks
-   * The original total price displayed on the official website.
-   * 
-   * @example
-   * ****
-   */
   originalStandAmount?: number;
-  /**
-   * @remarks
-   * The start time of the activity.
-   * 
-   * @example
-   * 2024-09-23T14:00:01Z
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -934,37 +690,9 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr extends $dara.Model {
-  /**
-   * @remarks
-   * The attribute code.
-   * 
-   * @example
-   * ****
-   */
   code?: string;
-  /**
-   * @remarks
-   * The attribute name.
-   * 
-   * @example
-   * ****
-   */
   name?: string;
-  /**
-   * @remarks
-   * The attribute type.
-   * 
-   * @example
-   * ****
-   */
   type?: number;
-  /**
-   * @remarks
-   * The attribute value.
-   * 
-   * @example
-   * ****
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1020,95 +748,17 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether eligibility for the contracted discount is met.
-   * 
-   * @example
-   * ****
-   */
   contractActivity?: boolean;
-  /**
-   * @remarks
-   * The price reduction information.
-   */
   depreciateInfo?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo;
-  /**
-   * @remarks
-   * The discount.
-   * 
-   * @example
-   * ****
-   */
   discountFee?: number;
-  /**
-   * @remarks
-   * The module attributes.
-   */
   moduleAttrs?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs;
-  /**
-   * @remarks
-   * The module code.
-   * 
-   * @example
-   * ****
-   */
   moduleCode?: string;
-  /**
-   * @remarks
-   * The module ID.
-   * 
-   * @example
-   * ****
-   */
   moduleId?: string;
-  /**
-   * @remarks
-   * The module name.
-   * 
-   * @example
-   * ****
-   */
   moduleName?: string;
-  /**
-   * @remarks
-   * Indicates whether the order is paid.
-   * 
-   * @example
-   * true
-   */
   needOrderPay?: boolean;
-  /**
-   * @remarks
-   * The actual amount paid.
-   * 
-   * @example
-   * 0.0
-   */
   payFee?: number;
-  /**
-   * @remarks
-   * Indicates whether the item is billed.
-   * 
-   * @example
-   * ****
-   */
   pricingModule?: boolean;
-  /**
-   * @remarks
-   * The discounted price.
-   * 
-   * @example
-   * ****
-   */
   standPrice?: number;
-  /**
-   * @remarks
-   * The original price of the instance.
-   * 
-   * @example
-   * 0.0
-   */
   totalProductFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1186,88 +836,15 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstance extends $d
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotion extends $dara.Model {
-  /**
-   * @remarks
-   * The additional activity information.
-   * 
-   * @example
-   * ****
-   */
   activityExtInfo?: { [key: string]: any };
-  /**
-   * @remarks
-   * The amount that can be deducted by using the coupon.
-   * 
-   * @example
-   * ****
-   */
   canPromFee?: string;
-  /**
-   * @remarks
-   * Indicates whether coupons are used. Valid values:
-   * 
-   * *   default or null (default): Coupons are used.
-   * *   youhuiquan_promotion_option_id_for_blank: Coupons are not used.
-   * 
-   * @example
-   * default
-   */
   couponNo?: string;
-  /**
-   * @remarks
-   * The description of the coupon.
-   * 
-   * @example
-   * ****
-   */
   description?: string;
-  /**
-   * @remarks
-   * The coupon name.
-   * 
-   * @example
-   * ****
-   */
   name?: string;
-  /**
-   * @remarks
-   * The promotion code.
-   * 
-   * @example
-   * ****
-   */
   optionCode?: string;
-  /**
-   * @remarks
-   * The promotion name.
-   * 
-   * @example
-   * ****
-   */
   promotionName?: string;
-  /**
-   * @remarks
-   * The promotion ID.
-   * 
-   * @example
-   * youhuiquan_promotion_option_id_for_blank
-   */
   promotionOptionNo?: string;
-  /**
-   * @remarks
-   * Indicates whether the promotion option is selected.
-   * 
-   * @example
-   * false
-   */
   selected?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the discount is displayed.
-   * 
-   * @example
-   * False
-   */
   show?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1338,69 +915,13 @@ export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions extend
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The additional activity information.
-   * 
-   * @example
-   * ****
-   */
   activityExtInfo?: { [key: string]: any };
-  /**
-   * @remarks
-   * The derived promotion type.
-   * 
-   * @example
-   * ****
-   */
   derivedPromType?: string;
-  /**
-   * @remarks
-   * The discount amount.
-   * 
-   * @example
-   * ****
-   */
   finalPromFee?: number;
-  /**
-   * @remarks
-   * The coupon code.
-   * 
-   * @example
-   * ****
-   */
   optionCode?: string;
-  /**
-   * @remarks
-   * The promotion type.
-   * 
-   * @example
-   * ****
-   */
   promType?: string;
-  /**
-   * @remarks
-   * The promotion code.
-   * 
-   * @example
-   * ****
-   */
   promotionCode?: string;
-  /**
-   * @remarks
-   * The promotion ID.
-   * 
-   * @example
-   * ****
-   */
   promotionId?: number;
-  /**
-   * @remarks
-   * The promotion name.
-   * 
-   * @example
-   * ****
-   */
   promotionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1493,94 +1014,18 @@ export class DescribePriceResponseBodySubOrdersSubOrderRuleIds extends $dara.Mod
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrder extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether eligibility for the contracted discount is met.
-   * 
-   * @example
-   * ****
-   */
   contractActivity?: boolean;
-  /**
-   * @remarks
-   * The price reduction information.
-   */
   depreciateInfo?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo;
-  /**
-   * @remarks
-   * The discount amount of the order.
-   * 
-   * @example
-   * 0.21
-   */
   discountAmount?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * r-bp1xxxxxxxxxxxxx
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether eligibility for the contracted discount is met.
-   * 
-   * @example
-   * ****
-   */
   isContractActivity?: boolean;
-  /**
-   * @remarks
-   * The configuration details for each instance of an order line item.
-   */
   moduleInstance?: DescribePriceResponseBodySubOrdersSubOrderModuleInstance;
-  /**
-   * @remarks
-   * The optional promotions.
-   */
   optionalPromotions?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions;
-  /**
-   * @remarks
-   * The original price of the order.
-   * 
-   * @example
-   * 0.21
-   */
   originalAmount?: string;
-  /**
-   * @remarks
-   * Details about promotions.
-   */
   promDetailList?: DescribePriceResponseBodySubOrdersSubOrderPromDetailList;
-  /**
-   * @remarks
-   * The hit rule IDs.
-   */
   ruleIds?: DescribePriceResponseBodySubOrdersSubOrderRuleIds;
-  /**
-   * @remarks
-   * The discounted price.
-   * 
-   * @example
-   * ****
-   */
   standDiscountPrice?: number;
-  /**
-   * @remarks
-   * The discounted price.
-   * 
-   * @example
-   * ****
-   */
   standPrice?: number;
-  /**
-   * @remarks
-   * The transaction price of the order.
-   * 
-   * @example
-   * 10
-   */
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1690,15 +1135,7 @@ export class DescribePriceResponseBody extends $dara.Model {
    * 3A40BE4E-1890-4972-889C-FEFA37663635
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about promotion rules.
-   */
   rules?: DescribePriceResponseBodyRules;
-  /**
-   * @remarks
-   * The orders that match the coupons.
-   */
   subOrders?: DescribePriceResponseBodySubOrders;
   static names(): { [key: string]: string } {
     return {

@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecurityGroupConfigurationResponseBodyItemsEcsSecurityGroupRelation extends $dara.Model {
-  /**
-   * @remarks
-   * The network type of the security group. Valid values:
-   * 
-   * *   **classic**: the classic network.
-   * *   **vpc**: the virtual private cloud (VPC).
-   * 
-   * @example
-   * vpc
-   */
   netType?: string;
-  /**
-   * @remarks
-   * The ID of the region where the instance is deployed.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the security group.
-   * 
-   * @example
-   * sg-bp14p9y07ns3gwq****
-   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,10 +58,6 @@ export class DescribeSecurityGroupConfigurationResponseBodyItems extends $dara.M
 }
 
 export class DescribeSecurityGroupConfigurationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of security groups.
-   */
   items?: DescribeSecurityGroupConfigurationResponseBodyItems;
   /**
    * @remarks

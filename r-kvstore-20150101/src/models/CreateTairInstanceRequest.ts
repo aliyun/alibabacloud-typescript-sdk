@@ -212,6 +212,7 @@ export class CreateTairInstanceRequest extends $dara.Model {
    * tair.scm.standard.4m.32d
    */
   instanceClass?: string;
+  instanceEndpointType?: string;
   /**
    * @remarks
    * The name of the instance. The name must meet the following requirements:
@@ -503,6 +504,7 @@ export class CreateTairInstanceRequest extends $dara.Model {
       globalInstanceId: 'GlobalInstanceId',
       globalSecurityGroupIds: 'GlobalSecurityGroupIds',
       instanceClass: 'InstanceClass',
+      instanceEndpointType: 'InstanceEndpointType',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       ownerAccount: 'OwnerAccount',
@@ -554,6 +556,7 @@ export class CreateTairInstanceRequest extends $dara.Model {
       globalInstanceId: 'string',
       globalSecurityGroupIds: 'string',
       instanceClass: 'string',
+      instanceEndpointType: 'string',
       instanceName: 'string',
       instanceType: 'string',
       ownerAccount: 'string',

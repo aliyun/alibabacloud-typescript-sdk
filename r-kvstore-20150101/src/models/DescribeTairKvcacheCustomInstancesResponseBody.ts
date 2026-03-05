@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTagsTag extends $dara.Model {
-  /**
-   * @example
-   * tagkey
-   */
   key?: string;
-  /**
-   * @example
-   * tagvalue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,93 +55,25 @@ export class DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInsta
 }
 
 export class DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstance extends $dara.Model {
-  /**
-   * @example
-   * PrePaid
-   */
   chargeType?: string;
-  /**
-   * @example
-   * 2018-11-07T08:49:00Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 2019-04-28T10:03:01Z
-   */
   destroyTime?: string;
-  /**
-   * @example
-   * 2024-05-21T00:00:00Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * tair.gpu.test.16g
-   */
   instanceClass?: string;
-  /**
-   * @example
-   * tc-bp1zxszhcgatnx****
-   */
   instanceId?: string;
-  /**
-   * @example
-   * testdb
-   */
   instanceName?: string;
-  /**
-   * @example
-   * Normal
-   */
   instanceStatus?: string;
-  /**
-   * @example
-   * TairCustom
-   */
   instanceType?: string;
-  /**
-   * @example
-   * VPC
-   */
   networkType?: string;
   privateIp?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * rg-acfmyiu4ekp****
-   */
   resourceGroupId?: string;
-  /**
-   * @example
-   * 50
-   */
   storage?: number;
-  /**
-   * @example
-   * essd_pl1
-   */
   storageType?: string;
   tags?: DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTags;
   useEni?: boolean;
-  /**
-   * @example
-   * vsw-bp1e7clcw529l773d****
-   */
   vSwitchId?: string;
-  /**
-   * @example
-   * vpc-bp1nme44gek34slfc****
-   */
   vpcId?: string;
-  /**
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

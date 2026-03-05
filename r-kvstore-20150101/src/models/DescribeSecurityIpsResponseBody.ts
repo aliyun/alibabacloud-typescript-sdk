@@ -3,28 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecurityIpsResponseBodySecurityIpGroupsSecurityIpGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The attribute of the whitelist. This parameter is empty by default.
-   * 
-   * >  If the instance is authorized to use a service such as Database Autonomy Service (DAS), Data Management (DMS), or Data Transmission Service (DTS), this service automatically generates a **hidden** whitelist for the instance. This type of whitelists cannot be modified or deleted.
-   * 
-   * @example
-   * hidden
-   */
   securityIpGroupAttribute?: string;
-  /**
-   * @remarks
-   * The name of the whitelist.
-   * 
-   * @example
-   * default
-   */
   securityIpGroupName?: string;
-  /**
-   * @remarks
-   * The IP addresses in the whitelist. A maximum of 1,000 IP addresses can be specified in a whitelist.
-   */
   securityIpList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,10 +66,6 @@ export class DescribeSecurityIpsResponseBody extends $dara.Model {
    * EFC9161F-15E3-4A6E-8A99-C09916D1****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The whitelists of the instance.
-   */
   securityIpGroups?: DescribeSecurityIpsResponseBodySecurityIpGroups;
   static names(): { [key: string]: string } {
     return {

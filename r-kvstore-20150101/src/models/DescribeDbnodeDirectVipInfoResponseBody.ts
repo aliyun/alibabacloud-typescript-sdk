@@ -3,39 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfoVipInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The network type of the security group. Valid values:
-   * 
-   * *   **vpc**: Virtual Private Cloud (VPC)
-   * 
-   * @example
-   * vpc
-   */
   netType?: string;
-  /**
-   * @remarks
-   * The shard ID.
-   * 
-   * @example
-   * r-8vb3679b04551444-db-2
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The port number. Valid values: **1024** to **65535**. Default value: **6379**.
-   * 
-   * @example
-   * 6379
-   */
   port?: string;
-  /**
-   * @remarks
-   * The VIP of the shard.
-   * 
-   * @example
-   * 100.115.61.8
-   */
   vip?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,10 +61,6 @@ export class DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfo extends $dara.
 }
 
 export class DescribeDBNodeDirectVipInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The VIP information of shards in the cluster instance.
-   */
   directVipInfo?: DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfo;
   /**
    * @remarks

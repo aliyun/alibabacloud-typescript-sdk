@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParameterTemplatesResponseBodyParametersTemplateRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   * 
-   * @example
-   * [yes|no]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter can be reconfigured. Valid values:
-   * 
-   * *   **true**: The parameter can be reconfigured.
-   * *   **false**: The parameter cannot be reconfigured.
-   * 
-   * @example
-   * true
-   */
   forceModify?: boolean;
-  /**
-   * @remarks
-   * Indicates whether a restart of the instance is required after the parameter is reconfigured. Valid values:
-   * 
-   * *   **true**: After the parameter is reconfigured, you must restart the instance to make the new value of the parameter take effect.
-   * *   **false**: After the parameter is reconfigured, the new value of the parameter immediately takes effect. You do not need to restart the instance.
-   * 
-   * @example
-   * true
-   */
   forceRestart?: boolean;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * test description
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter. For more information about the parameters and the parameter settings, see [Parameters](https://help.aliyun.com/document_detail/259681.html).
-   * 
-   * @example
-   * appendonly
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The default value of the parameter.
-   * 
-   * @example
-   * yes
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +91,6 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
    * 24
    */
   parameterCount?: string;
-  /**
-   * @remarks
-   * An array that consists of the details about the parameters returned.
-   */
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
   /**
    * @remarks

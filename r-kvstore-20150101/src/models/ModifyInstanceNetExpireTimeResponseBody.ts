@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceNetExpireTimeResponseBodyNetInfoItemsNetInfoItem extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint of the classic network.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
-   */
   connectionString?: string;
-  /**
-   * @remarks
-   * The network type of the instance. The returned value is **Classic**.
-   * 
-   * @example
-   * Classic
-   */
   DBInstanceNetType?: string;
-  /**
-   * @remarks
-   * The expiration time of the classic network endpoint.
-   * 
-   * @example
-   * 2019-08-01T09:29:18Z
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The IP address of the instance in the classic network.
-   * 
-   * @example
-   * 100.118.142.***
-   */
   IPAddress?: string;
-  /**
-   * @remarks
-   * The port number that is used to connect to the instance.
-   * 
-   * @example
-   * 6379
-   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +72,6 @@ export class ModifyInstanceNetExpireTimeResponseBody extends $dara.Model {
    * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * Details about the extension period for which the classic network endpoint of the instance is retained.
-   */
   netInfoItems?: ModifyInstanceNetExpireTimeResponseBodyNetInfoItems;
   /**
    * @remarks

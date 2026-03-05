@@ -3,40 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTaskTasksTask extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the child node in the cluster instance.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The start time of the offline key analytics task.
-   * 
-   * @example
-   * 2019-08-01T19:08:49Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The state of the offline key analytics task. Valid values:
-   * 
-   * *   **success**
-   * *   **running**
-   * 
-   * @example
-   * success
-   */
   status?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * 156465****
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,18 +61,7 @@ export class DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTaskTasks
 }
 
 export class DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTask extends $dara.Model {
-  /**
-   * @remarks
-   * The date when the offline key analytics task was performed.
-   * 
-   * @example
-   * 2019-08-01Z
-   */
   date?: string;
-  /**
-   * @remarks
-   * Details about the offline key analysis reports.
-   */
   tasks?: DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTaskTasks;
   static names(): { [key: string]: string } {
     return {
@@ -158,10 +116,6 @@ export class DescribeCacheAnalysisReportListResponseBodyDailyTasks extends $dara
 }
 
 export class DescribeCacheAnalysisReportListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of the offline key analysis reports.
-   */
   dailyTasks?: DescribeCacheAnalysisReportListResponseBodyDailyTasks;
   /**
    * @remarks

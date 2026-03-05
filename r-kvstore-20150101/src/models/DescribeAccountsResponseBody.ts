@@ -3,16 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccountsResponseBodyAccountsAccountDatabasePrivilegesDatabasePrivilege extends $dara.Model {
-  /**
-   * @remarks
-   * The permission of the account. Default value: RoleReadWrite. Valid values:
-   * 
-   * *   **RoleReadOnly**: The account has the read-only permissions.
-   * *   **RoleReadWrite**: The account has the read and write permissions.
-   * 
-   * @example
-   * RoleReadWrite
-   */
   accountPrivilege?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,56 +52,11 @@ export class DescribeAccountsResponseBodyAccountsAccountDatabasePrivileges exten
 }
 
 export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the account.
-   * 
-   * @example
-   * testdec
-   */
   accountDescription?: string;
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * @example
-   * demoaccount
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The state of the account. Valid values:
-   * 
-   * *   **Unavailable**: The account is unavailable.
-   * *   **Available**: The account is available.
-   * 
-   * @example
-   * Available
-   */
   accountStatus?: string;
-  /**
-   * @remarks
-   * The type of the account. Valid values:
-   * 
-   * *   **Normal**: standard account
-   * *   **Super**: super account
-   * 
-   * @example
-   * Normal
-   */
   accountType?: string;
-  /**
-   * @remarks
-   * Details about account permissions.
-   */
   databasePrivileges?: DescribeAccountsResponseBodyAccountsAccountDatabasePrivileges;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * r-bp10noxlhcoim2****
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -174,10 +119,6 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
 }
 
 export class DescribeAccountsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about returned accounts of the instance.
-   */
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
    * @remarks

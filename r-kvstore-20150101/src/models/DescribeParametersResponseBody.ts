@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParametersResponseBodyConfigParametersParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The check code that indicates the valid values of the parameter.
-   * 
-   * @example
-   * [0|1]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the instance must be restarted for the modifications to take effect. Valid values:
-   * 
-   * *   **True**: The instance must be restarted for the modifications to take effect.
-   * *   **False**: The instance does not need to be restarted for the modifications to take effect. Modifications immediately take effect.
-   * 
-   * @example
-   * true
-   */
   forceRestart?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the parameter can be reset. Valid values:
-   * 
-   * *   **False**: The parameter cannot be reset.
-   * *   **True**: The parameter can be reset.
-   * 
-   * @example
-   * true
-   */
   modifiableStatus?: boolean;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * Check all keys passed in the KEYS array map to the same slot.
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * script_check_enable
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * 1
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,59 +67,11 @@ export class DescribeParametersResponseBodyConfigParameters extends $dara.Model 
 }
 
 export class DescribeParametersResponseBodyRunningParametersParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The check code that indicates the valid values of the parameter.
-   * 
-   * @example
-   * [0|1]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the instance must be restarted for the modifications to take effect. Valid values:
-   * 
-   * *   **True**: The instance must be restarted for the modifications to take effect.
-   * *   **False**: The instance does not need to be restarted for the modifications to take effect. Modifications immediately take effect.
-   * 
-   * @example
-   * true
-   */
   forceRestart?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter can be reset. Valid values:
-   * 
-   * *   **False**: The parameter cannot be reset.
-   * *   **True**: The parameter can be reset.
-   * 
-   * @example
-   * true
-   */
   modifiableStatus?: string;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * You can disable some dangerous commands, for example \\"keys,flushdb,flushall\\", the commands must be in [flushall,flushdb,keys,hgetall,eval,evalsha,script].
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * #no_loose_disabled-commands
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * keys,flushall,flushdb
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -227,10 +131,6 @@ export class DescribeParametersResponseBodyRunningParameters extends $dara.Model
 }
 
 export class DescribeParametersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration parameters that have not taken effect.
-   */
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   /**
    * @remarks
@@ -256,10 +156,6 @@ export class DescribeParametersResponseBody extends $dara.Model {
    * 9C1338BE-8DE8-4890-A900-E1BC06BF****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The running parameters.
-   */
   runningParameters?: DescribeParametersResponseBodyRunningParameters;
   static names(): { [key: string]: string } {
     return {

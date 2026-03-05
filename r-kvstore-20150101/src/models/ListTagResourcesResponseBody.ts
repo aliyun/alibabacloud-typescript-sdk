@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The resource ID, which is also the ID of the instance.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The resource type. The return value is **ALIYUN::KVSTORE::INSTANCE**. This value indicates a Tair (Redis OSS-compatible) instance.
-   * 
-   * @example
-   * ALIYUN::KVSTORE::INSTANCE
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The keys of the tags.
-   * 
-   * @example
-   * demokey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The values of the tags.
-   * 
-   * @example
-   * demovalue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,10 +77,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * 47A514A1-4B77-4E30-B4C5-2A880650****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the instances and tags.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

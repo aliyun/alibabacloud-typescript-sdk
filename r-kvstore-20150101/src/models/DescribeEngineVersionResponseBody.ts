@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * The creation time of the instance.
-   * 
-   * @example
-   * 2022-11-21T13:28Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The importance level.
-   * 
-   * @example
-   * 0
-   */
   level?: string;
-  /**
-   * @remarks
-   * The release notes.
-   * 
-   * @example
-   * netbank1022
-   */
   releaseNote?: string;
-  /**
-   * @remarks
-   * The description of the minor versions to which the instance can be updated.
-   * 
-   * @example
-   * ReleaseNoteEn
-   */
   releaseNoteEn?: string;
-  /**
-   * @remarks
-   * The release version of EMR.
-   * 
-   * @example
-   * EMR-5.7.0
-   */
   releaseVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease
 }
 
 export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the minor versions.
-   */
   releaseInfo?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo;
   /**
    * @remarks
@@ -197,49 +158,10 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersion extends $dara
 }
 
 export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the version was released.
-   * 
-   * @example
-   * 2022-08-23T14:26:20Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The version update level. Valid values:
-   * 
-   * *   **0**: regular
-   * *   **1**: recommended
-   * *   **2**: critical
-   * 
-   * @example
-   * 0
-   */
   level?: string;
-  /**
-   * @remarks
-   * The release notes.
-   * 
-   * @example
-   * x x x x
-   */
   releaseNote?: string;
-  /**
-   * @remarks
-   * The description of the minor versions to which the instance can be updated.
-   * 
-   * @example
-   * ReleaseNoteEn
-   */
   releaseNoteEn?: string;
-  /**
-   * @remarks
-   * The release version of EMR.
-   * 
-   * @example
-   * EMR-5.9.1
-   */
   releaseVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -297,10 +219,6 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRele
 }
 
 export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the minor versions.
-   */
   releaseInfo?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo;
   /**
    * @remarks

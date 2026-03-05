@@ -3,48 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLogicInstanceTopologyResponseBodyRedisProxyListNodeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth throttling of the node. Unit: MB/s.
-   * 
-   * @example
-   * 96
-   */
   bandwidth?: string;
-  /**
-   * @remarks
-   * The storage capacity of the node. Unit: MB.
-   * 
-   * @example
-   * 5120
-   */
   capacity?: string;
-  /**
-   * @remarks
-   * The maximum number of connections.
-   * 
-   * @example
-   * 320000
-   */
   connection?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * @example
-   * r-bp10noxlhcoim2****-proxy-3#542****
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The node type. Valid values:
-   * 
-   * *   **proxy**: proxy node
-   * *   **db**: data node
-   * 
-   * @example
-   * proxy
-   */
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -102,58 +64,11 @@ export class DescribeLogicInstanceTopologyResponseBodyRedisProxyList extends $da
 }
 
 export class DescribeLogicInstanceTopologyResponseBodyRedisShardListNodeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth throttling of the node. Unit: MB/s.
-   * 
-   * @example
-   * 96
-   */
   bandwidth?: string;
-  /**
-   * @remarks
-   * The storage capacity of the node. Unit: MB.
-   * 
-   * @example
-   * 2048
-   */
   capacity?: string;
-  /**
-   * @remarks
-   * The maximum number of connections.
-   * 
-   * @example
-   * 10000
-   */
   connection?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * @example
-   * r-bp10noxlhcoim2****-db-0#688****
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The node type. Valid values:
-   * 
-   * *   **proxy**: proxy node
-   * *   **db**: data node
-   * 
-   * @example
-   * db
-   */
   nodeType?: string;
-  /**
-   * @remarks
-   * 子实例类型，返回值：
-   * * **master**：主节点类型。
-   * * **readonly**：只读实例类型。
-   * 
-   * @example
-   * master
-   */
   subInstanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -221,15 +136,7 @@ export class DescribeLogicInstanceTopologyResponseBody extends $dara.Model {
    * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The detailed proxy information, including information about proxy nodes.
-   */
   redisProxyList?: DescribeLogicInstanceTopologyResponseBodyRedisProxyList;
-  /**
-   * @remarks
-   * Details of data shards, which includes node information such as NodeInfo.
-   */
   redisShardList?: DescribeLogicInstanceTopologyResponseBodyRedisShardList;
   /**
    * @remarks

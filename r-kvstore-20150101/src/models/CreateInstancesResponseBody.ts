@@ -29,10 +29,6 @@ export class CreateInstancesResponseBodyInstanceIds extends $dara.Model {
 }
 
 export class CreateInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of instances that were created.
-   */
   instanceIds?: CreateInstancesResponseBodyInstanceIds;
   /**
    * @remarks

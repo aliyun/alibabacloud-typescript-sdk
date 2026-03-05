@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource extends $dara.Model {
-  /**
-   * @remarks
-   * The memory size of the instance. Unit: MB.
-   * 
-   * @example
-   * 16384
-   */
   capacity?: number;
-  /**
-   * @remarks
-   * The code of the instance type. If you want to view the code of an instance type, you can search for the code of the instance type in Help Center.
-   * 
-   * @example
-   * redis.amber.logic.sharding.2g.8db.0rodb.24proxy.multithread
-   */
   instanceClass?: string;
-  /**
-   * @remarks
-   * The description of the instance type.
-   * 
-   * @example
-   * 16 GB cluster instance with 8 nodes (1,920,000 queries per second and 240,000 connections)
-   */
   instanceClassRemark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,21 +58,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeType extends $dara.Model {
-  /**
-   * @remarks
-   * The available instance types.
-   */
   availableResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResources;
-  /**
-   * @remarks
-   * The node type of the instance. Valid values:
-   * 
-   * *   **single**: standalone
-   * *   **double**: master-replica
-   * 
-   * @example
-   * double
-   */
   supportedNodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -148,18 +113,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumber extends $dara.Model {
-  /**
-   * @remarks
-   * The number of shards.
-   * 
-   * @example
-   * 8
-   */
   shardNumber?: string;
-  /**
-   * @remarks
-   * The supported node types.
-   */
   supportedNodeTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypes;
   static names(): { [key: string]: string } {
     return {
@@ -214,22 +168,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureType extends $dara.Model {
-  /**
-   * @remarks
-   * The architecture of the instance. Valid values:
-   * 
-   * *   **standard**: standard architecture
-   * *   **cluster**: cluster architecture
-   * *   **rwsplit**: read/write splitting architecture
-   * 
-   * @example
-   * cluster
-   */
   architecture?: string;
-  /**
-   * @remarks
-   * The numbers of available shards.
-   */
   supportedShardNumbers?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbers;
   static names(): { [key: string]: string } {
     return {
@@ -284,18 +223,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersion extends $dara.Model {
-  /**
-   * @remarks
-   * The available architectures.
-   */
   supportedArchitectureTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypes;
-  /**
-   * @remarks
-   * The engine version of the instance.
-   * 
-   * @example
-   * 5.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -350,21 +278,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesType extends $dara.Model {
-  /**
-   * @remarks
-   * The instance series. Valid values:
-   * 
-   * *   **enhanced_performance_type**: Tair (Enterprise Edition) DRAM-based instance
-   * *   **hybrid_storage**: Redis Open-Source Edition hybrid-storage instance
-   * 
-   * @example
-   * enhanced_performance_type
-   */
   seriesType?: string;
-  /**
-   * @remarks
-   * The available engine versions.
-   */
   supportedEngineVersions?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersions;
   static names(): { [key: string]: string } {
     return {
@@ -419,21 +333,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionType extends $dara.Model {
-  /**
-   * @remarks
-   * The edition of the instance. Valid values:
-   * 
-   * *   **Community**: Community Edition
-   * *   **Enterprise**: Enhanced Edition (Tair)
-   * 
-   * @example
-   * Enterprise
-   */
   editionType?: string;
-  /**
-   * @remarks
-   * The instance series types.
-   */
   supportedSeriesTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypes;
   static names(): { [key: string]: string } {
     return {
@@ -488,18 +388,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine extends $dara.Model {
-  /**
-   * @remarks
-   * The database engine of the instance.
-   * 
-   * @example
-   * Redis
-   */
   engine?: string;
-  /**
-   * @remarks
-   * The instance edition types.
-   */
   supportedEditionTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypes;
   static names(): { [key: string]: string } {
     return {
@@ -554,42 +443,10 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $dara.Model {
-  /**
-   * @remarks
-   * An internal parameter.
-   * 
-   * @example
-   * true
-   */
   isMainSale?: boolean;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The supported engines.
-   */
   supportedEngines?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines;
-  /**
-   * @remarks
-   * The ID of the zone in which the instance is located.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   zoneId?: string;
-  /**
-   * @remarks
-   * The name of the zone.
-   * 
-   * @example
-   * Hangzhou Zone H
-   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -650,10 +507,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZones extends $dara.M
 }
 
 export class DescribeAvailableResourceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the zones.
-   */
   availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
   /**
    * @remarks

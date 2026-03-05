@@ -3,79 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAuditRecordsResponseBodyItemsSQL extends $dara.Model {
-  /**
-   * @remarks
-   * The username of the account.
-   * 
-   * @example
-   * demo
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * demo
-   */
   databaseName?: string;
-  /**
-   * @remarks
-   * The time when the command was run.
-   * 
-   * @example
-   * 2019-03-25T03:22:08Z
-   */
   executeTime?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
   hostAddress?: string;
-  /**
-   * @remarks
-   * The IP address of the instance.
-   * 
-   * @example
-   * 192.16.100.***
-   */
   IPAddress?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * > A specific node ID is returned only if the instance uses the cluster or read/write splitting architecture.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****-db-0
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The command that was run.
-   * 
-   * @example
-   * CONFIG GET maxmemory
-   */
   SQLText?: string;
-  /**
-   * @remarks
-   * The type of the command.
-   * 
-   * @example
-   * non_read_write
-   */
   SQLType?: string;
-  /**
-   * @remarks
-   * The amount of time consumed to run the command.
-   * 
-   * @example
-   * 0
-   */
   totalExecutionTimes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,10 +92,6 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
    * r-bp1zxszhcgatnx****
    */
   instanceName?: string;
-  /**
-   * @remarks
-   * The collection of returned audit log entries.
-   */
   items?: DescribeAuditRecordsResponseBodyItems;
   /**
    * @remarks

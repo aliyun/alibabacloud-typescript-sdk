@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeZonesResponseBodyZonesKVStoreZone extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether Tair (Redis OSS-compatible) instances can be created in the current zone. Valid values:
-   * 
-   * *   **true**: Tair (Redis OSS-compatible) instances cannot be created in the current zone.
-   * *   **false**: Tair (Redis OSS-compatible) instances can be created in the current zone.
-   * 
-   * @example
-   * true
-   */
   disabled?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the zone is managed by ApsaraDB RDS. The return value of this parameter is **true** in Tair (Redis OSS-compatible).
-   * 
-   * @example
-   * true
-   */
   isRds?: boolean;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-huhehaote
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * Indicates whether the network type of the instance can be changed from the classic network to Virtual Private Cloud (VPC). Valid values:
-   * 
-   * *   **true**: The network type of the instance can be changed from the classic network to VPC.
-   * *   **false**: The network type of the instance cannot be changed from the classic network to VPC.
-   * 
-   * @example
-   * true
-   */
   switchNetwork?: boolean;
-  /**
-   * @remarks
-   * The ID of the zone within the specified region.
-   * 
-   * @example
-   * cn-huhehaote-b
-   */
   zoneId?: string;
-  /**
-   * @remarks
-   * The name of the zone within the specified region.
-   * 
-   * @example
-   * Hohhot Zone B
-   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,10 +75,6 @@ export class DescribeZonesResponseBody extends $dara.Model {
    * 1D42F072-72FE-4DC4-BB8E-64B1D298****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The queried zones.
-   */
   zones?: DescribeZonesResponseBodyZones;
   static names(): { [key: string]: string } {
     return {

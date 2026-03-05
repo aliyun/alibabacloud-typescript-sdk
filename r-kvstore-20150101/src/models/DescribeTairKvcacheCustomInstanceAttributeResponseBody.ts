@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisksDisk extends $dara.Model {
-  /**
-   * @example
-   * d-5v1aggi3ffoxufb57**
-   */
   diskId?: string;
-  /**
-   * @example
-   * 100
-   */
   size?: string;
-  /**
-   * @example
-   * data
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,15 +58,7 @@ export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisks extends
 }
 
 export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @example
-   * tag1
-   */
   key?: string;
-  /**
-   * @example
-   * value1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

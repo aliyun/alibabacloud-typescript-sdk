@@ -3,77 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSlowLogRecordsResponseBodyItemsLogRecords extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the account.
-   * 
-   * @example
-   * 0
-   */
   account?: string;
-  /**
-   * @remarks
-   * The username of the account.
-   * 
-   * @example
-   * demo
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The slow query statement.
-   * 
-   * @example
-   * KEYS *
-   */
   command?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * -1
-   */
   DBName?: string;
-  /**
-   * @remarks
-   * The database name. This parameter serves the same purpose as the **DBName** parameter. We recommend that you use the **DBName** parameter.
-   * 
-   * @example
-   * -1
-   */
   dataBaseName?: string;
-  /**
-   * @remarks
-   * The amount of time consumed to execute the slow query statement. Unit: microseconds.
-   * 
-   * @example
-   * 248
-   */
   elapsedTime?: number;
-  /**
-   * @remarks
-   * The start time when the slow query statement was executed. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format.
-   * 
-   * @example
-   * 2019-03-20T09:18:41Z
-   */
   executeTime?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 172.16.88.***
-   */
   IPAddress?: string;
-  /**
-   * @remarks
-   * The node ID.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****-db-0
-   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,10 +92,6 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
    * r-bp10n********
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The slow query log entries.
-   */
   items?: DescribeSlowLogRecordsResponseBodyItems;
   /**
    * @remarks

@@ -245,6 +245,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * redis.master.small.default
    */
   instanceClass?: string;
+  instanceEndpointType?: string;
   /**
    * @remarks
    * The name of the instance. The name must be 2 to 80 characters in length and must start with a letter. It cannot contain spaces or specific special characters. These special characters include `@ / : = " < > { [ ] }`
@@ -404,10 +405,6 @@ export class CreateInstanceRequest extends $dara.Model {
    * cn-hangzhou-h
    */
   secondaryZoneId?: string;
-  /**
-   * @remarks
-   * 系统自动生成的安全 Token，无需传入
-   */
   securityToken?: string;
   /**
    * @remarks
@@ -502,6 +499,7 @@ export class CreateInstanceRequest extends $dara.Model {
       globalInstanceId: 'GlobalInstanceId',
       globalSecurityGroupIds: 'GlobalSecurityGroupIds',
       instanceClass: 'InstanceClass',
+      instanceEndpointType: 'InstanceEndpointType',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       networkType: 'NetworkType',
@@ -555,6 +553,7 @@ export class CreateInstanceRequest extends $dara.Model {
       globalInstanceId: 'string',
       globalSecurityGroupIds: 'string',
       instanceClass: 'string',
+      instanceEndpointType: 'string',
       instanceName: 'string',
       instanceType: 'string',
       networkType: 'string',

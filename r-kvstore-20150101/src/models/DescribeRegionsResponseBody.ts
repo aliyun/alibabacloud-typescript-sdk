@@ -29,42 +29,10 @@ export class DescribeRegionsResponseBodyRegionIdsKVStoreRegionZoneIdList extends
 }
 
 export class DescribeRegionsResponseBodyRegionIdsKVStoreRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The endpoint of the region.
-   * 
-   * @example
-   * r-kvstore.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The zone IDs.
-   */
   zoneIdList?: DescribeRegionsResponseBodyRegionIdsKVStoreRegionZoneIdList;
-  /**
-   * @remarks
-   * The IDs of the zones in the region.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   zoneIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,10 +93,6 @@ export class DescribeRegionsResponseBodyRegionIds extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The **region IDs**.
-   */
   regionIds?: DescribeRegionsResponseBodyRegionIds;
   /**
    * @remarks

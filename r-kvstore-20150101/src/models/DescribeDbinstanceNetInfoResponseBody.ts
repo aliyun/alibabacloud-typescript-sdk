@@ -3,116 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstanceNetInfoResponseBodyNetInfoItemsInstanceNetInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint of the instance.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
-   */
   connectionString?: string;
-  /**
-   * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * *   **0**: Internet
-   * *   **1**: classic network
-   * *   **2**: Virtual Private Cloud (VPC)
-   * 
-   * @example
-   * 1
-   */
   DBInstanceNetType?: string;
-  /**
-   * @remarks
-   * Indicates whether the address is a private endpoint. Valid values:
-   * 
-   * *   **0**: The address is not a private endpoint.
-   * *   **1**: The address is a private endpoint.
-   * 
-   * @example
-   * 0
-   */
   directConnection?: number;
-  /**
-   * @remarks
-   * The expiration time of the classic network endpoint. Unit: seconds.
-   * 
-   * @example
-   * 5183779
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 172.16.49.***
-   */
   IPAddress?: string;
-  /**
-   * @remarks
-   * The network type of the IP address. Valid values:
-   * 
-   * *   **Public**: Internet
-   * *   **Inner**: classic network
-   * *   **Private**: VPC
-   * 
-   * @example
-   * Inner
-   */
   IPType?: string;
-  /**
-   * @remarks
-   * Indicates whether the address is the endpoint for the secondary zone. Valid values: 1 and 0. A value of 1 indicates that the address is the endpoint for the secondary zone.
-   * 
-   * >  This parameter is returned only after you enable the multi-zone read/write splitting architecture for the instance.
-   * 
-   * @example
-   * 1
-   */
   isSlaveProxy?: number;
-  /**
-   * @remarks
-   * The service port of the instance.
-   * 
-   * @example
-   * 6379
-   */
   port?: string;
-  /**
-   * @remarks
-   * The remaining validity period of the classic network endpoint. Unit: seconds.
-   * 
-   * >  **A value of 0 indicates that the endpoint never expires.
-   * 
-   * @example
-   * 0
-   */
   upgradeable?: string;
-  /**
-   * @remarks
-   * The ID of the VPC to which the instance belongs.
-   * 
-   * @example
-   * vpc-bp1nme44gek34slfc****
-   */
   VPCId?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * r-bp1ky7j6qc7umk****
-   */
   VPCInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
-   * @example
-   * vsw-bp1e7clcw529l773d****
-   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -195,10 +96,6 @@ export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
    * CLASSIC
    */
   instanceNetworkType?: string;
-  /**
-   * @remarks
-   * The network information about the instance.
-   */
   netInfoItems?: DescribeDBInstanceNetInfoResponseBodyNetInfoItems;
   /**
    * @remarks

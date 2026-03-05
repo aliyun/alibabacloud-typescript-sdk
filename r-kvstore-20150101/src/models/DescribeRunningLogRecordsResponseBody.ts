@@ -3,39 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRunningLogRecordsResponseBodyItemsLogRecords extends $dara.Model {
-  /**
-   * @remarks
-   * The content of the log.
-   * 
-   * @example
-   * CONFIG REWRITE executed with success.
-   */
   content?: string;
-  /**
-   * @remarks
-   * The time when the log was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-12-03T07:07:30Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * >  If a standard instance is queried, `(null)` is returned.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****-db-0
-   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +77,6 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
    * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * Details about the log entries.
-   */
   items?: DescribeRunningLogRecordsResponseBodyItems;
   /**
    * @remarks

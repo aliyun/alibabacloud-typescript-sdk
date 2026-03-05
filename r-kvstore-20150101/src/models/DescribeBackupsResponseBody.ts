@@ -93,142 +93,21 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
 }
 
 export class DescribeBackupsResponseBodyBackupsBackup extends $dara.Model {
-  /**
-   * @remarks
-   * The names of the databases that are backed up. The default value is **all**, which indicates that all databases are backed up.
-   * 
-   * @example
-   * all
-   */
   backupDBNames?: string;
-  /**
-   * @remarks
-   * The public download URL of the backup file.
-   * 
-   * @example
-   * https://rdsbak-hk45-v2.oss-cn-hongkong.aliyuncs.com/********
-   */
   backupDownloadURL?: string;
-  /**
-   * @remarks
-   * The end time of the backup.
-   * 
-   * @example
-   * 2019-03-14T05:31:13Z
-   */
   backupEndTime?: string;
-  /**
-   * @remarks
-   * The ID of the backup file.
-   * 
-   * @example
-   * 165*****50
-   */
   backupId?: number;
-  /**
-   * @remarks
-   * The internal download URL of the backup file.
-   * 
-   * >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the Tair instance. The ECS instance must belong to the same classic network or reside in the same virtual private cloud (VPC) as the Tair instance.
-   * 
-   * @example
-   * https://rdsbak-hk45-v2.oss-cn-hongkong.aliyuncs.com/********
-   */
   backupIntranetDownloadURL?: string;
-  /**
-   * @remarks
-   * The ID of the backup task.
-   * 
-   * @example
-   * 24340
-   */
   backupJobID?: number;
-  /**
-   * @remarks
-   * The backup method. Valid values:
-   * 
-   * *   **Logical**
-   * *   **Physical**
-   * 
-   * @example
-   * Physical
-   */
   backupMethod?: string;
-  /**
-   * @remarks
-   * The backup mode. Valid values:
-   * 
-   * *   **Automated**
-   * *   **Manual**
-   * 
-   * @example
-   * Automated
-   */
   backupMode?: string;
-  /**
-   * @remarks
-   * The size of the backup file.
-   * 
-   * @example
-   * 1024
-   */
   backupSize?: number;
-  /**
-   * @remarks
-   * The start time of the backup.
-   * 
-   * @example
-   * 2019-03-14T05:28:50Z
-   */
   backupStartTime?: string;
-  /**
-   * @remarks
-   * The status of the backup. Valid values:
-   * 
-   * *   **Success**
-   * *   **Failed**
-   * 
-   * @example
-   * Success
-   */
   backupStatus?: string;
-  /**
-   * @remarks
-   * The backup type. Valid values:
-   * 
-   * *   **FullBackup**
-   * *   **IncrementalBackup**
-   * 
-   * @example
-   * FullBackup
-   */
   backupType?: string;
-  /**
-   * @remarks
-   * The engine version (major version) of the instance.
-   * 
-   * @example
-   * 4.0
-   */
   engineVersion?: string;
   expectExpireTime?: string;
-  /**
-   * @remarks
-   * The node ID.
-   * 
-   * >  If the instance uses the standard architecture, this parameter returns the instance ID.
-   * 
-   * @example
-   * r-bp10noxlhcoim2****-db-1
-   */
   nodeInstanceId?: string;
-  /**
-   * @remarks
-   * If the backup includes account information, kernel parameters and whitelist details.
-   * 
-   * @example
-   * {"whitelist":true,"config":true,"account":true}
-   */
   recoverConfigMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -313,10 +192,6 @@ export class DescribeBackupsResponseBody extends $dara.Model {
    * The following parameters are no longer used. Ignore the parameters.
    */
   accessDeniedDetail?: DescribeBackupsResponseBodyAccessDeniedDetail;
-  /**
-   * @remarks
-   * The queried backup sets.
-   */
   backups?: DescribeBackupsResponseBodyBackups;
   /**
    * @remarks

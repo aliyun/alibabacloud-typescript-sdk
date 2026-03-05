@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTairKVCacheInferInstancesResponseBodyInstancesTairInferInstanceDTOTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * thread
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * 900
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,203 +55,31 @@ export class DescribeTairKVCacheInferInstancesResponseBodyInstancesTairInferInst
 }
 
 export class DescribeTairKVCacheInferInstancesResponseBodyInstancesTairInferInstanceDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The ACK cluster ID corresponding to the virtual cluster instance.
-   * 
-   * @example
-   * c809******************************
-   */
   ackId?: string;
-  /**
-   * @remarks
-   * The capacity of the KVCache. Unit: GB.
-   * 
-   * @example
-   * 256
-   */
   capacity?: number;
-  /**
-   * @remarks
-   * The billing method of the instance.
-   * 
-   * @example
-   * PostPaid
-   */
   chargeType?: string;
-  /**
-   * @remarks
-   * The number of compute units.
-   * 
-   * @example
-   * 1
-   */
   computeUnitNum?: number;
-  /**
-   * @remarks
-   * The creation time of the instance.
-   * 
-   * @example
-   * 2025-04-07T04:46Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The time when the instance was deleted.
-   * 
-   * @example
-   * 2025-04-07T04:46Z
-   */
   destroyTime?: string;
   elasticVNodeCount?: number;
-  /**
-   * @remarks
-   * The time when the subscription instance expires.
-   * 
-   * @example
-   * 2025-11-04T02:09:26Z
-   */
   endTime?: string;
   fixedVNodeCount?: number;
-  /**
-   * @remarks
-   * The instance type.
-   * 
-   * @example
-   * kvcache.cu.g4b.2
-   */
   instanceClass?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * tk-9dp7e37bab*****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * kvcache-7
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The instance state. Valid values:
-   * 
-   * *   **Normal**: The instance is normal.
-   * *   **Creating**: The instance is being created.
-   * 
-   * @example
-   * Normal
-   */
   instanceStatus?: string;
-  /**
-   * @remarks
-   * The type of the instance. Valid values:
-   * 
-   * *   **TairInfer**: the inference operator instance
-   * *   **TairKVCacheVnode**: the virtual cluster instance.
-   * *   **TairKVCacheService**: the cache service instance.
-   * 
-   * @example
-   * TairInfer
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The built-in model of the inference operator instance.
-   * 
-   * @example
-   * DeepSeek-OCR
-   */
   model?: string;
-  /**
-   * @remarks
-   * The number of model services of the inference operator instance.
-   * 
-   * @example
-   * 1
-   */
   modelServiceNum?: number;
-  /**
-   * @remarks
-   * The network type of the instance.
-   * 
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The private IP address of the instance. This parameter is deprecated.
-   * 
-   * @example
-   * 172.16.49.***
-   */
   privateIp?: string;
-  /**
-   * @remarks
-   * The region ID of the instance.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfm4bdru5z****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * Details of the tags.
-   */
   tags?: DescribeTairKVCacheInferInstancesResponseBodyInstancesTairInferInstanceDTOTags;
-  /**
-   * @remarks
-   * The number of vNodes in the virtual cluster.
-   * 
-   * @example
-   * 2
-   */
   VNodeCount?: number;
-  /**
-   * @remarks
-   * The list of vNode instance names under the virtual cluster instance. This parameter is deprecated.
-   * 
-   * @example
-   * tv-xxxxx
-   */
   VNodeName?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-8vbf0ksk774ai6q1d****
-   */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The VPC ID of the instance.
-   * 
-   * @example
-   * vpc-2zef5w848p4j5g***
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -368,10 +182,6 @@ export class DescribeTairKVCacheInferInstancesResponseBodyInstances extends $dar
 }
 
 export class DescribeTairKVCacheInferInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the returned Tair (Redis OSS-compatible) KVCache instance.
-   */
   instances?: DescribeTairKVCacheInferInstancesResponseBodyInstances;
   /**
    * @remarks
