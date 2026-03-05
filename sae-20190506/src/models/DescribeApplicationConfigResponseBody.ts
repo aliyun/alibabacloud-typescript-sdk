@@ -585,6 +585,38 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmp
   }
 }
 
+export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigSecretMountDesc extends $dara.Model {
+  key?: string;
+  mountPath?: string;
+  secretId?: number;
+  secretName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      mountPath: 'MountPath',
+      secretId: 'SecretId',
+      secretName: 'SecretName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      mountPath: 'string',
+      secretId: 'number',
+      secretName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig extends $dara.Model {
   /**
    * @remarks
@@ -675,6 +707,7 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
    * registry.cn-beijing.aliyuncs.com/sae-dev-test/nginx:stable
    */
   imageUrl?: string;
+  liveness?: string;
   /**
    * @remarks
    * Set the memory limit of the primary container that can be used by Sidecar container.
@@ -691,6 +724,8 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
    * test
    */
   name?: string;
+  readiness?: string;
+  secretMountDesc?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfigSecretMountDesc[];
   static names(): { [key: string]: string } {
     return {
       acrInstanceId: 'AcrInstanceId',
@@ -701,8 +736,11 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
       emptyDirDesc: 'EmptyDirDesc',
       envs: 'Envs',
       imageUrl: 'ImageUrl',
+      liveness: 'Liveness',
       memory: 'Memory',
       name: 'Name',
+      readiness: 'Readiness',
+      secretMountDesc: 'SecretMountDesc',
     };
   }
 
@@ -716,8 +754,11 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
       emptyDirDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc },
       envs: 'string',
       imageUrl: 'string',
+      liveness: 'string',
       memory: 'number',
       name: 'string',
+      readiness: 'string',
+      secretMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfigSecretMountDesc },
     };
   }
 
@@ -727,6 +768,9 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
     }
     if(Array.isArray(this.emptyDirDesc)) {
       $dara.Model.validateArray(this.emptyDirDesc);
+    }
+    if(Array.isArray(this.secretMountDesc)) {
+      $dara.Model.validateArray(this.secretMountDesc);
     }
     super.validate();
   }

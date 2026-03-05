@@ -67,6 +67,7 @@ export class SidecarContainerConfig extends $dara.Model {
    * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
    */
   imageUrl?: string;
+  liveness?: string;
   /**
    * @remarks
    * Memory
@@ -83,6 +84,8 @@ export class SidecarContainerConfig extends $dara.Model {
    * name
    */
   name?: string;
+  readiness?: string;
+  secretMountDesc?: string;
   static names(): { [key: string]: string } {
     return {
       acrInstanceId: 'AcrInstanceId',
@@ -93,8 +96,11 @@ export class SidecarContainerConfig extends $dara.Model {
       emptyDirDesc: 'EmptyDirDesc',
       envs: 'Envs',
       imageUrl: 'ImageUrl',
+      liveness: 'Liveness',
       memory: 'Memory',
       name: 'Name',
+      readiness: 'Readiness',
+      secretMountDesc: 'SecretMountDesc',
     };
   }
 
@@ -108,8 +114,11 @@ export class SidecarContainerConfig extends $dara.Model {
       emptyDirDesc: 'string',
       envs: 'string',
       imageUrl: 'string',
+      liveness: 'string',
       memory: 'number',
       name: 'string',
+      readiness: 'string',
+      secretMountDesc: 'string',
     };
   }
 

@@ -87,6 +87,7 @@ export { DescribeApplicationConfigResponseBodyDataOssMountDescs } from './Descri
 export { DescribeApplicationConfigResponseBodyDataSecretMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataSidecarContainersConfigConfigMapMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc } from './DescribeApplicationConfigResponseBody';
+export { DescribeApplicationConfigResponseBodyDataSidecarContainersConfigSecretMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataSidecarContainersConfig } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataTags } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyData } from './DescribeApplicationConfigResponseBody';
