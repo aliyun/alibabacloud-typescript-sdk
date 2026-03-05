@@ -92,6 +92,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量校验资源计量
+   * 
+   * @param request - BatchCheckResourceMeasureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCheckResourceMeasureResponse
+   */
+  async batchCheckResourceMeasureWithOptions(request: $_model.BatchCheckResourceMeasureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCheckResourceMeasureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.belongId)) {
+      query["BelongId"] = request.belongId;
+    }
+
+    if (!$dara.isNull(request.belongIdType)) {
+      query["BelongIdType"] = request.belongIdType;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.espBizId)) {
+      query["EspBizId"] = request.espBizId;
+    }
+
+    if (!$dara.isNull(request.orderComponentParams)) {
+      query["OrderComponentParams"] = request.orderComponentParams;
+    }
+
+    if (!$dara.isNull(request.resourceCheckItems)) {
+      query["ResourceCheckItems"] = request.resourceCheckItems;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCheckResourceMeasure",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCheckResourceMeasureResponse>(await this.callApi(params, req, runtime), new $_model.BatchCheckResourceMeasureResponse({}));
+  }
+
+  /**
+   * 批量校验资源计量
+   * 
+   * @param request - BatchCheckResourceMeasureRequest
+   * @returns BatchCheckResourceMeasureResponse
+   */
+  async batchCheckResourceMeasure(request: $_model.BatchCheckResourceMeasureRequest): Promise<$_model.BatchCheckResourceMeasureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCheckResourceMeasureWithOptions(request, runtime);
+  }
+
+  /**
    * Bind Application Domain
    * 
    * @param request - BindAppDomainRequest
@@ -143,6 +205,72 @@ export default class Client extends OpenApi {
   async bindAppDomain(request: $_model.BindAppDomainRequest): Promise<$_model.BindAppDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAppDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * 校验资源计量
+   * 
+   * @param request - CheckResourceMeasureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckResourceMeasureResponse
+   */
+  async checkResourceMeasureWithOptions(request: $_model.CheckResourceMeasureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckResourceMeasureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.belongId)) {
+      query["BelongId"] = request.belongId;
+    }
+
+    if (!$dara.isNull(request.belongIdType)) {
+      query["BelongIdType"] = request.belongIdType;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.espBizId)) {
+      query["EspBizId"] = request.espBizId;
+    }
+
+    if (!$dara.isNull(request.orderComponentParams)) {
+      query["OrderComponentParams"] = request.orderComponentParams;
+    }
+
+    if (!$dara.isNull(request.resourceCode)) {
+      query["ResourceCode"] = request.resourceCode;
+    }
+
+    if (!$dara.isNull(request.resourceValue)) {
+      query["ResourceValue"] = request.resourceValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckResourceMeasure",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckResourceMeasureResponse>(await this.callApi(params, req, runtime), new $_model.CheckResourceMeasureResponse({}));
+  }
+
+  /**
+   * 校验资源计量
+   * 
+   * @param request - CheckResourceMeasureRequest
+   * @returns CheckResourceMeasureResponse
+   */
+  async checkResourceMeasure(request: $_model.CheckResourceMeasureRequest): Promise<$_model.CheckResourceMeasureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkResourceMeasureWithOptions(request, runtime);
   }
 
   /**
@@ -283,6 +411,48 @@ export default class Client extends OpenApi {
   async createAppInstanceTicket(request: $_model.CreateAppInstanceTicketRequest): Promise<$_model.CreateAppInstanceTicketResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppInstanceTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * 万小智开通灵感值服务
+   * 
+   * @param request - CreateAppTokenServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppTokenServiceResponse
+   */
+  async createAppTokenServiceWithOptions(request: $_model.CreateAppTokenServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppTokenServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.createAction)) {
+      query["CreateAction"] = request.createAction;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppTokenService",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppTokenServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppTokenServiceResponse({}));
+  }
+
+  /**
+   * 万小智开通灵感值服务
+   * 
+   * @param request - CreateAppTokenServiceRequest
+   * @returns CreateAppTokenServiceResponse
+   */
+  async createAppTokenService(request: $_model.CreateAppTokenServiceRequest): Promise<$_model.CreateAppTokenServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppTokenServiceWithOptions(request, runtime);
   }
 
   /**
@@ -821,6 +991,84 @@ export default class Client extends OpenApi {
   async getAppPluginConfig(request: $_model.GetAppPluginConfigRequest): Promise<$_model.GetAppPluginConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAppPluginConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询万小智推荐商品
+   * 
+   * @param request - GetAppRecommendedCommoditiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppRecommendedCommoditiesResponse
+   */
+  async getAppRecommendedCommoditiesWithOptions(request: $_model.GetAppRecommendedCommoditiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppRecommendedCommoditiesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      query["Scene"] = request.scene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppRecommendedCommodities",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppRecommendedCommoditiesResponse>(await this.callApi(params, req, runtime), new $_model.GetAppRecommendedCommoditiesResponse({}));
+  }
+
+  /**
+   * 查询万小智推荐商品
+   * 
+   * @param request - GetAppRecommendedCommoditiesRequest
+   * @returns GetAppRecommendedCommoditiesResponse
+   */
+  async getAppRecommendedCommodities(request: $_model.GetAppRecommendedCommoditiesRequest): Promise<$_model.GetAppRecommendedCommoditiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppRecommendedCommoditiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询万小智灵感值服务
+   * 
+   * @param request - GetAppTokenServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppTokenServiceResponse
+   */
+  async getAppTokenServiceWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetAppTokenServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppTokenService",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppTokenServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetAppTokenServiceResponse({}));
+  }
+
+  /**
+   * 查询万小智灵感值服务
+   * @returns GetAppTokenServiceResponse
+   */
+  async getAppTokenService(): Promise<$_model.GetAppTokenServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppTokenServiceWithOptions(runtime);
   }
 
   /**
@@ -1863,6 +2111,244 @@ export default class Client extends OpenApi {
   async operateSupabaseForAdmin(request: $_model.OperateSupabaseForAdminRequest): Promise<$_model.OperateSupabaseForAdminResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateSupabaseForAdminWithOptions(request, runtime);
+  }
+
+  /**
+   * 推送资源计量数据
+   * 
+   * @param request - PushResourceMeasureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushResourceMeasureResponse
+   */
+  async pushResourceMeasureWithOptions(request: $_model.PushResourceMeasureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushResourceMeasureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.belongId)) {
+      query["BelongId"] = request.belongId;
+    }
+
+    if (!$dara.isNull(request.belongIdType)) {
+      query["BelongIdType"] = request.belongIdType;
+    }
+
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.measureData)) {
+      query["MeasureData"] = request.measureData;
+    }
+
+    if (!$dara.isNull(request.metaData)) {
+      query["MetaData"] = request.metaData;
+    }
+
+    if (!$dara.isNull(request.resourceCode)) {
+      query["ResourceCode"] = request.resourceCode;
+    }
+
+    if (!$dara.isNull(request.useTime)) {
+      query["UseTime"] = request.useTime;
+    }
+
+    if (!$dara.isNull(request.useType)) {
+      query["UseType"] = request.useType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PushResourceMeasure",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PushResourceMeasureResponse>(await this.callApi(params, req, runtime), new $_model.PushResourceMeasureResponse({}));
+  }
+
+  /**
+   * 推送资源计量数据
+   * 
+   * @param request - PushResourceMeasureRequest
+   * @returns PushResourceMeasureResponse
+   */
+  async pushResourceMeasure(request: $_model.PushResourceMeasureRequest): Promise<$_model.PushResourceMeasureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pushResourceMeasureWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询灵感值获取明细
+   * 
+   * @param request - QueryInspirationAccountDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInspirationAccountDetailsResponse
+   */
+  async queryInspirationAccountDetailsWithOptions(request: $_model.QueryInspirationAccountDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryInspirationAccountDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryInspirationAccountDetails",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryInspirationAccountDetailsResponse>(await this.callApi(params, req, runtime), new $_model.QueryInspirationAccountDetailsResponse({}));
+  }
+
+  /**
+   * 查询灵感值获取明细
+   * 
+   * @param request - QueryInspirationAccountDetailsRequest
+   * @returns QueryInspirationAccountDetailsResponse
+   */
+  async queryInspirationAccountDetails(request: $_model.QueryInspirationAccountDetailsRequest): Promise<$_model.QueryInspirationAccountDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryInspirationAccountDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询灵感值余额总览
+   * 
+   * @param request - QueryInspirationBalanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInspirationBalanceResponse
+   */
+  async queryInspirationBalanceWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.QueryInspirationBalanceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryInspirationBalance",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryInspirationBalanceResponse>(await this.callApi(params, req, runtime), new $_model.QueryInspirationBalanceResponse({}));
+  }
+
+  /**
+   * 查询灵感值余额总览
+   * @returns QueryInspirationBalanceResponse
+   */
+  async queryInspirationBalance(): Promise<$_model.QueryInspirationBalanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryInspirationBalanceWithOptions(runtime);
+  }
+
+  /**
+   * 查询灵感值消耗明细
+   * 
+   * @param request - QueryInspirationConsumeRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInspirationConsumeRecordsResponse
+   */
+  async queryInspirationConsumeRecordsWithOptions(request: $_model.QueryInspirationConsumeRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryInspirationConsumeRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sceneName)) {
+      query["SceneName"] = request.sceneName;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryInspirationConsumeRecords",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryInspirationConsumeRecordsResponse>(await this.callApi(params, req, runtime), new $_model.QueryInspirationConsumeRecordsResponse({}));
+  }
+
+  /**
+   * 查询灵感值消耗明细
+   * 
+   * @param request - QueryInspirationConsumeRecordsRequest
+   * @returns QueryInspirationConsumeRecordsResponse
+   */
+  async queryInspirationConsumeRecords(request: $_model.QueryInspirationConsumeRecordsRequest): Promise<$_model.QueryInspirationConsumeRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryInspirationConsumeRecordsWithOptions(request, runtime);
   }
 
   /**
