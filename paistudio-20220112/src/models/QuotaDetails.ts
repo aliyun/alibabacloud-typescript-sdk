@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { ResourceAmount } from "./ResourceAmount";
+import { QuotaNodeStatistics } from "./QuotaNodeStatistics";
 
 
 export class QuotaDetails extends $dara.Model {
@@ -10,6 +11,7 @@ export class QuotaDetails extends $dara.Model {
   ancestorsAllocatedQuota?: ResourceAmount;
   descendantsAllocatedQuota?: ResourceAmount;
   desiredMinQuota?: ResourceAmount;
+  nodeStatistics?: QuotaNodeStatistics;
   requestedQuota?: ResourceAmount;
   selfAllocatedQuota?: ResourceAmount;
   selfSubmittedQuota?: ResourceAmount;
@@ -23,6 +25,7 @@ export class QuotaDetails extends $dara.Model {
       ancestorsAllocatedQuota: 'AncestorsAllocatedQuota',
       descendantsAllocatedQuota: 'DescendantsAllocatedQuota',
       desiredMinQuota: 'DesiredMinQuota',
+      nodeStatistics: 'NodeStatistics',
       requestedQuota: 'RequestedQuota',
       selfAllocatedQuota: 'SelfAllocatedQuota',
       selfSubmittedQuota: 'SelfSubmittedQuota',
@@ -39,6 +42,7 @@ export class QuotaDetails extends $dara.Model {
       ancestorsAllocatedQuota: ResourceAmount,
       descendantsAllocatedQuota: ResourceAmount,
       desiredMinQuota: ResourceAmount,
+      nodeStatistics: QuotaNodeStatistics,
       requestedQuota: ResourceAmount,
       selfAllocatedQuota: ResourceAmount,
       selfSubmittedQuota: ResourceAmount,
@@ -65,6 +69,9 @@ export class QuotaDetails extends $dara.Model {
     }
     if(this.desiredMinQuota && typeof (this.desiredMinQuota as any).validate === 'function') {
       (this.desiredMinQuota as any).validate();
+    }
+    if(this.nodeStatistics && typeof (this.nodeStatistics as any).validate === 'function') {
+      (this.nodeStatistics as any).validate();
     }
     if(this.requestedQuota && typeof (this.requestedQuota as any).validate === 'function') {
       (this.requestedQuota as any).validate();
