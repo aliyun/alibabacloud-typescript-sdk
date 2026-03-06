@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetApiMcpServerRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the API MCP service.
+   * 
    * This parameter is required.
    * 
    * @example

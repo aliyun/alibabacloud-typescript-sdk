@@ -18,7 +18,7 @@ export class GetErrorCodeSolutionsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1234-56789012
+   * IncorrectStatus.TransitRouter
    */
   errorCode?: string;
   /**
@@ -26,18 +26,19 @@ export class GetErrorCodeSolutionsRequest extends $dara.Model {
    * The error message for which you want to query a solution. This parameter must be configured together with the errorCode parameter.
    * 
    * @example
-   * An error occurred while processing your request.
+   * The resource is not in a valid state for the operation.
    */
   errorMessage?: string;
   /**
    * @remarks
    * The product code. You can use one of the following methods to query a product code:
    * 
-   * *   Call the GetRequestLog operation to query a product code from the response.
-   * *   Query the code of a product in the OpenAPI Explorer URL of the product. For example, the OpenAPI Explorer URL of Short Message Service (SMS) is https://api.alibabacloud.com/product/Dysmsapi. Therefore, the product code of SMS is Dysmsapi.
+   * - Call the GetRequestLog operation to query a product code from the response.
+   * 
+   * - Query the code of a product in the OpenAPI Explorer URL of the product. For example, the OpenAPI Explorer URL of Short Message Service (SMS) is https\\://api.alibabacloud.com/product/Dysmsapi. Therefore, the product code of SMS is Dysmsapi.
    * 
    * @example
-   * oss
+   * Ecs
    */
   product?: string;
   static names(): { [key: string]: string } {

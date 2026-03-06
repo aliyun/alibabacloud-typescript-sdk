@@ -5,14 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class GetRequestLogResponseBodyLogInfoAuthenticationInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication type. Valid values:
+   * The authentication type.
    * 
-   * *   AK: includes a permanent AccessKey pair, a temporary AccessKey pair, and a STS token.
-   * *   PRIVATEKEY: an AccessKey pair for an asymmetric cryptography algorithm.
-   * *   BEARETOKEN: an authentication mechanism that is widely used in the OAuth 2.0 framework and cloud services.
-   * *   CUSTOM_SPI: an efficient and secure authentication method that is suitable for the delivery and management of Software as a Service (SaaS) services in Alibaba Cloud Marketplace.
-   * *   Anonymous: anonymous access.
-   * *   DPS: an authentication method that is similar to AK. Its signature algorithm is different from that of Alibaba Cloud services and is exclusive to specific products.
+   * - AK: An AccessKey pair, which can be a permanent AccessKey pair, a temporary AccessKey pair, or an STS token.
+   * 
+   * - PRIVATEKEY: An AccessKey pair that uses asymmetric key encryption.
+   * 
+   * - BEARERTOKEN: An identity verification mechanism that is widely used in the OAuth 2.0 framework and cloud services.
+   * 
+   * - CUSTOM_SPI: An efficient and secure authentication method that is used for the delivery and management of Software as a Service (SaaS) products in Alibaba Cloud Marketplace.
+   * 
+   * - Anonymous: Anonymous access.
+   * 
+   * - DPS: Similar to an AccessKey pair, but uses a signature algorithm that is different from the official Alibaba Cloud algorithm. This method is specific to certain products.
    * 
    * @example
    * AK
@@ -20,10 +25,11 @@ export class GetRequestLogResponseBodyLogInfoAuthenticationInfo extends $dara.Mo
   authenticationType?: string;
   /**
    * @remarks
-   * The signature algorithm. Valid values:
+   * The signature method.
    * 
-   * *   HMAC-SHA1
-   * *   HMAC-SHA256
+   * - HMAC-SHA1: The request is signed using the HMAC-SHA1 algorithm.
+   * 
+   * - HMAC-SHA256: The request is signed using the HMAC-SHA256 algorithm.
    * 
    * @example
    * HMAC-SHA256
@@ -65,7 +71,7 @@ export class GetRequestLogResponseBodyLogInfoAuthenticationInfo extends $dara.Mo
 export class GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The operation that the operator does not have permissions to perform.
+   * The specific operation that is denied.
    * 
    * @example
    * openapiexplorer:GetRequestLog
@@ -81,7 +87,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the current identity belongs.
+   * The UID of the Alibaba Cloud account to which the current identity belongs.
    * 
    * @example
    * 1001234561234567
@@ -97,7 +103,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends
   authPrincipalType?: string;
   /**
    * @remarks
-   * The information after encoding, which can be used for troubleshooting. You can call the DecodeDiagnosticMessage operation of Resource Access Management (RAM) for further diagnostics.
+   * The encoded diagnostic message. To obtain more diagnostic information, call the DecodeDiagnosticMessage operation of RAM.
    * 
    * @example
    * -
@@ -105,7 +111,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The cause of the permission-related error.
+   * The reason why the access is denied.
    * 
    * @example
    * ImplicitDeny
@@ -113,7 +119,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends
   noPermissionType?: string;
   /**
    * @remarks
-   * The type of the policy that causes the permission-related error.
+   * The type of the policy that denies the access.
    * 
    * @example
    * AccountLevelIdentityBasedPolicy
@@ -155,7 +161,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends
 export class GetRequestLogResponseBodyLogInfoBasicInfoApiDoc extends $dara.Model {
   /**
    * @remarks
-   * The documentation URL on the international site (alibabacloud.com).
+   * The link to the API reference on the Alibaba Cloud International Website (www\\.alibabacloud.com).
    * 
    * @example
    * https://api.alibabacloud.com/document/Ecs/2014-05-26/RunInstances
@@ -163,7 +169,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoApiDoc extends $dara.Model
   alibabacloudSite?: string;
   /**
    * @remarks
-   * The documentation URL on the China site (aliyun.com).
+   * The link to the API reference on the Alibaba Cloud China Website (www\\.aliyun.com).
    * 
    * @example
    * https://api.aliyun.com/document/Ecs/2014-05-26/RunInstances
@@ -195,12 +201,15 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoApiDoc extends $dara.Model
 export class GetRequestLogResponseBodyLogInfoBasicInfoProductName extends $dara.Model {
   /**
    * @remarks
-   * The product name in Chinese.
+   * The Chinese name of the product.
+   * 
+   * @example
+   * 云服务器 ECS
    */
   cnName?: string;
   /**
    * @remarks
-   * The product name in English.
+   * The English name of the product.
    * 
    * @example
    * Elastic Compute Service
@@ -232,12 +241,12 @@ export class GetRequestLogResponseBodyLogInfoBasicInfoProductName extends $dara.
 export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The error message returned if the operator does not have the required permissions. This parameter is available only if an authentication error is reported for the request ID.
+   * The details of the access denied error. This field is returned only if an authentication error occurs for the specified request ID.
    */
   accessDeniedDetail?: GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail;
   /**
    * @remarks
-   * The name of the API.
+   * The name of the API that was called.
    * 
    * @example
    * RunInstances
@@ -245,12 +254,12 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   api?: string;
   /**
    * @remarks
-   * The information about the API documentation.
+   * The API reference information.
    */
   apiDoc?: GetRequestLogResponseBodyLogInfoBasicInfoApiDoc;
   /**
    * @remarks
-   * The API style. Valid values: roa and rpc.
+   * The API style. Valid values: ROA and RPC.
    * 
    * @example
    * roa
@@ -258,15 +267,15 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   apiStyle?: string;
   /**
    * @remarks
-   * The version of the API.
+   * The API version.
    * 
    * @example
-   * 2024-11-30
+   * 2014-05-26
    */
   apiVersion?: string;
   /**
    * @remarks
-   * The endpoint of the service region.
+   * The endpoint of the area where the endpoint is deployed.
    * 
    * @example
    * ecs.cn-hangzhou.aliyuncs.com
@@ -274,7 +283,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The error code in the log. This parameter is left empty if no error is reported in the API call.
+   * The error code in the log. This field is empty if no error is reported for the request.
    * 
    * @example
    * IncorrectStatus.TransitRouter
@@ -282,7 +291,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message in the log. This parameter is left empty if no error is reported in the API call.
+   * The error message in the log. This field is empty if no error is reported for the request.
    * 
    * @example
    * The resource is not in a valid state for the operation.
@@ -290,7 +299,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The time when the gateway receives the request. Indicate the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The time when the gateway received the request. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-01-21T07:43:06Z
@@ -298,7 +307,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   gatewayProcessTime?: string;
   /**
    * @remarks
-   * The HTTP request method. Valid values: GET, PUT, and POST.
+   * The HTTP request method. Examples: GET, PUT, and POST.
    * 
    * @example
    * GET
@@ -314,7 +323,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID that you specified.
    * 
    * @example
    * 123E4567-E89B-12D3-A456-426614174000
@@ -330,12 +339,12 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The product name, which includes the Chinese name and English name.
+   * The product name, which includes the Chinese and English names.
    */
   productName?: GetRequestLogResponseBodyLogInfoBasicInfoProductName;
   /**
    * @remarks
-   * The service region ID.
+   * The ID of the area where the endpoint is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -343,7 +352,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The duration from when the gateway receives the request to when the client receives a response. Unit: milliseconds.
+   * The time that elapses from when the gateway receives a request to when it returns a response. Unit: milliseconds (ms).
    * 
    * @example
    * 188
@@ -351,7 +360,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   requestDuration?: string;
   /**
    * @remarks
-   * The time when the request is initiated. Indicate the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The time when the request was initiated. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-01-21T07:43:06Z
@@ -359,7 +368,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
   sdkRequestTime?: string;
   /**
    * @remarks
-   * The throttling result. Valid values: FC.PASS: The task is not blocked by throttling. FC.DENY: The task is blocked by throttling.
+   * The result of the throttling check. FC.PASS: The request was not blocked by the throttling check and no rate limiting occurred. FC.DENY: The request was blocked by the throttling check and rate limiting occurred.
    * 
    * @example
    * FC.PASS
@@ -432,7 +441,7 @@ export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
 export class GetRequestLogResponseBodyLogInfoCallerInfo extends $dara.Model {
   /**
    * @remarks
-   * The account ID of the caller.
+   * The ID of the caller\\"s account.
    * 
    * @example
    * 241009849925897811
@@ -448,11 +457,13 @@ export class GetRequestLogResponseBodyLogInfoCallerInfo extends $dara.Model {
   callerIp?: string;
   /**
    * @remarks
-   * The type of the caller. Valid values:
+   * The type of the caller.
    * 
-   * 1.  customer: an Alibaba Cloud account
-   * 2.  sub: a RAM user
-   * 3.  AssumedRoleUser: a user that uses a temporary Security Token Service (STS) token
+   * 1. customer: Alibaba Cloud account
+   * 
+   * 2. sub: RAM user
+   * 
+   * 3. AssumedRoleUser: A temporary identity that is created using a Security Token Service (STS) token.
    * 
    * @example
    * sub
@@ -468,7 +479,7 @@ export class GetRequestLogResponseBodyLogInfoCallerInfo extends $dara.Model {
   masterAccountId?: string;
   /**
    * @remarks
-   * The information about the user agent.
+   * The user agent.
    * 
    * @example
    * AlibabaCloud API Workbench
@@ -566,7 +577,7 @@ export class GetRequestLogResponseBodyLogInfoParameters extends $dara.Model {
 export class GetRequestLogResponseBodyLogInfoResponses extends $dara.Model {
   /**
    * @remarks
-   * The response body.
+   * The response information.
    * 
    * @example
    * -
@@ -611,7 +622,7 @@ export class GetRequestLogResponseBodyLogInfo extends $dara.Model {
   authenticationInfo?: GetRequestLogResponseBodyLogInfoAuthenticationInfo;
   /**
    * @remarks
-   * The basic information about the log of the API call.
+   * The basic information about the API request.
    */
   basicInfo?: GetRequestLogResponseBodyLogInfoBasicInfo;
   /**
@@ -621,12 +632,12 @@ export class GetRequestLogResponseBodyLogInfo extends $dara.Model {
   callerInfo?: GetRequestLogResponseBodyLogInfoCallerInfo;
   /**
    * @remarks
-   * The information about the request parameters.
+   * The request parameter information.
    */
   parameters?: GetRequestLogResponseBodyLogInfoParameters[];
   /**
    * @remarks
-   * The information that is returned for the request.
+   * The response information that corresponds to the request.
    */
   responses?: GetRequestLogResponseBodyLogInfoResponses;
   static names(): { [key: string]: string } {
@@ -676,12 +687,12 @@ export class GetRequestLogResponseBodyLogInfo extends $dara.Model {
 export class GetRequestLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the log of the API call.
+   * The details of the API request log.
    */
   logInfo?: GetRequestLogResponseBodyLogInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9BFC4AC1-6BE4-5405-BDEC-CA288D404812
