@@ -2850,6 +2850,134 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Supabase Auth配置信息
+   * 
+   * @param request - QuerySupabaseAuthConfigsForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySupabaseAuthConfigsForAdminResponse
+   */
+  async querySupabaseAuthConfigsForAdminWithOptions(request: $_model.QuerySupabaseAuthConfigsForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySupabaseAuthConfigsForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySupabaseAuthConfigsForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySupabaseAuthConfigsForAdminResponse>(await this.callApi(params, req, runtime), new $_model.QuerySupabaseAuthConfigsForAdminResponse({}));
+  }
+
+  /**
+   * 查询Supabase Auth配置信息
+   * 
+   * @param request - QuerySupabaseAuthConfigsForAdminRequest
+   * @returns QuerySupabaseAuthConfigsForAdminResponse
+   */
+  async querySupabaseAuthConfigsForAdmin(request: $_model.QuerySupabaseAuthConfigsForAdminRequest): Promise<$_model.QuerySupabaseAuthConfigsForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySupabaseAuthConfigsForAdminWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Supabase配置信息
+   * 
+   * @param request - QuerySupabaseConfigsForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySupabaseConfigsForAdminResponse
+   */
+  async querySupabaseConfigsForAdminWithOptions(request: $_model.QuerySupabaseConfigsForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySupabaseConfigsForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySupabaseConfigsForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySupabaseConfigsForAdminResponse>(await this.callApi(params, req, runtime), new $_model.QuerySupabaseConfigsForAdminResponse({}));
+  }
+
+  /**
+   * 查询Supabase配置信息
+   * 
+   * @param request - QuerySupabaseConfigsForAdminRequest
+   * @returns QuerySupabaseConfigsForAdminResponse
+   */
+  async querySupabaseConfigsForAdmin(request: $_model.QuerySupabaseConfigsForAdminRequest): Promise<$_model.QuerySupabaseConfigsForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySupabaseConfigsForAdminWithOptions(request, runtime);
+  }
+
+  /**
    * 查询Supabase实例信息
    * 
    * @param request - QuerySupabaseInstanceInfoForAdminRequest
