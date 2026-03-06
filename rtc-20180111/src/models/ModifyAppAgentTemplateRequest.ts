@@ -446,6 +446,7 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
    * 2
    */
   chatMode?: number;
+  enableVideoUnderstanding?: boolean;
   greeting?: string;
   /**
    * @remarks
@@ -470,6 +471,11 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
    * 智能体模版
    */
   name?: string;
+  /**
+   * @example
+   * 2
+   */
+  preferVideo?: number;
   ttsConfig?: ModifyAppAgentTemplateRequestTtsConfig;
   /**
    * @example
@@ -484,12 +490,14 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
       asrConfig: 'AsrConfig',
       backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
+      enableVideoUnderstanding: 'EnableVideoUnderstanding',
       greeting: 'Greeting',
       id: 'Id',
       interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       llmConfig: 'LlmConfig',
       name: 'Name',
+      preferVideo: 'PreferVideo',
       ttsConfig: 'TtsConfig',
       type: 'Type',
     };
@@ -503,12 +511,14 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
       asrConfig: ModifyAppAgentTemplateRequestAsrConfig,
       backChannelConfig: ModifyAppAgentTemplateRequestBackChannelConfig,
       chatMode: 'number',
+      enableVideoUnderstanding: 'boolean',
       greeting: 'string',
       id: 'string',
       interruptConfig: ModifyAppAgentTemplateRequestInterruptConfig,
       interruptMode: 'number',
       llmConfig: ModifyAppAgentTemplateRequestLlmConfig,
       name: 'string',
+      preferVideo: 'number',
       ttsConfig: ModifyAppAgentTemplateRequestTtsConfig,
       type: 'number',
     };

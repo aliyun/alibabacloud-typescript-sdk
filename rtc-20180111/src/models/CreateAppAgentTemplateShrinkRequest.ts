@@ -20,6 +20,7 @@ export class CreateAppAgentTemplateShrinkRequest extends $dara.Model {
    * 2
    */
   chatMode?: number;
+  enableVideoUnderstanding?: boolean;
   greeting?: string;
   interruptConfigShrink?: string;
   /**
@@ -36,6 +37,7 @@ export class CreateAppAgentTemplateShrinkRequest extends $dara.Model {
    * 智能体模版
    */
   name?: string;
+  preferVideo?: number;
   ttsConfigShrink?: string;
   /**
    * @example
@@ -50,11 +52,13 @@ export class CreateAppAgentTemplateShrinkRequest extends $dara.Model {
       asrConfigShrink: 'AsrConfig',
       backChannelConfigShrink: 'BackChannelConfig',
       chatMode: 'ChatMode',
+      enableVideoUnderstanding: 'EnableVideoUnderstanding',
       greeting: 'Greeting',
       interruptConfigShrink: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       llmConfigShrink: 'LlmConfig',
       name: 'Name',
+      preferVideo: 'PreferVideo',
       ttsConfigShrink: 'TtsConfig',
       type: 'Type',
     };
@@ -68,11 +72,13 @@ export class CreateAppAgentTemplateShrinkRequest extends $dara.Model {
       asrConfigShrink: 'string',
       backChannelConfigShrink: 'string',
       chatMode: 'number',
+      enableVideoUnderstanding: 'boolean',
       greeting: 'string',
       interruptConfigShrink: 'string',
       interruptMode: 'number',
       llmConfigShrink: 'string',
       name: 'string',
+      preferVideo: 'number',
       ttsConfigShrink: 'string',
       type: 'number',
     };

@@ -203,6 +203,10 @@ export default class Client extends OpenApi {
       query["ChatMode"] = request.chatMode;
     }
 
+    if (!$dara.isNull(request.enableVideoUnderstanding)) {
+      query["EnableVideoUnderstanding"] = request.enableVideoUnderstanding;
+    }
+
     if (!$dara.isNull(request.greeting)) {
       query["Greeting"] = request.greeting;
     }
@@ -221,6 +225,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.preferVideo)) {
+      query["PreferVideo"] = request.preferVideo;
     }
 
     if (!$dara.isNull(request.ttsConfigShrink)) {
@@ -4769,6 +4777,10 @@ export default class Client extends OpenApi {
       query["ChatMode"] = request.chatMode;
     }
 
+    if (!$dara.isNull(request.enableVideoUnderstanding)) {
+      query["EnableVideoUnderstanding"] = request.enableVideoUnderstanding;
+    }
+
     if (!$dara.isNull(request.greeting)) {
       query["Greeting"] = request.greeting;
     }
@@ -4791,6 +4803,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.preferVideo)) {
+      query["PreferVideo"] = request.preferVideo;
     }
 
     if (!$dara.isNull(request.ttsConfigShrink)) {

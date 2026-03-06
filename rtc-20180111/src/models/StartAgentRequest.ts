@@ -246,6 +246,7 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
    */
   apiKey?: string;
   appId?: string;
+  bizParams?: any;
   /**
    * @example
    * 3
@@ -293,6 +294,7 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
     return {
       apiKey: 'ApiKey',
       appId: 'AppId',
+      bizParams: 'BizParams',
       historyDepth: 'HistoryDepth',
       maxToken: 'MaxToken',
       model: 'Model',
@@ -311,6 +313,7 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
     return {
       apiKey: 'string',
       appId: 'string',
+      bizParams: 'any',
       historyDepth: 'number',
       maxToken: 'number',
       model: 'string',
@@ -425,6 +428,7 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
    * 1
    */
   chatMode?: number;
+  enableVideoUnderstanding?: boolean;
   greeting?: string;
   interruptConfig?: StartAgentRequestVoiceChatConfigInterruptConfig;
   /**
@@ -434,6 +438,7 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
   interruptMode?: number;
   LLMConfig?: StartAgentRequestVoiceChatConfigLLMConfig;
   TTSConfig?: StartAgentRequestVoiceChatConfigTTSConfig;
+  preferVideo?: number;
   static names(): { [key: string]: string } {
     return {
       ASRConfig: 'ASRConfig',
@@ -441,11 +446,13 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
       ambientSoundConfig: 'AmbientSoundConfig',
       backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
+      enableVideoUnderstanding: 'EnableVideoUnderstanding',
       greeting: 'Greeting',
       interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       LLMConfig: 'LLMConfig',
       TTSConfig: 'TTSConfig',
+      preferVideo: 'preferVideo',
     };
   }
 
@@ -456,11 +463,13 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
       ambientSoundConfig: StartAgentRequestVoiceChatConfigAmbientSoundConfig,
       backChannelConfig: StartAgentRequestVoiceChatConfigBackChannelConfig,
       chatMode: 'number',
+      enableVideoUnderstanding: 'boolean',
       greeting: 'string',
       interruptConfig: StartAgentRequestVoiceChatConfigInterruptConfig,
       interruptMode: 'number',
       LLMConfig: StartAgentRequestVoiceChatConfigLLMConfig,
       TTSConfig: StartAgentRequestVoiceChatConfigTTSConfig,
+      preferVideo: 'number',
     };
   }
 

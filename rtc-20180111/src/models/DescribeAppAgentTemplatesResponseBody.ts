@@ -409,6 +409,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
    * 2020-09-04T06:22:15Z
    */
   createTime?: string;
+  enableVideoUnderstanding?: boolean;
   /**
    * @example
    * 你好，机器人。
@@ -431,6 +432,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
    * 测试
    */
   name?: string;
+  preferVideo?: number;
   ttsConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesTtsConfig;
   /**
    * @example
@@ -445,12 +447,14 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
       backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
       createTime: 'CreateTime',
+      enableVideoUnderstanding: 'EnableVideoUnderstanding',
       greeting: 'Greeting',
       id: 'Id',
       interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       llmConfig: 'LlmConfig',
       name: 'Name',
+      preferVideo: 'PreferVideo',
       ttsConfig: 'TtsConfig',
       type: 'Type',
     };
@@ -464,12 +468,14 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
       backChannelConfig: DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig,
       chatMode: 'number',
       createTime: 'string',
+      enableVideoUnderstanding: 'boolean',
       greeting: 'string',
       id: 'string',
       interruptConfig: DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig,
       interruptMode: 'number',
       llmConfig: DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig,
       name: 'string',
+      preferVideo: 'number',
       ttsConfig: DescribeAppAgentTemplatesResponseBodyTemplatesTtsConfig,
       type: 'number',
     };

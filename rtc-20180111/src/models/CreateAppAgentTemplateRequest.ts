@@ -439,6 +439,7 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
    * 2
    */
   chatMode?: number;
+  enableVideoUnderstanding?: boolean;
   greeting?: string;
   interruptConfig?: CreateAppAgentTemplateRequestInterruptConfig;
   /**
@@ -455,6 +456,7 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
    * 智能体模版
    */
   name?: string;
+  preferVideo?: number;
   ttsConfig?: CreateAppAgentTemplateRequestTtsConfig;
   /**
    * @example
@@ -469,11 +471,13 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
       asrConfig: 'AsrConfig',
       backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
+      enableVideoUnderstanding: 'EnableVideoUnderstanding',
       greeting: 'Greeting',
       interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       llmConfig: 'LlmConfig',
       name: 'Name',
+      preferVideo: 'PreferVideo',
       ttsConfig: 'TtsConfig',
       type: 'Type',
     };
@@ -487,11 +491,13 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
       asrConfig: CreateAppAgentTemplateRequestAsrConfig,
       backChannelConfig: CreateAppAgentTemplateRequestBackChannelConfig,
       chatMode: 'number',
+      enableVideoUnderstanding: 'boolean',
       greeting: 'string',
       interruptConfig: CreateAppAgentTemplateRequestInterruptConfig,
       interruptMode: 'number',
       llmConfig: CreateAppAgentTemplateRequestLlmConfig,
       name: 'string',
+      preferVideo: 'number',
       ttsConfig: CreateAppAgentTemplateRequestTtsConfig,
       type: 'number',
     };
