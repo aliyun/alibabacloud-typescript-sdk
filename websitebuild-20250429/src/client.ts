@@ -948,6 +948,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 实例详情查询
+   * 
+   * @param request - GetAppInstanceForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppInstanceForPartnerResponse
+   */
+  async getAppInstanceForPartnerWithOptions(request: $_model.GetAppInstanceForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppInstanceForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppInstanceForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppInstanceForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.GetAppInstanceForPartnerResponse({}));
+  }
+
+  /**
+   * 实例详情查询
+   * 
+   * @param request - GetAppInstanceForPartnerRequest
+   * @returns GetAppInstanceForPartnerResponse
+   */
+  async getAppInstanceForPartner(request: $_model.GetAppInstanceForPartnerRequest): Promise<$_model.GetAppInstanceForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppInstanceForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * 生码-获取插件配置信息
    * 
    * @param request - GetAppPluginConfigRequest
@@ -1389,6 +1431,52 @@ export default class Client extends OpenApi {
   async listAppCommoditySpecificationsForPartner(): Promise<$_model.ListAppCommoditySpecificationsForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAppCommoditySpecificationsForPartnerWithOptions(runtime);
+  }
+
+  /**
+   * 网站信息查询
+   * 
+   * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppCommoditySpecificationsV2ForPartnerResponse
+   */
+  async listAppCommoditySpecificationsV2ForPartnerWithOptions(request: $_model.ListAppCommoditySpecificationsV2ForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppCommoditySpecificationsV2ForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppCommoditySpecificationsV2ForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppCommoditySpecificationsV2ForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.ListAppCommoditySpecificationsV2ForPartnerResponse({}));
+  }
+
+  /**
+   * 网站信息查询
+   * 
+   * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
+   * @returns ListAppCommoditySpecificationsV2ForPartnerResponse
+   */
+  async listAppCommoditySpecificationsV2ForPartner(request: $_model.ListAppCommoditySpecificationsV2ForPartnerRequest): Promise<$_model.ListAppCommoditySpecificationsV2ForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppCommoditySpecificationsV2ForPartnerWithOptions(request, runtime);
   }
 
   /**
