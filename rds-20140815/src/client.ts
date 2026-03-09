@@ -3109,7 +3109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 原生复制实例创建复制通道
+   * Create a replication channel for a native replication instance
    * 
    * @param request - CreateDBInstanceReplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3168,7 +3168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 原生复制实例创建复制通道
+   * Create a replication channel for a native replication instance
    * 
    * @param request - CreateDBInstanceReplicationRequest
    * @returns CreateDBInstanceReplicationResponse
@@ -6327,7 +6327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 原生复制实例删除复制通道
+   * Delete a replication link from a native replication instance
    * 
    * @param request - DeleteDBInstanceReplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6370,7 +6370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 原生复制实例删除复制通道
+   * Delete a replication link from a native replication instance
    * 
    * @param request - DeleteDBInstanceReplicationRequest
    * @returns DeleteDBInstanceReplicationResponse
@@ -17437,6 +17437,48 @@ export default class Client extends OpenApi {
   async describeRCMetricList(request: $_model.DescribeRCMetricListRequest): Promise<$_model.DescribeRCMetricListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRCMetricListWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeRCNetworkInterfaces
+   * 
+   * @param request - DescribeRCNetworkInterfacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCNetworkInterfacesResponse
+   */
+  async describeRCNetworkInterfacesWithOptions(request: $_model.DescribeRCNetworkInterfacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRCNetworkInterfacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCNetworkInterfaces",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRCNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRCNetworkInterfacesResponse({}));
+  }
+
+  /**
+   * DescribeRCNetworkInterfaces
+   * 
+   * @param request - DescribeRCNetworkInterfacesRequest
+   * @returns DescribeRCNetworkInterfacesResponse
+   */
+  async describeRCNetworkInterfaces(request: $_model.DescribeRCNetworkInterfacesRequest): Promise<$_model.DescribeRCNetworkInterfacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCNetworkInterfacesWithOptions(request, runtime);
   }
 
   /**
@@ -32729,7 +32771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 原生复制实例更新复制通道
+   * Update replication channel for a native replication instance
    * 
    * @param request - UpdateDBInstanceReplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32792,7 +32834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 原生复制实例更新复制通道
+   * Update replication channel for a native replication instance
    * 
    * @param request - UpdateDBInstanceReplicationRequest
    * @returns UpdateDBInstanceReplicationResponse

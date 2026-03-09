@@ -295,6 +295,11 @@ export { DescribeRCInstancesResponseBodyRCInstances } from './DescribeRcinstance
 export { DescribeRCInvocationResultsRequestTag } from './DescribeRcinvocationResultsRequest';
 export { DescribeRCInvocationResultsResponseBodyInvocationResultsTags } from './DescribeRcinvocationResultsResponseBody';
 export { DescribeRCInvocationResultsResponseBodyInvocationResults } from './DescribeRcinvocationResultsResponseBody';
+export { DescribeRCNetworkInterfacesResponseBodyNetworkInterfaceSetsAssociatedPublicIp } from './DescribeRcnetworkInterfacesResponseBody';
+export { DescribeRCNetworkInterfacesResponseBodyNetworkInterfaceSetsIpv6Sets } from './DescribeRcnetworkInterfacesResponseBody';
+export { DescribeRCNetworkInterfacesResponseBodyNetworkInterfaceSetsPrivateIpSets } from './DescribeRcnetworkInterfacesResponseBody';
+export { DescribeRCNetworkInterfacesResponseBodyNetworkInterfaceSetsTags } from './DescribeRcnetworkInterfacesResponseBody';
+export { DescribeRCNetworkInterfacesResponseBodyNetworkInterfaceSets } from './DescribeRcnetworkInterfacesResponseBody';
 export { DescribeRCNodePoolResponseBodyNodePoolListDataDisk } from './DescribeRcnodePoolResponseBody';
 export { DescribeRCNodePoolResponseBodyNodePoolListSystemDisk } from './DescribeRcnodePoolResponseBody';
 export { DescribeRCNodePoolResponseBodyNodePoolListTag } from './DescribeRcnodePoolResponseBody';
@@ -1052,6 +1057,9 @@ export { DescribeRCInvocationResultsResponse } from './DescribeRcinvocationResul
 export { DescribeRCMetricListRequest } from './DescribeRcmetricListRequest';
 export { DescribeRCMetricListResponseBody } from './DescribeRcmetricListResponseBody';
 export { DescribeRCMetricListResponse } from './DescribeRcmetricListResponse';
+export { DescribeRCNetworkInterfacesRequest } from './DescribeRcnetworkInterfacesRequest';
+export { DescribeRCNetworkInterfacesResponseBody } from './DescribeRcnetworkInterfacesResponseBody';
+export { DescribeRCNetworkInterfacesResponse } from './DescribeRcnetworkInterfacesResponse';
 export { DescribeRCNodePoolRequest } from './DescribeRcnodePoolRequest';
 export { DescribeRCNodePoolResponseBody } from './DescribeRcnodePoolResponseBody';
 export { DescribeRCNodePoolResponse } from './DescribeRcnodePoolResponse';
