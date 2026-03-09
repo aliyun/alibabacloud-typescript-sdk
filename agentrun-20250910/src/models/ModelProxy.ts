@@ -26,6 +26,7 @@ export class ModelProxy extends $dara.Model {
   serviceRegionId?: string;
   status?: string;
   statusReason?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
@@ -48,6 +49,7 @@ export class ModelProxy extends $dara.Model {
       serviceRegionId: 'serviceRegionId',
       status: 'status',
       statusReason: 'statusReason',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -73,6 +75,7 @@ export class ModelProxy extends $dara.Model {
       serviceRegionId: 'string',
       status: 'string',
       statusReason: 'string',
+      workspaceId: 'string',
     };
   }
 

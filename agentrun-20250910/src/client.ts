@@ -2371,6 +2371,10 @@ export default class Client extends OpenApi {
       query["status"] = request.status;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2430,6 +2434,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.providerType)) {
       query["providerType"] = request.providerType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

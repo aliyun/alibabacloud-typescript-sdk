@@ -11,36 +11,88 @@ export class CreateModelProxyInput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   cpu?: number;
+  /**
+   * @remarks
+   * credentialName
+   * 
+   * @example
+   * credentialName
+   */
   credentialName?: string;
+  /**
+   * @example
+   * 1
+   */
   description?: string;
+  /**
+   * @example
+   * executionRoleArn
+   */
   executionRoleArn?: string;
+  /**
+   * @remarks
+   * litellmVersion
+   * 
+   * @example
+   * litellmVersion
+   */
   litellmVersion?: string;
   logConfiguration?: LogConfiguration;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 31
    */
   memory?: number;
   /**
    * @remarks
+   * modelProxyName
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * modelProxyName
    */
   modelProxyName?: string;
+  /**
+   * @example
+   * system
+   */
   modelType?: string;
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
+   * ProxyConfig
+   * 
    * This parameter is required.
    */
   proxyConfig?: ProxyConfig;
   /**
    * @remarks
+   * proxyMode
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * proxyMode
    */
   proxyMode?: string;
+  /**
+   * @remarks
+   * serviceRegionId
+   * 
+   * @example
+   * serviceRegionId
+   */
   serviceRegionId?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       armsConfiguration: 'armsConfiguration',
@@ -57,6 +109,7 @@ export class CreateModelProxyInput extends $dara.Model {
       proxyConfig: 'proxyConfig',
       proxyMode: 'proxyMode',
       serviceRegionId: 'serviceRegionId',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -76,6 +129,7 @@ export class CreateModelProxyInput extends $dara.Model {
       proxyConfig: ProxyConfig,
       proxyMode: 'string',
       serviceRegionId: 'string',
+      workspaceId: 'string',
     };
   }
 

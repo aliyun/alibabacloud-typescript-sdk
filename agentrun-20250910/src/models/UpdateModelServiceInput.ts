@@ -13,6 +13,7 @@ export class UpdateModelServiceInput extends $dara.Model {
   providerSettings?: ProviderSettings;
   status?: string;
   statusReason?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       credentialName: 'credentialName',
@@ -22,6 +23,7 @@ export class UpdateModelServiceInput extends $dara.Model {
       providerSettings: 'providerSettings',
       status: 'status',
       statusReason: 'statusReason',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -34,6 +36,7 @@ export class UpdateModelServiceInput extends $dara.Model {
       providerSettings: ProviderSettings,
       status: 'string',
       statusReason: 'string',
+      workspaceId: 'string',
     };
   }
 

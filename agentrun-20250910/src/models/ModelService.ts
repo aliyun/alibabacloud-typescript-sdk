@@ -19,6 +19,7 @@ export class ModelService extends $dara.Model {
   providerSettings?: ProviderSettings;
   status?: string;
   statusReason?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
@@ -34,6 +35,7 @@ export class ModelService extends $dara.Model {
       providerSettings: 'providerSettings',
       status: 'status',
       statusReason: 'statusReason',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -52,6 +54,7 @@ export class ModelService extends $dara.Model {
       providerSettings: ProviderSettings,
       status: 'string',
       statusReason: 'string',
+      workspaceId: 'string',
     };
   }
 

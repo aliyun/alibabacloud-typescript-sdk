@@ -31,6 +31,7 @@ export class ListModelServicesRequest extends $dara.Model {
    * providerType
    */
   providerType?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       modelType: 'modelType',
@@ -38,6 +39,7 @@ export class ListModelServicesRequest extends $dara.Model {
       pageSize: 'pageSize',
       provider: 'provider',
       providerType: 'providerType',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -48,6 +50,7 @@ export class ListModelServicesRequest extends $dara.Model {
       pageSize: 'number',
       provider: 'string',
       providerType: 'string',
+      workspaceId: 'string',
     };
   }
 

@@ -26,12 +26,14 @@ export class ListModelProxiesRequest extends $dara.Model {
    * CREATING
    */
   status?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       proxyMode: 'proxyMode',
       status: 'status',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -41,6 +43,7 @@ export class ListModelProxiesRequest extends $dara.Model {
       pageSize: 'number',
       proxyMode: 'string',
       status: 'string',
+      workspaceId: 'string',
     };
   }
 

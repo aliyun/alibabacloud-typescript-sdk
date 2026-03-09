@@ -14,6 +14,7 @@ export class UpdateModelProxyInput extends $dara.Model {
   logConfiguration?: LogConfiguration;
   networkConfiguration?: NetworkConfiguration;
   proxyConfig?: ProxyConfig;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       armsConfiguration: 'armsConfiguration',
@@ -23,6 +24,7 @@ export class UpdateModelProxyInput extends $dara.Model {
       logConfiguration: 'logConfiguration',
       networkConfiguration: 'networkConfiguration',
       proxyConfig: 'proxyConfig',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -35,6 +37,7 @@ export class UpdateModelProxyInput extends $dara.Model {
       logConfiguration: LogConfiguration,
       networkConfiguration: NetworkConfiguration,
       proxyConfig: ProxyConfig,
+      workspaceId: 'string',
     };
   }
 
