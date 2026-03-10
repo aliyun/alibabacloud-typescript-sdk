@@ -112,6 +112,35 @@ export class ListAppInstanceDomainsResponseBodyModuleDataOwnership extends $dara
   }
 }
 
+export class ListAppInstanceDomainsResponseBodyModuleDataQualification extends $dara.Model {
+  icpRecordNumber?: string;
+  icpSiteRecordNumber?: string;
+  policeRecordNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icpRecordNumber: 'IcpRecordNumber',
+      icpSiteRecordNumber: 'IcpSiteRecordNumber',
+      policeRecordNumber: 'PoliceRecordNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icpRecordNumber: 'string',
+      icpSiteRecordNumber: 'string',
+      policeRecordNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord extends $dara.Model {
   /**
    * @remarks
@@ -357,6 +386,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
    * Domain ownership information
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleDataOwnership;
+  qualification?: ListAppInstanceDomainsResponseBodyModuleDataQualification;
   /**
    * @remarks
    * Domain resolution information
@@ -374,6 +404,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
       domainName: 'DomainName',
       overallStatus: 'OverallStatus',
       ownership: 'Ownership',
+      qualification: 'Qualification',
       resolution: 'Resolution',
       verification: 'Verification',
     };
@@ -386,6 +417,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
       domainName: 'string',
       overallStatus: 'string',
       ownership: ListAppInstanceDomainsResponseBodyModuleDataOwnership,
+      qualification: ListAppInstanceDomainsResponseBodyModuleDataQualification,
       resolution: ListAppInstanceDomainsResponseBodyModuleDataResolution,
       verification: ListAppInstanceDomainsResponseBodyModuleDataVerification,
     };
@@ -397,6 +429,9 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
     }
     if(this.ownership && typeof (this.ownership as any).validate === 'function') {
       (this.ownership as any).validate();
+    }
+    if(this.qualification && typeof (this.qualification as any).validate === 'function') {
+      (this.qualification as any).validate();
     }
     if(this.resolution && typeof (this.resolution as any).validate === 'function') {
       (this.resolution as any).validate();
@@ -500,6 +535,35 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
     return {
       account: 'string',
       provider: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceDomainsResponseBodyModuleNextQualification extends $dara.Model {
+  icpRecordNumber?: string;
+  icpSiteRecordNumber?: string;
+  policeRecordNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icpRecordNumber: 'IcpRecordNumber',
+      icpSiteRecordNumber: 'IcpSiteRecordNumber',
+      policeRecordNumber: 'PoliceRecordNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icpRecordNumber: 'string',
+      icpSiteRecordNumber: 'string',
+      policeRecordNumber: 'string',
     };
   }
 
@@ -747,6 +811,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
    * Domain ownership information
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleNextOwnership;
+  qualification?: ListAppInstanceDomainsResponseBodyModuleNextQualification;
   /**
    * @remarks
    * Domain resolution information
@@ -764,6 +829,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
       domainName: 'DomainName',
       overallStatus: 'OverallStatus',
       ownership: 'Ownership',
+      qualification: 'Qualification',
       resolution: 'Resolution',
       verification: 'Verification',
     };
@@ -776,6 +842,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
       domainName: 'string',
       overallStatus: 'string',
       ownership: ListAppInstanceDomainsResponseBodyModuleNextOwnership,
+      qualification: ListAppInstanceDomainsResponseBodyModuleNextQualification,
       resolution: ListAppInstanceDomainsResponseBodyModuleNextResolution,
       verification: ListAppInstanceDomainsResponseBodyModuleNextVerification,
     };
@@ -787,6 +854,9 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
     }
     if(this.ownership && typeof (this.ownership as any).validate === 'function') {
       (this.ownership as any).validate();
+    }
+    if(this.qualification && typeof (this.qualification as any).validate === 'function') {
+      (this.qualification as any).validate();
     }
     if(this.resolution && typeof (this.resolution as any).validate === 'function') {
       (this.resolution as any).validate();

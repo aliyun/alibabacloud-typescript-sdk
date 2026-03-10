@@ -1049,6 +1049,10 @@ export default class Client extends OpenApi {
       query["BizId"] = request.bizId;
     }
 
+    if (!$dara.isNull(request.resourceConditions)) {
+      query["ResourceConditions"] = request.resourceConditions;
+    }
+
     if (!$dara.isNull(request.scene)) {
       query["Scene"] = request.scene;
     }

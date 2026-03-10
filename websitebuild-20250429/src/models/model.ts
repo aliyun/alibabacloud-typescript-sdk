@@ -65,6 +65,7 @@ export { ListAppDomainRedirectRecordsResponseBodyModuleNext } from './ListAppDom
 export { ListAppDomainRedirectRecordsResponseBodyModule } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataCertificate } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataOwnership } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleDataQualification } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataResolution } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord } from './ListAppInstanceDomainsResponseBody';
@@ -72,6 +73,7 @@ export { ListAppInstanceDomainsResponseBodyModuleDataVerification } from './List
 export { ListAppInstanceDomainsResponseBodyModuleData } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextCertificate } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextOwnership } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleNextQualification } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextResolutionDnsRecord } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextResolution } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord } from './ListAppInstanceDomainsResponseBody';
