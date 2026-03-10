@@ -2,20 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class IndexJsonKey extends $dara.Model {
-  chn?: boolean;
-  type?: string;
+export class UpdateMemoryStoreResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0CEC5375-C554-562B-A65F-9A629907C1F0
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      chn: 'chn',
-      type: 'type',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      chn: 'boolean',
-      type: 'string',
+      requestId: 'string',
     };
   }
 

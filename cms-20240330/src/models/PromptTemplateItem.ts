@@ -2,20 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class IndexJsonKey extends $dara.Model {
-  chn?: boolean;
-  type?: string;
+export class PromptTemplateItem extends $dara.Model {
+  content?: string;
+  role?: string;
   static names(): { [key: string]: string } {
     return {
-      chn: 'chn',
-      type: 'type',
+      content: 'content',
+      role: 'role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      chn: 'boolean',
-      type: 'string',
+      content: 'string',
+      role: 'string',
     };
   }
 
