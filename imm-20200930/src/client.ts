@@ -2039,6 +2039,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建高光任务
+   * 
+   * @param tmpReq - CreateHighlightTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHighlightTaskResponse
+   */
+  async createHighlightTaskWithOptions(tmpReq: $_model.CreateHighlightTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHighlightTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateHighlightTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.edit)) {
+      request.editShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.edit, "Edit", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.highlight)) {
+      request.highlightShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.highlight, "Highlight", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialConfigShrink)) {
+      body["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!$dara.isNull(request.editShrink)) {
+      body["Edit"] = request.editShrink;
+    }
+
+    if (!$dara.isNull(request.highlightShrink)) {
+      body["Highlight"] = request.highlightShrink;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.notificationShrink)) {
+      body["Notification"] = request.notificationShrink;
+    }
+
+    if (!$dara.isNull(request.outputShrink)) {
+      body["Output"] = request.outputShrink;
+    }
+
+    if (!$dara.isNull(request.sourcesShrink)) {
+      body["Sources"] = request.sourcesShrink;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHighlightTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHighlightTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateHighlightTaskResponse({}));
+  }
+
+  /**
+   * 创建高光任务
+   * 
+   * @param request - CreateHighlightTaskRequest
+   * @returns CreateHighlightTaskResponse
+   */
+  async createHighlightTask(request: $_model.CreateHighlightTaskRequest): Promise<$_model.CreateHighlightTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHighlightTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
    * 
    * @remarks

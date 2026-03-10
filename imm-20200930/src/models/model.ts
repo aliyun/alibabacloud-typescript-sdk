@@ -33,6 +33,14 @@ export { CreateCustomizedStoryRequestCover } from './CreateCustomizedStoryReques
 export { CreateCustomizedStoryRequestFiles } from './CreateCustomizedStoryRequest';
 export { CreateFacesSearchingTaskRequestSources } from './CreateFacesSearchingTaskRequest';
 export { CreateFileCompressionTaskRequestSources } from './CreateFileCompressionTaskRequest';
+export { CreateHighlightTaskRequestEditBackgroundMusics } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskRequestEditTransitions } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskRequestEditVfxEffects } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskRequestEdit } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskRequestHighlight } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskRequestOutputSegment } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskRequestOutput } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskRequestSources } from './CreateHighlightTaskRequest';
 export { CreateImageSplicingTaskRequestSources } from './CreateImageSplicingTaskRequest';
 export { CreateImageToPDFTaskRequestSources } from './CreateImageToPdftaskRequest';
 export { CreateLocationDateClusteringTaskRequestDateOptions } from './CreateLocationDateClusteringTaskRequest';
@@ -257,6 +265,10 @@ export { CreateFileUncompressionTaskRequest } from './CreateFileUncompressionTas
 export { CreateFileUncompressionTaskShrinkRequest } from './CreateFileUncompressionTaskShrinkRequest';
 export { CreateFileUncompressionTaskResponseBody } from './CreateFileUncompressionTaskResponseBody';
 export { CreateFileUncompressionTaskResponse } from './CreateFileUncompressionTaskResponse';
+export { CreateHighlightTaskRequest } from './CreateHighlightTaskRequest';
+export { CreateHighlightTaskShrinkRequest } from './CreateHighlightTaskShrinkRequest';
+export { CreateHighlightTaskResponseBody } from './CreateHighlightTaskResponseBody';
+export { CreateHighlightTaskResponse } from './CreateHighlightTaskResponse';
 export { CreateImageModerationTaskRequest } from './CreateImageModerationTaskRequest';
 export { CreateImageModerationTaskShrinkRequest } from './CreateImageModerationTaskShrinkRequest';
 export { CreateImageModerationTaskResponseBody } from './CreateImageModerationTaskResponseBody';

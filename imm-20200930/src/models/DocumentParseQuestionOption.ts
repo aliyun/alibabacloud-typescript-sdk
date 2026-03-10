@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DocumentParseQuestionOption extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   count?: number;
   extract?: boolean;
   static names(): { [key: string]: string } {

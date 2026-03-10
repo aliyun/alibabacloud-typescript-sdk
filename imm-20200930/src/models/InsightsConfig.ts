@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsightsConfig extends $dara.Model {
+  /**
+   * @example
+   * zh-Hans
+   */
   language?: string;
   static names(): { [key: string]: string } {
     return {
