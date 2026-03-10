@@ -1723,6 +1723,10 @@ export default class Client extends OpenApi {
       query["GpuMemory"] = request.gpuMemory;
     }
 
+    if (!$dara.isNull(request.instanceTypeForModify)) {
+      query["InstanceTypeForModify"] = request.instanceTypeForModify;
+    }
+
     if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
@@ -1741,6 +1745,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
     }
 
     if (!$dara.isNull(request.osType)) {

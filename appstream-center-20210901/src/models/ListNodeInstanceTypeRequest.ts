@@ -19,6 +19,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   cpu?: number;
   gpu?: number;
   gpuMemory?: number;
+  instanceTypeForModify?: string;
   /**
    * @remarks
    * The language that you want to use.
@@ -43,6 +44,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   nodeInstanceType?: string;
   nodeInstanceTypeFamily?: string;
   orderBy?: string;
+  orderType?: string;
   /**
    * @remarks
    * The operating system that is supported.
@@ -96,11 +98,13 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
       cpu: 'Cpu',
       gpu: 'Gpu',
       gpuMemory: 'GpuMemory',
+      instanceTypeForModify: 'InstanceTypeForModify',
       language: 'Language',
       memory: 'Memory',
       nodeInstanceType: 'NodeInstanceType',
       nodeInstanceTypeFamily: 'NodeInstanceTypeFamily',
       orderBy: 'OrderBy',
+      orderType: 'OrderType',
       osType: 'OsType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -115,11 +119,13 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
       cpu: 'number',
       gpu: 'number',
       gpuMemory: 'number',
+      instanceTypeForModify: 'string',
       language: 'string',
       memory: 'number',
       nodeInstanceType: 'string',
       nodeInstanceTypeFamily: 'string',
       orderBy: 'string',
+      orderType: 'string',
       osType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
