@@ -6,21 +6,33 @@ export class PartitionSummary extends $dara.Model {
   /**
    * @remarks
    * Partition creation timestamp in milliseconds
+   * 
+   * @example
+   * 1744970111419
    */
   createdAt?: number;
   /**
    * @remarks
    * Database name
+   * 
+   * @example
+   * default
    */
   databaseName?: string;
   /**
    * @remarks
    * Total files in partition
+   * 
+   * @example
+   * 1744970111419
    */
   lastAccessTime?: number;
   /**
    * @remarks
    * Partition identifier
+   * 
+   * @example
+   * hh=18
    */
   partitionName?: string;
   storageActionParams?: { [key: string]: string };
@@ -29,18 +41,31 @@ export class PartitionSummary extends $dara.Model {
   /**
    * @remarks
    * Table name
+   * 
+   * @example
+   * table1
    */
   tableName?: string;
   /**
    * @remarks
    * 24h access count
+   * 
+   * @example
+   * 2
    */
   totalFileCount?: number;
   /**
    * @remarks
    * Last data access timestamp in milliseconds
+   * 
+   * @example
+   * 2048
    */
   totalFileSizeInBytes?: number;
+  /**
+   * @example
+   * 1744970111419
+   */
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {

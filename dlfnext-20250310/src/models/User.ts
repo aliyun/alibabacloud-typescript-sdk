@@ -3,14 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class User extends $dara.Model {
+  /**
+   * @example
+   * 1744970111419
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @example
+   * user_display_name
+   */
   displayName?: string;
+  /**
+   * @example
+   * RAM_USER
+   */
   type?: string;
+  /**
+   * @example
+   * 1744970111419
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
+  /**
+   * @example
+   * 222748924538****
+   */
   userId?: string;
+  /**
+   * @example
+   * user_name
+   */
   userName?: string;
+  /**
+   * @example
+   * acs:ram::[accountId]:user/user_name
+   */
   userPrincipal?: string;
   static names(): { [key: string]: string } {
     return {

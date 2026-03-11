@@ -4,10 +4,18 @@ import { DataField } from "./DataField";
 
 
 export class ViewSchema extends $dara.Model {
+  /**
+   * @example
+   * comment
+   */
   comment?: string;
   dialects?: { [key: string]: string };
   fields?: DataField[];
   options?: { [key: string]: string };
+  /**
+   * @example
+   * select id from t1;
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {

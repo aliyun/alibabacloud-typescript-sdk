@@ -4,13 +4,41 @@ import { ViewSchema } from "./ViewSchema";
 
 
 export class View extends $dara.Model {
+  /**
+   * @example
+   * 1744970111419
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @example
+   * view_test
+   */
   name?: string;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   owner?: string;
   schema?: ViewSchema;
+  /**
+   * @example
+   * 1744970111419
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

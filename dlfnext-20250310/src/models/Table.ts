@@ -5,21 +5,61 @@ import { Schema } from "./Schema";
 
 
 export class Table extends $dara.Model {
+  /**
+   * @example
+   * 1741266704867
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
   icebergTableMetadata?: IcebergTableMetadata;
+  /**
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isExternal?: boolean;
+  /**
+   * @example
+   * table_test
+   */
   name?: string;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   owner?: string;
+  /**
+   * @example
+   * oss://clg-paimon-xxx/db-xxx/tbl-xxxx
+   */
   path?: string;
   schema?: Schema;
+  /**
+   * @example
+   * 1
+   */
   schemaId?: number;
   storageAction?: string;
   storageActionTimestamp?: number;
   storageClass?: string;
   type?: string;
+  /**
+   * @example
+   * 1741266704867
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

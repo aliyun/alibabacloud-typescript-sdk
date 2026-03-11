@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CacheClusterVSwitches extends $dara.Model {
+  /**
+   * @example
+   * vsw-bp1thxw8sgypzj2j*****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-e
+   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,19 +39,70 @@ export class CacheClusterVSwitches extends $dara.Model {
 }
 
 export class CacheCluster extends $dara.Model {
+  /**
+   * @example
+   * dc-wqewqr*****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * cluster_name
+   */
   clusterName?: string;
+  /**
+   * @example
+   * 1744970111419
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   deployInstanceVersion?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   deployOptionsVersion?: number;
+  /**
+   * @example
+   * 1.0.0
+   */
   instanceVersion?: string;
   options?: { [key: string]: string };
+  /**
+   * @example
+   * 1.0.0
+   */
   optionsVersion?: number;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * 1764555848748
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   vSwitches?: CacheClusterVSwitches[];
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-2ze****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

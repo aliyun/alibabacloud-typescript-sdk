@@ -7,6 +7,10 @@ export class FullDataType extends $dara.Model {
   element?: FullDataType;
   fields?: DataField[];
   key?: FullDataType;
+  /**
+   * @example
+   * STRING
+   */
   type?: string;
   value?: FullDataType;
   static names(): { [key: string]: string } {

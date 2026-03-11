@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ShareResource extends $dara.Model {
+  /**
+   * @example
+   * 1744970111419
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @example
+   * database_name
+   */
   databaseName?: string;
+  /**
+   * @example
+   * TABLE
+   */
   shareType?: string;
+  /**
+   * @example
+   * table_name
+   */
   tableName?: string;
+  /**
+   * @example
+   * 1744970111419
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

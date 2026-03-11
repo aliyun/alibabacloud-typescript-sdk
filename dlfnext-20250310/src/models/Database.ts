@@ -3,14 +3,46 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Database extends $dara.Model {
+  /**
+   * @example
+   * 1744970111419
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @example
+   * oss://clg-paimon-xxx/db-xxx
+   */
   location?: string;
+  /**
+   * @example
+   * test_database
+   */
   name?: string;
   options?: { [key: string]: string };
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   owner?: string;
+  /**
+   * @example
+   * 1744970111419
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

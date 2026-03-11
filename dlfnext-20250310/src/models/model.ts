@@ -1,6 +1,7 @@
 export { CacheClusterVSwitches } from './CacheCluster';
 export { PermissionColumns } from './Permission';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
+export { GetVpcConfigResponseBodyTrustedVpcs } from './GetVpcConfigResponseBody';
 export { CacheCluster } from './CacheCluster';
 export { Catalog } from './Catalog';
 export { CatalogSummary } from './CatalogSummary';
@@ -127,6 +128,8 @@ export { GetTableTokenResponseBody } from './GetTableTokenResponseBody';
 export { GetTableTokenResponse } from './GetTableTokenResponse';
 export { GetUserRequest } from './GetUserRequest';
 export { GetUserResponse } from './GetUserResponse';
+export { GetVpcConfigResponseBody } from './GetVpcConfigResponseBody';
+export { GetVpcConfigResponse } from './GetVpcConfigResponse';
 export { GrantRoleToUsersRequest } from './GrantRoleToUsersRequest';
 export { GrantRoleToUsersResponse } from './GrantRoleToUsersResponse';
 export { ListCatalogsRequest } from './ListCatalogsRequest';

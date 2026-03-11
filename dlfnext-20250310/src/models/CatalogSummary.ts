@@ -4,12 +4,19 @@ import { MoMValues } from "./MoMvalues";
 
 
 export class CatalogSummary extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
   apiVisitCountMonthly?: number;
   databaseCount?: MoMValues;
   fileAccessCountMonthly?: number;
   /**
    * @remarks
    * Update date of the statistics
+   * 
+   * @example
+   * 2025-01-01
    */
   generatedDate?: string;
   objTypeArchiveSize?: number;
@@ -18,6 +25,10 @@ export class CatalogSummary extends $dara.Model {
   objTypeStandardSize?: number;
   partitionCount?: MoMValues;
   tableCount?: MoMValues;
+  /**
+   * @example
+   * 1024
+   */
   throughputMonthly?: number;
   totalFileCount?: MoMValues;
   totalFileSizeInBytes?: MoMValues;

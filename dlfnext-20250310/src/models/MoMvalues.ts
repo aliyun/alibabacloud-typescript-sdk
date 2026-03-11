@@ -6,16 +6,25 @@ export class MoMValues extends $dara.Model {
   /**
    * @remarks
    * total
+   * 
+   * @example
+   * 1000
    */
   currentValue?: number;
   /**
    * @remarks
    * daily addition
+   * 
+   * @example
+   * 800
    */
   lastDayValue?: number;
   /**
    * @remarks
    * monthly addition
+   * 
+   * @example
+   * 100
    */
   lastMonthValue?: number;
   static names(): { [key: string]: string } {

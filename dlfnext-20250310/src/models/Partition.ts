@@ -3,19 +3,71 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Partition extends $dara.Model {
+  /**
+   * @example
+   * 1747120676378
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @example
+   * true
+   */
   done?: boolean;
+  /**
+   * @example
+   * 1
+   */
   fileCount?: number;
+  /**
+   * @example
+   * 1
+   */
   fileSizeInBytes?: number;
+  /**
+   * @example
+   * 1741701564261
+   */
   lastFileCreationTime?: number;
+  /**
+   * @example
+   * 1
+   */
   recordCount?: number;
+  /**
+   * @example
+   * {"year":"2025"}
+   */
   spec?: { [key: string]: any };
+  /**
+   * @example
+   * COMPLETE
+   */
   storageAction?: string;
+  /**
+   * @example
+   * 1758189669915
+   */
   storageActionTimestamp?: number;
+  /**
+   * @example
+   * STANDARD
+   */
   storageClass?: string;
   totalBuckets?: number;
+  /**
+   * @example
+   * 1744970111419
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

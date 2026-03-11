@@ -4,14 +4,50 @@ import { User } from "./User";
 
 
 export class Role extends $dara.Model {
+  /**
+   * @example
+   * 1744970111419
+   */
   createdAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
+  /**
+   * @example
+   * role_description
+   */
   description?: string;
+  /**
+   * @example
+   * role_display_name
+   */
   displayName?: string;
+  /**
+   * @example
+   * true
+   */
   isPredefined?: string;
+  /**
+   * @example
+   * role_name
+   */
   roleName?: string;
+  /**
+   * @example
+   * acs:dlf::[accountId]:role/role_name
+   */
   rolePrincipal?: string;
+  /**
+   * @example
+   * 1744970111419
+   */
   updatedAt?: number;
+  /**
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   users?: User[];
   static names(): { [key: string]: string } {

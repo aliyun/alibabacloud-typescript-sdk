@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Move extends $dara.Model {
+  /**
+   * @example
+   * other_col_test
+   */
   fieldName?: string;
+  /**
+   * @example
+   * col_test
+   */
   referenceFieldName?: string;
+  /**
+   * @example
+   * FIRST
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,10 @@ import { PartitionSummary } from "./PartitionSummary";
 
 
 export class PartitionSummaries extends $dara.Model {
+  /**
+   * @example
+   * hh=10
+   */
   nextPageToken?: string;
   /**
    * @remarks

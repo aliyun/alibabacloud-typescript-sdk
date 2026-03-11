@@ -4,8 +4,20 @@ import { FullDataType } from "./FullDataType";
 
 
 export class DataField extends $dara.Model {
+  /**
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @example
+   * 0
+   */
   id?: number;
+  /**
+   * @example
+   * order_id
+   */
   name?: string;
   type?: FullDataType;
   static names(): { [key: string]: string } {

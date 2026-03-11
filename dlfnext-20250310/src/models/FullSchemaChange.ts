@@ -5,10 +5,17 @@ import { Move } from "./Move";
 
 
 export class FullSchemaChange extends $dara.Model {
+  /**
+   * @example
+   * setOption
+   */
   action?: string;
   /**
    * @remarks
    * required in UpdateComment/AddColumn
+   * 
+   * @example
+   * col_comment
    */
   comment?: string;
   dataType?: FullDataType;
@@ -20,33 +27,51 @@ export class FullSchemaChange extends $dara.Model {
   /**
    * @remarks
    * required in UpdateColumnType
+   * 
+   * @example
+   * true
    */
   keepNullability?: boolean;
   /**
    * @remarks
    * required in SetOption/RemoveOption
+   * 
+   * @example
+   * \\"true\\"
    */
   key?: string;
   move?: Move;
   /**
    * @remarks
    * required in UpdateColumnComment
+   * 
+   * @example
+   * col_comment_test
    */
   newComment?: string;
   newDataType?: FullDataType;
   /**
    * @remarks
    * required in RenameColumn
+   * 
+   * @example
+   * new_col_test
    */
   newName?: string;
   /**
    * @remarks
    * required in UpdateColumnNullability
+   * 
+   * @example
+   * true
    */
   newNullability?: boolean;
   /**
    * @remarks
    * required in SetOption
+   * 
+   * @example
+   * \\"manifest.delete-file-drop-stats\\"
    */
   value?: string;
   static names(): { [key: string]: string } {

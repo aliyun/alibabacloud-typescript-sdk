@@ -6,14 +6,28 @@ export class TableSummary extends $dara.Model {
   /**
    * @remarks
    * Latest snapshot storage size
+   * 
+   * @example
+   * 1744970111419
    */
   createdAt?: number;
   /**
    * @remarks
    * Database name
+   * 
+   * @example
+   * default
    */
   databaseName?: string;
+  /**
+   * @example
+   * 2025-06-01
+   */
   generatedDate?: string;
+  /**
+   * @example
+   * 1744970111419
+   */
   lastAccessTime?: number;
   objTypeArchiveSize?: number;
   objTypeColdArchiveSize?: number;
@@ -22,8 +36,15 @@ export class TableSummary extends $dara.Model {
   /**
    * @remarks
    * Creation timestamp in milliseconds
+   * 
+   * @example
+   * 10
    */
   partitionCount?: number;
+  /**
+   * @example
+   * oss://clg-xxxx/db-xxxx/tbl-xxxx
+   */
   path?: string;
   storageActionParams?: { [key: string]: string };
   storageActionTimestamp?: number;
@@ -31,13 +52,23 @@ export class TableSummary extends $dara.Model {
   /**
    * @remarks
    * Table name
+   * 
+   * @example
+   * table1
    */
   tableName?: string;
   /**
    * @remarks
    * 30-day access count
+   * 
+   * @example
+   * 100
    */
   totalFileCount?: number;
+  /**
+   * @example
+   * 1024
+   */
   totalFileSizeInBytes?: number;
   totalMetaFileCount?: number;
   totalMetaSizeInBytes?: number;

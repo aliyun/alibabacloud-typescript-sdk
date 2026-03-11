@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IcebergPartitionField extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   fieldId?: number;
+  /**
+   * @example
+   * ts_day
+   */
   name?: string;
+  /**
+   * @example
+   * 0
+   */
   sourceId?: number;
+  /**
+   * @example
+   * day
+   */
   transform?: string;
   static names(): { [key: string]: string } {
     return {

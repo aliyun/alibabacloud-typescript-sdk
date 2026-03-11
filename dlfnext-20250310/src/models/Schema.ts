@@ -4,6 +4,10 @@ import { DataField } from "./DataField";
 
 
 export class Schema extends $dara.Model {
+  /**
+   * @example
+   * description
+   */
   comment?: string;
   fields?: DataField[];
   options?: { [key: string]: string };

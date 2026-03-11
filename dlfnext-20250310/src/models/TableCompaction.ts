@@ -3,23 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TableCompaction extends $dara.Model {
+  /**
+   * @example
+   * clg-paimon-xxx
+   */
   catalogId?: string;
+  /**
+   * @example
+   * 1
+   */
   cuUsage?: number;
   /**
+   * @example
+   * 1759111660075
+   * 
    * **if can be null:**
    * true
    * 
    * @deprecated
    */
   lastCompactedFileTime?: number;
+  /**
+   * @example
+   * 1760321763633
+   */
   latencyFileEarliestTime?: number;
   /**
+   * @example
+   * 1
+   * 
    * **if can be null:**
    * true
    * 
    * @deprecated
    */
   maxLevel0FileCount?: string;
+  /**
+   * @example
+   * tbl-xxx
+   */
   tableId?: string;
   static names(): { [key: string]: string } {
     return {

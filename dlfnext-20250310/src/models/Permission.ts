@@ -36,14 +36,34 @@ export class PermissionColumns extends $dara.Model {
 }
 
 export class Permission extends $dara.Model {
+  /**
+   * @example
+   * DROP
+   */
   access?: string;
   columns?: PermissionColumns;
+  /**
+   * @example
+   * database_name
+   */
   database?: string;
   expireTime?: string;
   function?: string;
+  /**
+   * @example
+   * acs:ram::[accountId]:user/user_name
+   */
   principal?: string;
+  /**
+   * @example
+   * CATALOG
+   */
   resourceType?: string;
   rowFilter?: RowFilter;
+  /**
+   * @example
+   * table_name
+   */
   table?: string;
   view?: string;
   static names(): { [key: string]: string } {

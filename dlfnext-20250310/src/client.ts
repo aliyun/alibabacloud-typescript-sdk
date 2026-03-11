@@ -1775,6 +1775,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取可信 VPC 配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVpcConfigResponse
+   */
+  async getVpcConfigWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVpcConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVpcConfig",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/auth/vpc`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVpcConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetVpcConfigResponse({}));
+  }
+
+  /**
+   * 获取可信 VPC 配置
+   * @returns GetVpcConfigResponse
+   */
+  async getVpcConfig(): Promise<$_model.GetVpcConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVpcConfigWithOptions(headers, runtime);
+  }
+
+  /**
    * 批量授予角色权限给用户
    * 
    * @param request - GrantRoleToUsersRequest
