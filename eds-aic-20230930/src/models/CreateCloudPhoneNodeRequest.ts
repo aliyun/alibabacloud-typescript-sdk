@@ -38,6 +38,7 @@ export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
   ipRatio?: number;
   isp?: string;
   limitedBandwidth?: number;
+  paidCallbackUrl?: string;
   payType?: string;
   visibleType?: string;
   static names(): { [key: string]: string } {
@@ -48,6 +49,7 @@ export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
       ipRatio: 'IpRatio',
       isp: 'Isp',
       limitedBandwidth: 'LimitedBandwidth',
+      paidCallbackUrl: 'PaidCallbackUrl',
       payType: 'PayType',
       visibleType: 'VisibleType',
     };
@@ -61,6 +63,7 @@ export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
       ipRatio: 'number',
       isp: 'string',
       limitedBandwidth: 'number',
+      paidCallbackUrl: 'string',
       payType: 'string',
       visibleType: 'string',
     };

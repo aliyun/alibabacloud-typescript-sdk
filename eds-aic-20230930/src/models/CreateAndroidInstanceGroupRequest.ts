@@ -11,6 +11,7 @@ export class CreateAndroidInstanceGroupRequestNetworkInfo extends $dara.Model {
   ipRatio?: number;
   isp?: string;
   limitedBandwidth?: number;
+  paidCallbackUrl?: string;
   payType?: string;
   period?: number;
   periodUnit?: string;
@@ -26,6 +27,7 @@ export class CreateAndroidInstanceGroupRequestNetworkInfo extends $dara.Model {
       ipRatio: 'IpRatio',
       isp: 'Isp',
       limitedBandwidth: 'LimitedBandwidth',
+      paidCallbackUrl: 'PaidCallbackUrl',
       payType: 'PayType',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -44,6 +46,7 @@ export class CreateAndroidInstanceGroupRequestNetworkInfo extends $dara.Model {
       ipRatio: 'number',
       isp: 'string',
       limitedBandwidth: 'number',
+      paidCallbackUrl: 'string',
       payType: 'string',
       period: 'number',
       periodUnit: 'string',
