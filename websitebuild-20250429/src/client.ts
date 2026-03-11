@@ -414,7 +414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 万小智开通灵感值服务
+   * Activate the Wanxiaozhi Inspiration Value service
    * 
    * @param request - CreateAppTokenServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -445,7 +445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 万小智开通灵感值服务
+   * Activate the Wanxiaozhi Inspiration Value service
    * 
    * @param request - CreateAppTokenServiceRequest
    * @returns CreateAppTokenServiceResponse
@@ -948,7 +948,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例详情查询
+   * Query application instance information
+   * 
+   * @param request - GetAppInstanceForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppInstanceForAdminResponse
+   */
+  async getAppInstanceForAdminWithOptions(request: $_model.GetAppInstanceForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppInstanceForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppInstanceForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppInstanceForAdminResponse>(await this.callApi(params, req, runtime), new $_model.GetAppInstanceForAdminResponse({}));
+  }
+
+  /**
+   * Query application instance information
+   * 
+   * @param request - GetAppInstanceForAdminRequest
+   * @returns GetAppInstanceForAdminResponse
+   */
+  async getAppInstanceForAdmin(request: $_model.GetAppInstanceForAdminRequest): Promise<$_model.GetAppInstanceForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppInstanceForAdminWithOptions(request, runtime);
+  }
+
+  /**
+   * Query instance details
    * 
    * @param request - GetAppInstanceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -979,7 +1025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例详情查询
+   * Query instance details
    * 
    * @param request - GetAppInstanceForPartnerRequest
    * @returns GetAppInstanceForPartnerResponse
