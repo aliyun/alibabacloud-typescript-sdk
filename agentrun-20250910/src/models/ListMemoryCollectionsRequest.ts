@@ -29,6 +29,7 @@ export class ListMemoryCollectionsRequest extends $dara.Model {
    */
   type?: string;
   workspaceId?: string;
+  workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
       memoryCollectionName: 'memoryCollectionName',
@@ -37,6 +38,7 @@ export class ListMemoryCollectionsRequest extends $dara.Model {
       status: 'status',
       type: 'type',
       workspaceId: 'workspaceId',
+      workspaceIds: 'workspaceIds',
     };
   }
 
@@ -48,6 +50,7 @@ export class ListMemoryCollectionsRequest extends $dara.Model {
       status: 'string',
       type: 'string',
       workspaceId: 'string',
+      workspaceIds: 'string',
     };
   }
 

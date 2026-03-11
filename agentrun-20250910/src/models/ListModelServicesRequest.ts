@@ -32,6 +32,7 @@ export class ListModelServicesRequest extends $dara.Model {
    */
   providerType?: string;
   workspaceId?: string;
+  workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
       modelType: 'modelType',
@@ -40,6 +41,7 @@ export class ListModelServicesRequest extends $dara.Model {
       provider: 'provider',
       providerType: 'providerType',
       workspaceId: 'workspaceId',
+      workspaceIds: 'workspaceIds',
     };
   }
 
@@ -51,6 +53,7 @@ export class ListModelServicesRequest extends $dara.Model {
       provider: 'string',
       providerType: 'string',
       workspaceId: 'string',
+      workspaceIds: 'string',
     };
   }
 
