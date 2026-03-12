@@ -962,6 +962,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量获取一刻AI应用生成任务
+   * 
+   * @param request - BatchGetYikeAIAppJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetYikeAIAppJobResponse
+   */
+  async batchGetYikeAIAppJobWithOptions(request: $_model.BatchGetYikeAIAppJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetYikeAIAppJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobIds)) {
+      query["JobIds"] = request.jobIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetYikeAIAppJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchGetYikeAIAppJobResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetYikeAIAppJobResponse({}));
+  }
+
+  /**
+   * 批量获取一刻AI应用生成任务
+   * 
+   * @param request - BatchGetYikeAIAppJobRequest
+   * @returns BatchGetYikeAIAppJobResponse
+   */
+  async batchGetYikeAIAppJob(request: $_model.BatchGetYikeAIAppJobRequest): Promise<$_model.BatchGetYikeAIAppJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchGetYikeAIAppJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量获取媒资信息
+   * 
+   * @param request - BatchGetYikeAssetMediaInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetYikeAssetMediaInfosResponse
+   */
+  async batchGetYikeAssetMediaInfosWithOptions(request: $_model.BatchGetYikeAssetMediaInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetYikeAssetMediaInfosResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetYikeAssetMediaInfos",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchGetYikeAssetMediaInfosResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetYikeAssetMediaInfosResponse({}));
+  }
+
+  /**
+   * 批量获取媒资信息
+   * 
+   * @param request - BatchGetYikeAssetMediaInfosRequest
+   * @returns BatchGetYikeAssetMediaInfosResponse
+   */
+  async batchGetYikeAssetMediaInfos(request: $_model.BatchGetYikeAssetMediaInfosRequest): Promise<$_model.BatchGetYikeAssetMediaInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchGetYikeAssetMediaInfosWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels a media fingerprint analysis job.
    * 
    * @remarks
@@ -5689,6 +5773,52 @@ export default class Client extends OpenApi {
   async deleteVodPackagingGroup(request: $_model.DeleteVodPackagingGroupRequest): Promise<$_model.DeleteVodPackagingGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVodPackagingGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除媒资信息
+   * 
+   * @param request - DeleteYikeAssetMediaInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteYikeAssetMediaInfosResponse
+   */
+  async deleteYikeAssetMediaInfosWithOptions(request: $_model.DeleteYikeAssetMediaInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteYikeAssetMediaInfosResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.logicDelete)) {
+      query["LogicDelete"] = request.logicDelete;
+    }
+
+    if (!$dara.isNull(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteYikeAssetMediaInfos",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteYikeAssetMediaInfosResponse>(await this.callApi(params, req, runtime), new $_model.DeleteYikeAssetMediaInfosResponse({}));
+  }
+
+  /**
+   * 删除媒资信息
+   * 
+   * @param request - DeleteYikeAssetMediaInfosRequest
+   * @returns DeleteYikeAssetMediaInfosResponse
+   */
+  async deleteYikeAssetMediaInfos(request: $_model.DeleteYikeAssetMediaInfosRequest): Promise<$_model.DeleteYikeAssetMediaInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteYikeAssetMediaInfosWithOptions(request, runtime);
   }
 
   /**
