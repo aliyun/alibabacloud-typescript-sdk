@@ -49,6 +49,11 @@ export class FeatureViewConfigValue extends $dara.Model {
   equal?: boolean;
   useMock?: boolean;
   snapshot?: FeatureViewConfigValueSnapshot;
+  /**
+   * @example
+   * request_id
+   */
+  secondJoinKey?: string;
   static names(): { [key: string]: string } {
     return {
       partitions: 'Partitions',
@@ -56,6 +61,7 @@ export class FeatureViewConfigValue extends $dara.Model {
       equal: 'Equal',
       useMock: 'UseMock',
       snapshot: 'Snapshot',
+      secondJoinKey: 'SecondJoinKey',
     };
   }
 
@@ -66,6 +72,7 @@ export class FeatureViewConfigValue extends $dara.Model {
       equal: 'boolean',
       useMock: 'boolean',
       snapshot: FeatureViewConfigValueSnapshot,
+      secondJoinKey: 'string',
     };
   }
 
