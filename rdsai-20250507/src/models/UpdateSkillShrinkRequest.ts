@@ -3,16 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSkillShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the skill.
+   */
   contentShrink?: string;
+  /**
+   * @remarks
+   * The list of database engines.
+   */
   dbtypesShrink?: string;
+  /**
+   * @remarks
+   * The description of the Skill. It can be up to 1000 characters in length.
+   */
   description?: string;
   /**
+   * @remarks
+   * The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
+   * 
    * @example
    * sql-optimization
    */
   name?: string;
   /**
    * @remarks
+   * The unique identifier of the skill.
+   * 
    * This parameter is required.
    * 
    * @example

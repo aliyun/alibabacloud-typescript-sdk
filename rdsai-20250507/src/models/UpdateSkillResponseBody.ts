@@ -3,30 +3,57 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSkillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the skill.
+   */
   content?: { [key: string]: any };
+  /**
+   * @remarks
+   * The list of database engines.
+   */
   dbtypes?: string[];
+  /**
+   * @remarks
+   * The description of the skill. It can be up to 1000 characters in length.
+   */
   description?: string;
   /**
+   * @remarks
+   * The unique identifier of the skill.
+   * 
    * @example
    * d1b7d639-f34e-44c7-8231-987da14d****
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
+   * 
    * @example
    * sql-review
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The skill type.
+   * 
    * @example
    * user
    */
   skillType?: string;
   /**
+   * @remarks
+   * The update time of the skill.
+   * 
    * @example
    * 2026-02-04T21:14:45Z
    */

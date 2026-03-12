@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the scheduled inspection configuration.
+   * 
    * This parameter is required.
    * 
    * @example

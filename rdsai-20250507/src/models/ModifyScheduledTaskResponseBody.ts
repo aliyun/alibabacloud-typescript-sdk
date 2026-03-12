@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyScheduledTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response message.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned results.
+   * 
    * @example
    * true
    */

@@ -3,30 +3,57 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSkillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The database engine-specific content.
+   */
   content?: { [key: string]: any };
   /**
+   * @remarks
+   * The creation time of the skill.
+   * 
    * @example
    * 2026-02-04T21:14:45Z
    */
   createdAt?: string;
+  /**
+   * @remarks
+   * The list of database engines.
+   */
   dbtypes?: string[];
+  /**
+   * @remarks
+   * The description of the skill.
+   */
   description?: string;
   /**
+   * @remarks
+   * The unique identifier of the skill.
+   * 
    * @example
    * 82cf3d62-0add-47bd-869f-877131f7****
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the skill.
+   * 
    * @example
    * query-optimization
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The type of the skill.
+   * 
    * @example
    * user
    */

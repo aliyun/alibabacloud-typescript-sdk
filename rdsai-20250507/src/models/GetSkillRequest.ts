@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSkillRequest extends $dara.Model {
   /**
+   * @remarks
+   * The languages supported by the skill. Valid values:
+   * 
+   * *   zh-CN: Simplified Chinese
+   * *   zh-TW: Traditional Chinese
+   * *   en-US: English
+   * *   ja-JP: Japanese
+   * 
    * @example
    * zh-CN
    */
   language?: string;
   /**
    * @remarks
+   * The unique identifier of the skill.
+   * 
    * This parameter is required.
    * 
    * @example

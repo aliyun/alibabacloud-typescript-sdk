@@ -3,30 +3,57 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSkillResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the skill.
+   */
   content?: { [key: string]: any };
   /**
+   * @remarks
+   * The creation time of the skill.
+   * 
    * @example
    * 2026-02-04T21:14:45Z
    */
   createdAt?: string;
+  /**
+   * @remarks
+   * The list of database engines.
+   */
   dbtypes?: string[];
+  /**
+   * @remarks
+   * The description of the skill.
+   */
   description?: string;
   /**
+   * @remarks
+   * The unique identifier of the skill.
+   * 
    * @example
    * 9a2ba261-7bb2-41a7-9c6e-1799fb5b****
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the skill.
+   * 
    * @example
    * sql-review
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the skill.
+   * 
    * @example
    * system
    */
   skillType?: string;
   /**
+   * @remarks
+   * The update time of the skill.
+   * 
    * @example
    * 2026-02-04T21:14:45Z
    */
@@ -73,23 +100,39 @@ export class ListSkillResponseBodyData extends $dara.Model {
 }
 
 export class ListSkillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of skills.
+   */
   data?: ListSkillResponseBodyData[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records returned on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of returned records.
+   * 
    * @example
    * 20
    */

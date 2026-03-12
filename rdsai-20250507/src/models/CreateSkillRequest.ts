@@ -3,19 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSkillRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the skill.
+   */
   content?: { [key: string]: any };
   /**
    * @remarks
+   * The list of database engines.
+   * 
    * This parameter is required.
    */
   dbtypes?: string[];
   /**
    * @remarks
+   * The description of the skill. It can be up to 1000 characters in length.
+   * 
    * This parameter is required.
    */
   description?: string;
   /**
    * @remarks
+   * The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetScheduledInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Pages start from 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on each page. Default value: 20. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the scheduled inspection configuration.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInspectionReportRequest extends $dara.Model {
   /**
+   * @remarks
+   * The inspected instance. If you do not specify this parameter, the complete report is returned. If you specify this parameter, only the content related to the instance is returned.
+   * 
    * @example
    * rm-2zep6e5u6l2yu****
    */
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the inspection report.
+   * 
    * This parameter is required.
    * 
    * @example

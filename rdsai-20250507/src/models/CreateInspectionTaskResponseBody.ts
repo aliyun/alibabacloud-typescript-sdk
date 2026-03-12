@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInspectionTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the inspection task.
+   * 
    * @example
    * 9adf8567-b619-4d37-8ff2-01d38a76****
    */
@@ -30,14 +33,28 @@ export class CreateInspectionTaskResponseBodyData extends $dara.Model {
 }
 
 export class CreateInspectionTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the result is returned.
+   */
   data?: CreateInspectionTaskResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

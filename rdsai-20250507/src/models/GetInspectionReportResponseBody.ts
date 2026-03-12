@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInspectionReportResponseBodyDataDataItemsData extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * DBInstanceStatus
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * Running
    */
@@ -37,14 +43,28 @@ export class GetInspectionReportResponseBodyDataDataItemsData extends $dara.Mode
 }
 
 export class GetInspectionReportResponseBodyDataDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   data?: GetInspectionReportResponseBodyDataDataItemsData[];
   /**
+   * @remarks
+   * The level of the alert.
+   * 
    * @example
    * Normal
    */
   level?: string;
+  /**
+   * @remarks
+   * The response message.
+   */
   message?: string;
   /**
+   * @remarks
+   * The name of the category.
+   * 
    * @example
    * instance_runningstatus
    */
@@ -81,10 +101,17 @@ export class GetInspectionReportResponseBodyDataDataItems extends $dara.Model {
 
 export class GetInspectionReportResponseBodyDataData extends $dara.Model {
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
    * instance_info
    */
   group?: string;
+  /**
+   * @remarks
+   * The items in the result.
+   */
   items?: GetInspectionReportResponseBodyDataDataItems[];
   static names(): { [key: string]: string } {
     return {
@@ -114,21 +141,33 @@ export class GetInspectionReportResponseBodyDataData extends $dara.Model {
 
 export class GetInspectionReportResponseBodyDataLevelSummary extends $dara.Model {
   /**
+   * @remarks
+   * The number of errors in the report.
+   * 
    * @example
    * 2
    */
   error?: number;
   /**
+   * @remarks
+   * The number of failures in the report.
+   * 
    * @example
    * 3
    */
   failed?: number;
   /**
+   * @remarks
+   * The number of normal records in the report.
+   * 
    * @example
    * 10
    */
   normal?: number;
   /**
+   * @remarks
+   * The number of warnings in the report.
+   * 
    * @example
    * 1
    */
@@ -161,31 +200,65 @@ export class GetInspectionReportResponseBodyDataLevelSummary extends $dara.Model
 }
 
 export class GetInspectionReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   data?: GetInspectionReportResponseBodyDataData[];
   /**
+   * @remarks
+   * The end time of the inspection. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * 
    * @example
    * 2026-01-31T02:05:04Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The engine type.
+   * 
    * @example
    * MySQL
    */
   engineType?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   */
   instanceDesc?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rm-2zep6e5u6l2yu****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The hierarchical summary of the report.
+   */
   levelSummary?: GetInspectionReportResponseBodyDataLevelSummary;
+  /**
+   * @remarks
+   * The report text in the markdown format.
+   * 
+   * *   If the InstanceId parameter is not specified, all content of the inspection report is returned. However, the MarkdownText field is empty.
+   * *   If the InstanceId parameter is specified, the content related to the instance is returned in the MarkdownText field.
+   */
   markdownText?: string;
   /**
+   * @remarks
+   * The region where the instance resides.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The start time of the inspection task. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * 
    * @example
    * 2025-11-06T16:00:00Z
    */
@@ -234,14 +307,28 @@ export class GetInspectionReportResponseBodyData extends $dara.Model {
 }
 
 export class GetInspectionReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the result.
+   */
   data?: GetInspectionReportResponseBodyData[];
+  /**
+   * @remarks
+   * The report text in the markdown format.
+   */
   markdownText?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The inspection report ID.
+   * 
    * @example
    * 9d246af2-a0cd-4f69-857d-3785048f****
    */

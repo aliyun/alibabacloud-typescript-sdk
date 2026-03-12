@@ -389,7 +389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个批量实例巡检任务
+   * Creates an inspection task for multiple instances.
    * 
    * @param request - CreateInspectionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -408,6 +408,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      query["ReportLanguage"] = request.reportLanguage;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -432,7 +436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个批量实例巡检任务
+   * Creates an inspection task for multiple instances.
    * 
    * @param request - CreateInspectionTaskRequest
    * @returns CreateInspectionTaskResponse
@@ -443,7 +447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的批量实例巡检任务
+   * Creates a new scheduled inspection configuration for multiple instances.
    * 
    * @param request - CreateScheduledTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -466,6 +470,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      query["ReportLanguage"] = request.reportLanguage;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -494,7 +502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的批量实例巡检任务
+   * Creates a new scheduled inspection configuration for multiple instances.
    * 
    * @param request - CreateScheduledTaskRequest
    * @returns CreateScheduledTaskResponse
@@ -505,7 +513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Skill
+   * Create a user-defined skill.
    * 
    * @param tmpReq - CreateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -558,7 +566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Skill
+   * Create a user-defined skill.
    * 
    * @param request - CreateSkillRequest
    * @returns CreateSkillResponse
@@ -677,7 +685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的巡检任务
+   * Deletes a specified inspection configuration.
    * 
    * @param request - DeleteScheduledTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -708,7 +716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的巡检任务
+   * Deletes a specified inspection configuration.
    * 
    * @param request - DeleteScheduledTaskRequest
    * @returns DeleteScheduledTaskResponse
@@ -719,7 +727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Skill
+   * Deletes the specified skill.
    * 
    * @param request - DeleteSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -750,7 +758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Skill
+   * Deletes the specified skill.
    * 
    * @param request - DeleteSkillRequest
    * @returns DeleteSkillResponse
@@ -1389,7 +1397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取巡检任务报告结果
+   * Queries the content of a specified inspection report.
    * 
    * @param request - GetInspectionReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1424,7 +1432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取巡检任务报告结果
+   * Queries the content of a specified inspection report.
    * 
    * @param request - GetInspectionReportRequest
    * @returns GetInspectionReportResponse
@@ -1489,7 +1497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+   * Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
    * 
    * @param request - GetScheduledInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1528,7 +1536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+   * Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
    * 
    * @param request - GetScheduledInstancesRequest
    * @returns GetScheduledInstancesResponse
@@ -1539,7 +1547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取定时任务的所有巡检报告，支持分页
+   * Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
    * 
    * @param request - GetScheduledReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1586,7 +1594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取定时任务的所有巡检报告，支持分页
+   * Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
    * 
    * @param request - GetScheduledReportsRequest
    * @returns GetScheduledReportsResponse
@@ -1597,7 +1605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Skill详情
+   * Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
    * 
    * @param request - GetSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1632,7 +1640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Skill详情
+   * Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
    * 
    * @param request - GetSkillRequest
    * @returns GetSkillResponse
@@ -1643,7 +1651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+   * Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
    * 
    * @param request - GetStandAloneReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1686,7 +1694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+   * Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
    * 
    * @param request - GetStandAloneReportsRequest
    * @returns GetStandAloneReportsResponse
@@ -1775,7 +1783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定用户UID下所有巡检任务的基本信息列表
+   * Queries the basic information of all inspection configurations under a specified user.
    * 
    * @param request - ListScheduledTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1814,7 +1822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定用户UID下所有巡检任务的基本信息列表
+   * Queries the basic information of all inspection configurations under a specified user.
    * 
    * @param request - ListScheduledTasksRequest
    * @returns ListScheduledTasksResponse
@@ -1825,7 +1833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Skill列表
+   * Obtains the user-defined skills and all system preset skills of the current user.
    * 
    * @param request - ListSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1864,7 +1872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Skill列表
+   * Obtains the user-defined skills and all system preset skills of the current user.
    * 
    * @param request - ListSkillRequest
    * @returns ListSkillResponse
@@ -2417,7 +2425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改已存在的巡检任务信息
+   * Modifies an existing inspection configuration.
    * 
    * @param request - ModifyScheduledTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2440,6 +2448,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      query["ReportLanguage"] = request.reportLanguage;
     }
 
     if (!$dara.isNull(request.scheduledId)) {
@@ -2472,7 +2484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改已存在的巡检任务信息
+   * Modifies an existing inspection configuration.
    * 
    * @param request - ModifyScheduledTaskRequest
    * @returns ModifyScheduledTaskResponse
@@ -2797,7 +2809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Skill
+   * Updates the information about a specified skill.
    * 
    * @param tmpReq - UpdateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2854,7 +2866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Skill
+   * Updates the information about a specified skill.
    * 
    * @param request - UpdateSkillRequest
    * @returns UpdateSkillResponse
