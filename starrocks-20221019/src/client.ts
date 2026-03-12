@@ -389,6 +389,152 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例配置历史
+   * 
+   * @param request - DescribeConfigHistoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeConfigHistoryResponse
+   */
+  async describeConfigHistoryWithOptions(request: $_model.DescribeConfigHistoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeConfigHistoryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.effectStatuses)) {
+      query["EffectStatuses"] = request.effectStatuses;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.needTotal)) {
+      query["NeedTotal"] = request.needTotal;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeConfigHistory",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/config/describeConfigHistory`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeConfigHistoryResponse>(await this.callApi(params, req, runtime), new $_model.DescribeConfigHistoryResponse({}));
+  }
+
+  /**
+   * 查询实例配置历史
+   * 
+   * @param request - DescribeConfigHistoryRequest
+   * @returns DescribeConfigHistoryResponse
+   */
+  async describeConfigHistory(request: $_model.DescribeConfigHistoryRequest): Promise<$_model.DescribeConfigHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeConfigHistoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询实例配置
+   * 
+   * @param request - DescribeInstanceConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceConfigsResponse
+   */
+  async describeInstanceConfigsWithOptions(request: $_model.DescribeInstanceConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowModify)) {
+      query["AllowModify"] = request.allowModify;
+    }
+
+    if (!$dara.isNull(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.configType)) {
+      query["ConfigType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.needTotal)) {
+      query["NeedTotal"] = request.needTotal;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceConfigs",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/config/describeInstanceConfigs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceConfigsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceConfigsResponse({}));
+  }
+
+  /**
+   * 查询实例配置
+   * 
+   * @param request - DescribeInstanceConfigsRequest
+   * @returns DescribeInstanceConfigsResponse
+   */
+  async describeInstanceConfigs(request: $_model.DescribeInstanceConfigsRequest): Promise<$_model.DescribeInstanceConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeInstanceConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
    * 
    * @param tmpReq - DescribeInstancesRequest
@@ -1295,6 +1441,148 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例配置
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceConfigResponse
+   */
+  async modifyInstanceConfigWithOptions(request: $_model.ModifyInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addConfigList)) {
+      query["AddConfigList"] = request.addConfigList;
+    }
+
+    if (!$dara.isNull(request.configList)) {
+      query["ConfigList"] = request.configList;
+    }
+
+    if (!$dara.isNull(request.deleteConfigList)) {
+      query["DeleteConfigList"] = request.deleteConfigList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configsToAdd)) {
+      body["configsToAdd"] = request.configsToAdd;
+    }
+
+    if (!$dara.isNull(request.configsToDelete)) {
+      body["configsToDelete"] = request.configsToDelete;
+    }
+
+    if (!$dara.isNull(request.configsToUpdate)) {
+      body["configsToUpdate"] = request.configsToUpdate;
+    }
+
+    if (!$dara.isNull(request.fastMode)) {
+      body["fastMode"] = request.fastMode;
+    }
+
+    if (!$dara.isNull(request.restart)) {
+      body["restart"] = request.restart;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceConfig",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/config/modifyInstanceConfig`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceConfigResponse({}));
+  }
+
+  /**
+   * 修改实例配置
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @returns ModifyInstanceConfigResponse
+   */
+  async modifyInstanceConfig(request: $_model.ModifyInstanceConfigRequest): Promise<$_model.ModifyInstanceConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyInstanceConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 配置变更预检查，返回此次变更需要重启的计算组ID
+   * 
+   * @param request - ModifyInstanceConfigPreCheckRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceConfigPreCheckResponse
+   */
+  async modifyInstanceConfigPreCheckWithOptions(request: $_model.ModifyInstanceConfigPreCheckRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceConfigPreCheckResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configsToAdd)) {
+      body["configsToAdd"] = request.configsToAdd;
+    }
+
+    if (!$dara.isNull(request.configsToDelete)) {
+      body["configsToDelete"] = request.configsToDelete;
+    }
+
+    if (!$dara.isNull(request.configsToUpdate)) {
+      body["configsToUpdate"] = request.configsToUpdate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceConfigPreCheck",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/config/modifyInstanceConfigPreCheck`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceConfigPreCheckResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceConfigPreCheckResponse({}));
+  }
+
+  /**
+   * 配置变更预检查，返回此次变更需要重启的计算组ID
+   * 
+   * @param request - ModifyInstanceConfigPreCheckRequest
+   * @returns ModifyInstanceConfigPreCheckResponse
+   */
+  async modifyInstanceConfigPreCheck(request: $_model.ModifyInstanceConfigPreCheckRequest): Promise<$_model.ModifyInstanceConfigPreCheckResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyInstanceConfigPreCheckWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @remarks
@@ -1823,6 +2111,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resumeInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 回滚正在进行中的配置修改
+   * 
+   * @param request - RollbackConfigModificationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackConfigModificationResponse
+   */
+  async rollbackConfigModificationWithOptions(request: $_model.RollbackConfigModificationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RollbackConfigModificationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configHistoryId)) {
+      query["ConfigHistoryId"] = request.configHistoryId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.restart)) {
+      query["Restart"] = request.restart;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RollbackConfigModification",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/config/rollbackConfigModification`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RollbackConfigModificationResponse>(await this.callApi(params, req, runtime), new $_model.RollbackConfigModificationResponse({}));
+  }
+
+  /**
+   * 回滚正在进行中的配置修改
+   * 
+   * @param request - RollbackConfigModificationRequest
+   * @returns RollbackConfigModificationResponse
+   */
+  async rollbackConfigModification(request: $_model.RollbackConfigModificationRequest): Promise<$_model.RollbackConfigModificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rollbackConfigModificationWithOptions(request, headers, runtime);
   }
 
   /**
