@@ -41,9 +41,25 @@ export class NetworkConfig extends $dara.Model {
    * DEFAULT
    */
   loadBalanceType?: string;
+  /**
+   * @example
+   * vpc
+   */
   type?: string;
+  /**
+   * @example
+   * vpc-bp1xk0naij7jx4ph1****
+   */
   vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-e
+   */
   vsArea?: string;
+  /**
+   * @example
+   * vsw-bp1ogpdintii5qvyx****
+   */
   vswitchId?: string;
   whiteIpGroupList?: WhiteIpGroup[];
   static names(): { [key: string]: string } {

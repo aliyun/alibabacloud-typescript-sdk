@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LogstashEndpointList extends $dara.Model {
+  /**
+   * @example
+   * 172.16.xx.xx
+   */
   host?: string;
+  /**
+   * @example
+   * 9200
+   */
   port?: number;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,9 +44,25 @@ export class LogstashEndpointList extends $dara.Model {
 }
 
 export class LogstashNetworkConfig extends $dara.Model {
+  /**
+   * @example
+   * vpc
+   */
   type?: string;
+  /**
+   * @example
+   * vpc-abc
+   */
   vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-*
+   */
   vsArea?: string;
+  /**
+   * @example
+   * vsw-def
+   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,8 +92,20 @@ export class LogstashNetworkConfig extends $dara.Model {
 }
 
 export class LogstashNodeSpec extends $dara.Model {
+  /**
+   * @example
+   * 50
+   */
   disk?: number;
+  /**
+   * @example
+   * cloud_ssd
+   */
   diskType?: string;
+  /**
+   * @example
+   * logstash.n4.small
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,7 +133,15 @@ export class LogstashNodeSpec extends $dara.Model {
 }
 
 export class LogstashTags extends $dara.Model {
+  /**
+   * @example
+   * env
+   */
   tagKey?: string;
+  /**
+   * @example
+   * dev
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,7 +167,15 @@ export class LogstashTags extends $dara.Model {
 }
 
 export class LogstashZoneInfos extends $dara.Model {
+  /**
+   * @example
+   * NORMAL
+   */
   status?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -146,22 +202,74 @@ export class LogstashZoneInfos extends $dara.Model {
 
 export class Logstash extends $dara.Model {
   config?: { [key: string]: string };
+  /**
+   * @example
+   * 2018-07-13T03:58:07.253Z
+   */
   createdAt?: string;
+  /**
+   * @example
+   * true
+   */
   dataNode?: boolean;
+  /**
+   * @example
+   * ls-cn-abc
+   */
   description?: string;
+  /**
+   * @example
+   * 4749897600000
+   */
   endTime?: number;
   endpointList?: LogstashEndpointList[];
+  /**
+   * @example
+   * ls-cn-n6w1o5jq****
+   */
   instanceId?: string;
   networkConfig?: LogstashNetworkConfig;
+  /**
+   * @example
+   * 2
+   */
   nodeAmount?: number;
   nodeSpec?: LogstashNodeSpec;
+  /**
+   * @example
+   * postpaid
+   */
   paymentType?: string;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @example
+   * rg-acfm2h5vbzd****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   status?: string;
   tags?: LogstashTags[];
+  /**
+   * @example
+   * 2018-07-18T10:10:04.484Z
+   */
   updatedAt?: string;
+  /**
+   * @example
+   * 6.7.0_with_X-Pack
+   */
   version?: string;
+  /**
+   * @example
+   * 1
+   */
   zoneCount?: number;
   zoneInfos?: LogstashZoneInfos[];
   static names(): { [key: string]: string } {

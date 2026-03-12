@@ -6,21 +6,33 @@ export class ClientNodeConfiguration extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 3
    */
   amount?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 20
    */
   disk?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cloud_ssd
    */
   diskType?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * elasticsearch.sn2ne.large
    */
   spec?: string;
   static names(): { [key: string]: string } {

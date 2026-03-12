@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIndexTemplateRequestTemplate extends $dara.Model {
   /**
    * @example
-   * {"mydata": {}}
+   * {\\"mydata\\":{}}
    */
   aliases?: string;
   /**
    * @example
-   * {"properties": {"created_at": {"type": "date","format": "EEE MMM dd HH:mm:ss Z yyyy"},"host_name": {"type": "keyword"}}}
+   * {\\"properties\\":{\\"created_at\\":{\\"format\\":\\"EEE MMM dd HH:mm:ss Z yyyy\\",\\"type\\":\\"date\\"},\\"host_name\\":{\\"type\\":\\"keyword\\"}}}
    */
   mappings?: string;
   /**
    * @example
-   * {\"index.refresh_interval\":\"1s\"}
+   * {\\"index.number_of_shards\\":\\"1\\"}
    */
   settings?: string;
   static names(): { [key: string]: string } {
@@ -52,6 +52,9 @@ export class CreateIndexTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * false
    */
   dataStream?: boolean;
   /**
@@ -74,7 +77,7 @@ export class CreateIndexTemplateRequest extends $dara.Model {
   indexTemplate?: string;
   /**
    * @example
-   * 100
+   * 30
    */
   priority?: number;
   template?: CreateIndexTemplateRequestTemplate;

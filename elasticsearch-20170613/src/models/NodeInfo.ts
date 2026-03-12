@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NodeInfo extends $dara.Model {
+  /**
+   * @example
+   * 172.16.xx.xx
+   */
   host?: string;
+  /**
+   * @example
+   * es-cn-tl32vdghe0005cd99-data-b-2
+   */
   hostName?: string;
+  /**
+   * @example
+   * 9200
+   */
   port?: number;
+  /**
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

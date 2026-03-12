@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DictInfo extends $dara.Model {
+  /**
+   * @example
+   * 2782602
+   */
   fileSize?: number;
+  /**
+   * @example
+   * aliws_ext_dict.txt
+   */
   name?: string;
+  /**
+   * @example
+   * OSS
+   */
   sourceType?: string;
+  /**
+   * @example
+   * ALI_WS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

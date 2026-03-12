@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WhiteIpGroup extends $dara.Model {
+  /**
+   * @example
+   * PRIVATE_ES
+   */
   whiteIpType?: string;
+  /**
+   * @example
+   * test_group
+   */
   groupName?: string;
   ips?: string[];
   static names(): { [key: string]: string } {

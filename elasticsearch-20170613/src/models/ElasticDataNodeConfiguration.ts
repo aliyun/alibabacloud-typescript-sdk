@@ -3,14 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ElasticDataNodeConfiguration extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   amount?: number;
+  /**
+   * @example
+   * 20
+   */
   disk?: number;
+  /**
+   * @example
+   * false
+   */
   diskEncryption?: boolean;
+  /**
+   * @example
+   * cloud_ssd
+   */
   diskType?: string;
+  /**
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * elasticsearch.sn2ne.large
    */
   spec?: string;
   static names(): { [key: string]: string } {

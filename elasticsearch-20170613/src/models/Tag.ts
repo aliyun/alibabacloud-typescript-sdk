@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Tag extends $dara.Model {
+  /**
+   * @example
+   * env
+   */
   tagKey?: string;
+  /**
+   * @example
+   * dev
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {

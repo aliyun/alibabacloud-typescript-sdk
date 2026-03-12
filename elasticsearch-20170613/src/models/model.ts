@@ -485,6 +485,9 @@ export { GetSuggestShrinkableNodesResponse } from './GetSuggestShrinkableNodesRe
 export { GetTransferableNodesRequest } from './GetTransferableNodesRequest';
 export { GetTransferableNodesResponseBody } from './GetTransferableNodesResponseBody';
 export { GetTransferableNodesResponse } from './GetTransferableNodesResponse';
+export { GrayPublishRequest } from './GrayPublishRequest';
+export { GrayPublishResponseBody } from './GrayPublishResponseBody';
+export { GrayPublishResponse } from './GrayPublishResponse';
 export { InitializeOperationRoleRequest } from './InitializeOperationRoleRequest';
 export { InitializeOperationRoleResponseBody } from './InitializeOperationRoleResponseBody';
 export { InitializeOperationRoleResponse } from './InitializeOperationRoleResponse';

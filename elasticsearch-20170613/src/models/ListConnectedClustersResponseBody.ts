@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConnectedClustersResponseBodyResultResult extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the remote instance that is connected to the network of the current instance.
-   * 
-   * @example
-   * es-cn-09k1rocex0006****
-   */
   instances?: string;
-  /**
-   * @remarks
-   * The network type of the instance.
-   * 
-   * @example
-   * vpc
-   */
   networkType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +63,6 @@ export class ListConnectedClustersResponseBody extends $dara.Model {
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The return results.
-   */
   result?: ListConnectedClustersResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

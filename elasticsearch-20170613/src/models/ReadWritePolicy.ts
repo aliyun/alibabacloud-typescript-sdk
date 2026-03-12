@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadWritePolicy extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   autoGeneratePk?: boolean;
+  /**
+   * @example
+   * true
+   */
   writeHa?: boolean;
+  /**
+   * @example
+   * sync
+   */
   writePolicy?: string;
   static names(): { [key: string]: string } {
     return {

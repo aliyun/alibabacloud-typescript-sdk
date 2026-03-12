@@ -2,28 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ZoneInfo extends $dara.Model {
+export class GrayPublishResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F99407AB-2FA9-489E-A259-40CF6DCC4****
+   */
+  requestId?: string;
   /**
    * @example
-   * NORMAL
+   * true
    */
-  status?: string;
-  /**
-   * @example
-   * cn-hangzhou-b
-   */
-  zoneId?: string;
+  result?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'status',
-      zoneId: 'zoneId',
+      requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      zoneId: 'string',
+      requestId: 'string',
+      result: 'string',
     };
   }
 

@@ -252,6 +252,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CancelTask to cancel a data migration task.
+   * 
    * @param request - CancelTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -287,6 +289,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CancelTask to cancel a data migration task.
+   * 
    * @param request - CancelTaskRequest
    * @returns CancelTaskResponse
    */
@@ -354,7 +358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭实例的智能运维功能
+   * Disables the intelligent O\\&M feature for an Elasticsearch cluster.
    * 
    * @param request - CloseDiagnosisRequest
    * @param headers - map
@@ -391,7 +395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭实例的智能运维功能
+   * Disables the intelligent O\\&M feature for an Elasticsearch cluster.
    * 
    * @param request - CloseDiagnosisRequest
    * @returns CloseDiagnosisResponse
@@ -403,6 +407,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CloseHttps to close the HTTPS protocol.
+   * 
    * @param request - CloseHttpsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -434,6 +440,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CloseHttps to close the HTTPS protocol.
+   * 
    * @param request - CloseHttpsRequest
    * @returns CloseHttpsResponse
    */
@@ -780,7 +788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建logstash实例
+   * Creates a Logstash cluster.
    * 
    * @param request - CreateLogstashRequest
    * @param headers - map
@@ -847,7 +855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建logstash实例
+   * Creates a Logstash cluster.
    * 
    * @param request - CreateLogstashRequest
    * @returns CreateLogstashResponse
@@ -859,7 +867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Logstash管道任务
+   * Creates a pipeline in a Logstash cluster.
    * 
    * @param request - CreatePipelinesRequest
    * @param headers - map
@@ -897,7 +905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Logstash管道任务
+   * Creates a pipeline in a Logstash cluster.
    * 
    * @param request - CreatePipelinesRequest
    * @returns CreatePipelinesResponse
@@ -909,6 +917,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CreateSnapshot to manually back up a cluster snapshot.
+   * 
    * @param request - CreateSnapshotRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -941,6 +951,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CreateSnapshot to manually back up a cluster snapshot.
+   * 
    * @param request - CreateSnapshotRequest
    * @returns CreateSnapshotResponse
    */
@@ -1016,7 +1028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke DeactivateZones to offline certain zones when there are multiple availability zones, and migrate nodes in the offline zones to other availability zones.
+   * Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
    * 
    * @param request - DeactivateZonesRequest
    * @param headers - map
@@ -1050,7 +1062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke DeactivateZones to offline certain zones when there are multiple availability zones, and migrate nodes in the offline zones to other availability zones.
+   * Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
    * 
    * @param request - DeactivateZonesRequest
    * @returns DeactivateZonesResponse
@@ -1142,6 +1154,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DeleteConnectedCluster to remove the interconnected instance.
+   * 
    * @param request - DeleteConnectedClusterRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1177,6 +1191,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DeleteConnectedCluster to remove the interconnected instance.
+   * 
    * @param request - DeleteConnectedClusterRequest
    * @returns DeleteConnectedClusterResponse
    */
@@ -1232,6 +1248,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to delete an index migration task.
+   * 
    * @param request - DeleteDataTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1267,6 +1285,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to delete an index migration task.
+   * 
    * @param request - DeleteDataTaskRequest
    * @returns DeleteDataTaskResponse
    */
@@ -1344,7 +1364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ES集群索引模版
+   * Deletes a top index template.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1369,7 +1389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ES集群索引模版
+   * Deletes a top index template.
    * @returns DeleteIndexTemplateResponse
    */
   async deleteIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<$_model.DeleteIndexTemplateResponse> {
@@ -1379,6 +1399,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+   * 
    * @param request - DeleteInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1414,6 +1436,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+   * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
    */
@@ -1528,6 +1552,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+   * 
    * @param request - DeleteSnapshotRepoRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1563,6 +1589,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+   * 
    * @param request - DeleteSnapshotRepoRequest
    * @returns DeleteSnapshotRepoResponse
    */
@@ -1573,7 +1601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务账号vpc下的终端节点
+   * Deletes an endpoint in the VPC within the Elasticsearch service account.
    * 
    * @param request - DeleteVpcEndpointRequest
    * @param headers - map
@@ -1606,7 +1634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务账号vpc下的终端节点
+   * Deletes an endpoint in the VPC within the Elasticsearch service account.
    * 
    * @param request - DeleteVpcEndpointRequest
    * @returns DeleteVpcEndpointResponse
@@ -1659,7 +1687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a shipper.
+   * Queries the detailed information of a shipper.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1684,7 +1712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a shipper.
+   * Queries the detailed information of a shipper.
    * @returns DescribeCollectorResponse
    */
   async describeCollector(ResId: string): Promise<$_model.DescribeCollectorResponse> {
@@ -1729,6 +1757,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+   * 
    * @param request - DescribeConnectableClustersRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1760,6 +1790,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+   * 
    * @param request - DescribeConnectableClustersRequest
    * @returns DescribeConnectableClustersResponse
    */
@@ -1805,6 +1837,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a historical intelligent O\\&M report.
+   * 
    * @param request - DescribeDiagnoseReportRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1836,6 +1870,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a historical intelligent O\\&M report.
+   * 
    * @param request - DescribeDiagnoseReportRequest
    * @returns DescribeDiagnoseReportResponse
    */
@@ -1846,6 +1882,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+   * 
    * @param request - DescribeDiagnosisSettingsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1877,6 +1915,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+   * 
    * @param request - DescribeDiagnosisSettingsRequest
    * @returns DescribeDiagnosisSettingsResponse
    */
@@ -1922,7 +1962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of an Elasticsearch cluster.
+   * Check the health status of the cluster and whether it is running normally.
    * 
    * @remarks
    * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
@@ -1953,7 +1993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of an Elasticsearch cluster.
+   * Check the health status of the cluster and whether it is running normally.
    * 
    * @remarks
    * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
@@ -2068,7 +2108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Elasticsearch集群Kibana节点settings配置
+   * Get the configuration of the Kibana node for the Elasticsearch cluster.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,7 +2133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Elasticsearch集群Kibana节点settings配置
+   * Get the configuration of the Kibana node for the Elasticsearch cluster.
    * @returns DescribeKibanaSettingsResponse
    */
   async describeKibanaSettings(InstanceId: string): Promise<$_model.DescribeKibanaSettingsResponse> {
@@ -2103,7 +2143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看Logstash实例详情
+   * Queries the information about a Logstash cluster.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2128,7 +2168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看Logstash实例详情
+   * Queries the information about a Logstash cluster.
    * @returns DescribeLogstashResponse
    */
   async describeLogstash(InstanceId: string): Promise<$_model.DescribeLogstashResponse> {
@@ -2138,6 +2178,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a pipeline in a Logstash cluster.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePipelineResponse
@@ -2161,6 +2203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a pipeline in a Logstash cluster.
    * @returns DescribePipelineResponse
    */
   async describePipeline(InstanceId: string, PipelineId: string): Promise<$_model.DescribePipelineResponse> {
@@ -2215,6 +2258,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get the region information of Alibaba Cloud Elasticsearch.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
@@ -2238,6 +2283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get the region information of Alibaba Cloud Elasticsearch.
    * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
@@ -2247,7 +2293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看备份设置
+   * Get the snapshot backup settings of the cluster, backup cycle.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2272,7 +2318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看备份设置
+   * Get the snapshot backup settings of the cluster, backup cycle.
    * @returns DescribeSnapshotSettingResponse
    */
   async describeSnapshotSetting(InstanceId: string): Promise<$_model.DescribeSnapshotSettingResponse> {
@@ -2314,7 +2360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+   * Queries the X-Pack Monitoring configurations of a Logstash cluster.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2339,7 +2385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+   * Queries the X-Pack Monitoring configurations of a Logstash cluster.
    * @returns DescribeXpackMonitorConfigResponse
    */
   async describeXpackMonitorConfig(InstanceId: string): Promise<$_model.DescribeXpackMonitorConfigResponse> {
@@ -2349,7 +2395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发ES实例智能诊断
+   * Diagnoses an Elasticsearch cluster.
    * 
    * @param request - DiagnoseInstanceRequest
    * @param headers - map
@@ -2400,7 +2446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发ES实例智能诊断
+   * Diagnoses an Elasticsearch cluster.
    * 
    * @param request - DiagnoseInstanceRequest
    * @returns DiagnoseInstanceResponse
@@ -2412,7 +2458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭kibana私网
+   * Disable Private Network Access of Kibana
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2437,7 +2483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭kibana私网
+   * Disable Private Network Access of Kibana
    * @returns DisableKibanaPvlNetworkResponse
    */
   async disableKibanaPvlNetwork(InstanceId: string): Promise<$_model.DisableKibanaPvlNetworkResponse> {
@@ -2866,7 +2912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 统计OpenStore实例的存储容量和使用情况
+   * View the storage capacity and usage of the OpensStore instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2891,7 +2937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 统计OpenStore实例的存储容量和使用情况
+   * View the storage capacity and usage of the OpensStore instance.
    * @returns GetOpenStoreUsageResponse
    */
   async getOpenStoreUsage(InstanceId: string): Promise<$_model.GetOpenStoreUsageResponse> {
@@ -2901,7 +2947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The maximum number of nodes.
+   * Queries the configuration information about the current region.
    * 
    * @param request - GetRegionConfigurationRequest
    * @param headers - map
@@ -2934,7 +2980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The maximum number of nodes.
+   * Queries the configuration information about the current region.
    * 
    * @param request - GetRegionConfigurationRequest
    * @returns GetRegionConfigurationResponse
@@ -2981,7 +3027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES集群可缩容节点
+   * Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
    * 
    * @param request - GetSuggestShrinkableNodesRequest
    * @param headers - map
@@ -3022,7 +3068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES集群可缩容节点
+   * Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
    * 
    * @param request - GetSuggestShrinkableNodesRequest
    * @returns GetSuggestShrinkableNodesResponse
@@ -3034,7 +3080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取可数据迁移节点
+   * Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
    * 
    * @param request - GetTransferableNodesRequest
    * @param headers - map
@@ -3071,7 +3117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取可数据迁移节点
+   * Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
    * 
    * @param request - GetTransferableNodesRequest
    * @returns GetTransferableNodesResponse
@@ -3080,6 +3126,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTransferableNodesWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 灰度完成继续变更
+   * 
+   * @param request - GrayPublishRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrayPublishResponse
+   */
+  async grayPublishWithOptions(InstanceId: string, request: $_model.GrayPublishRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GrayPublishResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xRequestChangeId)) {
+      query["X-Request-ChangeId"] = request.xRequestChangeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GrayPublish",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(InstanceId)}/actions/grayPublish`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GrayPublishResponse>(await this.callApi(params, req, runtime), new $_model.GrayPublishResponse({}));
+  }
+
+  /**
+   * 灰度完成继续变更
+   * 
+   * @param request - GrayPublishRequest
+   * @returns GrayPublishResponse
+   */
+  async grayPublish(InstanceId: string, request: $_model.GrayPublishRequest): Promise<$_model.GrayPublishResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.grayPublishWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
@@ -3233,7 +3324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The returned data also contains **Headers** parameters, indicating that header information is returned.
+   * Installs a plug-in.
    * 
    * @remarks
    * ls-cn-oew1qbgl\\*\\*\\*\\*
@@ -3270,7 +3361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The returned data also contains **Headers** parameters, indicating that header information is returned.
+   * Installs a plug-in.
    * 
    * @remarks
    * ls-cn-oew1qbgl\\*\\*\\*\\*
@@ -3377,6 +3468,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+   * 
    * @param request - InterruptElasticsearchTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3408,6 +3501,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+   * 
    * @param request - InterruptElasticsearchTaskRequest
    * @returns InterruptElasticsearchTaskResponse
    */
@@ -3516,7 +3611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+   * View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
    * 
    * @remarks
    * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
@@ -3556,7 +3651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+   * View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
    * 
    * @remarks
    * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
@@ -3644,7 +3739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * es-cn-tl32cpgwa002l\\*\\*\\*\\*
+   * Queries the information of all the nodes in an Elasticsearch cluster.
    * 
    * @param request - ListAllNodeRequest
    * @param headers - map
@@ -3677,7 +3772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * es-cn-tl32cpgwa002l\\*\\*\\*\\*
+   * Queries the information of all the nodes in an Elasticsearch cluster.
    * 
    * @param request - ListAllNodeRequest
    * @returns ListAllNodeResponse
@@ -3689,7 +3784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例可添加的OSS引用仓库
+   * Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
    * 
    * @param request - ListAlternativeSnapshotReposRequest
    * @param headers - map
@@ -3722,7 +3817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例可添加的OSS引用仓库
+   * Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
    * 
    * @param request - ListAlternativeSnapshotReposRequest
    * @returns ListAlternativeSnapshotReposResponse
@@ -3769,7 +3864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries shippers.
+   * Queries a list of shippers.
    * 
    * @param request - ListCollectorsRequest
    * @param headers - map
@@ -3822,7 +3917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries shippers.
+   * Queries a list of shippers.
    * 
    * @param request - ListCollectorsRequest
    * @returns ListCollectorsResponse
@@ -3887,7 +3982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取与当前实例进行网络互通的实例列表
+   * Call ListConnectedClusters to query the instances that are interconnected with the current instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3912,7 +4007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取与当前实例进行网络互通的实例列表
+   * Call ListConnectedClusters to query the instances that are interconnected with the current instance.
    * @returns ListConnectedClustersResponse
    */
   async listConnectedClusters(InstanceId: string): Promise<$_model.ListConnectedClustersResponse> {
@@ -3971,6 +4066,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call ListDataTasks to obtain the information of a data migration task.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataTasksResponse
@@ -3994,6 +4091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call ListDataTasks to obtain the information of a data migration task.
    * @returns ListDataTasksResponse
    */
   async listDataTasks(InstanceId: string): Promise<$_model.ListDataTasksResponse> {
@@ -4154,7 +4252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群诊断报告列表
+   * Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
    * 
    * @param request - ListDiagnoseReportRequest
    * @param headers - map
@@ -4211,7 +4309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群诊断报告列表
+   * Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
    * 
    * @param request - ListDiagnoseReportRequest
    * @returns ListDiagnoseReportResponse
@@ -4223,7 +4321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+   * Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
    * 
    * @param request - ListDiagnoseReportIdsRequest
    * @param headers - map
@@ -4276,7 +4374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+   * Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
    * 
    * @param request - ListDiagnoseReportIdsRequest
    * @returns ListDiagnoseReportIdsResponse
@@ -4288,7 +4386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+   * Queries the intelligent diagnostic items of an Elasticsearch cluster.
    * 
    * @param request - ListDiagnosisItemsRequest
    * @param headers - map
@@ -4321,7 +4419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+   * Queries the intelligent diagnostic items of an Elasticsearch cluster.
    * 
    * @param request - ListDiagnosisItemsRequest
    * @returns ListDiagnosisItemsResponse
@@ -4333,6 +4431,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries information about a dictionary.
+   * 
    * @param request - ListDictInformationRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4372,6 +4472,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries information about a dictionary.
+   * 
    * @param request - ListDictInformationRequest
    * @returns ListDictInformationResponse
    */
@@ -4431,7 +4533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ecs实例
+   * When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
    * 
    * @remarks
    * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
@@ -4487,7 +4589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ecs实例
+   * When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
    * 
    * @remarks
    * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
@@ -4502,7 +4604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the driver files of a Logstash cluster.
+   * Queries the extended file configuration of a Logstash instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4527,7 +4629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the driver files of a Logstash cluster.
+   * Queries the extended file configuration of a Logstash instance.
    * @returns ListExtendfilesResponse
    */
   async listExtendfiles(InstanceId: string): Promise<$_model.ListExtendfilesResponse> {
@@ -4627,7 +4729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Elasticsearch实例列表
+   * Queries a list of Elasticsearch clusters.
    * 
    * @param request - ListInstanceRequest
    * @param headers - map
@@ -4704,7 +4806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Elasticsearch实例列表
+   * Queries a list of Elasticsearch clusters.
    * 
    * @param request - ListInstanceRequest
    * @returns ListInstanceResponse
@@ -4824,7 +4926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前实例先特定的索引列表
+   * Queries the indexes stored on an Elasticsearch cluster.
    * 
    * @param request - ListInstanceIndicesRequest
    * @param headers - map
@@ -4877,7 +4979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前实例先特定的索引列表
+   * Queries the indexes stored on an Elasticsearch cluster.
    * 
    * @param request - ListInstanceIndicesRequest
    * @returns ListInstanceIndicesResponse
@@ -4973,7 +5075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logstash集群列表
+   * Queries the information about a Logstash cluster or all Logstash clusters.
    * 
    * @param request - ListLogstashRequest
    * @param headers - map
@@ -5030,7 +5132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logstash集群列表
+   * Queries the information about a Logstash cluster or all Logstash clusters.
    * 
    * @param request - ListLogstashRequest
    * @returns ListLogstashResponse
@@ -5042,7 +5144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Logstash日志
+   * Queries the logs of a Logstash cluster.
    * 
    * @param request - ListLogstashLogRequest
    * @param headers - map
@@ -5095,7 +5197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Logstash日志
+   * Queries the logs of a Logstash cluster.
    * 
    * @param request - ListLogstashLogRequest
    * @returns ListLogstashLogResponse
@@ -5107,7 +5209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logstash插件列表
+   * Queries the information about a plug-in or all plug-ins.
    * 
    * @param request - ListLogstashPluginsRequest
    * @param headers - map
@@ -5152,7 +5254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logstash插件列表
+   * Queries the information about a plug-in or all plug-ins.
    * 
    * @param request - ListLogstashPluginsRequest
    * @returns ListLogstashPluginsResponse
@@ -5164,7 +5266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+   * The list of historical reports of Intelligent Maintenance.
    * 
    * @param request - ListNodesRequest
    * @param headers - map
@@ -5213,7 +5315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+   * The list of historical reports of Intelligent Maintenance.
    * 
    * @param request - ListNodesRequest
    * @returns ListNodesResponse
@@ -5225,7 +5327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPipeline
+   * Queries a list of pipelines.
    * 
    * @param request - ListPipelineRequest
    * @param headers - map
@@ -5266,7 +5368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPipeline
+   * Queries a list of pipelines.
    * 
    * @param request - ListPipelineRequest
    * @returns ListPipelineResponse
@@ -5278,7 +5380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The error message returned.
+   * Queries the IDs of pipelines for a Logstash cluster.
    * 
    * @param request - ListPipelineIdsRequest
    * @param headers - map
@@ -5306,7 +5408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The error message returned.
+   * Queries the IDs of pipelines for a Logstash cluster.
    * 
    * @param request - ListPipelineIdsRequest
    * @returns ListPipelineIdsResponse
@@ -5318,7 +5420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES系统插件列表
+   * Queries the plug-ins that are installed on a specified Elasticsearch cluster.
    * 
    * @param request - ListPluginsRequest
    * @param headers - map
@@ -5363,7 +5465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES系统插件列表
+   * Queries the plug-ins that are installed on a specified Elasticsearch cluster.
    * 
    * @param request - ListPluginsRequest
    * @returns ListPluginsResponse
@@ -5375,7 +5477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看Elasticsearch集群各种类型的日志
+   * Queries the logs of an Elasticsearch cluster.
    * 
    * @param request - ListSearchLogRequest
    * @param headers - map
@@ -5428,7 +5530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看Elasticsearch集群各种类型的日志
+   * Queries the logs of an Elasticsearch cluster.
    * 
    * @param request - ListSearchLogRequest
    * @returns ListSearchLogResponse
@@ -5491,7 +5593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取跨集群索引仓库列表
+   * Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5516,7 +5618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取跨集群索引仓库列表
+   * Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
    * @returns ListSnapshotReposByInstanceIdResponse
    */
   async listSnapshotReposByInstanceId(InstanceId: string): Promise<$_model.ListSnapshotReposByInstanceIdResponse> {
@@ -5526,7 +5628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看资源和标签关系
+   * Queries the tags that are added to one or more resources.
    * 
    * @param request - ListTagResourcesRequest
    * @param headers - map
@@ -5579,7 +5681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看资源和标签关系
+   * Queries the tags that are added to one or more resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -5591,7 +5693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看所有已常见的标签
+   * All tags created by the user in the current region.
    * 
    * @param request - ListTagsRequest
    * @param headers - map
@@ -5628,7 +5730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看所有已常见的标签
+   * All tags created by the user in the current region.
    * 
    * @param request - ListTagsRequest
    * @returns ListTagsResponse
@@ -5831,21 +5933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## RequestBody
-   * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.  
-   * | Parameter | Type | Required | Example | Description |
-   * | --------- | ---- | -------- | ------- | ----------- |
-   * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
-   * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
-   * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
-   * Examples: 
-   * ```
-   * {
-   *     "openMaintainTime": true,
-   *     "maintainStartTime": "03:00Z",
-   *     "maintainEndTime": "04:00Z"
-   * }
-   * ```
+   * Enables and modifies the maintenance window of an Elasticsearch cluster.
    * 
    * @remarks
    * es-cn-n6w1o1x0w001c\\*\\*\\*\\*
@@ -5882,21 +5970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## RequestBody
-   * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.  
-   * | Parameter | Type | Required | Example | Description |
-   * | --------- | ---- | -------- | ------- | ----------- |
-   * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
-   * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
-   * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
-   * Examples: 
-   * ```
-   * {
-   *     "openMaintainTime": true,
-   *     "maintainStartTime": "03:00Z",
-   *     "maintainEndTime": "04:00Z"
-   * }
-   * ```
+   * Enables and modifies the maintenance window of an Elasticsearch cluster.
    * 
    * @remarks
    * es-cn-n6w1o1x0w001c\\*\\*\\*\\*
@@ -5911,10 +5985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   * Updates an IP address whitelist of an Elasticsearch cluster.
    * 
    * @remarks
    * The ID of the cluster.
@@ -5972,10 +6043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   * Updates an IP address whitelist of an Elasticsearch cluster.
    * 
    * @remarks
    * The ID of the cluster.
@@ -6036,6 +6104,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables the intelligent O\\\\\\&M feature for an instance.
+   * 
    * @param request - OpenDiagnosisRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6071,6 +6141,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables the intelligent O\\\\\\&M feature for an instance.
+   * 
    * @param request - OpenDiagnosisRequest
    * @returns OpenDiagnosisResponse
    */
@@ -6081,6 +6153,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+   * 
    * @remarks
    * >  To ensure data security, we recommend that you enable HTTPS.
    * 
@@ -6115,6 +6189,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+   * 
    * @remarks
    * >  To ensure data security, we recommend that you enable HTTPS.
    * 
@@ -6453,7 +6529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启Logstash集群
+   * Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
    * 
    * @param request - RestartLogstashRequest
    * @param headers - map
@@ -6512,7 +6588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启Logstash集群
+   * Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
    * 
    * @param request - RestartLogstashRequest
    * @returns RestartLogstashResponse
@@ -6524,6 +6600,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+   * 
    * @param request - ResumeElasticsearchTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6555,6 +6633,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+   * 
    * @param request - ResumeElasticsearchTaskRequest
    * @returns ResumeElasticsearchTaskResponse
    */
@@ -6701,7 +6781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES集群缩节点
+   * Removes nodes from an Elasticsearch cluster.
    * 
    * @param request - ShrinkNodeRequest
    * @param headers - map
@@ -6747,7 +6827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES集群缩节点
+   * Removes nodes from an Elasticsearch cluster.
    * 
    * @param request - ShrinkNodeRequest
    * @returns ShrinkNodeResponse
@@ -6895,7 +6975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The information about the clusters and tags.
+   * Adds tags to clusters.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -6936,7 +7016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The information about the clusters and tags.
+   * Adds tags to clusters.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -6948,7 +7028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缩节点，数据迁移
+   * Runs a data migration task for node scaling operations.
    * 
    * @param request - TransferNodeRequest
    * @param headers - map
@@ -6986,7 +7066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缩节点，数据迁移
+   * Runs a data migration task for node scaling operations.
    * 
    * @param request - TransferNodeRequest
    * @returns TransferNodeResponse
@@ -6998,7 +7078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开关ES集群及Kibana节点公私网访问
+   * You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
    * 
    * @param request - TriggerNetworkRequest
    * @param headers - map
@@ -7045,7 +7125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开关ES集群及Kibana节点公私网访问
+   * You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
    * 
    * @param request - TriggerNetworkRequest
    * @returns TriggerNetworkResponse
@@ -7057,7 +7137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用区关机
+   * Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
    * 
    * @param request - TurnOffZoneRequest
    * @param headers - map
@@ -7090,7 +7170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用区关机
+   * Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
    * 
    * @param request - TurnOffZoneRequest
    * @returns TurnOffZoneResponse
@@ -7102,7 +7182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用区开机
+   * Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
    * 
    * @param request - TurnOnZoneRequest
    * @param headers - map
@@ -7135,7 +7215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可用区开机
+   * Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
    * 
    * @param request - TurnOnZoneRequest
    * @returns TurnOnZoneResponse
@@ -7193,7 +7273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卸载Logstash实例已安装的插件
+   * Removes one or more Logstash plug-ins.
    * 
    * @param request - UninstallLogstashPluginRequest
    * @param headers - map
@@ -7227,7 +7307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卸载Logstash实例已安装的插件
+   * Removes one or more Logstash plug-ins.
    * 
    * @param request - UninstallLogstashPluginRequest
    * @returns UninstallLogstashPluginResponse
@@ -7289,7 +7369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ES集群实例的用户可见标签
+   * Deletes a user resource tag relationship.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -7344,7 +7424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ES集群实例的用户可见标签
+   * Deletes a user resource tag relationship.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -7362,7 +7442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ES集群密码
+   * You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
    * 
    * @remarks
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
@@ -7404,7 +7484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ES集群密码
+   * You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
    * 
    * @remarks
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
@@ -7714,7 +7794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改elasticsearch实例名称名称
+   * Changes the name of a specified Elasticsearch cluster.
    * 
    * @param request - UpdateDescriptionRequest
    * @param headers - map
@@ -7753,7 +7833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改elasticsearch实例名称名称
+   * Changes the name of a specified Elasticsearch cluster.
    * 
    * @param request - UpdateDescriptionRequest
    * @returns UpdateDescriptionResponse
@@ -7765,7 +7845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+   * Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
    * 
    * @param request - UpdateDiagnosisSettingsRequest
    * @param headers - map
@@ -7803,7 +7883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+   * Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
    * 
    * @param request - UpdateDiagnosisSettingsRequest
    * @returns UpdateDiagnosisSettingsResponse
@@ -8019,7 +8099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+   * null
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
@@ -8058,7 +8138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+   * null
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
@@ -8167,7 +8247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ES集群节点配置
+   * Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
    * 
    * @remarks
    * es-cn-n6w1ptcb30009\\*\\*\\*\\*
@@ -8249,7 +8329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ES集群节点配置
+   * Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
    * 
    * @remarks
    * es-cn-n6w1ptcb30009\\*\\*\\*\\*
@@ -8264,7 +8344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+   * null
    * 
    * @param request - UpdateInstanceChargeTypeRequest
    * @param headers - map
@@ -8307,7 +8387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+   * null
    * 
    * @param request - UpdateInstanceChargeTypeRequest
    * @returns UpdateInstanceChargeTypeResponse
@@ -8564,7 +8644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Logstash节点规格磁盘配置
+   * Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
    * 
    * @param request - UpdateLogstashRequest
    * @param headers - map
@@ -8607,7 +8687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Logstash节点规格磁盘配置
+   * Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
    * 
    * @param request - UpdateLogstashRequest
    * @returns UpdateLogstashResponse
@@ -8722,7 +8802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a specified Logstash cluster.
+   * Updates the configuration of the specified Logstash instance.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -8760,7 +8840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a specified Logstash cluster.
+   * Updates the configuration of the specified Logstash instance.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -8776,7 +8856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Logstash管道配置
+   * Modifies the pipeline management method of the specified Logstash cluster.
    * 
    * @param request - UpdatePipelineManagementConfigRequest
    * @param headers - map
@@ -8835,7 +8915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Logstash管道配置
+   * Modifies the pipeline management method of the specified Logstash cluster.
    * 
    * @param request - UpdatePipelineManagementConfigRequest
    * @returns UpdatePipelineManagementConfigResponse
@@ -8897,18 +8977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## RequestBody
-   * | Property | Type | Required | Example | Description |
-   * | -------- | ---- | -------- | ------- | ----------- |
-   * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   * You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
    * 
    * @remarks
    * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
@@ -8949,18 +9018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## RequestBody
-   * | Property | Type | Required | Example | Description |
-   * | -------- | ---- | -------- | ------- | ----------- |
-   * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-   * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   * You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
    * 
    * @remarks
    * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
@@ -8975,7 +9033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+   * null
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -9013,7 +9071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+   * null
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -9029,18 +9087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## RequestBody
-   * | Property | Type | Required | Example | Description |
-   * | -------- | ---- | -------- | ------- | ----------- |
-   * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   * null
    * 
    * @remarks
    * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
@@ -9081,18 +9128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## RequestBody
-   * | Property | Type | Required | Example | Description |
-   * | -------- | ---- | -------- | ------- | ----------- |
-   * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-   * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-   * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-   * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-   * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-   * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-   * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+   * null
    * 
    * @remarks
    * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
@@ -9291,10 +9327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   * Updates a private IP address whitelist of an Elasticsearch cluster.
    * 
    * @remarks
    * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
@@ -9344,10 +9377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-   * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-   * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-   * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+   * Updates a private IP address whitelist of an Elasticsearch cluster.
    * 
    * @remarks
    * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
@@ -9362,7 +9392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Logstash实例的X-Pack监控报警配置。
+   * Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
    * 
    * @param request - UpdateXpackMonitorConfigRequest
    * @param headers - map
@@ -9413,7 +9443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Logstash实例的X-Pack监控报警配置。
+   * Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
    * 
    * @param request - UpdateXpackMonitorConfigRequest
    * @returns UpdateXpackMonitorConfigResponse
@@ -9425,7 +9455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES集群版本升级
+   * Upgrades the version or kernel of an Elasticsearch cluster.
    * 
    * @remarks
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
@@ -9483,7 +9513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ES集群版本升级
+   * Upgrades the version or kernel of an Elasticsearch cluster.
    * 
    * @remarks
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
@@ -9550,7 +9580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验缩节点合法性
+   * Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
    * 
    * @param request - ValidateShrinkNodesRequest
    * @param headers - map
@@ -9592,7 +9622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验缩节点合法性
+   * Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
    * 
    * @param request - ValidateShrinkNodesRequest
    * @returns ValidateShrinkNodesResponse
@@ -9604,6 +9634,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Verify the SLR permissions of the current account.
+   * 
    * @param request - ValidateSlrPermissionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9639,6 +9671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Verify the SLR permissions of the current account.
+   * 
    * @param request - ValidateSlrPermissionRequest
    * @returns ValidateSlrPermissionResponse
    */
@@ -9649,7 +9683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缩节点校验数据迁移合法性
+   * Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
    * 
    * @param request - ValidateTransferableNodesRequest
    * @param headers - map
@@ -9683,7 +9717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缩节点校验数据迁移合法性
+   * Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
    * 
    * @param request - ValidateTransferableNodesRequest
    * @returns ValidateTransferableNodesResponse
@@ -9695,7 +9729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The configurations of dedicated master nodes.
+   * Creates an Elasticsearch cluster.
    * 
    * @remarks
    * The configurations of warm nodes.
@@ -9801,7 +9835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The configurations of dedicated master nodes.
+   * Creates an Elasticsearch cluster.
    * 
    * @remarks
    * The configurations of warm nodes.

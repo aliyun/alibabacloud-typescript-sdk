@@ -14,6 +14,10 @@ import { ZoneInfo } from "./ZoneInfo";
 
 
 export class ElasticsearchAdvancedSetting extends $dara.Model {
+  /**
+   * @example
+   * CMS
+   */
   gcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,59 +41,191 @@ export class ElasticsearchAdvancedSetting extends $dara.Model {
 }
 
 export class Elasticsearch extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   advancedDedicateMaster?: boolean;
   advancedSetting?: ElasticsearchAdvancedSetting;
   aliwsDicts?: DictInfo[];
   clientNodeConfiguration?: ClientNodeConfiguration;
+  /**
+   * @example
+   * 2018-07-13T03:58:07.253Z
+   */
   createdAt?: string;
+  /**
+   * @example
+   * true
+   */
   dataNode?: boolean;
+  /**
+   * @example
+   * false
+   */
   dedicateMaster?: boolean;
+  /**
+   * @example
+   * es-cn-abc
+   */
   description?: string;
   dictList?: DictInfo[];
+  /**
+   * @example
+   * es-cn-3h4k3axh33th9****.elasticsearch.aliyuncs.com
+   */
   domain?: string;
   elasticDataNodeConfiguration?: ElasticDataNodeConfiguration;
+  /**
+   * @example
+   * false
+   */
   enableKibanaPrivateNetwork?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableKibanaPublicNetwork?: boolean;
+  /**
+   * @example
+   * true
+   */
   enablePublic?: boolean;
+  /**
+   * @example
+   * 5
+   */
   endTime?: number;
   esConfig?: { [key: string]: string };
   esIPWhitelist?: string[];
+  /**
+   * @example
+   * 6.3.2_with_X-Pack
+   */
   esVersion?: string;
   extendConfigs?: { [key: string]: any }[];
+  /**
+   * @example
+   * false
+   */
   haveClientNode?: boolean;
+  /**
+   * @example
+   * false
+   */
   haveElasticDataNode?: boolean;
+  /**
+   * @example
+   * true
+   */
   haveKibana?: boolean;
   ikHotDicts?: DictInfo[];
+  /**
+   * @example
+   * es-cn-3h4k3axh33th9****
+   */
   instanceId?: string;
   kibanaConfiguration?: KibanaNodeConfiguration;
+  /**
+   * @example
+   * es-cn-3h4k3axh33th9****.kibana.elasticsearch.aliyuncs.com
+   */
   kibanaDomain?: string;
   kibanaIPWhitelist?: string[];
+  /**
+   * @example
+   * 5601
+   */
   kibanaPort?: number;
+  /**
+   * @example
+   * es-cn-tl329rbpc0001****-kibana.internal.elasticsearch.aliyuncs.com
+   */
   kibanaPrivateDomain?: string;
   kibanaPrivateIPWhitelist?: string[];
+  /**
+   * @example
+   * 5601
+   */
   kibanaPrivatePort?: number;
+  /**
+   * @example
+   * HTTPS
+   */
   kibanaProtocol?: string;
   masterConfiguration?: MasterNodeConfiguration;
   networkConfig?: NetworkConfig;
+  /**
+   * @example
+   * 2
+   */
   nodeAmount?: number;
   nodeSpec?: NodeSpec;
+  /**
+   * @example
+   * prepaid
+   */
   paymentType?: string;
+  /**
+   * @example
+   * 9200
+   */
   port?: number;
   privateNetworkIpWhiteList?: string[];
+  /**
+   * @example
+   * generalBusiness
+   */
   productType?: string;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @example
+   * es-cn-3h4k3axh33th9****.elasticsearch.aliyuncs.com
+   */
   publicDomain?: string;
   publicIpWhitelist?: string[];
+  /**
+   * @example
+   * 9200
+   */
   publicPort?: number;
   readWritePolicy?: ReadWritePolicy;
+  /**
+   * @example
+   * rg-aekzvowej3i****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * true
+   */
   serviceVpc?: boolean;
+  /**
+   * @example
+   * active
+   */
   status?: string;
   synonymsDicts?: DictInfo[];
   tags?: Tag[];
+  /**
+   * @example
+   * 2018-07-13T03:58:07.253Z
+   */
   updatedAt?: string;
+  /**
+   * @example
+   * false
+   */
   warmNode?: boolean;
   warmNodeConfiguration?: WarmNodeConfiguration;
+  /**
+   * @example
+   * 1
+   */
   zoneCount?: number;
   zoneInfos?: ZoneInfo[];
   static names(): { [key: string]: string } {

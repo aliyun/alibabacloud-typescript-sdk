@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PaymentInfo extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   autoRenewDuration?: number;
+  /**
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @example
+   * true
+   */
   isAutoRenew?: boolean;
+  /**
+   * @example
+   * Month
+   */
   pricingCycle?: string;
   static names(): { [key: string]: string } {
     return {
