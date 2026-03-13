@@ -1302,7 +1302,19 @@ export default class Client extends OpenApi {
    */
   async describePopApiWithOptions(request: $_model.DescribePopApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePopApiResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!$dara.isNull(request.apiVersion)) {
+      query["ApiVersion"] = request.apiVersion;
+    }
+
+    if (!$dara.isNull(request.popCode)) {
+      query["PopCode"] = request.popCode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1311,7 +1323,7 @@ export default class Client extends OpenApi {
       version: "2022-07-28",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -1740,7 +1752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query OpenApi List of Cloud Vendors.
+   * Queries the API operations of a cloud service provider.
    * 
    * @remarks
    * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
@@ -1794,7 +1806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query OpenApi List of Cloud Vendors.
+   * Queries the API operations of a cloud service provider.
    * 
    * @remarks
    * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.

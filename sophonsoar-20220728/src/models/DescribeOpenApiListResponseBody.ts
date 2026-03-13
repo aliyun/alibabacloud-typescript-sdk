@@ -30,11 +30,13 @@ export class DescribeOpenApiListResponseBodyData extends $dara.Model {
    * 2018-12-03
    */
   version?: string;
+  versions?: any;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       directories: 'Directories',
       version: 'Version',
+      versions: 'Versions',
     };
   }
 
@@ -43,6 +45,7 @@ export class DescribeOpenApiListResponseBodyData extends $dara.Model {
       code: 'string',
       directories: 'any',
       version: 'string',
+      versions: 'any',
     };
   }
 

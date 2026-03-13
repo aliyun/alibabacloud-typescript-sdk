@@ -23,7 +23,7 @@ export class CreatePlaybookRequest extends $dara.Model {
   displayName?: string;
   /**
    * @example
-   * {\"key1\": \"value1\", \"key2\": \"value2\"}
+   * {\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\"}
    */
   inputParams?: string;
   /**
@@ -39,7 +39,7 @@ export class CreatePlaybookRequest extends $dara.Model {
   lang?: string;
   /**
    * @example
-   * {\"result\": \"success\"}
+   * {\\"result\\": \\"success\\"}
    */
   outputParams?: string;
   /**
