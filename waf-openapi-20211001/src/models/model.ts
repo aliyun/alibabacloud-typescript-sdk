@@ -37,6 +37,7 @@ export { DescribeApisecSensitiveDomainStatisticResponseBodyData } from './Descri
 export { DescribeApisecStatisticsResponseBodyData } from './DescribeApisecStatisticsResponseBody';
 export { DescribeApisecSuggestionsResponseBodyData } from './DescribeApisecSuggestionsResponseBody';
 export { DescribeApisecUserOperationsResponseBodyData } from './DescribeApisecUserOperationsResponseBody';
+export { DescribeBaseRuleChangeLogResponseBodyRules } from './DescribeBaseRuleChangeLogResponseBody';
 export { DescribeBaseSystemRulesResponseBodyRules } from './DescribeBaseSystemRulesResponseBody';
 export { DescribeBotRuleLabelsResponseBodyRuleLabels } from './DescribeBotRuleLabelsResponseBody';
 export { DescribeCertDetailResponseBodyCertDetail } from './DescribeCertDetailResponseBody';
@@ -82,6 +83,7 @@ export { DescribeDomainsResponseBodyDomainsBackedsHttps } from './DescribeDomain
 export { DescribeDomainsResponseBodyDomainsBackeds } from './DescribeDomainsResponseBody';
 export { DescribeDomainsResponseBodyDomainsListenPorts } from './DescribeDomainsResponseBody';
 export { DescribeDomainsResponseBodyDomains } from './DescribeDomainsResponseBody';
+export { DescribeElasticBillsResponseBodyBills } from './DescribeElasticBillsResponseBody';
 export { DescribeFlowChartResponseBodyFlowChart } from './DescribeFlowChartResponseBody';
 export { DescribeFlowTopResourceResponseBodyRuleHitsTopResource } from './DescribeFlowTopResourceResponseBody';
 export { DescribeFlowTopUrlResponseBodyRuleHitsTopUrl } from './DescribeFlowTopUrlResponseBody';
@@ -129,6 +131,7 @@ export { DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange } from '
 export { DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData } from './DescribeNetworkFlowTopNmetricResponseBody';
 export { DescribePeakTrendResponseBodyFlowChart } from './DescribePeakTrendResponseBody';
 export { DescribePocFunctionsResponseBodyFunctions } from './DescribePocFunctionsResponseBody';
+export { DescribePrepayDailyBillsResponseBodyBills } from './DescribePrepayDailyBillsResponseBody';
 export { DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols } from './DescribeProductInstancesResponseBody';
 export { DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates } from './DescribeProductInstancesResponseBody';
 export { DescribeProductInstancesResponseBodyProductInstancesResourcePorts } from './DescribeProductInstancesResponseBody';
@@ -401,6 +404,9 @@ export { DescribeApisecSuggestionsResponse } from './DescribeApisecSuggestionsRe
 export { DescribeApisecUserOperationsRequest } from './DescribeApisecUserOperationsRequest';
 export { DescribeApisecUserOperationsResponseBody } from './DescribeApisecUserOperationsResponseBody';
 export { DescribeApisecUserOperationsResponse } from './DescribeApisecUserOperationsResponse';
+export { DescribeBaseRuleChangeLogRequest } from './DescribeBaseRuleChangeLogRequest';
+export { DescribeBaseRuleChangeLogResponseBody } from './DescribeBaseRuleChangeLogResponseBody';
+export { DescribeBaseRuleChangeLogResponse } from './DescribeBaseRuleChangeLogResponse';
 export { DescribeBaseSystemRulesRequest } from './DescribeBaseSystemRulesRequest';
 export { DescribeBaseSystemRulesResponseBody } from './DescribeBaseSystemRulesResponseBody';
 export { DescribeBaseSystemRulesResponse } from './DescribeBaseSystemRulesResponse';
@@ -513,6 +519,9 @@ export { DescribeDomainUsedPortsResponse } from './DescribeDomainUsedPortsRespon
 export { DescribeDomainsRequest } from './DescribeDomainsRequest';
 export { DescribeDomainsResponseBody } from './DescribeDomainsResponseBody';
 export { DescribeDomainsResponse } from './DescribeDomainsResponse';
+export { DescribeElasticBillsRequest } from './DescribeElasticBillsRequest';
+export { DescribeElasticBillsResponseBody } from './DescribeElasticBillsResponseBody';
+export { DescribeElasticBillsResponse } from './DescribeElasticBillsResponse';
 export { DescribeFlowChartRequest } from './DescribeFlowChartRequest';
 export { DescribeFlowChartResponseBody } from './DescribeFlowChartResponseBody';
 export { DescribeFlowChartResponse } from './DescribeFlowChartResponse';
@@ -617,6 +626,9 @@ export { DescribePeakTrendResponse } from './DescribePeakTrendResponse';
 export { DescribePocFunctionsRequest } from './DescribePocFunctionsRequest';
 export { DescribePocFunctionsResponseBody } from './DescribePocFunctionsResponseBody';
 export { DescribePocFunctionsResponse } from './DescribePocFunctionsResponse';
+export { DescribePrepayDailyBillsRequest } from './DescribePrepayDailyBillsRequest';
+export { DescribePrepayDailyBillsResponseBody } from './DescribePrepayDailyBillsResponseBody';
+export { DescribePrepayDailyBillsResponse } from './DescribePrepayDailyBillsResponse';
 export { DescribeProductInstancesRequest } from './DescribeProductInstancesRequest';
 export { DescribeProductInstancesResponseBody } from './DescribeProductInstancesResponseBody';
 export { DescribeProductInstancesResponse } from './DescribeProductInstancesResponse';

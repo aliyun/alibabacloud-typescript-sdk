@@ -4302,6 +4302,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询基础防护规则集变化记录
+   * 
+   * @param request - DescribeBaseRuleChangeLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBaseRuleChangeLogResponse
+   */
+  async describeBaseRuleChangeLogWithOptions(request: $_model.DescribeBaseRuleChangeLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBaseRuleChangeLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBaseRuleChangeLog",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBaseRuleChangeLogResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBaseRuleChangeLogResponse({}));
+  }
+
+  /**
+   * 分页查询基础防护规则集变化记录
+   * 
+   * @param request - DescribeBaseRuleChangeLogRequest
+   * @returns DescribeBaseRuleChangeLogResponse
+   */
+  async describeBaseRuleChangeLog(request: $_model.DescribeBaseRuleChangeLogRequest): Promise<$_model.DescribeBaseRuleChangeLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBaseRuleChangeLogWithOptions(request, runtime);
+  }
+
+  /**
    * 查询基础防护系统规则集
    * 
    * @param request - DescribeBaseSystemRulesRequest
@@ -6642,6 +6704,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+   * 
+   * @param request - DescribeElasticBillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeElasticBillsResponse
+   */
+  async describeElasticBillsWithOptions(request: $_model.DescribeElasticBillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeElasticBillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeElasticBills",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeElasticBillsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeElasticBillsResponse({}));
+  }
+
+  /**
+   * Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+   * 
+   * @param request - DescribeElasticBillsRequest
+   * @returns DescribeElasticBillsResponse
+   */
+  async describeElasticBills(request: $_model.DescribeElasticBillsRequest): Promise<$_model.DescribeElasticBillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeElasticBillsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
    * 
    * @param request - DescribeFlowChartRequest
@@ -8651,6 +8771,64 @@ export default class Client extends OpenApi {
   async describePocFunctions(request: $_model.DescribePocFunctionsRequest): Promise<$_model.DescribePocFunctionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePocFunctionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+   * 
+   * @param request - DescribePrepayDailyBillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePrepayDailyBillsResponse
+   */
+  async describePrepayDailyBillsWithOptions(request: $_model.DescribePrepayDailyBillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePrepayDailyBillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePrepayDailyBills",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePrepayDailyBillsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePrepayDailyBillsResponse({}));
+  }
+
+  /**
+   * Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+   * 
+   * @param request - DescribePrepayDailyBillsRequest
+   * @returns DescribePrepayDailyBillsResponse
+   */
+  async describePrepayDailyBills(request: $_model.DescribePrepayDailyBillsRequest): Promise<$_model.DescribePrepayDailyBillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePrepayDailyBillsWithOptions(request, runtime);
   }
 
   /**
