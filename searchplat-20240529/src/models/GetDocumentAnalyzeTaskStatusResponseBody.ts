@@ -6,11 +6,13 @@ export class GetDocumentAnalyzeTaskStatusResponseBodyResultData extends $dara.Mo
   content?: string;
   contentType?: string;
   pageNum?: number;
+  pages?: string[];
   static names(): { [key: string]: string } {
     return {
       content: 'content',
       contentType: 'content_type',
       pageNum: 'page_num',
+      pages: 'pages',
     };
   }
 
@@ -19,10 +21,14 @@ export class GetDocumentAnalyzeTaskStatusResponseBodyResultData extends $dara.Mo
       content: 'string',
       contentType: 'string',
       pageNum: 'number',
+      pages: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.pages)) {
+      $dara.Model.validateArray(this.pages);
+    }
     super.validate();
   }
 

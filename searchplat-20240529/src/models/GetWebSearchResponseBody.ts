@@ -5,6 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWebSearchResponseBodyResultSearchResult extends $dara.Model {
   content?: string;
   link?: string;
+  metaInfo?: { [key: string]: any };
   position?: number;
   snippet?: string;
   tilte?: string;
@@ -12,6 +13,7 @@ export class GetWebSearchResponseBodyResultSearchResult extends $dara.Model {
     return {
       content: 'content',
       link: 'link',
+      metaInfo: 'meta_info',
       position: 'position',
       snippet: 'snippet',
       tilte: 'tilte',
@@ -22,6 +24,7 @@ export class GetWebSearchResponseBodyResultSearchResult extends $dara.Model {
     return {
       content: 'string',
       link: 'string',
+      metaInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       position: 'number',
       snippet: 'string',
       tilte: 'string',
@@ -29,6 +32,9 @@ export class GetWebSearchResponseBodyResultSearchResult extends $dara.Model {
   }
 
   validate() {
+    if(this.metaInfo) {
+      $dara.Model.validateMap(this.metaInfo);
+    }
     super.validate();
   }
 

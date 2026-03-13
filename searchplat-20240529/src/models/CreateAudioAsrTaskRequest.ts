@@ -8,11 +8,13 @@ export class CreateAudioAsrTaskRequestInput extends $dara.Model {
   content?: string;
   fileName?: string;
   oss?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'content',
       fileName: 'file_name',
       oss: 'oss',
+      url: 'url',
     };
   }
 
@@ -21,6 +23,7 @@ export class CreateAudioAsrTaskRequestInput extends $dara.Model {
       content: 'string',
       fileName: 'string',
       oss: 'string',
+      url: 'string',
     };
   }
 

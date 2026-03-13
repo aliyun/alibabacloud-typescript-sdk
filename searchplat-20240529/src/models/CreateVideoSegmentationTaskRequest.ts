@@ -2,14 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateVideoSnapshotTaskRequestInput extends $dara.Model {
-  content?: string;
+export class CreateVideoSegmentationTaskRequestInput extends $dara.Model {
   fileName?: string;
   oss?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
-      content: 'content',
       fileName: 'file_name',
       oss: 'oss',
       url: 'url',
@@ -18,7 +16,6 @@ export class CreateVideoSnapshotTaskRequestInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      content: 'string',
       fileName: 'string',
       oss: 'string',
       url: 'string',
@@ -34,7 +31,7 @@ export class CreateVideoSnapshotTaskRequestInput extends $dara.Model {
   }
 }
 
-export class CreateVideoSnapshotTaskRequestOutput extends $dara.Model {
+export class CreateVideoSegmentationTaskRequestOutput extends $dara.Model {
   oss?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -60,9 +57,9 @@ export class CreateVideoSnapshotTaskRequestOutput extends $dara.Model {
   }
 }
 
-export class CreateVideoSnapshotTaskRequest extends $dara.Model {
-  input?: CreateVideoSnapshotTaskRequestInput;
-  output?: CreateVideoSnapshotTaskRequestOutput;
+export class CreateVideoSegmentationTaskRequest extends $dara.Model {
+  input?: CreateVideoSegmentationTaskRequestInput;
+  output?: CreateVideoSegmentationTaskRequestOutput;
   parameters?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -74,8 +71,8 @@ export class CreateVideoSnapshotTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      input: CreateVideoSnapshotTaskRequestInput,
-      output: CreateVideoSnapshotTaskRequestOutput,
+      input: CreateVideoSegmentationTaskRequestInput,
+      output: CreateVideoSegmentationTaskRequestOutput,
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }

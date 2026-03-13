@@ -171,6 +171,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建视频切割异步任务
+   * 
+   * @param request - CreateVideoSegmentationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoSegmentationTaskResponse
+   */
+  async createVideoSegmentationTaskWithOptions(workspaceName: string, serviceId: string, request: $_model.CreateVideoSegmentationTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVideoSegmentationTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.output)) {
+      body["output"] = request.output;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVideoSegmentationTask",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/video-segmentation/${serviceId}/async`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVideoSegmentationTaskResponse>(await this.execute(params, req, runtime), new $_model.CreateVideoSegmentationTaskResponse({}));
+  }
+
+  /**
+   * 创建视频切割异步任务
+   * 
+   * @param request - CreateVideoSegmentationTaskRequest
+   * @returns CreateVideoSegmentationTaskResponse
+   */
+  async createVideoSegmentationTask(workspaceName: string, serviceId: string, request: $_model.CreateVideoSegmentationTaskRequest): Promise<$_model.CreateVideoSegmentationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVideoSegmentationTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
    * 创建语音转录异步任务
    * 
    * @param request - CreateVideoSnapshotTaskRequest
@@ -221,6 +274,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVideoSnapshotTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建视频总结异步任务
+   * 
+   * @param request - CreateVideoSummarizationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoSummarizationTaskResponse
+   */
+  async createVideoSummarizationTaskWithOptions(workspaceName: string, serviceId: string, request: $_model.CreateVideoSummarizationTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVideoSummarizationTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.output)) {
+      body["output"] = request.output;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVideoSummarizationTask",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/video-summarization/${serviceId}/async`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVideoSummarizationTaskResponse>(await this.execute(params, req, runtime), new $_model.CreateVideoSummarizationTaskResponse({}));
+  }
+
+  /**
+   * 创建视频总结异步任务
+   * 
+   * @param request - CreateVideoSummarizationTaskRequest
+   * @returns CreateVideoSummarizationTaskResponse
+   */
+  async createVideoSummarizationTask(workspaceName: string, serviceId: string, request: $_model.CreateVideoSummarizationTaskRequest): Promise<$_model.CreateVideoSummarizationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVideoSummarizationTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
   }
 
   /**
@@ -922,6 +1028,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取视频切割异步任务状态
+   * 
+   * @param request - GetVideoSegmentationTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoSegmentationTaskStatusResponse
+   */
+  async getVideoSegmentationTaskStatusWithOptions(workspaceName: string, serviceId: string, request: $_model.GetVideoSegmentationTaskStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoSegmentationTaskStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["task_id"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoSegmentationTaskStatus",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/video-segmentation/${serviceId}/async/task-status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoSegmentationTaskStatusResponse>(await this.execute(params, req, runtime), new $_model.GetVideoSegmentationTaskStatusResponse({}));
+  }
+
+  /**
+   * 获取视频切割异步任务状态
+   * 
+   * @param request - GetVideoSegmentationTaskStatusRequest
+   * @returns GetVideoSegmentationTaskStatusResponse
+   */
+  async getVideoSegmentationTaskStatus(workspaceName: string, serviceId: string, request: $_model.GetVideoSegmentationTaskStatusRequest): Promise<$_model.GetVideoSegmentationTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVideoSegmentationTaskStatusWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
    * 获取视频截帧异步提取任务状态
    * 
    * @param request - GetVideoSnapshotTaskStatusRequest
@@ -964,6 +1115,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getVideoSnapshotTaskStatusWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取视频总结异步任务状态
+   * 
+   * @param request - GetVideoSummarizationTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoSummarizationTaskStatusResponse
+   */
+  async getVideoSummarizationTaskStatusWithOptions(workspaceName: string, serviceId: string, request: $_model.GetVideoSummarizationTaskStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoSummarizationTaskStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["task_id"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoSummarizationTaskStatus",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/video-summarization/${serviceId}/async/task-status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoSummarizationTaskStatusResponse>(await this.execute(params, req, runtime), new $_model.GetVideoSummarizationTaskStatusResponse({}));
+  }
+
+  /**
+   * 获取视频总结异步任务状态
+   * 
+   * @param request - GetVideoSummarizationTaskStatusRequest
+   * @returns GetVideoSummarizationTaskStatusResponse
+   */
+  async getVideoSummarizationTaskStatus(workspaceName: string, serviceId: string, request: $_model.GetVideoSummarizationTaskStatusRequest): Promise<$_model.GetVideoSummarizationTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVideoSummarizationTaskStatusWithOptions(workspaceName, serviceId, request, headers, runtime);
   }
 
   /**
