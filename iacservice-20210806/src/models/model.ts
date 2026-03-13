@@ -309,6 +309,10 @@ export { UpdateResourceExportTaskAttributeResponse } from './UpdateResourceExpor
 export { UpdateTaskAttributeRequest } from './UpdateTaskAttributeRequest';
 export { UpdateTaskAttributeResponseBody } from './UpdateTaskAttributeResponseBody';
 export { UpdateTaskAttributeResponse } from './UpdateTaskAttributeResponse';
+export { UploadModuleRequest } from './UploadModuleRequest';
+export { UploadModuleAdvanceRequest } from './UploadModuleAdvanceRequest';
+export { UploadModuleResponseBody } from './UploadModuleResponseBody';
+export { UploadModuleResponse } from './UploadModuleResponse';
 export { ValidateModuleRequest } from './ValidateModuleRequest';
 export { ValidateModuleResponseBody } from './ValidateModuleResponseBody';
 export { ValidateModuleResponse } from './ValidateModuleResponse';
