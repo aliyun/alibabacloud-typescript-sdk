@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class OutputFuncCode extends $dara.Model {
   /**
+   * @remarks
+   * The CRC-64 value of the function code package.
+   * 
    * @example
    * 1234567890
    */
   checksum?: string;
   /**
+   * @remarks
+   * The URL of the function code package.
+   * 
    * @example
    * http://func-code.oss-cn-shanghai.aliyuncs.com/1a2b3c4d5e6f
    */

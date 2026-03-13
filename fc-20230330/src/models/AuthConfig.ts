@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class AuthConfig extends $dara.Model {
   /**
+   * @remarks
+   * The authentication information.
+   * 
    * @example
    * {}
    */
   authInfo?: string;
   /**
+   * @remarks
+   * The authentication type. Valid values: anonymous, function, and jwt.
+   * 
    * @example
-   * anonymous, function, jwt
+   * anonymous
    */
   authType?: string;
   static names(): { [key: string]: string } {

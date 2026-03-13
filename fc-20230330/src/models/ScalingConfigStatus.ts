@@ -5,16 +5,52 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 
 
 export class ScalingConfigStatus extends $dara.Model {
+  /**
+   * @example
+   * image not found
+   */
   currentError?: string;
+  /**
+   * @example
+   * 1
+   */
   currentInstances?: number;
+  /**
+   * @example
+   * False
+   */
   enableMixMode?: boolean;
+  /**
+   * @example
+   * True
+   */
   enableOnDemandScaling?: boolean;
+  /**
+   * @example
+   * acs:fc:cn-shanghai:124:functions/myFunction/prod
+   */
   functionArn?: string;
   horizontalScalingPolicies?: ScalingPolicy[];
+  /**
+   * @example
+   * 1
+   */
   minInstances?: number;
+  /**
+   * @example
+   * Balanced
+   */
   requestDispatchPolicy?: string;
+  /**
+   * @example
+   * fc-pool-a2b664c1f87171j4******
+   */
   residentPoolId?: string;
   scheduledPolicies?: ScheduledPolicy[];
+  /**
+   * @example
+   * 10
+   */
   targetInstances?: number;
   static names(): { [key: string]: string } {
     return {

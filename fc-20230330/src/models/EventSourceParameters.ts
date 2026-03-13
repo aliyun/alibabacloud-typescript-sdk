@@ -9,11 +9,35 @@ import { SourceRocketMQParameters } from "./SourceRocketMqparameters";
 
 
 export class EventSourceParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The custom configurations when the event source is Data Transmission Service (DTS).
+   */
   sourceDTSParameters?: SourceDTSParameters;
+  /**
+   * @remarks
+   * The custom configurations when the event source is ApsaraMQ for Kafka.
+   */
   sourceKafkaParameters?: SourceKafkaParameters;
+  /**
+   * @remarks
+   * The custom configurations when the event source is Simple Message Queue (formerly MNS).
+   */
   sourceMNSParameters?: SourceMNSParameters;
+  /**
+   * @remarks
+   * The custom configurations when the event source is ApsaraMQ for MQTT.
+   */
   sourceMQTTParameters?: SourceMQTTParameters;
+  /**
+   * @remarks
+   * The custom configurations when the event source is ApsaraMQ for RabbitMQ.
+   */
   sourceRabbitMQParameters?: SourceRabbitMQParameters;
+  /**
+   * @remarks
+   * The custom configurations when the event source is ApsaraMQ for RocketMQ.
+   */
   sourceRocketMQParameters?: SourceRocketMQParameters;
   static names(): { [key: string]: string } {
     return {

@@ -4,8 +4,15 @@ import { ConcurrencyConfig } from "./ConcurrencyConfig";
 
 
 export class ListConcurrencyConfigsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The list of concurrency configurations.
+   */
   configs?: ConcurrencyConfig[];
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is not returned, all the concurrency configurations are returned.
+   * 
    * @example
    * next_token
    */

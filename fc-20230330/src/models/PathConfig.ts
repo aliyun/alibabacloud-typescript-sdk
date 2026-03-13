@@ -6,15 +6,23 @@ import { RewriteConfig } from "./RewriteConfig";
 export class PathConfig extends $dara.Model {
   /**
    * @remarks
+   * The name of the function.
+   * 
    * This parameter is required.
    * 
    * @example
    * myFunction
    */
   functionName?: string;
+  /**
+   * @remarks
+   * The supported methods.
+   */
   methods?: string[];
   /**
    * @remarks
+   * The route matching rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,10 +30,17 @@ export class PathConfig extends $dara.Model {
    */
   path?: string;
   /**
+   * @remarks
+   * The version or alias.
+   * 
    * @example
    * myAlias
    */
   qualifier?: string;
+  /**
+   * @remarks
+   * The rewrite configuration.
+   */
   rewriteConfig?: RewriteConfig;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class WAFConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable WAF protection.
+   * 
    * @example
    * true
    */

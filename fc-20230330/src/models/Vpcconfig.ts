@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class VPCConfig extends $dara.Model {
   /**
+   * @remarks
+   * The RAM role that is assumed by Function Compute to access VPC.
+   * 
    * @example
    * acs:ram::188077086902****:role/fc-test
    */
   role?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-bp18hj1wtxgy3b0***
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The list of vSwitches.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-***
    */

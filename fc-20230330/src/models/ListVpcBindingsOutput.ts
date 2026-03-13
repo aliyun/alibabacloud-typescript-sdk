@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVpcBindingsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The VPC IDs.
+   */
   vpcIds?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class TargetTrackingPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the policy, in UTC.
+   * 
    * @example
-   * 2024-03-10T10:10:10
+   * 2024-03-10T10:10:10Z
    */
   endTime?: string;
   /**
    * @remarks
+   * The maximum number of provisioned instances for scale-out.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class TargetTrackingPolicy extends $dara.Model {
   maxCapacity?: number;
   /**
    * @remarks
+   * The threshold value for metric-based auto scaling.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class TargetTrackingPolicy extends $dara.Model {
   metricTarget?: number;
   /**
    * @remarks
+   * The metric type for tracing. ProvisionedConcurrencyUtilization: the concurrency utilization of provisioned instances. CPUUtilization: the CPU utilization. GPUMemUtilization: the GPU utilization.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class TargetTrackingPolicy extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
+   * The minimum number of provisioned instances for scale-in.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,8 @@ export class TargetTrackingPolicy extends $dara.Model {
   minCapacity?: number;
   /**
    * @remarks
+   * The policy name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,11 +62,17 @@ export class TargetTrackingPolicy extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the policy starts to take effect, in UTC.
+   * 
    * @example
-   * 2023-03-10T10:10:10
+   * 2023-03-10T10:10:10Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time zone. If the time zone parameter is empty, the time of startTime and endTime must be in UTC format.
+   * 
    * @example
    * Asia/Shanghai
    */

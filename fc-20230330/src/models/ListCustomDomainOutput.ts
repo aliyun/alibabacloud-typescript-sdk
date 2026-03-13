@@ -4,8 +4,15 @@ import { CustomDomain } from "./CustomDomain";
 
 
 export class ListCustomDomainOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The custom domain names.
+   */
   customDomains?: CustomDomain[];
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * next_domain_name
    */

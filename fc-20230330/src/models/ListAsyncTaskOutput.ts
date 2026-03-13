@@ -4,7 +4,18 @@ import { AsyncTask } from "./AsyncTask";
 
 
 export class ListAsyncTaskOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The asynchronous tasks.
+   */
   tasks?: AsyncTask[];
   static names(): { [key: string]: string } {
     return {

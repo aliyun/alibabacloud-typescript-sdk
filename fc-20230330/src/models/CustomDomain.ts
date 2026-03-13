@@ -9,42 +9,87 @@ import { WAFConfig } from "./Wafconfig";
 
 
 export class CustomDomain extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud account.
+   * 
+   * @example
+   * 186851234023****
+   */
   accountId?: string;
   /**
+   * @remarks
+   * The version of the Function Compute API.
+   * 
    * @example
    * 2023-03-30
    */
   apiVersion?: string;
+  /**
+   * @remarks
+   * The configuration of permission authentication.
+   */
   authConfig?: AuthConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTPS certificate.
+   */
   certConfig?: CertConfig;
   corsConfig?: CORSConfig;
   /**
+   * @remarks
+   * The time when the custom domain name was created.
+   * 
    * @example
    * 2023-03-30T08:02:19Z
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The time when the custom domain name was last updated.
+   * 
    * @example
    * 2023-03-30T08:02:19Z
    */
   lastModifiedTime?: string;
   /**
+   * @remarks
+   * The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The route table that maps paths to functions when the function is invoked by using the custom domain name.
+   */
   routeConfig?: RouteConfig;
   /**
+   * @remarks
+   * The number of added subdomains.
+   * 
    * @example
    * 1
    */
   subdomainCount?: string;
+  /**
+   * @remarks
+   * The Transport Layer Security (TLS) configuration.
+   */
   tlsConfig?: TLSConfig;
+  /**
+   * @remarks
+   * The Web Application Firewall (WAF) configuration.
+   */
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {

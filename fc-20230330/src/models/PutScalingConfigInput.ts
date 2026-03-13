@@ -5,11 +5,31 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 
 
 export class PutScalingConfigInput extends $dara.Model {
+  /**
+   * @example
+   * False
+   */
   enableMixMode?: boolean;
+  /**
+   * @example
+   * True
+   */
   enableOnDemandScaling?: boolean;
   horizontalScalingPolicies?: ScalingPolicy[];
+  /**
+   * @example
+   * 1
+   */
   minInstances?: number;
+  /**
+   * @example
+   * Balanced
+   */
   requestDispatchPolicy?: string;
+  /**
+   * @example
+   * fc-pool-a2b664c1f87171j4******
+   */
   residentPoolId?: string;
   scheduledPolicies?: ScheduledPolicy[];
   static names(): { [key: string]: string } {

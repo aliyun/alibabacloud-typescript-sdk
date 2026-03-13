@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EqualRule extends $dara.Model {
   /**
    * @remarks
+   * The matching rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EqualRule extends $dara.Model {
   match?: string;
   /**
    * @remarks
+   * The replacement rule.
+   * 
    * This parameter is required.
    * 
    * @example

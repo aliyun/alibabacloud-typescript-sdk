@@ -2,26 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateVpcBindingInput extends $dara.Model {
+export class ResumeSessionRequest extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the VPC.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * vpc-8vb8x8dggvr0a****
+   * aliasName1
    */
-  vpcId?: string;
+  qualifier?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'vpcId',
+      qualifier: 'qualifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
+      qualifier: 'string',
     };
   }
 

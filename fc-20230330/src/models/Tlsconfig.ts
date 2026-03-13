@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class TLSConfig extends $dara.Model {
   /**
    * @remarks
+   * The TLS cipher suites.
+   * 
    * This parameter is required.
    */
   cipherSuites?: string[];
   /**
+   * @remarks
+   * The maximum TLS version. Valid values: TLSv1.3 and TLSv1.2.
+   * 
    * @example
    * TLSv1.3
    */
   maxVersion?: string;
   /**
    * @remarks
+   * The minimum TLS version. Valid values: TLSv1.3 and TLSv1.2.
+   * 
    * This parameter is required.
    * 
    * @example

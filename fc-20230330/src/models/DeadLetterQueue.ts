@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeadLetterQueue extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
+   */
   arn?: string;
   static names(): { [key: string]: string } {
     return {

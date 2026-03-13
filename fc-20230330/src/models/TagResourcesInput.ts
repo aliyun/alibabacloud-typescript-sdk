@@ -6,16 +6,23 @@ import { Tag } from "./Tag";
 export class TagResourcesInput extends $dara.Model {
   /**
    * @remarks
+   * The resource IDs.
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
+   * @remarks
+   * The type of the resource.
+   * 
    * @example
    * FUNCTION
    */
   resourceType?: string;
   /**
    * @remarks
+   * The tags.
+   * 
    * This parameter is required.
    */
   tag?: Tag[];

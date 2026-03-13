@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class FunctionLayer extends $dara.Model {
   /**
+   * @remarks
+   * The resource identifier of the layer version.
+   * 
    * @example
    * acs:fc:cn-beijing:186824xxxxxx:layers/fc_layer/versions/1
    */
   arn?: string;
   /**
+   * @remarks
+   * The size of the layer code package. Unit: bytes.
+   * 
    * @example
    * 421
    */

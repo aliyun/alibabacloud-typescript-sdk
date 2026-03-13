@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class Error extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * FunctionNotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * function not found
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1-64e70cf1-5cbef92ea8fc8c42899cf5d1
    */

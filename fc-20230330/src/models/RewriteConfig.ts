@@ -6,8 +6,20 @@ import { WildcardRule } from "./WildcardRule";
 
 
 export class RewriteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The exact match rules.
+   */
   equalRules?: EqualRule[];
+  /**
+   * @remarks
+   * The regex matching rules.
+   */
   regexRules?: RegexRule[];
+  /**
+   * @remarks
+   * The wildcard matching rules.
+   */
   wildcardRules?: WildcardRule[];
   static names(): { [key: string]: string } {
     return {

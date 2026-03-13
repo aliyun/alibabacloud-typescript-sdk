@@ -4,8 +4,15 @@ import { Layer } from "./Layer";
 
 
 export class ListLayerVersionOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The list of layer versions.
+   */
   layers?: Layer[];
   /**
+   * @remarks
+   * The next version, which is used to return more results.
+   * 
    * @example
    * 10
    */

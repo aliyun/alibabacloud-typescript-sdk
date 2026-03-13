@@ -5,10 +5,17 @@ import { Resource } from "./Resource";
 
 export class ListTaggedResourcesOutput extends $dara.Model {
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * next_token
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The tagged resources.
+   */
   resources?: Resource[];
   static names(): { [key: string]: string } {
     return {

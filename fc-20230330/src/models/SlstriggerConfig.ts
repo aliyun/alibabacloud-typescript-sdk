@@ -7,13 +7,32 @@ import { SourceConfig } from "./SourceConfig";
 
 export class SLSTriggerConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the trigger.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The invocation configurations. Simple Log Service passes the configurations into the function as part of the event. The configuration content must be a JSON string.
+   */
   functionParameter?: { [key: string]: string };
+  /**
+   * @remarks
+   * The interval at which the trigger reads logs, and the retry configuration upon errors.
+   */
   jobConfig?: JobConfig;
+  /**
+   * @remarks
+   * The log configurations of the trigger.
+   */
   logConfig?: SLSTriggerLogConfig;
+  /**
+   * @remarks
+   * The configurations of the trigger source.
+   */
   sourceConfig?: SourceConfig;
   static names(): { [key: string]: string } {
     return {

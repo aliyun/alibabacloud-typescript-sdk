@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DNSOption extends $dara.Model {
   /**
+   * @remarks
+   * The name of the configuration item.
+   * 
    * @example
    * ndots
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * 2
    */

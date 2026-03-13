@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ScheduledAction extends $dara.Model {
   /**
+   * @remarks
+   * The time when the policy expires.
+   * 
    * @example
-   * 2024-03-10T10:10:10
+   * 2024-03-10T10:10:10Z
    */
   endTime?: string;
   /**
    * @remarks
+   * The policy name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ScheduledAction extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The schedule expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,17 @@ export class ScheduledAction extends $dara.Model {
    */
   scheduleExpression?: string;
   /**
+   * @remarks
+   * The time when the policy takes effect.
+   * 
    * @example
-   * 2023-03-10T10:10:10
+   * 2023-03-10T10:10:10Z
    */
   startTime?: string;
   /**
    * @remarks
+   * The number of target provisioned instances.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +50,9 @@ export class ScheduledAction extends $dara.Model {
    */
   target?: number;
   /**
+   * @remarks
+   * The time zone. If the time zone parameter is empty, the value of startTime, endTime, and scheduleExpression must be in UTC format.
+   * 
    * @example
    * Asia/Shanghai
    */

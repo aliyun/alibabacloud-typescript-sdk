@@ -9,11 +9,21 @@ import { WAFConfig } from "./Wafconfig";
 
 
 export class CreateCustomDomainInput extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of permission authentication.
+   */
   authConfig?: AuthConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTPS certificate.
+   */
   certConfig?: CertConfig;
   corsConfig?: CORSConfig;
   /**
    * @remarks
+   * The domain name. Enter a custom domain name that has obtained an Internet content provider (ICP) filing in the Alibaba Cloud ICP Filing system, or a custom domain name whose ICP filing information includes Alibaba Cloud as a service provider.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,12 +31,27 @@ export class CreateCustomDomainInput extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The route table that maps paths to functions when the function is invoked by using the custom domain name.
+   */
   routeConfig?: RouteConfig;
+  /**
+   * @remarks
+   * The Transport Layer Security (TLS) configuration.
+   */
   tlsConfig?: TLSConfig;
+  /**
+   * @remarks
+   * The Web Application Firewall (WAF) configuration.
+   */
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {

@@ -16,10 +16,20 @@ export class PutProvisionConfigInput extends $dara.Model {
    */
   alwaysAllocateGPU?: boolean;
   /**
+   * @remarks
+   * The number of target provisioned instances. Valid values: [0,10000].
+   * 
+   * @example
+   * 5
+   * 
    * **if can be null:**
    * true
    */
   defaultTarget?: number;
+  /**
+   * @remarks
+   * public
+   */
   scheduledActions?: ScheduledAction[];
   /**
    * @remarks

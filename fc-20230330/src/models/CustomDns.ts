@@ -4,8 +4,20 @@ import { DNSOption } from "./Dnsoption";
 
 
 export class CustomDNS extends $dara.Model {
+  /**
+   * @remarks
+   * The DNS resolution configurations in the resolv.conf file. Each item corresponds to a key-value pair in the key:value format, in which the key is required.
+   */
   dnsOptions?: DNSOption[];
+  /**
+   * @remarks
+   * The IP addresses of the DNS server.
+   */
   nameServers?: string[];
+  /**
+   * @remarks
+   * The search domains of DNS server.
+   */
   searches?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RegistryCertConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to skip certificate verification.
+   */
   insecure?: boolean;
   /**
+   * @remarks
+   * The certificate authority (CA) certificate of the image repository.
+   * 
    * @example
    * cm9vdF9jYV9jZXJ0
    */

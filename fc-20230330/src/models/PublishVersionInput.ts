@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishVersionInput extends $dara.Model {
   /**
+   * @remarks
+   * The description of the layer version.
+   * 
    * @example
    * my version
    */

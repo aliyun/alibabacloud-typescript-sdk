@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Tag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * k1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * v1
    */

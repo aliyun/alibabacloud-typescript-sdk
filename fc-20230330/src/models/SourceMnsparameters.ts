@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SourceMNSParameters extends $dara.Model {
   /**
+   * @remarks
+   * Specify whether to enable Base64 encoding. Default value: true. Valid values: true false
+   * 
    * @example
    * true
    */
   isBase64Decode?: boolean;
   /**
+   * @remarks
+   * The name of the queue of Simple Message Queue (formerly MNS).
+   * 
    * @example
    * demo
    */
   queueName?: string;
   /**
+   * @remarks
+   * The region to which the queue of Simple Message Queue (formerly MNS) belongs.
+   * 
    * @example
    * cn-shanghai
    */

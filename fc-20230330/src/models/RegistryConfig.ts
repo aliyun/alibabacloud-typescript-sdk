@@ -6,8 +6,20 @@ import { RegistryNetworkConfig } from "./RegistryNetworkConfig";
 
 
 export class RegistryConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The permission authentication configurations.
+   */
   authConfig?: RegistryAuthConfig;
+  /**
+   * @remarks
+   * The certificate configurations.
+   */
   certConfig?: RegistryCertConfig;
+  /**
+   * @remarks
+   * The network settings.
+   */
   networkConfig?: RegistryNetworkConfig;
   static names(): { [key: string]: string } {
     return {

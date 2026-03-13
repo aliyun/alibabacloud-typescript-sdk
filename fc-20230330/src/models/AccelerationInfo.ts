@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class AccelerationInfo extends $dara.Model {
   /**
+   * @remarks
+   * The status of image acceleration.
+   * 
    * @example
-   * deprecated
+   * Ready
    */
   status?: string;
   static names(): { [key: string]: string } {

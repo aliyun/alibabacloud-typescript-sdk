@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CertConfig extends $dara.Model {
   /**
    * @remarks
+   * The name of the certificate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CertConfig extends $dara.Model {
   certName?: string;
   /**
    * @remarks
+   * The certificate in the .pem format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CertConfig extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
+   * The private key in the .pem format.
+   * 
    * This parameter is required.
    * 
    * @example

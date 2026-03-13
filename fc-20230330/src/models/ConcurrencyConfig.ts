@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConcurrencyConfig extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN).
+   * 
    * @example
    * acs:fc:cn-shanghai:123:functions/demo
    */
   functionArn?: string;
   /**
+   * @remarks
+   * The reserved concurrency of the function. Other functions cannot use the concurrency. The reserved concurrency includes the total concurrency of provisioned instances and on-demand instances.
+   * 
    * @example
    * 10
    */

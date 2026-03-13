@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NASMountConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to use the Transport Layer Security (TLS) protocol to secure data transmission. Note: Only General-purpose NAS supports transmission encryption.
+   * 
+   * @example
+   * true
+   */
   enableTLS?: boolean;
   /**
+   * @remarks
+   * The local mount directory.
+   * 
    * @example
    * /home/test
    */
   mountDir?: string;
   /**
+   * @remarks
+   * The address of a NAS server.
+   * 
    * @example
    * ***-uni85.cn-hangzhou.nas.com:/
    */

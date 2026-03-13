@@ -4,6 +4,10 @@ import { InstanceInfo } from "./InstanceInfo";
 
 
 export class ListInstancesOutput extends $dara.Model {
+  /**
+   * @remarks
+   * public
+   */
   instances?: InstanceInfo[];
   requestId?: string;
   static names(): { [key: string]: string } {

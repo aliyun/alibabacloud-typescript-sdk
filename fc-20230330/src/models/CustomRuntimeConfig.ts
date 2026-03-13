@@ -4,10 +4,25 @@ import { CustomHealthCheckConfig } from "./CustomHealthCheckConfig";
 
 
 export class CustomRuntimeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The arguments that are passed to the startup command.
+   */
   args?: string[];
+  /**
+   * @remarks
+   * The startup commands.
+   */
   command?: string[];
+  /**
+   * @remarks
+   * The custom health check configuration of the function.
+   */
   healthCheckConfig?: CustomHealthCheckConfig;
   /**
+   * @remarks
+   * The port on which the HTTP server is listening.
+   * 
    * @example
    * 9000
    */

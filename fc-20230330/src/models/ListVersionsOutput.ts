@@ -5,15 +5,25 @@ import { Version } from "./Version";
 
 export class ListVersionsOutput extends $dara.Model {
   /**
+   * @remarks
+   * The sorting method of versions.
+   * 
    * @example
    * FORWARD
    */
   direction?: string;
   /**
+   * @remarks
+   * The ID of the next version.
+   * 
    * @example
    * 3
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The version IDs.
+   */
   versions?: Version[];
   static names(): { [key: string]: string } {
     return {

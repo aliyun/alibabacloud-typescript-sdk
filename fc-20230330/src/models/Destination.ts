@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class Destination extends $dara.Model {
   /**
+   * @remarks
+   * The descriptor of the destination for the asynchronous invocation.
+   * 
    * @example
    * acs:fc:cn-shanghai:xxx:functions/f1
    */

@@ -4,6 +4,10 @@ import { PathConfig } from "./PathConfig";
 
 
 export class RouteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The route configurations.
+   */
   routes?: PathConfig[];
   static names(): { [key: string]: string } {
     return {

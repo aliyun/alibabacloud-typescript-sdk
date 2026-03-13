@@ -4,6 +4,10 @@ import { ScalingConfigStatus } from "./ScalingConfigStatus";
 
 
 export class ListScalingConfigsOutput extends $dara.Model {
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
   scalingConfigs?: ScalingConfigStatus[];
   static names(): { [key: string]: string } {

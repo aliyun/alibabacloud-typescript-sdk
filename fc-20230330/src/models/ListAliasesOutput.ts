@@ -4,8 +4,15 @@ import { Alias } from "./Alias";
 
 
 export class ListAliasesOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The information about aliases.
+   */
   aliases?: Alias[];
   /**
+   * @remarks
+   * The next version.
+   * 
    * @example
    * test
    */

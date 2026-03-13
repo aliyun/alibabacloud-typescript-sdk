@@ -4,6 +4,10 @@ import { DeliveryOption } from "./DeliveryOption";
 
 
 export class EventSinkConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The event push configurations.
+   */
   deliveryOption?: DeliveryOption;
   static names(): { [key: string]: string } {
     return {

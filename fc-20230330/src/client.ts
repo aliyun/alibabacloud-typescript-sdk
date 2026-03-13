@@ -77,7 +77,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建函数别名。
+   * Creates an alias.
    * 
    * @param request - CreateAliasRequest
    * @param headers - map
@@ -105,7 +105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建函数别名。
+   * Creates an alias.
    * 
    * @param request - CreateAliasRequest
    * @returns CreateAliasResponse
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建层版本。
+   * Releases a layer version.
    * 
    * @param request - CreateLayerVersionRequest
    * @param headers - map
@@ -237,7 +237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建层版本。
+   * Releases a layer version.
    * 
    * @param request - CreateLayerVersionRequest
    * @returns CreateLayerVersionResponse
@@ -295,7 +295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建函数触发器。
+   * Creates a trigger.
    * 
    * @param request - CreateTriggerRequest
    * @param headers - map
@@ -323,7 +323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建函数触发器。
+   * Creates a trigger.
    * 
    * @param request - CreateTriggerRequest
    * @returns CreateTriggerResponse
@@ -560,7 +560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * http://pre.hhht/#vpc
+   * Deletes a function version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -585,7 +585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * http://pre.hhht/#vpc
+   * Deletes a function version.
    * @returns DeleteFunctionVersionResponse
    */
   async deleteFunctionVersion(functionName: string, versionId: string): Promise<$_model.DeleteFunctionVersionResponse> {
@@ -1759,7 +1759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出函数并发度配置。
+   * Queries a list of concurrency configurations.
    * 
    * @param request - ListConcurrencyConfigsRequest
    * @param headers - map
@@ -1800,7 +1800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出函数并发度配置。
+   * Queries a list of concurrency configurations.
    * 
    * @param request - ListConcurrencyConfigsRequest
    * @returns ListConcurrencyConfigsResponse
@@ -1918,7 +1918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出函数。
+   * Queries a list of functions.
    * 
    * @remarks
    * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
@@ -1996,7 +1996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出函数。
+   * Queries a list of functions.
    * 
    * @remarks
    * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
@@ -2530,6 +2530,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停/保存会话
+   * 
+   * @param request - PauseSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseSessionResponse
+   */
+  async pauseSessionWithOptions(functionName: string, sessionId: string, request: $_model.PauseSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PauseSessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PauseSession",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/sessions/${$dara.URL.percentEncode(sessionId)}/pause`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PauseSessionResponse>(await this.callApi(params, req, runtime), new $_model.PauseSessionResponse({}));
+  }
+
+  /**
+   * 暂停/保存会话
+   * 
+   * @param request - PauseSessionRequest
+   * @returns PauseSessionResponse
+   */
+  async pauseSession(functionName: string, sessionId: string, request: $_model.PauseSessionRequest): Promise<$_model.PauseSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.pauseSessionWithOptions(functionName, sessionId, request, headers, runtime);
+  }
+
+  /**
    * Publishes a function version.
    * 
    * @param request - PublishFunctionVersionRequest
@@ -2794,6 +2839,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putScalingConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 恢复会话
+   * 
+   * @param request - ResumeSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeSessionResponse
+   */
+  async resumeSessionWithOptions(functionName: string, sessionId: string, request: $_model.ResumeSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeSessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeSession",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/sessions/${$dara.URL.percentEncode(sessionId)}/resume`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeSessionResponse>(await this.callApi(params, req, runtime), new $_model.ResumeSessionResponse({}));
+  }
+
+  /**
+   * 恢复会话
+   * 
+   * @param request - ResumeSessionRequest
+   * @returns ResumeSessionResponse
+   */
+  async resumeSession(functionName: string, sessionId: string, request: $_model.ResumeSessionRequest): Promise<$_model.ResumeSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeSessionWithOptions(functionName, sessionId, request, headers, runtime);
   }
 
   /**

@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ScheduledPolicy extends $dara.Model {
+  /**
+   * @example
+   * 1633449590000
+   */
   endTime?: string;
+  /**
+   * @example
+   * student_app_shop_analyzer
+   */
   name?: string;
+  /**
+   * @example
+   * 。
+   */
   scheduleExpression?: string;
+  /**
+   * @example
+   * 1764432000000
+   */
   startTime?: string;
+  /**
+   * @example
+   * 5
+   */
   target?: number;
+  /**
+   * @example
+   * 。
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,32 +6,67 @@ import { RegistryConfig } from "./RegistryConfig";
 
 
 export class CustomContainerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The information about image acceleration.
+   */
   accelerationInfo?: AccelerationInfo;
   /**
+   * @remarks
+   * Specifies whether to enable image acceleration. Valid values: Default: enables image acceleration. None: disables image acceleration.
+   * 
    * @example
-   * deprecated
+   * default
    */
   accelerationType?: string;
   /**
+   * @remarks
+   * The ID of the image repository for the Container Registry Enterprise Edition. You must specify this parameter if you use an image of Container Registry Enterprise Edition.
+   * 
    * @example
-   * deprecated
+   * cri-xxxxxxxxxx
    */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The startup parameter of the container.
+   */
   command?: string[];
+  /**
+   * @remarks
+   * The container startup command.
+   */
   entrypoint?: string[];
+  /**
+   * @remarks
+   * The custom health check configurations of the function.
+   */
   healthCheckConfig?: CustomHealthCheckConfig;
   /**
+   * @remarks
+   * The endpoint of the container image.
+   * 
    * @example
-   * registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1
+   * registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1beta1
    */
   image?: string;
   /**
+   * @remarks
+   * The port on which the HTTP server listens for the Custom Container runtime.
+   * 
    * @example
    * 9000
    */
   port?: number;
+  /**
+   * @remarks
+   * registry related
+   */
   registryConfig?: RegistryConfig;
   /**
+   * @remarks
+   * The actual digest version of the deployed image. The code version specified by digest is actually used when the function starts. This parameter is returned by GetFunction and is not required as a parameter.
+   * 
    * @example
    * stand-sh-registry-vpc.cn-shanghai.cr.aliyuncs.com/fc-demo2/springboot-helloworld@sha256:68d1****0d64d6
    */

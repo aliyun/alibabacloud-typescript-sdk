@@ -4,7 +4,15 @@ import { Filter } from "./Filter";
 
 
 export class OSSTriggerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of events. Enter an event related to OSS. For more information about event types,see [OSS events](https://help.aliyun.com/document_detail/2513613.html).
+   */
   events?: string[];
+  /**
+   * @remarks
+   * The event filtering rule.
+   */
   filter?: Filter;
   static names(): { [key: string]: string } {
     return {

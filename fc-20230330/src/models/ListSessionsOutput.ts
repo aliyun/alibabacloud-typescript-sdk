@@ -5,10 +5,17 @@ import { Session } from "./Session";
 
 export class ListSessionsOutput extends $dara.Model {
   /**
+   * @remarks
+   * The starting position for the next session list query.
+   * 
    * @example
    * MTIzNCNhYmM=
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of sessions.
+   */
   sessions?: Session[];
   static names(): { [key: string]: string } {
     return {

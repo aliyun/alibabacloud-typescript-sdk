@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SourceMQTTParameters extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraMQ for MQTT instance.
+   * 
    * @example
    * mqtt-****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region in which the ApsaraMQ for MQTT instance resides.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the topic in the ApsaraMQ for MQTT instance.
+   * 
    * @example
    * testTopic
    */

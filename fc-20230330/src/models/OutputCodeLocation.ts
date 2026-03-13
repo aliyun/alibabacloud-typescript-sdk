@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class OutputCodeLocation extends $dara.Model {
   /**
+   * @remarks
+   * The address of the code package.
+   * 
    * @example
    * https://xyz.oss-cn-shanghai.aliyuncs.com/xxx/xxx/xxx
    */
   location?: string;
   /**
+   * @remarks
+   * The type of the code package.
+   * 
    * @example
    * OSS
    */

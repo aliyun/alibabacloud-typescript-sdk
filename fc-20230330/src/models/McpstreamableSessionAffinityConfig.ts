@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MCPStreamableSessionAffinityConfig extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
   sessionConcurrencyPerInstance?: number;
+  /**
+   * @example
+   * 1800
+   */
   sessionIdleTimeoutInSeconds?: number;
+  /**
+   * @example
+   * 21600
+   */
   sessionTTLInSeconds?: number;
   static names(): { [key: string]: string } {
     return {

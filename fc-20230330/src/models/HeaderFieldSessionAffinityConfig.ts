@@ -3,10 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HeaderFieldSessionAffinityConfig extends $dara.Model {
+  /**
+   * @example
+   * test-session-header1
+   */
   affinityHeaderFieldName?: string;
   disableSessionIdReuse?: boolean;
+  /**
+   * @example
+   * 20
+   */
   sessionConcurrencyPerInstance?: number;
+  /**
+   * @example
+   * 1800
+   */
   sessionIdleTimeoutInSeconds?: number;
+  /**
+   * @example
+   * 21600
+   */
   sessionTTLInSeconds?: number;
   static names(): { [key: string]: string } {
     return {

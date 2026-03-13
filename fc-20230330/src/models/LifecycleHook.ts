@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class LifecycleHook extends $dara.Model {
   command?: string[];
   /**
+   * @remarks
+   * The handler of the hook. The definition is similar to that of a request handler.
+   * 
    * @example
    * index.initializer
    */
   handler?: string;
   /**
+   * @remarks
+   * The timeout period of the hook. Unit: seconds.
+   * 
    * @example
    * 10
    */

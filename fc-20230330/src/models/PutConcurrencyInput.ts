@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PutConcurrencyInput extends $dara.Model {
   /**
    * @remarks
+   * The reserved concurrency of the function. Other functions cannot use the concurrency. The reserved concurrency includes the total concurrency of provisioned instances and on-demand instances.
+   * 
    * This parameter is required.
    * 
    * @example

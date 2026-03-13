@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RegistryNetworkConfig extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the security group that can be used to connect to the image repository.
+   * 
    * @example
    * sg-xxxxxxxxxxxxxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch that can be used to connect to the image repository.
+   * 
    * @example
    * vsw-xxxxxxxxxxxxxx
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) that can be used to connect to the image repository.
+   * 
    * @example
    * vpc-xxxxxxxxxxxxxx
    */

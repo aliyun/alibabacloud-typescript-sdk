@@ -5,10 +5,17 @@ import { ProvisionConfig } from "./ProvisionConfig";
 
 export class ListProvisionConfigsOutput extends $dara.Model {
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * next_token
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The provisioned configurations of the function.
+   */
   provisionConfigs?: ProvisionConfig[];
   static names(): { [key: string]: string } {
     return {

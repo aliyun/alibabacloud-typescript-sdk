@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class TagResource extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the resource.
+   * 
    * @example
    * acs:fc:cn-shanghai:****:functions/demo
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The name of the resource type.
+   * 
+   * The function type in Function Compute 3.0 is ALIYUN::FC::FUNCTION, which is abbreviated as "function".
+   * 
    * @example
-   * ALIYUN::FC::FUNCTION
+   * function
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * key1
    */
