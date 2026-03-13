@@ -203,6 +203,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
 }
 
 export class DescribeAssetStatisticResponseBody extends $dara.Model {
+  autoResourceEnable?: boolean;
   generalInstanceSpecStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic;
   /**
    * @remarks
@@ -219,6 +220,7 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
   resourceSpecStatistic?: DescribeAssetStatisticResponseBodyResourceSpecStatistic;
   static names(): { [key: string]: string } {
     return {
+      autoResourceEnable: 'AutoResourceEnable',
       generalInstanceSpecStatistic: 'GeneralInstanceSpecStatistic',
       requestId: 'RequestId',
       resourceSpecStatistic: 'ResourceSpecStatistic',
@@ -227,6 +229,7 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoResourceEnable: 'boolean',
       generalInstanceSpecStatistic: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic,
       requestId: 'string',
       resourceSpecStatistic: DescribeAssetStatisticResponseBodyResourceSpecStatistic,

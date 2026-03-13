@@ -7558,7 +7558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概览页-NAT流量趋势
+   * Queries the traffic trend of NAT gateways.
    * 
    * @param request - DescribeNatFirewallTrafficTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7585,7 +7585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概览页-NAT流量趋势
+   * Queries the traffic trend of NAT gateways.
    * 
    * @param request - DescribeNatFirewallTrafficTrendRequest
    * @returns DescribeNatFirewallTrafficTrendResponse
@@ -10542,7 +10542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取正向代理
+   * Queries information about NAT firewalls.
    * 
    * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
    * 
@@ -10615,7 +10615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取正向代理
+   * Queries information about NAT firewalls.
    * 
    * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
    * 
