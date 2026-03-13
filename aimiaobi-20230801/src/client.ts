@@ -304,12 +304,18 @@ export default class Client extends OpenApi {
   /**
    * 智能剪辑timeline
    * 
-   * @param request - AsyncCreateClipsTimeLineRequest
+   * @param tmpReq - AsyncCreateClipsTimeLineRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AsyncCreateClipsTimeLineResponse
    */
-  async asyncCreateClipsTimeLineWithOptions(request: $_model.AsyncCreateClipsTimeLineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncCreateClipsTimeLineResponse> {
-    request.validate();
+  async asyncCreateClipsTimeLineWithOptions(tmpReq: $_model.AsyncCreateClipsTimeLineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncCreateClipsTimeLineResponse> {
+    tmpReq.validate();
+    let request = new $_model.AsyncCreateClipsTimeLineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.highLightConfig)) {
+      request.highLightConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.highLightConfig, "HighLightConfig", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.additionalContent)) {
       body["AdditionalContent"] = request.additionalContent;
@@ -317,6 +323,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.customContent)) {
       body["CustomContent"] = request.customContent;
+    }
+
+    if (!$dara.isNull(request.highLightConfigShrink)) {
+      body["HighLightConfig"] = request.highLightConfigShrink;
     }
 
     if (!$dara.isNull(request.noRefVideo)) {
@@ -327,8 +337,16 @@ export default class Client extends OpenApi {
       body["ProcessPrompt"] = request.processPrompt;
     }
 
+    if (!$dara.isNull(request.recommendAudio)) {
+      body["RecommendAudio"] = request.recommendAudio;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.timelineScene)) {
+      body["TimelineScene"] = request.timelineScene;
     }
 
     if (!$dara.isNull(request.workspaceId)) {

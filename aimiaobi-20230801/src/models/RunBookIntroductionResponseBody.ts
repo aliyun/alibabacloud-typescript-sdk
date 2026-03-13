@@ -18,6 +18,10 @@ export class RunBookIntroductionResponseBodyHeader extends $dara.Model {
    * finished
    */
   event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
    * @example
@@ -67,11 +71,55 @@ export class RunBookIntroductionResponseBodyHeader extends $dara.Model {
   }
 }
 
+export class RunBookIntroductionResponseBodyPayloadOutputIntroductions extends $dara.Model {
+  /**
+   * @example
+   * 本段摘要内容
+   */
+  summary?: string;
+  /**
+   * @example
+   * 本段标题内容
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunBookIntroductionResponseBodyPayloadOutput extends $dara.Model {
+  introductions?: RunBookIntroductionResponseBodyPayloadOutputIntroductions[];
+  /**
+   * @example
+   * 卖点内容
+   */
   keyPoint?: string;
+  /**
+   * @example
+   * 简介内容
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
+      introductions: 'Introductions',
       keyPoint: 'KeyPoint',
       summary: 'Summary',
     };
@@ -79,12 +127,16 @@ export class RunBookIntroductionResponseBodyPayloadOutput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      introductions: { 'type': 'array', 'itemType': RunBookIntroductionResponseBodyPayloadOutputIntroductions },
       keyPoint: 'string',
       summary: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.introductions)) {
+      $dara.Model.validateArray(this.introductions);
+    }
     super.validate();
   }
 

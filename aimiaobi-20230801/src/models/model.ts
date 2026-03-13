@@ -16,6 +16,7 @@ export { AsyncCreateClipsTaskRequestColorWords } from './AsyncCreateClipsTaskReq
 export { AsyncCreateClipsTaskRequestHighDefSourceVideos } from './AsyncCreateClipsTaskRequest';
 export { AsyncCreateClipsTaskRequestStickers } from './AsyncCreateClipsTaskRequest';
 export { AsyncCreateClipsTaskResponseBodyData } from './AsyncCreateClipsTaskResponseBody';
+export { AsyncCreateClipsTimeLineRequestHighLightConfig } from './AsyncCreateClipsTimeLineRequest';
 export { AsyncCreateClipsTimeLineResponseBodyData } from './AsyncCreateClipsTimeLineResponseBody';
 export { AsyncEditTimelineRequestTimelinesClips } from './AsyncEditTimelineRequest';
 export { AsyncEditTimelineRequestTimelines } from './AsyncEditTimelineRequest';
@@ -303,6 +304,7 @@ export { RunBookBrainmapResponseBodyPayloadOutput } from './RunBookBrainmapRespo
 export { RunBookBrainmapResponseBodyPayloadUsage } from './RunBookBrainmapResponseBody';
 export { RunBookBrainmapResponseBodyPayload } from './RunBookBrainmapResponseBody';
 export { RunBookIntroductionResponseBodyHeader } from './RunBookIntroductionResponseBody';
+export { RunBookIntroductionResponseBodyPayloadOutputIntroductions } from './RunBookIntroductionResponseBody';
 export { RunBookIntroductionResponseBodyPayloadOutput } from './RunBookIntroductionResponseBody';
 export { RunBookIntroductionResponseBodyPayloadUsage } from './RunBookIntroductionResponseBody';
 export { RunBookIntroductionResponseBodyPayload } from './RunBookIntroductionResponseBody';
@@ -659,6 +661,7 @@ export { AsyncCreateClipsTaskShrinkRequest } from './AsyncCreateClipsTaskShrinkR
 export { AsyncCreateClipsTaskResponseBody } from './AsyncCreateClipsTaskResponseBody';
 export { AsyncCreateClipsTaskResponse } from './AsyncCreateClipsTaskResponse';
 export { AsyncCreateClipsTimeLineRequest } from './AsyncCreateClipsTimeLineRequest';
+export { AsyncCreateClipsTimeLineShrinkRequest } from './AsyncCreateClipsTimeLineShrinkRequest';
 export { AsyncCreateClipsTimeLineResponseBody } from './AsyncCreateClipsTimeLineResponseBody';
 export { AsyncCreateClipsTimeLineResponse } from './AsyncCreateClipsTimeLineResponse';
 export { AsyncEditTimelineRequest } from './AsyncEditTimelineRequest';
