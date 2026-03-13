@@ -6,9 +6,20 @@ export class FlightCancelOrderV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cheshiapi
    */
   isvName?: string;
+  /**
+   * @example
+   * 1017002195798359369
+   */
   orderId?: string;
+  /**
+   * @example
+   * cheshiapi002kwl
+   */
   outOrderId?: string;
   static names(): { [key: string]: string } {
     return {

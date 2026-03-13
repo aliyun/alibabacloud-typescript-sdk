@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class TrainTicketScanQueryRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 2022-12-01
    */
@@ -16,11 +13,14 @@ export class TrainTicketScanQueryRequest extends $dara.Model {
    * 123
    */
   billId?: number;
+  invoiceDateEnd?: string;
+  invoiceDateStart?: string;
   /**
    * @example
    * 456
    */
   invoiceSubTaskId?: number;
+  orderId?: number;
   /**
    * @example
    * 1
@@ -37,7 +37,10 @@ export class TrainTicketScanQueryRequest extends $dara.Model {
     return {
       billDate: 'bill_date',
       billId: 'bill_id',
+      invoiceDateEnd: 'invoice_date_end',
+      invoiceDateStart: 'invoice_date_start',
       invoiceSubTaskId: 'invoice_sub_task_id',
+      orderId: 'order_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
       serialNumber: 'serial_number',
@@ -49,7 +52,10 @@ export class TrainTicketScanQueryRequest extends $dara.Model {
     return {
       billDate: 'string',
       billId: 'number',
+      invoiceDateEnd: 'string',
+      invoiceDateStart: 'string',
       invoiceSubTaskId: 'number',
+      orderId: 'number',
       pageNo: 'number',
       pageSize: 'number',
       serialNumber: 'string',

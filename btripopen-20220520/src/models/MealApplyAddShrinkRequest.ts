@@ -13,6 +13,7 @@ export class MealApplyAddShrinkRequest extends $dara.Model {
    * 23
    */
   costCenterId?: number;
+  extendField?: string;
   /**
    * @example
    * 123
@@ -69,6 +70,7 @@ export class MealApplyAddShrinkRequest extends $dara.Model {
     return {
       applyUserShrink: 'apply_user',
       costCenterId: 'cost_center_id',
+      extendField: 'extend_field',
       invoiceId: 'invoice_id',
       itineraryListShrink: 'itinerary_list',
       mealAmount: 'meal_amount',
@@ -86,6 +88,7 @@ export class MealApplyAddShrinkRequest extends $dara.Model {
     return {
       applyUserShrink: 'string',
       costCenterId: 'number',
+      extendField: 'string',
       invoiceId: 'number',
       itineraryListShrink: 'string',
       mealAmount: 'number',

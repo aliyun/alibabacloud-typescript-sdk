@@ -264,6 +264,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
    * 410
    */
   sealPrice?: number;
+  segmentList?: string;
   segmentType?: string;
   /**
    * @example
@@ -445,6 +446,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       remark: 'remark',
       repeatRefund: 'repeat_refund',
       sealPrice: 'seal_price',
+      segmentList: 'segment_list',
       segmentType: 'segment_type',
       serviceFee: 'service_fee',
       settleTypeDesc: 'settle_type_desc',
@@ -570,6 +572,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       remark: 'string',
       repeatRefund: 'string',
       sealPrice: 'number',
+      segmentList: 'string',
       segmentType: 'string',
       serviceFee: 'number',
       settleTypeDesc: 'string',

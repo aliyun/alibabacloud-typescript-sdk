@@ -4,6 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class TrainBillSettlementQueryRequest extends $dara.Model {
   billBatch?: string;
+  billRecordTimeEnd?: string;
+  billRecordTimeStart?: string;
   orderId?: number;
   /**
    * @remarks
@@ -36,6 +38,8 @@ export class TrainBillSettlementQueryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       billBatch: 'bill_batch',
+      billRecordTimeEnd: 'bill_record_time_end',
+      billRecordTimeStart: 'bill_record_time_start',
       orderId: 'order_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
@@ -49,6 +53,8 @@ export class TrainBillSettlementQueryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       billBatch: 'string',
+      billRecordTimeEnd: 'string',
+      billRecordTimeStart: 'string',
       orderId: 'number',
       pageNo: 'number',
       pageSize: 'number',

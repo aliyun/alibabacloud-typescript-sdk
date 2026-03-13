@@ -100,6 +100,7 @@ export class MealApplyQueryResponseBodyModule extends $dara.Model {
    * 11376
    */
   costCenterId?: number;
+  extendField?: string;
   /**
    * @example
    * 2022-07-04T16:13Z
@@ -147,6 +148,7 @@ export class MealApplyQueryResponseBodyModule extends $dara.Model {
     return {
       applyUser: 'apply_user',
       costCenterId: 'cost_center_id',
+      extendField: 'extend_field',
       gmtCreate: 'gmt_create',
       invoiceId: 'invoice_id',
       itineraryList: 'itinerary_list',
@@ -165,6 +167,7 @@ export class MealApplyQueryResponseBodyModule extends $dara.Model {
     return {
       applyUser: MealApplyQueryResponseBodyModuleApplyUser,
       costCenterId: 'number',
+      extendField: 'string',
       gmtCreate: 'string',
       invoiceId: 'number',
       itineraryList: { 'type': 'array', 'itemType': MealApplyQueryResponseBodyModuleItineraryList },

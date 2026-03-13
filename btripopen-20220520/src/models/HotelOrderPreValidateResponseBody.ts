@@ -264,6 +264,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancel
 export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $dara.Model {
   bedDesc?: string;
   btripHotelCancelPolicyDTO?: HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTO;
+  certTypeList?: string[];
   /**
    * @example
    * 12:00
@@ -309,6 +310,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $dara.M
     return {
       bedDesc: 'bed_desc',
       btripHotelCancelPolicyDTO: 'btrip_hotel_cancel_policy_d_t_o',
+      certTypeList: 'cert_type_list',
       earliestCheckInTime: 'earliest_check_in_time',
       latestCheckOutTime: 'latest_check_out_time',
       maxBookingNum: 'max_booking_num',
@@ -325,6 +327,7 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $dara.M
     return {
       bedDesc: 'string',
       btripHotelCancelPolicyDTO: HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTO,
+      certTypeList: { 'type': 'array', 'itemType': 'string' },
       earliestCheckInTime: 'string',
       latestCheckOutTime: 'string',
       maxBookingNum: 'number',
@@ -340,6 +343,9 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $dara.M
   validate() {
     if(this.btripHotelCancelPolicyDTO && typeof (this.btripHotelCancelPolicyDTO as any).validate === 'function') {
       (this.btripHotelCancelPolicyDTO as any).validate();
+    }
+    if(Array.isArray(this.certTypeList)) {
+      $dara.Model.validateArray(this.certTypeList);
     }
     super.validate();
   }

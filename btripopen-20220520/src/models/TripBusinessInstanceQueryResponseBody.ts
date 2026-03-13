@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
+  businessData?: string;
   creator?: string;
   /**
    * @example
@@ -21,6 +22,7 @@ export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      businessData: 'business_data',
       creator: 'creator',
       gmtCreate: 'gmt_create',
       gmtModified: 'gmt_modified',
@@ -30,6 +32,7 @@ export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessData: 'string',
       creator: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',

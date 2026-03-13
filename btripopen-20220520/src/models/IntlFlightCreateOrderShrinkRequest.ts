@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightCreateOrderShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * fcoid_deb6372db8194f1c94c23bc4fadc508d
+   */
   asyncCreateOrderKey?: string;
+  /**
+   * @example
+   * false
+   */
   asyncCreateOrderMode?: boolean;
   /**
    * @remarks
@@ -27,19 +35,34 @@ export class IntlFlightCreateOrderShrinkRequest extends $dara.Model {
    */
   contactInfoShrink?: string;
   extraInfoShrink?: string;
+  /**
+   * @example
+   * open12k0lclldfdc7v10E2HaRrOr00
+   */
   isvName?: string;
   orderPrice?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 56319a175bdf4b1898190bd7edb603b5_0
    */
   otaItemId?: string;
+  /**
+   * @example
+   * F11380075736888770560
+   */
   outOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   passengerListShrink?: string;
+  /**
+   * @example
+   * fcoid_deb6372db8194f1c94c23bc4fadc508d
+   */
   renderKey?: string;
   static names(): { [key: string]: string } {
     return {

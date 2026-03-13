@@ -1078,6 +1078,10 @@ export class ApplyAddRequest extends $dara.Model {
    */
   hotelBudget?: number;
   hotelShare?: ApplyAddRequestHotelShare;
+  /**
+   * @example
+   * Y
+   */
   internationalFlightCabins?: string;
   intlFlightBudget?: number;
   intlHotelBudget?: number;

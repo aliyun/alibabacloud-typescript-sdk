@@ -2,52 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class IntlFlightOrderCancelRequest extends $dara.Model {
-  /**
-   * @example
-   * 10001
-   */
-  btripUserId?: string;
-  /**
-   * @example
-   * ZHANG/SAN
-   */
-  buyerName?: string;
-  /**
-   * @example
-   * TRAVEL
-   */
-  isvName?: string;
+export class QueryCompenInfosForOpRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 1012000000000000
+   * 1
    */
-  orderId?: string;
+  category?: number;
   /**
    * @example
-   * F11374007131319304192
+   * 82508250249123456
    */
-  outOrderId?: string;
+  compenId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1002086203277812345
+   */
+  orderId?: string;
   static names(): { [key: string]: string } {
     return {
-      btripUserId: 'btrip_user_id',
-      buyerName: 'buyer_name',
-      isvName: 'isv_name',
+      category: 'category',
+      compenId: 'compen_id',
       orderId: 'order_id',
-      outOrderId: 'out_order_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      btripUserId: 'string',
-      buyerName: 'string',
-      isvName: 'string',
+      category: 'number',
+      compenId: 'string',
       orderId: 'string',
-      outOrderId: 'string',
     };
   }
 

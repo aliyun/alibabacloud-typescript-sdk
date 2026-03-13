@@ -152,6 +152,7 @@ export class HotelOrderPreValidateRequest extends $dara.Model {
    */
   numberOfAdultsPerRoom?: number;
   occupantInfoList?: HotelOrderPreValidateRequestOccupantInfoList[];
+  rateKey?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -209,6 +210,7 @@ export class HotelOrderPreValidateRequest extends $dara.Model {
       itemId: 'item_id',
       numberOfAdultsPerRoom: 'number_of_adults_per_room',
       occupantInfoList: 'occupant_info_list',
+      rateKey: 'rate_key',
       ratePlanId: 'rate_plan_id',
       roomId: 'room_id',
       roomNum: 'room_num',
@@ -227,6 +229,7 @@ export class HotelOrderPreValidateRequest extends $dara.Model {
       itemId: 'number',
       numberOfAdultsPerRoom: 'number',
       occupantInfoList: { 'type': 'array', 'itemType': HotelOrderPreValidateRequestOccupantInfoList },
+      rateKey: 'string',
       ratePlanId: 'number',
       roomId: 'number',
       roomNum: 'number',

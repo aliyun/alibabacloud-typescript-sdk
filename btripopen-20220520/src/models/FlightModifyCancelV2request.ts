@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightModifyCancelV2Request extends $dara.Model {
+  /**
+   * @example
+   * name
+   */
   isvName?: string;
+  /**
+   * @example
+   * 1017002195370467138
+   */
   orderId?: number;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 1019195786853020
+   */
   outSubOrderId?: string;
+  /**
+   * @example
+   * 1019195786853020
+   */
   subOrderId?: number;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class CooperatorFlightBillSettlementQueryRequest extends $dara.Model {
   billBatch?: string;
+  billRecordTimeEnd?: string;
+  billRecordTimeStart?: string;
   /**
    * @example
    * cooperator_alibtrip
@@ -41,6 +43,8 @@ export class CooperatorFlightBillSettlementQueryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       billBatch: 'bill_batch',
+      billRecordTimeEnd: 'bill_record_time_end',
+      billRecordTimeStart: 'bill_record_time_start',
       cooperatorId: 'cooperator_id',
       orderId: 'order_id',
       pageNo: 'page_no',
@@ -55,6 +59,8 @@ export class CooperatorFlightBillSettlementQueryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       billBatch: 'string',
+      billRecordTimeEnd: 'string',
+      billRecordTimeStart: 'string',
       cooperatorId: 'string',
       orderId: 'number',
       pageNo: 'number',

@@ -75,6 +75,7 @@ export class HotelOrderCreateShrinkRequest extends $dara.Model {
    * fb5e1abf33924b6c912bd6d80deec0eb-1
    */
   itineraryNo?: string;
+  memberInfoShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -159,6 +160,7 @@ export class HotelOrderCreateShrinkRequest extends $dara.Model {
       invoiceInfoShrink: 'invoice_info',
       itemId: 'item_id',
       itineraryNo: 'itinerary_no',
+      memberInfoShrink: 'member_info',
       occupantInfoListShrink: 'occupant_info_list',
       personPayPrice: 'person_pay_price',
       promotionInfoShrink: 'promotion_info',
@@ -186,6 +188,7 @@ export class HotelOrderCreateShrinkRequest extends $dara.Model {
       invoiceInfoShrink: 'string',
       itemId: 'number',
       itineraryNo: 'string',
+      memberInfoShrink: 'string',
       occupantInfoListShrink: 'string',
       personPayPrice: 'number',
       promotionInfoShrink: 'string',

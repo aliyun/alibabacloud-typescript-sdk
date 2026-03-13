@@ -46,6 +46,7 @@ export class HotelOrderPreValidateShrinkRequest extends $dara.Model {
    */
   numberOfAdultsPerRoom?: number;
   occupantInfoListShrink?: string;
+  rateKey?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -103,6 +104,7 @@ export class HotelOrderPreValidateShrinkRequest extends $dara.Model {
       itemId: 'item_id',
       numberOfAdultsPerRoom: 'number_of_adults_per_room',
       occupantInfoListShrink: 'occupant_info_list',
+      rateKey: 'rate_key',
       ratePlanId: 'rate_plan_id',
       roomId: 'room_id',
       roomNum: 'room_num',
@@ -121,6 +123,7 @@ export class HotelOrderPreValidateShrinkRequest extends $dara.Model {
       itemId: 'number',
       numberOfAdultsPerRoom: 'number',
       occupantInfoListShrink: 'string',
+      rateKey: 'string',
       ratePlanId: 'number',
       roomId: 'number',
       roomNum: 'number',

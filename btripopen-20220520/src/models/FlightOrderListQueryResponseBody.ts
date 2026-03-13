@@ -256,6 +256,8 @@ export class FlightOrderListQueryResponseBodyModule extends $dara.Model {
    */
   applyId?: number;
   arrAirport?: string;
+  arrAptPrefectureAdCode?: string;
+  arrAptPrefectureName?: string;
   arrCity?: string;
   arrCityAdCode?: string;
   btripTitle?: string;
@@ -269,6 +271,8 @@ export class FlightOrderListQueryResponseBodyModule extends $dara.Model {
   corpName?: string;
   costCenter?: FlightOrderListQueryResponseBodyModuleCostCenter;
   depAirport?: string;
+  depAptPrefectureAdCode?: string;
+  depAptPrefectureName?: string;
   depCity?: string;
   depCityAdCode?: string;
   /**
@@ -361,6 +365,8 @@ export class FlightOrderListQueryResponseBodyModule extends $dara.Model {
     return {
       applyId: 'apply_id',
       arrAirport: 'arr_airport',
+      arrAptPrefectureAdCode: 'arr_apt_prefecture_ad_code',
+      arrAptPrefectureName: 'arr_apt_prefecture_name',
       arrCity: 'arr_city',
       arrCityAdCode: 'arr_city_ad_code',
       btripTitle: 'btrip_title',
@@ -370,6 +376,8 @@ export class FlightOrderListQueryResponseBodyModule extends $dara.Model {
       corpName: 'corp_name',
       costCenter: 'cost_center',
       depAirport: 'dep_airport',
+      depAptPrefectureAdCode: 'dep_apt_prefecture_ad_code',
+      depAptPrefectureName: 'dep_apt_prefecture_name',
       depCity: 'dep_city',
       depCityAdCode: 'dep_city_ad_code',
       depDate: 'dep_date',
@@ -405,6 +413,8 @@ export class FlightOrderListQueryResponseBodyModule extends $dara.Model {
     return {
       applyId: 'number',
       arrAirport: 'string',
+      arrAptPrefectureAdCode: 'string',
+      arrAptPrefectureName: 'string',
       arrCity: 'string',
       arrCityAdCode: 'string',
       btripTitle: 'string',
@@ -414,6 +424,8 @@ export class FlightOrderListQueryResponseBodyModule extends $dara.Model {
       corpName: 'string',
       costCenter: FlightOrderListQueryResponseBodyModuleCostCenter,
       depAirport: 'string',
+      depAptPrefectureAdCode: 'string',
+      depAptPrefectureName: 'string',
       depCity: 'string',
       depCityAdCode: 'string',
       depDate: 'string',

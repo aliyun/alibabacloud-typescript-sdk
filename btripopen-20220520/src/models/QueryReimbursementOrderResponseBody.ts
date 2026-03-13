@@ -217,6 +217,7 @@ export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara
    * 20.00
    */
   amount?: string;
+  payeeAccountNumber?: string;
   /**
    * @example
    * userId
@@ -225,6 +226,7 @@ export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
+      payeeAccountNumber: 'payee_account_number',
       payeeUserId: 'payee_user_id',
     };
   }
@@ -232,6 +234,7 @@ export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara
   static types(): { [key: string]: any } {
     return {
       amount: 'string',
+      payeeAccountNumber: 'string',
       payeeUserId: 'string',
     };
   }

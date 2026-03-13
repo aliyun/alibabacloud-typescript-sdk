@@ -130,6 +130,7 @@ export class MealApplyAddRequest extends $dara.Model {
    * 23
    */
   costCenterId?: number;
+  extendField?: string;
   /**
    * @example
    * 123
@@ -186,6 +187,7 @@ export class MealApplyAddRequest extends $dara.Model {
     return {
       applyUser: 'apply_user',
       costCenterId: 'cost_center_id',
+      extendField: 'extend_field',
       invoiceId: 'invoice_id',
       itineraryList: 'itinerary_list',
       mealAmount: 'meal_amount',
@@ -203,6 +205,7 @@ export class MealApplyAddRequest extends $dara.Model {
     return {
       applyUser: MealApplyAddRequestApplyUser,
       costCenterId: 'number',
+      extendField: 'string',
       invoiceId: 'number',
       itineraryList: { 'type': 'array', 'itemType': MealApplyAddRequestItineraryList },
       mealAmount: 'number',

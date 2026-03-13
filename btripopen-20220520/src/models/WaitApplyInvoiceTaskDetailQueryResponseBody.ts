@@ -25,6 +25,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
    * 100
    */
   hotelSpecialInvoiceFee?: string;
+  ieVehicleNormalInvoiceFee?: string;
   /**
    * @example
    * 0
@@ -42,6 +43,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
   mailFullAddress?: string;
   mailProvince?: string;
   mealNormalInvoiceFee?: string;
+  mealTc7NormalInvoiceFee?: string;
   /**
    * @example
    * 0
@@ -80,6 +82,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
       fuPointInvoiceFee: 'fu_point_invoice_fee',
       hotelNormalInvoiceFee: 'hotel_normal_invoice_fee',
       hotelSpecialInvoiceFee: 'hotel_special_invoice_fee',
+      ieVehicleNormalInvoiceFee: 'ie_vehicle_normal_invoice_fee',
       internationalFlightInvoiceFee: 'international_flight_invoice_fee',
       internationalHotelInvoiceFee: 'international_hotel_invoice_fee',
       invoiceThirdPartId: 'invoice_third_part_id',
@@ -89,6 +92,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
       mailFullAddress: 'mail_full_address',
       mailProvince: 'mail_province',
       mealNormalInvoiceFee: 'meal_normal_invoice_fee',
+      mealTc7NormalInvoiceFee: 'meal_tc7_normal_invoice_fee',
       penaltyFee: 'penalty_fee',
       remark: 'remark',
       serviceFee: 'service_fee',
@@ -110,6 +114,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
       fuPointInvoiceFee: 'string',
       hotelNormalInvoiceFee: 'string',
       hotelSpecialInvoiceFee: 'string',
+      ieVehicleNormalInvoiceFee: 'string',
       internationalFlightInvoiceFee: 'string',
       internationalHotelInvoiceFee: 'string',
       invoiceThirdPartId: 'string',
@@ -119,6 +124,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
       mailFullAddress: 'string',
       mailProvince: 'string',
       mealNormalInvoiceFee: 'string',
+      mealTc7NormalInvoiceFee: 'string',
       penaltyFee: 'string',
       remark: 'string',
       serviceFee: 'string',

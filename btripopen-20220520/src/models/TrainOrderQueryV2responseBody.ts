@@ -236,6 +236,8 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $dara.Mode
    * 4
    */
   orderStatus?: number;
+  replenishOrderIds?: string;
+  replenishOriginalOrderId?: string;
   thirdPartBusinessId?: string;
   /**
    * @example
@@ -280,6 +282,8 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $dara.Mode
       itineraryId: 'itinerary_id',
       orderId: 'order_id',
       orderStatus: 'order_status',
+      replenishOrderIds: 'replenish_order_ids',
+      replenishOriginalOrderId: 'replenish_original_order_id',
       thirdPartBusinessId: 'thirdPart_business_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartDepartId: 'thirdpart_depart_id',
@@ -307,6 +311,8 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $dara.Mode
       itineraryId: 'string',
       orderId: 'number',
       orderStatus: 'number',
+      replenishOrderIds: 'string',
+      replenishOriginalOrderId: 'string',
       thirdPartBusinessId: 'string',
       thirdpartApplyId: 'string',
       thirdpartDepartId: 'string',

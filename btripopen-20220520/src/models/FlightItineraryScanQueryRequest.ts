@@ -19,6 +19,7 @@ export class FlightItineraryScanQueryRequest extends $dara.Model {
    */
   invoiceSubTaskId?: number;
   itineraryNum?: string;
+  orderId?: number;
   /**
    * @example
    * 1
@@ -36,6 +37,7 @@ export class FlightItineraryScanQueryRequest extends $dara.Model {
       billId: 'bill_id',
       invoiceSubTaskId: 'invoice_sub_task_id',
       itineraryNum: 'itinerary_num',
+      orderId: 'order_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
       ticketNo: 'ticket_no',
@@ -48,6 +50,7 @@ export class FlightItineraryScanQueryRequest extends $dara.Model {
       billId: 'number',
       invoiceSubTaskId: 'number',
       itineraryNum: 'string',
+      orderId: 'number',
       pageNo: 'number',
       pageSize: 'number',
       ticketNo: 'string',

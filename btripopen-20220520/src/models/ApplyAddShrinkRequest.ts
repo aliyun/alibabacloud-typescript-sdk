@@ -43,6 +43,10 @@ export class ApplyAddShrinkRequest extends $dara.Model {
    */
   hotelBudget?: number;
   hotelShareShrink?: string;
+  /**
+   * @example
+   * Y
+   */
   internationalFlightCabins?: string;
   intlFlightBudget?: number;
   intlHotelBudget?: number;

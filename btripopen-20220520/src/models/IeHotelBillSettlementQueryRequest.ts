@@ -4,6 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class IeHotelBillSettlementQueryRequest extends $dara.Model {
   billBatch?: string;
+  billRecordTimeEnd?: string;
+  billRecordTimeStart?: string;
   /**
    * @example
    * 12
@@ -38,6 +40,8 @@ export class IeHotelBillSettlementQueryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       billBatch: 'bill_batch',
+      billRecordTimeEnd: 'bill_record_time_end',
+      billRecordTimeStart: 'bill_record_time_start',
       category: 'category',
       orderId: 'order_id',
       pageNo: 'page_no',
@@ -52,6 +56,8 @@ export class IeHotelBillSettlementQueryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       billBatch: 'string',
+      billRecordTimeEnd: 'string',
+      billRecordTimeStart: 'string',
       category: 'number',
       orderId: 'number',
       pageNo: 'number',

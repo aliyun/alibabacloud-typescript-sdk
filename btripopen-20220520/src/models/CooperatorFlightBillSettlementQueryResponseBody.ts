@@ -69,6 +69,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    */
   arrTime?: string;
   baseLocation?: string;
+  beforeTicketNo?: string;
   /**
    * @example
    * 2023-01-01 00:00:00
@@ -331,6 +332,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 100.0
    */
   sealPrice?: number;
+  segmentList?: string;
   /**
    * @example
    * 0.0
@@ -441,6 +443,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       arrStation: 'arr_station',
       arrTime: 'arr_time',
       baseLocation: 'base_location',
+      beforeTicketNo: 'before_ticket_no',
       billRecordTime: 'bill_record_time',
       bookChannel: 'book_channel',
       bookMode: 'book_mode',
@@ -523,6 +526,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       remark: 'remark',
       repeatRefund: 'repeat_refund',
       sealPrice: 'seal_price',
+      segmentList: 'segment_list',
       serviceFee: 'service_fee',
       settleTypeDesc: 'settle_type_desc',
       settlementFee: 'settlement_fee',
@@ -576,6 +580,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       arrStation: 'string',
       arrTime: 'string',
       baseLocation: 'string',
+      beforeTicketNo: 'string',
       billRecordTime: 'string',
       bookChannel: 'string',
       bookMode: 'string',
@@ -658,6 +663,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       remark: 'string',
       repeatRefund: 'string',
       sealPrice: 'number',
+      segmentList: 'string',
       serviceFee: 'number',
       settleTypeDesc: 'string',
       settlementFee: 'number',

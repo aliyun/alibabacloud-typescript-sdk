@@ -39,6 +39,7 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
    */
   roomNum?: number;
   roomType?: string;
+  star?: string;
   static names(): { [key: string]: string } {
     return {
       brandCode: 'brand_code',
@@ -57,6 +58,7 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
       night: 'night',
       roomNum: 'room_num',
       roomType: 'room_type',
+      star: 'star',
     };
   }
 
@@ -78,6 +80,7 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
       night: 'number',
       roomNum: 'number',
       roomType: 'string',
+      star: 'string',
     };
   }
 

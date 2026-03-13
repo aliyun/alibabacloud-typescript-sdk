@@ -148,6 +148,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
    * 2022-12-01
    */
   billDate?: string;
+  blueOrRed?: number;
   /**
    * @example
    * 50
@@ -209,6 +210,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
    * https://www.testurl.com
    */
   ossUrl?: string;
+  otherTaxes?: string;
   passengerName?: string;
   pdfOssUrl?: string;
   project?: string;
@@ -253,11 +255,13 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
    * 9817
    */
   validationCode?: string;
+  xmlOssUrl?: string;
   static names(): { [key: string]: string } {
     return {
       agentCode: 'agent_code',
       applyId: 'apply_id',
       billDate: 'bill_date',
+      blueOrRed: 'blue_or_red',
       build: 'build',
       costCenter: 'cost_center',
       department: 'department',
@@ -273,6 +277,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
       ofdOssUrl: 'ofd_oss_url',
       orderId: 'order_id',
       ossUrl: 'oss_url',
+      otherTaxes: 'other_taxes',
       passengerName: 'passenger_name',
       pdfOssUrl: 'pdf_oss_url',
       project: 'project',
@@ -286,6 +291,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
       ticketPrice: 'ticket_price',
       totalPrice: 'total_price',
       validationCode: 'validation_code',
+      xmlOssUrl: 'xml_oss_url',
     };
   }
 
@@ -294,6 +300,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
       agentCode: 'string',
       applyId: 'string',
       billDate: 'string',
+      blueOrRed: 'number',
       build: 'string',
       costCenter: 'string',
       department: 'string',
@@ -309,6 +316,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
       ofdOssUrl: 'string',
       orderId: 'number',
       ossUrl: 'string',
+      otherTaxes: 'string',
       passengerName: 'string',
       pdfOssUrl: 'string',
       project: 'string',
@@ -322,6 +330,7 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
       ticketPrice: 'string',
       totalPrice: 'string',
       validationCode: 'string',
+      xmlOssUrl: 'string',
     };
   }
 

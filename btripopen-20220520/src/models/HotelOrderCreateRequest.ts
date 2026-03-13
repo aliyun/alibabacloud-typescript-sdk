@@ -117,6 +117,73 @@ export class HotelOrderCreateRequestInvoiceInfo extends $dara.Model {
   }
 }
 
+export class HotelOrderCreateRequestMemberInfo extends $dara.Model {
+  cardNo?: string;
+  realName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardNo: 'card_no',
+      realName: 'real_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardNo: 'string',
+      realName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderCreateRequestOccupantInfoListCostCenterInfo extends $dara.Model {
+  costCenterId?: string;
+  costCenterName?: string;
+  costCenterNo?: string;
+  invoiceId?: string;
+  invoiceTitle?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costCenterId: 'cost_center_id',
+      costCenterName: 'cost_center_name',
+      costCenterNo: 'cost_center_no',
+      invoiceId: 'invoice_id',
+      invoiceTitle: 'invoice_title',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costCenterId: 'string',
+      costCenterName: 'string',
+      costCenterNo: 'string',
+      invoiceId: 'string',
+      invoiceTitle: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
   /**
    * @example
@@ -128,6 +195,8 @@ export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
    * 1
    */
   cardType?: number;
+  cascadeDeptName?: string;
+  costCenterInfo?: HotelOrderCreateRequestOccupantInfoListCostCenterInfo;
   /**
    * @example
    * 1
@@ -154,6 +223,7 @@ export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
    * san
    */
   firstName?: string;
+  isBooker?: boolean;
   /**
    * @example
    * zhang
@@ -187,12 +257,15 @@ export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
     return {
       cardNo: 'card_no',
       cardType: 'card_type',
+      cascadeDeptName: 'cascade_dept_name',
+      costCenterInfo: 'cost_center_info',
       customerType: 'customer_type',
       departmentId: 'department_id',
       departmentName: 'department_name',
       email: 'email',
       employeeType: 'employee_type',
       firstName: 'first_name',
+      isBooker: 'is_booker',
       lastName: 'last_name',
       name: 'name',
       phone: 'phone',
@@ -206,12 +279,15 @@ export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
     return {
       cardNo: 'string',
       cardType: 'number',
+      cascadeDeptName: 'string',
+      costCenterInfo: HotelOrderCreateRequestOccupantInfoListCostCenterInfo,
       customerType: 'number',
       departmentId: 'string',
       departmentName: 'string',
       email: 'string',
       employeeType: 'number',
       firstName: 'string',
+      isBooker: 'boolean',
       lastName: 'string',
       name: 'string',
       phone: 'string',
@@ -222,6 +298,9 @@ export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
   }
 
   validate() {
+    if(this.costCenterInfo && typeof (this.costCenterInfo as any).validate === 'function') {
+      (this.costCenterInfo as any).validate();
+    }
     super.validate();
   }
 
@@ -397,6 +476,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
    * fb5e1abf33924b6c912bd6d80deec0eb-1
    */
   itineraryNo?: string;
+  memberInfo?: HotelOrderCreateRequestMemberInfo;
   /**
    * @remarks
    * This parameter is required.
@@ -481,6 +561,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
       invoiceInfo: 'invoice_info',
       itemId: 'item_id',
       itineraryNo: 'itinerary_no',
+      memberInfo: 'member_info',
       occupantInfoList: 'occupant_info_list',
       personPayPrice: 'person_pay_price',
       promotionInfo: 'promotion_info',
@@ -508,6 +589,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
       invoiceInfo: HotelOrderCreateRequestInvoiceInfo,
       itemId: 'number',
       itineraryNo: 'string',
+      memberInfo: HotelOrderCreateRequestMemberInfo,
       occupantInfoList: { 'type': 'array', 'itemType': HotelOrderCreateRequestOccupantInfoList },
       personPayPrice: 'number',
       promotionInfo: HotelOrderCreateRequestPromotionInfo,
@@ -524,6 +606,9 @@ export class HotelOrderCreateRequest extends $dara.Model {
   validate() {
     if(this.invoiceInfo && typeof (this.invoiceInfo as any).validate === 'function') {
       (this.invoiceInfo as any).validate();
+    }
+    if(this.memberInfo && typeof (this.memberInfo as any).validate === 'function') {
+      (this.memberInfo as any).validate();
     }
     if(Array.isArray(this.occupantInfoList)) {
       $dara.Model.validateArray(this.occupantInfoList);

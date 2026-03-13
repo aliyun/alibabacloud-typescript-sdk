@@ -292,6 +292,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
    * 0
    */
   companyAassist?: string;
+  companyAssistType?: string;
   /**
    * @example
    * 0
@@ -319,6 +320,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
    */
   endTimeDaily?: string;
   hotelDetailRatePriceDTO?: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO[];
+  hotelMemberBenefit?: { [key: string]: string };
   /**
    * @example
    * true
@@ -366,6 +368,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
    * 3
    */
   minDays?: number;
+  needCertificate?: boolean;
   /**
    * @example
    * 1
@@ -401,6 +404,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
    * 4509447432148
    */
   rateId?: number;
+  rateKey?: string;
   ratePlanName?: string;
   /**
    * @example
@@ -453,6 +457,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       cancelPolicyDesc: 'cancel_policy_desc',
       cancelPolicyType: 'cancel_policy_type',
       companyAassist: 'company_aassist',
+      companyAssistType: 'company_assist_type',
       confirmType: 'confirm_type',
       currencyCode: 'currency_code',
       dailyPriceFormatYuan: 'daily_price_format_yuan',
@@ -460,6 +465,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       discountDesc: 'discount_desc',
       endTimeDaily: 'end_time_daily',
       hotelDetailRatePriceDTO: 'hotel_detail_rate_price_d_t_o',
+      hotelMemberBenefit: 'hotel_member_benefit',
       instantConfirm: 'instant_confirm',
       inventoryDesc: 'inventory_desc',
       inventoryPrice: 'inventory_price',
@@ -471,6 +477,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       maxOccupancy: 'max_occupancy',
       minAdvHours: 'min_adv_hours',
       minDays: 'min_days',
+      needCertificate: 'need_certificate',
       nod: 'nod',
       nop: 'nop',
       orderShipTime: 'order_ship_time',
@@ -478,6 +485,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       priceType: 'price_type',
       promotionInfo: 'promotion_info',
       rateId: 'rate_id',
+      rateKey: 'rate_key',
       ratePlanName: 'rate_plan_name',
       rpId: 'rp_id',
       sellerId: 'seller_id',
@@ -501,6 +509,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       cancelPolicyDesc: 'string',
       cancelPolicyType: 'number',
       companyAassist: 'string',
+      companyAssistType: 'string',
       confirmType: 'number',
       currencyCode: 'string',
       dailyPriceFormatYuan: 'string',
@@ -508,6 +517,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       discountDesc: HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc,
       endTimeDaily: 'string',
       hotelDetailRatePriceDTO: { 'type': 'array', 'itemType': HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO },
+      hotelMemberBenefit: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       instantConfirm: 'boolean',
       inventoryDesc: 'string',
       inventoryPrice: 'string',
@@ -519,6 +529,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       maxOccupancy: 'number',
       minAdvHours: 'number',
       minDays: 'number',
+      needCertificate: 'boolean',
       nod: 'number',
       nop: 'number',
       orderShipTime: 'number',
@@ -526,6 +537,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       priceType: 'number',
       promotionInfo: 'string',
       rateId: 'number',
+      rateKey: 'string',
       ratePlanName: 'string',
       rpId: 'number',
       sellerId: 'number',
@@ -550,6 +562,9 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
     }
     if(Array.isArray(this.hotelDetailRatePriceDTO)) {
       $dara.Model.validateArray(this.hotelDetailRatePriceDTO);
+    }
+    if(this.hotelMemberBenefit) {
+      $dara.Model.validateMap(this.hotelMemberBenefit);
     }
     super.validate();
   }
@@ -733,6 +748,7 @@ export class HotelGoodsQueryResponseBodyModule extends $dara.Model {
    * 17:00
    */
   earlyArrivalTime?: string;
+  hotelGroupDesc?: string;
   /**
    * @example
    * 29382
@@ -760,6 +776,7 @@ export class HotelGoodsQueryResponseBodyModule extends $dara.Model {
       descriptions: 'descriptions',
       dinamicBannerPicUrls: 'dinamic_banner_pic_urls',
       earlyArrivalTime: 'early_arrival_time',
+      hotelGroupDesc: 'hotel_group_desc',
       hotelId: 'hotel_id',
       hotelName: 'hotel_name',
       lateArrivalTime: 'late_arrival_time',
@@ -778,6 +795,7 @@ export class HotelGoodsQueryResponseBodyModule extends $dara.Model {
       descriptions: { 'type': 'array', 'itemType': 'string' },
       dinamicBannerPicUrls: { 'type': 'array', 'itemType': 'string' },
       earlyArrivalTime: 'string',
+      hotelGroupDesc: 'string',
       hotelId: 'number',
       hotelName: 'string',
       lateArrivalTime: 'string',

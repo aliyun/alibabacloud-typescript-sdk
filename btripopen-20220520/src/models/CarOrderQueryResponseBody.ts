@@ -234,6 +234,7 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
   applyId?: string;
   btripCause?: string;
   btripTitle?: string;
+  carOrderSourceType?: number;
   /**
    * @example
    * xxxxxxxx
@@ -303,6 +304,7 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
       applyId: 'apply_id',
       btripCause: 'btrip_cause',
       btripTitle: 'btrip_title',
+      carOrderSourceType: 'car_order_source_type',
       corpId: 'corp_id',
       corpName: 'corp_name',
       departId: 'depart_id',
@@ -327,6 +329,7 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
       applyId: 'string',
       btripCause: 'string',
       btripTitle: 'string',
+      carOrderSourceType: 'number',
       corpId: 'string',
       corpName: 'string',
       departId: 'string',

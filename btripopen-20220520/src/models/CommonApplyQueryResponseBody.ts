@@ -25,6 +25,7 @@ export class CommonApplyQueryResponseBodyModule extends $dara.Model {
    * 2021-03-18T20:26Z
    */
   gmtCreate?: string;
+  orderId?: number;
   /**
    * @example
    * 0
@@ -55,6 +56,7 @@ export class CommonApplyQueryResponseBodyModule extends $dara.Model {
       corpId: 'corp_id',
       extendValue: 'extend_value',
       gmtCreate: 'gmt_create',
+      orderId: 'order_id',
       status: 'status',
       thirdpartCorpId: 'thirdpart_corp_id',
       thirdpartId: 'thirdpart_id',
@@ -72,6 +74,7 @@ export class CommonApplyQueryResponseBodyModule extends $dara.Model {
       corpId: 'string',
       extendValue: 'string',
       gmtCreate: 'string',
+      orderId: 'number',
       status: 'number',
       thirdpartCorpId: 'string',
       thirdpartId: 'string',

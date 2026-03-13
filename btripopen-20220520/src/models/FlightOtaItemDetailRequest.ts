@@ -11,6 +11,7 @@ export class FlightOtaItemDetailRequest extends $dara.Model {
    * cheshi
    */
   isvName?: string;
+  orderId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -19,17 +20,22 @@ export class FlightOtaItemDetailRequest extends $dara.Model {
    * 68cdc6b37c87484c98b479b49306ffbb_0
    */
   otaItemId?: string;
+  outOrderId?: string;
   static names(): { [key: string]: string } {
     return {
       isvName: 'isv_name',
+      orderId: 'order_id',
       otaItemId: 'ota_item_id',
+      outOrderId: 'out_order_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       isvName: 'string',
+      orderId: 'string',
       otaItemId: 'string',
+      outOrderId: 'string',
     };
   }
 

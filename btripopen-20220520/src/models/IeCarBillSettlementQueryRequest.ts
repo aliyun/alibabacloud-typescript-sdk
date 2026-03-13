@@ -2,10 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class HotelBillSettlementQueryRequest extends $dara.Model {
+export class IeCarBillSettlementQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * 20250725
+   */
   billBatch?: string;
   billRecordTimeEnd?: string;
   billRecordTimeStart?: string;
+  /**
+   * @example
+   * 1002002203361199686
+   */
   orderId?: number;
   /**
    * @remarks
@@ -20,7 +28,7 @@ export class HotelBillSettlementQueryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 50
+   * 10
    */
   pageSize?: number;
   /**
@@ -33,7 +41,15 @@ export class HotelBillSettlementQueryRequest extends $dara.Model {
    * 2021-10-01
    */
   periodStart?: string;
+  /**
+   * @example
+   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4MDAwMDAwMDA3MzA1MGJj
+   */
   scrollId?: string;
+  /**
+   * @example
+   * true
+   */
   scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {

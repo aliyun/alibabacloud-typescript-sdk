@@ -19,7 +19,9 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
    */
   depTime?: string;
   department?: string;
+  electronicTicketNo?: string;
   feeTypeShowCode?: number;
+  hasChanged?: boolean;
   /**
    * @example
    * 71
@@ -34,6 +36,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
    * 3137168772101111000
    */
   orderId?: number;
+  originTicketNo?: string;
   /**
    * @example
    * https://www.testurl.com
@@ -82,6 +85,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
    * G99
    */
   trainNo?: string;
+  xmlUrl?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
@@ -92,13 +96,16 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
       depStation: 'dep_station',
       depTime: 'dep_time',
       department: 'department',
+      electronicTicketNo: 'electronic_ticket_no',
       feeTypeShowCode: 'fee_type_show_code',
+      hasChanged: 'has_changed',
       id: 'id',
       invoiceDate: 'invoice_date',
       invoiceMaterial: 'invoice_material',
       invoiceTitle: 'invoice_title',
       ofdUrl: 'ofd_url',
       orderId: 'order_id',
+      originTicketNo: 'origin_ticket_no',
       ossUrl: 'oss_url',
       passenger: 'passenger',
       pdfUrl: 'pdf_url',
@@ -113,6 +120,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
       taxRate: 'tax_rate',
       ticketNo: 'ticket_no',
       trainNo: 'train_no',
+      xmlUrl: 'xml_url',
     };
   }
 
@@ -126,13 +134,16 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
       depStation: 'string',
       depTime: 'string',
       department: 'string',
+      electronicTicketNo: 'string',
       feeTypeShowCode: 'number',
+      hasChanged: 'boolean',
       id: 'string',
       invoiceDate: 'string',
       invoiceMaterial: 'number',
       invoiceTitle: 'string',
       ofdUrl: 'string',
       orderId: 'number',
+      originTicketNo: 'string',
       ossUrl: 'string',
       passenger: 'string',
       pdfUrl: 'string',
@@ -147,6 +158,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
       taxRate: 'string',
       ticketNo: 'string',
       trainNo: 'string',
+      xmlUrl: 'string',
     };
   }
 

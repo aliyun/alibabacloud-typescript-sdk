@@ -14,6 +14,7 @@ export class InvoiceAddRequest extends $dara.Model {
    * 123456
    */
   bankNo?: string;
+  mailThirdPartId?: string;
   /**
    * @example
    * 12345
@@ -51,6 +52,7 @@ export class InvoiceAddRequest extends $dara.Model {
       address: 'address',
       bankName: 'bank_name',
       bankNo: 'bank_no',
+      mailThirdPartId: 'mail_third_part_id',
       taxNo: 'tax_no',
       tel: 'tel',
       thirdPartId: 'third_part_id',
@@ -65,6 +67,7 @@ export class InvoiceAddRequest extends $dara.Model {
       address: 'string',
       bankName: 'string',
       bankNo: 'string',
+      mailThirdPartId: 'string',
       taxNo: 'string',
       tel: 'string',
       thirdPartId: 'string',

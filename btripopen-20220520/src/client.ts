@@ -2025,6 +2025,14 @@ export default class Client extends OpenApi {
       query["bill_batch"] = request.billBatch;
     }
 
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
+    }
+
     if (!$dara.isNull(request.orderId)) {
       query["order_id"] = request.orderId;
     }
@@ -2579,6 +2587,14 @@ export default class Client extends OpenApi {
       query["bill_batch"] = request.billBatch;
     }
 
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
+    }
+
     if (!$dara.isNull(request.cooperatorId)) {
       query["cooperator_id"] = request.cooperatorId;
     }
@@ -2663,6 +2679,14 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
     }
 
     if (!$dara.isNull(request.cooperatorId)) {
@@ -4416,6 +4440,14 @@ export default class Client extends OpenApi {
       query["bill_batch"] = request.billBatch;
     }
 
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
+    }
+
     if (!$dara.isNull(request.orderId)) {
       query["order_id"] = request.orderId;
     }
@@ -4922,6 +4954,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.itineraryNum)) {
       query["itinerary_num"] = request.itineraryNum;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
     }
 
     if (!$dara.isNull(request.pageNo)) {
@@ -6096,8 +6132,16 @@ export default class Client extends OpenApi {
       query["isv_name"] = request.isvName;
     }
 
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
     if (!$dara.isNull(request.otaItemId)) {
       query["ota_item_id"] = request.otaItemId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -7084,6 +7128,14 @@ export default class Client extends OpenApi {
       query["bill_batch"] = request.billBatch;
     }
 
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
+    }
+
     if (!$dara.isNull(request.cooperatorId)) {
       query["cooperator_id"] = request.cooperatorId;
     }
@@ -7518,6 +7570,14 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
     }
 
     if (!$dara.isNull(request.orderId)) {
@@ -8079,6 +8139,10 @@ export default class Client extends OpenApi {
       request.invoiceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.invoiceInfo, "invoice_info", "json");
     }
 
+    if (!$dara.isNull(tmpReq.memberInfo)) {
+      request.memberInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memberInfo, "member_info", "json");
+    }
+
     if (!$dara.isNull(tmpReq.occupantInfoList)) {
       request.occupantInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.occupantInfoList, "occupant_info_list", "json");
     }
@@ -8134,6 +8198,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.itineraryNo)) {
       body["itinerary_no"] = request.itineraryNo;
+    }
+
+    if (!$dara.isNull(request.memberInfoShrink)) {
+      body["member_info"] = request.memberInfoShrink;
     }
 
     if (!$dara.isNull(request.occupantInfoListShrink)) {
@@ -8540,6 +8608,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.occupantInfoListShrink)) {
       query["occupant_info_list"] = request.occupantInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.rateKey)) {
+      query["rate_key"] = request.rateKey;
     }
 
     if (!$dara.isNull(request.ratePlanId)) {
@@ -9082,7 +9154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 国际机票订单详情
+   * International Flight Order Details
    * 
    * @param request - IFlightOrderDetailQueryRequest
    * @param headers - IFlightOrderDetailQueryHeaders
@@ -9124,7 +9196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 国际机票订单详情
+   * International Flight Order Details
    * 
    * @param request - IFlightOrderDetailQueryRequest
    * @returns IFlightOrderDetailQueryResponse
@@ -9236,6 +9308,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询国际/中国港澳台用车记账数据
+   * 
+   * @param request - IeCarBillSettlementQueryRequest
+   * @param headers - IeCarBillSettlementQueryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IeCarBillSettlementQueryResponse
+   */
+  async ieCarBillSettlementQueryWithOptions(request: $_model.IeCarBillSettlementQueryRequest, headers: $_model.IeCarBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IeCarBillSettlementQueryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["page_no"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.periodEnd)) {
+      query["period_end"] = request.periodEnd;
+    }
+
+    if (!$dara.isNull(request.periodStart)) {
+      query["period_start"] = request.periodStart;
+    }
+
+    if (!$dara.isNull(request.scrollId)) {
+      query["scroll_id"] = request.scrollId;
+    }
+
+    if (!$dara.isNull(request.scrollMod)) {
+      query["scroll_mod"] = request.scrollMod;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = String(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IeCarBillSettlementQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/open/v1/ieCar-bill-settlement-query`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IeCarBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new $_model.IeCarBillSettlementQueryResponse({}));
+  }
+
+  /**
+   * 查询国际/中国港澳台用车记账数据
+   * 
+   * @param request - IeCarBillSettlementQueryRequest
+   * @returns IeCarBillSettlementQueryResponse
+   */
+  async ieCarBillSettlementQuery(request: $_model.IeCarBillSettlementQueryRequest): Promise<$_model.IeCarBillSettlementQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IeCarBillSettlementQueryHeaders({ });
+    return await this.ieCarBillSettlementQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询国际机票记账数据
    * 
    * @param request - IeFlightBillSettlementQueryRequest
@@ -9248,6 +9410,14 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
     }
 
     if (!$dara.isNull(request.orderId)) {
@@ -9330,6 +9500,14 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
     }
 
     if (!$dara.isNull(request.category)) {
@@ -11466,6 +11644,10 @@ export default class Client extends OpenApi {
       body["bank_no"] = request.bankNo;
     }
 
+    if (!$dara.isNull(request.mailThirdPartId)) {
+      body["mail_third_part_id"] = request.mailThirdPartId;
+    }
+
     if (!$dara.isNull(request.taxNo)) {
       body["tax_no"] = request.taxNo;
     }
@@ -11604,6 +11786,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bankNo)) {
       body["bank_no"] = request.bankNo;
+    }
+
+    if (!$dara.isNull(request.mailThirdPartId)) {
+      body["mail_third_part_id"] = request.mailThirdPartId;
     }
 
     if (!$dara.isNull(request.taxNo)) {
@@ -12104,6 +12290,10 @@ export default class Client extends OpenApi {
       body["cost_center_id"] = request.costCenterId;
     }
 
+    if (!$dara.isNull(request.extendField)) {
+      body["extend_field"] = request.extendField;
+    }
+
     if (!$dara.isNull(request.invoiceId)) {
       body["invoice_id"] = request.invoiceId;
     }
@@ -12320,6 +12510,14 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
     }
 
     if (!$dara.isNull(request.orderId)) {
@@ -12935,6 +13133,68 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.ProjectModifyHeaders({ });
     return await this.projectModifyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询赔付信息
+   * 
+   * @param request - QueryCompenInfosForOpRequest
+   * @param headers - QueryCompenInfosForOpHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCompenInfosForOpResponse
+   */
+  async queryCompenInfosForOpWithOptions(request: $_model.QueryCompenInfosForOpRequest, headers: $_model.QueryCompenInfosForOpHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCompenInfosForOpResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.category)) {
+      query["category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.compenId)) {
+      query["compen_id"] = request.compenId;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = String(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCompenInfosForOp",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/compen/v1/queryCompenInfosForOp`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCompenInfosForOpResponse>(await this.callApi(params, req, runtime), new $_model.QueryCompenInfosForOpResponse({}));
+  }
+
+  /**
+   * 查询赔付信息
+   * 
+   * @param request - QueryCompenInfosForOpRequest
+   * @returns QueryCompenInfosForOpResponse
+   */
+  async queryCompenInfosForOp(request: $_model.QueryCompenInfosForOpRequest): Promise<$_model.QueryCompenInfosForOpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.QueryCompenInfosForOpHeaders({ });
+    return await this.queryCompenInfosForOpWithOptions(request, headers, runtime);
   }
 
   /**
@@ -14032,6 +14292,14 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
     }
 
     if (!$dara.isNull(request.orderId)) {
@@ -15166,8 +15434,20 @@ export default class Client extends OpenApi {
       query["bill_id"] = request.billId;
     }
 
+    if (!$dara.isNull(request.invoiceDateEnd)) {
+      query["invoice_date_end"] = request.invoiceDateEnd;
+    }
+
+    if (!$dara.isNull(request.invoiceDateStart)) {
+      query["invoice_date_start"] = request.invoiceDateStart;
+    }
+
     if (!$dara.isNull(request.invoiceSubTaskId)) {
       query["invoice_sub_task_id"] = request.invoiceSubTaskId;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
     }
 
     if (!$dara.isNull(request.pageNo)) {
@@ -16240,6 +16520,14 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeEnd)) {
+      query["bill_record_time_end"] = request.billRecordTimeEnd;
+    }
+
+    if (!$dara.isNull(request.billRecordTimeStart)) {
+      query["bill_record_time_start"] = request.billRecordTimeStart;
     }
 
     if (!$dara.isNull(request.cooperatorId)) {
