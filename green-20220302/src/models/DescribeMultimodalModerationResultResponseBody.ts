@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults extends $dara.Model {
   description?: string;
+  /**
+   * @example
+   * violent_explosion
+   */
   label?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,6 +60,10 @@ export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasComme
 
 export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults extends $dara.Model {
   description?: string;
+  /**
+   * @example
+   * violent_explosion
+   */
   label?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,6 +122,10 @@ export class DescribeMultimodalModerationResultResponseBodyDataCommentDatas exte
 
 export class DescribeMultimodalModerationResultResponseBodyDataMainDataResults extends $dara.Model {
   description?: string;
+  /**
+   * @example
+   * violent_explosion
+   */
   label?: string;
   static names(): { [key: string]: string } {
     return {
@@ -166,9 +178,21 @@ export class DescribeMultimodalModerationResultResponseBodyDataMainData extends 
 
 export class DescribeMultimodalModerationResultResponseBodyData extends $dara.Model {
   commentDatas?: DescribeMultimodalModerationResultResponseBodyDataCommentDatas[];
+  /**
+   * @example
+   * data1234
+   */
   dataId?: string;
   mainData?: DescribeMultimodalModerationResultResponseBodyDataMainData;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
   reqId?: string;
+  /**
+   * @example
+   * high
+   */
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -206,9 +230,21 @@ export class DescribeMultimodalModerationResultResponseBodyData extends $dara.Mo
 }
 
 export class DescribeMultimodalModerationResultResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
   data?: DescribeMultimodalModerationResultResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   msg?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

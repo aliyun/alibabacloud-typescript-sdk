@@ -146,7 +146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询检测结果辅助信息
+   * Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
    * 
    * @param request - DescribeImageResultExtRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -181,7 +181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询检测结果辅助信息
+   * Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
    * 
    * @param request - DescribeImageResultExtRequest
    * @returns DescribeImageResultExtResponse
@@ -234,7 +234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询上传token
+   * Queries the token for uploading files.
    * 
    * @param request - DescribeUploadTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -257,7 +257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询上传token
+   * Queries the token for uploading files.
    * @returns DescribeUploadTokenResponse
    */
   async describeUploadToken(): Promise<$_model.DescribeUploadTokenResponse> {
@@ -318,7 +318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档审核
+   * Moderates files.
    * 
    * @param request - FileModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -353,7 +353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档审核
+   * Moderates files.
    * 
    * @param request - FileModerationRequest
    * @returns FileModerationResponse
@@ -364,7 +364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片异步检测
+   * Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
    * 
    * @param request - ImageAsyncModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -399,7 +399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片异步检测
+   * Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
    * 
    * @param request - ImageAsyncModerationRequest
    * @returns ImageAsyncModerationResponse
@@ -998,7 +998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * url异步检测
+   * Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
    * 
    * @param request - UrlAsyncModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1033,7 +1033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * url异步检测
+   * Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
    * 
    * @param request - UrlAsyncModerationRequest
    * @returns UrlAsyncModerationResponse
@@ -1044,7 +1044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频检测任务提交
+   * Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
    * 
    * @param request - VideoModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1079,7 +1079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频检测任务提交
+   * Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
    * 
    * @param request - VideoModerationRequest
    * @returns VideoModerationResponse
@@ -1090,7 +1090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消视频直播流检测
+   * Cancels a live stream moderation task.
    * 
    * @param request - VideoModerationCancelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1125,7 +1125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消视频直播流检测
+   * Cancels a live stream moderation task.
    * 
    * @param request - VideoModerationCancelRequest
    * @returns VideoModerationCancelResponse
@@ -1188,7 +1188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 语音审核
+   * Submits a Voice Moderation 2.0 task.
    * 
    * @param request - VoiceModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1223,7 +1223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 语音审核
+   * Submits a Voice Moderation 2.0 task.
    * 
    * @param request - VoiceModerationRequest
    * @returns VoiceModerationResponse
@@ -1234,7 +1234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消检测
+   * Cancels a Voice Moderation 2.0 task.
    * 
    * @param request - VoiceModerationCancelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1269,7 +1269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消检测
+   * Cancels a Voice Moderation 2.0 task.
    * 
    * @param request - VoiceModerationCancelRequest
    * @returns VoiceModerationCancelResponse

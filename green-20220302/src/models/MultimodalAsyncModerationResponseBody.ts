@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MultimodalAsyncModerationResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 26769ada6e264e7ba9aa048241e12be9
+   */
   dataId?: string;
+  /**
+   * @example
+   * A07B3DB9-D762-5C56-95B1-8EC55CF176D2
+   */
   reqId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +37,24 @@ export class MultimodalAsyncModerationResponseBodyData extends $dara.Model {
 }
 
 export class MultimodalAsyncModerationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
   data?: MultimodalAsyncModerationResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   msg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

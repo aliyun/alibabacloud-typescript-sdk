@@ -252,6 +252,102 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $dara.Mode
   }
 }
 
+export class VideoModerationResultResponseBodyDataExtAigcDataAIGC extends $dara.Model {
+  contentProducer?: string;
+  contentPropagator?: string;
+  label?: string;
+  produceID?: string;
+  propagateID?: string;
+  reservedCode1?: string;
+  reservedCode2?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentProducer: 'ContentProducer',
+      contentPropagator: 'ContentPropagator',
+      label: 'Label',
+      produceID: 'ProduceID',
+      propagateID: 'PropagateID',
+      reservedCode1: 'ReservedCode1',
+      reservedCode2: 'ReservedCode2',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentProducer: 'string',
+      contentPropagator: 'string',
+      label: 'string',
+      produceID: 'string',
+      propagateID: 'string',
+      reservedCode1: 'string',
+      reservedCode2: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataExtAigcData extends $dara.Model {
+  AIGC?: VideoModerationResultResponseBodyDataExtAigcDataAIGC;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIGC: 'AIGC',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIGC: VideoModerationResultResponseBodyDataExtAigcDataAIGC,
+      result: 'string',
+    };
+  }
+
+  validate() {
+    if(this.AIGC && typeof (this.AIGC as any).validate === 'function') {
+      (this.AIGC as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataExt extends $dara.Model {
+  aigcData?: VideoModerationResultResponseBodyDataExtAigcData;
+  static names(): { [key: string]: string } {
+    return {
+      aigcData: 'AigcData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aigcData: VideoModerationResultResponseBodyDataExtAigcData,
+    };
+  }
+
+  validate() {
+    if(this.aigcData && typeof (this.aigcData as any).validate === 'function') {
+      (this.aigcData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys extends $dara.Model {
   /**
    * @remarks
@@ -837,6 +933,7 @@ export class VideoModerationResultResponseBodyData extends $dara.Model {
    * product_content-2055763
    */
   dataId?: string;
+  ext?: VideoModerationResultResponseBodyDataExt;
   /**
    * @remarks
    * The image moderation results. If the call is successful, the HTTP status code 200 and moderation results are returned. The moderation results contain a structure.
@@ -871,6 +968,7 @@ export class VideoModerationResultResponseBodyData extends $dara.Model {
     return {
       audioResult: 'AudioResult',
       dataId: 'DataId',
+      ext: 'Ext',
       frameResult: 'FrameResult',
       liveId: 'LiveId',
       manualTaskId: 'ManualTaskId',
@@ -883,6 +981,7 @@ export class VideoModerationResultResponseBodyData extends $dara.Model {
     return {
       audioResult: VideoModerationResultResponseBodyDataAudioResult,
       dataId: 'string',
+      ext: VideoModerationResultResponseBodyDataExt,
       frameResult: VideoModerationResultResponseBodyDataFrameResult,
       liveId: 'string',
       manualTaskId: 'string',
@@ -894,6 +993,9 @@ export class VideoModerationResultResponseBodyData extends $dara.Model {
   validate() {
     if(this.audioResult && typeof (this.audioResult as any).validate === 'function') {
       (this.audioResult as any).validate();
+    }
+    if(this.ext && typeof (this.ext as any).validate === 'function') {
+      (this.ext as any).validate();
     }
     if(this.frameResult && typeof (this.frameResult as any).validate === 'function') {
       (this.frameResult as any).validate();
