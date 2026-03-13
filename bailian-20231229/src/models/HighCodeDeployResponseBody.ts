@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HighCodeDeployResponseBody extends $dara.Model {
   /**
    * @example
-   * {\"key\": \"value\"}
+   * {\\"key\\": \\"value\\"}
    */
   data?: string;
   /**

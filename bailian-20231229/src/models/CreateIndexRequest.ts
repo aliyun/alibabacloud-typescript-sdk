@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateIndexRequestColumns extends $dara.Model {
+  /**
+   * @remarks
+   * > This parameter is not available. Do not specify this parameter.
+   * 
+   * @example
+   * source_column_name1
+   */
   column?: string;
+  /**
+   * @remarks
+   * > This parameter is not available. Do not specify this parameter.
+   * 
+   * @example
+   * true
+   */
   isRecall?: boolean;
+  /**
+   * @remarks
+   * > This parameter is not available. Do not specify this parameter.
+   * 
+   * @example
+   * true
+   */
   isSearch?: boolean;
+  /**
+   * @remarks
+   * > This parameter is not available. Do not specify this parameter.
+   * 
+   * @example
+   * index_column_name1
+   */
   name?: string;
+  /**
+   * @remarks
+   * > This parameter is not available. Do not specify this parameter.
+   * 
+   * @example
+   * string
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -249,6 +284,10 @@ export class CreateIndexRequest extends $dara.Model {
    * 128
    */
   chunkSize?: number;
+  /**
+   * @remarks
+   * > This parameter is not available. Do not specify this parameter.
+   */
   columns?: CreateIndexRequestColumns[];
   /**
    * @remarks
@@ -418,6 +457,11 @@ export class CreateIndexRequest extends $dara.Model {
    */
   tableIds?: string[];
   /**
+   * @example
+   * connector
+   */
+  channelType?: string;
+  /**
    * @remarks
    * > This parameter is not available. Do not specify this parameter.
    * 
@@ -425,6 +469,10 @@ export class CreateIndexRequest extends $dara.Model {
    * regex
    */
   chunkMode?: string;
+  /**
+   * @example
+   * conn_mysql_xxx_xxx
+   */
   connectId?: string;
   database?: string;
   datasourceCode?: string;
@@ -489,6 +537,7 @@ export class CreateIndexRequest extends $dara.Model {
       sourceType: 'SourceType',
       structureType: 'StructureType',
       tableIds: 'TableIds',
+      channelType: 'channelType',
       chunkMode: 'chunkMode',
       connectId: 'connectId',
       database: 'database',
@@ -525,6 +574,7 @@ export class CreateIndexRequest extends $dara.Model {
       sourceType: 'string',
       structureType: 'string',
       tableIds: { 'type': 'array', 'itemType': 'string' },
+      channelType: 'string',
       chunkMode: 'string',
       connectId: 'string',
       database: 'string',

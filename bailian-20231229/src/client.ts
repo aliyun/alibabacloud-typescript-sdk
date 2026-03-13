@@ -261,7 +261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a document upload lease to upload a document.
+   * Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
    * 
    * @remarks
    *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
@@ -316,7 +316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a document upload lease to upload a document.
+   * Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
    * 
    * @remarks
    *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
@@ -649,6 +649,10 @@ export default class Client extends OpenApi {
       query["TableIds"] = request.tableIdsShrink;
     }
 
+    if (!$dara.isNull(request.channelType)) {
+      query["channelType"] = request.channelType;
+    }
+
     if (!$dara.isNull(request.chunkMode)) {
       query["chunkMode"] = request.chunkMode;
     }
@@ -908,7 +912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除类目
+   * Deletes a specified category permanently.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -933,7 +937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除类目
+   * Deletes a specified category permanently.
    * @returns DeleteCategoryResponse
    */
   async deleteCategory(CategoryId: string, WorkspaceId: string): Promise<$_model.DeleteCategoryResponse> {
@@ -1020,7 +1024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文档
+   * Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1045,7 +1049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文档
+   * Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
    * @returns DeleteFileResponse
    */
   async deleteFile(FileId: string, WorkspaceId: string): Promise<$_model.DeleteFileResponse> {
@@ -1114,7 +1118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more documents from a specified unstructured knowledge base permanently.
+   * Deletes one or more documents from a specified unstructured knowledge base permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
    * 
    * @remarks
    *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
@@ -1164,7 +1168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more documents from a specified unstructured knowledge base permanently.
+   * Deletes one or more documents from a specified unstructured knowledge base permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
    * 
    * @remarks
    *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
@@ -1288,7 +1292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an unstructured document.
+   * Obtains the basic information of a document, including the document name, type, and status.
    * 
    * @remarks
    * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
@@ -1319,7 +1323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an unstructured document.
+   * Obtains the basic information of a document, including the document name, type, and status.
    * 
    * @remarks
    * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
@@ -1545,7 +1549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取索引监控情况
+   * \\<props="intl">Currently, this API is not supported.\\
    * 
    * @param request - GetIndexMonitorRequest
    * @param headers - map
@@ -1586,7 +1590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取索引监控情况
+   * \\<props="intl">Currently, this API is not supported.\\
    * 
    * @param request - GetIndexMonitorRequest
    * @returns GetIndexMonitorResponse
@@ -1848,7 +1852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListCategory
+   * Lists the details about the next or multiple categories in a specified workspace.
    * 
    * @param request - ListCategoryRequest
    * @param headers - map
@@ -1897,7 +1901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListCategory
+   * Lists the details about the next or multiple categories in a specified workspace.
    * 
    * @param request - ListCategoryRequest
    * @returns ListCategoryResponse
@@ -2189,7 +2193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists knowledge bases in a specified workspace.
+   * Lists the details about the next or multiple knowledge bases in a specified workspace.
    * 
    * @remarks
    * This interface is idempotent.
@@ -2233,7 +2237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists knowledge bases in a specified workspace.
+   * Lists the details about the next or multiple knowledge bases in a specified workspace.
    * 
    * @remarks
    * This interface is idempotent.
@@ -2581,7 +2585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds parsed documents to an unstructured knowledge base.
+   * Adds parsed documents to an unstructured knowledge base. You cannot use the API to add knowledge to structured knowledge bases, see the Usage notes section of this topic.
    * 
    * @remarks
    *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
@@ -2662,7 +2666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds parsed documents to an unstructured knowledge base.
+   * Adds parsed documents to an unstructured knowledge base. You cannot use the API to add knowledge to structured knowledge bases, see the Usage notes section of this topic.
    * 
    * @remarks
    *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
@@ -2964,7 +2968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文档Tag
+   * Updates the tags of a specified document.
    * 
    * @param tmpReq - UpdateFileTagRequest
    * @param headers - map
@@ -3003,7 +3007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文档Tag
+   * Updates the tags of a specified document.
    * 
    * @param request - UpdateFileTagRequest
    * @returns UpdateFileTagResponse
@@ -3015,7 +3019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新索引任务
+   * \\<props="intl">Currently, this API is not supported.\\
    * 
    * @param request - UpdateIndexRequest
    * @param headers - map
@@ -3076,7 +3080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新索引任务
+   * \\<props="intl">Currently, this API is not supported.\\
    * 
    * @param request - UpdateIndexRequest
    * @returns UpdateIndexResponse

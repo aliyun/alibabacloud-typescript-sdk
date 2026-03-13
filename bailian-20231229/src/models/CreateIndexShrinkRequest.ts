@@ -20,6 +20,10 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    * 128
    */
   chunkSize?: number;
+  /**
+   * @remarks
+   * > This parameter is not available. Do not specify this parameter.
+   */
   columnsShrink?: string;
   /**
    * @remarks
@@ -189,6 +193,11 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    */
   tableIdsShrink?: string;
   /**
+   * @example
+   * connector
+   */
+  channelType?: string;
+  /**
    * @remarks
    * > This parameter is not available. Do not specify this parameter.
    * 
@@ -196,6 +205,10 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    * regex
    */
   chunkMode?: string;
+  /**
+   * @example
+   * conn_mysql_xxx_xxx
+   */
   connectId?: string;
   database?: string;
   datasourceCode?: string;
@@ -260,6 +273,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       sourceType: 'SourceType',
       structureType: 'StructureType',
       tableIdsShrink: 'TableIds',
+      channelType: 'channelType',
       chunkMode: 'chunkMode',
       connectId: 'connectId',
       database: 'database',
@@ -296,6 +310,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       sourceType: 'string',
       structureType: 'string',
       tableIdsShrink: 'string',
+      channelType: 'string',
       chunkMode: 'string',
       connectId: 'string',
       database: 'string',
