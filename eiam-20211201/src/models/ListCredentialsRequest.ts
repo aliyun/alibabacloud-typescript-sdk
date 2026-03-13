@@ -37,6 +37,7 @@ export class ListCredentialsRequestFilter extends $dara.Model {
 
 export class ListCredentialsRequest extends $dara.Model {
   credentialIds?: string[];
+  credentialTypes?: string[];
   filter?: ListCredentialsRequestFilter[];
   /**
    * @remarks
@@ -68,6 +69,7 @@ export class ListCredentialsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       credentialIds: 'CredentialIds',
+      credentialTypes: 'CredentialTypes',
       filter: 'Filter',
       instanceId: 'InstanceId',
       maxResults: 'MaxResults',
@@ -79,6 +81,7 @@ export class ListCredentialsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       credentialIds: { 'type': 'array', 'itemType': 'string' },
+      credentialTypes: { 'type': 'array', 'itemType': 'string' },
       filter: { 'type': 'array', 'itemType': ListCredentialsRequestFilter },
       instanceId: 'string',
       maxResults: 'number',
@@ -90,6 +93,9 @@ export class ListCredentialsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.credentialIds)) {
       $dara.Model.validateArray(this.credentialIds);
+    }
+    if(Array.isArray(this.credentialTypes)) {
+      $dara.Model.validateArray(this.credentialTypes);
     }
     if(Array.isArray(this.filter)) {
       $dara.Model.validateArray(this.filter);

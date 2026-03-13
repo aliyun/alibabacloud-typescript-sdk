@@ -6982,6 +6982,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生成WebAuthn认证器注册URL
+   * 
+   * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+   */
+  async generateWebAuthnAuthenticatorRegistrationUrlWithOptions(request: $_model.GenerateWebAuthnAuthenticatorRegistrationUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateWebAuthnAuthenticatorRegistrationUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateWebAuthnAuthenticatorRegistrationUrl",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateWebAuthnAuthenticatorRegistrationUrlResponse>(await this.callApi(params, req, runtime), new $_model.GenerateWebAuthnAuthenticatorRegistrationUrlResponse({}));
+  }
+
+  /**
+   * 生成WebAuthn认证器注册URL
+   * 
+   * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+   * @returns GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+   */
+  async generateWebAuthnAuthenticatorRegistrationUrl(request: $_model.GenerateWebAuthnAuthenticatorRegistrationUrlRequest): Promise<$_model.GenerateWebAuthnAuthenticatorRegistrationUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateWebAuthnAuthenticatorRegistrationUrlWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of an Employee Identity and Access Management (EIAM) application.
    * 
    * @param request - GetApplicationRequest
@@ -10897,6 +10947,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.credentialIds)) {
       query["CredentialIds"] = request.credentialIds;
+    }
+
+    if (!$dara.isNull(request.credentialTypes)) {
+      query["CredentialTypes"] = request.credentialTypes;
     }
 
     if (!$dara.isNull(request.filter)) {

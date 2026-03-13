@@ -49,6 +49,7 @@ export { CreateUserRequestPasswordInitializationConfig } from './CreateUserReque
 export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataOidcOpenIdConfiguration } from './ExecIdentityProviderMetadataUrlResolutionResponseBody';
 export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadata } from './ExecIdentityProviderMetadataUrlResolutionResponseBody';
 export { GenerateOauthTokenResponseBodyTokenResponse } from './GenerateOauthTokenResponseBody';
+export { GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAuthenticatorRegistrationUrl } from './GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody';
 export { GetApplicationResponseBodyApplication } from './GetApplicationResponseBody';
 export { GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfigScimServerAdvancedConfig } from './GetApplicationAdvancedConfigResponseBody';
 export { GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig } from './GetApplicationAdvancedConfigResponseBody';
@@ -816,6 +817,9 @@ export { GenerateOauthTokenResponse } from './GenerateOauthTokenResponse';
 export { GenerateUploadAuthRequest } from './GenerateUploadAuthRequest';
 export { GenerateUploadAuthResponseBody } from './GenerateUploadAuthResponseBody';
 export { GenerateUploadAuthResponse } from './GenerateUploadAuthResponse';
+export { GenerateWebAuthnAuthenticatorRegistrationUrlRequest } from './GenerateWebAuthnAuthenticatorRegistrationUrlRequest';
+export { GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody } from './GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody';
+export { GenerateWebAuthnAuthenticatorRegistrationUrlResponse } from './GenerateWebAuthnAuthenticatorRegistrationUrlResponse';
 export { GetApplicationRequest } from './GetApplicationRequest';
 export { GetApplicationResponseBody } from './GetApplicationResponseBody';
 export { GetApplicationResponse } from './GetApplicationResponse';
