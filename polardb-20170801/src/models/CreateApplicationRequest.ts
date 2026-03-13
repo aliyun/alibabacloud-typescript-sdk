@@ -123,18 +123,24 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   dbPassword?: string;
   dbUser?: string;
   embedderModel?: string;
+  embedderModelDimension?: number;
+  graphLlmModel?: string;
   llmModel?: string;
   projectName?: string;
   rerankerModel?: string;
+  shard?: number;
   static names(): { [key: string]: string } {
     return {
       dbName: 'DbName',
       dbPassword: 'DbPassword',
       dbUser: 'DbUser',
       embedderModel: 'EmbedderModel',
+      embedderModelDimension: 'EmbedderModelDimension',
+      graphLlmModel: 'GraphLlmModel',
       llmModel: 'LlmModel',
       projectName: 'ProjectName',
       rerankerModel: 'RerankerModel',
+      shard: 'Shard',
     };
   }
 
@@ -144,9 +150,12 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
       dbPassword: 'string',
       dbUser: 'string',
       embedderModel: 'string',
+      embedderModelDimension: 'number',
+      graphLlmModel: 'string',
       llmModel: 'string',
       projectName: 'string',
       rerankerModel: 'string',
+      shard: 'number',
     };
   }
 
