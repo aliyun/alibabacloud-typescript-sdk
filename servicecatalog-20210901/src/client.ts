@@ -80,7 +80,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将产品组合授权给某个RAM实体
+   * Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
    * 
    * @param request - AssociatePrincipalWithPortfolioRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -123,7 +123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将产品组合授权给某个RAM实体
+   * Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
    * 
    * @param request - AssociatePrincipalWithPortfolioRequest
    * @returns AssociatePrincipalWithPortfolioResponse
@@ -1720,7 +1720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The number of entries returned per page.
+   * Queries product portfolios.
    * 
    * @param request - ListPortfoliosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1775,7 +1775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The number of entries returned per page.
+   * Queries product portfolios.
    * 
    * @param request - ListPortfoliosRequest
    * @returns ListPortfoliosResponse
@@ -2284,7 +2284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The page number of the returned page.
+   * Queries tasks.
    * 
    * @param request - ListTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2331,7 +2331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The page number of the returned page.
+   * Queries tasks.
    * 
    * @param request - ListTasksRequest
    * @returns ListTasksResponse
@@ -2440,7 +2440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the product portfolio.
+   * Updates the information about a product portfolio.
    * 
    * @param request - UpdatePortfolioRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2483,7 +2483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the product portfolio.
+   * Updates the information about a product portfolio.
    * 
    * @param request - UpdatePortfolioRequest
    * @returns UpdatePortfolioResponse
@@ -2494,7 +2494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the product.
+   * Updates the information about a product.
    * 
    * @param request - UpdateProductRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2537,7 +2537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the product.
+   * Updates the information about a product.
    * 
    * @param request - UpdateProductRequest
    * @returns UpdateProductResponse
