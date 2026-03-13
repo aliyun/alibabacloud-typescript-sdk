@@ -284,6 +284,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生成治理检测报告
+   * 
+   * @param tmpReq - GenerateEvaluationReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateEvaluationReportResponse
+   */
+  async generateEvaluationReportWithOptions(tmpReq: $_model.GenerateEvaluationReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateEvaluationReportResponse> {
+    tmpReq.validate();
+    let request = new $_model.GenerateEvaluationReportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.accountIds)) {
+      request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!$dara.isNull(request.accountIdsShrink)) {
+      query["AccountIds"] = request.accountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reportType)) {
+      query["ReportType"] = request.reportType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateEvaluationReport",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateEvaluationReportResponse>(await this.callApi(params, req, runtime), new $_model.GenerateEvaluationReportResponse({}));
+  }
+
+  /**
+   * 生成治理检测报告
+   * 
+   * @param request - GenerateEvaluationReportRequest
+   * @returns GenerateEvaluationReportResponse
+   */
+  async generateEvaluationReport(request: $_model.GenerateEvaluationReportRequest): Promise<$_model.GenerateEvaluationReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateEvaluationReportWithOptions(request, runtime);
+  }
+
+  /**
    * Obtains the details of an account factory baseline.
    * 
    * @param request - GetAccountFactoryBaselineRequest
