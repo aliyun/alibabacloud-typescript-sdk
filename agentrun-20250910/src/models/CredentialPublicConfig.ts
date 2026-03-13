@@ -63,6 +63,8 @@ export class CredentialPublicConfig extends $dara.Model {
   authConfig?: { [key: string]: string };
   authType?: string;
   headerKey?: string;
+  jwks?: string;
+  prefix?: string;
   provider?: string;
   remoteConfig?: CredentialPublicConfigRemoteConfig;
   users?: CredentialPublicConfigUsers[];
@@ -71,6 +73,8 @@ export class CredentialPublicConfig extends $dara.Model {
       authConfig: 'authConfig',
       authType: 'authType',
       headerKey: 'headerKey',
+      jwks: 'jwks',
+      prefix: 'prefix',
       provider: 'provider',
       remoteConfig: 'remoteConfig',
       users: 'users',
@@ -82,6 +86,8 @@ export class CredentialPublicConfig extends $dara.Model {
       authConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       authType: 'string',
       headerKey: 'string',
+      jwks: 'string',
+      prefix: 'string',
       provider: 'string',
       remoteConfig: CredentialPublicConfigRemoteConfig,
       users: { 'type': 'array', 'itemType': CredentialPublicConfigUsers },

@@ -325,6 +325,8 @@ export { ListSandboxesRequest } from './ListSandboxesRequest';
 export { ListSandboxesResponse } from './ListSandboxesResponse';
 export { ListTemplatesRequest } from './ListTemplatesRequest';
 export { ListTemplatesResponse } from './ListTemplatesResponse';
+export { ListWorkspacesRequest } from './ListWorkspacesRequest';
+export { ListWorkspacesResponse } from './ListWorkspacesResponse';
 export { PublishRuntimeVersionRequest } from './PublishRuntimeVersionRequest';
 export { PublishRuntimeVersionResponse } from './PublishRuntimeVersionResponse';
 export { StopSandboxResponse } from './StopSandboxResponse';

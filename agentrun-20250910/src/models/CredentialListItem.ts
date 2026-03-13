@@ -8,6 +8,7 @@ export class CredentialListItem extends $dara.Model {
   credentialId?: string;
   credentialName?: string;
   credentialSourceType?: string;
+  description?: string;
   enabled?: boolean;
   relatedResourceCount?: number;
   updatedAt?: string;
@@ -18,6 +19,7 @@ export class CredentialListItem extends $dara.Model {
       credentialId: 'credentialId',
       credentialName: 'credentialName',
       credentialSourceType: 'credentialSourceType',
+      description: 'description',
       enabled: 'enabled',
       relatedResourceCount: 'relatedResourceCount',
       updatedAt: 'updatedAt',
@@ -31,6 +33,7 @@ export class CredentialListItem extends $dara.Model {
       credentialId: 'string',
       credentialName: 'string',
       credentialSourceType: 'string',
+      description: 'string',
       enabled: 'boolean',
       relatedResourceCount: 'number',
       updatedAt: 'string',

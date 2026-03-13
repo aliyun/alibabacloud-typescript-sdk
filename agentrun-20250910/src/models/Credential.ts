@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CredentialPublicConfig } from "./CredentialPublicConfig";
 import { RelatedResource } from "./RelatedResource";
 
 
@@ -8,7 +9,7 @@ export class Credential extends $dara.Model {
   credentialAuthType?: string;
   credentialId?: string;
   credentialName?: string;
-  credentialPublicConfig?: { [key: string]: string };
+  credentialPublicConfig?: CredentialPublicConfig;
   credentialSecret?: string;
   credentialSourceType?: string;
   description?: string;
@@ -37,7 +38,7 @@ export class Credential extends $dara.Model {
       credentialAuthType: 'string',
       credentialId: 'string',
       credentialName: 'string',
-      credentialPublicConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      credentialPublicConfig: CredentialPublicConfig,
       credentialSecret: 'string',
       credentialSourceType: 'string',
       description: 'string',
@@ -48,8 +49,8 @@ export class Credential extends $dara.Model {
   }
 
   validate() {
-    if(this.credentialPublicConfig) {
-      $dara.Model.validateMap(this.credentialPublicConfig);
+    if(this.credentialPublicConfig && typeof (this.credentialPublicConfig as any).validate === 'function') {
+      (this.credentialPublicConfig as any).validate();
     }
     if(Array.isArray(this.relatedResources)) {
       $dara.Model.validateArray(this.relatedResources);
