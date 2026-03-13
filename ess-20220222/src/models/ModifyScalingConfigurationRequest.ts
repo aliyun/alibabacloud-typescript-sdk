@@ -814,6 +814,44 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $dara
   }
 }
 
+export class ModifyScalingConfigurationRequestInstanceTypeCandidateOptions extends $dara.Model {
+  allowCidrBlocks?: string[];
+  allowCrossAz?: boolean;
+  allowDifferentGeneration?: boolean;
+  enabled?: boolean;
+  maxPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowCidrBlocks: 'AllowCidrBlocks',
+      allowCrossAz: 'AllowCrossAz',
+      allowDifferentGeneration: 'AllowDifferentGeneration',
+      enabled: 'Enabled',
+      maxPrice: 'MaxPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCidrBlocks: { 'type': 'array', 'itemType': 'string' },
+      allowCrossAz: 'boolean',
+      allowDifferentGeneration: 'boolean',
+      enabled: 'boolean',
+      maxPrice: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowCidrBlocks)) {
+      $dara.Model.validateArray(this.allowCidrBlocks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyScalingConfigurationRequestInstanceTypeOverrides extends $dara.Model {
   /**
    * @remarks
@@ -1267,6 +1305,7 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
    * The intelligent configuration settings, which determine the available instance types.
    */
   instancePatternInfos?: ModifyScalingConfigurationRequestInstancePatternInfos[];
+  instanceTypeCandidateOptions?: ModifyScalingConfigurationRequestInstanceTypeCandidateOptions;
   /**
    * @remarks
    * Details of the instance types.
@@ -1592,6 +1631,7 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
       instanceDescription: 'InstanceDescription',
       instanceName: 'InstanceName',
       instancePatternInfos: 'InstancePatternInfos',
+      instanceTypeCandidateOptions: 'InstanceTypeCandidateOptions',
       instanceTypeOverrides: 'InstanceTypeOverrides',
       instanceTypes: 'InstanceTypes',
       internetChargeType: 'InternetChargeType',
@@ -1656,6 +1696,7 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
       instanceDescription: 'string',
       instanceName: 'string',
       instancePatternInfos: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestInstancePatternInfos },
+      instanceTypeCandidateOptions: ModifyScalingConfigurationRequestInstanceTypeCandidateOptions,
       instanceTypeOverrides: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestInstanceTypeOverrides },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
@@ -1714,6 +1755,9 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
     }
     if(Array.isArray(this.instancePatternInfos)) {
       $dara.Model.validateArray(this.instancePatternInfos);
+    }
+    if(this.instanceTypeCandidateOptions && typeof (this.instanceTypeCandidateOptions as any).validate === 'function') {
+      (this.instanceTypeCandidateOptions as any).validate();
     }
     if(Array.isArray(this.instanceTypeOverrides)) {
       $dara.Model.validateArray(this.instanceTypeOverrides);

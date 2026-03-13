@@ -44,6 +44,7 @@ export { CreateScalingConfigurationRequestSystemDisk } from './CreateScalingConf
 export { CreateScalingConfigurationRequestCustomPriorities } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestDataDisks } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestInstancePatternInfos } from './CreateScalingConfigurationRequest';
+export { CreateScalingConfigurationRequestInstanceTypeCandidateOptions } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestInstanceTypeOverrides } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestNetworkInterfaces } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestResourcePoolOptions } from './CreateScalingConfigurationRequest';
@@ -55,6 +56,7 @@ export { CreateScalingConfigurationShrinkRequestSystemDisk } from './CreateScali
 export { CreateScalingConfigurationShrinkRequestCustomPriorities } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestDataDisks } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestInstancePatternInfos } from './CreateScalingConfigurationShrinkRequest';
+export { CreateScalingConfigurationShrinkRequestInstanceTypeCandidateOptions } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestInstanceTypeOverrides } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestNetworkInterfaces } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestResourcePoolOptions } from './CreateScalingConfigurationShrinkRequest';
@@ -144,6 +146,7 @@ export { DescribeScalingActivityStatisticsResponseBodyScalingActivityStatusStati
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos } from './DescribeScalingConfigurationsResponseBody';
+export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstanceTypeCandidateOptions } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions } from './DescribeScalingConfigurationsResponseBody';
@@ -230,6 +233,7 @@ export { ModifyScalingConfigurationRequestSystemDisk } from './ModifyScalingConf
 export { ModifyScalingConfigurationRequestCustomPriorities } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestDataDisks } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestInstancePatternInfos } from './ModifyScalingConfigurationRequest';
+export { ModifyScalingConfigurationRequestInstanceTypeCandidateOptions } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestInstanceTypeOverrides } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestNetworkInterfaces } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestResourcePoolOptions } from './ModifyScalingConfigurationRequest';
@@ -241,6 +245,7 @@ export { ModifyScalingConfigurationShrinkRequestSystemDisk } from './ModifyScali
 export { ModifyScalingConfigurationShrinkRequestCustomPriorities } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestDataDisks } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestInstancePatternInfos } from './ModifyScalingConfigurationShrinkRequest';
+export { ModifyScalingConfigurationShrinkRequestInstanceTypeCandidateOptions } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestNetworkInterfaces } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestResourcePoolOptions } from './ModifyScalingConfigurationShrinkRequest';

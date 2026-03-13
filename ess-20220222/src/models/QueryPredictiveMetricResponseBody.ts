@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryPredictiveMetricResponseBodyPredictiveMetricsPredictiveMetric extends $dara.Model {
-  /**
-   * @remarks
-   * Predicted monitoring value.
-   * 
-   * @example
-   * 10.0
-   */
   metricValue?: string;
-  /**
-   * @remarks
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time must be in UTC.
-   * 
-   * @example
-   * 2025-12-17T16:00Z
-   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class QueryPredictiveMetricResponseBodyPredictiveMetrics extends $dara.Mo
 }
 
 export class QueryPredictiveMetricResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Predicted monitoring metrics.
-   */
   predictiveMetrics?: QueryPredictiveMetricResponseBodyPredictiveMetrics;
   /**
    * @remarks

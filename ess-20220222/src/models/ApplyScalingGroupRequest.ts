@@ -36,13 +36,6 @@ export class ApplyScalingGroupRequest extends $dara.Model {
    *         - containerPort: 80
    */
   content?: string;
-  /**
-   * @remarks
-   * Optional. The format of the configuration file. Default value: YAML. Set the value to YAML.
-   * 
-   * @example
-   * YAML
-   */
   format?: string;
   /**
    * @remarks

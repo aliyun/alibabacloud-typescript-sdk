@@ -63,6 +63,10 @@ export class CreateEciScalingConfigurationRequestAcrRegistryInfos extends $dara.
 }
 
 export class CreateEciScalingConfigurationRequestContainersLivenessProbeExec extends $dara.Model {
+  /**
+   * @remarks
+   * The commands executed in the container when using the command line to perform the health check.
+   */
   commands?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -89,8 +93,32 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeExec ext
 }
 
 export class CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet extends $dara.Model {
+  /**
+   * @remarks
+   * The path to which you want to send HTTP GET requests for liveness probing.
+   * 
+   * @example
+   * /healthyz
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port over which you want to send HTTP GET requests for liveness probing.
+   * 
+   * @example
+   * 8888
+   */
   port?: number;
+  /**
+   * @remarks
+   * The protocol type of HTTP GET requests for liveness probing. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * 
+   * @example
+   * HTTP
+   */
   scheme?: string;
   static names(): { [key: string]: string } {
     return {
@@ -118,6 +146,13 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet 
 }
 
 export class CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocket extends $dara.Model {
+  /**
+   * @remarks
+   * The port detected by TCP sockets for liveness probing.
+   * 
+   * @example
+   * 8000
+   */
   port?: number;
   static names(): { [key: string]: string } {
     return {
@@ -142,12 +177,49 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocke
 
 export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends $dara.Model {
   exec?: CreateEciScalingConfigurationRequestContainersLivenessProbeExec;
+  /**
+   * @remarks
+   * The minimum count of consecutive failures that must occur for a liveness probe to be classified as failed.
+   * 
+   * Default value: 3.
+   * 
+   * @example
+   * 3
+   */
   failureThreshold?: number;
   httpGet?: CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet;
+  /**
+   * @remarks
+   * The number of seconds that elapse from the startup of the container to the start time of a liveness probe. Unit: seconds.
+   * 
+   * @example
+   * 5
+   */
   initialDelaySeconds?: number;
+  /**
+   * @remarks
+   * The interval at which liveness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
+   * 
+   * @example
+   * 5
+   */
   periodSeconds?: number;
+  /**
+   * @remarks
+   * The minimum count of consecutive successes that must occur for a liveness probe to be classified as successful. Default value: 1. Set the value to 1.
+   * 
+   * @example
+   * 1
+   */
   successThreshold?: number;
   tcpSocket?: CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocket;
+  /**
+   * @remarks
+   * The timeout limit for a liveness probe to be complete. Unit: seconds. Default value: 1. Minimum value: 1.
+   * 
+   * @example
+   * 1
+   */
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -194,6 +266,10 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends
 }
 
 export class CreateEciScalingConfigurationRequestContainersReadinessProbeExec extends $dara.Model {
+  /**
+   * @remarks
+   * The commands executed in the container when using the command line to perform the health check.
+   */
   commands?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -220,8 +296,32 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeExec ex
 }
 
 export class CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet extends $dara.Model {
+  /**
+   * @remarks
+   * The path to which you want to send HTTP GET requests for readiness probing.
+   * 
+   * @example
+   * /healthz
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port over which you want to send HTTP GET requests for readiness probing.
+   * 
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * The protocol type of HTTP GET requests for readiness probing. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * 
+   * @example
+   * HTTP
+   */
   scheme?: string;
   static names(): { [key: string]: string } {
     return {
@@ -249,6 +349,13 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet
 }
 
 export class CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSocket extends $dara.Model {
+  /**
+   * @remarks
+   * The port detected by TCP sockets for readiness probing.
+   * 
+   * @example
+   * 8000
+   */
   port?: number;
   static names(): { [key: string]: string } {
     return {
@@ -273,12 +380,47 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSock
 
 export class CreateEciScalingConfigurationRequestContainersReadinessProbe extends $dara.Model {
   exec?: CreateEciScalingConfigurationRequestContainersReadinessProbeExec;
+  /**
+   * @remarks
+   * The minimum count of consecutive failures that must occur for a readiness probe to be classified as failed. Default value: 3.
+   * 
+   * @example
+   * 3
+   */
   failureThreshold?: number;
   httpGet?: CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet;
+  /**
+   * @remarks
+   * The number of seconds that elapse from the startup of the container to the start time of a readiness probe. Unit: seconds.
+   * 
+   * @example
+   * 3
+   */
   initialDelaySeconds?: number;
+  /**
+   * @remarks
+   * The interval at which readiness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
+   * 
+   * @example
+   * 3
+   */
   periodSeconds?: number;
+  /**
+   * @remarks
+   * The minimum count of consecutive successes that must occur for a readiness probe to be classified as successful. Default value: 1. Set the value to 1.
+   * 
+   * @example
+   * 1
+   */
   successThreshold?: number;
   tcpSocket?: CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSocket;
+  /**
+   * @remarks
+   * The timeout limit for a readiness probe to be complete. Unit: seconds. Default value: 1. Minimum value: 1.
+   * 
+   * @example
+   * 5
+   */
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -325,6 +467,12 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbe extend
 }
 
 export class CreateEciScalingConfigurationRequestContainersSecurityContextCapability extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions that you want to grant to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
+   * 
+   * >  To use NET_RAW, you must submit a ticket.
+   */
   add?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -352,7 +500,21 @@ export class CreateEciScalingConfigurationRequestContainersSecurityContextCapabi
 
 export class CreateEciScalingConfigurationRequestContainersSecurityContext extends $dara.Model {
   capability?: CreateEciScalingConfigurationRequestContainersSecurityContextCapability;
+  /**
+   * @remarks
+   * Specifies whether the root file system on which the container runs is read-only.
+   * 
+   * @example
+   * true
+   */
   readOnlyRootFilesystem?: boolean;
+  /**
+   * @remarks
+   * The ID of the user that runs the container.
+   * 
+   * @example
+   * 1000
+   */
   runAsUser?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1038,6 +1200,12 @@ export class CreateEciScalingConfigurationRequestImageRegistryCredentials extend
 }
 
 export class CreateEciScalingConfigurationRequestInitContainersSecurityContextCapability extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions that you want to grant to the processes in the init container. Valid values: NET_ADMIN and NET_RAW.
+   * 
+   * >  To use NET_RAW, submit a ticket.
+   */
   adds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1065,7 +1233,21 @@ export class CreateEciScalingConfigurationRequestInitContainersSecurityContextCa
 
 export class CreateEciScalingConfigurationRequestInitContainersSecurityContext extends $dara.Model {
   capability?: CreateEciScalingConfigurationRequestInitContainersSecurityContextCapability;
+  /**
+   * @remarks
+   * Specifies whether the root file system on which the init container runs is read-only. Valid value: true.
+   * 
+   * @example
+   * true
+   */
   readOnlyRootFilesystem?: boolean;
+  /**
+   * @remarks
+   * The ID of the user that runs the init container.
+   * 
+   * @example
+   * 587
+   */
   runAsUser?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1495,8 +1677,29 @@ export class CreateEciScalingConfigurationRequestTags extends $dara.Model {
 }
 
 export class CreateEciScalingConfigurationRequestVolumesDiskVolume extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the disk volume.
+   * 
+   * @example
+   * d-xx
+   */
   diskId?: string;
+  /**
+   * @remarks
+   * The size of the volume. Unit: GiB.
+   * 
+   * @example
+   * 15
+   */
   diskSize?: number;
+  /**
+   * @remarks
+   * The type of the disk volume. We recommend that you specify `FlexVolume.FsType` instead of DiskVolume.FsType.
+   * 
+   * @example
+   * xfs
+   */
   fsType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1524,7 +1727,21 @@ export class CreateEciScalingConfigurationRequestVolumesDiskVolume extends $dara
 }
 
 export class CreateEciScalingConfigurationRequestVolumesEmptyDirVolume extends $dara.Model {
+  /**
+   * @remarks
+   * The storage medium of the emptyDir volume. By default, this parameter is left empty. In this case, the emptyDir volume uses the file system of the node as the storage medium. A value of memory specifies that the emptyDir volume uses the memory as the storage medium.
+   * 
+   * @example
+   * memory
+   */
   medium?: string;
+  /**
+   * @remarks
+   * The size of the emptyDir volume. The value contains a unit. We recommend that you use Gi or Mi as the unit.
+   * 
+   * @example
+   * 256Mi
+   */
   sizeLimit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1550,8 +1767,31 @@ export class CreateEciScalingConfigurationRequestVolumesEmptyDirVolume extends $
 }
 
 export class CreateEciScalingConfigurationRequestVolumesFlexVolume extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the FlexVolume driver.
+   * 
+   * @example
+   * flexvolume
+   */
   driver?: string;
+  /**
+   * @remarks
+   * The type of the file system that you want to mount. The default value is determined by the script of FlexVolume.
+   * 
+   * @example
+   * ext4
+   */
   fsType?: string;
+  /**
+   * @remarks
+   * The options of the FlexVolume object. Each option is a key-value pair in a JSON string.
+   * 
+   * For example, if you use FlexVolume to mount a disk, specify the value in the `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"} format`.
+   * 
+   * @example
+   * {"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}
+   */
   options?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1579,7 +1819,21 @@ export class CreateEciScalingConfigurationRequestVolumesFlexVolume extends $dara
 }
 
 export class CreateEciScalingConfigurationRequestVolumesHostPathVolume extends $dara.Model {
+  /**
+   * @remarks
+   * The absolute path on the host.
+   * 
+   * @example
+   * /xx/xx/path
+   */
   path?: string;
+  /**
+   * @remarks
+   * The type of host directory. For example: File, Directory, Socket, etc.
+   * 
+   * @example
+   * Directory
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1605,8 +1859,34 @@ export class CreateEciScalingConfigurationRequestVolumesHostPathVolume extends $
 }
 
 export class CreateEciScalingConfigurationRequestVolumesNFSVolume extends $dara.Model {
+  /**
+   * @remarks
+   * The path to the NFS volume.
+   * 
+   * @example
+   * /share
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether the permissions on the NFS volume are read-only. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
   readOnly?: boolean;
+  /**
+   * @remarks
+   * The endpoint of the NFS server.
+   * 
+   * @example
+   * 3f9cd4a596-naw76.cn-shanghai.nas.aliyuncs.com
+   */
   server?: string;
   static names(): { [key: string]: string } {
     return {

@@ -1702,6 +1702,10 @@ export default class Client extends OpenApi {
       query["InstanceType"] = request.instanceType;
     }
 
+    if (!$dara.isNull(request.instanceTypeCandidateOptions)) {
+      query["InstanceTypeCandidateOptions"] = request.instanceTypeCandidateOptions;
+    }
+
     if (!$dara.isNull(request.instanceTypeOverrides)) {
       query["InstanceTypeOverrides"] = request.instanceTypeOverrides;
     }
@@ -6743,6 +6747,10 @@ export default class Client extends OpenApi {
       query["InstancePatternInfos"] = request.instancePatternInfos;
     }
 
+    if (!$dara.isNull(request.instanceTypeCandidateOptions)) {
+      query["InstanceTypeCandidateOptions"] = request.instanceTypeCandidateOptions;
+    }
+
     if (!$dara.isNull(request.instanceTypeOverrides)) {
       query["InstanceTypeOverrides"] = request.instanceTypeOverrides;
     }
@@ -8326,7 +8334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
+   * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\\\\\&M hurdles efficiently.
    * 
    * @remarks
    * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from their scaling groups. To prevent a specific instance from being removed, you can put it in either the Standby or Protected state. For more information, see [EnterStandby](https://help.aliyun.com/document_detail/459345.html) and [SetInstancesProtection](https://help.aliyun.com/document_detail/459342.html).
@@ -8372,7 +8380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
+   * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\\\\\&M hurdles efficiently.
    * 
    * @remarks
    * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from their scaling groups. To prevent a specific instance from being removed, you can put it in either the Standby or Protected state. For more information, see [EnterStandby](https://help.aliyun.com/document_detail/459345.html) and [SetInstancesProtection](https://help.aliyun.com/document_detail/459342.html).

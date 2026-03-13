@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryHistoricalMetricResponseBodyHistoricalMetricsHistoricalMetric extends $dara.Model {
-  /**
-   * @remarks
-   * The value of the metric.
-   * 
-   * @example
-   * 10.0
-   */
   metricValue?: string;
-  /**
-   * @remarks
-   * The point in time of the monitoring metric. The value must be in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format.
-   * 
-   * @example
-   * 2025-12-17T16:00Z
-   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class QueryHistoricalMetricResponseBodyHistoricalMetrics extends $dara.Mo
 }
 
 export class QueryHistoricalMetricResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The monitoring metrics of the prediction rule.
-   */
   historicalMetrics?: QueryHistoricalMetricResponseBodyHistoricalMetrics;
   /**
    * @remarks

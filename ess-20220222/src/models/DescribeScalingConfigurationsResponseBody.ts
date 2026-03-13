@@ -526,6 +526,44 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   }
 }
 
+export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstanceTypeCandidateOptions extends $dara.Model {
+  allowCidrBlocks?: string[];
+  allowCrossAz?: boolean;
+  allowDifferentGeneration?: boolean;
+  enabled?: boolean;
+  maxPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowCidrBlocks: 'AllowCidrBlocks',
+      allowCrossAz: 'AllowCrossAz',
+      allowDifferentGeneration: 'AllowDifferentGeneration',
+      enabled: 'Enabled',
+      maxPrice: 'MaxPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCidrBlocks: { 'type': 'array', 'itemType': 'string' },
+      allowCrossAz: 'boolean',
+      allowDifferentGeneration: 'boolean',
+      enabled: 'boolean',
+      maxPrice: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowCidrBlocks)) {
+      $dara.Model.validateArray(this.allowCidrBlocks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces extends $dara.Model {
   /**
    * @remarks
@@ -1003,6 +1041,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * ecs.g6.large
    */
   instanceType?: string;
+  instanceTypeCandidateOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstanceTypeCandidateOptions;
   /**
    * @remarks
    * The ECS instance types.
@@ -1114,7 +1153,25 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * false
    */
   passwordSetted?: boolean;
+  /**
+   * @remarks
+   * The ID of the private pool, which is the same as the ID of the elasticity assurance or capacity reservation for which the private pool is generated.
+   * 
+   * @example
+   * eap-bp67acfmxazb4****
+   */
   privatePoolOptions_id?: string;
+  /**
+   * @remarks
+   * The type of the private pool. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. You can specify a private pool for Auto Scaling to start instances. Valid values:
+   * 
+   * *   Open: open private pool. Auto Scaling selects a matching open private pool to start instances. If no matching open private pools exist, Auto Scaling uses the resources in the public pool to start instances.
+   * *   Target: specified private pool. Auto Scaling uses the resources in the specified private pool to start instances. If the resources in the specified private pool are insufficient, instances cannot be started.
+   * *   None: no private pool. Auto Scaling does not use the resources in private pools to start instances.
+   * 
+   * @example
+   * Open
+   */
   privatePoolOptions_matchCriteria?: string;
   /**
    * @remarks
@@ -1425,6 +1482,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       instanceName: 'InstanceName',
       instancePatternInfos: 'InstancePatternInfos',
       instanceType: 'InstanceType',
+      instanceTypeCandidateOptions: 'InstanceTypeCandidateOptions',
       instanceTypes: 'InstanceTypes',
       internetChargeType: 'InternetChargeType',
       internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
@@ -1503,6 +1561,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       instanceName: 'string',
       instancePatternInfos: { 'type': 'array', 'itemType': DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos },
       instanceType: 'string',
+      instanceTypeCandidateOptions: DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstanceTypeCandidateOptions,
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthIn: 'number',
@@ -1564,6 +1623,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
     }
     if(Array.isArray(this.instancePatternInfos)) {
       $dara.Model.validateArray(this.instancePatternInfos);
+    }
+    if(this.instanceTypeCandidateOptions && typeof (this.instanceTypeCandidateOptions as any).validate === 'function') {
+      (this.instanceTypeCandidateOptions as any).validate();
     }
     if(Array.isArray(this.instanceTypes)) {
       $dara.Model.validateArray(this.instanceTypes);

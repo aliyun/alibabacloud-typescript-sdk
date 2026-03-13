@@ -825,6 +825,44 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
   }
 }
 
+export class CreateScalingConfigurationShrinkRequestInstanceTypeCandidateOptions extends $dara.Model {
+  allowCidrBlocks?: string[];
+  allowCrossAz?: boolean;
+  allowDifferentGeneration?: boolean;
+  enabled?: boolean;
+  maxPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowCidrBlocks: 'AllowCidrBlocks',
+      allowCrossAz: 'AllowCrossAz',
+      allowDifferentGeneration: 'AllowDifferentGeneration',
+      enabled: 'Enabled',
+      maxPrice: 'MaxPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCidrBlocks: { 'type': 'array', 'itemType': 'string' },
+      allowCrossAz: 'boolean',
+      allowDifferentGeneration: 'boolean',
+      enabled: 'boolean',
+      maxPrice: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowCidrBlocks)) {
+      $dara.Model.validateArray(this.allowCidrBlocks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingConfigurationShrinkRequestInstanceTypeOverrides extends $dara.Model {
   /**
    * @remarks
@@ -1259,6 +1297,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
    * ecs.g6.large
    */
   instanceType?: string;
+  instanceTypeCandidateOptions?: CreateScalingConfigurationShrinkRequestInstanceTypeCandidateOptions;
   /**
    * @remarks
    * The information about instance types.
@@ -1594,6 +1633,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
       instanceName: 'InstanceName',
       instancePatternInfos: 'InstancePatternInfos',
       instanceType: 'InstanceType',
+      instanceTypeCandidateOptions: 'InstanceTypeCandidateOptions',
       instanceTypeOverrides: 'InstanceTypeOverrides',
       instanceTypes: 'InstanceTypes',
       internetChargeType: 'InternetChargeType',
@@ -1660,6 +1700,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
       instanceName: 'string',
       instancePatternInfos: { 'type': 'array', 'itemType': CreateScalingConfigurationShrinkRequestInstancePatternInfos },
       instanceType: 'string',
+      instanceTypeCandidateOptions: CreateScalingConfigurationShrinkRequestInstanceTypeCandidateOptions,
       instanceTypeOverrides: { 'type': 'array', 'itemType': CreateScalingConfigurationShrinkRequestInstanceTypeOverrides },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
@@ -1718,6 +1759,9 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
     }
     if(Array.isArray(this.instancePatternInfos)) {
       $dara.Model.validateArray(this.instancePatternInfos);
+    }
+    if(this.instanceTypeCandidateOptions && typeof (this.instanceTypeCandidateOptions as any).validate === 'function') {
+      (this.instanceTypeCandidateOptions as any).validate();
     }
     if(Array.isArray(this.instanceTypeOverrides)) {
       $dara.Model.validateArray(this.instanceTypeOverrides);
