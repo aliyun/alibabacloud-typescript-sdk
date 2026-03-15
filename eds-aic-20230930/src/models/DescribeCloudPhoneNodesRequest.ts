@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeCloudPhoneNodesRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   bandwidthPackageId?: string;
   /**
@@ -79,6 +105,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
    * CREATING
    */
   status?: string;
+  tags?: DescribeCloudPhoneNodesRequestTags[];
   static names(): { [key: string]: string } {
     return {
       bandwidthPackageId: 'BandwidthPackageId',
@@ -91,6 +118,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
       nodeNameList: 'NodeNameList',
       serverType: 'ServerType',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -106,6 +134,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
       nodeNameList: { 'type': 'array', 'itemType': 'string' },
       serverType: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesRequestTags },
     };
   }
 
@@ -115,6 +144,9 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
     }
     if(Array.isArray(this.nodeNameList)) {
       $dara.Model.validateArray(this.nodeNameList);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

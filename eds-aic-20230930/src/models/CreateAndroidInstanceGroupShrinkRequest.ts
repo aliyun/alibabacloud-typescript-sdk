@@ -216,6 +216,11 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    */
   officeSiteId?: string;
   /**
+   * @example
+   * wya.wuying.aliyun.com/instanceGroup
+   */
+  paidCallBackUrl?: string;
+  /**
    * @remarks
    * The subscription duration. The unit is specified by PeriodUnit.
    * 
@@ -284,6 +289,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
       networkType: 'NetworkType',
       numberOfInstances: 'NumberOfInstances',
       officeSiteId: 'OfficeSiteId',
+      paidCallBackUrl: 'PaidCallBackUrl',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
@@ -315,6 +321,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
       networkType: 'string',
       numberOfInstances: 'number',
       officeSiteId: 'string',
+      paidCallBackUrl: 'string',
       period: 'number',
       periodUnit: 'string',
       policyGroupId: 'string',

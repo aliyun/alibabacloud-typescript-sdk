@@ -375,6 +375,10 @@ export default class Client extends OpenApi {
       query["InstanceTasks"] = request.instanceTasks;
     }
 
+    if (!$dara.isNull(request.ports)) {
+      query["Ports"] = request.ports;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -638,6 +642,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.officeSiteId)) {
       query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
     }
 
     if (!$dara.isNull(request.period)) {
@@ -2135,6 +2143,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

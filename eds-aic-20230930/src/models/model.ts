@@ -46,9 +46,11 @@ export { DescribeBackupFilesResponseBodyData } from './DescribeBackupFilesRespon
 export { DescribeBucketsResponseBodyDataOssObjectListOwner } from './DescribeBucketsResponseBody';
 export { DescribeBucketsResponseBodyDataOssObjectList } from './DescribeBucketsResponseBody';
 export { DescribeBucketsResponseBodyData } from './DescribeBucketsResponseBody';
+export { DescribeCloudPhoneNodesRequestTags } from './DescribeCloudPhoneNodesRequest';
 export { DescribeCloudPhoneNodesResponseBodyNodeModelBizTags } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo } from './DescribeCloudPhoneNodesResponseBody';
+export { DescribeCloudPhoneNodesResponseBodyNodeModelTags } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModel } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeDisplayConfigResponseBodyDisplayConfigModel } from './DescribeDisplayConfigResponseBody';
 export { DescribeImageListRequestImageBizTags } from './DescribeImageListRequest';

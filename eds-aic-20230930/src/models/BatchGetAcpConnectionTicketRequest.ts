@@ -70,6 +70,7 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
    * The instance connection tasks.
    */
   instanceTasks?: BatchGetAcpConnectionTicketRequestInstanceTasks[];
+  ports?: string[];
   static names(): { [key: string]: string } {
     return {
       connectionMode: 'ConnectionMode',
@@ -77,6 +78,7 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
       instanceGroupId: 'InstanceGroupId',
       instanceIds: 'InstanceIds',
       instanceTasks: 'InstanceTasks',
+      ports: 'Ports',
     };
   }
 
@@ -87,6 +89,7 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
       instanceGroupId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       instanceTasks: { 'type': 'array', 'itemType': BatchGetAcpConnectionTicketRequestInstanceTasks },
+      ports: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -96,6 +99,9 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
     }
     if(Array.isArray(this.instanceTasks)) {
       $dara.Model.validateArray(this.instanceTasks);
+    }
+    if(Array.isArray(this.ports)) {
+      $dara.Model.validateArray(this.ports);
     }
     super.validate();
   }

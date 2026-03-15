@@ -89,6 +89,32 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $
   }
 }
 
+export class DescribeCloudPhoneNodesResponseBodyNodeModelTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   bandwidthPackageId?: string;
   bandwidthPackageStatus?: string;
@@ -227,6 +253,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    */
   status?: string;
   swapSize?: number;
+  tags?: DescribeCloudPhoneNodesResponseBodyNodeModelTags[];
   /**
    * @remarks
    * The vSwitch ID.
@@ -262,6 +289,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       shareDataVolume: 'ShareDataVolume',
       status: 'Status',
       swapSize: 'SwapSize',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -293,6 +321,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       shareDataVolume: 'number',
       status: 'string',
       swapSize: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesResponseBodyNodeModelTags },
       vSwitchId: 'string',
     };
   }
@@ -306,6 +335,9 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
     }
     if(this.phoneDataInfo && typeof (this.phoneDataInfo as any).validate === 'function') {
       (this.phoneDataInfo as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
