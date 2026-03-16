@@ -11,6 +11,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * 2019-09-08T16:00:00Z
    */
   createTime?: string;
+  DBSecurityIpList?: string;
   /**
    * @remarks
    * The Supabase Dashboard password (Not Used)
@@ -175,6 +176,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      DBSecurityIpList: 'DBSecurityIpList',
       dashboardPassword: 'DashboardPassword',
       dashboardUserName: 'DashboardUserName',
       diskPerformanceLevel: 'DiskPerformanceLevel',
@@ -203,6 +205,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      DBSecurityIpList: 'string',
       dashboardPassword: 'string',
       dashboardUserName: 'string',
       diskPerformanceLevel: 'string',

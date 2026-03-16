@@ -13527,6 +13527,14 @@ export default class Client extends OpenApi {
       query["SecurityIPList"] = request.securityIPList;
     }
 
+    if (!$dara.isNull(request.updateDb)) {
+      query["UpdateDb"] = request.updateDb;
+    }
+
+    if (!$dara.isNull(request.updateWeb)) {
+      query["UpdateWeb"] = request.updateWeb;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });

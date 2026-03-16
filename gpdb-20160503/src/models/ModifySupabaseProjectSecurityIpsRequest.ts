@@ -36,11 +36,15 @@ export class ModifySupabaseProjectSecurityIpsRequest extends $dara.Model {
    * 127.0.0.1
    */
   securityIPList?: string;
+  updateDb?: boolean;
+  updateWeb?: boolean;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
       regionId: 'RegionId',
       securityIPList: 'SecurityIPList',
+      updateDb: 'UpdateDb',
+      updateWeb: 'UpdateWeb',
     };
   }
 
@@ -49,6 +53,8 @@ export class ModifySupabaseProjectSecurityIpsRequest extends $dara.Model {
       projectId: 'string',
       regionId: 'string',
       securityIPList: 'string',
+      updateDb: 'boolean',
+      updateWeb: 'boolean',
     };
   }
 
