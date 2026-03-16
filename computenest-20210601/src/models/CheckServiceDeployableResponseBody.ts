@@ -11,6 +11,7 @@ export class CheckServiceDeployableResponseBodyCheckResults extends $dara.Model 
    * ""
    */
   message?: string;
+  skippable?: boolean;
   /**
    * @remarks
    * Check type, invalid values:
@@ -34,6 +35,7 @@ export class CheckServiceDeployableResponseBodyCheckResults extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       message: 'Message',
+      skippable: 'Skippable',
       type: 'Type',
       value: 'Value',
     };
@@ -42,6 +44,7 @@ export class CheckServiceDeployableResponseBodyCheckResults extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       message: 'string',
+      skippable: 'boolean',
       type: 'string',
       value: 'string',
     };
