@@ -9,6 +9,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
    * a***@example.net
    */
   email?: string;
+  fullDepartment?: string[];
   idpName?: string;
   /**
    * @example
@@ -30,6 +31,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
     return {
       department: 'Department',
       email: 'Email',
+      fullDepartment: 'FullDepartment',
       idpName: 'IdpName',
       phone: 'Phone',
       saseUserId: 'SaseUserId',
@@ -42,6 +44,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
     return {
       department: 'string',
       email: 'string',
+      fullDepartment: { 'type': 'array', 'itemType': 'string' },
       idpName: 'string',
       phone: 'string',
       saseUserId: 'string',
@@ -51,6 +54,9 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.fullDepartment)) {
+      $dara.Model.validateArray(this.fullDepartment);
+    }
     super.validate();
   }
 

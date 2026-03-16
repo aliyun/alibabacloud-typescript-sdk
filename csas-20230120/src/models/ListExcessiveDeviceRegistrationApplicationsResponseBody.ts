@@ -25,6 +25,7 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
    * Windows
    */
   deviceType?: string;
+  fullDepartment?: string[];
   /**
    * @example
    * win10-64bit
@@ -59,6 +60,7 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
       description: 'Description',
       deviceTag: 'DeviceTag',
       deviceType: 'DeviceType',
+      fullDepartment: 'FullDepartment',
       hostname: 'Hostname',
       isUsed: 'IsUsed',
       mac: 'Mac',
@@ -76,6 +78,7 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
       description: 'string',
       deviceTag: 'string',
       deviceType: 'string',
+      fullDepartment: { 'type': 'array', 'itemType': 'string' },
       hostname: 'string',
       isUsed: 'boolean',
       mac: 'string',
@@ -86,6 +89,9 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
   }
 
   validate() {
+    if(Array.isArray(this.fullDepartment)) {
+      $dara.Model.validateArray(this.fullDepartment);
+    }
     super.validate();
   }
 

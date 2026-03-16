@@ -58,6 +58,38 @@ export class GetUserDeviceResponseBodyDeviceNetInterfaceInfo extends $dara.Model
   }
 }
 
+export class GetUserDeviceResponseBodyDeviceProcesses extends $dara.Model {
+  cpu?: number;
+  description?: string;
+  memory?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      description: 'Description',
+      memory: 'Memory',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      description: 'string',
+      memory: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @example
@@ -70,11 +102,16 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    */
   appVersion?: string;
   autoLoginStatus?: string;
+  batteryHealthPercentage?: number;
+  batteryRemainingPercentage?: number;
   /**
    * @example
    * Apple M1
    */
   CPU?: string;
+  city?: string;
+  continent?: string;
+  country?: string;
   /**
    * @example
    * 2023-05-16 17:18:46
@@ -116,6 +153,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    * APPLE SSD AP0512Q Media
    */
   disk?: string;
+  diskAvailable?: number;
+  diskUsed?: number;
   /**
    * @example
    * Unauthorized
@@ -138,6 +177,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    * 172.16.XX.XX
    */
   innerIP?: string;
+  joinAdDomain?: boolean;
   /**
    * @example
    * 48:9e:XX:XX:02:80
@@ -160,6 +200,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    * Enabled
    */
   paStatus?: string;
+  processes?: GetUserDeviceResponseBodyDeviceProcesses[];
+  province?: string;
   /**
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -180,6 +222,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    * 106.14.XX.XX
    */
   srcIP?: string;
+  terminalInfoCollectTime?: number;
   /**
    * @example
    * 2023-08-24 19:04:42
@@ -192,7 +235,12 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       appStatus: 'AppStatus',
       appVersion: 'AppVersion',
       autoLoginStatus: 'AutoLoginStatus',
+      batteryHealthPercentage: 'BatteryHealthPercentage',
+      batteryRemainingPercentage: 'BatteryRemainingPercentage',
       CPU: 'CPU',
+      city: 'City',
+      continent: 'Continent',
+      country: 'Country',
       createTime: 'CreateTime',
       department: 'Department',
       deviceBelong: 'DeviceBelong',
@@ -202,18 +250,23 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       deviceType: 'DeviceType',
       deviceVersion: 'DeviceVersion',
       disk: 'Disk',
+      diskAvailable: 'DiskAvailable',
+      diskUsed: 'DiskUsed',
       dlpStatus: 'DlpStatus',
       edrStatus: 'EdrStatus',
       historyUsers: 'HistoryUsers',
       hostname: 'Hostname',
       iaStatus: 'IaStatus',
       innerIP: 'InnerIP',
+      joinAdDomain: 'JoinAdDomain',
       mac: 'Mac',
       matchDeviceGroupIds: 'MatchDeviceGroupIds',
       memory: 'Memory',
       nacStatus: 'NacStatus',
       netInterfaceInfo: 'NetInterfaceInfo',
       paStatus: 'PaStatus',
+      processes: 'Processes',
+      province: 'Province',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
       snBaseBoard: 'SnBaseBoard',
@@ -222,6 +275,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       snProcessor: 'SnProcessor',
       snSystem: 'SnSystem',
       srcIP: 'SrcIP',
+      terminalInfoCollectTime: 'TerminalInfoCollectTime',
       updateTime: 'UpdateTime',
       username: 'Username',
       workshop: 'Workshop',
@@ -233,7 +287,12 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       appStatus: 'string',
       appVersion: 'string',
       autoLoginStatus: 'string',
+      batteryHealthPercentage: 'number',
+      batteryRemainingPercentage: 'number',
       CPU: 'string',
+      city: 'string',
+      continent: 'string',
+      country: 'string',
       createTime: 'string',
       department: 'string',
       deviceBelong: 'string',
@@ -243,18 +302,23 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       deviceType: 'string',
       deviceVersion: 'string',
       disk: 'string',
+      diskAvailable: 'number',
+      diskUsed: 'number',
       dlpStatus: 'string',
       edrStatus: 'string',
       historyUsers: { 'type': 'array', 'itemType': GetUserDeviceResponseBodyDeviceHistoryUsers },
       hostname: 'string',
       iaStatus: 'string',
       innerIP: 'string',
+      joinAdDomain: 'boolean',
       mac: 'string',
       matchDeviceGroupIds: { 'type': 'array', 'itemType': 'string' },
       memory: 'string',
       nacStatus: 'string',
       netInterfaceInfo: { 'type': 'array', 'itemType': GetUserDeviceResponseBodyDeviceNetInterfaceInfo },
       paStatus: 'string',
+      processes: { 'type': 'array', 'itemType': GetUserDeviceResponseBodyDeviceProcesses },
+      province: 'string',
       saseUserId: 'string',
       sharingStatus: 'boolean',
       snBaseBoard: 'string',
@@ -263,6 +327,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       snProcessor: 'string',
       snSystem: 'string',
       srcIP: 'string',
+      terminalInfoCollectTime: 'number',
       updateTime: 'string',
       username: 'string',
       workshop: 'string',
@@ -278,6 +343,9 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
     }
     if(Array.isArray(this.netInterfaceInfo)) {
       $dara.Model.validateArray(this.netInterfaceInfo);
+    }
+    if(Array.isArray(this.processes)) {
+      $dara.Model.validateArray(this.processes);
     }
     super.validate();
   }

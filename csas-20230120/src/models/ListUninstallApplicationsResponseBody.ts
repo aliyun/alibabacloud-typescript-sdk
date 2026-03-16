@@ -24,6 +24,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
    * Windows
    */
   devType?: string;
+  fullDepartment?: string[];
   /**
    * @example
    * win10-64bit
@@ -59,6 +60,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
       department: 'Department',
       devTag: 'DevTag',
       devType: 'DevType',
+      fullDepartment: 'FullDepartment',
       hostname: 'Hostname',
       idpName: 'IdpName',
       isUninstall: 'IsUninstall',
@@ -77,6 +79,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
       department: 'string',
       devTag: 'string',
       devType: 'string',
+      fullDepartment: { 'type': 'array', 'itemType': 'string' },
       hostname: 'string',
       idpName: 'string',
       isUninstall: 'boolean',
@@ -89,6 +92,9 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   }
 
   validate() {
+    if(Array.isArray(this.fullDepartment)) {
+      $dara.Model.validateArray(this.fullDepartment);
+    }
     super.validate();
   }
 

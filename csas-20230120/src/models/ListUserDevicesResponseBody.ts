@@ -45,6 +45,9 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * Apple M1
    */
   CPU?: string;
+  city?: string;
+  continent?: string;
+  country?: string;
   /**
    * @example
    * 2023-07-17 18:46:55
@@ -92,6 +95,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    */
   dlpStatus?: string;
   edrStatus?: string;
+  fullDepartment?: string[];
   /**
    * @example
    * win10-64bit
@@ -107,6 +111,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * 192.168.XX.XX
    */
   innerIP?: string;
+  joinAdDomain?: boolean;
   /**
    * @example
    * 00:16:XX:XX:7c:46
@@ -129,6 +134,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * Enabled
    */
   paStatus?: string;
+  province?: string;
   /**
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -162,6 +168,9 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       appVersion: 'AppVersion',
       autoLoginStatus: 'AutoLoginStatus',
       CPU: 'CPU',
+      city: 'City',
+      continent: 'Continent',
+      country: 'Country',
       createTime: 'CreateTime',
       department: 'Department',
       deviceBelong: 'DeviceBelong',
@@ -173,15 +182,18 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       disk: 'Disk',
       dlpStatus: 'DlpStatus',
       edrStatus: 'EdrStatus',
+      fullDepartment: 'FullDepartment',
       hostname: 'Hostname',
       iaStatus: 'IaStatus',
       innerIP: 'InnerIP',
+      joinAdDomain: 'JoinAdDomain',
       mac: 'Mac',
       matchDeviceGroupIds: 'MatchDeviceGroupIds',
       memory: 'Memory',
       nacStatus: 'NacStatus',
       netInterfaceInfo: 'NetInterfaceInfo',
       paStatus: 'PaStatus',
+      province: 'Province',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
       snBaseBoard: 'SnBaseBoard',
@@ -202,6 +214,9 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       appVersion: 'string',
       autoLoginStatus: 'string',
       CPU: 'string',
+      city: 'string',
+      continent: 'string',
+      country: 'string',
       createTime: 'string',
       department: 'string',
       deviceBelong: 'string',
@@ -213,15 +228,18 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       disk: 'string',
       dlpStatus: 'string',
       edrStatus: 'string',
+      fullDepartment: { 'type': 'array', 'itemType': 'string' },
       hostname: 'string',
       iaStatus: 'string',
       innerIP: 'string',
+      joinAdDomain: 'boolean',
       mac: 'string',
       matchDeviceGroupIds: { 'type': 'array', 'itemType': 'string' },
       memory: 'string',
       nacStatus: 'string',
       netInterfaceInfo: { 'type': 'array', 'itemType': ListUserDevicesResponseBodyDevicesNetInterfaceInfo },
       paStatus: 'string',
+      province: 'string',
       saseUserId: 'string',
       sharingStatus: 'boolean',
       snBaseBoard: 'string',
@@ -237,6 +255,9 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.fullDepartment)) {
+      $dara.Model.validateArray(this.fullDepartment);
+    }
     if(Array.isArray(this.matchDeviceGroupIds)) {
       $dara.Model.validateArray(this.matchDeviceGroupIds);
     }

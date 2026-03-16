@@ -108,6 +108,7 @@ export { GetRegistrationPolicyResponseBodyLimitDetailLimitCount } from './GetReg
 export { GetRegistrationPolicyResponseBodyLimitDetail } from './GetRegistrationPolicyResponseBody';
 export { GetUserDeviceResponseBodyDeviceHistoryUsers } from './GetUserDeviceResponseBody';
 export { GetUserDeviceResponseBodyDeviceNetInterfaceInfo } from './GetUserDeviceResponseBody';
+export { GetUserDeviceResponseBodyDeviceProcesses } from './GetUserDeviceResponseBody';
 export { GetUserDeviceResponseBodyDevice } from './GetUserDeviceResponseBody';
 export { GetUserGroupResponseBodyUserGroupAttributes } from './GetUserGroupResponseBody';
 export { GetUserGroupResponseBodyUserGroup } from './GetUserGroupResponseBody';
