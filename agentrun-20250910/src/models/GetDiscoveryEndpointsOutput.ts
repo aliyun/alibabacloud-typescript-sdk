@@ -4,6 +4,9 @@ import { DiscoveryEndpoint } from "./DiscoveryEndpoint";
 
 
 export class GetDiscoveryEndpointsOutput extends $dara.Model {
+  /**
+   * @deprecated
+   */
   credentialName?: string;
   discoveryEndpoints?: DiscoveryEndpoint[];
   static names(): { [key: string]: string } {

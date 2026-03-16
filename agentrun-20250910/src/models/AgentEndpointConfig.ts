@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AgentEndpointConfig extends $dara.Model {
   agentName?: string;
   customDomainUrl?: string;
+  /**
+   * @remarks
+   * 端点名称
+   */
+  endpointName?: string;
   endpointUrl?: string;
   static names(): { [key: string]: string } {
     return {
       agentName: 'agentName',
       customDomainUrl: 'customDomainUrl',
+      endpointName: 'endpointName',
       endpointUrl: 'endpointUrl',
     };
   }
@@ -18,6 +24,7 @@ export class AgentEndpointConfig extends $dara.Model {
     return {
       agentName: 'string',
       customDomainUrl: 'string',
+      endpointName: 'string',
       endpointUrl: 'string',
     };
   }

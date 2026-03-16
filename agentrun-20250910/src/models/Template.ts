@@ -6,6 +6,7 @@ import { LogConfiguration } from "./LogConfiguration";
 import { NASConfig } from "./Nasconfig";
 import { NetworkConfiguration } from "./NetworkConfiguration";
 import { OssConfiguration } from "./OssConfiguration";
+import { ScalingStatus } from "./ScalingStatus";
 
 
 export class TemplateMcpOptions extends $dara.Model {
@@ -103,6 +104,7 @@ export class Template extends $dara.Model {
    * @deprecated
    */
   sandboxTTLInSeconds?: string;
+  scalingStatus?: ScalingStatus;
   status?: string;
   statusReason?: string;
   templateArn?: string;
@@ -143,6 +145,7 @@ export class Template extends $dara.Model {
       resourceName: 'resourceName',
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
       sandboxTTLInSeconds: 'sandboxTTLInSeconds',
+      scalingStatus: 'scalingStatus',
       status: 'status',
       statusReason: 'statusReason',
       templateArn: 'templateArn',
@@ -178,6 +181,7 @@ export class Template extends $dara.Model {
       resourceName: 'string',
       sandboxIdleTimeoutInSeconds: 'string',
       sandboxTTLInSeconds: 'string',
+      scalingStatus: ScalingStatus,
       status: 'string',
       statusReason: 'string',
       templateArn: 'string',
@@ -217,6 +221,9 @@ export class Template extends $dara.Model {
     }
     if(Array.isArray(this.ossConfiguration)) {
       $dara.Model.validateArray(this.ossConfiguration);
+    }
+    if(this.scalingStatus && typeof (this.scalingStatus as any).validate === 'function') {
+      (this.scalingStatus as any).validate();
     }
     if(this.templateConfiguration) {
       $dara.Model.validateMap(this.templateConfiguration);

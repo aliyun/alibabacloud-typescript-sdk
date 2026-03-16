@@ -31,6 +31,11 @@ export class AgentRuntimeEndpoint extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * 是否禁用该端点的公网访问
+   */
+  disablePublicNetworkAccess?: boolean;
+  /**
+   * @remarks
    * 智能体运行时端点的公网访问地址
    * 
    * @example
@@ -64,6 +69,7 @@ export class AgentRuntimeEndpoint extends $dara.Model {
       agentRuntimeEndpointName: 'agentRuntimeEndpointName',
       agentRuntimeId: 'agentRuntimeId',
       description: 'description',
+      disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       endpointPublicUrl: 'endpointPublicUrl',
       routingConfiguration: 'routingConfiguration',
       status: 'status',
@@ -79,6 +85,7 @@ export class AgentRuntimeEndpoint extends $dara.Model {
       agentRuntimeEndpointName: 'string',
       agentRuntimeId: 'string',
       description: 'string',
+      disablePublicNetworkAccess: 'boolean',
       endpointPublicUrl: 'string',
       routingConfiguration: RoutingConfiguration,
       status: 'string',

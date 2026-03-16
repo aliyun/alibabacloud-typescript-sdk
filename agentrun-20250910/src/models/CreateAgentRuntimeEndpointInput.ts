@@ -16,6 +16,11 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * 是否禁用该端点的公网访问
+   */
+  disablePublicNetworkAccess?: boolean;
+  /**
+   * @remarks
    * 智能体运行时端点的路由配置，支持多版本权重分配
    * 
    * @example
@@ -34,6 +39,7 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
     return {
       agentRuntimeEndpointName: 'agentRuntimeEndpointName',
       description: 'description',
+      disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       routingConfiguration: 'routingConfiguration',
       targetVersion: 'targetVersion',
     };
@@ -43,6 +49,7 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
     return {
       agentRuntimeEndpointName: 'string',
       description: 'string',
+      disablePublicNetworkAccess: 'boolean',
       routingConfiguration: RoutingConfiguration,
       targetVersion: 'string',
     };

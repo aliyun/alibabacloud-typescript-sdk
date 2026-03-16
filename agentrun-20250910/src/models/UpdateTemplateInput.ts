@@ -7,6 +7,7 @@ import { LogConfiguration } from "./LogConfiguration";
 import { NASConfig } from "./Nasconfig";
 import { NetworkConfiguration } from "./NetworkConfiguration";
 import { OssConfiguration } from "./OssConfiguration";
+import { ScalingConfig } from "./ScalingConfig";
 
 
 export class UpdateTemplateInput extends $dara.Model {
@@ -52,6 +53,7 @@ export class UpdateTemplateInput extends $dara.Model {
    * @deprecated
    */
   sandboxTTLInSeconds?: number;
+  scalingConfig?: ScalingConfig;
   /**
    * @remarks
    * 模板配置（灵活的对象结构，根据 templateType 不同而不同）
@@ -76,6 +78,7 @@ export class UpdateTemplateInput extends $dara.Model {
       ossConfiguration: 'ossConfiguration',
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
       sandboxTTLInSeconds: 'sandboxTTLInSeconds',
+      scalingConfig: 'scalingConfig',
       templateConfiguration: 'templateConfiguration',
       workspaceId: 'workspaceId',
     };
@@ -99,6 +102,7 @@ export class UpdateTemplateInput extends $dara.Model {
       ossConfiguration: { 'type': 'array', 'itemType': OssConfiguration },
       sandboxIdleTimeoutInSeconds: 'number',
       sandboxTTLInSeconds: 'number',
+      scalingConfig: ScalingConfig,
       templateConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       workspaceId: 'string',
     };
@@ -128,6 +132,9 @@ export class UpdateTemplateInput extends $dara.Model {
     }
     if(Array.isArray(this.ossConfiguration)) {
       $dara.Model.validateArray(this.ossConfiguration);
+    }
+    if(this.scalingConfig && typeof (this.scalingConfig as any).validate === 'function') {
+      (this.scalingConfig as any).validate();
     }
     if(this.templateConfiguration) {
       $dara.Model.validateMap(this.templateConfiguration);

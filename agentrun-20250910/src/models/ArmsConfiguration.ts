@@ -11,6 +11,7 @@ export class ArmsConfiguration extends $dara.Model {
    * arms-license-key-123456
    */
   armsLicenseKey?: string;
+  cmsWorkspace?: string;
   /**
    * @remarks
    * 是否启用应用实时监控服务（ARMS）
@@ -22,6 +23,7 @@ export class ArmsConfiguration extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       armsLicenseKey: 'armsLicenseKey',
+      cmsWorkspace: 'cmsWorkspace',
       enableArms: 'enableArms',
     };
   }
@@ -29,6 +31,7 @@ export class ArmsConfiguration extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       armsLicenseKey: 'string',
+      cmsWorkspace: 'string',
       enableArms: 'boolean',
     };
   }
