@@ -11,6 +11,9 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
    * pxc-********
    */
   DBInstanceName?: string;
+  dstMainConnectString?: string;
+  dstMainPort?: string;
+  isModifyEndpoint?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -19,6 +22,8 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  srcMainConnectString?: string;
+  srcMainPort?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -28,7 +33,12 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
+      dstMainConnectString: 'DstMainConnectString',
+      dstMainPort: 'DstMainPort',
+      isModifyEndpoint: 'IsModifyEndpoint',
       regionId: 'RegionId',
+      srcMainConnectString: 'SrcMainConnectString',
+      srcMainPort: 'SrcMainPort',
       switchMode: 'SwitchMode',
       taskTimeout: 'TaskTimeout',
     };
@@ -37,7 +47,12 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
+      dstMainConnectString: 'string',
+      dstMainPort: 'string',
+      isModifyEndpoint: 'string',
       regionId: 'string',
+      srcMainConnectString: 'string',
+      srcMainPort: 'string',
       switchMode: 'string',
       taskTimeout: 'number',
     };

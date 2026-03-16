@@ -6823,8 +6823,28 @@ export default class Client extends OpenApi {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
+    if (!$dara.isNull(request.dstMainConnectString)) {
+      query["DstMainConnectString"] = request.dstMainConnectString;
+    }
+
+    if (!$dara.isNull(request.dstMainPort)) {
+      query["DstMainPort"] = request.dstMainPort;
+    }
+
+    if (!$dara.isNull(request.isModifyEndpoint)) {
+      query["IsModifyEndpoint"] = request.isModifyEndpoint;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.srcMainConnectString)) {
+      query["SrcMainConnectString"] = request.srcMainConnectString;
+    }
+
+    if (!$dara.isNull(request.srcMainPort)) {
+      query["SrcMainPort"] = request.srcMainPort;
     }
 
     if (!$dara.isNull(request.switchMode)) {
