@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UserBatchJoinGroupRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The list of user IDs.
    */
@@ -20,6 +25,7 @@ export class UserBatchJoinGroupRequest extends $dara.Model {
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       endUserIds: 'EndUserIds',
       groupId: 'GroupId',
     };
@@ -27,6 +33,7 @@ export class UserBatchJoinGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       groupId: 'string',
     };

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckUsedPropertyValueRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query property ID.
    * 
@@ -25,6 +30,7 @@ export class CheckUsedPropertyValueRequest extends $dara.Model {
   propertyValueId?: number;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       propertyId: 'PropertyId',
       propertyValueId: 'PropertyValueId',
     };
@@ -32,6 +38,7 @@ export class CheckUsedPropertyValueRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       propertyId: 'number',
       propertyValueId: 'number',
     };

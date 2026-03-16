@@ -12,6 +12,11 @@ export class DescribeGroupUserRequest extends $dara.Model {
    */
   bizType?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The fuzzy search string that matches the username (EndUserId) and email address (Email) of the regular user.
    * 
@@ -54,6 +59,7 @@ export class DescribeGroupUserRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      businessChannel: 'BusinessChannel',
       filter: 'Filter',
       groupId: 'GroupId',
       maxResults: 'MaxResults',
@@ -65,6 +71,7 @@ export class DescribeGroupUserRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      businessChannel: 'string',
       filter: 'string',
       groupId: 'string',
       maxResults: 'number',

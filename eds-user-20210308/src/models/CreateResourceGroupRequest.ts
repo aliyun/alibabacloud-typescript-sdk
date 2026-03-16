@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateResourceGroupRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * >  This parameter is not publicly available.
    * 
@@ -28,6 +33,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       isResourceGroupWithOfficeSite: 'IsResourceGroupWithOfficeSite',
       platform: 'Platform',
       resourceGroupName: 'ResourceGroupName',
@@ -36,6 +42,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       isResourceGroupWithOfficeSite: 'number',
       platform: 'string',
       resourceGroupName: 'string',

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePropertyRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The property name.
    * 
@@ -20,6 +25,7 @@ export class CreatePropertyRequest extends $dara.Model {
   propertyValues?: string[];
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       propertyKey: 'PropertyKey',
       propertyValues: 'PropertyValues',
     };
@@ -27,6 +33,7 @@ export class CreatePropertyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       propertyKey: 'string',
       propertyValues: { 'type': 'array', 'itemType': 'string' },
     };

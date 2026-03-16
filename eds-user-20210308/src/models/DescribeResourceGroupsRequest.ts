@@ -3,6 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceGroupsRequest extends $dara.Model {
+  aliyunResourceGroupIds?: string[];
+  /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
   /**
    * @remarks
    * >  This parameter is not publicly available.
@@ -49,6 +55,8 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      aliyunResourceGroupIds: 'AliyunResourceGroupIds',
+      businessChannel: 'BusinessChannel',
       needContainResourceGroupWithOfficeSite: 'NeedContainResourceGroupWithOfficeSite',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -60,6 +68,8 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliyunResourceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      businessChannel: 'string',
       needContainResourceGroupWithOfficeSite: 'number',
       pageNumber: 'number',
       pageSize: 'number',
@@ -70,6 +80,9 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.aliyunResourceGroupIds)) {
+      $dara.Model.validateArray(this.aliyunResourceGroupIds);
+    }
     if(Array.isArray(this.resourceGroupIds)) {
       $dara.Model.validateArray(this.resourceGroupIds);
     }

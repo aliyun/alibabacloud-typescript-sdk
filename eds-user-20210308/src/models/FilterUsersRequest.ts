@@ -135,6 +135,11 @@ export class FilterUsersRequestPropertyKeyValueFilterParam extends $dara.Model {
 
 export class FilterUsersRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The list of usernames to be precisely excluded.
    */
@@ -147,6 +152,7 @@ export class FilterUsersRequest extends $dara.Model {
    * test
    */
   filter?: string;
+  filterMap?: { [key: string]: string };
   /**
    * @remarks
    * Specifies whether to return the number of cloud desktops that are assigned to the convenience user.
@@ -199,6 +205,7 @@ export class FilterUsersRequest extends $dara.Model {
    * false
    */
   includeDesktopGroupCount?: boolean;
+  includeEndUserIds?: string[];
   /**
    * @remarks
    * Specifies whether to return the organization information.
@@ -276,10 +283,13 @@ export class FilterUsersRequest extends $dara.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       excludeEndUserIds: 'ExcludeEndUserIds',
       filter: 'Filter',
+      filterMap: 'FilterMap',
       includeDesktopCount: 'IncludeDesktopCount',
       includeDesktopGroupCount: 'IncludeDesktopGroupCount',
+      includeEndUserIds: 'IncludeEndUserIds',
       includeOrgInfo: 'IncludeOrgInfo',
       includeSupportIdps: 'IncludeSupportIdps',
       isQueryAllSubOrgs: 'IsQueryAllSubOrgs',
@@ -296,10 +306,13 @@ export class FilterUsersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       excludeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       filter: 'string',
+      filterMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       includeDesktopCount: 'boolean',
       includeDesktopGroupCount: 'boolean',
+      includeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       includeOrgInfo: 'boolean',
       includeSupportIdps: 'boolean',
       isQueryAllSubOrgs: 'boolean',
@@ -317,6 +330,12 @@ export class FilterUsersRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.excludeEndUserIds)) {
       $dara.Model.validateArray(this.excludeEndUserIds);
+    }
+    if(this.filterMap) {
+      $dara.Model.validateMap(this.filterMap);
+    }
+    if(Array.isArray(this.includeEndUserIds)) {
+      $dara.Model.validateArray(this.includeEndUserIds);
     }
     if(this.orderParam && typeof (this.orderParam as any).validate === 'function') {
       (this.orderParam as any).validate();

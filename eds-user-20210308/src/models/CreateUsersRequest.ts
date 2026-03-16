@@ -126,6 +126,11 @@ export class CreateUsersRequest extends $dara.Model {
    * 2023-03-03
    */
   autoLockTime?: string;
+  /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
   isLocalAdmin?: boolean;
   /**
    * @remarks
@@ -149,6 +154,7 @@ export class CreateUsersRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoLockTime: 'AutoLockTime',
+      businessChannel: 'BusinessChannel',
       isLocalAdmin: 'IsLocalAdmin',
       password: 'Password',
       passwordExpireDays: 'PasswordExpireDays',
@@ -159,6 +165,7 @@ export class CreateUsersRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoLockTime: 'string',
+      businessChannel: 'string',
       isLocalAdmin: 'boolean',
       password: 'string',
       passwordExpireDays: 'string',

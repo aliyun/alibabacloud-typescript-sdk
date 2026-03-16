@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOrgByLayerRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The name of the organization.
    */
@@ -18,6 +23,7 @@ export class DescribeOrgByLayerRequest extends $dara.Model {
   parentOrgId?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       orgName: 'OrgName',
       parentOrgId: 'ParentOrgId',
     };
@@ -25,6 +31,7 @@ export class DescribeOrgByLayerRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       orgName: 'string',
       parentOrgId: 'string',
     };

@@ -42,6 +42,10 @@ export default class Client extends OpenApi {
   async batchSetDesktopManagerWithOptions(request: $_model.BatchSetDesktopManagerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchSetDesktopManagerResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.isDesktopManager)) {
       body["IsDesktopManager"] = request.isDesktopManager;
     }
@@ -82,7 +86,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 管理员修改用户密码
+   * If the user is in administrator-activated mode, you can change the user logon password through this operation.
    * 
    * @param request - ChangeUserPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91,6 +95,10 @@ export default class Client extends OpenApi {
   async changeUserPasswordWithOptions(request: $_model.ChangeUserPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeUserPasswordResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
@@ -117,7 +125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 管理员修改用户密码
+   * If the user is in administrator-activated mode, you can change the user logon password through this operation.
    * 
    * @param request - ChangeUserPasswordRequest
    * @returns ChangeUserPasswordResponse
@@ -137,6 +145,10 @@ export default class Client extends OpenApi {
   async checkUsedPropertyWithOptions(request: $_model.CheckUsedPropertyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckUsedPropertyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.propertyId)) {
       query["PropertyId"] = request.propertyId;
     }
@@ -182,6 +194,10 @@ export default class Client extends OpenApi {
   async checkUsedPropertyValueWithOptions(request: $_model.CheckUsedPropertyValueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckUsedPropertyValueResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.propertyId)) {
       query["PropertyId"] = request.propertyId;
     }
@@ -233,6 +249,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -289,6 +309,10 @@ export default class Client extends OpenApi {
   async createOrgWithOptions(request: $_model.CreateOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOrgResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.orgName)) {
       query["OrgName"] = request.orgName;
     }
@@ -335,6 +359,10 @@ export default class Client extends OpenApi {
   async createPropertyWithOptions(request: $_model.CreatePropertyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePropertyResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.propertyKey)) {
       body["PropertyKey"] = request.propertyKey;
     }
@@ -381,6 +409,10 @@ export default class Client extends OpenApi {
   async createResourceGroupWithOptions(request: $_model.CreateResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.isResourceGroupWithOfficeSite)) {
       query["IsResourceGroupWithOfficeSite"] = request.isResourceGroupWithOfficeSite;
     }
@@ -436,6 +468,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.autoLockTime)) {
       query["AutoLockTime"] = request.autoLockTime;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.isLocalAdmin)) {
@@ -497,6 +533,10 @@ export default class Client extends OpenApi {
   async deleteResourceGroupWithOptions(request: $_model.DeleteResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -546,6 +586,10 @@ export default class Client extends OpenApi {
   async deleteUserPropertyValueWithOptions(request: $_model.DeleteUserPropertyValueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUserPropertyValueResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.propertyId)) {
       body["PropertyId"] = request.propertyId;
     }
@@ -601,6 +645,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.filter)) {
@@ -663,6 +711,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.excludeAttachedLoginPolicyGroups)) {
@@ -743,6 +795,10 @@ export default class Client extends OpenApi {
       query["AdDomain"] = request.adDomain;
     }
 
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.endUserIds)) {
       query["EndUserIds"] = request.endUserIds;
     }
@@ -801,6 +857,10 @@ export default class Client extends OpenApi {
   async describeOrgByLayerWithOptions(request: $_model.DescribeOrgByLayerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOrgByLayerResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.orgName)) {
       body["OrgName"] = request.orgName;
     }
@@ -856,6 +916,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -917,6 +981,14 @@ export default class Client extends OpenApi {
   async describeResourceGroupsWithOptions(request: $_model.DescribeResourceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceGroupsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.aliyunResourceGroupIds)) {
+      query["AliyunResourceGroupIds"] = request.aliyunResourceGroupIds;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.needContainResourceGroupWithOfficeSite)) {
       query["NeedContainResourceGroupWithOfficeSite"] = request.needContainResourceGroupWithOfficeSite;
     }
@@ -980,6 +1052,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.DescribeUsersShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterMap)) {
+      request.filterMapShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterMap, "FilterMap", "json");
+    }
+
     if (!$dara.isNull(tmpReq.filterWithAssignedResource)) {
       request.filterWithAssignedResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterWithAssignedResource, "FilterWithAssignedResource", "json");
     }
@@ -993,8 +1069,16 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.filterMapShrink)) {
+      query["FilterMap"] = request.filterMapShrink;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -1094,11 +1178,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.FilterUsersShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterMap)) {
+      request.filterMapShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterMap, "FilterMap", "json");
+    }
+
     if (!$dara.isNull(tmpReq.orderParam)) {
       request.orderParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderParam, "OrderParam", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.excludeEndUserIds)) {
       query["ExcludeEndUserIds"] = request.excludeEndUserIds;
     }
@@ -1107,12 +1199,20 @@ export default class Client extends OpenApi {
       query["Filter"] = request.filter;
     }
 
+    if (!$dara.isNull(request.filterMapShrink)) {
+      query["FilterMap"] = request.filterMapShrink;
+    }
+
     if (!$dara.isNull(request.includeDesktopCount)) {
       query["IncludeDesktopCount"] = request.includeDesktopCount;
     }
 
     if (!$dara.isNull(request.includeDesktopGroupCount)) {
       query["IncludeDesktopGroupCount"] = request.includeDesktopGroupCount;
+    }
+
+    if (!$dara.isNull(request.includeEndUserIds)) {
+      query["IncludeEndUserIds"] = request.includeEndUserIds;
     }
 
     if (!$dara.isNull(request.includeOrgInfo)) {
@@ -1236,8 +1336,16 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InitTenantAliasResponse
    */
-  async initTenantAliasWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.InitTenantAliasResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async initTenantAliasWithOptions(request: $_model.InitTenantAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitTenantAliasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "InitTenantAlias",
       version: "2021-03-08",
@@ -1254,11 +1362,13 @@ export default class Client extends OpenApi {
 
   /**
    * Initializes an organization ID.
+   * 
+   * @param request - InitTenantAliasRequest
    * @returns InitTenantAliasResponse
    */
-  async initTenantAlias(): Promise<$_model.InitTenantAliasResponse> {
+  async initTenantAlias(request: $_model.InitTenantAliasRequest): Promise<$_model.InitTenantAliasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.initTenantAliasWithOptions(runtime);
+    return await this.initTenantAliasWithOptions(request, runtime);
   }
 
   /**
@@ -1268,8 +1378,16 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPropertyResponse
    */
-  async listPropertyWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListPropertyResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async listPropertyWithOptions(request: $_model.ListPropertyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPropertyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "ListProperty",
       version: "2021-03-08",
@@ -1286,11 +1404,13 @@ export default class Client extends OpenApi {
 
   /**
    * Queries all user properties within an Alibaba Cloud account.
+   * 
+   * @param request - ListPropertyRequest
    * @returns ListPropertyResponse
    */
-  async listProperty(): Promise<$_model.ListPropertyResponse> {
+  async listProperty(request: $_model.ListPropertyRequest): Promise<$_model.ListPropertyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.listPropertyWithOptions(runtime);
+    return await this.listPropertyWithOptions(request, runtime);
   }
 
   /**
@@ -1303,6 +1423,10 @@ export default class Client extends OpenApi {
   async listPropertyValueWithOptions(request: $_model.ListPropertyValueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPropertyValueResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.propertyId)) {
       query["PropertyId"] = request.propertyId;
     }
@@ -1352,6 +1476,10 @@ export default class Client extends OpenApi {
       query["AdDomain"] = request.adDomain;
     }
 
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.serialNumber)) {
       query["SerialNumber"] = request.serialNumber;
     }
@@ -1397,6 +1525,10 @@ export default class Client extends OpenApi {
   async lockUsersWithOptions(request: $_model.LockUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LockUsersResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.logoutSession)) {
       query["LogoutSession"] = request.logoutSession;
     }
@@ -1445,6 +1577,10 @@ export default class Client extends OpenApi {
   async modifyGroupWithOptions(request: $_model.ModifyGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
@@ -1495,6 +1631,10 @@ export default class Client extends OpenApi {
   async modifyOrgWithOptions(request: $_model.ModifyOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOrgResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.orgId)) {
       query["OrgId"] = request.orgId;
     }
@@ -1532,7 +1672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies user information.
+   * Updates the contact information of a convenience account.
    * 
    * @param request - ModifyUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1541,6 +1681,10 @@ export default class Client extends OpenApi {
   async modifyUserWithOptions(request: $_model.ModifyUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyUserResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
@@ -1571,7 +1715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies user information.
+   * Updates the contact information of a convenience account.
    * 
    * @param request - ModifyUserRequest
    * @returns ModifyUserResponse
@@ -1591,6 +1735,10 @@ export default class Client extends OpenApi {
   async moveOrgWithOptions(request: $_model.MoveOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveOrgResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.newParentOrgId)) {
       body["NewParentOrgId"] = request.newParentOrgId;
     }
@@ -1637,6 +1785,10 @@ export default class Client extends OpenApi {
   async moveUserOrgWithOptions(request: $_model.MoveUserOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveUserOrgResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.endUserIds)) {
       body["EndUserIds"] = request.endUserIds;
     }
@@ -1674,14 +1826,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询edu同步信息
+   * Queries user synchronization status.
    * 
    * @param request - QuerySyncStatusByAliUidRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySyncStatusByAliUidResponse
    */
-  async querySyncStatusByAliUidWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.QuerySyncStatusByAliUidResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async querySyncStatusByAliUidWithOptions(request: $_model.QuerySyncStatusByAliUidRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySyncStatusByAliUidResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "QuerySyncStatusByAliUid",
       version: "2021-03-08",
@@ -1697,12 +1857,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询edu同步信息
+   * Queries user synchronization status.
+   * 
+   * @param request - QuerySyncStatusByAliUidRequest
    * @returns QuerySyncStatusByAliUidResponse
    */
-  async querySyncStatusByAliUid(): Promise<$_model.QuerySyncStatusByAliUidResponse> {
+  async querySyncStatusByAliUid(request: $_model.QuerySyncStatusByAliUidRequest): Promise<$_model.QuerySyncStatusByAliUidResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.querySyncStatusByAliUidWithOptions(runtime);
+    return await this.querySyncStatusByAliUidWithOptions(request, runtime);
   }
 
   /**
@@ -1715,6 +1877,10 @@ export default class Client extends OpenApi {
   async removeGroupWithOptions(request: $_model.RemoveGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
@@ -1768,6 +1934,10 @@ export default class Client extends OpenApi {
       query["AdDomain"] = request.adDomain;
     }
 
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.serialNumber)) {
       query["SerialNumber"] = request.serialNumber;
     }
@@ -1813,6 +1983,10 @@ export default class Client extends OpenApi {
   async removeOrgWithOptions(request: $_model.RemoveOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveOrgResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.orgId)) {
       body["OrgId"] = request.orgId;
     }
@@ -1854,12 +2028,18 @@ export default class Client extends OpenApi {
    */
   async removePropertyWithOptions(request: $_model.RemovePropertyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemovePropertyResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.propertyId)) {
       body["PropertyId"] = request.propertyId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1897,6 +2077,10 @@ export default class Client extends OpenApi {
   async removeUsersWithOptions(request: $_model.RemoveUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveUsersResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.users)) {
       body["Users"] = request.users;
     }
@@ -1939,6 +2123,10 @@ export default class Client extends OpenApi {
   async resetUserPasswordWithOptions(request: $_model.ResetUserPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetUserPasswordResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.notifyType)) {
       body["NotifyType"] = request.notifyType;
     }
@@ -1985,6 +2173,10 @@ export default class Client extends OpenApi {
   async setUserPropertyValueWithOptions(request: $_model.SetUserPropertyValueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetUserPropertyValueResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.propertyId)) {
       body["PropertyId"] = request.propertyId;
     }
@@ -2030,7 +2222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从钉钉手动同步老师学生信息
+   * Synchronizes all education information.
    * 
    * @param request - SyncAllEduInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2053,7 +2245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从钉钉手动同步老师学生信息
+   * Synchronizes all education information.
    * @returns SyncAllEduInfoResponse
    */
   async syncAllEduInfo(): Promise<$_model.SyncAllEduInfoResponse> {
@@ -2073,6 +2265,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.adDomain)) {
       query["AdDomain"] = request.adDomain;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.serialNumber)) {
@@ -2121,6 +2317,10 @@ export default class Client extends OpenApi {
       query["AutoLockTime"] = request.autoLockTime;
     }
 
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.users)) {
       body["Users"] = request.users;
@@ -2164,6 +2364,11 @@ export default class Client extends OpenApi {
    */
   async updatePropertyWithOptions(request: $_model.UpdatePropertyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePropertyResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.propertyId)) {
       body["PropertyId"] = request.propertyId;
@@ -2178,6 +2383,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2215,6 +2421,10 @@ export default class Client extends OpenApi {
   async userBatchJoinGroupWithOptions(request: $_model.UserBatchJoinGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UserBatchJoinGroupResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.endUserIds)) {
       body["EndUserIds"] = request.endUserIds;
     }
@@ -2261,6 +2471,10 @@ export default class Client extends OpenApi {
   async userBatchQuitGroupWithOptions(request: $_model.UserBatchQuitGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UserBatchQuitGroupResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      body["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.endUserIds)) {
       body["EndUserIds"] = request.endUserIds;
     }

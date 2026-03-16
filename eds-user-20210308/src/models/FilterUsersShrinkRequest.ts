@@ -84,6 +84,11 @@ export class FilterUsersShrinkRequestPropertyKeyValueFilterParam extends $dara.M
 
 export class FilterUsersShrinkRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The list of usernames to be precisely excluded.
    */
@@ -96,6 +101,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
    * test
    */
   filter?: string;
+  filterMapShrink?: string;
   /**
    * @remarks
    * Specifies whether to return the number of cloud desktops that are assigned to the convenience user.
@@ -148,6 +154,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
    * false
    */
   includeDesktopGroupCount?: boolean;
+  includeEndUserIds?: string[];
   /**
    * @remarks
    * Specifies whether to return the organization information.
@@ -225,10 +232,13 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       excludeEndUserIds: 'ExcludeEndUserIds',
       filter: 'Filter',
+      filterMapShrink: 'FilterMap',
       includeDesktopCount: 'IncludeDesktopCount',
       includeDesktopGroupCount: 'IncludeDesktopGroupCount',
+      includeEndUserIds: 'IncludeEndUserIds',
       includeOrgInfo: 'IncludeOrgInfo',
       includeSupportIdps: 'IncludeSupportIdps',
       isQueryAllSubOrgs: 'IsQueryAllSubOrgs',
@@ -245,10 +255,13 @@ export class FilterUsersShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       excludeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       filter: 'string',
+      filterMapShrink: 'string',
       includeDesktopCount: 'boolean',
       includeDesktopGroupCount: 'boolean',
+      includeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       includeOrgInfo: 'boolean',
       includeSupportIdps: 'boolean',
       isQueryAllSubOrgs: 'boolean',
@@ -266,6 +279,9 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.excludeEndUserIds)) {
       $dara.Model.validateArray(this.excludeEndUserIds);
+    }
+    if(Array.isArray(this.includeEndUserIds)) {
+      $dara.Model.validateArray(this.includeEndUserIds);
     }
     if(Array.isArray(this.propertyFilterParam)) {
       $dara.Model.validateArray(this.propertyFilterParam);

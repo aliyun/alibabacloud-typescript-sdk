@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class MoveOrgRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The ID of the parent organization.
    * 
@@ -25,6 +30,7 @@ export class MoveOrgRequest extends $dara.Model {
   orgId?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       newParentOrgId: 'NewParentOrgId',
       orgId: 'OrgId',
     };
@@ -32,6 +38,7 @@ export class MoveOrgRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       newParentOrgId: 'string',
       orgId: 'string',
     };

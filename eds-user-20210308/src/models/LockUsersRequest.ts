@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LockUsersRequest extends $dara.Model {
+  /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
   logoutSession?: boolean;
   /**
    * @remarks
@@ -16,6 +21,7 @@ export class LockUsersRequest extends $dara.Model {
   users?: string[];
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       logoutSession: 'LogoutSession',
       users: 'Users',
     };
@@ -23,6 +29,7 @@ export class LockUsersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       logoutSession: 'boolean',
       users: { 'type': 'array', 'itemType': 'string' },
     };

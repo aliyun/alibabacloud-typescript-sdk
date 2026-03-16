@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveUsersRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The usernames of the convenience users that you want to remove.
    * 
@@ -15,12 +20,14 @@ export class RemoveUsersRequest extends $dara.Model {
   users?: string[];
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       users: { 'type': 'array', 'itemType': 'string' },
     };
   }

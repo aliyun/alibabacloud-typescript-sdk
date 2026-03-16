@@ -12,6 +12,11 @@ export class UnlockMfaDeviceRequest extends $dara.Model {
    */
   adDomain?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The serial number of the virtual MFA device. The serial number is unique for each device.
    * 
@@ -24,6 +29,7 @@ export class UnlockMfaDeviceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       adDomain: 'AdDomain',
+      businessChannel: 'BusinessChannel',
       serialNumber: 'SerialNumber',
     };
   }
@@ -31,6 +37,7 @@ export class UnlockMfaDeviceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       adDomain: 'string',
+      businessChannel: 'string',
       serialNumber: 'string',
     };
   }

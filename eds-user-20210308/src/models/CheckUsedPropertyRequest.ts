@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckUsedPropertyRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The ID of the property. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
    * 
@@ -15,12 +20,14 @@ export class CheckUsedPropertyRequest extends $dara.Model {
   propertyId?: number;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       propertyId: 'PropertyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       propertyId: 'number',
     };
   }

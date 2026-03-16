@@ -9,6 +9,11 @@ export class CreateGroupRequest extends $dara.Model {
    */
   bizType?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The description of the user group.
    * 
@@ -36,6 +41,7 @@ export class CreateGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      businessChannel: 'BusinessChannel',
       description: 'Description',
       groupName: 'GroupName',
       parentGroupId: 'ParentGroupId',
@@ -46,6 +52,7 @@ export class CreateGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      businessChannel: 'string',
       description: 'string',
       groupName: 'string',
       parentGroupId: 'string',

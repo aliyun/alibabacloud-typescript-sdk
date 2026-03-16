@@ -12,6 +12,11 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
    */
   adDomain?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The usernames of the convenience accounts.
    * 
@@ -48,6 +53,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       adDomain: 'AdDomain',
+      businessChannel: 'BusinessChannel',
       endUserIds: 'EndUserIds',
       filter: 'Filter',
       maxResults: 'MaxResults',
@@ -59,6 +65,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       adDomain: 'string',
+      businessChannel: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       filter: 'string',
       maxResults: 'number',

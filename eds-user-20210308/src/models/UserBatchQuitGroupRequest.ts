@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UserBatchQuitGroupRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The user IDs.
    */
@@ -18,6 +23,7 @@ export class UserBatchQuitGroupRequest extends $dara.Model {
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       endUserIds: 'EndUserIds',
       groupId: 'GroupId',
     };
@@ -25,6 +31,7 @@ export class UserBatchQuitGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       groupId: 'string',
     };

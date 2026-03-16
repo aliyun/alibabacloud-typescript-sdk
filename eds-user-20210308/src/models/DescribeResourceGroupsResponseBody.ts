@@ -122,6 +122,11 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
 }
 
 export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model {
+  /**
+   * @example
+   * rg-123456
+   */
+  aliyunResourceGroupId?: string;
   appRules?: DescribeResourceGroupsResponseBodyResourceGroupAppRules[];
   /**
    * @remarks
@@ -178,6 +183,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   timers?: DescribeResourceGroupsResponseBodyResourceGroupTimers[];
   static names(): { [key: string]: string } {
     return {
+      aliyunResourceGroupId: 'AliyunResourceGroupId',
       appRules: 'AppRules',
       authCount: 'AuthCount',
       createTime: 'CreateTime',
@@ -191,6 +197,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      aliyunResourceGroupId: 'string',
       appRules: { 'type': 'array', 'itemType': DescribeResourceGroupsResponseBodyResourceGroupAppRules },
       authCount: 'string',
       createTime: 'string',

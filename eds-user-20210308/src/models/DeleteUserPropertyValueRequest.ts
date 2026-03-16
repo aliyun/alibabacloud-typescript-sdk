@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteUserPropertyValueRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query the property ID.
    * 
@@ -35,6 +40,7 @@ export class DeleteUserPropertyValueRequest extends $dara.Model {
   userId?: number;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       propertyId: 'PropertyId',
       propertyValueId: 'PropertyValueId',
       userId: 'UserId',
@@ -43,6 +49,7 @@ export class DeleteUserPropertyValueRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       propertyId: 'number',
       propertyValueId: 'number',
       userId: 'number',

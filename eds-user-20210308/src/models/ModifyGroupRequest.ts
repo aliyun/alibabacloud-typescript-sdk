@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyGroupRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The new description of the user group.
    * 
@@ -30,6 +35,7 @@ export class ModifyGroupRequest extends $dara.Model {
   newGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       description: 'Description',
       groupId: 'GroupId',
       newGroupName: 'NewGroupName',
@@ -38,6 +44,7 @@ export class ModifyGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       description: 'string',
       groupId: 'string',
       newGroupName: 'string',

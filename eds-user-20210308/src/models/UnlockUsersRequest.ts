@@ -12,6 +12,11 @@ export class UnlockUsersRequest extends $dara.Model {
    */
   autoLockTime?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The usernames of the convenience users that you want to unlock.
    * 
@@ -24,6 +29,7 @@ export class UnlockUsersRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoLockTime: 'AutoLockTime',
+      businessChannel: 'BusinessChannel',
       users: 'Users',
     };
   }
@@ -31,6 +37,7 @@ export class UnlockUsersRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoLockTime: 'string',
+      businessChannel: 'string',
       users: { 'type': 'array', 'itemType': 'string' },
     };
   }

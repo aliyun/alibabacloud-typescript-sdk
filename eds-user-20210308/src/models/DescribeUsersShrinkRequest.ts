@@ -9,6 +9,11 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
    */
   bizType?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The usernames that must be exactly matched.
    */
@@ -27,6 +32,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
    * a*m
    */
   filter?: string;
+  filterMapShrink?: string;
   filterWithAssignedResourceShrink?: string;
   filterWithAssignedResourcesShrink?: string;
   /**
@@ -84,10 +90,12 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      businessChannel: 'BusinessChannel',
       endUserIds: 'EndUserIds',
       excludeEndUserIds: 'ExcludeEndUserIds',
       excludeGroupId: 'ExcludeGroupId',
       filter: 'Filter',
+      filterMapShrink: 'FilterMap',
       filterWithAssignedResourceShrink: 'FilterWithAssignedResource',
       filterWithAssignedResourcesShrink: 'FilterWithAssignedResources',
       groupId: 'GroupId',
@@ -104,10 +112,12 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      businessChannel: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       excludeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       excludeGroupId: 'string',
       filter: 'string',
+      filterMapShrink: 'string',
       filterWithAssignedResourceShrink: 'string',
       filterWithAssignedResourcesShrink: 'string',
       groupId: 'string',

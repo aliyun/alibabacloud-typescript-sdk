@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOrgsShrinkRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The maximum number of entries to return. Valid values: 1 to 100.\\
    * Default value: 100.
@@ -39,6 +44,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
   showExtrasShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orgName: 'OrgName',
@@ -49,6 +55,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       maxResults: 'number',
       nextToken: 'string',
       orgName: 'string',

@@ -9,6 +9,11 @@ export class DescribeUsersRequest extends $dara.Model {
    */
   bizType?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The usernames that must be exactly matched.
    */
@@ -27,6 +32,7 @@ export class DescribeUsersRequest extends $dara.Model {
    * a*m
    */
   filter?: string;
+  filterMap?: { [key: string]: string };
   filterWithAssignedResource?: { [key: string]: string };
   filterWithAssignedResources?: { [key: string]: boolean };
   /**
@@ -84,10 +90,12 @@ export class DescribeUsersRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      businessChannel: 'BusinessChannel',
       endUserIds: 'EndUserIds',
       excludeEndUserIds: 'ExcludeEndUserIds',
       excludeGroupId: 'ExcludeGroupId',
       filter: 'Filter',
+      filterMap: 'FilterMap',
       filterWithAssignedResource: 'FilterWithAssignedResource',
       filterWithAssignedResources: 'FilterWithAssignedResources',
       groupId: 'GroupId',
@@ -104,10 +112,12 @@ export class DescribeUsersRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      businessChannel: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       excludeEndUserIds: { 'type': 'array', 'itemType': 'string' },
       excludeGroupId: 'string',
       filter: 'string',
+      filterMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       filterWithAssignedResource: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       filterWithAssignedResources: { 'type': 'map', 'keyType': 'string', 'valueType': 'boolean' },
       groupId: 'string',
@@ -127,6 +137,9 @@ export class DescribeUsersRequest extends $dara.Model {
     }
     if(Array.isArray(this.excludeEndUserIds)) {
       $dara.Model.validateArray(this.excludeEndUserIds);
+    }
+    if(this.filterMap) {
+      $dara.Model.validateMap(this.filterMap);
     }
     if(this.filterWithAssignedResource) {
       $dara.Model.validateMap(this.filterWithAssignedResource);

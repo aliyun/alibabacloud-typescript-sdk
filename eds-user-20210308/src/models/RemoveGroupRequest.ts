@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveGroupRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The ID of the user group to be deleted.
    * 
@@ -18,6 +23,7 @@ export class RemoveGroupRequest extends $dara.Model {
   groupIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       groupId: 'GroupId',
       groupIds: 'GroupIds',
     };
@@ -25,6 +31,7 @@ export class RemoveGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       groupId: 'string',
       groupIds: { 'type': 'array', 'itemType': 'string' },
     };

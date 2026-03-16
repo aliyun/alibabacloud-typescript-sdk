@@ -2,33 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RemoveOrgRequest extends $dara.Model {
+export class ListPropertyRequest extends $dara.Model {
   /**
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
-  /**
-   * @remarks
-   * The organization ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * org-5yy5icj981xe5****
-   */
-  orgId?: string;
   static names(): { [key: string]: string } {
     return {
       businessChannel: 'BusinessChannel',
-      orgId: 'OrgId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       businessChannel: 'string',
-      orgId: 'string',
     };
   }
 

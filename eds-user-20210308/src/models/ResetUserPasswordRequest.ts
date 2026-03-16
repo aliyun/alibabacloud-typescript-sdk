@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetUserPasswordRequest extends $dara.Model {
   /**
+   * @example
+   * ENTERPRISE
+   */
+  businessChannel?: string;
+  /**
    * @remarks
    * The method to notify the user after the password is reset.
    * 
@@ -25,6 +30,7 @@ export class ResetUserPasswordRequest extends $dara.Model {
   users?: string[];
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       notifyType: 'NotifyType',
       users: 'Users',
     };
@@ -32,6 +38,7 @@ export class ResetUserPasswordRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       notifyType: 'number',
       users: { 'type': 'array', 'itemType': 'string' },
     };

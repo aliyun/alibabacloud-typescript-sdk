@@ -11,6 +11,7 @@ export class DescribeGroupsRequest extends $dara.Model {
    * ENTERPRISE
    */
   bizType?: string;
+  businessChannel?: string;
   /**
    * @remarks
    * 是否排除已关联登录策略的用户组。
@@ -73,6 +74,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      businessChannel: 'BusinessChannel',
       excludeAttachedLoginPolicyGroups: 'ExcludeAttachedLoginPolicyGroups',
       groupId: 'GroupId',
       groupName: 'GroupName',
@@ -88,6 +90,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      businessChannel: 'string',
       excludeAttachedLoginPolicyGroups: 'boolean',
       groupId: 'string',
       groupName: 'string',
