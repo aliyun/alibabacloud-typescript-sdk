@@ -4,6 +4,7 @@ export { CreateTaskRequestParametersContentExtractionExtractionContents } from '
 export { CreateTaskRequestParametersContentExtraction } from './CreateTaskRequest';
 export { CreateTaskRequestParametersCustomPromptContents } from './CreateTaskRequest';
 export { CreateTaskRequestParametersCustomPrompt } from './CreateTaskRequest';
+export { CreateTaskRequestParametersExtraParamsTranslationHotwordMap } from './CreateTaskRequest';
 export { CreateTaskRequestParametersExtraParams } from './CreateTaskRequest';
 export { CreateTaskRequestParametersIdentityRecognitionIdentityContents } from './CreateTaskRequest';
 export { CreateTaskRequestParametersIdentityRecognition } from './CreateTaskRequest';

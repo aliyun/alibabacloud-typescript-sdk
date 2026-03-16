@@ -236,6 +236,32 @@ export class CreateTaskRequestParametersCustomPrompt extends $dara.Model {
   }
 }
 
+export class CreateTaskRequestParametersExtraParamsTranslationHotwordMap extends $dara.Model {
+  bizType?: string;
+  bizUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'bizType',
+      bizUserId: 'bizUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      bizUserId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTaskRequestParametersExtraParams extends $dara.Model {
   domainEducationEnabled?: boolean;
   fullTextSummaryFormat?: string;
@@ -243,6 +269,7 @@ export class CreateTaskRequestParametersExtraParams extends $dara.Model {
   nfixEnabled?: boolean;
   ocrAuxiliaryEnabled?: boolean;
   translateLlmSceneEnabled?: boolean;
+  translationHotwordMap?: CreateTaskRequestParametersExtraParamsTranslationHotwordMap;
   static names(): { [key: string]: string } {
     return {
       domainEducationEnabled: 'DomainEducationEnabled',
@@ -251,6 +278,7 @@ export class CreateTaskRequestParametersExtraParams extends $dara.Model {
       nfixEnabled: 'NfixEnabled',
       ocrAuxiliaryEnabled: 'OcrAuxiliaryEnabled',
       translateLlmSceneEnabled: 'TranslateLlmSceneEnabled',
+      translationHotwordMap: 'TranslationHotwordMap',
     };
   }
 
@@ -262,10 +290,14 @@ export class CreateTaskRequestParametersExtraParams extends $dara.Model {
       nfixEnabled: 'boolean',
       ocrAuxiliaryEnabled: 'boolean',
       translateLlmSceneEnabled: 'boolean',
+      translationHotwordMap: CreateTaskRequestParametersExtraParamsTranslationHotwordMap,
     };
   }
 
   validate() {
+    if(this.translationHotwordMap && typeof (this.translationHotwordMap as any).validate === 'function') {
+      (this.translationHotwordMap as any).validate();
+    }
     super.validate();
   }
 
