@@ -33,6 +33,10 @@ export class AddTaskResponseBodyModel extends $dara.Model {
 }
 
 export class AddTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @example

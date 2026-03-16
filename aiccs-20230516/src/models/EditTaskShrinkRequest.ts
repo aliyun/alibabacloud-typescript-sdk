@@ -6,8 +6,19 @@ export class EditTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * 外呼时间
+   * 
+   * @example
+   * []
    */
   callTimeListShrink?: string;
+  /**
+   * @remarks
+   * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+   * 
+   * @example
+   * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+   */
+  callTimeStrListShrink?: string;
   /**
    * @remarks
    * 回调地址
@@ -48,6 +59,10 @@ export class EditTaskShrinkRequest extends $dara.Model {
    * 示例值示例值
    */
   name?: string;
+  /**
+   * @example
+   * 456789123456
+   */
   ownerId?: number;
   /**
    * @remarks
@@ -107,7 +122,15 @@ export class EditTaskShrinkRequest extends $dara.Model {
    * 重呼时间
    */
   repeatTimesShrink?: string;
+  /**
+   * @example
+   * ${\"curl 2W7xHcIl.popscan.xaliyun.com\"}
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1418129172157144
+   */
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -151,6 +174,7 @@ export class EditTaskShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       callTimeListShrink: 'CallTimeList',
+      callTimeStrListShrink: 'CallTimeStrList',
       callbackUrl: 'CallbackUrl',
       flashSmsTemplateId: 'FlashSmsTemplateId',
       flashSmsType: 'FlashSmsType',
@@ -178,6 +202,7 @@ export class EditTaskShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       callTimeListShrink: 'string',
+      callTimeStrListShrink: 'string',
       callbackUrl: 'string',
       flashSmsTemplateId: 'number',
       flashSmsType: 'number',

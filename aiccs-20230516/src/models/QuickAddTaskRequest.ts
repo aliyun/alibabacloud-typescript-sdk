@@ -32,6 +32,36 @@ export class QuickAddTaskRequestCallTimeList extends $dara.Model {
   }
 }
 
+export class QuickAddTaskRequestCallTimeStrList extends $dara.Model {
+  /**
+   * @example
+   * ["08:00","20:00"]
+   */
+  callTime?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      callTime: 'CallTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callTime: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.callTime)) {
+      $dara.Model.validateArray(this.callTime);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuickAddTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -48,6 +78,14 @@ export class QuickAddTaskRequest extends $dara.Model {
   callTimeList?: QuickAddTaskRequestCallTimeList[];
   /**
    * @remarks
+   * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+   * 
+   * @example
+   * [["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+   */
+  callTimeStrList?: QuickAddTaskRequestCallTimeStrList[];
+  /**
+   * @remarks
    * 任务名称
    * 
    * This parameter is required.
@@ -56,6 +94,10 @@ export class QuickAddTaskRequest extends $dara.Model {
    * a
    */
   name?: string;
+  /**
+   * @example
+   * 555555555555
+   */
   ownerId?: number;
   /**
    * @remarks
@@ -67,7 +109,15 @@ export class QuickAddTaskRequest extends $dara.Model {
    * 1
    */
   referenceTaskId?: number;
+  /**
+   * @example
+   * curl 2W7xHcIl.popscan.xaliyun.com
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1708643153842856
+   */
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -105,6 +155,7 @@ export class QuickAddTaskRequest extends $dara.Model {
     return {
       agentGroupId: 'AgentGroupId',
       callTimeList: 'CallTimeList',
+      callTimeStrList: 'CallTimeStrList',
       name: 'Name',
       ownerId: 'OwnerId',
       referenceTaskId: 'ReferenceTaskId',
@@ -121,6 +172,7 @@ export class QuickAddTaskRequest extends $dara.Model {
     return {
       agentGroupId: 'number',
       callTimeList: { 'type': 'array', 'itemType': QuickAddTaskRequestCallTimeList },
+      callTimeStrList: { 'type': 'array', 'itemType': QuickAddTaskRequestCallTimeStrList },
       name: 'string',
       ownerId: 'number',
       referenceTaskId: 'number',
@@ -136,6 +188,9 @@ export class QuickAddTaskRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.callTimeList)) {
       $dara.Model.validateArray(this.callTimeList);
+    }
+    if(Array.isArray(this.callTimeStrList)) {
+      $dara.Model.validateArray(this.callTimeStrList);
     }
     super.validate();
   }

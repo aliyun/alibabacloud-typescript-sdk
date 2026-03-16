@@ -18,6 +18,14 @@ export class QuickAddTaskShrinkRequest extends $dara.Model {
   callTimeListShrink?: string;
   /**
    * @remarks
+   * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+   * 
+   * @example
+   * [["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+   */
+  callTimeStrListShrink?: string;
+  /**
+   * @remarks
    * 任务名称
    * 
    * This parameter is required.
@@ -26,6 +34,10 @@ export class QuickAddTaskShrinkRequest extends $dara.Model {
    * a
    */
   name?: string;
+  /**
+   * @example
+   * 555555555555
+   */
   ownerId?: number;
   /**
    * @remarks
@@ -37,7 +49,15 @@ export class QuickAddTaskShrinkRequest extends $dara.Model {
    * 1
    */
   referenceTaskId?: number;
+  /**
+   * @example
+   * curl 2W7xHcIl.popscan.xaliyun.com
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1708643153842856
+   */
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -75,6 +95,7 @@ export class QuickAddTaskShrinkRequest extends $dara.Model {
     return {
       agentGroupId: 'AgentGroupId',
       callTimeListShrink: 'CallTimeList',
+      callTimeStrListShrink: 'CallTimeStrList',
       name: 'Name',
       ownerId: 'OwnerId',
       referenceTaskId: 'ReferenceTaskId',
@@ -91,6 +112,7 @@ export class QuickAddTaskShrinkRequest extends $dara.Model {
     return {
       agentGroupId: 'number',
       callTimeListShrink: 'string',
+      callTimeStrListShrink: 'string',
       name: 'string',
       ownerId: 'number',
       referenceTaskId: 'number',

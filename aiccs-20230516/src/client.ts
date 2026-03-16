@@ -236,6 +236,10 @@ export default class Client extends OpenApi {
       request.callTimeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTimeList, "CallTimeList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.callTimeStrList)) {
+      request.callTimeStrListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTimeStrList, "CallTimeStrList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.repeatReason)) {
       request.repeatReasonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.repeatReason, "RepeatReason", "json");
     }
@@ -251,6 +255,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.callTimeListShrink)) {
       query["CallTimeList"] = request.callTimeListShrink;
+    }
+
+    if (!$dara.isNull(request.callTimeStrListShrink)) {
+      query["CallTimeStrList"] = request.callTimeStrListShrink;
     }
 
     if (!$dara.isNull(request.callbackUrl)) {
@@ -990,6 +998,10 @@ export default class Client extends OpenApi {
       request.callTimeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTimeList, "CallTimeList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.callTimeStrList)) {
+      request.callTimeStrListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTimeStrList, "CallTimeStrList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.repeatReason)) {
       request.repeatReasonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.repeatReason, "RepeatReason", "json");
     }
@@ -1005,6 +1017,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.callTimeListShrink)) {
       query["CallTimeList"] = request.callTimeListShrink;
+    }
+
+    if (!$dara.isNull(request.callTimeStrListShrink)) {
+      query["CallTimeStrList"] = request.callTimeStrListShrink;
     }
 
     if (!$dara.isNull(request.callbackUrl)) {
@@ -1470,6 +1486,10 @@ export default class Client extends OpenApi {
       request.callTimeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTimeList, "CallTimeList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.callTimeStrList)) {
+      request.callTimeStrListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTimeStrList, "CallTimeStrList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.agentGroupId)) {
       query["AgentGroupId"] = request.agentGroupId;
@@ -1477,6 +1497,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.callTimeListShrink)) {
       query["CallTimeList"] = request.callTimeListShrink;
+    }
+
+    if (!$dara.isNull(request.callTimeStrListShrink)) {
+      query["CallTimeStrList"] = request.callTimeStrListShrink;
     }
 
     if (!$dara.isNull(request.name)) {
