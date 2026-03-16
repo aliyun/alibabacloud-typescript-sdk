@@ -1,4 +1,7 @@
+export { AddImageResponseBodyPicInfoAllCategories } from './AddImageResponseBody';
+export { AddImageResponseBodyPicInfoMultiRegion } from './AddImageResponseBody';
 export { AddImageResponseBodyPicInfo } from './AddImageResponseBody';
+export { CheckImageExistsResponseBodyAuctions } from './CheckImageExistsResponseBody';
 export { CompareSimilarByImageResponseBodyAccessDeniedDetail } from './CompareSimilarByImageResponseBody';
 export { DeleteImageResponseBodyData } from './DeleteImageResponseBody';
 export { DetailResponseBodyInstance } from './DetailResponseBody';
@@ -28,6 +31,9 @@ export { AddImageRequest } from './AddImageRequest';
 export { AddImageAdvanceRequest } from './AddImageAdvanceRequest';
 export { AddImageResponseBody } from './AddImageResponseBody';
 export { AddImageResponse } from './AddImageResponse';
+export { CheckImageExistsRequest } from './CheckImageExistsRequest';
+export { CheckImageExistsResponseBody } from './CheckImageExistsResponseBody';
+export { CheckImageExistsResponse } from './CheckImageExistsResponse';
 export { CompareSimilarByImageRequest } from './CompareSimilarByImageRequest';
 export { CompareSimilarByImageAdvanceRequest } from './CompareSimilarByImageAdvanceRequest';
 export { CompareSimilarByImageResponseBody } from './CompareSimilarByImageResponseBody';

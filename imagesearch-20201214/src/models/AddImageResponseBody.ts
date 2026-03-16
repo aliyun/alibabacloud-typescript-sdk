@@ -4,7 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class AddImageResponseBodyPicInfoAllCategories extends $dara.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddImageResponseBodyPicInfoMultiRegion extends $dara.Model {
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddImageResponseBodyPicInfo extends $dara.Model {
+  allCategories?: AddImageResponseBodyPicInfoAllCategories[];
   /**
    * @remarks
    * The result of category prediction. If a category is specified in the request, the specified category prevails.
@@ -13,6 +63,7 @@ export class AddImageResponseBodyPicInfo extends $dara.Model {
    * 88888888
    */
   categoryId?: number;
+  multiRegion?: AddImageResponseBodyPicInfoMultiRegion[];
   /**
    * @remarks
    * The result of subject identification. The subject area of the image is in the format of `x1,x2,y1,y2`. `x1 and y1` represent the position in the upper-left corner, in pixels. `x2 and y2` represent the position in the lower-right corner, in pixels. If a subject area is specified in the request, the specified subject area prevails.
@@ -23,19 +74,29 @@ export class AddImageResponseBodyPicInfo extends $dara.Model {
   region?: string;
   static names(): { [key: string]: string } {
     return {
+      allCategories: 'AllCategories',
       categoryId: 'CategoryId',
+      multiRegion: 'MultiRegion',
       region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allCategories: { 'type': 'array', 'itemType': AddImageResponseBodyPicInfoAllCategories },
       categoryId: 'number',
+      multiRegion: { 'type': 'array', 'itemType': AddImageResponseBodyPicInfoMultiRegion },
       region: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.allCategories)) {
+      $dara.Model.validateArray(this.allCategories);
+    }
+    if(Array.isArray(this.multiRegion)) {
+      $dara.Model.validateArray(this.multiRegion);
+    }
     super.validate();
   }
 

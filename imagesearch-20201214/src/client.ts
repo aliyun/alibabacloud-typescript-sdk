@@ -312,6 +312,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CheckImageExists
+   * 
+   * @param request - CheckImageExistsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckImageExistsResponse
+   */
+  async checkImageExistsWithOptions(request: $_model.CheckImageExistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckImageExistsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.picName)) {
+      body["PicName"] = request.picName;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      body["ProductId"] = request.productId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckImageExists",
+      version: "2020-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckImageExistsResponse>(await this.callApi(params, req, runtime), new $_model.CheckImageExistsResponse({}));
+  }
+
+  /**
+   * CheckImageExists
+   * 
+   * @param request - CheckImageExistsRequest
+   * @returns CheckImageExistsResponse
+   */
+  async checkImageExists(request: $_model.CheckImageExistsRequest): Promise<$_model.CheckImageExistsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkImageExistsWithOptions(request, runtime);
+  }
+
+  /**
    * 对比图片相似值
    * 
    * @param request - CompareSimilarByImageRequest
