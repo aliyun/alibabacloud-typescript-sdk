@@ -128,6 +128,11 @@ export class ListFlowsResponseBodyFlows extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * rg-xxx
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * The Alibaba Cloud resource name (ARN) of the specified Resource Access Management (RAM) role that Serverless Workflow assumes to invoke resources when the flow is executed.
    * 
@@ -153,6 +158,7 @@ export class ListFlowsResponseBodyFlows extends $dara.Model {
       id: 'Id',
       lastModifiedTime: 'LastModifiedTime',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       roleArn: 'RoleArn',
       type: 'Type',
     };
@@ -168,6 +174,7 @@ export class ListFlowsResponseBodyFlows extends $dara.Model {
       id: 'string',
       lastModifiedTime: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       roleArn: 'string',
       type: 'string',
     };

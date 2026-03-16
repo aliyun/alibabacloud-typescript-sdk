@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the workflow that you want to delete.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * flow
    */
   name?: string;
   static names(): { [key: string]: string } {

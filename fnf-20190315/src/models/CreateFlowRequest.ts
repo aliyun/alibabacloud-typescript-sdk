@@ -126,6 +126,7 @@ export class CreateFlowRequest extends $dara.Model {
    * flow
    */
   name?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, CloudFlow assumes the role to call API operations of relevant services.
@@ -152,6 +153,7 @@ export class CreateFlowRequest extends $dara.Model {
       executionMode: 'ExecutionMode',
       externalStorageLocation: 'ExternalStorageLocation',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       roleArn: 'RoleArn',
       type: 'Type',
     };
@@ -165,6 +167,7 @@ export class CreateFlowRequest extends $dara.Model {
       executionMode: 'string',
       externalStorageLocation: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       roleArn: 'string',
       type: 'string',
     };

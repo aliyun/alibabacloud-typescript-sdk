@@ -19,10 +19,16 @@ export class ListFlowsRequest extends $dara.Model {
    * flow_nextxxx
    */
   nextToken?: string;
+  /**
+   * @example
+   * rg-xxx
+   */
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       limit: 'Limit',
       nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -30,6 +36,7 @@ export class ListFlowsRequest extends $dara.Model {
     return {
       limit: 'number',
       nextToken: 'string',
+      resourceGroupId: 'string',
     };
   }
 

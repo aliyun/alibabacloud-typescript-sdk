@@ -81,6 +81,10 @@ export default class Client extends OpenApi {
       body["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.roleArn)) {
       body["RoleArn"] = request.roleArn;
     }
@@ -591,7 +595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询地域信息列表
+   * Queries the regions where CloudFlow is available.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -622,7 +626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询地域信息列表
+   * Queries the regions where CloudFlow is available.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
