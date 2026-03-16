@@ -30,6 +30,13 @@ export class CreateNacosConfigRequest extends $dara.Model {
    * 100.117.XX.XX,100.117.XX.XX
    */
   betaIps?: string;
+  /**
+   * @remarks
+   * The content of the configuration.
+   * 
+   * @example
+   * asdf
+   */
   content?: string;
   /**
    * @remarks

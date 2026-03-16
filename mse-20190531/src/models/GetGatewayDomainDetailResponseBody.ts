@@ -56,6 +56,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
    * 2021-04-01 02:35:12
    */
   beforeDate?: number;
+  caCertIdentifier?: string;
   /**
    * @remarks
    * The ID of the certificate.
@@ -157,6 +158,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
    * Istio
    */
   issuer?: string;
+  mtlsEnabled?: boolean;
   /**
    * @remarks
    * Indicates whether HTTPS is forcibly used.
@@ -211,6 +213,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
       afterDate: 'AfterDate',
       algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      caCertIdentifier: 'CaCertIdentifier',
       certIdentifier: 'CertIdentifier',
       certName: 'CertName',
       commonName: 'CommonName',
@@ -224,6 +227,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
       id: 'Id',
       isManaged: 'IsManaged',
       issuer: 'Issuer',
+      mtlsEnabled: 'MtlsEnabled',
       mustHttps: 'MustHttps',
       name: 'Name',
       protocol: 'Protocol',
@@ -239,6 +243,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
       afterDate: 'number',
       algorithm: 'string',
       beforeDate: 'number',
+      caCertIdentifier: 'string',
       certIdentifier: 'string',
       certName: 'string',
       commonName: 'string',
@@ -252,6 +257,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
       id: 'number',
       isManaged: 'boolean',
       issuer: 'string',
+      mtlsEnabled: 'boolean',
       mustHttps: 'boolean',
       name: 'string',
       protocol: 'string',

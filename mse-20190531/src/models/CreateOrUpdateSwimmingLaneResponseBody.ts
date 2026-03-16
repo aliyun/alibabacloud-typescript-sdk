@@ -3,15 +3,82 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems extends $dara.Model {
+  /**
+   * @remarks
+   * The matching character.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * x
+   */
   datum?: string;
+  /**
+   * @remarks
+   * The divisor.
+   * 
+   * @example
+   * 10
+   */
   divisor?: number;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The names.
+   */
   nameList?: string[];
+  /**
+   * @remarks
+   * The operator.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The percentage.
+   * 
+   * @example
+   * 30
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The remainder.
+   * 
+   * @example
+   * 10
+   */
   remainder?: number;
+  /**
+   * @remarks
+   * The matching type.
+   * 
+   * @example
+   * cookie
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * 9
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,9 +123,31 @@ export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems exten
 }
 
 export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules extends $dara.Model {
+  /**
+   * @remarks
+   * The condition.
+   * 
+   * @example
+   * AND
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The path of the code group.
+   * 
+   * @example
+   * /adump/wxb/prod
+   */
   path?: string;
+  /**
+   * @remarks
+   * The paths.
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * The conditions to be met.
+   */
   restItems?: CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems[];
   static names(): { [key: string]: string } {
     return {
@@ -94,19 +183,107 @@ export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules extends $dara.
 }
 
 export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the lane was enabled.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
+   * @example
+   * true
+   */
   enableRules?: boolean;
+  /**
+   * @remarks
+   * The rule for the ingress application.
+   * 
+   * @example
+   * {}
+   */
   entryRule?: string;
+  /**
+   * @remarks
+   * The name.
+   */
   entryRules?: CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules[];
+  /**
+   * @remarks
+   * The routing rule for the MSE gateway.
+   * 
+   * @example
+   * {}
+   */
   gatewaySwimmingLaneRouteJson?: string;
+  /**
+   * @remarks
+   * The time when the lane was created.
+   * 
+   * @example
+   * 1545726028000
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the lane was updated.
+   * 
+   * @example
+   * 1565701886000
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The ID of the lane group.
+   * 
+   * @example
+   * 72586
+   */
   groupId?: number;
+  /**
+   * @remarks
+   * The ID of the lane.
+   * 
+   * @example
+   * 94765
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the lane.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   pathIndependentPercentageEnable?: boolean;
+  /**
+   * @remarks
+   * The ID of the region where the application is deployed.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The status of the lane.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @remarks
+   * The tag of the lane.
+   * 
+   * @example
+   * release
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {

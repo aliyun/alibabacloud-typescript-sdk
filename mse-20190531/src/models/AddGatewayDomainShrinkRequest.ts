@@ -14,6 +14,7 @@ export class AddGatewayDomainShrinkRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
+  caCertIdentifier?: string;
   /**
    * @remarks
    * The ID of the certificate.
@@ -42,6 +43,7 @@ export class AddGatewayDomainShrinkRequest extends $dara.Model {
    * close
    */
   http2?: string;
+  mtlsEnabled?: boolean;
   /**
    * @remarks
    * Specifies whether to enable HTTPS.
@@ -89,9 +91,11 @@ export class AddGatewayDomainShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      caCertIdentifier: 'CaCertIdentifier',
       certIdentifier: 'CertIdentifier',
       gatewayUniqueId: 'GatewayUniqueId',
       http2: 'Http2',
+      mtlsEnabled: 'MtlsEnabled',
       mustHttps: 'MustHttps',
       name: 'Name',
       protocol: 'Protocol',
@@ -104,9 +108,11 @@ export class AddGatewayDomainShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      caCertIdentifier: 'string',
       certIdentifier: 'string',
       gatewayUniqueId: 'string',
       http2: 'string',
+      mtlsEnabled: 'boolean',
       mustHttps: 'boolean',
       name: 'string',
       protocol: 'string',

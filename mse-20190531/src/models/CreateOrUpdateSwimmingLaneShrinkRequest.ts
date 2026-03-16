@@ -3,15 +3,82 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends $dara.Model {
+  /**
+   * @remarks
+   * The matching character.
+   * 
+   * @example
+   * =
+   */
   cond?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * .params[0]
+   */
   datum?: string;
+  /**
+   * @remarks
+   * The divisor.
+   * 
+   * @example
+   * 10
+   */
   divisor?: number;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * ""
+   */
   name?: string;
+  /**
+   * @remarks
+   * The matching list.
+   */
   nameList?: string[];
+  /**
+   * @remarks
+   * The operator.
+   * 
+   * @example
+   * mod
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The percentage.
+   * 
+   * @example
+   * 10
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The remainder.
+   * 
+   * @example
+   * 3
+   */
   remainder?: number;
+  /**
+   * @remarks
+   * The matching type.
+   * 
+   * @example
+   * header
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * ""
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,12 +124,30 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
 
 export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $dara.Model {
   /**
+   * @remarks
+   * Specifies how RESTful items are combined into the final condition.
+   * 
    * @example
-   * AND
+   * ""
    */
   condition?: string;
+  /**
+   * @remarks
+   * The paths.
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The matching list.
+   */
   restItems?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems[];
   static names(): { [key: string]: string } {
     return {
@@ -132,6 +217,10 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
    * @deprecated
    */
   entryRule?: string;
+  /**
+   * @remarks
+   * The lane.
+   */
   entryRules?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRules[];
   /**
    * @remarks

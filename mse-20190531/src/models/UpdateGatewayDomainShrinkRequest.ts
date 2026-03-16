@@ -14,6 +14,7 @@ export class UpdateGatewayDomainShrinkRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
+  caCertIdentifier?: string;
   /**
    * @remarks
    * The ID of the certificate.
@@ -50,6 +51,7 @@ export class UpdateGatewayDomainShrinkRequest extends $dara.Model {
    * 94
    */
   id?: number;
+  mtlsEnabled?: boolean;
   /**
    * @remarks
    * Specifies whether to forcibly use HTTPS.
@@ -89,10 +91,12 @@ export class UpdateGatewayDomainShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      caCertIdentifier: 'CaCertIdentifier',
       certIdentifier: 'CertIdentifier',
       gatewayUniqueId: 'GatewayUniqueId',
       http2: 'Http2',
       id: 'Id',
+      mtlsEnabled: 'MtlsEnabled',
       mustHttps: 'MustHttps',
       protocol: 'Protocol',
       tlsCipherSuitesConfigJSONShrink: 'TlsCipherSuitesConfigJSON',
@@ -104,10 +108,12 @@ export class UpdateGatewayDomainShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      caCertIdentifier: 'string',
       certIdentifier: 'string',
       gatewayUniqueId: 'string',
       http2: 'string',
       id: 'number',
+      mtlsEnabled: 'boolean',
       mustHttps: 'boolean',
       protocol: 'string',
       tlsCipherSuitesConfigJSONShrink: 'string',

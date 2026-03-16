@@ -4,13 +4,45 @@ import { TrafficPolicy } from "./TrafficPolicy";
 
 
 export class GatewayService extends $dara.Model {
+  /**
+   * @remarks
+   * The traffic policy of the service.
+   */
   gatewayTrafficPolicy?: TrafficPolicy;
+  /**
+   * @remarks
+   * The unique ID of the gateway.
+   */
   gatewayUniqueId?: string;
+  /**
+   * @remarks
+   * The name of the group to which the service belongs.
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The ID of the service.
+   */
   id?: number;
+  /**
+   * @remarks
+   * The metadata of the service.
+   */
   metaInfo?: string;
+  /**
+   * @remarks
+   * The name of the service.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The namespace to which the service belongs.
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The source type of the service.
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {

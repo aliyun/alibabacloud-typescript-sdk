@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The list of application IDs that are separated by commas (,).
+   * 
    * @example
    * abcd1@abcde123,abcd1@abcde124
    */
@@ -15,16 +18,36 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
    */
   dbGrayEnable?: string;
   /**
+   * @remarks
+   * The ingress application.
+   * 
    * @example
    * mse:abcd1@a2345
    */
   entryApp?: string;
+  /**
+   * @remarks
+   * The ID of the lane group.
+   * 
+   * @example
+   * 2047
+   */
   id?: number;
   /**
+   * @remarks
+   * The side for message filtering when the canary release for messaging feature is enabled.
+   * 
    * @example
    * Client
    */
   messageQueueFilterSide?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable canary release for messaging.
+   * 
+   * @example
+   * true
+   */
   messageQueueGrayEnable?: boolean;
   /**
    * @example
@@ -32,18 +55,34 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the MSE namespace.
+   * 
    * @example
    * prod
    */
   namespace?: string;
   paths?: string;
+  /**
+   * @remarks
+   * Specifies whether to record request details.
+   * 
+   * @example
+   * true
+   */
   recordCanaryDetail?: boolean;
   /**
+   * @remarks
+   * The region where the application resides.
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   /**
+   * @remarks
+   * The ID of the user to which the application belongs.
+   * 
    * @example
    * 12345
    */

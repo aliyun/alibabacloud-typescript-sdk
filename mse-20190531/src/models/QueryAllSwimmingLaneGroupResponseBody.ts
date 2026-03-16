@@ -4,46 +4,84 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAllSwimmingLaneGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The application IDs.
+   * 
    * @example
    * abcde@abcde,abcde@abcde
    */
   appIds?: string;
   canaryModel?: number;
   /**
+   * @remarks
+   * The type and ID of the ingress application.
+   * 
    * @example
    * mse:abcde@abcde
    */
   entryApp?: string;
   /**
+   * @remarks
+   * The ID of the lane group.
+   * 
    * @example
    * 123
    */
   id?: number;
   /**
+   * @remarks
+   * The side at which canary release for messaging was enabled.
+   * 
    * @example
    * Client
    */
   messageQueueFilterSide?: string;
+  /**
+   * @remarks
+   * Indicates whether canary release for messaging is enabled.
+   * 
+   * @example
+   * true
+   */
   messageQueueGrayEnable?: boolean;
   /**
+   * @remarks
+   * The name of the lane group.
+   * 
    * @example
    * swimmingGroup
    */
   name?: string;
   /**
+   * @remarks
+   * The MSE namespace to which the lane belongs.
+   * 
    * @example
    * default
    */
   namespace?: string;
   paths?: string;
+  /**
+   * @remarks
+   * Indicates whether the request details (metrics of end-to-end canary release) were recorded.
+   * 
+   * @example
+   * false
+   */
   recordCanaryDetail?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   swimVersion?: number;
   /**
+   * @remarks
+   * The ID of the user to which the lane belongs.
+   * 
    * @example
    * 12345
    */

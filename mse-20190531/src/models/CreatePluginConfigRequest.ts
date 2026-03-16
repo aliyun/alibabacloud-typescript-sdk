@@ -11,6 +11,16 @@ export class CreatePluginConfigRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
+   * 
+   * @example
+   * status_code: 200
+   * headers:
+   * - Content-Type=application/json
+   * body: "{\\"rule\\": \\"global\\"}"
+   */
   config?: string;
   /**
    * @remarks

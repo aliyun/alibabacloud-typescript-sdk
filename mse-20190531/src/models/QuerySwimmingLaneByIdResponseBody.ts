@@ -3,15 +3,82 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $dara.Model {
+  /**
+   * @remarks
+   * 匹配符
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * 数值
+   * 
+   * @example
+   * x
+   */
   datum?: string;
+  /**
+   * @remarks
+   * 除数
+   * 
+   * @example
+   * 10
+   */
   divisor?: number;
+  /**
+   * @remarks
+   * 名称
+   * 
+   * @example
+   * 11111
+   */
   name?: string;
+  /**
+   * @remarks
+   * 名称列表
+   */
   nameList?: string[];
+  /**
+   * @remarks
+   * 操作符
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * 百分比
+   * 
+   * @example
+   * 30
+   */
   rate?: number;
+  /**
+   * @remarks
+   * 余数
+   * 
+   * @example
+   * 10
+   */
   remainder?: number;
+  /**
+   * @remarks
+   * 匹配类型
+   * 
+   * @example
+   * cookie
+   */
   type?: string;
+  /**
+   * @remarks
+   * 值
+   * 
+   * @example
+   * hello
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,9 +123,31 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
 }
 
 export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $dara.Model {
+  /**
+   * @remarks
+   * 条件
+   * 
+   * @example
+   * AND
+   */
   condition?: string;
+  /**
+   * @remarks
+   * 路径
+   * 
+   * @example
+   * /
+   */
   path?: string;
+  /**
+   * @remarks
+   * 路径列表
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * Rest匹配规则列表
+   */
   restItems?: QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems[];
   static names(): { [key: string]: string } {
     return {
@@ -94,19 +183,111 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $dara.Model
 }
 
 export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   pathIndependentPercentageEnable?: boolean;
+  /**
+   * @remarks
+   * 泳道开关
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * 是否开启规则。
+   * 
+   * @example
+   * true
+   */
   enableRules?: boolean;
+  /**
+   * @remarks
+   * 入口应用规则
+   * 
+   * @example
+   * {}
+   */
   entryRule?: string;
+  /**
+   * @remarks
+   * 入口应用规则详情
+   */
   entryRules?: QuerySwimmingLaneByIdResponseBodyDataEntryRules[];
+  /**
+   * @remarks
+   * MSE网关路由规则
+   * 
+   * @example
+   * {}
+   */
   gatewaySwimmingLaneRouteJson?: string;
+  /**
+   * @remarks
+   * 规则创建时间
+   * 
+   * @example
+   * 1683598484000
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * 规则修改时间
+   * 
+   * @example
+   * 1683598484000
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * 泳道组Id。
+   * 
+   * @example
+   * 8
+   */
   groupId?: number;
+  /**
+   * @remarks
+   * 泳道ID
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * 泳道名称
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * 泳道状态
+   * 
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * 泳道对应的标签。
+   * 
+   * @example
+   * gray
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {

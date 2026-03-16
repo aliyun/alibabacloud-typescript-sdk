@@ -3,15 +3,82 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems extends $dara.Model {
+  /**
+   * @remarks
+   * The matching character.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * x
+   */
   datum?: string;
+  /**
+   * @remarks
+   * The divisor.
+   * 
+   * @example
+   * 10
+   */
   divisor?: number;
+  /**
+   * @remarks
+   * The name of the matching rule.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The matching list.
+   */
   nameList?: string[];
+  /**
+   * @remarks
+   * The operator.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The percentage.
+   * 
+   * @example
+   * 30
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The remainder.
+   * 
+   * @example
+   * 10
+   */
   remainder?: number;
+  /**
+   * @remarks
+   * The matching type.
+   * 
+   * @example
+   * cookie
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,9 +123,31 @@ export class QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems extends $da
 }
 
 export class QueryAllSwimmingLaneResponseBodyDataEntryRules extends $dara.Model {
+  /**
+   * @remarks
+   * The condition.
+   * 
+   * @example
+   * AND
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The path.
+   * 
+   * @example
+   * /adump/wxb/prod
+   */
   path?: string;
+  /**
+   * @remarks
+   * The paths.
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * The RESTful matching rules.
+   */
   restItems?: QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems[];
   static names(): { [key: string]: string } {
     return {
@@ -95,22 +184,43 @@ export class QueryAllSwimmingLaneResponseBodyDataEntryRules extends $dara.Model 
 
 export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditions extends $dara.Model {
   /**
+   * @remarks
+   * 条件：
+   * - PRE：前缀匹配
+   * - EQUAL：精确匹配
+   * - ERGULAR：正则匹配
+   * 
    * @example
    * PRE
    */
   cond?: string;
   /**
+   * @remarks
+   * 参数名称
+   * 
    * @example
    * name
    */
   name?: string;
+  /**
+   * @remarks
+   * NameList
+   */
   nameList?: string[];
   /**
+   * @remarks
+   * 参数类型：
+   * - header：Header
+   * - param：Parameter
+   * 
    * @example
    * header
    */
   type?: string;
   /**
+   * @remarks
+   * 参数值
+   * 
    * @example
    * xiaoming
    */
@@ -148,7 +258,15 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
 }
 
 export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
   percentage?: string;
+  /**
+   * @example
+   * 12345
+   */
   routeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,28 +293,60 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIn
 
 export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extends $dara.Model {
   /**
+   * @remarks
+   * 全链路灰度模式：
+   * 
+   * - 0: 按请求内容路由
+   * 
+   * - 1: 按比例路由
+   * 
    * @example
    * 0
    */
   canaryModel?: number;
+  /**
+   * @example
+   * AND、OR
+   */
   condition?: string;
+  /**
+   * @remarks
+   * 匹配条件列表（按内容路由使用）
+   */
   conditions?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditions[];
   /**
+   * @remarks
+   * 网关ID
+   * 
    * @example
    * 1
    */
   gatewayId?: number;
   /**
+   * @remarks
+   * 网关唯一ID
+   * 
    * @example
    * gw-84efde2ee1464260bdb17a5b****
    */
   gatewayUniqueId?: string;
   /**
+   * @remarks
+   * 流量比例（按比例路由使用，取值0-100）
+   * 
    * @example
    * 20
    */
   percentage?: number;
+  /**
+   * @remarks
+   * 路由ID列表
+   */
   routeIdList?: number[];
+  /**
+   * @example
+   * true
+   */
   routeIndependentPercentageEnable?: string;
   routeIndependentPercentageList?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList[];
   static names(): { [key: string]: string } {
@@ -247,50 +397,136 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
 
 export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * 是否开启。
+   * 
    * @example
    * true
    */
   enable?: string;
+  /**
+   * @remarks
+   * The ingress application rules.
+   */
   entryRules?: QueryAllSwimmingLaneResponseBodyDataEntryRules[];
+  /**
+   * @remarks
+   * 网关路由信息（使用云原生网关为入口时使用）
+   */
   gatewaySwimmingLaneRoute?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute;
+  /**
+   * @example
+   * {\\"GatewayUniqueId\\":\\"gw-cf815503e0a8441b8956d8e349fa8fb5\\",\\"Percentage\\":0,\\"RouteIdList\\":[32295,32298,32297,32309,32307,32294,32303,32292,32299,35278],\\"CanaryModel\\":1,\\"Conditions\\":[]}
+   */
   gatewaySwimmingLaneRouteJson?: string;
+  /**
+   * @remarks
+   * The ID of the lane group.
+   * 
+   * @example
+   * 6859
+   */
   groupId?: string;
   /**
+   * @remarks
+   * The ID of the lane group.
+   * 
    * @example
    * 123
    */
   id?: number;
   /**
+   * @remarks
+   * The side on which canary release for messaging is implemented.
+   * 
    * @example
    * Client
    */
   messageQueueFilterSide?: string;
+  /**
+   * @remarks
+   * Indicates whether canary release for messaging is enabled.
+   * 
+   * @example
+   * false
+   */
   messageQueueGrayEnable?: boolean;
   /**
+   * @remarks
+   * The name of the lane group.
+   * 
    * @example
    * swimmingGroup
    */
   name?: string;
   /**
+   * @remarks
+   * The Microservices Engine (MSE) namespace to which the lane belongs.
+   * 
    * @example
    * default
    */
   namespace?: string;
+  /**
+   * @example
+   * true
+   */
   pathIndependentPercentageEnable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether request details were recorded (metrics of end-to-end canary release).
+   * 
+   * @example
+   * false
+   */
   recordCanaryDetail?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The tag of the lane.
+   * 
+   * @example
+   * gray
+   */
   tag?: string;
   /**
+   * @remarks
+   * The user ID of the lane group.
+   * 
    * @example
    * 12345
    */
   userId?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
+   * @example
+   * true
+   */
   enableRules?: boolean;
+  /**
+   * @remarks
+   * The time when the lane was created.
+   * 
+   * @example
+   * 1683598484000
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the lane was updated.
+   * 
+   * @example
+   * 1683598484000
+   */
   gmtModified?: string;
   static names(): { [key: string]: string } {
     return {

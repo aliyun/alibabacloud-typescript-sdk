@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增服务鉴权规则
+   * Creates a service authentication rule.
    * 
    * @param request - AddAuthPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101,7 +101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增服务鉴权规则
+   * Creates a service authentication rule.
    * 
    * @param request - AddAuthPolicyRequest
    * @returns AddAuthPolicyResponse
@@ -112,7 +112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates authorization information for a gateway.
+   * Adds authorization information for a gateway.
    * 
    * @param tmpReq - AddAuthResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -177,7 +177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates authorization information for a gateway.
+   * Adds authorization information for a gateway.
    * 
    * @param request - AddAuthResourceRequest
    * @returns AddAuthResourceResponse
@@ -659,6 +659,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!$dara.isNull(request.caCertIdentifier)) {
+      query["CaCertIdentifier"] = request.caCertIdentifier;
+    }
+
     if (!$dara.isNull(request.certIdentifier)) {
       query["CertIdentifier"] = request.certIdentifier;
     }
@@ -669,6 +673,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.http2)) {
       query["Http2"] = request.http2;
+    }
+
+    if (!$dara.isNull(request.mtlsEnabled)) {
+      query["MtlsEnabled"] = request.mtlsEnabled;
     }
 
     if (!$dara.isNull(request.mustHttps)) {
@@ -856,7 +864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a service version.
+   * Adds a service version for a gateway.
    * 
    * @param request - AddGatewayServiceVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -899,7 +907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a service version.
+   * Adds a service version for a gateway.
    * 
    * @param request - AddGatewayServiceVersionRequest
    * @returns AddGatewayServiceVersionResponse
@@ -1076,7 +1084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a mock rule.
+   * Creates a service mocking rule.
    * 
    * @param request - AddMockRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1151,7 +1159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a mock rule.
+   * Creates a service mocking rule.
    * 
    * @param request - AddMockRuleRequest
    * @returns AddMockRuleResponse
@@ -2216,7 +2224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由熔断规则
+   * Creates a gateway circuit breaking rule.
    * 
    * @param request - CreateGatewayCircuitBreakerRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2311,7 +2319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由熔断规则
+   * Creates a gateway circuit breaking rule.
    * 
    * @param request - CreateGatewayCircuitBreakerRuleRequest
    * @returns CreateGatewayCircuitBreakerRuleResponse
@@ -2408,7 +2416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由隔离规则
+   * Creates a concurrency rule for a gateway.
    * 
    * @param request - CreateGatewayIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2483,7 +2491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由隔离规则
+   * Creates a concurrency rule for a gateway.
    * 
    * @param request - CreateGatewayIsolationRuleRequest
    * @returns CreateGatewayIsolationRuleResponse
@@ -2494,7 +2502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建隔离规则
+   * Creates an isolation rule.
    * 
    * @param request - CreateIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2557,7 +2565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建隔离规则
+   * Creates an isolation rule.
    * 
    * @param request - CreateIsolationRuleRequest
    * @returns CreateIsolationRuleResponse
@@ -2983,7 +2991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateNamespace
+   * Creates a namespace for Microservices Governance.
    * 
    * @param tmpReq - CreateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3032,7 +3040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateNamespace
+   * Creates a namespace for Microservices Governance.
    * 
    * @param request - CreateNamespaceRequest
    * @returns CreateNamespaceResponse
@@ -3409,7 +3417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热点参数防护规则（HTTP 请求）
+   * Creates a hot parameter protection rule for HTTP requests.
    * 
    * @param request - CreateWebFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3500,7 +3508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热点参数防护规则（HTTP 请求）
+   * Creates a hot parameter protection rule for HTTP requests.
    * 
    * @param request - CreateWebFlowRuleRequest
    * @returns CreateWebFlowRuleResponse
@@ -4093,7 +4101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关路由熔断规则
+   * Deletes a gateway circuit breaking rule.
    * 
    * @param request - DeleteGatewayCircuitBreakerRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4136,7 +4144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关路由熔断规则
+   * Deletes a gateway circuit breaking rule.
    * 
    * @param request - DeleteGatewayCircuitBreakerRuleRequest
    * @returns DeleteGatewayCircuitBreakerRuleResponse
@@ -4147,7 +4155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a domain name from a gateway.
+   * Deletes a domain name that is associated with a gateway.
    * 
    * @param request - DeleteGatewayDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4186,7 +4194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a domain name from a gateway.
+   * Deletes a domain name that is associated with a gateway.
    * 
    * @param request - DeleteGatewayDomainRequest
    * @returns DeleteGatewayDomainResponse
@@ -4197,7 +4205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关路由流控规则
+   * Deletes a throttling rule for a gateway.
    * 
    * @param request - DeleteGatewayFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4240,7 +4248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关路由流控规则
+   * Deletes a throttling rule for a gateway.
    * 
    * @param request - DeleteGatewayFlowRuleRequest
    * @returns DeleteGatewayFlowRuleResponse
@@ -4251,7 +4259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关路由隔离规则
+   * Deletes the gateway concurrency rule.
    * 
    * @param request - DeleteGatewayIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4294,7 +4302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关路由隔离规则
+   * Deletes the gateway concurrency rule.
    * 
    * @param request - DeleteGatewayIsolationRuleRequest
    * @returns DeleteGatewayIsolationRuleResponse
@@ -4355,7 +4363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service from a gateway.
+   * Deletes a service from a gateway
    * 
    * @param request - DeleteGatewayServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4398,7 +4406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service from a gateway.
+   * Deletes a service from a gateway
    * 
    * @param request - DeleteGatewayServiceRequest
    * @returns DeleteGatewayServiceResponse
@@ -4521,7 +4529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除隔离规则
+   * Deletes isolation rules.
    * 
    * @param tmpReq - DeleteIsolationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4570,7 +4578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除隔离规则
+   * Deletes isolation rules.
    * 
    * @param request - DeleteIsolationRulesRequest
    * @returns DeleteIsolationRulesResponse
@@ -5265,7 +5273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除热点参数防护规则（HTTP 请求）
+   * Deletes a hot parameter protection rule for HTTP requests.
    * 
    * @param request - DeleteWebFlowRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5308,7 +5316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除热点参数防护规则（HTTP 请求）
+   * Deletes a hot parameter protection rule for HTTP requests.
    * 
    * @param request - DeleteWebFlowRulesRequest
    * @returns DeleteWebFlowRulesResponse
@@ -6186,7 +6194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关认证详情
+   * Obtains the authentication details of a gateway.
    * 
    * @param request - GetGatewayAuthDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6229,7 +6237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关认证详情
+   * Obtains the authentication details of a gateway.
    * 
    * @param request - GetGatewayAuthDetailRequest
    * @returns GetGatewayAuthDetailResponse
@@ -6240,7 +6248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关全局配置
+   * Obtains the parameter configurations of a gateway.
    * 
    * @param request - GetGatewayConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6275,7 +6283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关全局配置
+   * Obtains the parameter configurations of a gateway.
    * 
    * @param request - GetGatewayConfigRequest
    * @returns GetGatewayConfigResponse
@@ -6696,7 +6704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取同AZ路由规则
+   * Obtains the Intra-zone Provider First rules.
    * 
    * @param request - GetLocalityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6747,7 +6755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取同AZ路由规则
+   * Obtains the Intra-zone Provider First rules.
    * 
    * @param request - GetLocalityRuleRequest
    * @returns GetLocalityRuleResponse
@@ -7116,7 +7124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about service governance.
+   * Queries overview information about Microservices Governance.
    * 
    * @remarks
    * You can call this operation to query overview information about service governance.
@@ -7158,7 +7166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about service governance.
+   * Queries overview information about Microservices Governance.
    * 
    * @remarks
    * You can call this operation to query overview information about service governance.
@@ -7506,7 +7514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务接口列表
+   * Queries a list of service interfaces.
    * 
    * @param request - GetServiceMethodPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7593,7 +7601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务接口列表
+   * Queries a list of service interfaces.
    * 
    * @param request - GetServiceMethodPageRequest
    * @returns GetServiceMethodPageResponse
@@ -7916,7 +7924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户授权mseSLR
+   * Creates a Microservices Engine (MSE) service-linked role.
    * 
    * @param request - InitializeServiceLinkRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7955,7 +7963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户授权mseSLR
+   * Creates a Microservices Engine (MSE) service-linked role.
    * 
    * @param request - InitializeServiceLinkRoleRequest
    * @returns InitializeServiceLinkRoleResponse
@@ -9409,7 +9417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网关路由熔断规则
+   * Queries a gateway circuit breaking rule.
    * 
    * @param request - ListGatewayCircuitBreakerRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9444,7 +9452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网关路由熔断规则
+   * Queries a gateway circuit breaking rule.
    * 
    * @param request - ListGatewayCircuitBreakerRuleRequest
    * @returns ListGatewayCircuitBreakerRuleResponse
@@ -9509,7 +9517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网关路由流控规则
+   * Queries throttling rules of a gateway.
    * 
    * @param request - ListGatewayFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9544,7 +9552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网关路由流控规则
+   * Queries throttling rules of a gateway.
    * 
    * @param request - ListGatewayFlowRuleRequest
    * @returns ListGatewayFlowRuleResponse
@@ -9555,7 +9563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网关路由隔离规则
+   * Queries the concurrency rule of a gateway.
    * 
    * @param request - ListGatewayIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9590,7 +9598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网关路由隔离规则
+   * Queries the concurrency rule of a gateway.
    * 
    * @param request - ListGatewayIsolationRuleRequest
    * @returns ListGatewayIsolationRuleResponse
@@ -9719,7 +9727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are subscribed with a gateway.
+   * Queries a list of services that are subscribed to by a gateway.
    * 
    * @param tmpReq - ListGatewayServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9776,7 +9784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are subscribed with a gateway.
+   * Queries a list of services that are subscribed to by a gateway.
    * 
    * @param request - ListGatewayServiceRequest
    * @returns ListGatewayServiceResponse
@@ -9933,7 +9941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询隔离规则
+   * Queries isolation rules.
    * 
    * @param request - ListIsolationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9992,7 +10000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询隔离规则
+   * Queries isolation rules.
    * 
    * @param request - ListIsolationRulesRequest
    * @returns ListIsolationRulesResponse
@@ -10437,7 +10445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 展示命名空间列表
+   * Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
    * 
    * @param tmpReq - ListNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10494,7 +10502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 展示命名空间列表
+   * Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
    * 
    * @param request - ListNamespacesRequest
    * @returns ListNamespacesResponse
@@ -10857,7 +10865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询热点参数防护规则（HTTP 请求）
+   * Queries hot parameter protection rules for HTTP requests.
    * 
    * @param request - ListWebFlowRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10916,7 +10924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询热点参数防护规则（HTTP 请求）
+   * Queries hot parameter protection rules for HTTP requests.
    * 
    * @param request - ListWebFlowRulesRequest
    * @returns ListWebFlowRulesResponse
@@ -11207,7 +11215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpublishes a route for a gateway.
+   * Disables a route for a gateway.
    * 
    * @param request - OfflineGatewayRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11246,7 +11254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpublishes a route for a gateway.
+   * Disables a route for a gateway.
    * 
    * @param request - OfflineGatewayRouteRequest
    * @returns OfflineGatewayRouteResponse
@@ -12159,7 +12167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询nacos灰度配置
+   * Queries canary configurations of a Nacos instance.
    * 
    * @param request - QueryNacosGrayConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12218,7 +12226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询nacos灰度配置
+   * Queries canary configurations of a Nacos instance.
    * 
    * @param request - QueryNacosGrayConfigRequest
    * @returns QueryNacosGrayConfigResponse
@@ -12425,7 +12433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除单个应用
+   * Deletes a single application.
    * 
    * @param request - RemoveApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12472,7 +12480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除单个应用
+   * Deletes a single application.
    * 
    * @param request - RemoveApplicationRequest
    * @returns RemoveApplicationResponse
@@ -12483,6 +12491,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a service authentication rule.
+   * 
    * @param request - RemoveAuthPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveAuthPolicyResponse
@@ -12516,6 +12526,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a service authentication rule.
+   * 
    * @param request - RemoveAuthPolicyRequest
    * @returns RemoveAuthPolicyResponse
    */
@@ -13963,7 +13975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关路由熔断规则
+   * Updates a gateway circuit breaking rule.
    * 
    * @param request - UpdateGatewayCircuitBreakerRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14062,7 +14074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关路由熔断规则
+   * Updates a gateway circuit breaking rule.
    * 
    * @param request - UpdateGatewayCircuitBreakerRuleRequest
    * @returns UpdateGatewayCircuitBreakerRuleResponse
@@ -14073,7 +14085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关配置
+   * Updates gateway configurations.
    * 
    * @param request - UpdateGatewayConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14116,7 +14128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关配置
+   * Updates gateway configurations.
    * 
    * @param request - UpdateGatewayConfigRequest
    * @returns UpdateGatewayConfigResponse
@@ -14146,6 +14158,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!$dara.isNull(request.caCertIdentifier)) {
+      query["CaCertIdentifier"] = request.caCertIdentifier;
+    }
+
     if (!$dara.isNull(request.certIdentifier)) {
       query["CertIdentifier"] = request.certIdentifier;
     }
@@ -14160,6 +14176,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.mtlsEnabled)) {
+      query["MtlsEnabled"] = request.mtlsEnabled;
     }
 
     if (!$dara.isNull(request.mustHttps)) {
@@ -14211,7 +14231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关路由流控规则
+   * Queries throttling rules of a gateway.
    * 
    * @param request - UpdateGatewayFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14290,7 +14310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关路由流控规则
+   * Queries throttling rules of a gateway.
    * 
    * @param request - UpdateGatewayFlowRuleRequest
    * @returns UpdateGatewayFlowRuleResponse
@@ -14301,7 +14321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关路由隔离规则
+   * Updates the concurrency rule of a gateway.
    * 
    * @param request - UpdateGatewayIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14380,7 +14400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关路由隔离规则
+   * Updates the concurrency rule of a gateway.
    * 
    * @param request - UpdateGatewayIsolationRuleRequest
    * @returns UpdateGatewayIsolationRuleResponse
@@ -14391,7 +14411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a gateway.
+   * Updates the name of a gateway.
    * 
    * @param request - UpdateGatewayNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14430,7 +14450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a gateway.
+   * Updates the name of a gateway.
    * 
    * @param request - UpdateGatewayNameRequest
    * @returns UpdateGatewayNameResponse
@@ -15051,7 +15071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务
+   * Updates gateways for fixed address services or DNS services.
    * 
    * @param tmpReq - UpdateGatewayServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15128,7 +15148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务
+   * Updates gateways for fixed address services or DNS services.
    * 
    * @param request - UpdateGatewayServiceRequest
    * @returns UpdateGatewayServiceResponse
@@ -15295,7 +15315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the version of a service.
+   * Updates the service version of a gateway.
    * 
    * @param request - UpdateGatewayServiceVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15338,7 +15358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the version of a service.
+   * Updates the service version of a gateway.
    * 
    * @param request - UpdateGatewayServiceVersionRequest
    * @returns UpdateGatewayServiceVersionResponse
@@ -15459,7 +15479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新隔离规则
+   * Updates an isolation rule.
    * 
    * @param request - UpdateIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15518,7 +15538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新隔离规则
+   * Updates an isolation rule.
    * 
    * @param request - UpdateIsolationRuleRequest
    * @returns UpdateIsolationRuleResponse
@@ -15529,7 +15549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新同AZ路由规则
+   * Updates the Intra-zone Provider First rules.
    * 
    * @param request - UpdateLocalityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15592,7 +15612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新同AZ路由规则
+   * Updates the Intra-zone Provider First rules.
    * 
    * @param request - UpdateLocalityRuleRequest
    * @returns UpdateLocalityRuleResponse
@@ -15945,7 +15965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新nacos灰度配置
+   * Updates the canary release settings, which include beta release and tag-based canary release.
    * 
    * @param request - UpdateNacosGrayConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16032,7 +16052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新nacos灰度配置
+   * Updates the canary release settings, which include beta release and tag-based canary release.
    * 
    * @param request - UpdateNacosGrayConfigRequest
    * @returns UpdateNacosGrayConfigResponse
@@ -16209,7 +16229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a plug-in.
+   * Updates plug-in configurations.
    * 
    * @param tmpReq - UpdatePluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16288,7 +16308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a plug-in.
+   * Updates plug-in configurations.
    * 
    * @param request - UpdatePluginConfigRequest
    * @returns UpdatePluginConfigResponse
@@ -16441,7 +16461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新热点参数防护规则（HTTP 请求）
+   * Updates a hot parameter protection rule for HTTP requests.
    * 
    * @param request - UpdateWebFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16528,7 +16548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新热点参数防护规则（HTTP 请求）
+   * Updates a hot parameter protection rule for HTTP requests.
    * 
    * @param request - UpdateWebFlowRuleRequest
    * @returns UpdateWebFlowRuleResponse
