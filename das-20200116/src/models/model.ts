@@ -202,6 +202,7 @@ export { GetStorageAnalysisResultResponseBodyDataStorageAnalysisResultTableStats
 export { GetStorageAnalysisResultResponseBodyDataStorageAnalysisResult } from './GetStorageAnalysisResultResponseBody';
 export { GetStorageAnalysisResultResponseBodyData } from './GetStorageAnalysisResultResponseBody';
 export { GetYaoChiAgentResponseBodyFunctionCall } from './GetYaoChiAgentResponseBody';
+export { GetYaoChiAgentResponseBodySubAgentCall } from './GetYaoChiAgentResponseBody';
 export { GetYaoChiAgentResponseBodyUiFunctionCall } from './GetYaoChiAgentResponseBody';
 export { ModifyAutoScalingConfigRequestBandwidth } from './ModifyAutoScalingConfigRequest';
 export { ModifyAutoScalingConfigRequestResource } from './ModifyAutoScalingConfigRequest';

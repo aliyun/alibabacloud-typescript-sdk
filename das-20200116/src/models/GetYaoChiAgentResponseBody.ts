@@ -50,6 +50,35 @@ export class GetYaoChiAgentResponseBodyFunctionCall extends $dara.Model {
   }
 }
 
+export class GetYaoChiAgentResponseBodySubAgentCall extends $dara.Model {
+  status?: string;
+  subAgentId?: string;
+  subAgentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      subAgentId: 'SubAgentId',
+      subAgentName: 'SubAgentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      subAgentId: 'string',
+      subAgentName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetYaoChiAgentResponseBodyUiFunctionCall extends $dara.Model {
   /**
    * @example
@@ -91,6 +120,7 @@ export class GetYaoChiAgentResponseBody extends $dara.Model {
    */
   content?: string;
   functionCall?: GetYaoChiAgentResponseBodyFunctionCall[];
+  parentId?: string;
   /**
    * @example
    * polardb
@@ -116,16 +146,19 @@ export class GetYaoChiAgentResponseBody extends $dara.Model {
    * 123e4567-e89b-12d3-a456-xxxxxxxxxxxx
    */
   sessionId?: string;
+  subAgentCall?: GetYaoChiAgentResponseBodySubAgentCall[];
   uiFunctionCall?: GetYaoChiAgentResponseBodyUiFunctionCall[];
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       functionCall: 'FunctionCall',
+      parentId: 'ParentId',
       product: 'Product',
       queryId: 'QueryId',
       reasoningContent: 'ReasoningContent',
       requestId: 'RequestId',
       sessionId: 'SessionId',
+      subAgentCall: 'SubAgentCall',
       uiFunctionCall: 'UiFunctionCall',
     };
   }
@@ -134,11 +167,13 @@ export class GetYaoChiAgentResponseBody extends $dara.Model {
     return {
       content: 'string',
       functionCall: { 'type': 'array', 'itemType': GetYaoChiAgentResponseBodyFunctionCall },
+      parentId: 'string',
       product: 'string',
       queryId: 'string',
       reasoningContent: 'string',
       requestId: 'string',
       sessionId: 'string',
+      subAgentCall: { 'type': 'array', 'itemType': GetYaoChiAgentResponseBodySubAgentCall },
       uiFunctionCall: { 'type': 'array', 'itemType': GetYaoChiAgentResponseBodyUiFunctionCall },
     };
   }
@@ -146,6 +181,9 @@ export class GetYaoChiAgentResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.functionCall)) {
       $dara.Model.validateArray(this.functionCall);
+    }
+    if(Array.isArray(this.subAgentCall)) {
+      $dara.Model.validateArray(this.subAgentCall);
     }
     if(Array.isArray(this.uiFunctionCall)) {
       $dara.Model.validateArray(this.uiFunctionCall);
