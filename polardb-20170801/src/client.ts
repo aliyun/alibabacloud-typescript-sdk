@@ -1706,6 +1706,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.AIDBClusterId)) {
+      query["AIDBClusterId"] = request.AIDBClusterId;
+    }
+
     if (!$dara.isNull(request.applicationType)) {
       query["ApplicationType"] = request.applicationType;
     }
@@ -1748,6 +1752,26 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.memApplicationSpecShrink)) {
       query["MemApplicationSpec"] = request.memApplicationSpecShrink;
+    }
+
+    if (!$dara.isNull(request.modelApi)) {
+      query["ModelApi"] = request.modelApi;
+    }
+
+    if (!$dara.isNull(request.modelApiKey)) {
+      query["ModelApiKey"] = request.modelApiKey;
+    }
+
+    if (!$dara.isNull(request.modelBaseUrl)) {
+      query["ModelBaseUrl"] = request.modelBaseUrl;
+    }
+
+    if (!$dara.isNull(request.modelFrom)) {
+      query["ModelFrom"] = request.modelFrom;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
     }
 
     if (!$dara.isNull(request.payType)) {

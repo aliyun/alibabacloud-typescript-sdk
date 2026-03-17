@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
+   * @example
+   * pm-xxxxxx
+   */
+  AIDBClusterId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -44,6 +49,31 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   dryRun?: boolean;
   endpointsShrink?: string;
   memApplicationSpecShrink?: string;
+  /**
+   * @example
+   * openai-completions
+   */
+  modelApi?: string;
+  /**
+   * @example
+   * sk-xxxxxx
+   */
+  modelApiKey?: string;
+  /**
+   * @example
+   * https://dashscope.aliyuncs.com/compatible-mode/v1
+   */
+  modelBaseUrl?: string;
+  /**
+   * @example
+   * bailian
+   */
+  modelFrom?: string;
+  /**
+   * @example
+   * qwen3-max
+   */
+  modelName?: string;
   /**
    * @example
    * Postpaid
@@ -93,6 +123,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      AIDBClusterId: 'AIDBClusterId',
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
       autoCreatePolarFs: 'AutoCreatePolarFs',
@@ -104,6 +135,11 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       dryRun: 'DryRun',
       endpointsShrink: 'Endpoints',
       memApplicationSpecShrink: 'MemApplicationSpec',
+      modelApi: 'ModelApi',
+      modelApiKey: 'ModelApiKey',
+      modelBaseUrl: 'ModelBaseUrl',
+      modelFrom: 'ModelFrom',
+      modelName: 'ModelName',
       payType: 'PayType',
       period: 'Period',
       polarFSInstanceId: 'PolarFSInstanceId',
@@ -120,6 +156,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      AIDBClusterId: 'string',
       applicationType: 'string',
       architecture: 'string',
       autoCreatePolarFs: 'boolean',
@@ -131,6 +168,11 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       dryRun: 'boolean',
       endpointsShrink: 'string',
       memApplicationSpecShrink: 'string',
+      modelApi: 'string',
+      modelApiKey: 'string',
+      modelBaseUrl: 'string',
+      modelFrom: 'string',
+      modelName: 'string',
       payType: 'string',
       period: 'string',
       polarFSInstanceId: 'string',
