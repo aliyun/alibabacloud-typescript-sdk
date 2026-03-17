@@ -13723,6 +13723,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停Supabase实例
+   * 
+   * @param request - PauseSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseSupabaseProjectResponse
+   */
+  async pauseSupabaseProjectWithOptions(request: $_model.PauseSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PauseSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PauseSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PauseSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.PauseSupabaseProjectResponse({}));
+  }
+
+  /**
+   * 暂停Supabase实例
+   * 
+   * @param request - PauseSupabaseProjectRequest
+   * @returns PauseSupabaseProjectResponse
+   */
+  async pauseSupabaseProject(request: $_model.PauseSupabaseProjectRequest): Promise<$_model.PauseSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pauseSupabaseProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Query Vector Data
    * 
    * @param tmpReq - QueryCollectionDataRequest
@@ -14678,6 +14724,52 @@ export default class Client extends OpenApi {
   async resumeInstance(request: $_model.ResumeInstanceRequest): Promise<$_model.ResumeInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resumeInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 恢复Supabase实例
+   * 
+   * @param request - ResumeSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeSupabaseProjectResponse
+   */
+  async resumeSupabaseProjectWithOptions(request: $_model.ResumeSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.ResumeSupabaseProjectResponse({}));
+  }
+
+  /**
+   * 恢复Supabase实例
+   * 
+   * @param request - ResumeSupabaseProjectRequest
+   * @returns ResumeSupabaseProjectResponse
+   */
+  async resumeSupabaseProject(request: $_model.ResumeSupabaseProjectRequest): Promise<$_model.ResumeSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resumeSupabaseProjectWithOptions(request, runtime);
   }
 
   /**
