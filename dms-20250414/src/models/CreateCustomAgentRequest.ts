@@ -2,6 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateCustomAgentRequestCallbackConfig extends $dara.Model {
+  callbackArgs?: string;
+  callbackPrompt?: string;
+  callbackTime?: number;
+  toolId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callbackArgs: 'CallbackArgs',
+      callbackPrompt: 'CallbackPrompt',
+      callbackTime: 'CallbackTime',
+      toolId: 'ToolId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbackArgs: 'string',
+      callbackPrompt: 'string',
+      callbackTime: 'number',
+      toolId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomAgentRequestExecutionConfig extends $dara.Model {
   /**
    * @example
@@ -122,6 +157,7 @@ export class CreateCustomAgentRequestScheduleTaskConfig extends $dara.Model {
 }
 
 export class CreateCustomAgentRequest extends $dara.Model {
+  callbackConfig?: CreateCustomAgentRequestCallbackConfig;
   /**
    * @example
    * cn-hangzhou
@@ -144,6 +180,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      callbackConfig: 'CallbackConfig',
       DMSUnit: 'DMSUnit',
       dataJson: 'DataJson',
       description: 'Description',
@@ -161,6 +198,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callbackConfig: CreateCustomAgentRequestCallbackConfig,
       DMSUnit: 'string',
       dataJson: 'string',
       description: 'string',
@@ -177,6 +215,9 @@ export class CreateCustomAgentRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.callbackConfig && typeof (this.callbackConfig as any).validate === 'function') {
+      (this.callbackConfig as any).validate();
+    }
     if(this.executionConfig && typeof (this.executionConfig as any).validate === 'function') {
       (this.executionConfig as any).validate();
     }

@@ -2,6 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
+  callbackArgs?: string;
+  callbackPrompt?: string;
+  callbackTime?: number;
+  toolId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callbackArgs: 'CallbackArgs',
+      callbackPrompt: 'CallbackPrompt',
+      callbackTime: 'CallbackTime',
+      toolId: 'ToolId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbackArgs: 'string',
+      callbackPrompt: 'string',
+      callbackTime: 'number',
+      toolId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
   skipAskHuman?: boolean;
   /**
@@ -104,6 +139,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * 20372822********
    */
   aliyunUid?: string;
+  callbackConfig?: DescribeCustomAgentResponseBodyDataCallbackConfig;
   /**
    * @example
    * HaoY*****
@@ -186,6 +222,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
     return {
       aliyunParentUid: 'AliyunParentUid',
       aliyunUid: 'AliyunUid',
+      callbackConfig: 'CallbackConfig',
       creatorUserName: 'CreatorUserName',
       customAgentId: 'CustomAgentId',
       DMSUnit: 'DMSUnit',
@@ -219,6 +256,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
     return {
       aliyunParentUid: 'string',
       aliyunUid: 'string',
+      callbackConfig: DescribeCustomAgentResponseBodyDataCallbackConfig,
       creatorUserName: 'string',
       customAgentId: 'string',
       DMSUnit: 'string',
@@ -249,6 +287,9 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.callbackConfig && typeof (this.callbackConfig as any).validate === 'function') {
+      (this.callbackConfig as any).validate();
+    }
     if(this.executionConfig && typeof (this.executionConfig as any).validate === 'function') {
       (this.executionConfig as any).validate();
     }

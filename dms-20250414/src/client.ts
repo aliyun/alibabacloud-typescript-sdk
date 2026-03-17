@@ -452,6 +452,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateCustomAgentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callbackConfig)) {
+      request.callbackConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callbackConfig, "CallbackConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.executionConfig)) {
       request.executionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executionConfig, "ExecutionConfig", "json");
     }
@@ -465,6 +469,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.callbackConfigShrink)) {
+      query["CallbackConfig"] = request.callbackConfigShrink;
+    }
+
     if (!$dara.isNull(request.DMSUnit)) {
       query["DMSUnit"] = request.DMSUnit;
     }
@@ -3447,6 +3455,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ModifyCustomAgentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callbackConfig)) {
+      request.callbackConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callbackConfig, "CallbackConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.executionConfig)) {
       request.executionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executionConfig, "ExecutionConfig", "json");
     }
@@ -3460,6 +3472,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.callbackConfigShrink)) {
+      query["CallbackConfig"] = request.callbackConfigShrink;
+    }
+
     if (!$dara.isNull(request.customAgentId)) {
       query["CustomAgentId"] = request.customAgentId;
     }

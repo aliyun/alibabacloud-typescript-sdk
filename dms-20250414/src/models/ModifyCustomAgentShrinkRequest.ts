@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyCustomAgentShrinkRequest extends $dara.Model {
+  callbackConfigShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -33,6 +34,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      callbackConfigShrink: 'CallbackConfig',
       customAgentId: 'CustomAgentId',
       DMSUnit: 'DMSUnit',
       dataJson: 'DataJson',
@@ -51,6 +53,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callbackConfigShrink: 'string',
       customAgentId: 'string',
       DMSUnit: 'string',
       dataJson: 'string',

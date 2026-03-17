@@ -1,9 +1,12 @@
+export { OpenClawInstanceVOImageInfo } from './OpenClawInstanceVo';
 export { AddUserToDataAgentWorkspaceResponseBodyData } from './AddUserToDataAgentWorkspaceResponseBody';
 export { CreateAirflowResponseBodyRoot } from './CreateAirflowResponseBody';
 export { CreateAirflowLoginTokenResponseBodyData } from './CreateAirflowLoginTokenResponseBody';
+export { CreateCustomAgentRequestCallbackConfig } from './CreateCustomAgentRequest';
 export { CreateCustomAgentRequestExecutionConfig } from './CreateCustomAgentRequest';
 export { CreateCustomAgentRequestKnowledgeConfigList } from './CreateCustomAgentRequest';
 export { CreateCustomAgentRequestScheduleTaskConfig } from './CreateCustomAgentRequest';
+export { CreateCustomAgentResponseBodyDataCallbackConfig } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyDataExecutionConfig } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyDataKnowledgeConfigList } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyDataScheduleTaskConfig } from './CreateCustomAgentResponseBody';
@@ -16,6 +19,7 @@ export { DeleteAirflowResponseBodyRootResponses } from './DeleteAirflowResponseB
 export { DeleteAirflowResponseBodyRoot } from './DeleteAirflowResponseBody';
 export { DeleteCustomAgentResponseBodyData } from './DeleteCustomAgentResponseBody';
 export { DeleteFileUploadResponseBodyData } from './DeleteFileUploadResponseBody';
+export { DescribeCustomAgentResponseBodyDataCallbackConfig } from './DescribeCustomAgentResponseBody';
 export { DescribeCustomAgentResponseBodyDataExecutionConfig } from './DescribeCustomAgentResponseBody';
 export { DescribeCustomAgentResponseBodyDataKnowledgeConfigList } from './DescribeCustomAgentResponseBody';
 export { DescribeCustomAgentResponseBodyDataScheduleTaskConfig } from './DescribeCustomAgentResponseBody';
@@ -31,6 +35,7 @@ export { GetDataAgentWorkspaceInfoResponseBodyData } from './GetDataAgentWorkspa
 export { GetNotebookTaskStatusResponseBodyData } from './GetNotebookTaskStatusResponseBody';
 export { ListAirflowsResponseBodyRootList } from './ListAirflowsResponseBody';
 export { ListAirflowsResponseBodyRoot } from './ListAirflowsResponseBody';
+export { ListCustomAgentResponseBodyDataContentCallbackConfig } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponseBodyDataContentExecutionConfig } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponseBodyDataContentKnowledgeConfigList } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponseBodyDataContentScheduleTaskConfig } from './ListCustomAgentResponseBody';
@@ -46,9 +51,11 @@ export { ListDataCenterDatabaseResponseBodyData } from './ListDataCenterDatabase
 export { ListDataCenterTableResponseBodyDataContent } from './ListDataCenterTableResponseBody';
 export { ListDataCenterTableResponseBodyData } from './ListDataCenterTableResponseBody';
 export { ListFileUploadResponseBodyData } from './ListFileUploadResponseBody';
+export { ModifyCustomAgentRequestCallbackConfig } from './ModifyCustomAgentRequest';
 export { ModifyCustomAgentRequestExecutionConfig } from './ModifyCustomAgentRequest';
 export { ModifyCustomAgentRequestKnowledgeConfigList } from './ModifyCustomAgentRequest';
 export { ModifyCustomAgentRequestScheduleTaskConfig } from './ModifyCustomAgentRequest';
+export { ModifyCustomAgentResponseBodyDataCallbackConfig } from './ModifyCustomAgentResponseBody';
 export { ModifyCustomAgentResponseBodyDataExecutionConfig } from './ModifyCustomAgentResponseBody';
 export { ModifyCustomAgentResponseBodyDataKnowledgeConfigList } from './ModifyCustomAgentResponseBody';
 export { ModifyCustomAgentResponseBodyDataScheduleTaskConfig } from './ModifyCustomAgentResponseBody';
@@ -83,6 +90,7 @@ export { OneMetaTableColumn } from './OneMetaTableColumn';
 export { OneMetaTableColumnEngineMeta } from './OneMetaTableColumnEngineMeta';
 export { OneMetaTableEngineMeta } from './OneMetaTableEngineMeta';
 export { OneMetaTableIndex } from './OneMetaTableIndex';
+export { OpenClawInstanceVO } from './OpenClawInstanceVo';
 export { PartitionError } from './PartitionError';
 export { AddUserToDataAgentWorkspaceRequest } from './AddUserToDataAgentWorkspaceRequest';
 export { AddUserToDataAgentWorkspaceResponseBody } from './AddUserToDataAgentWorkspaceResponseBody';
