@@ -222,6 +222,11 @@ export class ListDatasetDocumentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @example
+   * xxx
+   */
+  nextToken?: string;
+  /**
+   * @example
    * 1
    */
   pageNumber?: number;
@@ -251,6 +256,7 @@ export class ListDatasetDocumentsResponseBody extends $dara.Model {
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -265,6 +271,7 @@ export class ListDatasetDocumentsResponseBody extends $dara.Model {
       data: { 'type': 'array', 'itemType': ListDatasetDocumentsResponseBodyData },
       httpStatusCode: 'number',
       message: 'string',
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',

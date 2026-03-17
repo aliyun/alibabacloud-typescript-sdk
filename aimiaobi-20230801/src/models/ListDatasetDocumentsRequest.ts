@@ -36,6 +36,11 @@ export class ListDatasetDocumentsRequest extends $dara.Model {
   includeFields?: string[];
   /**
    * @example
+   * xxx
+   */
+  nextToken?: string;
+  /**
+   * @example
    * 1
    */
   pageNumber?: number;
@@ -82,6 +87,7 @@ export class ListDatasetDocumentsRequest extends $dara.Model {
       extend2: 'Extend2',
       extend3: 'Extend3',
       includeFields: 'IncludeFields',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       query: 'Query',
@@ -110,6 +116,7 @@ export class ListDatasetDocumentsRequest extends $dara.Model {
       extend2: 'string',
       extend3: 'string',
       includeFields: { 'type': 'array', 'itemType': 'string' },
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       query: 'string',

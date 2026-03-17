@@ -36,6 +36,11 @@ export class ListDatasetDocumentsShrinkRequest extends $dara.Model {
   includeFieldsShrink?: string;
   /**
    * @example
+   * xxx
+   */
+  nextToken?: string;
+  /**
+   * @example
    * 1
    */
   pageNumber?: number;
@@ -82,6 +87,7 @@ export class ListDatasetDocumentsShrinkRequest extends $dara.Model {
       extend2: 'Extend2',
       extend3: 'Extend3',
       includeFieldsShrink: 'IncludeFields',
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       query: 'Query',
@@ -110,6 +116,7 @@ export class ListDatasetDocumentsShrinkRequest extends $dara.Model {
       extend2: 'string',
       extend3: 'string',
       includeFieldsShrink: 'string',
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       query: 'string',

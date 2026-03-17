@@ -568,6 +568,7 @@ export { RunWritingV2ResponseBodyPayloadOutput } from './RunWritingV2responseBod
 export { RunWritingV2ResponseBodyPayloadUsage } from './RunWritingV2responseBody';
 export { RunWritingV2ResponseBodyPayload } from './RunWritingV2responseBody';
 export { SaveDataSourceOrderConfigRequestUserConfigDataSourceList } from './SaveDataSourceOrderConfigRequest';
+export { SaveOrUpdateOssConfigResponseBodyData } from './SaveOrUpdateOssConfigResponseBody';
 export { SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos } from './SearchDatasetDocumentsResponseBody';
 export { SearchDatasetDocumentsResponseBodyDataDocuments } from './SearchDatasetDocumentsResponseBody';
 export { SearchDatasetDocumentsResponseBodyData } from './SearchDatasetDocumentsResponseBody';
@@ -1232,6 +1233,9 @@ export { SaveMaterialDocumentRequest } from './SaveMaterialDocumentRequest';
 export { SaveMaterialDocumentShrinkRequest } from './SaveMaterialDocumentShrinkRequest';
 export { SaveMaterialDocumentResponseBody } from './SaveMaterialDocumentResponseBody';
 export { SaveMaterialDocumentResponse } from './SaveMaterialDocumentResponse';
+export { SaveOrUpdateOssConfigRequest } from './SaveOrUpdateOssConfigRequest';
+export { SaveOrUpdateOssConfigResponseBody } from './SaveOrUpdateOssConfigResponseBody';
+export { SaveOrUpdateOssConfigResponse } from './SaveOrUpdateOssConfigResponse';
 export { SaveStyleLearningResultRequest } from './SaveStyleLearningResultRequest';
 export { SaveStyleLearningResultShrinkRequest } from './SaveStyleLearningResultShrinkRequest';
 export { SaveStyleLearningResultResponseBody } from './SaveStyleLearningResultResponseBody';

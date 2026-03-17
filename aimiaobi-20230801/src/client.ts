@@ -5901,6 +5901,10 @@ export default class Client extends OpenApi {
       body["IncludeFields"] = request.includeFieldsShrink;
     }
 
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
@@ -13220,6 +13224,56 @@ export default class Client extends OpenApi {
   async saveMaterialDocument(request: $_model.SaveMaterialDocumentRequest): Promise<$_model.SaveMaterialDocumentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.saveMaterialDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置oss访问参数
+   * 
+   * @param request - SaveOrUpdateOssConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveOrUpdateOssConfigResponse
+   */
+  async saveOrUpdateOssConfigWithOptions(request: $_model.SaveOrUpdateOssConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveOrUpdateOssConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bucketName)) {
+      body["BucketName"] = request.bucketName;
+    }
+
+    if (!$dara.isNull(request.endPoint)) {
+      body["EndPoint"] = request.endPoint;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveOrUpdateOssConfig",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveOrUpdateOssConfigResponse>(await this.callApi(params, req, runtime), new $_model.SaveOrUpdateOssConfigResponse({}));
+  }
+
+  /**
+   * 配置oss访问参数
+   * 
+   * @param request - SaveOrUpdateOssConfigRequest
+   * @returns SaveOrUpdateOssConfigResponse
+   */
+  async saveOrUpdateOssConfig(request: $_model.SaveOrUpdateOssConfigRequest): Promise<$_model.SaveOrUpdateOssConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveOrUpdateOssConfigWithOptions(request, runtime);
   }
 
   /**
