@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModelUsage extends $dara.Model {
+  /**
+   * @example
+   * 951
+   */
   inputTokens?: number;
+  /**
+   * @example
+   * 13
+   */
   outputTokens?: number;
+  /**
+   * @example
+   * 964
+   */
   totalTokens?: number;
   static names(): { [key: string]: string } {
     return {

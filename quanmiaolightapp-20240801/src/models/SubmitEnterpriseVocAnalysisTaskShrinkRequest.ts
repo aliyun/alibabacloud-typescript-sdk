@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
   apiKey?: string;
+  batchTask?: boolean;
   contentsShrink?: string;
   extraInfo?: string;
   /**
@@ -18,6 +19,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
    */
   modelId?: string;
   outputFormat?: string;
+  positiveFilter?: boolean;
   sourceTrace?: boolean;
   tagsShrink?: string;
   taskDescription?: string;
@@ -29,12 +31,14 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKey: 'apiKey',
+      batchTask: 'batchTask',
       contentsShrink: 'contents',
       extraInfo: 'extraInfo',
       fileKey: 'fileKey',
       filterTagsShrink: 'filterTags',
       modelId: 'modelId',
       outputFormat: 'outputFormat',
+      positiveFilter: 'positiveFilter',
       sourceTrace: 'sourceTrace',
       tagsShrink: 'tags',
       taskDescription: 'taskDescription',
@@ -45,12 +49,14 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKey: 'string',
+      batchTask: 'boolean',
       contentsShrink: 'string',
       extraInfo: 'string',
       fileKey: 'string',
       filterTagsShrink: 'string',
       modelId: 'string',
       outputFormat: 'string',
+      positiveFilter: 'boolean',
       sourceTrace: 'boolean',
       tagsShrink: 'string',
       taskDescription: 'string',

@@ -112,6 +112,7 @@ export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
    * 按照如下格式输出：{"text1": "xxxx", "text2": "xxxx"}
    */
   outputFormat?: string;
+  positiveFilter?: boolean;
   sourceTrace?: boolean;
   /**
    * @remarks
@@ -138,6 +139,7 @@ export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
       filterTags: 'filterTags',
       modelId: 'modelId',
       outputFormat: 'outputFormat',
+      positiveFilter: 'positiveFilter',
       sourceTrace: 'sourceTrace',
       tags: 'tags',
       taskDescription: 'taskDescription',
@@ -153,6 +155,7 @@ export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
       filterTags: { 'type': 'array', 'itemType': RunEnterpriseVocAnalysisRequestFilterTags },
       modelId: 'string',
       outputFormat: 'string',
+      positiveFilter: 'boolean',
       sourceTrace: 'boolean',
       tags: { 'type': 'array', 'itemType': RunEnterpriseVocAnalysisRequestTags },
       taskDescription: 'string',

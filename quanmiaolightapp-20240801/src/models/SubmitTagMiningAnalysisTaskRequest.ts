@@ -38,6 +38,7 @@ export class SubmitTagMiningAnalysisTaskRequestTags extends $dara.Model {
 
 export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
   apiKey?: string;
+  batchTask?: boolean;
   /**
    * @example
    * clueMining
@@ -73,6 +74,7 @@ export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKey: 'apiKey',
+      batchTask: 'batchTask',
       businessType: 'businessType',
       contents: 'contents',
       extraInfo: 'extraInfo',
@@ -87,6 +89,7 @@ export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKey: 'string',
+      batchTask: 'boolean',
       businessType: 'string',
       contents: { 'type': 'array', 'itemType': 'string' },
       extraInfo: 'string',

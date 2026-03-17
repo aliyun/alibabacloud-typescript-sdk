@@ -98,6 +98,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequestTags extends $dara.Model {
 
 export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
   apiKey?: string;
+  batchTask?: boolean;
   contents?: SubmitEnterpriseVocAnalysisTaskRequestContents[];
   extraInfo?: string;
   /**
@@ -112,6 +113,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
    */
   modelId?: string;
   outputFormat?: string;
+  positiveFilter?: boolean;
   sourceTrace?: boolean;
   tags?: SubmitEnterpriseVocAnalysisTaskRequestTags[];
   taskDescription?: string;
@@ -123,12 +125,14 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKey: 'apiKey',
+      batchTask: 'batchTask',
       contents: 'contents',
       extraInfo: 'extraInfo',
       fileKey: 'fileKey',
       filterTags: 'filterTags',
       modelId: 'modelId',
       outputFormat: 'outputFormat',
+      positiveFilter: 'positiveFilter',
       sourceTrace: 'sourceTrace',
       tags: 'tags',
       taskDescription: 'taskDescription',
@@ -139,12 +143,14 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKey: 'string',
+      batchTask: 'boolean',
       contents: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestContents },
       extraInfo: 'string',
       fileKey: 'string',
       filterTags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestFilterTags },
       modelId: 'string',
       outputFormat: 'string',
+      positiveFilter: 'boolean',
       sourceTrace: 'boolean',
       tags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestTags },
       taskDescription: 'string',

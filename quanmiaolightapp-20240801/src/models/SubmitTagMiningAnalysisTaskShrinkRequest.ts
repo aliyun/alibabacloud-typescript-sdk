@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitTagMiningAnalysisTaskShrinkRequest extends $dara.Model {
   apiKey?: string;
+  batchTask?: boolean;
   /**
    * @example
    * clueMining
@@ -39,6 +40,7 @@ export class SubmitTagMiningAnalysisTaskShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKey: 'apiKey',
+      batchTask: 'batchTask',
       businessType: 'businessType',
       contentsShrink: 'contents',
       extraInfo: 'extraInfo',
@@ -53,6 +55,7 @@ export class SubmitTagMiningAnalysisTaskShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKey: 'string',
+      batchTask: 'boolean',
       businessType: 'string',
       contentsShrink: 'string',
       extraInfo: 'string',

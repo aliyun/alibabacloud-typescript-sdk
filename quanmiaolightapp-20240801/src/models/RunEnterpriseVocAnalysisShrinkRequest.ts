@@ -32,6 +32,7 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
    * 按照如下格式输出：{"text1": "xxxx", "text2": "xxxx"}
    */
   outputFormat?: string;
+  positiveFilter?: boolean;
   sourceTrace?: boolean;
   /**
    * @remarks
@@ -58,6 +59,7 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
       filterTagsShrink: 'filterTags',
       modelId: 'modelId',
       outputFormat: 'outputFormat',
+      positiveFilter: 'positiveFilter',
       sourceTrace: 'sourceTrace',
       tagsShrink: 'tags',
       taskDescription: 'taskDescription',
@@ -73,6 +75,7 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
       filterTagsShrink: 'string',
       modelId: 'string',
       outputFormat: 'string',
+      positiveFilter: 'boolean',
       sourceTrace: 'boolean',
       tagsShrink: 'string',
       taskDescription: 'string',
