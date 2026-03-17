@@ -48,7 +48,9 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
    * The name of the task.
    */
   name?: string;
+  regionId?: string;
   reportLanguage?: string;
+  reportType?: string;
   /**
    * @remarks
    * The ID of the scheduled inspection configuration.
@@ -77,7 +79,9 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
       frequency: 'Frequency',
       instanceCount: 'InstanceCount',
       name: 'Name',
+      regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
+      reportType: 'ReportType',
       scheduledId: 'ScheduledId',
       taskStartTime: 'TaskStartTime',
       timeRange: 'TimeRange',
@@ -91,7 +95,9 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
       frequency: 'string',
       instanceCount: 'number',
       name: 'string',
+      regionId: 'string',
       reportLanguage: 'string',
+      reportType: 'string',
       scheduledId: 'string',
       taskStartTime: 'string',
       timeRange: 'string',

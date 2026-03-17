@@ -30,8 +30,6 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * @remarks
    * The IDs of the related instances. Separate multiple IDs with commas (,).
    * 
-   * This parameter is required.
-   * 
    * @example
    * rm-2ze6mk259v322****,rm-2zef3b65430j0****
    */
@@ -43,7 +41,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * This parameter is required.
    */
   name?: string;
+  regionId?: string;
   reportLanguage?: string;
+  reportType?: string;
   /**
    * @remarks
    * The time when the inspection task is executed. Specify the time in the ISO 8601 standard in the HH:mm:ssZ format. The time must be in UTC. Default value: 02:00 AM.
@@ -66,7 +66,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       frequency: 'Frequency',
       instanceIds: 'InstanceIds',
       name: 'Name',
+      regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
+      reportType: 'ReportType',
       startTime: 'StartTime',
       timeRange: 'TimeRange',
     };
@@ -78,7 +80,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       frequency: 'string',
       instanceIds: 'string',
       name: 'string',
+      regionId: 'string',
       reportLanguage: 'string',
+      reportType: 'string',
       startTime: 'string',
       timeRange: 'string',
     };

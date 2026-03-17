@@ -11,6 +11,7 @@ export class GetInspectionReportRequest extends $dara.Model {
    * rm-2zep6e5u6l2yu****
    */
   instanceId?: string;
+  reportType?: string;
   /**
    * @remarks
    * The ID of the inspection report.
@@ -24,6 +25,7 @@ export class GetInspectionReportRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      reportType: 'ReportType',
       taskId: 'TaskId',
     };
   }
@@ -31,6 +33,7 @@ export class GetInspectionReportRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      reportType: 'string',
       taskId: 'string',
     };
   }

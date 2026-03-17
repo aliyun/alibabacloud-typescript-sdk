@@ -27,6 +27,7 @@ export class GetStandAloneReportsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  reportType?: string;
   /**
    * @remarks
    * The task start time based on which the reports are filtered. If you do not specify this parameter, all reports are returned.
@@ -40,6 +41,7 @@ export class GetStandAloneReportsRequest extends $dara.Model {
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      reportType: 'ReportType',
       startTime: 'StartTime',
     };
   }
@@ -49,6 +51,7 @@ export class GetStandAloneReportsRequest extends $dara.Model {
       endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      reportType: 'string',
       startTime: 'string',
     };
   }

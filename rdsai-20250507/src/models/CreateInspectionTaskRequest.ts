@@ -38,13 +38,13 @@ export class CreateInspectionTaskRequest extends $dara.Model {
    * @remarks
    * The instances covered by the task. Separates multiple instance IDs with commas (,).
    * 
-   * This parameter is required.
-   * 
    * @example
    * rm-2ze6mk259v322****,rm-2zef3b65430j0****
    */
   instanceIds?: string;
+  regionId?: string;
   reportLanguage?: string;
+  reportType?: string;
   /**
    * @remarks
    * The start time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. By default, the time range of the task is the latest 24 hours.
@@ -58,7 +58,9 @@ export class CreateInspectionTaskRequest extends $dara.Model {
       endTime: 'EndTime',
       inspectionItems: 'InspectionItems',
       instanceIds: 'InstanceIds',
+      regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
+      reportType: 'ReportType',
       startTime: 'StartTime',
     };
   }
@@ -68,7 +70,9 @@ export class CreateInspectionTaskRequest extends $dara.Model {
       endTime: 'string',
       inspectionItems: 'string',
       instanceIds: 'string',
+      regionId: 'string',
       reportLanguage: 'string',
+      reportType: 'string',
       startTime: 'string',
     };
   }

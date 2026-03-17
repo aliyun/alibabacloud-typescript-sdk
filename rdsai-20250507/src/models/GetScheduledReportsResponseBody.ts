@@ -19,7 +19,9 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
    * 2025-01-01T23:59:59Z
    */
   endTime?: string;
+  regionId?: string;
   reportLanguage?: string;
+  reportType?: string;
   /**
    * @remarks
    * The start time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
@@ -48,7 +50,9 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
     return {
       createdTime: 'CreatedTime',
       endTime: 'EndTime',
+      regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
+      reportType: 'ReportType',
       startTime: 'StartTime',
       status: 'Status',
       taskId: 'TaskId',
@@ -59,7 +63,9 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
     return {
       createdTime: 'string',
       endTime: 'string',
+      regionId: 'string',
       reportLanguage: 'string',
+      reportType: 'string',
       startTime: 'string',
       status: 'string',
       taskId: 'string',

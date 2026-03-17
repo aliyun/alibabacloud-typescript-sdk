@@ -19,7 +19,9 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
    * 2026-01-23T08:20:31Z
    */
   endTime?: string;
+  regionId?: string;
   reportLanguage?: string;
+  reportType?: string;
   /**
    * @remarks
    * The start time of the inspection. The time is in the YYYY-MM-DDTHH:mm:ssZ format.
@@ -48,7 +50,9 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
     return {
       createdTime: 'CreatedTime',
       endTime: 'EndTime',
+      regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
+      reportType: 'ReportType',
       startTime: 'StartTime',
       status: 'Status',
       taskId: 'TaskId',
@@ -59,7 +63,9 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
     return {
       createdTime: 'string',
       endTime: 'string',
+      regionId: 'string',
       reportLanguage: 'string',
+      reportType: 'string',
       startTime: 'string',
       status: 'string',
       taskId: 'string',

@@ -389,6 +389,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建边缘函数
+   * 
+   * @param tmpReq - CreateEdgeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEdgeFunctionResponse
+   */
+  async createEdgeFunctionWithOptions(tmpReq: $_model.CreateEdgeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEdgeFunctionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateEdgeFunctionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.code)) {
+      request.codeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.code, "Code", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.customConfig)) {
+      request.customConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customConfig, "CustomConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.envs)) {
+      request.envsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envs, "Envs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.codeShrink)) {
+      query["Code"] = request.codeShrink;
+    }
+
+    if (!$dara.isNull(request.customConfigShrink)) {
+      query["CustomConfig"] = request.customConfigShrink;
+    }
+
+    if (!$dara.isNull(request.edgeFunctionName)) {
+      query["EdgeFunctionName"] = request.edgeFunctionName;
+    }
+
+    if (!$dara.isNull(request.envsShrink)) {
+      query["Envs"] = request.envsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEdgeFunction",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEdgeFunctionResponse>(await this.callApi(params, req, runtime), new $_model.CreateEdgeFunctionResponse({}));
+  }
+
+  /**
+   * 创建边缘函数
+   * 
+   * @param request - CreateEdgeFunctionRequest
+   * @returns CreateEdgeFunctionResponse
+   */
+  async createEdgeFunction(request: $_model.CreateEdgeFunctionRequest): Promise<$_model.CreateEdgeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEdgeFunctionWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an inspection task for multiple instances.
    * 
    * @param request - CreateInspectionTaskRequest
@@ -410,8 +490,16 @@ export default class Client extends OpenApi {
       query["InstanceIds"] = request.instanceIds;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!$dara.isNull(request.reportLanguage)) {
       query["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.reportType)) {
+      query["ReportType"] = request.reportType;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -472,8 +560,16 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!$dara.isNull(request.reportLanguage)) {
       query["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.reportType)) {
+      query["ReportType"] = request.reportType;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -682,6 +778,60 @@ export default class Client extends OpenApi {
   async deleteCustomAgent(request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除边缘函数
+   * 
+   * @param request - DeleteEdgeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEdgeFunctionResponse
+   */
+  async deleteEdgeFunctionWithOptions(request: $_model.DeleteEdgeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEdgeFunctionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.edgeFunctionName)) {
+      query["EdgeFunctionName"] = request.edgeFunctionName;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEdgeFunction",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEdgeFunctionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEdgeFunctionResponse({}));
+  }
+
+  /**
+   * 删除边缘函数
+   * 
+   * @param request - DeleteEdgeFunctionRequest
+   * @returns DeleteEdgeFunctionResponse
+   */
+  async deleteEdgeFunction(request: $_model.DeleteEdgeFunctionRequest): Promise<$_model.DeleteEdgeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEdgeFunctionWithOptions(request, runtime);
   }
 
   /**
@@ -894,6 +1044,60 @@ export default class Client extends OpenApi {
   async describeAppInstances(request: $_model.DescribeAppInstancesRequest): Promise<$_model.DescribeAppInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAppInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询边缘函数列表
+   * 
+   * @param request - DescribeEdgeFunctionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEdgeFunctionsResponse
+   */
+  async describeEdgeFunctionsWithOptions(request: $_model.DescribeEdgeFunctionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEdgeFunctionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.edgeFunctionName)) {
+      query["EdgeFunctionName"] = request.edgeFunctionName;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEdgeFunctions",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEdgeFunctionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEdgeFunctionsResponse({}));
+  }
+
+  /**
+   * 查询边缘函数列表
+   * 
+   * @param request - DescribeEdgeFunctionsRequest
+   * @returns DescribeEdgeFunctionsResponse
+   */
+  async describeEdgeFunctions(request: $_model.DescribeEdgeFunctionsRequest): Promise<$_model.DescribeEdgeFunctionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEdgeFunctionsWithOptions(request, runtime);
   }
 
   /**
@@ -1410,6 +1614,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.reportType)) {
+      query["ReportType"] = request.reportType;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -1670,6 +1878,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.reportType)) {
+      query["ReportType"] = request.reportType;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -2806,6 +3018,86 @@ export default class Client extends OpenApi {
   async updateCustomAgent(request: $_model.UpdateCustomAgentRequest): Promise<$_model.UpdateCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新边缘函数
+   * 
+   * @param tmpReq - UpdateEdgeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEdgeFunctionResponse
+   */
+  async updateEdgeFunctionWithOptions(tmpReq: $_model.UpdateEdgeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEdgeFunctionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateEdgeFunctionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.code)) {
+      request.codeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.code, "Code", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.customConfig)) {
+      request.customConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customConfig, "CustomConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.envs)) {
+      request.envsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envs, "Envs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.codeShrink)) {
+      query["Code"] = request.codeShrink;
+    }
+
+    if (!$dara.isNull(request.customConfigShrink)) {
+      query["CustomConfig"] = request.customConfigShrink;
+    }
+
+    if (!$dara.isNull(request.edgeFunctionName)) {
+      query["EdgeFunctionName"] = request.edgeFunctionName;
+    }
+
+    if (!$dara.isNull(request.envsShrink)) {
+      query["Envs"] = request.envsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEdgeFunction",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateEdgeFunctionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEdgeFunctionResponse({}));
+  }
+
+  /**
+   * 更新边缘函数
+   * 
+   * @param request - UpdateEdgeFunctionRequest
+   * @returns UpdateEdgeFunctionResponse
+   */
+  async updateEdgeFunction(request: $_model.UpdateEdgeFunctionRequest): Promise<$_model.UpdateEdgeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEdgeFunctionWithOptions(request, runtime);
   }
 
   /**
