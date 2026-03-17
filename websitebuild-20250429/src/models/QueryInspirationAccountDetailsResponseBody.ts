@@ -38,6 +38,7 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
    * FREE_TRIAL_GIFT
    */
   sourceTypeName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       acquisitionTime: 'AcquisitionTime',
@@ -47,6 +48,7 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
       initQuota: 'InitQuota',
       sourceType: 'SourceType',
       sourceTypeName: 'SourceTypeName',
+      status: 'Status',
     };
   }
 
@@ -59,6 +61,7 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
       initQuota: 'number',
       sourceType: 'string',
       sourceTypeName: 'string',
+      status: 'string',
     };
   }
 
