@@ -4,25 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePhoneMessageQrdlRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * 
    * @example
-   * 示例值示例值
+   * 883873773
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The phone number. Add the country code before the phone number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 861380000
    */
   phoneNumber?: string;
   /**
    * @remarks
+   * QR code encoding.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 29338838
    */
   qrdlCode?: string;
   resourceOwnerAccount?: string;

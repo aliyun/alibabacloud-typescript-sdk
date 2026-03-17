@@ -4,41 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePhoneMessageQrdlRequest extends $dara.Model {
   /**
+   * @remarks
+   * SpaceId/instance ID of ISV sub customer.
+   * 
    * @example
-   * 示例值
+   * 9383884
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * Produce QR code image format.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * PNG
    */
   generateQrImage?: string;
   ownerId?: number;
   /**
    * @remarks
+   * Number, enter the country/region code+number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 861380000
    */
   phoneNumber?: string;
   /**
    * @remarks
+   * Message content.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Hello
    */
   prefilledMessage?: string;
   /**
    * @remarks
+   * QR code encoding.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 29338838
    */
   qrdlCode?: string;
   resourceOwnerAccount?: string;

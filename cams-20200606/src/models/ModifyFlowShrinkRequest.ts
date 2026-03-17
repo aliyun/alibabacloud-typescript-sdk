@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The information about the categories of the Flow.
+   * 
    * This parameter is required.
    */
   categoriesShrink?: string;
   /**
+   * @remarks
+   * The space ID of the user within the independent software vendor (ISV) account.
+   * 
    * @example
-   * 示例值示例值
+   * 9493884
    */
   custSpaceId?: string;
   /**
@@ -19,16 +24,21 @@ export class ModifyFlowShrinkRequest extends $dara.Model {
    */
   endpointUri?: string;
   /**
+   * @remarks
+   * The Flow ID.
+   * 
    * @example
-   * 示例值
+   * 2938838
    */
   flowId?: string;
   /**
    * @remarks
+   * The name of the Flow.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * flow_001
    */
   flowName?: string;
   ownerId?: number;

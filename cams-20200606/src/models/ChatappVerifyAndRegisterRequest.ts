@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappVerifyAndRegisterRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID of the RAM user within the ISV account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,20 +16,24 @@ export class ChatappVerifyAndRegisterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The phone number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 86138000000
+   * 8613800001234
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The verification code.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 123466
+   * 223222
    */
   verifyCode?: string;
   static names(): { [key: string]: string } {

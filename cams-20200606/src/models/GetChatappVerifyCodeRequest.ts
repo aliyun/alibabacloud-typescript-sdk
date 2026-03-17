@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatappVerifyCodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID of the RAM user within the ISV account.
+   * 
    * This parameter is required.
    * 
    * @example
-   * cams-kei****
+   * 229393838*****
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * The language. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,19 +25,28 @@ export class GetChatappVerifyCodeRequest extends $dara.Model {
   locale?: string;
   /**
    * @remarks
+   * The verification method.
+   * 
+   * Valid values:
+   * 
+   * *   Voice: sends the verification code via phone call.
+   * *   sms: sends the verification code via SMS.
+   * 
    * This parameter is required.
    * 
    * @example
-   * sms
+   * SMS
    */
   method?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The phone number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 8613800000000
+   * 8613800001234
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

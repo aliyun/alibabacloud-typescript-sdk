@@ -4,24 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlowJSONAssetRequest extends $dara.Model {
   /**
+   * @remarks
+   * SpaceId/instance ID of ISV sub customer.
+   * 
    * @example
-   * 示例值示例值
+   * 9399393
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * JSON file generated according to Facebook flow rules.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * https://aliyun/json.json
    */
   filePath?: string;
   /**
    * @remarks
+   * The Flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * flow_001
    */
   flowId?: string;
   ownerId?: number;

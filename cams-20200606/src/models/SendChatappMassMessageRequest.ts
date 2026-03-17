@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendChatappMassMessageRequestSenderListFlowAction extends $dara.Model {
+  /**
+   * @remarks
+   * The default parameter of the Flow.
+   */
   flowActionData?: { [key: string]: any };
   /**
+   * @remarks
+   * The information about the Flow token.
+   * 
    * @example
-   * 示例值
+   * kde****
    */
   flowToken?: string;
   static names(): { [key: string]: string } {
@@ -37,8 +44,11 @@ export class SendChatappMassMessageRequestSenderListFlowAction extends $dara.Mod
 
 export class SendChatappMassMessageRequestSenderListProductActionSectionsProductItems extends $dara.Model {
   /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
    * @example
-   * 示例值示例值
+   * ksi399d8
    */
   productRetailerId?: string;
   static names(): { [key: string]: string } {
@@ -63,10 +73,17 @@ export class SendChatappMassMessageRequestSenderListProductActionSectionsProduct
 }
 
 export class SendChatappMassMessageRequestSenderListProductActionSections extends $dara.Model {
+  /**
+   * @remarks
+   * The products.
+   */
   productItems?: SendChatappMassMessageRequestSenderListProductActionSectionsProductItems[];
   /**
+   * @remarks
+   * The name of the category.
+   * 
    * @example
-   * 示例值
+   * abcd
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -96,10 +113,17 @@ export class SendChatappMassMessageRequestSenderListProductActionSections extend
 }
 
 export class SendChatappMassMessageRequestSenderListProductAction extends $dara.Model {
+  /**
+   * @remarks
+   * The products. Up to 30 products and 10 categories can be added.
+   */
   sections?: SendChatappMassMessageRequestSenderListProductActionSections[];
   /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
    * @example
-   * 示例值
+   * skkks999393
    */
   thumbnailProductRetailerId?: string;
   static names(): { [key: string]: string } {
@@ -129,13 +153,32 @@ export class SendChatappMassMessageRequestSenderListProductAction extends $dara.
 }
 
 export class SendChatappMassMessageRequestSenderList extends $dara.Model {
+  /**
+   * @remarks
+   * The Flow action.
+   */
   flowAction?: SendChatappMassMessageRequestSenderListFlowAction;
+  /**
+   * @remarks
+   * The payload of the button.
+   */
   payload?: string[];
+  /**
+   * @remarks
+   * The information about the product.
+   */
   productAction?: SendChatappMassMessageRequestSenderListProductAction;
+  /**
+   * @remarks
+   * The parameters of the template.
+   */
   templateParams?: { [key: string]: string };
   /**
+   * @remarks
+   * The mobile phone number of the message receiver.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 861388988****
    */
   to?: string;
   static names(): { [key: string]: string } {
@@ -182,95 +225,160 @@ export class SendChatappMassMessageRequestSenderList extends $dara.Model {
 export class SendChatappMassMessageRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of the channel. Valid values:
+   * 
+   * *   **whatsapp**
+   * *   **viber**
+   * *   **line** (under development)
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * whatsapp
    */
   channelType?: string;
   /**
+   * @remarks
+   * The space ID of the user.
+   * 
    * @example
-   * 示例值示例值
+   * 28251486512358****
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * 
+   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 65921621816****
    * 
    * @deprecated
    */
   custWabaId?: string;
   /**
+   * @remarks
+   * The content of the fallback message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Fallback message
    */
   fallBackContent?: string;
+  /**
+   * @remarks
+   * Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the message fails to be sent or the message receipt that indicates the message is not delivered to clients is received. Unit: seconds. Valid values: 60 to 43200.
+   * 
+   * @example
+   * 120
+   */
   fallBackDuration?: number;
   /**
+   * @remarks
+   * The ID of the fallback policy.
+   * 
    * @example
-   * 示例值示例值示例值
+   * S00001
    */
   fallBackId?: string;
   /**
+   * @remarks
+   * The fallback rule. Valid values:
+   * 
+   * *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+   * *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
+   * 
    * @example
-   * 示例值示例值示例值
+   * undelivered
    */
   fallBackRule?: string;
   /**
    * @remarks
+   * The mobile phone number of the message sender.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 861387777****
    */
   from?: string;
   /**
+   * @remarks
+   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
+   * 
    * @example
-   * 示例值示例值
+   * skdi3kksloslikdkkdk
    * 
    * @deprecated
    */
   isvCode?: string;
   /**
+   * @remarks
+   * The type of the Viber message. Valid values:
+   * 
+   * *   **promotion**
+   * *   **transaction**
+   * 
    * @example
-   * 示例值示例值
+   * promotion
    */
   label?: string;
   /**
    * @remarks
+   * The language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * en
    */
   language?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The mobile phone numbers of the message receivers.
+   */
   senderList?: SendChatappMassMessageRequestSenderList[];
   /**
+   * @remarks
+   * The tag information when the ChannelType parameter is set to viber.
+   * 
    * @example
-   * 示例值示例值
+   * tag
    */
   tag?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * 示例值示例值
+   * 100000001
    */
   taskId?: string;
   /**
+   * @remarks
+   * The template code.
+   * 
    * @example
-   * 示例值示例值
+   * 744c4b5c79c9432497a075bdfca36bf5
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The name of the message template.
+   * 
    * @example
-   * 示例值示例值
+   * test_name
    */
   templateName?: string;
   /**
+   * @remarks
+   * The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600. Unit: seconds.
+   * 
    * @example
-   * 46
+   * 50
    */
   ttl?: number;
   static names(): { [key: string]: string } {

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomAudienceUserRequestUsers extends $dara.Model {
   /**
    * @example
-   * 示例值示例值示例值
+   * a@test.com
    */
   email?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 86138***
    */
   phone?: string;
   static names(): { [key: string]: string } {

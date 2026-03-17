@@ -7164,7 +7164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListFlowNodeGroup
+   * 列举流程组件分组
    * 
    * @param request - ListFlowNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7211,7 +7211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListFlowNodeGroup
+   * 列举流程组件分组
    * 
    * @param request - ListFlowNodeGroupRequest
    * @returns ListFlowNodeGroupResponse
@@ -9758,6 +9758,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.adAccountId)) {
       query["AdAccountId"] = request.adAccountId;
+    }
+
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
     }
 
     if (!$dara.isNull(request.channelType)) {

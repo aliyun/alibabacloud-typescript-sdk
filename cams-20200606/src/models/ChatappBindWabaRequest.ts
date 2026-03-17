@@ -8,10 +8,12 @@ export class ChatappBindWabaRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the WhatsApp Business account.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 33993***
+   * 2293938222343****
    */
   wabaId?: string;
   static names(): { [key: string]: string } {

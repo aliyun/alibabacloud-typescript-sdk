@@ -10,18 +10,29 @@ export class IsvGetAppIdRequest extends $dara.Model {
   intlVersion?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The permission.
+   * 
+   * Valid values:
+   * 
+   * *   whatsapp_business_messaging: sending permission on WhatsApp messages
+   * *   ads_management: management permission on advertisements
+   * *   catalog_management: management permission on catalogs
+   * 
    * @example
-   * 示例值示例值
+   * catalog_management
    */
   permissions?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The type of the app. Valid value: WHATSAPP.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * WHATSAPP
    */
   type?: string;
   static names(): { [key: string]: string } {

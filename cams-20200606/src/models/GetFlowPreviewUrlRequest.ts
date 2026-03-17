@@ -4,16 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFlowPreviewUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 939399383
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * The Flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * flow_001
    */
   flowId?: string;
   ownerId?: number;

@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFlowJSONAssestRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the user within the independent software vendor (ISV) account.
+   * 
    * @example
-   * 示例值
+   * 83883873
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The Flow ID.
+   * 
    * @example
-   * 示例值示例值
+   * flow_001
    */
   flowId?: string;
   ownerId?: number;

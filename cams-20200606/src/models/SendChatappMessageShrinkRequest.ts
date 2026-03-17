@@ -9,11 +9,22 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
    */
   adAccountId?: string;
   /**
+   * @example
+   * UTILITY
+   */
+  category?: string;
+  /**
    * @remarks
+   * The channel type. Valid values:
+   * 
+   * *   **whatsapp**
+   * *   **viber**
+   * *   **line** (under development)
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * whatsapp
    */
   channelType?: string;
   /**
@@ -49,62 +60,112 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The ID of the reply message.
+   * 
    * @example
-   * 示例值
+   * 61851ccb2f1365b16aee****
    */
   contextMessageId?: string;
   /**
+   * @remarks
+   * The space ID of the user.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 28251486512358****
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * 
+   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * 
    * @example
-   * 示例值示例值
+   * 65921621816****
    * 
    * @deprecated
    */
   custWabaId?: string;
   /**
+   * @remarks
+   * The content of the fallback message.
+   * 
    * @example
-   * 示例值
+   * This is a fallback message.
    */
   fallBackContent?: string;
+  /**
+   * @remarks
+   * Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to clients** is received. Unit: seconds. Valid values: 60 to 43200.
+   * 
+   * @example
+   * 120
+   */
   fallBackDuration?: number;
   /**
+   * @remarks
+   * The ID of the fallback policy. You can create a fallback policy and view the information in the Chat App Message Service console.
+   * 
    * @example
-   * 示例值示例值示例值
+   * S_000001
    */
   fallBackId?: string;
   /**
+   * @remarks
+   * The fallback rule. Valid values:
+   * 
+   * *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+   * *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
+   * 
    * @example
-   * 示例值示例值
+   * undelivered
    */
   fallBackRule?: string;
+  /**
+   * @remarks
+   * The Flow action.
+   */
   flowActionShrink?: string;
   /**
    * @remarks
+   * The mobile phone number of the message sender.
+   * 
+   * >  You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the Chat App Message Service console.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 1360000****
    */
   from?: string;
   /**
+   * @remarks
+   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
+   * 
    * @example
-   * 示例值
+   * skdi3kksloslikdkkdk
    * 
    * @deprecated
    */
   isvCode?: string;
   /**
+   * @remarks
+   * The type of the Viber message. This parameter is required if ChannelType is set to viber. Valid values:
+   * 
+   * *   **promotion**
+   * *   **transaction**
+   * 
    * @example
-   * 示例值
+   * promotion
    */
   label?: string;
   /**
+   * @remarks
+   * The language that is used in the message template. This parameter is required only if you set the Type parameter to **template**. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * 
    * @example
-   * 示例值示例值示例值
+   * en
    */
   language?: string;
   /**
@@ -113,8 +174,38 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
    */
   messageCampaignId?: string;
   /**
+   * @remarks
+   * The specific type of the message. This parameter is required only if you set the Type parameter to **message**.
+   * 
+   * **Valid values of MessageType when you set the ChannelType parameter to whatsapp:**
+   * 
+   * *   **text**: a text message.
+   * *   **image**: an image message.
+   * *   **video**: a video message.
+   * *   **audio**: an audio message.
+   * *   **document**: a document message.
+   * *   **interactive**: an interactive message.
+   * *   **contacts**: a contact message.
+   * *   **location**: a location message.
+   * *   **sticker**: a sticker message.
+   * *   **reaction**: a reaction message.
+   * 
+   * **Valid values of MessageType when you set the ChannelType parameter to viber:**
+   * 
+   * *   **text**: a text message.
+   * *   **image**: an image message.
+   * *   **video**: a video message.
+   * *   **document**: a document message.
+   * *   **text_button**: a message that contains the text and button media objects.
+   * *   **text_image_button**: a message that contains multiple media objects, including the text, image, and button.
+   * *   **text_video**: a message that contains the text and video media objects.
+   * *   **text_video_button**: a message that contains multiple media objects, including text, video, and button.
+   * *   **text_image**: a message that contains the text and image media objects.
+   * 
+   * > For more information, see [Parameters of a message template](https://help.aliyun.com/document_detail/454530.html).
+   * 
    * @example
-   * 示例值
+   * text
    */
   messageType?: string;
   ownerId?: number;
@@ -126,6 +217,10 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
    * payloadtext1,payloadtext2,payloadtext3
    */
   payloadShrink?: string;
+  /**
+   * @remarks
+   * The information about the products included in the WhatsApp catalog message or multi-product message (MPM).
+   */
   productActionShrink?: string;
   /**
    * @example
@@ -135,32 +230,50 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The tag information of the Viber message.
+   * 
    * @example
-   * 示例值示例值
+   * tag
    */
   tag?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * 示例值示例值
+   * 100000001
    */
   taskId?: string;
   /**
+   * @remarks
+   * The code of the message template. This parameter is required only if you set the Type parameter to **template**.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 744c4b5c79c9432497a075bdfca3****
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The name of the message template.
+   * 
    * @example
-   * 示例值示例值示例值
+   * test_name
    */
   templateName?: string;
+  /**
+   * @remarks
+   * The variables of the message template.
+   */
   templateParamsShrink?: string;
   /**
    * @remarks
+   * The mobile phone number of the message receiver.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 1390000****
    */
   to?: string;
   /**
@@ -169,22 +282,38 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
    */
   tokenType?: string;
   /**
+   * @remarks
+   * The tracking data of the Viber message.
+   * 
    * @example
-   * 示例值示例值
+   * tracking_id:123456
    */
   trackingData?: string;
+  /**
+   * @remarks
+   * The timeout period for sending the Viber message. Valid values: 30 to 1209600. Unit: seconds.
+   * 
+   * @example
+   * 50
+   */
   ttl?: number;
   /**
    * @remarks
+   * The message type. Valid values:
+   * 
+   * *   **template**: the template message. A template message is sent based on a template that is created and approved in the Chat App Message Service console. You can send template messages based on your business requirements.
+   * *   **message**: the custom message. You can send a custom WhatsApp message to a user only within 24 hours after you receive the last message from the user. This limit does not apply to custom Viber messages.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * template
    */
   type?: string;
   static names(): { [key: string]: string } {
     return {
       adAccountId: 'AdAccountId',
+      category: 'Category',
       channelType: 'ChannelType',
       content: 'Content',
       contextMessageId: 'ContextMessageId',
@@ -223,6 +352,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       adAccountId: 'string',
+      category: 'string',
       channelType: 'string',
       content: 'string',
       contextMessageId: 'string',

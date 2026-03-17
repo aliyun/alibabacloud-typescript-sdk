@@ -5,19 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappPhoneNumberDeregisterRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 939283893939
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The phone number that you want to deregister.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 8613800000000
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;
