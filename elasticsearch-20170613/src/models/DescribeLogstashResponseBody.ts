@@ -311,6 +311,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
    * ls-cn-abc
    */
   description?: string;
+  endTime?: number;
   /**
    * @remarks
    * The ID of the zone where the node resides.
@@ -391,6 +392,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
       config: 'config',
       createdAt: 'createdAt',
       description: 'description',
+      endTime: 'endTime',
       endpointList: 'endpointList',
       instanceId: 'instanceId',
       networkConfig: 'networkConfig',
@@ -413,6 +415,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
       config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       createdAt: 'string',
       description: 'string',
+      endTime: 'number',
       endpointList: { 'type': 'array', 'itemType': DescribeLogstashResponseBodyResultEndpointList },
       instanceId: 'string',
       networkConfig: DescribeLogstashResponseBodyResultNetworkConfig,

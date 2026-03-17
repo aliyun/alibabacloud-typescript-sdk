@@ -206,6 +206,11 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
    */
   description?: string;
   /**
+   * @example
+   * 4928745600000
+   */
+  endTime?: number;
+  /**
    * @remarks
    * The tag value of the cloud disk.
    * 
@@ -272,6 +277,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
       tags: 'Tags',
       createdAt: 'createdAt',
       description: 'description',
+      endTime: 'endTime',
       instanceId: 'instanceId',
       networkConfig: 'networkConfig',
       nodeAmount: 'nodeAmount',
@@ -289,6 +295,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
       tags: { 'type': 'array', 'itemType': ListLogstashResponseBodyResultTags },
       createdAt: 'string',
       description: 'string',
+      endTime: 'number',
       instanceId: 'string',
       networkConfig: ListLogstashResponseBodyResultNetworkConfig,
       nodeAmount: 'number',
