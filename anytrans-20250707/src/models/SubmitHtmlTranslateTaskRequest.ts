@@ -141,6 +141,7 @@ export class SubmitHtmlTranslateTaskRequestExt extends $dara.Model {
   sensitives?: string[];
   terminologies?: SubmitHtmlTranslateTaskRequestExtTerminologies[];
   textTransform?: SubmitHtmlTranslateTaskRequestExtTextTransform;
+  trackingData?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'config',
@@ -150,6 +151,7 @@ export class SubmitHtmlTranslateTaskRequestExt extends $dara.Model {
       sensitives: 'sensitives',
       terminologies: 'terminologies',
       textTransform: 'textTransform',
+      trackingData: 'trackingData',
     };
   }
 
@@ -162,6 +164,7 @@ export class SubmitHtmlTranslateTaskRequestExt extends $dara.Model {
       sensitives: { 'type': 'array', 'itemType': 'string' },
       terminologies: { 'type': 'array', 'itemType': SubmitHtmlTranslateTaskRequestExtTerminologies },
       textTransform: SubmitHtmlTranslateTaskRequestExtTextTransform,
+      trackingData: 'string',
     };
   }
 

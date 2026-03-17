@@ -64,12 +64,14 @@ export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
   domainHint?: string;
   paramMap?: any;
   terminologies?: SubmitDocTranslateTaskRequestExtTerminologies[];
+  trackingData?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'config',
       domainHint: 'domainHint',
       paramMap: 'paramMap',
       terminologies: 'terminologies',
+      trackingData: 'trackingData',
     };
   }
 
@@ -79,6 +81,7 @@ export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
       domainHint: 'string',
       paramMap: 'any',
       terminologies: { 'type': 'array', 'itemType': SubmitDocTranslateTaskRequestExtTerminologies },
+      trackingData: 'string',
     };
   }
 

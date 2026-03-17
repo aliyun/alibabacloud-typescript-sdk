@@ -13,10 +13,12 @@ export class SubmitHtmlTranslateTaskResponseBodyData extends $dara.Model {
    * 2746f4be-cff2-465e-a2c6-12bff30ce0f9
    */
   taskId?: string;
+  trackingData?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'status',
       taskId: 'taskId',
+      trackingData: 'trackingData',
     };
   }
 
@@ -24,6 +26,7 @@ export class SubmitHtmlTranslateTaskResponseBodyData extends $dara.Model {
     return {
       status: 'string',
       taskId: 'string',
+      trackingData: 'string',
     };
   }
 

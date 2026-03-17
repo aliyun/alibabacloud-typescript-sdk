@@ -114,6 +114,7 @@ export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
   sensitives?: string[];
   terminologies?: SubmitImageTranslateTaskRequestExtTerminologies[];
   textTransform?: SubmitImageTranslateTaskRequestExtTextTransform;
+  trackingData?: string;
   static names(): { [key: string]: string } {
     return {
       domainHint: 'domainHint',
@@ -122,6 +123,7 @@ export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
       sensitives: 'sensitives',
       terminologies: 'terminologies',
       textTransform: 'textTransform',
+      trackingData: 'trackingData',
     };
   }
 
@@ -133,6 +135,7 @@ export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
       sensitives: { 'type': 'array', 'itemType': 'string' },
       terminologies: { 'type': 'array', 'itemType': SubmitImageTranslateTaskRequestExtTerminologies },
       textTransform: SubmitImageTranslateTaskRequestExtTextTransform,
+      trackingData: 'string',
     };
   }
 
