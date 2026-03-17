@@ -13,15 +13,18 @@ export class GetMediaConnectFlowInputRequest extends $dara.Model {
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
    */
   flowId?: string;
+  withInternalVip?: string;
   static names(): { [key: string]: string } {
     return {
       flowId: 'FlowId',
+      withInternalVip: 'WithInternalVip',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       flowId: 'string',
+      withInternalVip: 'string',
     };
   }
 

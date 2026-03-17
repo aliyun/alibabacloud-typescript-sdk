@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
+  innerInputUrl?: string;
   /**
    * @remarks
    * The source URL.
@@ -13,12 +14,14 @@ export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   inputUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      innerInputUrl: 'InnerInputUrl',
       inputUrl: 'InputUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      innerInputUrl: 'string',
       inputUrl: 'string',
     };
   }

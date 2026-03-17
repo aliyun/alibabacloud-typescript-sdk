@@ -388,6 +388,8 @@ export { GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoLi
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoList } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfo } from './GetYikeAssetMediaInfoResponseBody';
+export { GetYikeStoryboardJobResponseBodyJobParams } from './GetYikeStoryboardJobResponseBody';
+export { GetYikeStoryboardJobResponseBodyJobResult } from './GetYikeStoryboardJobResponseBody';
 export { ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList } from './ListAiagentDialoguesResponseBody';
 export { ListAIAgentDialoguesResponseBodyDialogues } from './ListAiagentDialoguesResponseBody';
 export { ListAIAgentInstanceResponseBodyInstances } from './ListAiagentInstanceResponseBody';
@@ -1450,6 +1452,9 @@ export { GetYikeAIAppJobResponse } from './GetYikeAiappJobResponse';
 export { GetYikeAssetMediaInfoRequest } from './GetYikeAssetMediaInfoRequest';
 export { GetYikeAssetMediaInfoResponseBody } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponse } from './GetYikeAssetMediaInfoResponse';
+export { GetYikeStoryboardJobRequest } from './GetYikeStoryboardJobRequest';
+export { GetYikeStoryboardJobResponseBody } from './GetYikeStoryboardJobResponseBody';
+export { GetYikeStoryboardJobResponse } from './GetYikeStoryboardJobResponse';
 export { InsertMediaToSearchLibRequest } from './InsertMediaToSearchLibRequest';
 export { InsertMediaToSearchLibResponseBody } from './InsertMediaToSearchLibResponseBody';
 export { InsertMediaToSearchLibResponse } from './InsertMediaToSearchLibResponse';
@@ -1958,6 +1963,9 @@ export { SubmitVideoTranslationJobResponse } from './SubmitVideoTranslationJobRe
 export { SubmitYikeAIAppJobRequest } from './SubmitYikeAiappJobRequest';
 export { SubmitYikeAIAppJobResponseBody } from './SubmitYikeAiappJobResponseBody';
 export { SubmitYikeAIAppJobResponse } from './SubmitYikeAiappJobResponse';
+export { SubmitYikeStoryboardJobRequest } from './SubmitYikeStoryboardJobRequest';
+export { SubmitYikeStoryboardJobResponseBody } from './SubmitYikeStoryboardJobResponseBody';
+export { SubmitYikeStoryboardJobResponse } from './SubmitYikeStoryboardJobResponse';
 export { TakeoverAIAgentCallRequest } from './TakeoverAiagentCallRequest';
 export { TakeoverAIAgentCallResponseBody } from './TakeoverAiagentCallResponseBody';
 export { TakeoverAIAgentCallResponse } from './TakeoverAiagentCallResponse';

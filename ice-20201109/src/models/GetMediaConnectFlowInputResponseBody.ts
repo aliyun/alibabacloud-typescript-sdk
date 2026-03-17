@@ -5,6 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   backupCidrs?: string;
   backupCreateTime?: string;
+  backupInnerInputUrl?: string;
   backupInputName?: string;
   backupInputStatus?: string;
   backupInputUrl?: string;
@@ -28,6 +29,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
    * 2024-07-18T01:29:24Z
    */
   createTime?: string;
+  innerInputUrl?: string;
   /**
    * @remarks
    * The source name.
@@ -120,6 +122,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
     return {
       backupCidrs: 'BackupCidrs',
       backupCreateTime: 'BackupCreateTime',
+      backupInnerInputUrl: 'BackupInnerInputUrl',
       backupInputName: 'BackupInputName',
       backupInputStatus: 'BackupInputStatus',
       backupInputUrl: 'BackupInputUrl',
@@ -129,6 +132,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
       backupSrtPbkeyLen: 'BackupSrtPbkeyLen',
       cidrs: 'Cidrs',
       createTime: 'CreateTime',
+      innerInputUrl: 'InnerInputUrl',
       inputName: 'InputName',
       inputProtocol: 'InputProtocol',
       inputStatus: 'InputStatus',
@@ -146,6 +150,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
     return {
       backupCidrs: 'string',
       backupCreateTime: 'string',
+      backupInnerInputUrl: 'string',
       backupInputName: 'string',
       backupInputStatus: 'string',
       backupInputUrl: 'string',
@@ -155,6 +160,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
       backupSrtPbkeyLen: 'number',
       cidrs: 'string',
       createTime: 'string',
+      innerInputUrl: 'string',
       inputName: 'string',
       inputProtocol: 'string',
       inputStatus: 'string',

@@ -2,31 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateYikeAssetUploadRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * mp4
-   */
-  fileExt?: string;
+export class GetYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @example
-   * StoryboardInput
+   * ****20b48fb04483915d4f2cd8ac****
    */
-  fileType?: string;
+  jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      fileExt: 'FileExt',
-      fileType: 'FileType',
+      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileExt: 'string',
-      fileType: 'string',
+      jobId: 'string',
     };
   }
 

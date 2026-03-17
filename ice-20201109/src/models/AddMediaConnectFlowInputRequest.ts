@@ -112,6 +112,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
    * 32
    */
   srtPbkeyLen?: string;
+  withInternalVip?: string;
   static names(): { [key: string]: string } {
     return {
       cidrs: 'Cidrs',
@@ -125,6 +126,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
       srtLatency: 'SrtLatency',
       srtPassphrase: 'SrtPassphrase',
       srtPbkeyLen: 'SrtPbkeyLen',
+      withInternalVip: 'WithInternalVip',
     };
   }
 
@@ -141,6 +143,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
       srtLatency: 'number',
       srtPassphrase: 'string',
       srtPbkeyLen: 'string',
+      withInternalVip: 'string',
     };
   }
 

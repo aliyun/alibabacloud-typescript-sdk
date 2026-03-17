@@ -433,6 +433,10 @@ export default class Client extends OpenApi {
       query["SrtPbkeyLen"] = request.srtPbkeyLen;
     }
 
+    if (!$dara.isNull(request.withInternalVip)) {
+      query["WithInternalVip"] = request.withInternalVip;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3547,6 +3551,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.fileExt)) {
       query["FileExt"] = request.fileExt;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      query["FileType"] = request.fileType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8398,6 +8406,10 @@ export default class Client extends OpenApi {
       query["FlowId"] = request.flowId;
     }
 
+    if (!$dara.isNull(request.withInternalVip)) {
+      query["WithInternalVip"] = request.withInternalVip;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10091,6 +10103,48 @@ export default class Client extends OpenApi {
   async getYikeAssetMediaInfo(request: $_model.GetYikeAssetMediaInfoRequest): Promise<$_model.GetYikeAssetMediaInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getYikeAssetMediaInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一刻AI应用任务
+   * 
+   * @param request - GetYikeStoryboardJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeStoryboardJobResponse
+   */
+  async getYikeStoryboardJobWithOptions(request: $_model.GetYikeStoryboardJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeStoryboardJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeStoryboardJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeStoryboardJobResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeStoryboardJobResponse({}));
+  }
+
+  /**
+   * 获取一刻AI应用任务
+   * 
+   * @param request - GetYikeStoryboardJobRequest
+   * @returns GetYikeStoryboardJobResponse
+   */
+  async getYikeStoryboardJob(request: $_model.GetYikeStoryboardJobRequest): Promise<$_model.GetYikeStoryboardJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeStoryboardJobWithOptions(request, runtime);
   }
 
   /**
@@ -20351,6 +20405,94 @@ export default class Client extends OpenApi {
   async submitYikeAIAppJob(request: $_model.SubmitYikeAIAppJobRequest): Promise<$_model.SubmitYikeAIAppJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitYikeAIAppJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交一刻AI应用任务
+   * 
+   * @param request - SubmitYikeStoryboardJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitYikeStoryboardJobResponse
+   */
+  async submitYikeStoryboardJobWithOptions(request: $_model.SubmitYikeStoryboardJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitYikeStoryboardJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aspectRatio)) {
+      query["AspectRatio"] = request.aspectRatio;
+    }
+
+    if (!$dara.isNull(request.modelParams)) {
+      query["ModelParams"] = request.modelParams;
+    }
+
+    if (!$dara.isNull(request.narrationVoiceId)) {
+      query["NarrationVoiceId"] = request.narrationVoiceId;
+    }
+
+    if (!$dara.isNull(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    if (!$dara.isNull(request.shotPromptMode)) {
+      query["ShotPromptMode"] = request.shotPromptMode;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!$dara.isNull(request.videoModel)) {
+      query["VideoModel"] = request.videoModel;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileURL)) {
+      body["FileURL"] = request.fileURL;
+    }
+
+    if (!$dara.isNull(request.shotSplitMode)) {
+      body["ShotSplitMode"] = request.shotSplitMode;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.styleId)) {
+      body["StyleId"] = request.styleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitYikeStoryboardJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitYikeStoryboardJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitYikeStoryboardJobResponse({}));
+  }
+
+  /**
+   * 提交一刻AI应用任务
+   * 
+   * @param request - SubmitYikeStoryboardJobRequest
+   * @returns SubmitYikeStoryboardJobResponse
+   */
+  async submitYikeStoryboardJob(request: $_model.SubmitYikeStoryboardJobRequest): Promise<$_model.SubmitYikeStoryboardJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitYikeStoryboardJobWithOptions(request, runtime);
   }
 
   /**
