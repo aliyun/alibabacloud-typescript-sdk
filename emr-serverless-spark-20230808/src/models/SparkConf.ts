@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class SparkConf extends $dara.Model {
   /**
    * @remarks
+   * The key of the SparkConf object.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * spark.app.name
    */
   key?: string;
   /**
    * @remarks
+   * The value of the SparkConf object.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test_application
    */
   value?: string;
   static names(): { [key: string]: string } {

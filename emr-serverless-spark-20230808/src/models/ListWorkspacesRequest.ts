@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkspacesRequestTag extends $dara.Model {
+  /**
+   * @example
+   * cn-shenzhen-finance.edas.config.server
+   */
   key?: string;
+  /**
+   * @example
+   * iphone磁盘空间剩余率
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,6 +70,11 @@ export class ListWorkspacesRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @example
+   * rg-aek2thxggoqhmhq
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * The state of the workspace.
    * 
@@ -76,6 +89,7 @@ export class ListWorkspacesRequest extends $dara.Model {
       name: 'name',
       nextToken: 'nextToken',
       regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
       state: 'state',
       tag: 'tag',
     };
@@ -87,6 +101,7 @@ export class ListWorkspacesRequest extends $dara.Model {
       name: 'string',
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
       tag: { 'type': 'array', 'itemType': ListWorkspacesRequestTag },
     };

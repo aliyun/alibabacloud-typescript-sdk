@@ -167,6 +167,11 @@ export class CreateWorkspaceRequest extends $dara.Model {
    */
   releaseType?: string;
   /**
+   * @example
+   * rg-xxxxxxx
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * The resource specifications.
    */
@@ -207,6 +212,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
       paymentType: 'paymentType',
       ramRoleName: 'ramRoleName',
       releaseType: 'releaseType',
+      resourceGroupId: 'resourceGroupId',
       resourceSpec: 'resourceSpec',
       tag: 'tag',
       workspaceName: 'workspaceName',
@@ -229,6 +235,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
       paymentType: 'string',
       ramRoleName: 'string',
       releaseType: 'string',
+      resourceGroupId: 'string',
       resourceSpec: CreateWorkspaceRequestResourceSpec,
       tag: { 'type': 'array', 'itemType': CreateWorkspaceRequestTag },
       workspaceName: 'string',

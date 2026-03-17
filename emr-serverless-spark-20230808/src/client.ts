@@ -914,6 +914,10 @@ export default class Client extends OpenApi {
       body["releaseType"] = request.releaseType;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.resourceSpec)) {
       body["resourceSpec"] = request.resourceSpec;
     }
@@ -2107,7 +2111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListKyuubiServices
+   * Gets the list of KyuubiServers
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2132,7 +2136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListKyuubiServices
+   * Gets the list of KyuubiServers
    * @returns ListKyuubiServicesResponse
    */
   async listKyuubiServices(workspaceId: string): Promise<$_model.ListKyuubiServicesResponse> {
@@ -2274,7 +2278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出livy compute
+   * List the Livy Gateway.
    * 
    * @param request - ListLivyComputeRequest
    * @param headers - map
@@ -2311,7 +2315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出livy compute
+   * List the Livy Gateway.
    * 
    * @param request - ListLivyComputeRequest
    * @returns ListLivyComputeResponse
@@ -2887,6 +2891,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.state)) {

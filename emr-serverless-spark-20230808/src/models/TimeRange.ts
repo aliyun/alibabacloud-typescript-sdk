@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TimeRange extends $dara.Model {
   /**
    * @remarks
-   * 时间范围结束时间。
+   * The end time of the time range.
    * 
    * @example
    * 1688370894339
@@ -13,7 +13,7 @@ export class TimeRange extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * 时间范围开始时间。
+   * The start time of the time range.
    * 
    * @example
    * 1688370894339

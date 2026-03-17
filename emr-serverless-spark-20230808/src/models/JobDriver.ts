@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JobDriverSparkSubmit extends $dara.Model {
+  /**
+   * @remarks
+   * The main program of Spark.
+   * 
+   * @example
+   * oss://bucket/path/to/entrypoint.jar
+   */
   entryPoint?: string;
+  /**
+   * @remarks
+   * The parameters related to the main program of Spark.
+   */
   entryPointArguments?: string[];
+  /**
+   * @remarks
+   * The command-line parameter of SparkSubmit.
+   * 
+   * @example
+   * --conf spark.app.name=test
+   */
   sparkSubmitParameters?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,6 +53,10 @@ export class JobDriverSparkSubmit extends $dara.Model {
 }
 
 export class JobDriver extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of SparkSubmit.
+   */
   sparkSubmit?: JobDriverSparkSubmit;
   static names(): { [key: string]: string } {
     return {

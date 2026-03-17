@@ -36,6 +36,11 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @example
+   * rg-aek2thxggoqhmhq
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * The state of the workspace.
    * 
@@ -50,6 +55,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
       name: 'name',
       nextToken: 'nextToken',
       regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
       state: 'state',
       tagShrink: 'tag',
     };
@@ -61,6 +67,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
       name: 'string',
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
       tagShrink: 'string',
     };

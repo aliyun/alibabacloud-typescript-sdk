@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Tag extends $dara.Model {
   /**
    * @remarks
-   * 标签key值。
+   * The tag key.
    * 
    * @example
    * workflowId
@@ -13,7 +13,7 @@ export class Tag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * 标签key值。
+   * The tag value.
    * 
    * @example
    * wf-123test

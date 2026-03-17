@@ -300,6 +300,11 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
    */
   releaseType?: string;
   /**
+   * @example
+   * rg-xxxxxxxxxx
+   */
+  resourceGroupId?: string;
+  /**
    * @remarks
    * The resource specifications.
    * 
@@ -362,6 +367,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       prePaidQuota: 'prePaidQuota',
       regionId: 'regionId',
       releaseType: 'releaseType',
+      resourceGroupId: 'resourceGroupId',
       resourceSpec: 'resourceSpec',
       stateChangeReason: 'stateChangeReason',
       storage: 'storage',
@@ -389,6 +395,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       prePaidQuota: ListWorkspacesResponseBodyWorkspacesPrePaidQuota,
       regionId: 'string',
       releaseType: 'string',
+      resourceGroupId: 'string',
       resourceSpec: 'string',
       stateChangeReason: ListWorkspacesResponseBodyWorkspacesStateChangeReason,
       storage: 'string',
