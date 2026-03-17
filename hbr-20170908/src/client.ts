@@ -1927,6 +1927,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DeleteContainerClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContainerClusterResponse
+   */
+  async deleteContainerClusterWithOptions(request: $_model.DeleteContainerClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContainerClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContainerCluster",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContainerClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContainerClusterResponse({}));
+  }
+
+  /**
+   * @param request - DeleteContainerClusterRequest
+   * @returns DeleteContainerClusterResponse
+   */
+  async deleteContainerCluster(request: $_model.DeleteContainerClusterRequest): Promise<$_model.DeleteContainerClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContainerClusterWithOptions(request, runtime);
+  }
+
+  /**
    * 删除跨账号信息
    * 
    * @param request - DeleteCrossAccountRequest
@@ -2802,6 +2844,60 @@ export default class Client extends OpenApi {
   async describeContainerCluster(request: $_model.DescribeContainerClusterRequest): Promise<$_model.DescribeContainerClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeContainerClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeContainerResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeContainerResourceResponse
+   */
+  async describeContainerResourceWithOptions(request: $_model.DescribeContainerResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeContainerResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeContainerResource",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeContainerResourceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeContainerResourceResponse({}));
+  }
+
+  /**
+   * @param request - DescribeContainerResourceRequest
+   * @returns DescribeContainerResourceResponse
+   */
+  async describeContainerResource(request: $_model.DescribeContainerResourceRequest): Promise<$_model.DescribeContainerResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeContainerResourceWithOptions(request, runtime);
   }
 
   /**

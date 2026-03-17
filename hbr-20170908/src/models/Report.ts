@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class Report extends $dara.Model {
   /**
+   * @remarks
+   * The report path of failed files.
+   * 
    * @example
    * temp/report/r-0000dnz7p4pk31u6madf_failed.csv
    */
   failedFiles?: string;
   /**
+   * @remarks
+   * The report path of skipped files.
+   * 
    * @example
    * temp/report/r-0000dnz7p4pk31u6madf_skipped.csv
    */
   skippedFiles?: string;
   /**
+   * @remarks
+   * The report path of success files.
+   * 
    * @example
    * temp/report/r-0000dnz7p4pk31u6madf_success.csv
    */
   successFiles?: string;
   /**
+   * @remarks
+   * The report path of total files.
+   * 
    * @example
    * temp/report/r-0000dnz7p4pk31u6madf_total.csv
    */

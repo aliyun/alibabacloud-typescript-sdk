@@ -45,10 +45,6 @@ export class DescribeVaultReplicationRegionsResponseBody extends $dara.Model {
    * successful
    */
   message?: string;
-  /**
-   * @remarks
-   * The regions that support cross-region replication.
-   */
   regions?: DescribeVaultReplicationRegionsResponseBodyRegions;
   /**
    * @remarks

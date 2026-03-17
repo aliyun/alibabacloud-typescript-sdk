@@ -3,66 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCrossAccountsResponseBodyCrossAccountsCrossAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The account alias. The value can be up to 32 bits in length.
-   * 
-   * @example
-   * content
-   */
   alias?: string;
-  /**
-   * @remarks
-   * The time when the account was created. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1654570439
-   */
   createdTime?: number;
-  /**
-   * @remarks
-   * The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-   * 
-   * @example
-   * BackupRole
-   */
   crossAccountRoleName?: string;
   /**
    * @example
    * CROSS_ACCOUNT
    */
   crossAccountType?: string;
-  /**
-   * @remarks
-   * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-   * 
-   * @example
-   * 15897534xxxxx625
-   */
   crossAccountUserId?: number;
-  /**
-   * @remarks
-   * The ID of the backup type.
-   * 
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @remarks
-   * The ID of the current account.
-   * 
-   * @example
-   * 184164xxxxx49795
-   */
   ownerId?: number;
-  /**
-   * @remarks
-   * The time when the account information was updated. The value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1640157098
-   */
   updatedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -134,10 +85,6 @@ export class DescribeCrossAccountsResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The information about the accounts used in cross-account backup.
-   */
   crossAccounts?: DescribeCrossAccountsResponseBodyCrossAccounts;
   /**
    * @remarks

@@ -3,160 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClientsResponseBodyClientsClient extends $dara.Model {
-  /**
-   * @remarks
-   * The alert settings. Valid value: INHERITED, which indicates that the Cloud Backup client sends alert notifications by using the same method configured for the backup vault.
-   * 
-   * @example
-   * INHERITED
-   */
   alertSetting?: string;
-  /**
-   * @remarks
-   * The ID of the Cloud Backup client.
-   * 
-   * @example
-   * c-00062uu******2fgj
-   */
   clientId?: string;
-  /**
-   * @remarks
-   * The client name.
-   * 
-   * @example
-   * client-20211224-101226
-   */
   clientName?: string;
-  /**
-   * @remarks
-   * The type of the Cloud Backup client. Valid value: **ECS_AGENT**, which indicates an SAP HANA backup client.
-   * 
-   * @example
-   * ECS_AGENT
-   */
   clientType?: string;
-  /**
-   * @remarks
-   * The version number of the Cloud Backup client.
-   * 
-   * @example
-   * 1.11.16
-   */
   clientVersion?: string;
-  /**
-   * @remarks
-   * The ID of the SAP HANA instance.
-   * 
-   * @example
-   * cl-0008c48frr******ncpk
-   */
   clusterId?: string;
-  /**
-   * @remarks
-   * The time when the Cloud Backup client was created.
-   * 
-   * @example
-   * 1554347313
-   */
   createdTime?: number;
-  /**
-   * @remarks
-   * The latest heartbeat time of the Cloud Backup client. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1554347313
-   */
   heartBeatTime?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-wz9b6wya******n8yo
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the ECS instance.
-   * 
-   * @example
-   * swh-hbr
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The maximum version number of the Cloud Backup client.
-   * 
-   * @example
-   * 1.11.23
-   */
   maxVersion?: string;
-  /**
-   * @remarks
-   * The network type. Valid values:
-   * 
-   * *   **CLASSIC**: the classic network
-   * *   **VPC**: the virtual private cloud (VPC)
-   * 
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The status of the Cloud Backup client. Valid values:
-   * 
-   * *   **REGISTERED**: The backup client is registered.
-   * *   **ACTIVATED**: The backup client is activated.
-   * *   **DEACTIVATED**: The backup client fails to be activated.
-   * *   **INSTALLING**: The backup client is being installed.
-   * *   **INSTALL_FAILED**: The backup client fails to be installed.
-   * *   **NOT_INSTALLED**: The backup client is not installed.
-   * *   **UPGRADING**: The backup client is being upgraded.
-   * *   **UPGRADE_FAILED**: The backup client fails to be upgraded.
-   * *   **UNINSTALLING**: The backup client is being uninstalled.
-   * *   **UNINSTALL_FAILED**: The backup client fails to be uninstalled.
-   * *   **STOPPED**: The backup client is out of service.
-   * *   **UNKNOWN**: The backup client is disconnected.
-   * 
-   * @example
-   * ACTIVATED
-   */
   status?: string;
-  /**
-   * @remarks
-   * The status information.
-   * 
-   * @example
-   * HANA_NOT_SUPPORT
-   */
   statusMessage?: string;
-  /**
-   * @remarks
-   * The time when the Cloud Backup client was updated. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1554347313
-   */
   updatedTime?: number;
-  /**
-   * @remarks
-   * Indicates whether data is transmitted over HTTPS. Valid values:
-   * 
-   * *   true: Data is transmitted over HTTPS.
-   * *   false: Data is transmitted over HTTP.
-   * 
-   * @example
-   * false
-   */
   useHttps?: boolean;
-  /**
-   * @remarks
-   * The ID of the backup vault.
-   * 
-   * @example
-   * v-00029mx6o******n85lg
-   */
   vaultId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -238,10 +100,6 @@ export class DescribeClientsResponseBodyClients extends $dara.Model {
 }
 
 export class DescribeClientsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The Cloud Backup clients.
-   */
   clients?: DescribeClientsResponseBodyClients;
   /**
    * @remarks

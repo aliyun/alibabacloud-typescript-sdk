@@ -29,96 +29,15 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobDetailDiskNativeS
 }
 
 export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the remote replication failure.
-   * 
-   * @example
-   * ECS.CreatingSnapshot
-   */
   destinationNativeSnapshotErrorMessage?: string;
-  /**
-   * @remarks
-   * The ID of the remote replication snapshot.
-   * 
-   * @example
-   * s-******************
-   */
   destinationNativeSnapshotId?: string;
-  /**
-   * @remarks
-   * The progress of the remote replication.
-   * 
-   * @example
-   * 85
-   */
   destinationNativeSnapshotProgress?: number;
-  /**
-   * @remarks
-   * The state of the remote replication.
-   * 
-   * @example
-   * COMPLETE
-   */
   destinationNativeSnapshotStatus?: string;
-  /**
-   * @remarks
-   * The retention period of the remote replication backup.
-   * 
-   * @example
-   * 30
-   */
   destinationRetention?: number;
-  /**
-   * @remarks
-   * The ID of the remote replication backup.
-   * 
-   * @example
-   * s-******************
-   */
   destinationSnapshotId?: string;
-  /**
-   * @remarks
-   * The mapping between snapshots and disks.
-   */
   diskNativeSnapshotIdList?: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobDetailDiskNativeSnapshotIdList;
-  /**
-   * @remarks
-   * Indicates whether remote replication is enabled.
-   * 
-   * @example
-   * true
-   */
   doCopy?: boolean;
-  /**
-   * @remarks
-   * The ecs instance infos.
-   * 
-   * @example
-   * {
-   *   "i-xxxxxxxx": {
-   *     "hostName": "test",
-   *     "instanceName": "test",
-   *     "instanceType": "ecs.c7.xlarge",
-   *     "osType": "linux",
-   *     "diskIds": [
-   *       "d-xxxxxxxx01",
-   *       "d-xxxxxxxx02"
-   *     ],
-   *     "osNameEn": "Rocky Linux 8.8 64 bit",
-   *     "osName": "Rocky Linux 8.8 64位",
-   *     "platform": "Rocky Linux"
-   *   }
-   * }
-   */
   instanceInfos?: { [key: string]: any };
-  /**
-   * @remarks
-   * The ID of the backup snapshot.
-   * 
-   * @example
-   * s-******************
-   */
   nativeSnapshotId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -192,10 +111,6 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobOtsDetailTableNam
 }
 
 export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobOtsDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The names of the destination tables in the Tablestore instance.
-   */
   tableNames?: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobOtsDetailTableNames;
   static names(): { [key: string]: string } {
     return {
@@ -248,45 +163,10 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobPaths extends $da
 }
 
 export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport extends $dara.Model {
-  /**
-   * @remarks
-   * List of failed files
-   * 
-   * @example
-   * /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_failed.zip
-   */
   failedFiles?: string;
-  /**
-   * @remarks
-   * Report generation status.
-   * 
-   * @example
-   * COMPLETE
-   */
   reportTaskStatus?: string;
-  /**
-   * @remarks
-   * List of skipped files
-   * 
-   * @example
-   * /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_skipped.zip
-   */
   skippedFiles?: string;
-  /**
-   * @remarks
-   * List of successful files.
-   * 
-   * @example
-   * /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_success.zip
-   */
   successFiles?: string;
-  /**
-   * @remarks
-   * List of all files. (This field is not returned for data synchronization)
-   * 
-   * @example
-   * /temp/report/158975xxxxxx4625/job-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_total.csv
-   */
   totalFiles?: string;
   static names(): { [key: string]: string } {
     return {
@@ -318,388 +198,52 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport extends $d
 }
 
 export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Model {
-  /**
-   * @remarks
-   * The actual amount of data that is backed up after duplicates are removed. Unit: bytes.
-   * 
-   * @example
-   * 600
-   */
   actualBytes?: number;
-  /**
-   * @remarks
-   * The number of files that are actually processed.
-   * 
-   * @example
-   * 8
-   */
   actualFiles?: number;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the actual number of objects that are backed up by the backup job.
-   * 
-   * @example
-   * 6
-   */
   actualItems?: number;
-  /**
-   * @remarks
-   * The backup type. Valid value: **COMPLETE**, which indicates full backup.
-   * 
-   * @example
-   * COMPLETE
-   */
   backupType?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **OSS**. This parameter indicates the name of the OSS bucket that is backed up.
-   * 
-   * @example
-   * hbr-backup-oss
-   */
   bucket?: string;
-  /**
-   * @remarks
-   * The actual amount of data that is generated by incremental backups. Unit: bytes.
-   * 
-   * @example
-   * 800
-   */
   bytesDone?: number;
-  /**
-   * @remarks
-   * The total amount of data that is backed up from the data source. Unit: bytes.
-   * 
-   * @example
-   * 1000
-   */
   bytesTotal?: number;
-  /**
-   * @remarks
-   * The data source details at the destination. Thisparameter is returned only for data synchronization.
-   * 
-   * @example
-   * {"dataSourceId": "ds-123456789", "path": "/changelist"}
-   */
   changeListPath?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the ID of the backup client.
-   * 
-   * @example
-   * c-*********************
-   */
   clientId?: string;
-  /**
-   * @remarks
-   * The time when the backup job was completed. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1554347313
-   */
   completeTime?: number;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **NAS**. This parameter indicates the time when the file system was created. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1607436917
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The time when the backup job was created. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1554347313
-   */
   createdTime?: number;
-  /**
-   * @remarks
-   * The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-   * 
-   * @example
-   * BackupRole
-   */
   crossAccountRoleName?: string;
-  /**
-   * @remarks
-   * Specifies whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-   * 
-   * *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
-   * *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
-   * 
-   * @example
-   * SELF_ACCOUNT
-   */
   crossAccountType?: string;
-  /**
-   * @remarks
-   * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-   * 
-   * @example
-   * 158975xxxxx4625
-   */
   crossAccountUserId?: number;
-  /**
-   * @remarks
-   * Destination data source details. (Required only for synchronization)
-   * 
-   * @example
-   * {\\"prefix\\":\\"/\\"}
-   */
   destDataSourceDetail?: string;
-  /**
-   * @remarks
-   * Destination data source ID. (Required only for synchronization)
-   * 
-   * @example
-   * ds-000cov4ufudxklj24zdk
-   */
   destDataSourceId?: string;
-  /**
-   * @remarks
-   * Destination data source type. (Required only for synchronization)
-   * 
-   * @example
-   * OSS
-   */
   destSourceType?: string;
-  /**
-   * @remarks
-   * The udm backup job detail.
-   */
   detail?: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobDetail;
-  /**
-   * @remarks
-   * The error message that is returned for the backup job.
-   * 
-   * @example
-   * PARTIAL_COMPLETE
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
-   * 
-   * @example
-   * ["/var", "/proc"]
-   */
   exclude?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **NAS**. This parameter indicates the ID of the NAS file system.
-   * 
-   * @example
-   * 005494
-   */
   fileSystemId?: string;
-  /**
-   * @remarks
-   * The number of files that have been processed.
-   * 
-   * @example
-   * 9
-   */
   filesDone?: number;
-  /**
-   * @remarks
-   * The total number of files to be processed.
-   * 
-   * @example
-   * 10
-   */
   filesTotal?: number;
-  /**
-   * @remarks
-   * The identifier of the container cluster. For a Container Service for Kubernetes (ACK) cluster, specify the cluster ID.
-   * 
-   * @example
-   * c83**************************b76
-   */
   identifier?: string;
-  /**
-   * @remarks
-   * The paths to the files that are included in the backup job.
-   * 
-   * @example
-   * ["/home/alice/*.pdf", "/home/bob/*.txt"]
-   */
   include?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **NAS**. This parameter indicates the ID of the ECS instance.
-   * 
-   * @example
-   * i-*********************
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the Tablestore instance.
-   * 
-   * @example
-   * instancename
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the number of objects that are backed up.
-   * 
-   * @example
-   * 8
-   */
   itemsDone?: number;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the total number of objects in the data source.
-   * 
-   * @example
-   * 10
-   */
   itemsTotal?: number;
-  /**
-   * @remarks
-   * The ID of the backup job.
-   * 
-   * @example
-   * job-000g********w7
-   */
   jobId?: string;
-  /**
-   * @remarks
-   * The name of the backup job.
-   * 
-   * @example
-   * jobname
-   */
   jobName?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates whether Windows VSS is used to define a backup path.
-   * 
-   * *   This parameter is available only for Windows ECS instances.
-   * *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before the system sets this parameter to `["UseVSS":true]`.
-   * *   If you use VSS, you cannot back up data from multiple directories.
-   * 
-   * @example
-   * {"UseVSS":false}
-   */
   options?: string;
-  /**
-   * @remarks
-   * The details about the Tablestore instance.
-   */
   otsDetail?: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobOtsDetail;
-  /**
-   * @remarks
-   * The backup paths.
-   */
   paths?: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobPaths;
-  /**
-   * @remarks
-   * The ID of the backup plan.
-   * 
-   * @example
-   * plan-20********35
-   */
   planId?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **OSS**. This parameter indicates the prefix of objects that are backed up.
-   * 
-   * @example
-   * example/
-   */
   prefix?: string;
-  /**
-   * @remarks
-   * The backup progress. For example, 10000 indicates that the progress is 100%.
-   * 
-   * @example
-   * 10000
-   */
   progress?: number;
-  /**
-   * @remarks
-   * Task Report
-   */
   report?: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport;
-  /**
-   * @remarks
-   * The type of the data source. Valid values:
-   * 
-   * *   **ECS_FILE**: ECS files
-   * *   **OSS**: OSS buckets
-   * *   **NAS**: NAS file systems
-   * 
-   * @example
-   * ECS_FILE
-   */
   sourceType?: string;
-  /**
-   * @remarks
-   * The average speed at which data is backed up. Unit: KB/s.
-   * 
-   * @example
-   * 500
-   */
   speed?: number;
-  /**
-   * @remarks
-   * This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the throttling rules. Format: `{start}{end}{bandwidth}`. Multiple throttling rules are separated with vertical bars (`{start}|{end}|{bandwidth}`). A specified time range cannot overlap with another one.
-   * 
-   * *   **start**: the start hour
-   * *   **end**: the end hour
-   * *   **bandwidth**: the bandwidth. Unit: KB/s.
-   * 
-   * @example
-   * 0:24:5120
-   */
   speedLimit?: string;
-  /**
-   * @remarks
-   * The time when the backup job started. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1554347313
-   */
   startTime?: number;
-  /**
-   * @remarks
-   * The status of the backup job. Valid values:
-   * 
-   * *   **COMPLETE**: The backup job is completed.
-   * *   **PARTIAL_COMPLETE**: The backup job is partially completed.
-   * *   **FAILED**: The restore job has failed.
-   * 
-   * @example
-   * COMPLETE
-   */
   status?: string;
-  /**
-   * @remarks
-   * The name of a destination table in the Tablestore instance.
-   * 
-   * @example
-   * table1
-   */
   tableName?: string;
-  /**
-   * @remarks
-   * The time when the backup job was updated. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1554347313
-   */
   updatedTime?: number;
-  /**
-   * @remarks
-   * The ID of the backup vault.
-   * 
-   * @example
-   * v-0006******q
-   */
   vaultId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -853,10 +397,6 @@ export class DescribeBackupJobs2ResponseBodyBackupJobs extends $dara.Model {
 }
 
 export class DescribeBackupJobs2ResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned backup jobs that meet the specified conditions.
-   */
   backupJobs?: DescribeBackupJobs2ResponseBodyBackupJobs;
   /**
    * @remarks

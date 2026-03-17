@@ -2,28 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OtsDetail extends $dara.Model {
+export class DeleteContainerClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * public
+   * This parameter is required.
+   * 
+   * @example
+   * cc-0005**********hhjw
    */
-  tableNames?: string[];
+  clusterId?: string;
+  /**
+   * @example
+   * false
+   */
+  force?: boolean;
   static names(): { [key: string]: string } {
     return {
-      tableNames: 'TableNames',
+      clusterId: 'ClusterId',
+      force: 'Force',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tableNames: { 'type': 'array', 'itemType': 'string' },
+      clusterId: 'string',
+      force: 'boolean',
     };
   }
 
   validate() {
-    if(Array.isArray(this.tableNames)) {
-      $dara.Model.validateArray(this.tableNames);
-    }
     super.validate();
   }
 

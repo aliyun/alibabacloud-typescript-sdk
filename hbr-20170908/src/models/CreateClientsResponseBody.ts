@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClientsResponseBodyInstanceStatusesInstanceStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the ECS instance.
-   * 
-   * @example
-   * i-2zegp3cdu******uj9i
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether an HBR client can be installed on the ECS instance. Valid values:
-   * 
-   * *   true: An HBR client can be installed on the ECS instance.
-   * *   false: An HBR client cannot be installed on the ECS instance.
-   * 
-   * @example
-   * true
-   */
   validInstance?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -80,10 +63,6 @@ export class CreateClientsResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The status of the ECS instance. If you specify more than one instance IDs in the request and the status of an ECS instance does not meet the requirements to install an HBR client, an error message is returned based on the value of this parameter.
-   */
   instanceStatuses?: CreateClientsResponseBodyInstanceStatuses;
   /**
    * @remarks

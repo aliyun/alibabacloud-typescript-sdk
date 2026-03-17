@@ -3,56 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHanaDatabasesResponseBodyHanaDatabasesHanaDatabase extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the database is started. Valid values:
-   * 
-   * *   **YES**: The database is started.
-   * *   **NO**: The database is not started.
-   * 
-   * @example
-   * YES
-   */
   activeStatus?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * SYSTEMDB
-   */
   databaseName?: string;
-  /**
-   * @remarks
-   * The detailed information.
-   * 
-   * @example
-   * master
-   */
   detail?: string;
-  /**
-   * @remarks
-   * The hostname.
-   * 
-   * @example
-   * izbp1jbf3zy******antqmz
-   */
   host?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * indexserver
-   */
   serviceName?: string;
-  /**
-   * @remarks
-   * The port number.
-   * 
-   * @example
-   * 30013
-   */
   sqlPort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -120,10 +75,6 @@ export class DescribeHanaDatabasesResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The information about SAP HANA databases.
-   */
   hanaDatabases?: DescribeHanaDatabasesResponseBodyHanaDatabases;
   /**
    * @remarks
