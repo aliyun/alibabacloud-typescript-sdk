@@ -9,10 +9,12 @@ export class GetAssistantCapabilityHeaders extends $dara.Model {
    * 123456
    */
   accountId?: string;
+  aiLogContextJson?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       accountId: 'accountId',
+      aiLogContextJson: 'aiLogContextJson',
     };
   }
 
@@ -20,6 +22,7 @@ export class GetAssistantCapabilityHeaders extends $dara.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       accountId: 'string',
+      aiLogContextJson: 'string',
     };
   }
 

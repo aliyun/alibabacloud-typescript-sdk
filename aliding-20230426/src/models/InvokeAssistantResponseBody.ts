@@ -773,6 +773,397 @@ export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
   }
 }
 
+export class InvokeAssistantResponseBodyMessagesContentStructPartsDataPart extends $dara.Model {
+  data?: any;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructPartsInfoPart extends $dara.Model {
+  cateIdList?: string[];
+  needFeedback?: boolean;
+  origin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cateIdList: 'cateIdList',
+      needFeedback: 'needFeedback',
+      origin: 'origin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cateIdList: { 'type': 'array', 'itemType': 'string' },
+      needFeedback: 'boolean',
+      origin: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cateIdList)) {
+      $dara.Model.validateArray(this.cateIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructPartsReasonPart extends $dara.Model {
+  /**
+   * @example
+   * 123123
+   */
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reason: 'reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPartRecommends extends $dara.Model {
+  mobileUrl?: string;
+  text?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobileUrl: 'mobileUrl',
+      text: 'text',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobileUrl: 'string',
+      text: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPart extends $dara.Model {
+  recommends?: InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPartRecommends[];
+  static names(): { [key: string]: string } {
+    return {
+      recommends: 'recommends',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recommends: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPartRecommends },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.recommends)) {
+      $dara.Model.validateArray(this.recommends);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructPartsReferencePartReferences extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  index?: string;
+  /**
+   * @example
+   * mcp是....
+   */
+  name?: string;
+  /**
+   * @example
+   * ata
+   */
+  sourceCode?: string;
+  sourceIcon?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 《mcp原理介绍》
+   */
+  title?: string;
+  /**
+   * @example
+   * https://taobao.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'index',
+      name: 'name',
+      sourceCode: 'sourceCode',
+      sourceIcon: 'sourceIcon',
+      summary: 'summary',
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'string',
+      name: 'string',
+      sourceCode: 'string',
+      sourceIcon: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructPartsReferencePart extends $dara.Model {
+  references?: InvokeAssistantResponseBodyMessagesContentStructPartsReferencePartReferences[];
+  static names(): { [key: string]: string } {
+    return {
+      references: 'references',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      references: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyMessagesContentStructPartsReferencePartReferences },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.references)) {
+      $dara.Model.validateArray(this.references);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructPartsTextPart extends $dara.Model {
+  /**
+   * @example
+   * 123123
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStructParts extends $dara.Model {
+  append?: boolean;
+  /**
+   * @example
+   * {}
+   */
+  dataPart?: InvokeAssistantResponseBodyMessagesContentStructPartsDataPart;
+  finish?: boolean;
+  /**
+   * @example
+   * {}
+   */
+  infoPart?: InvokeAssistantResponseBodyMessagesContentStructPartsInfoPart;
+  /**
+   * @example
+   * 这是正文内容部分
+   */
+  partDesc?: string;
+  /**
+   * @example
+   * artifactId123
+   */
+  partId?: string;
+  /**
+   * @example
+   * {}
+   */
+  reasonPart?: InvokeAssistantResponseBodyMessagesContentStructPartsReasonPart;
+  /**
+   * @example
+   * {}
+   */
+  recommendPart?: InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPart;
+  /**
+   * @example
+   * {}
+   */
+  referencePart?: InvokeAssistantResponseBodyMessagesContentStructPartsReferencePart;
+  /**
+   * @example
+   * {}
+   */
+  textPart?: InvokeAssistantResponseBodyMessagesContentStructPartsTextPart;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * textPart
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      append: 'append',
+      dataPart: 'dataPart',
+      finish: 'finish',
+      infoPart: 'infoPart',
+      partDesc: 'partDesc',
+      partId: 'partId',
+      reasonPart: 'reasonPart',
+      recommendPart: 'recommendPart',
+      referencePart: 'referencePart',
+      textPart: 'textPart',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      append: 'boolean',
+      dataPart: InvokeAssistantResponseBodyMessagesContentStructPartsDataPart,
+      finish: 'boolean',
+      infoPart: InvokeAssistantResponseBodyMessagesContentStructPartsInfoPart,
+      partDesc: 'string',
+      partId: 'string',
+      reasonPart: InvokeAssistantResponseBodyMessagesContentStructPartsReasonPart,
+      recommendPart: InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPart,
+      referencePart: InvokeAssistantResponseBodyMessagesContentStructPartsReferencePart,
+      textPart: InvokeAssistantResponseBodyMessagesContentStructPartsTextPart,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataPart && typeof (this.dataPart as any).validate === 'function') {
+      (this.dataPart as any).validate();
+    }
+    if(this.infoPart && typeof (this.infoPart as any).validate === 'function') {
+      (this.infoPart as any).validate();
+    }
+    if(this.reasonPart && typeof (this.reasonPart as any).validate === 'function') {
+      (this.reasonPart as any).validate();
+    }
+    if(this.recommendPart && typeof (this.recommendPart as any).validate === 'function') {
+      (this.recommendPart as any).validate();
+    }
+    if(this.referencePart && typeof (this.referencePart as any).validate === 'function') {
+      (this.referencePart as any).validate();
+    }
+    if(this.textPart && typeof (this.textPart as any).validate === 'function') {
+      (this.textPart as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentStruct extends $dara.Model {
+  parts?: InvokeAssistantResponseBodyMessagesContentStructParts[];
+  static names(): { [key: string]: string } {
+    return {
+      parts: 'parts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parts: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyMessagesContentStructParts },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.parts)) {
+      $dara.Model.validateArray(this.parts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvokeAssistantResponseBodyMessages extends $dara.Model {
   content?: InvokeAssistantResponseBodyMessagesContent;
   /**
@@ -780,11 +1171,13 @@ export class InvokeAssistantResponseBodyMessages extends $dara.Model {
    * 这是一张小猫钓鱼图
    */
   contentDesc?: string;
+  contentStruct?: InvokeAssistantResponseBodyMessagesContentStruct;
   /**
    * @example
    * 1642448000000
    */
   createAt?: number;
+  id?: string;
   /**
    * @example
    * user
@@ -794,7 +1187,9 @@ export class InvokeAssistantResponseBodyMessages extends $dara.Model {
     return {
       content: 'content',
       contentDesc: 'contentDesc',
+      contentStruct: 'contentStruct',
       createAt: 'createAt',
+      id: 'id',
       role: 'role',
     };
   }
@@ -803,7 +1198,9 @@ export class InvokeAssistantResponseBodyMessages extends $dara.Model {
     return {
       content: InvokeAssistantResponseBodyMessagesContent,
       contentDesc: 'string',
+      contentStruct: InvokeAssistantResponseBodyMessagesContentStruct,
       createAt: 'number',
+      id: 'string',
       role: 'string',
     };
   }
@@ -811,6 +1208,9 @@ export class InvokeAssistantResponseBodyMessages extends $dara.Model {
   validate() {
     if(this.content && typeof (this.content as any).validate === 'function') {
       (this.content as any).validate();
+    }
+    if(this.contentStruct && typeof (this.contentStruct as any).validate === 'function') {
+      (this.contentStruct as any).validate();
     }
     super.validate();
   }

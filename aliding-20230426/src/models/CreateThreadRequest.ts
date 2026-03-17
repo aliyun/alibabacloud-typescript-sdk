@@ -45,9 +45,6 @@ export class CreateThreadRequestExtLoginUser extends $dara.Model {
 
 export class CreateThreadRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * assistantId1
    */
@@ -63,7 +60,13 @@ export class CreateThreadRequest extends $dara.Model {
    * @example
    * agentKey1
    */
+  sourceIdOfAssistantId?: string;
+  /**
+   * @example
+   * agentKey1
+   */
   sourceIdOfOriginalAssistantId?: string;
+  sourceTypeOfAssistantId?: number;
   sourceTypeOfOriginalAssistantId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -71,7 +74,9 @@ export class CreateThreadRequest extends $dara.Model {
       clientEnum: 'clientEnum',
       extLoginUser: 'extLoginUser',
       originalAssistantId: 'originalAssistantId',
+      sourceIdOfAssistantId: 'sourceIdOfAssistantId',
       sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfAssistantId: 'sourceTypeOfAssistantId',
       sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
     };
   }
@@ -82,7 +87,9 @@ export class CreateThreadRequest extends $dara.Model {
       clientEnum: 'string',
       extLoginUser: CreateThreadRequestExtLoginUser,
       originalAssistantId: 'string',
+      sourceIdOfAssistantId: 'string',
       sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfAssistantId: 'number',
       sourceTypeOfOriginalAssistantId: 'number',
     };
   }

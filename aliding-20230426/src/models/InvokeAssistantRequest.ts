@@ -875,10 +875,8 @@ export class InvokeAssistantRequestMessages extends $dara.Model {
 }
 
 export class InvokeAssistantRequest extends $dara.Model {
+  allowStructViewContent?: boolean;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * assistantId1
    */
@@ -904,12 +902,14 @@ export class InvokeAssistantRequest extends $dara.Model {
    * @example
    * agentKey1
    */
-  sourceIdOfOriginalAssistantId?: string;
+  sourceIdOfAssistantId?: string;
   /**
    * @example
-   * 1
+   * agentKey1
    */
-  sourceTypeOfOriginalAssistantId?: string;
+  sourceIdOfOriginalAssistantId?: string;
+  sourceTypeOfAssistantId?: number;
+  sourceTypeOfOriginalAssistantId?: number;
   /**
    * @example
    * false
@@ -917,13 +917,16 @@ export class InvokeAssistantRequest extends $dara.Model {
   stream?: boolean;
   static names(): { [key: string]: string } {
     return {
+      allowStructViewContent: 'allowStructViewContent',
       assistantId: 'assistantId',
       clientEnum: 'clientEnum',
       extLoginUser: 'extLoginUser',
       messages: 'messages',
       originalAssistantId: 'originalAssistantId',
       sessionId: 'sessionId',
+      sourceIdOfAssistantId: 'sourceIdOfAssistantId',
       sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfAssistantId: 'sourceTypeOfAssistantId',
       sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       stream: 'stream',
     };
@@ -931,14 +934,17 @@ export class InvokeAssistantRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowStructViewContent: 'boolean',
       assistantId: 'string',
       clientEnum: 'string',
       extLoginUser: InvokeAssistantRequestExtLoginUser,
       messages: { 'type': 'array', 'itemType': InvokeAssistantRequestMessages },
       originalAssistantId: 'string',
       sessionId: 'string',
+      sourceIdOfAssistantId: 'string',
       sourceIdOfOriginalAssistantId: 'string',
-      sourceTypeOfOriginalAssistantId: 'string',
+      sourceTypeOfAssistantId: 'number',
+      sourceTypeOfOriginalAssistantId: 'number',
       stream: 'boolean',
     };
   }

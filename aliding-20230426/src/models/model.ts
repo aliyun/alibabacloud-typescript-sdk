@@ -207,6 +207,7 @@ export { CreateRunResponseBodyMessagesContentStructView } from './CreateRunRespo
 export { CreateRunResponseBodyMessagesContentText } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessagesContent } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessagesContentStructPartsDataPart } from './CreateRunResponseBody';
+export { CreateRunResponseBodyMessagesContentStructPartsInfoPart } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessagesContentStructPartsReasonPart } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessagesContentStructPartsRecommendPartRecommends } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessagesContentStructPartsRecommendPart } from './CreateRunResponseBody';
@@ -344,6 +345,7 @@ export { GetAssistantCapabilityRequestMessagesContent } from './GetAssistantCapa
 export { GetAssistantCapabilityRequestMessages } from './GetAssistantCapabilityRequest';
 export { GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList } from './GetAssistantCapabilityResponseBody';
 export { GetAssistantCapabilityResponseBodyCapabilityAssessment } from './GetAssistantCapabilityResponseBody';
+export { GetAssistantCapabilityResponseBodyThread } from './GetAssistantCapabilityResponseBody';
 export { GetCardTemplateHeadersAccountContext } from './GetCardTemplateHeaders';
 export { GetCardTemplateRequestTenantContext } from './GetCardTemplateRequest';
 export { GetCardTemplateResponseBodyCommonVariableList } from './GetCardTemplateResponseBody';
@@ -652,6 +654,16 @@ export { InvokeAssistantResponseBodyMessagesContentStructViewParts } from './Inv
 export { InvokeAssistantResponseBodyMessagesContentStructView } from './InvokeAssistantResponseBody';
 export { InvokeAssistantResponseBodyMessagesContentText } from './InvokeAssistantResponseBody';
 export { InvokeAssistantResponseBodyMessagesContent } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsDataPart } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsInfoPart } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsReasonPart } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPartRecommends } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsRecommendPart } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsReferencePartReferences } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsReferencePart } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructPartsTextPart } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStructParts } from './InvokeAssistantResponseBody';
+export { InvokeAssistantResponseBodyMessagesContentStruct } from './InvokeAssistantResponseBody';
 export { InvokeAssistantResponseBodyMessages } from './InvokeAssistantResponseBody';
 export { InvokeSkillHeadersAccountContext } from './InvokeSkillHeaders';
 export { ListApplicationHeadersAccountContext } from './ListApplicationHeaders';

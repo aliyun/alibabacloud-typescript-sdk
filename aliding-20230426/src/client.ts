@@ -3214,8 +3214,16 @@ export default class Client extends OpenApi {
       body["originalAssistantId"] = request.originalAssistantId;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
       body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfAssistantId)) {
+      body["sourceTypeOfAssistantId"] = request.sourceTypeOfAssistantId;
     }
 
     if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
@@ -3768,8 +3776,16 @@ export default class Client extends OpenApi {
       body["originalAssistantId"] = request.originalAssistantId;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
       body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfAssistantId)) {
+      body["sourceTypeOfAssistantId"] = request.sourceTypeOfAssistantId;
     }
 
     if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
@@ -3852,8 +3868,16 @@ export default class Client extends OpenApi {
       body["originalAssistantId"] = request.originalAssistantId;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
       body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfAssistantId)) {
+      body["sourceTypeOfAssistantId"] = request.sourceTypeOfAssistantId;
     }
 
     if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
@@ -4492,8 +4516,16 @@ export default class Client extends OpenApi {
       body["originalAssistantId"] = request.originalAssistantId;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
       body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfAssistantId)) {
+      body["sourceTypeOfAssistantId"] = request.sourceTypeOfAssistantId;
     }
 
     if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
@@ -7519,6 +7551,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(headers.accountId)) {
       realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    if (!$dara.isNull(headers.aiLogContextJson)) {
+      realHeaders["aiLogContextJson"] = String(headers.aiLogContextJson);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -13618,6 +13654,10 @@ export default class Client extends OpenApi {
   async *invokeAssistantWithSSE(request: $_model.InvokeAssistantRequest, headers: $_model.InvokeAssistantHeaders, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InvokeAssistantResponse, any, unknown> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowStructViewContent)) {
+      body["allowStructViewContent"] = request.allowStructViewContent;
+    }
+
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
     }
@@ -13642,8 +13682,16 @@ export default class Client extends OpenApi {
       body["sessionId"] = request.sessionId;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
       body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfAssistantId)) {
+      body["sourceTypeOfAssistantId"] = request.sourceTypeOfAssistantId;
     }
 
     if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
@@ -13661,6 +13709,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(headers.accountId)) {
       realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    if (!$dara.isNull(headers.aiLogContextJson)) {
+      realHeaders["aiLogContextJson"] = String(headers.aiLogContextJson);
     }
 
     if (!$dara.isNull(headers.alidingSsoTicket)) {
@@ -13710,6 +13762,10 @@ export default class Client extends OpenApi {
   async invokeAssistantWithOptions(request: $_model.InvokeAssistantRequest, headers: $_model.InvokeAssistantHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeAssistantResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowStructViewContent)) {
+      body["allowStructViewContent"] = request.allowStructViewContent;
+    }
+
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
     }
@@ -13734,8 +13790,16 @@ export default class Client extends OpenApi {
       body["sessionId"] = request.sessionId;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
       body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfAssistantId)) {
+      body["sourceTypeOfAssistantId"] = request.sourceTypeOfAssistantId;
     }
 
     if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
@@ -13753,6 +13817,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(headers.accountId)) {
       realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    if (!$dara.isNull(headers.aiLogContextJson)) {
+      realHeaders["aiLogContextJson"] = String(headers.aiLogContextJson);
     }
 
     if (!$dara.isNull(headers.alidingSsoTicket)) {

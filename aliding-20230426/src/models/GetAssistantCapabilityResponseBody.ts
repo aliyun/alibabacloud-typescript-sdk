@@ -80,6 +80,35 @@ export class GetAssistantCapabilityResponseBodyCapabilityAssessment extends $dar
   }
 }
 
+export class GetAssistantCapabilityResponseBodyThread extends $dara.Model {
+  createAt?: number;
+  id?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createAt: 'createAt',
+      id: 'id',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createAt: 'number',
+      id: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAssistantCapabilityResponseBody extends $dara.Model {
   /**
    * @example
@@ -101,12 +130,14 @@ export class GetAssistantCapabilityResponseBody extends $dara.Model {
    * requestId
    */
   requestId?: string;
+  thread?: GetAssistantCapabilityResponseBodyThread;
   static names(): { [key: string]: string } {
     return {
       assistantDescription: 'assistantDescription',
       canHandle: 'canHandle',
       capabilityAssessment: 'capabilityAssessment',
       requestId: 'requestId',
+      thread: 'thread',
     };
   }
 
@@ -116,12 +147,16 @@ export class GetAssistantCapabilityResponseBody extends $dara.Model {
       canHandle: 'boolean',
       capabilityAssessment: GetAssistantCapabilityResponseBodyCapabilityAssessment,
       requestId: 'string',
+      thread: GetAssistantCapabilityResponseBodyThread,
     };
   }
 
   validate() {
     if(this.capabilityAssessment && typeof (this.capabilityAssessment as any).validate === 'function') {
       (this.capabilityAssessment as any).validate();
+    }
+    if(this.thread && typeof (this.thread as any).validate === 'function') {
+      (this.thread as any).validate();
     }
     super.validate();
   }

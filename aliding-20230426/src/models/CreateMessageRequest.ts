@@ -876,9 +876,6 @@ export class CreateMessageRequestMessages extends $dara.Model {
 
 export class CreateMessageRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * assistantId1
    */
@@ -898,12 +895,14 @@ export class CreateMessageRequest extends $dara.Model {
    * @example
    * agentKey1
    */
-  sourceIdOfOriginalAssistantId?: string;
+  sourceIdOfAssistantId?: string;
   /**
    * @example
-   * 1
+   * agentKey1
    */
-  sourceTypeOfOriginalAssistantId?: string;
+  sourceIdOfOriginalAssistantId?: string;
+  sourceTypeOfAssistantId?: number;
+  sourceTypeOfOriginalAssistantId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -918,7 +917,9 @@ export class CreateMessageRequest extends $dara.Model {
       extLoginUser: 'extLoginUser',
       messages: 'messages',
       originalAssistantId: 'originalAssistantId',
+      sourceIdOfAssistantId: 'sourceIdOfAssistantId',
       sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfAssistantId: 'sourceTypeOfAssistantId',
       sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       threadId: 'threadId',
     };
@@ -930,8 +931,10 @@ export class CreateMessageRequest extends $dara.Model {
       extLoginUser: CreateMessageRequestExtLoginUser,
       messages: { 'type': 'array', 'itemType': CreateMessageRequestMessages },
       originalAssistantId: 'string',
+      sourceIdOfAssistantId: 'string',
       sourceIdOfOriginalAssistantId: 'string',
-      sourceTypeOfOriginalAssistantId: 'string',
+      sourceTypeOfAssistantId: 'number',
+      sourceTypeOfOriginalAssistantId: 'number',
       threadId: 'string',
     };
   }

@@ -796,6 +796,38 @@ export class CreateRunResponseBodyMessagesContentStructPartsDataPart extends $da
   }
 }
 
+export class CreateRunResponseBodyMessagesContentStructPartsInfoPart extends $dara.Model {
+  cateIdList?: string[];
+  needFeedback?: boolean;
+  origin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cateIdList: 'cateIdList',
+      needFeedback: 'needFeedback',
+      origin: 'origin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cateIdList: { 'type': 'array', 'itemType': 'string' },
+      needFeedback: 'boolean',
+      origin: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cateIdList)) {
+      $dara.Model.validateArray(this.cateIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRunResponseBodyMessagesContentStructPartsReasonPart extends $dara.Model {
   /**
    * @example
@@ -1006,6 +1038,11 @@ export class CreateRunResponseBodyMessagesContentStructParts extends $dara.Model
   finish?: boolean;
   /**
    * @example
+   * {}
+   */
+  infoPart?: CreateRunResponseBodyMessagesContentStructPartsInfoPart;
+  /**
+   * @example
    * 这是正文内容部分
    */
   partDesc?: string;
@@ -1047,6 +1084,7 @@ export class CreateRunResponseBodyMessagesContentStructParts extends $dara.Model
       append: 'append',
       dataPart: 'dataPart',
       finish: 'finish',
+      infoPart: 'infoPart',
       partDesc: 'partDesc',
       partId: 'partId',
       reasonPart: 'reasonPart',
@@ -1062,6 +1100,7 @@ export class CreateRunResponseBodyMessagesContentStructParts extends $dara.Model
       append: 'boolean',
       dataPart: CreateRunResponseBodyMessagesContentStructPartsDataPart,
       finish: 'boolean',
+      infoPart: CreateRunResponseBodyMessagesContentStructPartsInfoPart,
       partDesc: 'string',
       partId: 'string',
       reasonPart: CreateRunResponseBodyMessagesContentStructPartsReasonPart,
@@ -1075,6 +1114,9 @@ export class CreateRunResponseBodyMessagesContentStructParts extends $dara.Model
   validate() {
     if(this.dataPart && typeof (this.dataPart as any).validate === 'function') {
       (this.dataPart as any).validate();
+    }
+    if(this.infoPart && typeof (this.infoPart as any).validate === 'function') {
+      (this.infoPart as any).validate();
     }
     if(this.reasonPart && typeof (this.reasonPart as any).validate === 'function') {
       (this.reasonPart as any).validate();

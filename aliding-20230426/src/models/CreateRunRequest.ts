@@ -46,9 +46,6 @@ export class CreateRunRequestExtLoginUser extends $dara.Model {
 export class CreateRunRequest extends $dara.Model {
   allowStructViewContent?: boolean;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * assistantId1
    */
@@ -63,12 +60,14 @@ export class CreateRunRequest extends $dara.Model {
    * @example
    * agentKey1
    */
-  sourceIdOfOriginalAssistantId?: string;
+  sourceIdOfAssistantId?: string;
   /**
    * @example
-   * 1
+   * agentKey1
    */
-  sourceTypeOfOriginalAssistantId?: string;
+  sourceIdOfOriginalAssistantId?: string;
+  sourceTypeOfAssistantId?: number;
+  sourceTypeOfOriginalAssistantId?: number;
   /**
    * @example
    * false
@@ -88,7 +87,9 @@ export class CreateRunRequest extends $dara.Model {
       assistantId: 'assistantId',
       extLoginUser: 'extLoginUser',
       originalAssistantId: 'originalAssistantId',
+      sourceIdOfAssistantId: 'sourceIdOfAssistantId',
       sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfAssistantId: 'sourceTypeOfAssistantId',
       sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       stream: 'stream',
       threadId: 'threadId',
@@ -101,8 +102,10 @@ export class CreateRunRequest extends $dara.Model {
       assistantId: 'string',
       extLoginUser: CreateRunRequestExtLoginUser,
       originalAssistantId: 'string',
+      sourceIdOfAssistantId: 'string',
       sourceIdOfOriginalAssistantId: 'string',
-      sourceTypeOfOriginalAssistantId: 'string',
+      sourceTypeOfAssistantId: 'number',
+      sourceTypeOfOriginalAssistantId: 'number',
       stream: 'boolean',
       threadId: 'string',
     };
