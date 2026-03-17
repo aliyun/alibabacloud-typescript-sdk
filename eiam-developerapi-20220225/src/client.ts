@@ -724,6 +724,111 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 实例级授权服务器 Token 端点
+   * 
+   * @param request - GenerateTokenByAuthorizationServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateTokenByAuthorizationServerResponse
+   */
+  async generateTokenByAuthorizationServerWithOptions(instanceId: string, authorizationServerId: string, request: $_model.GenerateTokenByAuthorizationServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateTokenByAuthorizationServerResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialName)) {
+      query["application_federated_credential_name"] = request.applicationFederatedCredentialName;
+    }
+
+    if (!$dara.isNull(request.clientAssertion)) {
+      query["client_assertion"] = request.clientAssertion;
+    }
+
+    if (!$dara.isNull(request.clientAssertionType)) {
+      query["client_assertion_type"] = request.clientAssertionType;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["client_id"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientSecret)) {
+      query["client_secret"] = request.clientSecret;
+    }
+
+    if (!$dara.isNull(request.clientX509)) {
+      query["client_x509"] = request.clientX509;
+    }
+
+    if (!$dara.isNull(request.clientX509Chain)) {
+      query["client_x509_chain"] = request.clientX509Chain;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      query["code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.codeVerifier)) {
+      query["code_verifier"] = request.codeVerifier;
+    }
+
+    if (!$dara.isNull(request.deviceCode)) {
+      query["device_code"] = request.deviceCode;
+    }
+
+    if (!$dara.isNull(request.grantType)) {
+      query["grant_type"] = request.grantType;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.redirectUri)) {
+      query["redirect_uri"] = request.redirectUri;
+    }
+
+    if (!$dara.isNull(request.refreshToken)) {
+      query["refresh_token"] = request.refreshToken;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateTokenByAuthorizationServer",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authorizationServer/${$dara.URL.percentEncode(authorizationServerId)}/oauth2/token`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateTokenByAuthorizationServerResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.GenerateTokenByAuthorizationServerResponse({}));
+  }
+
+  /**
+   * 实例级授权服务器 Token 端点
+   * 
+   * @param request - GenerateTokenByAuthorizationServerRequest
+   * @returns GenerateTokenByAuthorizationServerResponse
+   */
+  async generateTokenByAuthorizationServer(instanceId: string, authorizationServerId: string, request: $_model.GenerateTokenByAuthorizationServerRequest): Promise<$_model.GenerateTokenByAuthorizationServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateTokenByAuthorizationServerWithOptions(instanceId, authorizationServerId, request, headers, runtime);
+  }
+
+  /**
    * Queries the synchronization scope of an application in an instance.
    * 
    * @remarks
