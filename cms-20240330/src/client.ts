@@ -1301,6 +1301,10 @@ export default class Client extends OpenApi {
   async createThreadWithOptions(name: string, request: $_model.CreateThreadRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateThreadResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributes)) {
+      body["attributes"] = request.attributes;
+    }
+
     if (!$dara.isNull(request.title)) {
       body["title"] = request.title;
     }
@@ -6480,6 +6484,10 @@ export default class Client extends OpenApi {
   async updateThreadWithOptions(name: string, threadId: string, request: $_model.UpdateThreadRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateThreadResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributes)) {
+      body["attributes"] = request.attributes;
+    }
+
     if (!$dara.isNull(request.status)) {
       body["status"] = request.status;
     }

@@ -37,6 +37,7 @@ export class CreateThreadRequestVariables extends $dara.Model {
 }
 
 export class CreateThreadRequest extends $dara.Model {
+  attributes?: { [key: string]: string };
   /**
    * @example
    * test
@@ -45,6 +46,7 @@ export class CreateThreadRequest extends $dara.Model {
   variables?: CreateThreadRequestVariables;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'attributes',
       title: 'title',
       variables: 'variables',
     };
@@ -52,12 +54,16 @@ export class CreateThreadRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       title: 'string',
       variables: CreateThreadRequestVariables,
     };
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     if(this.variables && typeof (this.variables as any).validate === 'function') {
       (this.variables as any).validate();
     }

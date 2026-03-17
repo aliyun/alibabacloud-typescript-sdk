@@ -37,6 +37,7 @@ export class GetThreadResponseBodyVariables extends $dara.Model {
 }
 
 export class GetThreadResponseBody extends $dara.Model {
+  attributes?: { [key: string]: string };
   /**
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
@@ -83,6 +84,7 @@ export class GetThreadResponseBody extends $dara.Model {
   version?: number;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'attributes',
       createTime: 'createTime',
       digitalEmployeeName: 'digitalEmployeeName',
       requestId: 'requestId',
@@ -97,6 +99,7 @@ export class GetThreadResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       createTime: 'string',
       digitalEmployeeName: 'string',
       requestId: 'string',
@@ -110,6 +113,9 @@ export class GetThreadResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     if(this.variables && typeof (this.variables as any).validate === 'function') {
       (this.variables as any).validate();
     }

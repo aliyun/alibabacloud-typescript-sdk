@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateThreadRequest extends $dara.Model {
+  attributes?: { [key: string]: string };
   /**
    * @example
    * active
@@ -15,6 +16,7 @@ export class UpdateThreadRequest extends $dara.Model {
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'attributes',
       status: 'status',
       title: 'title',
     };
@@ -22,12 +24,16 @@ export class UpdateThreadRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       status: 'string',
       title: 'string',
     };
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     super.validate();
   }
 

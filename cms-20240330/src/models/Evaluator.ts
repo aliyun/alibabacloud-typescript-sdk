@@ -4,7 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class Evaluator extends $dara.Model {
   config?: { [key: string]: any };
-  dataScope?: string;
   filters?: { [key: string]: string };
   name?: string;
   resultName?: string;
@@ -13,7 +12,6 @@ export class Evaluator extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       config: 'config',
-      dataScope: 'dataScope',
       filters: 'filters',
       name: 'name',
       resultName: 'resultName',
@@ -25,7 +23,6 @@ export class Evaluator extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      dataScope: 'string',
       filters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       name: 'string',
       resultName: 'string',

@@ -40,6 +40,7 @@ export class ListThreadsResponseBodyThreadsVariables extends $dara.Model {
 }
 
 export class ListThreadsResponseBodyThreads extends $dara.Model {
+  attributes?: { [key: string]: string };
   /**
    * @example
    * 2025-04-22T12:46:34Z
@@ -78,6 +79,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   version?: number;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'attributes',
       createTime: 'createTime',
       digitalEmployeeName: 'digitalEmployeeName',
       status: 'status',
@@ -91,6 +93,7 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       createTime: 'string',
       digitalEmployeeName: 'string',
       status: 'string',
@@ -103,6 +106,9 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     if(this.variables && typeof (this.variables as any).validate === 'function') {
       (this.variables as any).validate();
     }
