@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCheckItemResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 创建成功返回的检查项ID。
+   * The ID of the inspection item returned upon successful creation.
    * 
    * @example
    * 100000000001

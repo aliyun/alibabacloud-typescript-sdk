@@ -121,6 +121,9 @@ export class ListCheckResultRequest extends $dara.Model {
    * The Alibaba Cloud account ID of the member in the resource directory.
    * 
    * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

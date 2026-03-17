@@ -1358,7 +1358,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryCor
 export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcsCount extends $dara.Model {
   /**
    * @remarks
-   * 已分配已购授权台数。
+   * Number of purchased licenses allocated.
    * 
    * @example
    * 0

@@ -14,9 +14,9 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * 数据来源。默认值为**default**。取值：
-   * - **caasm**：攻击面
-   * - **default**：攻击路径
+   * Data source. The default value is **default**. Values:
+   *  - **caasm**: Attack surface
+   *  - **default**: Attack path
    * 
    * @example
    * default

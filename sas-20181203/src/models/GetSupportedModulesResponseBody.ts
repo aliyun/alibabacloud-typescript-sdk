@@ -16,6 +16,7 @@ export class GetSupportedModulesResponseBodySupportedModuleResponseSupportedModu
    * HOST
    */
   module?: string;
+  moduleAuth?: boolean;
   /**
    * @remarks
    * The display name of the module.
@@ -27,6 +28,7 @@ export class GetSupportedModulesResponseBodySupportedModuleResponseSupportedModu
   static names(): { [key: string]: string } {
     return {
       module: 'Module',
+      moduleAuth: 'ModuleAuth',
       moduleDisp: 'ModuleDisp',
     };
   }
@@ -34,6 +36,7 @@ export class GetSupportedModulesResponseBodySupportedModuleResponseSupportedModu
   static types(): { [key: string]: any } {
     return {
       module: 'string',
+      moduleAuth: 'boolean',
       moduleDisp: 'string',
     };
   }

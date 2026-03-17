@@ -310,7 +310,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
   strictMode?: string;
   /**
    * @remarks
-   * 告警支持的操作类型列表。
+   * List of supported alarm operation types
    */
   supportOperateCodeList?: string[];
   /**

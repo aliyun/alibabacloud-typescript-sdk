@@ -269,6 +269,7 @@ export class ListCheckResultResponseBodyChecks extends $dara.Model {
    * *   **CHECKING**: being checked
    * *   **NOT_CHECK**: not checked
    * *   **WHITELIST**: added to the whitelist
+   * *   **FAILED**: failed
    * 
    * @example
    * PASS

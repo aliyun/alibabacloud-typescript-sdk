@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAntiBruteForceRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * Set which page of the returned results to start displaying the query results. The default value is **1**, indicating that the display starts from the first page.
    * 
    * @example
    * 1
@@ -13,8 +13,8 @@ export class DescribeAntiBruteForceRulesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the defense rule.
-   * > You can call the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) operation to query the IDs of defense rules.
+   * The ID of the anti-brute force rule.
+   * > You can obtain this parameter by calling the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) interface.
    * 
    * @example
    * 1141****
@@ -22,7 +22,7 @@ export class DescribeAntiBruteForceRulesRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The name of the brute force rule.
    * 
    * @example
    * testName
@@ -30,7 +30,7 @@ export class DescribeAntiBruteForceRulesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of data entries displayed per page during a paginated query.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeAntiBruteForceRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 121.69.XX.XX

@@ -177,9 +177,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
 export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList extends $dara.Model {
   /**
    * @remarks
-   * AI资产标识。取值：
-   * - **0**：非AI资产。
-   * - **1**：AI资产。
+   * AI asset identifier. Values: 
+   * - **0**: Not an AI asset. 
+   * - **1**: AI asset.
    * 
    * @example
    * 1

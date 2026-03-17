@@ -79,7 +79,7 @@ export class ListCheckItemsResponseBodyCheckItemsCheckPolicies extends $dara.Mod
   sectionShowName?: string;
   /**
    * @remarks
-   * 检查项的标准ID。
+   * Standard ID of the inspection item.
    * 
    * @example
    * 10000000001
@@ -244,7 +244,7 @@ export class ListCheckItemsResponseBodyCheckItems extends $dara.Model {
   checkPolicies?: ListCheckItemsResponseBodyCheckItemsCheckPolicies[];
   /**
    * @remarks
-   * 自定义检查项定义规则。
+   * Define rules for custom inspection items.
    * 
    * @example
    * {"AssociatedData":{"ToDataList":[{"DataName":"ACS_ECS_Instance","PropertyPath":"InstanceId","FromPropertyPath":"InstanceId"}]},"MatchProperty":{"Operator":"AND","MatchProperties":[{"DataName":"ACS_ECS_Disk","PropertyPath":"InstanceId","MatchOperator":"EQ","MatchPropertyValue":"testId"},{"DataName":"ACS_ECS_Instance","PropertyPath":"InstanceId","MatchOperator":"EQ","MatchPropertyValue":"testInstanceId"}]}}
