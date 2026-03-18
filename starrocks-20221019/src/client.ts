@@ -30,6 +30,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增备份策略
+   * 
+   * @param request - AddBackupPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddBackupPolicyResponse
+   */
+  async addBackupPolicyWithOptions(request: $_model.AddBackupPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddBackupPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expireDays)) {
+      body["ExpireDays"] = request.expireDays;
+    }
+
+    if (!$dara.isNull(request.hour)) {
+      body["Hour"] = request.hour;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.minute)) {
+      body["Minute"] = request.minute;
+    }
+
+    if (!$dara.isNull(request.recurrenceType)) {
+      body["RecurrenceType"] = request.recurrenceType;
+    }
+
+    if (!$dara.isNull(request.recurrenceValues)) {
+      body["RecurrenceValues"] = request.recurrenceValues;
+    }
+
+    if (!$dara.isNull(request.timeoutSeconds)) {
+      body["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddBackupPolicy",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/backupRestore/policy/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.AddBackupPolicyResponse({}));
+  }
+
+  /**
+   * 新增备份策略
+   * 
+   * @param request - AddBackupPolicyRequest
+   * @returns AddBackupPolicyResponse
+   */
+  async addBackupPolicy(request: $_model.AddBackupPolicyRequest): Promise<$_model.AddBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addBackupPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新建网关
    * 
    * @param request - AddGatewayRequest
@@ -137,6 +206,128 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeResourceGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 校验ABM的资源库存
+   * 
+   * @param request - CheckInventoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckInventoryResponse
+   */
+  async checkInventoryWithOptions(request: $_model.CheckInventoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CheckInventoryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterInfo)) {
+      query["ClusterInfo"] = request.clusterInfo;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckInventory",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/check/inventory`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckInventoryResponse>(await this.callApi(params, req, runtime), new $_model.CheckInventoryResponse({}));
+  }
+
+  /**
+   * 校验ABM的资源库存
+   * 
+   * @param request - CheckInventoryRequest
+   * @returns CheckInventoryResponse
+   */
+  async checkInventory(request: $_model.CheckInventoryRequest): Promise<$_model.CheckInventoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.checkInventoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建Agent资源组
+   * 
+   * @param request - CreateAgentResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentResourceResponse
+   */
+  async createAgentResourceWithOptions(request: $_model.CreateAgentResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentResourceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.cu)) {
+      query["Cu"] = request.cu;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.specType)) {
+      query["SpecType"] = request.specType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgentResource",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/lifecycle/createAgentNodeGroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentResourceResponse({}));
+  }
+
+  /**
+   * 创建Agent资源组
+   * 
+   * @param request - CreateAgentResourceRequest
+   * @returns CreateAgentResourceResponse
+   */
+  async createAgentResource(request: $_model.CreateAgentResourceRequest): Promise<$_model.CreateAgentResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAgentResourceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -305,6 +496,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建一条弹性规则
+   * 
+   * @param request - CreateScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScalingRuleResponse
+   */
+  async createScalingRuleWithOptions(request: $_model.CreateScalingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScalingRuleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      query["TriggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScalingRule",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/scalingRule/createScalingRule`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScalingRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateScalingRuleResponse({}));
+  }
+
+  /**
+   * 新建一条弹性规则
+   * 
+   * @param request - CreateScalingRuleRequest
+   * @returns CreateScalingRuleResponse
+   */
+  async createScalingRule(request: $_model.CreateScalingRuleRequest): Promise<$_model.CreateScalingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createScalingRuleWithOptions(request, headers, runtime);
+  }
+
+  /**
    * This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
    * 
    * @param headers - map
@@ -337,6 +581,108 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceLinkedRoleWithOptions(headers, runtime);
+  }
+
+  /**
+   * 删除数据备份
+   * 
+   * @param request - DeleteBackupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackupWithOptions(request: $_model.DeleteBackupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.backupTaskId)) {
+      query["BackupTaskId"] = request.backupTaskId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBackup",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/backup/manage/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBackupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBackupResponse({}));
+  }
+
+  /**
+   * 删除数据备份
+   * 
+   * @param request - DeleteBackupRequest
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackup(request: $_model.DeleteBackupRequest): Promise<$_model.DeleteBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteBackupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除备份策略
+   * 
+   * @param request - DeleteBackupPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupPolicyResponse
+   */
+  async deleteBackupPolicyWithOptions(request: $_model.DeleteBackupPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBackupPolicy",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/backupRestore/policy/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBackupPolicyResponse({}));
+  }
+
+  /**
+   * 删除备份策略
+   * 
+   * @param request - DeleteBackupPolicyRequest
+   * @returns DeleteBackupPolicyResponse
+   */
+  async deleteBackupPolicy(request: $_model.DeleteBackupPolicyRequest): Promise<$_model.DeleteBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteBackupPolicyWithOptions(request, headers, runtime);
   }
 
   /**
@@ -386,6 +732,275 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除白名单分组
+   * 
+   * @param request - DeleteInnerIpWhitelistGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInnerIpWhitelistGroupResponse
+   */
+  async deleteInnerIpWhitelistGroupWithOptions(request: $_model.DeleteInnerIpWhitelistGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInnerIpWhitelistGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.innerIpWhitelistGroupId)) {
+      body["InnerIpWhitelistGroupId"] = request.innerIpWhitelistGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInnerIpWhitelistGroup",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/securityGroup/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInnerIpWhitelistGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInnerIpWhitelistGroupResponse({}));
+  }
+
+  /**
+   * 删除白名单分组
+   * 
+   * @param request - DeleteInnerIpWhitelistGroupRequest
+   * @returns DeleteInnerIpWhitelistGroupResponse
+   */
+  async deleteInnerIpWhitelistGroup(request: $_model.DeleteInnerIpWhitelistGroupRequest): Promise<$_model.DeleteInnerIpWhitelistGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInnerIpWhitelistGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除一条弹性规则
+   * 
+   * @param request - DeleteScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScalingRuleResponse
+   */
+  async deleteScalingRuleWithOptions(request: $_model.DeleteScalingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScalingRuleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.scalingRuleId)) {
+      query["ScalingRuleId"] = request.scalingRuleId;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      query["TriggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteScalingRule",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/scalingRule/deleteScalingRule`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteScalingRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScalingRuleResponse({}));
+  }
+
+  /**
+   * 删除一条弹性规则
+   * 
+   * @param request - DeleteScalingRuleRequest
+   * @returns DeleteScalingRuleResponse
+   */
+  async deleteScalingRule(request: $_model.DeleteScalingRuleRequest): Promise<$_model.DeleteScalingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteScalingRuleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param request - DescribeAvailableZonesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableZonesResponse
+   */
+  async describeAvailableZonesWithOptions(request: $_model.DescribeAvailableZonesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAvailableZonesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAvailableZones",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/zone/describeZones`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAvailableZonesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAvailableZonesResponse({}));
+  }
+
+  /**
+   * @param request - DescribeAvailableZonesRequest
+   * @returns DescribeAvailableZonesResponse
+   */
+  async describeAvailableZones(request: $_model.DescribeAvailableZonesRequest): Promise<$_model.DescribeAvailableZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeAvailableZonesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取备份策略详情
+   * 
+   * @param request - DescribeBackupPoliciesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupPoliciesResponse
+   */
+  async describeBackupPoliciesWithOptions(request: $_model.DescribeBackupPoliciesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupPoliciesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBackupPolicies",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/backupRestore/policy/describe`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBackupPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBackupPoliciesResponse({}));
+  }
+
+  /**
+   * 获取备份策略详情
+   * 
+   * @param request - DescribeBackupPoliciesRequest
+   * @returns DescribeBackupPoliciesResponse
+   */
+  async describeBackupPolicies(request: $_model.DescribeBackupPoliciesRequest): Promise<$_model.DescribeBackupPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeBackupPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取备份详情
+   * 
+   * @param request - DescribeBackupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupsResponse
+   */
+  async describeBackupsWithOptions(request: $_model.DescribeBackupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.backupTaskId)) {
+      query["BackupTaskId"] = request.backupTaskId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.statuses)) {
+      query["Statuses"] = request.statuses;
+    }
+
+    if (!$dara.isNull(request.timePeriodEndTime)) {
+      query["TimePeriodEndTime"] = request.timePeriodEndTime;
+    }
+
+    if (!$dara.isNull(request.timePeriodStartTime)) {
+      query["TimePeriodStartTime"] = request.timePeriodStartTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBackups",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/backup/manage/describe`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBackupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBackupsResponse({}));
+  }
+
+  /**
+   * 获取备份详情
+   * 
+   * @param request - DescribeBackupsRequest
+   * @returns DescribeBackupsResponse
+   */
+  async describeBackups(request: $_model.DescribeBackupsRequest): Promise<$_model.DescribeBackupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeBackupsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -455,6 +1070,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeConfigHistoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取集群事件名称
+   * 
+   * @param request - DescribeEventNamesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventNamesResponse
+   */
+  async describeEventNamesWithOptions(request: $_model.DescribeEventNamesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEventNamesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEventNames",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/event/describeEventNames`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEventNamesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEventNamesResponse({}));
+  }
+
+  /**
+   * 获取集群事件名称
+   * 
+   * @param request - DescribeEventNamesRequest
+   * @returns DescribeEventNamesResponse
+   */
+  async describeEventNames(request: $_model.DescribeEventNamesRequest): Promise<$_model.DescribeEventNamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeEventNamesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询白名单分组
+   * 
+   * @param request - DescribeInnerIpWhitelistGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInnerIpWhitelistGroupsResponse
+   */
+  async describeInnerIpWhitelistGroupsWithOptions(request: $_model.DescribeInnerIpWhitelistGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInnerIpWhitelistGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInnerIpWhitelistGroups",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/securityGroup/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInnerIpWhitelistGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInnerIpWhitelistGroupsResponse({}));
+  }
+
+  /**
+   * 查询白名单分组
+   * 
+   * @param request - DescribeInnerIpWhitelistGroupsRequest
+   * @returns DescribeInnerIpWhitelistGroupsResponse
+   */
+  async describeInnerIpWhitelistGroups(request: $_model.DescribeInnerIpWhitelistGroupsRequest): Promise<$_model.DescribeInnerIpWhitelistGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeInnerIpWhitelistGroupsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -532,6 +1237,116 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeInstanceConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取实例的健康诊断结果
+   * 
+   * @param request - DescribeInstanceDiagnosisResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceDiagnosisResultResponse
+   */
+  async describeInstanceDiagnosisResultWithOptions(request: $_model.DescribeInstanceDiagnosisResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceDiagnosisResultResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dimension)) {
+      query["Dimension"] = request.dimension;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.reportDate)) {
+      query["ReportDate"] = request.reportDate;
+    }
+
+    if (!$dara.isNull(request.statuses)) {
+      query["Statuses"] = request.statuses;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceDiagnosisResult",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/diagnosis/describe`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceDiagnosisResultResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceDiagnosisResultResponse({}));
+  }
+
+  /**
+   * 获取实例的健康诊断结果
+   * 
+   * @param request - DescribeInstanceDiagnosisResultRequest
+   * @returns DescribeInstanceDiagnosisResultResponse
+   */
+  async describeInstanceDiagnosisResult(request: $_model.DescribeInstanceDiagnosisResultRequest): Promise<$_model.DescribeInstanceDiagnosisResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeInstanceDiagnosisResultWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取 StarRocks 实例的 Meta Token。
+   * 
+   * @param request - DescribeInstanceMetaTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceMetaTokenResponse
+   */
+  async describeInstanceMetaTokenWithOptions(request: $_model.DescribeInstanceMetaTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceMetaTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceMetaToken",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/migration/getMetaToken`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceMetaTokenResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceMetaTokenResponse({}));
+  }
+
+  /**
+   * 获取 StarRocks 实例的 Meta Token。
+   * 
+   * @param request - DescribeInstanceMetaTokenRequest
+   * @returns DescribeInstanceMetaTokenResponse
+   */
+  async describeInstanceMetaToken(request: $_model.DescribeInstanceMetaTokenRequest): Promise<$_model.DescribeInstanceMetaTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeInstanceMetaTokenWithOptions(request, headers, runtime);
   }
 
   /**
@@ -693,6 +1508,181 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/region/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
+  }
+
+  /**
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(headers, runtime);
+  }
+
+  /**
+   * 描述Starrocks的资源配置约束
+   * 
+   * @param request - DescribeResourceConstraintsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceConstraintsResponse
+   */
+  async describeResourceConstraintsWithOptions(request: $_model.DescribeResourceConstraintsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceConstraintsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.architecture)) {
+      query["Architecture"] = request.architecture;
+    }
+
+    if (!$dara.isNull(request.packageType)) {
+      query["PackageType"] = request.packageType;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      query["RunMode"] = request.runMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceConstraints",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/describeResourceConstraints`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeResourceConstraintsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResourceConstraintsResponse({}));
+  }
+
+  /**
+   * 描述Starrocks的资源配置约束
+   * 
+   * @param request - DescribeResourceConstraintsRequest
+   * @returns DescribeResourceConstraintsResponse
+   */
+  async describeResourceConstraints(request: $_model.DescribeResourceConstraintsRequest): Promise<$_model.DescribeResourceConstraintsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeResourceConstraintsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取 starrocks 实例的系统时区
+   * 
+   * @param request - DescribeSystemTimezoneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSystemTimezoneResponse
+   */
+  async describeSystemTimezoneWithOptions(request: $_model.DescribeSystemTimezoneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSystemTimezoneResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSystemTimezone",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/timezone/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSystemTimezoneResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSystemTimezoneResponse({}));
+  }
+
+  /**
+   * 获取 starrocks 实例的系统时区
+   * 
+   * @param request - DescribeSystemTimezoneRequest
+   * @returns DescribeSystemTimezoneResponse
+   */
+  async describeSystemTimezone(request: $_model.DescribeSystemTimezoneRequest): Promise<$_model.DescribeSystemTimezoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeSystemTimezoneWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取时间触发规则信息
+   * 
+   * @param request - DescribeTimeTriggerScalingRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTimeTriggerScalingRulesResponse
+   */
+  async describeTimeTriggerScalingRulesWithOptions(request: $_model.DescribeTimeTriggerScalingRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTimeTriggerScalingRulesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTimeTriggerScalingRules",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/scalingRule/describeTimeTriggerScalingRules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTimeTriggerScalingRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTimeTriggerScalingRulesResponse({}));
+  }
+
+  /**
+   * 获取时间触发规则信息
+   * 
+   * @param request - DescribeTimeTriggerScalingRulesRequest
+   * @returns DescribeTimeTriggerScalingRulesResponse
+   */
+  async describeTimeTriggerScalingRules(request: $_model.DescribeTimeTriggerScalingRulesRequest): Promise<$_model.DescribeTimeTriggerScalingRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeTimeTriggerScalingRulesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * StarRocks关闭SSL
    * 
    * @param request - DisableSSLConnectionRequest
@@ -735,6 +1725,104 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableSSLConnectionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 默认网关开启内网SLB
+   * 
+   * @param request - EnableInternalSlbRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableInternalSlbResponse
+   */
+  async enableInternalSlbWithOptions(request: $_model.EnableInternalSlbRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableInternalSlbResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableInternalSlb",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/gateway/enableInternalSlb`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableInternalSlbResponse>(await this.callApi(params, req, runtime), new $_model.EnableInternalSlbResponse({}));
+  }
+
+  /**
+   * 默认网关开启内网SLB
+   * 
+   * @param request - EnableInternalSlbRequest
+   * @returns EnableInternalSlbResponse
+   */
+  async enableInternalSlb(request: $_model.EnableInternalSlbRequest): Promise<$_model.EnableInternalSlbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableInternalSlbWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 开启Multi AZ
+   * 
+   * @param request - EnableMultiAzRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableMultiAzResponse
+   */
+  async enableMultiAzWithOptions(request: $_model.EnableMultiAzRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableMultiAzResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.observers)) {
+      body["observers"] = request.observers;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      body["promotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableMultiAz",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/lifecycle/enableMultiAz`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableMultiAzResponse>(await this.callApi(params, req, runtime), new $_model.EnableMultiAzResponse({}));
+  }
+
+  /**
+   * 开启Multi AZ
+   * 
+   * @param request - EnableMultiAzRequest
+   * @returns EnableMultiAzResponse
+   */
+  async enableMultiAz(request: $_model.EnableMultiAzRequest): Promise<$_model.EnableMultiAzResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableMultiAzWithOptions(request, headers, runtime);
   }
 
   /**
@@ -848,6 +1936,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取StarRocks 计算组实例的特性开关
+   * 
+   * @param request - GetNodeGroupFeatureGateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodeGroupFeatureGateResponse
+   */
+  async getNodeGroupFeatureGateWithOptions(request: $_model.GetNodeGroupFeatureGateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetNodeGroupFeatureGateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNodeGroupFeatureGate",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/features/nodeGroupFeatureGate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNodeGroupFeatureGateResponse>(await this.callApi(params, req, runtime), new $_model.GetNodeGroupFeatureGateResponse({}));
+  }
+
+  /**
+   * 获取StarRocks 计算组实例的特性开关
+   * 
+   * @param request - GetNodeGroupFeatureGateRequest
+   * @returns GetNodeGroupFeatureGateResponse
+   */
+  async getNodeGroupFeatureGate(request: $_model.GetNodeGroupFeatureGateRequest): Promise<$_model.GetNodeGroupFeatureGateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getNodeGroupFeatureGateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 默认网关开启内网SLB
    * 
    * @param request - IsolateLeaderRequest
@@ -939,6 +2076,128 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取操作的详细信息
+   * 
+   * @param request - ListOperationActivityRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationActivityResponse
+   */
+  async listOperationActivityWithOptions(request: $_model.ListOperationActivityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationActivityResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.operationId)) {
+      query["OperationId"] = request.operationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOperationActivity",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/operation/listOperationActivity`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOperationActivityResponse>(await this.callApi(params, req, runtime), new $_model.ListOperationActivityResponse({}));
+  }
+
+  /**
+   * 获取操作的详细信息
+   * 
+   * @param request - ListOperationActivityRequest
+   * @returns ListOperationActivityResponse
+   */
+  async listOperationActivity(request: $_model.ListOperationActivityRequest): Promise<$_model.ListOperationActivityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOperationActivityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取集群的操作历史
+   * 
+   * @param request - ListOperationHistoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationHistoryResponse
+   */
+  async listOperationHistoryWithOptions(request: $_model.ListOperationHistoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationHistoryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.operationId)) {
+      query["OperationId"] = request.operationId;
+    }
+
+    if (!$dara.isNull(request.operationStatus)) {
+      query["OperationStatus"] = request.operationStatus;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOperationHistory",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/operation/listOperationHistory`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOperationHistoryResponse>(await this.callApi(params, req, runtime), new $_model.ListOperationHistoryResponse({}));
+  }
+
+  /**
+   * 获取集群的操作历史
+   * 
+   * @param request - ListOperationHistoryRequest
+   * @returns ListOperationHistoryResponse
+   */
+  async listOperationHistory(request: $_model.ListOperationHistoryRequest): Promise<$_model.ListOperationHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOperationHistoryWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1441,6 +2700,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改/etc/hosts
+   * 
+   * @param request - ModifyHostAliasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostAliasResponse
+   */
+  async modifyHostAliasWithOptions(request: $_model.ModifyHostAliasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyHostAliasResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hostAliases)) {
+      body["hostAliases"] = request.hostAliases;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyHostAlias",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/network/modifyHostAlias`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyHostAliasResponse>(await this.callApi(params, req, runtime), new $_model.ModifyHostAliasResponse({}));
+  }
+
+  /**
+   * 修改/etc/hosts
+   * 
+   * @param request - ModifyHostAliasRequest
+   * @returns ModifyHostAliasResponse
+   */
+  async modifyHostAlias(request: $_model.ModifyHostAliasRequest): Promise<$_model.ModifyHostAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyHostAliasWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 修改实例配置
    * 
    * @param request - ModifyInstanceConfigRequest
@@ -1583,6 +2893,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改Starrocks实例的可维护时间
+   * 
+   * @param request - ModifyMaintainableTimeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMaintainableTimeResponse
+   */
+  async modifyMaintainableTimeWithOptions(request: $_model.ModifyMaintainableTimeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMaintainableTimeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maintainableTimePeriod)) {
+      query["MaintainableTimePeriod"] = request.maintainableTimePeriod;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMaintainableTime",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/modifyMaintainableTime`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMaintainableTimeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMaintainableTimeResponse({}));
+  }
+
+  /**
+   * 修改Starrocks实例的可维护时间
+   * 
+   * @param request - ModifyMaintainableTimeRequest
+   * @returns ModifyMaintainableTimeResponse
+   */
+  async modifyMaintainableTime(request: $_model.ModifyMaintainableTimeRequest): Promise<$_model.ModifyMaintainableTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyMaintainableTimeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @remarks
@@ -1719,6 +3078,1048 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改弹性伸缩规则
+   * 
+   * @param request - ModifyScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyScalingRuleResponse
+   */
+  async modifyScalingRuleWithOptions(request: $_model.ModifyScalingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyScalingRuleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.newTriggerType)) {
+      query["NewTriggerType"] = request.newTriggerType;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.oldTriggerType)) {
+      query["OldTriggerType"] = request.oldTriggerType;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.scalingRuleId)) {
+      query["ScalingRuleId"] = request.scalingRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyScalingRule",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/scalingRule/modifyScalingRule`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyScalingRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyScalingRuleResponse({}));
+  }
+
+  /**
+   * 修改弹性伸缩规则
+   * 
+   * @param request - ModifyScalingRuleRequest
+   * @returns ModifyScalingRuleResponse
+   */
+  async modifyScalingRule(request: $_model.ModifyScalingRuleRequest): Promise<$_model.ModifyScalingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyScalingRuleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改计算组的节点规格类型
+   * 
+   * @param request - ModifySpecTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySpecTypeResponse
+   */
+  async modifySpecTypeWithOptions(request: $_model.ModifySpecTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySpecTypeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fastMode)) {
+      query["FastMode"] = request.fastMode;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.targetSpecType)) {
+      query["TargetSpecType"] = request.targetSpecType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySpecType",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/resourceChange/modifySpecType`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySpecTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifySpecTypeResponse({}));
+  }
+
+  /**
+   * 修改计算组的节点规格类型
+   * 
+   * @param request - ModifySpecTypeRequest
+   * @returns ModifySpecTypeResponse
+   */
+  async modifySpecType(request: $_model.ModifySpecTypeRequest): Promise<$_model.ModifySpecTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifySpecTypeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改计算组中节点规格类型预检查
+   * 
+   * @param request - ModifySpecTypePreCheckRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySpecTypePreCheckResponse
+   */
+  async modifySpecTypePreCheckWithOptions(request: $_model.ModifySpecTypePreCheckRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySpecTypePreCheckResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.targetSpecType)) {
+      query["TargetSpecType"] = request.targetSpecType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySpecTypePreCheck",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/resourceChange/modifySpecTypePreCheck`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySpecTypePreCheckResponse>(await this.callApi(params, req, runtime), new $_model.ModifySpecTypePreCheckResponse({}));
+  }
+
+  /**
+   * 修改计算组中节点规格类型预检查
+   * 
+   * @param request - ModifySpecTypePreCheckRequest
+   * @returns ModifySpecTypePreCheckResponse
+   */
+  async modifySpecTypePreCheck(request: $_model.ModifySpecTypePreCheckRequest): Promise<$_model.ModifySpecTypePreCheckResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifySpecTypePreCheckWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改 starrocks 用户的密码
+   * 
+   * @param request - ModifyUserPasswordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserPasswordResponse
+   */
+  async modifyUserPasswordWithOptions(request: $_model.ModifyUserPasswordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyUserPasswordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyUserPassword",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/password/modify`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyUserPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ModifyUserPasswordResponse({}));
+  }
+
+  /**
+   * 修改 starrocks 用户的密码
+   * 
+   * @param request - ModifyUserPasswordRequest
+   * @returns ModifyUserPasswordResponse
+   */
+  async modifyUserPassword(request: $_model.ModifyUserPasswordRequest): Promise<$_model.ModifyUserPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyUserPasswordWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询开启Multi AZ的价格
+   * 
+   * @param request - QueryEnableMultiAzPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryEnableMultiAzPriceResponse
+   */
+  async queryEnableMultiAzPriceWithOptions(request: $_model.QueryEnableMultiAzPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryEnableMultiAzPriceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.observers)) {
+      body["observers"] = request.observers;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      body["promotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryEnableMultiAzPrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/enableMultiAz`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryEnableMultiAzPriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryEnableMultiAzPriceResponse({}));
+  }
+
+  /**
+   * 查询开启Multi AZ的价格
+   * 
+   * @param request - QueryEnableMultiAzPriceRequest
+   * @returns QueryEnableMultiAzPriceResponse
+   */
+  async queryEnableMultiAzPrice(request: $_model.QueryEnableMultiAzPriceRequest): Promise<$_model.QueryEnableMultiAzPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryEnableMultiAzPriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询小版本号
+   * 
+   * @param request - QueryMinorVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMinorVersionResponse
+   */
+  async queryMinorVersionWithOptions(request: $_model.QueryMinorVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMinorVersionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMinorVersion",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/queryAppDefineVersion`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMinorVersionResponse>(await this.callApi(params, req, runtime), new $_model.QueryMinorVersionResponse({}));
+  }
+
+  /**
+   * 查询小版本号
+   * 
+   * @param request - QueryMinorVersionRequest
+   * @returns QueryMinorVersionResponse
+   */
+  async queryMinorVersion(request: $_model.QueryMinorVersionRequest): Promise<$_model.QueryMinorVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryMinorVersionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * StarRocks新购询价接口
+   * 
+   * @param request - QueryModifyChargeTypePriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyChargeTypePriceResponse
+   */
+  async queryModifyChargeTypePriceWithOptions(request: $_model.QueryModifyChargeTypePriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyChargeTypePriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.billingInstanceIds)) {
+      query["BillingInstanceIds"] = request.billingInstanceIds;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifyChargeTypePrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/buy/query_modify_charge_type_price`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifyChargeTypePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyChargeTypePriceResponse({}));
+  }
+
+  /**
+   * StarRocks新购询价接口
+   * 
+   * @param request - QueryModifyChargeTypePriceRequest
+   * @returns QueryModifyChargeTypePriceResponse
+   */
+  async queryModifyChargeTypePrice(request: $_model.QueryModifyChargeTypePriceRequest): Promise<$_model.QueryModifyChargeTypePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifyChargeTypePriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改节点组节点Cu询价
+   * 
+   * @param request - QueryModifyCuPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyCuPriceResponse
+   */
+  async queryModifyCuPriceWithOptions(request: $_model.QueryModifyCuPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyCuPriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifyCuPrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/modifyCu`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifyCuPriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyCuPriceResponse({}));
+  }
+
+  /**
+   * 修改节点组节点Cu询价
+   * 
+   * @param request - QueryModifyCuPriceRequest
+   * @returns QueryModifyCuPriceResponse
+   */
+  async queryModifyCuPrice(request: $_model.QueryModifyCuPriceRequest): Promise<$_model.QueryModifyCuPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifyCuPriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改计算组节点磁盘数量询价
+   * 
+   * @param request - QueryModifyDiskNumberPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyDiskNumberPriceResponse
+   */
+  async queryModifyDiskNumberPriceWithOptions(request: $_model.QueryModifyDiskNumberPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyDiskNumberPriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifyDiskNumberPrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/modifyDiskNumber`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifyDiskNumberPriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyDiskNumberPriceResponse({}));
+  }
+
+  /**
+   * 修改计算组节点磁盘数量询价
+   * 
+   * @param request - QueryModifyDiskNumberPriceRequest
+   * @returns QueryModifyDiskNumberPriceResponse
+   */
+  async queryModifyDiskNumberPrice(request: $_model.QueryModifyDiskNumberPriceRequest): Promise<$_model.QueryModifyDiskNumberPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifyDiskNumberPriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改计算组节点磁盘性能级别询价
+   * 
+   * @param request - QueryModifyDiskPerformanceLevelPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyDiskPerformanceLevelPriceResponse
+   */
+  async queryModifyDiskPerformanceLevelPriceWithOptions(request: $_model.QueryModifyDiskPerformanceLevelPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyDiskPerformanceLevelPriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifyDiskPerformanceLevelPrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/modifyDiskPerformanceLevel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifyDiskPerformanceLevelPriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyDiskPerformanceLevelPriceResponse({}));
+  }
+
+  /**
+   * 修改计算组节点磁盘性能级别询价
+   * 
+   * @param request - QueryModifyDiskPerformanceLevelPriceRequest
+   * @returns QueryModifyDiskPerformanceLevelPriceResponse
+   */
+  async queryModifyDiskPerformanceLevelPrice(request: $_model.QueryModifyDiskPerformanceLevelPriceRequest): Promise<$_model.QueryModifyDiskPerformanceLevelPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifyDiskPerformanceLevelPriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改计算组节点单盘存储大小询价
+   * 
+   * @param request - QueryModifyDiskSizePriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyDiskSizePriceResponse
+   */
+  async queryModifyDiskSizePriceWithOptions(request: $_model.QueryModifyDiskSizePriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyDiskSizePriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifyDiskSizePrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/modifyDiskSize`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifyDiskSizePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyDiskSizePriceResponse({}));
+  }
+
+  /**
+   * 修改计算组节点单盘存储大小询价
+   * 
+   * @param request - QueryModifyDiskSizePriceRequest
+   * @returns QueryModifyDiskSizePriceResponse
+   */
+  async queryModifyDiskSizePrice(request: $_model.QueryModifyDiskSizePriceRequest): Promise<$_model.QueryModifyDiskSizePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifyDiskSizePriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改计算组节点磁盘类型询价
+   * 
+   * @param request - QueryModifyDiskTypePriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyDiskTypePriceResponse
+   */
+  async queryModifyDiskTypePriceWithOptions(request: $_model.QueryModifyDiskTypePriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyDiskTypePriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.targetDiskType)) {
+      query["TargetDiskType"] = request.targetDiskType;
+    }
+
+    if (!$dara.isNull(request.targetPerformanceLevel)) {
+      query["TargetPerformanceLevel"] = request.targetPerformanceLevel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifyDiskTypePrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/modifyDiskType`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifyDiskTypePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyDiskTypePriceResponse({}));
+  }
+
+  /**
+   * 修改计算组节点磁盘类型询价
+   * 
+   * @param request - QueryModifyDiskTypePriceRequest
+   * @returns QueryModifyDiskTypePriceResponse
+   */
+  async queryModifyDiskTypePrice(request: $_model.QueryModifyDiskTypePriceRequest): Promise<$_model.QueryModifyDiskTypePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifyDiskTypePriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改节点组节点数量询价
+   * 
+   * @param request - QueryModifyNodeNumberPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifyNodeNumberPriceResponse
+   */
+  async queryModifyNodeNumberPriceWithOptions(request: $_model.QueryModifyNodeNumberPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifyNodeNumberPriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifyNodeNumberPrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/modifyNodeNumber`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifyNodeNumberPriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifyNodeNumberPriceResponse({}));
+  }
+
+  /**
+   * 修改节点组节点数量询价
+   * 
+   * @param request - QueryModifyNodeNumberPriceRequest
+   * @returns QueryModifyNodeNumberPriceResponse
+   */
+  async queryModifyNodeNumberPrice(request: $_model.QueryModifyNodeNumberPriceRequest): Promise<$_model.QueryModifyNodeNumberPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifyNodeNumberPriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改节点组规格类型询价
+   * 
+   * @param request - QueryModifySpecTypePriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModifySpecTypePriceResponse
+   */
+  async queryModifySpecTypePriceWithOptions(request: $_model.QueryModifySpecTypePriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModifySpecTypePriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.targetSpecType)) {
+      query["TargetSpecType"] = request.targetSpecType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModifySpecTypePrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/priceInquiry/modifySpecType`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModifySpecTypePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryModifySpecTypePriceResponse({}));
+  }
+
+  /**
+   * 修改节点组规格类型询价
+   * 
+   * @param request - QueryModifySpecTypePriceRequest
+   * @returns QueryModifySpecTypePriceResponse
+   */
+  async queryModifySpecTypePrice(request: $_model.QueryModifySpecTypePriceRequest): Promise<$_model.QueryModifySpecTypePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryModifySpecTypePriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * StarRocks新购询价接口
+   * 
+   * @param request - QueryPriceV1Request
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPriceV1Response
+   */
+  async queryPriceV1WithOptions(request: $_model.QueryPriceV1Request, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPriceV1Response> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentNodeGroup)) {
+      body["AgentNodeGroup"] = request.agentNodeGroup;
+    }
+
+    if (!$dara.isNull(request.backendNodeGroups)) {
+      body["BackendNodeGroups"] = request.backendNodeGroups;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.frontendNodeGroups)) {
+      body["FrontendNodeGroups"] = request.frontendNodeGroups;
+    }
+
+    if (!$dara.isNull(request.observerNodeGroups)) {
+      body["ObserverNodeGroups"] = request.observerNodeGroups;
+    }
+
+    if (!$dara.isNull(request.packageType)) {
+      body["PackageType"] = request.packageType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      body["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      body["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      body["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      body["RunMode"] = request.runMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPriceV1",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/price/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPriceV1Response>(await this.callApi(params, req, runtime), new $_model.QueryPriceV1Response({}));
+  }
+
+  /**
+   * StarRocks新购询价接口
+   * 
+   * @param request - QueryPriceV1Request
+   * @returns QueryPriceV1Response
+   */
+  async queryPriceV1(request: $_model.QueryPriceV1Request): Promise<$_model.QueryPriceV1Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryPriceV1WithOptions(request, headers, runtime);
+  }
+
+  /**
+   * StarRocks退订包年包月计费实例询价
+   * 
+   * @param request - QueryRefundPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRefundPriceResponse
+   */
+  async queryRefundPriceWithOptions(request: $_model.QueryRefundPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRefundPriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billingInstanceIds)) {
+      query["billingInstanceIds"] = request.billingInstanceIds;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRefundPrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/buy/queryRefundPrice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRefundPriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryRefundPriceResponse({}));
+  }
+
+  /**
+   * StarRocks退订包年包月计费实例询价
+   * 
+   * @param request - QueryRefundPriceRequest
+   * @returns QueryRefundPriceResponse
+   */
+  async queryRefundPrice(request: $_model.QueryRefundPriceRequest): Promise<$_model.QueryRefundPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryRefundPriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询 StarRocks 计费实例的续费价格
+   * 
+   * @param request - QueryRenewPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRenewPriceResponse
+   */
+  async queryRenewPriceWithOptions(request: $_model.QueryRenewPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRenewPriceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billingInstanceIds)) {
+      query["BillingInstanceIds"] = request.billingInstanceIds;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRenewPrice",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/price/renew`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRenewPriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryRenewPriceResponse({}));
+  }
+
+  /**
+   * 查询 StarRocks 计费实例的续费价格
+   * 
+   * @param request - QueryRenewPriceRequest
+   * @returns QueryRenewPriceResponse
+   */
+  async queryRenewPrice(request: $_model.QueryRenewPriceRequest): Promise<$_model.QueryRenewPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryRenewPriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询计算组/集群的未支付订单
+   * 
+   * @param request - QueryUnpaidOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUnpaidOrderResponse
+   */
+  async queryUnpaidOrderWithOptions(request: $_model.QueryUnpaidOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUnpaidOrderResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billingInstanceId)) {
+      query["BillingInstanceId"] = request.billingInstanceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryUnpaidOrder",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/order/queryUnpaidOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryUnpaidOrderResponse>(await this.callApi(params, req, runtime), new $_model.QueryUnpaidOrderResponse({}));
+  }
+
+  /**
+   * 查询计算组/集群的未支付订单
+   * 
+   * @param request - QueryUnpaidOrderRequest
+   * @returns QueryUnpaidOrderResponse
+   */
+  async queryUnpaidOrder(request: $_model.QueryUnpaidOrderRequest): Promise<$_model.QueryUnpaidOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryUnpaidOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the versions of an E-MapReduce (EMR) Serverless StarRocks instance that the versions that you can upgrade to. The versions of a StarRocks instance include the major version and minor version. You can view the major version and minor version of a StarRocks instance in the Version Information section of the Instance Details tab in the EMR console. You can call this operation to query the minor versions or major versions that the versions that you can upgrade to.
    * 
    * @param request - QueryUpgradableVersionsRequest
@@ -1765,6 +4166,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryUpgradableVersionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 处理集群事件
+   * 
+   * @param request - RebootECSRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebootECSResponse
+   */
+  async rebootECSWithOptions(request: $_model.RebootECSRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RebootECSResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.rebootTime)) {
+      query["RebootTime"] = request.rebootTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RebootECS",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/event/rebootEcs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RebootECSResponse>(await this.callApi(params, req, runtime), new $_model.RebootECSResponse({}));
+  }
+
+  /**
+   * 处理集群事件
+   * 
+   * @param request - RebootECSRequest
+   * @returns RebootECSResponse
+   */
+  async rebootECS(request: $_model.RebootECSRequest): Promise<$_model.RebootECSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rebootECSWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1818,6 +4272,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.releaseInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 续费实例
+   * 
+   * @param request - RenewInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewInstanceResponse
+   */
+  async renewInstanceWithOptions(request: $_model.RenewInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RenewInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billingInstanceIds)) {
+      query["BillingInstanceIds"] = request.billingInstanceIds;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewInstance",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/order/renew_instance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenewInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RenewInstanceResponse({}));
+  }
+
+  /**
+   * 续费实例
+   * 
+   * @param request - RenewInstanceRequest
+   * @returns RenewInstanceResponse
+   */
+  async renewInstance(request: $_model.RenewInstanceRequest): Promise<$_model.RenewInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.renewInstanceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2167,6 +4682,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 切换主备可用区
+   * 
+   * @param request - SwitchActiveStandbyZonesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchActiveStandbyZonesResponse
+   */
+  async switchActiveStandbyZonesWithOptions(request: $_model.SwitchActiveStandbyZonesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SwitchActiveStandbyZonesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.targetZoneId)) {
+      query["TargetZoneId"] = request.targetZoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SwitchActiveStandbyZones",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/recovery/switchZones`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SwitchActiveStandbyZonesResponse>(await this.callApi(params, req, runtime), new $_model.SwitchActiveStandbyZonesResponse({}));
+  }
+
+  /**
+   * 切换主备可用区
+   * 
+   * @param request - SwitchActiveStandbyZonesRequest
+   * @returns SwitchActiveStandbyZonesResponse
+   */
+  async switchActiveStandbyZones(request: $_model.SwitchActiveStandbyZonesRequest): Promise<$_model.SwitchActiveStandbyZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.switchActiveStandbyZonesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Adds a tag to a resource.
    * 
    * @param request - TagResourcesRequest
@@ -2221,6 +4785,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 开启/关闭StarRocks实例的小版本自动更新
+   * 
+   * @param request - ToggleAutoMinorVersionUpgradeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ToggleAutoMinorVersionUpgradeResponse
+   */
+  async toggleAutoMinorVersionUpgradeWithOptions(request: $_model.ToggleAutoMinorVersionUpgradeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ToggleAutoMinorVersionUpgradeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoUpgrade)) {
+      query["AutoUpgrade"] = request.autoUpgrade;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ToggleAutoMinorVersionUpgrade",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/toggleAutoMinorVersionUpgrade`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ToggleAutoMinorVersionUpgradeResponse>(await this.callApi(params, req, runtime), new $_model.ToggleAutoMinorVersionUpgradeResponse({}));
+  }
+
+  /**
+   * 开启/关闭StarRocks实例的小版本自动更新
+   * 
+   * @param request - ToggleAutoMinorVersionUpgradeRequest
+   * @returns ToggleAutoMinorVersionUpgradeResponse
+   */
+  async toggleAutoMinorVersionUpgrade(request: $_model.ToggleAutoMinorVersionUpgradeRequest): Promise<$_model.ToggleAutoMinorVersionUpgradeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.toggleAutoMinorVersionUpgradeWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2348,6 +4961,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新备份任务描述
+   * 
+   * @param request - UpdateBackupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBackupResponse
+   */
+  async updateBackupWithOptions(request: $_model.UpdateBackupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBackupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.backupTaskId)) {
+      body["backupTaskId"] = request.backupTaskId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBackup",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/backup/manage/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBackupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBackupResponse({}));
+  }
+
+  /**
+   * 更新备份任务描述
+   * 
+   * @param request - UpdateBackupRequest
+   * @returns UpdateBackupResponse
+   */
+  async updateBackup(request: $_model.UpdateBackupRequest): Promise<$_model.UpdateBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateBackupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新备份策略
+   * 
+   * @param request - UpdateBackupPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBackupPolicyResponse
+   */
+  async updateBackupPolicyWithOptions(request: $_model.UpdateBackupPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBackupPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expireDays)) {
+      body["ExpireDays"] = request.expireDays;
+    }
+
+    if (!$dara.isNull(request.hour)) {
+      body["Hour"] = request.hour;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.minute)) {
+      body["Minute"] = request.minute;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.recurrenceValues)) {
+      body["RecurrenceValues"] = request.recurrenceValues;
+    }
+
+    if (!$dara.isNull(request.timeoutSeconds)) {
+      body["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBackupPolicy",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/backupRestore/policy/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBackupPolicyResponse({}));
+  }
+
+  /**
+   * 更新备份策略
+   * 
+   * @param request - UpdateBackupPolicyRequest
+   * @returns UpdateBackupPolicyResponse
+   */
+  async updateBackupPolicy(request: $_model.UpdateBackupPolicyRequest): Promise<$_model.UpdateBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateBackupPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 更新网关
    * 
    * @param request - UpdateGatewayRequest
@@ -2405,6 +5142,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新白名单分组中的CIDR
+   * 
+   * @param request - UpdateInnerIpWhitelistGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInnerIpWhitelistGroupResponse
+   */
+  async updateInnerIpWhitelistGroupWithOptions(request: $_model.UpdateInnerIpWhitelistGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInnerIpWhitelistGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cidrIpList)) {
+      body["CidrIpList"] = request.cidrIpList;
+    }
+
+    if (!$dara.isNull(request.innerIpWhitelistGroupId)) {
+      body["InnerIpWhitelistGroupId"] = request.innerIpWhitelistGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInnerIpWhitelistGroup",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/securityGroup/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInnerIpWhitelistGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInnerIpWhitelistGroupResponse({}));
+  }
+
+  /**
+   * 更新白名单分组中的CIDR
+   * 
+   * @param request - UpdateInnerIpWhitelistGroupRequest
+   * @returns UpdateInnerIpWhitelistGroupResponse
+   */
+  async updateInnerIpWhitelistGroup(request: $_model.UpdateInnerIpWhitelistGroupRequest): Promise<$_model.UpdateInnerIpWhitelistGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateInnerIpWhitelistGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Modifies the name of an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @param request - UpdateInstanceNameRequest
@@ -2451,6 +5241,116 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceNameWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新节点组描述信息
+   * 
+   * @param request - UpdateNodeGroupDescriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNodeGroupDescriptionResponse
+   */
+  async updateNodeGroupDescriptionWithOptions(request: $_model.UpdateNodeGroupDescriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNodeGroupDescriptionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.xAcsRamAuthContext)) {
+      query["X-Acs-Ram-Auth-Context"] = request.xAcsRamAuthContext;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNodeGroupDescription",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/nodegroup/updateDescription`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNodeGroupDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNodeGroupDescriptionResponse({}));
+  }
+
+  /**
+   * 更新节点组描述信息
+   * 
+   * @param request - UpdateNodeGroupDescriptionRequest
+   * @returns UpdateNodeGroupDescriptionResponse
+   */
+  async updateNodeGroupDescription(request: $_model.UpdateNodeGroupDescriptionRequest): Promise<$_model.UpdateNodeGroupDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNodeGroupDescriptionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 该接口用于开通/关闭 FE/BE的公网SLB。
+   * 
+   * @param request - UpdatePublicNetworkStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePublicNetworkStatusResponse
+   */
+  async updatePublicNetworkStatusWithOptions(request: $_model.UpdatePublicNetworkStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePublicNetworkStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.componentType)) {
+      query["ComponentType"] = request.componentType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.publicNetworkEnabled)) {
+      query["PublicNetworkEnabled"] = request.publicNetworkEnabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePublicNetworkStatus",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/network/updatePublicNetworkStatus`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePublicNetworkStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePublicNetworkStatusResponse({}));
+  }
+
+  /**
+   * 该接口用于开通/关闭 FE/BE的公网SLB。
+   * 
+   * @param request - UpdatePublicNetworkStatusRequest
+   * @returns UpdatePublicNetworkStatusResponse
+   */
+  async updatePublicNetworkStatus(request: $_model.UpdatePublicNetworkStatusRequest): Promise<$_model.UpdatePublicNetworkStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePublicNetworkStatusWithOptions(request, headers, runtime);
   }
 
   /**

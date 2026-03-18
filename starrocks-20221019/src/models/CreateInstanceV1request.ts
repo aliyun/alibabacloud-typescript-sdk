@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateInstanceV1RequestAgentNodeGroup extends $dara.Model {
   cu?: number;
   static names(): { [key: string]: string } {
