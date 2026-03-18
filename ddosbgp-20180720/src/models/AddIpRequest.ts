@@ -1,0 +1,79 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class AddIpRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Origin instance.
+   * 
+   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddosbgp-cn-npk1z7t9****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The IP addresses that you want to add to the Anti-DDoS Origin instance. This parameter is a string consisting of JSON arrays. Each element in a JSON array is a JSON struct that includes the following fields:
+   * 
+   * *   **ip**: required. The IP address that you want to add. Data type: string.
+   * *   **member_uid**: optional. The member to which the asset belongs. Data type: string. This field is required only if the asset of a member is queried. Example: [{"ip":"121.41.XX.XX","member_uid":"120100811162\\*\\*\\*\\*"}].
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"ip":"1.XX.XX.1"},{"ip":"2.XX.XX.2"}]
+   */
+  ipList?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Anti-DDoS Origin instance resides.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
+   * 
+   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   * 
+   * @deprecated
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ipList: 'IpList',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ipList: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
