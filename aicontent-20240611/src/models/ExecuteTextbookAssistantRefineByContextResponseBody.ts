@@ -1,7 +1,59 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ExecuteTextbookAssistantRefineByContextResponseBodyData } from "./ExecuteTextbookAssistantRefineByContextResponseBodyData";
 
+
+export class ExecuteTextbookAssistantRefineByContextResponseBodyDataResult extends $dara.Model {
+  /**
+   * @example
+   * Good evening! From the book, how does Mike Black introduce himself?
+   */
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTextbookAssistantRefineByContextResponseBodyData extends $dara.Model {
+  result?: ExecuteTextbookAssistantRefineByContextResponseBodyDataResult;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: ExecuteTextbookAssistantRefineByContextResponseBodyDataResult,
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ExecuteTextbookAssistantRefineByContextResponseBody extends $dara.Model {
   data?: ExecuteTextbookAssistantRefineByContextResponseBodyData;

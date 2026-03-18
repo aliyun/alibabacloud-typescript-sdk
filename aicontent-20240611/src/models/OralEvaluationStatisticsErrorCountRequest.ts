@@ -3,11 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OralEvaluationStatisticsErrorCountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * appId,appkey
+   * 
+   * @example
+   * a0007g7
+   */
   applicationAccessId?: string;
+  /**
+   * @example
+   * 2024-08-22 06:24:53
+   */
   endTime?: string;
   errorCode?: string[];
+  /**
+   * @example
+   * DAY
+   */
   granularity?: string;
+  /**
+   * @example
+   * 123
+   */
   projectId?: string;
+  /**
+   * @example
+   * 2024-09-27 09:32:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {

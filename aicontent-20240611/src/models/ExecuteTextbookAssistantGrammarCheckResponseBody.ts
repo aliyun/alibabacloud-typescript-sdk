@@ -1,7 +1,69 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ExecuteTextbookAssistantGrammarCheckResponseBodyData } from "./ExecuteTextbookAssistantGrammarCheckResponseBodyData";
 
+
+export class ExecuteTextbookAssistantGrammarCheckResponseBodyDataResult extends $dara.Model {
+  analysis?: string;
+  /**
+   * @example
+   * I am you.
+   */
+  correction?: string;
+  /**
+   * @example
+   * Has_Error
+   */
+  correctionStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysis: 'analysis',
+      correction: 'correction',
+      correctionStatus: 'correctionStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysis: 'string',
+      correction: 'string',
+      correctionStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTextbookAssistantGrammarCheckResponseBodyData extends $dara.Model {
+  result?: ExecuteTextbookAssistantGrammarCheckResponseBodyDataResult;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: ExecuteTextbookAssistantGrammarCheckResponseBodyDataResult,
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ExecuteTextbookAssistantGrammarCheckResponseBody extends $dara.Model {
   data?: ExecuteTextbookAssistantGrammarCheckResponseBodyData;

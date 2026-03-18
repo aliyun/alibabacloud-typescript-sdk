@@ -28,10 +28,6 @@ export class AliyunConsoleServiceInfoDTO extends $dara.Model {
    * online_ai_algorithm_personalized_text_to_image_call_count
    */
   serviceCode?: string;
-  /**
-   * @example
-   * AI算法模型-个性化文生图-在线按量调用
-   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {

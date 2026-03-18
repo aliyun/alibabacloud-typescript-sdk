@@ -246,6 +246,83 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 阿里云控制台/列出购买过的资源列表
+   * 
+   * @param request - AliyunConsoleOpenApiQueryPaidResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AliyunConsoleOpenApiQueryPaidResourceResponse
+   */
+  async aliyunConsoleOpenApiQueryPaidResourceWithOptions(request: $_model.AliyunConsoleOpenApiQueryPaidResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AliyunConsoleOpenApiQueryPaidResourceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AliyunConsoleOpenApiQueryPaidResource",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aliyunConsole/queryPaidResource`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AliyunConsoleOpenApiQueryPaidResourceResponse>(await this.callApi(params, req, runtime), new $_model.AliyunConsoleOpenApiQueryPaidResourceResponse({}));
+  }
+
+  /**
+   * 阿里云控制台/列出购买过的资源列表
+   * 
+   * @param request - AliyunConsoleOpenApiQueryPaidResourceRequest
+   * @returns AliyunConsoleOpenApiQueryPaidResourceResponse
+   */
+  async aliyunConsoleOpenApiQueryPaidResource(request: $_model.AliyunConsoleOpenApiQueryPaidResourceRequest): Promise<$_model.AliyunConsoleOpenApiQueryPaidResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aliyunConsoleOpenApiQueryPaidResourceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 智能批改/口语评测/统计/调用量
    * 
    * @param request - CountOralEvaluationStatisticsCallsRequest
@@ -487,6 +564,81 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
    */
+  async *executeAITeacherChineseCompositionTutoringWorkflowRunWithSSE(request: $_model.ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.essayOutline)) {
+      body["essayOutline"] = request.essayOutline;
+    }
+
+    if (!$dara.isNull(request.essayRequirements)) {
+      body["essayRequirements"] = request.essayRequirements;
+    }
+
+    if (!$dara.isNull(request.essayTopic)) {
+      body["essayTopic"] = request.essayTopic;
+    }
+
+    if (!$dara.isNull(request.essayType)) {
+      body["essayType"] = request.essayType;
+    }
+
+    if (!$dara.isNull(request.essayWordCount)) {
+      body["essayWordCount"] = request.essayWordCount;
+    }
+
+    if (!$dara.isNull(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!$dara.isNull(request.responseMode)) {
+      body["responseMode"] = request.responseMode;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteAITeacherChineseCompositionTutoringWorkflowRun",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/pop/api/v1/intelligentAgent/chineseCompositionTutoring/workflowRun`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 中文作文辅导
+   * 
+   * @param request - ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
+   */
   async executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions(request: $_model.ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -560,6 +712,81 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse
    */
+  async *executeAITeacherEnglishCompositionTutoringWorkflowRunWithSSE(request: $_model.ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.essayOutline)) {
+      body["essayOutline"] = request.essayOutline;
+    }
+
+    if (!$dara.isNull(request.essayRequirements)) {
+      body["essayRequirements"] = request.essayRequirements;
+    }
+
+    if (!$dara.isNull(request.essayTopic)) {
+      body["essayTopic"] = request.essayTopic;
+    }
+
+    if (!$dara.isNull(request.essayType)) {
+      body["essayType"] = request.essayType;
+    }
+
+    if (!$dara.isNull(request.essayWordCount)) {
+      body["essayWordCount"] = request.essayWordCount;
+    }
+
+    if (!$dara.isNull(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!$dara.isNull(request.responseMode)) {
+      body["responseMode"] = request.responseMode;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteAITeacherEnglishCompositionTutoringWorkflowRun",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/pop/api/v1/intelligentAgent/englishCompositionTutoring/workflowRun`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 英语作文辅导
+   * 
+   * @param request - ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse
+   */
   async executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions(request: $_model.ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -623,6 +850,81 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 英文释义
+   * 
+   * @param request - ExecuteAITeacherEnglishParaphraseChatMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAITeacherEnglishParaphraseChatMessageResponse
+   */
+  async *executeAITeacherEnglishParaphraseChatMessageWithSSE(request: $_model.ExecuteAITeacherEnglishParaphraseChatMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ExecuteAITeacherEnglishParaphraseChatMessageResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chatId)) {
+      body["chatId"] = request.chatId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!$dara.isNull(request.questionId)) {
+      body["questionId"] = request.questionId;
+    }
+
+    if (!$dara.isNull(request.questionInfo)) {
+      body["questionInfo"] = request.questionInfo;
+    }
+
+    if (!$dara.isNull(request.responseMode)) {
+      body["responseMode"] = request.responseMode;
+    }
+
+    if (!$dara.isNull(request.userAnswer)) {
+      body["userAnswer"] = request.userAnswer;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteAITeacherEnglishParaphraseChatMessage",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/pop/api/v1/intelligentAgent/englishParaphrase/chatMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ExecuteAITeacherEnglishParaphraseChatMessageResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ExecuteAITeacherEnglishParaphraseChatMessageResponse({}));
+      }
+
+    }
   }
 
   /**
@@ -1073,67 +1375,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 十万个为什么对话接入
-   * 
-   * @param request - ExecuteHundredThousandWhysDialogueRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ExecuteHundredThousandWhysDialogueResponse
-   */
-  async executeHundredThousandWhysDialogueWithOptions(request: $_model.ExecuteHundredThousandWhysDialogueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteHundredThousandWhysDialogueResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.ageGroup)) {
-      body["ageGroup"] = request.ageGroup;
-    }
-
-    if (!$dara.isNull(request.chatId)) {
-      body["chatId"] = request.chatId;
-    }
-
-    if (!$dara.isNull(request.deviceId)) {
-      body["deviceId"] = request.deviceId;
-    }
-
-    if (!$dara.isNull(request.macAddress)) {
-      body["macAddress"] = request.macAddress;
-    }
-
-    if (!$dara.isNull(request.messages)) {
-      body["messages"] = request.messages;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ExecuteHundredThousandWhysDialogue",
-      version: "20240611",
-      protocol: "HTTPS",
-      pathname: `/pop/api/v1/intelligentAgent/tenWWhys/executeDialogue`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ExecuteHundredThousandWhysDialogueResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteHundredThousandWhysDialogueResponse({}));
-  }
-
-  /**
-   * 十万个为什么对话接入
-   * 
-   * @param request - ExecuteHundredThousandWhysDialogueRequest
-   * @returns ExecuteHundredThousandWhysDialogueResponse
-   */
-  async executeHundredThousandWhysDialogue(request: $_model.ExecuteHundredThousandWhysDialogueRequest): Promise<$_model.ExecuteHundredThousandWhysDialogueResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.executeHundredThousandWhysDialogueWithOptions(request, headers, runtime);
-  }
-
-  /**
    * 进行AI对话
    * 
    * @param request - ExecuteTextbookAssistantDialogueRequest
@@ -1420,6 +1661,65 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.executeTextbookAssistantRetryConversationWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 进行对话-流式输出
+   * 
+   * @param request - ExecuteTextbookAssistantSseDialogueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteTextbookAssistantSseDialogueResponse
+   */
+  async *executeTextbookAssistantSseDialogueWithSSE(request: $_model.ExecuteTextbookAssistantSseDialogueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ExecuteTextbookAssistantSseDialogueResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authToken)) {
+      body["authToken"] = request.authToken;
+    }
+
+    if (!$dara.isNull(request.chatId)) {
+      body["chatId"] = request.chatId;
+    }
+
+    if (!$dara.isNull(request.scenario)) {
+      body["scenario"] = request.scenario;
+    }
+
+    if (!$dara.isNull(request.userMessage)) {
+      body["userMessage"] = request.userMessage;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteTextbookAssistantSseDialogue",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/textbookAssistant/dialogue/ExecuteSseDialogue`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ExecuteTextbookAssistantSseDialogueResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ExecuteTextbookAssistantSseDialogueResponse({}));
+      }
+
+    }
   }
 
   /**
@@ -2141,6 +2441,1575 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTextbookAssistantSceneDetailsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 聊天/聊天接口
+   * 
+   * @param request - ModelRouterChatCompletionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterChatCompletionsResponse
+   */
+  async *modelRouterChatCompletionsWithSSE(request: $_model.ModelRouterChatCompletionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ModelRouterChatCompletionsResponse, any, unknown> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: request.body,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterChatCompletions",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/chat/completions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ModelRouterChatCompletionsResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ModelRouterChatCompletionsResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 聊天/聊天接口
+   * 
+   * @param request - ModelRouterChatCompletionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterChatCompletionsResponse
+   */
+  async modelRouterChatCompletionsWithOptions(request: $_model.ModelRouterChatCompletionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterChatCompletionsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: request.body,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterChatCompletions",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/chat/completions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterChatCompletionsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterChatCompletionsResponse({}));
+  }
+
+  /**
+   * 聊天/聊天接口
+   * 
+   * @param request - ModelRouterChatCompletionsRequest
+   * @returns ModelRouterChatCompletionsResponse
+   */
+  async modelRouterChatCompletions(request: $_model.ModelRouterChatCompletionsRequest): Promise<$_model.ModelRouterChatCompletionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterChatCompletionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * API密钥管理/复制API密钥
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCopyApiKeyResponse
+   */
+  async modelRouterCopyApiKeyWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCopyApiKeyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCopyApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys/${$dara.URL.percentEncode(id)}/copy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCopyApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCopyApiKeyResponse({}));
+  }
+
+  /**
+   * API密钥管理/复制API密钥
+   * @returns ModelRouterCopyApiKeyResponse
+   */
+  async modelRouterCopyApiKey(id: string): Promise<$_model.ModelRouterCopyApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCopyApiKeyWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * API密钥管理/创建API密钥
+   * 
+   * @param request - ModelRouterCreateApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateApiKeyResponse
+   */
+  async modelRouterCreateApiKeyWithOptions(request: $_model.ModelRouterCreateApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateApiKeyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientId)) {
+      body["clientId"] = request.clientId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateApiKeyResponse({}));
+  }
+
+  /**
+   * API密钥管理/创建API密钥
+   * 
+   * @param request - ModelRouterCreateApiKeyRequest
+   * @returns ModelRouterCreateApiKeyResponse
+   */
+  async modelRouterCreateApiKey(request: $_model.ModelRouterCreateApiKeyRequest): Promise<$_model.ModelRouterCreateApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateApiKeyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 客户管理/创建客户
+   * 
+   * @param request - ModelRouterCreateClientRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateClientResponse
+   */
+  async modelRouterCreateClientWithOptions(request: $_model.ModelRouterCreateClientRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateClientResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.address)) {
+      body["address"] = request.address;
+    }
+
+    if (!$dara.isNull(request.allowedModels)) {
+      body["allowedModels"] = request.allowedModels;
+    }
+
+    if (!$dara.isNull(request.contact)) {
+      body["contact"] = request.contact;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateClient",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateClientResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateClientResponse({}));
+  }
+
+  /**
+   * 客户管理/创建客户
+   * 
+   * @param request - ModelRouterCreateClientRequest
+   * @returns ModelRouterCreateClientResponse
+   */
+  async modelRouterCreateClient(request: $_model.ModelRouterCreateClientRequest): Promise<$_model.ModelRouterCreateClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateClientWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 对话管理/创建对话
+   * 
+   * @param request - ModelRouterCreateConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateConversationResponse
+   */
+  async modelRouterCreateConversationWithOptions(request: $_model.ModelRouterCreateConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chatData)) {
+      body["chatData"] = request.chatData;
+    }
+
+    if (!$dara.isNull(request.modelIds)) {
+      body["modelIds"] = request.modelIds;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateConversation",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/conversations`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateConversationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateConversationResponse({}));
+  }
+
+  /**
+   * 对话管理/创建对话
+   * 
+   * @param request - ModelRouterCreateConversationRequest
+   * @returns ModelRouterCreateConversationResponse
+   */
+  async modelRouterCreateConversation(request: $_model.ModelRouterCreateConversationRequest): Promise<$_model.ModelRouterCreateConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateConversationWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 模型管理/创建模型
+   * 
+   * @param request - ModelRouterCreateModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateModelResponse
+   */
+  async modelRouterCreateModelWithOptions(request: $_model.ModelRouterCreateModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateModelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.baseUrl)) {
+      body["baseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      body["modelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.symbol)) {
+      body["symbol"] = request.symbol;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateModel",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/models`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateModelResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateModelResponse({}));
+  }
+
+  /**
+   * 模型管理/创建模型
+   * 
+   * @param request - ModelRouterCreateModelRequest
+   * @returns ModelRouterCreateModelResponse
+   */
+  async modelRouterCreateModel(request: $_model.ModelRouterCreateModelRequest): Promise<$_model.ModelRouterCreateModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateModelWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * API密钥管理/删除API密钥
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterDeleteApiKeyResponse
+   */
+  async modelRouterDeleteApiKeyWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterDeleteApiKeyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterDeleteApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys/${$dara.URL.percentEncode(id)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterDeleteApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterDeleteApiKeyResponse({}));
+  }
+
+  /**
+   * API密钥管理/删除API密钥
+   * @returns ModelRouterDeleteApiKeyResponse
+   */
+  async modelRouterDeleteApiKey(id: string): Promise<$_model.ModelRouterDeleteApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterDeleteApiKeyWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * 客户管理/删除客户
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterDeleteClientResponse
+   */
+  async modelRouterDeleteClientWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterDeleteClientResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterDeleteClient",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterDeleteClientResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterDeleteClientResponse({}));
+  }
+
+  /**
+   * 客户管理/删除客户
+   * @returns ModelRouterDeleteClientResponse
+   */
+  async modelRouterDeleteClient(id: string): Promise<$_model.ModelRouterDeleteClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterDeleteClientWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * 对话管理/删除对话
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterDeleteConversationResponse
+   */
+  async modelRouterDeleteConversationWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterDeleteConversationResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterDeleteConversation",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/conversations/${$dara.URL.percentEncode(id)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterDeleteConversationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterDeleteConversationResponse({}));
+  }
+
+  /**
+   * 对话管理/删除对话
+   * @returns ModelRouterDeleteConversationResponse
+   */
+  async modelRouterDeleteConversation(id: string): Promise<$_model.ModelRouterDeleteConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterDeleteConversationWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * 模型管理/删除模型
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterDeleteModelResponse
+   */
+  async modelRouterDeleteModelWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterDeleteModelResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterDeleteModel",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/models/${$dara.URL.percentEncode(id)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterDeleteModelResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterDeleteModelResponse({}));
+  }
+
+  /**
+   * 模型管理/删除模型
+   * @returns ModelRouterDeleteModelResponse
+   */
+  async modelRouterDeleteModel(id: string): Promise<$_model.ModelRouterDeleteModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterDeleteModelWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * API密钥管理/获取API密钥详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryApiKeyResponse
+   */
+  async modelRouterQueryApiKeyWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryApiKeyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys/${$dara.URL.percentEncode(id)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryApiKeyResponse({}));
+  }
+
+  /**
+   * API密钥管理/获取API密钥详情
+   * @returns ModelRouterQueryApiKeyResponse
+   */
+  async modelRouterQueryApiKey(id: string): Promise<$_model.ModelRouterQueryApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryApiKeyWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * API密钥管理/获取API密钥列表
+   * 
+   * @param request - ModelRouterQueryApiKeyListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryApiKeyListResponse
+   */
+  async modelRouterQueryApiKeyListWithOptions(request: $_model.ModelRouterQueryApiKeyListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryApiKeyListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryApiKeyList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryApiKeyListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryApiKeyListResponse({}));
+  }
+
+  /**
+   * API密钥管理/获取API密钥列表
+   * 
+   * @param request - ModelRouterQueryApiKeyListRequest
+   * @returns ModelRouterQueryApiKeyListResponse
+   */
+  async modelRouterQueryApiKeyList(request: $_model.ModelRouterQueryApiKeyListRequest): Promise<$_model.ModelRouterQueryApiKeyListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryApiKeyListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 客户管理/获取客户列表
+   * 
+   * @param request - ModelRouterQueryClientListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryClientListResponse
+   */
+  async modelRouterQueryClientListWithOptions(request: $_model.ModelRouterQueryClientListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryClientListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryClientList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryClientListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryClientListResponse({}));
+  }
+
+  /**
+   * 客户管理/获取客户列表
+   * 
+   * @param request - ModelRouterQueryClientListRequest
+   * @returns ModelRouterQueryClientListResponse
+   */
+  async modelRouterQueryClientList(request: $_model.ModelRouterQueryClientListRequest): Promise<$_model.ModelRouterQueryClientListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryClientListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 对话管理/获取对话详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryConversationResponse
+   */
+  async modelRouterQueryConversationWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryConversationResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryConversation",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/conversations/${$dara.URL.percentEncode(id)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryConversationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryConversationResponse({}));
+  }
+
+  /**
+   * 对话管理/获取对话详情
+   * @returns ModelRouterQueryConversationResponse
+   */
+  async modelRouterQueryConversation(id: string): Promise<$_model.ModelRouterQueryConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryConversationWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * 对话管理/获取对话列表
+   * 
+   * @param request - ModelRouterQueryConversationListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryConversationListResponse
+   */
+  async modelRouterQueryConversationListWithOptions(request: $_model.ModelRouterQueryConversationListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryConversationListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryConversationList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/conversations`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryConversationListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryConversationListResponse({}));
+  }
+
+  /**
+   * 对话管理/获取对话列表
+   * 
+   * @param request - ModelRouterQueryConversationListRequest
+   * @returns ModelRouterQueryConversationListResponse
+   */
+  async modelRouterQueryConversationList(request: $_model.ModelRouterQueryConversationListRequest): Promise<$_model.ModelRouterQueryConversationListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryConversationListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 模型管理/获取模型详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelResponse
+   */
+  async modelRouterQueryModelWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModel",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/models/${$dara.URL.percentEncode(id)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelResponse({}));
+  }
+
+  /**
+   * 模型管理/获取模型详情
+   * @returns ModelRouterQueryModelResponse
+   */
+  async modelRouterQueryModel(id: string): Promise<$_model.ModelRouterQueryModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * 模型管理/获取模型列表
+   * 
+   * @param request - ModelRouterQueryModelListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelListResponse
+   */
+  async modelRouterQueryModelListWithOptions(request: $_model.ModelRouterQueryModelListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelListResponse({}));
+  }
+
+  /**
+   * 模型管理/获取模型列表
+   * 
+   * @param request - ModelRouterQueryModelListRequest
+   * @returns ModelRouterQueryModelListResponse
+   */
+  async modelRouterQueryModelList(request: $_model.ModelRouterQueryModelListRequest): Promise<$_model.ModelRouterQueryModelListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 模型管理/获取模型及API密钥详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelWithApiKeyResponse
+   */
+  async modelRouterQueryModelWithApiKeyWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelWithApiKeyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelWithApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/models/${$dara.URL.percentEncode(id)}/with-api-key`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelWithApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelWithApiKeyResponse({}));
+  }
+
+  /**
+   * 模型管理/获取模型及API密钥详情
+   * @returns ModelRouterQueryModelWithApiKeyResponse
+   */
+  async modelRouterQueryModelWithApiKey(id: string): Promise<$_model.ModelRouterQueryModelWithApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelWithApiKeyWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * Nacos配置/获取Nacos服务提供者列表
+   * 
+   * @param request - ModelRouterQueryNacosProvidersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryNacosProvidersResponse
+   */
+  async modelRouterQueryNacosProvidersWithOptions(request: $_model.ModelRouterQueryNacosProvidersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryNacosProvidersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryNacosProviders",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/nacos/providers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryNacosProvidersResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryNacosProvidersResponse({}));
+  }
+
+  /**
+   * Nacos配置/获取Nacos服务提供者列表
+   * 
+   * @param request - ModelRouterQueryNacosProvidersRequest
+   * @returns ModelRouterQueryNacosProvidersResponse
+   */
+  async modelRouterQueryNacosProviders(request: $_model.ModelRouterQueryNacosProvidersRequest): Promise<$_model.ModelRouterQueryNacosProvidersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryNacosProvidersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Nacos配置/获取Nacos标签列表
+   * 
+   * @param request - ModelRouterQueryNacosTagsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryNacosTagsResponse
+   */
+  async modelRouterQueryNacosTagsWithOptions(request: $_model.ModelRouterQueryNacosTagsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryNacosTagsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryNacosTags",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/nacos/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryNacosTagsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryNacosTagsResponse({}));
+  }
+
+  /**
+   * Nacos配置/获取Nacos标签列表
+   * 
+   * @param request - ModelRouterQueryNacosTagsRequest
+   * @returns ModelRouterQueryNacosTagsResponse
+   */
+  async modelRouterQueryNacosTags(request: $_model.ModelRouterQueryNacosTagsRequest): Promise<$_model.ModelRouterQueryNacosTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryNacosTagsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 模型观测/获取观测图表数据
+   * 
+   * @param request - ModelRouterQueryObservationChartsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryObservationChartsResponse
+   */
+  async modelRouterQueryObservationChartsWithOptions(request: $_model.ModelRouterQueryObservationChartsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryObservationChartsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["apiKeyId"] = request.apiKeyId;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryObservationCharts",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/observation/charts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryObservationChartsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryObservationChartsResponse({}));
+  }
+
+  /**
+   * 模型观测/获取观测图表数据
+   * 
+   * @param request - ModelRouterQueryObservationChartsRequest
+   * @returns ModelRouterQueryObservationChartsResponse
+   */
+  async modelRouterQueryObservationCharts(request: $_model.ModelRouterQueryObservationChartsRequest): Promise<$_model.ModelRouterQueryObservationChartsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryObservationChartsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 模型观测/获取观测日志列表
+   * 
+   * @param request - ModelRouterQueryObservationLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryObservationLogsResponse
+   */
+  async modelRouterQueryObservationLogsWithOptions(request: $_model.ModelRouterQueryObservationLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryObservationLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["apiKeyId"] = request.apiKeyId;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryObservationLogs",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/observation/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryObservationLogsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryObservationLogsResponse({}));
+  }
+
+  /**
+   * 模型观测/获取观测日志列表
+   * 
+   * @param request - ModelRouterQueryObservationLogsRequest
+   * @returns ModelRouterQueryObservationLogsResponse
+   */
+  async modelRouterQueryObservationLogs(request: $_model.ModelRouterQueryObservationLogsRequest): Promise<$_model.ModelRouterQueryObservationLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryObservationLogsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 模型观测/获取观测指标数据
+   * 
+   * @param request - ModelRouterQueryObservationMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryObservationMetricsResponse
+   */
+  async modelRouterQueryObservationMetricsWithOptions(request: $_model.ModelRouterQueryObservationMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryObservationMetricsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["apiKeyId"] = request.apiKeyId;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.groupBy)) {
+      query["groupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["needTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDirection)) {
+      query["orderDirection"] = request.orderDirection;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryObservationMetrics",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/observation/metrics`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryObservationMetricsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryObservationMetricsResponse({}));
+  }
+
+  /**
+   * 模型观测/获取观测指标数据
+   * 
+   * @param request - ModelRouterQueryObservationMetricsRequest
+   * @returns ModelRouterQueryObservationMetricsResponse
+   */
+  async modelRouterQueryObservationMetrics(request: $_model.ModelRouterQueryObservationMetricsRequest): Promise<$_model.ModelRouterQueryObservationMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryObservationMetricsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 客户管理/更新客户
+   * 
+   * @param request - ModelRouterUpdateClientRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterUpdateClientResponse
+   */
+  async modelRouterUpdateClientWithOptions(id: string, request: $_model.ModelRouterUpdateClientRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterUpdateClientResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.address)) {
+      body["address"] = request.address;
+    }
+
+    if (!$dara.isNull(request.allowedModels)) {
+      body["allowedModels"] = request.allowedModels;
+    }
+
+    if (!$dara.isNull(request.contact)) {
+      body["contact"] = request.contact;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterUpdateClient",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterUpdateClientResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterUpdateClientResponse({}));
+  }
+
+  /**
+   * 客户管理/更新客户
+   * 
+   * @param request - ModelRouterUpdateClientRequest
+   * @returns ModelRouterUpdateClientResponse
+   */
+  async modelRouterUpdateClient(id: string, request: $_model.ModelRouterUpdateClientRequest): Promise<$_model.ModelRouterUpdateClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterUpdateClientWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 对话管理/更新对话
+   * 
+   * @param request - ModelRouterUpdateConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterUpdateConversationResponse
+   */
+  async modelRouterUpdateConversationWithOptions(id: string, request: $_model.ModelRouterUpdateConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterUpdateConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chatData)) {
+      body["chatData"] = request.chatData;
+    }
+
+    if (!$dara.isNull(request.messageCount)) {
+      body["messageCount"] = request.messageCount;
+    }
+
+    if (!$dara.isNull(request.modelIds)) {
+      body["modelIds"] = request.modelIds;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterUpdateConversation",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/conversations/${$dara.URL.percentEncode(id)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterUpdateConversationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterUpdateConversationResponse({}));
+  }
+
+  /**
+   * 对话管理/更新对话
+   * 
+   * @param request - ModelRouterUpdateConversationRequest
+   * @returns ModelRouterUpdateConversationResponse
+   */
+  async modelRouterUpdateConversation(id: string, request: $_model.ModelRouterUpdateConversationRequest): Promise<$_model.ModelRouterUpdateConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterUpdateConversationWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 模型管理/更新模型
+   * 
+   * @param request - ModelRouterUpdateModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterUpdateModelResponse
+   */
+  async modelRouterUpdateModelWithOptions(id: string, request: $_model.ModelRouterUpdateModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterUpdateModelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.baseUrl)) {
+      body["baseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.maxInputLength)) {
+      body["maxInputLength"] = request.maxInputLength;
+    }
+
+    if (!$dara.isNull(request.maxOutputLength)) {
+      body["maxOutputLength"] = request.maxOutputLength;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      body["modelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.symbol)) {
+      body["symbol"] = request.symbol;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterUpdateModel",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/models/${$dara.URL.percentEncode(id)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterUpdateModelResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterUpdateModelResponse({}));
+  }
+
+  /**
+   * 模型管理/更新模型
+   * 
+   * @param request - ModelRouterUpdateModelRequest
+   * @returns ModelRouterUpdateModelResponse
+   */
+  async modelRouterUpdateModel(id: string, request: $_model.ModelRouterUpdateModelRequest): Promise<$_model.ModelRouterUpdateModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterUpdateModelWithOptions(id, request, headers, runtime);
   }
 
   /**
