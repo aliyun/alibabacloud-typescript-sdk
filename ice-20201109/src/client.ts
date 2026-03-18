@@ -14144,6 +14144,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查应用参数是否合法
+   * 
+   * @param request - PrecheckYikeAIAppJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PrecheckYikeAIAppJobResponse
+   */
+  async precheckYikeAIAppJobWithOptions(request: $_model.PrecheckYikeAIAppJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PrecheckYikeAIAppJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appParams)) {
+      query["AppParams"] = request.appParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PrecheckYikeAIAppJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PrecheckYikeAIAppJobResponse>(await this.callApi(params, req, runtime), new $_model.PrecheckYikeAIAppJobResponse({}));
+  }
+
+  /**
+   * 检查应用参数是否合法
+   * 
+   * @param request - PrecheckYikeAIAppJobRequest
+   * @returns PrecheckYikeAIAppJobResponse
+   */
+  async precheckYikeAIAppJob(request: $_model.PrecheckYikeAIAppJobRequest): Promise<$_model.PrecheckYikeAIAppJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.precheckYikeAIAppJobWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a job for extracting a copyright watermark.
    * 
    * @param request - QueryCopyrightExtractJobRequest

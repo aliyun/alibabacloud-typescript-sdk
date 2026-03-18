@@ -537,6 +537,7 @@ export { ListWorkflowTasksResponseBodyTaskListWorkflow } from './ListWorkflowTas
 export { ListWorkflowTasksResponseBodyTaskList } from './ListWorkflowTasksResponseBody';
 export { ListYikeAssetFoldersResponseBodyFolderList } from './ListYikeAssetFoldersResponseBody';
 export { ListYikeProductionsResponseBodyProductionList } from './ListYikeProductionsResponseBody';
+export { PrecheckYikeAIAppJobResponseBodyResult } from './PrecheckYikeAiappJobResponseBody';
 export { QueryCopyrightExtractJobResponseBodyData } from './QueryCopyrightExtractJobResponseBody';
 export { QueryCopyrightJobListResponseBodyDataInput } from './QueryCopyrightJobListResponseBody';
 export { QueryCopyrightJobListResponseBodyDataOutput } from './QueryCopyrightJobListResponseBody';
@@ -1650,6 +1651,9 @@ export { ListYikeProductionsResponse } from './ListYikeProductionsResponse';
 export { OpenMediaConnectFlowFailoverRequest } from './OpenMediaConnectFlowFailoverRequest';
 export { OpenMediaConnectFlowFailoverResponseBody } from './OpenMediaConnectFlowFailoverResponseBody';
 export { OpenMediaConnectFlowFailoverResponse } from './OpenMediaConnectFlowFailoverResponse';
+export { PrecheckYikeAIAppJobRequest } from './PrecheckYikeAiappJobRequest';
+export { PrecheckYikeAIAppJobResponseBody } from './PrecheckYikeAiappJobResponseBody';
+export { PrecheckYikeAIAppJobResponse } from './PrecheckYikeAiappJobResponse';
 export { QueryCopyrightExtractJobRequest } from './QueryCopyrightExtractJobRequest';
 export { QueryCopyrightExtractJobResponseBody } from './QueryCopyrightExtractJobResponseBody';
 export { QueryCopyrightExtractJobResponse } from './QueryCopyrightExtractJobResponse';
