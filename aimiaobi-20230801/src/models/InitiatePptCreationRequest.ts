@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InitiatePptCreationRequest extends $dara.Model {
+  externalUserId?: string;
   outline?: string;
   /**
    * @remarks
@@ -19,6 +20,7 @@ export class InitiatePptCreationRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalUserId: 'ExternalUserId',
       outline: 'Outline',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
@@ -27,6 +29,7 @@ export class InitiatePptCreationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      externalUserId: 'string',
       outline: 'string',
       taskId: 'string',
       workspaceId: 'string',

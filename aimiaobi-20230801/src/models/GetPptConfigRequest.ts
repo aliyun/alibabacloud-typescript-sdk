@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPptConfigRequest extends $dara.Model {
+  externalUserId?: string;
   /**
    * @example
    * llm-az2gglkjauwnnhpq
@@ -10,12 +11,14 @@ export class GetPptConfigRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalUserId: 'ExternalUserId',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      externalUserId: 'string',
       workspaceId: 'string',
     };
   }

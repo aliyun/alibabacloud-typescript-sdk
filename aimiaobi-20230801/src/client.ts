@@ -659,6 +659,10 @@ export default class Client extends OpenApi {
       body["ArtifactId"] = request.artifactId;
     }
 
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
@@ -1833,6 +1837,10 @@ export default class Client extends OpenApi {
   async deletePptArtifactWithOptions(request: $_model.DeletePptArtifactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePptArtifactResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.pptArtifactId)) {
       body["PptArtifactId"] = request.pptArtifactId;
     }
@@ -4563,6 +4571,10 @@ export default class Client extends OpenApi {
   async getPptArtifactWithOptions(request: $_model.GetPptArtifactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPptArtifactResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.pptArtifactId)) {
       body["PptArtifactId"] = request.pptArtifactId;
     }
@@ -4609,6 +4621,10 @@ export default class Client extends OpenApi {
   async getPptConfigWithOptions(request: $_model.GetPptConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPptConfigResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -5041,6 +5057,10 @@ export default class Client extends OpenApi {
   async initiatePptCreationWithOptions(request: $_model.InitiatePptCreationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitiatePptCreationResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.outline)) {
       body["Outline"] = request.outline;
     }
@@ -7174,6 +7194,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
@@ -10883,6 +10907,10 @@ export default class Client extends OpenApi {
   async *runPptOutlineGenerationWithSSE(request: $_model.RunPptOutlineGenerationRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunPptOutlineGenerationResponse, any, unknown> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.prompt)) {
       body["Prompt"] = request.prompt;
     }
@@ -10932,6 +10960,10 @@ export default class Client extends OpenApi {
   async runPptOutlineGenerationWithOptions(request: $_model.RunPptOutlineGenerationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunPptOutlineGenerationResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.prompt)) {
       body["Prompt"] = request.prompt;
     }

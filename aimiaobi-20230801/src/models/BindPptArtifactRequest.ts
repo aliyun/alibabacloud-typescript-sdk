@@ -11,6 +11,7 @@ export class BindPptArtifactRequest extends $dara.Model {
    * 12342
    */
   artifactId?: number;
+  externalUserId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -30,6 +31,7 @@ export class BindPptArtifactRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       artifactId: 'ArtifactId',
+      externalUserId: 'ExternalUserId',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
     };
@@ -38,6 +40,7 @@ export class BindPptArtifactRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       artifactId: 'number',
+      externalUserId: 'string',
       taskId: 'string',
       workspaceId: 'string',
     };

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPptArtifactsRequest extends $dara.Model {
+  externalUserId?: string;
   /**
    * @example
    * 0
@@ -21,6 +22,7 @@ export class ListPptArtifactsRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalUserId: 'ExternalUserId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       query: 'Query',
@@ -30,6 +32,7 @@ export class ListPptArtifactsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      externalUserId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       query: 'string',

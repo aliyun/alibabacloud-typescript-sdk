@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunPptOutlineGenerationRequest extends $dara.Model {
+  externalUserId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -18,6 +19,7 @@ export class RunPptOutlineGenerationRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalUserId: 'ExternalUserId',
       prompt: 'Prompt',
       workspaceId: 'WorkspaceId',
     };
@@ -25,6 +27,7 @@ export class RunPptOutlineGenerationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      externalUserId: 'string',
       prompt: 'string',
       workspaceId: 'string',
     };

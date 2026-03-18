@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPptArtifactRequest extends $dara.Model {
+  externalUserId?: string;
   /**
    * @example
    * 5232136
@@ -15,6 +16,7 @@ export class GetPptArtifactRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalUserId: 'ExternalUserId',
       pptArtifactId: 'PptArtifactId',
       workspaceId: 'WorkspaceId',
     };
@@ -22,6 +24,7 @@ export class GetPptArtifactRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      externalUserId: 'string',
       pptArtifactId: 'number',
       workspaceId: 'string',
     };

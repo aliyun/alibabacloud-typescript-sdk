@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeletePptArtifactRequest extends $dara.Model {
+  externalUserId?: string;
   pptArtifactId?: string;
   /**
    * @example
@@ -11,6 +12,7 @@ export class DeletePptArtifactRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalUserId: 'ExternalUserId',
       pptArtifactId: 'PptArtifactId',
       workspaceId: 'WorkspaceId',
     };
@@ -18,6 +20,7 @@ export class DeletePptArtifactRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      externalUserId: 'string',
       pptArtifactId: 'string',
       workspaceId: 'string',
     };
