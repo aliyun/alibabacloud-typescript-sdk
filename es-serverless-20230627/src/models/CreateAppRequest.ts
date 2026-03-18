@@ -193,11 +193,19 @@ export class CreateAppRequestPrivateNetwork extends $dara.Model {
 export class CreateAppRequestQuotaInfo extends $dara.Model {
   appType?: string;
   cu?: number;
+  elastic?: boolean;
+  /**
+   * @example
+   * 2
+   */
+  minCu?: number;
   storage?: number;
   static names(): { [key: string]: string } {
     return {
       appType: 'appType',
       cu: 'cu',
+      elastic: 'elastic',
+      minCu: 'minCu',
       storage: 'storage',
     };
   }
@@ -206,6 +214,8 @@ export class CreateAppRequestQuotaInfo extends $dara.Model {
     return {
       appType: 'string',
       cu: 'number',
+      elastic: 'boolean',
+      minCu: 'number',
       storage: 'number',
     };
   }
