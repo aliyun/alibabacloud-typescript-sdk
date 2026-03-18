@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteMmsJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the deleted job.
+   * 
    * @example
    * 88
    */
   data?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31BE216F-AEF7-581E-B9C9-DECEB5424AC4
    */

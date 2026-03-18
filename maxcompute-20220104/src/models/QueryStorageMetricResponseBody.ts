@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryStorageMetricResponseBodyDataMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata of the metric.
+   */
   metric?: { [key: string]: string };
+  /**
+   * @remarks
+   * The time series data.
+   */
   values?: number[][];
   static names(): { [key: string]: string } {
     return {
@@ -36,17 +44,30 @@ export class QueryStorageMetricResponseBodyDataMetrics extends $dara.Model {
 
 export class QueryStorageMetricResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The category of the metric.
+   * 
    * @example
    * storage
    */
   category?: string;
+  /**
+   * @remarks
+   * The metric values.
+   */
   metrics?: QueryStorageMetricResponseBodyDataMetrics[];
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * summary
    */
   name?: string;
   /**
+   * @remarks
+   * The step size of the monitoring data.
+   * 
    * @example
    * 3600
    */
@@ -82,23 +103,49 @@ export class QueryStorageMetricResponseBodyData extends $dara.Model {
 }
 
 export class QueryStorageMetricResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryStorageMetricResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 0A3B1FD2006A24C8D8BE65CDAC028298
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * - 1xx: Informational - The request was received and is being processed.
+   * 
+   * - 2xx: Success - The request was successfully received, understood, and accepted by the server.
+   * 
+   * - 3xx: Redirection - The request was redirected. Further action is needed to complete the request.
+   * 
+   * - 4xx: Client error - The request contains incorrect parameters or syntax, or cannot be fulfilled.
+   * 
+   * - 5xx: Server error - The server failed to fulfill the request for other reasons.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0be3e0bb16654558425251398e27a9
    */

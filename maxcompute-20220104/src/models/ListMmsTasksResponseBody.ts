@@ -4,106 +4,169 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsTasksResponseBodyDataObjectList extends $dara.Model {
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 2024-10-25 04:21:01
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the source database.
+   * 
    * @example
    * 196
    */
   dbId?: number;
   /**
+   * @remarks
+   * The destination MaxCompute project.
+   * 
    * @example
    * mms_test
    */
   dstDbName?: string;
   /**
+   * @remarks
+   * The destination MaxCompute schema.
+   * 
    * @example
    * default
    */
   dstSchemaName?: string;
   /**
+   * @remarks
+   * The destination MaxCompute table.
+   * 
    * @example
    * table_1
    */
   dstTableName?: string;
   /**
+   * @remarks
+   * The end time of the task.
+   * 
    * @example
    * 2024-10-25 07:21:01
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the migration task.
+   * 
    * @example
    * 2323
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the migration job.
+   * 
    * @example
    * 87
    */
   jobId?: number;
   /**
+   * @remarks
+   * The name of the migration job.
+   * 
    * @example
    * test_odps_spark
    */
   jobName?: string;
   /**
+   * @remarks
+   * The number of retries.
+   * 
    * @example
    * 1
    */
   retriedTimes?: number;
   /**
+   * @remarks
+   * Indicates whether the task is running.
+   * 
    * @example
    * true
    */
   running?: boolean;
   /**
+   * @remarks
+   * The ID of the data source.
+   * 
    * @example
    * 2000028
    */
   sourceId?: number;
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * demo
    */
   sourceName?: string;
   /**
+   * @remarks
+   * The name of the source database.
+   * 
    * @example
    * db_1
    */
   srcDbName?: string;
   /**
+   * @remarks
+   * The name of the source schema. This parameter specifies the schema in a Layer 3 namespace.
+   * 
    * @example
    * default
    */
   srcSchemaName?: string;
   /**
+   * @remarks
+   * The name of the source table.
+   * 
    * @example
    * table_1
    */
   srcTableName?: string;
   /**
+   * @remarks
+   * The start time of the task.
+   * 
    * @example
    * 2024-10-25 06:21:01
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the migration task.
+   * 
    * @example
    * DATA_DOING
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the task is stopped.
+   * 
    * @example
    * false
    */
   stopped?: boolean;
   /**
+   * @remarks
+   * The ID of the source table.
+   * 
    * @example
    * 23
    */
   tableId?: number;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * BIGQUERY
    */
@@ -170,18 +233,31 @@ export class ListMmsTasksResponseBodyDataObjectList extends $dara.Model {
 }
 
 export class ListMmsTasksResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of migration tasks.
+   */
   objectList?: ListMmsTasksResponseBodyDataObjectList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */
@@ -217,8 +293,15 @@ export class ListMmsTasksResponseBodyData extends $dara.Model {
 }
 
 export class ListMmsTasksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListMmsTasksResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 373A5CB2-8570-53BE-A98F-729B11D7A8B0
    */

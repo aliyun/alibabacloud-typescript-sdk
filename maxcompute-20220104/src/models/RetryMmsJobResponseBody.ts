@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RetryMmsJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned result.
+   * 
    * @example
    * 78
    */
   data?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 7F5DAD1C-9EC2-5FE5-97CF-BCE21B4ABA29
    */

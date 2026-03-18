@@ -3,26 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRoleAclResponseBodyDataFunction extends $dara.Model {
-  /**
-   * @remarks
-   * The operations that were performed on the function.
-   */
   actions?: string[];
-  /**
-   * @remarks
-   * The name of the function.
-   * 
-   * @example
-   * functionA
-   */
   name?: string;
-  /**
-   * @remarks
-   * The Schema name.
-   * 
-   * @example
-   * default
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,26 +35,8 @@ export class GetRoleAclResponseBodyDataFunction extends $dara.Model {
 }
 
 export class GetRoleAclResponseBodyDataInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The operations that were performed on the instance.
-   */
   actions?: string[];
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * instanceA
-   */
   name?: string;
-  /**
-   * @remarks
-   * The Schema name.
-   * 
-   * @example
-   * default
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,26 +67,8 @@ export class GetRoleAclResponseBodyDataInstance extends $dara.Model {
 }
 
 export class GetRoleAclResponseBodyDataPackage extends $dara.Model {
-  /**
-   * @remarks
-   * The operations that were performed on the package.
-   */
   actions?: string[];
-  /**
-   * @remarks
-   * The name of the package.
-   * 
-   * @example
-   * packageA
-   */
   name?: string;
-  /**
-   * @remarks
-   * The Schema name.
-   * 
-   * @example
-   * default
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -153,26 +99,8 @@ export class GetRoleAclResponseBodyDataPackage extends $dara.Model {
 }
 
 export class GetRoleAclResponseBodyDataProject extends $dara.Model {
-  /**
-   * @remarks
-   * The operations that were performed on the project.
-   */
   actions?: string[];
-  /**
-   * @remarks
-   * The name of the MaxCompute project.
-   * 
-   * @example
-   * projectA
-   */
   name?: string;
-  /**
-   * @remarks
-   * The Schema name.
-   * 
-   * @example
-   * default
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,26 +131,8 @@ export class GetRoleAclResponseBodyDataProject extends $dara.Model {
 }
 
 export class GetRoleAclResponseBodyDataResource extends $dara.Model {
-  /**
-   * @remarks
-   * The operations that were performed on the resource.
-   */
   actions?: string[];
-  /**
-   * @remarks
-   * The name of the resource.
-   * 
-   * @example
-   * resourceA
-   */
   name?: string;
-  /**
-   * @remarks
-   * The Schema name.
-   * 
-   * @example
-   * default
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -253,26 +163,8 @@ export class GetRoleAclResponseBodyDataResource extends $dara.Model {
 }
 
 export class GetRoleAclResponseBodyDataTable extends $dara.Model {
-  /**
-   * @remarks
-   * The operations that were performed on the table.
-   */
   actions?: string[];
-  /**
-   * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * tableA
-   */
   name?: string;
-  /**
-   * @remarks
-   * The Schema name.
-   * 
-   * @example
-   * default
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -303,35 +195,11 @@ export class GetRoleAclResponseBodyDataTable extends $dara.Model {
 }
 
 export class GetRoleAclResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The function.
-   */
   function?: GetRoleAclResponseBodyDataFunction[];
-  /**
-   * @remarks
-   * The instance.
-   */
   instance?: GetRoleAclResponseBodyDataInstance[];
-  /**
-   * @remarks
-   * The package.
-   */
   package?: GetRoleAclResponseBodyDataPackage[];
-  /**
-   * @remarks
-   * The project.
-   */
   project?: GetRoleAclResponseBodyDataProject[];
-  /**
-   * @remarks
-   * The resource.
-   */
   resource?: GetRoleAclResponseBodyDataResource[];
-  /**
-   * @remarks
-   * The table.
-   */
   table?: GetRoleAclResponseBodyDataTable[];
   static names(): { [key: string]: string } {
     return {
@@ -383,42 +251,10 @@ export class GetRoleAclResponseBodyData extends $dara.Model {
 }
 
 export class GetRoleAclResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: GetRoleAclResponseBodyData;
-  /**
-   * @remarks
-   * The error code returned if the request failed.
-   * 
-   * @example
-   * 040002
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * error message
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
   httpCode?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0a06dc0916696898838762018e9564
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

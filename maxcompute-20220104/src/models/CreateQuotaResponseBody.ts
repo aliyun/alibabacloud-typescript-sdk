@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMmsDataSourceResponseBodyData extends $dara.Model {
+export class CreateQuotaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data source.
+   * Quota alias.
    * 
    * @example
-   * 18
+   * os_PayAsYouGoQuota_p
    */
-  dataSourceId?: number;
+  nickName?: string;
   static names(): { [key: string]: string } {
     return {
-      dataSourceId: 'dataSourceId',
+      nickName: 'nickName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataSourceId: 'number',
+      nickName: 'string',
     };
   }
 
@@ -32,18 +32,18 @@ export class CreateMmsDataSourceResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateMmsDataSourceResponseBody extends $dara.Model {
+export class CreateQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * Response parameters.
    */
-  data?: CreateMmsDataSourceResponseBodyData;
+  data?: CreateQuotaResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
-   * B42CA730-8187-50F1-9FE0-6733297036DB
+   * 0bc520ad17171208978521777d742c
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class CreateMmsDataSourceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: CreateMmsDataSourceResponseBodyData,
+      data: CreateQuotaResponseBodyData,
       requestId: 'string',
     };
   }

@@ -4,61 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 2024-12-17 15:44:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the task stopped running.
+   * 
    * @example
    * 2024-12-17 17:44:17
    */
   endTime?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
    * @example
    * 2523
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the object associated with the asynchronous task.
+   * 
    * @example
    * 232
    */
   objectId?: number;
   /**
+   * @remarks
+   * The progress of the task.
+   * 
    * @example
    * 0
    */
   progress?: number;
   /**
+   * @remarks
+   * The result of the task.
+   * 
    * @example
    * null
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the task is running.
+   * 
    * @example
    * false
    */
   running?: boolean;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 2000017
    */
   sourceId?: number;
   /**
+   * @remarks
+   * The time when the task started to run.
+   * 
    * @example
    * 2024-12-17 15:44:17
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the asynchronous task.
+   * 
    * @example
    * DONE
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the asynchronous task.
+   * 
    * @example
    * TASK_CREATE
    */
@@ -107,8 +143,15 @@ export class GetMmsAsyncTaskResponseBodyData extends $dara.Model {
 }
 
 export class GetMmsAsyncTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The asynchronous task object.
+   */
   data?: GetMmsAsyncTaskResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 688003E1-D1B4-5468-957E-2FFB3AC8D79B
    */

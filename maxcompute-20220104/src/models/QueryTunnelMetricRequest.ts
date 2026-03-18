@@ -3,27 +3,64 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTunnelMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of HTTP status codes for requests.
+   */
   codeList?: number[];
+  /**
+   * @remarks
+   * A list of grouping criteria.
+   */
   groupList?: string[];
+  /**
+   * @remarks
+   * A list of operation types.
+   */
   operationList?: string[];
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * project_a
    */
   project?: string;
   /**
+   * @remarks
+   * The nickname of the level-2 Tunnel quota.
+   * 
+   * The nickname of a shared quota is `default`.
+   * 
+   * The format of a dedicated quota nickname is `quotaNickname#subQuotaNickname`.
+   * 
    * @example
    * default
    */
   quotaNickname?: string;
+  /**
+   * @remarks
+   * A list of table names.
+   * 
+   * The tables belong to a project. Therefore, if `tableList` is not empty, `project` cannot be empty.
+   */
   tableList?: string[];
   /**
+   * @remarks
+   * The maximum number of data entries to return.
+   * 
+   * This parameter takes effect when the grouping criterion includes `table` or `ip`.
+   * 
+   * The default value is 10. The maximum value is 100.
+   * 
    * @example
    * 10
    */
   topN?: number;
   /**
    * @remarks
+   * The end of the time range for the query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +69,8 @@ export class QueryTunnelMetricRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * The start of the time range for the query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +78,11 @@ export class QueryTunnelMetricRequest extends $dara.Model {
    */
   startTime?: number;
   /**
+   * @remarks
+   * The data aggregation policy. The default value is `max`.
+   * 
+   * Data is collected at a frequency of 1 minute. If you query data over a long time range, the automatic step size for data display may exceed 1 minute. In this case, metrics are aggregated. This parameter specifies the aggregation logic.
+   * 
    * @example
    * max
    */

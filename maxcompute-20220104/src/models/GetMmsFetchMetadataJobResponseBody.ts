@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMmsFetchMetadataJobResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when metadata synchronization ended.
+   * 
    * @example
    * 2024-12-16 19:10:07
    */
   endTime?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * unexpected exception
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
    * @example
    * 1000002
    */
   id?: number;
   /**
+   * @remarks
+   * The progress of metadata synchronization. Valid values: 1 to 10000.
+   * 
    * @example
    * 5000
    */
   progress?: number;
   /**
+   * @remarks
+   * The result of metadata synchronization.
+   * 
    * @example
    * {"databases":5,"tables":75,"partitions":215}
    */
   result?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 2000015
    */
   sourceId?: number;
   /**
+   * @remarks
+   * The time when metadata synchronization started.
+   * 
    * @example
    * 2024-12-16 19:09:37
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the asynchronous task for metadata synchronization.
+   * 
    * @example
    * SCAN_DOING
    */
@@ -79,8 +103,15 @@ export class GetMmsFetchMetadataJobResponseBodyData extends $dara.Model {
 }
 
 export class GetMmsFetchMetadataJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetMmsFetchMetadataJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5CA6292A-E301-5CD8-B4E2-AF060F99147B
    */

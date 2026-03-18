@@ -5,6 +5,7 @@ export { CreateComputeQuotaPlanRequestQuota } from './CreateComputeQuotaPlanRequ
 export { CreateMmsDataSourceResponseBodyData } from './CreateMmsDataSourceResponseBody';
 export { CreateMmsFetchMetadataJobResponseBodyData } from './CreateMmsFetchMetadataJobResponseBody';
 export { CreateMmsJobResponseBodyData } from './CreateMmsJobResponseBody';
+export { CreateQuotaResponseBodyData } from './CreateQuotaResponseBody';
 export { GetComputeEffectivePlanResponseBodyDataQuotaSubQuotaInfoList } from './GetComputeEffectivePlanResponseBody';
 export { GetComputeEffectivePlanResponseBodyDataQuota } from './GetComputeEffectivePlanResponseBody';
 export { GetComputeEffectivePlanResponseBodyData } from './GetComputeEffectivePlanResponseBody';
@@ -250,6 +251,7 @@ export { CreateComputeQuotaPlanResponse } from './CreateComputeQuotaPlanResponse
 export { CreateMmsDataSourceRequest } from './CreateMmsDataSourceRequest';
 export { CreateMmsDataSourceResponseBody } from './CreateMmsDataSourceResponseBody';
 export { CreateMmsDataSourceResponse } from './CreateMmsDataSourceResponse';
+export { CreateMmsFetchMetadataJobRequest } from './CreateMmsFetchMetadataJobRequest';
 export { CreateMmsFetchMetadataJobResponseBody } from './CreateMmsFetchMetadataJobResponseBody';
 export { CreateMmsFetchMetadataJobResponse } from './CreateMmsFetchMetadataJobResponse';
 export { CreateMmsJobRequest } from './CreateMmsJobRequest';
@@ -261,6 +263,9 @@ export { CreatePackageResponse } from './CreatePackageResponse';
 export { CreateProjectRequest } from './CreateProjectRequest';
 export { CreateProjectResponseBody } from './CreateProjectResponseBody';
 export { CreateProjectResponse } from './CreateProjectResponse';
+export { CreateQuotaRequest } from './CreateQuotaRequest';
+export { CreateQuotaResponseBody } from './CreateQuotaResponseBody';
+export { CreateQuotaResponse } from './CreateQuotaResponse';
 export { CreateQuotaPlanRequest } from './CreateQuotaPlanRequest';
 export { CreateQuotaPlanResponseBody } from './CreateQuotaPlanResponseBody';
 export { CreateQuotaPlanResponse } from './CreateQuotaPlanResponse';

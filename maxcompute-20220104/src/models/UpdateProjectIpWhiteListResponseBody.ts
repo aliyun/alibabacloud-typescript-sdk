@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateProjectIpWhiteListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * @example
-   * success
-   */
   data?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0bc12e4316675560945192024e1044
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryStorageMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The names of the projects.
+   */
   projectList?: string[];
+  /**
+   * @remarks
+   * The storage class. Valid values include the following:
+   * 
+   * - totalStorage
+   * 
+   * - longTermStorage
+   * 
+   * - lowFreqStorage
+   * 
+   * - standardStorage
+   * 
+   * - recycleBinStorage
+   */
   typeList?: string[];
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +35,8 @@ export class QueryStorageMetricRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * The start of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example

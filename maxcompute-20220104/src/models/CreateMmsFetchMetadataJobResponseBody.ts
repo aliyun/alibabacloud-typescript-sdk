@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMmsFetchMetadataJobResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the asynchronous task that syncs metadata.
+   * 
    * @example
    * 1000002
    */
@@ -30,8 +33,15 @@ export class CreateMmsFetchMetadataJobResponseBodyData extends $dara.Model {
 }
 
 export class CreateMmsFetchMetadataJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: CreateMmsFetchMetadataJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CC4D05E8-0613-5A8E-9339-A0EBD097A69E
    */

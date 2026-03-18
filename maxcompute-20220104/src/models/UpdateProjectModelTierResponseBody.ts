@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateProjectModelTierResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data returned.
+   * 
    * @example
    * "data":{
    * 		"data":"success",
@@ -12,21 +15,35 @@ export class UpdateProjectModelTierResponseBody extends $dara.Model {
    */
   data?: string;
   /**
+   * @remarks
+   * - If the request fails, an error code is returned.
+   * 
+   * - If the request is successful, this parameter is empty.
+   * 
    * @example
    * OBJECT_NOT_EXIST
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * this project is not exist.
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. A value other than 200 indicates that the operation failed.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 73207140-0FD5-588A-B11A-3CE093924196
    */

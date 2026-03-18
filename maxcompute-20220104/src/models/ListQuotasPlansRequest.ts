@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListQuotasPlansRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-beijing
-   */
   region?: string;
-  /**
-   * @remarks
-   * The ID of the tenant.
-   * 
-   * @example
-   * 478403690625249
-   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {

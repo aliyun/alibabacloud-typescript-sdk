@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUsersToRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The accounts.
+   * The action to add users to the project role.
    */
   add?: string[];
   /**
    * @remarks
-   * The accounts.
+   * The action to remove users from the project role.
    */
   remove?: string[];
   static names(): { [key: string]: string } {

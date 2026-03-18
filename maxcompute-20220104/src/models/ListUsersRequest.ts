@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUsersRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {

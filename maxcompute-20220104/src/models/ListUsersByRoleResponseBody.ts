@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUsersByRoleResponseBodyDataUsers extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the user.
-   * 
-   * @example
-   * ALIYUN${account_name}
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,10 +26,6 @@ export class ListUsersByRoleResponseBodyDataUsers extends $dara.Model {
 }
 
 export class ListUsersByRoleResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The users.
-   */
   users?: ListUsersByRoleResponseBodyDataUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -63,18 +52,7 @@ export class ListUsersByRoleResponseBodyData extends $dara.Model {
 }
 
 export class ListUsersByRoleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: ListUsersByRoleResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0be3e0bb16654558425251398e27a9
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

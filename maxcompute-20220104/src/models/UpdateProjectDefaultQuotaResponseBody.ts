@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateProjectDefaultQuotaResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   * 
-   * @example
-   * success
-   */
   data?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0a06dfe716674588654372173ec0da
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,77 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRunningJobsResponseBodyDataRunningJobInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * The compute unit (CU) snapshot proportion of the job.
-   * 
-   * @example
-   * 0.45
-   */
   cuSnapshot?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * 2023050206371544gomgtp3ljcr4
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The account that submits the job.
-   * 
-   * @example
-   * ALIYUN$xxx@test.aliyunid.com
-   */
   jobOwner?: string;
-  /**
-   * @remarks
-   * The memory snapshot proportion of the job.
-   * 
-   * @example
-   * 0.45
-   */
   memorySnapshot?: number;
-  /**
-   * @remarks
-   * The progress of the job.
-   * 
-   * @example
-   * 0
-   */
   progress?: number;
-  /**
-   * @remarks
-   * The name of the MaxCompute project.
-   * 
-   * @example
-   * project_20221021123044_981b
-   */
   project?: string;
-  /**
-   * @remarks
-   * The nickname of the quota that is used by the job.
-   * 
-   * @example
-   * my_quota
-   */
   quotaNickname?: string;
-  /**
-   * @remarks
-   * The time when the job starts to run.
-   * 
-   * @example
-   * 1689746864
-   */
   runningAtTime?: number;
-  /**
-   * @remarks
-   * The time when the job is submitted.
-   * 
-   * @example
-   * 1689746864
-   */
   submittedAtTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -113,34 +50,9 @@ export class GetRunningJobsResponseBodyDataRunningJobInfoList extends $dara.Mode
 }
 
 export class GetRunningJobsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 2
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The list of jobs in the running state.
-   */
   runningJobInfoList?: GetRunningJobsResponseBodyDataRunningJobInfoList[];
-  /**
-   * @remarks
-   * The total number of returned entries.
-   * 
-   * @example
-   * 64
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -173,43 +85,10 @@ export class GetRunningJobsResponseBodyData extends $dara.Model {
 }
 
 export class GetRunningJobsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: GetRunningJobsResponseBodyData;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * success
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * 0A3B1FD2006A24C8D8BE65CDAC028298
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
-   * 
-   * @example
-   * 200
-   */
   httpCode?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0bc3b4ab16684833172127321e2c25
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

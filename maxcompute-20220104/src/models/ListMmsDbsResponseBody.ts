@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   /**
+   * @remarks
+   * Time created in MMS
+   * 
    * @example
    * 2024-12-17 15:44:42
    */
   createTime?: string;
   /**
+   * @remarks
+   * Whether deleted
+   * 
    * @example
    * false
    */
   deleted?: boolean;
   /**
+   * @remarks
+   * Database description
+   * 
    * @example
    * for mms test
    */
   description?: string;
   /**
+   * @remarks
+   * The MaxCompute schema corresponding to the source database. If the target MaxCompute project does not have a schema layer enabled, this value is null. By default, it is consistent with the source database name.
+   * 
    * @example
    * default
    */
   dstName?: string;
   /**
+   * @remarks
+   * Target MaxCompute project name
+   * 
    * @example
    * mms_test
    */
   dstProjectName?: string;
   /**
+   * @remarks
+   * Other information stored in JSON format
+   * 
    * @example
    * {}
    */
   extra?: string;
   /**
+   * @remarks
+   * Database ID
+   * 
    * @example
    * 1530
    */
@@ -47,96 +68,153 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
    */
   lastDdlTime?: string;
   /**
+   * @remarks
+   * Database storage location
+   * 
    * @example
    * hdfs://master-1-1.c-6fc187819ed6bae0.cn-shanghai.emr.aliyuncs.com:9000/user/hive/warehouse
    */
   location?: string;
   /**
+   * @remarks
+   * Database name
+   * 
    * @example
    * mms_test
    */
   name?: string;
   /**
+   * @remarks
+   * Number of database data rows
+   * 
    * @example
    * 23232
    */
   numRows?: number;
   /**
+   * @remarks
+   * Database owner
+   * 
    * @example
-   * xxx@yy.com
+   * System user
    */
   owner?: string;
   /**
+   * @remarks
+   * Number of partitions
+   * 
    * @example
    * 1000
    */
   partitions?: number;
   /**
+   * @remarks
+   * Partitions being migrated
+   * 
    * @example
    * 400
    */
   partitionsDoing?: number;
   /**
+   * @remarks
+   * Partitions migrated
+   * 
    * @example
    * 200
    */
   partitionsDone?: number;
   /**
+   * @remarks
+   * Failed partitions
+   * 
    * @example
    * 200
    */
   partitionsFailed?: number;
   /**
+   * @remarks
+   * Database data size in bytes
+   * 
    * @example
    * 2342342
    */
   size?: number;
   /**
+   * @remarks
+   * Data source ID.
+   * 
    * @example
    * 2000015
    */
   sourceId?: number;
   /**
+   * @remarks
+   * Data source name
+   * 
    * @example
    * demo
    */
   sourceName?: string;
   /**
+   * @remarks
+   * Migration status: INIT, DOING, FAILED, DONE, PART_DONE
+   * 
    * @example
    * DOING
    */
   status?: string;
   /**
+   * @remarks
+   * Number of tables
+   * 
    * @example
    * 100
    */
   tables?: number;
   /**
+   * @remarks
+   * Tables being migrated
+   * 
    * @example
    * 20
    */
   tablesDoing?: number;
   /**
+   * @remarks
+   * Tables migrated
+   * 
    * @example
    * 20
    */
   tablesDone?: number;
   /**
+   * @remarks
+   * Failed tables
+   * 
    * @example
    * 20
    */
   tablesFailed?: number;
   /**
+   * @remarks
+   * Partially migrated tables
+   * 
    * @example
    * 20
    */
   tablesPartDone?: number;
   /**
+   * @remarks
+   * Latest data update time
+   * 
    * @example
    * 2024-12-17 15:44:42
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Whether data is updated
+   * 
    * @example
    * true
    */
@@ -215,18 +293,31 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
 }
 
 export class ListMmsDbsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Database list
+   */
   objectList?: ListMmsDbsResponseBodyDataObjectList[];
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 13
    */
@@ -262,8 +353,15 @@ export class ListMmsDbsResponseBodyData extends $dara.Model {
 }
 
 export class ListMmsDbsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: ListMmsDbsResponseBodyData;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * CF3F9978-260F-5204-94BE-30A4E6B54443
    */
