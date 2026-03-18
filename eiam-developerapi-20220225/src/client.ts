@@ -584,6 +584,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 拉取一个有效的OAuth认证令牌。
+   * 
+   * @param request - FetchOAuthAuthenticationTokenRequest
+   * @param headers - FetchOAuthAuthenticationTokenHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchOAuthAuthenticationTokenResponse
+   */
+  async fetchOAuthAuthenticationTokenWithOptions(instanceId: string, request: $_model.FetchOAuthAuthenticationTokenRequest, headers: $_model.FetchOAuthAuthenticationTokenHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.FetchOAuthAuthenticationTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialProviderIdentifier)) {
+      body["credentialProviderIdentifier"] = request.credentialProviderIdentifier;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchOAuthAuthenticationToken",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/fetchOAuthAccessToken`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchOAuthAuthenticationTokenResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.FetchOAuthAuthenticationTokenResponse({}));
+  }
+
+  /**
+   * 拉取一个有效的OAuth认证令牌。
+   * 
+   * @param request - FetchOAuthAuthenticationTokenRequest
+   * @returns FetchOAuthAuthenticationTokenResponse
+   */
+  async fetchOAuthAuthenticationToken(instanceId: string, request: $_model.FetchOAuthAuthenticationTokenRequest): Promise<$_model.FetchOAuthAuthenticationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.FetchOAuthAuthenticationTokenHeaders({ });
+    return await this.fetchOAuthAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Generates a device code.
    * 
    * @param request - GenerateDeviceCodeRequest
@@ -626,6 +684,84 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateDeviceCodeWithOptions(instanceId, applicationId, request, headers, runtime);
+  }
+
+  /**
+   * 生成一个有效的JWT认证令牌。
+   * 
+   * @param request - GenerateJwtAuthenticationTokenRequest
+   * @param headers - GenerateJwtAuthenticationTokenHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateJwtAuthenticationTokenResponse
+   */
+  async generateJwtAuthenticationTokenWithOptions(instanceId: string, request: $_model.GenerateJwtAuthenticationTokenRequest, headers: $_model.GenerateJwtAuthenticationTokenHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateJwtAuthenticationTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audiences)) {
+      body["audiences"] = request.audiences;
+    }
+
+    if (!$dara.isNull(request.credentialProviderIdentifier)) {
+      body["credentialProviderIdentifier"] = request.credentialProviderIdentifier;
+    }
+
+    if (!$dara.isNull(request.customClaims)) {
+      body["customClaims"] = request.customClaims;
+    }
+
+    if (!$dara.isNull(request.expiration)) {
+      body["expiration"] = request.expiration;
+    }
+
+    if (!$dara.isNull(request.includeDerivedShortToken)) {
+      body["includeDerivedShortToken"] = request.includeDerivedShortToken;
+    }
+
+    if (!$dara.isNull(request.issuer)) {
+      body["issuer"] = request.issuer;
+    }
+
+    if (!$dara.isNull(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateJwtAuthenticationToken",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/generateJwt`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateJwtAuthenticationTokenResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.GenerateJwtAuthenticationTokenResponse({}));
+  }
+
+  /**
+   * 生成一个有效的JWT认证令牌。
+   * 
+   * @param request - GenerateJwtAuthenticationTokenRequest
+   * @returns GenerateJwtAuthenticationTokenResponse
+   */
+  async generateJwtAuthenticationToken(instanceId: string, request: $_model.GenerateJwtAuthenticationTokenRequest): Promise<$_model.GenerateJwtAuthenticationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GenerateJwtAuthenticationTokenHeaders({ });
+    return await this.generateJwtAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -1343,6 +1479,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列举认证令牌。
+   * 
+   * @param request - ListAuthenticationTokensRequest
+   * @param headers - ListAuthenticationTokensHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthenticationTokensResponse
+   */
+  async listAuthenticationTokensWithOptions(instanceId: string, request: $_model.ListAuthenticationTokensRequest, headers: $_model.ListAuthenticationTokensHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuthenticationTokensResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerId)) {
+      query["consumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.credentialProviderIdentifier)) {
+      query["credentialProviderIdentifier"] = request.credentialProviderIdentifier;
+    }
+
+    if (!$dara.isNull(request.expired)) {
+      query["expired"] = request.expired;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.revoked)) {
+      query["revoked"] = request.revoked;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuthenticationTokens",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens`,
+      method: "GET",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuthenticationTokensResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ListAuthenticationTokensResponse({}));
+  }
+
+  /**
+   * 列举认证令牌。
+   * 
+   * @param request - ListAuthenticationTokensRequest
+   * @returns ListAuthenticationTokensResponse
+   */
+  async listAuthenticationTokens(instanceId: string, request: $_model.ListAuthenticationTokensRequest): Promise<$_model.ListAuthenticationTokensResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ListAuthenticationTokensHeaders({ });
+    return await this.listAuthenticationTokensWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Queries information about Employee Identity and Access Management (EIAM) groups by page.
    * 
    * @param request - ListGroupsRequest
@@ -1797,6 +2007,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 使用派生短令牌查询对应的JWT认证令牌详情。
+   * 
+   * @param request - ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+   */
+  async obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions(instanceId: string, request: $_model.ObtainJwtAuthenticationTokenByDerivedShortTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ObtainJwtAuthenticationTokenByDerivedShortTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.derivedShortToken)) {
+      body["derivedShortToken"] = request.derivedShortToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ObtainJwtAuthenticationTokenByDerivedShortToken",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/obtainJwtByDerivedShortToken`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ObtainJwtAuthenticationTokenByDerivedShortTokenResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ObtainJwtAuthenticationTokenByDerivedShortTokenResponse({}));
+  }
+
+  /**
+   * 使用派生短令牌查询对应的JWT认证令牌详情。
+   * 
+   * @param request - ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+   * @returns ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+   */
+  async obtainJwtAuthenticationTokenByDerivedShortToken(instanceId: string, request: $_model.ObtainJwtAuthenticationTokenByDerivedShortTokenRequest): Promise<$_model.ObtainJwtAuthenticationTokenByDerivedShortTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Modifies information about an Employee Identity and Access Management (EIAM) group.
    * 
    * @param request - PatchGroupRequest
@@ -2003,6 +2258,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 恢复一个认证令牌。
+   * 
+   * @param request - ReinstateAuthenticationTokenRequest
+   * @param headers - ReinstateAuthenticationTokenHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReinstateAuthenticationTokenResponse
+   */
+  async reinstateAuthenticationTokenWithOptions(instanceId: string, request: $_model.ReinstateAuthenticationTokenRequest, headers: $_model.ReinstateAuthenticationTokenHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ReinstateAuthenticationTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.token)) {
+      body["token"] = request.token;
+    }
+
+    if (!$dara.isNull(request.tokenTypeHint)) {
+      body["token_type_hint"] = request.tokenTypeHint;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReinstateAuthenticationToken",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/reinstate`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.ReinstateAuthenticationTokenResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ReinstateAuthenticationTokenResponse({}));
+  }
+
+  /**
+   * 恢复一个认证令牌。
+   * 
+   * @param request - ReinstateAuthenticationTokenRequest
+   * @returns ReinstateAuthenticationTokenResponse
+   */
+  async reinstateAuthenticationToken(instanceId: string, request: $_model.ReinstateAuthenticationTokenRequest): Promise<$_model.ReinstateAuthenticationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ReinstateAuthenticationTokenHeaders({ });
+    return await this.reinstateAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 基于使用者吊销认证令牌。
+   * 
+   * @param request - ReinstateAuthenticationTokenByConsumerRequest
+   * @param headers - ReinstateAuthenticationTokenByConsumerHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReinstateAuthenticationTokenByConsumerResponse
+   */
+  async reinstateAuthenticationTokenByConsumerWithOptions(instanceId: string, request: $_model.ReinstateAuthenticationTokenByConsumerRequest, headers: $_model.ReinstateAuthenticationTokenByConsumerHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ReinstateAuthenticationTokenByConsumerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerId)) {
+      body["consumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.credentialProviderIdentifier)) {
+      body["credentialProviderIdentifier"] = request.credentialProviderIdentifier;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReinstateAuthenticationTokenByConsumer",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/reinstateByConsumer`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.ReinstateAuthenticationTokenByConsumerResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ReinstateAuthenticationTokenByConsumerResponse({}));
+  }
+
+  /**
+   * 基于使用者吊销认证令牌。
+   * 
+   * @param request - ReinstateAuthenticationTokenByConsumerRequest
+   * @returns ReinstateAuthenticationTokenByConsumerResponse
+   */
+  async reinstateAuthenticationTokenByConsumer(instanceId: string, request: $_model.ReinstateAuthenticationTokenByConsumerRequest): Promise<$_model.ReinstateAuthenticationTokenByConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ReinstateAuthenticationTokenByConsumerHeaders({ });
+    return await this.reinstateAuthenticationTokenByConsumerWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 将账户从多个组织移除【不支持移除主组织】
    * 
    * @param request - RemoveUserFromOrganizationalUnitsRequest
@@ -2108,6 +2479,122 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.RemoveUsersFromGroupHeaders({ });
     return await this.removeUsersFromGroupWithOptions(instanceId, applicationId, groupId, request, headers, runtime);
+  }
+
+  /**
+   * 吊销一个认证令牌。
+   * 
+   * @param request - RevokeAuthenticationTokenRequest
+   * @param headers - RevokeAuthenticationTokenHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeAuthenticationTokenResponse
+   */
+  async revokeAuthenticationTokenWithOptions(instanceId: string, request: $_model.RevokeAuthenticationTokenRequest, headers: $_model.RevokeAuthenticationTokenHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeAuthenticationTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.token)) {
+      body["token"] = request.token;
+    }
+
+    if (!$dara.isNull(request.tokenTypeHint)) {
+      body["token_type_hint"] = request.tokenTypeHint;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeAuthenticationToken",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/revoke`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.RevokeAuthenticationTokenResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.RevokeAuthenticationTokenResponse({}));
+  }
+
+  /**
+   * 吊销一个认证令牌。
+   * 
+   * @param request - RevokeAuthenticationTokenRequest
+   * @returns RevokeAuthenticationTokenResponse
+   */
+  async revokeAuthenticationToken(instanceId: string, request: $_model.RevokeAuthenticationTokenRequest): Promise<$_model.RevokeAuthenticationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.RevokeAuthenticationTokenHeaders({ });
+    return await this.revokeAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 基于使用者吊销认证令牌。
+   * 
+   * @param request - RevokeAuthenticationTokenByConsumerRequest
+   * @param headers - RevokeAuthenticationTokenByConsumerHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeAuthenticationTokenByConsumerResponse
+   */
+  async revokeAuthenticationTokenByConsumerWithOptions(instanceId: string, request: $_model.RevokeAuthenticationTokenByConsumerRequest, headers: $_model.RevokeAuthenticationTokenByConsumerHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeAuthenticationTokenByConsumerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerId)) {
+      body["consumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.credentialProviderIdentifier)) {
+      body["credentialProviderIdentifier"] = request.credentialProviderIdentifier;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeAuthenticationTokenByConsumer",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/revokeByConsumer`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.RevokeAuthenticationTokenByConsumerResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.RevokeAuthenticationTokenByConsumerResponse({}));
+  }
+
+  /**
+   * 基于使用者吊销认证令牌。
+   * 
+   * @param request - RevokeAuthenticationTokenByConsumerRequest
+   * @returns RevokeAuthenticationTokenByConsumerResponse
+   */
+  async revokeAuthenticationTokenByConsumer(instanceId: string, request: $_model.RevokeAuthenticationTokenByConsumerRequest): Promise<$_model.RevokeAuthenticationTokenByConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.RevokeAuthenticationTokenByConsumerHeaders({ });
+    return await this.revokeAuthenticationTokenByConsumerWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -2273,6 +2760,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.UpdateUserPasswordHeaders({ });
     return await this.updateUserPasswordWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+  }
+
+  /**
+   * 校验认证令牌是否有效。
+   * 
+   * @param request - ValidateAuthenticationTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateAuthenticationTokenResponse
+   */
+  async validateAuthenticationTokenWithOptions(instanceId: string, request: $_model.ValidateAuthenticationTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateAuthenticationTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.token)) {
+      body["token"] = request.token;
+    }
+
+    if (!$dara.isNull(request.tokenTypeHint)) {
+      body["token_type_hint"] = request.tokenTypeHint;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateAuthenticationToken",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/validate`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateAuthenticationTokenResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ValidateAuthenticationTokenResponse({}));
+  }
+
+  /**
+   * 校验认证令牌是否有效。
+   * 
+   * @param request - ValidateAuthenticationTokenRequest
+   * @returns ValidateAuthenticationTokenResponse
+   */
+  async validateAuthenticationToken(instanceId: string, request: $_model.ValidateAuthenticationTokenRequest): Promise<$_model.ValidateAuthenticationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.validateAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
   }
 
 }
