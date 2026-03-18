@@ -2231,6 +2231,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取资源栈部署结果
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStackExecutionResultResponse
+   */
+  async getStackExecutionResultWithOptions(triggerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStackExecutionResultResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStackExecutionResult",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks/trigger/${$dara.URL.percentEncode(triggerId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStackExecutionResultResponse>(await this.callApi(params, req, runtime), new $_model.GetStackExecutionResultResponse({}));
+  }
+
+  /**
+   * 获取资源栈部署结果
+   * @returns GetStackExecutionResultResponse
+   */
+  async getStackExecutionResult(triggerId: string): Promise<$_model.GetStackExecutionResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStackExecutionResultWithOptions(triggerId, headers, runtime);
+  }
+
+  /**
    * 查询任务详情
    * 
    * @param headers - map
@@ -3767,6 +3802,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeSharedAccountsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 触发资源栈部署
+   * 
+   * @param request - TriggerStackExecutionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerStackExecutionResponse
+   */
+  async triggerStackExecutionWithOptions(request: $_model.TriggerStackExecutionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TriggerStackExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.action)) {
+      body["action"] = request.action;
+    }
+
+    if (!$dara.isNull(request.changedFolders)) {
+      body["changedFolders"] = request.changedFolders;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.codePackagePath)) {
+      body["codePackagePath"] = request.codePackagePath;
+    }
+
+    if (!$dara.isNull(request.codeVersionId)) {
+      body["codeVersionId"] = request.codeVersionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TriggerStackExecution",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks/trigger`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TriggerStackExecutionResponse>(await this.callApi(params, req, runtime), new $_model.TriggerStackExecutionResponse({}));
+  }
+
+  /**
+   * 触发资源栈部署
+   * 
+   * @param request - TriggerStackExecutionRequest
+   * @returns TriggerStackExecutionResponse
+   */
+  async triggerStackExecution(request: $_model.TriggerStackExecutionRequest): Promise<$_model.TriggerStackExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.triggerStackExecutionWithOptions(request, headers, runtime);
   }
 
   /**

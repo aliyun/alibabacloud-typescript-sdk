@@ -2,24 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UploadModuleResponseBody extends $dara.Model {
+export class TriggerStackExecutionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
-   * 0DDD8773-5756-5508-BE36-D03DE43E2450
+   * F2D40488-3F74-568B-87EC-1C04D098DF8B
    */
   requestId?: string;
-  version?: string;
+  /**
+   * @example
+   * event-xxxx
+   */
+  triggerId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
-      version: 'version',
+      triggerId: 'triggerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      version: 'string',
+      triggerId: 'string',
     };
   }
 
