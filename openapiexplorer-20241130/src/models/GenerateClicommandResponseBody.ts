@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateCLICommandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CLI instruction.
+   * CLI command.
    * 
    * @example
    * aliyun ecs DescribeRegions --ResourceType instance
@@ -13,16 +13,18 @@ export class GenerateCLICommandResponseBody extends $dara.Model {
   cli?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * A707AFA8-1A4C-5B2A-A165-8436C1EA38DB
    */
   requestId?: string;
+  unifiedCli?: string;
   static names(): { [key: string]: string } {
     return {
       cli: 'cli',
       requestId: 'requestId',
+      unifiedCli: 'unifiedCli',
     };
   }
 
@@ -30,6 +32,7 @@ export class GenerateCLICommandResponseBody extends $dara.Model {
     return {
       cli: 'string',
       requestId: 'string',
+      unifiedCli: 'string',
     };
   }
 

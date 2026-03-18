@@ -237,7 +237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates commands for the Alibaba Cloud command-line interface (CLI).
+   * Generates an Alibaba Cloud CLI command dynamically.
    * 
    * @param tmpReq - GenerateCLICommandRequest
    * @param headers - map
@@ -300,7 +300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates commands for the Alibaba Cloud command-line interface (CLI).
+   * Generates an Alibaba Cloud CLI command dynamically.
    * 
    * @param request - GenerateCLICommandRequest
    * @returns GenerateCLICommandResponse
