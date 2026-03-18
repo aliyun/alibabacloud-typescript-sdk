@@ -3,48 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudGtmSystemLinesResponseBodySystemLinesSystemLine extends $dara.Model {
-  /**
-   * @remarks
-   * The line code.
-   * 
-   * @example
-   * aliyun_r_ap-south-1
-   */
   code?: string;
-  /**
-   * @remarks
-   * The display name of the line.
-   * 
-   * @example
-   * Default
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * Indicates whether the line can be selected as the source of a Domain Name System (DNS) request. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   isAvailable?: boolean;
-  /**
-   * @remarks
-   * The name of the line.
-   * 
-   * @example
-   * Default
-   */
   name?: string;
-  /**
-   * @remarks
-   * The code of the parent line.
-   * 
-   * @example
-   * String	aliyun
-   */
   parentCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -110,10 +72,6 @@ export class DescribeCloudGtmSystemLinesResponseBody extends $dara.Model {
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The system lines.
-   */
   systemLines?: DescribeCloudGtmSystemLinesResponseBodySystemLines;
   /**
    * @remarks

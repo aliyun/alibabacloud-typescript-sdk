@@ -3,43 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCloudGtmAlertLogsResponseBodyLogsLog extends $dara.Model {
-  /**
-   * @remarks
-   * Alert type:
-   * - ALERT
-   * - RESUME
-   * 
-   * @example
-   * ALERT
-   */
   actionType?: string;
-  /**
-   * @remarks
-   * The alert content.
-   * 
-   * @example
-   * The alert content.
-   */
   content?: string;
-  /**
-   * @remarks
-   * Alarm object types:
-   * - GTM_ADDRESS: Address
-   * - GTM_ADDRESS_POOL: Address Pool
-   * - GTM_INSTANCE: Instance
-   * - GTM_MONITOR_TEMPLATE: Health Check Template
-   * 
-   * @example
-   * GTM_ADDRESS
-   */
   entityType?: string;
-  /**
-   * @remarks
-   * Alert log time (timestamp).
-   * 
-   * @example
-   * 1711328826977
-   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -95,10 +61,6 @@ export class ListCloudGtmAlertLogsResponseBodyLogs extends $dara.Model {
 }
 
 export class ListCloudGtmAlertLogsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The alert logs.
-   */
   logs?: ListCloudGtmAlertLogsResponseBodyLogs;
   /**
    * @remarks

@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfosSwitchInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The formatted message content.
-   */
   content?: string;
-  /**
-   * @remarks
-   * The name of the switching policy for address pools.
-   * 
-   * @example
-   * strategy-name-example-1
-   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,34 +55,9 @@ export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos extend
 }
 
 export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreview extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the GTM instance to which the previewed disaster recovery plan belongs.
-   * 
-   * @example
-   * instance-example
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the GTM instance to which the previewed disaster recovery plan belongs.
-   * 
-   * @example
-   * name-example
-   */
   name?: string;
-  /**
-   * @remarks
-   * The returned information of the switching policies for address pools.
-   */
   switchInfos?: PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos;
-  /**
-   * @remarks
-   * The user\\"s domain name or domain name list.
-   * 
-   * @example
-   * 30.yyy.com
-   */
   userDomainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -168,10 +132,6 @@ export class PreviewGtmRecoveryPlanResponseBody extends $dara.Model {
    * 5
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The returned preview information of the disaster recovery plan.
-   */
   previews?: PreviewGtmRecoveryPlanResponseBodyPreviews;
   /**
    * @remarks

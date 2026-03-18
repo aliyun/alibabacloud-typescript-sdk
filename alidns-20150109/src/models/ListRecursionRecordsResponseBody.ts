@@ -3,95 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecursionRecordsResponseBodyRecordsRecord extends $dara.Model {
-  /**
-   * @example
-   * 2023-06-28T09:16Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1721119172000
-   */
   createTimestamp?: number;
-  /**
-   * @example
-   * 123121312
-   */
   creator?: number;
-  /**
-   * @example
-   * custom
-   */
   creatorSubType?: string;
-  /**
-   * @example
-   * user
-   */
   creatorType?: string;
-  /**
-   * @example
-   * enable
-   */
   enableStatus?: string;
-  /**
-   * @example
-   * 10
-   */
   priority?: number;
-  /**
-   * @example
-   * 1897105298264316928
-   */
   recordId?: string;
-  /**
-   * @example
-   * 1150
-   */
   remark?: string;
-  /**
-   * @example
-   * default
-   */
   requestSource?: string;
-  /**
-   * @example
-   * wap
-   */
   rr?: string;
-  /**
-   * @example
-   * 60
-   */
   ttl?: number;
-  /**
-   * @example
-   * A
-   */
   type?: string;
-  /**
-   * @example
-   * 2024-10-22T09:54Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * 1620283051000
-   */
   updateTimestamp?: number;
-  /**
-   * @example
-   * 120.38.70.54
-   */
   value?: string;
-  /**
-   * @example
-   * 1
-   */
   weight?: number;
-  /**
-   * @example
-   * 169439170000011
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

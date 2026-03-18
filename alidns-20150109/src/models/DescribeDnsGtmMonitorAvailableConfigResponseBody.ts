@@ -29,70 +29,13 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode extends $dara.Model {
-  /**
-   * @remarks
-   * The city code.
-   * 
-   * @example
-   * 503
-   */
   cityCode?: string;
-  /**
-   * @remarks
-   * The display name of the city.
-   * 
-   * @example
-   * Zhangjiakou
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * Indicates whether the health check node is selected by default.
-   * 
-   * @example
-   * true
-   */
   defaultSelected?: boolean;
-  /**
-   * @remarks
-   * The name of the node group.
-   * 
-   * @example
-   * BGP Nodes
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The type of the node group. Valid values:
-   * 
-   * *   BGP: BGP node
-   * *   OVERSEAS: node outside the Chinese mainland
-   * *   ISP: ISP node
-   * 
-   * @example
-   * BGP
-   */
   groupType?: string;
-  /**
-   * @remarks
-   * The IP addresses of the health check nodes.
-   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNodeIps;
-  /**
-   * @remarks
-   * The ISP code.
-   * 
-   * @example
-   * 465
-   */
   ispCode?: string;
-  /**
-   * @remarks
-   * The display name of the ISP.
-   * 
-   * @example
-   * Alibaba
-   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,70 +128,13 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode extends $dara.Model {
-  /**
-   * @remarks
-   * The city code.
-   * 
-   * @example
-   * 503
-   */
   cityCode?: string;
-  /**
-   * @remarks
-   * The display name of the city.
-   * 
-   * @example
-   * Zhangjiakou
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * Indicates whether the health check node is selected by default.
-   * 
-   * @example
-   * false
-   */
   defaultSelected?: boolean;
-  /**
-   * @remarks
-   * The name of the node group.
-   * 
-   * @example
-   * BGP Nodes
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The type of the node group. Valid values:
-   * 
-   * *   BGP: BGP node
-   * *   OVERSEAS: node outside the Chinese mainland
-   * *   ISP: ISP node
-   * 
-   * @example
-   * BGP
-   */
   groupType?: string;
-  /**
-   * @remarks
-   * This parameter is not returned.
-   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNodeIps;
-  /**
-   * @remarks
-   * The ISP code.
-   * 
-   * @example
-   * 465
-   */
   ispCode?: string;
-  /**
-   * @remarks
-   * The display name of the ISP.
-   * 
-   * @example
-   * Alibaba
-   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -341,70 +227,13 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $dara.Model {
-  /**
-   * @remarks
-   * The city code.
-   * 
-   * @example
-   * 503
-   */
   cityCode?: string;
-  /**
-   * @remarks
-   * The display name of the city.
-   * 
-   * @example
-   * Zhangjiakou
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * Indicates whether the health check node is selected by default.
-   * 
-   * @example
-   * true
-   */
   defaultSelected?: boolean;
-  /**
-   * @remarks
-   * The name of the node group.
-   * 
-   * @example
-   * BGP Nodes
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The type of the node group. Valid values:
-   * 
-   * *   BGP: Border Gateway Protocol (BGP) node
-   * *   OVERSEAS: node outside the Chinese mainland
-   * *   ISP: ISP node
-   * 
-   * @example
-   * BGP
-   */
   groupType?: string;
-  /**
-   * @remarks
-   * The IP addresses of the health check nodes.
-   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
-  /**
-   * @remarks
-   * The Internet service provider (ISP) code.
-   * 
-   * @example
-   * 465
-   */
   ispCode?: string;
-  /**
-   * @remarks
-   * The display name of the ISP.
-   * 
-   * @example
-   * Alibaba
-   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -497,70 +326,13 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $dara.Model {
-  /**
-   * @remarks
-   * The city code.
-   * 
-   * @example
-   * 503
-   */
   cityCode?: string;
-  /**
-   * @remarks
-   * The display name of the city.
-   * 
-   * @example
-   * Zhangjiakou
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * Indicates whether the health check node is selected by default.
-   * 
-   * @example
-   * true
-   */
   defaultSelected?: boolean;
-  /**
-   * @remarks
-   * The name of the node group.
-   * 
-   * @example
-   * BGP Nodes
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The type of the node group. Valid values:
-   * 
-   * *   BGP: BGP node
-   * *   OVERSEAS: node outside the Chinese mainland
-   * *   ISP: ISP node
-   * 
-   * @example
-   * BGP
-   */
   groupType?: string;
-  /**
-   * @remarks
-   * This parameter is not returned.
-   */
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
-  /**
-   * @remarks
-   * The ISP code.
-   * 
-   * @example
-   * 465
-   */
   ispCode?: string;
-  /**
-   * @remarks
-   * The display name of the ISP.
-   * 
-   * @example
-   * Alibaba
-   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -627,25 +399,9 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes ex
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The nodes that perform health checks on domain names that use public IPv4 addresses.
-   */
   domainIpv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodes;
-  /**
-   * @remarks
-   * The nodes that perform health checks on domain names that use public IPv6 addresses.
-   */
   domainIpv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodes;
-  /**
-   * @remarks
-   * The nodes that perform health checks on public IPv4 addresses.
-   */
   ipv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes;
-  /**
-   * @remarks
-   * The nodes that perform health checks on public IPv6 addresses.
-   */
   ipv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes;
   /**
    * @remarks

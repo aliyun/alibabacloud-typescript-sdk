@@ -29,10 +29,6 @@ export class AddDomainResponseBodyDnsServers extends $dara.Model {
 }
 
 export class AddDomainResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The Domain Name System (DNS) servers configured for the domain name.
-   */
   dnsServers?: AddDomainResponseBodyDnsServers;
   /**
    * @remarks

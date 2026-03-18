@@ -3,101 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchRecursionRecordsResponseBodyRecordsRecord extends $dara.Model {
-  /**
-   * @example
-   * 2025-06-16T02:18Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1615182315000
-   */
   createTimestamp?: number;
-  /**
-   * @example
-   * 1521021611066866
-   */
   creator?: number;
-  /**
-   * @example
-   * custom
-   */
   creatorSubType?: string;
-  /**
-   * @example
-   * user
-   */
   creatorType?: string;
-  /**
-   * @example
-   * enable
-   */
   enableStatus?: string;
-  /**
-   * @example
-   * 1
-   */
   priority?: number;
-  /**
-   * @remarks
-   * record ID
-   * 
-   * @example
-   * 1927184083990351872
-   */
   recordId?: string;
-  /**
-   * @example
-   * vxwk
-   */
   remark?: string;
-  /**
-   * @example
-   * default
-   */
   requestSource?: string;
-  /**
-   * @example
-   * wap
-   */
   rr?: string;
-  /**
-   * @example
-   * 60
-   */
   ttl?: number;
-  /**
-   * @example
-   * A
-   */
   type?: string;
-  /**
-   * @example
-   * 2022-10-28T13:07Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * 1722107570000
-   */
   updateTimestamp?: number;
-  /**
-   * @example
-   * 14.19.85.71
-   */
   value?: string;
-  /**
-   * @example
-   * 4
-   */
   weight?: string;
-  /**
-   * @remarks
-   * zone ID
-   * 
-   * @example
-   * 169783221000012
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

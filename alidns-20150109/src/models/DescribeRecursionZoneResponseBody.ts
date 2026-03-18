@@ -29,15 +29,7 @@ export class DescribeRecursionZoneResponseBodyEffectiveScopesEffectiveScopeScope
 }
 
 export class DescribeRecursionZoneResponseBodyEffectiveScopesEffectiveScope extends $dara.Model {
-  /**
-   * @example
-   * account
-   */
   effectiveType?: string;
-  /**
-   * @example
-   * [20003]
-   */
   scopes?: DescribeRecursionZoneResponseBodyEffectiveScopesEffectiveScopeScopes;
   static names(): { [key: string]: string } {
     return {

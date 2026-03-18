@@ -8,138 +8,21 @@ export class ListCloudGtmInstancesResponseBodyInstancesInstance extends $dara.Mo
    * postpay / prepay
    */
   chargeType?: string;
-  /**
-   * @remarks
-   * The commodity code. Valid values:
-   * 
-   * *   dns_gtm_public_cn: commodity code on the China site (aliyun.com)
-   * *   dns_gtm_public_intl: commodity code on the international site (alibabacloud.com)
-   * 
-   * @example
-   * dns_gtm_public_cn
-   */
   commodityCode?: string;
-  /**
-   * @remarks
-   * Instance creation time.
-   * 
-   * @example
-   * 2024-03-15T01:46Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Instance creation time (timestamp).
-   * 
-   * @example
-   * 1231298343343
-   */
   createTimestamp?: number;
-  /**
-   * @remarks
-   * Instance expiration time.
-   * 
-   * @example
-   * 2024-03-15T01:46Z
-   */
   expireTime?: string;
-  /**
-   * @remarks
-   * Instance expiration time (timestamp).
-   * 
-   * @example
-   * 1231298343343
-   */
   expireTimestamp?: number;
-  /**
-   * @remarks
-   * The ID of the GTM instance.
-   * 
-   * @example
-   * gtm-cn-jmp3qnw**03
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * Instance name.
-   * 
-   * @example
-   * test
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * Monitor probe task quota.
-   * 
-   * @example
-   * 100
-   */
   monitorTaskQuota?: number;
-  /**
-   * @remarks
-   * Monthly email sending volume.
-   * 
-   * @example
-   * 50
-   */
   monthlyEmailUsed?: number;
-  /**
-   * @remarks
-   * SMS quota, only supported on the China site as international sites do not support SMS.
-   * 
-   * @example
-   * 1000
-   */
   monthlySmsQuota?: number;
-  /**
-   * @remarks
-   * Monthly SMS sending volume, only supported by the China site as international sites do not support SMS.
-   * 
-   * @example
-   * 100
-   */
   monthlySmsUsed?: number;
-  /**
-   * @remarks
-   * Monthly webhook send volume.
-   * 
-   * @example
-   * 80
-   */
   monthlyWebhookUsed?: number;
-  /**
-   * @remarks
-   * The access domain name, which consists of a hostname and a zone or a subzone.
-   * 
-   * @example
-   * www.example.com
-   */
   scheduleDomainName?: string;
-  /**
-   * @remarks
-   * The last time the instance was modified.
-   * 
-   * @example
-   * 2024-03-15T01:46Z
-   */
   updateTime?: string;
-  /**
-   * @remarks
-   * The last modification time of the instance (timestamp).
-   * 
-   * @example
-   * 1231298343343
-   */
   updateTimestamp?: number;
-  /**
-   * @remarks
-   * GTM instance version:
-   * - standard: Standard Edition
-   * - ultimate: Ultimate Edition
-   * 
-   * @example
-   * ultimate
-   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -221,10 +104,6 @@ export class ListCloudGtmInstancesResponseBodyInstances extends $dara.Model {
 }
 
 export class ListCloudGtmInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instances.
-   */
   instances?: ListCloudGtmInstancesResponseBodyInstances;
   /**
    * @remarks

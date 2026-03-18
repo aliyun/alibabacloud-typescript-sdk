@@ -71,15 +71,7 @@ export class DescribeDomainNsResponseBody extends $dara.Model {
    * DnsCheck.Failed
    */
   detectFailedReasonCode?: string;
-  /**
-   * @remarks
-   * The DNS server names configured for the domain name.
-   */
   dnsServers?: DescribeDomainNsResponseBodyDnsServers;
-  /**
-   * @remarks
-   * The Domain Name System (DNS) server names assigned by Alibaba Cloud DNS.
-   */
   expectDnsServers?: DescribeDomainNsResponseBodyExpectDnsServers;
   /**
    * @remarks

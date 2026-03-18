@@ -3,77 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGtmLogsResponseBodyLogsLog extends $dara.Model {
-  /**
-   * @remarks
-   * The formatted message content.
-   * 
-   * @example
-   * addtest-pool-1
-   */
   content?: string;
-  /**
-   * @remarks
-   * The ID of the object that was operated on.
-   * 
-   * @example
-   * 121212
-   */
   entityId?: string;
-  /**
-   * @remarks
-   * The name of the object that was operated on.
-   * 
-   * @example
-   * test-pool-1
-   */
   entityName?: string;
-  /**
-   * @remarks
-   * The type of the object that was operated on.
-   * 
-   * @example
-   * POOL
-   */
   entityType?: string;
-  /**
-   * @remarks
-   * The ID of the log record.
-   * 
-   * @example
-   * 6726
-   */
   id?: number;
-  /**
-   * @remarks
-   * The operation performed.
-   * 
-   * @example
-   * add
-   */
   operAction?: string;
-  /**
-   * @remarks
-   * The IP address subject to the operation.
-   * 
-   * @example
-   * 106.11.34.X
-   */
   operIp?: string;
-  /**
-   * @remarks
-   * The time when the operation was performed.
-   * 
-   * @example
-   * 2018-01-24T07:35Z
-   */
   operTime?: string;
-  /**
-   * @remarks
-   * A timestamp that indicates the time when the operation was performed.
-   * 
-   * @example
-   * 1516779348000
-   */
   operTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +76,6 @@ export class DescribeGtmLogsResponseBodyLogs extends $dara.Model {
 }
 
 export class DescribeGtmLogsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of logs returned.
-   */
   logs?: DescribeGtmLogsResponseBodyLogs;
   /**
    * @remarks

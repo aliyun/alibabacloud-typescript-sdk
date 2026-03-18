@@ -500,7 +500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup task for a domain name.
+   * Creates a backup for the domain name based on the specified domain name and backup cycle.
    * 
    * @param request - AddDomainBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -539,7 +539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup task for a domain name.
+   * Creates a backup for the domain name based on the specified domain name and backup cycle.
    * 
    * @param request - AddDomainBackupRequest
    * @returns AddDomainBackupResponse
@@ -670,6 +670,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - AddGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddGtmAccessStrategyResponse
@@ -719,6 +721,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - AddGtmAccessStrategyRequest
    * @returns AddGtmAccessStrategyResponse
    */
@@ -942,7 +946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增递归解析内置权威解析记录
+   * Adds HTTPDNS authoritative DNS resolution records
    * 
    * @param request - AddRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1009,7 +1013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增递归解析内置权威解析记录
+   * Adds HTTPDNS authoritative DNS resolution records
    * 
    * @param request - AddRecursionRecordRequest
    * @returns AddRecursionRecordResponse
@@ -1020,7 +1024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增递归解析内置权威域名zone
+   * Adds HTTPDNS zone
    * 
    * @param request - AddRecursionZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1059,7 +1063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增递归解析内置权威域名zone
+   * Adds HTTPDNS zone
    * 
    * @param request - AddRecursionZoneRequest
    * @returns AddRecursionZoneResponse
@@ -1764,7 +1768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建公共DNS AppKey
+   * Creates an AppKey in Alibaba Cloud Public DNS.
    * 
    * @param request - CreatePdnsAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1799,7 +1803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建公共DNS AppKey
+   * Creates an AppKey in Alibaba Cloud Public DNS.
    * 
    * @param request - CreatePdnsAppKeyRequest
    * @returns CreatePdnsAppKeyResponse
@@ -2160,6 +2164,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an access policy by policy ID.
+   * 
    * @param request - DeleteDnsGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDnsGtmAccessStrategyResponse
@@ -2193,6 +2199,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an access policy by policy ID.
+   * 
    * @param request - DeleteDnsGtmAccessStrategyRequest
    * @returns DeleteDnsGtmAccessStrategyResponse
    */
@@ -2202,6 +2210,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an address pool by address pool ID.
+   * 
    * @param request - DeleteDnsGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDnsGtmAddressPoolResponse
@@ -2235,6 +2245,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an address pool by address pool ID.
+   * 
    * @param request - DeleteDnsGtmAddressPoolRequest
    * @returns DeleteDnsGtmAddressPoolResponse
    */
@@ -2392,6 +2404,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - DeleteGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGtmAccessStrategyResponse
@@ -2425,6 +2439,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - DeleteGtmAccessStrategyRequest
    * @returns DeleteGtmAccessStrategyResponse
    */
@@ -2434,6 +2450,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+   * 
    * @param request - DeleteGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGtmAddressPoolResponse
@@ -2467,6 +2485,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+   * 
    * @param request - DeleteGtmAddressPoolRequest
    * @returns DeleteGtmAddressPoolResponse
    */
@@ -2476,6 +2496,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a disaster recovery plan.
+   * 
    * @param request - DeleteGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGtmRecoveryPlanResponse
@@ -2509,6 +2531,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a disaster recovery plan.
+   * 
    * @param request - DeleteGtmRecoveryPlanRequest
    * @returns DeleteGtmRecoveryPlanResponse
    */
@@ -2518,7 +2542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除递归解析内置权威解析记录
+   * Deletes HTTPDNS resolution records
    * 
    * @param request - DeleteRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2553,7 +2577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除递归解析内置权威解析记录
+   * Deletes HTTPDNS resolution records
    * 
    * @param request - DeleteRecursionRecordRequest
    * @returns DeleteRecursionRecordResponse
@@ -2564,7 +2588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除递归解析内置权威域名zone
+   * Deletes HTTPDNS authoritative domain zone
    * 
    * @param request - DeleteRecursionZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2599,7 +2623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除递归解析内置权威域名zone
+   * Deletes HTTPDNS authoritative domain zone
    * 
    * @param request - DeleteRecursionZoneRequest
    * @returns DeleteRecursionZoneResponse
@@ -3417,7 +3441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询代理域名
+   * Queries cache-accelerated domain names within your account based on the specified parameters.
    * 
    * @param request - DescribeDnsCacheDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3460,7 +3484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询代理域名
+   * Queries cache-accelerated domain names within your account based on the specified parameters.
    * 
    * @param request - DescribeDnsCacheDomainsRequest
    * @returns DescribeDnsCacheDomainsResponse
@@ -3471,7 +3495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries access policies of a Global Traffic Manager (GTM) instance.
+   * Queries the access policies of a GTM instance.
    * 
    * @param request - DescribeDnsGtmAccessStrategiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3518,7 +3542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries access policies of a Global Traffic Manager (GTM) instance.
+   * Queries the access policies of a GTM instance.
    * 
    * @param request - DescribeDnsGtmAccessStrategiesRequest
    * @returns DescribeDnsGtmAccessStrategiesResponse
@@ -3529,7 +3553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+   * Queries the details about an access policy.
    * 
    * @param request - DescribeDnsGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3564,7 +3588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+   * Queries the details about an access policy.
    * 
    * @param request - DescribeDnsGtmAccessStrategyRequest
    * @returns DescribeDnsGtmAccessStrategyResponse
@@ -3575,7 +3599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+   * Queries the configuration items that can be set for an access policy.
    * 
    * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3614,7 +3638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+   * Queries the configuration items that can be set for an access policy.
    * 
    * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
    * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
@@ -3675,7 +3699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * Queries the available configurations of an address pool of a GTM instance.
    * 
    * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3710,7 +3734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * Queries the available configurations of an address pool of a GTM instance.
    * 
    * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
    * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
@@ -3721,6 +3745,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - DescribeDnsGtmAvailableAlertGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDnsGtmAvailableAlertGroupResponse
@@ -3750,6 +3776,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - DescribeDnsGtmAvailableAlertGroupRequest
    * @returns DescribeDnsGtmAvailableAlertGroupResponse
    */
@@ -3759,7 +3787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about a Global Traffic Manager (GTM) instance.
+   * Obtains the details of an instance based on the ID of the instance.
    * 
    * @param request - DescribeDnsGtmInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3794,7 +3822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about a Global Traffic Manager (GTM) instance.
+   * Obtains the details of an instance based on the ID of the instance.
    * 
    * @param request - DescribeDnsGtmInstanceRequest
    * @returns DescribeDnsGtmInstanceResponse
@@ -3805,7 +3833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+   * Queries detailed information about an address pool by address pool ID.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3840,7 +3868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+   * Queries detailed information about an address pool by address pool ID.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolRequest
    * @returns DescribeDnsGtmInstanceAddressPoolResponse
@@ -3851,7 +3879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the address pools of a Global Traffic Manager (GTM) instance.
+   * Queries address pools by the IDs of GTM instances.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3894,7 +3922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the address pools of a Global Traffic Manager (GTM) instance.
+   * Queries address pools by the IDs of GTM instances.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
    * @returns DescribeDnsGtmInstanceAddressPoolsResponse
@@ -3905,7 +3933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a Global Traffic Manager (GTM) instance.
+   * Obtains the current status of the instance by instance ID.
    * 
    * @param request - DescribeDnsGtmInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3940,7 +3968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a Global Traffic Manager (GTM) instance.
+   * Obtains the current status of the instance by instance ID.
    * 
    * @param request - DescribeDnsGtmInstanceStatusRequest
    * @returns DescribeDnsGtmInstanceStatusResponse
@@ -3951,7 +3979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+   * Queries the canonical name (CNAME) assigned by the system for a GTM instance.
    * 
    * @param request - DescribeDnsGtmInstanceSystemCnameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3986,7 +4014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+   * Queries the canonical name (CNAME) assigned by the system for a GTM instance.
    * 
    * @param request - DescribeDnsGtmInstanceSystemCnameRequest
    * @returns DescribeDnsGtmInstanceSystemCnameResponse
@@ -4055,7 +4083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries operation logs of a Global Traffic Manager (GTM) instance.
+   * Obtains the operation logs by instance ID.
    * 
    * @param request - DescribeDnsGtmLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4110,7 +4138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries operation logs of a Global Traffic Manager (GTM) instance.
+   * Obtains the operation logs by instance ID.
    * 
    * @param request - DescribeDnsGtmLogsRequest
    * @returns DescribeDnsGtmLogsResponse
@@ -4335,6 +4363,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics on DoH-based requests for a domain name.
+   * 
    * @param request - DescribeDohAccountStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDohAccountStatisticsResponse
@@ -4372,6 +4402,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics on DoH-based requests for a domain name.
+   * 
    * @param request - DescribeDohAccountStatisticsRequest
    * @returns DescribeDohAccountStatisticsResponse
    */
@@ -4381,7 +4413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DOH域名请求量数据
+   * The statistics on DoH-based requests for a domain name are queried.
    * 
    * @param request - DescribeDohDomainStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4424,7 +4456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DOH域名请求量数据
+   * The statistics on DoH-based requests for a domain name are queried.
    * 
    * @param request - DescribeDohDomainStatisticsRequest
    * @returns DescribeDohDomainStatisticsResponse
@@ -4435,6 +4467,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics on DoH-based requests for domain names.
+   * 
    * @param request - DescribeDohDomainStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDohDomainStatisticsSummaryResponse
@@ -4484,6 +4518,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics on DoH-based requests for domain names.
+   * 
    * @param request - DescribeDohDomainStatisticsSummaryRequest
    * @returns DescribeDohDomainStatisticsSummaryResponse
    */
@@ -4493,6 +4529,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the statistics on DoH-based requests for a subdomain name.
+   * 
    * @param request - DescribeDohSubDomainStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDohSubDomainStatisticsResponse
@@ -4534,6 +4572,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the statistics on DoH-based requests for a subdomain name.
+   * 
    * @param request - DescribeDohSubDomainStatisticsRequest
    * @returns DescribeDohSubDomainStatisticsResponse
    */
@@ -4543,6 +4583,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics on DoH-based requests for subdomain names.
+   * 
    * @param request - DescribeDohSubDomainStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDohSubDomainStatisticsSummaryResponse
@@ -4596,6 +4638,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics on DoH-based requests for subdomain names.
+   * 
    * @param request - DescribeDohSubDomainStatisticsSummaryRequest
    * @returns DescribeDohSubDomainStatisticsSummaryResponse
    */
@@ -5537,6 +5581,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - DescribeGtmAvailableAlertGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGtmAvailableAlertGroupResponse
@@ -5566,6 +5612,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - DescribeGtmAvailableAlertGroupRequest
    * @returns DescribeGtmAvailableAlertGroupResponse
    */
@@ -5771,6 +5819,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to query the CNAME record assigned by the system.
+   * 
    * @param request - DescribeGtmInstanceSystemCnameRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGtmInstanceSystemCnameResponse
@@ -5804,6 +5854,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to query the CNAME record assigned by the system.
+   * 
    * @param request - DescribeGtmInstanceSystemCnameRequest
    * @returns DescribeGtmInstanceSystemCnameResponse
    */
@@ -6117,7 +6169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+   * Queries disaster recovery plans.
    * 
    * @param request - DescribeGtmRecoveryPlansRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6160,7 +6212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+   * Queries disaster recovery plans.
    * 
    * @param request - DescribeGtmRecoveryPlansRequest
    * @returns DescribeGtmRecoveryPlansResponse
@@ -6747,7 +6799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on requests for Alibaba Cloud Public DNS.
+   * Queries the number of requests for public DNS.
    * 
    * @param request - DescribePdnsRequestStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6798,7 +6850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on requests for Alibaba Cloud Public DNS.
+   * Queries the number of requests for public DNS.
    * 
    * @param request - DescribePdnsRequestStatisticRequest
    * @returns DescribePdnsRequestStatisticResponse
@@ -7487,7 +7539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威解析记录详情
+   * Queries the details of HTTPDNS resolution records
    * 
    * @param request - DescribeRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7518,7 +7570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威解析记录详情
+   * Queries the details of HTTPDNS resolution records
    * 
    * @param request - DescribeRecursionRecordRequest
    * @returns DescribeRecursionRecordResponse
@@ -7641,7 +7693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支持的所有线路
+   * Queries all lines that are supported by Alibaba Cloud DNS.
    * 
    * @param request - DescribeSupportLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7680,7 +7732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支持的所有线路
+   * Queries all lines that are supported by Alibaba Cloud DNS.
    * 
    * @param request - DescribeSupportLinesRequest
    * @returns DescribeSupportLinesResponse
@@ -8291,7 +8343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+   * Obtains the GTM 3.0 instances based on the specified parameters.
    * 
    * @param request - ListCloudGtmInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8346,7 +8398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+   * Obtains the GTM 3.0 instances based on the specified parameters.
    * 
    * @param request - ListCloudGtmInstancesRequest
    * @returns ListCloudGtmInstancesResponse
@@ -8368,6 +8420,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.showDisabledNodes)) {
+      query["ShowDisabledNodes"] = request.showDisabledNodes;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8399,7 +8455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of health check templates.
+   * Queries a list of health check templates based on specified parameters.
    * 
    * @param request - ListCloudGtmMonitorTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8450,7 +8506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of health check templates.
+   * Queries a list of health check templates based on specified parameters.
    * 
    * @param request - ListCloudGtmMonitorTemplatesRequest
    * @returns ListCloudGtmMonitorTemplatesResponse
@@ -8461,7 +8517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威解析记录
+   * Queries the record details of HTTPDNS resolution records
    * 
    * @param request - ListRecursionRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8536,7 +8592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威解析记录
+   * Queries the record details of HTTPDNS resolution records
    * 
    * @param request - ListRecursionRecordsRequest
    * @returns ListRecursionRecordsResponse
@@ -8547,7 +8603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威域名zone
+   * Queries HTTPDNS authoritative zones
    * 
    * @param request - ListRecursionZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8598,7 +8654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威域名zone
+   * Queries HTTPDNS authoritative zones
    * 
    * @param request - ListRecursionZonesRequest
    * @returns ListRecursionZonesResponse
@@ -8935,7 +8991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * Views disaster recovery plan.
    * 
    * @param request - PreviewGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8978,7 +9034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * Views disaster recovery plan.
    * 
    * @param request - PreviewGtmRecoveryPlanRequest
    * @returns PreviewGtmRecoveryPlanResponse
@@ -9273,7 +9329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+   * Replaces address pools that are associated with a GTM instance with new address pools.
    * 
    * @param tmpReq - ReplaceCloudGtmInstanceConfigAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9326,7 +9382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+   * Replaces address pools that are associated with a GTM instance with new address pools.
    * 
    * @param request - ReplaceCloudGtmInstanceConfigAddressPoolRequest
    * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
@@ -10161,7 +10217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an access policy.
+   * Modifies the access policy that is available in address pools.
    * 
    * @remarks
    * ***
@@ -10203,7 +10259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an access policy.
+   * Modifies the access policy that is available in address pools.
    * 
    * @remarks
    * ***
@@ -10421,6 +10477,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - SetGtmMonitorStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetGtmMonitorStatusResponse
@@ -10458,6 +10516,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - SetGtmMonitorStatusRequest
    * @returns SetGtmMonitorStatusResponse
    */
@@ -10521,7 +10581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the access policy type for a Global Traffic Manager (GTM) instance.
+   * Changes the access policy type for a GTM instance.
    * 
    * @param request - SwitchDnsGtmInstanceStrategyModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10560,7 +10620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the access policy type for a Global Traffic Manager (GTM) instance.
+   * Changes the access policy type for a GTM instance.
    * 
    * @param request - SwitchDnsGtmInstanceStrategyModeRequest
    * @returns SwitchDnsGtmInstanceStrategyModeResponse
@@ -11529,7 +11589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabling status of an access domain name.
+   * Updates the enabling status of an access domain name based on the specified parameters.
    * 
    * @remarks
    *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
@@ -11580,7 +11640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabling status of an access domain name.
+   * Updates the enabling status of an access domain name based on the specified parameters.
    * 
    * @remarks
    *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
@@ -11595,7 +11655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+   * Updates the load balancing policy of a GTM instance.
    * 
    * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11646,7 +11706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+   * Updates the load balancing policy of a GTM instance.
    * 
    * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
    * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
@@ -11657,7 +11717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+   * Updates the description of a GTM instance based on the specified parameters.
    * 
    * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11704,7 +11764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+   * Updates the description of a GTM instance based on the specified parameters.
    * 
    * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
    * @returns UpdateCloudGtmInstanceConfigRemarkResponse
@@ -11765,7 +11825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a health check template.
+   * Modifies the information about a health check template based on specified parameters.
    * 
    * @param tmpReq - UpdateCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11838,7 +11898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a health check template.
+   * Modifies the information about a health check template based on specified parameters.
    * 
    * @param request - UpdateCloudGtmMonitorTemplateRequest
    * @returns UpdateCloudGtmMonitorTemplateResponse
@@ -12241,7 +12301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an address pool.
+   * Modifies an address pool based on the specified parameters.
    * 
    * @param request - UpdateDnsGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12288,7 +12348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an address pool.
+   * Modifies an address pool based on the specified parameters.
    * 
    * @param request - UpdateDnsGtmAddressPoolRequest
    * @returns UpdateDnsGtmAddressPoolResponse
@@ -12299,7 +12359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Global Traffic Manager (GTM) instance.
+   * Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
    * 
    * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12374,7 +12434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Global Traffic Manager (GTM) instance.
+   * Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
    * 
    * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
    * @returns UpdateDnsGtmInstanceGlobalConfigResponse
@@ -12689,6 +12749,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - UpdateGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateGtmAccessStrategyResponse
@@ -12738,6 +12800,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - UpdateGtmAccessStrategyRequest
    * @returns UpdateGtmAccessStrategyResponse
    */
@@ -12747,6 +12811,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - UpdateGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateGtmAddressPoolResponse
@@ -12796,6 +12862,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+   * 
    * @param request - UpdateGtmAddressPoolRequest
    * @returns UpdateGtmAddressPoolResponse
    */
@@ -13057,7 +13125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录
+   * Modifies HTTPDNS resolution records.
    * 
    * @param request - UpdateRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13120,7 +13188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录
+   * Modifies HTTPDNS resolution records.
    * 
    * @param request - UpdateRecursionRecordRequest
    * @returns UpdateRecursionRecordResponse
@@ -13131,7 +13199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改内置权威解析记录启用状态
+   * Modifies the status of HTTPDNS authoritative DNS resolution records
    * 
    * @param request - UpdateRecursionRecordEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13170,7 +13238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改内置权威解析记录启用状态
+   * Modifies the status of HTTPDNS authoritative DNS resolution records
    * 
    * @param request - UpdateRecursionRecordEnableStatusRequest
    * @returns UpdateRecursionRecordEnableStatusResponse
@@ -13181,7 +13249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录备注
+   * Modifies description of HTTPDNS resolution records.
    * 
    * @param request - UpdateRecursionRecordRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13220,7 +13288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录备注
+   * Modifies description of HTTPDNS resolution records.
    * 
    * @param request - UpdateRecursionRecordRemarkRequest
    * @returns UpdateRecursionRecordRemarkResponse
@@ -13231,7 +13299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录权重
+   * Modifies HTTPDNS authoritative DNS resolution record weights.
    * 
    * @param request - UpdateRecursionRecordWeightRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13270,7 +13338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录权重
+   * Modifies HTTPDNS authoritative DNS resolution record weights.
    * 
    * @param request - UpdateRecursionRecordWeightRequest
    * @returns UpdateRecursionRecordWeightResponse
@@ -13281,7 +13349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录权重算法启用状态
+   * Modifies the status of weight algorithm of authoritative records
    * 
    * @param request - UpdateRecursionRecordWeightEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13332,7 +13400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威解析记录权重算法启用状态
+   * Modifies the status of weight algorithm of authoritative records
    * 
    * @param request - UpdateRecursionRecordWeightEnableStatusRequest
    * @returns UpdateRecursionRecordWeightEnableStatusResponse
@@ -13343,7 +13411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威域名zone生效范围
+   * Modifies the effective scope of HTTPDNS
    * 
    * @param tmpReq - UpdateRecursionZoneEffectiveScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13388,7 +13456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威域名zone生效范围
+   * Modifies the effective scope of HTTPDNS
    * 
    * @param request - UpdateRecursionZoneEffectiveScopeRequest
    * @returns UpdateRecursionZoneEffectiveScopeResponse
@@ -13399,7 +13467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威域名zone递归代理模式
+   * Modify the HTTPDNS recursive proxy mode
    * 
    * @param request - UpdateRecursionZoneProxyPatternRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13438,7 +13506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威域名zone递归代理模式
+   * Modify the HTTPDNS recursive proxy mode
    * 
    * @param request - UpdateRecursionZoneProxyPatternRequest
    * @returns UpdateRecursionZoneProxyPatternResponse
@@ -13449,7 +13517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威域名zone备注
+   * Modifies the description of HTTPDNS authoritative domain names.
    * 
    * @param request - UpdateRecursionZoneRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13488,7 +13556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改递归解析内置权威域名zone备注
+   * Modifies the description of HTTPDNS authoritative domain names.
    * 
    * @param request - UpdateRecursionZoneRemarkRequest
    * @returns UpdateRecursionZoneRemarkResponse

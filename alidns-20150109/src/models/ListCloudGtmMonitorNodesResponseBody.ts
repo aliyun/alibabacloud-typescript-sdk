@@ -29,95 +29,21 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode
 }
 
 export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $dara.Model {
-  /**
-   * @remarks
-   * City code.
-   * 
-   * @example
-   * 503
-   */
   cityCode?: string;
-  /**
-   * @remarks
-   * City name.
-   * 
-   * @example
-   * Beijing
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * Country code.
-   * 
-   * @example
-   * 629
-   */
   countryCode?: string;
-  /**
-   * @remarks
-   * Country name.
-   * 
-   * @example
-   * China
-   */
   countryName?: string;
-  /**
-   * @remarks
-   * Monitor node default selection:
-   * - true: Selected by default
-   * - false: Not selected by default
-   * 
-   * @example
-   * true
-   */
   defaultSelected?: boolean;
   /**
-   * @remarks
-   * Monitor probe group name.
-   * 
    * @example
-   * BGP Nodes
+   * enable
    */
+  enableStatus?: string;
   groupName?: string;
-  /**
-   * @remarks
-   * Monitoring node group type, currently supported:
-   * - BGP: BGP node
-   * - OVERSEAS: International node
-   * - ISP: Carrier node
-   * 
-   * @example
-   * BGP
-   */
   groupType?: string;
-  /**
-   * @remarks
-   * List of node IP addresses.
-   */
   ips?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
-  /**
-   * @remarks
-   * Operator code.
-   * 
-   * @example
-   * 465
-   */
   ispCode?: string;
-  /**
-   * @remarks
-   * Operator name.
-   * 
-   * @example
-   * Alibaba
-   */
   ispName?: string;
-  /**
-   * @remarks
-   * Unique identifier ID of the probe node.
-   * 
-   * @example
-   * node-ewze1bysndy4gf**j8
-   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,6 +52,7 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode
       countryCode: 'CountryCode',
       countryName: 'CountryName',
       defaultSelected: 'DefaultSelected',
+      enableStatus: 'EnableStatus',
       groupName: 'GroupName',
       groupType: 'GroupType',
       ips: 'Ips',
@@ -142,6 +69,7 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode
       countryCode: 'string',
       countryName: 'string',
       defaultSelected: 'boolean',
+      enableStatus: 'string',
       groupName: 'string',
       groupType: 'string',
       ips: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps,
@@ -216,95 +144,21 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode
 }
 
 export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $dara.Model {
-  /**
-   * @remarks
-   * City code.
-   * 
-   * @example
-   * 357
-   */
   cityCode?: string;
-  /**
-   * @remarks
-   * City name.
-   * 
-   * @example
-   * Shanghai
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * Country code.
-   * 
-   * @example
-   * 629
-   */
   countryCode?: string;
-  /**
-   * @remarks
-   * Country name.
-   * 
-   * @example
-   * China
-   */
   countryName?: string;
-  /**
-   * @remarks
-   * Monitor node default selection:
-   * - true: Selected by default
-   * - false: Not selected by default
-   * 
-   * @example
-   * true
-   */
   defaultSelected?: boolean;
   /**
-   * @remarks
-   * Monitoring probe group name.
-   * 
    * @example
-   * BGP
+   * enable
    */
+  enableStatus?: string;
   groupName?: string;
-  /**
-   * @remarks
-   * Monitoring node group type, currently supported:
-   * - BGP: BGP node
-   * - OVERSEAS: International node
-   * - ISP: Carrier node
-   * 
-   * @example
-   * BGP
-   */
   groupType?: string;
-  /**
-   * @remarks
-   * List of node IP addresses.
-   */
   ips?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
-  /**
-   * @remarks
-   * Operator code.
-   * 
-   * @example
-   * 465
-   */
   ispCode?: string;
-  /**
-   * @remarks
-   * Operator name.
-   * 
-   * @example
-   * Alibaba
-   */
   ispName?: string;
-  /**
-   * @remarks
-   * Unique identifier ID of the probe node.
-   * 
-   * @example
-   * node-ewze1bysndy4gf**j8
-   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -313,6 +167,7 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode
       countryCode: 'CountryCode',
       countryName: 'CountryName',
       defaultSelected: 'DefaultSelected',
+      enableStatus: 'EnableStatus',
       groupName: 'GroupName',
       groupType: 'GroupType',
       ips: 'Ips',
@@ -329,6 +184,7 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode
       countryCode: 'string',
       countryName: 'string',
       defaultSelected: 'boolean',
+      enableStatus: 'string',
       groupName: 'string',
       groupType: 'string',
       ips: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps,
@@ -377,15 +233,7 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes extends $dara.
 }
 
 export class ListCloudGtmMonitorNodesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Public IPv4 monitoring node list.
-   */
   ipv4IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodes;
-  /**
-   * @remarks
-   * List of public IPv6 monitoring nodes.
-   */
   ipv6IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes;
   /**
    * @remarks

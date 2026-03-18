@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainStatisticsResponseBodyStatisticsStatistic extends $dara.Model {
-  /**
-   * @remarks
-   * The number of DNS requests.
-   * 
-   * @example
-   * 15292887
-   */
   count?: number;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The statistical timestamp. Unit: milliseconds. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1556640000000
-   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribeDomainStatisticsResponseBody extends $dara.Model {
    * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The statistics on the Domain Name System (DNS) requests.
-   */
   statistics?: DescribeDomainStatisticsResponseBodyStatistics;
   static names(): { [key: string]: string } {
     return {

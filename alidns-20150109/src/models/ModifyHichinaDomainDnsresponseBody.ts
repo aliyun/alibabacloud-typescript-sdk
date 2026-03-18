@@ -55,15 +55,7 @@ export class ModifyHichinaDomainDNSResponseBodyOriginalDnsServers extends $dara.
 }
 
 export class ModifyHichinaDomainDNSResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The DNS server names after modification.
-   */
   newDnsServers?: ModifyHichinaDomainDNSResponseBodyNewDnsServers;
-  /**
-   * @remarks
-   * The DNS server names before modification.
-   */
   originalDnsServers?: ModifyHichinaDomainDNSResponseBodyOriginalDnsServers;
   /**
    * @remarks

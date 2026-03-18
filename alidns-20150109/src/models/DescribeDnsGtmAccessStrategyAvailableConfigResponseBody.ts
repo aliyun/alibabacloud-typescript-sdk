@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The number of addresses in the address pool.
-   * 
-   * @example
-   * 1
-   */
   addrCount?: number;
-  /**
-   * @remarks
-   * The ID of the address pool.
-   * 
-   * @example
-   * pool1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The name of the address pool.
-   * 
-   * @example
-   * testpool
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,29 +58,8 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPo
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The number of addresses in the address pool.
-   * 
-   * @example
-   * 1
-   */
   addrCount?: number;
-  /**
-   * @remarks
-   * The ID of the address pool.
-   * 
-   * @example
-   * pool1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The name of the address pool.
-   * 
-   * @example
-   * testpool
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,29 +113,8 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPool
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The number of addresses in the address pool.
-   * 
-   * @example
-   * 1
-   */
   addrCount?: number;
-  /**
-   * @remarks
-   * The ID of the address pool.
-   * 
-   * @example
-   * pool1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The name of the address pool.
-   * 
-   * @example
-   * testpool
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -231,45 +168,10 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPool
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $dara.Model {
-  /**
-   * @remarks
-   * The parent line code of the source region. Leave it blank if no parent line exists.
-   * 
-   * @example
-   * telecom
-   */
   fatherCode?: string;
-  /**
-   * @remarks
-   * The line name of the source region.
-   * 
-   * @example
-   * default
-   */
   groupCode?: string;
-  /**
-   * @remarks
-   * The name of the source region group.
-   * 
-   * @example
-   * global
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The line code of the source region.
-   * 
-   * @example
-   * default
-   */
   lineCode?: string;
-  /**
-   * @remarks
-   * The code of the source region group.
-   * 
-   * @example
-   * global
-   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -405,25 +307,9 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The available address pools of the domain name type.
-   */
   domainAddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools;
-  /**
-   * @remarks
-   * The available address pools of the IPv4 type.
-   */
   ipv4AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools;
-  /**
-   * @remarks
-   * The available address pools of the IPv6 type.
-   */
   ipv6AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools;
-  /**
-   * @remarks
-   * The source regions.
-   */
   lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines;
   /**
    * @remarks

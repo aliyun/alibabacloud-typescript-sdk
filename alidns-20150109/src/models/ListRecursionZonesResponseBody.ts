@@ -29,10 +29,6 @@ export class ListRecursionZonesResponseBodyZonesZoneEffectiveScopesEffectiveScop
 }
 
 export class ListRecursionZonesResponseBodyZonesZoneEffectiveScopesEffectiveScope extends $dara.Model {
-  /**
-   * @example
-   * account
-   */
   effectiveType?: string;
   scopes?: ListRecursionZonesResponseBodyZonesZoneEffectiveScopesEffectiveScopeScopes;
   static names(): { [key: string]: string } {
@@ -88,66 +84,18 @@ export class ListRecursionZonesResponseBodyZonesZoneEffectiveScopes extends $dar
 }
 
 export class ListRecursionZonesResponseBodyZonesZone extends $dara.Model {
-  /**
-   * @example
-   * 2021-03-08T05:45Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1729674680000
-   */
   createTimestamp?: number;
-  /**
-   * @example
-   * 218497924149333932
-   */
   creator?: string;
-  /**
-   * @example
-   * SUB
-   */
   creatorSubType?: string;
-  /**
-   * @example
-   * USER
-   */
   creatorType?: string;
   effectiveScopes?: ListRecursionZonesResponseBodyZonesZoneEffectiveScopes;
-  /**
-   * @example
-   * record
-   */
   proxyPattern?: string;
-  /**
-   * @example
-   * 8
-   */
   recordCount?: number;
-  /**
-   * @example
-   * 107
-   */
   remark?: string;
-  /**
-   * @example
-   * 2024-11-12T04:30Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * 1707189878000
-   */
   updateTimestamp?: number;
-  /**
-   * @example
-   * 173671468000011
-   */
   zoneId?: string;
-  /**
-   * @example
-   * dfsdfsd
-   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {

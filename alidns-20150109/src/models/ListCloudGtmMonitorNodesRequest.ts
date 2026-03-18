@@ -14,15 +14,18 @@ export class ListCloudGtmMonitorNodesRequest extends $dara.Model {
    * en-US
    */
   acceptLanguage?: string;
+  showDisabledNodes?: boolean;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      showDisabledNodes: 'ShowDisabledNodes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      showDisabledNodes: 'boolean',
     };
   }
 

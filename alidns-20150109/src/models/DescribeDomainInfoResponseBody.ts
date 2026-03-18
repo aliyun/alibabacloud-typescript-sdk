@@ -55,31 +55,9 @@ export class DescribeDomainInfoResponseBodyDnsServers extends $dara.Model {
 }
 
 export class DescribeDomainInfoResponseBodyRecordLinesRecordLine extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the parent line. This parameter is not returned if the line has no parent line.
-   * 
-   * @example
-   * internal
-   */
   fatherCode?: string;
-  /**
-   * @remarks
-   * The code of the line.
-   * 
-   * @example
-   * cn_region_xibei
-   */
   lineCode?: string;
-  /**
-   * @remarks
-   * The name of the parent line.
-   */
   lineDisplayName?: string;
-  /**
-   * @remarks
-   * The name of the line.
-   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,10 +121,6 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
    * true
    */
   aliDomain?: boolean;
-  /**
-   * @remarks
-   * The available time to live (TTL) values that can be configured for the domain name. Available TTL values are not returned by default. If you want to query such information, set NeedDetailAttributes to true.
-   */
   availableTtls?: DescribeDomainInfoResponseBodyAvailableTtls;
   /**
    * @remarks
@@ -156,10 +130,6 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
    * 2015-12-12T09:23Z
    */
   createTime?: string;
-  /**
-   * @remarks
-   * The DNS servers that are used to resolve the domain name.
-   */
   dnsServers?: DescribeDomainInfoResponseBodyDnsServers;
   /**
    * @remarks
@@ -254,10 +224,6 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
    * {"default":{},"unicom":{},"telecom":{},"mobile":{},"edu":{},"oversea":{},"baidu":{},"biying":{},"google":{}}
    */
   recordLineTreeJson?: string;
-  /**
-   * @remarks
-   * The DNS request lines.
-   */
   recordLines?: DescribeDomainInfoResponseBodyRecordLines;
   /**
    * @remarks

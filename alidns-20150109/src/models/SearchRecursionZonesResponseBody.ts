@@ -29,15 +29,7 @@ export class SearchRecursionZonesResponseBodyZonesZoneEffectiveScopesEffectiveSc
 }
 
 export class SearchRecursionZonesResponseBodyZonesZoneEffectiveScopesEffectiveScope extends $dara.Model {
-  /**
-   * @example
-   * account
-   */
   effectiveType?: string;
-  /**
-   * @example
-   * [20003]
-   */
   scopes?: SearchRecursionZonesResponseBodyZonesZoneEffectiveScopesEffectiveScopeScopes;
   static names(): { [key: string]: string } {
     return {
@@ -92,66 +84,18 @@ export class SearchRecursionZonesResponseBodyZonesZoneEffectiveScopes extends $d
 }
 
 export class SearchRecursionZonesResponseBodyZonesZone extends $dara.Model {
-  /**
-   * @example
-   * 2022-10-17T06:13Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1749694625000
-   */
   createTimestamp?: number;
-  /**
-   * @example
-   * ***
-   */
   creator?: string;
-  /**
-   * @example
-   * SUB
-   */
   creatorSubType?: string;
-  /**
-   * @example
-   * USER
-   */
   creatorType?: string;
   effectiveScopes?: SearchRecursionZonesResponseBodyZonesZoneEffectiveScopes;
-  /**
-   * @example
-   * record
-   */
   proxyPattern?: string;
-  /**
-   * @example
-   * 20
-   */
   recordCount?: number;
-  /**
-   * @example
-   * 107
-   */
   remark?: string;
-  /**
-   * @example
-   * 2024-08-13T01:44Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * 1639621006000
-   */
   updateTimestamp?: number;
-  /**
-   * @example
-   * 169439170000011
-   */
   zoneId?: string;
-  /**
-   * @example
-   * ixiqiu.cn
-   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {

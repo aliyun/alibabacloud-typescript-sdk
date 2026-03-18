@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithmsLineAlgorithm extends $dara.Model {
-  /**
-   * @remarks
-   * The DNS resolution line. The line can be China Telecom, China Mobile, and China Unicom.
-   * 
-   * @example
-   * default
-   */
   line?: string;
-  /**
-   * @remarks
-   * Indicates whether weighted round-robin is enabled for the line. Valid values:
-   * 
-   * *   **true** (default): Weighted round-robin is enabled.
-   * *   **false**: Weighted round-robin is disabled.
-   * 
-   * @example
-   * true
-   */
   open?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -72,42 +55,10 @@ export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAl
 }
 
 export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomain extends $dara.Model {
-  /**
-   * @remarks
-   * The lines for which weighted round-robin is enabled.
-   */
   lineAlgorithms?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithms;
-  /**
-   * @remarks
-   * Indicates whether weighted round-robin is enabled for the subdomain.
-   * 
-   * @example
-   * true
-   */
   open?: boolean;
-  /**
-   * @remarks
-   * The number of DNS records added for the subdomain.
-   * 
-   * @example
-   * 3
-   */
   recordCount?: number;
-  /**
-   * @remarks
-   * The name of the subdomain.
-   * 
-   * @example
-   * www.example.com
-   */
   subDomain?: string;
-  /**
-   * @remarks
-   * The type of the Domain Name System (DNS) record that supports weighted round-robin. Valid values: A, AAAA, and CNAME.
-   * 
-   * @example
-   * A
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -192,10 +143,6 @@ export class DescribeDNSSLBSubDomainsResponseBody extends $dara.Model {
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The subdomains for which weighted round-robin is enabled.
-   */
   slbSubDomains?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomains;
   /**
    * @remarks

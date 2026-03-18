@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPoolsAddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the address pool.
-   * 
-   * @example
-   * hra0ix
-   */
   addrPoolId?: string;
-  /**
-   * @remarks
-   * The name of the address pool.
-   * 
-   * @example
-   * test
-   */
   addrPoolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,56 +55,11 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools exten
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the parent line. No value is returned if no parent line exists.
-   * 
-   * @example
-   * telecom
-   */
   fatherCode?: string;
-  /**
-   * @remarks
-   * The group number of the DNS request source.
-   * 
-   * @example
-   * ISP
-   */
   groupCode?: string;
-  /**
-   * @remarks
-   * The group name of the DNS request source.
-   * 
-   * @example
-   * Mainland China
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The code of the DNS request source.
-   * 
-   * @example
-   * cn_telecom_hubei
-   */
   lineCode?: string;
-  /**
-   * @remarks
-   * The name of the DNS request source.
-   * 
-   * @example
-   * South China
-   */
   lineName?: string;
-  /**
-   * @remarks
-   * The state of the line. Valid values:
-   * 
-   * *   **FORBIDDEN**: The line is unavailable.
-   * *   **OPTIONAL**: The line is available.
-   * 
-   * @example
-   * FORBIDDEN
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,15 +119,7 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBodyLines extends $
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The address pools.
-   */
   addrPools?: DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools;
-  /**
-   * @remarks
-   * The Domain Name System (DNS) request sources.
-   */
   lines?: DescribeGtmAccessStrategyAvailableConfigResponseBodyLines;
   /**
    * @remarks

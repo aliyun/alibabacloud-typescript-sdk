@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPoolsAddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The address pool ID.
-   */
   addrPoolId?: string;
-  /**
-   * @remarks
-   * The name of the address pool.
-   * 
-   * @example
-   * hra0i9
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,26 +55,8 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance
 }
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The address pools.
-   */
   addrPools?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPools;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * instance-example
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * instance-name-example
-   */
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -142,10 +113,6 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstances extends
 }
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instances.
-   */
   instances?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstances;
   /**
    * @remarks

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRecordStatisticsSummaryResponseBodyStatisticsStatistic extends $dara.Model {
-  /**
-   * @remarks
-   * The number of DNS requests.
-   * 
-   * @example
-   * 838711553
-   */
   count?: number;
-  /**
-   * @remarks
-   * The subdomain.
-   * 
-   * @example
-   * t1.alitest2.com
-   */
   subDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,10 +79,6 @@ export class DescribeRecordStatisticsSummaryResponseBody extends $dara.Model {
    * E49F0023-4A98-486F-8BA3-6003D5664105
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The DNS requests.
-   */
   statistics?: DescribeRecordStatisticsSummaryResponseBodyStatistics;
   /**
    * @remarks

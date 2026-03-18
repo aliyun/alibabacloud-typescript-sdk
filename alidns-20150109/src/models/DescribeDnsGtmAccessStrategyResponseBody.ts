@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The number of addresses in the address pool.
-   * 
-   * @example
-   * 1
-   */
   addrCount?: number;
-  /**
-   * @remarks
-   * The ID of the address pool.
-   * 
-   * @example
-   * pool1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The weight of the address pool.
-   * 
-   * @example
-   * 1
-   */
   lbaWeight?: number;
-  /**
-   * @remarks
-   * The name of the address pool.
-   * 
-   * @example
-   * test
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,37 +61,9 @@ export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools extends $d
 }
 
 export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The number of addresses in the address pool.
-   * 
-   * @example
-   * 1
-   */
   addrCount?: number;
-  /**
-   * @remarks
-   * The ID of the address pool.
-   * 
-   * @example
-   * pool1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The weight of the address pool.
-   * 
-   * @example
-   * 1
-   */
   lbaWeight?: number;
-  /**
-   * @remarks
-   * The name of the address pool.
-   * 
-   * @example
-   * test
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,37 +119,9 @@ export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools extends $
 }
 
 export class DescribeDnsGtmAccessStrategyResponseBodyLinesLine extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the source region group.
-   * 
-   * @example
-   * default
-   */
   groupCode?: string;
-  /**
-   * @remarks
-   * The name of the source region group.
-   * 
-   * @example
-   * global
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The line code of the source region.
-   * 
-   * @example
-   * default
-   */
   lineCode?: string;
-  /**
-   * @remarks
-   * The line name of the source region.
-   * 
-   * @example
-   * global
-   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -312,10 +228,6 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * ipv4
    */
   defaultAddrPoolType?: string;
-  /**
-   * @remarks
-   * The address pools in the primary address pool group.
-   */
   defaultAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools;
   /**
    * @remarks
@@ -397,10 +309,6 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * ipv4
    */
   failoverAddrPoolType?: string;
-  /**
-   * @remarks
-   * The address pools in the secondary address pool group.
-   */
   failoverAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools;
   /**
    * @remarks
@@ -456,10 +364,6 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * instance1
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The source regions.
-   */
   lines?: DescribeDnsGtmAccessStrategyResponseBodyLines;
   /**
    * @remarks

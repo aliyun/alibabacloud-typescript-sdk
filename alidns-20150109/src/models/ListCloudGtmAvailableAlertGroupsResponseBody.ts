@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the alert contact group.
-   * 
-   * @example
-   * [\\"Default\\"]
-   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups extends $da
 }
 
 export class ListCloudGtmAvailableAlertGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The alert contact groups.
-   */
   alertGroups?: ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups;
   /**
    * @remarks

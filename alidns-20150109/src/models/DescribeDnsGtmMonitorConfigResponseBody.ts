@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends $dara.Model {
-  /**
-   * @remarks
-   * The city code.
-   * 
-   * @example
-   * 572
-   */
   cityCode?: string;
-  /**
-   * @remarks
-   * The display name of the city.
-   * 
-   * @example
-   * Qingdao
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * The code of the country or region.
-   * 
-   * @example
-   * 001
-   */
   countryCode?: string;
-  /**
-   * @remarks
-   * The display name of the country or region.
-   * 
-   * @example
-   * China
-   */
   countryName?: string;
-  /**
-   * @remarks
-   * The Internet service provider (ISP) code.
-   * 
-   * @example
-   * 123
-   */
   ispCode?: string;
-  /**
-   * @remarks
-   * The display name of the ISP.
-   * 
-   * @example
-   * Alibaba
-   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -141,10 +99,6 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $dara.Model {
    * 1
    */
   interval?: number;
-  /**
-   * @remarks
-   * The health check nodes.
-   */
   ispCityNodes?: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes;
   /**
    * @remarks

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrsAddr extends $dara.Model {
-  /**
-   * @remarks
-   * The address ID.
-   * 
-   * @example
-   * 739
-   */
   id?: number;
-  /**
-   * @remarks
-   * The address mode.
-   * 
-   * @example
-   * OFFLINE
-   */
   mode?: string;
-  /**
-   * @remarks
-   * The address.
-   * 
-   * @example
-   * 1.1.1.1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,27 +58,9 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs
 }
 
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool extends $dara.Model {
-  /**
-   * @remarks
-   * The address pool ID.
-   * 
-   * @example
-   * hra0oq
-   */
   addrPoolId?: string;
-  /**
-   * @remarks
-   * The address pool name.
-   */
   addrPoolName?: string;
   addrs?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * instance-zwy-38
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -182,10 +143,6 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
    * 2
    */
   faultAddrPoolNum?: number;
-  /**
-   * @remarks
-   * The faulty address pools.
-   */
   faultAddrPools?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPools;
   /**
    * @remarks

@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The parent line code of the source region.
-   * 
-   * @example
-   * telecom
-   */
   fatherCode?: string;
-  /**
-   * @remarks
-   * The code of the source region group.
-   * 
-   * @example
-   * default
-   */
   groupCode?: string;
-  /**
-   * @remarks
-   * The name of the request source group.
-   * 
-   * @example
-   * global
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The line code of the source region.
-   * 
-   * @example
-   * default
-   */
   lineCode?: string;
-  /**
-   * @remarks
-   * The line name of the source region.
-   * 
-   * @example
-   * global
-   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos 
 }
 
 export class DescribeDnsGtmAddressPoolAvailableConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The supported source regions.
-   */
   attributeInfos?: DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos;
   /**
    * @remarks

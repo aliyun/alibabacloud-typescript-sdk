@@ -108,10 +108,6 @@ export class DescribeDnsProductInstanceResponseBody extends $dara.Model {
    * advanced
    */
   dnsSecurity?: string;
-  /**
-   * @remarks
-   * The DNS servers configured for the domain names.
-   */
   dnsServers?: DescribeDnsProductInstanceResponseBodyDnsServers;
   /**
    * @remarks

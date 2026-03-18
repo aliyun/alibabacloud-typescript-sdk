@@ -3,44 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic extends $dara.Model {
-  /**
-   * @remarks
-   * The number of DNS requests.
-   * 
-   * @example
-   * 35509014
-   */
   count?: number;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * ali-gslb.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The type of the domain name. The parameter value is not case-sensitive. Valid values:
-   * 
-   * PUBLIC (default): hosted public domain name
-   * 
-   * CACHE: cache-accelerated domain name
-   * 
-   * @example
-   * PUBLIC
-   */
   domainType?: string;
-  /**
-   * @remarks
-   * Indicates whether the DNS traffic analysis feature is enabled for the domain name. Valid values:
-   * 
-   * *   OPEN
-   * *   CLOSE
-   * 
-   * @example
-   * OPEN
-   */
   resolveAnalysisStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -120,10 +85,6 @@ export class DescribeDomainStatisticsSummaryResponseBody extends $dara.Model {
    * CC625C21-8832-4683-BF10-C3CFB1A4FA13
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The statistics on the Domain Name System (DNS) requests.
-   */
   statistics?: DescribeDomainStatisticsSummaryResponseBodyStatistics;
   /**
    * @remarks
