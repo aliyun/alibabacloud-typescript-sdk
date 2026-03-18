@@ -96,6 +96,7 @@ export class CreateJobRequestCustomEnvs extends $dara.Model {
 }
 
 export class CreateJobRequestDataSources extends $dara.Model {
+  accessPointId?: string;
   /**
    * @remarks
    * The data source ID.
@@ -127,6 +128,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
    * }
    */
   options?: string;
+  roleChain?: string;
   /**
    * @remarks
    * The data source path.
@@ -137,24 +139,28 @@ export class CreateJobRequestDataSources extends $dara.Model {
   uri?: string;
   static names(): { [key: string]: string } {
     return {
+      accessPointId: 'AccessPointId',
       dataSourceId: 'DataSourceId',
       dataSourceVersion: 'DataSourceVersion',
       enableCache: 'EnableCache',
       mountAccess: 'MountAccess',
       mountPath: 'MountPath',
       options: 'Options',
+      roleChain: 'RoleChain',
       uri: 'Uri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessPointId: 'string',
       dataSourceId: 'string',
       dataSourceVersion: 'string',
       enableCache: 'boolean',
       mountAccess: 'string',
       mountPath: 'string',
       options: 'string',
+      roleChain: 'string',
       uri: 'string',
     };
   }

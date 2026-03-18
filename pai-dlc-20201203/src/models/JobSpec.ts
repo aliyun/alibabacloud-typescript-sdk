@@ -76,6 +76,7 @@ export class JobSpec extends $dara.Model {
    * 1
    */
   podCount?: number;
+  quotaId?: string;
   /**
    * @remarks
    * The resource configurations.
@@ -139,6 +140,7 @@ export class JobSpec extends $dara.Model {
       isChief: 'IsChief',
       localMountSpecs: 'LocalMountSpecs',
       podCount: 'PodCount',
+      quotaId: 'QuotaId',
       resourceConfig: 'ResourceConfig',
       restartPolicy: 'RestartPolicy',
       serviceSpec: 'ServiceSpec',
@@ -162,6 +164,7 @@ export class JobSpec extends $dara.Model {
       isChief: 'boolean',
       localMountSpecs: { 'type': 'array', 'itemType': LocalMountSpec },
       podCount: 'number',
+      quotaId: 'string',
       resourceConfig: ResourceConfig,
       restartPolicy: 'string',
       serviceSpec: ServiceSpec,

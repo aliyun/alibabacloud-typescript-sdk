@@ -818,6 +818,7 @@ export class GetJobResponseBody extends $dara.Model {
    * 0/10
    */
   restartTimes?: string;
+  roleSystemEnvs?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
    * The additional parameter configurations of the job.
@@ -950,6 +951,7 @@ export class GetJobResponseBody extends $dara.Model {
       resourceType: 'ResourceType',
       restartRecord: 'RestartRecord',
       restartTimes: 'RestartTimes',
+      roleSystemEnvs: 'RoleSystemEnvs',
       settings: 'Settings',
       status: 'Status',
       statusHistory: 'StatusHistory',
@@ -999,6 +1001,7 @@ export class GetJobResponseBody extends $dara.Model {
       resourceType: 'string',
       restartRecord: { 'type': 'array', 'itemType': GetJobResponseBodyRestartRecord },
       restartTimes: 'string',
+      roleSystemEnvs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       settings: JobSettings,
       status: 'string',
       statusHistory: { 'type': 'array', 'itemType': StatusTransitionItem },
@@ -1044,6 +1047,9 @@ export class GetJobResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.restartRecord)) {
       $dara.Model.validateArray(this.restartRecord);
+    }
+    if(this.roleSystemEnvs) {
+      $dara.Model.validateMap(this.roleSystemEnvs);
     }
     if(this.settings && typeof (this.settings as any).validate === 'function') {
       (this.settings as any).validate();
