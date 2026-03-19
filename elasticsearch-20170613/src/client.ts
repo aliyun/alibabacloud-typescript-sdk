@@ -4604,6 +4604,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取事件列表
+   * 
+   * @param request - ListEventRecordsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEventRecordsResponse
+   */
+  async listEventRecordsWithOptions(eventType: string, request: $_model.ListEventRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListEventRecordsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.beginTime)) {
+      query["beginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.termContent)) {
+      query["termContent"] = request.termContent;
+    }
+
+    if (!$dara.isNull(request.termType)) {
+      query["termType"] = request.termType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEventRecords",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/${$dara.URL.percentEncode(eventType)}/listEventRecords`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEventRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListEventRecordsResponse({}));
+  }
+
+  /**
+   * 获取事件列表
+   * 
+   * @param request - ListEventRecordsRequest
+   * @returns ListEventRecordsResponse
+   */
+  async listEventRecords(eventType: string, request: $_model.ListEventRecordsRequest): Promise<$_model.ListEventRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listEventRecordsWithOptions(eventType, request, headers, runtime);
+  }
+
+  /**
    * Queries the extended file configuration of a Logstash instance.
    * 
    * @param headers - map
@@ -5628,6 +5693,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计事件记录
+   * 
+   * @param request - ListStatsEventRecordsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStatsEventRecordsResponse
+   */
+  async listStatsEventRecordsWithOptions(request: $_model.ListStatsEventRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListStatsEventRecordsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eventType)) {
+      query["eventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.level)) {
+      query["level"] = request.level;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStatsEventRecords",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/event/statsEventRecords`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStatsEventRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListStatsEventRecordsResponse({}));
+  }
+
+  /**
+   * 统计事件记录
+   * 
+   * @param request - ListStatsEventRecordsRequest
+   * @returns ListStatsEventRecordsResponse
+   */
+  async listStatsEventRecords(request: $_model.ListStatsEventRecordsRequest): Promise<$_model.ListStatsEventRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listStatsEventRecordsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the tags that are added to one or more resources.
    * 
    * @param request - ListTagResourcesRequest
@@ -5982,6 +6100,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modifyInstanceMaintainTimeWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 修改计划执行时间
+   * 
+   * @param request - ModifyScheduleExecuteTimeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyScheduleExecuteTimeResponse
+   */
+  async modifyScheduleExecuteTimeWithOptions(instanceId: string, request: $_model.ModifyScheduleExecuteTimeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyScheduleExecuteTimeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["eventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.scheduleExecuteTime)) {
+      query["scheduleExecuteTime"] = request.scheduleExecuteTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyScheduleExecuteTime",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/event/${$dara.URL.percentEncode(instanceId)}/actions/modify-execute-time`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyScheduleExecuteTimeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyScheduleExecuteTimeResponse({}));
+  }
+
+  /**
+   * 修改计划执行时间
+   * 
+   * @param request - ModifyScheduleExecuteTimeRequest
+   * @returns ModifyScheduleExecuteTimeResponse
+   */
+  async modifyScheduleExecuteTime(instanceId: string, request: $_model.ModifyScheduleExecuteTimeRequest): Promise<$_model.ModifyScheduleExecuteTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyScheduleExecuteTimeWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
