@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeletePptArtifactRequest extends $dara.Model {
+  /**
+   * @example
+   * abc
+   */
   externalUserId?: string;
   pptArtifactId?: string;
   /**

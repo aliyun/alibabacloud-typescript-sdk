@@ -11,6 +11,10 @@ export class BindPptArtifactRequest extends $dara.Model {
    * 12342
    */
   artifactId?: number;
+  /**
+   * @example
+   * abc
+   */
   externalUserId?: string;
   /**
    * @remarks

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPptArtifactRequest extends $dara.Model {
+  /**
+   * @example
+   * abc
+   */
   externalUserId?: string;
   /**
    * @example
