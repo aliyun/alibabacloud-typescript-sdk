@@ -30,6 +30,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加CC规则
+   * 
    * @param request - AddLayer7CCRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddLayer7CCRuleResponse
@@ -91,6 +93,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加CC规则
+   * 
    * @param request - AddLayer7CCRuleRequest
    * @returns AddLayer7CCRuleResponse
    */
@@ -100,6 +104,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭日志分发
+   * 
    * @param request - CloseDomainSlsConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CloseDomainSlsConfigResponse
@@ -141,6 +147,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭日志分发
+   * 
    * @param request - CloseDomainSlsConfigRequest
    * @returns CloseDomainSlsConfigResponse
    */
@@ -150,6 +158,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改健康检查
+   * 
    * @param request - ConfigHealthCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigHealthCheckResponse
@@ -191,6 +201,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改健康检查
+   * 
    * @param request - ConfigHealthCheckRequest
    * @returns ConfigHealthCheckResponse
    */
@@ -200,6 +212,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改端口规则
+   * 
    * @param tmpReq - ConfigLayer4RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer4RuleResponse
@@ -243,6 +257,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改端口规则
+   * 
    * @param request - ConfigLayer4RuleRequest
    * @returns ConfigLayer4RuleResponse
    */
@@ -252,6 +268,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改端口规则属性
+   * 
    * @param request - ConfigLayer4RuleAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer4RuleAttributeResponse
@@ -297,6 +315,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改端口规则属性
+   * 
    * @param request - ConfigLayer4RuleAttributeRequest
    * @returns ConfigLayer4RuleAttributeResponse
    */
@@ -306,6 +326,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改黑白名单
+   * 
    * @param request - ConfigLayer7BlackWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer7BlackWhiteListResponse
@@ -347,6 +369,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改黑白名单
+   * 
    * @param request - ConfigLayer7BlackWhiteListRequest
    * @returns ConfigLayer7BlackWhiteListResponse
    */
@@ -356,6 +380,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改CC规则
+   * 
    * @param request - ConfigLayer7CCRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer7CCRuleResponse
@@ -417,6 +443,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改CC规则
+   * 
    * @param request - ConfigLayer7CCRuleRequest
    * @returns ConfigLayer7CCRuleResponse
    */
@@ -426,6 +454,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改CC模板
+   * 
    * @param request - ConfigLayer7CCTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer7CCTemplateResponse
@@ -463,6 +493,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改CC模板
+   * 
    * @param request - ConfigLayer7CCTemplateRequest
    * @returns ConfigLayer7CCTemplateResponse
    */
@@ -472,6 +504,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改证书
+   * 
    * @param request - ConfigLayer7CertRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer7CertResponse
@@ -529,6 +563,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改证书
+   * 
    * @param request - ConfigLayer7CertRequest
    * @returns ConfigLayer7CertResponse
    */
@@ -538,6 +574,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改域名接入规则
+   * 
    * @param request - ConfigLayer7RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer7RuleResponse
@@ -591,6 +629,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改域名接入规则
+   * 
    * @param request - ConfigLayer7RuleRequest
    * @returns ConfigLayer7RuleResponse
    */
@@ -600,6 +640,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建异步任务
+   * 
    * @param request - CreateAsyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAsyncTaskResponse
@@ -637,6 +679,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建异步任务
+   * 
    * @param request - CreateAsyncTaskRequest
    * @returns CreateAsyncTaskResponse
    */
@@ -646,6 +690,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建端口接入
+   * 
    * @param tmpReq - CreateLayer4RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLayer4RuleResponse
@@ -689,6 +735,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建端口接入
+   * 
    * @param request - CreateLayer4RuleRequest
    * @returns CreateLayer4RuleResponse
    */
@@ -698,6 +746,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建域名接入规则
+   * 
    * @param request - CreateLayer7RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLayer7RuleResponse
@@ -743,6 +793,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建域名接入规则
+   * 
    * @param request - CreateLayer7RuleRequest
    * @returns CreateLayer7RuleResponse
    */
@@ -752,6 +804,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除异步任务
+   * 
    * @param request - DeleteAsyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAsyncTaskResponse
@@ -785,6 +839,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除异步任务
+   * 
    * @param request - DeleteAsyncTaskRequest
    * @returns DeleteAsyncTaskResponse
    */
@@ -794,6 +850,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除端口接入规则
+   * 
    * @param request - DeleteLayer4RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLayer4RuleResponse
@@ -823,6 +881,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除端口接入规则
+   * 
    * @param request - DeleteLayer4RuleRequest
    * @returns DeleteLayer4RuleResponse
    */
@@ -832,6 +892,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除CC规则
+   * 
    * @param request - DeleteLayer7CCRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLayer7CCRuleResponse
@@ -869,6 +931,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除CC规则
+   * 
    * @param request - DeleteLayer7CCRuleRequest
    * @returns DeleteLayer7CCRuleResponse
    */
@@ -878,6 +942,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除域名接入规则
+   * 
    * @param request - DeleteLayer7RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLayer7RuleResponse
@@ -911,6 +977,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除域名接入规则
+   * 
    * @param request - DeleteLayer7RuleRequest
    * @returns DeleteLayer7RuleResponse
    */
@@ -920,6 +988,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询回源网段
+   * 
    * @param request - DescribeBackSourceCidrRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackSourceCidrResponse
@@ -961,6 +1031,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询回源网段
+   * 
    * @param request - DescribeBackSourceCidrRequest
    * @returns DescribeBackSourceCidrResponse
    */
@@ -1028,6 +1100,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询事件
+   * 
    * @param request - DescribeDDoSEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDDoSEventsResponse
@@ -1081,6 +1155,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询事件
+   * 
    * @param request - DescribeDDoSEventsRequest
    * @returns DescribeDDoSEventsResponse
    */
@@ -1090,6 +1166,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询流量
+   * 
    * @param request - DescribeDDoSTrafficRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDDoSTrafficResponse
@@ -1139,6 +1217,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询流量
+   * 
    * @param request - DescribeDDoSTrafficRequest
    * @returns DescribeDDoSTrafficResponse
    */
@@ -1148,6 +1228,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询防护次数
+   * 
    * @param request - DescribeDefenseCountStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDefenseCountStatisticsResponse
@@ -1181,6 +1263,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询防护次数
+   * 
    * @param request - DescribeDefenseCountStatisticsRequest
    * @returns DescribeDefenseCountStatisticsResponse
    */
@@ -1190,6 +1274,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名接入模式
+   * 
    * @param request - DescribeDomainAccessModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainAccessModeResponse
@@ -1223,6 +1309,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名接入模式
+   * 
    * @param request - DescribeDomainAccessModeRequest
    * @returns DescribeDomainAccessModeResponse
    */
@@ -1232,6 +1320,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名攻击事件
+   * 
    * @param request - DescribeDomainAttackEventListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainAttackEventListResponse
@@ -1281,6 +1371,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名攻击事件
+   * 
    * @param request - DescribeDomainAttackEventListRequest
    * @returns DescribeDomainAttackEventListResponse
    */
@@ -1290,6 +1382,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名攻击最大QPS
+   * 
    * @param request - DescribeDomainAttackMaxQpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainAttackMaxQpsResponse
@@ -1331,6 +1425,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名攻击最大QPS
+   * 
    * @param request - DescribeDomainAttackMaxQpsRequest
    * @returns DescribeDomainAttackMaxQpsResponse
    */
@@ -1340,6 +1436,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 域名概览
+   * 
    * @param request - DescribeDomainOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainOverviewResponse
@@ -1381,6 +1479,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 域名概览
+   * 
    * @param request - DescribeDomainOverviewRequest
    * @returns DescribeDomainOverviewResponse
    */
@@ -1390,6 +1490,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名QPS
+   * 
    * @param request - DescribeDomainQpsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainQpsListResponse
@@ -1435,6 +1537,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名QPS
+   * 
    * @param request - DescribeDomainQpsListRequest
    * @returns DescribeDomainQpsListResponse
    */
@@ -1444,6 +1548,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询qps
+   * 
    * @param request - DescribeDomainQpsWithCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainQpsWithCacheResponse
@@ -1489,6 +1595,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询qps
+   * 
    * @param request - DescribeDomainQpsWithCacheRequest
    * @returns DescribeDomainQpsWithCacheResponse
    */
@@ -1498,6 +1606,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询日志分发状态
+   * 
    * @param request - DescribeDomainSlsStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainSlsStatusResponse
@@ -1539,6 +1649,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询日志分发状态
+   * 
    * @param request - DescribeDomainSlsStatusRequest
    * @returns DescribeDomainSlsStatusResponse
    */
@@ -1610,6 +1722,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名
+   * 
    * @param request - DescribeDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainsResponse
@@ -1663,6 +1777,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名
+   * 
    * @param request - DescribeDomainsRequest
    * @returns DescribeDomainsResponse
    */
@@ -1672,6 +1788,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询弹性带宽规格
+   * 
    * @param request - DescribeElasticBandwidthSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeElasticBandwidthSpecResponse
@@ -1705,6 +1823,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询弹性带宽规格
+   * 
    * @param request - DescribeElasticBandwidthSpecRequest
    * @returns DescribeElasticBandwidthSpecResponse
    */
@@ -1714,6 +1834,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询健康检查列表
+   * 
    * @param request - DescribeHealthCheckListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeHealthCheckListResponse
@@ -1747,6 +1869,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询健康检查列表
+   * 
    * @param request - DescribeHealthCheckListRequest
    * @returns DescribeHealthCheckListResponse
    */
@@ -1756,6 +1880,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询监控检查状态
+   * 
    * @param request - DescribeHealthCheckStatusListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeHealthCheckStatusListResponse
@@ -1789,6 +1915,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询监控检查状态
+   * 
    * @param request - DescribeHealthCheckStatusListRequest
    * @returns DescribeHealthCheckStatusListResponse
    */
@@ -1798,6 +1926,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例详情
+   * 
    * @param request - DescribeInstanceDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceDetailsResponse
@@ -1831,6 +1961,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例详情
+   * 
    * @param request - DescribeInstanceDetailsRequest
    * @returns DescribeInstanceDetailsResponse
    */
@@ -1840,6 +1972,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例规格
+   * 
    * @param request - DescribeInstanceSpecsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceSpecsResponse
@@ -1873,6 +2007,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例规格
+   * 
    * @param request - DescribeInstanceSpecsRequest
    * @returns DescribeInstanceSpecsResponse
    */
@@ -1882,6 +2018,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例统计
+   * 
    * @param request - DescribeInstanceStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceStatisticsResponse
@@ -1915,6 +2053,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例统计
+   * 
    * @param request - DescribeInstanceStatisticsRequest
    * @returns DescribeInstanceStatisticsResponse
    */
@@ -1924,6 +2064,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例
+   * 
    * @param request - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
@@ -2001,6 +2143,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例
+   * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
    */
@@ -2010,6 +2154,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询流量
+   * 
    * @param request - DescribeIpTrafficRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeIpTrafficResponse
@@ -2067,6 +2213,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询流量
+   * 
    * @param request - DescribeIpTrafficRequest
    * @returns DescribeIpTrafficResponse
    */
@@ -2076,6 +2224,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询端口规则属性
+   * 
    * @param request - DescribeLayer4RuleAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLayer4RuleAttributesResponse
@@ -2109,6 +2259,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询端口规则属性
+   * 
    * @param request - DescribeLayer4RuleAttributesRequest
    * @returns DescribeLayer4RuleAttributesResponse
    */
@@ -2180,6 +2332,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询CC规则
+   * 
    * @param request - DescribeLayer7CCRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLayer7CCRulesResponse
@@ -2225,6 +2379,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询CC规则
+   * 
    * @param request - DescribeLayer7CCRulesRequest
    * @returns DescribeLayer7CCRulesResponse
    */
@@ -2234,6 +2390,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询日志库存在状态
+   * 
    * @param request - DescribeLogStoreExistStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLogStoreExistStatusResponse
@@ -2271,6 +2429,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询日志库存在状态
+   * 
    * @param request - DescribeLogStoreExistStatusRequest
    * @returns DescribeLogStoreExistStatusResponse
    */
@@ -2280,6 +2440,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询操作日志
+   * 
    * @param request - DescribeOpEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOpEntitiesResponse
@@ -2341,6 +2503,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询操作日志
+   * 
    * @param request - DescribeOpEntitiesRequest
    * @returns DescribeOpEntitiesResponse
    */
@@ -2350,6 +2514,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名
+   * 
    * @param request - DescribeSimpleDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSimpleDomainsResponse
@@ -2391,6 +2557,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名
+   * 
    * @param request - DescribeSimpleDomainsRequest
    * @returns DescribeSimpleDomainsResponse
    */
@@ -2400,6 +2568,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询sls授权状态
+   * 
    * @param request - DescribeSlsAuthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlsAuthStatusResponse
@@ -2437,6 +2607,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询sls授权状态
+   * 
    * @param request - DescribeSlsAuthStatusRequest
    * @returns DescribeSlsAuthStatusResponse
    */
@@ -2446,6 +2618,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询清空次数
+   * 
    * @param request - DescribeSlsEmptyCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlsEmptyCountResponse
@@ -2483,6 +2657,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询清空次数
+   * 
    * @param request - DescribeSlsEmptyCountRequest
    * @returns DescribeSlsEmptyCountResponse
    */
@@ -2492,6 +2668,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询全量日志信息
+   * 
    * @param request - DescribeSlsLogstoreInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlsLogstoreInfoResponse
@@ -2529,6 +2707,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询全量日志信息
+   * 
    * @param request - DescribeSlsLogstoreInfoRequest
    * @returns DescribeSlsLogstoreInfoResponse
    */
@@ -2538,6 +2718,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询sls开通状态
+   * 
    * @param request - DescribeSlsOpenStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlsOpenStatusResponse
@@ -2575,6 +2757,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询sls开通状态
+   * 
    * @param request - DescribeSlsOpenStatusRequest
    * @returns DescribeSlsOpenStatusResponse
    */
@@ -2584,6 +2768,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询证书列表
+   * 
    * @param request - DescribleCertListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribleCertListResponse
@@ -2593,6 +2779,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.domainList)) {
+      query["DomainList"] = request.domainList;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
@@ -2621,6 +2811,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询证书列表
+   * 
    * @param request - DescribleCertListRequest
    * @returns DescribleCertListResponse
    */
@@ -2630,6 +2822,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名实例关系
+   * 
    * @param request - DescribleLayer7InstanceRelationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribleLayer7InstanceRelationsResponse
@@ -2667,6 +2861,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名实例关系
+   * 
    * @param request - DescribleLayer7InstanceRelationsRequest
    * @returns DescribleLayer7InstanceRelationsResponse
    */
@@ -2676,6 +2872,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭CC
+   * 
    * @param request - DisableLayer7CCRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableLayer7CCResponse
@@ -2713,6 +2911,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭CC
+   * 
    * @param request - DisableLayer7CCRequest
    * @returns DisableLayer7CCResponse
    */
@@ -2722,6 +2922,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭CC规则
+   * 
    * @param request - DisableLayer7CCRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableLayer7CCRuleResponse
@@ -2759,6 +2961,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭CC规则
+   * 
    * @param request - DisableLayer7CCRuleRequest
    * @returns DisableLayer7CCRuleResponse
    */
@@ -2768,6 +2972,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 清除SLS日志库
+   * 
    * @param request - EmptySlsLogstoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EmptySlsLogstoreResponse
@@ -2805,6 +3011,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 清除SLS日志库
+   * 
    * @param request - EmptySlsLogstoreRequest
    * @returns EmptySlsLogstoreResponse
    */
@@ -2814,6 +3022,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启CC
+   * 
    * @param request - EnableLayer7CCRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableLayer7CCResponse
@@ -2851,6 +3061,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启CC
+   * 
    * @param request - EnableLayer7CCRequest
    * @returns EnableLayer7CCResponse
    */
@@ -2860,6 +3072,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启CC规则
+   * 
    * @param request - EnableLayer7CCRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableLayer7CCRuleResponse
@@ -2897,6 +3111,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启CC规则
+   * 
    * @param request - EnableLayer7CCRuleRequest
    * @returns EnableLayer7CCRuleResponse
    */
@@ -2906,6 +3122,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询异步任务
+   * 
    * @param request - ListAsyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAsyncTaskResponse
@@ -2951,6 +3169,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询异步任务
+   * 
    * @param request - ListAsyncTaskRequest
    * @returns ListAsyncTaskResponse
    */
@@ -2960,6 +3180,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名接入端口
+   * 
    * @param request - ListLayer7CustomPortsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLayer7CustomPortsResponse
@@ -2997,6 +3219,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名接入端口
+   * 
    * @param request - ListLayer7CustomPortsRequest
    * @returns ListLayer7CustomPortsResponse
    */
@@ -3006,6 +3230,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出tag
+   * 
    * @param request - ListTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
@@ -3051,6 +3277,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出tag
+   * 
    * @param request - ListTagKeysRequest
    * @returns ListTagKeysResponse
    */
@@ -3060,6 +3288,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资源
+   * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
@@ -3109,6 +3339,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资源
+   * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
    */
@@ -3118,6 +3350,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询日志实例
+   * 
    * @param request - ListValueAddedRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListValueAddedResponse
@@ -3151,6 +3385,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询日志实例
+   * 
    * @param request - ListValueAddedRequest
    * @returns ListValueAddedResponse
    */
@@ -3160,6 +3396,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改弹性业务带宽
+   * 
    * @param request - ModifyElasticBandWidthRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyElasticBandWidthResponse
@@ -3197,6 +3435,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改弹性业务带宽
+   * 
    * @param request - ModifyElasticBandWidthRequest
    * @returns ModifyElasticBandWidthResponse
    */
@@ -3206,6 +3446,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改日志存储时长
+   * 
    * @param request - ModifyFullLogTtlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyFullLogTtlResponse
@@ -3247,6 +3489,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改日志存储时长
+   * 
    * @param request - ModifyFullLogTtlRequest
    * @returns ModifyFullLogTtlResponse
    */
@@ -3256,6 +3500,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例备注
+   * 
    * @param request - ModifyInstanceRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceRemarkResponse
@@ -3293,6 +3539,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例备注
+   * 
    * @param request - ModifyInstanceRemarkRequest
    * @returns ModifyInstanceRemarkResponse
    */
@@ -3302,6 +3550,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启日志分发
+   * 
    * @param request - OpenDomainSlsConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenDomainSlsConfigResponse
@@ -3343,6 +3593,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启日志分发
+   * 
    * @param request - OpenDomainSlsConfigRequest
    * @returns OpenDomainSlsConfigResponse
    */
@@ -3352,6 +3604,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放实例
+   * 
    * @param request - ReleaseInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseInstanceResponse
@@ -3385,6 +3639,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放实例
+   * 
    * @param request - ReleaseInstanceRequest
    * @returns ReleaseInstanceResponse
    */
@@ -3394,6 +3650,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放日志实例
+   * 
    * @param request - ReleaseValueAddedRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseValueAddedResponse
@@ -3427,6 +3685,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放日志实例
+   * 
    * @param request - ReleaseValueAddedRequest
    * @returns ReleaseValueAddedResponse
    */
@@ -3436,6 +3696,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 标签资源
+   * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
@@ -3481,6 +3743,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 标签资源
+   * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
    */
@@ -3490,6 +3754,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解除资源标签
+   * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
@@ -3539,6 +3805,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解除资源标签
+   * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
    */

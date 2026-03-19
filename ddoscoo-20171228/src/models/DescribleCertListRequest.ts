@@ -8,6 +8,7 @@ export class DescribleCertListRequest extends $dara.Model {
    * www.aliyun.com
    */
   domain?: string;
+  domainList?: string;
   /**
    * @example
    * test
@@ -21,6 +22,7 @@ export class DescribleCertListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
+      domainList: 'DomainList',
       resourceGroupId: 'ResourceGroupId',
       sourceIp: 'SourceIp',
     };
@@ -29,6 +31,7 @@ export class DescribleCertListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
+      domainList: 'string',
       resourceGroupId: 'string',
       sourceIp: 'string',
     };
