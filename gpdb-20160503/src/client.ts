@@ -1071,6 +1071,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建 AI 服务
+   * 
+   * @param request - CreateAIServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAIServiceResponse
+   */
+  async createAIServiceWithOptions(request: $_model.CreateAIServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!$dara.isNull(request.serviceAccount)) {
+      query["ServiceAccount"] = request.serviceAccount;
+    }
+
+    if (!$dara.isNull(request.serviceAccountPassword)) {
+      query["ServiceAccountPassword"] = request.serviceAccountPassword;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAIService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAIServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateAIServiceResponse({}));
+  }
+
+  /**
+   * 创建 AI 服务
+   * 
+   * @param request - CreateAIServiceRequest
+   * @returns CreateAIServiceResponse
+   */
+  async createAIService(request: $_model.CreateAIServiceRequest): Promise<$_model.CreateAIServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAIServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an initial account for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
@@ -3261,6 +3323,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除 AI 服务
+   * 
+   * @param request - DeleteAIServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAIServiceResponse
+   */
+  async deleteAIServiceWithOptions(request: $_model.DeleteAIServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAIServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAIService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAIServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAIServiceResponse({}));
+  }
+
+  /**
+   * 删除 AI 服务
+   * 
+   * @param request - DeleteAIServiceRequest
+   * @returns DeleteAIServiceResponse
+   */
+  async deleteAIService(request: $_model.DeleteAIServiceRequest): Promise<$_model.DeleteAIServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAIServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a database account.
    * 
    * @param request - DeleteAccountRequest
@@ -4762,6 +4874,56 @@ export default class Client extends OpenApi {
   async deployPrivateRAGService(request: $_model.DeployPrivateRAGServiceRequest): Promise<$_model.DeployPrivateRAGServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deployPrivateRAGServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取 AI 服务详情
+   * 
+   * @param request - DescribeAIServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIServiceResponse
+   */
+  async describeAIServiceWithOptions(request: $_model.DescribeAIServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIServiceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIServiceResponse({}));
+  }
+
+  /**
+   * 获取 AI 服务详情
+   * 
+   * @param request - DescribeAIServiceRequest
+   * @returns DescribeAIServiceResponse
+   */
+  async describeAIService(request: $_model.DescribeAIServiceRequest): Promise<$_model.DescribeAIServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIServiceWithOptions(request, runtime);
   }
 
   /**
@@ -10493,6 +10655,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取 AI 服务列表
+   * 
+   * @param request - ListAIServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAIServicesResponse
+   */
+  async listAIServicesWithOptions(request: $_model.ListAIServicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAIServicesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAIServices",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAIServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListAIServicesResponse({}));
+  }
+
+  /**
+   * 获取 AI 服务列表
+   * 
+   * @param request - ListAIServicesRequest
+   * @returns ListAIServicesResponse
+   */
+  async listAIServices(request: $_model.ListAIServicesRequest): Promise<$_model.ListAIServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAIServicesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of backup jobs.
    * 
    * @param request - ListBackupJobsRequest
@@ -11934,6 +12150,60 @@ export default class Client extends OpenApi {
   async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改 AI 服务白名单
+   * 
+   * @param request - ModifyAIServiceSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAIServiceSecurityIpsResponse
+   */
+  async modifyAIServiceSecurityIpsWithOptions(request: $_model.ModifyAIServiceSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAIServiceSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAIServiceSecurityIps",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAIServiceSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAIServiceSecurityIpsResponse({}));
+  }
+
+  /**
+   * 修改 AI 服务白名单
+   * 
+   * @param request - ModifyAIServiceSecurityIpsRequest
+   * @returns ModifyAIServiceSecurityIpsResponse
+   */
+  async modifyAIServiceSecurityIps(request: $_model.ModifyAIServiceSecurityIpsRequest): Promise<$_model.ModifyAIServiceSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAIServiceSecurityIpsWithOptions(request, runtime);
   }
 
   /**
