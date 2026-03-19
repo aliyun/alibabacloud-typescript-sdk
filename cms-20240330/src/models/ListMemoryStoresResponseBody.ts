@@ -87,12 +87,14 @@ export class ListMemoryStoresResponseBody extends $dara.Model {
    * 16C0A6D6-C3E7-511D-A60B-A87FD85F5BA7
    */
   requestId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'maxResults',
       memoryStores: 'memoryStores',
       nextToken: 'nextToken',
       requestId: 'requestId',
+      total: 'total',
     };
   }
 
@@ -102,6 +104,7 @@ export class ListMemoryStoresResponseBody extends $dara.Model {
       memoryStores: { 'type': 'array', 'itemType': ListMemoryStoresResponseBodyMemoryStores },
       nextToken: 'string',
       requestId: 'string',
+      total: 'number',
     };
   }
 

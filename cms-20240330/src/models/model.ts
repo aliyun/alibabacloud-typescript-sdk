@@ -115,6 +115,7 @@ export { GetMemoriesResponseBodyRelations } from './GetMemoriesResponseBody';
 export { GetMemoriesResponseBodyResults } from './GetMemoriesResponseBody';
 export { GetMemoryHistoryResponseBodyResultsInput } from './GetMemoryHistoryResponseBody';
 export { GetMemoryHistoryResponseBodyResults } from './GetMemoryHistoryResponseBody';
+export { GetMemoryStoreResponseBodyShortTermStorage } from './GetMemoryStoreResponseBody';
 export { GetPrometheusInstanceResponseBodyPrometheusInstanceTags } from './GetPrometheusInstanceResponseBody';
 export { GetPrometheusInstanceResponseBodyPrometheusInstance } from './GetPrometheusInstanceResponseBody';
 export { GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances } from './GetPrometheusViewResponseBody';

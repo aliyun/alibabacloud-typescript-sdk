@@ -3,6 +3,32 @@ import * as $dara from '@darabonba/typescript';
 import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
+export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
+  logstore?: string;
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      project: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMemoryStoreResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -34,6 +60,7 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
    */
   requestId?: string;
+  shortTermStorage?: GetMemoryStoreResponseBodyShortTermStorage;
   /**
    * @example
    * 10
@@ -61,6 +88,7 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
       memoryStoreName: 'memoryStoreName',
       regionId: 'regionId',
       requestId: 'requestId',
+      shortTermStorage: 'shortTermStorage',
       shortTermTtl: 'shortTermTtl',
       updateTime: 'updateTime',
       workspace: 'workspace',
@@ -76,6 +104,7 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
       memoryStoreName: 'string',
       regionId: 'string',
       requestId: 'string',
+      shortTermStorage: GetMemoryStoreResponseBodyShortTermStorage,
       shortTermTtl: 'number',
       updateTime: 'string',
       workspace: 'string',
@@ -88,6 +117,9 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.extractionStrategies)) {
       $dara.Model.validateArray(this.extractionStrategies);
+    }
+    if(this.shortTermStorage && typeof (this.shortTermStorage as any).validate === 'function') {
+      (this.shortTermStorage as any).validate();
     }
     super.validate();
   }
