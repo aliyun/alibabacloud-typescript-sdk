@@ -101,20 +101,8 @@ export class GetDatabaseExportOrderDetailResponseBodyDatabaseExportOrderDetailKe
    * DATA
    */
   exportContent?: string;
-  /**
-   * @remarks
-   * The type of schema that was exported.
-   */
   exportTypes?: GetDatabaseExportOrderDetailResponseBodyDatabaseExportOrderDetailKeyInfoConfigExportTypes;
-  /**
-   * @remarks
-   * The extension options of the SQL script.
-   */
   SQLExtOption?: GetDatabaseExportOrderDetailResponseBodyDatabaseExportOrderDetailKeyInfoConfigSQLExtOption;
-  /**
-   * @remarks
-   * The tables that were exported from the database.
-   */
   selectedTables?: GetDatabaseExportOrderDetailResponseBodyDatabaseExportOrderDetailKeyInfoConfigSelectedTables;
   /**
    * @remarks

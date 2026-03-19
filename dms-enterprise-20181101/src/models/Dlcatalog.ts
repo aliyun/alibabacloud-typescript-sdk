@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLCatalog extends $dara.Model {
+  /**
+   * @example
+   * init default catalog
+   */
   description?: string;
+  /**
+   * @example
+   * oss://xxxx
+   */
   location?: string;
+  /**
+   * @example
+   * hive
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,112 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserOwnedResourcesResponseBodyDataResourceList extends $dara.Model {
-  /**
-   * @remarks
-   * The alias of the instance.
-   * 
-   * @example
-   * DMS_GYX_TESTupdata
-   */
   alias?: string;
-  /**
-   * @remarks
-   * The ID of the database in DMS.
-   * 
-   * @example
-   * 29697059
-   */
   dbId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the database belongs.
-   * 
-   * @example
-   * 876XXX
-   */
   dbInstanceId?: string;
-  /**
-   * @remarks
-   * The database engine type. For more information about the valid values of the DbType parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
-   * 
-   * @example
-   * MySQL
-   */
   dbType?: string;
-  /**
-   * @remarks
-   * The type of the environment to which the database instance belongs.
-   * 
-   * @example
-   * product
-   */
   envType?: string;
-  /**
-   * @remarks
-   * The endpoint of the instance to which the database belongs.
-   * 
-   * @example
-   * rm-wz98bw60x1i1303c5.mysql.rds.aliyuncs.com
-   */
   host?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * 291594
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the database is a logical database. Valid values:
-   * 
-   * *   **true**: The database is a logical database
-   * *   **false**: The database is a physical database.
-   * 
-   * @example
-   * false
-   */
   logic?: boolean;
-  /**
-   * @remarks
-   * The connection port of the instance to which the database belongs.
-   * 
-   * @example
-   * 6379
-   */
   port?: number;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * as_task_engine
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The query name of the database.
-   * 
-   * @example
-   * dtstest [dtstest_dms]
-   */
   searchName?: string;
-  /**
-   * @remarks
-   * The table ID.
-   * 
-   * @example
-   * 1760934555
-   */
   tableId?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * addepmap
-   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -182,10 +88,6 @@ export class ListUserOwnedResourcesResponseBodyData extends $dara.Model {
 }
 
 export class ListUserOwnedResourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   */
   data?: ListUserOwnedResourcesResponseBodyData;
   /**
    * @remarks

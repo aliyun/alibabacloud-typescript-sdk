@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser extends $dara.Model {
-  /**
-   * @remarks
-   * The nickname of the approver.
-   * 
-   * @example
-   * Owner
-   */
   nickName?: string;
-  /**
-   * @remarks
-   * The name of the approver.
-   * 
-   * @example
-   * db_test
-   */
   realName?: string;
-  /**
-   * @remarks
-   * The ID of the approver.
-   * 
-   * @example
-   * 16***
-   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,37 +58,9 @@ export class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNo
 }
 
 export class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode extends $dara.Model {
-  /**
-   * @remarks
-   * The approvers.
-   */
   auditUserList?: PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList;
-  /**
-   * @remarks
-   * The remarks of the approval node.
-   */
   comment?: string;
-  /**
-   * @remarks
-   * The name of the approval node.
-   * 
-   * @example
-   * Owner
-   */
   nodeName?: string;
-  /**
-   * @remarks
-   * The type of the approval node.
-   * 
-   * Valid values:
-   * 
-   * *   USER_LIST: The approval node is created by a user.
-   * *   UNKNOWN: The source of the approval node is unknown.
-   * *   SYS: The approval node is predefined by the system.
-   * 
-   * @example
-   * SYS
-   */
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,10 +129,6 @@ export class PreviewWorkflowResponseBodyWorkflowDetail extends $dara.Model {
    * The name of the approval template.
    */
   wfCateName?: string;
-  /**
-   * @remarks
-   * The approval nodes.
-   */
   workflowNodeList?: PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList;
   static names(): { [key: string]: string } {
     return {

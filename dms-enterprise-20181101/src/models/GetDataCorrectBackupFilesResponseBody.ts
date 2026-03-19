@@ -29,10 +29,6 @@ export class GetDataCorrectBackupFilesResponseBodyDataCorrectBackupFiles extends
 }
 
 export class GetDataCorrectBackupFilesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The download URL of the backup file for the ticket.
-   */
   dataCorrectBackupFiles?: GetDataCorrectBackupFilesResponseBodyDataCorrectBackupFiles;
   /**
    * @remarks

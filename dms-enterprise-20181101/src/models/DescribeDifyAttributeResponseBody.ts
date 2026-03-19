@@ -5,12 +5,44 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
   /**
    * @example
+   * DIFY
+   */
+  appType?: string;
+  /**
+   * @example
    * 92748163-af62-4ca4-ad85-1****
    */
   appUuid?: string;
+  /**
+   * @example
+   * ABCD
+   */
   billingInstanceId?: string;
+  /**
+   * @example
+   * PREPAY
+   */
   chargeType?: string;
+  /**
+   * @example
+   * abc1-def2-ghi3-jkl4
+   */
+  difyInstanceId?: string;
+  /**
+   * @example
+   * This is dify instance
+   */
+  difyInstanceName?: string;
+  /**
+   * @example
+   * 20251201
+   */
   expireTime?: number;
+  /**
+   * @example
+   * cn-chengdu
+   */
+  regionId?: string;
   /**
    * @example
    * 1
@@ -31,6 +63,10 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
    * DEPLOYED
    */
   status?: string;
+  /**
+   * @example
+   * ESSD
+   */
   storageType?: string;
   /**
    * @example
@@ -54,10 +90,14 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      appType: 'AppType',
       appUuid: 'AppUuid',
       billingInstanceId: 'BillingInstanceId',
       chargeType: 'ChargeType',
+      difyInstanceId: 'DifyInstanceId',
+      difyInstanceName: 'DifyInstanceName',
       expireTime: 'ExpireTime',
+      regionId: 'RegionId',
       replicas: 'Replicas',
       resourceQuota: 'ResourceQuota',
       securityGroupId: 'SecurityGroupId',
@@ -72,10 +112,14 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appType: 'string',
       appUuid: 'string',
       billingInstanceId: 'string',
       chargeType: 'string',
+      difyInstanceId: 'string',
+      difyInstanceName: 'string',
       expireTime: 'number',
+      regionId: 'string',
       replicas: 'string',
       resourceQuota: 'string',
       securityGroupId: 'string',
@@ -85,6 +129,40 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
       vpcId: 'string',
       workspaceId: 'string',
       zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDifyAttributeResponseBodyTags extends $dara.Model {
+  /**
+   * @example
+   * Key
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * Value
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -129,6 +207,7 @@ export class DescribeDifyAttributeResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
+  tags?: DescribeDifyAttributeResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -138,6 +217,7 @@ export class DescribeDifyAttributeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       root: 'Root',
       success: 'Success',
+      tags: 'Tags',
     };
   }
 
@@ -150,12 +230,16 @@ export class DescribeDifyAttributeResponseBody extends $dara.Model {
       requestId: 'string',
       root: DescribeDifyAttributeResponseBodyRoot,
       success: 'boolean',
+      tags: { 'type': 'array', 'itemType': DescribeDifyAttributeResponseBodyTags },
     };
   }
 
   validate() {
     if(this.root && typeof (this.root as any).validate === 'function') {
       (this.root as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

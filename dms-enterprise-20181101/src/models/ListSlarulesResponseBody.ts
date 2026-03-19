@@ -3,48 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSLARulesResponseBodySLARuleListSLARule extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the task flow.
-   * 
-   * @example
-   * 11****
-   */
   dagId?: number;
-  /**
-   * @remarks
-   * The ID of the SLA rule.
-   * 
-   * @example
-   * 2
-   */
   id?: number;
-  /**
-   * @remarks
-   * The timeout period. Unit: minutes.
-   * 
-   * @example
-   * 1080
-   */
   intervalMinutes?: number;
-  /**
-   * @remarks
-   * The ID of the task node.
-   * 
-   * @example
-   * 1
-   */
   nodeId?: number;
-  /**
-   * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   **0**: an SLA rule for a task flow
-   * *   **1**: an SLA rule for a task node
-   * 
-   * @example
-   * 0
-   */
   ruleType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -126,10 +88,6 @@ export class ListSLARulesResponseBody extends $dara.Model {
    * 3D1A59F4-EB2B-5D24-80A5-90C446A00DE2
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of SLA rules.
-   */
   SLARuleList?: ListSLARulesResponseBodySLARuleList;
   /**
    * @remarks

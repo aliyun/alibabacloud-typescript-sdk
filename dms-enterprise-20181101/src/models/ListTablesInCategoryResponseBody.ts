@@ -30,10 +30,6 @@ export class ListTablesInCategoryResponseBodyEntityList extends $dara.Model {
 }
 
 export class ListTablesInCategoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * List of table information associated with the asset category.
-   */
   entityList?: ListTablesInCategoryResponseBodyEntityList;
   /**
    * @remarks

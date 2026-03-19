@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLogicTableRouteConfigResponseBodyLogicTableRouteConfigListLogicTableRouteConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The routing algorithm expression.
-   * 
-   * @example
-   * #id#%16\\t
-   */
   routeExpr?: string;
-  /**
-   * @remarks
-   * The unique key of the routing algorithm.
-   * 
-   * @example
-   * 1
-   */
   routeKey?: string;
-  /**
-   * @remarks
-   * The ID of the logical table.
-   * 
-   * @example
-   * 4****
-   */
   tableId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -95,10 +74,6 @@ export class ListLogicTableRouteConfigResponseBody extends $dara.Model {
    * TableId is mandatory for this action.
    */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The routing algorithms.
-   */
   logicTableRouteConfigList?: ListLogicTableRouteConfigResponseBodyLogicTableRouteConfigList;
   /**
    * @remarks

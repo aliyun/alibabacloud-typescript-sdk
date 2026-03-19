@@ -3,147 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLhTaskFlowAndScenarioResponseBodyRawDAGListDag extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the task flow can be modified. Valid values:
-   * 
-   * *   **true**: The task flow can be modified.
-   * *   **false**: The task flow cannot be modified.
-   * 
-   * @example
-   * true
-   */
   canEdit?: boolean;
-  /**
-   * @remarks
-   * The ID of the user who creates the task flow.
-   * 
-   * @example
-   * 51****
-   */
   creatorId?: string;
-  /**
-   * @remarks
-   * The name of the user who creates the workspace.
-   * 
-   * @example
-   * Creator_Name
-   */
   creatorNickName?: string;
-  /**
-   * @remarks
-   * The name of the task flow.
-   * 
-   * @example
-   * Dag_Name
-   */
   dagName?: string;
-  /**
-   * @remarks
-   * The user ID of the task flow owner.
-   * 
-   * @example
-   * 51****
-   */
   dagOwnerId?: string;
-  /**
-   * @remarks
-   * The name of the task flow owner.
-   * 
-   * @example
-   * Owner_Name
-   */
   dagOwnerNickName?: string;
-  /**
-   * @remarks
-   * The extended field. No meaning is specified for this field.
-   * 
-   * @example
-   * -
-   */
   dataFlowId?: number;
-  /**
-   * @remarks
-   * The extended field. No meaning is specified for this field.
-   * 
-   * @example
-   * -
-   */
   demoId?: string;
-  /**
-   * @remarks
-   * The ID of the latest deployment record.
-   * 
-   * @example
-   * 12**
-   */
   deployId?: number;
-  /**
-   * @remarks
-   * The ID of the task flow.
-   * 
-   * @example
-   * 134137****
-   */
   id?: number;
-  /**
-   * @remarks
-   * Indicates whether the task flow is deleted. Valid values:
-   * 
-   * *   **true**: deleted
-   * *   **false**: not deleted
-   * 
-   * @example
-   * false
-   */
   isDeleted?: boolean;
-  /**
-   * @remarks
-   * The status of the latest execution. Valid values:
-   * 
-   * *   **0**: invalid
-   * *   **1**: scheduling disabled
-   * *   **2**: waiting to be scheduled
-   * 
-   * @example
-   * 0
-   */
   latestInstanceStatus?: number;
-  /**
-   * @remarks
-   * The time when the latest execution record was generated.
-   * 
-   * @example
-   * 2022-04-14
-   */
   latestInstanceTime?: number;
-  /**
-   * @remarks
-   * The ID of the business scenario.
-   * 
-   * @example
-   * 2**
-   */
   scenarioId?: number;
-  /**
-   * @remarks
-   * The ID of the workspace.
-   * 
-   * @example
-   * 1
-   */
   spaceId?: number;
-  /**
-   * @remarks
-   * The status of the task flow. Valid values:
-   * 
-   * *   **0**: invalid
-   * *   **1**: scheduling disabled
-   * *   **2**: waiting to be scheduled
-   * 
-   * @example
-   * 2
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -223,147 +97,21 @@ export class ListLhTaskFlowAndScenarioResponseBodyRawDAGList extends $dara.Model
 }
 
 export class ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAGDagListDag extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the task flow can be modified. Valid values:
-   * 
-   * - **true**: The task flow can be modified.
-   * - **false**: The task flow cannot be modified.
-   * 
-   * @example
-   * true
-   */
   canEdit?: boolean;
-  /**
-   * @remarks
-   * The ID of the user who creates the task flow.
-   * 
-   * @example
-   * 51****
-   */
   creatorId?: string;
-  /**
-   * @remarks
-   * The name of the user who creates the workspace.
-   * 
-   * @example
-   * Creator_Name
-   */
   creatorNickName?: string;
-  /**
-   * @remarks
-   * The name of the task flow.
-   * 
-   * @example
-   * Dag_Name
-   */
   dagName?: string;
-  /**
-   * @remarks
-   * The user ID of the task flow owner.
-   * 
-   * @example
-   * 51****
-   */
   dagOwnerId?: string;
-  /**
-   * @remarks
-   * The name of the task flow owner.
-   * 
-   * @example
-   * Owner_Name
-   */
   dagOwnerNickName?: string;
-  /**
-   * @remarks
-   * The extended field. No meaning is specified for this field.
-   * 
-   * @example
-   * -
-   */
   dataFlowId?: number;
-  /**
-   * @remarks
-   * The extended field. No meaning is specified for this field.
-   * 
-   * @example
-   * -
-   */
   demoId?: string;
-  /**
-   * @remarks
-   * The ID of the latest deployment record.
-   * 
-   * @example
-   * 12**
-   */
   deployId?: number;
-  /**
-   * @remarks
-   * The ID of the task flow.
-   * 
-   * @example
-   * 9***
-   */
   id?: number;
-  /**
-   * @remarks
-   * Indicates whether the task flow is deleted. Valid values:
-   * 
-   * - **true**: deleted
-   * - **false**: not deleted
-   * 
-   * @example
-   * false
-   */
   isDeleted?: boolean;
-  /**
-   * @remarks
-   * The status of the latest execution. Valid values:
-   * 
-   * - 0: invalid
-   * - 1: scheduling disabled
-   * - 2: waiting to be scheduled
-   * 
-   * @example
-   * 1
-   */
   latestInstanceStatus?: number;
-  /**
-   * @remarks
-   * The time when the latest execution record was generated.
-   * 
-   * @example
-   * 2022-04-14
-   */
   latestInstanceTime?: number;
-  /**
-   * @remarks
-   * The ID of the business scenario.
-   * 
-   * @example
-   * 2**
-   */
   scenarioId?: number;
-  /**
-   * @remarks
-   * The ID of the workspace.
-   * 
-   * @example
-   * 1
-   */
   spaceId?: number;
-  /**
-   * @remarks
-   * The status of the task flow. Valid values:
-   * 
-   * - **0**: invalid
-   * - **1**: scheduling disabled
-   * - **2**: waiting to be scheduled
-   * 
-   * @example
-   * 1
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -443,29 +191,8 @@ export class ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAGDagL
 }
 
 export class ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAGScenario extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the user who creates the business scenario.
-   * 
-   * @example
-   * 51****
-   */
   creatorId?: string;
-  /**
-   * @remarks
-   * The description of the business scenario.
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the business scenario.
-   * 
-   * @example
-   * Scenario_2
-   */
   scenarioName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -493,15 +220,7 @@ export class ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAGScen
 }
 
 export class ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAG extends $dara.Model {
-  /**
-   * @remarks
-   * The list of task flows.
-   */
   dagList?: ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAGDagList;
-  /**
-   * @remarks
-   * The information about the business scenario.
-   */
   scenario?: ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAGScenario;
   static names(): { [key: string]: string } {
     return {
@@ -575,10 +294,6 @@ export class ListLhTaskFlowAndScenarioResponseBody extends $dara.Model {
    * UnknownError
    */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The task flows in the default business scenario.
-   */
   rawDAGList?: ListLhTaskFlowAndScenarioResponseBodyRawDAGList;
   /**
    * @remarks
@@ -588,10 +303,6 @@ export class ListLhTaskFlowAndScenarioResponseBody extends $dara.Model {
    * 48602B78-0DDF-414C-8688-70CAB6070115
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The task flows in other business scenarios.
-   */
   scenarioDAGList?: ListLhTaskFlowAndScenarioResponseBodyScenarioDAGList;
   /**
    * @remarks

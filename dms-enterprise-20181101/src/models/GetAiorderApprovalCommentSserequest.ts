@@ -2,34 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DLOrder extends $dara.Model {
+export class GetAIOrderApprovalCommentSSERequest extends $dara.Model {
   /**
-   * @remarks
-   * The name of the column.
-   * 
    * @example
-   * col1
+   * 420****
    */
-  col?: string;
+  orderId?: number;
   /**
-   * @remarks
-   * The position of the column in the sort.
-   * 
    * @example
-   * 1
+   * 48363552-225c-4c93-aeab-ea9b9d064b96
    */
-  order?: number;
+  sessionId?: string;
   static names(): { [key: string]: string } {
     return {
-      col: 'Col',
-      order: 'Order',
+      orderId: 'OrderId',
+      sessionId: 'SessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      col: 'string',
-      order: 'number',
+      orderId: 'number',
+      sessionId: 'string',
     };
   }
 

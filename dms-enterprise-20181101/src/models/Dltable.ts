@@ -5,24 +5,153 @@ import { DLStorageDescriptor } from "./DlstorageDescriptor";
 
 
 export class DLTable extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the catalog to which the table belongs.
+   * 
+   * @example
+   * hive
+   */
   catalogName?: string;
+  /**
+   * @remarks
+   * The time when the data table was created.
+   * 
+   * @example
+   * 1731586286
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The ID of the user who created the table.
+   * 
+   * @example
+   * 88653
+   */
   creatorId?: number;
+  /**
+   * @remarks
+   * The ID of the database in which the table is stored.
+   * 
+   * @example
+   * 19
+   */
   dbId?: number;
+  /**
+   * @remarks
+   * The name of the database in which the table is stored.
+   * 
+   * @example
+   * default
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The description of the application table.
+   * 
+   * @example
+   * 1410769
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the table was last accessed.
+   * 
+   * @example
+   * 1608707407
+   */
   lastAccessTime?: number;
+  /**
+   * @remarks
+   * The storage path of the table.
+   * 
+   * @example
+   * oss://xxx
+   */
   location?: string;
+  /**
+   * @remarks
+   * The ID of the user who last modified the table.
+   * 
+   * @example
+   * 1410769
+   */
   modifierId?: number;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * 100g_customer
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the table owner.
+   * 
+   * @example
+   * zhangsan
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The type of the table owner. Valid values: USER, ROLE, and GROUP.
+   * 
+   * @example
+   * USER
+   */
   ownerType?: string;
+  /**
+   * @remarks
+   * The key-value pair.
+   * 
+   * @example
+   * {
+   *       "EXTERNAL": "TRUE",
+   *       "delta.minReaderVersion": "1"}
+   */
   parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The column attributes of the table.
+   */
   partitionKeys?: DLColumn[];
+  /**
+   * @remarks
+   * The retention period of the table.
+   * 
+   * @example
+   * 300
+   */
   retention?: number;
+  /**
+   * @remarks
+   * The description of data storage, including the storage characteristics and format of the table.
+   */
   storageDescriptor?: DLStorageDescriptor;
+  /**
+   * @remarks
+   * The type of the table. Valid values: MANAGED_TABLE, EXTERNAL_TABLE, VIRTUAL_VIEW, INDEX_TABLE, and MATERIALIZED_VIEW.
+   * 
+   * @example
+   * EXTERNAL_TABLE
+   */
   tableType?: string;
+  /**
+   * @remarks
+   * The expanded text of the view if the table type is view.
+   * 
+   * @example
+   * ""
+   */
   viewExpandedText?: string;
+  /**
+   * @remarks
+   * The original text of the view if the table type is view.
+   * 
+   * @example
+   * ""
+   */
   viewOriginalText?: string;
   static names(): { [key: string]: string } {
     return {

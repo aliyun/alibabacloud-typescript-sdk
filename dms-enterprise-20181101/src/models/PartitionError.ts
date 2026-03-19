@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PartitionError extends $dara.Model {
+  /**
+   * @example
+   * auth failed
+   */
   errorDetail?: string;
   values?: string[];
   static names(): { [key: string]: string } {

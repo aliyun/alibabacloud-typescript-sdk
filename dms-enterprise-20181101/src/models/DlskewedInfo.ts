@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLSkewedInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of skewed column names.
+   */
   skewedColNames?: string[];
+  /**
+   * @remarks
+   * The mappings between skewed values and columns.
+   * 
+   * @example
+   * {“col1”:"val1"}
+   */
   skewedColValueLocationMaps?: { [key: string]: any };
+  /**
+   * @remarks
+   * The lists of skewed column values. Each list provides a set of associated values.
+   */
   skewedColValues?: string[][];
   static names(): { [key: string]: string } {
     return {

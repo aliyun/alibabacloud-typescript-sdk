@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkFlowNodesResponseBodyWorkflowNodesWorkflowNodeAuditUsersAuditUser extends $dara.Model {
-  /**
-   * @remarks
-   * The nickname of the approver.
-   * 
-   * @example
-   * test
-   */
   nickName?: string;
-  /**
-   * @remarks
-   * The real name of the approver.
-   * 
-   * @example
-   * test
-   */
   realName?: string;
-  /**
-   * @remarks
-   * The ID of the approver. The ID is different from the ID of the Alibaba Cloud account of the approver.
-   * 
-   * @example
-   * 123
-   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,61 +58,12 @@ export class ListWorkFlowNodesResponseBodyWorkflowNodesWorkflowNodeAuditUsers ex
 }
 
 export class ListWorkFlowNodesResponseBodyWorkflowNodesWorkflowNode extends $dara.Model {
-  /**
-   * @remarks
-   * The details about approvers.
-   */
   auditUsers?: ListWorkFlowNodesResponseBodyWorkflowNodesWorkflowNodeAuditUsers;
-  /**
-   * @remarks
-   * The description of the approval template.
-   * 
-   * @example
-   * test
-   */
   comment?: string;
-  /**
-   * @remarks
-   * The ID of the creator. This ID is different from the ID of the Alibaba Cloud account of the creator.
-   * 
-   * @example
-   * 123
-   */
   createUserId?: number;
-  /**
-   * @remarks
-   * The name of the user who creates the approval node.
-   * 
-   * @example
-   * test
-   */
   createUserNickName?: string;
-  /**
-   * @remarks
-   * The ID of the approval node.
-   * 
-   * @example
-   * 123
-   */
   nodeId?: number;
-  /**
-   * @remarks
-   * The name of the approval node.
-   * 
-   * @example
-   * test
-   */
   nodeName?: string;
-  /**
-   * @remarks
-   * The type of the approval node. Valid values:
-   * 
-   * *   SYS: The approval node is predefined by the system.
-   * *   USER_LIST: The approval node is created by a user.
-   * 
-   * @example
-   * SYS
-   */
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -230,10 +160,6 @@ export class ListWorkFlowNodesResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * The details of approval nodes.
-   */
   workflowNodes?: ListWorkFlowNodesResponseBodyWorkflowNodes;
   static names(): { [key: string]: string } {
     return {

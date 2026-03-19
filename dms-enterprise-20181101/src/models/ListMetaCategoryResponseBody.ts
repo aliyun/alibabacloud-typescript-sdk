@@ -30,10 +30,6 @@ export class ListMetaCategoryResponseBodyCategoryList extends $dara.Model {
 }
 
 export class ListMetaCategoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of categories.
-   */
   categoryList?: ListMetaCategoryResponseBodyCategoryList;
   /**
    * @remarks

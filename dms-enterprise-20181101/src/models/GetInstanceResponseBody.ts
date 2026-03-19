@@ -228,15 +228,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * postgresql
    */
   instanceType?: string;
-  /**
-   * @remarks
-   * The IDs of the owners for the database instance.
-   */
   ownerIdList?: GetInstanceResponseBodyInstanceOwnerIdList;
-  /**
-   * @remarks
-   * The nicknames of the owners for the database instance.
-   */
   ownerNameList?: GetInstanceResponseBodyInstanceOwnerNameList;
   /**
    * @remarks

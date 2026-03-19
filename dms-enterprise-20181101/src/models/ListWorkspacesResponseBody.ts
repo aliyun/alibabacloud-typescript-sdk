@@ -3,157 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkspacesResponseBodyDataBaseWorkspaces extends $dara.Model {
-  /**
-   * @remarks
-   * Whether the current user has joined the workspace.
-   * 
-   * @example
-   * true
-   */
   alreadyJoined?: boolean;
-  /**
-   * @remarks
-   * The ID of the creator.
-   * 
-   * @example
-   * 123
-   */
   creatorId?: number;
-  /**
-   * @remarks
-   * The nickname of the creator.
-   * 
-   * @example
-   * work*****
-   */
   creatorNickName?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account UID of the creator.
-   * 
-   * @example
-   * 1344****
-   */
   creatorUid?: string;
-  /**
-   * @remarks
-   * The description of the workspace.
-   * 
-   * @example
-   * Test
-   */
   description?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2025-01-01 00:00:00
-   */
   gmtCreate?: string;
-  /**
-   * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2025-01-01 00:00:00
-   */
   gmtModified?: string;
-  /**
-   * @remarks
-   * The name of the workspace.
-   * 
-   * @example
-   * workspace-xxxx
-   */
   name?: string;
-  /**
-   * @remarks
-   * The owner ID.
-   * 
-   * @example
-   * 123****
-   */
   ownerId?: number;
-  /**
-   * @remarks
-   * The nickname of the owner.
-   * 
-   * @example
-   * hel****
-   */
   ownerNickName?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud UID of the owner.
-   * 
-   * @example
-   * 15608564799****
-   */
   ownerUid?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The ID of the service account.
-   * 
-   * @example
-   * 12345
-   */
   serviceAccountId?: number;
-  /**
-   * @remarks
-   * The nickname of the service account.
-   * 
-   * @example
-   * testname
-   */
   serviceAccountNickName?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account UID of the service account.
-   * 
-   * @example
-   * 1422****
-   */
   serviceAccountUid?: string;
-  /**
-   * @remarks
-   * The ID of the tenant to which the workspace belongs.
-   * 
-   * @example
-   * 23456
-   */
   tenantId?: number;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-25fl3qjqb****
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * @example
-   * 8652340494****
-   */
   workspaceId?: number;
-  /**
-   * @remarks
-   * The name of the workspace.
-   * 
-   * @example
-   * test-workspace
-   */
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -239,10 +106,6 @@ export class ListWorkspacesResponseBodyData extends $dara.Model {
 }
 
 export class ListWorkspacesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The dataset.
-   */
   data?: ListWorkspacesResponseBodyData;
   /**
    * @remarks

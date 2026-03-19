@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApprovalDetailResponseBodyApprovalDetailCurrentHandlersCurrentHandler extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the user.
-   * 
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @remarks
-   * The nickname of the user.
-   * 
-   * @example
-   * nickName
-   */
   nickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,57 +107,11 @@ export class GetApprovalDetailResponseBodyApprovalDetailWorkflowNodesWorkflowNod
 }
 
 export class GetApprovalDetailResponseBodyApprovalDetailWorkflowNodesWorkflowNode extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the approvers.
-   */
   auditUserIdList?: GetApprovalDetailResponseBodyApprovalDetailWorkflowNodesWorkflowNodeAuditUserIdList;
-  /**
-   * @remarks
-   * The name of the approval node.
-   * 
-   * @example
-   * DBA
-   */
   nodeName?: string;
-  /**
-   * @remarks
-   * The remarks of the approval.
-   * 
-   * @example
-   * Reason: Approved
-   */
   operateComment?: string;
-  /**
-   * @remarks
-   * The time when the ticket was submitted.
-   * 
-   * @example
-   * 2019-10-15 13:47:54
-   */
   operateTime?: string;
-  /**
-   * @remarks
-   * The ID of the user who submitted the ticket.
-   * 
-   * @example
-   * 1****
-   */
   operatorId?: number;
-  /**
-   * @remarks
-   * The approval status of the ticket. Valid values:
-   * 
-   * *   **START**: The ticket was submitted.
-   * *   **ERROR**: An error occurred.
-   * *   **AUDITING**: The ticket is being reviewed.
-   * *   **REJECT**: The ticket was rejected.
-   * *   **CANCEL**: The ticket was revoked.
-   * *   **APPROVED**: The ticket was approved.
-   * 
-   * @example
-   * APPROVED
-   */
   workflowInsCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -250,10 +190,6 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $dara.Model {
    * 2021-10-29 14:17:25
    */
   createTime?: string;
-  /**
-   * @remarks
-   * The information about the approver.
-   */
   currentHandlers?: GetApprovalDetailResponseBodyApprovalDetailCurrentHandlers;
   /**
    * @remarks
@@ -288,10 +224,6 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $dara.Model {
    * PERM_APPLY
    */
   orderType?: string;
-  /**
-   * @remarks
-   * The reasons for the approval.
-   */
   reasonList?: GetApprovalDetailResponseBodyApprovalDetailReasonList;
   /**
    * @remarks
@@ -340,10 +272,6 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $dara.Model {
    * APPROVED
    */
   workflowInsCode?: string;
-  /**
-   * @remarks
-   * The details of approval nodes.
-   */
   workflowNodes?: GetApprovalDetailResponseBodyApprovalDetailWorkflowNodes;
   static names(): { [key: string]: string } {
     return {

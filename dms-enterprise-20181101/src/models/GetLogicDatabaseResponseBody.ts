@@ -97,10 +97,6 @@ export class GetLogicDatabaseResponseBodyLogicDatabase extends $dara.Model {
    * 1***
    */
   databaseId?: string;
-  /**
-   * @remarks
-   * The IDs of database shards of the logical database.
-   */
   databaseIds?: GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds;
   /**
    * @remarks
@@ -135,15 +131,7 @@ export class GetLogicDatabaseResponseBodyLogicDatabase extends $dara.Model {
    * true
    */
   logic?: boolean;
-  /**
-   * @remarks
-   * The IDs of the owners of the logical database.
-   */
   ownerIdList?: GetLogicDatabaseResponseBodyLogicDatabaseOwnerIdList;
-  /**
-   * @remarks
-   * The names of the owners of the logical database.
-   */
   ownerNameList?: GetLogicDatabaseResponseBodyLogicDatabaseOwnerNameList;
   /**
    * @remarks

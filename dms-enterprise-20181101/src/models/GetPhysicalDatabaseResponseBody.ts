@@ -137,15 +137,7 @@ export class GetPhysicalDatabaseResponseBodyDatabase extends $dara.Model {
    * 43215325
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The user IDs of the database owners.
-   */
   ownerIdList?: GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList;
-  /**
-   * @remarks
-   * The nicknames of the database owners.
-   */
   ownerNameList?: GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList;
   /**
    * @remarks

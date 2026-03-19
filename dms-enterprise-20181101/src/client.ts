@@ -505,7 +505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds directed edges for an existing task node.
+   * Creates directed edges for the existing task nodes of a task flow.
    * 
    * @remarks
    * When you add directed edges for a task node, take note of the following limits:
@@ -555,7 +555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds directed edges for an existing task node.
+   * Creates directed edges for the existing task nodes of a task flow.
    * 
    * @remarks
    * When you add directed edges for a task node, take note of the following limits:
@@ -765,7 +765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Backfills data for task orchestration.
+   * Backfills data for a task flow.
    * 
    * @remarks
    * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
@@ -849,7 +849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Backfills data for task orchestration.
+   * Backfills data for a task flow.
    * 
    * @remarks
    * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
@@ -1143,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adjusts the sensitivity level of one or more fields.
+   * Adjusts the sensitivity level of fields.
    * 
    * @param request - ChangeColumnSecLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1198,7 +1198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adjusts the sensitivity level of one or more fields.
+   * Adjusts the sensitivity level of fields.
    * 
    * @param request - ChangeColumnSecLevelRequest
    * @returns ChangeColumnSecLevelResponse
@@ -1275,7 +1275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移交数仓开发任务流
+   * Transfers the ownership of a task flow in a workspace of Data Management (DMS).
    * 
    * @remarks
    * Usage notes:
@@ -1319,7 +1319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移交数仓开发任务流
+   * Transfers the ownership of a task flow in a workspace of Data Management (DMS).
    * 
    * @remarks
    * Usage notes:
@@ -1660,16 +1660,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.ChatWithDesensitizeSSEResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.ChatWithDesensitizeSSEResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatWithDesensitizeSSEResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatWithDesensitizeSSEResponse({}));
+      }
+
     }
   }
 
@@ -3053,6 +3054,10 @@ export default class Client extends OpenApi {
       query["DbStorageType"] = request.dbStorageType;
     }
 
+    if (!$dara.isNull(request.difyInstanceName)) {
+      query["DifyInstanceName"] = request.difyInstanceName;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
@@ -3165,6 +3170,10 @@ export default class Client extends OpenApi {
       query["StorageType"] = request.storageType;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
@@ -3272,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建无锁变更工单
+   * Creates a lock-free change ticket.
    * 
    * @remarks
    * For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
@@ -3337,7 +3346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建无锁变更工单
+   * Creates a lock-free change ticket.
    * 
    * @remarks
    * For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
@@ -3430,7 +3439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a logical database in Database Management (DMS).
+   * Creates a logical database in Data Management (DMS).
    * 
    * @param tmpReq - CreateLogicDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3475,7 +3484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a logical database in Database Management (DMS).
+   * Creates a logical database in Data Management (DMS).
    * 
    * @param request - CreateLogicDatabaseRequest
    * @returns CreateLogicDatabaseResponse
@@ -3554,7 +3563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a ticket in Data Management (DMS).
+   * Creates a ticket.
    * 
    * @remarks
    * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
@@ -3624,7 +3633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a ticket in Data Management (DMS).
+   * Creates a ticket.
    * 
    * @remarks
    * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
@@ -3780,7 +3789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+   * Grants a user the permissions to access a database instance by using the secure access proxy feature.
    * 
    * @remarks
    * - The data security protection feature is enabled for the instance.
@@ -3831,7 +3840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+   * Grants a user the permissions to access a database instance by using the secure access proxy feature.
    * 
    * @remarks
    * - The data security protection feature is enabled for the instance.
@@ -4276,7 +4285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上传附件任务
+   * Creates a task to upload an attachment file.
    * 
    * @param request - CreateUploadFileJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4319,7 +4328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上传附件任务
+   * Creates a task to upload an attachment file.
    * 
    * @param request - CreateUploadFileJobRequest
    * @returns CreateUploadFileJobResponse
@@ -4966,7 +4975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数仓空间成员
+   * Removes a workspace member or a task flow developer in Data Management (DMS).
    * 
    * @remarks
    * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
@@ -5019,7 +5028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数仓空间成员
+   * Removes a workspace member or a task flow developer in Data Management (DMS).
    * 
    * @remarks
    * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
@@ -5034,7 +5043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+   * Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
    * 
    * @param request - DeleteLogicDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5069,7 +5078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+   * Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
    * 
    * @param request - DeleteLogicDatabaseRequest
    * @returns DeleteLogicDatabaseResponse
@@ -5080,7 +5089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the routing algorithm of a logical table.
+   * Deletes a routing algorithm from a logical table.
    * 
    * @param request - DeleteLogicTableRouteConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5119,7 +5128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the routing algorithm of a logical table.
+   * Deletes a routing algorithm from a logical table.
    * 
    * @param request - DeleteLogicTableRouteConfigRequest
    * @returns DeleteLogicTableRouteConfigResponse
@@ -5228,7 +5237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+   * Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
    * 
    * @param request - DeleteProxyAccessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5263,7 +5272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+   * Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
    * 
    * @param request - DeleteProxyAccessRequest
    * @returns DeleteProxyAccessResponse
@@ -5630,7 +5639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于创建DIFY实例及相关资源，支持自定义配置。
+   * Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
    * 
    * @remarks
    * ## 请求说明
@@ -5683,7 +5692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于创建DIFY实例及相关资源，支持自定义配置。
+   * Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
    * 
    * @remarks
    * ## 请求说明
@@ -5906,7 +5915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+   * Disables a user that is temporarily not used in Data Management (DMS).
    * 
    * @remarks
    * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
@@ -5945,7 +5954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+   * Disables a user that is temporarily not used in Data Management (DMS).
    * 
    * @remarks
    * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
@@ -6052,7 +6061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a logical database.
+   * Edits the information about a logical database.
    * 
    * @param tmpReq - EditLogicDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6101,7 +6110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a logical database.
+   * Edits the information about a logical database.
    * 
    * @param request - EditLogicDatabaseRequest
    * @returns EditLogicDatabaseResponse
@@ -6176,7 +6185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+   * Enables a user that is disabled.
    * 
    * @remarks
    * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
@@ -6215,7 +6224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+   * Enables a user that is disabled.
    * 
    * @remarks
    * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
@@ -6574,7 +6583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+   * Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
    * 
    * @remarks
    * ## 请求说明
@@ -6642,7 +6651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+   * Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
    * 
    * @remarks
    * ## 请求说明
@@ -6659,6 +6668,101 @@ export default class Client extends OpenApi {
   async generateSqlFromNL(request: $_model.GenerateSqlFromNLRequest): Promise<$_model.GenerateSqlFromNLResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateSqlFromNLWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取大模型工单审批建议
+   * 
+   * @param request - GetAIOrderApprovalCommentSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAIOrderApprovalCommentSSEResponse
+   */
+  async *getAIOrderApprovalCommentSSEWithSSE(request: $_model.GetAIOrderApprovalCommentSSERequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GetAIOrderApprovalCommentSSEResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAIOrderApprovalCommentSSE",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.GetAIOrderApprovalCommentSSEResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GetAIOrderApprovalCommentSSEResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 获取大模型工单审批建议
+   * 
+   * @param request - GetAIOrderApprovalCommentSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAIOrderApprovalCommentSSEResponse
+   */
+  async getAIOrderApprovalCommentSSEWithOptions(request: $_model.GetAIOrderApprovalCommentSSERequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAIOrderApprovalCommentSSEResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAIOrderApprovalCommentSSE",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAIOrderApprovalCommentSSEResponse>(await this.callApi(params, req, runtime), new $_model.GetAIOrderApprovalCommentSSEResponse({}));
+  }
+
+  /**
+   * 获取大模型工单审批建议
+   * 
+   * @param request - GetAIOrderApprovalCommentSSERequest
+   * @returns GetAIOrderApprovalCommentSSEResponse
+   */
+  async getAIOrderApprovalCommentSSE(request: $_model.GetAIOrderApprovalCommentSSERequest): Promise<$_model.GetAIOrderApprovalCommentSSEResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAIOrderApprovalCommentSSEWithOptions(request, runtime);
   }
 
   /**
@@ -7100,7 +7204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+   * Obtains the download URL of the backup file for the specified ticket.
    * 
    * @param tmpReq - GetDataCorrectBackupFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7145,7 +7249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+   * Obtains the download URL of the backup file for the specified ticket.
    * 
    * @param request - GetDataCorrectBackupFilesRequest
    * @returns GetDataCorrectBackupFilesResponse
@@ -9830,7 +9934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the nodes in an execution record of a task flow.
+   * Queries the task nodes of a task flow instance.
    * 
    * @param request - GetTaskInstanceRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9869,7 +9973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the nodes in an execution record of a task flow.
+   * Queries the task nodes of a task flow instance.
    * 
    * @param request - GetTaskInstanceRelationRequest
    * @returns GetTaskInstanceRelationResponse
@@ -11036,7 +11140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the precheck information about an SQL statement that is specified in a data change ticket.
+   * Queries the information about SQL statements that are involved in the precheck of a data change ticket.
    * 
    * @remarks
    * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
@@ -11086,7 +11190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the precheck information about an SQL statement that is specified in a data change ticket.
+   * Queries the information about SQL statements that are involved in the precheck of a data change ticket.
    * 
    * @remarks
    * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
@@ -12096,7 +12200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries masking rules.
+   * Queries a list of masking rules.
    * 
    * @param request - ListDesensitizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12151,7 +12255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries masking rules.
+   * Queries a list of masking rules.
    * 
    * @param request - ListDesensitizationRuleRequest
    * @returns ListDesensitizationRuleResponse
@@ -12394,7 +12498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a user on a specific instance.
+   * Queries the permissions of a user on an instance.
    * 
    * @param request - ListInstanceUserPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12441,7 +12545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a user on a specific instance.
+   * Queries the permissions of a user on an instance.
    * 
    * @param request - ListInstanceUserPermissionsRequest
    * @returns ListInstanceUserPermissionsResponse
@@ -12534,7 +12638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+   * Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
    * 
    * @remarks
    *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
@@ -12577,7 +12681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+   * Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
    * 
    * @remarks
    *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
@@ -12592,7 +12696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of logical databases.
+   * Queries the detailed information about logical databases.
    * 
    * @param request - ListLogicDatabasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12631,7 +12735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of logical databases.
+   * Queries the detailed information about logical databases.
    * 
    * @param request - ListLogicDatabasesRequest
    * @returns ListLogicDatabasesResponse
@@ -12804,7 +12908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tickets in Data Management (DMS).
+   * Queries tickets.
    * 
    * @param request - ListOrdersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12871,7 +12975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tickets in Data Management (DMS).
+   * Queries tickets.
    * 
    * @param request - ListOrdersRequest
    * @returns ListOrdersResponse
@@ -12970,7 +13074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 操作审计-数据安全代理SQL执行列表
+   * Queries the audit logs generated by the secure access proxy feature.
    * 
    * @param request - ListProxySQLExecAuditLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13033,7 +13137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 操作审计-数据安全代理SQL执行列表
+   * Queries the audit logs generated by the secure access proxy feature.
    * 
    * @param request - ListProxySQLExecAuditLogRequest
    * @returns ListProxySQLExecAuditLogResponse
@@ -13044,7 +13148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom service level agreement (SLA) rules.
+   * Queries the custom service level agreement (SLA) rules of a task flow.
    * 
    * @param request - ListSLARulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13079,7 +13183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom service level agreement (SLA) rules.
+   * Queries the custom service level agreement (SLA) rules of a task flow.
    * 
    * @param request - ListSLARulesRequest
    * @returns ListSLARulesResponse
@@ -13090,7 +13194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries SQL statements that were written on the SQLConsole tab.
+   * Queries the audit logs of SQL statements that are executed in Data Management (DMS).
    * 
    * @param request - ListSQLExecAuditLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13153,7 +13257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries SQL statements that were written on the SQLConsole tab.
+   * Queries the audit logs of SQL statements that are executed in Data Management (DMS).
    * 
    * @param request - ListSQLExecAuditLogRequest
    * @returns ListSQLExecAuditLogResponse
@@ -13808,7 +13912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务编排获取任务流列表
+   * Queries a list of task flows.
    * 
    * @param request - ListTaskFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13839,7 +13943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务编排获取任务流列表
+   * Queries a list of task flows.
    * 
    * @param request - ListTaskFlowRequest
    * @returns ListTaskFlowResponse
@@ -13896,7 +14000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the users that are involved in a specified task flow.
+   * Queries a list of users that are involved in a task flow.
    * 
    * @param request - ListTaskFlowCooperatorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13931,7 +14035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the users that are involved in a specified task flow.
+   * Queries a list of users that are involved in a task flow.
    * 
    * @param request - ListTaskFlowCooperatorsRequest
    * @returns ListTaskFlowCooperatorsResponse
@@ -13942,7 +14046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+   * Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
    * 
    * @remarks
    * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
@@ -13992,7 +14096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+   * Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
    * 
    * @remarks
    * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
@@ -14126,7 +14230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries task flows by page.
+   * Queries the details of task flows by page.
    * 
    * @param tmpReq - ListTaskFlowsByPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14183,7 +14287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries task flows by page.
+   * Queries the details of task flows by page.
    * 
    * @param request - ListTaskFlowsByPageRequest
    * @returns ListTaskFlowsByPageResponse
@@ -14314,7 +14418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a specific user on a database or a table.
+   * Queries the permissions of a user on databases and tables.
    * 
    * @param request - ListUserPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14381,7 +14485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a specific user on a database or a table.
+   * Queries the permissions of a user on databases and tables.
    * 
    * @param request - ListUserPermissionsRequest
    * @returns ListUserPermissionsResponse
@@ -14392,7 +14496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户租户列表
+   * Queries tenants.
    * 
    * @param request - ListUserTenantsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14423,7 +14527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户租户列表
+   * Queries tenants.
    * 
    * @param request - ListUserTenantsRequest
    * @returns ListUserTenantsResponse
@@ -15048,7 +15152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpublishes a published task flow.
+   * Unpublishes a published task flow in Data Management (DMS).
    * 
    * @param request - OfflineTaskFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15083,7 +15187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpublishes a published task flow.
+   * Unpublishes a published task flow in Data Management (DMS).
    * 
    * @param request - OfflineTaskFlowRequest
    * @returns OfflineTaskFlowResponse
@@ -15410,7 +15514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 部署任务流的历史版本
+   * Redeploys the published versions of a task flow.
    * 
    * @param request - ReDeployLhDagVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15449,7 +15553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 部署任务流的历史版本
+   * Redeploys the published versions of a task flow.
    * 
    * @param request - ReDeployLhDagVersionRequest
    * @returns ReDeployLhDagVersionResponse
@@ -15790,7 +15894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a user for your enterprise.
+   * Adds a user of your enterprise.
    * 
    * @remarks
    * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
@@ -15840,7 +15944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a user for your enterprise.
+   * Adds a user of your enterprise.
    * 
    * @remarks
    * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
@@ -16070,7 +16174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a suspended task flow.
+   * Resumes a suspended task flow instance.
    * 
    * @remarks
    * You can call this operation only for task flows that are suspended.
@@ -16116,7 +16220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a suspended task flow.
+   * Resumes a suspended task flow instance.
    * 
    * @remarks
    * You can call this operation only for task flows that are suspended.
@@ -16676,7 +16780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加实例
+   * This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
    * 
    * @param request - SimplyAddInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16731,7 +16835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加实例
+   * This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
    * 
    * @param request - SimplyAddInstanceRequest
    * @returns SimplyAddInstanceResponse
@@ -17830,7 +17934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the service level agreement (SLA) timeout reminder for a task flow.
+   * Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
    * 
    * @remarks
    * SLA rules take effect after task flows are deployed and published.
@@ -17878,7 +17982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the service level agreement (SLA) timeout reminder for a task flow.
+   * Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
    * 
    * @remarks
    * SLA rules take effect after task flows are deployed and published.
@@ -18222,7 +18326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IDs of the users who are involved in the task flow.
+   * Updates the IDs of the users that are involved in a task flow.
    * 
    * @param tmpReq - UpdateTaskFlowCooperatorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18267,7 +18371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IDs of the users who are involved in the task flow.
+   * Updates the IDs of the users that are involved in a task flow.
    * 
    * @param request - UpdateTaskFlowCooperatorsRequest
    * @returns UpdateTaskFlowCooperatorsResponse
@@ -18402,7 +18506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the notification settings for task flows.
+   * Updates the notification settings for a task flow.
    * 
    * @param request - UpdateTaskFlowNotificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18449,7 +18553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the notification settings for task flows.
+   * Updates the notification settings for a task flow.
    * 
    * @param request - UpdateTaskFlowNotificationRequest
    * @returns UpdateTaskFlowNotificationResponse
@@ -18764,7 +18868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the output variables for a specified task node.
+   * Updates the output variables for a task node.
    * 
    * @remarks
    * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
@@ -18806,7 +18910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the output variables for a specified task node.
+   * Updates the output variables for a task node.
    * 
    * @remarks
    * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.

@@ -29,10 +29,6 @@ export class CreateOrderResponseBodyCreateOrderResult extends $dara.Model {
 }
 
 export class CreateOrderResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the ticket.
-   */
   createOrderResult?: CreateOrderResponseBodyCreateOrderResult;
   /**
    * @remarks

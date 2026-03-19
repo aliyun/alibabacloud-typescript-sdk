@@ -55,131 +55,20 @@ export class SearchTableResponseBodySearchTableListSearchTableOwnerNameList exte
 }
 
 export class SearchTableResponseBodySearchTableListSearchTable extends $dara.Model {
-  /**
-   * @remarks
-   * The name that is used to search for the database to which the table belongs.
-   * 
-   * @example
-   * test
-   */
   DBSearchName?: string;
-  /**
-   * @remarks
-   * The ID of the database to which the table belongs.
-   * 
-   * @example
-   * 1
-   */
   databaseId?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * test
-   */
   dbName?: string;
-  /**
-   * @remarks
-   * The type of the database. Valid values:
-   * 
-   * *   **MySQL**
-   * *   **SQLServer**
-   * *   **PostgreSQL**
-   * *   **Oracle**
-   * *   **DRDS**
-   * *   **OceanBase**
-   * *   **Mongo**
-   * *   **Redis**
-   * 
-   * @example
-   * mysql
-   */
   dbType?: string;
-  /**
-   * @remarks
-   * The description of the table.
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * The encoding format of the table.
-   * 
-   * @example
-   * utf8
-   */
   encoding?: string;
-  /**
-   * @remarks
-   * The engine of the table.
-   * 
-   * @example
-   * innodb
-   */
   engine?: string;
-  /**
-   * @remarks
-   * The type of the environment to which the database belongs.
-   * 
-   * @example
-   * test
-   */
   envType?: string;
-  /**
-   * @remarks
-   * Indicates whether the table is a logical table. Valid values:
-   * 
-   * *   **true**: The table is a logical table.
-   * *   **false**: The table is not a logical table.
-   * 
-   * @example
-   * false
-   */
   logic?: boolean;
-  /**
-   * @remarks
-   * The IDs of the table owners.
-   */
   ownerIdList?: SearchTableResponseBodySearchTableListSearchTableOwnerIdList;
-  /**
-   * @remarks
-   * The nicknames of the table owners.
-   */
   ownerNameList?: SearchTableResponseBodySearchTableListSearchTableOwnerNameList;
-  /**
-   * @remarks
-   * The GUID of the table.
-   * 
-   * @example
-   * IDB_L_9032.db-test.yuyang_test
-   */
   tableGuid?: string;
-  /**
-   * @remarks
-   * The ID of the table.
-   * 
-   * @example
-   * 1
-   */
   tableId?: string;
-  /**
-   * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * test_table
-   */
   tableName?: string;
-  /**
-   * @remarks
-   * The name of the database to which the table belongs.
-   * 
-   * @example
-   * test@xxx.xxx.xxx.xxx:3306
-   */
   tableSchemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -287,10 +176,6 @@ export class SearchTableResponseBody extends $dara.Model {
    * 1489257F-1B5D-4B5B-89EF-923C12CEEBD1
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The details of the tables.
-   */
   searchTableList?: SearchTableResponseBodySearchTableList;
   /**
    * @remarks

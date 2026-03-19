@@ -127,15 +127,7 @@ export class GetOrderBaseInfoResponseBodyOrderBaseInfo extends $dara.Model {
    * DC_COMMON
    */
   pluginType?: string;
-  /**
-   * @remarks
-   * The IDs of the operators that are related to the ticket.
-   */
   relatedUserList?: GetOrderBaseInfoResponseBodyOrderBaseInfoRelatedUserList;
-  /**
-   * @remarks
-   * The nicknames of the operators that are related to the ticket.
-   */
   relatedUserNickList?: GetOrderBaseInfoResponseBodyOrderBaseInfoRelatedUserNickList;
   /**
    * @remarks

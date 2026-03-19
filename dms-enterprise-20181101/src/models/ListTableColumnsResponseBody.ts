@@ -3,127 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTableColumnsResponseBodyColumnListColumn extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the field is an auto-increment field. Valid values:
-   * 
-   * *   true: The field is an auto-increment field.
-   * *   false: The field is not an auto-increment field.
-   * 
-   * @example
-   * false
-   */
   autoIncrement?: boolean;
-  /**
-   * @remarks
-   * The ID of the field.
-   * 
-   * @example
-   * 12345
-   */
   columnId?: string;
-  /**
-   * @remarks
-   * The field name.
-   * 
-   * @example
-   * c1
-   */
   columnName?: string;
-  /**
-   * @remarks
-   * The data type of the field.
-   * 
-   * @example
-   * varchar
-   */
   columnType?: string;
-  /**
-   * @remarks
-   * The length of the field.
-   * 
-   * @example
-   * 32
-   */
   dataLength?: number;
-  /**
-   * @remarks
-   * The number of valid digits for the column.
-   * 
-   * @example
-   * 0
-   */
   dataPrecision?: number;
-  /**
-   * @remarks
-   * The number of decimal places of the field data.
-   * 
-   * @example
-   * 0
-   */
   dataScale?: number;
-  /**
-   * @remarks
-   * The default value of the column.
-   * 
-   * @example
-   * aaa
-   */
   defaultValue?: string;
-  /**
-   * @remarks
-   * The description of the field.
-   * 
-   * @example
-   * column desc
-   */
   description?: string;
-  /**
-   * @remarks
-   * The type of the masking algorithm that is used for the field. Valid values:
-   * 
-   * *   null: No masking algorithm is used.
-   * *   DEFAULT: A full masking algorithm is used.
-   * *   FIX_POS: The fixed position is masked.
-   * *   FIX_CHAR: The fixed characters are replaced.
-   * 
-   * @example
-   * NULL
-   */
   functionType?: string;
-  /**
-   * @remarks
-   * Indicates whether the field can be empty. Valid values:
-   * 
-   * *   true: The field can be empty.
-   * *   false: The field cannot be empty.
-   * 
-   * @example
-   * true
-   */
   nullable?: boolean;
-  /**
-   * @remarks
-   * The security level of the field. Valid values:
-   * 
-   * *   INNER: The field is an internal field but not sensitive.
-   * *   SENSITIVE: The field is sensitive.
-   * *   CONFIDENTIAL: The field is a confidential column.
-   * 
-   * @example
-   * INNER
-   */
   securityLevel?: string;
-  /**
-   * @remarks
-   * Indicates whether the field is a sensitive column. Valid values:
-   * 
-   * *   true: The field is a sensitive field.
-   * *   false: The field is not a sensitive field.
-   * 
-   * @example
-   * false
-   */
   sensitive?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -197,10 +88,6 @@ export class ListTableColumnsResponseBodyColumnList extends $dara.Model {
 }
 
 export class ListTableColumnsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details about fields in the table.
-   */
   columnList?: ListTableColumnsResponseBodyColumnList;
   /**
    * @remarks

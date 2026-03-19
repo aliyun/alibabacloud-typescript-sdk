@@ -29,10 +29,6 @@ export class CreateDatabaseExportOrderResponseBodyCreateOrderResult extends $dar
 }
 
 export class CreateDatabaseExportOrderResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the ticket.
-   */
   createOrderResult?: CreateDatabaseExportOrderResponseBodyCreateOrderResult;
   /**
    * @remarks

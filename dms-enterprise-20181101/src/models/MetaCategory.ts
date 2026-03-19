@@ -3,13 +3,48 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MetaCategory extends $dara.Model {
+  /**
+   * @remarks
+   * The category ID.
+   * 
+   * @example
+   * 30000181325
+   */
   categoryId?: number;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2024-08-13 10:02:02
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The level of the category. This parameter is set to 1 for a root category.
+   * 
+   * @example
+   * 1
+   */
   depth?: number;
   description?: string;
+  /**
+   * @remarks
+   * The name of the category.
+   * 
+   * @example
+   * default
+   */
   name?: string;
   ownerIds?: number[];
   ownerNickNames?: string[];
+  /**
+   * @remarks
+   * The ID of the parent category. This parameter is left empty for a root category.
+   * 
+   * @example
+   * 30000322682
+   */
   parentCategoryId?: number;
   remark?: string;
   static names(): { [key: string]: string } {

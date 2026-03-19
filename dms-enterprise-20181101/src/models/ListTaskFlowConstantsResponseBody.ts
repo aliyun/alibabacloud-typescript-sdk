@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTaskFlowConstantsResponseBodyDagConstantsDagConstant extends $dara.Model {
-  /**
-   * @remarks
-   * The constant key.
-   * 
-   * @example
-   * example
-   */
   key?: string;
-  /**
-   * @remarks
-   * The constant value.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class ListTaskFlowConstantsResponseBodyDagConstants extends $dara.Model {
 }
 
 export class ListTaskFlowConstantsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of constant key-value pairs for the task flow.
-   */
   dagConstants?: ListTaskFlowConstantsResponseBodyDagConstants;
   /**
    * @remarks

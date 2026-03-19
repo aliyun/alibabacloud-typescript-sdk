@@ -169,15 +169,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
    * 140692647406****
    */
   parentUid?: number;
-  /**
-   * @remarks
-   * The list of role IDs.
-   */
   roleIdList?: GetUserResponseBodyUserRoleIdList;
-  /**
-   * @remarks
-   * The list of role names.
-   */
   roleNameList?: GetUserResponseBodyUserRoleNameList;
   /**
    * @remarks

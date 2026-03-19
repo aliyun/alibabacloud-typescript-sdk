@@ -3,11 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DLDatabase extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the catalog.
+   * 
+   * @example
+   * hive
+   */
   catalogName?: string;
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 19
+   */
   dbId?: number;
+  /**
+   * @remarks
+   * The description of the database.
+   * 
+   * @example
+   * Default database for catalog hive
+   */
   description?: string;
+  /**
+   * @remarks
+   * The storage path of the database.
+   * 
+   * @example
+   * oss://xxx
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * default
+   */
   name?: string;
+  /**
+   * @remarks
+   * The parameters related to the database.
+   * 
+   * @example
+   * key/value
+   */
   parameters?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

@@ -29,10 +29,6 @@ export class AddTaskFlowEdgesResponseBodyEdgeIds extends $dara.Model {
 }
 
 export class AddTaskFlowEdgesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of task flow edge IDs.
-   */
   edgeIds?: AddTaskFlowEdgesResponseBodyEdgeIds;
   /**
    * @remarks

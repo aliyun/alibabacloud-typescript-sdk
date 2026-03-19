@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDifyInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * abc
+   */
   clientToken?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   dataRegion?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * token-xxx
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {

@@ -144,15 +144,7 @@ export class GetDatabaseResponseBodyDatabase extends $dara.Model {
    * 149****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The IDs of the owners of the database.
-   */
   ownerIdList?: GetDatabaseResponseBodyDatabaseOwnerIdList;
-  /**
-   * @remarks
-   * The names of the owners of the database.
-   */
   ownerNameList?: GetDatabaseResponseBodyDatabaseOwnerNameList;
   /**
    * @remarks

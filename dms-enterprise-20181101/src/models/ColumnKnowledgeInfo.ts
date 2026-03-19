@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ColumnKnowledgeInfo extends $dara.Model {
+  /**
+   * @remarks
+   * User-edited business knowledge content, which can be modified via the EditMetaKnowledgeAsset API.
+   */
   assetDescription?: string;
+  /**
+   * @remarks
+   * The last modified time of the field.
+   */
   assetModifiedGmt?: string;
+  /**
+   * @remarks
+   * The name of the field.
+   */
   columnName?: string;
+  /**
+   * @remarks
+   * The data type of the field.
+   */
   columnType?: string;
+  /**
+   * @remarks
+   * Field description in the CREATE TABLE statement.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The field order in the CREATE TABLE statement.
+   */
   position?: number;
   static names(): { [key: string]: string } {
     return {

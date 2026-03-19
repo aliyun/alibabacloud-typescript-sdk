@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTaskFlowCooperatorsResponseBodyCooperatorListCooperator extends $dara.Model {
-  /**
-   * @remarks
-   * The email address of the user.
-   * 
-   * @example
-   * test@XX.com
-   */
   email?: string;
-  /**
-   * @remarks
-   * The username.
-   * 
-   * @example
-   * name
-   */
   loginName?: string;
-  /**
-   * @remarks
-   * The alias of the user.
-   * 
-   * @example
-   * name
-   */
   nickName?: string;
-  /**
-   * @remarks
-   * userId.
-   * 
-   * @example
-   * 123
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class ListTaskFlowCooperatorsResponseBodyCooperatorList extends $dara.Mod
 }
 
 export class ListTaskFlowCooperatorsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The users that are involved in the task flow.
-   */
   cooperatorList?: ListTaskFlowCooperatorsResponseBodyCooperatorList;
   /**
    * @remarks

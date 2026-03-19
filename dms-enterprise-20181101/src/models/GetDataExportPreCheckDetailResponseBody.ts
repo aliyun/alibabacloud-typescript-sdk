@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList extends $dara.Model {
-  /**
-   * @remarks
-   * The estimated number of data rows to be affected.
-   * 
-   * @example
-   * 1
-   */
   affectRows?: number;
-  /**
-   * @remarks
-   * The SQL statement.
-   * 
-   * @example
-   * SELECT * FROM tmp_table LIMIT 1
-   */
   SQL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -80,10 +66,6 @@ export class GetDataExportPreCheckDetailResponseBodyPreCheckResult extends $dara
    * true
    */
   ignoreAffectRows?: boolean;
-  /**
-   * @remarks
-   * The list of pre-check details.
-   */
   preCheckDetailList?: GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList;
   static names(): { [key: string]: string } {
     return {

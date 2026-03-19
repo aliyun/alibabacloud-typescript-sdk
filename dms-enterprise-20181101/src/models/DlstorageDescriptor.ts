@@ -7,17 +7,83 @@ import { DLOrder } from "./Dlorder";
 
 
 export class DLStorageDescriptor extends $dara.Model {
+  /**
+   * @remarks
+   * The list of bucket column names, which determines the distribution of stored data based on hashes.
+   */
   bucketCols?: string[];
+  /**
+   * @remarks
+   * The description of the data columns.
+   */
   columns?: DLColumn[];
+  /**
+   * @remarks
+   * The name of the input format class that is used to read data.
+   * 
+   * @example
+   * org.apache.hadoop.mapred.SequenceFileInputFormat
+   */
   inputFormat?: string;
+  /**
+   * @remarks
+   * Specifies whether the stored data is compressed.
+   * 
+   * @example
+   * false
+   */
   isCompressed?: boolean;
+  /**
+   * @remarks
+   * The location where the data is stored.
+   * 
+   * @example
+   * oss://xxx
+   */
   location?: string;
+  /**
+   * @remarks
+   * The number of buckets.
+   * 
+   * @example
+   * -1
+   */
   numBuckets?: number;
+  /**
+   * @remarks
+   * The description of the original column.
+   */
   originalColumns?: DLColumn[];
+  /**
+   * @remarks
+   * The name of the output format class that is used to write data.
+   * 
+   * @example
+   * org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
+   */
   outputFormat?: string;
+  /**
+   * @remarks
+   * Other parameter mappings of data storage.
+   * 
+   * @example
+   * key/value
+   */
   parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The information about how to perform data serialization and deserialization.
+   */
   serdeInfo?: DLSerdeInfo;
+  /**
+   * @remarks
+   * The information about the skewed column.
+   */
   skewedInfo?: DLSkewedInfo;
+  /**
+   * @remarks
+   * The description of the column based on which you want to sort query results.
+   */
   sortCols?: DLOrder[];
   static names(): { [key: string]: string } {
     return {

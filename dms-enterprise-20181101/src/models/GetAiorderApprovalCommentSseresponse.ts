@@ -1,14 +1,14 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ChatWithDesensitizeSSEResponseBody } from "./ChatWithDesensitizeSseresponseBody";
+import { GetAIOrderApprovalCommentSSEResponseBody } from "./GetAiorderApprovalCommentSseresponseBody";
 
 
-export class ChatWithDesensitizeSSEResponse extends $dara.Model {
+export class GetAIOrderApprovalCommentSSEResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   id?: string;
   event?: string;
-  body?: ChatWithDesensitizeSSEResponseBody;
+  body?: GetAIOrderApprovalCommentSSEResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25,7 +25,7 @@ export class ChatWithDesensitizeSSEResponse extends $dara.Model {
       statusCode: 'number',
       id: 'string',
       event: 'string',
-      body: ChatWithDesensitizeSSEResponseBody,
+      body: GetAIOrderApprovalCommentSSEResponseBody,
     };
   }
 

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTaskFlowEdgesByConditionResponseBodyEdgesEdge extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the task flow edge.
-   * 
-   * @example
-   * 24***
-   */
   id?: number;
-  /**
-   * @remarks
-   * The ID of the end node on the edge.
-   * 
-   * @example
-   * 44***
-   */
   nodeEnd?: number;
-  /**
-   * @remarks
-   * The ID of the start node on the edge.
-   * 
-   * @example
-   * 44***
-   */
   nodeFrom?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class ListTaskFlowEdgesByConditionResponseBodyEdges extends $dara.Model {
 }
 
 export class ListTaskFlowEdgesByConditionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of task flow edges.
-   */
   edges?: ListTaskFlowEdgesByConditionResponseBodyEdges;
   /**
    * @remarks

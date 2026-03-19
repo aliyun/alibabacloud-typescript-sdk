@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTaskFlowTimeVariablesResponseBodyTimeVariablesTimeVariable extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the time variable.
-   * 
-   * @example
-   * time_test
-   */
   name?: string;
-  /**
-   * @remarks
-   * The format of the time variable.
-   * 
-   * @example
-   * 2018-09-26|+7h
-   */
   pattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -104,10 +90,6 @@ export class ListTaskFlowTimeVariablesResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * The time variables for the task flow.
-   */
   timeVariables?: ListTaskFlowTimeVariablesResponseBodyTimeVariables;
   static names(): { [key: string]: string } {
     return {
