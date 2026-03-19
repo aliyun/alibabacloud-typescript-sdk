@@ -26,6 +26,16 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   description?: string;
   /**
    * @example
+   * 32K
+   */
+  maxInputLength?: string;
+  /**
+   * @example
+   * 8K
+   */
+  maxOutputLength?: string;
+  /**
+   * @example
    * qwen-turbo
    */
   modelId?: string;
@@ -54,6 +64,8 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
       apiKey: 'apiKey',
       baseUrl: 'baseUrl',
       description: 'description',
+      maxInputLength: 'maxInputLength',
+      maxOutputLength: 'maxOutputLength',
       modelId: 'modelId',
       modelType: 'modelType',
       name: 'name',
@@ -67,6 +79,8 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
       apiKey: 'string',
       baseUrl: 'string',
       description: 'string',
+      maxInputLength: 'string',
+      maxOutputLength: 'string',
       modelId: 'string',
       modelType: 'string',
       name: 'string',

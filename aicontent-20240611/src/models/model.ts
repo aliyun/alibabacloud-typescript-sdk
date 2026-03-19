@@ -308,8 +308,6 @@ export { ModelRouterQueryModelResponse } from './ModelRouterQueryModelResponse';
 export { ModelRouterQueryModelListRequest } from './ModelRouterQueryModelListRequest';
 export { ModelRouterQueryModelListResponseBody } from './ModelRouterQueryModelListResponseBody';
 export { ModelRouterQueryModelListResponse } from './ModelRouterQueryModelListResponse';
-export { ModelRouterQueryModelWithApiKeyResponseBody } from './ModelRouterQueryModelWithApiKeyResponseBody';
-export { ModelRouterQueryModelWithApiKeyResponse } from './ModelRouterQueryModelWithApiKeyResponse';
 export { ModelRouterQueryNacosProvidersRequest } from './ModelRouterQueryNacosProvidersRequest';
 export { ModelRouterQueryNacosProvidersResponseBody } from './ModelRouterQueryNacosProvidersResponseBody';
 export { ModelRouterQueryNacosProvidersResponse } from './ModelRouterQueryNacosProvidersResponse';

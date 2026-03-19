@@ -2667,7 +2667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对话管理/创建对话
+   * 对话管理/新建对话
    * 
    * @param request - ModelRouterCreateConversationRequest
    * @param headers - map
@@ -2708,7 +2708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对话管理/创建对话
+   * 对话管理/新建对话
    * 
    * @param request - ModelRouterCreateConversationRequest
    * @returns ModelRouterCreateConversationResponse
@@ -2740,6 +2740,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.maxInputLength)) {
+      body["maxInputLength"] = request.maxInputLength;
+    }
+
+    if (!$dara.isNull(request.maxOutputLength)) {
+      body["maxOutputLength"] = request.maxOutputLength;
     }
 
     if (!$dara.isNull(request.modelId)) {
@@ -3363,41 +3371,6 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryModelListWithOptions(request, headers, runtime);
-  }
-
-  /**
-   * 模型管理/获取模型及API密钥详情
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ModelRouterQueryModelWithApiKeyResponse
-   */
-  async modelRouterQueryModelWithApiKeyWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelWithApiKeyResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ModelRouterQueryModelWithApiKey",
-      version: "20240611",
-      protocol: "HTTPS",
-      pathname: `/api/v1/modelRouter/open/models/${$dara.URL.percentEncode(id)}/with-api-key`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ModelRouterQueryModelWithApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelWithApiKeyResponse({}));
-  }
-
-  /**
-   * 模型管理/获取模型及API密钥详情
-   * @returns ModelRouterQueryModelWithApiKeyResponse
-   */
-  async modelRouterQueryModelWithApiKey(id: string): Promise<$_model.ModelRouterQueryModelWithApiKeyResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.modelRouterQueryModelWithApiKeyWithOptions(id, headers, runtime);
   }
 
   /**
