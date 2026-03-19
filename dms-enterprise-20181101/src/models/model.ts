@@ -57,6 +57,7 @@ export { GenerateSqlFromNLResponseBodyDataKnowledgeReferences } from './Generate
 export { GenerateSqlFromNLResponseBodyDataSimilarSql } from './GenerateSqlFromNlresponseBody';
 export { GenerateSqlFromNLResponseBodyDataTables } from './GenerateSqlFromNlresponseBody';
 export { GenerateSqlFromNLResponseBodyData } from './GenerateSqlFromNlresponseBody';
+export { GetAIOrderApprovalCommentSSEResponseBodyOutput } from './GetAiorderApprovalCommentSseresponseBody';
 export { GetAbacPolicyResponseBodyPolicy } from './GetAbacPolicyResponseBody';
 export { GetApprovalDetailResponseBodyApprovalDetailCurrentHandlersCurrentHandler } from './GetApprovalDetailResponseBody';
 export { GetApprovalDetailResponseBodyApprovalDetailCurrentHandlers } from './GetApprovalDetailResponseBody';
