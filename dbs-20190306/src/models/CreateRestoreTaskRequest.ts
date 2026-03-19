@@ -3,11 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRestoreTaskRequest extends $dara.Model {
+  autoOpenDatabase?: string;
+  autoShutdownDatabase?: string;
   /**
    * @remarks
-   * The ID of the backup gateway.
+   * backup gateway ID.
    * 
-   * > This parameter is required if the DestinationEndpointInstanceType parameter is set to Agent.
+   * > This parameter is required when **DestinationEndpointInstanceType** is agent.
    * 
    * @example
    * 4312****
@@ -15,7 +17,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   backupGatewayId?: number;
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * backup plan ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The ID of the full backup set.
+   * The ID of the full backup set used for restoration. Mutually exclusive with RestoreTime.
    * 
    * @example
    * dbs1hvb0w*****
@@ -33,7 +35,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   backupSetId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * Ensures request idempotence and prevents duplicate submissions.
    * 
    * @example
    * ETnLKlblzczshOTUbOC********
@@ -41,7 +43,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The unique ID (UID) of the Alibaba Cloud account to which the source database belongs.
+   * UID for cross-Alibaba Cloud account backup.
    * 
    * @example
    * 2749528728********
@@ -49,19 +51,44 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   crossAliyunId?: string;
   /**
    * @remarks
-   * The name of the RAM role that is used to perform backups across Alibaba Cloud accounts.
+   * RAM role name for cross-Alibaba Cloud account backup.
    * 
    * @example
    * test123
    */
   crossRoleName?: string;
   /**
+   * @example
+   * mysql.x4.large.2
+   */
+  destDatabaseInstanceClass?: string;
+  destDatabaseInstanceDatabaseVersion?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  destDatabaseInstanceRegion?: string;
+  /**
+   * @example
+   * 500
+   */
+  destDatabaseInstanceStorageSize?: string;
+  /**
+   * @example
+   * rds
+   */
+  destDatabaseInstanceType?: string;
+  destDatabaseInstanceVSwitch?: string;
+  /**
+   * @example
+   * vpc-xx
+   */
+  destDatabaseInstanceVpc?: string;
+  /**
    * @remarks
-   * The name of the database.
+   * database name.
    * 
-   * 
-   * 
-   * > This parameter is required if the database is a PostgreSQL database or a MongoDB database.
+   * > This parameter is required when the database type is PostgreSQL or MongoDB.
    * 
    * @example
    * test
@@ -69,9 +96,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointDatabaseName?: string;
   /**
    * @remarks
-   * The endpoint that is used to connect to the database.
+   * database endpoint.
    * 
-   * > This parameter is required if the DestinationEndpointInstanceType parameter is set to Express, Agent, or Other.
+   * > This parameter is required when **DestinationEndpointInstanceType** is express, agent, or other.
    * 
    * @example
    * rm-bp*****9jv8pxero.mysql.rds.aliyuncs.com
@@ -79,9 +106,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointIP?: string;
   /**
    * @remarks
-   * The ID of the database instance.
+   * database instance ID.
    * 
-   * > This parameter is required if the DestinationEndpointInstanceType parameter is set to RDS, ECS, DDS, or Express.
+   * > This parameter is required when **DestinationEndpointInstanceType** is RDS, ECS, DDS, or Express.
    * 
    * @example
    * rm-bp1p8c29*****
@@ -89,15 +116,21 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointInstanceID?: string;
   /**
    * @remarks
-   * The location of the database. Valid values:
+   * database location. Valid values:
    * 
-   * *   **RDS**: The database is deployed on an ApsaraDB RDS instance.
-   * *   **ECS**: The database is deployed on an Elastic Compute Service (ECS) instance.
-   * *   **Express**: The database is connected to Database Backup (DBS) by using Express Connect, VPN Gateway, or Smart Access Gateway.
-   * *   **Agent**: The database is connected over a DBS backup gateway.
-   * *   **DDS**: The database is an ApsaraDB for MongoDB database.
-   * *   **Other**: The database is connected to DBS by using the IP address and port of the database.
-   * *   **dg**: The database is a self-managed database that does not have public IP addresses or port numbers and is connected to DBS over Database Gateway.
+   * - **RDS**
+   * 
+   * - **ECS**
+   * 
+   * - **Express**: databases accessed via leased line/VPN Gateway/Smart Gateway
+   * 
+   * - **Agent**: databases accessed via backup gateway
+   * 
+   * - **DDS**: Cloud MongoDB
+   * 
+   * - **Other**: databases directly connected via IP:Port
+   * 
+   * - **dg**: self-managed databases without public IP:Port (accessed via Database Gateway DG)
    * 
    * This parameter is required.
    * 
@@ -107,11 +140,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointInstanceType?: string;
   /**
    * @remarks
-   * The system ID (SID) of the Oracle database.
+   * Oracle SID name.
    * 
-   * 
-   * 
-   * > This parameter is required if the source database is an Oracle database.
+   * > This parameter is required when the database type is Oracle.
    * 
    * @example
    * test
@@ -119,11 +150,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointOracleSID?: string;
   /**
    * @remarks
-   * The password of the account that is used to connect to the source database.
+   * password.
    * 
-   * 
-   * 
-   * > This parameter is required except that the database is an SQL Server database that is connected to DBS over a DBS backup gateway or a Redis database.
+   * > This parameter is optional when the database type is Redis, or when the database location is agent and the database type is MSSQL. It is required in all other scenarios.
    * 
    * @example
    * Test
@@ -131,8 +160,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointPassword?: string;
   /**
    * @remarks
-   * The port of the database.
-   * > This parameter is required if the DestinationEndpointInstanceType parameter is set to Express, Agent, Other, or ECS.
+   * database port.
+   * 
+   * > This parameter is required when **DestinationEndpointInstanceType** is express, agent, other, or ECS.
    * 
    * @example
    * 3306
@@ -140,9 +170,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointPort?: number;
   /**
    * @remarks
-   * The region ID of the destination database instance.
+   * region of the database instance.
    * 
-   * >  You must specify this parameter if **DestinationEndpointInstanceType** is set to RDS, ECS, DDS, Express, or Agent.
+   * > This parameter is required when **DestinationEndpointInstanceType** is RDS, ECS, DDS, Express, or Agent.
    * 
    * @example
    * cn-hangzhou
@@ -150,10 +180,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointRegion?: string;
   /**
    * @remarks
-   * The username of the account that is used to connect to the database.
+   * database account.
    * 
-   * 
-   * > This parameter is required except that the database is an SQL Server database that is connected to DBS over a DBS backup gateway or a Redis database.
+   * > This parameter is optional when the database type is Redis, or when the database location is agent and the database type is MSSQL. It is required in all other scenarios.
    * 
    * @example
    * test
@@ -161,19 +190,24 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointUserName?: string;
   /**
    * @remarks
-   * The method of processing objects with the same name. Valid values:
+   * Conflict handling for objects with the same name. Currently supports:
    * 
-   * - failure: The restore task fails if the system detects objects with the same name. This is the default value.
-   * - renamenew: The restore task renames objects with the same name starting from the second occurrence.
+   * **renamenew**: Rename objects if names conflict.
    * 
    * @example
    * renamenew
    */
   duplicateConflict?: string;
+  enableDestinationEndpointSsl?: boolean;
   ownerId?: string;
   /**
+   * @example
+   * exist_instance
+   */
+  restoreDestinationMode?: string;
+  /**
    * @remarks
-   * This parameter is required if the DestinationEndpointInstanceType parameter is set to Agent and the backup object of the backup schedule is a MySQL database.
+   * Required when **DestinationEndpointInstanceType** is agent and the backup plan is MySQL.
    * 
    * @example
    * test
@@ -181,7 +215,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   restoreDir?: string;
   /**
    * @remarks
-   * The program directory of the database.
+   * database program directory.
    * 
    * @example
    * test
@@ -189,19 +223,22 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   restoreHome?: string;
   /**
    * @remarks
-   * The objects to be restored.
+   * restore objects.
    * 
+   * - For details, see the **RestoreObjects** parameter definition below. This parameter is optional when the database location is agent, and required in all other scenarios.
    * 
+   * - Input template: `[{ "DBName": "database name to be restored", "NewDBName": "target database name to be restored" }]`
    * 
-   * > This parameter is required except that the DestinationEndpointInstanceType parameter is set to Agent. For information about the parameter definition, see RestoreObjects.
+   * > This API only supports restoring objects at the database level. To configure table-level restoration, use the console. For details, see [Recover databases](https://help.aliyun.com/document_detail/85543.html).
    * 
    * @example
-   * [ { "DBName":"Name of the database to be restored", "NewDBName":"Name of the database to which the objects will be restored", "SchemaName":"Schema name of the database to be restored", "NewSchemaName":"Schema name of the destination database to which the objects will be restored"}]
+   * MySQL表级别恢复示例如下：
+   * [{\\"DBName\\":\\"dbname\\", \\"NewDBName\\":\\"dbname1\\"}]
    */
   restoreObjects?: string;
   /**
    * @remarks
-   * The name of the restore task.
+   * restore job name.
    * 
    * This parameter is required.
    * 
@@ -211,20 +248,34 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   restoreTaskName?: string;
   /**
    * @remarks
-   * The time to run the restore task, such as 1554560477000.
+   * restore time. Value: 1554560477000.
    * 
    * @example
    * 1554560477000
    */
   restoreTime?: number;
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----
+   */
+  sslCaPem?: string;
   static names(): { [key: string]: string } {
     return {
+      autoOpenDatabase: 'AutoOpenDatabase',
+      autoShutdownDatabase: 'AutoShutdownDatabase',
       backupGatewayId: 'BackupGatewayId',
       backupPlanId: 'BackupPlanId',
       backupSetId: 'BackupSetId',
       clientToken: 'ClientToken',
       crossAliyunId: 'CrossAliyunId',
       crossRoleName: 'CrossRoleName',
+      destDatabaseInstanceClass: 'DestDatabaseInstanceClass',
+      destDatabaseInstanceDatabaseVersion: 'DestDatabaseInstanceDatabaseVersion',
+      destDatabaseInstanceRegion: 'DestDatabaseInstanceRegion',
+      destDatabaseInstanceStorageSize: 'DestDatabaseInstanceStorageSize',
+      destDatabaseInstanceType: 'DestDatabaseInstanceType',
+      destDatabaseInstanceVSwitch: 'DestDatabaseInstanceVSwitch',
+      destDatabaseInstanceVpc: 'DestDatabaseInstanceVpc',
       destinationEndpointDatabaseName: 'DestinationEndpointDatabaseName',
       destinationEndpointIP: 'DestinationEndpointIP',
       destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
@@ -235,23 +286,35 @@ export class CreateRestoreTaskRequest extends $dara.Model {
       destinationEndpointRegion: 'DestinationEndpointRegion',
       destinationEndpointUserName: 'DestinationEndpointUserName',
       duplicateConflict: 'DuplicateConflict',
+      enableDestinationEndpointSsl: 'EnableDestinationEndpointSsl',
       ownerId: 'OwnerId',
+      restoreDestinationMode: 'RestoreDestinationMode',
       restoreDir: 'RestoreDir',
       restoreHome: 'RestoreHome',
       restoreObjects: 'RestoreObjects',
       restoreTaskName: 'RestoreTaskName',
       restoreTime: 'RestoreTime',
+      sslCaPem: 'SslCaPem',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoOpenDatabase: 'string',
+      autoShutdownDatabase: 'string',
       backupGatewayId: 'number',
       backupPlanId: 'string',
       backupSetId: 'string',
       clientToken: 'string',
       crossAliyunId: 'string',
       crossRoleName: 'string',
+      destDatabaseInstanceClass: 'string',
+      destDatabaseInstanceDatabaseVersion: 'string',
+      destDatabaseInstanceRegion: 'string',
+      destDatabaseInstanceStorageSize: 'string',
+      destDatabaseInstanceType: 'string',
+      destDatabaseInstanceVSwitch: 'string',
+      destDatabaseInstanceVpc: 'string',
       destinationEndpointDatabaseName: 'string',
       destinationEndpointIP: 'string',
       destinationEndpointInstanceID: 'string',
@@ -262,12 +325,15 @@ export class CreateRestoreTaskRequest extends $dara.Model {
       destinationEndpointRegion: 'string',
       destinationEndpointUserName: 'string',
       duplicateConflict: 'string',
+      enableDestinationEndpointSsl: 'boolean',
       ownerId: 'string',
+      restoreDestinationMode: 'string',
       restoreDir: 'string',
       restoreHome: 'string',
       restoreObjects: 'string',
       restoreTaskName: 'string',
       restoreTime: 'number',
+      sslCaPem: 'string',
     };
   }
 

@@ -8,7 +8,7 @@ export class CreateFullBackupSetDownloadResponseBody extends $dara.Model {
    * The ID of the backup set download task.
    * 
    * @example
-   * dbstooi01e****
+   * dbstooi01exxxxx
    */
   backupSetDownloadTaskId?: string;
   /**
@@ -37,7 +37,7 @@ export class CreateFullBackupSetDownloadResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D6E068C3-25BC-455A-85FE-45F0B22ECB1F
@@ -45,7 +45,7 @@ export class CreateFullBackupSetDownloadResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

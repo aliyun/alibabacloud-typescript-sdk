@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupPlanNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyBackupPlanNameRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The name of the backup schedule.
+   * The name of the backup plan.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyBackupPlanNameRequest extends $dara.Model {
   backupPlanName?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request. This prevents the same request from being submitted multiple times.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx

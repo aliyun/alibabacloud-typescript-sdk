@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStorageStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * Backup plan ID.
    * 
    * @example
    * dbsqdss5tmh****
@@ -13,7 +13,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * Param.NotFound
@@ -21,7 +21,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * findValidDBSJob error
@@ -29,7 +29,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -37,10 +37,11 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether a precheck is triggered. Valid values:
+   * Indicates whether this modification triggers a precheck. Return values:
    * 
-   * *   **true**: A precheck is triggered. You must manually call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869818.html) operation to start the backup schedule.
-   * *   **false**: No precheck is triggered.
+   * - **true**: A precheck is triggered. Manually call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869818.html) API to start the backup plan.
+   * 
+   * - **false**: No precheck is triggered.
    * 
    * @example
    * false
@@ -48,7 +49,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   needPrecheck?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * E995F91F-6F89-503B-9F7D-502F58FD****
@@ -56,10 +57,11 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Return values:
    * 
-   * *   **true**: The request is successful.
-   * *   **false**: The request fails.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

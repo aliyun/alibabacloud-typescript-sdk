@@ -7,8 +7,9 @@ export class DescribeDLAServiceResponseBody extends $dara.Model {
    * @remarks
    * Specifies whether to enable the feature of automatically adding incremental data to a data lake. If this feature is enabled, DBS adds the backup sets that are newly generated to the data lake that is created for the backup schedule. Valid values:
    * 
-   * *   **true**: enables the feature.
-   * *   **false**: disables the feature.
+   * - **true**: enables the feature.
+   * 
+   * - **false**: disables the feature.
    * 
    * @example
    * true
@@ -34,8 +35,9 @@ export class DescribeDLAServiceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether a failed DLA task exists in the return result. Valid values:
    * 
-   * *   **true**: A failed DLA task exists.
-   * *   **false**: No failed DLA task exists.
+   * - **true**: A failed DLA task exists.
+   * 
+   * - **false**: No failed DLA task exists.
    * 
    * @example
    * false
@@ -61,9 +63,11 @@ export class DescribeDLAServiceResponseBody extends $dara.Model {
    * @remarks
    * The status of the DLA service for the backup schedule. Valid values:
    * 
-   * *   **Running**: DLA is running.
-   * *   **Closing**: DLA is being disabled.
-   * *   **Closed**: DLA is disabled.
+   * - **Running**: DLA is running.
+   * 
+   * - **Closing**: DLA is being disabled.
+   * 
+   * - **Closed**: DLA is disabled.
    * 
    * @example
    * Running

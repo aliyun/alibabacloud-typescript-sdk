@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The backup plan ID.
    * 
    * @example
    * dbsrhahrsu2****
@@ -37,7 +37,7 @@ export class CreateBackupPlanResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21437345592****
@@ -45,7 +45,7 @@ export class CreateBackupPlanResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7BCF6D62-885F-5A4A-91A1-679760E7****
@@ -53,10 +53,11 @@ export class CreateBackupPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request is successful.
-   * *   **false**: The request fails.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

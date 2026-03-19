@@ -10,7 +10,7 @@ export class DescribeDLAServiceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dbstooi01ex****
+   * dbstooi01exXXXX
    */
   backupPlanId?: string;
   /**

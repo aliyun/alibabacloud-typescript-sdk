@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePreCheckProgressListRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup schedule ID.
+   * The ID of the backup plan.
    * 
-   * >  You must specify one of BackupPlanId and RestoreTaskId.
+   * > Specify either BackupPlanId or RestoreTaskId.
    * 
    * @example
-   * dbstooi01XXXX
+   * dbsr1l3ro21****
    */
   backupPlanId?: string;
   /**
@@ -18,16 +18,16 @@ export class DescribePreCheckProgressListRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzxxxxxxx
+   * ETnLKlblzczshOTUbOCziJZNwH****
    */
   clientToken?: string;
   ownerId?: string;
   /**
    * @remarks
-   * The restoration task ID.
+   * The ID of the restore job.
    * 
    * @example
-   * dbasdsaXXXX
+   * dbasdsa****
    */
   restoreTaskId?: string;
   static names(): { [key: string]: string } {

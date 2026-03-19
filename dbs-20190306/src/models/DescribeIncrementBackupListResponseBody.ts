@@ -3,87 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeIncrementBackupListResponseBodyItemsIncrementBackupFile extends $dara.Model {
-  /**
-   * @remarks
-   * The point in time when the backup set expires.
-   * 
-   * @example
-   * 1711506719000
-   */
   backupSetExpiredTime?: number;
-  /**
-   * @remarks
-   * The ID of the backup set.
-   * 
-   * @example
-   * mysql-bin.00****
-   */
   backupSetId?: string;
-  /**
-   * @remarks
-   * The ID of the incremental backup task.
-   * 
-   * @example
-   * 1hv5g9wk4****
-   */
   backupSetJobId?: string;
-  /**
-   * @remarks
-   * The size of the backup set.
-   * 
-   * @example
-   * 18535
-   */
   backupSize?: number;
-  /**
-   * @remarks
-   * The status of the incremental backup task. Valid values:
-   * 
-   * *   **INIT**: The incremental backup task is not started.
-   * *   **FILLING**: The incremental backup task is in progress.
-   * *   **COMPLETED**: The incremental backup task is complete.
-   * *   **UNCOMPLETED**: The incremental backup task is not complete.
-   * 
-   * @example
-   * FILLING
-   */
   backupStatus?: string;
-  /**
-   * @remarks
-   * The end time of the incremental backup task.
-   * 
-   * @example
-   * 1648434713000
-   */
   endTime?: number;
   /**
-   * @remarks
-   * The endpoint that is used to connect to the database.
-   * 
    * @example
-   * 172.1XX.103.1:4XXX
+   * 127.0.0.1
    */
+  sourceEndpointHost?: string;
+  /**
+   * @example
+   * rm-testxx
+   */
+  sourceEndpointInstanceId?: string;
+  /**
+   * @example
+   * rds
+   */
+  sourceEndpointInstanceType?: string;
   sourceEndpointIpPort?: string;
   /**
-   * @remarks
-   * The start time of the incremental backup task.
-   * 
    * @example
-   * 1648433764000
+   * 3306
    */
-  startTime?: number;
+  sourceEndpointPort?: string;
   /**
-   * @remarks
-   * The storage class of the backup data. Valid values:
-   * 
-   * *   **Standard**: The storage class is Standard.
-   * *   **IA**: The storage class is Infrequent Access (IA).
-   * *   **Archive**: The storage class is Archive.
-   * *   **UNKNOWN**: The storage class is unknown. This value is returned because the task is not complete.
-   * 
    * @example
-   * Standard
+   * cn-beijing
    */
+  sourceEndpointRegion?: string;
+  startTime?: number;
   storageMethod?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,7 +45,12 @@ export class DescribeIncrementBackupListResponseBodyItemsIncrementBackupFile ext
       backupSize: 'BackupSize',
       backupStatus: 'BackupStatus',
       endTime: 'EndTime',
+      sourceEndpointHost: 'SourceEndpointHost',
+      sourceEndpointInstanceId: 'SourceEndpointInstanceId',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
       sourceEndpointIpPort: 'SourceEndpointIpPort',
+      sourceEndpointPort: 'SourceEndpointPort',
+      sourceEndpointRegion: 'SourceEndpointRegion',
       startTime: 'StartTime',
       storageMethod: 'StorageMethod',
     };
@@ -107,7 +64,12 @@ export class DescribeIncrementBackupListResponseBodyItemsIncrementBackupFile ext
       backupSize: 'number',
       backupStatus: 'string',
       endTime: 'number',
+      sourceEndpointHost: 'string',
+      sourceEndpointInstanceId: 'string',
+      sourceEndpointInstanceType: 'string',
       sourceEndpointIpPort: 'string',
+      sourceEndpointPort: 'string',
+      sourceEndpointRegion: 'string',
       startTime: 'number',
       storageMethod: 'string',
     };
@@ -173,14 +135,10 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The details of incremental backup tasks.
-   */
   items?: DescribeIncrementBackupListResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 0
@@ -188,7 +146,7 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -196,7 +154,7 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A5D52069-E8AA-5056-8C5C-654C3610****
@@ -204,10 +162,11 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request is successful.
-   * *   **false**: The request fails.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -223,7 +182,7 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
   totalElements?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 1

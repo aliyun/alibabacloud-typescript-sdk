@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPlanBillingRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup gateway.
+   * The ID of the backup plan. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * 160813
+   * dbstooi01ex****
    */
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure the idempotence of the request. The client generates this value. It must be unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxxxxx
@@ -24,7 +24,7 @@ export class DescribeBackupPlanBillingRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * Indicates whether the storage type is displayed.
+   * Specifies whether to display the storage class.
    * 
    * @example
    * true

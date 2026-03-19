@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPlanBillingResponseBodyItem extends $dara.Model {
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method of the instance. Valid values:
    * 
-   * *   PREPAY
-   * *   POSTPAY
+   * - **PREPAY**: subscription
+   * 
+   * - **POSTPAY**: pay-as-you-go
    * 
    * @example
    * PREPAY
@@ -19,22 +20,22 @@ export class DescribeBackupPlanBillingResponseBodyItem extends $dara.Model {
    * The timestamp that indicates when the instance was purchased.
    * 
    * @example
-   * 1554560477000
+   * 1658372830000
    */
   buyCreateTimestamp?: number;
   /**
    * @remarks
    * The timestamp that indicates when the instance expires.
    * 
-   * > This parameter is available only if the value of the BuyChargeType parameter is PREPAY.
+   * > This parameter is returned only when BuyChargeType is set to PREPAY.
    * 
    * @example
-   * 1554560477000
+   * 1661097600000
    */
   buyExpiredTimestamp?: number;
   /**
    * @remarks
-   * The specifications of the instance.
+   * The instance type.
    * 
    * @example
    * micro
@@ -42,25 +43,25 @@ export class DescribeBackupPlanBillingResponseBodyItem extends $dara.Model {
   buySpec?: string;
   /**
    * @remarks
-   * The size of the built-in storage for storing incremental backup data.
+   * The storage space used by incremental backup data. Unit: bytes.
    * 
    * @example
-   * 12134
+   * 10437039
    */
   contStorageSize?: number;
   /**
    * @remarks
-   * The size of the built-in storage for storing full backup data.
+   * The storage space used by full backup data. Unit: bytes.
    * 
    * @example
-   * 13123
+   * 151
    */
   fullStorageSize?: number;
   /**
    * @remarks
-   * Indicates whether the instance expired.
+   * Indicates whether the instance has expired.
    * 
-   * > This parameter is available only if the value of the BuyChargeType parameter is PREPAY.
+   * > This parameter is returned only when BuyChargeType is set to PREPAY.
    * 
    * @example
    * true
@@ -68,7 +69,7 @@ export class DescribeBackupPlanBillingResponseBodyItem extends $dara.Model {
   isExpired?: boolean;
   /**
    * @remarks
-   * Indicates whether the instance has no backup traffic limit.
+   * Indicates whether the instance provides unlimited free backup traffic.
    * 
    * @example
    * true
@@ -76,52 +77,52 @@ export class DescribeBackupPlanBillingResponseBodyItem extends $dara.Model {
   isFreeBytesUnlimited?: boolean;
   /**
    * @remarks
-   * The total paid backup traffic in the current month.
+   * The total paid backup traffic in the current month. Unit: bytes.
    * 
    * @example
-   * 213213
+   * 0
    */
   paiedBytes?: number;
   /**
    * @remarks
-   * The timestamp that indicates when the billing cycle of free backup traffic ends.
+   * The timestamp that indicates the end of the billing cycle for the free backup traffic.
    * 
    * @example
-   * 1554560477000
+   * 1659283200000
    */
   quotaEndTimestamp?: number;
   /**
    * @remarks
-   * The timestamp that indicates when the billing cycle of free backup traffic starts.
+   * The timestamp that indicates the start of the billing cycle for the free backup traffic.
    * 
    * @example
-   * 1554560477000
+   * 1656604800000
    */
   quotaStartTimestamp?: number;
   /**
    * @remarks
-   * The total free backup traffic in the current month.
+   * The total free backup traffic in the current month. Unit: bytes.
    * 
-   * > This parameter is available only if the value of the BuyChargeType parameter is PREPAY and the value of the IsFreeBytesUnlimited parameter is false.
+   * > This parameter is returned only when BuyChargeType is set to PREPAY and IsFreeBytesUnlimited is false.
    * 
    * @example
-   * 13123
+   * 858993459200
    */
   totalFreeBytes?: number;
   /**
    * @remarks
-   * The paid full backup traffic in the current month.
+   * The paid traffic for full backups in the current month. Unit: bytes.
    * 
    * @example
-   * 1312313
+   * 0
    */
   usedFullBytes?: number;
   /**
    * @remarks
-   * The paid incremental backup traffic in the current month.
+   * The paid traffic for incremental backups in the current month. Unit: bytes.
    * 
    * @example
-   * 131231
+   * 9406734
    */
   usedIncrementBytes?: number;
   static names(): { [key: string]: string } {
@@ -198,15 +199,15 @@ export class DescribeBackupPlanBillingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The billing information of the backup schedule.
+   * The billing information of the backup plan.
    */
   item?: DescribeBackupPlanBillingResponseBodyItem;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * EB4DFD5E-3618-498D-BE35-4DBEA0072122
+   * DD7BC7F5-4E3A-5DF3-BFF9-831503C4D9E3
    */
   requestId?: string;
   /**

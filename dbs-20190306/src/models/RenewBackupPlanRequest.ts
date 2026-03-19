@@ -10,7 +10,7 @@ export class RenewBackupPlanRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dbstooi01e****
+   * dbstooi01exxx
    */
   backupPlanId?: string;
   /**
@@ -18,7 +18,7 @@ export class RenewBackupPlanRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
-   * HKAJHFIUEQWBFIJSNFO****
+   * HKAJHFIUEQWBFIJSNFOIWHN
    */
   clientToken?: string;
   ownerId?: string;
@@ -26,8 +26,9 @@ export class RenewBackupPlanRequest extends $dara.Model {
    * @remarks
    * Specifies whether to use yearly subscription or monthly subscription for the instance. Valid values:
    * 
-   * *   Year
-   * *   Month
+   * - Year
+   * 
+   * - Month
    * 
    * This parameter is required.
    * 
@@ -39,8 +40,9 @@ export class RenewBackupPlanRequest extends $dara.Model {
    * @remarks
    * The subscription duration of the instance. Valid values:
    * 
-   * *   If the Period parameter is set to Year, the value of the UsedTime parameter ranges from 1 to 9.
-   * *   If the Period parameter is set to Month, the value of the UsedTime parameter ranges from 1 to 11.
+   * - If the Period parameter is set to Year, the value of the UsedTime parameter ranges from 1 to 9.
+   * 
+   * - If the Period parameter is set to Month, the value of the UsedTime parameter ranges from 1 to 11.
    * 
    * This parameter is required.
    * 

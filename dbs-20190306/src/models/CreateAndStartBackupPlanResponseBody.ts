@@ -5,18 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndStartBackupPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup schedule ID.
+   * The ID of the backup plan.
    * 
    * @example
-   * dbs1hvb0wwweusfa
+   * dbs1hvb0wwwe****
    */
   backupPlanId?: string;
   /**
    * @remarks
-   * Indicates whether a backup is performed immediately after the backup schedule is configured. Valid values:
+   * Indicates whether the backup set is enabled. The return value is one of the following:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled
+   * 
+   * - **false**: Disabled
    * 
    * @example
    * true
@@ -56,7 +57,7 @@ export class CreateAndStartBackupPlanResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4F1888AC-1138-4995-B9FE-D2734F61C058
@@ -64,7 +65,7 @@ export class CreateAndStartBackupPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

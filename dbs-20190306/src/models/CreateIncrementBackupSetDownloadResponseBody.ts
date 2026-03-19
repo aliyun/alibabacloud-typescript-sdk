@@ -8,7 +8,7 @@ export class CreateIncrementBackupSetDownloadResponseBody extends $dara.Model {
    * The ID of the backup set download task.
    * 
    * @example
-   * dbstooi01e****
+   * 1jydacm******
    */
   backupSetDownloadTaskId?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIncrementBackupListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the ID.
+   * The backup plan ID. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) interface to get this parameter\\"s value.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeIncrementBackupListRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A unique string that ensures the idempotence of the request and prevents duplicate requests.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -23,7 +23,7 @@ export class DescribeIncrementBackupListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end backup UNIX timestamp.
    * 
    * @example
    * 1570701361600
@@ -32,7 +32,7 @@ export class DescribeIncrementBackupListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be a positive integer. Default value: 0.
+   * The page number. The value must be greater than or equal to 0 and less than or equal to the maximum integer value. The default value is 0.
    * 
    * @example
    * 1
@@ -40,9 +40,9 @@ export class DescribeIncrementBackupListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 30, 50, and 100.
+   * The number of entries per page. Valid values are 30, 50, and 100.
    * 
-   * > Default value: 30.
+   * > The default number of entries per page is 30.
    * 
    * @example
    * 30
@@ -50,12 +50,13 @@ export class DescribeIncrementBackupListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to return the storage class. Valid values:
+   * Indicates whether to display the storage class. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
    * 
-   * > Default value: true.
+   * - false
+   * 
+   * > The default value is true.
    * 
    * @example
    * true
@@ -63,7 +64,7 @@ export class DescribeIncrementBackupListRequest extends $dara.Model {
   showStorageType?: boolean;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start backup UNIX timestamp.
    * 
    * @example
    * 1570701361528

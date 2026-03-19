@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup gateway ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the ID.
+   * The backup gateway ID. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
-   * >  If you set **SourceEndpointInstanceType** to Agent, this parameter is required.
+   * > You must specify this parameter when **SourceEndpointInstanceType** is Agent.
    * 
    * @example
    * 21321323213
@@ -15,15 +15,15 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   backupGatewayId?: number;
   /**
    * @remarks
-   * The backup object. If you set SourceEndpointInstanceType to Agent, this parameter is optional. Otherwise, it is required. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the backup object.
+   * The backup objects. This parameter is optional when SourceEndpointInstanceType is Agent. For all other cases, you must specify it. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
    * @example
-   * [{ "DBName":"Name of the database to be backed up", "SchemaName":"Name of the schema to be backed up", "TableIncludes":[{ "TableName":"Name of the table to be backed up" }], "TableExcludes":[{"TableName":"Name of the table to be excluded during the backup" }] } ]
+   * [{  "DBName":"待备份库名", "SchemaName":"待备份 Schema 名", "TableIncludes":[{ "TableName":"待备份表表名" }],  "TableExcludes":[{"TableName":"待备份库名不需要备份表的表名" }] } ]
    */
   backupObjects?: string;
   /**
    * @remarks
-   * The ID of the backup schedule. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain it.
+   * The backup plan ID. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A unique string that ensures idempotence and prevents duplicate requests.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -41,7 +41,7 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The unique ID (UID) of the Alibaba Cloud account to which the backup schedule belongs. You can call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) operation to obtain the UID.
+   * The UID of the Alibaba Cloud account used for cross-account backup. Call [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) to get this value.
    * 
    * @example
    * 2xxx7778xxxxxxxxxx
@@ -49,19 +49,25 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   crossAliyunId?: string;
   /**
    * @remarks
-   * The name of the RAM role that is used to perform backups across Alibaba Cloud accounts. You can call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) operation to obtain the RAM role.
+   * The RAM role name used for cross-account backup. Call [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) to get this value.
    * 
    * @example
    * test123
    */
   crossRoleName?: string;
+  /**
+   * @example
+   * true
+   */
+  enableSourceEndpointSsl?: string;
   ownerId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
-   * *   This parameter is required if the database is a PostgreSQL or MongoDB database.
-   * *   This parameter is required if the database is an SQL Server database that is connected to DBS over a DBS backup gateway.
+   * - You must specify this parameter for PostgreSQL or MongoDB databases.
+   * 
+   * - You must specify this parameter for Microsoft SQL Server databases connected through a backup gateway.
    * 
    * @example
    * test
@@ -69,9 +75,9 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   sourceEndpointDatabaseName?: string;
   /**
    * @remarks
-   * The endpoint of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the endpoint.
+   * The database endpoint. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
-   * >  If you set **SourceEndpointInstanceType** to Express, Agent, or Other, this parameter is required.
+   * > You must specify this parameter when **SourceEndpointInstanceType** is Express, Agent, or Other.
    * 
    * @example
    * 100.*.*.10:3306
@@ -79,9 +85,9 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   sourceEndpointIP?: string;
   /**
    * @remarks
-   * The database instance ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the ID.
+   * The database instance ID. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
-   * >  If you set **SourceEndpointInstanceType** to RDS, ECS, DDS, or Express, this parameter is required.
+   * > You must specify this parameter when **SourceEndpointInstanceType** is RDS, ECS, DDS, or Express.
    * 
    * @example
    * rm-bp1p8c29479jv****
@@ -89,14 +95,19 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   sourceEndpointInstanceID?: string;
   /**
    * @remarks
-   * The location of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain it. Valid values:
+   * The location of the database. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value. Valid values:
    * 
-   * *   **RDS**
-   * *   **ECS**
-   * *   **Express**: The database is connected to DBS via Express Connect, VPN Gateway, or Smart Access Gateway.
-   * *   **Agent**: The database is connected to DBS over a DBS backup gateway.
-   * *   **DDS**: The database is an ApsaraDB for MongoDB database.
-   * *   **Other**: The database is connected to DBS using the IP address and port of the database.
+   * - **RDS**
+   * 
+   * - **ECS**
+   * 
+   * - **Express**: A database connected through a leased line, VPN Gateway, or Smart Access Gateway
+   * 
+   * - **Agent**: A database connected through a backup gateway
+   * 
+   * - **DDS**: A MongoDB instance on Alibaba Cloud
+   * 
+   * - **Other**: A database connected directly using an IP address and port
    * 
    * This parameter is required.
    * 
@@ -105,8 +116,13 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
    */
   sourceEndpointInstanceType?: string;
   /**
+   * @example
+   * /home/test
+   */
+  sourceEndpointOracleHome?: string;
+  /**
    * @remarks
-   * The SID of the Oracle source database. If the database is an Oracle database, this parameter is required.
+   * The Oracle system ID (SID). You must specify this parameter for Oracle databases.
    * 
    * @example
    * test
@@ -114,9 +130,9 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   sourceEndpointOracleSID?: string;
   /**
    * @remarks
-   * The password of the account that is used to connect to the database.
+   * The password.
    * 
-   * This parameter is required except that the database is an SQL Server database that is connected to DBS over a DBS backup gateway or a Redis database.
+   * This parameter is optional for Redis databases or for Microsoft SQL Server databases connected through a backup gateway. For all other cases, you must specify it.
    * 
    * @example
    * test
@@ -124,9 +140,9 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   sourceEndpointPassword?: string;
   /**
    * @remarks
-   * The port that is used to connect to the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the port.
+   * The database port. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
-   * >  If you set **SourceEndpointInstanceType** to Express, Agent, Other, or ECS, this parameter is required.
+   * > You must specify this parameter when **SourceEndpointInstanceType** is Express, Agent, Other, or ECS.
    * 
    * @example
    * 3306
@@ -134,9 +150,9 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   sourceEndpointPort?: number;
   /**
    * @remarks
-   * The region in which the database you want to back up resides. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the region.
+   * The region where the database is located. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
-   * >  If you set **SourceEndpointInstanceType** to RDS, ECS, DDS, Express, or Agent, this parameter is required.
+   * > You must specify this parameter when **SourceEndpointInstanceType** is RDS, ECS, DDS, Express, or Agent.
    * 
    * @example
    * cn-hangzhou
@@ -144,14 +160,19 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
   sourceEndpointRegion?: string;
   /**
    * @remarks
-   * The account that is used to log on to the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the account.
+   * The database account. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to get this value.
    * 
-   * If the database is an SQL Server database connected to DBS over a DBS backup gateway or a Redis database, this parameter is optional. Otherwise, it is required.
+   * This parameter is optional for Redis databases or for Microsoft SQL Server databases connected through a backup gateway. For all other cases, you must specify it.
    * 
    * @example
    * test
    */
   sourceEndpointUserName?: string;
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----
+   */
+  sslCaPem?: string;
   static names(): { [key: string]: string } {
     return {
       backupGatewayId: 'BackupGatewayId',
@@ -160,16 +181,19 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
       clientToken: 'ClientToken',
       crossAliyunId: 'CrossAliyunId',
       crossRoleName: 'CrossRoleName',
+      enableSourceEndpointSsl: 'EnableSourceEndpointSsl',
       ownerId: 'OwnerId',
       sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
       sourceEndpointIP: 'SourceEndpointIP',
       sourceEndpointInstanceID: 'SourceEndpointInstanceID',
       sourceEndpointInstanceType: 'SourceEndpointInstanceType',
+      sourceEndpointOracleHome: 'SourceEndpointOracleHome',
       sourceEndpointOracleSID: 'SourceEndpointOracleSID',
       sourceEndpointPassword: 'SourceEndpointPassword',
       sourceEndpointPort: 'SourceEndpointPort',
       sourceEndpointRegion: 'SourceEndpointRegion',
       sourceEndpointUserName: 'SourceEndpointUserName',
+      sslCaPem: 'SslCaPem',
     };
   }
 
@@ -181,16 +205,19 @@ export class ModifyBackupSourceEndpointRequest extends $dara.Model {
       clientToken: 'string',
       crossAliyunId: 'string',
       crossRoleName: 'string',
+      enableSourceEndpointSsl: 'string',
       ownerId: 'string',
       sourceEndpointDatabaseName: 'string',
       sourceEndpointIP: 'string',
       sourceEndpointInstanceID: 'string',
       sourceEndpointInstanceType: 'string',
+      sourceEndpointOracleHome: 'string',
       sourceEndpointOracleSID: 'string',
       sourceEndpointPassword: 'string',
       sourceEndpointPort: 'number',
       sourceEndpointRegion: 'string',
       sourceEndpointUserName: 'string',
+      sslCaPem: 'string',
     };
   }
 

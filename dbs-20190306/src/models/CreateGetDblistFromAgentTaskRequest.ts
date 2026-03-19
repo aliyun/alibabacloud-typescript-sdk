@@ -7,7 +7,7 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
    * @remarks
    * The ID of the backup gateway. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the ID.
    * 
-   * >  This parameter is required.
+   * > This parameter is required.
    * 
    * @example
    * 160813
@@ -25,14 +25,21 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
    * @remarks
    * The type of the database. Valid values:
    * 
-   * *   **MySQL**
-   * *   **MSSQL**
-   * *   **Oracle**
-   * *   **MariaDB**
-   * *   **PostgreSQL**
-   * *   **DRDS**
-   * *   **MongoDB**
-   * *   **Redis**
+   * - **MySQL**
+   * 
+   * - **MSSQL**
+   * 
+   * - **Oracle**
+   * 
+   * - **MariaDB**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **DRDS**
+   * 
+   * - **MongoDB**
+   * 
+   * - **Redis**
    * 
    * @example
    * MySQL
@@ -44,7 +51,7 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
    * The URL that is used to access the database.
    * 
    * @example
-   * 123.0.0.1
+   * 123.0.XX.XX
    */
   sourceEndpointIP?: string;
   /**

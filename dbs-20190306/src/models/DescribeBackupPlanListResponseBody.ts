@@ -3,349 +3,125 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupPlanListResponseBodyItemsBackupPlanDetail extends $dara.Model {
-  /**
-   * @remarks
-   * Backup gateway ID.
-   * 
-   * @example
-   * 827362187368736
-   */
   backupGatewayId?: number;
   /**
-   * @remarks
-   * Backup method. The return values are as follows:
-   * - **logical**: Logical backup
-   * - **physical**: Physical backup
-   * - **duplication**: Replication backup
-   * 
    * @example
-   * logical
+   * TESTGATEWAY
    */
+  backupGatewayIdentifier?: string;
   backupMethod?: string;
-  /**
-   * @remarks
-   * Backup objects.
-   */
   backupObjects?: string;
-  /**
-   * @remarks
-   * Full backup cycle. The return values are as follows:
-   * - **Monday**: Monday
-   * - **Tuesday**: Tuesday
-   * - **Wednesday**: Wednesday
-   * - **Thursday**: Thursday
-   * - **Friday**: Friday
-   * - **Saturday**: Saturday
-   * - **Sunday**: Sunday
-   * 
-   * @example
-   * Monday
-   */
   backupPeriod?: string;
-  /**
-   * @remarks
-   * Timestamp of the backup plan creation.
-   * 
-   * @example
-   * 1582527713000
-   */
   backupPlanCreateTime?: number;
-  /**
-   * @remarks
-   * Backup plan ID.
-   * 
-   * @example
-   * dbstooi01eXXXX
-   */
   backupPlanId?: string;
-  /**
-   * @remarks
-   * Backup plan name.
-   * 
-   * @example
-   * dbstooi01e****
-   */
   backupPlanName?: string;
   /**
-   * @remarks
-   * Backup plan status. The return values are as follows:
-   * - **wait**: Not configured
-   * - **init**: Not started (pre-check failed)
-   * - **running**: Running
-   * - **stop**: Failed
-   * - **pause**: Paused
-   * - **locked**: Locked
-   * - **check_pass**: Pre-check passed
-   * 
    * @example
-   * init
+   * cn-beijing
    */
+  backupPlanRegion?: string;
   backupPlanStatus?: string;
-  /**
-   * @remarks
-   * Backup data retention period, with a value range of 0 to 1825 days.
-   * 
-   * @example
-   * 365
-   */
   backupRetentionPeriod?: number;
-  /**
-   * @remarks
-   * Download server directory of the backup set
-   */
   backupSetDownloadDir?: string;
-  /**
-   * @remarks
-   * Full data format for backup set download:
-   * * **Native**
-   * * **SQL**
-   * * **CSV**
-   * * **JSON**
-   * 
-   * @example
-   * SQL
-   */
   backupSetDownloadFullDataFormat?: string;
-  /**
-   * @remarks
-   * Backup set download backup gateway ID.
-   * 
-   * @example
-   * 123123
-   */
   backupSetDownloadGatewayId?: number;
-  /**
-   * @remarks
-   * Backup set download full data format:
-   * * **Native**
-   * * **SQL**
-   * * **CSV**
-   * * **JSON**
-   * 
-   * @example
-   * SQL
-   */
   backupSetDownloadIncrementDataFormat?: string;
-  /**
-   * @remarks
-   * Backup set download target type.
-   * 
-   * > The only value is: agent, indicating that the backup gateway is installed.
-   * 
-   * @example
-   * agent
-   */
   backupSetDownloadTargetType?: string;
-  /**
-   * @remarks
-   * Full backup start time, in the format HH:mm.
-   * 
-   * @example
-   * 14:22
-   */
   backupStartTime?: string;
-  /**
-   * @remarks
-   * Built-in storage type. The return values are as follows:
-   * 
-   * - Empty (default): Backup data is stored on the user\\"s OSS.
-   * - system: Backup data is stored on the built-in OSS of DBS.
-   * 
-   * @example
-   * system
-   */
   backupStorageType?: string;
-  /**
-   * @remarks
-   * Start time for the database restore period, with a return value of 1554560477000.
-   * 
-   * @example
-   * 1554560477000
-   */
   beginTimestampForRestore?: number;
-  /**
-   * @remarks
-   * UID for cross-Aliyun account backup.
-   * 
-   * @example
-   * 2xxx7778xxxxxxxxxx
-   */
   crossAliyunId?: string;
-  /**
-   * @remarks
-   * RAM role name for cross-Aliyun account backup.
-   * 
-   * @example
-   * test123
-   */
   crossRoleName?: string;
-  /**
-   * @remarks
-   * Database type.
-   * 
-   * @example
-   * MySQL
-   */
   databaseType?: string;
-  /**
-   * @remarks
-   * Time (in days) to convert to archive cold backup storage.
-   * 
-   * @example
-   * 365
-   */
   duplicationArchivePeriod?: number;
-  /**
-   * @remarks
-   * Time (in days) to convert to infrequent access storage.
-   * 
-   * @example
-   * 180
-   */
   duplicationInfrequentAccessPeriod?: number;
-  /**
-   * @remarks
-   * Indicates whether incremental log backup is enabled, with return values as follows:
-   * - **true**: Enabled
-   * - **false**: Disabled
-   * 
-   * @example
-   * true
-   */
   enableBackupLog?: boolean;
-  /**
-   * @remarks
-   * End time of the database restorable period, in timestamp format.
-   * 
-   * @example
-   * 1554560477000
-   */
+  enableMysqlPhysicalBackupBinLog?: boolean;
   endTimestampForRestore?: number;
-  /**
-   * @remarks
-   * Pre-check task error message.
-   * 
-   * @example
-   * can not connect to oracle instance orcl with user dbs
-   */
   errMessage?: string;
   /**
-   * @remarks
-   * Instance class, with return values as follows:
-   * 
-   * - **micro**: Entry-level
-   * - **small**: Low-spec
-   * - **medium**: Medium-spec
-   * - **large**: High-spec
-   * - **xlarge**: High-spec (no traffic limit)
-   * 
    * @example
-   * micro
+   * 365
    */
+  incrementBackupRetentionPeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  incrementDuplicationArchivePeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  incrementDuplicationInfrequentAccessPeriod?: string;
+  /**
+   * @example
+   * PREPAY
+   */
+  instanceChargeType?: string;
   instanceClass?: string;
   /**
-   * @remarks
-   * OSS Bucket name.
-   * 
    * @example
-   * dbs-backup-1857XXXXX489
+   * 1764051253000
    */
+  instanceExpiredTimestamp?: number;
+  /**
+   * @example
+   * 365
+   */
+  logBackupRetentionPeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  logDuplicationArchivePeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  logDuplicationInfrequentAccessPeriod?: string;
   OSSBucketName?: string;
-  /**
-   * @remarks
-   * OSS Bucket region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   OSSBucketRegion?: string;
+  openBackupSetAutoDownload?: boolean;
+  resourceGroupId?: string;
+  sourceEndpointDatabaseName?: string;
   /**
-   * @remarks
-   * Indicates whether the automatic backup set download feature is enabled.
-   * 
    * @example
    * true
    */
-  openBackupSetAutoDownload?: boolean;
+  sourceEndpointEnableSsl?: string;
   /**
-   * @remarks
-   * Resource group ID.
-   * 
    * @example
-   * rg-aekzecovzti****
+   * 127.0.0.1
    */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Database name.
-   * 
-   * @example
-   * test
-   */
-  sourceEndpointDatabaseName?: string;
-  /**
-   * @remarks
-   * Database instance ID.
-   * 
-   * @example
-   * test
-   */
+  sourceEndpointHost?: string;
   sourceEndpointInstanceID?: string;
-  /**
-   * @remarks
-   * Location of the database, the return values are as follows:
-   * - **rds**
-   * - **ecs**
-   * - **express**: Database connected via dedicated line/VPN gateway/smart gateway
-   * - **agent**: Database connected via backup gateway
-   * - **dds**: Cloud MongoDB
-   * - **other**: Database connected directly via IP:Port
-   * 
-   * @example
-   * rds
-   */
   sourceEndpointInstanceType?: string;
-  /**
-   * @remarks
-   * Database connection address.
-   * 
-   * @example
-   * 100.*.*.10:33204
-   */
   sourceEndpointIpPort?: string;
-  /**
-   * @remarks
-   * Oracle SID name.
-   * 
-   * @example
-   * test
-   */
   sourceEndpointOracleSID?: string;
   /**
-   * @remarks
-   * Database region.
-   * 
    * @example
-   * cn-hangzhou
+   * 3306
    */
+  sourceEndpointPort?: string;
   sourceEndpointRegion?: string;
-  /**
-   * @remarks
-   * Database username.
-   * 
-   * @example
-   * test
-   */
   sourceEndpointUserName?: string;
+  /**
+   * @example
+   * encrypted
+   */
+  storageEncryptMethod?: string;
   static names(): { [key: string]: string } {
     return {
       backupGatewayId: 'BackupGatewayId',
+      backupGatewayIdentifier: 'BackupGatewayIdentifier',
       backupMethod: 'BackupMethod',
       backupObjects: 'BackupObjects',
       backupPeriod: 'BackupPeriod',
       backupPlanCreateTime: 'BackupPlanCreateTime',
       backupPlanId: 'BackupPlanId',
       backupPlanName: 'BackupPlanName',
+      backupPlanRegion: 'BackupPlanRegion',
       backupPlanStatus: 'BackupPlanStatus',
       backupRetentionPeriod: 'BackupRetentionPeriod',
       backupSetDownloadDir: 'BackupSetDownloadDir',
@@ -362,32 +138,47 @@ export class DescribeBackupPlanListResponseBodyItemsBackupPlanDetail extends $da
       duplicationArchivePeriod: 'DuplicationArchivePeriod',
       duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
       enableBackupLog: 'EnableBackupLog',
+      enableMysqlPhysicalBackupBinLog: 'EnableMysqlPhysicalBackupBinLog',
       endTimestampForRestore: 'EndTimestampForRestore',
       errMessage: 'ErrMessage',
+      incrementBackupRetentionPeriod: 'IncrementBackupRetentionPeriod',
+      incrementDuplicationArchivePeriod: 'IncrementDuplicationArchivePeriod',
+      incrementDuplicationInfrequentAccessPeriod: 'IncrementDuplicationInfrequentAccessPeriod',
+      instanceChargeType: 'InstanceChargeType',
       instanceClass: 'InstanceClass',
+      instanceExpiredTimestamp: 'InstanceExpiredTimestamp',
+      logBackupRetentionPeriod: 'LogBackupRetentionPeriod',
+      logDuplicationArchivePeriod: 'LogDuplicationArchivePeriod',
+      logDuplicationInfrequentAccessPeriod: 'LogDuplicationInfrequentAccessPeriod',
       OSSBucketName: 'OSSBucketName',
       OSSBucketRegion: 'OSSBucketRegion',
       openBackupSetAutoDownload: 'OpenBackupSetAutoDownload',
       resourceGroupId: 'ResourceGroupId',
       sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
+      sourceEndpointEnableSsl: 'SourceEndpointEnableSsl',
+      sourceEndpointHost: 'SourceEndpointHost',
       sourceEndpointInstanceID: 'SourceEndpointInstanceID',
       sourceEndpointInstanceType: 'SourceEndpointInstanceType',
       sourceEndpointIpPort: 'SourceEndpointIpPort',
       sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      sourceEndpointPort: 'SourceEndpointPort',
       sourceEndpointRegion: 'SourceEndpointRegion',
       sourceEndpointUserName: 'SourceEndpointUserName',
+      storageEncryptMethod: 'StorageEncryptMethod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupGatewayId: 'number',
+      backupGatewayIdentifier: 'string',
       backupMethod: 'string',
       backupObjects: 'string',
       backupPeriod: 'string',
       backupPlanCreateTime: 'number',
       backupPlanId: 'string',
       backupPlanName: 'string',
+      backupPlanRegion: 'string',
       backupPlanStatus: 'string',
       backupRetentionPeriod: 'number',
       backupSetDownloadDir: 'string',
@@ -404,20 +195,33 @@ export class DescribeBackupPlanListResponseBodyItemsBackupPlanDetail extends $da
       duplicationArchivePeriod: 'number',
       duplicationInfrequentAccessPeriod: 'number',
       enableBackupLog: 'boolean',
+      enableMysqlPhysicalBackupBinLog: 'boolean',
       endTimestampForRestore: 'number',
       errMessage: 'string',
+      incrementBackupRetentionPeriod: 'string',
+      incrementDuplicationArchivePeriod: 'string',
+      incrementDuplicationInfrequentAccessPeriod: 'string',
+      instanceChargeType: 'string',
       instanceClass: 'string',
+      instanceExpiredTimestamp: 'number',
+      logBackupRetentionPeriod: 'string',
+      logDuplicationArchivePeriod: 'string',
+      logDuplicationInfrequentAccessPeriod: 'string',
       OSSBucketName: 'string',
       OSSBucketRegion: 'string',
       openBackupSetAutoDownload: 'boolean',
       resourceGroupId: 'string',
       sourceEndpointDatabaseName: 'string',
+      sourceEndpointEnableSsl: 'string',
+      sourceEndpointHost: 'string',
       sourceEndpointInstanceID: 'string',
       sourceEndpointInstanceType: 'string',
       sourceEndpointIpPort: 'string',
       sourceEndpointOracleSID: 'string',
+      sourceEndpointPort: 'string',
       sourceEndpointRegion: 'string',
       sourceEndpointUserName: 'string',
+      storageEncryptMethod: 'string',
     };
   }
 
@@ -481,10 +285,6 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * Details of the backup plans.
-   */
   items?: DescribeBackupPlanListResponseBodyItems;
   /**
    * @remarks
@@ -512,7 +312,7 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation was successful.
+   * Indicates whether the request succeeded.
    * 
    * @example
    * true

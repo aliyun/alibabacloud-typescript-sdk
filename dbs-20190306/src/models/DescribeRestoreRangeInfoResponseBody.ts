@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupListFullBackupDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the backup set.
-   * 
-   * @example
-   * qecnsxkd****
-   */
   backupSetId?: string;
-  /**
-   * @remarks
-   * The end time of the full backup task. Example: 1646760308000.
-   * 
-   * @example
-   * 1646760308000
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * The start time of the full backup task. Example: 1646760282000.
-   * 
-   * @example
-   * 1646760282000
-   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -80,55 +59,37 @@ export class DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupL
 
 export class DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRange extends $dara.Model {
   /**
-   * @remarks
-   * The beginning of the time range to which you can restore data.
-   * 
    * @example
-   * 1646760282000
+   * 127.0.0.1
    */
-  beginTimestampForRestore?: number;
+  backupSourceHost?: string;
   /**
-   * @remarks
-   * The end of the time range to which you can restore data.
-   * 
    * @example
-   * 1646760308000
+   * rm-testxx
    */
-  endTimestampForRestore?: number;
+  backupSourceInstanceId?: string;
   /**
-   * @remarks
-   * If the value of the RangeType parameter is point, this parameter is returned. The value of this parameter describes information about all backup points in the time range.
-   */
-  fullBackupList?: DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupList;
-  /**
-   * @remarks
-   * The type of the time range to which you can restore data.
-   * 
-   * *   **point**: The time range contains discrete points in time at which full backups were performed.
-   * *   **range**: The time range is a period of time for which continuous backup is performed. You can specify a random point in time in the time range to restore data.
-   * 
-   * @example
-   * point
-   */
-  rangeType?: string;
-  /**
-   * @remarks
-   * The ID of the database instance.
-   * 
-   * @example
-   * rm-bp106x9tk2c91****
-   */
-  sourceEndpointInstanceID?: string;
-  /**
-   * @remarks
-   * The location of the database.
-   * 
    * @example
    * rds
    */
+  backupSourceInstanceType?: string;
+  /**
+   * @example
+   * 3306
+   */
+  backupSourcePort?: string;
+  beginTimestampForRestore?: number;
+  endTimestampForRestore?: number;
+  fullBackupList?: DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupList;
+  rangeType?: string;
+  sourceEndpointInstanceID?: string;
   sourceEndpointInstanceType?: string;
   static names(): { [key: string]: string } {
     return {
+      backupSourceHost: 'BackupSourceHost',
+      backupSourceInstanceId: 'BackupSourceInstanceId',
+      backupSourceInstanceType: 'BackupSourceInstanceType',
+      backupSourcePort: 'BackupSourcePort',
       beginTimestampForRestore: 'BeginTimestampForRestore',
       endTimestampForRestore: 'EndTimestampForRestore',
       fullBackupList: 'FullBackupList',
@@ -140,6 +101,10 @@ export class DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRange extends $d
 
   static types(): { [key: string]: any } {
     return {
+      backupSourceHost: 'string',
+      backupSourceInstanceId: 'string',
+      backupSourceInstanceType: 'string',
+      backupSourcePort: 'string',
       beginTimestampForRestore: 'number',
       endTimestampForRestore: 'number',
       fullBackupList: DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupList,
@@ -212,14 +177,10 @@ export class DescribeRestoreRangeInfoResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The information about the time ranges to which you can restore data.
-   */
   items?: DescribeRestoreRangeInfoResponseBodyItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E2BD9DFC-6760-5F49-97C5-DA739E29****
@@ -227,10 +188,11 @@ export class DescribeRestoreRangeInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   **true**: The request is successful.
-   * *   **false**: The request fails.
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

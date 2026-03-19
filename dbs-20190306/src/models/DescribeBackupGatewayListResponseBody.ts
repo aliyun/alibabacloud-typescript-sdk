@@ -5,90 +5,15 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class DescribeBackupGatewayListResponseBodyItemsBackupGateway extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the backup gateway was created, such as 1554560477000.
-   * 
-   * @example
-   * 1554560477000
-   */
   backupGatewayCreateTime?: number;
-  /**
-   * @remarks
-   * The ID of the backup gateway.
-   * 
-   * @example
-   * 2321313123
-   */
   backupGatewayId?: string;
-  /**
-   * @remarks
-   * The status of the backup gateway. Valid values:
-   * 
-   * *   ONLINE: The backup gateway is online.
-   * *   OFFLINE: The backup gateway is offline.
-   * *   STOPPED: The backup gateway is stopped.
-   * *   UPGRADING: The backup gateway is being upgraded.
-   * 
-   * @example
-   * ONLINE
-   */
   backupGatewayStatus?: string;
-  /**
-   * @remarks
-   * The display name of the backup gateway.
-   * 
-   * @example
-   * test
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The unique identifier of the backup gateway.
-   * 
-   * @example
-   * sgdsajhdgu
-   */
   identifier?: string;
-  /**
-   * @remarks
-   * The last time when a heartbeat message was sent, such as 1554560477000.
-   * 
-   * @example
-   * 1554560477000
-   */
   lastHeartbeatTime?: number;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The name of the host on which the backup gateway is installed.
-   * 
-   * @example
-   * test
-   */
   sourceEndpointHostname?: string;
-  /**
-   * @remarks
-   * The public IP address of the host on which the backup gateway is installed.
-   * 
-   * @example
-   * XX.XX.XX.XX
-   */
   sourceEndpointInternetIP?: string;
-  /**
-   * @remarks
-   * The private IP address of the host on which the backup gateway is installed.
-   * 
-   * @example
-   * XX.XX.XX.XX
-   */
   sourceEndpointIntranetIP?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,14 +105,10 @@ export class DescribeBackupGatewayListResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The details of backup gateways.
-   */
   items?: DescribeBackupGatewayListResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -195,7 +116,7 @@ export class DescribeBackupGatewayListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of records on each page.
    * 
    * @example
    * 30
@@ -203,7 +124,7 @@ export class DescribeBackupGatewayListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 46361705-8531-492F-807E-A97E482DD4A1
@@ -211,7 +132,7 @@ export class DescribeBackupGatewayListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -227,7 +148,7 @@ export class DescribeBackupGatewayListResponseBody extends $dara.Model {
   totalElements?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 1

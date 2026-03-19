@@ -3,238 +3,96 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRestoreTaskListResponseBodyItemsRestoreTaskDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the backup gateway.
-   * 
-   * @example
-   * 324234332
-   */
   backupGatewayId?: number;
   /**
-   * @remarks
-   * The ID of the backup schedule.
-   * 
    * @example
-   * dbs1hvb0wXXXX
+   * TESTGATEWAY
    */
+  backupGatewayIdentifier?: string;
   backupPlanId?: string;
-  /**
-   * @remarks
-   * The ID of the full backup set that is used in the restore task.
-   * 
-   * @example
-   * 1ibh2f5uXXX
-   */
   backupSetId?: string;
   /**
-   * @remarks
-   * The restore progress of the incremental log files.
-   * 
    * @example
-   * 100
+   * cn-beijing
    */
+  backupSourceOssRegion?: string;
   continuousRestoreProgress?: number;
-  /**
-   * @remarks
-   * The unique ID (UID) of the Alibaba Cloud account to which the backup schedule belongs.
-   * 
-   * @example
-   * 2xxx7778xxxxxxxxxx
-   */
   crossAliyunId?: string;
-  /**
-   * @remarks
-   * The name of the RAM role that can be used to perform backups across Alibaba Cloud accounts.
-   * 
-   * @example
-   * test123
-   */
   crossRoleName?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * test
-   */
   destinationEndpointDatabaseName?: string;
   /**
-   * @remarks
-   * The ID of the database instance.
-   * 
    * @example
-   * rm-bp1p8c2947XXX
+   * true
    */
+  destinationEndpointEnableSsl?: string;
+  /**
+   * @example
+   * 127.0.0.1
+   */
+  destinationEndpointHost?: string;
   destinationEndpointInstanceID?: string;
-  /**
-   * @remarks
-   * The location of the database. Valid values:
-   * 
-   * *   RDS
-   * *   ECS
-   * *   Express: The database is connected to DBS by using Express Connect, VPN Gateway, or Smart Access Gateway.
-   * *   Agent: The database is connected to DBS over a DBS backup gateway.
-   * *   DDS: The database is an ApsaraDB for MongoDB database.
-   * *   Other: The database is connected to DBS by using the IP address and port of the database.
-   * 
-   * @example
-   * RDS
-   */
   destinationEndpointInstanceType?: string;
-  /**
-   * @remarks
-   * The endpoint that is used to connect to the database.
-   * 
-   * @example
-   * 100.X.X.10:33204
-   */
   destinationEndpointIpPort?: string;
-  /**
-   * @remarks
-   * The SID of the Oracle database.
-   * 
-   * @example
-   * test
-   */
   destinationEndpointOracleSID?: string;
   /**
-   * @remarks
-   * The region in which the database is deployed.
-   * 
    * @example
-   * cn-hangzhou
+   * 3306
    */
+  destinationEndpointPort?: string;
   destinationEndpointRegion?: string;
-  /**
-   * @remarks
-   * The username of the account that is used to connect to the database.
-   * 
-   * @example
-   * test
-   */
   destinationEndpointUserName?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * NULL
-   */
   errMessage?: string;
-  /**
-   * @remarks
-   * The restore progress of the full backup data.
-   * 
-   * @example
-   * 100
-   */
   fullDataRestoreProgress?: number;
-  /**
-   * @remarks
-   * The progress of schema restore after full data restore.
-   * 
-   * @example
-   * 100
-   */
   fullStruAfterRestoreProgress?: number;
-  /**
-   * @remarks
-   * The progress of schema restore before full data restore.
-   * 
-   * @example
-   * 0
-   */
   fullStruforeRestoreProgress?: number;
+  physicalBackupRecoverProgress?: number;
+  physicalDatabaseOnlineProgress?: number;
+  physicalFullAndIncrementBackupRecoverProgress?: number;
+  physicalFullBackupRecoverProgress?: number;
+  physicalIncrementBackupRecoverProgress?: number;
   /**
-   * @remarks
-   * The directory of the destination database to which the objects were restored.
-   * 
    * @example
-   * 100.X.X.10:33204
+   * EXIST_INSTANCE
    */
+  restoreDestinationMode?: string;
   restoreDir?: string;
-  /**
-   * @remarks
-   * The objects to be restored.
-   * 
-   * @example
-   * [     {         \\"DBName\\":\\"test\\"       } ]
-   */
   restoreObjects?: string;
-  /**
-   * @remarks
-   * The status of the restore task. Valid values:
-   * 
-   * *   init: The restore task is not started or does not pass the precheck.
-   * *   running: The restore task is running.
-   * *   stop: The restore task failed.
-   * *   pause: The restore task is stopped.
-   * *   check_pass: The restore task passed the precheck.
-   * 
-   * @example
-   * running
-   */
   restoreStatus?: string;
-  /**
-   * @remarks
-   * The time when the restore task was created, such as 1554560477000.
-   * 
-   * @example
-   * 1554560477000
-   */
   restoreTaskCreateTime?: number;
-  /**
-   * @remarks
-   * The time when the restore task was complete, such as 1554560477000.
-   * 
-   * @example
-   * 1554560477000
-   */
   restoreTaskFinishTime?: number;
-  /**
-   * @remarks
-   * The ID of the restore task.
-   * 
-   * @example
-   * s1XXXXXX
-   */
   restoreTaskId?: string;
-  /**
-   * @remarks
-   * The name of the restore task.
-   * 
-   * @example
-   * test
-   */
   restoreTaskName?: string;
-  /**
-   * @remarks
-   * The time to run the restore task, such as 1554560477000.
-   * 
-   * @example
-   * 1554560477000
-   */
   restoreTime?: number;
   static names(): { [key: string]: string } {
     return {
       backupGatewayId: 'BackupGatewayId',
+      backupGatewayIdentifier: 'BackupGatewayIdentifier',
       backupPlanId: 'BackupPlanId',
       backupSetId: 'BackupSetId',
+      backupSourceOssRegion: 'BackupSourceOssRegion',
       continuousRestoreProgress: 'ContinuousRestoreProgress',
       crossAliyunId: 'CrossAliyunId',
       crossRoleName: 'CrossRoleName',
       destinationEndpointDatabaseName: 'DestinationEndpointDatabaseName',
+      destinationEndpointEnableSsl: 'DestinationEndpointEnableSsl',
+      destinationEndpointHost: 'DestinationEndpointHost',
       destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
       destinationEndpointInstanceType: 'DestinationEndpointInstanceType',
       destinationEndpointIpPort: 'DestinationEndpointIpPort',
       destinationEndpointOracleSID: 'DestinationEndpointOracleSID',
+      destinationEndpointPort: 'DestinationEndpointPort',
       destinationEndpointRegion: 'DestinationEndpointRegion',
       destinationEndpointUserName: 'DestinationEndpointUserName',
       errMessage: 'ErrMessage',
       fullDataRestoreProgress: 'FullDataRestoreProgress',
       fullStruAfterRestoreProgress: 'FullStruAfterRestoreProgress',
       fullStruforeRestoreProgress: 'FullStruforeRestoreProgress',
+      physicalBackupRecoverProgress: 'PhysicalBackupRecoverProgress',
+      physicalDatabaseOnlineProgress: 'PhysicalDatabaseOnlineProgress',
+      physicalFullAndIncrementBackupRecoverProgress: 'PhysicalFullAndIncrementBackupRecoverProgress',
+      physicalFullBackupRecoverProgress: 'PhysicalFullBackupRecoverProgress',
+      physicalIncrementBackupRecoverProgress: 'PhysicalIncrementBackupRecoverProgress',
+      restoreDestinationMode: 'RestoreDestinationMode',
       restoreDir: 'RestoreDir',
       restoreObjects: 'RestoreObjects',
       restoreStatus: 'RestoreStatus',
@@ -249,22 +107,33 @@ export class DescribeRestoreTaskListResponseBodyItemsRestoreTaskDetail extends $
   static types(): { [key: string]: any } {
     return {
       backupGatewayId: 'number',
+      backupGatewayIdentifier: 'string',
       backupPlanId: 'string',
       backupSetId: 'string',
+      backupSourceOssRegion: 'string',
       continuousRestoreProgress: 'number',
       crossAliyunId: 'string',
       crossRoleName: 'string',
       destinationEndpointDatabaseName: 'string',
+      destinationEndpointEnableSsl: 'string',
+      destinationEndpointHost: 'string',
       destinationEndpointInstanceID: 'string',
       destinationEndpointInstanceType: 'string',
       destinationEndpointIpPort: 'string',
       destinationEndpointOracleSID: 'string',
+      destinationEndpointPort: 'string',
       destinationEndpointRegion: 'string',
       destinationEndpointUserName: 'string',
       errMessage: 'string',
       fullDataRestoreProgress: 'number',
       fullStruAfterRestoreProgress: 'number',
       fullStruforeRestoreProgress: 'number',
+      physicalBackupRecoverProgress: 'number',
+      physicalDatabaseOnlineProgress: 'number',
+      physicalFullAndIncrementBackupRecoverProgress: 'number',
+      physicalFullBackupRecoverProgress: 'number',
+      physicalIncrementBackupRecoverProgress: 'number',
+      restoreDestinationMode: 'string',
       restoreDir: 'string',
       restoreObjects: 'string',
       restoreStatus: 'string',
@@ -336,14 +205,10 @@ export class DescribeRestoreTaskListResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The details of the backup schedule.
-   */
   items?: DescribeRestoreTaskListResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -351,7 +216,7 @@ export class DescribeRestoreTaskListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30
@@ -359,7 +224,7 @@ export class DescribeRestoreTaskListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9C397502-B4F2-4E22-AD97-C81F0049F3F3
@@ -367,7 +232,7 @@ export class DescribeRestoreTaskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -375,7 +240,7 @@ export class DescribeRestoreTaskListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of restore tasks.
+   * The total number of restore jobs.
    * 
    * @example
    * 1
@@ -383,7 +248,7 @@ export class DescribeRestoreTaskListResponseBody extends $dara.Model {
   totalElements?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 1

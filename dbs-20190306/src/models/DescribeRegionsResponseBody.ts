@@ -39,7 +39,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * This backupPlan can\\"t support this action
@@ -47,20 +47,16 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 400
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The regions that DBS supports.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EB4DFD5E-3618-498D-BE35-4DBEA0072122
@@ -68,7 +64,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the request.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

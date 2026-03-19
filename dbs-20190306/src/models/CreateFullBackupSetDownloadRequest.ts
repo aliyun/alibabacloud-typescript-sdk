@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFullBackupSetDownloadRequest extends $dara.Model {
   /**
    * @remarks
-   * The format in which the full backup set is downloaded. Valid values:
+   * The format of the downloaded full backup set. Valid values:
    * 
-   * *   **Native**
-   * *   **SQL**
-   * *   **CSV**(Default value)
-   * *   **JSON**
+   * - **Native**
+   * 
+   * - **SQL**
+   * 
+   * - **CSV**
+   * 
+   * - **JSON**
+   * 
+   * > The default value is CSV.
    * 
    * @example
    * SQL
@@ -23,15 +28,15 @@ export class CreateFullBackupSetDownloadRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dbs1hv****
+   * dbs1hvXXXXX
    */
   backupSetId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token used to ensure the idempotence of the request. This prevents the same request from being sent multiple times.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCz****
+   * ETnLKlblzczshOTUbOCzxxxxxxx
    */
   clientToken?: string;
   ownerId?: string;

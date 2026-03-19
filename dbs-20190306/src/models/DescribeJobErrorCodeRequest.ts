@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobErrorCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token. It is used to ensure the idempotence of the request.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -15,8 +15,9 @@ export class DescribeJobErrorCodeRequest extends $dara.Model {
    * @remarks
    * The language of the error message. Valid values:
    * 
-   * *   **en** (default): English
-   * *   **cn**: Chinese
+   * - **en**: English (Default)
+   * 
+   * - **cn**: Chinese
    * 
    * @example
    * en
@@ -25,12 +26,12 @@ export class DescribeJobErrorCodeRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the full backup or restore task.
+   * The ID of the full backup or restore job.
    * 
    * This parameter is required.
    * 
    * @example
-   * dbstooi0****
+   * r1iv62ud****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

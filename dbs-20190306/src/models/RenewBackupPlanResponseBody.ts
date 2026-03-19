@@ -8,7 +8,7 @@ export class RenewBackupPlanResponseBody extends $dara.Model {
    * The ID of the backup schedule.
    * 
    * @example
-   * dbstooi01e****
+   * dbstooi01exxx
    */
   backupPlanId?: string;
   /**
@@ -40,7 +40,7 @@ export class RenewBackupPlanResponseBody extends $dara.Model {
    * The ID of the order.
    * 
    * @example
-   * 20202****
+   * 202020202020
    */
   orderId?: string;
   /**

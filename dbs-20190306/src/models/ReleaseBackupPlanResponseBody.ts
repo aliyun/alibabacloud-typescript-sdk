@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseBackupPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
    * 
    * @example
-   * dbstooi01****
+   * dbstooi01xxxx
    */
   backupPlanId?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * Param.NotFound
@@ -21,7 +21,7 @@ export class ReleaseBackupPlanResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * findValidDBSJob error
@@ -29,7 +29,7 @@ export class ReleaseBackupPlanResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,10 +45,11 @@ export class ReleaseBackupPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

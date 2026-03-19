@@ -5,35 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFullBackupListRequest extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The ID of the backup plan.
    * 
    * This parameter is required.
    * 
    * @example
-   * The total number of full backup tasks.
+   * dbsr179qz******
    */
   backupPlanId?: string;
   /**
    * @remarks
-   * The end time of the backup task, such as 1554560477000.
+   * The ID of the backup set.
    * 
    * @example
-   * The point in time when the backup set expires, such as 1554560477000.
+   * 1iukx5h******
    */
   backupSetId?: string;
   /**
+   * @example
+   * finish
+   */
+  backupSetStatus?: string;
+  /**
    * @remarks
-   * The number of entries returned on each page.
+   * A token that ensures idempotence and prevents duplicate requests.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The end time of the backup, in UNIX timestamp format.
+   * 
+   * @example
+   * 1676887128
+   */
   endTimestamp?: number;
   ownerId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The page number. Valid values: integers from 0 to the maximum integer value. Default value: 0.
    * 
    * @example
    * 1
@@ -41,15 +53,28 @@ export class DescribeFullBackupListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The error message.
+   * The number of entries per page. Valid values:
+   * 
+   * - 30
+   * 
+   * - 50
+   * 
+   * - 100
+   * 
+   * Default value: 30.
    * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @example
+   * true
+   */
+  showProgress?: string;
+  /**
    * @remarks
-   * The ID of the request.
+   * Specifies whether to return the storage class.
    * 
    * @example
    * true
@@ -57,18 +82,23 @@ export class DescribeFullBackupListRequest extends $dara.Model {
   showStorageType?: boolean;
   /**
    * @remarks
-   * Queries full backup tasks.
+   * The start time of the backup.
+   * 
+   * @example
+   * 1676887100
    */
   startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       backupSetId: 'BackupSetId',
+      backupSetStatus: 'BackupSetStatus',
       clientToken: 'ClientToken',
       endTimestamp: 'EndTimestamp',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      showProgress: 'ShowProgress',
       showStorageType: 'ShowStorageType',
       startTimestamp: 'StartTimestamp',
     };
@@ -78,11 +108,13 @@ export class DescribeFullBackupListRequest extends $dara.Model {
     return {
       backupPlanId: 'string',
       backupSetId: 'string',
+      backupSetStatus: 'string',
       clientToken: 'string',
       endTimestamp: 'number',
       ownerId: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      showProgress: 'string',
       showStorageType: 'boolean',
       startTimestamp: 'number',
     };

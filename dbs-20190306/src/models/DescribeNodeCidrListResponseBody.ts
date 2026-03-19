@@ -79,15 +79,7 @@ export class DescribeNodeCidrListResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The public CIDR blocks.
-   */
   internetIPs?: DescribeNodeCidrListResponseBodyInternetIPs;
-  /**
-   * @remarks
-   * The internal CIDR blocks.
-   */
   intranetIPs?: DescribeNodeCidrListResponseBodyIntranetIPs;
   /**
    * @remarks

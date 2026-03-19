@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupPlanNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
    * 
    * @example
    * dbstooi0XXXX
@@ -45,7 +45,7 @@ export class ModifyBackupPlanNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

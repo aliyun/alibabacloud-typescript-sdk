@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
    * 
    * @example
    * dbs1h****usfa
@@ -13,10 +13,10 @@ export class ModifyBackupObjectsResponseBody extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
-   * Param.NotFound
+   * InvalidParameter
    */
   errCode?: string;
   /**
@@ -37,7 +37,7 @@ export class ModifyBackupObjectsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether a precheck is triggered. If true is returned, you must call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup schedule.
+   * Indicates whether the modification triggers a precheck. If this parameter is set to true, call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup plan.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ModifyBackupObjectsResponseBody extends $dara.Model {
   needPrecheck?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D6E068C3-25BC-455A-85FE-45F0B22ECB1F
@@ -55,8 +55,9 @@ export class ModifyBackupObjectsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

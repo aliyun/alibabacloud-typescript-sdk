@@ -13,7 +13,7 @@ export class DescribeJobErrorCodeResponseBodyItem extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The standard error message.
+   * The standardized error message.
    * 
    * @example
    * Describe preCheck progress failed.
@@ -21,15 +21,15 @@ export class DescribeJobErrorCodeResponseBodyItem extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the full backup or restore task.
+   * The ID of the full backup or restore job.
    * 
    * @example
-   * tooi0****
+   * r1iv62ud****
    */
   jobId?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The state of the job.
    * 
    * @example
    * init
@@ -37,7 +37,7 @@ export class DescribeJobErrorCodeResponseBodyItem extends $dara.Model {
   jobState?: string;
   /**
    * @remarks
-   * The internal ID of the DBS task type.
+   * The internal job type ID in DBS.
    * 
    * @example
    * testId
@@ -109,7 +109,7 @@ export class DescribeJobErrorCodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error information.
+   * The details of the error code.
    */
   item?: DescribeJobErrorCodeResponseBodyItem;
   /**
@@ -122,7 +122,7 @@ export class DescribeJobErrorCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

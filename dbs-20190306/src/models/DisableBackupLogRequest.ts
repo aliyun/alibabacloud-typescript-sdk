@@ -5,27 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class DisableBackupLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup schedule ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the ID of the backup schedule.
+   * The ID of the backup plan. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to query it.
    * 
    * This parameter is required.
    * 
    * @example
-   * dbstooi01xxxx
+   * dbstooi01****
    */
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * Ensures idempotence and prevents duplicate requests.
    * 
    * @example
-   * dbs
+   * ETnLKlblzczshOTUbOCziJZNwH****
    */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  disableMysqlPhysicalBackupBinlogOnly?: string;
   ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       clientToken: 'ClientToken',
+      disableMysqlPhysicalBackupBinlogOnly: 'DisableMysqlPhysicalBackupBinlogOnly',
       ownerId: 'OwnerId',
     };
   }
@@ -34,6 +40,7 @@ export class DisableBackupLogRequest extends $dara.Model {
     return {
       backupPlanId: 'string',
       clientToken: 'string',
+      disableMysqlPhysicalBackupBinlogOnly: 'string',
       ownerId: 'string',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupSourceEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The backup plan ID.
    * 
    * @example
    * dbs1h****usfa
@@ -37,7 +37,7 @@ export class ModifyBackupSourceEndpointResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether a precheck is triggered. If the value of this parameter is true, you must start the backup schedule by calling the StartBackupPlan operation.
+   * Indicates whether this change triggers a precheck. If this value is true, call StartBackupPlan to restart the backup plan.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class ModifyBackupSourceEndpointResponseBody extends $dara.Model {
   needPrecheck?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D6E068C3-25BC-455A-85FE-45F0B22E****
@@ -53,10 +53,11 @@ export class ModifyBackupSourceEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   **true**: The request is successful.
-   * *   **false**: The request fails.
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

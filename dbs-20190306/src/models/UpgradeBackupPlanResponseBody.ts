@@ -8,7 +8,7 @@ export class UpgradeBackupPlanResponseBody extends $dara.Model {
    * The ID of the backup schedule.
    * 
    * @example
-   * dbstooi01****
+   * dbstooi01XXXX
    */
   backupPlanId?: string;
   /**

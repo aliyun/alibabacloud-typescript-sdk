@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupGatewayListRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token used to ensure the idempotence of the request. This prevents duplicate requests.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -13,7 +13,7 @@ export class DescribeBackupGatewayListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The unique identifier of the backup gateway. You can query multiple backup gateways. Separate multiple identifiers with commas (,).
+   * The unique identifier of the backup gateway. You can query multiple gateways by separating the identifiers with commas (,).
    * 
    * @example
    * 7213527653217
@@ -22,7 +22,7 @@ export class DescribeBackupGatewayListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be a positive integer. Default value: 0.
+   * The page number. The value must be greater than or equal to 0 and cannot exceed the maximum value of an integer. The default value is 0.
    * 
    * @example
    * 1
@@ -30,13 +30,15 @@ export class DescribeBackupGatewayListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of records on each page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
    * 
-   * > Default value: 30.
+   * - **50**
+   * 
+   * - **100**
+   * 
+   * > The default value is 30.
    * 
    * @example
    * 30
@@ -44,18 +46,27 @@ export class DescribeBackupGatewayListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which Database Backup (DBS) is activated. Valid values:
+   * The region of the DBS instance. Valid values:
    * 
-   * *   **cn-hangzhou**: China (Hangzhou)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-qingdao**: China (Qingdao)
-   * *   **cn-beijing**: China (Beijing)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-hongkong**: China (Hong Kong)
-   * *   **ap-southeast-1**: Singapore (Singapore)
-   * *   **cn-hangzhou-finance**: China East 1 Finance
-   * *   **cn-shanghai-finance**: China East 2 Finance
-   * *   **cn-shenzhen-finance**: China South 1 Finance
+   * - **cn-hangzhou**: China (Hangzhou)
+   * 
+   * - **cn-shanghai**: China (Shanghai)
+   * 
+   * - **cn-qingdao**: China (Qingdao)
+   * 
+   * - **cn-beijing**: China (Beijing)
+   * 
+   * - **cn-shenzhen**: China (Shenzhen)
+   * 
+   * - **cn-hongkong**: China (Hong Kong)
+   * 
+   * - **ap-southeast-1**: Singapore
+   * 
+   * - **cn-hangzhou-finance**: Hangzhou Finance Cloud
+   * 
+   * - **cn-shanghai-finance**: Shanghai Finance Cloud
+   * 
+   * - **cn-shenzhen-finance**: Shenzhen Finance Cloud
    * 
    * This parameter is required.
    * 

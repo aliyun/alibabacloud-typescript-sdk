@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EnableBackupLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup schedule ID.
+   * The ID of the backup plan.
    * 
    * @example
-   * dbstooi01xxxx
+   * dbstooi******
    */
   backupPlanId?: string;
   /**
@@ -37,13 +37,14 @@ export class EnableBackupLogResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether a precheck is triggered. Valid values:
+   * Indicates whether the modification triggers a precheck. Valid values:
    * 
-   * *   true: A precheck is triggered. You must call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup schedule.
-   * *   false: No precheck is triggered.
+   * - true: A precheck is triggered. Call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup plan.
+   * 
+   * - false: A precheck is not triggered.
    * 
    * @example
-   * false
+   * true
    */
   needPrecheck?: boolean;
   /**
@@ -56,10 +57,11 @@ export class EnableBackupLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The request is successful.
-   * *   false: The request fails.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

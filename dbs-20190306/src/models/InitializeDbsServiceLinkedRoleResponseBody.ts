@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitializeDbsServiceLinkedRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The value is null.
+   * An empty value.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class InitializeDbsServiceLinkedRoleResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * EntityAlreadyExists.Role : The role already exists:AliyunServiceRoleForDBS\\r\\nRequestId : 73******-3B4D-501A-9505-FA8B9******
@@ -21,7 +21,7 @@ export class InitializeDbsServiceLinkedRoleResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * EntityAlreadyExists.Role
@@ -39,8 +39,9 @@ export class InitializeDbsServiceLinkedRoleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

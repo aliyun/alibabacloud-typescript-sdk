@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseBackupPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup schedule ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the ID.
+   * The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * dbstooi01****
+   * dbstooi01xxxx
    */
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * An arbitrary string.
    * 
    * @example
    * dbs

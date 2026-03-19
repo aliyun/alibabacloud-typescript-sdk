@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRestoreTaskListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
+   * 
+   * > Specify either BackupPlanId or RestoreTaskId.
    * 
    * @example
    * dbs1hvb0wwwXXXXX
@@ -13,7 +15,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token that is used to ensure the idempotence of the request. This prevents duplicate requests.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -21,7 +23,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the backup.
    * 
    * @example
    * 1570701361528
@@ -30,7 +32,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be a positive integer. Default value: 0.
+   * The page number. The value must be greater than or equal to 0 and not exceed the maximum value of the integer data type. Default value: 0.
    * 
    * @example
    * 1
@@ -38,11 +40,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * *   30
-   * *   50
-   * *   100
+   * The number of entries to return on each page. Valid values: 1 to 100.
    * 
    * > Default value: 30.
    * 
@@ -52,9 +50,9 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The restoration task ID. Separate multiple IDs with commas (,). You can call the [CreateRestoreTask](https://help.aliyun.com/document_detail/2869836.html) operation to obtain the ID.
+   * The ID of the restore job. You can specify multiple IDs. Separate them with commas (,). Call the [CreateRestoreTask](https://help.aliyun.com/document_detail/2869836.html) operation to obtain this parameter.
    * 
-   * >  Configure the BackupPlanId or RestoreTaskId parameter. If you configure the two parameters, an error is returned.
+   * > Specify either RestoreTaskId or BackupPlanId. An error occurs if you specify both parameters.
    * 
    * @example
    * s102h7rf5anq
@@ -62,7 +60,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   restoreTaskId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the backup.
    * 
    * @example
    * 1570701361528

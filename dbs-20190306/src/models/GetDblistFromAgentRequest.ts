@@ -8,7 +8,7 @@ export class GetDBListFromAgentRequest extends $dara.Model {
    * The ID of the backup gateway.
    * 
    * @example
-   * 160813
+   * 160***
    */
   backupGatewayId?: number;
   /**

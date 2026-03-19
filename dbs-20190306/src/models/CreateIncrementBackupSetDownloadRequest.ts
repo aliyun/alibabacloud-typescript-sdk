@@ -7,10 +7,13 @@ export class CreateIncrementBackupSetDownloadRequest extends $dara.Model {
    * @remarks
    * The format in which the incremental backup set is downloaded. Valid values:
    * 
-   * *   **Native**
-   * *   **SQL**
-   * *   **CSV**
-   * *   **JSON**
+   * - **Native**
+   * 
+   * - **SQL**
+   * 
+   * - **CSV**
+   * 
+   * - **JSON**
    * 
    * > Default value: Native.
    * 
@@ -25,7 +28,7 @@ export class CreateIncrementBackupSetDownloadRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dbstooi01e****
+   * t4yh0g0g****
    */
   backupSetId?: string;
   /**
@@ -35,7 +38,7 @@ export class CreateIncrementBackupSetDownloadRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * mysql-bin.000054
    */
   backupSetName?: string;
   /**
@@ -43,7 +46,7 @@ export class CreateIncrementBackupSetDownloadRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCz****
+   * ETnLKlblzczshOTUbOCz********
    */
   clientToken?: string;
   ownerId?: string;

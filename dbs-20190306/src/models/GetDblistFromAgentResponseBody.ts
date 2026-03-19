@@ -29,10 +29,6 @@ export class GetDBListFromAgentResponseBodyDbList extends $dara.Model {
 }
 
 export class GetDBListFromAgentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the databases.
-   */
   dbList?: GetDBListFromAgentResponseBodyDbList;
   /**
    * @remarks

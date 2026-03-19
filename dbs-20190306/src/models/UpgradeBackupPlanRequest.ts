@@ -10,7 +10,7 @@ export class UpgradeBackupPlanRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dbstooi01e****
+   * dbstooi01eXXXX
    */
   backupPlanId?: string;
   /**
@@ -18,18 +18,22 @@ export class UpgradeBackupPlanRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCz****
+   * ETnLKlblzczshOTUbOCzxxxxxxx
    */
   clientToken?: string;
   /**
    * @remarks
    * The specifications of the instance. Valid values:
    * 
-   * *   micro
-   * *   small
-   * *   medium
-   * *   large
-   * *   xlarge
+   * - micro
+   * 
+   * - small
+   * 
+   * - medium
+   * 
+   * - large
+   * 
+   * - xlarge
    * 
    * This parameter is required.
    * 

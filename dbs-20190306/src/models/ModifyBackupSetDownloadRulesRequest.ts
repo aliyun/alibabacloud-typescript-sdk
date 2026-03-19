@@ -8,7 +8,7 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
    * The ID of the backup gateway that is used to download the backup set.
    * 
    * @example
-   * 2331****
+   * 23312323
    */
   backupGatewayId?: number;
   /**
@@ -18,7 +18,7 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dbstooi01****
+   * dbstooi01xxxx
    */
   backupPlanId?: string;
   /**
@@ -43,10 +43,13 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
    * @remarks
    * The type of the destination directory to which the backup set is downloaded. This parameter is required if the automatic download feature is enabled. Valid values:
    * 
-   * *   local
-   * *   nas
-   * *   ftp
-   * *   minio
+   * - local
+   * 
+   * - nas
+   * 
+   * - ftp
+   * 
+   * - minio
    * 
    * > Default value: local.
    * 
@@ -59,17 +62,20 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCzx****
+   * ETnLKlblzczshOTUbOCzxxxxxxx
    */
   clientToken?: string;
   /**
    * @remarks
    * The format in which the full backup set is downloaded. Valid values:
    * 
-   * *   Native
-   * *   SQL
-   * *   CSV
-   * *   JSON
+   * - Native
+   * 
+   * - SQL
+   * 
+   * - CSV
+   * 
+   * - JSON
    * 
    * > Default value: CSV.
    * 
@@ -81,10 +87,13 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
    * @remarks
    * The format in which the incremental backup set is downloaded. Valid values:
    * 
-   * *   Native
-   * *   SQL
-   * *   CSV
-   * *   JSON
+   * - Native
+   * 
+   * - SQL
+   * 
+   * - CSV
+   * 
+   * - JSON
    * 
    * > Default value: Native.
    * 

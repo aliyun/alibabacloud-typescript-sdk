@@ -37,7 +37,7 @@ export class StartRestoreTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the restore task.
+   * The ID of the restore job.
    * 
    * @example
    * s102h7rfXXXX
@@ -45,7 +45,7 @@ export class StartRestoreTaskResponseBody extends $dara.Model {
   restoreTaskId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

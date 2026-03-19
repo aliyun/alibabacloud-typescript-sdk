@@ -55,7 +55,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a DBS backup schedule.
+   * This API is used to configure a DBS backup plan.
    * 
    * @param request - ConfigureBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -108,6 +108,10 @@ export default class Client extends OpenApi {
       query["BackupStartTime"] = request.backupStartTime;
     }
 
+    if (!$dara.isNull(request.backupStorageEncryptMethod)) {
+      query["BackupStorageEncryptMethod"] = request.backupStorageEncryptMethod;
+    }
+
     if (!$dara.isNull(request.backupStorageType)) {
       query["BackupStorageType"] = request.backupStorageType;
     }
@@ -140,6 +144,14 @@ export default class Client extends OpenApi {
       query["EnableBackupLog"] = request.enableBackupLog;
     }
 
+    if (!$dara.isNull(request.enableMysqlPhysicalBackupBinlog)) {
+      query["EnableMysqlPhysicalBackupBinlog"] = request.enableMysqlPhysicalBackupBinlog;
+    }
+
+    if (!$dara.isNull(request.enableSourceEndpointSsl)) {
+      query["EnableSourceEndpointSsl"] = request.enableSourceEndpointSsl;
+    }
+
     if (!$dara.isNull(request.OSSBucketName)) {
       query["OSSBucketName"] = request.OSSBucketName;
     }
@@ -168,6 +180,10 @@ export default class Client extends OpenApi {
       query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType;
     }
 
+    if (!$dara.isNull(request.sourceEndpointOracleHome)) {
+      query["SourceEndpointOracleHome"] = request.sourceEndpointOracleHome;
+    }
+
     if (!$dara.isNull(request.sourceEndpointOracleSID)) {
       query["SourceEndpointOracleSID"] = request.sourceEndpointOracleSID;
     }
@@ -188,6 +204,10 @@ export default class Client extends OpenApi {
       query["SourceEndpointUserName"] = request.sourceEndpointUserName;
     }
 
+    if (!$dara.isNull(request.sslCaPem)) {
+      query["SslCaPem"] = request.sslCaPem;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -206,7 +226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a DBS backup schedule.
+   * This API is used to configure a DBS backup plan.
    * 
    * @param request - ConfigureBackupPlanRequest
    * @returns ConfigureBackupPlanResponse
@@ -217,10 +237,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates, configures, and starts a backup schedule.
+   * Creates, configures, and starts a backup plan.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+   * Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
    * 
    * @param request - CreateAndStartBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -415,10 +435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates, configures, and starts a backup schedule.
+   * Creates, configures, and starts a backup plan.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+   * Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
    * 
    * @param request - CreateAndStartBackupPlanRequest
    * @returns CreateAndStartBackupPlanResponse
@@ -429,10 +449,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup schedule.
+   * Creates a Database Backup Service (DBS) backup plan.
    * 
    * @remarks
-   * For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+   * To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
    * 
    * @param request - CreateBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -519,10 +539,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup schedule.
+   * Creates a Database Backup Service (DBS) backup plan.
    * 
    * @remarks
-   * For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+   * To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
    * 
    * @param request - CreateBackupPlanRequest
    * @returns CreateBackupPlanResponse
@@ -533,7 +553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and starts a full backup set download task.
+   * This operation creates a task to download a full backup set.
    * 
    * @param request - CreateFullBackupSetDownloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -576,7 +596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and starts a full backup set download task.
+   * This operation creates a task to download a full backup set.
    * 
    * @param request - CreateFullBackupSetDownloadRequest
    * @returns CreateFullBackupSetDownloadResponse
@@ -717,7 +737,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a restoration task.
+   * This interface creates DBS restore jobs.
+   * 
+   * @remarks
+   * ### Related operations
+   * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+   * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
    * 
    * @param request - CreateRestoreTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -726,6 +751,14 @@ export default class Client extends OpenApi {
   async createRestoreTaskWithOptions(request: $_model.CreateRestoreTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRestoreTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoOpenDatabase)) {
+      query["AutoOpenDatabase"] = request.autoOpenDatabase;
+    }
+
+    if (!$dara.isNull(request.autoShutdownDatabase)) {
+      query["AutoShutdownDatabase"] = request.autoShutdownDatabase;
+    }
+
     if (!$dara.isNull(request.backupGatewayId)) {
       query["BackupGatewayId"] = request.backupGatewayId;
     }
@@ -748,6 +781,34 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.crossRoleName)) {
       query["CrossRoleName"] = request.crossRoleName;
+    }
+
+    if (!$dara.isNull(request.destDatabaseInstanceClass)) {
+      query["DestDatabaseInstanceClass"] = request.destDatabaseInstanceClass;
+    }
+
+    if (!$dara.isNull(request.destDatabaseInstanceDatabaseVersion)) {
+      query["DestDatabaseInstanceDatabaseVersion"] = request.destDatabaseInstanceDatabaseVersion;
+    }
+
+    if (!$dara.isNull(request.destDatabaseInstanceRegion)) {
+      query["DestDatabaseInstanceRegion"] = request.destDatabaseInstanceRegion;
+    }
+
+    if (!$dara.isNull(request.destDatabaseInstanceStorageSize)) {
+      query["DestDatabaseInstanceStorageSize"] = request.destDatabaseInstanceStorageSize;
+    }
+
+    if (!$dara.isNull(request.destDatabaseInstanceType)) {
+      query["DestDatabaseInstanceType"] = request.destDatabaseInstanceType;
+    }
+
+    if (!$dara.isNull(request.destDatabaseInstanceVSwitch)) {
+      query["DestDatabaseInstanceVSwitch"] = request.destDatabaseInstanceVSwitch;
+    }
+
+    if (!$dara.isNull(request.destDatabaseInstanceVpc)) {
+      query["DestDatabaseInstanceVpc"] = request.destDatabaseInstanceVpc;
     }
 
     if (!$dara.isNull(request.destinationEndpointDatabaseName)) {
@@ -790,8 +851,16 @@ export default class Client extends OpenApi {
       query["DuplicateConflict"] = request.duplicateConflict;
     }
 
+    if (!$dara.isNull(request.enableDestinationEndpointSsl)) {
+      query["EnableDestinationEndpointSsl"] = request.enableDestinationEndpointSsl;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.restoreDestinationMode)) {
+      query["RestoreDestinationMode"] = request.restoreDestinationMode;
     }
 
     if (!$dara.isNull(request.restoreDir)) {
@@ -814,6 +883,10 @@ export default class Client extends OpenApi {
       query["RestoreTime"] = request.restoreTime;
     }
 
+    if (!$dara.isNull(request.sslCaPem)) {
+      query["SslCaPem"] = request.sslCaPem;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -832,7 +905,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a restoration task.
+   * This interface creates DBS restore jobs.
+   * 
+   * @remarks
+   * ### Related operations
+   * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+   * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
    * 
    * @param request - CreateRestoreTaskRequest
    * @returns CreateRestoreTaskResponse
@@ -843,7 +921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries backup gateways.
+   * Queries a list of backup gateways in Database Backup Service (DBS).
    * 
    * @param request - DescribeBackupGatewayListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -894,7 +972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries backup gateways.
+   * Queries a list of backup gateways in Database Backup Service (DBS).
    * 
    * @param request - DescribeBackupGatewayListRequest
    * @returns DescribeBackupGatewayListResponse
@@ -905,7 +983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the billing information of a backup schedule.
+   * This operation queries the billing information of a backup plan.
    * 
    * @param request - DescribeBackupPlanBillingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -948,7 +1026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the billing information of a backup schedule.
+   * This operation queries the billing information of a backup plan.
    * 
    * @param request - DescribeBackupPlanBillingRequest
    * @returns DescribeBackupPlanBillingResponse
@@ -959,10 +1037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of backup plans
+   * This operation lets you view a DBS backup plan.
    * 
    * @remarks
-   * Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+   * Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
    * 
    * @param request - DescribeBackupPlanListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -971,6 +1049,10 @@ export default class Client extends OpenApi {
   async describeBackupPlanListWithOptions(request: $_model.DescribeBackupPlanListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupPlanListResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.backupMethod)) {
+      query["BackupMethod"] = request.backupMethod;
+    }
+
     if (!$dara.isNull(request.backupPlanId)) {
       query["BackupPlanId"] = request.backupPlanId;
     }
@@ -1007,6 +1089,18 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!$dara.isNull(request.showBackupStrategyInfo)) {
+      query["ShowBackupStrategyInfo"] = request.showBackupStrategyInfo;
+    }
+
+    if (!$dara.isNull(request.showRecoverTimeRange)) {
+      query["ShowRecoverTimeRange"] = request.showRecoverTimeRange;
+    }
+
+    if (!$dara.isNull(request.showStorageStrategyInfo)) {
+      query["ShowStorageStrategyInfo"] = request.showStorageStrategyInfo;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1025,10 +1119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of backup plans
+   * This operation lets you view a DBS backup plan.
    * 
    * @remarks
-   * Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+   * Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
    * 
    * @param request - DescribeBackupPlanListRequest
    * @returns DescribeBackupPlanListResponse
@@ -1039,7 +1133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries backup set download tasks.
+   * Queries the list of download tasks for backup sets in Database Backup Service (DBS).
    * 
    * @param request - DescribeBackupSetDownloadTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1090,7 +1184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries backup set download tasks.
+   * Queries the list of download tasks for backup sets in Database Backup Service (DBS).
    * 
    * @param request - DescribeBackupSetDownloadTaskListRequest
    * @returns DescribeBackupSetDownloadTaskListResponse
@@ -1151,7 +1245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * cn-hangzhou
+   * You can call this operation to list full backup jobs in Database Backup Service (DBS).
    * 
    * @param request - DescribeFullBackupListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1166,6 +1260,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.backupSetId)) {
       query["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!$dara.isNull(request.backupSetStatus)) {
+      query["BackupSetStatus"] = request.backupSetStatus;
     }
 
     if (!$dara.isNull(request.clientToken)) {
@@ -1186,6 +1284,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.showProgress)) {
+      query["ShowProgress"] = request.showProgress;
     }
 
     if (!$dara.isNull(request.showStorageType)) {
@@ -1214,7 +1316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * cn-hangzhou
+   * You can call this operation to list full backup jobs in Database Backup Service (DBS).
    * 
    * @param request - DescribeFullBackupListRequest
    * @returns DescribeFullBackupListResponse
@@ -1225,7 +1327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries incremental backup tasks.
+   * This operation queries the list of incremental backup tasks for DBS.
    * 
    * @param request - DescribeIncrementBackupListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1284,7 +1386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries incremental backup tasks.
+   * This operation queries the list of incremental backup tasks for DBS.
    * 
    * @param request - DescribeIncrementBackupListRequest
    * @returns DescribeIncrementBackupListResponse
@@ -1295,7 +1397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the error information of a Database Backup (DBS) task.
+   * Queries the error code of a Database Backup Service (DBS) job.
    * 
    * @param request - DescribeJobErrorCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1338,7 +1440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the error information of a Database Backup (DBS) task.
+   * Queries the error code of a Database Backup Service (DBS) job.
    * 
    * @param request - DescribeJobErrorCodeRequest
    * @returns DescribeJobErrorCodeResponse
@@ -1399,7 +1501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the precheck progress of a backup schedule or a restore task.
+   * This operation queries the precheck progress for a backup plan or a restore job.
    * 
    * @param request - DescribePreCheckProgressListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1442,7 +1544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the precheck progress of a backup schedule or a restore task.
+   * This operation queries the precheck progress for a backup plan or a restore job.
    * 
    * @param request - DescribePreCheckProgressListRequest
    * @returns DescribePreCheckProgressListResponse
@@ -1453,7 +1555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions that Database Backup (DBS) supports.
+   * Queries the regions where DBS is available.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1488,7 +1590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions that Database Backup (DBS) supports.
+   * Queries the regions where DBS is available.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -1499,7 +1601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the range of time to which you can restore data in a backup schedule.
+   * This operation returns the time ranges available for restoring data from a backup plan.
    * 
    * @param request - DescribeRestoreRangeInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1550,7 +1652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the range of time to which you can restore data in a backup schedule.
+   * This operation returns the time ranges available for restoring data from a backup plan.
    * 
    * @param request - DescribeRestoreRangeInfoRequest
    * @returns DescribeRestoreRangeInfoResponse
@@ -1561,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries restore tasks.
+   * Queries restore jobs in Database Backup Service (DBS).
    * 
    * @param request - DescribeRestoreTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1620,7 +1722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries restore tasks.
+   * Queries restore jobs in Database Backup Service (DBS).
    * 
    * @param request - DescribeRestoreTaskListRequest
    * @returns DescribeRestoreTaskListResponse
@@ -1631,11 +1733,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables incremental backup for a backup schedule.
+   * Disable incremental backup for a backup plan.
    * 
    * @remarks
-   * ### Impact
-   * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+   * ## Impact
+   * After you disable incremental backup, the backup plan no longer performs incremental backups.
    * 
    * @param request - DisableBackupLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1650,6 +1752,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.disableMysqlPhysicalBackupBinlogOnly)) {
+      query["DisableMysqlPhysicalBackupBinlogOnly"] = request.disableMysqlPhysicalBackupBinlogOnly;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -1674,11 +1780,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables incremental backup for a backup schedule.
+   * Disable incremental backup for a backup plan.
    * 
    * @remarks
-   * ### Impact
-   * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+   * ## Impact
+   * After you disable incremental backup, the backup plan no longer performs incremental backups.
    * 
    * @param request - DisableBackupLogRequest
    * @returns DisableBackupLogResponse
@@ -1689,11 +1795,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables incremental backup for a backup schedule.
+   * This operation enables incremental backup for a backup plan.
    * 
    * @remarks
    * ## Impact
-   * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+   * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
    * 
    * @param request - EnableBackupLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1708,6 +1814,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.enableMysqlPhysicalBackupBinlog)) {
+      query["EnableMysqlPhysicalBackupBinlog"] = request.enableMysqlPhysicalBackupBinlog;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -1732,11 +1842,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables incremental backup for a backup schedule.
+   * This operation enables incremental backup for a backup plan.
    * 
    * @remarks
    * ## Impact
-   * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+   * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
    * 
    * @param request - EnableBackupLogRequest
    * @returns EnableBackupLogResponse
@@ -1748,6 +1858,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+   * 
+   * @remarks
+   * 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
    * 
    * @param request - GetDBListFromAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1796,6 +1909,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
    * 
+   * @remarks
+   * 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+   * 
    * @param request - GetDBListFromAgentRequest
    * @returns GetDBListFromAgentResponse
    */
@@ -1805,7 +1921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+   * Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+   * 
+   * @remarks
+   * DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
    * 
    * @param request - InitializeDbsServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1828,7 +1947,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+   * Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+   * 
+   * @remarks
+   * DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
    * @returns InitializeDbsServiceLinkedRoleResponse
    */
   async initializeDbsServiceLinkedRole(): Promise<$_model.InitializeDbsServiceLinkedRoleResponse> {
@@ -1837,7 +1959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies backup objects of a backup schedule in Database Backup (DBS).
+   * Modifies the objects included in a Database Backup Service (DBS) backup plan.
    * 
    * @param request - ModifyBackupObjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1880,7 +2002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies backup objects of a backup schedule in Database Backup (DBS).
+   * Modifies the objects included in a Database Backup Service (DBS) backup plan.
    * 
    * @param request - ModifyBackupObjectsRequest
    * @returns ModifyBackupObjectsResponse
@@ -1891,7 +2013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of a backup schedule.
+   * Modifies the name of a backup plan.
    * 
    * @param request - ModifyBackupPlanNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1934,7 +2056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of a backup schedule.
+   * Modifies the name of a backup plan.
    * 
    * @param request - ModifyBackupPlanNameRequest
    * @returns ModifyBackupPlanNameResponse
@@ -1946,6 +2068,9 @@ export default class Client extends OpenApi {
 
   /**
    * Enables, configures, or disables the automatic download feature.
+   * 
+   * @remarks
+   * 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
    * 
    * @param request - ModifyBackupSetDownloadRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2014,6 +2139,9 @@ export default class Client extends OpenApi {
   /**
    * Enables, configures, or disables the automatic download feature.
    * 
+   * @remarks
+   * 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+   * 
    * @param request - ModifyBackupSetDownloadRulesRequest
    * @returns ModifyBackupSetDownloadRulesResponse
    */
@@ -2023,7 +2151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the data source of a backup schedule.
+   * This operation modifies a Database Backup source endpoint.
    * 
    * @param request - ModifyBackupSourceEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2056,6 +2184,10 @@ export default class Client extends OpenApi {
       query["CrossRoleName"] = request.crossRoleName;
     }
 
+    if (!$dara.isNull(request.enableSourceEndpointSsl)) {
+      query["EnableSourceEndpointSsl"] = request.enableSourceEndpointSsl;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -2074,6 +2206,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceEndpointInstanceType)) {
       query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType;
+    }
+
+    if (!$dara.isNull(request.sourceEndpointOracleHome)) {
+      query["SourceEndpointOracleHome"] = request.sourceEndpointOracleHome;
     }
 
     if (!$dara.isNull(request.sourceEndpointOracleSID)) {
@@ -2096,6 +2232,10 @@ export default class Client extends OpenApi {
       query["SourceEndpointUserName"] = request.sourceEndpointUserName;
     }
 
+    if (!$dara.isNull(request.sslCaPem)) {
+      query["SslCaPem"] = request.sslCaPem;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2114,7 +2254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the data source of a backup schedule.
+   * This operation modifies a Database Backup source endpoint.
    * 
    * @param request - ModifyBackupSourceEndpointRequest
    * @returns ModifyBackupSourceEndpointResponse
@@ -2191,7 +2331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the lifecycle of data that is backed up based on a backup schedule.
+   * Modify the lifecycle of stored data in a backup plan.
    * 
    * @param request - ModifyStorageStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2208,6 +2348,10 @@ export default class Client extends OpenApi {
       query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
     }
 
+    if (!$dara.isNull(request.backupStorageEncryptMethod)) {
+      query["BackupStorageEncryptMethod"] = request.backupStorageEncryptMethod;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -2218,6 +2362,30 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.duplicationInfrequentAccessPeriod)) {
       query["DuplicationInfrequentAccessPeriod"] = request.duplicationInfrequentAccessPeriod;
+    }
+
+    if (!$dara.isNull(request.incrementBackupRetentionPeriod)) {
+      query["IncrementBackupRetentionPeriod"] = request.incrementBackupRetentionPeriod;
+    }
+
+    if (!$dara.isNull(request.incrementDuplicationArchivePeriod)) {
+      query["IncrementDuplicationArchivePeriod"] = request.incrementDuplicationArchivePeriod;
+    }
+
+    if (!$dara.isNull(request.incrementDuplicationInfrequentAccessPeriod)) {
+      query["IncrementDuplicationInfrequentAccessPeriod"] = request.incrementDuplicationInfrequentAccessPeriod;
+    }
+
+    if (!$dara.isNull(request.logBackupRetentionPeriod)) {
+      query["LogBackupRetentionPeriod"] = request.logBackupRetentionPeriod;
+    }
+
+    if (!$dara.isNull(request.logDuplicationArchivePeriod)) {
+      query["LogDuplicationArchivePeriod"] = request.logDuplicationArchivePeriod;
+    }
+
+    if (!$dara.isNull(request.logDuplicationInfrequentAccessPeriod)) {
+      query["LogDuplicationInfrequentAccessPeriod"] = request.logDuplicationInfrequentAccessPeriod;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -2242,7 +2410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the lifecycle of data that is backed up based on a backup schedule.
+   * Modify the lifecycle of stored data in a backup plan.
    * 
    * @param request - ModifyStorageStrategyRequest
    * @returns ModifyStorageStrategyResponse
@@ -2253,11 +2421,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a pay-as-you-go backup schedule.
+   * This operation releases a pay-as-you-go backup plan.
    * 
    * @remarks
-   * ## Impacts
-   * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+   * ## Impact
+   * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
    * 
    * @param request - ReleaseBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2296,11 +2464,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a pay-as-you-go backup schedule.
+   * This operation releases a pay-as-you-go backup plan.
    * 
    * @remarks
-   * ## Impacts
-   * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+   * ## Impact
+   * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
    * 
    * @param request - ReleaseBackupPlanRequest
    * @returns ReleaseBackupPlanResponse
@@ -2369,7 +2537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a backup schedule.
+   * This operation starts a DBS backup plan.
    * 
    * @param request - StartBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2408,7 +2576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a backup schedule.
+   * This operation starts a DBS backup plan.
    * 
    * @param request - StartBackupPlanRequest
    * @returns StartBackupPlanResponse
@@ -2419,7 +2587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a restore task.
+   * Starts a DBS restore job.
    * 
    * @param request - StartRestoreTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2458,7 +2626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a restore task.
+   * Starts a DBS restore job.
    * 
    * @param request - StartRestoreTaskRequest
    * @returns StartRestoreTaskResponse
@@ -2469,7 +2637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a backup schedule.
+   * This operation pauses a DBS backup plan.
    * 
    * @param request - StopBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2512,7 +2680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a backup schedule.
+   * This operation pauses a DBS backup plan.
    * 
    * @param request - StopBackupPlanRequest
    * @returns StopBackupPlanResponse

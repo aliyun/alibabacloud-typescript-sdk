@@ -8,7 +8,7 @@ export class ModifyBackupSetDownloadRulesResponseBody extends $dara.Model {
    * The ID of the backup schedule.
    * 
    * @example
-   * dbstooi01e****
+   * dbstooi01exxxx
    */
   backupPlanId?: string;
   /**

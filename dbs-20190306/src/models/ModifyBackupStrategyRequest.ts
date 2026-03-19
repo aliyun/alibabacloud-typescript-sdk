@@ -17,18 +17,24 @@ export class ModifyBackupStrategyRequest extends $dara.Model {
    * @remarks
    * The day of each week when the full backup task runs. Valid values:
    * 
-   * *   Monday
-   * *   Tuesday
-   * *   Wednesday
-   * *   Thursday
-   * *   Friday
-   * *   Saturday
-   * *   Sunday
+   * - Monday
+   * 
+   * - Tuesday
+   * 
+   * - Wednesday
+   * 
+   * - Thursday
+   * 
+   * - Friday
+   * 
+   * - Saturday
+   * 
+   * - Sunday
    * 
    * This parameter is required.
    * 
    * @example
-   * Monday
+   * Monday,Tuesday,Wednesday
    */
   backupPeriod?: string;
   /**
@@ -53,8 +59,9 @@ export class ModifyBackupStrategyRequest extends $dara.Model {
    * @remarks
    * The backup method that you want to use for full backups. Valid values:
    * 
-   * *   **simple**: scheduled backup. If you specify this value for the BackupStrategyType parameter, you must also specify the BackupPeriod and BackupStartTime parameters.
-   * *   **Manual**: manual backup.
+   * - **simple**: scheduled backup. If you specify this value for the BackupStrategyType parameter, you must also specify the BackupPeriod and BackupStartTime parameters.
+   * 
+   * - **Manual**: manual backup.
    * 
    * > Default value: **simple**.
    * 

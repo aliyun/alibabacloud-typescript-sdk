@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStorageStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the ID.
+   * Backup plan ID. Obtain this parameter\\"s value by calling the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The number of days for which the backup data is retained. Valid values: 0 to 1825.
+   * Backup data retention period, in days. Valid values: 0 to 1825.
    * 
-   * > Default value: 730.
+   * > Default value: 730 days.
    * 
    * This parameter is required.
    * 
@@ -26,8 +26,13 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
    */
   backupRetentionPeriod?: number;
   /**
+   * @example
+   * encrypted
+   */
+  backupStorageEncryptMethod?: string;
+  /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * An arbitrary string used to ensure the idempotence of the request and prevent duplicate submissions.
    * 
    * @example
    * dbstest
@@ -35,9 +40,9 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The number of days after which the storage class of the backup data is changed to Archive. The value of this parameter must be smaller than the value of the BackupRetentionPeriod parameter. For more information about the Archive storage class, see [Storage class overview](https://help.aliyun.com/document_detail/51374.html).
+   * Time to convert to Archive Storage. This value must be less than the backup data retention period (BackupRetentionPeriod parameter). For more information about Archive Storage, see [Storage Type Overview](https://help.aliyun.com/document_detail/51374.html).
    * 
-   * > Default value: 365.
+   * > Default value: 365 days.
    * 
    * This parameter is required.
    * 
@@ -47,9 +52,9 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
   duplicationArchivePeriod?: number;
   /**
    * @remarks
-   * The number of days after which the storage class of the backup data is changed to Infrequent Access (IA). The value of this parameter must be smaller than the value of the DuplicationArchivePeriod parameter. For more information about the IA storage class, see [Storage class overview](https://help.aliyun.com/document_detail/51374.html).
+   * Time to convert to Infrequent Access storage. This value must be less than the Archive Storage period (DuplicationArchivePeriod parameter). For more information about Infrequent Access storage, see [Storage Type Overview](https://help.aliyun.com/document_detail/51374.html).
    * 
-   * > Default value: 180.
+   * > Default value: 180 days.
    * 
    * This parameter is required.
    * 
@@ -57,14 +62,51 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
    * 190
    */
   duplicationInfrequentAccessPeriod?: number;
+  /**
+   * @example
+   * 365
+   */
+  incrementBackupRetentionPeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  incrementDuplicationArchivePeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  incrementDuplicationInfrequentAccessPeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  logBackupRetentionPeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  logDuplicationArchivePeriod?: string;
+  /**
+   * @example
+   * 365
+   */
+  logDuplicationInfrequentAccessPeriod?: string;
   ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       backupRetentionPeriod: 'BackupRetentionPeriod',
+      backupStorageEncryptMethod: 'BackupStorageEncryptMethod',
       clientToken: 'ClientToken',
       duplicationArchivePeriod: 'DuplicationArchivePeriod',
       duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
+      incrementBackupRetentionPeriod: 'IncrementBackupRetentionPeriod',
+      incrementDuplicationArchivePeriod: 'IncrementDuplicationArchivePeriod',
+      incrementDuplicationInfrequentAccessPeriod: 'IncrementDuplicationInfrequentAccessPeriod',
+      logBackupRetentionPeriod: 'LogBackupRetentionPeriod',
+      logDuplicationArchivePeriod: 'LogDuplicationArchivePeriod',
+      logDuplicationInfrequentAccessPeriod: 'LogDuplicationInfrequentAccessPeriod',
       ownerId: 'OwnerId',
     };
   }
@@ -73,9 +115,16 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
     return {
       backupPlanId: 'string',
       backupRetentionPeriod: 'number',
+      backupStorageEncryptMethod: 'string',
       clientToken: 'string',
       duplicationArchivePeriod: 'number',
       duplicationInfrequentAccessPeriod: 'number',
+      incrementBackupRetentionPeriod: 'string',
+      incrementDuplicationArchivePeriod: 'string',
+      incrementDuplicationInfrequentAccessPeriod: 'string',
+      logBackupRetentionPeriod: 'string',
+      logDuplicationArchivePeriod: 'string',
+      logDuplicationInfrequentAccessPeriod: 'string',
       ownerId: 'string',
     };
   }

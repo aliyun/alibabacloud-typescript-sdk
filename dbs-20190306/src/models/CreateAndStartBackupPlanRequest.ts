@@ -5,15 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndStartBackupPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup gateway ID.
+   * The ID of the backup gateway.
    * 
-   * > 
-   * 
-   * *   If **SourceEndpointInstanceType** is set to **Agent**, this parameter is required.****
-   * 
-   * *   For more information about how to install a backup gateway, see [Install a backup gateway](https://help.aliyun.com/document_detail/93250.html).
-   * 
-   * *   You can query a list of existing backup gateways by calling the [DescribeBackupGatewayList](https://help.aliyun.com/document_detail/2869840.html) operation.
+   * > - This parameter is required if **SourceEndpoint**.**InstanceType** is set to **agent**.
+   * >
+   * > - For more information about how to create a backup gateway, see [Add a backup gateway](https://help.aliyun.com/document_detail/93250.html).
+   * >
+   * > - You can call the [DescribeBackupGatewayList](https://help.aliyun.com/document_detail/2869840.html) operation to view the list of existing backup gateways.
    * 
    * @example
    * 23313123312
@@ -21,9 +19,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupGatewayId?: number;
   /**
    * @remarks
-   * The interval at which you want to perform incremental log backups. Unit: seconds.
+   * The interval for incremental backups, in seconds.
    * 
-   * >  This parameter is required only if you set BackupMethod to **physical**.
+   * > This parameter is required only for **physical backups**.
    * 
    * @example
    * 1000
@@ -31,11 +29,11 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupLogIntervalSeconds?: number;
   /**
    * @remarks
-   * The method that is used to generate the backup file. Valid values:
+   * The backup method. Valid values:
    * 
-   * *   **logical**: logical backup
-   * *   **physical**: physical backup
-   * *   **duplication**: dump backup
+   * - **logical**: logical backup
+   * 
+   * - **physical**: physical backup
    * 
    * This parameter is required.
    * 
@@ -45,25 +43,31 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupMethod?: string;
   /**
    * @remarks
-   * The object to be backed up.
+   * The backup objects.
    * 
    * @example
-   * [ { "DBName":"Name of the database to be backed up", "SchemaName":"Name of the schema to be backed up", "TableIncludes":[{ "TableName":"Name of the table to be backed up" }], "TableExcludes":[{ "TableName":"Name of the table that you do not want to back up" }] } ]
+   * [     {         "DBName":"待备份库名",         "SchemaName":"待备份 Schema 名",         "TableIncludes":[{             "TableName":"待备份表表名"         }],         "TableExcludes":[{             "TableName":"待备份库名不需要备份表的表名"         }]     } ]
    */
   backupObjects?: string;
   /**
    * @remarks
-   * The day of the week on which you want to perform full backup. Valid values:
+   * The full backup cycle. Valid values:
    * 
-   * *   **Monday**
-   * *   **Tuesday**
-   * *   **Wednesday**
-   * *   **Thursday**
-   * *   **Friday**
-   * *   **Saturday**
-   * *   **Sunday**
+   * - **Monday**
    * 
-   * >  You can specify multiple values. Separate multiple values with commas (,).
+   * - **Tuesday**
+   * 
+   * - **Wednesday**
+   * 
+   * - **Thursday**
+   * 
+   * - **Friday**
+   * 
+   * - **Saturday**
+   * 
+   * - **Sunday**
+   * 
+   * > You can select multiple values. Separate them with commas (,).
    * 
    * @example
    * Monday
@@ -71,7 +75,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupPeriod?: string;
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
    * 
    * @example
    * dbstooi0*******
@@ -79,7 +83,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The name of the backup schedule.
+   * The custom name of the backup plan.
    * 
    * This parameter is required.
    * 
@@ -89,9 +93,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupPlanName?: string;
   /**
    * @remarks
-   * The network bandwidth throttling. Unit: KB/s. DBS allows a maximum bandwidth of 10 GB/s.
+   * The network bandwidth throttling limit, in KB/s. The maximum allowed value is 10 GB.
    * 
-   * >  This parameter takes effect only when physical backups for MySQL databases are performed.
+   * > This parameter is valid only for MySQL physical backups.
    * 
    * @example
    * 262144
@@ -99,7 +103,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupRateLimit?: number;
   /**
    * @remarks
-   * The number of days for which the backup data is retained. Valid values: 0 to 1825. Default value: 730.
+   * The retention period for backup data, in days. Valid values: 0 to 1825. Default value: 730.
    * 
    * @example
    * 730
@@ -107,9 +111,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupRetentionPeriod?: number;
   /**
    * @remarks
-   * The I/O limit for the disk. Unit: KB/s.
+   * The disk I/O limit, in KB/s.
    * 
-   * >  This parameter takes effect only when physical backups for MySQL databases are performed.
+   * > This parameter is valid only for MySQL physical backups.
    * 
    * @example
    * 262144
@@ -117,7 +121,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupSpeedLimit?: number;
   /**
    * @remarks
-   * The start time of full backup tasks. Specify the value in the *HH:mm* format. The time must be in UTC.
+   * The start time for the full backup. The time is in the *HH:mm* format and is in UTC.
    * 
    * @example
    * 14:22
@@ -125,23 +129,25 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupStartTime?: string;
   /**
    * @remarks
-   * The storage type. Valid values:
+   * The built-in storage type:
    * 
-   * *   Empty: If you do not specify this parameter, the system stores backup data in your OSS bucket.
-   * *   system : The system stores backup data in the built-in OSS bucket of DBS.
+   * - Empty (default): Backup data is stored in your OSS bucket.
+   * 
+   * - system: Backup data is stored in the built-in OSS bucket of DBS.
    * 
    * @example
-   * N/A
+   * 无
    */
   backupStorageType?: string;
   /**
    * @remarks
-   * The backup method that you want to use for full backups. Valid values:
+   * The full backup strategy. Valid values:
    * 
-   * *   **simple**: scheduled backup. If you specify this value for the BackupStrategyType parameter, you must also specify the BackupPeriod and BackupStartTime parameters.
-   * *   **Manual**: manual backup.
+   * - **simple**: periodic backup. Use this value with BackupPeriod and BackupStartTime.
    * 
-   * > Default value: **simple**.
+   * - **manual**: manual backup.
+   * 
+   * > The default value is **simple**.
    * 
    * @example
    * simple
@@ -149,23 +155,23 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   backupStrategyType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token used to ensure the idempotence of the request. This prevents duplicate requests.
    * 
    * @example
-   * DBS
+   * ASDASDASDSADASFCZXVZ
    */
   clientToken?: string;
   /**
    * @remarks
-   * The unique ID (UID) of the Alibaba Cloud account to which the source database belongs.
+   * The UID of the Alibaba Cloud account for cross-account backup.
    * 
    * @example
-   * 2xxx7778xxxxxxxxxx
+   * 1648821913******
    */
   crossAliyunId?: string;
   /**
    * @remarks
-   * The name of the RAM role that is used to perform backups across Alibaba Cloud accounts.
+   * The name of the RAM role for cross-account backup.
    * 
    * @example
    * test123
@@ -173,9 +179,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   crossRoleName?: string;
   /**
    * @remarks
-   * The region in which the database that you want to back up resides.
-   * 
-   * > This parameter is required if the **PayType** parameter is set to **postpay**.
+   * The region where the database is located.
    * 
    * @example
    * cn-hangzhou
@@ -183,16 +187,23 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   databaseRegion?: string;
   /**
    * @remarks
-   * The type of the source database. Valid values:
+   * The database type. Valid values:
    * 
-   * *   **MySQL**
-   * *   **MSSQL**
-   * *   **Oracle**
-   * *   **MariaDB**
-   * *   **PostgreSQL**
-   * *   **DRDS**
-   * *   **MongoDB**
-   * *   **Redis**
+   * - **MySQL**
+   * 
+   * - **MSSQL**
+   * 
+   * - **Oracle**
+   * 
+   * - **MariaDB**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **DRDS**
+   * 
+   * - **MongoDB**
+   * 
+   * - **Redis**
    * 
    * This parameter is required.
    * 
@@ -202,7 +213,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The number of days after which the storage class of the backup data is changed to Archive. Default value: 365.
+   * The time after which backup data is converted to archive storage, in days. Default value: 365.
    * 
    * @example
    * 365
@@ -210,7 +221,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   duplicationArchivePeriod?: number;
   /**
    * @remarks
-   * The number of days after which the storage class of the backup data is changed to Infrequent Access (IA). Default value: 180.
+   * The time after which backup data is converted to Infrequent Access (IA) storage, in days. Default value: 180.
    * 
    * @example
    * 180
@@ -218,10 +229,11 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   duplicationInfrequentAccessPeriod?: number;
   /**
    * @remarks
-   * Specifies whether to enable the incremental log backup feature. Valid values:
+   * Specifies whether to enable incremental log backup. Valid values:
    * 
-   * *   **true**: enables the incremental log backup feature.
-   * *   **false**: disables the incremental log backup feature.
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -229,7 +241,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   enableBackupLog?: boolean;
   /**
    * @remarks
-   * The request source. Default value: OpenApi. You do not need to set this parameter.
+   * The source of the request. The default value is OpenApi. You do not need to set this parameter.
    * 
    * @example
    * OpenApi
@@ -237,15 +249,19 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   fromApp?: string;
   /**
    * @remarks
-   * The type of the backup schedule. Valid values:
+   * The specification of the backup plan. Valid values:
    * 
-   * *   **micro**
-   * *   **small**
-   * *   **medium**
-   * *   **large**
-   * *   **xlarge**
+   * - **micro**
    * 
-   * >  A backup schedule type with higher specifications offers higher backup and restoration performance. For more information, see [Select a backup schedule type](https://help.aliyun.com/document_detail/84372.html).
+   * - **small**
+   * 
+   * - **medium**
+   * 
+   * - **large**
+   * 
+   * - **xlarge**
+   * 
+   * > Higher specifications provide better backup and recovery performance. For more information, see [Specifications](https://help.aliyun.com/document_detail/84372.html).
    * 
    * This parameter is required.
    * 
@@ -255,16 +271,19 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The type of the source database instance. Valid values:
+   * The database instance type. Valid values:
    * 
-   * *   **RDS**: ApsaraDB RDS.
-   * *   **PolarDB**: PolarDB.
-   * *   **DDS**: ApsaraDB for MongoDB.
-   * *   **Kvstore**: ApsaraDB for Redis.
-   * *   **Other**: Database connected by using an IP address and a port number.
-   * *   **dg**: Self-managed database that has no public IP address or port number and is connected over Database Gateway.
+   * - **RDS**
    * 
-   * >  If **PayType** is set to **postpay**, this parameter is required.
+   * - **PolarDB**
+   * 
+   * - **DDS**: Alibaba Cloud MongoDB
+   * 
+   * - **Kvstore**: Alibaba Cloud Redis
+   * 
+   * - **Other**: A database connected over an IP address and port.
+   * 
+   * - **dg**: A self-managed database without a public IP address or port, connected through Database Gateway (DG).
    * 
    * @example
    * RDS
@@ -272,7 +291,8 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The name of the Object Storage Service (OSS) bucket used to store backup files. By default, the system automatically generates a name for the OSS bucket.
+   * The name of the Object Storage Service (OSS) bucket.
+   * Default: The system automatically generates a new name.
    * 
    * @example
    * TestOssBucket
@@ -281,23 +301,21 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The payment method. Valid value:
    * 
-   * *   **postpay**: pay-as-you-go.
-   * *   **prepay**: subscription.
-   * 
-   * >  The default value is **prepay**. You can set this parameter to **postpay** only if you set **BackupMethod** to **duplication**.
+   * **prepay**: subscription
    * 
    * @example
-   * Postpaid
+   * prepay
    */
   payType?: string;
   /**
    * @remarks
-   * Specifies whether to use yearly subscription or monthly subscription for the instance. Valid values:
+   * The billing cycle of the subscription instance. Valid values:
    * 
-   * *   **Year**: yearly subscription
-   * *   **Month**: monthly subscription
+   * - **Year**
+   * 
+   * - **Month**
    * 
    * @example
    * Year
@@ -305,7 +323,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The ID of the region in which you want to store the backup data. You can query the supported regions of DBS by calling the [DescribeRegions](https://help.aliyun.com/document_detail/2869853.html) operation.
+   * The region where DBS is available. To view the available regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/2869853.html) operation.
    * 
    * @example
    * cn-hangzhou
@@ -321,9 +339,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
-   * > This parameter is required if the DatabaseType parameter is set to **PostgreSQL** or **MongoDB**.
+   * > This parameter is required if the database type is **PostgreSQL** or **MongoDB**.
    * 
    * @example
    * testRDS
@@ -331,9 +349,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointDatabaseName?: string;
   /**
    * @remarks
-   * The endpoint of the database.
+   * The database endpoint.
    * 
-   * > This parameter is required if the **SourceEndpointInstanceType** parameter is set to **Express**, **Agent**, or **Other**.
+   * > This parameter is required if **SourceEndpoint**.**InstanceType** is set to **express**, **agent**, or **other**.
    * 
    * @example
    * rm-uf6wjk5xxxxxxx.mysql.rds.aliyuncs.com
@@ -343,7 +361,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
    * @remarks
    * The ID of the database instance.
    * 
-   * > This parameter is required if the **SourceEndpointInstanceType** parameter is set to **RDS**, **ECS**, **DDS**, or **Express**.
+   * > This parameter is required if **SourceEndpoint**.**InstanceType** is set to **RDS**, **ECS**, **DDS**, or **Express**.
    * 
    * @example
    * rm-uf6wjk5xxxxxxxxxx
@@ -351,15 +369,21 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointInstanceID?: string;
   /**
    * @remarks
-   * The location of the source database. Valid values:
+   * The location of the database. Valid values:
    * 
-   * *   **RDS**: The database is on an ApsaraDB RDS instance.
-   * *   **ECS**: The database is on an Elastic Compute Service (ECS) instance.
-   * *   **Express**: The database is connected to DBS by using Express Connect, VPN Gateway, or Smart Access Gateway.
-   * *   **Agent**: The database is connected to DBS over a DBS backup gateway.
-   * *   **DDS**: The database is on an ApsaraDB for MongoDB instance.
-   * *   **Other**: The database is connected to DBS by using an IP address and a port number.
-   * *   **dg**: The database is a self-managed database that has no public IP address or port number and is connected to DBS over Database Gateway.
+   * - **RDS**
+   * 
+   * - **ECS**
+   * 
+   * - **Express**: A database connected through a leased line, VPN Gateway, or Smart Access Gateway.
+   * 
+   * - **Agent**: A database connected through a backup gateway.
+   * 
+   * - **DDS**: Alibaba Cloud MongoDB
+   * 
+   * - **Other**: A database connected directly over an IP address and port.
+   * 
+   * - **dg**: A self-managed database without a public IP address or port, connected through Database Gateway (DG).
    * 
    * This parameter is required.
    * 
@@ -369,7 +393,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointInstanceType?: string;
   /**
    * @remarks
-   * The system ID (SID) of the Oracle database. This parameter is required if the source database is an Oracle database.
+   * The Oracle system ID (SID). This parameter is required if the database type is Oracle.
    * 
    * @example
    * test
@@ -377,9 +401,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointOracleSID?: string;
   /**
    * @remarks
-   * The password of the account that is used to connect to the database.
+   * The password for the database account.
    * 
-   * > This parameter is required except that the database is an SQL Server database that is connected to DBS over a DBS backup gateway or a Redis database.
+   * > This parameter is optional if the database type is **Redis**, or if the database location is **agent** and the database type is **MSSQL**. In all other cases, this parameter is required.
    * 
    * @example
    * testPassword
@@ -387,9 +411,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointPassword?: string;
   /**
    * @remarks
-   * The port of the database.
+   * The database port.
    * 
-   * > This parameter is required if the **SourceEndpointInstanceType** parameter is set to **Express**, **Agent**, **Other**, or **ECS**.
+   * > This parameter is required if **SourceEndpoint**.**InstanceType** is set to **express**, **agent**, **other**, or **ECS**.
    * 
    * @example
    * 3306
@@ -397,9 +421,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointPort?: number;
   /**
    * @remarks
-   * The region in which the database that you want to back up resides.
+   * The region where the database is located.
    * 
-   * > This parameter is required if the **SourceEndpointInstanceType** parameter is set to **RDS**, **ECS**, **DDS**, **Express**, or **Agent**.
+   * > This parameter is required if **SourceEndpoint**.**InstanceType** is set to **RDS**, **ECS**, **DDS**, **Express**, or **Agent**.
    * 
    * @example
    * cn-hangzhou
@@ -407,9 +431,9 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointRegion?: string;
   /**
    * @remarks
-   * The username of the account that is used to connect to the database.
+   * The database account.
    * 
-   * > This parameter is required except that the database is an SQL Server database that is connected to DBS over a DBS backup gateway or a Redis database.
+   * > This parameter is optional if the database type is **Redis**, or if the database location is **agent** and the database type is **MSSQL**. In all other cases, this parameter is required.
    * 
    * @example
    * testRDS
@@ -417,9 +441,7 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   sourceEndpointUserName?: string;
   /**
    * @remarks
-   * The region in which you want to store the backup data.
-   * 
-   * > This parameter is required if the **PayType** parameter is set to **postpay**.
+   * The storage region.
    * 
    * @example
    * cn-hangzhou
@@ -427,18 +449,19 @@ export class CreateAndStartBackupPlanRequest extends $dara.Model {
   storageRegion?: string;
   /**
    * @remarks
-   * This parameter is unavailable.
+   * This parameter is not yet available.
    * 
    * @example
-   * N/A
+   * 无
    */
   storageType?: string;
   /**
    * @remarks
    * The subscription duration. Valid values:
    * 
-   * *   If **Period** is set to **Year**, the valid values of **UsedTime** range from 1 to 5.
-   * *   If **Period** is set to **Month**, the valid values of **UsedTime** range from 1 to 11.
+   * - If **Period** is set to **Year**, the value of **UsedTime** can be 1 to 5.
+   * 
+   * - If **Period** is set to **Month**, the value of **UsedTime** can be 1 to 11.
    * 
    * @example
    * 1
