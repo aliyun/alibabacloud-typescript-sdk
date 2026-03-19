@@ -175,6 +175,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 浏览备份文件
+   * 
+   * @param request - BrowseFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BrowseFilesResponse
+   */
+  async browseFilesWithOptions(request: $_model.BrowseFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BrowseFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.absolutePath)) {
+      query["AbsolutePath"] = request.absolutePath;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.restoreId)) {
+      query["RestoreId"] = request.restoreId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.snapshotHash)) {
+      query["SnapshotHash"] = request.snapshotHash;
+    }
+
+    if (!$dara.isNull(request.storageClass)) {
+      query["StorageClass"] = request.storageClass;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!$dara.isNull(request.vaultId)) {
+      query["VaultId"] = request.vaultId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BrowseFiles",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BrowseFilesResponse>(await this.callApi(params, req, runtime), new $_model.BrowseFilesResponse({}));
+  }
+
+  /**
+   * 浏览备份文件
+   * 
+   * @param request - BrowseFilesRequest
+   * @returns BrowseFilesResponse
+   */
+  async browseFiles(request: $_model.BrowseFilesRequest): Promise<$_model.BrowseFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.browseFilesWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels a backup job.
    * 
    * @param request - CancelBackupJobRequest
@@ -580,6 +674,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.disabled)) {
       query["Disabled"] = request.disabled;
+    }
+
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
     }
 
     if (!$dara.isNull(request.fileSystemId)) {
@@ -4507,6 +4605,48 @@ export default class Client extends OpenApi {
   async generateRamPolicy(request: $_model.GenerateRamPolicyRequest): Promise<$_model.GenerateRamPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateRamPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtains basic backup statistics.
+   * 
+   * @param request - GetBasicStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBasicStatisticsResponse
+   */
+  async getBasicStatisticsWithOptions(request: $_model.GetBasicStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBasicStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBasicStatistics",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBasicStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.GetBasicStatisticsResponse({}));
+  }
+
+  /**
+   * Obtains basic backup statistics.
+   * 
+   * @param request - GetBasicStatisticsRequest
+   * @returns GetBasicStatisticsResponse
+   */
+  async getBasicStatistics(request: $_model.GetBasicStatisticsRequest): Promise<$_model.GetBasicStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBasicStatisticsWithOptions(request, runtime);
   }
 
   /**

@@ -225,6 +225,7 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * true
    */
   disabled?: boolean;
+  edition?: string;
   /**
    * @remarks
    * This parameter is required only when **SourceType** is set to **ECS_FILE**. It specifies the path that should not be backed up, meaning all files under this path will not be included in the backup. The maximum length is 255 characters.
@@ -398,6 +399,7 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
       destSourceType: 'DestSourceType',
       detailShrink: 'Detail',
       disabled: 'Disabled',
+      edition: 'Edition',
       exclude: 'Exclude',
       fileSystemId: 'FileSystemId',
       include: 'Include',
@@ -435,6 +437,7 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
       destSourceType: 'string',
       detailShrink: 'string',
       disabled: 'boolean',
+      edition: 'string',
       exclude: 'string',
       fileSystemId: 'string',
       include: 'string',
