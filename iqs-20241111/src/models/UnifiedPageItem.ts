@@ -32,6 +32,7 @@ export class UnifiedPageItem extends $dara.Model {
   richMainBody?: string;
   snippet?: string;
   summary?: string;
+  tags?: { [key: string]: any };
   title?: string;
   websiteAuthorityScore?: number;
   static names(): { [key: string]: string } {
@@ -49,6 +50,7 @@ export class UnifiedPageItem extends $dara.Model {
       richMainBody: 'richMainBody',
       snippet: 'snippet',
       summary: 'summary',
+      tags: 'tags',
       title: 'title',
       websiteAuthorityScore: 'websiteAuthorityScore',
     };
@@ -69,6 +71,7 @@ export class UnifiedPageItem extends $dara.Model {
       richMainBody: 'string',
       snippet: 'string',
       summary: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       title: 'string',
       websiteAuthorityScore: 'number',
     };
@@ -77,6 +80,9 @@ export class UnifiedPageItem extends $dara.Model {
   validate() {
     if(Array.isArray(this.images)) {
       $dara.Model.validateArray(this.images);
+    }
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
     }
     super.validate();
   }
