@@ -1133,6 +1133,11 @@ export class QueryJobListResponseBodyJobListJobOutputProperties extends $dara.Mo
   bitrate?: string;
   duration?: string;
   fileFormat?: string;
+  /**
+   * @example
+   * ad195fd1317a761d4425232867759d1e
+   */
+  fileMd5?: string;
   fileSize?: string;
   format?: QueryJobListResponseBodyJobListJobOutputPropertiesFormat;
   fps?: string;
@@ -1145,6 +1150,7 @@ export class QueryJobListResponseBodyJobListJobOutputProperties extends $dara.Mo
       bitrate: 'Bitrate',
       duration: 'Duration',
       fileFormat: 'FileFormat',
+      fileMd5: 'FileMd5',
       fileSize: 'FileSize',
       format: 'Format',
       fps: 'Fps',
@@ -1160,6 +1166,7 @@ export class QueryJobListResponseBodyJobListJobOutputProperties extends $dara.Mo
       bitrate: 'string',
       duration: 'string',
       fileFormat: 'string',
+      fileMd5: 'string',
       fileSize: 'string',
       format: QueryJobListResponseBodyJobListJobOutputPropertiesFormat,
       fps: 'string',
