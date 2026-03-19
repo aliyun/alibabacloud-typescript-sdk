@@ -8,6 +8,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
    * ENTERPRISE
    */
   businessChannel?: string;
+  enableAliyunResourceGroup?: boolean;
   /**
    * @remarks
    * >  This parameter is not publicly available.
@@ -34,6 +35,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       businessChannel: 'BusinessChannel',
+      enableAliyunResourceGroup: 'EnableAliyunResourceGroup',
       isResourceGroupWithOfficeSite: 'IsResourceGroupWithOfficeSite',
       platform: 'Platform',
       resourceGroupName: 'ResourceGroupName',
@@ -43,6 +45,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessChannel: 'string',
+      enableAliyunResourceGroup: 'boolean',
       isResourceGroupWithOfficeSite: 'number',
       platform: 'string',
       resourceGroupName: 'string',

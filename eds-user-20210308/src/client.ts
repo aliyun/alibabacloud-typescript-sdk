@@ -413,6 +413,10 @@ export default class Client extends OpenApi {
       query["BusinessChannel"] = request.businessChannel;
     }
 
+    if (!$dara.isNull(request.enableAliyunResourceGroup)) {
+      query["EnableAliyunResourceGroup"] = request.enableAliyunResourceGroup;
+    }
+
     if (!$dara.isNull(request.isResourceGroupWithOfficeSite)) {
       query["IsResourceGroupWithOfficeSite"] = request.isResourceGroupWithOfficeSite;
     }
@@ -1672,7 +1676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the contact information of a convenience account.
+   * Modifies user information.
    * 
    * @param request - ModifyUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1715,7 +1719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the contact information of a convenience account.
+   * Modifies user information.
    * 
    * @param request - ModifyUserRequest
    * @returns ModifyUserResponse
