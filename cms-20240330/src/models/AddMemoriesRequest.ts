@@ -75,6 +75,11 @@ export class AddMemoriesRequest extends $dara.Model {
   runId?: string;
   /**
    * @example
+   * 12312314214
+   */
+  timestamp?: number;
+  /**
+   * @example
    * test_user_001
    */
   userId?: string;
@@ -88,6 +93,7 @@ export class AddMemoriesRequest extends $dara.Model {
       messages: 'messages',
       metadata: 'metadata',
       runId: 'runId',
+      timestamp: 'timestamp',
       userId: 'userId',
     };
   }
@@ -102,6 +108,7 @@ export class AddMemoriesRequest extends $dara.Model {
       messages: { 'type': 'array', 'itemType': AddMemoriesRequestMessages },
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       runId: 'string',
+      timestamp: 'number',
       userId: 'string',
     };
   }

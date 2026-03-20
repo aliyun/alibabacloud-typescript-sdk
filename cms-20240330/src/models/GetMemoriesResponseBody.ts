@@ -56,6 +56,11 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
   agentId?: string;
   /**
    * @example
+   * test_user_001
+   */
+  appId?: string;
+  /**
+   * @example
    * 1747623093939
    */
   createdAt?: string;
@@ -108,6 +113,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
     return {
       actorId: 'actorId',
       agentId: 'agentId',
+      appId: 'appId',
       createdAt: 'createdAt',
       hash: 'hash',
       id: 'id',
@@ -125,6 +131,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
     return {
       actorId: 'string',
       agentId: 'string',
+      appId: 'string',
       createdAt: 'string',
       hash: 'string',
       id: 'string',

@@ -72,6 +72,10 @@ export default class Client extends OpenApi {
       body["runId"] = request.runId;
     }
 
+    if (!$dara.isNull(request.timestamp)) {
+      body["timestamp"] = request.timestamp;
+    }
+
     if (!$dara.isNull(request.userId)) {
       body["userId"] = request.userId;
     }

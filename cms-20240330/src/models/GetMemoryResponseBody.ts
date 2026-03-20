@@ -5,6 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class GetMemoryResponseBody extends $dara.Model {
   /**
    * @example
+   * test_user_001
+   */
+  agentId?: string;
+  /**
+   * @example
+   * test_user_001
+   */
+  appId?: string;
+  /**
+   * @example
    * 1751595283143
    */
   createdAt?: string;
@@ -50,11 +60,23 @@ export class GetMemoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @example
+   * test_user_001
+   */
+  runId?: string;
+  /**
+   * @example
    * 1744428159434
    */
   updatedAt?: string;
+  /**
+   * @example
+   * test_user_001
+   */
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentId: 'agentId',
+      appId: 'appId',
       createdAt: 'createdAt',
       expirationDate: 'expirationDate',
       id: 'id',
@@ -64,12 +86,16 @@ export class GetMemoryResponseBody extends $dara.Model {
       organization: 'organization',
       owner: 'owner',
       requestId: 'requestId',
+      runId: 'runId',
       updatedAt: 'updatedAt',
+      userId: 'userId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentId: 'string',
+      appId: 'string',
       createdAt: 'string',
       expirationDate: 'string',
       id: 'string',
@@ -79,7 +105,9 @@ export class GetMemoryResponseBody extends $dara.Model {
       organization: 'string',
       owner: 'string',
       requestId: 'string',
+      runId: 'string',
       updatedAt: 'string',
+      userId: 'string',
     };
   }
 
