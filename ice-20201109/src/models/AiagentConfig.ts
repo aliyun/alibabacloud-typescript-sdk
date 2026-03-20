@@ -441,11 +441,13 @@ export class AIAgentConfigInterruptConfig extends $dara.Model {
    * Words or phrases that will trigger an interruption.
    */
   interruptWords?: string[];
+  keepInterruptWordsForLLM?: boolean;
   noInterruptMode?: string;
   static names(): { [key: string]: string } {
     return {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       interruptWords: 'InterruptWords',
+      keepInterruptWordsForLLM: 'KeepInterruptWordsForLLM',
       noInterruptMode: 'NoInterruptMode',
     };
   }
@@ -454,6 +456,7 @@ export class AIAgentConfigInterruptConfig extends $dara.Model {
     return {
       enableVoiceInterrupt: 'boolean',
       interruptWords: { 'type': 'array', 'itemType': 'string' },
+      keepInterruptWordsForLLM: 'boolean',
       noInterruptMode: 'string',
     };
   }
