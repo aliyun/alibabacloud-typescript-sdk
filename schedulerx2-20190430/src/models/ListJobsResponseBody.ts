@@ -547,15 +547,24 @@ export class ListJobsResponseBodyData extends $dara.Model {
    * The jobs and their details.
    */
   jobs?: ListJobsResponseBodyDataJobs[];
+  pageNumber?: number;
+  pageSize?: number;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       jobs: 'Jobs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobs: { 'type': 'array', 'itemType': ListJobsResponseBodyDataJobs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      total: 'number',
     };
   }
 

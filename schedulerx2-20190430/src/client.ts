@@ -116,7 +116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The additional information that is returned.
+   * Deletes multiple routing policies at a time.
    * 
    * @param request - BatchDeleteRouteStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -161,7 +161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The additional information that is returned.
+   * Deletes multiple routing policies at a time.
    * 
    * @param request - BatchDeleteRouteStrategyRequest
    * @returns BatchDeleteRouteStrategyResponse
@@ -868,7 +868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The additional information that is returned.
+   * Deletes an application group.
    * 
    * @param request - DeleteAppGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -911,7 +911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The additional information that is returned.
+   * Deletes an application group.
    * 
    * @param request - DeleteAppGroupRequest
    * @returns DeleteAppGroupResponse
@@ -1274,7 +1274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a job.
+   * Disables a specified task.
    * 
    * @param request - DisableJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1301,7 +1301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a job.
+   * Disables a specified task.
    * 
    * @param request - DisableJobRequest
    * @returns DisableJobResponse
@@ -1508,7 +1508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+   * The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
    * 
    * @param request - GetAppGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1547,7 +1547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+   * The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
    * 
    * @param request - GetAppGroupRequest
    * @returns GetAppGroupResponse

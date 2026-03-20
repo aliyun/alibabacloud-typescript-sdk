@@ -39,6 +39,8 @@ export class ListJobsRequest extends $dara.Model {
    * schedulerx
    */
   namespaceSource?: string;
+  pageNum?: number;
+  pageSize?: number;
   /**
    * @remarks
    * The ID of the region.
@@ -66,6 +68,8 @@ export class ListJobsRequest extends $dara.Model {
       jobName: 'JobName',
       namespace: 'Namespace',
       namespaceSource: 'NamespaceSource',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       status: 'Status',
     };
@@ -77,6 +81,8 @@ export class ListJobsRequest extends $dara.Model {
       jobName: 'string',
       namespace: 'string',
       namespaceSource: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       regionId: 'string',
       status: 'string',
     };
