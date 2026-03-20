@@ -9,6 +9,7 @@ export class CreateBroadcastVideoFromTemplateRequestVideoOptions extends $dara.M
    * 30
    */
   fps?: number;
+  languageHints?: string[];
   /**
    * @example
    * 720p
@@ -22,6 +23,7 @@ export class CreateBroadcastVideoFromTemplateRequestVideoOptions extends $dara.M
   static names(): { [key: string]: string } {
     return {
       fps: 'fps',
+      languageHints: 'languageHints',
       resolution: 'resolution',
       watermark: 'watermark',
     };
@@ -30,12 +32,16 @@ export class CreateBroadcastVideoFromTemplateRequestVideoOptions extends $dara.M
   static types(): { [key: string]: any } {
     return {
       fps: 'number',
+      languageHints: { 'type': 'array', 'itemType': 'string' },
       resolution: 'string',
       watermark: 'boolean',
     };
   }
 
   validate() {
+    if(Array.isArray(this.languageHints)) {
+      $dara.Model.validateArray(this.languageHints);
+    }
     super.validate();
   }
 

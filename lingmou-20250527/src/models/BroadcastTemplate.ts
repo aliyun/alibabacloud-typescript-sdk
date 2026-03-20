@@ -4,8 +4,20 @@ import { TemplateVariable } from "./TemplateVariable";
 
 
 export class BroadcastTemplate extends $dara.Model {
+  /**
+   * @example
+   * 2025-11-28T10:11:28
+   */
   createTime?: string;
+  /**
+   * @example
+   * BS1b2WNnRMu4ouRzT4clY9Jhg
+   */
   id?: string;
+  /**
+   * @example
+   * 2025-11-28T11:11:28
+   */
   modifiedTime?: string;
   name?: string;
   variables?: TemplateVariable[];

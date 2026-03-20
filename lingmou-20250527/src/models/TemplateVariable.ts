@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TemplateVariable extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
   name?: string;
   properties?: any;
+  /**
+   * @example
+   * text
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

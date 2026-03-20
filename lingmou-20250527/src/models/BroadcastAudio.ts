@@ -3,11 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BroadcastAudio extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   audioLength?: number;
+  /**
+   * @example
+   * 2026-01-22T01:59:03
+   */
   createTime?: string;
+  /**
+   * @example
+   * M1Ju6XhHog_e-lSeb80Slp9g
+   */
   id?: string;
+  /**
+   * @example
+   * 2026-01-22T01:59:03
+   */
   modifiedTime?: string;
   name?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
