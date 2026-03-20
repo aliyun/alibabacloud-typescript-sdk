@@ -30,6 +30,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
    * @param request - AddAutoCcBlacklistRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddAutoCcBlacklistResponse
@@ -67,6 +69,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
    * @param request - AddAutoCcBlacklistRequest
    * @returns AddAutoCcBlacklistResponse
    */
@@ -304,7 +308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置全局模板规则
+   * Configures an Anti-DDoS global mitigation policy.
    * 
    * @param request - ConfigL7GlobalRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -339,7 +343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置全局模板规则
+   * Configures an Anti-DDoS global mitigation policy.
    * 
    * @param request - ConfigL7GlobalRuleRequest
    * @returns ConfigL7GlobalRuleResponse
@@ -784,7 +788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置新版基于匹配条件的cc规则
+   * Creates or modifies the custom frequency control rule of a website.
    * 
    * @param request - ConfigWebCCRuleV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置新版基于匹配条件的cc规则
+   * Creates or modifies the custom frequency control rule of a website.
    * 
    * @param request - ConfigWebCCRuleV2Request
    * @returns ConfigWebCCRuleV2Response
@@ -2722,6 +2726,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the CNAME reuse information about websites.
+   * 
    * @param request - DescribeCnameReusesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCnameReusesResponse
@@ -2755,6 +2761,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the CNAME reuse information about websites.
+   * 
    * @param request - DescribeCnameReusesRequest
    * @returns DescribeCnameReusesResponse
    */
@@ -3547,6 +3555,10 @@ export default class Client extends OpenApi {
       query["Limit"] = request.limit;
     }
 
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -3999,6 +4011,10 @@ export default class Client extends OpenApi {
       query["Limit"] = request.limit;
     }
 
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
     if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
     }
@@ -4055,6 +4071,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
     }
 
     if (!$dara.isNull(request.region)) {
@@ -4115,6 +4135,10 @@ export default class Client extends OpenApi {
       query["Limit"] = request.limit;
     }
 
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
     if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
     }
@@ -4171,6 +4195,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.queryType)) {
+      query["QueryType"] = request.queryType;
     }
 
     if (!$dara.isNull(request.region)) {
@@ -5154,7 +5182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 展示全局模板规则
+   * Queries an Anti-DDoS global mitigation policy.
    * 
    * @param request - DescribeL7GlobalRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5189,7 +5217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 展示全局模板规则
+   * Queries an Anti-DDoS global mitigation policy.
    * 
    * @param request - DescribeL7GlobalRuleRequest
    * @returns DescribeL7GlobalRuleResponse
@@ -5936,7 +5964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * Queries the traffic data of one or more Anti-DDoS Proxy instances.
    * 
    * @param request - DescribePortFlowListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5983,7 +6011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * Queries the traffic data of one or more Anti-DDoS Proxy instances.
    * 
    * @param request - DescribePortFlowListRequest
    * @returns DescribePortFlowListResponse
@@ -6340,6 +6368,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the scheduling rules of Sec-Traffic Manager.
+   * 
    * @param request - DescribeSchedulerRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSchedulerRulesResponse
@@ -6381,6 +6411,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the scheduling rules of Sec-Traffic Manager.
+   * 
    * @param request - DescribeSchedulerRulesRequest
    * @returns DescribeSchedulerRulesResponse
    */
@@ -10314,8 +10346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the instance that you want to release.
-   * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+   * Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
    * 
    * @remarks
    * The ID of the request, which is used to locate and troubleshoot issues.
@@ -10349,8 +10380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the instance that you want to release.
-   * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+   * Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
    * 
    * @remarks
    * The ID of the request, which is used to locate and troubleshoot issues.

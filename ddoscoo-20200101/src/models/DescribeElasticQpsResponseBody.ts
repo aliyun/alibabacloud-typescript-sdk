@@ -59,6 +59,7 @@ export class DescribeElasticQpsResponseBodyElasticQps extends $dara.Model {
    * 34
    */
   status4?: number;
+  status410Pv?: number;
   /**
    * @remarks
    * The total number of HTTP 5xx status codes during the step size period.
@@ -84,6 +85,7 @@ export class DescribeElasticQpsResponseBodyElasticQps extends $dara.Model {
       status2: 'Status2',
       status3: 'Status3',
       status4: 'Status4',
+      status410Pv: 'Status410Pv',
       status5: 'Status5',
       ups: 'Ups',
     };
@@ -98,6 +100,7 @@ export class DescribeElasticQpsResponseBodyElasticQps extends $dara.Model {
       status2: 'number',
       status3: 'number',
       status4: 'number',
+      status410Pv: 'number',
       status5: 'number',
       ups: 'number',
     };

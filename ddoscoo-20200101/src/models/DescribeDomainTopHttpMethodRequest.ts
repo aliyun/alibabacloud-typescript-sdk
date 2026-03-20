@@ -35,6 +35,7 @@ export class DescribeDomainTopHttpMethodRequest extends $dara.Model {
    * 20
    */
   limit?: number;
+  queryType?: string;
   /**
    * @remarks
    * The region in which your service is deployed. Valid values:
@@ -65,6 +66,7 @@ export class DescribeDomainTopHttpMethodRequest extends $dara.Model {
       domain: 'Domain',
       endTime: 'EndTime',
       limit: 'Limit',
+      queryType: 'QueryType',
       region: 'Region',
       startTime: 'StartTime',
     };
@@ -75,6 +77,7 @@ export class DescribeDomainTopHttpMethodRequest extends $dara.Model {
       domain: 'string',
       endTime: 'number',
       limit: 'number',
+      queryType: 'string',
       region: 'string',
       startTime: 'number',
     };

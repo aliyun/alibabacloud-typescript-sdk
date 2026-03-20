@@ -33,6 +33,7 @@ export class DescribeDomainH2FingerprintRequest extends $dara.Model {
    * 20
    */
   limit?: number;
+  queryType?: string;
   /**
    * @remarks
    * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
@@ -50,6 +51,7 @@ export class DescribeDomainH2FingerprintRequest extends $dara.Model {
       domain: 'Domain',
       endTime: 'EndTime',
       limit: 'Limit',
+      queryType: 'QueryType',
       startTime: 'StartTime',
     };
   }
@@ -59,6 +61,7 @@ export class DescribeDomainH2FingerprintRequest extends $dara.Model {
       domain: 'string',
       endTime: 'number',
       limit: 'number',
+      queryType: 'string',
       startTime: 'number',
     };
   }

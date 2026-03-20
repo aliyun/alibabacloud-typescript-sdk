@@ -45,6 +45,7 @@ export class DescribeDomainTopFingerprintRequest extends $dara.Model {
    * 10
    */
   limit?: number;
+  queryType?: string;
   /**
    * @remarks
    * The region in which your service is deployed. Valid values:
@@ -76,6 +77,7 @@ export class DescribeDomainTopFingerprintRequest extends $dara.Model {
       endTime: 'EndTime',
       interval: 'Interval',
       limit: 'Limit',
+      queryType: 'QueryType',
       region: 'Region',
       startTime: 'StartTime',
     };
@@ -87,6 +89,7 @@ export class DescribeDomainTopFingerprintRequest extends $dara.Model {
       endTime: 'number',
       interval: 'number',
       limit: 'number',
+      queryType: 'string',
       region: 'string',
       startTime: 'number',
     };
