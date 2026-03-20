@@ -4,25 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListProjectsResponseBodyListProject extends $dara.Model {
   comment?: string;
-  /**
-   * @example
-   * 1708171905000
-   */
   createTime?: number;
-  /**
-   * @example
-   * 1048133943212399
-   */
   creator?: string;
-  /**
-   * @example
-   * poc_test
-   */
   projectName?: string;
-  /**
-   * @example
-   * 1708171905000
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {

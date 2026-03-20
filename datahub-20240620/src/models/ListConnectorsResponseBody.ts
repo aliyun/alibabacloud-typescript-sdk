@@ -3,65 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConnectorsResponseBodyListConnector extends $dara.Model {
-  /**
-   * @example
-   * [\\"field1\\",\\"field2\\"]
-   */
   columnFields?: string;
-  /**
-   * @example
-   * {\\"Table\\":\\"r3\\",\\"Endpoint\\":\\"https://Device-data.cn-beijing.ots-internal.aliyuncs.com\\",\\"Instance\\":\\"Device-data\\",\\"WriteMode\\":\\"PUT\\",\\"AuthMode\\":\\"STS\\"}
-   */
   config?: string;
-  /**
-   * @example
-   * fa44384c-0ac5-4d3e-8acd-76e18636ab10
-   */
   connectorId?: string;
-  /**
-   * @example
-   * 1724041098000
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1696648921408952
-   */
   creator?: string;
-  /**
-   * @example
-   * 2025-12-04 16:45:00
-   */
   doneTime?: string;
-  /**
-   * @example
-   * test_project
-   */
   projectName?: string;
-  /**
-   * @example
-   * RUNNING
-   */
   state?: string;
-  /**
-   * @example
-   * 1745824636429WZ2EE
-   */
   subscriptionId?: string;
-  /**
-   * @example
-   * test_topic
-   */
   topicName?: string;
-  /**
-   * @example
-   * SINK_ODPS
-   */
   type?: string;
-  /**
-   * @example
-   * 1708171905000
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

@@ -30,6 +30,214 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Project资源
+   * 
+   * @param request - CreateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
+   */
+  async createProjectWithOptions(request: $_model.CreateProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProject",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateProjectResponse({}));
+  }
+
+  /**
+   * 创建Project资源
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
+   */
+  async createProject(request: $_model.CreateProjectRequest): Promise<$_model.CreateProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Topic资源
+   * 
+   * @param request - CreateTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTopicResponse
+   */
+  async createTopicWithOptions(request: $_model.CreateTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTopicResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.enableSchemaRegistry)) {
+      query["EnableSchemaRegistry"] = request.enableSchemaRegistry;
+    }
+
+    if (!$dara.isNull(request.expandMode)) {
+      query["ExpandMode"] = request.expandMode;
+    }
+
+    if (!$dara.isNull(request.lifecycle)) {
+      query["Lifecycle"] = request.lifecycle;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.recordSchema)) {
+      query["RecordSchema"] = request.recordSchema;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      query["RecordType"] = request.recordType;
+    }
+
+    if (!$dara.isNull(request.shardCount)) {
+      query["ShardCount"] = request.shardCount;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTopic",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTopicResponse>(await this.callApi(params, req, runtime), new $_model.CreateTopicResponse({}));
+  }
+
+  /**
+   * 创建Topic资源
+   * 
+   * @param request - CreateTopicRequest
+   * @returns CreateTopicResponse
+   */
+  async createTopic(request: $_model.CreateTopicRequest): Promise<$_model.CreateTopicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Project资源
+   * 
+   * @param request - DeleteProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
+   */
+  async deleteProjectWithOptions(request: $_model.DeleteProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProject",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectResponse({}));
+  }
+
+  /**
+   * 删除Project资源
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
+   */
+  async deleteProject(request: $_model.DeleteProjectRequest): Promise<$_model.DeleteProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Topic资源
+   * 
+   * @param request - DeleteTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTopicResponse
+   */
+  async deleteTopicWithOptions(request: $_model.DeleteTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTopicResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTopic",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTopicResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTopicResponse({}));
+  }
+
+  /**
+   * 删除Topic资源
+   * 
+   * @param request - DeleteTopicRequest
+   * @returns DeleteTopicResponse
+   */
+  async deleteTopic(request: $_model.DeleteTopicRequest): Promise<$_model.DeleteTopicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTopicWithOptions(request, runtime);
+  }
+
+  /**
    * 查询Connector信息
    * 
    * @param request - GetConnectorRequest
@@ -793,6 +1001,102 @@ export default class Client extends OpenApi {
   async putRecords(request: $_model.PutRecordsRequest): Promise<$_model.PutRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.putRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新Project资源属性
+   * 
+   * @param request - UpdateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectResponse
+   */
+  async updateProjectWithOptions(request: $_model.UpdateProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProject",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProjectResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProjectResponse({}));
+  }
+
+  /**
+   * 更新Project资源属性
+   * 
+   * @param request - UpdateProjectRequest
+   * @returns UpdateProjectResponse
+   */
+  async updateProject(request: $_model.UpdateProjectRequest): Promise<$_model.UpdateProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新Topic资源属性
+   * 
+   * @param request - UpdateTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTopicResponse
+   */
+  async updateTopicWithOptions(request: $_model.UpdateTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTopicResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTopic",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTopicResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTopicResponse({}));
+  }
+
+  /**
+   * 更新Topic资源属性
+   * 
+   * @param request - UpdateTopicRequest
+   * @returns UpdateTopicResponse
+   */
+  async updateTopic(request: $_model.UpdateTopicRequest): Promise<$_model.UpdateTopicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTopicWithOptions(request, runtime);
   }
 
 }

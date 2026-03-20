@@ -4,65 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTopicsResponseBodyListTopic extends $dara.Model {
   comment?: string;
-  /**
-   * @example
-   * 1753346106000
-   */
   createTime?: number;
-  /**
-   * @example
-   * 276887103073464052
-   */
   creator?: string;
-  /**
-   * @example
-   * false
-   */
   enableSchemaRegistry?: string;
-  /**
-   * @example
-   * true
-   */
   expandMode?: string;
-  /**
-   * @example
-   * 3
-   */
   lifecycle?: number;
-  /**
-   * @example
-   * poc_test
-   */
   projectName?: string;
-  /**
-   * @example
-   * [{\\"Type\\":\\"STRING\\",\\"AllowNull\\":true,\\"Name\\":\\"str\\"},{\\"Type\\":\\"STRING\\",\\"AllowNull\\":true,\\"Name\\":\\"dt\\"}]
-   */
   recordSchema?: string;
-  /**
-   * @example
-   * TUPLE
-   */
   recordType?: string;
-  /**
-   * @example
-   * 1
-   */
   shardCount?: number;
-  /**
-   * @example
-   * 10000
-   */
   storage?: number;
-  /**
-   * @example
-   * ods_bio_safety_env_disinfection
-   */
   topicName?: string;
-  /**
-   * @example
-   * 1753346106000
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,55 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSubscriptionsResponseBodyListSubscription extends $dara.Model {
-  /**
-   * @example
-   * test_application_name
-   */
   application?: string;
-  /**
-   * @example
-   * test_comment
-   */
   comment?: string;
-  /**
-   * @example
-   * 1708171905000
-   */
   createTime?: number;
-  /**
-   * @example
-   * 1048133943212399
-   */
   creator?: string;
-  /**
-   * @example
-   * test_project
-   */
   projectName?: string;
-  /**
-   * @example
-   * 1
-   */
   state?: number;
-  /**
-   * @example
-   * 1745824636429WZ2EE
-   */
   subscriptionId?: string;
-  /**
-   * @example
-   * test_topic
-   */
   topicName?: string;
-  /**
-   * @example
-   * USER
-   */
   type?: string;
-  /**
-   * @example
-   * 1708171905000
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
