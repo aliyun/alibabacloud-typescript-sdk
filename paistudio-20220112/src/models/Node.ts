@@ -42,8 +42,11 @@ export class Node extends $dara.Model {
   /**
    * @example
    * 2024-07-10T11:49:47Z
+   * 
+   * @deprecated
    */
   gmtCreateTime?: string;
+  gmtCreatedTime?: string;
   /**
    * @example
    * 2025-06-22T00:00:00Z
@@ -172,6 +175,7 @@ export class Node extends $dara.Model {
       GPUMemory: 'GPUMemory',
       GPUType: 'GPUType',
       gmtCreateTime: 'GmtCreateTime',
+      gmtCreatedTime: 'GmtCreatedTime',
       gmtExpiredTime: 'GmtExpiredTime',
       gmtModifiedTime: 'GmtModifiedTime',
       hyperZone: 'HyperZone',
@@ -219,6 +223,7 @@ export class Node extends $dara.Model {
       GPUMemory: 'string',
       GPUType: 'string',
       gmtCreateTime: 'string',
+      gmtCreatedTime: 'string',
       gmtExpiredTime: 'string',
       gmtModifiedTime: 'string',
       hyperZone: 'string',
