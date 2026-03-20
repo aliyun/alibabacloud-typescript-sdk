@@ -180,6 +180,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * dell5502
    */
   keyPairName?: string;
+  networkOptionsShrink?: string;
   /**
    * @remarks
    * The password of the account that is used to log on to the instance.
@@ -306,6 +307,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ioOptimized: 'IoOptimized',
       keyPairName: 'KeyPairName',
+      networkOptionsShrink: 'NetworkOptions',
       password: 'Password',
       passwordInherit: 'PasswordInherit',
       period: 'Period',
@@ -354,6 +356,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       internetMaxBandwidthOut: 'number',
       ioOptimized: 'string',
       keyPairName: 'string',
+      networkOptionsShrink: 'string',
       password: 'string',
       passwordInherit: 'boolean',
       period: 'number',

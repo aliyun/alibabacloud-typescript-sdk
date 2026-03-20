@@ -32,6 +32,7 @@ export class DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType extend
    * rds.gna8.2xlarge.8cm
    */
   instanceTypeId?: string;
+  jumboFrameSupport?: boolean;
   /**
    * @remarks
    * The memory size of the instance type. Unit: GiB.
@@ -46,6 +47,7 @@ export class DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType extend
       diskQuantity: 'DiskQuantity',
       instanceTypeFamily: 'InstanceTypeFamily',
       instanceTypeId: 'InstanceTypeId',
+      jumboFrameSupport: 'JumboFrameSupport',
       memorySize: 'MemorySize',
     };
   }
@@ -56,6 +58,7 @@ export class DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType extend
       diskQuantity: 'number',
       instanceTypeFamily: 'string',
       instanceTypeId: 'string',
+      jumboFrameSupport: 'boolean',
       memorySize: 'number',
     };
   }

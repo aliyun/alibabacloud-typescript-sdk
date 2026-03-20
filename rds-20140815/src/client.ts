@@ -781,6 +781,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查备份加密信息
+   * 
+   * @param request - AuthorizeBackupEncryptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeBackupEncryptionResponse
+   */
+  async authorizeBackupEncryptionWithOptions(request: $_model.AuthorizeBackupEncryptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeBackupEncryptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeBackupEncryption",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeBackupEncryptionResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeBackupEncryptionResponse({}));
+  }
+
+  /**
+   * 检查备份加密信息
+   * 
+   * @param request - AuthorizeBackupEncryptionRequest
+   * @returns AuthorizeBackupEncryptionResponse
+   */
+  async authorizeBackupEncryption(request: $_model.AuthorizeBackupEncryptionRequest): Promise<$_model.AuthorizeBackupEncryptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeBackupEncryptionWithOptions(request, runtime);
+  }
+
+  /**
    * Adds rules to the specified security group.
    * 
    * @param tmpReq - AuthorizeRCSecurityGroupPermissionRequest
@@ -1086,6 +1132,52 @@ export default class Client extends OpenApi {
   async checkAccountNameAvailable(request: $_model.CheckAccountNameAvailableRequest): Promise<$_model.CheckAccountNameAvailableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkAccountNameAvailableWithOptions(request, runtime);
+  }
+
+  /**
+   * 检查备份加密授权
+   * 
+   * @param request - CheckBackupEncryptionAuthorizedRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckBackupEncryptionAuthorizedResponse
+   */
+  async checkBackupEncryptionAuthorizedWithOptions(request: $_model.CheckBackupEncryptionAuthorizedRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckBackupEncryptionAuthorizedResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckBackupEncryptionAuthorized",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckBackupEncryptionAuthorizedResponse>(await this.callApi(params, req, runtime), new $_model.CheckBackupEncryptionAuthorizedResponse({}));
+  }
+
+  /**
+   * 检查备份加密授权
+   * 
+   * @param request - CheckBackupEncryptionAuthorizedRequest
+   * @returns CheckBackupEncryptionAuthorizedResponse
+   */
+  async checkBackupEncryptionAuthorized(request: $_model.CheckBackupEncryptionAuthorizedRequest): Promise<$_model.CheckBackupEncryptionAuthorizedResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkBackupEncryptionAuthorizedWithOptions(request, runtime);
   }
 
   /**
@@ -1476,6 +1568,56 @@ export default class Client extends OpenApi {
   async checkRdsCustomInit(request: $_model.CheckRdsCustomInitRequest): Promise<$_model.CheckRdsCustomInitResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkRdsCustomInitWithOptions(request, runtime);
+  }
+
+  /**
+   * 检查地域是否支持备份加密
+   * 
+   * @param request - CheckRegionSupportBackupEncryptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckRegionSupportBackupEncryptionResponse
+   */
+  async checkRegionSupportBackupEncryptionWithOptions(request: $_model.CheckRegionSupportBackupEncryptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckRegionSupportBackupEncryptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceID)) {
+      query["DBInstanceID"] = request.DBInstanceID;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckRegionSupportBackupEncryption",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckRegionSupportBackupEncryptionResponse>(await this.callApi(params, req, runtime), new $_model.CheckRegionSupportBackupEncryptionResponse({}));
+  }
+
+  /**
+   * 检查地域是否支持备份加密
+   * 
+   * @param request - CheckRegionSupportBackupEncryptionRequest
+   * @returns CheckRegionSupportBackupEncryptionResponse
+   */
+  async checkRegionSupportBackupEncryption(request: $_model.CheckRegionSupportBackupEncryptionRequest): Promise<$_model.CheckRegionSupportBackupEncryptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkRegionSupportBackupEncryptionWithOptions(request, runtime);
   }
 
   /**
@@ -19967,6 +20109,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询VPC列表
+   * 
+   * @param request - DescribeVpcsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcsResponse
+   */
+  async describeVpcsWithOptions(request: $_model.DescribeVpcsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcs",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcsResponse({}));
+  }
+
+  /**
+   * 查询VPC列表
+   * 
+   * @param request - DescribeVpcsRequest
+   * @returns DescribeVpcsResponse
+   */
+  async describeVpcs(request: $_model.DescribeVpcsRequest): Promise<$_model.DescribeVpcsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about the specified IP whitelist.
    * 
    * @remarks
@@ -20368,6 +20596,56 @@ export default class Client extends OpenApi {
   async detachWhitelistTemplateToInstance(request: $_model.DetachWhitelistTemplateToInstanceRequest): Promise<$_model.DetachWhitelistTemplateToInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachWhitelistTemplateToInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 开启备份加密
+   * 
+   * @param request - EnableBackupEncryptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableBackupEncryptionResponse
+   */
+  async enableBackupEncryptionWithOptions(request: $_model.EnableBackupEncryptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableBackupEncryptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.encryptionKey)) {
+      query["EncryptionKey"] = request.encryptionKey;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableBackupEncryption",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableBackupEncryptionResponse>(await this.callApi(params, req, runtime), new $_model.EnableBackupEncryptionResponse({}));
+  }
+
+  /**
+   * 开启备份加密
+   * 
+   * @param request - EnableBackupEncryptionRequest
+   * @returns EnableBackupEncryptionResponse
+   */
+  async enableBackupEncryption(request: $_model.EnableBackupEncryptionRequest): Promise<$_model.EnableBackupEncryptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableBackupEncryptionWithOptions(request, runtime);
   }
 
   /**
@@ -24656,6 +24934,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.allocateStrategy)) {
+      query["AllocateStrategy"] = request.allocateStrategy;
+    }
+
     if (!$dara.isNull(request.allowMajorVersionUpgrade)) {
       query["AllowMajorVersionUpgrade"] = request.allowMajorVersionUpgrade;
     }
@@ -26841,6 +27123,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改部署集的名称和描述信息
+   * 
+   * @param request - ModifyRCDeploymentSetAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCDeploymentSetAttributeResponse
+   */
+  async modifyRCDeploymentSetAttributeWithOptions(request: $_model.ModifyRCDeploymentSetAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCDeploymentSetAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deploymentSetId)) {
+      query["DeploymentSetId"] = request.deploymentSetId;
+    }
+
+    if (!$dara.isNull(request.deploymentSetName)) {
+      query["DeploymentSetName"] = request.deploymentSetName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRCDeploymentSetAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyRCDeploymentSetAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRCDeploymentSetAttributeResponse({}));
+  }
+
+  /**
+   * 修改部署集的名称和描述信息
+   * 
+   * @param request - ModifyRCDeploymentSetAttributeRequest
+   * @returns ModifyRCDeploymentSetAttributeResponse
+   */
+  async modifyRCDeploymentSetAttribute(request: $_model.ModifyRCDeploymentSetAttributeRequest): Promise<$_model.ModifyRCDeploymentSetAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRCDeploymentSetAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * 修改块存储属性
    * 
    * @param request - ModifyRCDiskAttributeRequest
@@ -27242,6 +27578,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.deletionProtection)) {
       query["DeletionProtection"] = request.deletionProtection;
+    }
+
+    if (!$dara.isNull(request.enableJumboFrame)) {
+      query["EnableJumboFrame"] = request.enableJumboFrame;
     }
 
     if (!$dara.isNull(request.hostName)) {
@@ -31080,6 +31420,10 @@ export default class Client extends OpenApi {
       request.dataDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataDisk, "DataDisk", "json");
     }
 
+    if (!$dara.isNull(tmpReq.networkOptions)) {
+      request.networkOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkOptions, "NetworkOptions", "json");
+    }
+
     if (!$dara.isNull(tmpReq.securityGroupIds)) {
       request.securityGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityGroupIds, "SecurityGroupIds", "json");
     }
@@ -31179,6 +31523,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.keyPairName)) {
       query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!$dara.isNull(request.networkOptionsShrink)) {
+      query["NetworkOptions"] = request.networkOptionsShrink;
     }
 
     if (!$dara.isNull(request.password)) {

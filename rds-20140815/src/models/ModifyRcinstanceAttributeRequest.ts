@@ -14,6 +14,7 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
    * false
    */
   deletionProtection?: boolean;
+  enableJumboFrame?: boolean;
   /**
    * @remarks
    * The hostname of the instance.
@@ -78,6 +79,7 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       deletionProtection: 'DeletionProtection',
+      enableJumboFrame: 'EnableJumboFrame',
       hostName: 'HostName',
       instanceId: 'InstanceId',
       instanceIds: 'InstanceIds',
@@ -93,6 +95,7 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       deletionProtection: 'boolean',
+      enableJumboFrame: 'boolean',
       hostName: 'string',
       instanceId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },

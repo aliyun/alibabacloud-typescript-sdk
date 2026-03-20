@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
+  allocateStrategy?: string;
   /**
    * @remarks
    * Specifies whether to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance. For more information, see [Upgrade the major engine version](https://help.aliyun.com/document_detail/127458.html). Valid values:
@@ -331,6 +332,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   zoneIdSlave1?: string;
   static names(): { [key: string]: string } {
     return {
+      allocateStrategy: 'AllocateStrategy',
       allowMajorVersionUpgrade: 'AllowMajorVersionUpgrade',
       autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
@@ -368,6 +370,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allocateStrategy: 'string',
       allowMajorVersionUpgrade: 'boolean',
       autoUseCoupon: 'boolean',
       burstingEnabled: 'boolean',

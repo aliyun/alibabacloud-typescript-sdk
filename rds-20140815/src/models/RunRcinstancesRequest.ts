@@ -107,6 +107,29 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
   }
 }
 
+export class RunRCInstancesRequestNetworkOptions extends $dara.Model {
+  enableJumboFrame?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableJumboFrame: 'EnableJumboFrame',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableJumboFrame: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunRCInstancesRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
@@ -328,6 +351,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    * dell5502
    */
   keyPairName?: string;
+  networkOptions?: RunRCInstancesRequestNetworkOptions;
   /**
    * @remarks
    * The password of the account that is used to log on to the instance.
@@ -454,6 +478,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ioOptimized: 'IoOptimized',
       keyPairName: 'KeyPairName',
+      networkOptions: 'NetworkOptions',
       password: 'Password',
       passwordInherit: 'PasswordInherit',
       period: 'Period',
@@ -502,6 +527,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       internetMaxBandwidthOut: 'number',
       ioOptimized: 'string',
       keyPairName: 'string',
+      networkOptions: RunRCInstancesRequestNetworkOptions,
       password: 'string',
       passwordInherit: 'boolean',
       period: 'number',
@@ -531,6 +557,9 @@ export class RunRCInstancesRequest extends $dara.Model {
     }
     if(Array.isArray(this.dataDisk)) {
       $dara.Model.validateArray(this.dataDisk);
+    }
+    if(this.networkOptions && typeof (this.networkOptions as any).validate === 'function') {
+      (this.networkOptions as any).validate();
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);
