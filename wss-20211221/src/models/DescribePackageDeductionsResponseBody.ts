@@ -68,6 +68,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
    * 3600
    */
   usedTime?: number;
+  usedTimeDecimal?: string;
   usedTimeWithScale?: number;
   static names(): { [key: string]: string } {
     return {
@@ -88,6 +89,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
       staTime: 'StaTime',
       usedCoreTime: 'UsedCoreTime',
       usedTime: 'UsedTime',
+      usedTimeDecimal: 'UsedTimeDecimal',
       usedTimeWithScale: 'UsedTimeWithScale',
     };
   }
@@ -111,6 +113,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
       staTime: 'string',
       usedCoreTime: 'number',
       usedTime: 'number',
+      usedTimeDecimal: 'string',
       usedTimeWithScale: 'number',
     };
   }
@@ -148,6 +151,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   totalCount?: number;
   totalUsedCoreTime?: number;
   totalUsedTime?: number;
+  totalUsedTimeDecimal?: string;
   static names(): { [key: string]: string } {
     return {
       deductions: 'Deductions',
@@ -157,6 +161,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
       totalCount: 'TotalCount',
       totalUsedCoreTime: 'TotalUsedCoreTime',
       totalUsedTime: 'TotalUsedTime',
+      totalUsedTimeDecimal: 'TotalUsedTimeDecimal',
     };
   }
 
@@ -169,6 +174,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
       totalCount: 'number',
       totalUsedCoreTime: 'number',
       totalUsedTime: 'number',
+      totalUsedTimeDecimal: 'string',
     };
   }
 
