@@ -2,6 +2,73 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateInstanceImageResponseBodyTasksChildTasks extends $dara.Model {
+  /**
+   * @example
+   * acp-xxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * t-xxxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceImageResponseBodyTasks extends $dara.Model {
+  childTasks?: UpdateInstanceImageResponseBodyTasksChildTasks[];
+  /**
+   * @example
+   * t-xxxx
+   */
+  parentTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      childTasks: 'ChildTasks',
+      parentTaskId: 'ParentTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childTasks: { 'type': 'array', 'itemType': UpdateInstanceImageResponseBodyTasksChildTasks },
+      parentTaskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.childTasks)) {
+      $dara.Model.validateArray(this.childTasks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceImageResponseBody extends $dara.Model {
   /**
    * @example
@@ -13,10 +80,12 @@ export class UpdateInstanceImageResponseBody extends $dara.Model {
    * t-1ljew7on6ay0j****
    */
   taskId?: string;
+  tasks?: UpdateInstanceImageResponseBodyTasks;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       taskId: 'TaskId',
+      tasks: 'Tasks',
     };
   }
 
@@ -24,10 +93,14 @@ export class UpdateInstanceImageResponseBody extends $dara.Model {
     return {
       requestId: 'string',
       taskId: 'string',
+      tasks: UpdateInstanceImageResponseBodyTasks,
     };
   }
 
   validate() {
+    if(this.tasks && typeof (this.tasks as any).validate === 'function') {
+      (this.tasks as any).validate();
+    }
     super.validate();
   }
 
