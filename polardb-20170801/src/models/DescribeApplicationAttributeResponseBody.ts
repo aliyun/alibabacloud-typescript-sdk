@@ -480,6 +480,8 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * false
    */
   expired?: boolean;
+  isLatestVersion?: boolean;
+  latestVersion?: string;
   /**
    * @example
    * Unlock
@@ -496,6 +498,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    */
   maintainStartTime?: string;
   memApplicationAttribute?: DescribeApplicationAttributeResponseBodyMemApplicationAttribute;
+  minorVersion?: string;
   /**
    * @example
    * Postpaid
@@ -567,10 +570,13 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       endpoints: 'Endpoints',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      isLatestVersion: 'IsLatestVersion',
+      latestVersion: 'LatestVersion',
       lockMode: 'LockMode',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
       memApplicationAttribute: 'MemApplicationAttribute',
+      minorVersion: 'MinorVersion',
       payType: 'PayType',
       polarFSInstanceId: 'PolarFSInstanceId',
       regionId: 'RegionId',
@@ -599,10 +605,13 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       endpoints: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodyEndpoints },
       expireTime: 'string',
       expired: 'boolean',
+      isLatestVersion: 'boolean',
+      latestVersion: 'string',
       lockMode: 'string',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
       memApplicationAttribute: DescribeApplicationAttributeResponseBodyMemApplicationAttribute,
+      minorVersion: 'string',
       payType: 'string',
       polarFSInstanceId: 'string',
       regionId: 'string',
