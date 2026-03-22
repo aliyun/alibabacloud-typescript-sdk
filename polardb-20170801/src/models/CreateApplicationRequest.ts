@@ -190,6 +190,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * x86
    */
   architecture?: string;
+  autoAllocatePublicEip?: boolean;
   autoCreatePolarFs?: boolean;
   /**
    * @example
@@ -292,6 +293,7 @@ export class CreateApplicationRequest extends $dara.Model {
       AIDBClusterId: 'AIDBClusterId',
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
+      autoAllocatePublicEip: 'AutoAllocatePublicEip',
       autoCreatePolarFs: 'AutoCreatePolarFs',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
@@ -325,6 +327,7 @@ export class CreateApplicationRequest extends $dara.Model {
       AIDBClusterId: 'string',
       applicationType: 'string',
       architecture: 'string',
+      autoAllocatePublicEip: 'boolean',
       autoCreatePolarFs: 'boolean',
       autoRenew: 'boolean',
       autoUseCoupon: 'boolean',
