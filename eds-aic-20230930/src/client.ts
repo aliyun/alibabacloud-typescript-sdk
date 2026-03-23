@@ -4986,6 +4986,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过eds agent通道下发命令
+   * 
+   * @param request - RunSyncCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunSyncCommandResponse
+   */
+  async runSyncCommandWithOptions(request: $_model.RunSyncCommandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunSyncCommandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.commandContent)) {
+      query["CommandContent"] = request.commandContent;
+    }
+
+    if (!$dara.isNull(request.contentEncoding)) {
+      query["ContentEncoding"] = request.contentEncoding;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.waitTime)) {
+      query["WaitTime"] = request.waitTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunSyncCommand",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunSyncCommandResponse>(await this.callApi(params, req, runtime), new $_model.RunSyncCommandResponse({}));
+  }
+
+  /**
+   * 通过eds agent通道下发命令
+   * 
+   * @param request - RunSyncCommandRequest
+   * @returns RunSyncCommandResponse
+   */
+  async runSyncCommand(request: $_model.RunSyncCommandRequest): Promise<$_model.RunSyncCommandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runSyncCommandWithOptions(request, runtime);
+  }
+
+  /**
    * Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
    * 
    * @remarks

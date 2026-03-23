@@ -103,6 +103,7 @@ export { RecoveryFileResponseBodyData } from './RecoveryFileResponseBody';
 export { ResetAndroidInstancesInGroupResponseBodyTasksChildTasks } from './ResetAndroidInstancesInGroupResponseBody';
 export { ResetAndroidInstancesInGroupResponseBodyTasks } from './ResetAndroidInstancesInGroupResponseBody';
 export { RunCommandResponseBodyRunCommandInfos } from './RunCommandResponseBody';
+export { RunSyncCommandResponseBodyData } from './RunSyncCommandResponseBody';
 export { SendFileResponseBodyData } from './SendFileResponseBody';
 export { SetAdbSecureResponseBodyData } from './SetAdbSecureResponseBody';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
@@ -352,6 +353,9 @@ export { ResetAndroidInstancesInGroupResponse } from './ResetAndroidInstancesInG
 export { RunCommandRequest } from './RunCommandRequest';
 export { RunCommandResponseBody } from './RunCommandResponseBody';
 export { RunCommandResponse } from './RunCommandResponse';
+export { RunSyncCommandRequest } from './RunSyncCommandRequest';
+export { RunSyncCommandResponseBody } from './RunSyncCommandResponseBody';
+export { RunSyncCommandResponse } from './RunSyncCommandResponse';
 export { SendFileRequest } from './SendFileRequest';
 export { SendFileResponseBody } from './SendFileResponseBody';
 export { SendFileResponse } from './SendFileResponse';
