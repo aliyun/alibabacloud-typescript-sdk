@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorysSupportedStorageTypes extends $dara.Model {
-  /**
-   * @remarks
-   * The storage type of the instance.
-   * 
-   * @example
-   * local_ssd
-   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,18 +26,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
 }
 
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorys extends $dara.Model {
-  /**
-   * @remarks
-   * The RDS edition of the instance.
-   * 
-   * @example
-   * HighAvailability
-   */
   category?: string;
-  /**
-   * @remarks
-   * The storage types that are available for purchase.
-   */
   supportedStorageTypes?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorysSupportedStorageTypes[];
   static names(): { [key: string]: string } {
     return {
@@ -73,18 +55,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
 }
 
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersions extends $dara.Model {
-  /**
-   * @remarks
-   * The RDS editions that are available that are available for purchase.
-   */
   supportedCategorys?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorys[];
-  /**
-   * @remarks
-   * The database engine version.
-   * 
-   * @example
-   * 8.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,18 +84,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSup
 }
 
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines extends $dara.Model {
-  /**
-   * @remarks
-   * The database engine of the instance.
-   * 
-   * @example
-   * MySQL
-   */
   engine?: string;
-  /**
-   * @remarks
-   * The database engine versions that are available for purchase.
-   */
   supportedEngineVersions?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -153,26 +113,8 @@ export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines ex
 }
 
 export class DescribeAvailableZonesResponseBodyAvailableZones extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The database engines that are available for purchase.
-   */
   supportedEngines?: DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines[];
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,18 +145,7 @@ export class DescribeAvailableZonesResponseBodyAvailableZones extends $dara.Mode
 }
 
 export class DescribeAvailableZonesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The available zones in the region.
-   */
   availableZones?: DescribeAvailableZonesResponseBodyAvailableZones[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4256E149-C3C4-4FA7-BDEA-13CA415E8763
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

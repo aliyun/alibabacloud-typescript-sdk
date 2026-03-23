@@ -65,13 +65,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 
 export class DescribeRegionsResponseBody extends $dara.Model {
   regions?: DescribeRegionsResponseBodyRegions;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

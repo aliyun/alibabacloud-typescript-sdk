@@ -10,7 +10,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5******
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
@@ -18,7 +18,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    * The name of the database.
    * 
    * @example
-   * RDS_MySQL
+   * testdb
    */
   DBName?: string;
   /**

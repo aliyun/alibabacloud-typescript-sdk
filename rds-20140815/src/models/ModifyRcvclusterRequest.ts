@@ -6,17 +6,11 @@ export class ModifyRCVClusterRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cd21387ea640145bab79a78276c1a****
    */
   clusterId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   supportDiskPerformanceLevel?: string[];

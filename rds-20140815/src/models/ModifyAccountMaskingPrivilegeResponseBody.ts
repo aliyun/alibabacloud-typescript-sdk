@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyAccountMaskingPrivilegeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data
+   */
   data?: { [key: string]: string };
   /**
+   * @remarks
+   * Return message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 2144F5CC-10C5-3B72-8C74-E52C********
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded
+   * 
    * @example
    * true
    */

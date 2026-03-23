@@ -3,239 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the task can be canceled. The value 1 indicates that the task can be canceled. The value 0 indicates that the task cannot be canceled.
-   * 
-   * @example
-   * 1
-   */
   allowCancel?: string;
-  /**
-   * @remarks
-   * Indicates whether the switching time can be changed. The value 1 indicates that the switching time can be changed. The value 0 indicates that the switching time cannot be changed.
-   * 
-   * @example
-   * 1
-   */
   allowChange?: string;
-  /**
-   * @remarks
-   * The code of the task level. The value S1 indicates the system O\\&M level. The value S0 indicates the exception fixing level.
-   * 
-   * @example
-   * S1
-   */
   changeLevel?: string;
-  /**
-   * @remarks
-   * The level of the task in English.
-   * 
-   * @example
-   * System maintenance
-   */
   changeLevelEn?: string;
-  /**
-   * @remarks
-   * The level of the task in Chinese.
-   * 
-   * @example
-   * 系统运维
-   */
   changeLevelZh?: string;
-  /**
-   * @remarks
-   * The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-05-30T14:30:00Z
-   */
   createdTime?: string;
-  /**
-   * @remarks
-   * The current zone.
-   * 
-   * @example
-   * cn-beijing-h
-   */
   currentAVZ?: string;
-  /**
-   * @remarks
-   * The type of the database. Valid values: mysql, pgsql, and mssql.
-   * 
-   * @example
-   * mysql
-   */
   dbType?: string;
-  /**
-   * @remarks
-   * The minor engine version.
-   * 
-   * @example
-   * 5.7
-   */
   dbVersion?: string;
-  /**
-   * @remarks
-   * The deadline of the switching time for the task. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-05-30T23:59:59Z
-   */
   deadline?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * 11111
-   */
   id?: number;
-  /**
-   * @remarks
-   * The impact of the task.
-   * 
-   * @example
-   * TransientDisconnection
-   */
   impact?: string;
-  /**
-   * @remarks
-   * The impact of the task in English.
-   * 
-   * @example
-   * Transient instance disconnection
-   */
   impactEn?: string;
-  /**
-   * @remarks
-   * The impact of the task in Chinese.
-   * 
-   * @example
-   * 实例闪断
-   */
   impactZh?: string;
-  /**
-   * @remarks
-   * The alias and description of the instance.
-   * 
-   * @example
-   * test
-   */
   insComment?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-wz96h8jujh512****
-   */
   insName?: string;
-  /**
-   * @remarks
-   * The time after the modification. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-05-30T14:30:00Z
-   */
   modifiedTime?: string;
-  /**
-   * @remarks
-   * The required preparation period between the task start time and the switching time. The time is displayed in the HH:mm:ss format.
-   * 
-   * @example
-   * 04:00:00
-   */
   prepareInterval?: string;
-  /**
-   * @remarks
-   * The region ID of the pending task.
-   * 
-   * @example
-   * cn-beijing
-   */
   region?: string;
-  /**
-   * @remarks
-   * The information about the execution result.
-   * 
-   * @example
-   * userCancel
-   */
   resultInfo?: string;
-  /**
-   * @remarks
-   * The time when the task was executed. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-05-30T00:00:00Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The task status.
-   * 
-   * *   **3**: pending
-   * *   **4**: being processed
-   * *   **5**: completed
-   * *   **6**: failed
-   * *   **7**: canceled
-   * 
-   * @example
-   * 3
-   */
   status?: number;
-  /**
-   * @remarks
-   * The subtasks of the instance.
-   */
   subInsNames?: string[];
-  /**
-   * @remarks
-   * The switching time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-05-30T14:30:00Z
-   */
   switchTime?: string;
-  /**
-   * @remarks
-   * The task parameters.
-   * 
-   * @example
-   * {
-   *       "Action": "UpgradeDBInstance"
-   * }
-   */
   taskParams?: string;
-  /**
-   * @remarks
-   * The type of the O\\&M task. Valid values:
-   * 
-   * *   **rds_apsaradb_ha**: primary/secondary switchover
-   * *   **rds_apsaradb_transfer**: instance migration
-   * *   **rds_apsaradb_upgrade**: update of the minor engine version
-   * *   **rds_apsaradb_maxscale**: minor version update of the database proxy
-   * 
-   * @example
-   * rds_apsaradb_upgrade
-   */
   taskType?: string;
-  /**
-   * @remarks
-   * The reason for the task in English.
-   * 
-   * @example
-   * Minor version update
-   */
   taskTypeEn?: string;
-  /**
-   * @remarks
-   * The reason for the task in Chinese.
-   * 
-   * @example
-   * 小版本升级
-   */
   taskTypeZh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -316,42 +110,10 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the O\\&M task.
-   */
   items?: DescribeActiveOperationTasksResponseBodyItems[];
-  /**
-   * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 25.
-   * 
-   * @example
-   * 25
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * D4D4BE8A-DD46-440A-BFCD-EE31DA81****
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {

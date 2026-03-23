@@ -62,13 +62,6 @@ export class DescribeDBInstanceIPArrayListResponseBodyItems extends $dara.Model 
 
 export class DescribeDBInstanceIPArrayListResponseBody extends $dara.Model {
   items?: DescribeDBInstanceIPArrayListResponseBodyItems;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * E2B6AF71-DC32-4055-B477-43B348798D10
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

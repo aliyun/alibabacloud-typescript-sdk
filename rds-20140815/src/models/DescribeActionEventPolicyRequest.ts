@@ -6,21 +6,9 @@ export class DescribeActionEventPolicyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

@@ -3,36 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDedicatedHostGroupsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The dedicated cluster ID.
-   * 
-   * @example
-   * dhg-7a9xxxxxxxx
-   */
   dedicatedHostGroupId?: string;
-  /**
-   * @remarks
-   * The image based on which the hosts in the dedicated clusters are created. Valid values:
-   * 
-   * *   **WindowsWithMssqlStdLicense**: a Windows image that contains the licenses of SQL Server Standard Edition
-   * *   **WindowsWithMssqlEntLisence**: a Windows image that contains the licenses of SQL Server Enterprise Edition
-   * *   **WindowsWithMssqlWebLisence**: a Windows image that contains the licenses of SQL Server Web Edition
-   * *   **AliLinux**: a Linux image
-   * 
-   * @example
-   * WindowsWithMssqlStdLicense
-   */
   imageCategory?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

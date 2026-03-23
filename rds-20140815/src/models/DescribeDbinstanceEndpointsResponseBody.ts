@@ -190,24 +190,7 @@ export class DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpoints exte
 
 export class DescribeDBInstanceEndpointsResponseBodyData extends $dara.Model {
   DBInstanceEndpoints?: DescribeDBInstanceEndpointsResponseBodyDataDBInstanceEndpoints;
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * rm-u****
-   */
   DBInstanceName?: string;
-  /**
-   * @remarks
-   * The version of the IP protocol. Valid values:
-   * 
-   * *   **ipv4**
-   * *   **ipv6**
-   * 
-   * @example
-   * ipv4
-   */
   ipVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -238,18 +221,7 @@ export class DescribeDBInstanceEndpointsResponseBodyData extends $dara.Model {
 }
 
 export class DescribeDBInstanceEndpointsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
   data?: DescribeDBInstanceEndpointsResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 777C4593-8053-427B-****105593277CAB
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

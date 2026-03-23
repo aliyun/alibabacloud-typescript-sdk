@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege extends $dara.Model {
   /**
+   * @remarks
+   * Permission expiration time in UTC format
+   * 
    * @example
    * 2026-01-22T02:01:20Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * Permission type. restrictedAccess indicates restricted access (data masking required)
+   * 
    * @example
    * restrictedAccess
    */
   privilege?: string;
   /**
+   * @remarks
+   * Account name
+   * 
    * @example
    * rds
    */
@@ -44,6 +53,10 @@ export class DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege extend
 }
 
 export class DescribeAccountMaskingPrivilegeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of user encryption or data masking permissions
+   */
   userPrivilege?: DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege[];
   static names(): { [key: string]: string } {
     return {
@@ -70,8 +83,15 @@ export class DescribeAccountMaskingPrivilegeResponseBodyData extends $dara.Model
 }
 
 export class DescribeAccountMaskingPrivilegeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data
+   */
   data?: DescribeAccountMaskingPrivilegeResponseBodyData;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * D0073A98-52F1-3075-8256-394**********
    */

@@ -6,31 +6,14 @@ export class DeleteParameterGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rpg-gfs****
    */
   parameterGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute to obtain the resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

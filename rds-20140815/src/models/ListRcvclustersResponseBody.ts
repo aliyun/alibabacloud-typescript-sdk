@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRCVClustersResponseBodyVClusters extends $dara.Model {
-  /**
-   * @example
-   * cd21387ea640145bab79a78276c1a****
-   */
   clusterId?: string;
-  /**
-   * @example
-   * 1
-   */
   instanceCount?: number;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   supportDiskPerformanceLevel?: string[];
-  /**
-   * @example
-   * vpc-2zeqj40j2ce0s5yhg****
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,10 +41,6 @@ export class ListRCVClustersResponseBodyVClusters extends $dara.Model {
 }
 
 export class ListRCVClustersResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 07F6177E-6DE4-408A-BB4F-0723301340F3
-   */
   requestId?: string;
   VClusters?: ListRCVClustersResponseBodyVClusters[];
   static names(): { [key: string]: string } {

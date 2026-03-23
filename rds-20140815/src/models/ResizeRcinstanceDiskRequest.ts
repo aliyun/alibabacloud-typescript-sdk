@@ -16,6 +16,13 @@ export class ResizeRCInstanceDiskRequest extends $dara.Model {
    * false
    */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The disk ID.
+   * 
+   * @example
+   * rcd-x4462840nwinu6rr61m5o
+   */
   diskId?: string;
   /**
    * @remarks

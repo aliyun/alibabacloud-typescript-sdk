@@ -114,7 +114,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
    * The ID of the instance.
    * 
    * @example
-   * rm-uf6wjk5*******
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInvocationResultsResponseBodyInvocationResultsTags extends $dara.Model {
-  /**
-   * @example
-   * testKey
-   */
   tagKey?: string;
-  /**
-   * @example
-   * testValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,91 +29,23 @@ export class DescribeRCInvocationResultsResponseBodyInvocationResultsTags extend
 }
 
 export class DescribeRCInvocationResultsResponseBodyInvocationResults extends $dara.Model {
-  /**
-   * @example
-   * c-7d2a745b412b4601b2d47f6a768d****
-   */
   commandId?: string;
-  /**
-   * @example
-   * ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
-   */
   containerId?: string;
-  /**
-   * @example
-   * test-container
-   */
   containerName?: string;
-  /**
-   * @example
-   * 0
-   */
   dropped?: number;
-  /**
-   * @example
-   * InstanceNotExists
-   */
   errorCode?: string;
-  /**
-   * @example
-   * the specified instance does not exists
-   */
   errorInfo?: string;
-  /**
-   * @example
-   * 0
-   */
   exitCode?: number;
-  /**
-   * @example
-   * 2024-12-20T06:15:56Z
-   */
   finishedTime?: string;
-  /**
-   * @example
-   * rc-i322y2t562oh7o******
-   */
   instanceId?: string;
-  /**
-   * @example
-   * Success
-   */
   invocationStatus?: string;
-  /**
-   * @example
-   * t-7d2a745b412b4601b2d47f6a768d****
-   */
   invokeId?: string;
-  /**
-   * @example
-   * Running
-   */
   invokeRecordStatus?: string;
-  /**
-   * @example
-   * MTU6MzA6MDEK
-   */
   output?: string;
-  /**
-   * @example
-   * 0
-   */
   repeats?: string;
-  /**
-   * @example
-   * 2024-12-20T06:15:55Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * 2025-01-19T09:15:47Z
-   */
   stopTime?: string;
   tags?: DescribeRCInvocationResultsResponseBodyInvocationResultsTags[];
-  /**
-   * @example
-   * testuser
-   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,30 +110,11 @@ export class DescribeRCInvocationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * AAAAAdDWBF2
    */
   nextToken?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: string;
-  /**
-   * @example
-   * 1
-   */
   pageSize?: string;
-  /**
-   * @example
-   * 49BC2500-8078-5AC4-A545-20AA5945B0E6
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

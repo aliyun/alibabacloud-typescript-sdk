@@ -30,21 +30,7 @@ export class DescribeCharacterSetNameResponseBodyCharacterSetNameItems extends $
 
 export class DescribeCharacterSetNameResponseBody extends $dara.Model {
   characterSetNameItems?: DescribeCharacterSetNameResponseBodyCharacterSetNameItems;
-  /**
-   * @remarks
-   * The type of the database engine.
-   * 
-   * @example
-   * mysql
-   */
   engine?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVpcsResponseBodyVpcsVSwitchs extends $dara.Model {
-  /**
-   * @example
-   * 172.16.0.0/24
-   */
   cidrBlock?: string;
-  /**
-   * @example
-   * 2023-01-01T12:00:00Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2023-01-01T12:00:00Z
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * true
-   */
   isDefault?: boolean;
-  /**
-   * @example
-   * cn-hangzhou-a
-   */
   izNo?: string;
-  /**
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @example
-   * vsw-xxxxxx
-   */
   vSwitchId?: string;
-  /**
-   * @example
-   * default-vswitch
-   */
   vSwitchName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,56 +47,16 @@ export class DescribeVpcsResponseBodyVpcsVSwitchs extends $dara.Model {
 }
 
 export class DescribeVpcsResponseBodyVpcs extends $dara.Model {
-  /**
-   * @example
-   * 18757856124****
-   */
   aliUid?: string;
-  /**
-   * @example
-   * 26888
-   */
   bid?: string;
-  /**
-   * @example
-   * 172.16.0.0/12
-   */
   cidrBlock?: string;
-  /**
-   * @example
-   * 2023-01-01T12:00:00Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2023-01-01T12:00:00Z
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * true
-   */
   isDefault?: boolean;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionNo?: string;
-  /**
-   * @example
-   * Available
-   */
   status?: string;
   vSwitchs?: DescribeVpcsResponseBodyVpcsVSwitchs[];
-  /**
-   * @example
-   * vpc-xxxxxx
-   */
   vpcId?: string;
-  /**
-   * @example
-   * my-vpc
-   */
   vpcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,25 +103,9 @@ export class DescribeVpcsResponseBodyVpcs extends $dara.Model {
 }
 
 export class DescribeVpcsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 8F4596F7-FA71-590E-9E1C-********
-   */
   requestId?: string;
-  /**
-   * @example
-   * 14
-   */
   totalCount?: number;
   vpcs?: DescribeVpcsResponseBodyVpcs[];
   static names(): { [key: string]: string } {

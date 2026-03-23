@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceEndpointAddressResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint ID of the instance.
-   * 
-   * @example
-   * ep-****
-   */
   DBInstanceEndpointId?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * rm-****
-   */
   DBInstanceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,18 +29,7 @@ export class ModifyDBInstanceEndpointAddressResponseBodyData extends $dara.Model
 }
 
 export class ModifyDBInstanceEndpointAddressResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
   data?: ModifyDBInstanceEndpointAddressResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 90496720-2319-42A8-87CD-FCE4DF95EBED
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

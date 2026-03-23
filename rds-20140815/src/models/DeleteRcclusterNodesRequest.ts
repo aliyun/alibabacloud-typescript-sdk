@@ -3,33 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteRCClusterNodesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The instance IDs.
-   */
   instanceIds?: string[];
-  /**
-   * @remarks
-   * The node information.
-   */
   nodes?: string[];
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * >  This is a reserved parameter.
-   * 
-   * @example
-   * None
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

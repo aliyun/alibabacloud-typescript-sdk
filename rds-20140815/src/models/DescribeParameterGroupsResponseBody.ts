@@ -80,24 +80,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
 
 export class DescribeParameterGroupsResponseBody extends $dara.Model {
   parameterGroups?: DescribeParameterGroupsResponseBodyParameterGroups;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * D4A23265-C5B6-42E1-98A0-EFA1EB42E723
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether parameter templates exist in the specified region. Valid values:
-   * *   true
-   * *   false
-   * >Notice: This parameter is deprecated.
-   * 
-   * @example
-   * false
-   */
   signalForOptimizeParams?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRCSnapshotRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * tag key.
+   * 
    * @example
-   * None
+   * testRC
    */
   key?: string;
   /**
+   * @remarks
+   * tag value.
+   * 
    * @example
-   * None
+   * test01
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -60,7 +66,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * none
+   * None
    */
   instantAccess?: boolean;
   /**
@@ -68,7 +74,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * none
+   * None
    */
   instantAccessRetentionDays?: number;
   /**
@@ -80,8 +86,11 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
-   * None
+   * rc-t8q22a87745hf8****
    */
   resourceGroupId?: string;
   /**
@@ -94,13 +103,17 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    * 2
    */
   retentionDays?: number;
+  /**
+   * @remarks
+   * Tag Details.
+   */
   tag?: CreateRCSnapshotRequestTag[];
   /**
    * @remarks
    * This parameter has been deprecated.
    * 
    * @example
-   * cn-hangzhou-b
+   * None
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

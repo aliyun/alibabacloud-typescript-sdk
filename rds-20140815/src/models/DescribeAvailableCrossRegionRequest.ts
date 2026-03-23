@@ -6,12 +6,7 @@ export class DescribeAvailableCrossRegionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent zone list.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

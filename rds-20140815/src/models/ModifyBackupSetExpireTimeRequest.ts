@@ -16,7 +16,7 @@ export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * b-n8tpg24c6i0v****
+   * 262186****
    */
   backupId?: number;
   /**
@@ -26,7 +26,7 @@ export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5****
+   * rm-7xv8f2zcia0e4****
    */
   DBInstanceId?: string;
   /**
@@ -38,7 +38,7 @@ export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2025-06-17T12:10:23Z
+   * 2025-07-15T12:10:23Z
    */
   expectExpireTime?: string;
   resourceOwnerId?: number;

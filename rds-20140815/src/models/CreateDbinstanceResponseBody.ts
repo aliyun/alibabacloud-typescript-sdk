@@ -8,7 +8,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
    * The internal endpoint of the instance.
    * 
    * @example
-   * rm-uf6wjk5*****.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
@@ -18,7 +18,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
    * For example, if the value of the **Amount** parameter is **3**, three instance IDs are returned. Examples: `rm-uf6wjk5*****1,rm-uf6wjk5*****2,rm-uf6wjk5*****3`
    * 
    * @example
-   * rm-uf6wjk5*****
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
@@ -61,7 +61,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
    * The order ID.
    * 
    * @example
-   * 1007893702*****
+   * 1007893702****
    */
   orderId?: string;
   /**
@@ -101,7 +101,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
    * *   The **TaskID** parameter cannot be used to query a task.
    * 
    * @example
-   * s2365879-a9d0-55af-fgae-f2*****
+   * s2365879-a9d0-55af-fgae-f2****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceVectorSupportStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID. You can obtain it by invoking DescribeDBInstances.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,11 @@ export class ModifyDBInstanceVectorSupportStatusRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The status of the vector storage toggle. Valid values:
+   * 
+   * - **ON**: Enabled.
+   * - **OFF**: Disabled.
+   * 
    * This parameter is required.
    * 
    * @example

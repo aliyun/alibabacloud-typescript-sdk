@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of tasks that you want to cancel at a time. Separate multiple IDs with commas (,). We recommend that you configure up to 25 IDs at a time.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 188****,188****,188****
    */
   ids?: string;
   ownerAccount?: string;

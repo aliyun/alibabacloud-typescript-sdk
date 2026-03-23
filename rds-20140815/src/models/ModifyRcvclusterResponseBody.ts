@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyRCVClusterResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 2553A660-E4EB-4AF4-A402-8AFF70A49143
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

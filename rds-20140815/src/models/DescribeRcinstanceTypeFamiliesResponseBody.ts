@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the instance family.
-   */
   instanceTypeFamilyDesc?: string;
-  /**
-   * @remarks
-   * The ID of the instance family.
-   * 
-   * @example
-   * x.6cm
-   */
   instanceTypeFamilyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,10 +29,6 @@ export class DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInsta
 }
 
 export class DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamilies extends $dara.Model {
-  /**
-   * @remarks
-   * The instance family.
-   */
   instanceTypeFamily?: DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily[];
   static names(): { [key: string]: string } {
     return {
@@ -70,18 +55,7 @@ export class DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamilies exte
 }
 
 export class DescribeRCInstanceTypeFamiliesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instance families.
-   */
   instanceTypeFamilies?: DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamilies;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F2911788-25E8-42E5-A3A3-1B38D263F01E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

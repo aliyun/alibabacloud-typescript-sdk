@@ -5,21 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * pgm-bp1s1j103lo6****
    */
   DBInstanceName?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
   resourceGroupId?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {

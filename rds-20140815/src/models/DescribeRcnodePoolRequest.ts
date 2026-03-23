@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCNodePoolRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the ACK Edge cluster in which the RDS Custom instance resides.
-   * 
-   * @example
-   * c463aaa89e2b84cacacfbf23c4867****
-   */
   clusterId?: string;
-  /**
-   * @remarks
-   * The node pool ID.
-   * 
-   * @example
-   * np31da1b38983f4511b490fc62108a****
-   */
   nodePoolId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

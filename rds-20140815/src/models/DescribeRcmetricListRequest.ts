@@ -3,6 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCMetricListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Custom for SQL Server to batch query monitoring data for specified resources.  
+   * Format: a collection of key:value pairs.
+   * 
+   * @example
+   * [{"instanceId":"rc-l9hv3rv74ql7oa******"},{"instanceId":"rc-b532l1uj8n6sex******"}]
+   */
   dimensions?: string;
   /**
    * @remarks
@@ -55,7 +63,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * 6178f1825f9fb76ce0b5e8707e68181f
+   * 6178f1825f9fb76ce0b5e8707e******
    */
   nextToken?: string;
   /**

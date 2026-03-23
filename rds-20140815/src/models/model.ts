@@ -49,6 +49,10 @@ export { DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupport
 export { DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersions } from './DescribeAvailableZonesResponseBody';
 export { DescribeAvailableZonesResponseBodyAvailableZonesSupportedEngines } from './DescribeAvailableZonesResponseBody';
 export { DescribeAvailableZonesResponseBodyAvailableZones } from './DescribeAvailableZonesResponseBody';
+export { DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy } from './DescribeBackupPolicyResponseBody';
+export { DescribeBackupPolicyResponseBodyAdvancedDataPolicies } from './DescribeBackupPolicyResponseBody';
+export { DescribeBackupPolicyResponseBodyAdvancedLogPoliciesAdvancedLogPolicy } from './DescribeBackupPolicyResponseBody';
+export { DescribeBackupPolicyResponseBodyAdvancedLogPolicies } from './DescribeBackupPolicyResponseBody';
 export { DescribeBackupTasksResponseBodyItemsBackupJob } from './DescribeBackupTasksResponseBody';
 export { DescribeBackupTasksResponseBodyItems } from './DescribeBackupTasksResponseBody';
 export { DescribeBackupsResponseBodyItemsBackupBackupDownloadLinkByDBBackupDownloadLinkByDB } from './DescribeBackupsResponseBody';
@@ -385,6 +389,8 @@ export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagRe
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ListUserBackupFilesResponseBodyRecords } from './ListUserBackupFilesResponseBody';
 export { MigrateDBNodesRequestDBNode } from './MigrateDbnodesRequest';
+export { ModifyBackupPolicyRequestAdvancedDataPolicies } from './ModifyBackupPolicyRequest';
+export { ModifyBackupPolicyRequestAdvancedLogPolicies } from './ModifyBackupPolicyRequest';
 export { ModifyDBInstanceEndpointRequestNodeItems } from './ModifyDbinstanceEndpointRequest';
 export { ModifyDBInstanceEndpointResponseBodyData } from './ModifyDbinstanceEndpointResponseBody';
 export { ModifyDBInstanceEndpointAddressResponseBodyData } from './ModifyDbinstanceEndpointAddressResponseBody';

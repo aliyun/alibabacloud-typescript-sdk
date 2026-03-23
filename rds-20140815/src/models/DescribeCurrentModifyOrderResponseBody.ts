@@ -43,7 +43,7 @@ export class DescribeCurrentModifyOrderResponseBodyModifyOrder extends $dara.Mod
    * The description of the instance.
    * 
    * @example
-   * eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6MTg2MjEwOTkwLCJzdGFydCI6InNob3BpZnktdXNlci1jb3JlXHUwMDAwIn0
+   * 无
    */
   mark?: string;
   /**

@@ -79,7 +79,28 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   port?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to retain the virtual IP address (VIP) when swapping connection addresses.  
+   * 
+   * - **true**: Retains the VIP.  
+   * - **false** (default): Does not retain the VIP.  
+   * 
+   * > This parameter is supported only for RDS PostgreSQL instances.
+   * 
+   * @example
+   * false
+   */
   retainVip?: boolean;
+  /**
+   * @remarks
+   * The ID of the target RDS PostgreSQL instance whose connection address you want to swap with the current instance.  
+   * 
+   * > This parameter is supported only for RDS PostgreSQL instances.
+   * 
+   * @example
+   * pgm-bp1206s14p3o****
+   */
   targetDBInstanceId?: string;
   static names(): { [key: string]: string } {
     return {

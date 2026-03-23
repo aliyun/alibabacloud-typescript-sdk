@@ -6,9 +6,6 @@ export class ListRCVClustersRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   static names(): { [key: string]: string } {

@@ -133,22 +133,8 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHosts extends $dara.Mode
 }
 
 export class DescribeDedicatedHostsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The host group ID.
-   * 
-   * @example
-   * dhg-7a9xxxxxxxx
-   */
   dedicatedHostGroupId?: string;
   dedicatedHosts?: DescribeDedicatedHostsResponseBodyDedicatedHosts;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C860658E-68A6-46C1-AF6E-3AE7C4D3CACF
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

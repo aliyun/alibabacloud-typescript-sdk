@@ -10,7 +10,7 @@ export class DescribeDBProxyPerformanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-t4n3axxxxx
+   * rm-t4n3a****
    */
   DBInstanceId?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeDBProxyPerformanceRequest extends $dara.Model {
    * *   exclusive: the dedicated database proxy
    * 
    * @example
-   * DedicatedProxy
+   * exclusive
    */
   DBProxyInstanceType?: string;
   /**
@@ -37,6 +37,8 @@ export class DescribeDBProxyPerformanceRequest extends $dara.Model {
    * Dimension.
    * 
    * @example
+   * service,node
+   * server,node
    * service
    */
   dimension?: string;

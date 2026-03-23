@@ -5,40 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the privileged account.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * test1
    */
   accountName?: string;
   /**
    * @remarks
-   * The new password of the privileged account.
-   * 
-   * > 
-   * 
-   * *   The password must be 8 to 32 characters in length.
-   * 
-   * *   It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * 
-   * *   It can contain the following special characters: `! @ # $ & ; % ^ * () _ + - =`.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * Test123456
    */
   accountPassword?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   ownerAccount?: string;

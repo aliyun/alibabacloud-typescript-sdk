@@ -210,30 +210,9 @@ export class DescribeModifyPGHbaConfigLogResponseBodyHbaLogItems extends $dara.M
 }
 
 export class DescribeModifyPGHbaConfigLogResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * pgm-bp1lymyn1v3i****
-   */
   DBInstanceId?: string;
   hbaLogItems?: DescribeModifyPGHbaConfigLogResponseBodyHbaLogItems;
-  /**
-   * @remarks
-   * The number of modification records.
-   * 
-   * @example
-   * 1
-   */
   logItemCount?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6D797E6B-E157-510C-A27F-6F9E6DA40633
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

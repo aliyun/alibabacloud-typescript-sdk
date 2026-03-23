@@ -68,45 +68,10 @@ export class DescribeLogBackupFilesResponseBodyItems extends $dara.Model {
 
 export class DescribeLogBackupFilesResponseBody extends $dara.Model {
   items?: DescribeLogBackupFilesResponseBodyItems;
-  /**
-   * @remarks
-   * The page number of the page returned.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of log files on the current page.
-   * 
-   * @example
-   * 100
-   */
   pageRecordCount?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F8EC669C-FC85-43D7-AF06-C3641626B37E
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total size of log files. Unit: bytes.
-   * 
-   * @example
-   * 2300
-   */
   totalFileSize?: number;
-  /**
-   * @remarks
-   * The total number of log files.
-   * 
-   * @example
-   * 17
-   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {

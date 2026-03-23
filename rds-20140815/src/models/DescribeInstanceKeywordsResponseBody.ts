@@ -29,21 +29,7 @@ export class DescribeInstanceKeywordsResponseBodyWords extends $dara.Model {
 }
 
 export class DescribeInstanceKeywordsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The type of reserved keyword returned.
-   * 
-   * @example
-   * account
-   */
   key?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
-   */
   requestId?: string;
   words?: DescribeInstanceKeywordsResponseBodyWords;
   static names(): { [key: string]: string } {

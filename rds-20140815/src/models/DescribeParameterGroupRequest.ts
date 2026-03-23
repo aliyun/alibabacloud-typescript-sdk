@@ -6,22 +6,12 @@ export class DescribeParameterGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rpg-dp****
    */
   parameterGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

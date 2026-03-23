@@ -163,13 +163,6 @@ export class DescribeDedicatedHostGroupsResponseBodyDedicatedHostGroups extends 
 
 export class DescribeDedicatedHostGroupsResponseBody extends $dara.Model {
   dedicatedHostGroups?: DescribeDedicatedHostGroupsResponseBodyDedicatedHostGroups;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AB44DC0A-7E77-442A-97A9-C6418694CB22
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

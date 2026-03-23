@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetAccountResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 81BC9559-7B22-4B7F-B705-5F56DEECDEA7
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

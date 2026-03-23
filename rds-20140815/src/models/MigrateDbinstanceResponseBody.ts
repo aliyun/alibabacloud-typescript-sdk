@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MigrateDBInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The serial number of the task in the migration task queue. When the serial number becomes 0, the system starts the migration.
-   * 
-   * @example
-   * 224****
-   */
   migrationId?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 498AE8CA-8C81-4A01-AF37-2B902014ED30
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 10824****
-   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {

@@ -65,13 +65,6 @@ export class GetDbProxyInstanceSslResponseBodyDbProxyCertListItems extends $dara
 
 export class GetDbProxyInstanceSslResponseBody extends $dara.Model {
   dbProxyCertListItems?: GetDbProxyInstanceSslResponseBodyDbProxyCertListItems;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * D330E60C-8AAA-4D63-8F64-5B78F4692F98
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

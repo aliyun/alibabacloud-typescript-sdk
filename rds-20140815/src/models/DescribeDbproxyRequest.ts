@@ -35,7 +35,7 @@ export class DescribeDBProxyRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-acfmy*****
+   * rg-acfmy****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;

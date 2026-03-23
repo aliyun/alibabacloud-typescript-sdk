@@ -3,9 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * Resource ID.
+   * 
+   * @example
+   * rc-t8q22a87745hf8******
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * Resource type.  
+   * 
+   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance  
+   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
+   * 
+   * @example
+   * ALIYUN::RDS::CUSTOM
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * Tag key.
+   * 
+   * @example
+   * testRC
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * Tag value.
+   * 
+   * @example
+   * test01
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +66,40 @@ export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $dar
 }
 
 export class DescribeRCInstancesResponseBodyRCInstancesTags extends $dara.Model {
+  /**
+   * @remarks
+   * Resource ID.
+   * 
+   * @example
+   * rc-t8q22a87745hf8******
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * Resource type.
+   * 
+   * - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance  
+   * - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
+   * 
+   * @example
+   * ALIYUN::RDS::CUSTOM
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * Tag key.
+   * 
+   * @example
+   * testRC
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * Tag value.
+   * 
+   * @example
+   * test01
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,9 +129,34 @@ export class DescribeRCInstancesResponseBodyRCInstancesTags extends $dara.Model 
 }
 
 export class DescribeRCInstancesResponseBodyRCInstancesVpcAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * Reserved parameter.
+   * 
+   * @example
+   * None
+   */
   natIpAddress?: string;
+  /**
+   * @remarks
+   * The private IP addresses.
+   */
   privateIpAddress?: string[];
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1nb3pv03878tgnj****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-uf6f7l4fg90****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,7 +198,24 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * testrdscustom
    */
   clusterName?: string;
+  /**
+   * @remarks
+   * Number of vCPUs.
+   * 
+   * @example
+   * 8
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance can be added to an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster by using the **AttachRCInstances** API operation, enabling efficient management of container applications.  
+   * 
+   * - **1**: Yes  
+   * - **0** (default): No
+   * 
+   * @example
+   * 0
+   */
   createMode?: string;
   /**
    * @remarks
@@ -121,6 +225,13 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * rds_custom
    */
   dbType?: string;
+  /**
+   * @remarks
+   * The deployment set ID.
+   * 
+   * @example
+   * ds-bp14k1xvolvsy4z3****
+   */
   deploymentSetId?: string;
   /**
    * @remarks
@@ -135,6 +246,15 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * testHostName
    */
   ecsHostName?: string;
+  /**
+   * @remarks
+   * Instance Expiration Time. It is represented in ISO 8601 format using UTC+0 time, with the pattern `yyyy-MM-ddTHH:mm:ssZ`.  
+   * 
+   * > The expiration time displayed in the console is 8 hours later.
+   * 
+   * @example
+   * 2025-05-02T16:00:00Z
+   */
   expiredTime?: string;
   /**
    * @remarks
@@ -149,7 +269,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * The host IP address.
    * 
    * @example
-   * 172.30.XXX.XXX
+   * 172.16.XX.XX
    */
   hostIp?: string;
   /**
@@ -160,7 +280,23 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * i-2zeaiz4g9u23f40m****
    */
   hostName?: string;
+  /**
+   * @remarks
+   * Image ID.
+   * 
+   * @example
+   * aliyun_3_x64_20G_alibase_20250117.vhd
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * Billing method. Valid values:  
+   * * **PrePaid**: subscription  
+   * * **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PrePaid
+   */
   instanceChargeType?: string;
   /**
    * @remarks
@@ -171,13 +307,48 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Instance name
+   * 
    * @example
    * k8s-node
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * Instance Type.  
+   * 
+   * For more information, see [RDS Custom Instance Type List](https://help.aliyun.com/document_detail/2844823.html).
+   * 
+   * @example
+   * mysql.x2.xlarge.6cm
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * Instance family.  
+   * 
+   * For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
+   * 
+   * @example
+   * x.6cm
+   */
   instanceTypeFamily?: string;
+  /**
+   * @remarks
+   * Memory size, in MiB.
+   * 
+   * @example
+   * 16384
+   */
   memory?: number;
+  /**
+   * @remarks
+   * File Type. When **rds_vnode** is returned, it indicates that the node is a container node.
+   * 
+   * @example
+   * rds_vnode
+   */
   nodeType?: string;
   /**
    * @example
@@ -189,6 +360,13 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * linux
    */
   OSType?: string;
+  /**
+   * @remarks
+   * Public IP address of the instance.
+   * 
+   * @example
+   * 121.89.XX.XX
+   */
   publicIp?: string;
   /**
    * @remarks
@@ -198,7 +376,24 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-2vcbcivwfxiozhtp****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * Spot strategy for pay-as-you-go instances. The return value is as follows:  
+   * 
+   * - **NoSpot**: Normal pay-as-you-go instance.  
+   * - **SpotAsPriceGo**: System automatically bids based on the current market price.
+   * 
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
   /**
    * @example
@@ -222,9 +417,20 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    */
   status?: string;
   stoppedMode?: string;
+  /**
+   * @remarks
+   * The queried instances and tag details.
+   */
   tagResources?: DescribeRCInstancesResponseBodyRCInstancesTagResources[];
+  /**
+   * @remarks
+   * Tag Details.
+   */
   tags?: DescribeRCInstancesResponseBodyRCInstancesTags[];
   /**
+   * @remarks
+   * The virtual private cloud (VPC) attributes.
+   * 
    * **if can be null:**
    * true
    */
@@ -237,6 +443,13 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * vpc-uf6f7l4fg90****
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * Zone ID.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

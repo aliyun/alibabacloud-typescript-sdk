@@ -284,7 +284,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
    * The token that is used to display the next page. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with **NextToken** specified.
    * 
    * @example
-   * o7PORW5o2TJg**********
+   * o7PORW5o2TJg****
    */
   nextToken?: string;
   /**

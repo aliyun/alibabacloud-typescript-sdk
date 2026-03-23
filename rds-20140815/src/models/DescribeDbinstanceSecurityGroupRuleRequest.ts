@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceSecurityGroupRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the IDs of instances.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rm-2ze202******
    */
   DBInstanceId?: string;
   ownerAccount?: string;

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteParameterTimedScheduleTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance Name.
+   * 
    * @example
    * rm-uf6wjk5****
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The ID of the scheduled task for parameter modification.
+   * 
    * @example
    * 41698
    */

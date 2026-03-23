@@ -5,32 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssDownloadsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The migration task ID. You can call the DescribeMigrateTasks operation to query the migration task ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 5625458541
    */
   migrateTaskId?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

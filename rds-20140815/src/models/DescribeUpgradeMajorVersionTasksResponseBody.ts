@@ -136,10 +136,53 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $dara.Mod
    * switch
    */
   upgradeMode?: string;
+  /**
+   * @remarks
+   * Indicates whether a switch is performed.
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
+   * @example
+   * true
+   */
   cutOver?: boolean;
+  /**
+   * @remarks
+   * Estimated synchronization time for logical replication delay, in seconds.  
+   * > This is used only for **zero-downtime** major version upgrades.
+   * 
+   * @example
+   * 10
+   */
   totalLogicRepDelayTime?: number;
+  /**
+   * @remarks
+   * Logical replication delay size, in MB.
+   * 
+   * > Applies only to **zero-downtime** major version upgrades.
+   * 
+   * @example
+   * 1
+   */
   totalLogicRepLatencyMB?: number;
+  /**
+   * @remarks
+   * Temporary internal endpoint for zero-downtime major version upgrade, in the format `****.pg.rds.aliyuncs.com`.  
+   * > Applies only to **zero-downtime** major version upgrades.
+   * 
+   * @example
+   * ****.pg.rds.aliyuncs.com
+   */
   zeroDownTimeConnectionString?: string;
+  /**
+   * @remarks
+   * Port of the higher-version instance, which is the same as the source instance port.  
+   * > Applies only to **zero-downtime** major version upgrades.
+   * 
+   * @example
+   * 5432
+   */
   zeroDownTimePort?: number;
   static names(): { [key: string]: string } {
     return {

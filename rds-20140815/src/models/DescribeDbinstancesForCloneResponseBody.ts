@@ -195,37 +195,9 @@ export class DescribeDBInstancesForCloneResponseBodyItems extends $dara.Model {
 
 export class DescribeDBInstancesForCloneResponseBody extends $dara.Model {
   items?: DescribeDBInstancesForCloneResponseBodyItems;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 12
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned on the current page.
-   * 
-   * @example
-   * 10
-   */
   pageRecordCount?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 120
-   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {

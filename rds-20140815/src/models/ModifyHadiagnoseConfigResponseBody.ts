@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyHADiagnoseConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 9EFA6DF3-5247-4D9D-80AA-68765BE6D5EA
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

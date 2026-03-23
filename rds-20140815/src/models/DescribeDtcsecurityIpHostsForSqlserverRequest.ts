@@ -5,33 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDTCSecurityIpHostsForSQLServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the DescribeDBInstanceAttribute operation to query the most recent region list.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

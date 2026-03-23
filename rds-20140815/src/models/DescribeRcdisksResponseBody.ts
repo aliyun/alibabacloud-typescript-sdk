@@ -44,6 +44,9 @@ export class DescribeRCDisksResponseBodyDisksTag extends $dara.Model {
 
 export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   /**
+   * @remarks
+   * The mount time.
+   * 
    * @example
    * 2017-12-05T2340:00Z
    */
@@ -59,7 +62,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
    * *   **cloud_auto**: Premium ESSD
    * 
    * @example
-   * cloud_ssd
+   * cloud_auto
    */
   category?: string;
   /**

@@ -3,41 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DetachRCDiskRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The reserved parameter. This parameter is not supported.
-   * 
-   * @example
-   * true
-   */
   deleteWithInstance?: boolean;
   /**
    * @remarks
-   * The ID of the disk that you want to detach.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rcd-f8zh55g5gbk1byjr****
    */
   diskId?: string;
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rc-dh2jf9n6j4s14926****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

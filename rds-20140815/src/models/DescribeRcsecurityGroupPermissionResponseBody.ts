@@ -3,55 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCSecurityGroupPermissionResponseBodySecurityGroupPermissions extends $dara.Model {
-  /**
-   * @example
-   * 2025-05-31T03:12:29Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 192.168.0.0/0
-   */
   destCidrIp?: string;
-  /**
-   * @example
-   * ingress
-   */
   direction?: string;
-  /**
-   * @example
-   * TCP
-   */
   ipProtocol?: string;
-  /**
-   * @example
-   * Accept
-   */
   policy?: string;
-  /**
-   * @example
-   * 80/80
-   */
   portRange?: string;
-  /**
-   * @example
-   * 1
-   */
   priority?: string;
-  /**
-   * @example
-   * sgr-uf6ffg4du0e9jis2****
-   */
   securityGroupRuleId?: string;
-  /**
-   * @example
-   * 192.168.0.0/0
-   */
   sourceCidrIp?: string;
-  /**
-   * @example
-   * 80/80
-   */
   sourcePortRange?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,31 +53,11 @@ export class DescribeRCSecurityGroupPermissionResponseBodySecurityGroupPermissio
 }
 
 export class DescribeRCSecurityGroupPermissionResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Accept
-   */
   innerAccessPolicy?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * 847BA085-B377-4BFA-8267-F82345ECE1D2
-   */
   requestId?: string;
-  /**
-   * @example
-   * sg-2ze27hs990o2hn94****
-   */
   securityGroupId?: string;
   securityGroupPermissions?: DescribeRCSecurityGroupPermissionResponseBodySecurityGroupPermissions[];
-  /**
-   * @example
-   * vpc-bp1opxu1zkhn****
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

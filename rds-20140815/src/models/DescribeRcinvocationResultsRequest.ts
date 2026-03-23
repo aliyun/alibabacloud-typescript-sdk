@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInvocationResultsRequestTag extends $dara.Model {
-  /**
-   * @example
-   * TestKey
-   */
   key?: string;
-  /**
-   * @example
-   * TestValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,68 +29,37 @@ export class DescribeRCInvocationResultsRequestTag extends $dara.Model {
 }
 
 export class DescribeRCInvocationResultsRequest extends $dara.Model {
-  /**
-   * @example
-   * c-7d2a745b412b4601b2d47f6a768d****
-   */
   commandId?: string;
   /**
    * @example
-   * Base64
+   * PlainText
    */
   contentEncoding?: string;
-  /**
-   * @example
-   * false
-   */
   includeHistory?: boolean;
-  /**
-   * @example
-   * rc-i322y2t562oh7o******
-   */
   instanceId?: string;
-  /**
-   * @example
-   * t-7d2a745b412b4601b2d47f6a768d****
-   */
   invokeId?: string;
   /**
    * @example
    * Running
    */
   invokeRecordStatus?: string;
-  /**
-   * @example
-   * 10
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2
-   */
   nextToken?: string;
   /**
    * @example
-   * None
+   * 1
    */
   pageNumber?: number;
   /**
    * @example
-   * None
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * rg-acfmx****
-   */
   resourceGroupId?: string;
   tag?: DescribeRCInvocationResultsRequestTag[];
   static names(): { [key: string]: string } {

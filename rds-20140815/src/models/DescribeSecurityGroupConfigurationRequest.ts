@@ -10,7 +10,7 @@ export class DescribeSecurityGroupConfigurationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxx
+   * rm-uf6wjk****
    */
   DBInstanceId?: string;
   ownerId?: number;

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Used to ensure the idempotence of the request and prevent duplicate submissions. The client generates this parameter value, which must be unique across different requests. It can contain a maximum of 64 ASCII characters and must not include non-ASCII characters.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCzxxxxxxxxxx
+   */
   clientToken?: string;
   /**
    * @remarks
@@ -22,6 +29,13 @@ export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: Buffer;
+  /**
+   * @remarks
+   * Resource group ID.
+   * 
+   * @example
+   * rg-acfmy****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRCNetworkInterfacesResponseBodyNetworkInterfaceSetsAssociatedPublicIp extends $dara.Model {
   /**
    * @example
-   * ``116.62.**.**``
+   * `116.62.**.**`
    */
   publicIpAddress?: string;
   static names(): { [key: string]: string } {
@@ -60,7 +60,7 @@ export class DescribeRCNetworkInterfacesResponseBodyNetworkInterfaceSetsPrivateI
   primary?: boolean;
   /**
    * @example
-   * ``172.17.**.**``
+   * `172.17.**.**`
    */
   privateIpAddress?: string;
   static names(): { [key: string]: string } {

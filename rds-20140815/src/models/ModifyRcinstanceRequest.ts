@@ -16,6 +16,17 @@ export class ModifyRCInstanceRequest extends $dara.Model {
    * true
    */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to automatically use a coupon. Valid values:
+   * * **true** (default): Yes.
+   * * **false**: No.
+   * 
+   * > If you use a coupon and later decrease the quota, the amount offset by the coupon will not be refunded.
+   * 
+   * @example
+   * true
+   */
   autoUseCoupon?: boolean;
   /**
    * @remarks
@@ -57,8 +68,35 @@ export class ModifyRCInstanceRequest extends $dara.Model {
    * mysql.i8.large.2cm
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 72329885****
+   */
   promotionCode?: string;
+  /**
+   * @remarks
+   * The restart time of the instance.
+   * 
+   * - If **RebootWhenFinished** is set to **false**, you **must** specify a restart time within 48 hours.
+   * - The time must follow the ISO 8601 standard in UTC+0. Format: `yyyy-MM-ddTHH:mmZ`.
+   * 
+   * @example
+   * 2025-04-03T12:05Z
+   */
   rebootTime?: string;
+  /**
+   * @remarks
+   * Whether to restart the instance immediately after the upgrade/downgrade operation ends. Valid values:
+   * - **true** (default): Yes.
+   * - **false**: No.
+   * > If the instance is in the **paused** status, it remains in that status even if you set `RebootWhenFinished=true`, and the restart operation will not be executed.
+   * 
+   * @example
+   * true
+   */
   rebootWhenFinished?: boolean;
   /**
    * @remarks

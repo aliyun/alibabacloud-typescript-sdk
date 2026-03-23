@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyMaskingRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data
+   */
   data?: { [key: string]: string };
   /**
+   * @remarks
+   * Return message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8B1434A1-08A7-3E8C-A237-076A********
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded
+   * 
    * @example
    * true
    */

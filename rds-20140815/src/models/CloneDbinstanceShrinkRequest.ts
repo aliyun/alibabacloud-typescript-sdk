@@ -44,7 +44,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * false
+   * 0
    */
   bpeEnabled?: string;
   /**
@@ -113,7 +113,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * rm-uf6wjk5****
    */
   DBInstanceId?: string;
   /**
@@ -140,7 +140,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * >  Serverless instances support only PL1 ESSDs and general ESSDs.
    * 
    * @example
-   * cloud_essd
+   * general_essd
    */
   DBInstanceStorageType?: string;
   /**
@@ -156,7 +156,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * The ID of the dedicated cluster.
    * 
    * @example
-   * dhg-7a9xxxxxxxx
+   * dhg-7a9****
    */
   dedicatedHostGroupId?: string;
   /**
@@ -188,7 +188,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * None
+   * 0
    */
   ioAccelerationEnabled?: string;
   /**
@@ -223,7 +223,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * The internal IP address of the new instance, which must be within the CIDR block supported by the specified vSwitch. The system automatically assigns an internal IP address based on the values of the **VPCId** and **VSwitchId** parameters.
    * 
    * @example
-   * 172.XX.XXX.69
+   * 172.XX.XX.69
    */
   privateIpAddress?: string;
   /**
@@ -288,7 +288,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * >  Make sure that the VPC belongs to the required region.
    * 
    * @example
-   * vpc-uf6f7l4fg90xxxxxxxxxx
+   * vpc-uf6f7l4fg90****
    */
   VPCId?: string;
   /**
@@ -299,7 +299,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * *   If you specify the **ZoneSlaveId1** parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
    * 
    * @example
-   * vsw-uf6adz52c2pxxxxxxxxxx
+   * vsw-uf6adz52c2p****
    */
   vSwitchId?: string;
   /**

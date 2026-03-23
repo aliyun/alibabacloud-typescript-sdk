@@ -101,37 +101,9 @@ export class DescribeDetachedBackupsResponseBodyItems extends $dara.Model {
 
 export class DescribeDetachedBackupsResponseBody extends $dara.Model {
   items?: DescribeDetachedBackupsResponseBodyItems;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: string;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 30
-   */
   pageRecordCount?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 100
-   */
   totalRecordCount?: string;
   static names(): { [key: string]: string } {
     return {

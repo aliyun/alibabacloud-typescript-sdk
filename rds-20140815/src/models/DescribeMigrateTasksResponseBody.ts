@@ -73,46 +73,11 @@ export class DescribeMigrateTasksResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeMigrateTasksResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
-   */
   DBInstanceId?: string;
   items?: DescribeMigrateTasksResponseBodyItems;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
   pageRecordCount?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4E356DDF-6B83-45DB-99D5-4B1E8A0D286B
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 30
-   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {

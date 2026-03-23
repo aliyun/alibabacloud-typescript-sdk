@@ -5,43 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcsRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @example
-   * rds
-   */
   product?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @example
-   * rg-acfmxxtz*****
-   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
-  /**
-   * @example
-   * vpc-bp1bva4qkmvqt******
-   */
   vpcId?: string;
-  /**
-   * @example
-   * cn-beijing-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

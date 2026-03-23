@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,25 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * Database name
+   * 
    * @example
    * testdb
    */
   DBName?: string;
   /**
+   * @remarks
+   * Name of the default encryption or masking algorithm
+   * 
    * @example
    * aes-128-gcm
    */
   defaultAlgo?: string;
   /**
+   * @remarks
+   * Rule algorithm. Multiple algorithms can be selected. Masking Algorithm can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, number of encrypted characters}}
+   * 
    * @example
    * [{"name": "aes-128-gcm"},
    *         {"name":"sm4-128-gcm"}]
@@ -29,15 +40,24 @@ export class CreateMaskingRulesShrinkRequest extends $dara.Model {
   maskingAlgo?: string;
   ownerId?: string;
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * ap-southeast-1
    */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Rule configuration, in JSON string format, containing matching rules for databases, tables, and columns
+   */
   ruleConfigShrink?: string;
   /**
    * @remarks
+   * Rule Name (only one rule name is supported per request)
+   * 
    * This parameter is required.
    * 
    * @example

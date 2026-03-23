@@ -10,7 +10,7 @@ export class CreateYouhuiForOrderRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1711510887******
+   * 171151088708****
    */
   activityId?: number;
   ownerId?: string;
@@ -21,7 +21,7 @@ export class CreateYouhuiForOrderRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2000001******
+   * 200000199****
    */
   promotionId?: number;
   /**

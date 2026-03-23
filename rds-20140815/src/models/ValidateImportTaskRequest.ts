@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateImportTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID. You can obtain the value of this parameter by invoking the DescribeDBInstances API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ValidateImportTaskRequest extends $dara.Model {
    */
   dbInstanceId?: string;
   /**
+   * @remarks
+   * Estimated instance size (GB)
+   * 
    * @example
    * 100
    */
   estimatedSize?: number;
   /**
    * @remarks
+   * Source MySQL host address
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +34,8 @@ export class ValidateImportTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Password for the source MySQL user (Base64 encrypted)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +44,8 @@ export class ValidateImportTaskRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
+   * Source MySQL port number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +54,8 @@ export class ValidateImportTaskRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
+   * Region ID. You can obtain this by invoking the DescribeRegions API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,17 +63,26 @@ export class ValidateImportTaskRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Source cloud instance ID
+   * 
    * @example
    * i-wz9ff3acy500io5wdf5s
    */
   sourceInstanceId?: string;
   /**
+   * @remarks
+   * Source platform type  
+   * - ECS
+   * 
    * @example
    * ECS
    */
   sourcePlatform?: string;
   /**
    * @remarks
+   * Backup transfer port number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +91,8 @@ export class ValidateImportTaskRequest extends $dara.Model {
   streamPort?: number;
   /**
    * @remarks
+   * Source MySQL user
+   * 
    * This parameter is required.
    * 
    * @example
@@ -76,6 +100,9 @@ export class ValidateImportTaskRequest extends $dara.Model {
    */
   user?: string;
   /**
+   * @remarks
+   * Path to the Xtrabackup tool on the source
+   * 
    * @example
    * /usr/local/bin/xtrabackup
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterTimedScheduleTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

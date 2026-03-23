@@ -57,7 +57,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * false
+   * 0
    */
   bpeEnabled?: string;
   /**
@@ -90,6 +90,13 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOC****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * A reserved parameter. No configuration is required.
+   * 
+   * @example
+   * None
+   */
   customExtraInfo?: string;
   /**
    * @remarks
@@ -98,7 +105,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rds.mys2.small
+   * mysqlro.n2.small.1c
    */
   DBInstanceClass?: string;
   /**
@@ -108,7 +115,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * > The value cannot start with [http:// or https://.](http://https://。)
    * 
    * @example
-   * Test read-only instance
+   * testReadOnly
    */
   DBInstanceDescription?: string;
   /**
@@ -188,7 +195,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * None
+   * test
    */
   gdnInstanceName?: string;
   /**
@@ -211,7 +218,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * None
+   * test
    */
   instructionSetArch?: string;
   /**
@@ -219,9 +226,18 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * None
+   * 0
    */
   ioAccelerationEnabled?: string;
+  /**
+   * @remarks
+   * Specifies whether to create a DuckDB analytic instance. Valid values:
+   * 
+   * - **true**: Enabled
+   * - **false**: Disabled
+   * 
+   * > Currently, only RDS MySQL and RDS PostgreSQL support creating DuckDB analytic instances.
+   */
   isAnalyticReadOnlyIns?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -272,7 +288,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * The coupon code.
    * 
    * @example
-   * 717446260784
+   * 71744626****
    */
   promotionCode?: string;
   /**
@@ -308,7 +324,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * None
+   * test
    */
   tddlBizType?: string;
   /**
@@ -316,7 +332,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * None
+   * test
    */
   tddlRegionConfig?: string;
   /**

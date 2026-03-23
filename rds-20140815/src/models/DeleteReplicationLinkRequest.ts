@@ -5,25 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteReplicationLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DR instance.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * pgm-bp1trqb4p1xd****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to delete the data synchronization link between the DR instance and the primary instance and promote the DR instance to the primary instance. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * true
    */
   promoteToMaster?: boolean;
   resourceOwnerId?: number;

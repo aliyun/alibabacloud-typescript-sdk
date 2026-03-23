@@ -5,23 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceDelayedReplicationTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5*****
    */
   DBInstanceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The replication latency of the read-only instance. Unit: seconds.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   readSQLReplicationTime?: string;
   resourceOwnerAccount?: string;

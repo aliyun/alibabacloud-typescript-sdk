@@ -249,13 +249,6 @@ export class DescribeDatabasesResponseBodyDatabases extends $dara.Model {
 
 export class DescribeDatabasesResponseBody extends $dara.Model {
   databases?: DescribeDatabasesResponseBodyDatabases;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 2603CA96-B17D-4903-BC04-61A2C829CD94
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDasInstanceConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C3C247D4-1643-4C5D-87C2-C829543FC626
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

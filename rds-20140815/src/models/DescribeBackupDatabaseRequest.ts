@@ -3,22 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupDatabaseRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the backup set.
-   * 
-   * @example
-   * 90262212
-   */
   backupId?: string;
   /**
    * @remarks
-   * The ID of the instance.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   ownerId?: number;

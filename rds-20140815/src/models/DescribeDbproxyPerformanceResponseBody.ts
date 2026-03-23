@@ -127,7 +127,7 @@ export class DescribeDBProxyPerformanceResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * lsmexxxxxxx
+   * lsme****
    */
   DBInstanceId?: string;
   /**

@@ -65,37 +65,9 @@ export class DescibeImportsFromDatabaseResponseBodyItems extends $dara.Model {
 
 export class DescibeImportsFromDatabaseResponseBody extends $dara.Model {
   items?: DescibeImportsFromDatabaseResponseBodyItems;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 1
-   */
   pageRecordCount?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B000AA91-393D-46F9-8D9B-098E28931A3A
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
