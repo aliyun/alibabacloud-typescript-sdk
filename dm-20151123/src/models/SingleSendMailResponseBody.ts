@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SingleSendMailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Event ID
+   * The event ID.
    * 
    * @example
    * 600000xxxxxxxxxx642
@@ -13,7 +13,7 @@ export class SingleSendMailResponseBody extends $dara.Model {
   envId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2D086F6-xxxx-xxxx-xxxx-006DED011A85

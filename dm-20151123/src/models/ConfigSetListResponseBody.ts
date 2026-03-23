@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetListResponseBodyConfigSetsIpPool extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the associated IP pool.
+   * 
    * @example
    * xxx
    */
   ipPoolId?: string;
   /**
+   * @remarks
+   * The name of the associated IP pool.
+   * 
    * @example
    * xxx
    */
@@ -38,18 +44,35 @@ export class ConfigSetListResponseBodyConfigSetsIpPool extends $dara.Model {
 
 export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * xxx
    */
   description?: string;
+  /**
+   * @remarks
+   * The list of associated sender addresses.
+   */
   fromAddresses?: string[];
   /**
+   * @remarks
+   * The ID of the configuration set.
+   * 
    * @example
    * xxx
    */
   id?: string;
+  /**
+   * @remarks
+   * The IP pool information.
+   */
   ipPool?: ConfigSetListResponseBodyConfigSetsIpPool;
   /**
+   * @remarks
+   * The name of the configuration set.
+   * 
    * @example
    * xxx
    */
@@ -90,28 +113,47 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
 }
 
 export class ConfigSetListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of configuration sets.
+   */
   configSets?: ConfigSetListResponseBodyConfigSets[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Indicates whether a next page of results exists.
+   * 
    * @example
    * false
    */
   hasMore?: boolean;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries that match the request.
+   * 
    * @example
    * 5
    */

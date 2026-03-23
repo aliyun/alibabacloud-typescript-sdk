@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryInvalidAddressResponseBodyDataMailDetail extends $dara.Model {
-  /**
-   * @remarks
-   * Update time.
-   * 
-   * @example
-   * 2021-04-28T17:11Z
-   */
   lastUpdateTime?: string;
-  /**
-   * @remarks
-   * Recipient address.
-   * 
-   * @example
-   * toaddress@example.com
-   */
   toAddress?: string;
-  /**
-   * @remarks
-   * Update time (in timestamp format).
-   * 
-   * @example
-   * 1619601108
-   */
   utcLastUpdateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +82,6 @@ export class QueryInvalidAddressResponseBody extends $dara.Model {
    * 3
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * Records.
-   */
   data?: QueryInvalidAddressResponseBodyData;
   static names(): { [key: string]: string } {
     return {

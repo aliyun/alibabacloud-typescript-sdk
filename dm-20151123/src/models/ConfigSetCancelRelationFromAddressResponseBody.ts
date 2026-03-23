@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetCancelRelationFromAddressResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the request.
+   * 
    * @example
    * true
    */

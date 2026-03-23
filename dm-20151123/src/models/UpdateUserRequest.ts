@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateUserRequestUser extends $dara.Model {
-  /**
-   * @remarks
-   * Whether EventBridge is enabled
-   * 
-   * @example
-   * true
-   */
   enableEventbridge?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -33,10 +26,6 @@ export class UpdateUserRequestUser extends $dara.Model {
 }
 
 export class UpdateUserRequest extends $dara.Model {
-  /**
-   * @remarks
-   * User Information
-   */
   user?: UpdateUserRequestUser;
   static names(): { [key: string]: string } {
     return {

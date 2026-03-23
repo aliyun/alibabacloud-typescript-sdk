@@ -8,7 +8,7 @@ export class DeleteReceiverDetailRequest extends $dara.Model {
    * The single recipient to be deleted from the recipient list
    * 
    * @example
-   * test@example.com
+   * 账号+@+域名
    */
   email?: string;
   ownerId?: number;

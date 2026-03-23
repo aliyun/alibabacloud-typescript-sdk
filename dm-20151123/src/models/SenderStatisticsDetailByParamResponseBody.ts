@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $dara.Model {
-  /**
-   * @remarks
-   * Sending address
-   * 
-   * @example
-   * s***@example.net
-   */
   accountName?: string;
   /**
    * **if can be null:**
@@ -21,14 +14,6 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $da
    * true
    */
   configSetName?: string;
-  /**
-   * @remarks
-   * Detailed classification of error reasons: - SendOk - SmtpNxBox
-   * etc.
-   * 
-   * @example
-   * SendOk
-   */
   errorClassification?: string;
   /**
    * **if can be null:**
@@ -40,53 +25,11 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $da
    * true
    */
   ipPoolName?: string;
-  /**
-   * @remarks
-   * Update time
-   * 
-   * @example
-   * 2021-04-28T17:11Z
-   */
   lastUpdateTime?: string;
-  /**
-   * @remarks
-   * Delivery detail information
-   * 
-   * @example
-   * 250 Send Mail OK
-   */
   message?: string;
-  /**
-   * @remarks
-   * Delivery status: 0 Success, 2 Invalid Address, 3 Spam, 4 Other Failures
-   * 
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @remarks
-   * Email subject
-   * 
-   * @example
-   * test subject
-   */
   subject?: string;
-  /**
-   * @remarks
-   * Recipient address
-   * 
-   * @example
-   * b***@example.net
-   */
   toAddress?: string;
-  /**
-   * @remarks
-   * UTC formatted update time
-   * 
-   * @example
-   * 1619601108
-   */
   utcLastUpdateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -160,7 +103,7 @@ export class SenderStatisticsDetailByParamResponseBodyData extends $dara.Model {
 export class SenderStatisticsDetailByParamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Used for pagination. If there are more results, set this returned value to the NextStart in the next request.
+   * Used for paging. If more results are available, set the \\`NextStart\\` parameter in your next request to this return value.
    * 
    * @example
    * 90f0243616#203#a***@example.net-1658817689#a***@example.net.247141122178
@@ -168,16 +111,12 @@ export class SenderStatisticsDetailByParamResponseBody extends $dara.Model {
   nextStart?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * B5AB8EBB-EE64-4BB2-B085-B92CC5DEDC41
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Detailed records
-   */
   data?: SenderStatisticsDetailByParamResponseBodyData;
   static names(): { [key: string]: string } {
     return {

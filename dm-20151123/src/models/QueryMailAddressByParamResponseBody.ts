@@ -3,106 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Model {
-  /**
-   * @remarks
-   * Sending address
-   * 
-   * @example
-   * sender@example.com
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * Account status, frozen: 1, normal: 0.
-   * 
-   * @example
-   * 0
-   */
   accountStatus?: string;
   configSetId?: string;
   configSetName?: string;
-  /**
-   * @remarks
-   * Creation time
-   * 
-   * @example
-   * 2019-09-29T13:28Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Daily quota limit
-   * 
-   * @example
-   * 10000
-   */
   dailyCount?: string;
-  /**
-   * @remarks
-   * Daily quota
-   * 
-   * @example
-   * 100
-   */
   dailyReqCount?: string;
-  /**
-   * @remarks
-   * Domain status, 0 indicates normal, 1 indicates abnormal.
-   * 
-   * @example
-   * 0
-   */
   domainStatus?: string;
-  /**
-   * @remarks
-   * Sending address ID
-   * 
-   * @example
-   * 12122
-   */
   mailAddressId?: string;
-  /**
-   * @remarks
-   * Monthly quota limit
-   * 
-   * @example
-   * 300000
-   */
   monthCount?: string;
-  /**
-   * @remarks
-   * Monthly quota
-   * 
-   * @example
-   * 20000
-   */
   monthReqCount?: string;
-  /**
-   * @remarks
-   * Reply address
-   * 
-   * @example
-   * test@example.com
-   */
   replyAddress?: string;
-  /**
-   * @remarks
-   * Reply address status
-   * 
-   * @example
-   * 0
-   */
   replyStatus?: string;
-  /**
-   * @remarks
-   * Sending address type. Values:
-   * 
-   * - batch: bulk email
-   * - trigger: triggered email
-   * 
-   * @example
-   * batch
-   */
   sendtype?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,7 +93,7 @@ export class QueryMailAddressByParamResponseBodyData extends $dara.Model {
 export class QueryMailAddressByParamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -188,7 +101,7 @@ export class QueryMailAddressByParamResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -196,7 +109,7 @@ export class QueryMailAddressByParamResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 95A7D497-F8DD-4834-B81E-C1783236E55F
@@ -204,16 +117,12 @@ export class QueryMailAddressByParamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 2
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * List of sending addresses
-   */
   data?: QueryMailAddressByParamResponseBodyData;
   static names(): { [key: string]: string } {
     return {

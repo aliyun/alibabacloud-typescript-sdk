@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * Whether EventBridge is enabled
-   * 
-   * @example
-   * true
-   */
   enableEventbridge?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -33,18 +26,7 @@ export class GetUserResponseBodyData extends $dara.Model {
 }
 
 export class GetUserResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Returned Content
-   */
   data?: GetUserResponseBodyData;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 10A1AD70-E48E-476D-98D9-39BD92193837
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SenderStatisticsByTagNameAndBatchIDResponseBodyDataStat extends $dara.Model {
-  /**
-   * @remarks
-   * Creation time
-   * 
-   * @example
-   * 2021-07-02
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Failure count
-   * 
-   * @example
-   * 0
-   */
   faildCount?: string;
-  /**
-   * @remarks
-   * Request count
-   * 
-   * @example
-   * 4
-   */
   requestCount?: string;
-  /**
-   * @remarks
-   * Success rate
-   * 
-   * @example
-   * 100.00%
-   */
   succeededPercent?: string;
-  /**
-   * @remarks
-   * Success count
-   * 
-   * @example
-   * 4
-   */
   successCount?: string;
-  /**
-   * @remarks
-   * Invalid count
-   * 
-   * @example
-   * 0
-   */
   unavailableCount?: string;
-  /**
-   * @remarks
-   * Unavailability rate
-   * 
-   * @example
-   * 0%
-   */
   unavailablePercent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,7 +72,7 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBodyData extends $dara.M
 export class SenderStatisticsByTagNameAndBatchIDResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -129,7 +80,7 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Total count
+   * The total count of data records.
    * 
    * @example
    * 1
@@ -137,7 +88,7 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBody extends $dara.Model
   totalCount?: number;
   /**
    * @remarks
-   * Data records
+   * Contains the statistical data.
    */
   data?: SenderStatisticsByTagNameAndBatchIDResponseBodyData;
   static names(): { [key: string]: string } {

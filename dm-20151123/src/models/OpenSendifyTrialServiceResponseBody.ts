@@ -2,33 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ConfigSetUpdateResponseBody extends $dara.Model {
+export class OpenSendifyTrialServiceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the configuration set.
-   * 
    * @example
-   * xxx
+   * http
    */
-  id?: string;
+  autoLoginURL?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * xxx
+   * 1234
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
+      autoLoginURL: 'AutoLoginURL',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
+      autoLoginURL: 'string',
       requestId: 'string',
     };
   }

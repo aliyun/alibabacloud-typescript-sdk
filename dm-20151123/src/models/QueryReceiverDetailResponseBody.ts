@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryReceiverDetailResponseBodyDataDetail extends $dara.Model {
-  /**
-   * @remarks
-   * Creation Time
-   * 
-   * @example
-   * 2019-09-29T13:28Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Content
-   * 
-   * @example
-   * {\\"Domains\\": [\\"a.example.net\\", \\"b.example.net\\", \\"c.example.net\\", \\"d.example.net\\"]}
-   */
   data?: string;
-  /**
-   * @remarks
-   * Recipient address
-   * 
-   * @example
-   * a***@example.net
-   */
   email?: string;
-  /**
-   * @remarks
-   * Creation time in UTC format
-   * 
-   * @example
-   * 1569734892
-   */
   utcCreateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -121,10 +93,6 @@ export class QueryReceiverDetailResponseBody extends $dara.Model {
    * 361
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * Detailed information
-   */
   data?: QueryReceiverDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {

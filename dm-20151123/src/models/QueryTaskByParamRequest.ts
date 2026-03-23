@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTaskByParamRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyword, defaults to all information
+   * The keyword for the query. If you leave this blank, all tasks are returned.
    * 
    * @example
    * mesh-notification-788717
@@ -14,7 +14,7 @@ export class QueryTaskByParamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Current page number, default is 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class QueryTaskByParamRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class QueryTaskByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Status, defaults to all statuses
+   * The task status. If you leave this blank, tasks in all states are returned.
    * 
    * @example
    * 0

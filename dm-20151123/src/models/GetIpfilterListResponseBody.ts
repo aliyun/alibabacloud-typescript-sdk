@@ -3,31 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetIpfilterListResponseBodyDataIpfilters extends $dara.Model {
-  /**
-   * @remarks
-   * timestamp
-   * 
-   * @example
-   * 1653547140
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Record ID
-   * 
-   * @example
-   * 10083
-   */
   id?: string;
-  /**
-   * @remarks
-   * IP address/IP range/IP segment
-   * 
-   * @example
-   * xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx-xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx/xxx
-   */
   ipAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,10 +90,6 @@ export class GetIpfilterListResponseBody extends $dara.Model {
    * 1
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * Data records
-   */
   data?: GetIpfilterListResponseBodyData;
   static names(): { [key: string]: string } {
     return {

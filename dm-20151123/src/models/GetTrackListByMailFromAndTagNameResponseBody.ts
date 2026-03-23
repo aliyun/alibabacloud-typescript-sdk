@@ -3,85 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTrackListByMailFromAndTagNameResponseBodyTrackListStat extends $dara.Model {
-  /**
-   * @remarks
-   * Creation time
-   * 
-   * @example
-   * 2025-01-11T10:11Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Click count
-   * 
-   * @example
-   * 0
-   */
   rcptClickCount?: string;
-  /**
-   * @remarks
-   * Click rate
-   * 
-   * @example
-   * 0
-   */
   rcptClickRate?: string;
-  /**
-   * @remarks
-   * Number of opens
-   * 
-   * @example
-   * 0
-   */
   rcptOpenCount?: string;
-  /**
-   * @remarks
-   * Open rate
-   * 
-   * @example
-   * 0
-   */
   rcptOpenRate?: string;
-  /**
-   * @remarks
-   * Unique click count
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueClickCount?: string;
-  /**
-   * @remarks
-   * Unique click rate
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueClickRate?: string;
-  /**
-   * @remarks
-   * Unique open count
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueOpenCount?: string;
-  /**
-   * @remarks
-   * Unique open rate
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueOpenRate?: string;
-  /**
-   * @remarks
-   * Total number
-   * 
-   * @example
-   * 0
-   */
   totalNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,7 +81,7 @@ export class GetTrackListByMailFromAndTagNameResponseBodyTrackList extends $dara
 export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Used for pagination. Not set for the first query; for subsequent queries, set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
+   * Used for paging. Do not set this parameter for the first query. For subsequent queries, set this parameter to the OffsetCreateTime value from the previous response. (This field is deprecated)
    * 
    * @example
    * （本字段已废弃）
@@ -167,7 +97,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
   offsetCreateTimeDesc?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -175,7 +105,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -183,7 +113,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -197,11 +127,14 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
    * 4
    */
   total?: number;
-  totalPages?: string;
   /**
    * @remarks
-   * Tracking data records
+   * The total number of pages.
+   * 
+   * @example
+   * 2
    */
+  totalPages?: string;
   trackList?: GetTrackListByMailFromAndTagNameResponseBodyTrackList;
   static names(): { [key: string]: string } {
     return {

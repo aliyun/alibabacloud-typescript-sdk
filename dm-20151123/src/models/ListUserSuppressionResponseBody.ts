@@ -3,47 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserSuppressionResponseBodyDataUserSuppressions extends $dara.Model {
-  /**
-   * @remarks
-   * Email address or domain name
-   * 
-   * @example
-   * test@example.net
-   */
   address?: string;
-  /**
-   * @remarks
-   * Creation time, timestamp, accurate to the second.
-   * 
-   * @example
-   * 1715667435
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * Last bounce hit time, timestamp, accurate to the second.
-   * 
-   * @example
-   * 1715667451
-   */
   lastBounceTime?: number;
-  /**
-   * @remarks
-   * Invalid address ID
-   * 
-   * @example
-   * 59511
-   */
   suppressionId?: number;
-  /**
-   * @remarks
-   * Source of entry, invalid address type
-   * - system
-   * - user
-   * 
-   * @example
-   * user
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,10 +64,6 @@ export class ListUserSuppressionResponseBodyData extends $dara.Model {
 }
 
 export class ListUserSuppressionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Returned results.
-   */
   data?: ListUserSuppressionResponseBodyData;
   /**
    * @remarks

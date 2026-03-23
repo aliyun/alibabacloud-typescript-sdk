@@ -5,14 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddIpfilterRequest extends $dara.Model {
   /**
    * @remarks
-   * IP Address/IP Range/IP Segment
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx-xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx/xxx
    */
   ipAddress?: string;
   ownerId?: number;

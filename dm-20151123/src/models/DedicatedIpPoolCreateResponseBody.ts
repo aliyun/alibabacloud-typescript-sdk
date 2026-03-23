@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpPoolCreateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * IP pool ID
+   * The ID of the IP pool.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class DedicatedIpPoolCreateResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * xxx

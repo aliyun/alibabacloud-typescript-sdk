@@ -3,85 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTrackListResponseBodyDataStat extends $dara.Model {
-  /**
-   * @remarks
-   * Creation time
-   * 
-   * @example
-   * 2019-09-29T13:28Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Click count
-   * 
-   * @example
-   * 0
-   */
   rcptClickCount?: string;
-  /**
-   * @remarks
-   * Click rate
-   * 
-   * @example
-   * 0
-   */
   rcptClickRate?: string;
-  /**
-   * @remarks
-   * Number of Opens
-   * 
-   * @example
-   * 0
-   */
   rcptOpenCount?: string;
-  /**
-   * @remarks
-   * Open rate
-   * 
-   * @example
-   * 0
-   */
   rcptOpenRate?: string;
-  /**
-   * @remarks
-   * Unique click count
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueClickCount?: string;
-  /**
-   * @remarks
-   * Unique click rate
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueClickRate?: string;
-  /**
-   * @remarks
-   * Unique open count
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueOpenCount?: string;
-  /**
-   * @remarks
-   * Unique open rate
-   * 
-   * @example
-   * 0
-   */
   rcptUniqueOpenRate?: string;
-  /**
-   * @remarks
-   * Total number
-   * 
-   * @example
-   * 0
-   */
   totalNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,23 +81,23 @@ export class GetTrackListResponseBodyData extends $dara.Model {
 export class GetTrackListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
+   * Used for pagination. Do not set this parameter for the first request. For subsequent requests, set this parameter to the OffsetCreateTime value from the previous response. (This field is deprecated.)
    * 
    * @example
-   * (This field is deprecated)
+   * （本字段已废弃）
    */
   offsetCreateTime?: string;
   /**
    * @remarks
-   * (This field is deprecated)
+   * (This field is deprecated.)
    * 
    * @example
-   * (This field is deprecated)
+   * （本字段已废弃）
    */
   offsetCreateTimeDesc?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -175,7 +105,7 @@ export class GetTrackListResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -183,7 +113,7 @@ export class GetTrackListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The unique identifier for the request.
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -191,17 +121,20 @@ export class GetTrackListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of items
+   * The total number of matching records.
    * 
    * @example
    * 100
    */
   total?: number;
-  totalPages?: number;
   /**
    * @remarks
-   * Tracking data records
+   * The total number of pages.
+   * 
+   * @example
+   * 2
    */
+  totalPages?: number;
   data?: GetTrackListResponseBodyData;
   static names(): { [key: string]: string } {
     return {

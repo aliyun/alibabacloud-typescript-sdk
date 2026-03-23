@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpAutoRenewalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * xxx

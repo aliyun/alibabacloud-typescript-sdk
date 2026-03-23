@@ -5,20 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class GetTrackListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sender address.
+   * The sender address.
    * 
-   * > If not filled, it represents all addresses; if TagName is provided, this parameter must not be empty.
+   * > If you omit this parameter, the query returns data for all sender addresses. This parameter is required if you specify the `TagName` parameter.
    * 
    * @example
    * test@example.com
    */
   accountName?: string;
-  configSetId?: string;
-  dedicatedIp?: string;
-  dedicatedIpPoolId?: string;
   /**
    * @remarks
-   * End time, the span between start and end time cannot exceed 7 days. Format: yyyy-MM-dd.
+   * The ID of the configuration set.
+   * 
+   * @example
+   * xxx
+   */
+  configSetId?: string;
+  /**
+   * @remarks
+   * The dedicated IP address to query.
+   * 
+   * If this parameter is omitted, data for all dedicated IPs is returned.
+   * 
+   * @example
+   * xxx.xxx.xxx.xxx
+   */
+  dedicatedIp?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated IP pool to query.
+   * 
+   * If this parameter is omitted, data for all IP pools is returned.
+   * 
+   * @example
+   * xxx
+   */
+  dedicatedIpPoolId?: string;
+  /**
+   * @example
+   * dmdomain.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The end date of the query. The duration between the StartTime and EndTime cannot exceed 7 days. The format is `yyyy-MM-dd`.
    * 
    * This parameter is required.
    * 
@@ -26,21 +56,40 @@ export class GetTrackListRequest extends $dara.Model {
    * 2019-09-29
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The Email Service Provider (ESP) to query. Valid values are:
+   * 
+   * - gmail.com
+   * 
+   * - yahoo.com
+   * 
+   * - outlook.com
+   * 
+   * - icloud.com
+   * 
+   * - Others: Any ESP not listed above.
+   * 
+   * If you omit this parameter, the query returns data for all ESPs.
+   * 
+   * @example
+   * gmail.com
+   */
   esp?: string;
   /**
    * @remarks
-   * For the first query, set to 0; for subsequent queries, fixed at 1. 1 indicates pagination in ascending order by time. (This field is deprecated)
+   * Set this to 0 for the first query. For subsequent queries, set it to 1 to perform a paged query in chronological order. (This field is deprecated)
    * 
    * @example
-   * (This field is deprecated)
+   * （本字段已废弃）
    */
   offset?: string;
   /**
    * @remarks
-   * Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
+   * Used for pagination. Do not set this parameter for the first query. For subsequent queries, set this parameter to the `OffsetCreateTime` value returned in the previous response. (This field is deprecated)
    * 
    * @example
-   * (This field is deprecated)
+   * （本字段已废弃）
    */
   offsetCreateTime?: string;
   /**
@@ -48,13 +97,13 @@ export class GetTrackListRequest extends $dara.Model {
    * (This field is deprecated)
    * 
    * @example
-   * (This field is deprecated)
+   * （本字段已废弃）
    */
   offsetCreateTimeDesc?: string;
   ownerId?: number;
   /**
    * @remarks
-   * Page number
+   * The page number to return.
    * 
    * @example
    * 1
@@ -62,7 +111,7 @@ export class GetTrackListRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * Page size
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -72,7 +121,7 @@ export class GetTrackListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Start time, which cannot be earlier than 30 days. Format: yyyy-MM-dd.
+   * The start date of the query. The date must be within the last 30 days. The format is `yyyy-MM-dd`.
    * 
    * This parameter is required.
    * 
@@ -82,7 +131,7 @@ export class GetTrackListRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Tag name
+   * The tag name.
    * 
    * @example
    * tagname
@@ -93,7 +142,7 @@ export class GetTrackListRequest extends $dara.Model {
    * (This field is deprecated)
    * 
    * @example
-   * (This field is deprecated)
+   * （本字段已废弃）
    */
   total?: string;
   static names(): { [key: string]: string } {
@@ -102,6 +151,7 @@ export class GetTrackListRequest extends $dara.Model {
       configSetId: 'ConfigSetId',
       dedicatedIp: 'DedicatedIp',
       dedicatedIpPoolId: 'DedicatedIpPoolId',
+      domain: 'Domain',
       endTime: 'EndTime',
       esp: 'Esp',
       offset: 'Offset',
@@ -124,6 +174,7 @@ export class GetTrackListRequest extends $dara.Model {
       configSetId: 'string',
       dedicatedIp: 'string',
       dedicatedIpPoolId: 'string',
+      domain: 'string',
       endTime: 'string',
       esp: 'string',
       offset: 'string',

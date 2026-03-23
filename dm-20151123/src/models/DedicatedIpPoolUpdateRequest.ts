@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpPoolUpdateRequest extends $dara.Model {
   /**
    * @remarks
-   * Purchased IP instance IDs, separated by commas; sourced from the DedicatedIpNonePoolList API\\"s returned IP purchase instance IDs
+   * The IDs of the purchased IP instances. Separate multiple IDs with commas. Obtain these IDs from the response of the DedicatedIpNonePoolList operation.
    * 
    * @example
    * xxx,xxx
@@ -13,7 +13,7 @@ export class DedicatedIpPoolUpdateRequest extends $dara.Model {
   buyResourceIds?: string;
   /**
    * @remarks
-   * IP pool ID
+   * The ID of the IP pool.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class DedicatedIpPoolUpdateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Whether to change the associated IP, enter true
+   * Specifies whether to change the associated IP addresses. Set this parameter to true.
    * 
    * @example
    * true

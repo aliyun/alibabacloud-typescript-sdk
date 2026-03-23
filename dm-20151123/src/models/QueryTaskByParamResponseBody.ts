@@ -3,95 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTaskByParamResponseBodyDataTask extends $dara.Model {
-  /**
-   * @remarks
-   * Address type, sending address: 1; random address: 0;
-   * 
-   * @example
-   * 0
-   */
   addressType?: string;
   configSetId?: string;
   configSetName?: string;
-  /**
-   * @remarks
-   * Creation time
-   * 
-   * @example
-   * 2022-04-18T10:36Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * dedicated IP pool ID.
-   * 
-   * @example
-   * xxx
-   */
   ipPoolId?: string;
-  /**
-   * @remarks
-   * dedicated IP pool name.
-   * 
-   * @example
-   * test
-   */
   ipPoolName?: string;
-  /**
-   * @remarks
-   * Receiver\\"s name
-   * 
-   * @example
-   * TKP000442-333
-   */
   receiversName?: string;
-  /**
-   * @remarks
-   * Request count
-   * 
-   * @example
-   * 1
-   */
   requestCount?: string;
-  /**
-   * @remarks
-   * Tag
-   * 
-   * @example
-   * 202201
-   */
   tagName?: string;
-  /**
-   * @remarks
-   * Task ID
-   * 
-   * @example
-   * 1054296
-   */
   taskId?: string;
-  /**
-   * @remarks
-   * Task status, sent successfully: 1
-   * 
-   * @example
-   * 1
-   */
   taskStatus?: string;
-  /**
-   * @remarks
-   * Template name
-   * 
-   * @example
-   * Short Simple
-   */
   templateName?: string;
-  /**
-   * @remarks
-   * Creation time in UTC format
-   * 
-   * @example
-   * 1569734892
-   */
   utcCreateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -167,7 +90,7 @@ export class QueryTaskByParamResponseBodyData extends $dara.Model {
 export class QueryTaskByParamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number
+   * The page number.
    * 
    * @example
    * 3
@@ -175,7 +98,7 @@ export class QueryTaskByParamResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -183,7 +106,7 @@ export class QueryTaskByParamResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -191,16 +114,12 @@ export class QueryTaskByParamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 15
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * Returned results
-   */
   data?: QueryTaskByParamResponseBodyData;
   static names(): { [key: string]: string } {
     return {

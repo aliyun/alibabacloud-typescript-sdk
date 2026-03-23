@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTagByParamResponseBodyDataTag extends $dara.Model {
-  /**
-   * @remarks
-   * Tag description
-   * 
-   * @example
-   * test description
-   */
   tagDescription?: string;
-  /**
-   * @remarks
-   * Tag ID
-   * 
-   * @example
-   * 52366
-   */
   tagId?: string;
-  /**
-   * @remarks
-   * Tag name
-   * 
-   * @example
-   * hellopal
-   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,10 +90,6 @@ export class QueryTagByParamResponseBody extends $dara.Model {
    * 2
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * Data records
-   */
   data?: QueryTagByParamResponseBodyData;
   static names(): { [key: string]: string } {
     return {

@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveReceiverDetailResponseBodyDataDetail extends $dara.Model {
-  /**
-   * @remarks
-   * Recipient address.
-   * 
-   * @example
-   * test@example.com
-   */
   email?: string;
   /**
    * @example
@@ -66,14 +59,10 @@ export class SaveReceiverDetailResponseBodyData extends $dara.Model {
 }
 
 export class SaveReceiverDetailResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * List of recipient addresses that failed to upload.
-   */
   data?: SaveReceiverDetailResponseBodyData;
   /**
    * @remarks
-   * Number of errors.
+   * The number of errors.
    * 
    * @example
    * 638
@@ -81,7 +70,7 @@ export class SaveReceiverDetailResponseBody extends $dara.Model {
   errorCount?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -89,7 +78,7 @@ export class SaveReceiverDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Number of successes.
+   * The number of successful records.
    * 
    * @example
    * 274

@@ -5,19 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class UnblockSendingRequest extends $dara.Model {
   /**
    * @remarks
-   * Blacklisted recipient\\"s email address
+   * The blacklisted recipient address.
    * 
    * This parameter is required.
    * 
    * @example
-   * recipient@example.com
+   * recipient@yyy.com
    */
   blockEmail?: string;
   /**
    * @remarks
-   * Blacklist type
+   * The blacklist type.
+   * 
    * - UNSUB: Unsubscribe
-   * - REPORT: Report
+   * 
+   * - REPORT: Complaint
    * 
    * This parameter is required.
    * 
@@ -27,12 +29,12 @@ export class UnblockSendingRequest extends $dara.Model {
   blockType?: string;
   /**
    * @remarks
-   * Sender\\"s email address
+   * The sender address.
    * 
    * This parameter is required.
    * 
    * @example
-   * sender@example.com
+   * sender@xxx.com
    */
   senderEmail?: string;
   static names(): { [key: string]: string } {

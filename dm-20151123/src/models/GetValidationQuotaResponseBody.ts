@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetValidationQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total available quota.
+   * 
    * @example
    * 10
    */
   totalQuota?: number;
   /**
+   * @remarks
+   * The used quota.
+   * 
    * @example
    * 1
    */

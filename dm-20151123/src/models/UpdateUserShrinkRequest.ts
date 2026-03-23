@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateUserShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * User Information
-   */
   userShrink?: string;
   static names(): { [key: string]: string } {
     return {

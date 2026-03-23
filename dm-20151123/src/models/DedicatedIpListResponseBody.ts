@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpListResponseBodyIpsIpExt extends $dara.Model {
   /**
    * @remarks
-   * Whether auto-renewal is enabled
+   * Indicates whether auto-renewal is enabled.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class DedicatedIpListResponseBodyIpsIpExt extends $dara.Model {
   autoRenewal?: boolean;
   /**
    * @remarks
-   * Whether an email has been sent
+   * Indicates whether emails have been sent.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class DedicatedIpListResponseBodyIpsIpExt extends $dara.Model {
 export class DedicatedIpListResponseBodyIps extends $dara.Model {
   /**
    * @remarks
-   * Expiration time
+   * The expiration time.
    * 
    * @example
    * 2025-06-12T09:19:20Z
@@ -56,7 +56,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * IP ID, consistent with the purchased instance ID
+   * The IP address ID. This is the same as the purchased instance ID.
    * 
    * @example
    * xxx
@@ -64,7 +64,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Purchased instance ID
+   * The ID of the purchased instance.
    * 
    * @example
    * xxx
@@ -72,7 +72,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * IP address
+   * The IP address.
    * 
    * @example
    * xxx
@@ -80,12 +80,12 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * Extended information
+   * The extended information.
    */
   ipExt?: DedicatedIpListResponseBodyIpsIpExt;
   /**
    * @remarks
-   * Name of the IP pool
+   * The name of the IP pool to which the IP address belongs.
    * 
    * @example
    * xxx
@@ -93,7 +93,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   ipPoolName?: string;
   /**
    * @remarks
-   * Purchase time
+   * The purchase time.
    * 
    * @example
    * 2025-05-12T09:19:20Z
@@ -101,7 +101,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * IP status
+   * The status of the IP address.
    * 
    * @example
    * sold
@@ -109,7 +109,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Warm-up status
+   * The prefetch status.
    * 
    * @example
    * finish
@@ -117,7 +117,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
   warmupStatus?: string;
   /**
    * @remarks
-   * Warm-up method
+   * The prefetch method.
    * 
    * @example
    * cusSelfManager
@@ -171,7 +171,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
 export class DedicatedIpListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page
+   * The current page number.
    * 
    * @example
    * 1
@@ -179,7 +179,7 @@ export class DedicatedIpListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Whether there is a next page
+   * Indicates whether the next page exists.
    * 
    * @example
    * false
@@ -187,12 +187,12 @@ export class DedicatedIpListResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * IP list
+   * The list of IP addresses.
    */
   ips?: DedicatedIpListResponseBodyIps[];
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -200,7 +200,7 @@ export class DedicatedIpListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * xxx
@@ -208,7 +208,7 @@ export class DedicatedIpListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total amount of purchased IP data
+   * The total number of purchased IP addresses.
    * 
    * @example
    * 5
