@@ -3,12 +3,73 @@ import * as $dara from '@darabonba/typescript';
 import { RequestLogDTO } from "./RequestLogDto";
 
 
+export class ModelRouterQueryObservationLogsResponseBodyData extends $dara.Model {
+  list?: RequestLogDTO[];
+  /**
+   * @example
+   * 1
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 0
+   */
+  nextToken?: number;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * None
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      page: 'page',
+      pageSize: 'pageSize',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': RequestLogDTO },
+      maxResults: 'number',
+      nextToken: 'number',
+      page: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModelRouterQueryObservationLogsResponseBody extends $dara.Model {
   /**
    * @example
    * []
    */
-  data?: RequestLogDTO[];
+  data?: ModelRouterQueryObservationLogsResponseBodyData;
   /**
    * @example
    * UNKNOWN_ERROR
@@ -42,37 +103,14 @@ export class ModelRouterQueryObservationLogsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
-  /**
-   * @remarks
-   * skip
-   * 
-   * @example
-   * 10
-   */
-  skip?: number;
   /**
    * @example
    * true
    */
   success?: boolean;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
@@ -81,35 +119,27 @@ export class ModelRouterQueryObservationLogsResponseBody extends $dara.Model {
       httpStatusCode: 'httpStatusCode',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
       requestId: 'requestId',
-      skip: 'skip',
       success: 'success',
-      totalCount: 'totalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': RequestLogDTO },
+      data: ModelRouterQueryObservationLogsResponseBodyData,
       errCode: 'string',
       errMessage: 'string',
       httpStatusCode: 'number',
       maxResults: 'number',
       nextToken: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
       requestId: 'string',
-      skip: 'number',
       success: 'boolean',
-      totalCount: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

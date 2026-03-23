@@ -24,6 +24,9 @@ export class ConversationDTO extends $dara.Model {
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * ID
+   * 
    * @example
    * 1
    */
@@ -38,10 +41,6 @@ export class ConversationDTO extends $dara.Model {
    * [1,2,3]
    */
   modelIds?: string;
-  /**
-   * @example
-   * 我的对话
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 import { ClientDTO } from "./ClientDto";
 
 
+export class ModelRouterQueryClientListResponseBodyData extends $dara.Model {
+  list?: ClientDTO[];
+  /**
+   * @example
+   * 1
+   */
+  maxResults?: string;
+  /**
+   * @example
+   * 1
+   */
+  nextToken?: string;
+  page?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      page: 'page',
+      pageSize: 'pageSize',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ClientDTO },
+      maxResults: 'string',
+      nextToken: 'string',
+      page: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModelRouterQueryClientListResponseBody extends $dara.Model {
   /**
    * @example
    * []
    */
-  data?: ClientDTO[];
+  data?: ModelRouterQueryClientListResponseBodyData;
   /**
    * @example
    * UNKNOWN_ERROR
@@ -25,91 +74,40 @@ export class ModelRouterQueryClientListResponseBody extends $dara.Model {
    */
   httpStatusCode?: number;
   /**
-   * @remarks
-   * maxResults
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * nextToken
-   * 
-   * @example
-   * xxxx-xxx-xxxxx
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
-   * @remarks
-   * skip
-   * 
-   * @example
-   * 10
-   */
-  skip?: number;
-  /**
    * @example
    * true
    */
   success?: boolean;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       errCode: 'errCode',
       errMessage: 'errMessage',
       httpStatusCode: 'httpStatusCode',
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
       requestId: 'requestId',
-      skip: 'skip',
       success: 'success',
-      totalCount: 'totalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': ClientDTO },
+      data: ModelRouterQueryClientListResponseBodyData,
       errCode: 'string',
       errMessage: 'string',
       httpStatusCode: 'number',
-      maxResults: 'number',
-      nextToken: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
       requestId: 'string',
-      skip: 'number',
       success: 'boolean',
-      totalCount: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

@@ -3,12 +3,51 @@ import * as $dara from '@darabonba/typescript';
 import { TimeSeriesPointDTO } from "./TimeSeriesPointDto";
 
 
+/**
+ */
+export class ObservationChartsDTOSuccessRate extends $dara.Model {
+  /**
+   * @example
+   * series1
+   */
+  label?: string;
+  /**
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
+  timestamp?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'label',
+      timestamp: 'timestamp',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      timestamp: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ObservationChartsDTO extends $dara.Model {
   callVolume?: TimeSeriesPointDTO[];
   concurrency?: TimeSeriesPointDTO[];
   qpm?: TimeSeriesPointDTO[];
   responseTime?: TimeSeriesPointDTO[];
-  successRate?: TimeSeriesPointDTO[];
+  successRate?: ObservationChartsDTOSuccessRate[];
   tpm?: TimeSeriesPointDTO[];
   static names(): { [key: string]: string } {
     return {
@@ -27,7 +66,7 @@ export class ObservationChartsDTO extends $dara.Model {
       concurrency: { 'type': 'array', 'itemType': TimeSeriesPointDTO },
       qpm: { 'type': 'array', 'itemType': TimeSeriesPointDTO },
       responseTime: { 'type': 'array', 'itemType': TimeSeriesPointDTO },
-      successRate: { 'type': 'array', 'itemType': TimeSeriesPointDTO },
+      successRate: { 'type': 'array', 'itemType': ObservationChartsDTOSuccessRate },
       tpm: { 'type': 'array', 'itemType': TimeSeriesPointDTO },
     };
   }

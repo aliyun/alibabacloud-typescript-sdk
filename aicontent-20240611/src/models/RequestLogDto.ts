@@ -15,6 +15,11 @@ export class RequestLogDTO extends $dara.Model {
   clientId?: number;
   /**
    * @example
+   * mt_xxxxxMYTX9
+   */
+  clientUuid?: string;
+  /**
+   * @example
    * 50
    */
   completionTokens?: number;
@@ -38,6 +43,11 @@ export class RequestLogDTO extends $dara.Model {
    * 1
    */
   id?: number;
+  /**
+   * @example
+   * qwen3-max
+   */
+  modelCode?: string;
   /**
    * @example
    * 1
@@ -80,9 +90,19 @@ export class RequestLogDTO extends $dara.Model {
   responseTimeMs?: number;
   /**
    * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
    * 200
    */
   statusCode?: number;
+  /**
+   * @example
+   * qwen
+   */
+  symbol?: string;
   /**
    * @example
    * 150
@@ -92,11 +112,13 @@ export class RequestLogDTO extends $dara.Model {
     return {
       apiKeyId: 'apiKeyId',
       clientId: 'clientId',
+      clientUuid: 'clientUuid',
       completionTokens: 'completionTokens',
       deleteTag: 'deleteTag',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       id: 'id',
+      modelCode: 'modelCode',
       modelId: 'modelId',
       modelName: 'modelName',
       promptTokens: 'promptTokens',
@@ -105,7 +127,9 @@ export class RequestLogDTO extends $dara.Model {
       requestTime: 'requestTime',
       responseBody: 'responseBody',
       responseTimeMs: 'responseTimeMs',
+      status: 'status',
       statusCode: 'statusCode',
+      symbol: 'symbol',
       totalTokens: 'totalTokens',
     };
   }
@@ -114,11 +138,13 @@ export class RequestLogDTO extends $dara.Model {
     return {
       apiKeyId: 'number',
       clientId: 'number',
+      clientUuid: 'string',
       completionTokens: 'number',
       deleteTag: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'number',
+      modelCode: 'string',
       modelId: 'number',
       modelName: 'string',
       promptTokens: 'number',
@@ -127,7 +153,9 @@ export class RequestLogDTO extends $dara.Model {
       requestTime: 'string',
       responseBody: 'string',
       responseTimeMs: 'number',
+      status: 'string',
       statusCode: 'number',
+      symbol: 'string',
       totalTokens: 'number',
     };
   }

@@ -2,12 +2,76 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.Model {
+  identifier?: string;
+  inputToken?: string;
+  outputToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'identifier',
+      inputToken: 'inputToken',
+      outputToken: 'outputToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      inputToken: 'string',
+      outputToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModelRouterQueryNacosProvidersResponseBodyData extends $dara.Model {
+  baseUrl?: string;
+  models?: ModelRouterQueryNacosProvidersResponseBodyDataModels[];
+  name?: string;
+  symbol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseUrl: 'baseUrl',
+      models: 'models',
+      name: 'name',
+      symbol: 'symbol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseUrl: 'string',
+      models: { 'type': 'array', 'itemType': ModelRouterQueryNacosProvidersResponseBodyDataModels },
+      name: 'string',
+      symbol: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.models)) {
+      $dara.Model.validateArray(this.models);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModelRouterQueryNacosProvidersResponseBody extends $dara.Model {
   /**
    * @example
    * []
    */
-  data?: string[];
+  data?: ModelRouterQueryNacosProvidersResponseBodyData[];
   /**
    * @example
    * UNKNOWN_ERROR
@@ -24,85 +88,34 @@ export class ModelRouterQueryNacosProvidersResponseBody extends $dara.Model {
    */
   httpStatusCode?: number;
   /**
-   * @remarks
-   * maxResults
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * nextToken
-   * 
-   * @example
-   * xxxx-xxx-xxxxx
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
-   * @remarks
-   * skip
-   * 
-   * @example
-   * 10
-   */
-  skip?: number;
-  /**
    * @example
    * true
    */
   success?: boolean;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       errCode: 'errCode',
       errMessage: 'errMessage',
       httpStatusCode: 'httpStatusCode',
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
       requestId: 'requestId',
-      skip: 'skip',
       success: 'success',
-      totalCount: 'totalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': 'string' },
+      data: { 'type': 'array', 'itemType': ModelRouterQueryNacosProvidersResponseBodyData },
       errCode: 'string',
       errMessage: 'string',
       httpStatusCode: 'number',
-      maxResults: 'number',
-      nextToken: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
       requestId: 'string',
-      skip: 'number',
       success: 'boolean',
-      totalCount: 'number',
     };
   }
 

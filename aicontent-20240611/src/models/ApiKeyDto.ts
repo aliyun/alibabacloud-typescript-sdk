@@ -12,6 +12,11 @@ export class ApiKeyDTO extends $dara.Model {
   clientId?: number;
   /**
    * @example
+   * 0
+   */
+  deleteTag?: number;
+  /**
+   * @example
    * 2024-01-01T00:00:00Z
    */
   gmtCreate?: string;
@@ -27,6 +32,11 @@ export class ApiKeyDTO extends $dara.Model {
   id?: number;
   /**
    * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @example
    * sk-xxx****xxx
    */
   keyPreview?: string;
@@ -39,9 +49,11 @@ export class ApiKeyDTO extends $dara.Model {
     return {
       client: 'client',
       clientId: 'clientId',
+      deleteTag: 'deleteTag',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       id: 'id',
+      key: 'key',
       keyPreview: 'keyPreview',
       name: 'name',
     };
@@ -51,9 +63,11 @@ export class ApiKeyDTO extends $dara.Model {
     return {
       client: ClientDTO,
       clientId: 'number',
+      deleteTag: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'number',
+      key: 'string',
       keyPreview: 'string',
       name: 'string',
     };

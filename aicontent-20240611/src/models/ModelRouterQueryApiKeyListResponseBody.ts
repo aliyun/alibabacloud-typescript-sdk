@@ -3,12 +3,69 @@ import * as $dara from '@darabonba/typescript';
 import { ApiKeyDTO } from "./ApiKeyDto";
 
 
+export class ModelRouterQueryApiKeyListResponseBodyData extends $dara.Model {
+  list?: ApiKeyDTO[];
+  maxResult?: string;
+  /**
+   * @example
+   * None
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      maxResult: 'maxResult',
+      nextToken: 'nextToken',
+      page: 'page',
+      pageSize: 'pageSize',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ApiKeyDTO },
+      maxResult: 'string',
+      nextToken: 'string',
+      page: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
   /**
    * @example
    * []
    */
-  data?: ApiKeyDTO[];
+  data?: ModelRouterQueryApiKeyListResponseBodyData;
   /**
    * @example
    * UNKNOWN_ERROR
@@ -33,46 +90,15 @@ export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
    */
   maxResults?: number;
   /**
-   * @remarks
-   * nextToken
-   * 
-   * @example
-   * xxxx-xxx-xxxxx
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
-   * @remarks
-   * skip
-   * 
-   * @example
-   * 10
-   */
-  skip?: number;
-  /**
    * @example
    * true
    */
   success?: boolean;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
@@ -80,36 +106,26 @@ export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
       errMessage: 'errMessage',
       httpStatusCode: 'httpStatusCode',
       maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
       requestId: 'requestId',
-      skip: 'skip',
       success: 'success',
-      totalCount: 'totalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': ApiKeyDTO },
+      data: ModelRouterQueryApiKeyListResponseBodyData,
       errCode: 'string',
       errMessage: 'string',
       httpStatusCode: 'number',
       maxResults: 'number',
-      nextToken: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
       requestId: 'string',
-      skip: 'number',
       success: 'boolean',
-      totalCount: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

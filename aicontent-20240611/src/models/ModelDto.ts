@@ -9,6 +9,9 @@ export class ModelDTO extends $dara.Model {
    */
   apiKeyPreview?: string;
   /**
+   * @remarks
+   * Base URL
+   * 
    * @example
    * https://dashscope.aliyuncs.com
    */
@@ -18,10 +21,6 @@ export class ModelDTO extends $dara.Model {
    * 0
    */
   deleteTag?: number;
-  /**
-   * @example
-   * 通义千问大模型
-   */
   description?: string;
   /**
    * @example
@@ -34,6 +33,9 @@ export class ModelDTO extends $dara.Model {
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * ID
+   * 
    * @example
    * 1
    */
@@ -63,26 +65,23 @@ export class ModelDTO extends $dara.Model {
    * Chat
    */
   modelType?: string;
-  /**
-   * @example
-   * 通义千问
-   */
   name?: string;
   /**
    * @example
    * alibaba
    */
   symbol?: string;
-  /**
-   * @example
-   * 对话,自然语言处理
-   */
   tagNames?: string;
   /**
    * @example
    * chat,NLP
    */
   tags?: string;
+  /**
+   * @example
+   * 0
+   */
+  version?: number;
   static names(): { [key: string]: string } {
     return {
       apiKeyPreview: 'apiKeyPreview',
@@ -101,6 +100,7 @@ export class ModelDTO extends $dara.Model {
       symbol: 'symbol',
       tagNames: 'tagNames',
       tags: 'tags',
+      version: 'version',
     };
   }
 
@@ -122,6 +122,7 @@ export class ModelDTO extends $dara.Model {
       symbol: 'string',
       tagNames: 'string',
       tags: 'string',
+      version: 'number',
     };
   }
 
