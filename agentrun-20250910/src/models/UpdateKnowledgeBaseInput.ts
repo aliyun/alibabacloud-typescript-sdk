@@ -7,12 +7,14 @@ export class UpdateKnowledgeBaseInput extends $dara.Model {
   description?: string;
   providerSettings?: { [key: string]: any };
   retrieveSettings?: { [key: string]: any };
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       credentialName: 'credentialName',
       description: 'description',
       providerSettings: 'providerSettings',
       retrieveSettings: 'retrieveSettings',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -22,6 +24,7 @@ export class UpdateKnowledgeBaseInput extends $dara.Model {
       description: 'string',
       providerSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       retrieveSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      workspaceId: 'string',
     };
   }
 

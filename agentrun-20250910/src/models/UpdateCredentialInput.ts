@@ -8,12 +8,14 @@ export class UpdateCredentialInput extends $dara.Model {
   credentialSecret?: string;
   description?: string;
   enabled?: boolean;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       credentialPublicConfig: 'credentialPublicConfig',
       credentialSecret: 'credentialSecret',
       description: 'description',
       enabled: 'enabled',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -23,6 +25,7 @@ export class UpdateCredentialInput extends $dara.Model {
       credentialSecret: 'string',
       description: 'string',
       enabled: 'boolean',
+      workspaceId: 'string',
     };
   }
 

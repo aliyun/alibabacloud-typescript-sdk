@@ -2070,6 +2070,14 @@ export default class Client extends OpenApi {
       query["provider"] = request.provider;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceIds)) {
+      query["workspaceIds"] = request.workspaceIds;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2186,6 +2194,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.provider)) {
       query["provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceIds)) {
+      query["workspaceIds"] = request.workspaceIds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2585,6 +2601,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceIds)) {
+      query["workspaceIds"] = request.workspaceIds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

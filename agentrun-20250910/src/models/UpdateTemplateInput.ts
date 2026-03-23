@@ -12,6 +12,9 @@ import { ScalingConfig } from "./ScalingConfig";
 
 export class UpdateTemplateInput extends $dara.Model {
   /**
+   * @example
+   * true
+   * 
    * **if can be null:**
    * true
    */
@@ -25,17 +28,35 @@ export class UpdateTemplateInput extends $dara.Model {
   /**
    * @remarks
    * CPU资源配置（单位：核心）
+   * 
+   * @example
+   * 2
    */
   cpu?: number;
   credentialConfiguration?: CredentialConfiguration;
+  /**
+   * @example
+   * demo description
+   */
   description?: string;
+  /**
+   * @example
+   * true
+   */
   enableAgent?: boolean;
   environmentVariables?: { [key: string]: string };
+  /**
+   * @example
+   * arn:acs:agentrun:cn-hangzhou:123456789:xxx/test
+   */
   executionRoleArn?: string;
   logConfiguration?: LogConfiguration;
   /**
    * @remarks
    * 内存资源配置（单位：MB）
+   * 
+   * @example
+   * 4
    */
   memory?: number;
   nasConfig?: NASConfig;
@@ -44,11 +65,17 @@ export class UpdateTemplateInput extends $dara.Model {
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
+   * 
+   * @example
+   * 21600
    */
   sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
    * 沙箱存活时间（秒）
+   * 
+   * @example
+   * 86400
    * 
    * @deprecated
    */
@@ -59,6 +86,10 @@ export class UpdateTemplateInput extends $dara.Model {
    * 模板配置（灵活的对象结构，根据 templateType 不同而不同）
    */
   templateConfiguration?: { [key: string]: any };
+  /**
+   * @example
+   * ws-1234567890abcdef
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

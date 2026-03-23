@@ -16,6 +16,7 @@ export class Credential extends $dara.Model {
   enabled?: boolean;
   relatedResources?: RelatedResource[];
   updatedAt?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
@@ -29,6 +30,7 @@ export class Credential extends $dara.Model {
       enabled: 'enabled',
       relatedResources: 'relatedResources',
       updatedAt: 'updatedAt',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -45,6 +47,7 @@ export class Credential extends $dara.Model {
       enabled: 'boolean',
       relatedResources: { 'type': 'array', 'itemType': RelatedResource },
       updatedAt: 'string',
+      workspaceId: 'string',
     };
   }
 

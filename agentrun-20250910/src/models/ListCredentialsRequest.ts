@@ -47,6 +47,8 @@ export class ListCredentialsRequest extends $dara.Model {
    * Aliyun
    */
   provider?: string;
+  workspaceId?: string;
+  workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
       credentialAuthType: 'credentialAuthType',
@@ -56,6 +58,8 @@ export class ListCredentialsRequest extends $dara.Model {
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       provider: 'provider',
+      workspaceId: 'workspaceId',
+      workspaceIds: 'workspaceIds',
     };
   }
 
@@ -68,6 +72,8 @@ export class ListCredentialsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       provider: 'string',
+      workspaceId: 'string',
+      workspaceIds: 'string',
     };
   }
 

@@ -12,6 +12,7 @@ export class KnowledgeBase extends $dara.Model {
   provider?: string;
   providerSettings?: { [key: string]: any };
   retrieveSettings?: { [key: string]: any };
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
@@ -23,6 +24,7 @@ export class KnowledgeBase extends $dara.Model {
       provider: 'provider',
       providerSettings: 'providerSettings',
       retrieveSettings: 'retrieveSettings',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -37,6 +39,7 @@ export class KnowledgeBase extends $dara.Model {
       provider: 'string',
       providerSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       retrieveSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      workspaceId: 'string',
     };
   }
 

@@ -23,6 +23,7 @@ export class CreateCredentialInput extends $dara.Model {
   credentialSourceType?: string;
   description?: string;
   enabled?: boolean;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       credentialAuthType: 'credentialAuthType',
@@ -32,6 +33,7 @@ export class CreateCredentialInput extends $dara.Model {
       credentialSourceType: 'credentialSourceType',
       description: 'description',
       enabled: 'enabled',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -44,6 +46,7 @@ export class CreateCredentialInput extends $dara.Model {
       credentialSourceType: 'string',
       description: 'string',
       enabled: 'boolean',
+      workspaceId: 'string',
     };
   }
 

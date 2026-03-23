@@ -42,6 +42,7 @@ export class ListTemplatesRequest extends $dara.Model {
    * aaa
    */
   workspaceId?: string;
+  workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'pageNumber',
@@ -50,6 +51,7 @@ export class ListTemplatesRequest extends $dara.Model {
       templateName: 'templateName',
       templateType: 'templateType',
       workspaceId: 'workspaceId',
+      workspaceIds: 'workspaceIds',
     };
   }
 
@@ -61,6 +63,7 @@ export class ListTemplatesRequest extends $dara.Model {
       templateName: 'string',
       templateType: 'string',
       workspaceId: 'string',
+      workspaceIds: 'string',
     };
   }
 

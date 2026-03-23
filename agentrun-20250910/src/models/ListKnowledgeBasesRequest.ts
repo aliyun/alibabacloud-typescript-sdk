@@ -18,11 +18,23 @@ export class ListKnowledgeBasesRequest extends $dara.Model {
    * bailian
    */
   provider?: string;
+  /**
+   * @example
+   * 1e546db8-bd93-5a52-9be1-5a1351cdac95
+   */
+  workspaceId?: string;
+  /**
+   * @example
+   * 1e546db8-bd93-5a52-9be1-5a1351cdac95,1e546db8-bd93-5a52-9be1-5a1351caass4
+   */
+  workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       provider: 'provider',
+      workspaceId: 'workspaceId',
+      workspaceIds: 'workspaceIds',
     };
   }
 
@@ -31,6 +43,8 @@ export class ListKnowledgeBasesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       provider: 'string',
+      workspaceId: 'string',
+      workspaceIds: 'string',
     };
   }
 
