@@ -3,23 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEdgeFunctionRequestCode extends $dara.Model {
+  downloadUrl?: string;
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * code
    */
   ossBucketName?: string;
   /**
+   * @remarks
+   * The path of the code file.
+   * 
    * @example
    * example2.zip
    */
   ossObjectName?: string;
   /**
+   * @remarks
+   * The storage class of the OSS bucket.
+   * 
    * @example
    * supabase
    */
   ossType?: string;
   static names(): { [key: string]: string } {
     return {
+      downloadUrl: 'DownloadUrl',
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
       ossType: 'OssType',
@@ -28,6 +39,7 @@ export class UpdateEdgeFunctionRequestCode extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      downloadUrl: 'string',
       ossBucketName: 'string',
       ossObjectName: 'string',
       ossType: 'string',
@@ -45,27 +57,43 @@ export class UpdateEdgeFunctionRequestCode extends $dara.Model {
 
 export class UpdateEdgeFunctionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The error code that is returned if the request failed. For more information, see the "Error codes" section of the topic.
+   */
   code?: UpdateEdgeFunctionRequestCode;
   /**
+   * @remarks
+   * The configuration parameters of the edge function.
+   * 
    * @example
    * {}
    */
-  customConfig?: { [key: string]: any };
+  customConfig?: { [key: string]: string };
   /**
    * @remarks
-   * fc-xxxx。
+   * fc-xxxx
    * 
    * @example
    * ef-****
    */
   edgeFunctionName?: string;
+  /**
+   * @remarks
+   * The environment variables of the edge function.
+   */
   envs?: { [key: string]: string };
   /**
    * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,6 +101,9 @@ export class UpdateEdgeFunctionRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -93,7 +124,7 @@ export class UpdateEdgeFunctionRequest extends $dara.Model {
     return {
       clientToken: 'string',
       code: UpdateEdgeFunctionRequestCode,
-      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       edgeFunctionName: 'string',
       envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       instanceName: 'string',

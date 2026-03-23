@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEdgeFunctionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The name of the edge function.
+   * 
    * @example
    * ef-****
    */
   edgeFunctionName?: string;
   /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */

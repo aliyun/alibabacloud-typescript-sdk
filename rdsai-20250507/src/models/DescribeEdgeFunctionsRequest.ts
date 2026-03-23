@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEdgeFunctionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
@@ -18,6 +21,8 @@ export class DescribeEdgeFunctionsRequest extends $dara.Model {
   edgeFunctionName?: string;
   /**
    * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +30,9 @@ export class DescribeEdgeFunctionsRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

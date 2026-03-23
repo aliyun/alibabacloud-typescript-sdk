@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEdgeFunctionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * fc-xxxx。
+   * fc-xxxx
    * 
    * @example
    * ef-****
    */
   edgeFunctionName?: string;
   /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**
    * @remarks
-   * Id of the request。
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C

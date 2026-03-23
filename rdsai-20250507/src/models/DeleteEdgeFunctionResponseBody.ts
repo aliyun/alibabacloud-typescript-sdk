@@ -12,6 +12,9 @@ export class DeleteEdgeFunctionResponseBody extends $dara.Model {
    */
   edgeFunctionName?: string;
   /**
+   * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * @example
    * ra-supabase-8moov5lxba***
    */

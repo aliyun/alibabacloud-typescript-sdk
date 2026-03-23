@@ -3,23 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEdgeFunctionRequestCode extends $dara.Model {
+  downloadUrl?: string;
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * code
    */
   ossBucketName?: string;
   /**
+   * @remarks
+   * The OSS path of a code file.
+   * 
    * @example
    * example.zip
    */
   ossObjectName?: string;
   /**
+   * @remarks
+   * The storage class of the OSS bucket.
+   * 
    * @example
    * supabase
    */
   ossType?: string;
   static names(): { [key: string]: string } {
     return {
+      downloadUrl: 'DownloadUrl',
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
       ossType: 'OssType',
@@ -28,6 +39,7 @@ export class CreateEdgeFunctionRequestCode extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      downloadUrl: 'string',
       ossBucketName: 'string',
       ossObjectName: 'string',
       ossType: 'string',
@@ -45,20 +57,40 @@ export class CreateEdgeFunctionRequestCode extends $dara.Model {
 
 export class CreateEdgeFunctionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The code parameters.
+   */
   code?: CreateEdgeFunctionRequestCode;
+  /**
+   * @remarks
+   * The configuration parameters of the edge function.
+   */
   customConfig?: { [key: string]: number };
   /**
+   * @remarks
+   * The name of the function.
+   * 
    * @example
    * ef-*****
    */
   edgeFunctionName?: string;
+  /**
+   * @remarks
+   * The environment variables.
+   */
   envs?: { [key: string]: string };
   /**
    * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +98,9 @@ export class CreateEdgeFunctionRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

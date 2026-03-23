@@ -4,27 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateEdgeFunctionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The error code that is returned if the request failed. For more information, see the "Error codes" section of the topic.
+   */
   codeShrink?: string;
   /**
+   * @remarks
+   * The configuration parameters of the edge function.
+   * 
    * @example
    * {}
    */
   customConfigShrink?: string;
   /**
    * @remarks
-   * fc-xxxx。
+   * fc-xxxx
    * 
    * @example
    * ef-****
    */
   edgeFunctionName?: string;
+  /**
+   * @remarks
+   * The environment variables of the edge function.
+   */
   envsShrink?: string;
   /**
    * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +48,9 @@ export class UpdateEdgeFunctionShrinkRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

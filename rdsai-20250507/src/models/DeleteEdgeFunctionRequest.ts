@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteEdgeFunctionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The name of the edge function.
+   * 
    * @example
    * ef-****
    */
   edgeFunctionName?: string;
   /**
    * @remarks
+   * The ID of the RDS Supabase instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +30,9 @@ export class DeleteEdgeFunctionRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
