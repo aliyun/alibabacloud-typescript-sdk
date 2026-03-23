@@ -119,11 +119,13 @@ export class GetStackExecutionResultResponseBody extends $dara.Model {
    * event-xxx
    */
   triggerId?: string;
+  triggeredStatus?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
       stackResults: 'stackResults',
       triggerId: 'triggerId',
+      triggeredStatus: 'triggeredStatus',
     };
   }
 
@@ -132,6 +134,7 @@ export class GetStackExecutionResultResponseBody extends $dara.Model {
       requestId: 'string',
       stackResults: { 'type': 'array', 'itemType': GetStackExecutionResultResponseBodyStackResults },
       triggerId: 'string',
+      triggeredStatus: 'string',
     };
   }
 
