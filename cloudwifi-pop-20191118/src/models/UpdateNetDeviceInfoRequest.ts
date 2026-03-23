@@ -1,0 +1,119 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class UpdateNetDeviceInfoRequestDevices extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  hostName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  id?: number;
+  idc?: string;
+  logicNetPod?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  manufacturer?: string;
+  mgnIp?: string;
+  model?: string;
+  netPod?: string;
+  password?: string;
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  serviceTag?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostName: 'HostName',
+      id: 'Id',
+      idc: 'Idc',
+      logicNetPod: 'LogicNetPod',
+      manufacturer: 'Manufacturer',
+      mgnIp: 'MgnIp',
+      model: 'Model',
+      netPod: 'NetPod',
+      password: 'Password',
+      role: 'Role',
+      serviceTag: 'ServiceTag',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostName: 'string',
+      id: 'number',
+      idc: 'string',
+      logicNetPod: 'string',
+      manufacturer: 'string',
+      mgnIp: 'string',
+      model: 'string',
+      netPod: 'string',
+      password: 'string',
+      role: 'string',
+      serviceTag: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNetDeviceInfoRequest extends $dara.Model {
+  appCode?: string;
+  appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  devices?: UpdateNetDeviceInfoRequestDevices[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCode: 'AppCode',
+      appName: 'AppName',
+      devices: 'Devices',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCode: 'string',
+      appName: 'string',
+      devices: { 'type': 'array', 'itemType': UpdateNetDeviceInfoRequestDevices },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.devices)) {
+      $dara.Model.validateArray(this.devices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
