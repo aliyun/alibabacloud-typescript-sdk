@@ -13912,6 +13912,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询绑定特定标签的资产列表
+   * 
+   * @param request - ListTagMetaAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagMetaAssetResponse
+   */
+  async listTagMetaAssetWithOptions(request: $_model.ListTagMetaAssetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagMetaAssetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.metaParentId)) {
+      query["MetaParentId"] = request.metaParentId;
+    }
+
+    if (!$dara.isNull(request.metaType)) {
+      query["MetaType"] = request.metaType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagMetaAsset",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagMetaAssetResponse>(await this.callApi(params, req, runtime), new $_model.ListTagMetaAssetResponse({}));
+  }
+
+  /**
+   * 查询绑定特定标签的资产列表
+   * 
+   * @param request - ListTagMetaAssetRequest
+   * @returns ListTagMetaAssetResponse
+   */
+  async listTagMetaAsset(request: $_model.ListTagMetaAssetRequest): Promise<$_model.ListTagMetaAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagMetaAssetWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of task flows.
    * 
    * @param request - ListTaskFlowRequest

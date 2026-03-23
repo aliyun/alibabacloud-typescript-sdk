@@ -305,6 +305,7 @@ export { ListTablesResponseBodyTableListTableOwnerNameList } from './ListTablesR
 export { ListTablesResponseBodyTableListTable } from './ListTablesResponseBody';
 export { ListTablesResponseBodyTableList } from './ListTablesResponseBody';
 export { ListTablesInCategoryResponseBodyEntityList } from './ListTablesInCategoryResponseBody';
+export { ListTagMetaAssetResponseBodyData } from './ListTagMetaAssetResponseBody';
 export { ListTaskFlowResponseBodyTaskFlowListTaskFlow } from './ListTaskFlowResponseBody';
 export { ListTaskFlowResponseBodyTaskFlowList } from './ListTaskFlowResponseBody';
 export { ListTaskFlowConstantsResponseBodyDagConstantsDagConstant } from './ListTaskFlowConstantsResponseBody';
@@ -1110,6 +1111,9 @@ export { ListTablesResponse } from './ListTablesResponse';
 export { ListTablesInCategoryRequest } from './ListTablesInCategoryRequest';
 export { ListTablesInCategoryResponseBody } from './ListTablesInCategoryResponseBody';
 export { ListTablesInCategoryResponse } from './ListTablesInCategoryResponse';
+export { ListTagMetaAssetRequest } from './ListTagMetaAssetRequest';
+export { ListTagMetaAssetResponseBody } from './ListTagMetaAssetResponseBody';
+export { ListTagMetaAssetResponse } from './ListTagMetaAssetResponse';
 export { ListTaskFlowRequest } from './ListTaskFlowRequest';
 export { ListTaskFlowResponseBody } from './ListTaskFlowResponseBody';
 export { ListTaskFlowResponse } from './ListTaskFlowResponse';
