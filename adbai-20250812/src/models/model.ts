@@ -18,6 +18,9 @@ export { CreateEmbodiedAIPlatformRequest } from './CreateEmbodiedAiplatformReque
 export { CreateEmbodiedAIPlatformShrinkRequest } from './CreateEmbodiedAiplatformShrinkRequest';
 export { CreateEmbodiedAIPlatformResponseBody } from './CreateEmbodiedAiplatformResponseBody';
 export { CreateEmbodiedAIPlatformResponse } from './CreateEmbodiedAiplatformResponse';
+export { DeleteAgentPlatformRequest } from './DeleteAgentPlatformRequest';
+export { DeleteAgentPlatformResponseBody } from './DeleteAgentPlatformResponseBody';
+export { DeleteAgentPlatformResponse } from './DeleteAgentPlatformResponse';
 export { DeleteEmbodiedAIPlatformRequest } from './DeleteEmbodiedAiplatformRequest';
 export { DeleteEmbodiedAIPlatformResponseBody } from './DeleteEmbodiedAiplatformResponseBody';
 export { DeleteEmbodiedAIPlatformResponse } from './DeleteEmbodiedAiplatformResponse';

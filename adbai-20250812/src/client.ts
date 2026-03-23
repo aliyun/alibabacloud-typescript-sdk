@@ -154,6 +154,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指标平台
+   * 
+   * @param request - DeleteAgentPlatformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentPlatformResponse
+   */
+  async deleteAgentPlatformWithOptions(request: $_model.DeleteAgentPlatformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentPlatformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgentPlatform",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentPlatformResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentPlatformResponse({}));
+  }
+
+  /**
+   * 删除指标平台
+   * 
+   * @param request - DeleteAgentPlatformRequest
+   * @returns DeleteAgentPlatformResponse
+   */
+  async deleteAgentPlatform(request: $_model.DeleteAgentPlatformRequest): Promise<$_model.DeleteAgentPlatformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgentPlatformWithOptions(request, runtime);
+  }
+
+  /**
    * 删除具身智能平台
    * 
    * @param request - DeleteEmbodiedAIPlatformRequest
