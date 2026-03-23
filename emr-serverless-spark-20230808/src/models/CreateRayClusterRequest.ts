@@ -15,6 +15,11 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   enableAutoScaling?: boolean;
   /**
    * @example
+   * ecs.gn6i-c4g1.xlarge
+   */
+  gpuSpec?: string;
+  /**
+   * @example
    * 60
    */
   idleTimeoutSeconds?: number;
@@ -32,6 +37,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
     return {
       cpu: 'cpu',
       enableAutoScaling: 'enableAutoScaling',
+      gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
       queueName: 'queueName',
@@ -42,6 +48,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
     return {
       cpu: 'string',
       enableAutoScaling: 'boolean',
+      gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
       queueName: 'string',
@@ -63,6 +70,11 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
    * 4
    */
   cpu?: string;
+  /**
+   * @example
+   * ecs.gn6i-c4g1.xlarge
+   */
+  gpuSpec?: string;
   /**
    * @example
    * WorkerGroup1
@@ -101,6 +113,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
       memory: 'memory',
@@ -114,6 +127,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
       memory: 'string',
@@ -160,6 +174,7 @@ export class CreateRayClusterRequest extends $dara.Model {
    * vpc
    */
   networkServiceName?: string;
+  volumeIds?: string[];
   workerSpec?: CreateRayClusterRequestWorkerSpec[];
   static names(): { [key: string]: string } {
     return {
@@ -169,6 +184,7 @@ export class CreateRayClusterRequest extends $dara.Model {
       headSpec: 'headSpec',
       name: 'name',
       networkServiceName: 'networkServiceName',
+      volumeIds: 'volumeIds',
       workerSpec: 'workerSpec',
     };
   }
@@ -181,6 +197,7 @@ export class CreateRayClusterRequest extends $dara.Model {
       headSpec: CreateRayClusterRequestHeadSpec,
       name: 'string',
       networkServiceName: 'string',
+      volumeIds: { 'type': 'array', 'itemType': 'string' },
       workerSpec: { 'type': 'array', 'itemType': CreateRayClusterRequestWorkerSpec },
     };
   }
@@ -188,6 +205,9 @@ export class CreateRayClusterRequest extends $dara.Model {
   validate() {
     if(this.headSpec && typeof (this.headSpec as any).validate === 'function') {
       (this.headSpec as any).validate();
+    }
+    if(Array.isArray(this.volumeIds)) {
+      $dara.Model.validateArray(this.volumeIds);
     }
     if(Array.isArray(this.workerSpec)) {
       $dara.Model.validateArray(this.workerSpec);

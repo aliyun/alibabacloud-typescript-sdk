@@ -102,6 +102,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
    * The environment types of the queue.
    */
   environments?: string[];
+  gpuSpec?: string[];
   /**
    * @remarks
    * The maximum capacity of resources that can be used in the queue.
@@ -138,6 +139,11 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
    * dev_queue
    */
   properties?: string;
+  /**
+   * @example
+   * CPU
+   */
+  queueCategory?: string;
   /**
    * @remarks
    * The name of the queue.
@@ -203,11 +209,13 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       createTime: 'createTime',
       creator: 'creator',
       environments: 'environments',
+      gpuSpec: 'gpuSpec',
       maxResource: 'maxResource',
       minResource: 'minResource',
       paymentType: 'paymentType',
       preheat: 'preheat',
       properties: 'properties',
+      queueCategory: 'queueCategory',
       queueName: 'queueName',
       queueScope: 'queueScope',
       queueStatus: 'queueStatus',
@@ -224,11 +232,13 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       createTime: 'number',
       creator: 'string',
       environments: { 'type': 'array', 'itemType': 'string' },
+      gpuSpec: { 'type': 'array', 'itemType': 'string' },
       maxResource: 'string',
       minResource: 'string',
       paymentType: 'string',
       preheat: 'boolean',
       properties: 'string',
+      queueCategory: 'string',
       queueName: 'string',
       queueScope: 'string',
       queueStatus: 'string',
@@ -245,6 +255,9 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
     }
     if(Array.isArray(this.environments)) {
       $dara.Model.validateArray(this.environments);
+    }
+    if(Array.isArray(this.gpuSpec)) {
+      $dara.Model.validateArray(this.gpuSpec);
     }
     super.validate();
   }

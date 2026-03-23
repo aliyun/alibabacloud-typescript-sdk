@@ -11,15 +11,22 @@ export class CreateWorkspaceRequestResourceSpec extends $dara.Model {
    * 1000
    */
   cu?: string;
+  /**
+   * @example
+   * 100
+   */
+  gpu?: number;
   static names(): { [key: string]: string } {
     return {
       cu: 'cu',
+      gpu: 'gpu',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cu: 'string',
+      gpu: 'number',
     };
   }
 
@@ -123,6 +130,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
    * 12452
    */
   duration?: string;
+  gpuSpec?: string[];
   /**
    * @remarks
    * The name of the Object Storage Service (OSS) bucket.
@@ -207,6 +215,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
       dlfCatalogId: 'dlfCatalogId',
       dlfType: 'dlfType',
       duration: 'duration',
+      gpuSpec: 'gpuSpec',
       ossBucket: 'ossBucket',
       paymentDurationUnit: 'paymentDurationUnit',
       paymentType: 'paymentType',
@@ -230,6 +239,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
       dlfCatalogId: 'string',
       dlfType: 'string',
       duration: 'string',
+      gpuSpec: { 'type': 'array', 'itemType': 'string' },
       ossBucket: 'string',
       paymentDurationUnit: 'string',
       paymentType: 'string',
@@ -244,6 +254,9 @@ export class CreateWorkspaceRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.gpuSpec)) {
+      $dara.Model.validateArray(this.gpuSpec);
+    }
     if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
       (this.resourceSpec as any).validate();
     }

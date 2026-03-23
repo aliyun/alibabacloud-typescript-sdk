@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListKyuubiSparkApplicationsRequestEndTime extends $dara.Model {
+  /**
+   * @example
+   * 1774209636
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 1774209636
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListKyuubiSparkApplicationsRequestStartTime extends $dara.Model {
   /**
    * @remarks
@@ -59,6 +93,12 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
    * kyuubi-connection-spark-sql-anonymous-fa9a5e73-b4b1-474a-b****
    */
   applicationName?: string;
+  endTime?: ListKyuubiSparkApplicationsRequestEndTime;
+  /**
+   * @example
+   * ["SUCCESS"]
+   */
+  latestSqlStatementStatuses?: string;
   /**
    * @remarks
    * The maximum number of entries to return.
@@ -67,6 +107,10 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
    * 20
    */
   maxResults?: number;
+  /**
+   * @example
+   * 60000
+   */
   minDuration?: number;
   /**
    * @remarks
@@ -77,17 +121,32 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
    */
   nextToken?: string;
   orderBy?: string[];
+  /**
+   * @example
+   * root_queue
+   */
   resourceQueueId?: string;
+  /**
+   * @example
+   * asc
+   */
   sort?: string;
   /**
    * @remarks
    * The range of start time.
    */
   startTime?: ListKyuubiSparkApplicationsRequestStartTime;
+  /**
+   * @example
+   * ["ERROR"]
+   */
+  states?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'applicationId',
       applicationName: 'applicationName',
+      endTime: 'endTime',
+      latestSqlStatementStatuses: 'latestSqlStatementStatuses',
       maxResults: 'maxResults',
       minDuration: 'minDuration',
       nextToken: 'nextToken',
@@ -95,6 +154,7 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
       resourceQueueId: 'resourceQueueId',
       sort: 'sort',
       startTime: 'startTime',
+      states: 'states',
     };
   }
 
@@ -102,6 +162,8 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
     return {
       applicationId: 'string',
       applicationName: 'string',
+      endTime: ListKyuubiSparkApplicationsRequestEndTime,
+      latestSqlStatementStatuses: 'string',
       maxResults: 'number',
       minDuration: 'number',
       nextToken: 'string',
@@ -109,10 +171,14 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
       resourceQueueId: 'string',
       sort: 'string',
       startTime: ListKyuubiSparkApplicationsRequestStartTime,
+      states: 'string',
     };
   }
 
   validate() {
+    if(this.endTime && typeof (this.endTime as any).validate === 'function') {
+      (this.endTime as any).validate();
+    }
     if(Array.isArray(this.orderBy)) {
       $dara.Model.validateArray(this.orderBy);
     }

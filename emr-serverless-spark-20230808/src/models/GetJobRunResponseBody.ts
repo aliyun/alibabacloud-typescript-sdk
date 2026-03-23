@@ -166,6 +166,11 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
    */
   notebookAccessUrl?: string;
   /**
+   * @example
+   * 5
+   */
+  priority?: string;
+  /**
    * @remarks
    * The version of the Spark engine on which the job runs.
    * 
@@ -245,6 +250,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       log: 'log',
       name: 'name',
       notebookAccessUrl: 'notebookAccessUrl',
+      priority: 'priority',
       releaseVersion: 'releaseVersion',
       resourceOwnerId: 'resourceOwnerId',
       resourceQueueId: 'resourceQueueId',
@@ -271,6 +277,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       log: RunLog,
       name: 'string',
       notebookAccessUrl: 'string',
+      priority: 'string',
       releaseVersion: 'string',
       resourceOwnerId: 'string',
       resourceQueueId: 'string',

@@ -15,6 +15,11 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   enableAutoScaling?: boolean;
   /**
    * @example
+   * ecs.gn6i-c4g1.xlarge
+   */
+  gpuSpec?: string;
+  /**
+   * @example
    * 60
    */
   idleTimeoutSeconds?: number;
@@ -37,6 +42,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
     return {
       cpu: 'cpu',
       enableAutoScaling: 'enableAutoScaling',
+      gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
       queueName: 'queueName',
@@ -48,6 +54,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
     return {
       cpu: 'string',
       enableAutoScaling: 'boolean',
+      gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
       queueName: 'string',
@@ -70,6 +77,11 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
    * 2
    */
   cpu?: string;
+  /**
+   * @example
+   * ecs.gn6i-c4g1.xlarge
+   */
+  gpuSpec?: string;
   /**
    * @example
    * Group1
@@ -108,6 +120,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
       memory: 'memory',
@@ -121,6 +134,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
       memory: 'string',

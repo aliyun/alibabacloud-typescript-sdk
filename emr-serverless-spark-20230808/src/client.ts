@@ -646,6 +646,10 @@ export default class Client extends OpenApi {
       body["networkServiceName"] = request.networkServiceName;
     }
 
+    if (!$dara.isNull(request.volumeIds)) {
+      body["volumeIds"] = request.volumeIds;
+    }
+
     if (!$dara.isNull(request.workerSpec)) {
       body["workerSpec"] = request.workerSpec;
     }
@@ -892,6 +896,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.duration)) {
       body["duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.gpuSpec)) {
+      body["gpuSpec"] = request.gpuSpec;
     }
 
     if (!$dara.isNull(request.ossBucket)) {
@@ -1184,6 +1192,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.environments)) {
       body["environments"] = request.environments;
+    }
+
+    if (!$dara.isNull(request.gpuSpec)) {
+      body["gpuSpec"] = request.gpuSpec;
     }
 
     if (!$dara.isNull(request.resourceSpec)) {
@@ -2157,6 +2169,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListKyuubiSparkApplicationsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.endTime)) {
+      request.endTimeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endTime, "endTime", "json");
+    }
+
     if (!$dara.isNull(tmpReq.orderBy)) {
       request.orderByShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderBy, "orderBy", "json");
     }
@@ -2172,6 +2188,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.applicationName)) {
       query["applicationName"] = request.applicationName;
+    }
+
+    if (!$dara.isNull(request.endTimeShrink)) {
+      query["endTime"] = request.endTimeShrink;
+    }
+
+    if (!$dara.isNull(request.latestSqlStatementStatuses)) {
+      query["latestSqlStatementStatuses"] = request.latestSqlStatementStatuses;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -2200,6 +2224,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTimeShrink)) {
       query["startTime"] = request.startTimeShrink;
+    }
+
+    if (!$dara.isNull(request.states)) {
+      query["states"] = request.states;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3998,6 +4026,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.networkServiceName)) {
       body["networkServiceName"] = request.networkServiceName;
+    }
+
+    if (!$dara.isNull(request.volumeIds)) {
+      body["volumeIds"] = request.volumeIds;
     }
 
     if (!$dara.isNull(request.workerSpec)) {

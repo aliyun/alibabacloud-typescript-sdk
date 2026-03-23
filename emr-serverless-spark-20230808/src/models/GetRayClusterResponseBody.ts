@@ -15,6 +15,11 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
   enableAutoScaling?: boolean;
   /**
    * @example
+   * ecs.gn6i-c4g1.xlarge
+   */
+  gpuSpec?: string;
+  /**
+   * @example
    * 60
    */
   idleTimeoutSeconds?: number;
@@ -37,6 +42,7 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
     return {
       cpu: 'cpu',
       enableAutoScaling: 'enableAutoScaling',
+      gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
       queueName: 'queueName',
@@ -48,6 +54,7 @@ export class GetRayClusterResponseBodyHeadSpec extends $dara.Model {
     return {
       cpu: 'string',
       enableAutoScaling: 'boolean',
+      gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
       queueName: 'string',
@@ -169,6 +176,11 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   cpu?: string;
   /**
    * @example
+   * ecs.gn6i-c4g1.xlarge
+   */
+  gpuSpec?: string;
+  /**
+   * @example
    * WorkerGroup1
    */
   groupName?: string;
@@ -205,6 +217,7 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpu: 'cpu',
+      gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
       memory: 'memory',
@@ -218,6 +231,7 @@ export class GetRayClusterResponseBodyWorkerSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
       memory: 'string',
@@ -297,6 +311,11 @@ export class GetRayClusterResponseBody extends $dara.Model {
   jobUrl?: string;
   /**
    * @example
+   * http://emr-spark-ray-gateway-cn-hangzhou-internal.emr.aliyuncs.com
+   */
+  jobUrlInner?: string;
+  /**
+   * @example
    * ok
    */
   message?: string;
@@ -355,6 +374,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
    * 123456789012
    */
   userId?: string;
+  volumeIds?: string[];
   workerSpec?: GetRayClusterResponseBodyWorkerSpec[];
   static names(): { [key: string]: string } {
     return {
@@ -371,6 +391,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
       instanceId: 'instanceId',
       instances: 'instances',
       jobUrl: 'jobUrl',
+      jobUrlInner: 'jobUrlInner',
       message: 'message',
       modified: 'modified',
       modifiedTime: 'modifiedTime',
@@ -383,6 +404,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
       state: 'state',
       submitToken: 'submitToken',
       userId: 'userId',
+      volumeIds: 'volumeIds',
       workerSpec: 'workerSpec',
     };
   }
@@ -402,6 +424,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
       instanceId: 'string',
       instances: { 'type': 'array', 'itemType': GetRayClusterResponseBodyInstances },
       jobUrl: 'string',
+      jobUrlInner: 'string',
       message: 'string',
       modified: 'boolean',
       modifiedTime: 'number',
@@ -414,6 +437,7 @@ export class GetRayClusterResponseBody extends $dara.Model {
       state: 'string',
       submitToken: 'string',
       userId: 'string',
+      volumeIds: { 'type': 'array', 'itemType': 'string' },
       workerSpec: { 'type': 'array', 'itemType': GetRayClusterResponseBodyWorkerSpec },
     };
   }
@@ -424,6 +448,9 @@ export class GetRayClusterResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.instances)) {
       $dara.Model.validateArray(this.instances);
+    }
+    if(Array.isArray(this.volumeIds)) {
+      $dara.Model.validateArray(this.volumeIds);
     }
     if(Array.isArray(this.workerSpec)) {
       $dara.Model.validateArray(this.workerSpec);

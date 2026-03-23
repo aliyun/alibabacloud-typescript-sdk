@@ -61,6 +61,11 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    */
   mbSeconds?: number;
   /**
+   * @example
+   * 5
+   */
+  priority?: string;
+  /**
    * @remarks
    * The name of the resource queue on which the Spark jobs run.
    * 
@@ -113,6 +118,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       kyuubiServiceId: 'kyuubiServiceId',
       latestSqlStatementStatus: 'latestSqlStatementStatus',
       mbSeconds: 'mbSeconds',
+      priority: 'priority',
       resourceQueueId: 'resourceQueueId',
       runLog: 'runLog',
       startTime: 'startTime',
@@ -133,6 +139,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       kyuubiServiceId: 'string',
       latestSqlStatementStatus: 'string',
       mbSeconds: 'number',
+      priority: 'string',
       resourceQueueId: 'string',
       runLog: RunLog,
       startTime: 'string',

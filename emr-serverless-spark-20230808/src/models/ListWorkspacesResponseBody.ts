@@ -251,6 +251,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
    * out of stock
    */
   failReason?: string;
+  gpuSpec?: string[];
   /**
    * @remarks
    * The unit of the subscription duration.
@@ -361,6 +362,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       duration: 'duration',
       endTime: 'endTime',
       failReason: 'failReason',
+      gpuSpec: 'gpuSpec',
       paymentDurationUnit: 'paymentDurationUnit',
       paymentStatus: 'paymentStatus',
       paymentType: 'paymentType',
@@ -389,6 +391,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       duration: 'number',
       endTime: 'number',
       failReason: 'string',
+      gpuSpec: { 'type': 'array', 'itemType': 'string' },
       paymentDurationUnit: 'string',
       paymentStatus: 'string',
       paymentType: 'string',
@@ -407,6 +410,9 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.gpuSpec)) {
+      $dara.Model.validateArray(this.gpuSpec);
+    }
     if(this.prePaidQuota && typeof (this.prePaidQuota as any).validate === 'function') {
       (this.prePaidQuota as any).validate();
     }

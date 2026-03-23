@@ -10,12 +10,18 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
   cu?: number;
   /**
    * @example
+   * 100
+   */
+  gpu?: number;
+  /**
+   * @example
    * 0.5
    */
   maxCu?: number;
   static names(): { [key: string]: string } {
     return {
       cu: 'cu',
+      gpu: 'gpu',
       maxCu: 'maxCu',
     };
   }
@@ -23,6 +29,7 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cu: 'number',
+      gpu: 'number',
       maxCu: 'number',
     };
   }
@@ -38,6 +45,7 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
 
 export class EditWorkspaceQueueRequest extends $dara.Model {
   environments?: string[];
+  gpuSpec?: string[];
   resourceSpec?: EditWorkspaceQueueRequestResourceSpec;
   /**
    * @example
@@ -57,6 +65,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       environments: 'environments',
+      gpuSpec: 'gpuSpec',
       resourceSpec: 'resourceSpec',
       workspaceId: 'workspaceId',
       workspaceQueueName: 'workspaceQueueName',
@@ -67,6 +76,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       environments: { 'type': 'array', 'itemType': 'string' },
+      gpuSpec: { 'type': 'array', 'itemType': 'string' },
       resourceSpec: EditWorkspaceQueueRequestResourceSpec,
       workspaceId: 'string',
       workspaceQueueName: 'string',
@@ -77,6 +87,9 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.environments)) {
       $dara.Model.validateArray(this.environments);
+    }
+    if(Array.isArray(this.gpuSpec)) {
+      $dara.Model.validateArray(this.gpuSpec);
     }
     if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
       (this.resourceSpec as any).validate();

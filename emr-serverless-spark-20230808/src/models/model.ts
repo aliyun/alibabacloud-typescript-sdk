@@ -65,6 +65,7 @@ export { ListJobRunsResponseBodyJobRunsStateChangeReason } from './ListJobRunsRe
 export { ListJobRunsResponseBodyJobRuns } from './ListJobRunsResponseBody';
 export { ListKyuubiServicesResponseBodyDataKyuubiServices } from './ListKyuubiServicesResponseBody';
 export { ListKyuubiServicesResponseBodyData } from './ListKyuubiServicesResponseBody';
+export { ListKyuubiSparkApplicationsRequestEndTime } from './ListKyuubiSparkApplicationsRequest';
 export { ListKyuubiSparkApplicationsRequestStartTime } from './ListKyuubiSparkApplicationsRequest';
 export { ListKyuubiSparkApplicationsResponseBodyApplications } from './ListKyuubiSparkApplicationsResponseBody';
 export { ListKyuubiTokenResponseBodyDataTokens } from './ListKyuubiTokenResponseBody';

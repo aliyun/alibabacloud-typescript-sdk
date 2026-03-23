@@ -179,6 +179,11 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * 5
+   */
+  priority?: string;
+  /**
    * @remarks
    * The version of Spark on which the jobs run.
    * 
@@ -256,6 +261,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       log: 'log',
       mbSeconds: 'mbSeconds',
       name: 'name',
+      priority: 'priority',
       releaseVersion: 'releaseVersion',
       resourceQueueId: 'resourceQueueId',
       state: 'state',
@@ -283,6 +289,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       log: RunLog,
       mbSeconds: 'number',
       name: 'string',
+      priority: 'string',
       releaseVersion: 'string',
       resourceQueueId: 'string',
       state: 'string',

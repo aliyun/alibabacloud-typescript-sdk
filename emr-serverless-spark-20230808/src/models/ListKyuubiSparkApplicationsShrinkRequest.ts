@@ -19,6 +19,12 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
    * kyuubi-connection-spark-sql-anonymous-fa9a5e73-b4b1-474a-b****
    */
   applicationName?: string;
+  endTimeShrink?: string;
+  /**
+   * @example
+   * ["SUCCESS"]
+   */
+  latestSqlStatementStatuses?: string;
   /**
    * @remarks
    * The maximum number of entries to return.
@@ -27,6 +33,10 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
    * 20
    */
   maxResults?: number;
+  /**
+   * @example
+   * 60000
+   */
   minDuration?: number;
   /**
    * @remarks
@@ -37,17 +47,32 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
    */
   nextToken?: string;
   orderByShrink?: string;
+  /**
+   * @example
+   * root_queue
+   */
   resourceQueueId?: string;
+  /**
+   * @example
+   * asc
+   */
   sort?: string;
   /**
    * @remarks
    * The range of start time.
    */
   startTimeShrink?: string;
+  /**
+   * @example
+   * ["ERROR"]
+   */
+  states?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'applicationId',
       applicationName: 'applicationName',
+      endTimeShrink: 'endTime',
+      latestSqlStatementStatuses: 'latestSqlStatementStatuses',
       maxResults: 'maxResults',
       minDuration: 'minDuration',
       nextToken: 'nextToken',
@@ -55,6 +80,7 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
       resourceQueueId: 'resourceQueueId',
       sort: 'sort',
       startTimeShrink: 'startTime',
+      states: 'states',
     };
   }
 
@@ -62,6 +88,8 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
     return {
       applicationId: 'string',
       applicationName: 'string',
+      endTimeShrink: 'string',
+      latestSqlStatementStatuses: 'string',
       maxResults: 'number',
       minDuration: 'number',
       nextToken: 'string',
@@ -69,6 +97,7 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
       resourceQueueId: 'string',
       sort: 'string',
       startTimeShrink: 'string',
+      states: 'string',
     };
   }
 
