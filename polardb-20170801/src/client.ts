@@ -385,6 +385,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 应用提示词策略到实例
+   * 
+   * @param tmpReq - ApplyApplicationPromptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyApplicationPromptsResponse
+   */
+  async applyApplicationPromptsWithOptions(tmpReq: $_model.ApplyApplicationPromptsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyApplicationPromptsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ApplyApplicationPromptsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.disabledPromptIds)) {
+      request.disabledPromptIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.disabledPromptIds, "DisabledPromptIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.enabledPromptIds)) {
+      request.enabledPromptIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.enabledPromptIds, "EnabledPromptIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.disabledPromptIdsShrink)) {
+      query["DisabledPromptIds"] = request.disabledPromptIdsShrink;
+    }
+
+    if (!$dara.isNull(request.enabledPromptIdsShrink)) {
+      query["EnabledPromptIds"] = request.enabledPromptIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApplyApplicationPrompts",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApplyApplicationPromptsResponse>(await this.callApi(params, req, runtime), new $_model.ApplyApplicationPromptsResponse({}));
+  }
+
+  /**
+   * 应用提示词策略到实例
+   * 
+   * @param request - ApplyApplicationPromptsRequest
+   * @returns ApplyApplicationPromptsResponse
+   */
+  async applyApplicationPrompts(request: $_model.ApplyApplicationPromptsRequest): Promise<$_model.ApplyApplicationPromptsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.applyApplicationPromptsWithOptions(request, runtime);
+  }
+
+  /**
    * 挂载PolarFS到PolarDB应用
    * 
    * @param request - AttachApplicationPolarFSRequest
@@ -1898,6 +1958,60 @@ export default class Client extends OpenApi {
   async createApplicationEndpointAddress(request: $_model.CreateApplicationEndpointAddressRequest): Promise<$_model.CreateApplicationEndpointAddressResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createApplicationEndpointAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建应用提示词策略
+   * 
+   * @param request - CreateApplicationPromptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationPromptResponse
+   */
+  async createApplicationPromptWithOptions(request: $_model.CreateApplicationPromptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationPromptResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.promptName)) {
+      query["PromptName"] = request.promptName;
+    }
+
+    if (!$dara.isNull(request.promptType)) {
+      query["PromptType"] = request.promptType;
+    }
+
+    if (!$dara.isNull(request.promptValue)) {
+      query["PromptValue"] = request.promptValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationPrompt",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationPromptResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationPromptResponse({}));
+  }
+
+  /**
+   * 创建应用提示词策略
+   * 
+   * @param request - CreateApplicationPromptRequest
+   * @returns CreateApplicationPromptResponse
+   */
+  async createApplicationPrompt(request: $_model.CreateApplicationPromptRequest): Promise<$_model.CreateApplicationPromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationPromptWithOptions(request, runtime);
   }
 
   /**
@@ -4165,6 +4279,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除应用提示词策略
+   * 
+   * @param request - DeleteApplicationPromptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationPromptResponse
+   */
+  async deleteApplicationPromptWithOptions(request: $_model.DeleteApplicationPromptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationPromptResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.promptId)) {
+      query["PromptId"] = request.promptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationPrompt",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationPromptResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationPromptResponse({}));
+  }
+
+  /**
+   * 删除应用提示词策略
+   * 
+   * @param request - DeleteApplicationPromptRequest
+   * @returns DeleteApplicationPromptResponse
+   */
+  async deleteApplicationPrompt(request: $_model.DeleteApplicationPromptRequest): Promise<$_model.DeleteApplicationPromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationPromptWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes the backup sets of a PolarDB cluster.
    * 
    * @remarks
@@ -6416,6 +6576,56 @@ export default class Client extends OpenApi {
   async describeApplicationParameters(request: $_model.DescribeApplicationParametersRequest): Promise<$_model.DescribeApplicationParametersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeApplicationParametersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询当前应用下所有的应用提示词策略列表
+   * 
+   * @param request - DescribeApplicationPromptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationPromptsResponse
+   */
+  async describeApplicationPromptsWithOptions(request: $_model.DescribeApplicationPromptsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationPromptsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationPrompts",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationPromptsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationPromptsResponse({}));
+  }
+
+  /**
+   * 查询当前应用下所有的应用提示词策略列表
+   * 
+   * @param request - DescribeApplicationPromptsRequest
+   * @returns DescribeApplicationPromptsResponse
+   */
+  async describeApplicationPrompts(request: $_model.DescribeApplicationPromptsRequest): Promise<$_model.DescribeApplicationPromptsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationPromptsWithOptions(request, runtime);
   }
 
   /**
@@ -15307,6 +15517,60 @@ export default class Client extends OpenApi {
   async modifyApplicationParameter(request: $_model.ModifyApplicationParameterRequest): Promise<$_model.ModifyApplicationParameterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyApplicationParameterWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用提示词策略
+   * 
+   * @param request - ModifyApplicationPromptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApplicationPromptResponse
+   */
+  async modifyApplicationPromptWithOptions(request: $_model.ModifyApplicationPromptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyApplicationPromptResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.promptId)) {
+      query["PromptId"] = request.promptId;
+    }
+
+    if (!$dara.isNull(request.promptName)) {
+      query["PromptName"] = request.promptName;
+    }
+
+    if (!$dara.isNull(request.promptValue)) {
+      query["PromptValue"] = request.promptValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyApplicationPrompt",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyApplicationPromptResponse>(await this.callApi(params, req, runtime), new $_model.ModifyApplicationPromptResponse({}));
+  }
+
+  /**
+   * 修改应用提示词策略
+   * 
+   * @param request - ModifyApplicationPromptRequest
+   * @returns ModifyApplicationPromptResponse
+   */
+  async modifyApplicationPrompt(request: $_model.ModifyApplicationPromptRequest): Promise<$_model.ModifyApplicationPromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyApplicationPromptWithOptions(request, runtime);
   }
 
   /**
