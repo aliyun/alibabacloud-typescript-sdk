@@ -8,15 +8,16 @@ export class DescribeSlsAuthStatusResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 3589D3A3-4A04-51CB-AA89-353ED20A****
+   * 3589D3A3-4A04-51CB-AA89-353ED20ACB10
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether WAF is authorized to access Logstores. Valid values:
+   * The authorization status. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: indicates that authorization is granted.
+   * 
+   * - **false**: indicates that authorization is not granted.
    * 
    * @example
    * false

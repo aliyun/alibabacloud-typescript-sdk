@@ -7,8 +7,9 @@ export class CreatePostpaidInstanceRequest extends $dara.Model {
    * @remarks
    * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
+   * 
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

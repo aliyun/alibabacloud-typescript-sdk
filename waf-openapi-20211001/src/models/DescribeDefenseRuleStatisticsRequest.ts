@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The quaternary condition by which to group the rule statistics. This value cannot be the same as the primary, secondary, or tertiary condition.
+   * 
    * @example
    * riskLevel
    */
   fourthKey?: string;
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The primary condition by which to group the rule statistics.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,22 +34,37 @@ export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
    */
   primaryKey?: string;
   /**
+   * @remarks
+   * The region of the WAF instance. Valid values:
+   * 
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
+   * @remarks
+   * The secondary condition by which to group the rule statistics. This value cannot be the same as the primary condition.
+   * 
    * @example
    * action
    */
   secondaryKey?: string;
   /**
    * @remarks
+   * The ID of the protection template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +72,9 @@ export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
    */
   templateId?: number;
   /**
+   * @remarks
+   * The tertiary condition by which to group the rule statistics. This value cannot be the same as the primary or secondary condition.
+   * 
    * @example
    * status
    */

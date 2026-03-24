@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseResourceResponseBodyResourceResponseHeaders extends $dara.Model {
   /**
    * @remarks
-   * Specifies the key for a custom response header.
+   * The key of the custom response header.
    * 
    * @example
    * Header-Key
@@ -13,7 +13,7 @@ export class DescribeDefenseResourceResponseBodyResourceResponseHeaders extends 
   key?: string;
   /**
    * @remarks
-   * Specifies the value for a custom response header.
+   * The value of the custom response header.
    * 
    * @example
    * Header-Value
@@ -45,10 +45,11 @@ export class DescribeDefenseResourceResponseBodyResourceResponseHeaders extends 
 export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   /**
    * @remarks
-   * The status of the tracking cookie.
+   * Indicates whether the tracking cookie feature is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -56,10 +57,11 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   acwCookieStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the tracking cookie.
+   * Indicates whether the secure attribute of the tracking cookie is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -67,10 +69,11 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   acwSecureStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the slider CAPTCHA cookie.
+   * Indicates whether the secure attribute of the slider CAPTCHA cookie is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -78,9 +81,9 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   acwV3SecureStatus?: number;
   /**
    * @remarks
-   * The custom header fields.
+   * The list of custom header fields used to identify the actual client IP address.
    * 
-   * >  If the value of XffStatus is 1, the first IP address in the specified header field is used as the originating IP address of the client to prevent X-Forwarded-For (XFF) forgery. If you specify multiple header fields, WAF reads the values of the header fields in sequence until the originating IP address is obtained. If the originating IP address cannot be obtained, the first IP address in the XFF header field is used as the originating IP address of the client.
+   * > This parameter takes effect only when XffStatus is set to 1. WAF uses the first IP address in the specified header fields as the client source IP address to prevent X-Forwarded-For (XFF) spoofing. If multiple headers are specified, WAF checks them in order. If the first header does not contain a source IP address, WAF checks the next header. If none of the specified headers contain a source IP address, WAF uses the first IP address in the X-Forwarded-For header.
    */
   customHeaders?: string[];
   /**
@@ -93,7 +96,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The details of the protected object. Different key-value pairs indicate different attributes of the protected object.
+   * The details of the protected object. The fields vary based on the cloud service type.
    * 
    * @example
    * {
@@ -104,7 +107,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the protected object was created. Unit: milliseconds.
+   * The time when the protected object was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1607493144000
@@ -112,16 +115,23 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the protected object was modified. Unit: milliseconds.
+   * The time when the protected object was modified. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1691720010000
    */
   gmtModified?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * @example
+   * waf_v2_public_cn-wwo****
+   */
   instanceId?: string;
   /**
    * @remarks
-   * The user ID (UID) of the Alibaba Cloud account to which the protected object belongs.
+   * The ID of the Alibaba Cloud account to which the protected object belongs.
    * 
    * @example
    * 170457******9107
@@ -129,7 +139,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The pattern used for the protected object.
+   * The protection pattern of the protected object.
    * 
    * @example
    * domain
@@ -137,7 +147,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * The name of the cloud service.
+   * The type of cloud service to which the protected object belongs.
    * 
    * @example
    * alb
@@ -171,8 +181,9 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
    * @remarks
    * The origin of the protected object. Valid values:
    * 
-   * *   **custom**
-   * *   **access**
+   * - **custom**: The protected object is created through provisioning.
+   * 
+   * - **access**: The protected object is user-defined.
    * 
    * @example
    * custom
@@ -180,15 +191,16 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   resourceOrigin?: string;
   /**
    * @remarks
-   * The response header.
+   * The custom response headers configured for the protected object.
    */
   responseHeaders?: DescribeDefenseResourceResponseBodyResourceResponseHeaders[];
   /**
    * @remarks
-   * Indicates whether a Layer 7 proxy is deployed in front of WAF, such as Anti-DDoS Proxy and Alibaba Cloud CDN. Valid values:
+   * Indicates whether a Layer 7 proxy such as Anti-DDoS or CDN is enabled in front of WAF. Valid values:
    * 
-   * *   **0**: No Layer 7 proxy is deployed.
-   * *   **1**: A Layer 7 proxy is deployed.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -261,7 +273,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
 export class DescribeDefenseResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 439AADF2-368C-5E98-B14E-3086****0573
@@ -269,7 +281,7 @@ export class DescribeDefenseResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The protected object.
+   * The details of the protected object.
    */
   resource?: DescribeDefenseResourceResponseBodyResource;
   static names(): { [key: string]: string } {

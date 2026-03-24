@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowTopUrlResponseBodyRuleHitsTopUrl extends $dara.Model {
   /**
    * @remarks
-   * The total number of requests that are initiated by using the URL.
+   * The total number of requests for the URL.
    * 
    * @example
    * 181174784
@@ -13,7 +13,7 @@ export class DescribeFlowTopUrlResponseBodyRuleHitsTopUrl extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The URL that is used to initiate requests.
+   * The requested URL.
    * 
    * @example
    * www.aliyundoc.com/path1
@@ -53,7 +53,7 @@ export class DescribeFlowTopUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of the top 10 URLs that are used to initiate requests.
+   * The top 10 URLs that are most frequently accessed.
    */
   ruleHitsTopUrl?: DescribeFlowTopUrlResponseBodyRuleHitsTopUrl[];
   static names(): { [key: string]: string } {

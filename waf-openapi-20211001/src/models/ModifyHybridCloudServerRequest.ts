@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridCloudServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The continent.
+   * The continent where the hybrid cloud node resides.
    * 
    * This parameter is required.
    * 
@@ -15,19 +15,19 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   continents?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The custom name of the hybrid cloud node.
    * 
    * This parameter is required.
    * 
    * @example
-   * demo
+   * 节点名称
    */
   customName?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the hybrid cloud node.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   mid?: string;
   /**
    * @remarks
-   * The cloud service provider.
+   * The cloud service provider of the hybrid cloud node. Example: aliyun.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The city.
+   * The region code of the city where the hybrid cloud node resides.
    * 
    * This parameter is required.
    * 
@@ -67,10 +67,11 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   regionCode?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

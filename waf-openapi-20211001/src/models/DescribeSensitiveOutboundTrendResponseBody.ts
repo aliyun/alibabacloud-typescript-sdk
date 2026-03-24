@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of personal information records.
+   * The total number of personal information entries detected during the time period.
    * 
    * @example
    * 672
@@ -13,7 +13,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
   infoCount?: number;
   /**
    * @remarks
-   * The total number of personal information records involved in cross-border data transfer.
+   * The total number of outbound personal information entries detected during the time period.
    * 
    * @example
    * 541
@@ -21,7 +21,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
   infoOutboundCount?: number;
   /**
    * @remarks
-   * The total number of sensitive information records involved in cross-border data transfer.
+   * The total number of sensitive outbound data entries detected during the time period.
    * 
    * @example
    * 378
@@ -29,7 +29,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
   sensitiveOutboundCount?: number;
   /**
    * @remarks
-   * The time of cross-border data transfer. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The timestamp that indicates when the data was recorded. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1672502400
@@ -65,7 +65,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
 export class DescribeSensitiveOutboundTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information records involved in cross-border data transfer.
+   * The trend data of sensitive outbound data.
    */
   data?: DescribeSensitiveOutboundTrendResponseBodyData[];
   /**

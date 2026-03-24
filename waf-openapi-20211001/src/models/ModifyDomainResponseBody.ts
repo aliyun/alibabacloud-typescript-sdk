@@ -13,7 +13,7 @@ export class ModifyDomainResponseBodyDomainInfo extends $dara.Model {
   cname?: string;
   /**
    * @remarks
-   * The domain name whose access configurations you modified.
+   * The domain name whose configurations are modified.
    * 
    * @example
    * www.aliyundoc.com
@@ -55,15 +55,15 @@ export class ModifyDomainResponseBodyDomainInfo extends $dara.Model {
 export class ModifyDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the domain name.
+   * The information about the modified domain name.
    */
   domainInfo?: ModifyDomainResponseBodyDomainInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   * D7861F61-5B61-46CE-A47C-6B19160D****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

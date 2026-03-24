@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyResourceLogStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
+   * 
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -38,7 +39,7 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -48,8 +49,9 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the log collection feature for the protected object. Valid values:
    * 
-   * *   **true:** enables the log collection feature.
-   * *   **false:** disables the log collection feature.
+   * - **true**: Enables the feature.
+   * 
+   * - **false**: Disables the feature.
    * 
    * This parameter is required.
    * 

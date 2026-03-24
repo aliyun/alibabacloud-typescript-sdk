@@ -7,7 +7,7 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region in which the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -28,10 +29,11 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the compliance check feature. Valid values:
+   * Indicates whether to enable the compliance review feature. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: enabled.
+   * 
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -39,7 +41,7 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   reportStatus?: number;
   /**
    * @remarks
-   * The name of the protected object group to which the protected object belongs.
+   * The name of the protected object group for which you want to modify the API security module status.
    * 
    * @example
    * group1
@@ -55,7 +57,7 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The name of the protected object.
+   * The name of the protected object for which you want to modify the API security module status.
    * 
    * @example
    * cwaf-***-waf
@@ -63,10 +65,11 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   resources?: string;
   /**
    * @remarks
-   * The status of the tracing and auditing feature. Valid values:
+   * Indicates whether to enable the traceability audit feature. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: enabled.
+   * 
+   * - **0**: disabled.
    * 
    * @example
    * 1

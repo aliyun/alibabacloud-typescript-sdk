@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDomainCertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 03E3B4DD-2BE7-5D9D-80E8-***

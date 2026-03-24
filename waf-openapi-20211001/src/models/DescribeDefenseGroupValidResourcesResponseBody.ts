@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDefenseGroupValidResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A57BA089-3B28-5C82-8331-7B94****4978
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The names of the protected objects.
+   */
   resources?: string[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 12
    */

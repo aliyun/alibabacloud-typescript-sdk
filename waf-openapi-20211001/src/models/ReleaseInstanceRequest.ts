@@ -7,7 +7,7 @@ export class ReleaseInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  Obtain the ID of the WAF instance by calling the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the current WAF instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class ReleaseInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region to which the WAF instance belongs. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: indicates the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: indicates regions outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -30,7 +31,7 @@ export class ReleaseInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q

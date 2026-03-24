@@ -15,8 +15,9 @@ export class ModifyResourceLogStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the log collection feature is enabled for the protected object. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The feature is enabled.
+   * 
+   * - **false**: The feature is disabled.
    * 
    * @example
    * true

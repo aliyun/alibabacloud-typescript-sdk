@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefaultHttpsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,13 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The type of the cipher suites. Valid values:
+   * The type of the cipher suite. Valid values:
    * 
-   * *   **1**: all cipher suites.
-   * *   **2**: strong cipher suites.
-   * *   **99**: custom cipher suites.
+   * - **1**: adds all cipher suites.
+   * 
+   * - **2**: adds strong cipher suites.
+   * 
+   * - **99**: adds custom cipher suites.
    * 
    * @example
    * 0
@@ -27,15 +29,16 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
   cipherSuite?: number;
   /**
    * @remarks
-   * The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+   * The custom cipher suites that you want to add. This parameter is used only when **CipherSuite** is set to **99**.
    */
   customCiphers?: string[];
   /**
    * @remarks
    * Specifies whether to support TLS 1.3. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: supports TLS 1.3.
+   * 
+   * - **false**: does not support TLS 1.3.
    * 
    * @example
    * true
@@ -43,9 +46,9 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -57,8 +60,9 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
    * @remarks
    * The region in which the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -66,7 +70,7 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 阿里云资源组ID。
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -76,9 +80,11 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
    * @remarks
    * The version of the TLS protocol. Valid values:
    * 
-   * *   **tlsv1**
-   * *   **tlsv1.1**
-   * *   **tlsv1.2**
+   * - **tlsv1**
+   * 
+   * - **tlsv1.1**
+   * 
+   * - **tlsv1.2**
    * 
    * This parameter is required.
    * 

@@ -7,9 +7,11 @@ export class DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs extends $dar
    * @remarks
    * The type of the log subscription. Valid values:
    * 
-   * *   **risk**: risk information.
-   * *   **event**: attack event information.
-   * *   **asset**: asset information.
+   * - **risk**: risk information.
+   * 
+   * - **event**: attack event information.
+   * 
+   * - **asset**: asset information.
    * 
    * @example
    * risk
@@ -43,8 +45,9 @@ export class DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs extends $dar
    * @remarks
    * The status of API security log subscription. Valid values:
    * 
-   * *   **true**: enabled.
-   * *   **false**: disabled.
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -87,7 +90,7 @@ export class DescribeApisecLogDeliveriesResponseBody extends $dara.Model {
   deliveryConfigs?: DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2EFCFE18-78F8-5079-B312-07***48B

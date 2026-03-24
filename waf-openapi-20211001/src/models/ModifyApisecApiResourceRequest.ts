@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApisecApiResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the API.
+   * The ID of the API asset that you want to modify.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,8 @@ export class ModifyApisecApiResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter is required only for hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the ID of the hybrid cloud cluster.
    * 
    * @example
    * 428
@@ -24,10 +25,11 @@ export class ModifyApisecApiResourceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to follow the API. Valid values:
+   * Indicates whether to follow the API asset. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0** (default): no
+   * - **1**: follows the API asset.
+   * 
+   * - **0** (default): does not follow the API asset.
    * 
    * @example
    * 0
@@ -35,9 +37,9 @@ export class ModifyApisecApiResourceRequest extends $dara.Model {
   follow?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -47,7 +49,7 @@ export class ModifyApisecApiResourceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remarks of the API asset. You can use this parameter to add a custom annotation to the API asset for easier identification.
    * 
    * @example
    * know
@@ -55,10 +57,11 @@ export class ModifyApisecApiResourceRequest extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -66,7 +69,7 @@ export class ModifyApisecApiResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the Alibaba Cloud resource group to which the WAF instance belongs.
    * 
    * @example
    * rg-acfm***q

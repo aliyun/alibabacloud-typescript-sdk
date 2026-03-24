@@ -15,7 +15,7 @@ export class ModifyHybridCloudGroupExpansionServerRequest extends $dara.Model {
   clusterId?: number;
   /**
    * @remarks
-   * The ID of the node group.
+   * The ID of the node group in the hybrid cloud cluster.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ModifyHybridCloudGroupExpansionServerRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ModifyHybridCloudGroupExpansionServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the node that you want to add to the node group.
    * 
    * This parameter is required.
    * 
@@ -47,10 +47,11 @@ export class ModifyHybridCloudGroupExpansionServerRequest extends $dara.Model {
   mids?: string;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -58,7 +59,7 @@ export class ModifyHybridCloudGroupExpansionServerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the Resource Manager resource group.
    * 
    * @example
    * rg-acfm***q

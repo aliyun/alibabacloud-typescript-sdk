@@ -6,7 +6,8 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter is available only for hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -14,10 +15,11 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The evaluation result. Valid values:
+   * The assessment result. Valid values:
    * 
-   * *   **report**: Risks exist in cross-border data transfer.
-   * *   **none**: No risks exist in cross-border data transfer.
+   * - **report**: a data outbound transfer threat exists.
+   * 
+   * - **none**: no data outbound transfer threat exists.
    * 
    * @example
    * report
@@ -25,9 +27,9 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   detectionResult?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The end of the time range to query. This value is a UNIX timestamp that is in UTC. Unit: seconds.
    * 
-   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * > The compliance assessment feature supports querying data from the last month, the last 3 months, the last 6 months, the last 12 months, and from January 1 of the previous year to the present. Make sure that the time range is valid.
    * 
    * @example
    * 1725966000
@@ -35,9 +37,9 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -47,10 +49,11 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the sorting field. Valid values:
+   * The field to use for sorting. Valid values:
    * 
-   * *   **total_count** (default): total number of data entries
-   * *   **outbound_count**: total number of data entries that are transferred across borders
+   * - **total_count**: sorts by the total number of personal information data entries. This is the default value.
+   * 
+   * - **outbound_count**: sorts by the total number of outbound transfer data entries.
    * 
    * @example
    * total_count
@@ -58,10 +61,11 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   orderKey?: string;
   /**
    * @remarks
-   * The sorting method. Valid values:
+   * The sorting order. Valid values:
    * 
-   * *   **desc** (default): in descending order
-   * *   **asc**: in ascending order
+   * - **desc**: descending order. This is the default value.
+   * 
+   * - **asc**: ascending order.
    * 
    * @example
    * desc
@@ -69,7 +73,7 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -77,7 +81,7 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries to return on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -85,10 +89,11 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -104,9 +109,9 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of the sensitive data. Separate multiple types with commas (,).
+   * The type of sensitive data. Separate multiple types with commas (,).
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data. Only built-in types of sensitive data are supported for this operation.
+   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported sensitive data types. This parameter supports only built-in sensitive data types.
    * 
    * @example
    * 1000,1001
@@ -116,9 +121,11 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
    * @remarks
    * The sensitivity level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high.
+   * 
+   * - **medium**: medium.
+   * 
+   * - **low**: low.
    * 
    * @example
    * high
@@ -126,10 +133,11 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The type of the information. Valid values:
+   * The type of information to query. Valid values:
    * 
-   * *   **info** (default): full personal information
-   * *   **sensitive**: sensitive personal information
+   * - **info**: all personal information. This is the default value.
+   * 
+   * - **sensitive**: only sensitive personal information.
    * 
    * @example
    * info
@@ -137,9 +145,9 @@ export class DescribeSensitiveOutboundStatisticRequest extends $dara.Model {
   sensitiveType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The beginning of the time range to query. This value is a UNIX timestamp that is in UTC. Unit: seconds.
    * 
-   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * > The compliance assessment feature supports querying data from the last month, the last 3 months, the last 6 months, the last 12 months, and from January 1 of the previous year to the present. Make sure that the time range is valid.
    * 
    * @example
    * 1672502400

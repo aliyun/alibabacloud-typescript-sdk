@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Model {
   /**
    * @remarks
-   * The description of the IP address in the blacklist.
+   * The description of the template.
    * 
    * @example
    * test0003asdffas
@@ -13,9 +13,9 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The time after which the IP address blacklist becomes invalid. Unit: seconds.
+   * The timestamp after which the IP address blacklist becomes invalid. Unit: seconds.
    * 
-   * >  If the value of this parameter is **0**, the blacklist is permanently valid.
+   * > If the value is **0**, the IP address blacklist is permanently valid.
    * 
    * @example
    * 1662603328
@@ -23,7 +23,7 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   expiredTime?: number;
   /**
    * @remarks
-   * The most recent time when the IP address blacklist was modified.
+   * The time when the IP address in the blacklist was modified.
    * 
    * @example
    * 1665456202000
@@ -31,7 +31,7 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   gmtModified?: number;
   /**
    * @remarks
-   * The IP address in the IP address blacklist.
+   * The IP address.
    * 
    * @example
    * 192.0.XX.XX
@@ -39,7 +39,7 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   ip?: string;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule for major event protection.
+   * The ID of the IP address blacklist rule for critical event protection.
    * 
    * @example
    * 8508970
@@ -47,7 +47,7 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the rule template for major event protection.
+   * The ID of the critical event protection template.
    * 
    * @example
    * 9684
@@ -87,7 +87,7 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
 export class DescribeMajorProtectionBlackIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of IP addresses in the IP address blacklist.
+   * The list of IP addresses in the blacklist.
    */
   ipList?: DescribeMajorProtectionBlackIpsResponseBodyIpList[];
   /**

@@ -7,7 +7,7 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address blacklist for major event protection that you want to delete. You can specify multiple CIDR blocks or IP addresses. IPv4 and IPv6 addresses are supported. Separate the CIDR blocks or IP addresses with commas (,). For more information, see [Protection for major events](https://help.aliyun.com/document_detail/425591.html).
+   * The IP address blacklist to be deleted. Supports custom IP addresses or IP address segments in the blacklist, and supports both IPv4 and IPv6. Multiple IP addresses are separated by commas (,). For more information, see [Critical event protection](https://help.aliyun.com/document_detail/425591.html).
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,11 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   ipList?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
+   * 
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -38,7 +39,7 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -46,7 +47,7 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule for major event protection.
+   * The ID of the IP address blacklist rule for critical event protection.
    * 
    * This parameter is required.
    * 
@@ -56,7 +57,7 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule template for major event protection.
+   * The ID of the critical event protection template.
    * 
    * This parameter is required.
    * 

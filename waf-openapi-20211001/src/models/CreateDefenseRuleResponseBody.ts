@@ -8,12 +8,12 @@ export class CreateDefenseRuleResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 26E46541-7AAB-5565-801D-F14DBDC5F186
+   * 26E46541-7AAB-5565-801D-F14DBDC5****
    */
   requestId?: string;
   /**
    * @remarks
-   * The IDs of the protection rules. Multiple IDs are separated by commas (,).
+   * The IDs of the created protection rules, separated by commas (,).
    * 
    * @example
    * 22215,23354,462165

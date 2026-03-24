@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecAbnormalDomainStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * The ID of the Hybrid Cloud WAF cluster.
+   * 
+   * > This parameter is required only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the IDs of Hybrid Cloud WAF clusters.
    * 
    * @example
    * 428
@@ -14,7 +15,7 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
+   * The end of the time range to query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1687313820
@@ -24,7 +25,7 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,10 +35,11 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order of the results. Valid values:
    * 
-   * - **asc**: ascending order.
-   * - **desc**: descending order.
+   * - **asc**: sorts the results in ascending order.
+   * 
+   * - **desc**: sorts the results in descending order.
    * 
    * @example
    * desc
@@ -45,7 +47,7 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $dara.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number. Pages start from page **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -53,18 +55,19 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **5**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
-   * 5
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -80,7 +83,7 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
+   * The beginning of the time range to query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1682571600

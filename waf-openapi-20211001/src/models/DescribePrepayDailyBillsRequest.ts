@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrepayDailyBillsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * ID of the WAF instance.
    * 
-   * >  You can call the [DescribePayInfo](https://help.aliyun.com/document_detail/86651.html) operation to query the ID of your WAF instance.
+   * > To view your WAF instance ID, call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribePrepayDailyBillsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * Page number of the returned list. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribePrepayDailyBillsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * Number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -33,10 +33,11 @@ export class DescribePrepayDailyBillsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * Region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -44,7 +45,7 @@ export class DescribePrepayDailyBillsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

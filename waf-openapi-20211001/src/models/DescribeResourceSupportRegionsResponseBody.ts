@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceSupportRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Indicates the request ID.
    * 
    * @example
-   * 58FD****-3D56-5DE8-91E0-96A26BABFFDD
+   * 58FDF266-3D56-5DE8-91E0-96A26BAB****
    */
   requestId?: string;
   /**
    * @remarks
-   * An array of region IDs of the CLB and ECS instances that are added to WAF in cloud native mode.
+   * The list of region IDs supported by transparent proxy mode.
    */
   supportRegions?: string[];
   static names(): { [key: string]: string } {

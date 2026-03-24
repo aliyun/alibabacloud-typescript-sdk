@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCommonLogFieldsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +16,50 @@ export class DescribeCommonLogFieldsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies whether to query for default log fields.
+   * 
+   * - **true**: Queries for default log fields.
+   * 
+   * - **false**: Queries for non-default log fields.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * Specifies whether to query for required log fields.
+   * 
+   * - **true**: Queries for required log fields.
+   * 
+   * - **false**: Queries for non-required log fields.
+   * 
    * @example
    * false
    */
   isRequired?: boolean;
+  /**
+   * @remarks
+   * The list of log fields to query.
+   */
   logKeyList?: string[];
   /**
+   * @remarks
+   * The region where the WAF instance resides. Valid values:
+   * 
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-aek2sxgs*****
    */

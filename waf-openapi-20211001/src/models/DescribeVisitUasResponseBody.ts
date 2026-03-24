@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVisitUasResponseBodyUas extends $dara.Model {
   /**
    * @remarks
-   * The number of requests that use the user agent.
+   * The total number of requests from the User-Agent.
    * 
    * @example
    * 698455
@@ -13,7 +13,7 @@ export class DescribeVisitUasResponseBodyUas extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The user agent.
+   * The User-Agent.
    * 
    * @example
    * chrome
@@ -45,7 +45,7 @@ export class DescribeVisitUasResponseBodyUas extends $dara.Model {
 export class DescribeVisitUasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2847CE98-AFAE-5A64-B80E-60461717F9DE
@@ -53,7 +53,7 @@ export class DescribeVisitUasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of the top 10 user agents that are used to initiate requests.
+   * The top 10 User-Agents.
    */
   uas?: DescribeVisitUasResponseBodyUas[];
   static names(): { [key: string]: string } {

@@ -7,8 +7,9 @@ export class DescribeSlsLogStoreStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether a Logstore is created for WAF. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: A Logstore is created.
+   * 
+   * - **false**: No Logstore is created.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class DescribeSlsLogStoreStatusResponseBody extends $dara.Model {
   existStatus?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The request ID
    * 
    * @example
    * 184F538F-C115-5C89-A4EF-C79CD2E29AC7

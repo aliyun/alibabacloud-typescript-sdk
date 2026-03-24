@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteHybridCloudClusterRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19****5EB0
    */

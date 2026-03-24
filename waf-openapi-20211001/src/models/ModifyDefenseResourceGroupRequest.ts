@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefenseResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The protected objects that you want to add to the protected object group. Separate the protected objects with commas (,). If you leave this parameter empty, no protected objects are added to the protected object group.
+   * The protected objects to add to the protected object group. Separate multiple protected objects with commas (,). If this parameter is empty, no protected objects are added to the protected object group.
    * 
    * @example
    * test1.aliyundoc.com,test2.aliyundoc.com
@@ -13,7 +13,7 @@ export class ModifyDefenseResourceGroupRequest extends $dara.Model {
   addList?: string;
   /**
    * @remarks
-   * The protected objects that you want to remove from the protected object group. Separate the protected objects with commas (,). If you leave this parameter empty, no protected objects are removed from the protected object group.
+   * The protected objects to remove from the protected object group. Separate multiple protected objects with commas (,). If this parameter is empty, no protected objects are removed from the protected object group.
    * 
    * @example
    * test14.waf.com,test24.waf.com
@@ -21,7 +21,7 @@ export class ModifyDefenseResourceGroupRequest extends $dara.Model {
   deleteList?: string;
   /**
    * @remarks
-   * The description of the protected object group.
+   * The description of the protected object group. The description can be up to 512 characters long.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ModifyDefenseResourceGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the protected object group whose configurations you want to modify.
+   * The name of the protected object group to modify.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ModifyDefenseResourceGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -51,10 +51,11 @@ export class ModifyDefenseResourceGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is located. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -62,7 +63,7 @@ export class ModifyDefenseResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

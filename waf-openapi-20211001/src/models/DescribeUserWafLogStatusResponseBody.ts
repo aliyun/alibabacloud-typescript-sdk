@@ -5,28 +5,45 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserWafLogStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where WAF logs are stored. Valid values:
+   * The ID of the region where logs are stored. Valid values:
    * 
-   * *   **cn-hangzhou**: China (Hangzhou).
-   * *   **cn-beijing**: China (Beijing).
-   * *   **cn-hongkong**: China (Hong Kong).
-   * *   **ap-southeast-1**: Singapore.
-   * *   **ap-southeast-3**: Malaysia (Kuala Lumpur).
-   * *   **ap-southeast-5**: Indonesia (Jakarta).
-   * *   **ap-southeast-6**: Philippines (Manila).
-   * *   **ap-southeast-7**: Thailand (Bangkok).
-   * *   **me-east-1**: UAE (Dubai).
-   * *   **eu-central-1**: Germany (Frankfurt).
-   * *   **us-east-1**: US (Virginia).
-   * *   **us-west-1**: US (Silicon Valley).
-   * *   **ap-northeast-1**: Japan (Tokyo).
-   * *   **ap-northeast-2**: South Korea (Seoul).
-   * *   **eu-west-1**: UK (London).
-   * *   **cn-hangzhou-finance**: China East 1 Finance.
-   * *   **cn-shanghai-finance-1**: China East 2 Finance.
-   * *   **cn-shenzhen-finance**: China South 1 Finance.
+   * - **cn-hangzhou**: indicates China East 1 (Hangzhou).
    * 
-   * >  The China East 1 Finance, China East 2 Finance, and China South 1 Finance regions are available only for Alibaba Finance Cloud users. Alibaba Finance Cloud users are also limited to storing logs within these specific regions.
+   * - **cn-beijing**: indicates China North 2 (Beijing).
+   * 
+   * - **cn-hongkong**: indicates China (Hong Kong).
+   * 
+   * - **ap-southeast-1**: indicates Singapore.
+   * 
+   * - **ap-southeast-3**: indicates Malaysia (Kuala Lumpur).
+   * 
+   * - **ap-southeast-5**: indicates Indonesia (Jakarta).
+   * 
+   * - **ap-southeast-6**: indicates Philippines (Manila).
+   * 
+   * - **ap-southeast-7**: indicates Thailand (Bangkok).
+   * 
+   * - **me-east-1**: indicates UAE (Dubai).
+   * 
+   * - **eu-central-1**: indicates Germany (Frankfurt).
+   * 
+   * - **us-east-1**: indicates US (Virginia).
+   * 
+   * - **us-west-1**: indicates US (Silicon Valley).
+   * 
+   * - **ap-northeast-1**: indicates Japan (Tokyo).
+   * 
+   * - **ap-northeast-2**: indicates South Korea (Seoul).
+   * 
+   * - **eu-west-1**: indicates UK (London).
+   * 
+   * - **cn-hangzhou-finance**: indicates China East 1 Hangzhou Finance Cloud.
+   * 
+   * - **cn-shanghai-finance-1**: indicates China East 2 Shanghai Finance Cloud.
+   * 
+   * - **cn-shenzhen-finance**: indicates China South 1 Shenzhen Finance Cloud.
+   * 
+   * > The Finance Cloud regions are available only to Finance Cloud users, and Finance Cloud users can obtain only these regions.
    * 
    * @example
    * cn-hangzhou
@@ -36,11 +53,15 @@ export class DescribeUserWafLogStatusResponseBody extends $dara.Model {
    * @remarks
    * The status of WAF logs.
    * 
-   * *   **initializing**
-   * *   **initialize_failed**
-   * *   **normal**
-   * *   **releasing**
-   * *   **release_failed**
+   * - **initializing**: The logs are being initialized.
+   * 
+   * - **initialize_failed**: The initialization failed.
+   * 
+   * - **normal**: The logs are running properly.
+   * 
+   * - **releasing**: The logs are being released.
+   * 
+   * - **release_failed**: The release failed.
    * 
    * @example
    * normal
@@ -48,10 +69,10 @@ export class DescribeUserWafLogStatusResponseBody extends $dara.Model {
   logStatus?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate and troubleshoot issues.
    * 
    * @example
-   * D7861F61-5B61-46CE-A47C-6B19160D****
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
    */
   requestId?: string;
   /**

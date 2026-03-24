@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new resource group. You can view the available resource groups in the Resource Management console.
+   * The ID of the destination resource group.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +27,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the protected object that you want to manage.
+   * The ID of the protected object.
    * 
    * This parameter is required.
    * 
@@ -36,7 +37,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group to which the WAF instance belongs.
    * 
    * @example
    * rg-acfm***q
@@ -44,7 +45,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The resource type. Set the value to defenseresource.
+   * The type of the resource. Set the value to **defenseresource**.
    * 
    * This parameter is required.
    * 

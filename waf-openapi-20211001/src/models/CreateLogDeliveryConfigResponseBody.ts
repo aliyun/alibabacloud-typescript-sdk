@@ -13,7 +13,7 @@ export class CreateLogDeliveryConfigResponseBody extends $dara.Model {
   deliveryName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 26E46541-7AAB-5565-801D-F14DBDC5****

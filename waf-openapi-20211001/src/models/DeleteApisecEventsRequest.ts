@@ -6,7 +6,8 @@ export class DeleteApisecEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter is available only in hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to query information about hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -14,21 +15,28 @@ export class DeleteApisecEventsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The IDs of the security events.
+   * A list of API security event IDs.
    * 
    * This parameter is required.
    */
   eventIds?: string[];
   /**
+   * @remarks
+   * The dimension of the security event. Valid values:
+   * 
+   * - **ip**: IP address dimension.
+   * 
+   * - **account**: account dimension.
+   * 
    * @example
    * ip
    */
   eventScope?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -38,10 +46,11 @@ export class DeleteApisecEventsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -49,7 +58,7 @@ export class DeleteApisecEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 阿里云资源组ID。
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q

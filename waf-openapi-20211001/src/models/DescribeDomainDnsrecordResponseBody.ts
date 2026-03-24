@@ -5,14 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainDNSRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the DNS settings. Valid values:
+   * The DNS status. Valid values:
    * 
-   * *   **cnameMatched**: The DNS settings are properly configured.
-   * *   **vipMatched**: An A record maps the domain name to the WAF virtual IP address (VIP).
-   * *   **wafVip**: An A record maps the domain name to another WAF VIP.
-   * *   **unRecord**: The domain name does not have a DNS record.
-   * *   **unUsed**: The domain name is not pointed to WAF.
-   * *   **checkTimeout**: The check times out.
+   * - **cnameMatched**: The DNS record is normal.
+   * 
+   * - **vipMatched**: The domain name is mapped to an A record.
+   * 
+   * - **wafVip**: The domain name is mapped to the virtual IP address (VIP) of another WAF instance.
+   * 
+   * - **unRecord**: No DNS record is configured.
+   * 
+   * - **unUsed**: Traffic is not forwarded to WAF.
+   * 
+   * - **checkTimeout**: The check timed out.
    * 
    * @example
    * cnameMatched
@@ -20,7 +25,7 @@ export class DescribeDomainDNSRecordResponseBody extends $dara.Model {
   DNSStatus?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D827FCFE-90A7-4330-9326-D33C8B4C****

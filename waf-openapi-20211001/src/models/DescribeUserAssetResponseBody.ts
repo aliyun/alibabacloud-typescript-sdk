@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserAssetResponseBodyAssets extends $dara.Model {
   /**
    * @remarks
-   * The number of APIs returned.
+   * The number of assets.
    * 
    * @example
    * 134
@@ -13,7 +13,7 @@ export class DescribeUserAssetResponseBodyAssets extends $dara.Model {
   assetNum?: number;
   /**
    * @remarks
-   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time when the statistics are collected. This value is a UNIX timestamp in seconds. The time is in UTC.
    * 
    * @example
    * 1723435200
@@ -45,12 +45,12 @@ export class DescribeUserAssetResponseBodyAssets extends $dara.Model {
 export class DescribeUserAssetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API statistics.
+   * A list of asset statistics.
    */
   assets?: DescribeUserAssetResponseBodyAssets[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C1823E96-EF4B-5BD2-9E02-1D18****3ED8

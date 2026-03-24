@@ -6,7 +6,8 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter applies only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the IDs of hybrid cloud clusters.
    * 
    * @example
    * 993
@@ -14,7 +15,7 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The end of the time range to query. Specify the time as a UNIX timestamp in seconds. The time is in UTC.
    * 
    * @example
    * 1726113600
@@ -22,9 +23,9 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,10 +35,11 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -53,12 +55,18 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The beginning of the time range to query. Specify the time as a UNIX timestamp in seconds. The time is in UTC.
    * 
    * @example
    * 1723435200
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The list of risk states for which to collect statistics.
+   * 
+   * > By default, statistics are collected for risks in the **toBeConfirmed**, **toBeFixed**, **toBeVerified**, and **notFixed** states.
+   */
   userStatusList?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSM2CertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * ***-cn-hangzhou

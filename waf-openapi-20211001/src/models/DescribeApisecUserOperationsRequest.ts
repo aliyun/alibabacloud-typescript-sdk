@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecUserOperationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * The ID of the Hybrid Cloud WAF cluster.
+   * 
+   * > This parameter is required only when WAF is deployed in hybrid cloud mode. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the IDs of Hybrid Cloud WAF clusters.
    * 
    * @example
    * 428
@@ -14,9 +15,9 @@ export class DescribeApisecUserOperationsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -26,7 +27,7 @@ export class DescribeApisecUserOperationsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The object ID of the operation record.
+   * The ID of the threat detection or security event for which you want to query operation records.
    * 
    * This parameter is required.
    * 
@@ -36,10 +37,11 @@ export class DescribeApisecUserOperationsRequest extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region in which the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +49,7 @@ export class DescribeApisecUserOperationsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the Alibaba Cloud resource group to which the WAF instance belongs.
    * 
    * @example
    * rg-aek2ax2y5****pi
@@ -57,8 +59,9 @@ export class DescribeApisecUserOperationsRequest extends $dara.Model {
    * @remarks
    * The type of the operation record. Valid values:
    * 
-   * *   **abnormal**: risk detection
-   * *   **event**: security event
+   * - **abnormal**: threat detection.
+   * 
+   * - **event**: security event.
    * 
    * @example
    * event

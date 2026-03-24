@@ -6,7 +6,8 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter applies only to hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain information about hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -14,7 +15,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The end of the time range to query. The value is a UNIX timestamp in seconds. The time is in UTC.
    * 
    * @example
    * 1725966000
@@ -22,9 +23,9 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of your WAF instance.
    * 
    * This parameter is required.
    * 
@@ -50,10 +51,11 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +63,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -69,7 +71,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The start of the time range to query. The value is a UNIX timestamp in seconds. The time is in UTC.
    * 
    * @example
    * 1672502400
@@ -77,12 +79,15 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The type of the statistics. Valid values:
+   * The statistic type. Valid values:
    * 
-   * *   **ip**: IP address
-   * *   **host**: domain name
-   * *   **sensitive_code**: sensitive data type
-   * *   **api**: sensitive data-related API
+   * - **ip**: statistics by IP address.
+   * 
+   * - **host**: statistics by domain name.
+   * 
+   * - **sensitive_code**: statistics by sensitive data type.
+   * 
+   * - **api**: statistics by API.
    * 
    * @example
    * ip

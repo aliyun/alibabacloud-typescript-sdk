@@ -5,18 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
+   * [Deprecated] The hybrid cloud cluster ID.
    * 
    * @example
-   * 1018
+   * 10*
    */
   clusterId?: number;
+  /**
+   * @remarks
+   * The cluster rule resource ID.
+   * 
+   * @example
+   * hdbc-clusterrule-*******ym0w
+   */
   clusterRuleResourceId?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The Web Application Firewall (WAF) instance ID.
    * 
-   * >  You can call the DescribeInstanceInfo operation to query the ID of the WAF instance.[](~~140857~~)
+   * > Call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query the current WAF instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,10 +33,11 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid value:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
+   * 
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -45,18 +53,39 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The configuration of the rule.
+   * The traffic routing rule configuration:
+   * 
+   * >Notice: 
+   * 
+   * The mode cannot be changed after it is selected.
+   * 
+   * 
+   * 
+   * - **check_mode** Defines the traffic scope for the routing rule. Valid values:
+   * 
+   *   - **all**: Routes all traffic.
+   * 
+   *   - **part**: Routes a specified portion of traffic.
+   * 
+   * - **type**: The rule\\"s match type. Valid values:
+   * 
+   *   - **exact**: Exact match
+   * 
+   *   - **regex**: Regular expression match.
+   * 
+   * - **substance**: The value of the rule.
    * 
    * @example
-   * {\\"check_mode\\":\\"part\\",\\"include\\":{\\"exact\\":[],\\"regex\\":[]}}
+   * {\\"check_mode\\": \\"all\\", \\"type\\": \\"exact\\", \\"substance\\": \\"122\\"}
    */
   ruleConfig?: string;
   /**
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   **on**: enables the rule.
-   * *   **off**: disables the rule.
+   * - **on**: Enabled
+   * 
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -64,9 +93,9 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
+   * [Deprecated] The rule type. Valid values:
    * 
-   * *   **pullin**: The traffic redirection rule.
+   * - **pullin**: Traffic routing configuration.
    * 
    * @example
    * pullin

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the billing module.
+   * 
    * @example
    * domainCount
    */
   moduleCode?: string;
   /**
+   * @remarks
+   * The number of SeCUs for the billing module.
+   * 
    * @example
    * 1080
    */
@@ -37,13 +43,23 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
 }
 
 export class DescribeChargeResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The billing calculation results for each module.
+   */
   moduleDetails?: DescribeChargeResultResponseBodyModuleDetails[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of calculated Security Capacity Units (SeCUs).
+   * 
    * @example
    * 1080
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleHitsTopResourceResponseBodyRuleHitsTopResource extends $dara.Model {
   /**
    * @remarks
-   * The number of requests that match protection rules.
+   * The number of requests that triggered the rule.
    * 
    * @example
    * 14219
@@ -45,7 +45,7 @@ export class DescribeRuleHitsTopResourceResponseBodyRuleHitsTopResource extends 
 export class DescribeRuleHitsTopResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ADA11BC7-AA95-5C31-9095-5802C02ED1DC
@@ -53,7 +53,7 @@ export class DescribeRuleHitsTopResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of the top 10 protected objects that trigger protection rules.
+   * The top 10 protected objects that triggered protection rules.
    */
   ruleHitsTopResource?: DescribeRuleHitsTopResourceResponseBodyRuleHitsTopResource[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCnameCountResponseBodyCnameCount extends $dara.Model {
   /**
    * @remarks
-   * The number of domain names that are added to WAF in CNAME record mode.
+   * The number of domain names that are added in CNAME mode.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeCnameCountResponseBodyCnameCount extends $dara.Model {
   cname?: number;
   /**
    * @remarks
-   * The number of domain names that are added to WAF in hybrid cloud reverse proxy mode.
+   * The number of domain names that are added in hybrid cloud mode.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeCnameCountResponseBodyCnameCount extends $dara.Model {
   hybridCloudCname?: number;
   /**
    * @remarks
-   * The total number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+   * The total number of domain names.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeCnameCountResponseBodyCnameCount extends $dara.Model {
 export class DescribeCnameCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+   * The number of CNAME records that are added.
    */
   cnameCount?: DescribeCnameCountResponseBodyCnameCount;
   /**

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWafSourceIpSegmentResponseBodyWafSourceIp extends $dara.Model {
   /**
    * @remarks
-   * An array of back-to-origin IPv4 CIDR blocks.
+   * The list of IPv4 back-to-origin CIDR blocks.
    */
   IPv4?: string[];
   /**
    * @remarks
-   * An array of back-to-origin IPv6 CIDR blocks.
+   * The list of IPv6 back-to-origin CIDR blocks.
    */
   IPv6?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DescribeWafSourceIpSegmentResponseBodyWafSourceIp extends $dara.Mod
 export class DescribeWafSourceIpSegmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9087ADDC-9047-4D02-82A7-33021B58083C
@@ -53,7 +53,7 @@ export class DescribeWafSourceIpSegmentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The back-to-origin CIDR blocks that are used by the protection cluster.
+   * The list of WAF back-to-origin IP CIDR blocks used by the protection cluster.
    */
   wafSourceIp?: DescribeWafSourceIpSegmentResponseBodyWafSourceIp;
   static names(): { [key: string]: string } {

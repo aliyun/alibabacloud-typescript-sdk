@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourcePortResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 66A98669-CC6E-4F3E-80A6-3014697B11AE
@@ -13,7 +13,7 @@ export class DescribeResourcePortResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of HTTP and HTTPS listener ports that are added to the WAF instance.
+   * All HTTP and HTTPS listener ports that are added to WAF.
    */
   resourcePorts?: string[];
   static names(): { [key: string]: string } {

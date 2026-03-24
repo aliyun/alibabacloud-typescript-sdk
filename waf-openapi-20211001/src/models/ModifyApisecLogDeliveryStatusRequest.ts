@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApisecLogDeliveryStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the log subscription. Valid values:
+   * The type of the API security log delivery. Valid values:
    * 
-   * *   **risk**: risk information.
-   * *   **event**: attack event information.
-   * *   **asset**: asset information.
+   * - **risk**: threat information.
+   * 
+   * - **event**: attack event information.
+   * 
+   * - **asset**: asset information.
    * 
    * This parameter is required.
    * 
@@ -19,9 +21,9 @@ export class ModifyApisecLogDeliveryStatusRequest extends $dara.Model {
   assertKey?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -31,10 +33,11 @@ export class ModifyApisecLogDeliveryStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region in which the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -42,7 +45,7 @@ export class ModifyApisecLogDeliveryStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -50,10 +53,11 @@ export class ModifyApisecLogDeliveryStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The status of API security log subscription. Valid values:
+   * Indicates whether the API security log subscription is enabled. Valid values:
    * 
-   * *   **true**: enabled.
-   * *   **false**: disabled.
+   * - **true**: The API security log subscription is enabled.
+   * 
+   * - **false**: The API security log subscription is disabled.
    * 
    * This parameter is required.
    * 

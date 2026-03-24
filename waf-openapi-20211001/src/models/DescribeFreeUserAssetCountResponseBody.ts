@@ -13,7 +13,7 @@ export class DescribeFreeUserAssetCountResponseBodyAsset extends $dara.Model {
   assetActive?: number;
   /**
    * @remarks
-   * The total number of APIs.
+   * The total number of API assets.
    * 
    * @example
    * 15
@@ -21,7 +21,7 @@ export class DescribeFreeUserAssetCountResponseBodyAsset extends $dara.Model {
   assetCount?: number;
   /**
    * @remarks
-   * The number of deactivated APIs.
+   * The number of inactive APIs.
    * 
    * @example
    * 13
@@ -55,7 +55,7 @@ export class DescribeFreeUserAssetCountResponseBodyAsset extends $dara.Model {
 export class DescribeFreeUserAssetCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asset statistics provided by basic detection.
+   * The statistics information about assets detected by the basic API security feature.
    */
   asset?: DescribeFreeUserAssetCountResponseBodyAsset;
   /**

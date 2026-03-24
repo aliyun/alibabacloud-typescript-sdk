@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseResourcesResponseBodyResourcesResponseHeaders extends $dara.Model {
   /**
    * @remarks
-   * Specifies the key for a custom response header.
+   * The key of the custom response header.
    * 
    * @example
    * Header-Key
@@ -13,7 +13,7 @@ export class DescribeDefenseResourcesResponseBodyResourcesResponseHeaders extend
   key?: string;
   /**
    * @remarks
-   * Specifies the value for a custom response header.
+   * The value of the custom response header.
    * 
    * @example
    * Header-Value
@@ -45,10 +45,11 @@ export class DescribeDefenseResourcesResponseBodyResourcesResponseHeaders extend
 export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The status of the tracking cookie.
+   * Indicates whether the tracking cookie feature is enabled.
    * 
-   * *   **0**: disabled
-   * *   **1**: enabled. This is the default value.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -56,10 +57,11 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   acwCookieStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the tracking cookie.
+   * Indicates whether the secure attribute of the tracking cookie is enabled.
    * 
-   * *   **0**: disabled. This is the default value.
-   * *   **1**: enabled.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -67,10 +69,11 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   acwSecureStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the slider CAPTCHA cookie.
+   * Indicates whether the secure attribute of the slider CAPTCHA cookie is enabled.
    * 
-   * *   **0**: disabled. This is the default value.
-   * *   **1**: enabled.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -78,7 +81,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   acwV3SecureStatus?: number;
   /**
    * @remarks
-   * The custom header fields that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP addresses in the XFF header fields are used as the originating IP addresses of clients.
+   * The custom XFF header that is used to obtain the real IP address of a client. If \\`XffStatus\\` is set to 1 and this parameter is left empty, the first IP address in the XFF header is used as the client IP address.
    */
   customHeaders?: string[];
   /**
@@ -91,12 +94,15 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The description of the protected object. Different key-value pairs in a map indicate different properties of the protected object.
+   * The details of the protected object. The key-value pairs vary by product type.
+   * 
+   * @example
+   * {"domain":"eou.eleme.cn","uri":"/"}
    */
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * The creation time of the protected object. Unit: seconds.
+   * The time when the protected object was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1652149203187
@@ -104,16 +110,23 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The most recent modification time of the protected object. Unit: seconds.
+   * The time when the protected object was modified. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1665633032000
    */
   gmtModified?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * @example
+   * waf_v2_public_cn-k*****
+   */
   instanceId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account to which the protected object belongs. You can specify this parameter to query protected objects that belong to a specific Alibaba Cloud account. Exact match is supported.
+   * The account to which the asset of the protected object belongs. This parameter is returned in a multi-account management scenario.
    * 
    * @example
    * 135*********46
@@ -121,7 +134,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The protection pattern.
+   * The protection mode of the protected object.
    * 
    * @example
    * domain
@@ -129,7 +142,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * The name of the cloud service.
+   * The type of cloud service to which the protected object belongs.
    * 
    * @example
    * alb
@@ -145,7 +158,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The name of the protected object group to which the protected object belongs.
+   * The name of the protected object group to which the protected object is added.
    * 
    * @example
    * test
@@ -153,7 +166,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -161,7 +174,7 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The origin of the protected object.
+   * The source of the protected object.
    * 
    * @example
    * custom
@@ -169,12 +182,12 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
   resourceOrigin?: string;
   /**
    * @remarks
-   * The response header.
+   * The custom response headers configured for the protected object.
    */
   responseHeaders?: DescribeDefenseResourcesResponseBodyResourcesResponseHeaders[];
   /**
    * @remarks
-   * Indicates whether the X-Forwarded-For (XFF) header is used.
+   * Indicates whether the X-Forwarded-For (XFF) proxy is enabled for the protected object.
    * 
    * @example
    * 1
@@ -250,17 +263,17 @@ export class DescribeDefenseResourcesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 618F2626-DB27-5187-8C6C-4E61A491DF29
+   * 618F2626-DB27-5187-8C6C-4E61A491****
    */
   requestId?: string;
   /**
    * @remarks
-   * The protected objects.
+   * The list of protected objects.
    */
   resources?: DescribeDefenseResourcesResponseBodyResources[];
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of returned entries.
    * 
    * @example
    * 73

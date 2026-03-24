@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHybridCloudGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node group.
+   * The ID of the created node group.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateHybridCloudGroupResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 48F7C7BA-0932-50EA-89AD-5B0E1***274

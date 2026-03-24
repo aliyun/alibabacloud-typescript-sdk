@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagValuesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, no next page exists.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -21,7 +21,7 @@ export class ListTagValuesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag values that are associated with the specified tag key.
    */
   values?: string[];
   static names(): { [key: string]: string } {

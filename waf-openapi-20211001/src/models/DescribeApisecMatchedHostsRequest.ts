@@ -6,7 +6,8 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter is used only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain information about hybrid cloud clusters.
    * 
    * @example
    * 433
@@ -14,9 +15,9 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,7 +35,7 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The number of the page to return for a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -42,7 +43,7 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries to return on each page for a paged query. Default value: **10**.
    * 
    * @example
    * 8
@@ -50,10 +51,11 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -71,9 +73,11 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
    * @remarks
    * The detection type. Valid values:
    * 
-   * *   **api**: API-related domain names
-   * *   **abnormal**: risk-related domain names
-   * *   **event**: security event-related domain names
+   * - **api**: the list of domain names for API assets.
+   * 
+   * - **abnormal**: the list of domain names that have threats.
+   * 
+   * - **event**: the list of domain names that have management events.
    * 
    * @example
    * event

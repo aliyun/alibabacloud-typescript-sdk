@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecProtectionResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The switch of the API security module.
+   * Indicates whether the API security feature is enabled for the protected object. Valid values:
+   * 
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -13,7 +17,11 @@ export class DescribeApisecProtectionResourcesResponseBodyData extends $dara.Mod
   apisecStatus?: number;
   /**
    * @remarks
-   * The switch of the compliance check feature.
+   * Indicates whether the compliance check feature is enabled. Valid values:
+   * 
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -21,7 +29,7 @@ export class DescribeApisecProtectionResourcesResponseBodyData extends $dara.Mod
   reportStatus?: number;
   /**
    * @remarks
-   * The protected object.
+   * The name of the protected object.
    * 
    * @example
    * cwaf-***-waf
@@ -29,7 +37,11 @@ export class DescribeApisecProtectionResourcesResponseBodyData extends $dara.Mod
   resource?: string;
   /**
    * @remarks
-   * The switch of the tracing and auditing feature.
+   * Indicates whether the source tracing feature is enabled. Valid values:
+   * 
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -65,7 +77,7 @@ export class DescribeApisecProtectionResourcesResponseBodyData extends $dara.Mod
 export class DescribeApisecProtectionResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The protected objects.
+   * The list of protected objects.
    */
   data?: DescribeApisecProtectionResourcesResponseBodyData[];
   /**

@@ -3,8 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols extends $dara.Model {
+  /**
+   * @remarks
+   * The certificates.
+   */
   certificateIds?: string[];
+  /**
+   * @remarks
+   * The port of the cloud service added to WAF.
+   * 
+   * @example
+   * 443
+   */
   port?: number;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * - **http**: HTTP protocol.
+   * 
+   * - **https**: HTTPS protocol.
+   * 
+   * @example
+   * http
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,13 +57,24 @@ export class DescribeProductInstancesResponseBodyProductInstancesAccessPortAndPr
 }
 
 export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the HTTPS certificate. Valid values:
+   * 
+   * - **default**: Default certificate.
+   * 
+   * - **extension**: Extension certificate.
+   * 
+   * @example
+   * default
+   */
   appliedType?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
-   * 10106183
+   * 1234567
    */
   certificateId?: string;
   /**
@@ -49,9 +82,16 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCe
    * The name of the certificate.
    * 
    * @example
-   * trafficxxxx.cn
+   * demoCertName
    */
   certificateName?: string;
+  /**
+   * @remarks
+   * The domain name bound to the certificate.
+   * 
+   * @example
+   * www.test.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,7 +128,7 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts e
   certificates?: DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates[];
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 443
@@ -98,8 +138,9 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts e
    * @remarks
    * The protocol type. Valid values:
    * 
-   * *   **http**
-   * *   **https**
+   * - **http**: HTTP protocol.
+   * 
+   * - **https**: HTTPS protocol.
    * 
    * @example
    * https
@@ -134,22 +175,59 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts e
 }
 
 export class DescribeProductInstancesResponseBodyProductInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance added to WAF.
+   * 
+   * @example
+   * i-2ze1tm4pvghp****cluv
+   */
   accessInstanceId?: string;
+  /**
+   * @remarks
+   * The port and protocol information of the cloud service added to WAF.
+   */
   accessPortAndProtocols?: DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols[];
+  /**
+   * @remarks
+   * The list of ports added to WAF.
+   */
   accessPorts?: number[];
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The user ID (UID) of the Alibaba Cloud account to which the instance belongs.
    * 
    * @example
    * 1704********9107
    */
   ownerUserId?: string;
+  /**
+   * @remarks
+   * The protection status of WAF. Valid values:
+   * 
+   * - **all**: All protected.
+   * 
+   * - **any**: Protected.
+   * 
+   * - **part**: Partially protected.
+   * 
+   * - **non**: Not protected.
+   * 
+   * @example
+   * all
+   */
   resourceInstanceAccessStatus?: string;
+  /**
+   * @remarks
+   * The edition of the instance.
+   * 
+   * @example
+   * ecs.e-c1m1.large
+   */
   resourceInstanceEdition?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-2ze1tm4pvghp****cluv
@@ -157,7 +235,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The IP address of the instance that is added to WAF.
+   * The IP address of the instance.
    * 
    * @example
    * 1.X.X.1
@@ -165,7 +243,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceInstanceIp?: string;
   /**
    * @remarks
-   * The name of the instance that is added to WAF.
+   * The name of the instance.
    * 
    * @example
    * demoInstanceName
@@ -198,11 +276,15 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourcePorts?: DescribeProductInstancesResponseBodyProductInstancesResourcePorts[];
   /**
    * @remarks
-   * The cloud service to which the instance belongs. Valid values:
+   * The type of the cloud service. Valid values:
    * 
-   * *   **clb4**: Layer 4 CLB.
-   * *   **clb7**: Layer 7 CLB.
-   * *   **ecs**: ECS.
+   * - **clb4**: Layer 4 CLB.
+   * 
+   * - **clb7**: Layer 7 CLB.
+   * 
+   * - **ecs**: ECS.
+   * 
+   * - **nlb**: NLB.
    * 
    * @example
    * clb4
@@ -212,16 +294,25 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
    * @remarks
    * The region ID of the instance. Valid values:
    * 
-   * *   **cn-chengdu**: China (Chengdu).
-   * *   **cn-beijing**: China (Beijing).
-   * *   **cn-zhangjiakou**: China (Zhangjiakou).
-   * *   **cn-hangzhou**: China (Hangzhou).
-   * *   **cn-shanghai**: China (Shanghai).
-   * *   **cn-shenzhen**: China (Shenzhen).
-   * *   **cn-qingdao**: China (Qingdao).
-   * *   **cn-hongkong**: China (Hong Kong).
-   * *   **ap-southeast-3**: Malaysia (Kuala Lumpur).
-   * *   **ap-southeast-5**: Indonesia (Jakarta).
+   * - **cn-chengdu**: China (Chengdu).
+   * 
+   * - **cn-beijing**: China (Beijing).
+   * 
+   * - **cn-zhangjiakou**: China (Zhangjiakou).
+   * 
+   * - **cn-hangzhou**: China (Hangzhou).
+   * 
+   * - **cn-shanghai**: China (Shanghai).
+   * 
+   * - **cn-shenzhen**: China (Shenzhen).
+   * 
+   * - **cn-qingdao**: China (Qingdao).
+   * 
+   * - **cn-hongkong**: China (Hong Kong).
+   * 
+   * - **ap-southeast-3**: Malaysia (Kuala Lumpur).
+   * 
+   * - **ap-southeast-5**: Indonesia (Jakarta).
    * 
    * @example
    * cn-beijing

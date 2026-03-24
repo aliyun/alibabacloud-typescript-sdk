@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of APIs that are involved.
+   * The number of APIs involved.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   apiCount?: number;
   /**
    * @remarks
-   * The number of sites that are involved.
+   * The number of sites involved.
    * 
    * @example
    * 10
@@ -22,7 +22,8 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   /**
    * @remarks
    * The code of the sensitive data.
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
+   * 
+   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 10
@@ -30,22 +31,24 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   sensitiveCode?: string;
   /**
    * @remarks
-   * The sensitivity level of the sensitive data.Valid values:
+   * The sensitivity level of the API. Valid values:
    * 
-   * * **S1**: low sensitivity.
-   * * **S2**: moderate sensitivity.
-   * * **S3**: high sensitivity.
+   * - **S1**: Low sensitivity.
+   * 
+   * - **S2**: Medium sensitivity.
+   * 
+   * - **S3**: High sensitivity.
    * 
    * @example
-   * L3
+   * S3
    */
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The name of the sensitive data.
+   * The data name of the sensitive data.
    * 
    * @example
-   * 1002
+   * 自定义敏感类型。
    */
   sensitiveName?: string;
   static names(): { [key: string]: string } {

@@ -7,10 +7,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudResourceRequestListenCertificates extends $dara.Model {
   /**
    * @remarks
-   * The type of the certificate. Valid values:
+   * The type of the certificate for the HTTPS protocol. Valid values:
    * 
-   * *   **default**: default certificate.
-   * *   **extension**: additional certificate.
+   * - **default**: the default certificate.
+   * 
+   * - **extension**: the additional certificate.
    * 
    * @example
    * default
@@ -18,9 +19,9 @@ export class CreateCloudResourceRequestListenCertificates extends $dara.Model {
   appliedType?: string;
   /**
    * @remarks
-   * The ID of the certificate that you want to add.
+   * The ID of the certificate to add.
    * 
-   * >  You can call the [DescribeCertificates](https://help.aliyun.com/document_detail/160783.html) operation to query the IDs of all SSL certificates that are associated with a domain name.
+   * > Call [DescribeResourceInstanceCerts](https://help.aliyun.com/document_detail/2718120.html) to query the IDs of all SSL certificates that are associated with the cloud product instance.
    * 
    * @example
    * 123-cn-hangzhou
@@ -52,16 +53,18 @@ export class CreateCloudResourceRequestListenCertificates extends $dara.Model {
 export class CreateCloudResourceRequestListen extends $dara.Model {
   /**
    * @remarks
-   * The certificates.
+   * The list of certificate IDs.
    */
   certificates?: CreateCloudResourceRequestListenCertificates[];
   /**
    * @remarks
-   * The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
-   * *   **1**: all cipher suites.
-   * *   **2**: strong cipher suites. This value is available only if you set **TLSVersion** to **tlsv1.2**.
-   * *   **99**: custom cipher suites.
+   * - **1**: Adds all cipher suites.
+   * 
+   * - **2**: Adds strong cipher suites. You can select this value only when **TLSVersion** is set to **tlsv1.2**.
+   * 
+   * - **99**: Adds custom cipher suites.
    * 
    * @example
    * 1
@@ -69,15 +72,16 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   cipherSuite?: number;
   /**
    * @remarks
-   * The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+   * The custom cipher suites to add. This parameter is used only when **CipherSuite** is set to **99**.
    */
   customCiphers?: string[];
   /**
    * @remarks
-   * Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * Specifies whether to support TLS 1.3. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: TLS 1.3 is supported.
+   * 
+   * - **false**: TLS 1.3 is not supported.
    * 
    * @example
    * true
@@ -88,10 +92,11 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables HTTP/2.
+   * 
+   * - **false** (default): disables HTTP/2.
    * 
    * @example
    * true
@@ -99,7 +104,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The port of the cloud service.
+   * The port of the cloud product that is added to WAF.
    * 
    * This parameter is required.
    * 
@@ -111,8 +116,9 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
    * @remarks
    * The protocol type. Valid values:
    * 
-   * *   **http**
-   * *   **https**
+   * - **http**: HTTP.
+   * 
+   * - **https**: HTTPS.
    * 
    * This parameter is required.
    * 
@@ -122,7 +128,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The instance ID of the cloud service.
+   * The ID of the cloud product instance.
    * 
    * This parameter is required.
    * 
@@ -132,12 +138,15 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The type of the cloud service that you want to add. Valid values:
+   * The type of the cloud product. Valid values:
    * 
-   * *   **clb4**: Layer 4 CLB.
-   * *   **clb7**: Layer 7 CLB.
-   * *   **ecs**: ECS.
-   * *   **nlb**: Network Load Balancer (NLB).
+   * - **clb4**: Layer 4 CLB instance.
+   * 
+   * - **clb7**: Layer 7 CLB instance.
+   * 
+   * - **ecs**: ECS instance.
+   * 
+   * - **nlb**: Network Load Balancer (NLB) instance.
    * 
    * This parameter is required.
    * 
@@ -145,14 +154,25 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
    * clb4
    */
   resourceProduct?: string;
+  /**
+   * @remarks
+   * The region ID of the cloud product.
+   * 
+   * > This parameter is required if the ID of the instance that you want to add has not been synchronized to WAF.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   resourceRegionId?: string;
   /**
    * @remarks
-   * The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
-   * *   **tlsv1**
-   * *   **tlsv1.1**
-   * *   **tlsv1.2**
+   * - **tlsv1**
+   * 
+   * - **tlsv1.1**
+   * 
+   * - **tlsv1.2**
    * 
    * @example
    * tlsv1
@@ -208,7 +228,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
 export class CreateCloudResourceRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The key of the custom header field.
+   * The custom request header field.
    * 
    * @example
    * key1
@@ -216,7 +236,7 @@ export class CreateCloudResourceRequestRedirectRequestHeaders extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The value of the custom header field.
+   * The value of the custom request header field.
    * 
    * @example
    * value1
@@ -248,10 +268,11 @@ export class CreateCloudResourceRequestRedirectRequestHeaders extends $dara.Mode
 export class CreateCloudResourceRequestRedirect extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the persistent connection feature. Valid values:
+   * Specifies whether to enable persistent connections. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true** (default): enables persistent connections.
+   * 
+   * - **false**: disables persistent connections.
    * 
    * @example
    * true
@@ -259,9 +280,9 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   keepalive?: boolean;
   /**
    * @remarks
-   * The number of reused persistent connections. Valid values: 60 to 1000.
+   * The number of requests that can be reused in a persistent connection. Valid values: 60 to 1000.
    * 
-   * >  This parameter specifies the number of persistent connections that can be reused after you enable the persistent connection feature.
+   * > The number of requests that are reused over a persistent connection.
    * 
    * @example
    * 1000
@@ -269,22 +290,27 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period of idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+   * The timeout period for an idle persistent connection. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
    * 
-   * >  This parameter specifies the period of time after which an idle persistent connection is closed.
+   * > The period of time after which an idle persistent connection is released.
    * 
    * @example
-   * 15
+   * 3600
    */
   keepaliveTimeout?: number;
   /**
+   * @remarks
+   * The maximum size of a request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
+   * 
+   * > This feature is available only for the WAF Ultimate edition.
+   * 
    * @example
-   * 5
+   * 2
    */
   maxBodySize?: number;
   /**
    * @remarks
-   * The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
+   * The read timeout period. Unit: seconds. Valid values: 1 to 3600.
    * 
    * @example
    * 1
@@ -292,14 +318,14 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   readTimeout?: number;
   /**
    * @remarks
-   * The custom header fields. Specify the value in the [**{"k":"*key*","v":"*value*"}**] format. ***key*** specifies the key of a custom header field. ***value*** specifies the value of a custom header field.
+   * The value of this parameter is in the \\`[**{"k":"*****key*****","v":"*****value*****"}**]\\` format. ***key*** indicates the custom request header field. ***value*** indicates the value of the field.
    * 
-   * >  If a request contains a custom header field, WAF overwrites the original value of the field with the specified value.
+   * > If the custom header field already exists in the request, the system overwrites the value of the custom header field with the specified value.
    */
   requestHeaders?: CreateCloudResourceRequestRedirectRequestHeaders[];
   /**
    * @remarks
-   * The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
+   * The write timeout period. Unit: seconds. Valid values: 1 to 3600.
    * 
    * @example
    * 1
@@ -307,11 +333,13 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   writeTimeout?: number;
   /**
    * @remarks
-   * The method that is used to obtain the originating IP address of a client. Valid values:
+   * The method that WAF uses to obtain the real IP address of a client. Valid values:
    * 
-   * *   **0**: No Layer 7 proxies are deployed in front of WAF.
-   * *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
-   * *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
+   * - **0**: No Layer 7 proxy is deployed before WAF.
+   * 
+   * - **1**: WAF reads the first value of the XFF header field to obtain the client IP address.
+   * 
+   * - **2**: WAF reads the value of a custom header field to obtain the client IP address.
    * 
    * @example
    * 1
@@ -319,17 +347,18 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The custom header fields that are used to obtain the originating IP address of a client. Specify the value in the **["header1","header2",...]** format.
+   * The list of custom header fields that are used to obtain the client IP address. The value is in the \\`[**"header1","header2",...**]\\` format.
    * 
-   * >  This parameter is required only if you set **XffHeaderMode** to 2.
+   * > This parameter is required only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom header field to obtain the client IP address.
    */
   xffHeaders?: string[];
   /**
    * @remarks
-   * Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
+   * Specifies whether to use the X-Forwarded-Proto header to pass the WAF protocol. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true** (default): passes the WAF protocol.
+   * 
+   * - **false**: does not pass the WAF protocol.
    * 
    * @example
    * true
@@ -383,7 +412,7 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
 export class CreateCloudResourceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * TagKey1
@@ -391,7 +420,7 @@ export class CreateCloudResourceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * TagValue1
@@ -425,7 +454,7 @@ export class CreateCloudResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -435,14 +464,14 @@ export class CreateCloudResourceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener configurations.
+   * The listener configuration.
    * 
    * This parameter is required.
    */
   listen?: CreateCloudResourceRequestListen;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The Alibaba Cloud account ID of the resource owner.
    * 
    * @example
    * 123
@@ -450,15 +479,16 @@ export class CreateCloudResourceRequest extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The forwarding configurations.
+   * The forwarding configuration.
    */
   redirect?: CreateCloudResourceRequestRedirect;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -476,7 +506,7 @@ export class CreateCloudResourceRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The list of tags. You can add up to 20 tags.
    */
   tag?: CreateCloudResourceRequestTag[];
   static names(): { [key: string]: string } {

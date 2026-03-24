@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. ALIYUN::WAF::DEFENSERESOURCE is returned.
+   * The resource type. ALIYUN::WAF::DEFENSERESOURCE is returned.
    * 
    * @example
    * ALIYUN::WAF::DEFENSERESOURCE
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The key of tag N that is added to the resource.
+   * The tag key.
    * 
    * @example
    * TagKey1
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of tag N that is added to the resource.
+   * The tag value.
    * 
    * @example
    * TayValue1
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of resources.
+   * The resource list.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

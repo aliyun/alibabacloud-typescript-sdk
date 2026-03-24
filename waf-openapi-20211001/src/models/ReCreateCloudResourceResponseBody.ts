@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReCreateCloudResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19****5EB0

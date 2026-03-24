@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecAssetTrendResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of active assets.
+   * The number of active APIs.
    * 
    * @example
    * 60
@@ -13,7 +13,7 @@ export class DescribeApisecAssetTrendResponseBodyData extends $dara.Model {
   assetActive?: number;
   /**
    * @remarks
-   * The total number of assets.
+   * The total number of API assets.
    * 
    * @example
    * 80
@@ -21,7 +21,7 @@ export class DescribeApisecAssetTrendResponseBodyData extends $dara.Model {
   assetCount?: number;
   /**
    * @remarks
-   * The number of deactivated assets.
+   * The number of inactive APIs.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeApisecAssetTrendResponseBodyData extends $dara.Model {
   assetOffline?: number;
   /**
    * @remarks
-   * The time for statistics. Specify a UNIX timestamp in UTC. Unit: seconds.
+   * The timestamp of the data point. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1683600042
@@ -65,12 +65,12 @@ export class DescribeApisecAssetTrendResponseBodyData extends $dara.Model {
 export class DescribeApisecAssetTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The API asset trend data.
    */
   data?: DescribeApisecAssetTrendResponseBodyData[];
   /**
    * @remarks
-   * Id of the request.
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19****5EB0

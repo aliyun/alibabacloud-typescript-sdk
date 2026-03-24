@@ -275,9 +275,6 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends
 
 export class DescribeHybridCloudResourceDetailResponseBodyDomain extends $dara.Model {
   /**
-   * @remarks
-   * CNAME
-   * 
    * @example
    * kdmqyi3ck7xogegxpiyfpb0fj21mgkxn.****.com
    */
@@ -288,9 +285,6 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomain extends $dara.M
    */
   domain?: string;
   /**
-   * @remarks
-   * id
-   * 
    * @example
    * 31323
    */

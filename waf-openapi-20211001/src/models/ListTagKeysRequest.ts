@@ -7,7 +7,7 @@ export class ListTagKeysRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ListTagKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token used in the next request to retrieve a new page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -25,10 +25,11 @@ export class ListTagKeysRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
+   * 
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -38,7 +39,7 @@ export class ListTagKeysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
+   * The resource type. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
    * 
    * This parameter is required.
    * 

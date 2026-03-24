@@ -13,7 +13,7 @@ export class DescribeFreeUserEventTypesResponseBodyData extends $dara.Model {
   eventNum?: string;
   /**
    * @remarks
-   * The type of the security event.
+   * The security event type.
    * 
    * @example
    * SMSInterfaceAbuse
@@ -45,7 +45,7 @@ export class DescribeFreeUserEventTypesResponseBodyData extends $dara.Model {
 export class DescribeFreeUserEventTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The types of security events on which basic detection is performed.
+   * The list of security event types detected by the basic detection feature.
    */
   data?: DescribeFreeUserEventTypesResponseBodyData[];
   /**

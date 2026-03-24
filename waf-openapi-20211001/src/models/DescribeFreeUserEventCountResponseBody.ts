@@ -29,7 +29,7 @@ export class DescribeFreeUserEventCountResponseBodyEvent extends $dara.Model {
   eventMedium?: number;
   /**
    * @remarks
-   * The total number of security events.
+   * The total number of API security events.
    * 
    * @example
    * 16
@@ -65,7 +65,7 @@ export class DescribeFreeUserEventCountResponseBodyEvent extends $dara.Model {
 export class DescribeFreeUserEventCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the security events that are detected by using the basic detection feature.
+   * The information about security events detected by basic API security checks.
    */
   event?: DescribeFreeUserEventCountResponseBodyEvent;
   /**

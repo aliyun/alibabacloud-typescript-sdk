@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResponseCodeTrendGraphRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the current time is used as the end time.
    * 
    * @example
    * 1665386280
@@ -15,7 +15,7 @@ export class DescribeResponseCodeTrendGraphRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeResponseCodeTrendGraphRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time interval. Unit: seconds. The value must be an integral multiple of 60.
+   * The time interval. Unit: seconds. The value must be a multiple of 60.
    * 
    * This parameter is required.
    * 
@@ -35,10 +35,11 @@ export class DescribeResponseCodeTrendGraphRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The ID of the region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -54,7 +55,7 @@ export class DescribeResponseCodeTrendGraphRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -62,7 +63,7 @@ export class DescribeResponseCodeTrendGraphRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: seconds.
+   * The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -72,10 +73,11 @@ export class DescribeResponseCodeTrendGraphRequest extends $dara.Model {
   startTimestamp?: string;
   /**
    * @remarks
-   * The type of the error codes. Valid values:
+   * The type of response code. Valid values:
    * 
-   * *   **waf:** error codes that are returned to clients from WAF.
-   * *   **upstream:** error codes that are returned to WAF from the origin server.
+   * - **waf**: a response code that WAF returns to a client.
+   * 
+   * - **upstream**: a response code that an origin server returns to WAF.
    * 
    * This parameter is required.
    * 

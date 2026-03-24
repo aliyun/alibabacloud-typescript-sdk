@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the policy.
+   * The ID of the rule.
    * 
    * @example
    * 34933
@@ -13,7 +13,7 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The details of the policy. The value is a string that consists of multiple parameters in the JSON format.
+   * The details of the rule. The value is a string that is converted from a JSON object.
    * 
    * @example
    * {
@@ -28,10 +28,11 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The status of the rule. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: enabled
+   * 
+   * - **0**: disabled
    * 
    * @example
    * 1
@@ -39,17 +40,25 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the policy. Valid values:
+   * The type of the rule. Valid values:
    * 
-   * *   **risk**: risk detection
-   * *   **event**: security event
-   * *   **sensitive_word**: sensitive data
-   * *   **auth_flag**: authentication credential
-   * *   **api_tag**: business purpose
-   * *   **desensitization**: data masking
-   * *   **whitelist**: whitelist
-   * *   **recognition**: API recognition
-   * *   **offline_api**: lifecycle management
+   * - **risk**: threat detection
+   * 
+   * - **event**: security event
+   * 
+   * - **sensitive_word**: sensitive data
+   * 
+   * - **auth_flag**: authentication credential
+   * 
+   * - **api_tag**: business purpose
+   * 
+   * - **desensitization**: data masking
+   * 
+   * - **whitelist**: whitelist
+   * 
+   * - **recognition**: API.
+   * 
+   * - **offline_api**: lifecycle management
    * 
    * @example
    * risk
@@ -57,7 +66,7 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the policy was updated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time when the rule was updated. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1721095301
@@ -95,12 +104,12 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
 export class DescribeApisecRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policies.
+   * The list of rules.
    */
   data?: DescribeApisecRulesResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0

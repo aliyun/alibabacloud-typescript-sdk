@@ -47,8 +47,9 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * - **cn-hangzhou**: Chinese mainland.
+   * 
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCloudResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource that is added to WAF.
+   * The ID of the cloud resource that is added to WAF.
    * 
    * @example
    * lb-xxx-80-clb7
@@ -13,7 +13,7 @@ export class ModifyCloudResourceResponseBody extends $dara.Model {
   cloudResource?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-***

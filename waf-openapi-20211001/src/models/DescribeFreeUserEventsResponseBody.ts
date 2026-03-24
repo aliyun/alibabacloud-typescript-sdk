@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   /**
    * @remarks
-   * The API.
+   * The API path.
    * 
    * @example
    * /api/login
@@ -13,7 +13,7 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   apiFormat?: string;
   /**
    * @remarks
-   * The attacker IP address.
+   * The attack IP address.
    * 
    * @example
    * 104.234.140.**
@@ -21,7 +21,7 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   attackIP?: string;
   /**
    * @remarks
-   * The time at which the attack was launched. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time of the attack. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1683703260
@@ -29,7 +29,7 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   attackTime?: number;
   /**
    * @remarks
-   * The domain name of the API.
+   * The domain name to which the API belongs.
    * 
    * @example
    * www.***.cn
@@ -37,11 +37,13 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The severity level of the security event. Valid values:
+   * The event level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high risk.
+   * 
+   * - **medium**: medium risk.
+   * 
+   * - **low**: low risk.
    * 
    * @example
    * high
@@ -49,9 +51,9 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   eventLevel?: string;
   /**
    * @remarks
-   * The type of the security event.
+   * The event type.
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of security events.
+   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported event types.
    * 
    * @example
    * Event_DataTraverse
@@ -91,7 +93,7 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
 export class DescribeFreeUserEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The security events on which basic detection is performed.
+   * The list of security events detected by the basic scan.
    */
   event?: DescribeFreeUserEventsResponseBodyEvent[];
   /**

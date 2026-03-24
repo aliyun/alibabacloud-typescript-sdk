@@ -7,9 +7,11 @@ export class ModifyApisecLogDeliveryRequest extends $dara.Model {
    * @remarks
    * The type of the log subscription. Valid values:
    * 
-   * *   **risk**: risk information.
-   * *   **event**: attack event information.
-   * *   **asset**: asset information.
+   * - **risk**: risk information.
+   * 
+   * - **event**: attack event information.
+   * 
+   * - **asset**: asset information.
    * 
    * This parameter is required.
    * 
@@ -19,9 +21,9 @@ export class ModifyApisecLogDeliveryRequest extends $dara.Model {
   assertKey?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -33,7 +35,7 @@ export class ModifyApisecLogDeliveryRequest extends $dara.Model {
    * @remarks
    * The ID of the region where logs are stored.
    * 
-   * >  You can call the [DescribeUserSlsLogRegions](https://help.aliyun.com/document_detail/2712598.html) operation to query available log storage regions.
+   * > You can call the [DescribeUserSlsLogRegions](https://help.aliyun.com/document_detail/2712598.html) operation to query available log storage regions.
    * 
    * This parameter is required.
    * 
@@ -45,7 +47,7 @@ export class ModifyApisecLogDeliveryRequest extends $dara.Model {
    * @remarks
    * The name of the Logstore in Simple Log Service.
    * 
-   * >  API security logs can be delivered only to Logstores whose names start with apisec-.
+   * > API security logs can only be delivered to Logstores whose name starts with apisec-.
    * 
    * This parameter is required.
    * 
@@ -57,7 +59,7 @@ export class ModifyApisecLogDeliveryRequest extends $dara.Model {
    * @remarks
    * The name of the project in Simple Log Service.
    * 
-   * >  API security logs can be delivered only to projects whose names start with apisec-.
+   * > API security logs can only be delivered to projects whose name starts with apisec-.
    * 
    * This parameter is required.
    * 
@@ -67,10 +69,11 @@ export class ModifyApisecLogDeliveryRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

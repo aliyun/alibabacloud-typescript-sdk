@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores.
+   * The number of CPU cores of the server.
    * 
    * @example
    * 16
@@ -13,7 +13,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   cpu?: number;
   /**
    * @remarks
-   * The name of the node.
+   * The custom name of the server.
    * 
    * @example
    * exampleName
@@ -21,7 +21,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   customName?: string;
   /**
    * @remarks
-   * The host name.
+   * The hostname of the server.
    * 
    * @example
    * online-xagent1
@@ -37,7 +37,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   ip?: string;
   /**
    * @remarks
-   * The media access control (MAC) address of the device.
+   * The MAC address of the server.
    * 
    * @example
    * 00163e2686ac
@@ -45,7 +45,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   mac?: string;
   /**
    * @remarks
-   * The memory size. Unit: KB. A conversion factor of 1,000 is used.
+   * The memory size of the server. Unit: KB.
    * 
    * @example
    * 31580872
@@ -53,7 +53,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   memory?: number;
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the server.
    * 
    * @example
    * 78db009ab6cf055a9085f9f4****ae3a
@@ -95,7 +95,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
 export class DescribeHybridCloudUnassignedMachinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3EBCFCE9-4A3C-5E01-915D-691B****510A
@@ -103,7 +103,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of unassigned servers returned.
    * 
    * @example
    * 28
@@ -111,7 +111,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBody extends $dara.Mod
   totalCount?: number;
   /**
    * @remarks
-   * The servers that are not assigned to the hybrid cloud cluster.
+   * The unassigned servers in the hybrid cloud cluster.
    */
   unassignedMachines?: DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines[];
   static names(): { [key: string]: string } {

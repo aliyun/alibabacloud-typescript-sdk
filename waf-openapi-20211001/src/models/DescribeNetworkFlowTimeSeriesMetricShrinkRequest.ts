@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies filtering conditions. Multiple filter parameters use AND logic.
+   * The filter conditions for the query. Multiple filter conditions are combined with a logical AND.
    * 
    * This parameter is required.
    */
   filterShrink?: string;
   /**
    * @remarks
-   * The Web Application Firewall (WAF) instance ID.
-   * > Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to retrieve the WAF instance ID.
+   * The ID of the WAF instance.
+   * 
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -23,12 +24,15 @@ export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * Specifies the data type to be returned. Valid values:
+   * Specifies the type of data to return. Different values for Metric correspond to different data. This API operation supports the following values:
    * 
-   * *   qps: Returns the queries per second (QPS) processed by WAF. This value is calculated using a peak detection method: QPS is measured every 10 seconds, and the highest value within the specified time range is returned.
-   * *   total_requests: Returns the total number of requests processed by WAF.
-   * *   top5_status: Returns the top 5 HTTP status codes returned by the WAF to clients, along with their corresponding time series statistics.
-   * *   top 5_upstream_status: Returns the top 5 HTTP status codes returned by the origin server to clients, along with their corresponding time series data.
+   * - qps: The number of requests that WAF processes per second. A queries per second (QPS) value is calculated every 10 seconds. The peak QPS value within the specified time granularity is returned.
+   * 
+   * - total_requests: The total number of requests processed by WAF.
+   * 
+   * - top5_status: The top five response status codes that WAF returns to the client, and the corresponding time series statistics.
+   * 
+   * - top 5_upstream_status: The top five response status codes that the origin server returns to the client, and the corresponding time series statistics.
    * 
    * This parameter is required.
    * 
@@ -38,18 +42,19 @@ export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Mode
   metric?: string;
   /**
    * @remarks
-   * The region ID of WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: The Chinese mainland.
-   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
-   * ap-southeast-1
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

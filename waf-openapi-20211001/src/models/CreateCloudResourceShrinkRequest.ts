@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudResourceShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * TagKey1
@@ -13,7 +13,7 @@ export class CreateCloudResourceShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * TagValue1
@@ -47,7 +47,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -57,14 +57,14 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener configurations.
+   * The listener configuration.
    * 
    * This parameter is required.
    */
   listenShrink?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The Alibaba Cloud account ID of the resource owner.
    * 
    * @example
    * 123
@@ -72,15 +72,16 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The forwarding configurations.
+   * The forwarding configuration.
    */
   redirectShrink?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -98,7 +99,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The list of tags. You can add up to 20 tags.
    */
   tag?: CreateCloudResourceShrinkRequestTag[];
   static names(): { [key: string]: string } {

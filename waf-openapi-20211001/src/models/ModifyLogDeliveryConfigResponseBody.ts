@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLogDeliveryConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the log delivery configuration.
+   * The name of the log delivery configuration that was modified.
    * 
    * @example
    * test1

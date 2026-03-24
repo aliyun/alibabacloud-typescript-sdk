@@ -7,7 +7,7 @@ export class DescribeApiExportsRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,10 @@ export class DescribeApiExportsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Language type. Valid values:
+   * The language of the content within the request and response. Valid values:
    * 
-   * - **cn**: Chinese.
+   * - **zh**: Chinese.
+   * 
    * - **en**: English.
    * 
    * @example
@@ -38,7 +39,7 @@ export class DescribeApiExportsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -46,10 +47,11 @@ export class DescribeApiExportsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the Web Application Firewall (WAF) instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecMatchedHostsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of APIs related to the domain name.
+   * The number of queries.
    * 
    * @example
    * 31
@@ -45,12 +45,12 @@ export class DescribeApisecMatchedHostsResponseBodyData extends $dara.Model {
 export class DescribeApisecMatchedHostsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The domain names.
+   * The list of domain names.
    */
   data?: DescribeApisecMatchedHostsResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8D4CA088-F72B-5658-BD5B-ECE8B8F0C7BB

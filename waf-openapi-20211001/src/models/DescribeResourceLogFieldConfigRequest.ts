@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The log delivery type. Valid values:
+   * 
+   * - **sls**: Simple Log Service.
+   * 
+   * - **kafka**: Kafka.
+   * 
+   * - **syslog**: Syslog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +21,10 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +32,21 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region where the WAF instance resides. Valid values:
+   * 
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The protected object whose log field configuration you want to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +54,9 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
    */
   resource?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the WAF instance belongs.
+   * 
    * @example
    * rg-acfm***q
    */
