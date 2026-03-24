@@ -35,11 +35,13 @@ export class DeepfakeDetectIntlResponseBodyResultObject extends $dara.Model {
    * SuspectDeepForgery,SuspectWarterMark
    */
   riskTag?: string;
+  transactionId?: string;
   static names(): { [key: string]: string } {
     return {
       result: 'Result',
       riskScore: 'RiskScore',
       riskTag: 'RiskTag',
+      transactionId: 'TransactionId',
     };
   }
 
@@ -48,6 +50,7 @@ export class DeepfakeDetectIntlResponseBodyResultObject extends $dara.Model {
       result: 'string',
       riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       riskTag: 'string',
+      transactionId: 'string',
     };
   }
 

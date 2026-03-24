@@ -2751,7 +2751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改人脸库
+   * Modify Face Group
    * 
    * @param request - ModifyFaceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2790,7 +2790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改人脸库
+   * Modify Face Group
    * 
    * @param request - ModifyFaceGroupRequest
    * @returns ModifyFaceGroupResponse
@@ -2801,7 +2801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增人脸
+   * Add New Face
    * 
    * @param request - ModifyFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2836,7 +2836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增人脸
+   * Add New Face
    * 
    * @param request - ModifyFaceRecordRequest
    * @returns ModifyFaceRecordResponse
@@ -2847,7 +2847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询人脸库
+   * Query Face Group
    * 
    * @param request - QueryFaceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2898,7 +2898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询人脸库
+   * Query Face Group
    * 
    * @param request - QueryFaceGroupRequest
    * @returns QueryFaceGroupResponse

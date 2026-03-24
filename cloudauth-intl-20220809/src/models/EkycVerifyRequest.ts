@@ -62,6 +62,15 @@ export class EkycVerifyRequest extends $dara.Model {
    * 00000001
    */
   docType?: string;
+  /**
+   * @remarks
+   * The Base64 encoding of the portrait image.
+   * 
+   * > If you use this method to pass the certificate image, check the image size. Do not pass an oversized image.
+   * 
+   * @example
+   * dsjisaj***oekwodsm
+   */
   facePictureBase64?: string;
   /**
    * @remarks
@@ -71,6 +80,15 @@ export class EkycVerifyRequest extends $dara.Model {
    * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
    */
   facePictureUrl?: string;
+  /**
+   * @remarks
+   * The Base64 encoding of the certificate image.
+   * 
+   * > If you use this method to pass the certificate image, check the image size. Do not pass an oversized image.
+   * 
+   * @example
+   * dsjisaj***oekwodsm
+   */
   idOcrPictureBase64?: string;
   /**
    * @remarks

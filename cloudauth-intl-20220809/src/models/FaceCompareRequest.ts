@@ -19,6 +19,15 @@ export class FaceCompareRequest extends $dara.Model {
    * e0c34a77f5ac40a5aa5e6ed20c353888
    */
   merchantBizId?: string;
+  /**
+   * @remarks
+   * The Base64 encoding of the portrait photo.
+   * 
+   * > If you use this method to pass the image, check the image size. Do not pass an oversized image.
+   * 
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   sourceFacePicture?: string;
   /**
    * @remarks
@@ -30,6 +39,15 @@ export class FaceCompareRequest extends $dara.Model {
    * https://***face1.jpeg
    */
   sourceFacePictureUrl?: string;
+  /**
+   * @remarks
+   * The Base64 encoding of the base photo.
+   * 
+   * > If you use this method to pass the image, check the image size. Do not pass an oversized image.
+   * 
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   targetFacePicture?: string;
   /**
    * @remarks

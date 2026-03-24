@@ -15,6 +15,13 @@ export class FaceLivenessRequest extends $dara.Model {
    * T
    */
   crop?: string;
+  /**
+   * @remarks
+   * The Base64-encoded image. If you use this parameter to pass the facial image, check the image size. Do not pass an oversized image.
+   * 
+   * @example
+   * dsjisaj***oekwodsm
+   */
   facePictureBase64?: string;
   /**
    * @remarks
