@@ -65,6 +65,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
    * sg-xxx
    */
   securityGroupId?: string;
+  snapshotMode?: string;
   /**
    * @remarks
    * The table name. The name must be prefixed with the database name. ${DatabaseName}.${TableName}
@@ -107,6 +108,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
       port: 'Port',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
+      snapshotMode: 'SnapshotMode',
       tableNames: 'TableNames',
       user: 'User',
       vSwitchIds: 'VSwitchIds',
@@ -124,6 +126,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
       port: 'number',
       regionId: 'string',
       securityGroupId: 'string',
+      snapshotMode: 'string',
       tableNames: 'string',
       user: 'string',
       vSwitchIds: 'string',

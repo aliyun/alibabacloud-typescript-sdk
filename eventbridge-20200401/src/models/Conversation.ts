@@ -5,12 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class Conversation extends $dara.Model {
   createdAt?: number;
   id?: string;
+  status?: string;
   title?: string;
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'CreatedAt',
       id: 'Id',
+      status: 'Status',
       title: 'Title',
       updatedAt: 'UpdatedAt',
     };
@@ -20,6 +22,7 @@ export class Conversation extends $dara.Model {
     return {
       createdAt: 'number',
       id: 'string',
+      status: 'string',
       title: 'string',
       updatedAt: 'number',
     };
