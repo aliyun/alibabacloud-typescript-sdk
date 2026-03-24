@@ -90,6 +90,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   docsExamined?: string;
+  fail?: string;
   /**
    * @example
    * 10
@@ -143,6 +144,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
   nodeId?: string;
   opType?: string;
   originTime?: string;
+  params?: string;
   /**
    * @example
    * 1
@@ -173,6 +175,8 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   queryTimeSeconds?: number;
+  reason?: string;
+  reqId?: string;
   requestSize?: number;
   responseSize?: number;
   /**
@@ -275,6 +279,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       dbId: 'DbId',
       dbInstanceName: 'DbInstanceName',
       docsExamined: 'DocsExamined',
+      fail: 'Fail',
       frows: 'Frows',
       hostAddress: 'HostAddress',
       IOWrites: 'IOWrites',
@@ -288,12 +293,15 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       nodeId: 'NodeId',
       opType: 'OpType',
       originTime: 'OriginTime',
+      params: 'Params',
       physicalIOReads: 'PhysicalIOReads',
       psql: 'Psql',
       queryId: 'QueryId',
       queryStartTime: 'QueryStartTime',
       queryTime: 'QueryTime',
       queryTimeSeconds: 'QueryTimeSeconds',
+      reason: 'Reason',
+      reqId: 'ReqId',
       requestSize: 'RequestSize',
       responseSize: 'ResponseSize',
       returnItemNumbers: 'ReturnItemNumbers',
@@ -331,6 +339,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       dbId: 'string',
       dbInstanceName: 'string',
       docsExamined: 'string',
+      fail: 'string',
       frows: 'number',
       hostAddress: 'string',
       IOWrites: 'number',
@@ -344,12 +353,15 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       nodeId: 'string',
       opType: 'string',
       originTime: 'string',
+      params: 'string',
       physicalIOReads: 'number',
       psql: 'string',
       queryId: 'string',
       queryStartTime: 'string',
       queryTime: 'number',
       queryTimeSeconds: 'number',
+      reason: 'string',
+      reqId: 'string',
       requestSize: 'number',
       responseSize: 'number',
       returnItemNumbers: 'string',
