@@ -4,15 +4,28 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
 export class CreateMemoryStoreRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of custom extraction strategies.
+   */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
+   * @remarks
+   * The description of the Memory Store.
+   * 
    * @example
    * Test memory store for demonstration.
    */
   description?: string;
+  /**
+   * @remarks
+   * The extraction strategies to use. Valid values: `Episodic`, `Summary`, and `Fact`.
+   */
   extractionStrategies?: string[];
   /**
    * @remarks
+   * The name of the Memory Store.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +34,8 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
+   * The time-to-live (TTL) for short-term memory.
+   * 
    * This parameter is required.
    * 
    * @example

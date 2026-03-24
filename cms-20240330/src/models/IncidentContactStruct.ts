@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentContactStruct extends $dara.Model {
   /**
    * @remarks
-   * Channel list.
+   * 通道列表
    */
   channel?: string[];
   /**
    * @remarks
-   * Contact ID.
+   * 联系人id
    * 
    * @example
    * 627415
@@ -18,7 +18,7 @@ export class IncidentContactStruct extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * Contact type.
+   * 联系类型。
    * 
    * @example
    * GROUP

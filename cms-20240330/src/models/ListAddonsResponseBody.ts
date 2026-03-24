@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAddonsResponseBodyAddonsDashboards extends $dara.Model {
   /**
+   * @remarks
+   * Dashboard description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * Dashboard name.
+   * 
    * @example
    * rum_view_link_rum_api
    */
   name?: string;
   /**
+   * @remarks
+   * The URL of the dashboard\\"s preview image.
+   * 
    * @example
    * http://xxxxxxx
    */
@@ -45,11 +54,17 @@ export class ListAddonsResponseBodyAddonsDashboards extends $dara.Model {
 
 export class ListAddonsResponseBodyAddonsEnvironmentsCommonSchemaRefs extends $dara.Model {
   /**
+   * @remarks
+   * The group name of the Common Schema.
+   * 
    * @example
    * acs-ecs
    */
   group?: string;
   /**
+   * @remarks
+   * The version of the Common Schema.
+   * 
    * @example
    * 0.1.4
    */
@@ -78,8 +93,20 @@ export class ListAddonsResponseBodyAddonsEnvironmentsCommonSchemaRefs extends $d
 }
 
 export class ListAddonsResponseBodyAddonsEnvironmentsDependencies extends $dara.Model {
+  /**
+   * @remarks
+   * Supported cluster types.
+   */
   clusterTypes?: string[];
+  /**
+   * @remarks
+   * The probes on which the integration depends.
+   */
   features?: { [key: string]: boolean };
+  /**
+   * @remarks
+   * A list of dependent services.
+   */
   services?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -116,6 +143,10 @@ export class ListAddonsResponseBodyAddonsEnvironmentsDependencies extends $dara.
 }
 
 export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Prometheus Query Language (PromQL) statements.
+   */
   promQL?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -143,21 +174,33 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule ext
 
 export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $dara.Model {
   /**
+   * @remarks
+   * Protocol description.
+   * 
    * @example
    * Support OpenTelemetry Protocal
    */
   description?: string;
   /**
+   * @remarks
+   * Icon URL.
+   * 
    * @example
    * http://xxxxxxx
    */
   icon?: string;
   /**
+   * @remarks
+   * Protocol display name.
+   * 
    * @example
    * OpenTelemetry
    */
   label?: string;
   /**
+   * @remarks
+   * Protocol name.
+   * 
    * @example
    * openTelemetry
    */
@@ -191,28 +234,51 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $
 
 export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Model {
   /**
+   * @remarks
+   * The default status of the alert rule policy.
+   * 
    * @example
    * RUNNING
    */
   alertDefaultStatus?: string;
   /**
+   * @remarks
+   * Indicates whether the add-on is installed by default.
+   * 
    * @example
    * true
    */
   defaultInstall?: boolean;
   /**
+   * @remarks
+   * Indicates whether to assign a Service Account to communicate with the Console API.
+   * 
    * @example
    * true
    */
   enableServiceAccount?: boolean;
+  /**
+   * @remarks
+   * Metric check rule.
+   */
   metricCheckRule?: ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule;
   /**
+   * @remarks
+   * Indicates whether to guide the user to restart pods after the add-on is installed.
+   * 
    * @example
    * true
    */
   needRestartAfterIntegration?: boolean;
+  /**
+   * @remarks
+   * The supported protocol types.
+   */
   protocols?: ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols[];
   /**
+   * @remarks
+   * The name of the target add-on.
+   * 
    * @example
    * cloud-acs-ecs
    */
@@ -257,26 +323,57 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
 }
 
 export class ListAddonsResponseBodyAddonsEnvironments extends $dara.Model {
+  /**
+   * @remarks
+   * A list of associated Common Schemas.
+   */
   commonSchemaRefs?: ListAddonsResponseBodyAddonsEnvironmentsCommonSchemaRefs[];
+  /**
+   * @remarks
+   * A list of dependencies for the add-on.
+   */
   dependencies?: ListAddonsResponseBodyAddonsEnvironmentsDependencies;
   /**
+   * @remarks
+   * The description of the integration policy type.
+   * 
    * @example
    * o11y-demo-cn-heyuan
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the add-on is enabled.
+   * 
    * @example
    * false
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The label of the integration policy type.
+   * 
+   * @example
+   * 容器环境
+   */
   label?: string;
   /**
+   * @remarks
+   * The name of the integration policy type.
+   * 
    * @example
    * CS
    */
   name?: string;
+  /**
+   * @remarks
+   * Integration policy configuration.
+   */
   policies?: ListAddonsResponseBodyAddonsEnvironmentsPolicies;
   /**
+   * @remarks
+   * Integration Center policy type.
+   * 
    * @example
    * CS
    */
@@ -327,55 +424,101 @@ export class ListAddonsResponseBodyAddonsEnvironments extends $dara.Model {
 
 export class ListAddonsResponseBodyAddons extends $dara.Model {
   /**
+   * @remarks
+   * The alias of the add-on.
+   * 
    * @example
    * resume_vector_alias
    */
   alias?: string;
+  /**
+   * @remarks
+   * A list of tags for the add-on.
+   */
   categories?: string[];
+  /**
+   * @remarks
+   * A list of dashboards.
+   */
   dashboards?: ListAddonsResponseBodyAddonsDashboards[];
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * workspace api monitor test
    */
   description?: string;
+  /**
+   * @remarks
+   * A list of supported integration policy types.
+   */
   environments?: ListAddonsResponseBodyAddonsEnvironments[];
   /**
+   * @remarks
+   * The URL of the icon.
+   * 
    * @example
    * http://xxxxxxx
    */
   icon?: string;
+  /**
+   * @remarks
+   * A list of keywords.
+   */
   keywords?: string[];
   /**
+   * @remarks
+   * Language.
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * The time when the latest version was created.
+   * 
    * @example
    * 2025-09-03T03:15:56Z
    */
   latestReleaseCreateTime?: string;
   /**
+   * @remarks
+   * The name of the add-on.
+   * 
    * @example
    * rum_api_dashboard_explorer_link_metric_set
    */
   name?: string;
   /**
+   * @remarks
+   * Indicates whether the add-on can be installed only once.
+   * 
    * @example
    * true
    */
   once?: boolean;
   /**
+   * @remarks
+   * The scenario of the component.
+   * 
    * @example
    * middleware
    */
   scene?: string;
   /**
+   * @remarks
+   * The version of the component.
+   * 
    * @example
    * *
    */
   version?: string;
   /**
+   * @remarks
+   * The display weight of the add-on.
+   * 
    * @example
    * 99
    */
@@ -440,6 +583,10 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
 }
 
 export class ListAddonsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of available add-ons.
+   */
   addons?: ListAddonsResponseBodyAddons[];
   /**
    * @remarks

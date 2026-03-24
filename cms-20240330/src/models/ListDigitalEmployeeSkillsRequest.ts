@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDigitalEmployeeSkillsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return for this request.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page. A null value indicates that there are no more pages.
+   * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The name of the skill.
+   * 
    * @example
    * test
    */

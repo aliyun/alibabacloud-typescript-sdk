@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetThreadResponseBodyVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the SLS project.
+   * 
    * @example
-   * kubenest
+   * test
    */
   project?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
-   * hd1
+   * test
    */
   workspace?: string;
   static names(): { [key: string]: string } {
@@ -37,47 +43,76 @@ export class GetThreadResponseBodyVariables extends $dara.Model {
 }
 
 export class GetThreadResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The time when the session was created.
+   * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The name of the digital employee.
+   * 
    * @example
    * test
    */
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The session status.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
-   * thread-t71rrw-1s7r7z9gu0v2s
+   * thread_id01
    */
   threadId?: string;
   /**
+   * @remarks
+   * The session title.
+   * 
    * @example
    * testLive
    */
   title?: string;
   /**
+   * @remarks
+   * The time when the thread was last updated.
+   * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The session properties.
+   */
   variables?: GetThreadResponseBodyVariables;
   /**
+   * @remarks
+   * The version.
+   * 
    * @example
    * 1231
    */

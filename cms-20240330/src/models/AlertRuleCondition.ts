@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleConditionCaseList extends $dara.Model {
   /**
    * @remarks
-   * Matching expression, example: logLevel: error.
+   * 匹配表达式，示例：  logLevel: error
    * 
    * @example
    * logLevel: error
@@ -13,7 +13,9 @@ export class AlertRuleConditionCaseList extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Count matching expression, examples: range combination: count >= 3 && count <= 10; single range: count >= 3.
+   * 数量匹配表达式，示例：
+   * 区间组合： __count__ >= 3 && __count__ <= 10
+   * 单区间： __count__ >= 3
    * 
    * @example
    * count >= 3
@@ -21,7 +23,7 @@ export class AlertRuleConditionCaseList extends $dara.Model {
   countCondition?: string;
   /**
    * @remarks
-   * Alert severity level after condition is met.
+   * 满足条件后的告警级别
    * 
    * @example
    * INFO
@@ -29,14 +31,13 @@ export class AlertRuleConditionCaseList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Matching type: Has data / Has a specific number of data entries / Has matching data / Has a specific number of matching entries.
+   * 匹配类型： 有数据/有特定条数据/有数据匹配/有特定条数匹配。
    * 
-   * Valid values:
-   * 
-   * - HasData: Has data.
-   * - HasDataCount: Has a specific number of data entries.
-   * - HasDataMatch: Has matching data.
-   * - HasDataMatchCount: Has a specific number of matching entries.
+   * 取值范围：
+   * - HasData: 有数据
+   * - HasDataCount:  有特定条数据
+   * - HasDataMatch：有数据匹配
+   * - HasDataMatchCount：有特定条数匹配
    * 
    * @example
    * HasData
@@ -72,7 +73,7 @@ export class AlertRuleConditionCaseList extends $dara.Model {
 export class AlertRuleConditionCompareListValueLevelList extends $dara.Model {
   /**
    * @remarks
-   * Severity level corresponding to the threshold.
+   * 阈值对应的级别
    * 
    * @example
    * INFO
@@ -80,7 +81,7 @@ export class AlertRuleConditionCompareListValueLevelList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Comparison threshold.
+   * 对比的阈值
    * 
    * @example
    * 120
@@ -112,15 +113,16 @@ export class AlertRuleConditionCompareListValueLevelList extends $dara.Model {
 export class AlertRuleConditionCompareList extends $dara.Model {
   /**
    * @remarks
-   * Time series post-aggregation functions:
+   * 时间序列后聚合函数
+   * 
    * - count
-   * -  sum 
-   * -  avg
-   * -  min
-   * -  max
-   * -  p90
-   * -  p95
-   * -  p99
+   * - sum
+   * - avg
+   * - min
+   * - max
+   * - p90
+   * - p95
+   * - p99
    * 
    * @example
    * count
@@ -128,7 +130,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   aggregate?: string;
   /**
    * @remarks
-   * Data unit.
+   * 数据单位
    * 
    * @example
    * %
@@ -136,7 +138,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   baseUnit?: string;
   /**
    * @remarks
-   * Display unit.
+   * 展示单位
    * 
    * @example
    * %
@@ -144,15 +146,16 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   displayUnit?: string;
   /**
    * @remarks
-   * Comparison operations to determine whether it is year-over-year (YoY) or month-over-month (MoM):
-   * - Greater than (GT),
-   * - Greater than or equal to (GTE),
-   * - Less than (LT),
-   * - Less than or equal to (LTE),
-   * - Equal to (EQ),
-   * - Not equal to (NE),
-   * - Year-over-year increase (YOY_UP),
-   * - Year-over-year decrease (YOY_DOWN).
+   * 比较操作，判断是否是同比、环比
+   * 
+   * - 大于 GT
+   * - 大于等于 GTE
+   * - 小于 LT
+   * - 小于等于 LTE
+   * - 等于 EQ
+   * - 不等于 NE
+   * - 同比增加 YOY_UP
+   * - 同比减少 YOY_DOWN
    * 
    * @example
    * GT
@@ -160,7 +163,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   oper?: string;
   /**
    * @remarks
-   * Comparison threshold.
+   * 对比的阈值
    * 
    * @example
    * 50
@@ -168,12 +171,13 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   value?: number;
   /**
    * @remarks
-   * List of alert severity levels for different values.
+   * 不同值的报警级别的列表。
    */
   valueLevelList?: AlertRuleConditionCompareListValueLevelList[];
   /**
    * @remarks
-   * Year-over-year time unit (only applicable when oper=YOY_UP/YOY_DOWN): minute, hour, day, week, month.
+   * 同比时间单位（仅对oper=YOY_UP/YOY_DOWN生效）
+   *  minute、hour、day、week、month
    * 
    * @example
    * month
@@ -181,7 +185,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   yoyTimeUnit?: string;
   /**
    * @remarks
-   * Year-over-year time value, used in conjunction with yoyTimeUnit.
+   * 同比时间的值，与yoyTimeUnit配合使用
    * 
    * @example
    * 1
@@ -228,19 +232,20 @@ export class AlertRuleConditionCompareList extends $dara.Model {
 export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Model {
   /**
    * @remarks
-   * Threshold comparison operator, valid values:
-   * - GreaterThanOrEqualToThreshold: greater than or equal to.
-   * - GreaterThanThreshold: greater than.
-   * - LessThanOrEqualToThreshold: less than or equal to.
-   * - LessThanThreshold: less than.
-   * - NotEqualToThreshold: not equal to.
-   * - EqualToThreshold: equal to.
-   * - GreaterThanYesterday: increased compared to the same time yesterday.
-   * - LessThanYesterday: decreased compared to the same time yesterday.
-   * - GreaterThanLastWeek: increased compared to the same time last week.
-   * - LessThanLastWeek: decreased compared to the same time last week.
-   * - GreaterThanLastPeriod: increased compared to the previous period (MoM).
-   * - LessThanLastPeriod: decreased compared to the previous period (MoM).
+   * 阈值比较符，取值范围：
+   * 
+   * - GreaterThanOrEqualToThreshold：大于等于。
+   * - GreaterThanThreshold：大于。
+   * - LessThanOrEqualToThreshold：小于等于。
+   * - LessThanThreshold：小于。
+   * - NotEqualToThreshold：不等于。
+   * - EqualToThreshold：等于。
+   * - GreaterThanYesterday：同比昨天时间上涨。
+   * - LessThanYesterday：同比昨天时间下降。
+   * - GreaterThanLastWeek：同比上周同一时间上涨。
+   * - LessThanLastWeek：同比上周同一时间下降。
+   * - GreaterThanLastPeriod：环比上周期上涨。
+   * - LessThanLastPeriod：环比上周期下降。
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -248,7 +253,7 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
   comparisonOperator?: string;
   /**
    * @remarks
-   * Metric name.
+   * 指标名称
    * 
    * @example
    * cpu_total
@@ -256,7 +261,7 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
   metricName?: string;
   /**
    * @remarks
-   * Metric time window.
+   * 指标的时间窗口
    * 
    * @example
    * 60
@@ -264,12 +269,14 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
   period?: number;
   /**
    * @remarks
-   * Statistical method; the value of this parameter is determined by the Statistics column corresponding to the specified cloud product\\"s MetricName. This represents the statistical method for the monitoring metric. Example values:
-   * - $Maximum: maximum value.
-   * - $Minimum: minimum value.
-   * - $Average: average value.
-   * - $Availability: availability (typically used for site monitoring).
-   * Note: "$" is a unified prefix symbol for monitoring metrics.
+   * 统计方法，该参数的取值由指定云产品的MetricName对应的Statistics列决定。  监控项的统计方法。取值示例：
+   * 
+   * - $Maximum：最大值。
+   * - $Minimum：最小值。
+   * - $Average：平均值。
+   * - $Availability：可用率（通常用于站点监控）
+   * 
+   * 说明 $为监控项的统一前缀符号。
    * 
    * @example
    * $Maximum
@@ -277,7 +284,7 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
   statistics?: string;
   /**
    * @remarks
-   * Alert threshold.
+   * 告警阈值
    * 
    * @example
    * 50
@@ -315,12 +322,12 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
 export class AlertRuleConditionCompositeEscalation extends $dara.Model {
   /**
    * @remarks
-   * List of multi-metric composite conditions.
+   * 多指标的组合条件列表
    */
   escalations?: AlertRuleConditionCompositeEscalationEscalations[];
   /**
    * @remarks
-   * Alert severity level triggered when the condition is met (multi-metric composite alerts support only one level).
+   * 满足条件时触发的告警级别(多指标组合告警仅支持一个级别)
    * 
    * @example
    * INFO
@@ -328,7 +335,7 @@ export class AlertRuleConditionCompositeEscalation extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Relationship between multiple metric conditions; valid values are "and" or "or".
+   * 多个指标条件之间的关系，取值为and或or
    * 
    * @example
    * and
@@ -336,7 +343,7 @@ export class AlertRuleConditionCompositeEscalation extends $dara.Model {
   relation?: string;
   /**
    * @remarks
-   * Number of times the condition must be met to trigger an alert.
+   * 触发告警需满足条件的次数
    * 
    * @example
    * 3
@@ -375,10 +382,10 @@ export class AlertRuleConditionCompositeEscalation extends $dara.Model {
 export class AlertRuleConditionExpressEscalation extends $dara.Model {
   /**
    * @remarks
-   * Alert severity level triggered when the condition is met (expression-based alerts support only one level): 
+   * 满足条件时触发的告警级别(表达式告警仅支持一个级别)
    * 
-   * - CRITICAL 
-   * - WARNING 
+   * - CRITICAL
+   * - WARNING
    * - INFO
    * 
    * @example
@@ -387,7 +394,7 @@ export class AlertRuleConditionExpressEscalation extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Alert condition expression.
+   * 告警条件表达式
    * 
    * @example
    * @cpu_total[60].$Average > 60
@@ -395,7 +402,7 @@ export class AlertRuleConditionExpressEscalation extends $dara.Model {
   rawExpression?: string;
   /**
    * @remarks
-   * Number of times the condition must be met to trigger an alert.
+   * 触发告警需满足条件的次数
    * 
    * @example
    * 3
@@ -429,20 +436,20 @@ export class AlertRuleConditionExpressEscalation extends $dara.Model {
 export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   /**
    * @remarks
-   * Threshold comparison operator, valid values:
+   * 阈值比较符，取值范围：
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to.
-   * - GreaterThanThreshold: greater than.
-   * - LessThanOrEqualToThreshold: less than or equal to.
-   * - LessThanThreshold: less than.
-   * - NotEqualToThreshold: not equal to.
-   * - EqualToThreshold: equal to.
-   * - GreaterThanYesterday: increased compared to the same time yesterday.
-   * - LessThanYesterday: decreased compared to the same time yesterday.
-   * - GreaterThanLastWeek: increased compared to the same time last week.
-   * - LessThanLastWeek: decreased compared to the same time last week.
-   * - GreaterThanLastPeriod: increased compared to the previous period (MoM).
-   * - LessThanLastPeriod: decreased compared to the previous period (MoM).
+   * - GreaterThanOrEqualToThreshold：大于等于。
+   * - GreaterThanThreshold：大于。
+   * - LessThanOrEqualToThreshold：小于等于。
+   * - LessThanThreshold：小于。
+   * - NotEqualToThreshold：不等于。
+   * - EqualToThreshold：等于。
+   * - GreaterThanYesterday：同比昨天时间上涨。
+   * - LessThanYesterday：同比昨天时间下降。
+   * - GreaterThanLastWeek：同比上周同一时间上涨。
+   * - LessThanLastWeek：同比上周同一时间下降。
+   * - GreaterThanLastPeriod：环比上周期上涨。
+   * - LessThanLastPeriod：环比上周期下降。
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -450,9 +457,10 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * Alert severity level triggered when the condition is met (expression-based alerts support only one level): 
-   * - CRITICAL 
-   * - WARNING 
+   * 满足条件时触发的告警级别(表达式告警仅支持一个级别)
+   * 
+   * - CRITICAL
+   * - WARNING
    * - INFO
    * 
    * @example
@@ -461,7 +469,7 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Statistical method; the value of this parameter is determined by the Statistics column corresponding to the specified cloud product\\"s MetricName, for example: Maximum, Minimum, and Average.
+   * 统计方法，该参数的取值由指定云产品的MetricName对应的Statistics列决定，例如：Maximum、Minimum 和 Average
    * 
    * @example
    * Average
@@ -469,7 +477,7 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * Alert threshold.
+   * 告警阈值
    * 
    * @example
    * 100
@@ -477,7 +485,7 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * Number of times the condition must be met to trigger an alert.
+   * 触发告警需满足条件的次数
    * 
    * @example
    * 3
@@ -515,13 +523,14 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
 export class AlertRuleConditionSimpleEscalation extends $dara.Model {
   /**
    * @remarks
-   * List of conditions; for an alert rule with multiple severity levels, each level corresponds to one condition object.
+   * 条件列表，同一个告警规则对应多个级别的，每一个级别会有一个条件对象。
    */
   escalations?: AlertRuleConditionSimpleEscalationEscalations[];
   /**
    * @remarks
-   * Applicable condition type: CMS_BASIC_CONDITION.
-   * Metric associated with the alert condition.
+   * 适用条件类型：CMS_BASIC_CONDITION。
+   * 
+   * 告警条件关联的指标
    * 
    * @example
    * cpu_total
@@ -529,7 +538,7 @@ export class AlertRuleConditionSimpleEscalation extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * Metric time window, in seconds.
+   * 指标的时间窗口，单位秒
    * 
    * @example
    * 60
@@ -566,8 +575,9 @@ export class AlertRuleConditionSimpleEscalation extends $dara.Model {
 export class AlertRuleCondition extends $dara.Model {
   /**
    * @remarks
-   * Applicable condition type: SLS_CONDITION.
-   * Number of times the condition must be met before triggering an alert, default is 1.
+   * 适用条件类型：SLS_CONDITION
+   * 
+   * 满足条件几次后告警，默认为1
    * 
    * @example
    * 1
@@ -575,29 +585,35 @@ export class AlertRuleCondition extends $dara.Model {
   alertCount?: number;
   /**
    * @remarks
-   * Applicable condition type: SLS_CONDITION.
-   * SLS alert condition list.
+   * 适用条件类型： SLS_CONDITION。
+   * 
+   * SLS告警条件列表
    */
   caseList?: AlertRuleConditionCaseList[];
   /**
    * @remarks
-   * Applicable condition type: APM_CONDITION.
-   * APM alert comparison condition list.
+   * 适用条件类型：APM_CONDITION。
+   * 
+   * APM告警比较条件列表
    */
   compareList?: AlertRuleConditionCompareList[];
   /**
    * @remarks
-   * Applicable condition type: CMS_BASIC_CONDITION.
-   * Valid only when escalationType=composite; composite metric alert condition.
+   * 适用条件类型：CMS_BASIC_CONDITION
+   * 
+   * escalationType=composite时有效，组合指标告警条件
    */
   compositeEscalation?: AlertRuleConditionCompositeEscalation;
   /**
    * @remarks
-   * Applicable condition type: CMS_BASIC_CONDITION.
-   * Valid values:
-   * - simple: Simple metric condition,
-   * - composite: Composite metric condition,
-   * - express: Expression condition.
+   * 适用条件类型：CMS_BASIC_CONDITION
+   * 
+   * 
+   * 取值范围: 
+   * 
+   * - simple: 简单指标条件
+   * - composite: 组合指标条件
+   * - express: 表达式条件
    * 
    * @example
    * simple
@@ -605,14 +621,16 @@ export class AlertRuleCondition extends $dara.Model {
   escalationType?: string;
   /**
    * @remarks
-   * Applicable condition type: CMS_BASIC_CONDITION.
-   * Valid only when escalationType=composite; multi-metric composite alert condition.
+   * 适用条件类型：CMS_BASIC_CONDITION。
+   * 
+   * escalationType=composite时有效，多指标组合告警条件。
    */
   expressEscalation?: AlertRuleConditionExpressEscalation;
   /**
    * @remarks
-   * Applicable condition type: APM_CONDITION.
-   * Alert severity level when no data is available; if not specified, no alert will be triggered for missing data.
+   * 适用条件类型：APM_CONDITION。
+   * 
+   * 无数据时的告警级别，不指定则不对无数据报警
    * 
    * @example
    * INFO
@@ -620,8 +638,9 @@ export class AlertRuleCondition extends $dara.Model {
   noDataAlertLevel?: string;
   /**
    * @remarks
-   * Applicable condition type: APM_CONDITION.
-   * Fallback value when no data is available.
+   * 适用条件类型：APM_CONDITION。
+   * 
+   * 无数据时补偿的值。
    * 
    * @example
    * 1
@@ -629,12 +648,14 @@ export class AlertRuleCondition extends $dara.Model {
   noDataAppendValue?: string;
   /**
    * @remarks
-   * Applicable condition type: CMS_BASIC_CONDITION.
-   * Handling method when no monitoring data is available. Valid values:
+   * 适用条件类型：CMS_BASIC_CONDITION。
    * 
-   * - KEEP_LAST_STATE (default): No action is taken.
-   * - INSUFFICIENT_DATA: Alert with "insufficient data" message.
-   * - OK: Treat as normal.
+   * 
+   * 无监控数据时报警的处理方式。取值：
+   * 
+   * - KEEP_LAST_STATE（默认值）：不做任何处理。
+   * - INSUFFICIENT_DATA：报警内容为无数据。
+   * - OK：正常。
    * 
    * @example
    * KEEP_LAST_STATE
@@ -642,16 +663,16 @@ export class AlertRuleCondition extends $dara.Model {
   noDataPolicy?: string;
   /**
    * @remarks
-   * Comparison operations to determine whether it is year-over-year (YoY) or month-over-month (MoM):
+   * 比较操作，判断是否是同比、环比
    * 
-   * - Greater than (GT),
-   * - Greater than or equal to (GTE),
-   * - Less than (LT),
-   * - Less than or equal to (LTE),
-   * - Equal to (EQ),
-   * - Not equal to (NE),
-   * - Year-over-year increase (YOY_UP),
-   * - Year-over-year decrease (YOY_DOWN).
+   * - 大于 GT
+   * - 大于等于 GTE
+   * - 小于 LT
+   * - 小于等于 LTE
+   * - 等于 EQ
+   * - 不等于 NE
+   * - 同比增加 YOY_UP
+   * - 同比减少 YOY_DOWN
    * 
    * @example
    * LT
@@ -659,8 +680,11 @@ export class AlertRuleCondition extends $dara.Model {
   oper?: string;
   /**
    * @remarks
-   * Applicable condition type: APM_CONDITION.
-   * Logical relationship between multiple conditions. Valid values: and, or.
+   * 适用条件类型：APM_CONDITION。
+   * 
+   * 多个条件之间的逻辑关系。 取值：
+   * - and
+   * - or
    * 
    * @example
    * and
@@ -668,17 +692,17 @@ export class AlertRuleCondition extends $dara.Model {
   relation?: string;
   /**
    * @remarks
-   * Applicable condition type: CMS_BASIC_CONDITION.
-   * Only valid when escalationType=simple; specifies the alert condition for a single metric.
+   * 适用条件类型：CMS_BASIC_CONDITION。
+   * 
+   * 仅当escalationType=simple时有效，针对单一指标设置的告警条件
    */
   simpleEscalation?: AlertRuleConditionSimpleEscalation;
   /**
    * @remarks
-   * Rule condition type, valid values:
-   * 
-   * SLS_CONDITION (SLS alert condition),
-   * APM_CONDITION (APM alert condition),
-   * CMS_BASIC_CONDITION (Basic Cloud Monitoring alert condition).
+   * 规则条件类型，取值范围：
+   * - SLS_CONDITION(SLS告警条件)
+   * - APM_CONDITION(APM告警条件)
+   * - CMS_BASIC_CONDITION(基础云监控告警条件)
    * 
    * This parameter is required.
    * 
@@ -688,7 +712,7 @@ export class AlertRuleCondition extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Alert triggering threshold.
+   * 告警触发的阈值。
    * 
    * @example
    * 60

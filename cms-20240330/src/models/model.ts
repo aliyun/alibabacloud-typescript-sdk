@@ -21,6 +21,7 @@ export { AlertRuleQueryEntityFields } from './AlertRuleQuery';
 export { AlertRuleQueryEntityFilterFilters } from './AlertRuleQuery';
 export { AlertRuleQueryEntityFilter } from './AlertRuleQuery';
 export { AlertRuleQueryLabelFilters } from './AlertRuleQuery';
+export { AlertRuleQueryMarkTags } from './AlertRuleQuery';
 export { AlertRuleQueryQueriesApmFilters } from './AlertRuleQuery';
 export { AlertRuleQueryQueries } from './AlertRuleQuery';
 export { AlertRuleSlsQueryJoinConditions } from './AlertRuleSlsQueryJoin';

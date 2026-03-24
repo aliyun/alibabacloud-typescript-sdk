@@ -6,7 +6,7 @@ import { EntityGroupBase } from "./EntityGroupBase";
 export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   /**
    * @remarks
-   * First transition time.
+   * The time when the phase first transitioned.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -14,7 +14,7 @@ export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   firstTransitionTime?: string;
   /**
    * @remarks
-   * Last transition time.
+   * The time when the phase last transitioned.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -22,7 +22,7 @@ export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   lastTransitionTime?: string;
   /**
    * @remarks
-   * Details.
+   * The detailed message.
    * 
    * @example
    * The addon loaded successfully
@@ -30,7 +30,7 @@ export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Phase status.
+   * The status of the phase.
    * 
    * @example
    * True
@@ -38,7 +38,7 @@ export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Phase type.
+   * The type of the phase.
    * 
    * @example
    * Loaded
@@ -76,7 +76,7 @@ export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
 export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   /**
    * @remarks
-   * Addon component name.
+   * The name of the add-on component.
    * 
    * @example
    * cs-gpu
@@ -84,7 +84,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * Number of alert rules.
+   * The number of alert rules.
    * 
    * @example
    * 6
@@ -92,12 +92,12 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   alertRuleCount?: number;
   /**
    * @remarks
-   * Installation phase information.
+   * Information about the installation phases.
    */
   conditions?: GetAddonReleaseResponseBodyReleaseConditions[];
   /**
    * @remarks
-   * Component configuration information.
+   * The configuration information of the component.
    * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
@@ -105,7 +105,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Connection time.
+   * The time when the add-on was accessed.
    * 
    * @example
    * 2024-11-04T16:10:12+08:00
@@ -113,7 +113,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Number of dashboards.
+   * The number of dashboards.
    * 
    * @example
    * 3
@@ -121,12 +121,12 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   dashboardCount?: number;
   /**
    * @remarks
-   * Entity details.
+   * The details of the entity.
    */
   entityRules?: EntityGroupBase;
   /**
    * @remarks
-   * Environment type.
+   * The type of the environment.
    * 
    * @example
    * CS
@@ -134,7 +134,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * Environment ID.
+   * The ID of the environment.
    * 
    * @example
    * policy-xxxxxxxxxxx
@@ -142,7 +142,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Number of plugins.
+   * The number of plug-ins.
    * 
    * @example
    * 2
@@ -150,7 +150,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   exporterCount?: number;
   /**
    * @remarks
-   * Whether there is a configuration.
+   * Indicates whether a configuration exists.
    * 
    * @example
    * true
@@ -158,7 +158,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   haveConfig?: boolean;
   /**
    * @remarks
-   * User ID for connection.
+   * The ID of the user who accessed the add-on.
    * 
    * @example
    * 1707xxxxxxxxxxxx
@@ -166,7 +166,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   installUserId?: string;
   /**
    * @remarks
-   * Language.
+   * The language.
    * 
    * @example
    * zh
@@ -174,7 +174,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Whether it is a managed component.
+   * Indicates whether the component is a managed component.
    * 
    * @example
    * true
@@ -182,7 +182,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   managed?: boolean;
   /**
    * @remarks
-   * Parent AddonRelease ID.
+   * The ID of the parent add-on release.
    * 
    * @example
    * policy-xxxxxxxxxxxxx
@@ -190,7 +190,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   parentAddonReleaseId?: string;
   /**
    * @remarks
-   * Policy ID.
+   * The ID of the policy.
    * 
    * @example
    * policy-xxxxxxxxxxxxx
@@ -198,7 +198,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou
@@ -206,7 +206,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Release ID.
+   * The ID of the release.
    * 
    * @example
    * 7339d808-66f9-4d40-83fa-xxxxxxxxxxx
@@ -214,7 +214,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   releaseId?: string;
   /**
    * @remarks
-   * The name of the Release.
+   * The name of the release.
    * 
    * @example
    * test-gpu-integration-name
@@ -222,7 +222,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   releaseName?: string;
   /**
    * @remarks
-   * Component scenario.
+   * The scenario of the component.
    * 
    * @example
    * container
@@ -230,7 +230,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * Component status.
+   * The status of the component.
    * 
    * @example
    * running
@@ -238,7 +238,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Update time.
+   * The time when the release was last updated.
    * 
    * @example
    * 2024-11-04T16:10:12+08:00
@@ -246,7 +246,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Owner user ID.
+   * The ID of the user to which the release belongs.
    * 
    * @example
    * 1707xxxxxxxxxxxx
@@ -254,7 +254,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Component version.
+   * The version of the component.
    * 
    * @example
    * 0.0.2
@@ -262,7 +262,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * Workspace.
+   * The workspace.
    * 
    * @example
    * default
@@ -346,7 +346,7 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
 export class GetAddonReleaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Component configuration.
+   * The configuration of the component.
    * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
@@ -354,12 +354,12 @@ export class GetAddonReleaseResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Detailed information.
+   * The details of the release.
    */
   release?: GetAddonReleaseResponseBodyRelease;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8

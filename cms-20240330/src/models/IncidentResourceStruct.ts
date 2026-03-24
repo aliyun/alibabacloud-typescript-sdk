@@ -6,15 +6,15 @@ import { IncidentResourceDetail } from "./IncidentResourceDetail";
 export class IncidentResourceStruct extends $dara.Model {
   /**
    * @remarks
-   * Description information.
+   * 描述信息。
    * 
    * @example
-   * Production environment web server.
+   * 生产环境 Web 服务器
    */
   description?: string;
   /**
    * @remarks
-   * Incident ID.
+   * 事件ID。
    * 
    * @example
    * incident-001
@@ -22,7 +22,7 @@ export class IncidentResourceStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * The unique ID of this resource in the event.
+   * 事件中该资源的唯一 ID。
    * 
    * @example
    * res-001
@@ -30,12 +30,12 @@ export class IncidentResourceStruct extends $dara.Model {
   incidentResourceId?: string;
   /**
    * @remarks
-   * Event resource details object.
+   * 事件资源详情对象。
    */
   resource?: IncidentResourceDetail;
   /**
    * @remarks
-   * Source.
+   * 来源。
    * 
    * @example
    * cloudmonitor
@@ -43,7 +43,7 @@ export class IncidentResourceStruct extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Time.
+   * 时间戳
    * 
    * @example
    * 1741234567890
@@ -51,7 +51,7 @@ export class IncidentResourceStruct extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * User ID.
+   * 用户 ID。
    * 
    * @example
    * user-12345

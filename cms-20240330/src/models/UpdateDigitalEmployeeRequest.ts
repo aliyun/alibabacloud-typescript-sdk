@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   /**
+   * @remarks
+   * Knowledge base attributes
+   * 
    * @example
    * test
    */
   attributes?: string;
   /**
+   * @remarks
+   * Bailian index ID
+   * 
    * @example
    * index-xxxx
    */
   indexId?: string;
   /**
+   * @remarks
+   * Region of the Bailian knowledge base
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * Bailian workspace ID
+   * 
    * @example
    * llm-xxxx
    */
@@ -51,7 +63,15 @@ export class UpdateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
 }
 
 export class UpdateDigitalEmployeeRequestKnowledges extends $dara.Model {
+  /**
+   * @remarks
+   * Bailian knowledge base list
+   */
   bailian?: UpdateDigitalEmployeeRequestKnowledgesBailian[];
+  /**
+   * @remarks
+   * SOP knowledge base list
+   */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -84,22 +104,38 @@ export class UpdateDigitalEmployeeRequestKnowledges extends $dara.Model {
 
 export class UpdateDigitalEmployeeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Default rule
+   * 
    * @example
    * test
    */
   defaultRule?: string;
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * Digital employee display name
+   * 
    * @example
    * test
    */
   displayName?: string;
+  /**
+   * @remarks
+   * List of knowledge bases
+   */
   knowledges?: UpdateDigitalEmployeeRequestKnowledges;
   /**
+   * @remarks
+   * Role ARN
+   * 
    * @example
    * acs:ram::12345678912:role/testrole
    */

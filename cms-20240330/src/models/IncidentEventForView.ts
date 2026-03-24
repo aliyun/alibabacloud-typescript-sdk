@@ -5,85 +5,25 @@ import { EventResourceForIncidentView } from "./EventResourceForIncidentView";
 
 
 export class IncidentEventForView extends $dara.Model {
-  /**
-   * @example
-   * 1743876600000
-   */
   autoRecoverTime?: number;
   content?: CmsEventForView;
-  /**
-   * @example
-   * 3
-   */
   count?: number;
-  /**
-   * @example
-   * { "env": "prod", "module": "payment" }
-   */
   dimension?: { [key: string]: any };
   eventResource?: EventResourceForIncidentView;
-  /**
-   * @example
-   * { "resourceId": "i-bp123456", "severity": "Critical" }
-   */
   groupBy?: { [key: string]: any };
-  /**
-   * @example
-   * "x1y2z3a4-b5c6-d7e8-f9g0-h1i2j3k4l5m6"
-   */
   incidentEventUuid?: string;
-  /**
-   * @example
-   * "a1b2c3d4-e5f6-7890-1234-567890abcdef"
-   */
   incidentUuid?: string;
-  /**
-   * @example
-   * { "project": "payment-gateway", "owner": "ops-team" }
-   */
   labels?: { [key: string]: any };
-  /**
-   * @example
-   * 1743876000000
-   */
   lastTime?: number;
-  /**
-   * @example
-   * 1743876600000
-   */
   recoverTime?: number;
   searchIndex?: string[];
-  /**
-   * @example
-   * "Critical"
-   */
   severity?: string;
-  /**
-   * @example
-   * { "Critical": 2, "High": 1 }
-   */
   severityCountMap?: { [key: string]: any };
-  /**
-   * @example
-   * 1
-   */
   state?: number;
   textIndex?: string;
-  /**
-   * @example
-   * 1743876000000
-   */
   time?: number;
   title?: string;
-  /**
-   * @example
-   * "user-abc123"
-   */
   userId?: string;
-  /**
-   * @example
-   * "ws-xyz789"
-   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

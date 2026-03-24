@@ -4,31 +4,58 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAlertWebhookRequest extends $dara.Model {
   /**
+   * @remarks
+   * The content type of the data. Supported values:
+   * 
+   * - JSON
+   * 
+   * - FORM
+   * 
    * @example
    * JSON
    */
   contentType?: string;
   /**
    * @remarks
-   * headers
+   * The headers.
    */
   headers?: { [key: string]: string };
   /**
+   * @remarks
+   * The language. Supported values:
+   * 
+   * - zh_CN
+   * 
+   * - en_US
+   * 
    * @example
    * zh_CN
    */
   lang?: string;
   /**
+   * @remarks
+   * The request method. Supported values:
+   * 
+   * - GET
+   * 
+   * - POST
+   * 
    * @example
    * GET
    */
   method?: string;
   /**
+   * @remarks
+   * The name of the webhook.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The URL of the alert callback.
+   * 
    * @example
    * http://aliyun.com/test
    */

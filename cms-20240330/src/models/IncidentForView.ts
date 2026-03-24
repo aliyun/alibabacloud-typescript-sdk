@@ -9,69 +9,25 @@ import { EventResourceForIncidentView } from "./EventResourceForIncidentView";
 export class IncidentForView extends $dara.Model {
   content?: string;
   escalations?: IncidentEscalationPolicyForView[];
-  /**
-   * @example
-   * "group-123456"
-   */
   groupUuid?: string;
   groupingKeys?: { [key: string]: string };
-  /**
-   * @example
-   * "incident-abc123"
-   */
   incidentId?: string;
   notifyStrategyName?: string;
-  /**
-   * @example
-   * "notify-strategy-789"
-   */
   notifyStrategyUuid?: string;
   operator?: ContactForIncidentView;
   owners?: ContactForIncidentView[];
   participants?: ContactForIncidentView[];
   plan?: IncidentResponsePlanForView;
   relatedResources?: EventResourceForIncidentView[];
-  /**
-   * @example
-   * "Network"
-   */
   rootCauseCategory?: string;
-  /**
-   * @example
-   * "Critical"
-   */
   severity?: string;
   solution?: string;
-  /**
-   * @example
-   * "Open"
-   */
   state?: string;
-  /**
-   * @example
-   * "P1-Alert-Notification"
-   */
   subscriptionName?: string;
-  /**
-   * @example
-   * "subscription-abc"
-   */
   subscriptionUuid?: string;
-  /**
-   * @example
-   * 1743876000000
-   */
   time?: number;
   title?: string;
-  /**
-   * @example
-   * "user-abc123"
-   */
   userId?: string;
-  /**
-   * @example
-   * "ws-xyz789"
-   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

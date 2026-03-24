@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyDashboardsRequest extends $dara.Model {
   /**
    * @remarks
-   * Addon Name.
+   * The add-on name.
    * 
    * @example
    * cs-default
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyDashboardsRequest extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * Query Language
+   * The query language.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyDashboardsRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Component Scenario.
+   * The component scenario.
    * 
    * @example
    * databse

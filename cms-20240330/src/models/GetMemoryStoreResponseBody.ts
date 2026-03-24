@@ -4,7 +4,21 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
 export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
+  /**
+   * @remarks
+   * Simple Log Service Logstore name.
+   * 
+   * @example
+   * memory-store
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * Simple Log Service Project name.
+   * 
+   * @example
+   * wk_cms_data_warehouse
+   */
   project?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,42 +46,73 @@ export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
 export class GetMemoryStoreResponseBody extends $dara.Model {
   /**
    * @remarks
+   * Creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
    * 1764556182850
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Custom extraction strategies.
+   */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
+   * @remarks
+   * Description.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * Supported values: Episodic, Summary, and Fact.
+   */
   extractionStrategies?: string[];
   /**
+   * @remarks
+   * Memory store name.
+   * 
    * @example
    * test-memory-store
    */
   memoryStoreName?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Short-term memory storage.
+   */
   shortTermStorage?: GetMemoryStoreResponseBodyShortTermStorage;
   /**
+   * @remarks
+   * Short-term memory retention time, in seconds.
+   * 
    * @example
    * 10
    */
   shortTermTtl?: number;
   /**
    * @remarks
+   * Update time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -75,6 +120,9 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Workspace name.
+   * 
    * @example
    * default-cms-xxxxxx-cn-beijing
    */

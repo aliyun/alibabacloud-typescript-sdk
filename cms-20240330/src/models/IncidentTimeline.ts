@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentTimeline extends $dara.Model {
   /**
    * @remarks
-   * Subtype.
+   * 子类型。
    * 
    * @example
    * comment
@@ -13,15 +13,15 @@ export class IncidentTimeline extends $dara.Model {
   childType?: string;
   /**
    * @remarks
-   * Content.
+   * 内容。
    * 
    * @example
-   * The operations team has been notified to investigate.
+   * 已通知运维团队进行排查
    */
   content?: string;
   /**
    * @remarks
-   * Incident ID.
+   * 所属事件 ID。
    * 
    * @example
    * incident-001
@@ -29,7 +29,7 @@ export class IncidentTimeline extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * Timeline node unique ID.
+   * 时间线节点唯一 ID。
    * 
    * @example
    * timeline-001
@@ -37,7 +37,7 @@ export class IncidentTimeline extends $dara.Model {
   incidentTimelineId?: string;
   /**
    * @remarks
-   * Time.
+   * 时间戳。
    * 
    * @example
    * 1741234567890
@@ -45,7 +45,7 @@ export class IncidentTimeline extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * Parent timeline ID.
+   * 所属时间线 ID。
    * 
    * @example
    * timeline-main-001
@@ -53,15 +53,15 @@ export class IncidentTimeline extends $dara.Model {
   timelineId?: string;
   /**
    * @remarks
-   * Title.
+   * 时间线标题。
    * 
    * @example
-   * The operations team has been contacted.
+   * 已联系运维团队
    */
   title?: string;
   /**
    * @remarks
-   * Type.
+   * 类型。
    * 
    * @example
    * ACTION
@@ -69,7 +69,7 @@ export class IncidentTimeline extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * User ID.
+   * 用户 ID。
    * 
    * @example
    * user-12345

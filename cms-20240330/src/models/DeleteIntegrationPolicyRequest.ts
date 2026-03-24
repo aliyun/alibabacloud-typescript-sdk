@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIntegrationPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to forcibly delete the cloud-native all-in-one machine,
-   * default value: `false`.
+   * Specifies whether to force delete the cloud native appliance.
+   * Default: `false`.
    * 
    * @example
    * false

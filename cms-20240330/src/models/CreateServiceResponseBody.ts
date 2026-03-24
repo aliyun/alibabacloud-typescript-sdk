@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Historical compatible ARMS application ID
+   * The ID of the ARMS application for backward compatibility.
    * 
    * @example
    * cwzxvuc6uo@d60088ad4797d26
@@ -13,7 +13,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   pid?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 3A2FA9E9-9CF1-5CB1-A808-52828F14310D
@@ -21,7 +21,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service ID
+   * The service ID.
    * 
    * @example
    * cwzxvuc6uo@4bc6b15ad81f166174ffb

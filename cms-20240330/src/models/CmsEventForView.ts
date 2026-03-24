@@ -4,111 +4,27 @@ import { EventResourceForEventView } from "./EventResourceForEventView";
 
 
 export class CmsEventForView extends $dara.Model {
-  /**
-   * @example
-   * { "description": "High load detected on server", "operator": "auto" }
-   */
   annotations?: { [key: string]: any };
-  /**
-   * @example
-   * { "metricName": "cpu_usage", "value": 95.2, "threshold": 80 }
-   */
   data?: any;
-  /**
-   * @example
-   * "application/json"
-   */
   datacontenttype?: string;
-  /**
-   * @example
-   * "https://schema.alibabacloud.com/cms/alert/v1"
-   */
   dataschema?: string;
-  /**
-   * @example
-   * "dedup-abc123"
-   */
   dedupId?: string;
-  /**
-   * @example
-   * "event-1234567890"
-   */
   id?: string;
-  /**
-   * @example
-   * "integration-xyz"
-   */
   integrationUuid?: string;
-  /**
-   * @example
-   * {\\"source\\": \\"system\\"}
-   */
   labels?: { [key: string]: any };
-  /**
-   * @example
-   * 1743846610000
-   */
   receiveTime?: number;
   resource?: EventResourceForEventView;
-  /**
-   * @example
-   * "CRITICAL"
-   */
   severity?: string;
-  /**
-   * @example
-   * "ECS"
-   */
   source?: string;
-  /**
-   * @example
-   * "CloudMonitor"
-   */
   sourcetype?: string;
-  /**
-   * @example
-   * Running
-   */
   status?: string;
-  /**
-   * @example
-   * "Instance cpu usage exceeds threshold"
-   */
   subject?: string;
-  /**
-   * @example
-   * "HighCPUUsage"
-   */
   subtype?: string;
-  /**
-   * @example
-   * "sys-event-987654321"
-   */
   sysId?: string;
-  /**
-   * @example
-   * "2025-04-05T10:30:00Z"
-   */
   time?: string;
-  /**
-   * @example
-   * 1743846600000
-   */
   timestamp?: number;
-  /**
-   * @example
-   * "Alert"
-   */
   type?: string;
-  /**
-   * @example
-   * "ws-abc123"
-   */
   workspace?: string;
-  /**
-   * @example
-   * { "department": "finance", "project": "payment-gateway" }
-   */
   workspaceTags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

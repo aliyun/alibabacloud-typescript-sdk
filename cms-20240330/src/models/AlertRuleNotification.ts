@@ -4,54 +4,15 @@ import { AlertRuleTimeSpan } from "./AlertRuleTimeSpan";
 
 
 export class AlertRuleNotification extends $dara.Model {
-  /**
-   * @remarks
-   * List of contact IDs.
-   */
   contacts?: string[];
-  /**
-   * @remarks
-   * List of custom webhook notification object IDs.
-   */
   customWebhooks?: string[];
   dingCoolAppWebhooks?: string[];
-  /**
-   * @remarks
-   * List of DingTalk webhook notification object IDs.
-   */
   dingWebhooks?: string[];
-  /**
-   * @remarks
-   * List of Feishu webhook notification object IDs.
-   */
   fsWebhooks?: string[];
-  /**
-   * @remarks
-   * List of contact group IDs.
-   */
   groups?: string[];
-  /**
-   * @remarks
-   * Notification time window; notifications are sent only during this period.
-   */
   notifyTime?: AlertRuleTimeSpan;
-  /**
-   * @remarks
-   * Notification silence duration, in seconds.
-   * 
-   * @example
-   * 86400
-   */
   silenceTime?: number;
-  /**
-   * @remarks
-   * List of Slack webhook notification object IDs.
-   */
   slackWebhooks?: string[];
-  /**
-   * @remarks
-   * List of WeChat webhook notification object IDs.
-   */
   wxWebhooks?: string[];
   static names(): { [key: string]: string } {
     return {

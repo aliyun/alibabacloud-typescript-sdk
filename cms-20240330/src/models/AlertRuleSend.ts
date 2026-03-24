@@ -6,25 +6,10 @@ import { AlertRuleRcaConfig } from "./AlertRuleRcaConfig";
 
 
 export class AlertRuleSend extends $dara.Model {
-  /**
-   * @remarks
-   * Alert Action Integration Configuration.
-   */
   action?: AlertRuleAction;
-  /**
-   * @remarks
-   * Alert Notification Configuration.
-   */
   notification?: AlertRuleNotification;
   notifyStrategies?: string[];
   rcaConfig?: AlertRuleRcaConfig;
-  /**
-   * @remarks
-   * Whether to deliver alert events to ARMS Alert Management.
-   * 
-   * @example
-   * true
-   */
   sendToArms?: boolean;
   static names(): { [key: string]: string } {
     return {

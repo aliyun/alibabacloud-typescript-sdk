@@ -5,21 +5,33 @@ import { Tag } from "./Tag";
 
 export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model {
   /**
+   * @remarks
+   * The properties of the knowledge base.
+   * 
    * @example
    * test
    */
   attributes?: string;
   /**
+   * @remarks
+   * The ID of the Bailian index.
+   * 
    * @example
    * index-xxxx
    */
   indexId?: string;
   /**
+   * @remarks
+   * The region of the Bailian knowledge base.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The ID of the Bailian workspace.
+   * 
    * @example
    * llm-xxxxx
    */
@@ -52,7 +64,15 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
 }
 
 export class GetDigitalEmployeeResponseBodyKnowledges extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Bailian knowledge bases.
+   */
   bailian?: GetDigitalEmployeeResponseBodyKnowledgesBailian[];
+  /**
+   * @remarks
+   * A list of Standard Operating Procedure (SOP) knowledge bases.
+   */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -86,6 +106,8 @@ export class GetDigitalEmployeeResponseBodyKnowledges extends $dara.Model {
 export class GetDigitalEmployeeResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The time when the digital employee was created.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -93,50 +115,91 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The default rule.
+   * 
    * @example
    * test
    */
   defaultRule?: string;
   /**
+   * @remarks
+   * The description of the digital employee.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the digital employee.
+   * 
    * @example
    * test
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The type of the digital employee.
+   * 
+   * @example
+   * custom
+   */
   employeeType?: string;
+  /**
+   * @remarks
+   * A list of knowledge bases.
+   */
   knowledges?: GetDigitalEmployeeResponseBodyKnowledges;
   /**
+   * @remarks
+   * The name of the digital employee.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-************
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-ae******ey
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * 
    * @example
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: Tag[];
   /**
    * @remarks
+   * The time when the digital employee was last updated.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example

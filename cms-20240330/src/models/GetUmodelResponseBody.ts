@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUmodelResponseBodyCommonSchemaRef extends $dara.Model {
   /**
    * @remarks
-   * Common Umodel Schema group
+   * The public Umodel schema group.
    * 
    * @example
    * test-job-123123
@@ -13,7 +13,7 @@ export class GetUmodelResponseBodyCommonSchemaRef extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * Version
+   * The version.
    * 
    * @example
    * 5
@@ -45,12 +45,12 @@ export class GetUmodelResponseBodyCommonSchemaRef extends $dara.Model {
 export class GetUmodelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This field does not need to be filled currently
+   * This parameter is reserved.
    */
   commonSchemaRef?: GetUmodelResponseBodyCommonSchemaRef[];
   /**
    * @remarks
-   * Umodel description
+   * The Umodel description.
    * 
    * @example
    * workspace test
@@ -58,7 +58,7 @@ export class GetUmodelResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Region
+   * The region of the resource.
    * 
    * @example
    * cn-heyuan
@@ -66,7 +66,7 @@ export class GetUmodelResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 123-123123-sdf-435-3123
@@ -74,7 +74,7 @@ export class GetUmodelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Workspace name
+   * The workspace name.
    * 
    * @example
    * workspace-test

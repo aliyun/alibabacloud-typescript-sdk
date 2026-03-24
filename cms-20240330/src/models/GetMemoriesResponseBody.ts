@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMemoriesResponseBodyRelations extends $dara.Model {
   /**
+   * @remarks
+   * Destination
+   * 
    * @example
    * test
    */
   destination?: string;
   /**
+   * @remarks
+   * Relation
+   * 
    * @example
    * test
    */
   relationship?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * test_namespace/RegistryModule-test2153b9f3-0be6-455e-9efd-05fd31f62885/alicloud
    */
@@ -45,11 +54,17 @@ export class GetMemoriesResponseBodyRelations extends $dara.Model {
 
 export class GetMemoriesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * Actor ID
+   * 
    * @example
    * test_session_001
    */
   actorId?: string;
   /**
+   * @remarks
+   * Agent ID of the application
+   * 
    * @example
    * 980565235819266048
    */
@@ -60,51 +75,81 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1747623093939
    */
   createdAt?: string;
   /**
+   * @remarks
+   * Memory hash value
+   * 
    * @example
    * 73ad89f2d56c2f8615e5dd0cef7b4c41c074277c91fa0e31fc5b41802c0481f2
    */
   hash?: string;
   /**
+   * @remarks
+   * Memory ID
+   * 
    * @example
    * 019ca1e5-7307-7d50-b943-5e628326a8ed
    */
   id?: string;
   /**
+   * @remarks
+   * Memory
+   * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
    */
   memory?: string;
   /**
+   * @remarks
+   * Metadata
+   * 
    * @example
    * {"sessionId":"test_session_001"}
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * Message initiator role
+   * 
    * @example
    * user
    */
   role?: string;
   /**
+   * @remarks
+   * Run ID
+   * 
    * @example
    * jr-965a0b00cb42a43b
    */
   runId?: string;
   /**
+   * @remarks
+   * Similarity score
+   * 
    * @example
    * 30.12
    */
   score?: number;
   /**
+   * @remarks
+   * Update time
+   * 
    * @example
    * 1752825865045
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * test_session_001
    */
@@ -158,12 +203,23 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
 }
 
 export class GetMemoriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Relations
+   */
   relations?: GetMemoriesResponseBodyRelations[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return value
+   */
   results?: GetMemoriesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

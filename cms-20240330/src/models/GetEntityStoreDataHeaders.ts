@@ -6,7 +6,7 @@ export class GetEntityStoreDataHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * Content encoding type for the compression algorithm
+   * The content encoding type of the compression algorithm.
    * 
    * @example
    * gzip

@@ -3,18 +3,94 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetThreadDataResponseBodyDataMessages extends $dara.Model {
+  /**
+   * @remarks
+   * A list of invoked agents.
+   */
   agents?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * Information about the generated artifacts.
+   */
   artifacts?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The execution ID.
+   * 
+   * @example
+   * 3b5287b7176360
+   */
   callId?: string;
+  /**
+   * @remarks
+   * The message content.
+   */
   contents?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The details of the message.
+   * 
+   * @example
+   * context of model exceed
+   */
   detail?: string;
+  /**
+   * @remarks
+   * A list of events.
+   */
   events?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The execution ID of the parent level.
+   * 
+   * @example
+   * 3b5287b7176360
+   */
   parentCallId?: string;
+  /**
+   * @remarks
+   * The role that sent the message.
+   * 
+   * @example
+   * user
+   */
   role?: string;
+  /**
+   * @remarks
+   * The sequence number of the message.
+   * 
+   * @example
+   * 0
+   */
   seq?: number;
+  /**
+   * @remarks
+   * The timestamp in nanoseconds.
+   * 
+   * @example
+   * 1768702985000000000
+   */
   timestamp?: string;
+  /**
+   * @remarks
+   * A list of tools that were used.
+   */
   tools?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The type of the message.
+   * 
+   * @example
+   * task_finished
+   */
   type?: string;
+  /**
+   * @remarks
+   * The version of the message data.
+   * 
+   * @example
+   * v0.1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,8 +153,26 @@ export class GetThreadDataResponseBodyDataMessages extends $dara.Model {
 }
 
 export class GetThreadDataResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of messages in the session.
+   */
   messages?: GetThreadDataResponseBodyDataMessages[];
+  /**
+   * @remarks
+   * The ID of the current message request. This is the first request ID in the root data.
+   * 
+   * @example
+   * 8FDE2569-626B-5176-9844-28877A*****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the current message request. This is the first trace ID in the root data.
+   * 
+   * @example
+   * 3b5287b717636040171772050d0095
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,33 +203,49 @@ export class GetThreadDataResponseBodyData extends $dara.Model {
 }
 
 export class GetThreadDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The message data.
+   */
   data?: GetThreadDataResponseBodyData[];
   /**
+   * @remarks
+   * The name of the digital employee.
+   * 
    * @example
    * test
    */
   digitalEmployeeName?: string;
   /**
+   * @remarks
+   * The maximum number of results.
+   * 
    * @example
-   * 2
+   * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * xxxxxxxxx
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
-   * aliding_thread_448d05c048a3481f8c19bc1a6038f8f6
+   * thread_id01
    */
   threadId?: string;
   static names(): { [key: string]: string } {

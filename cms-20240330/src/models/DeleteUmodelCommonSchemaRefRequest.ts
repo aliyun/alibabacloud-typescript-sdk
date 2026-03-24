@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUmodelCommonSchemaRefRequest extends $dara.Model {
   /**
    * @remarks
+   * The public Umodel schema group.
+   * 
    * This parameter is required.
    * 
    * @example

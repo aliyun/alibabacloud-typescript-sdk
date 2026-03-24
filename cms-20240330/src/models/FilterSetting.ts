@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class FilterSettingConditions extends $dara.Model {
   /**
+   * @remarks
+   * 字段
+   * 
    * @example
    * severity
    */
   field?: string;
   /**
+   * @remarks
+   * 比较符
+   * 
    * @example
    * EQ
    */
   op?: string;
   /**
+   * @remarks
+   * 值
+   * 
    * @example
    * CRITICAL
    */
@@ -44,13 +53,23 @@ export class FilterSettingConditions extends $dara.Model {
 }
 
 export class FilterSetting extends $dara.Model {
+  /**
+   * @remarks
+   * 订阅条件
+   */
   conditions?: FilterSettingConditions[];
   /**
+   * @remarks
+   * 表达式
+   * 
    * @example
    * 1 and 2 or 3
    */
   expression?: string;
   /**
+   * @remarks
+   * 条件间关系
+   * 
    * @example
    * AND
    */

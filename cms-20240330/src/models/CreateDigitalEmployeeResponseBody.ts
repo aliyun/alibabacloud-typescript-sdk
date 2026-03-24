@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDigitalEmployeeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The name of the digital employee.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3B311FD9-A60B-55E0-A896-A0C73*********
    */

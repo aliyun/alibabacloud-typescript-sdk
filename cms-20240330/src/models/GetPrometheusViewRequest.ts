@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPrometheusViewRequest extends $dara.Model {
   /**
    * @remarks
-   * Language environment, default is Chinese zh | en
+   * The language. Valid values: zh (Chinese) and en (English). Default: zh.
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class GetPrometheusViewRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2bhocin5e2na

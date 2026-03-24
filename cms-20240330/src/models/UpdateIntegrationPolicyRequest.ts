@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIntegrationPolicyRequestTags extends $dara.Model {
   /**
    * @remarks
-   * Tag `key` value.
+   * The key of the tag.
    * 
    * @example
    * algo_bhv_expose_in_airec_exposure
@@ -13,7 +13,7 @@ export class UpdateIntegrationPolicyRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag `value` value.
+   * The value of the tag.
    * 
    * @example
    * [{\\"Id\\": \\"kgqie6hm\\", \\"Name\\": \\"Sheet1\\"}]
@@ -45,7 +45,7 @@ export class UpdateIntegrationPolicyRequestTags extends $dara.Model {
 export class UpdateIntegrationPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Fee package type, CS_Pro/CS_Basic/empty.
+   * The type of the paid plan. Valid values: CS_Pro, CS_Basic, and empty.
    * 
    * @example
    * CS_Pro
@@ -53,7 +53,7 @@ export class UpdateIntegrationPolicyRequest extends $dara.Model {
   feePackage?: string;
   /**
    * @remarks
-   * Rule name, minimum 3 characters, maximum 63 characters, must start with a letter.
+   * The name of the rule. The name must be 3 to 63 characters in length and start with a letter.
    * 
    * @example
    * metrics-inner-manage
@@ -61,7 +61,7 @@ export class UpdateIntegrationPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * Resource group ID of the instance.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-aekzoiafjtr7zyq
@@ -69,7 +69,7 @@ export class UpdateIntegrationPolicyRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource tags.
+   * The tags of the resource.
    */
   tags?: UpdateIntegrationPolicyRequestTags[];
   static names(): { [key: string]: string } {

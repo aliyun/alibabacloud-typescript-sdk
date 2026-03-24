@@ -4,39 +4,68 @@ import { FilterSetting } from "./FilterSetting";
 
 
 export class TransformAction extends $dara.Model {
+  /**
+   * @remarks
+   * 筛选配置
+   */
   filterSetting?: FilterSetting;
   /**
+   * @remarks
+   * 标签名
+   * 
    * @example
    * labelkey1
    */
   labelKey?: string;
+  /**
+   * @remarks
+   * Mapping配置。
+   */
   mapping?: { [key: string]: string };
   /**
+   * @remarks
+   * 正则表达式
+   * 
    * @example
    * (.*):(.*)
    */
   regExp?: string;
   /**
+   * @remarks
+   * 引用路径
+   * 
    * @example
    * data.subject
    */
   source?: string;
   /**
+   * @remarks
+   * 目标位置
+   * 
    * @example
    * SUBJECT
    */
   target?: string;
   /**
+   * @remarks
+   * 转换类型
+   * 
    * @example
    * SET_FIELD
    */
   type?: string;
   /**
+   * @remarks
+   * 设置的值
+   * 
    * @example
    * value1
    */
   value?: string;
   /**
+   * @remarks
+   * 变量名
+   * 
    * @example
    * var1
    */

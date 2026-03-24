@@ -5,9 +5,26 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AddonMetaDashboards extends $dara.Model {
+  /**
+   * @remarks
+   * 描述信息
+   * 
+   * @example
+   * 描述信息
+   */
   description?: string;
+  /**
+   * @remarks
+   * 示意图名称
+   * 
+   * @example
+   * ECS 监控概览大盘
+   */
   name?: string;
   /**
+   * @remarks
+   * 示意图 URL
+   * 
    * @example
    * assets/dashboards/ecs.png
    */
@@ -39,11 +56,17 @@ export class AddonMetaDashboards extends $dara.Model {
 
 export class AddonMetaEnvironmentsCommonSchemaRefs extends $dara.Model {
   /**
+   * @remarks
+   * CommonSchema 的分组名称
+   * 
    * @example
    * acs-ecs
    */
   group?: string;
   /**
+   * @remarks
+   * CommonSchema 的分组版本
+   * 
    * @example
    * 0.1.0
    */
@@ -72,8 +95,20 @@ export class AddonMetaEnvironmentsCommonSchemaRefs extends $dara.Model {
 }
 
 export class AddonMetaEnvironmentsDependencies extends $dara.Model {
+  /**
+   * @remarks
+   * 支持的集群类型
+   */
   clusterTypes?: string[];
+  /**
+   * @remarks
+   * 探针依赖描述，组件名称。新版已由 collectors 字段替换
+   */
   features?: { [key: string]: boolean };
+  /**
+   * @remarks
+   * 依赖的服务列表
+   */
   services?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -111,21 +146,33 @@ export class AddonMetaEnvironmentsDependencies extends $dara.Model {
 
 export class AddonMetaEnvironmentsPoliciesBindEntity extends $dara.Model {
   /**
+   * @remarks
+   * 是否是组模式
+   * 
    * @example
    * true/false
    */
   entityGroupMode?: boolean;
   /**
+   * @remarks
+   * 实体类型
+   * 
    * @example
    * acs.ecs.instance
    */
   entityType?: string;
   /**
+   * @remarks
+   * 是否是单实体模式
+   * 
    * @example
    * true/false
    */
   singleEntityMode?: boolean;
   /**
+   * @remarks
+   * 实体中提取VPC ID 信息的字段
+   * 
    * @example
    * vpcId
    */
@@ -158,6 +205,10 @@ export class AddonMetaEnvironmentsPoliciesBindEntity extends $dara.Model {
 }
 
 export class AddonMetaEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
+  /**
+   * @remarks
+   * 检测规则 PromQL
+   */
   promQL?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -184,14 +235,34 @@ export class AddonMetaEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
 }
 
 export class AddonMetaEnvironmentsPoliciesProtocols extends $dara.Model {
+  /**
+   * @remarks
+   * 协议描述
+   * 
+   * @example
+   * 使用 Prometheus 协议写入指标数据
+   */
   description?: string;
   /**
+   * @remarks
+   * 协议显示icon
+   * 
    * @example
    * assets/logos/ecs.svg
    */
   icon?: string;
+  /**
+   * @remarks
+   * 协议显示名称
+   * 
+   * @example
+   * Prometheus 协议
+   */
   label?: string;
   /**
+   * @remarks
+   * 协议名称
+   * 
    * @example
    * Prometheus
    */
@@ -225,34 +296,64 @@ export class AddonMetaEnvironmentsPoliciesProtocols extends $dara.Model {
 
 export class AddonMetaEnvironmentsPolicies extends $dara.Model {
   /**
+   * @remarks
+   * 告警规则默认安装后是否启用
+   * 
    * @example
    * RUNNING
    */
   alertDefaultStatus?: string;
   /**
+   * @remarks
+   * 默认模式，即无需绑定实体的接入模式。
+   * 
    * @example
    * true/false
    */
   bindDefaultPolicy?: boolean;
+  /**
+   * @remarks
+   * 绑定的目标实体信息
+   */
   bindEntity?: AddonMetaEnvironmentsPoliciesBindEntity;
   /**
+   * @remarks
+   * 是否默认安装
+   * 
    * @example
    * true/false
    */
   defaultInstall?: boolean;
   /**
+   * @remarks
+   * 是否启用内部授权Token分配
+   * 
    * @example
    * true/false
    */
   enableServiceAccount?: boolean;
+  /**
+   * @remarks
+   * 组件接入后的数据检查规则
+   */
   metricCheckRule?: AddonMetaEnvironmentsPoliciesMetricCheckRule;
   /**
+   * @remarks
+   * 是否需要在接入后提示重启工作负载
+   * 
    * @example
    * true/false
    */
   needRestartAfterIntegration?: boolean;
+  /**
+   * @remarks
+   * 支持的客户端协议信息列表
+   */
   protocols?: AddonMetaEnvironmentsPoliciesProtocols[];
   /**
+   * @remarks
+   * 跳转的目标组件名称
+   * 
    * @example
    * cloud-acs-ecs
    */
@@ -304,22 +405,57 @@ export class AddonMetaEnvironmentsPolicies extends $dara.Model {
 }
 
 export class AddonMetaEnvironments extends $dara.Model {
+  /**
+   * @remarks
+   * 绑定的CommonSchema 列表
+   */
   commonSchemaRefs?: AddonMetaEnvironmentsCommonSchemaRefs[];
+  /**
+   * @remarks
+   * 依赖描述信息
+   */
   dependencies?: AddonMetaEnvironmentsDependencies;
+  /**
+   * @remarks
+   * 环境类型的描述
+   * 
+   * @example
+   * 支持容器集群的工作覆盖监控
+   */
   description?: string;
   /**
+   * @remarks
+   * 是否启用
+   * 
    * @example
    * true/false
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * 环境类型显示名称
+   * 
+   * @example
+   * 容器环境
+   */
   label?: string;
   /**
+   * @remarks
+   * 环境类型名称
+   * 
    * @example
    * CS/ECS/Cloud/Client
    */
   name?: string;
+  /**
+   * @remarks
+   * 组件的控制策略组合信息
+   */
   policies?: AddonMetaEnvironmentsPolicies;
   /**
+   * @remarks
+   * 策略类型
+   * 
    * @example
    * ECS
    */
@@ -369,52 +505,105 @@ export class AddonMetaEnvironments extends $dara.Model {
 }
 
 export class AddonMeta extends $dara.Model {
+  /**
+   * @remarks
+   * 组件别名，显示名称
+   * 
+   * @example
+   * ECS 监控
+   */
   alias?: string;
+  /**
+   * @remarks
+   * 组件分类信息
+   */
   categories?: string[];
+  /**
+   * @remarks
+   * 组件示意图列表
+   */
   dashboards?: AddonMetaDashboards[];
   /**
+   * @remarks
+   * 描述信息。
+   * 
    * @example
    * The out-of-the-box and comprehensive ECS observe dashboards and alarm rules. Based on AliYun CloudMonitor agentless metrics, exporter agent metrics, host audit logs, host events and other data.
    */
   description?: string;
+  /**
+   * @remarks
+   * 支持的环境类型列表
+   */
   environments?: AddonMetaEnvironments[];
   /**
+   * @remarks
+   * 组件图标。
+   * 
    * @example
    * assets/logos/ecs.svg
    */
   icon?: string;
+  /**
+   * @remarks
+   * 关键词列表
+   */
   keywords?: string[];
   /**
+   * @remarks
+   * 语言，取值：
+   * 
+   * - zh：中文（默认值）
+   * - en：英文
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * 该组件上一次接入时间
+   * 
    * @example
    * 2025-10-25 09:12:12
    */
   latestReleaseCreateTime?: string;
   /**
+   * @remarks
+   * 组件名称
+   * 
    * @example
    * cloud-acs-ecs
    */
   name?: string;
   /**
+   * @remarks
+   * Policy 下是否只能安装一次
+   * 
    * @example
    * true/false
    */
   once?: boolean;
   /**
+   * @remarks
+   * 场景
+   * 
    * @example
    * feature
    */
   scene?: string;
   /**
+   * @remarks
+   * 版本号
+   * 
    * @example
    * 0.0.1
    */
   version?: string;
   /**
+   * @remarks
+   * 组件排序权重
+   * 
    * @example
    * 1000
    */

@@ -6,7 +6,7 @@ import { EntityDiscoverRule } from "./EntityDiscoverRule";
 export class UpdateAddonReleaseRequest extends $dara.Model {
   /**
    * @remarks
-   * Addon version information.
+   * The version of the add-on.
    * 
    * @example
    * 0.0.2
@@ -14,7 +14,7 @@ export class UpdateAddonReleaseRequest extends $dara.Model {
   addonVersion?: string;
   /**
    * @remarks
-   * Whether to pre-check this request.
+   * Specifies whether to perform a dry run for the request.
    * 
    * @example
    * true
@@ -22,12 +22,12 @@ export class UpdateAddonReleaseRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Entity discovery rules.
+   * The entity discovery rules.
    */
   entityRules?: EntityDiscoverRule;
   /**
    * @remarks
-   * Metadata information.
+   * The metadata.
    * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}

@@ -7,22 +7,12 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 export class NotifyStrategyForModifyCustomTemplateEntries extends $dara.Model {
   /**
    * @remarks
-   * Notification type.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * SMS
    */
   targetType?: string;
   /**
    * @remarks
-   * Template UUID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 123123-12-31-231-23-12-3123
    */
   templateUuid?: string;
   static names(): { [key: string]: string } {
@@ -49,34 +39,9 @@ export class NotifyStrategyForModifyCustomTemplateEntries extends $dara.Model {
 }
 
 export class NotifyStrategyForModifyGroupingSetting extends $dara.Model {
-  /**
-   * @remarks
-   * Grouping keys.
-   */
   groupingKeys?: string[];
-  /**
-   * @remarks
-   * Check interval in minutes.
-   * 
-   * @example
-   * 5
-   */
   periodMin?: number;
-  /**
-   * @remarks
-   * Silence duration in seconds.
-   * 
-   * @example
-   * 300
-   */
   silenceSec?: number;
-  /**
-   * @remarks
-   * Trigger count.
-   * 
-   * @example
-   * 1
-   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -172,23 +137,12 @@ export class NotifyStrategyForModifyRepeatNotifySetting extends $dara.Model {
 export class NotifyStrategyForModifyRoutesChannels extends $dara.Model {
   /**
    * @remarks
-   * Channel type.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * CONTACT
    */
   channelType?: string;
-  /**
-   * @remarks
-   * Enabled notification types.
-   */
   enabledSubChannels?: string[];
   /**
    * @remarks
-   * Channel recipient.
-   * 
    * This parameter is required.
    */
   receivers?: string[];
@@ -224,34 +178,9 @@ export class NotifyStrategyForModifyRoutesChannels extends $dara.Model {
 }
 
 export class NotifyStrategyForModifyRoutesEffectTimeRange extends $dara.Model {
-  /**
-   * @remarks
-   * Effective days (Monday to Sunday).
-   */
   dayInWeek?: number[];
-  /**
-   * @remarks
-   * End time (in minutes).
-   * 
-   * @example
-   * 30
-   */
   endTimeInMinute?: number;
-  /**
-   * @remarks
-   * Start time (in minutes).
-   * 
-   * @example
-   * 60
-   */
   startTimeInMinute?: number;
-  /**
-   * @remarks
-   * Time Zone.
-   * 
-   * @example
-   * +08:00
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -284,27 +213,11 @@ export class NotifyStrategyForModifyRoutesEffectTimeRange extends $dara.Model {
 }
 
 export class NotifyStrategyForModifyRoutes extends $dara.Model {
-  /**
-   * @remarks
-   * Notification channel.
-   */
   channels?: NotifyStrategyForModifyRoutesChannels[];
   digitalEmployeeName?: string;
-  /**
-   * @remarks
-   * Valid time range.
-   */
   effectTimeRange?: NotifyStrategyForModifyRoutesEffectTimeRange;
   enableRca?: boolean;
-  /**
-   * @remarks
-   * Routing conditions.
-   */
   filterSetting?: FilterSetting;
-  /**
-   * @remarks
-   * Severity level list.
-   */
   severities?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -351,53 +264,26 @@ export class NotifyStrategyForModifyRoutes extends $dara.Model {
 
 export class NotifyStrategyForModify extends $dara.Model {
   autoRecoverSeconds?: number;
-  /**
-   * @remarks
-   * Notification channel template.
-   */
   customTemplateEntries?: NotifyStrategyForModifyCustomTemplateEntries[];
-  /**
-   * @remarks
-   * Description.
-   * 
-   * @example
-   * test
-   */
   description?: string;
   enableIncidentManagement?: boolean;
   escalationId?: string[];
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Grouping settings.
-   * 
    * This parameter is required.
    */
   groupingSetting?: NotifyStrategyForModifyGroupingSetting;
-  /**
-   * @remarks
-   * Whether to notify on recovery.
-   * 
-   * @example
-   * false
-   */
   ignoreRestoredNotification?: boolean;
   /**
    * @remarks
-   * Name.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * Policy name.
    */
   notifyStrategyName?: string;
   pushingSetting?: NotifyStrategyForModifyPushingSetting;
   repeatNotifySetting?: NotifyStrategyForModifyRepeatNotifySetting;
   /**
    * @remarks
-   * Notification channel routing configuration.
-   * 
    * This parameter is required.
    */
   routes?: NotifyStrategyForModifyRoutes[];

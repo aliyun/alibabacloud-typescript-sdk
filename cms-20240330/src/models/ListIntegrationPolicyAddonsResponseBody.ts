@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIntegrationPolicyAddonsResponseBodyAddonsDashboards extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 用于mysql的监控大盘
+   */
   description?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * MySQL Overview
    */
   name?: string;
   /**
+   * @remarks
+   * The URL of the dashboard.
+   * 
    * @example
    * http://xxxxxxx
    */
@@ -40,8 +53,20 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsDashboards extends $da
 }
 
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsDependencies extends $dara.Model {
+  /**
+   * @remarks
+   * The dependencies on cluster types.
+   */
   clusterTypes?: string[];
+  /**
+   * @remarks
+   * The dependencies on probes.
+   */
   features?: { [key: string]: boolean };
+  /**
+   * @remarks
+   * The dependencies on product codes.
+   */
   services?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -78,6 +103,10 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsDependenci
 }
 
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
+  /**
+   * @remarks
+   * The PromQL search statements.
+   */
   promQl?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -105,21 +134,33 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesMe
 
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The icon.
+   * 
    * @example
    * https://img.alixxxx
    */
   icon?: string;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * Golang
    */
   label?: string;
   /**
+   * @remarks
+   * The protocol name.
+   * 
    * @example
    * golang
    */
@@ -153,28 +194,51 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesPr
 
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Model {
   /**
+   * @remarks
+   * The default status of the alert rule policy.
+   * 
    * @example
    * RUNNING
    */
   alertDefaultStatus?: string;
   /**
+   * @remarks
+   * Indicates whether the add-on is installed by default.
+   * 
    * @example
    * true
    */
   defaultInstall?: boolean;
   /**
+   * @remarks
+   * Indicates whether to assign a Service Account for communication with the console API.
+   * 
    * @example
    * true
    */
   enableServiceAccount?: boolean;
+  /**
+   * @remarks
+   * The metric check rule.
+   */
   metricCheckRule?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule;
   /**
+   * @remarks
+   * Indicates whether a pod restart is required after the add-on is installed.
+   * 
    * @example
    * true
    */
   needRestartAfterIntegration?: boolean;
+  /**
+   * @remarks
+   * The protocols.
+   */
   protocols?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols[];
   /**
+   * @remarks
+   * The name of the target add-on.
+   * 
    * @example
    * mysql
    */
@@ -219,27 +283,47 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies e
 }
 
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments extends $dara.Model {
+  /**
+   * @remarks
+   * The dependencies.
+   */
   dependencies?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsDependencies;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * o11y-demo-cn-heyuan
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the feature is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The display name of the environment.
+   * 
    * @example
    * Cloud
    */
   label?: string;
   /**
+   * @remarks
+   * The name of the environment.
+   * 
    * @example
    * Cloud
    */
   name?: string;
+  /**
+   * @remarks
+   * The policy.
+   */
   policies?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies;
   static names(): { [key: string]: string } {
     return {
@@ -280,55 +364,101 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments extends $
 
 export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * MySQL
    */
   alias?: string;
+  /**
+   * @remarks
+   * The categories.
+   */
   categories?: string[];
+  /**
+   * @remarks
+   * A list of dashboards.
+   */
   dashboards?: ListIntegrationPolicyAddonsResponseBodyAddonsDashboards[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * Observability integration.
    */
   description?: string;
+  /**
+   * @remarks
+   * A list of supported environments.
+   */
   environments?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments[];
   /**
+   * @remarks
+   * The icon of the add-on.
+   * 
    * @example
    * asert/mysql.svg
    */
   icon?: string;
+  /**
+   * @remarks
+   * The keywords.
+   */
   keywords?: string[];
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * The time when the latest version was created.
+   * 
    * @example
    * 2025-09-03T03:15:56Z
    */
   latestReleaseCreateTime?: string;
   /**
+   * @remarks
+   * The name of the add-on.
+   * 
    * @example
    * mysql
    */
   name?: string;
   /**
+   * @remarks
+   * Indicates whether the add-on can be installed only once.
+   * 
    * @example
    * true
    */
   once?: boolean;
   /**
+   * @remarks
+   * The scenario of the add-on.
+   * 
    * @example
    * container
    */
   scene?: string;
   /**
+   * @remarks
+   * The version of the add-on.
+   * 
    * @example
    * 0.1.1
    */
   version?: string;
   /**
+   * @remarks
+   * The weight.
+   * 
    * @example
    * 99
    */
@@ -393,16 +523,23 @@ export class ListIntegrationPolicyAddonsResponseBodyAddons extends $dara.Model {
 }
 
 export class ListIntegrationPolicyAddonsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of add-ons.
+   */
   addons?: ListIntegrationPolicyAddonsResponseBodyAddons[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 7E00EF90-CEF9-57C9-9AE9-5AA937D37C03
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 5
    */

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class MergeRobotExtend extends $dara.Model {
   /**
+   * @remarks
+   * 卡片模板。
+   * 
    * @example
    * incident-card-template
    */
   cardTemplate?: string;
   /**
+   * @remarks
+   * 是否启用每日值班报告。
+   * 
    * @example
    * true
    */
   dailyNoc?: boolean;
   /**
+   * @remarks
+   * 每日值班报告时间。
+   * 
    * @example
    * 09:00
    */
   dailyNocTime?: string;
   /**
+   * @remarks
+   * 钉钉签名密钥。
+   * 
    * @example
    * abc123
    */
   dingSignKey?: string;
   /**
+   * @remarks
+   * 是否启用出站请求。
+   * 
    * @example
    * false
    */
   enableOutgoing?: boolean;
   /**
+   * @remarks
+   * 认证令牌。
+   * 
    * @example
    * token-abc123
    */
@@ -66,38 +84,70 @@ export class MergeRobotExtend extends $dara.Model {
 
 export class MergeRobot extends $dara.Model {
   /**
+   * @remarks
+   * 创建时间。
+   * 
    * @example
    * 2025-03-11T08:21:58.789Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * 扩展字段。
+   */
   extend?: MergeRobotExtend;
   /**
+   * @remarks
+   * 最后修改时间。
+   * 
    * @example
    * 2025-03-11T08:21:58.789Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * 机器人唯一标识符。
+   * 
    * @example
    * robot-12345
    */
   identifier?: string;
   /**
+   * @remarks
+   * 语言偏好。
+   * 
    * @example
    * zh-CN
    */
   lang?: string;
+  /**
+   * @remarks
+   * 机器人名称。
+   * 
+   * @example
+   * 运维告警机器人
+   */
   name?: string;
   /**
+   * @remarks
+   * 机器人来源系统。
+   * 
    * @example
    * dingtalk
    */
   source?: string;
   /**
+   * @remarks
+   * 机器人类型。
+   * 
    * @example
    * dingtalk
    */
   type?: string;
   /**
+   * @remarks
+   * Webhook 地址。
+   * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=abc123
    */

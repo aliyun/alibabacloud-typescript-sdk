@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class PushingSetting extends $dara.Model {
   alertActionIds?: string[];
   restoreActionIds?: string[];
-  /**
-   * @example
-   * "template-abc123"
-   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {

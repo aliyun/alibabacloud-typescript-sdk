@@ -6,12 +6,12 @@ import { FilterSetting } from "./FilterSetting";
 export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * Effective days (Monday to Sunday).
+   * 生效天(周一到周日)
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * End time (in minutes).
+   * 结束时间(分钟数)
    * 
    * @example
    * 360
@@ -19,7 +19,7 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * Start time (in minutes).
+   * 开始时间(分钟数)
    * 
    * @example
    * 60
@@ -27,7 +27,7 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
   startTimeInMinute?: number;
   /**
    * @remarks
-   * Time Zone.
+   * 时区
    * 
    * @example
    * +08:00
@@ -66,7 +66,7 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
 export class MaintainWindowForView extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * 创建时间
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -74,7 +74,7 @@ export class MaintainWindowForView extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Description.
+   * 描述
    * 
    * @example
    * test
@@ -82,12 +82,12 @@ export class MaintainWindowForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Effective time range.
+   * 生效时间范围
    */
   effectTimeRange?: MaintainWindowForViewEffectTimeRange;
   /**
    * @remarks
-   * Crontab expression.
+   * Crontab 表达式
    * 
    * @example
    * * * 14-18 ? * *
@@ -95,7 +95,7 @@ export class MaintainWindowForView extends $dara.Model {
   effective?: string;
   /**
    * @remarks
-   * Whether enabled.
+   * 是否启用
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class MaintainWindowForView extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Effective end time.
+   * 生效结束时间
    * 
    * @example
    * 2024-11-26 12:02:01
@@ -111,7 +111,7 @@ export class MaintainWindowForView extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Filtering conditions.
+   * 筛选条件
    */
   filterSetting?: FilterSetting;
   /**
@@ -124,17 +124,17 @@ export class MaintainWindowForView extends $dara.Model {
   maintainWindowId?: string;
   /**
    * @remarks
-   * Name.
+   * 名称
    * 
    * This parameter is required.
    * 
    * @example
-   * Test policy.
+   * 测试策略
    */
   maintainWindowName?: string;
   /**
    * @remarks
-   * Effective start time.
+   * 生效开始时间
    * 
    * @example
    * 2024-11-26 10:02:01
@@ -142,7 +142,7 @@ export class MaintainWindowForView extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Update time.
+   * 更新时间
    * 
    * @example
    * 2025-05-07T02:19:05Z
@@ -150,7 +150,7 @@ export class MaintainWindowForView extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * User ID.
+   * 用户id
    * 
    * @example
    * 12312312***

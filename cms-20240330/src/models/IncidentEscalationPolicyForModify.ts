@@ -4,23 +4,12 @@ import { IncidentEscalationStageForView } from "./IncidentEscalationStageForView
 
 
 export class IncidentEscalationPolicyForModify extends $dara.Model {
-  /**
-   * @example
-   * workspace api monitor create test
-   */
   description?: string;
-  /**
-   * @example
-   * false
-   */
   enable?: boolean;
   escalationStageList?: IncidentEscalationStageForView[];
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * "Critical-Alert-Escalation"
    */
   name?: string;
   static names(): { [key: string]: string } {

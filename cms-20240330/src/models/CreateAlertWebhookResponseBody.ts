@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlertWebhookResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the webhook.
+   * 
    * @example
    * test
    */
   alertWebhookId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */

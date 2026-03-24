@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJobRulesScrapeConfigs extends $dara.Model {
   /**
    * @remarks
-   * Scraping job name
+   * The scrape job name.
    * 
    * @example
    * mysql-exporter
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   jobName?: string;
   /**
    * @remarks
-   * Detailed information.
+   * The details.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   message?: string;
   /**
    * @remarks
-   * Metrics path
+   * The scrape path.
    * 
    * @example
    * /metrics
@@ -29,7 +29,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   metricsPath?: string;
   /**
    * @remarks
-   * Call method.
+   * The invocation method.
    * 
    * @example
    * http
@@ -37,7 +37,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   scheme?: string;
   /**
    * @remarks
-   * Scrape interval
+   * The scrape interval.
    * 
    * @example
    * 30s
@@ -45,7 +45,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   scrapeInterval?: string;
   /**
    * @remarks
-   * Scrape timeout
+   * The scrape timeout period.
    * 
    * @example
    * 60s
@@ -53,7 +53,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   scrapeTimeout?: string;
   /**
    * @remarks
-   * Service discovery configuration
+   * The service discovery configurations.
    */
   serviceDiscoveryConfigs?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
 export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJobRules extends $dara.Model {
   /**
    * @remarks
-   * Addon name.
+   * The add-on name.
    * 
    * @example
    * cloud-ecs
@@ -103,7 +103,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonName?: string;
   /**
    * @remarks
-   * Addon Release name
+   * The name of the add-on release.
    * 
    * @example
    * release-12345678
@@ -111,7 +111,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonReleaseName?: string;
   /**
    * @remarks
-   * Addon version
+   * The add-on version.
    * 
    * @example
    * 0.0.1
@@ -119,7 +119,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonVersion?: string;
   /**
    * @remarks
-   * Configuration yaml
+   * The configuration YAML file.
    * 
    * @example
    * scrape_cofnigs:
@@ -128,7 +128,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   configYaml?: string;
   /**
    * @remarks
-   * Enable status
+   * The enabled status.
    * 
    * @example
    * mini
@@ -136,7 +136,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   enableStatus?: string;
   /**
    * @remarks
-   * Encrypt yaml
+   * Indicates whether the YAML file is encrypted.
    * 
    * @example
    * true
@@ -144,7 +144,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   encryptYaml?: boolean;
   /**
    * @remarks
-   * Matched pod count
+   * The number of matched pods.
    * 
    * @example
    * 1
@@ -152,7 +152,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   matchedPodCount?: number;
   /**
    * @remarks
-   * Detailed information.
+   * The details.
    * 
    * @example
    * ok
@@ -160,7 +160,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   message?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * dlab1
@@ -168,7 +168,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   name?: string;
   /**
    * @remarks
-   * Namespace
+   * The namespace.
    * 
    * @example
    * prod-data
@@ -176,7 +176,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   namespace?: string;
   /**
    * @remarks
-   * Custom configurations
+   * The custom configurations.
    */
   scrapeConfigs?: ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJobRulesScrapeConfigs[];
   static names(): { [key: string]: string } {
@@ -226,7 +226,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
 export class ListIntegrationPolicyCustomScrapeJobRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * et15prod-et15storage
@@ -234,12 +234,12 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBody extends $dara
   clusterId?: string;
   /**
    * @remarks
-   * Custom scraping job rules
+   * The custom scrape job rules.
    */
   customScrapeJobRules?: ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJobRules[];
   /**
    * @remarks
-   * Policy ID.
+   * The policy ID.
    * 
    * @example
    * policy-15abcc24c06f4797832b5954198e1ed1
@@ -247,7 +247,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBody extends $dara
   policyId?: string;
   /**
    * @remarks
-   * ID of the request
+   * The ID of the request.
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0

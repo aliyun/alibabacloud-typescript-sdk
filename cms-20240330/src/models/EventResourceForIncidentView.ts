@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EventResourceForIncidentView extends $dara.Model {
-  /**
-   * @example
-   * rum
-   */
   domain?: string;
-  /**
-   * @example
-   * default
-   */
   entityId?: string;
-  /**
-   * @example
-   * "Instance"
-   */
   entityType?: string;
-  /**
-   * @example
-   * "{"name":"web-server-01","ip":"10.0.0.1"}"
-   */
   probs?: string;
   tags?: string;
   static names(): { [key: string]: string } {

@@ -6,12 +6,12 @@ import { FilterSetting } from "./FilterSetting";
 export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * Effective days (Monday to Sunday).
+   * 生效天(周一到周日)
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * End time (in minutes).
+   * 结束时间(分钟数)
    * 
    * @example
    * 60
@@ -19,7 +19,7 @@ export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * Start time (in minutes).
+   * 开始时间(分钟数)
    * 
    * @example
    * 60
@@ -27,7 +27,7 @@ export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
   startTimeInMinute?: number;
   /**
    * @remarks
-   * Time zone.
+   * 时区
    * 
    * @example
    * +08:00
@@ -66,7 +66,7 @@ export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
 export class MaintainWindowForModify extends $dara.Model {
   /**
    * @remarks
-   * Description.
+   * 描述
    * 
    * @example
    * workspace test
@@ -74,12 +74,12 @@ export class MaintainWindowForModify extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Effective time range.
+   * 生效时间范围
    */
   effectTimeRange?: MaintainWindowForModifyEffectTimeRange;
   /**
    * @remarks
-   * Crontab expression.
+   * Crontab 表达式
    * 
    * @example
    * * * 14-18 ? * *
@@ -87,7 +87,7 @@ export class MaintainWindowForModify extends $dara.Model {
   effective?: string;
   /**
    * @remarks
-   * Effective end time.
+   * 生效结束时间
    * 
    * @example
    * 2024-09-05 09:30:40
@@ -95,12 +95,12 @@ export class MaintainWindowForModify extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Filtering conditions.
+   * 筛选条件
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Name.
+   * 名称
    * 
    * This parameter is required.
    * 
@@ -110,7 +110,7 @@ export class MaintainWindowForModify extends $dara.Model {
   maintainWindowName?: string;
   /**
    * @remarks
-   * Effective start time.
+   * 生效开始时间
    * 
    * @example
    * 2025-04-11 07:55:00

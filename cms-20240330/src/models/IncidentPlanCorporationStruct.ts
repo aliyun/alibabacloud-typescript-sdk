@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentPlanCorporationStruct extends $dara.Model {
   /**
    * @remarks
-   * Channel name.
+   * 通道名
    * 
    * @example
    * ecs
@@ -13,7 +13,7 @@ export class IncidentPlanCorporationStruct extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Robot ID.
+   * 机器人唯一ID。
    * 
    * @example
    * robotId-cs-api-test

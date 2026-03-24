@@ -3,9 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCloudResourceDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: string[][];
+  /**
+   * @remarks
+   * The list of column headers.
+   */
   header?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */

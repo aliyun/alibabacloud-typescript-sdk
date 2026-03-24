@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePrometheusInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

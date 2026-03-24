@@ -5,31 +5,9 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 
 
 export class SubscriptionForModifyPushingSetting extends $dara.Model {
-  /**
-   * @remarks
-   * Alert push action plan ID list.
-   */
   alertActionIds?: string[];
-  /**
-   * @remarks
-   * Action plan ID.
-   * 
-   * @example
-   * 123123123
-   */
   responsePlanId?: string;
-  /**
-   * @remarks
-   * Action integration plan ID list.
-   */
   restoreActionIds?: string[];
-  /**
-   * @remarks
-   * Template UUID.
-   * 
-   * @example
-   * 123123123
-   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,40 +43,13 @@ export class SubscriptionForModifyPushingSetting extends $dara.Model {
 }
 
 export class SubscriptionForModify extends $dara.Model {
-  /**
-   * @remarks
-   * Description.
-   * 
-   * @example
-   * workspace test
-   */
   description?: string;
-  /**
-   * @remarks
-   * Filtering settings.
-   */
   filterSetting?: FilterSetting;
-  /**
-   * @remarks
-   * Notification policy UUID.
-   * 
-   * @example
-   * 123123
-   */
   notifyStrategyId?: string;
-  /**
-   * @remarks
-   * Push settings.
-   */
   pushingSetting?: SubscriptionForModifyPushingSetting;
   /**
    * @remarks
-   * Name.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * Test subscription.
    */
   subscriptionName?: string;
   workspaceFilterSetting?: WorkspaceFilterSetting;

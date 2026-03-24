@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpsertUmodelCommonSchemaRefResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-************
    */

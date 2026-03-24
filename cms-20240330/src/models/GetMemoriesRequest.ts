@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMemoriesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Agent ID of the application
+   * 
    * @example
    * 952730652285943809
    */
   agentId?: string;
   /**
+   * @remarks
+   * Application ID
+   * 
    * @example
    * 150130323
    */
   appId?: string;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 1000
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Run ID
+   * 
    * @example
    * jr-80ded1d6953c64ea
    */
   runId?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * test_user_001
    */

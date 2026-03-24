@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints extends $dara.Model {
   /**
    * @remarks
-   * Collection interval
+   * The collection interval.
    * 
    * @example
    * 30s
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints ex
   interval?: string;
   /**
    * @remarks
-   * Number of matched targets
+   * The number of matched targets.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints ex
   matchedTargetCount?: number;
   /**
    * @remarks
-   * Metric collection path
+   * The metric collection path.
    * 
    * @example
    * /metrics
@@ -29,7 +29,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints ex
   path?: string;
   /**
    * @remarks
-   * Port number
+   * The port number.
    * 
    * @example
    * 9100
@@ -37,7 +37,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints ex
   port?: string;
   /**
    * @remarks
-   * Target port
+   * The target port.
    * 
    * @example
    * https
@@ -75,7 +75,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints ex
 export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $dara.Model {
   /**
    * @remarks
-   * Addon name.
+   * The name of the add-on.
    * 
    * @example
    * cloud-ecs
@@ -83,7 +83,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   addonName?: string;
   /**
    * @remarks
-   * Addon Release name.
+   * The name of the add-on release.
    * 
    * @example
    * release-2345678
@@ -91,7 +91,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   addonReleaseName?: string;
   /**
    * @remarks
-   * Addon version.
+   * The version of the add-on.
    * 
    * @example
    * 0.0.1
@@ -99,7 +99,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   addonVersion?: string;
   /**
    * @remarks
-   * Configuration yaml.
+   * The YAML configuration.
    * 
    * @example
    * apiVersion: xxxxx
@@ -107,7 +107,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   configYaml?: string;
   /**
    * @remarks
-   * Enable status.
+   * The status.
    * 
    * @example
    * run
@@ -115,7 +115,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   enableStatus?: string;
   /**
    * @remarks
-   * Encrypt yaml.
+   * Indicates whether the YAML file is encrypted.
    * 
    * @example
    * YXBpVmVyc2lvbjogeHh4eHgK
@@ -123,12 +123,12 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   encryptYaml?: boolean;
   /**
    * @remarks
-   * Instance endpoints.
+   * The endpoints of the instance.
    */
   endpoints?: ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints[];
   /**
    * @remarks
-   * Number of matched pods
+   * The number of matched pods.
    * 
    * @example
    * 3
@@ -136,7 +136,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   matchedPodCount?: number;
   /**
    * @remarks
-   * Collection name.
+   * The collection name.
    * 
    * @example
    * znzmo_entity_test
@@ -144,7 +144,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   name?: string;
   /**
    * @remarks
-   * Namespace
+   * The namespace.
    * 
    * @example
    * sla-ns-d5aeb2b4f91b47
@@ -195,7 +195,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
 export class ListIntegrationPolicyPodMonitorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * et15prod-et15storage
@@ -203,12 +203,12 @@ export class ListIntegrationPolicyPodMonitorsResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * PodMonitor list
+   * The list of PodMonitors.
    */
   podMonitors?: ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors[];
   /**
    * @remarks
-   * Policy ID.
+   * The policy ID.
    * 
    * @example
    * policy-c9efed2b99c348d49e589c5f780fc074
@@ -216,7 +216,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBody extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * ID of the request
+   * The ID of the request.
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5

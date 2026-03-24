@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentMemberStructAcknowledge extends $dara.Model {
   /**
    * @remarks
-   * Acknowledgement level.
+   * 确认级别。
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class IncidentMemberStructAcknowledge extends $dara.Model {
   breakLevel?: string;
   /**
    * @remarks
-   * Verification time.
+   * 验证时间。
    * 
    * @example
    * 1741234567890
@@ -45,7 +45,7 @@ export class IncidentMemberStructAcknowledge extends $dara.Model {
 export class IncidentMemberStructContacts extends $dara.Model {
   /**
    * @remarks
-   * Channel.
+   * 通道。
    * 
    * @example
    * dingtalk
@@ -53,7 +53,7 @@ export class IncidentMemberStructContacts extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Contact ID (masked).
+   * 联系人 ID（脱敏）
    * 
    * @example
    * user-12345
@@ -85,15 +85,15 @@ export class IncidentMemberStructContacts extends $dara.Model {
 export class IncidentMemberStructEscalation extends $dara.Model {
   /**
    * @remarks
-   * Description.
+   * 描述。
    * 
    * @example
-   * Notify the operations team.
+   * 通知运维团队
    */
   description?: string;
   /**
    * @remarks
-   * Event Escalation ID.
+   * 事件升级ID。
    * 
    * @example
    * escalation-001
@@ -101,15 +101,15 @@ export class IncidentMemberStructEscalation extends $dara.Model {
   incidentEscalationId?: string;
   /**
    * @remarks
-   * Name.
+   * 名称。
    * 
    * @example
-   * Phase one.
+   * 第一阶段
    */
   name?: string;
   /**
    * @remarks
-   * Escalation phase index.
+   * 升级阶段索引。
    * 
    * @example
    * 1
@@ -117,10 +117,10 @@ export class IncidentMemberStructEscalation extends $dara.Model {
   stageIndex?: string;
   /**
    * @remarks
-   * Title.
+   * 标题。
    * 
    * @example
-   * Alert escalated to the operations team.
+   * 告警升级至运维团队
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -155,7 +155,7 @@ export class IncidentMemberStructEscalation extends $dara.Model {
 export class IncidentMemberStructScheduleGroup extends $dara.Model {
   /**
    * @remarks
-   * Contact ID.
+   * 联系人ID。
    * 
    * @example
    * group-001
@@ -163,10 +163,10 @@ export class IncidentMemberStructScheduleGroup extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * Name.
+   * 名称。
    * 
    * @example
-   * Night shift duty team.
+   * 夜间值班组
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -195,12 +195,12 @@ export class IncidentMemberStructScheduleGroup extends $dara.Model {
 export class IncidentMemberStruct extends $dara.Model {
   /**
    * @remarks
-   * Acknowledgement Information Structure.
+   * 确认信息结构体。
    */
   acknowledge?: IncidentMemberStructAcknowledge;
   /**
    * @remarks
-   * Contact ID.
+   * 联系人ID。
    * 
    * @example
    * user-12345
@@ -208,17 +208,17 @@ export class IncidentMemberStruct extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * Contact list.
+   * 联系人列表。
    */
   contacts?: IncidentMemberStructContacts[];
   /**
    * @remarks
-   * Escalation phase information.
+   * 升级阶段信息。
    */
   escalation?: IncidentMemberStructEscalation;
   /**
    * @remarks
-   * Incident ID.
+   * 事件ID。
    * 
    * @example
    * incident-001
@@ -226,7 +226,7 @@ export class IncidentMemberStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * Event Member ID.
+   * 事件成员ID。
    * 
    * @example
    * member-001
@@ -234,12 +234,12 @@ export class IncidentMemberStruct extends $dara.Model {
   incidentMemberId?: string;
   /**
    * @remarks
-   * Schedule group.
+   * 调度组。
    */
   scheduleGroup?: IncidentMemberStructScheduleGroup;
   /**
    * @remarks
-   * Time.
+   * 时间。
    * 
    * @example
    * 2025-10-08 10:18:58
@@ -247,7 +247,7 @@ export class IncidentMemberStruct extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * User ID.
+   * 用户ID。
    * 
    * @example
    * 4123456

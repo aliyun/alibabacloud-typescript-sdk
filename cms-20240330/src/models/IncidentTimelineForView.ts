@@ -4,47 +4,15 @@ import { ContactForIncidentView } from "./ContactForIncidentView";
 
 
 export class IncidentTimelineForView extends $dara.Model {
-  /**
-   * @example
-   * "Open -> In Progress"
-   */
   changeType?: string;
-  /**
-   * @example
-   * "{"action":"restart","resourceId":"i-bp123456"}"
-   */
   content?: any;
-  /**
-   * @example
-   * "a1b2c3d4-e5f6-7890-1234-567890abcdef"
-   */
   incidentUuid?: string;
   operator?: ContactForIncidentView;
-  /**
-   * @example
-   * 1743876000000
-   */
   time?: number;
-  /**
-   * @example
-   * "x1y2z3a4-b5c6-d7e8-f9g0-h1i2j3k4l5m6"
-   */
   timelineUuid?: string;
   title?: string;
-  /**
-   * @example
-   * "Comment"
-   */
   type?: string;
-  /**
-   * @example
-   * "user-abc123"
-   */
   userId?: string;
-  /**
-   * @example
-   * "ws-xyz789"
-   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

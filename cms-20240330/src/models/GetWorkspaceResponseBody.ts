@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Creation Time
+   * The time when the workspace was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -15,7 +15,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Workspace Description
+   * The description of the workspace.
    * 
    * @example
    * workspace test
@@ -23,7 +23,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Workspace Display Name
+   * The display name of the workspace.
    * 
    * @example
    * workspace-test
@@ -31,7 +31,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Last Modified Time
+   * The time when the workspace was last modified.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -41,7 +41,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -49,7 +49,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -57,7 +57,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Log Service Project Name
+   * The name of the Simple Log Service project.
    * 
    * @example
    * sls-project-test-001
@@ -65,7 +65,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * Workspace Name
+   * The name of the workspace.
    * 
    * This parameter is required.
    * 

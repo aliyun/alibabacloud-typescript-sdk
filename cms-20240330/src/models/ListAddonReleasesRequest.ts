@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonReleasesRequest extends $dara.Model {
   /**
    * @remarks
-   * Addon component name.
+   * The name of the add-on component.
    * 
    * @example
    * cs-gpu
@@ -13,7 +13,7 @@ export class ListAddonReleasesRequest extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * Parent AddonReleaseId.
+   * The ID of the parent AddonRelease.
    * 
    * @example
    * policy-xxxxxxxxxxxxx

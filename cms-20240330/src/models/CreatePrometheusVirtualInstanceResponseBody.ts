@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * Creation time
+   * The time when the instance was created.
    * 
    * @example
    * 1751520976660
@@ -13,7 +13,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   createdAt?: string;
   /**
    * @remarks
-   * HTTP API query address
+   * The HTTP API query URL.
    * 
    * @example
    * http://xxxxxxx
@@ -21,7 +21,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   httpApiUrl?: string;
   /**
    * @remarks
-   * Region ID
+   * The instance ID.
    * 
    * @example
    * rw-e815960b4c9ebc5c3d89790c7e82
@@ -29,7 +29,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Cloud product
+   * The cloud product.
    * 
    * @example
    * ack-csi-fuse
@@ -37,7 +37,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   namespace?: string;
   /**
    * @remarks
-   * User ID
+   * Region ID
    * 
    * @example
    * cn-zhengzhou-jva
@@ -45,7 +45,7 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 167212345678
@@ -85,12 +85,12 @@ export class CreatePrometheusVirtualInstanceResponseBodyInstance extends $dara.M
 export class CreatePrometheusVirtualInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance.
    */
   instance?: CreatePrometheusVirtualInstanceResponseBodyInstance;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-************

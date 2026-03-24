@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEntityStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -13,7 +13,7 @@ export class GetEntityStoreResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -21,7 +21,7 @@ export class GetEntityStoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Workspace name
+   * The name of the workspace.
    * 
    * @example
    * workspace-test-001

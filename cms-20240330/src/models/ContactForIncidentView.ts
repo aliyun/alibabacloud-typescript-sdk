@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ContactForIncidentView extends $dara.Model {
-  /**
-   * @example
-   * "contact-123456"
-   */
   contactId?: string;
   name?: string;
   static names(): { [key: string]: string } {

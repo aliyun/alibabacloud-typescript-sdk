@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudResourceDataRequest extends $dara.Model {
   /**
    * @remarks
+   * The start of the time range to query.
+   * 
+   * This is a UNIX timestamp. It represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class GetCloudResourceDataRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
+   * The search statement.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,10 @@ export class GetCloudResourceDataRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
+   * This is a UNIX timestamp. It represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+   * 
    * This parameter is required.
    * 
    * @example

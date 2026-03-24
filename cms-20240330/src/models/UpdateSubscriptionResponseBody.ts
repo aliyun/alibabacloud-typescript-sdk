@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request.
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The subscription ID.
+   * 
    * @example
    * 123123123123
    */

@@ -7,12 +7,12 @@ import { FilterSetting } from "./FilterSetting";
 export class TransformerForView extends $dara.Model {
   /**
    * @remarks
-   * Transformation operation.
+   * 转换操作
    */
   actions?: TransformAction[];
   /**
    * @remarks
-   * Create Time.
+   * 创建时间
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -20,7 +20,7 @@ export class TransformerForView extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Description.
+   * 描述
    * 
    * @example
    * workspace test
@@ -28,7 +28,7 @@ export class TransformerForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether enabled.
+   * 是否启用
    * 
    * @example
    * false
@@ -36,12 +36,12 @@ export class TransformerForView extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Filter Setting.
+   * 筛选设置
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Exit after matching processing.
+   * 匹配处理后退出
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class TransformerForView extends $dara.Model {
   quitAfterMatch?: boolean;
   /**
    * @remarks
-   * Sort order.
+   * 排序数
    * 
    * @example
    * 1
@@ -65,17 +65,17 @@ export class TransformerForView extends $dara.Model {
   transformerId?: string;
   /**
    * @remarks
-   * Name.
+   * 名称
    * 
    * This parameter is required.
    * 
    * @example
-   * Test processing flow.
+   * 测试处理流
    */
   transformerName?: string;
   /**
    * @remarks
-   * Update Time.
+   * 更新时间
    * 
    * @example
    * 2025-01-16T02:27:01Z
@@ -83,7 +83,7 @@ export class TransformerForView extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * User ID.
+   * 用户id
    * 
    * @example
    * 123123123**

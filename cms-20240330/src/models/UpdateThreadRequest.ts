@@ -5,13 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateThreadRequest extends $dara.Model {
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The status of the session.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The title of the session.
+   * 
    * @example
-   * MY ANTOM Tech Team Annual Dinner Performance Lucky Draw
+   * title
    */
   title?: string;
   static names(): { [key: string]: string } {
