@@ -47,6 +47,11 @@ export { CreateLocationDateClusteringTaskRequestDateOptions } from './CreateLoca
 export { CreateLocationDateClusteringTaskRequestLocationOptions } from './CreateLocationDateClusteringTaskRequest';
 export { CreateMediaConvertTaskRequestSourcesSubtitles } from './CreateMediaConvertTaskRequest';
 export { CreateMediaConvertTaskRequestSources } from './CreateMediaConvertTaskRequest';
+export { CreateMediaConvertTaskRequestTargetGroupsTargetsSegment } from './CreateMediaConvertTaskRequest';
+export { CreateMediaConvertTaskRequestTargetGroupsTargets } from './CreateMediaConvertTaskRequest';
+export { CreateMediaConvertTaskRequestTargetGroups } from './CreateMediaConvertTaskRequest';
+export { CreateMediaConvertTaskRequestTargetsAttachedPicture } from './CreateMediaConvertTaskRequest';
+export { CreateMediaConvertTaskRequestTargetsData } from './CreateMediaConvertTaskRequest';
 export { CreateMediaConvertTaskRequestTargetsSegment } from './CreateMediaConvertTaskRequest';
 export { CreateMediaConvertTaskRequestTargets } from './CreateMediaConvertTaskRequest';
 export { CreateOfficeConversionTaskRequestSources } from './CreateOfficeConversionTaskRequest';

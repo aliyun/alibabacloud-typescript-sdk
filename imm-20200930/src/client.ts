@@ -2641,6 +2641,10 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    if (!$dara.isNull(tmpReq.targetGroups)) {
+      request.targetGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetGroups, "TargetGroups", "json");
+    }
+
     if (!$dara.isNull(tmpReq.targets)) {
       request.targetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targets, "Targets", "json");
     }
@@ -2668,6 +2672,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.targetGroupsShrink)) {
+      query["TargetGroups"] = request.targetGroupsShrink;
     }
 
     if (!$dara.isNull(request.targetsShrink)) {

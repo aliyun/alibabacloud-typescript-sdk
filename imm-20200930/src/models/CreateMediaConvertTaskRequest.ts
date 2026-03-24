@@ -173,6 +173,172 @@ export class CreateMediaConvertTaskRequestSources extends $dara.Model {
   }
 }
 
+export class CreateMediaConvertTaskRequestTargetGroupsTargetsSegment extends $dara.Model {
+  duration?: number;
+  format?: string;
+  startNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      format: 'Format',
+      startNumber: 'StartNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      format: 'string',
+      startNumber: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaConvertTaskRequestTargetGroupsTargets extends $dara.Model {
+  audio?: TargetAudio;
+  container?: string;
+  segment?: CreateMediaConvertTaskRequestTargetGroupsTargetsSegment;
+  speed?: number;
+  stripMetadata?: boolean;
+  subtitle?: TargetSubtitle;
+  URI?: string;
+  video?: TargetVideo;
+  static names(): { [key: string]: string } {
+    return {
+      audio: 'Audio',
+      container: 'Container',
+      segment: 'Segment',
+      speed: 'Speed',
+      stripMetadata: 'StripMetadata',
+      subtitle: 'Subtitle',
+      URI: 'URI',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audio: TargetAudio,
+      container: 'string',
+      segment: CreateMediaConvertTaskRequestTargetGroupsTargetsSegment,
+      speed: 'number',
+      stripMetadata: 'boolean',
+      subtitle: TargetSubtitle,
+      URI: 'string',
+      video: TargetVideo,
+    };
+  }
+
+  validate() {
+    if(this.audio && typeof (this.audio as any).validate === 'function') {
+      (this.audio as any).validate();
+    }
+    if(this.segment && typeof (this.segment as any).validate === 'function') {
+      (this.segment as any).validate();
+    }
+    if(this.subtitle && typeof (this.subtitle as any).validate === 'function') {
+      (this.subtitle as any).validate();
+    }
+    if(this.video && typeof (this.video as any).validate === 'function') {
+      (this.video as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaConvertTaskRequestTargetGroups extends $dara.Model {
+  targets?: CreateMediaConvertTaskRequestTargetGroupsTargets[];
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targets: 'Targets',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targets: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestTargetGroupsTargets },
+      URI: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.targets)) {
+      $dara.Model.validateArray(this.targets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaConvertTaskRequestTargetsAttachedPicture extends $dara.Model {
+  stream?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stream: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.stream)) {
+      $dara.Model.validateArray(this.stream);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaConvertTaskRequestTargetsData extends $dara.Model {
+  stream?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stream: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.stream)) {
+      $dara.Model.validateArray(this.stream);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequestTargetsSegment extends $dara.Model {
   /**
    * @remarks
@@ -226,6 +392,7 @@ export class CreateMediaConvertTaskRequestTargetsSegment extends $dara.Model {
 }
 
 export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
+  attachedPicture?: CreateMediaConvertTaskRequestTargetsAttachedPicture;
   /**
    * @remarks
    * Audio processing parameter configuration.
@@ -243,6 +410,7 @@ export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
    * mp4
    */
   container?: string;
+  data?: CreateMediaConvertTaskRequestTargetsData;
   /**
    * @remarks
    * Configuration for frame capture, sprite image capture, and media to animated image conversion.
@@ -295,8 +463,10 @@ export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
   video?: TargetVideo;
   static names(): { [key: string]: string } {
     return {
+      attachedPicture: 'AttachedPicture',
       audio: 'Audio',
       container: 'Container',
+      data: 'Data',
       image: 'Image',
       segment: 'Segment',
       speed: 'Speed',
@@ -309,8 +479,10 @@ export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attachedPicture: CreateMediaConvertTaskRequestTargetsAttachedPicture,
       audio: TargetAudio,
       container: 'string',
+      data: CreateMediaConvertTaskRequestTargetsData,
       image: TargetImage,
       segment: CreateMediaConvertTaskRequestTargetsSegment,
       speed: 'number',
@@ -322,8 +494,14 @@ export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
   }
 
   validate() {
+    if(this.attachedPicture && typeof (this.attachedPicture as any).validate === 'function') {
+      (this.attachedPicture as any).validate();
+    }
     if(this.audio && typeof (this.audio as any).validate === 'function') {
       (this.audio as any).validate();
+    }
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     if(this.image && typeof (this.image as any).validate === 'function') {
       (this.image as any).validate();
@@ -391,11 +569,10 @@ export class CreateMediaConvertTaskRequest extends $dara.Model {
    * {"test":"val1"}
    */
   tags?: { [key: string]: any };
+  targetGroups?: CreateMediaConvertTaskRequestTargetGroups[];
   /**
    * @remarks
    * List of media processing tasks, supporting multiple task configurations.
-   * 
-   * This parameter is required.
    */
   targets?: CreateMediaConvertTaskRequestTargets[];
   /**
@@ -414,6 +591,7 @@ export class CreateMediaConvertTaskRequest extends $dara.Model {
       projectName: 'ProjectName',
       sources: 'Sources',
       tags: 'Tags',
+      targetGroups: 'TargetGroups',
       targets: 'Targets',
       userData: 'UserData',
     };
@@ -427,6 +605,7 @@ export class CreateMediaConvertTaskRequest extends $dara.Model {
       projectName: 'string',
       sources: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestSources },
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targetGroups: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestTargetGroups },
       targets: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestTargets },
       userData: 'string',
     };
@@ -444,6 +623,9 @@ export class CreateMediaConvertTaskRequest extends $dara.Model {
     }
     if(this.tags) {
       $dara.Model.validateMap(this.tags);
+    }
+    if(Array.isArray(this.targetGroups)) {
+      $dara.Model.validateArray(this.targetGroups);
     }
     if(Array.isArray(this.targets)) {
       $dara.Model.validateArray(this.targets);

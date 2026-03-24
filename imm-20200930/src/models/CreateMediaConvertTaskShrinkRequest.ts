@@ -48,11 +48,10 @@ export class CreateMediaConvertTaskShrinkRequest extends $dara.Model {
    * {"test":"val1"}
    */
   tagsShrink?: string;
+  targetGroupsShrink?: string;
   /**
    * @remarks
    * List of media processing tasks, supporting multiple task configurations.
-   * 
-   * This parameter is required.
    */
   targetsShrink?: string;
   /**
@@ -71,6 +70,7 @@ export class CreateMediaConvertTaskShrinkRequest extends $dara.Model {
       projectName: 'ProjectName',
       sourcesShrink: 'Sources',
       tagsShrink: 'Tags',
+      targetGroupsShrink: 'TargetGroups',
       targetsShrink: 'Targets',
       userData: 'UserData',
     };
@@ -84,6 +84,7 @@ export class CreateMediaConvertTaskShrinkRequest extends $dara.Model {
       projectName: 'string',
       sourcesShrink: 'string',
       tagsShrink: 'string',
+      targetGroupsShrink: 'string',
       targetsShrink: 'string',
       userData: 'string',
     };
