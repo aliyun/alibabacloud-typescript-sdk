@@ -243,6 +243,7 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Mo
   startTime?: number;
   status?: string;
   tableName?: string;
+  triggerMode?: string;
   updatedTime?: number;
   vaultId?: string;
   static names(): { [key: string]: string } {
@@ -292,6 +293,7 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Mo
       startTime: 'StartTime',
       status: 'Status',
       tableName: 'TableName',
+      triggerMode: 'TriggerMode',
       updatedTime: 'UpdatedTime',
       vaultId: 'VaultId',
     };
@@ -344,6 +346,7 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Mo
       startTime: 'number',
       status: 'string',
       tableName: 'string',
+      triggerMode: 'string',
       updatedTime: 'number',
       vaultId: 'string',
     };
