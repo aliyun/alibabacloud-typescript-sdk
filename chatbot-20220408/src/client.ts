@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请流式网关AccessToken
+   * Apply for Streaming Gateway AccessToken
    * 
    * @param request - ApplyForStreamAccessTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61,7 +61,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请流式网关AccessToken
+   * Apply for Streaming Gateway AccessToken
    * 
    * @param request - ApplyForStreamAccessTokenRequest
    * @returns ApplyForStreamAccessTokenResponse
@@ -160,6 +160,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sandBox)) {
       body["SandBox"] = request.sandBox;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
     }
 
     if (!$dara.isNull(request.vendorParam)) {
@@ -308,7 +312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消发布任务
+   * Cancel Publishing Task
    * 
    * @param request - CancelPublishTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -343,7 +347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消发布任务
+   * Cancel Publishing Task
    * 
    * @param request - CancelPublishTaskRequest
    * @returns CancelPublishTaskResponse
@@ -492,7 +496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增类目
+   * Create Category
    * 
    * @param request - CreateCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -541,7 +545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增类目
+   * Create Category
    * 
    * @param request - CreateCategoryRequest
    * @returns CreateCategoryResponse
@@ -552,7 +556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ关联问
+   * Create FAQ Connection Question
    * 
    * @param request - CreateConnQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -593,7 +597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ关联问
+   * Create FAQ Connection Question
    * 
    * @param request - CreateConnQuestionRequest
    * @returns CreateConnQuestionResponse
@@ -724,7 +728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建文档
+   * Create Document
    * 
    * @param tmpReq - CreateDocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -805,7 +809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建文档
+   * Create Document
    * 
    * @param request - CreateDocRequest
    * @returns CreateDocResponse
@@ -816,7 +820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ
+   * New FAQ
    * 
    * @param tmpReq - CreateFaqRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -883,7 +887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ
+   * New FAQ
    * 
    * @param request - CreateFaqRequest
    * @returns CreateFaqResponse
@@ -1160,7 +1164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建发布任务
+   * Create Publishing Task
    * 
    * @param tmpReq - CreatePublishTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1205,7 +1209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建发布任务
+   * Create Publishing Task
    * 
    * @param request - CreatePublishTaskRequest
    * @returns CreatePublishTaskResponse
@@ -1216,7 +1220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ相似问
+   * Create FAQ Similar Question
    * 
    * @param request - CreateSimQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1257,7 +1261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ相似问
+   * Create FAQ Similar Question
    * 
    * @param request - CreateSimQuestionRequest
    * @returns CreateSimQuestionResponse
@@ -1268,7 +1272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ答案
+   * Create New FAQ Answer
    * 
    * @param tmpReq - CreateSolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1327,7 +1331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建FAQ答案
+   * Create New FAQ Answer
    * 
    * @param request - CreateSolutionRequest
    * @returns CreateSolutionResponse
@@ -1502,7 +1506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除类目
+   * Delete Category
    * 
    * @param request - DeleteCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1539,7 +1543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除类目
+   * Delete Category
    * 
    * @param request - DeleteCategoryRequest
    * @returns DeleteCategoryResponse
@@ -1550,7 +1554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ关联问
+   * Delete FAQ Connection Question
    * 
    * @param request - DeleteConnQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1587,7 +1591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ关联问
+   * Delete FAQ Connection Question
    * 
    * @param request - DeleteConnQuestionRequest
    * @returns DeleteConnQuestionResponse
@@ -1702,7 +1706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档删除
+   * Document Deletion
    * 
    * @param request - DeleteDocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1737,7 +1741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档删除
+   * Document Deletion
    * 
    * @param request - DeleteDocRequest
    * @returns DeleteDocResponse
@@ -1748,7 +1752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+   * Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
    * 
    * @param request - DeleteFaqRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1785,7 +1789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+   * Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
    * 
    * @param request - DeleteFaqRequest
    * @returns DeleteFaqResponse
@@ -1992,7 +1996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ相似问
+   * Delete FAQ Similar Question
    * 
    * @param request - DeleteSimQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2029,7 +2033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ相似问
+   * Delete FAQ Similar Question
    * 
    * @param request - DeleteSimQuestionRequest
    * @returns DeleteSimQuestionResponse
@@ -2040,7 +2044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ答案
+   * Delete FAQ Solution
    * 
    * @param request - DeleteSolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2077,7 +2081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除FAQ答案
+   * Delete FAQ Solution
    * 
    * @param request - DeleteSolutionRequest
    * @returns DeleteSolutionResponse
@@ -2250,7 +2254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看单个类目信息
+   * View Single Category Information
    * 
    * @param request - DescribeCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2287,7 +2291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看单个类目信息
+   * View Single Category Information
    * 
    * @param request - DescribeCategoryRequest
    * @returns DescribeCategoryResponse
@@ -2348,7 +2352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档详情
+   * Document Details
    * 
    * @param request - DescribeDocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2387,7 +2391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档详情
+   * Document Details
    * 
    * @param request - DescribeDocRequest
    * @returns DescribeDocResponse
@@ -2398,7 +2402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识详情
+   * Knowledge Details
    * 
    * @param request - DescribeFaqRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2435,7 +2439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识详情
+   * Knowledge Details
    * 
    * @param request - DescribeFaqRequest
    * @returns DescribeFaqResponse
@@ -3020,7 +3024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询发布进度
+   * Query Publishing Progress
    * 
    * @param request - GetPublishTaskStateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3055,7 +3059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询发布进度
+   * Query Publishing Progress
    * 
    * @param request - GetPublishTaskStateRequest
    * @returns GetPublishTaskStateResponse
@@ -3228,7 +3232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 类目列表
+   * Category List
    * 
    * @param request - ListCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3269,7 +3273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 类目列表
+   * Category List
    * 
    * @param request - ListCategoryRequest
    * @returns ListCategoryResponse
@@ -3280,7 +3284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询FAQ关联问列表
+   * Query FAQ Connection Questions List
    * 
    * @param request - ListConnQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3317,7 +3321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询FAQ关联问列表
+   * Query FAQ Connection Questions List
    * 
    * @param request - ListConnQuestionRequest
    * @returns ListConnQuestionResponse
@@ -3485,6 +3489,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.robotType)) {
       query["RobotType"] = request.robotType;
+    }
+
+    if (!$dara.isNull(request.sandbox)) {
+      query["Sandbox"] = request.sandbox;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3728,7 +3736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FAQ相似问列表
+   * FAQ Similar Questions List
    * 
    * @param request - ListSimQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3765,7 +3773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FAQ相似问列表
+   * FAQ Similar Questions List
    * 
    * @param request - ListSimQuestionRequest
    * @returns ListSimQuestionResponse
@@ -3776,7 +3784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FAQ答案列表
+   * FAQ Solution List
    * 
    * @param request - ListSolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3813,7 +3821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FAQ答案列表
+   * FAQ Solution List
    * 
    * @param request - ListSolutionRequest
    * @returns ListSolutionResponse
@@ -4210,7 +4218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档重试
+   * Document Retry
    * 
    * @param request - RetryDocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4245,7 +4253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档重试
+   * Document Retry
    * 
    * @param request - RetryDocRequest
    * @returns RetryDocResponse
@@ -4256,7 +4264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档搜索
+   * Document Search
    * 
    * @param tmpReq - SearchDocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4369,7 +4377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档搜索
+   * Document Search
    * 
    * @param request - SearchDocRequest
    * @returns SearchDocResponse
@@ -4380,7 +4388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识搜索
+   * Knowledge Search
    * 
    * @param tmpReq - SearchFaqRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4483,7 +4491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识搜索
+   * Knowledge Search
    * 
    * @param request - SearchFaqRequest
    * @returns SearchFaqResponse
@@ -4544,7 +4552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑类目
+   * Edit Category
    * 
    * @param request - UpdateCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4589,7 +4597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑类目
+   * Edit Category
    * 
    * @param request - UpdateCategoryRequest
    * @returns UpdateCategoryResponse
@@ -4600,7 +4608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ关联问
+   * Update FAQ Connection Question
    * 
    * @param request - UpdateConnQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4641,7 +4649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ关联问
+   * Update FAQ Connection Question
    * 
    * @param request - UpdateConnQuestionRequest
    * @returns UpdateConnQuestionResponse
@@ -4780,7 +4788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档变更
+   * Document Update
    * 
    * @param tmpReq - UpdateDocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4865,7 +4873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档变更
+   * Document Update
    * 
    * @param request - UpdateDocRequest
    * @returns UpdateDocResponse
@@ -4876,7 +4884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ
+   * Update FAQ
    * 
    * @param tmpReq - UpdateFaqRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4939,7 +4947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ
+   * Update FAQ
    * 
    * @param request - UpdateFaqRequest
    * @returns UpdateFaqResponse
@@ -5174,7 +5182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ相似问
+   * Update FAQ Similar Questions
    * 
    * @param request - UpdateSimQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5215,7 +5223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ相似问
+   * Update FAQ Similar Questions
    * 
    * @param request - UpdateSimQuestionRequest
    * @returns UpdateSimQuestionResponse
@@ -5226,7 +5234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ答案
+   * Update FAQ Answer
    * 
    * @param tmpReq - UpdateSolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5285,7 +5293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新FAQ答案
+   * Update FAQ Answer
    * 
    * @param request - UpdateSolutionRequest
    * @returns UpdateSolutionResponse

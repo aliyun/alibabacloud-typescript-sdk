@@ -8,6 +8,10 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
+  /**
+   * @example
+   * a***bcx@gmail.com
+   */
   email?: string;
   /**
    * @example
@@ -52,6 +56,10 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
    * 张三
    */
   nick?: string;
+  /**
+   * @example
+   * 1381111****
+   */
   telephone?: string;
   static names(): { [key: string]: string } {
     return {

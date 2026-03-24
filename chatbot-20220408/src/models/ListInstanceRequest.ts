@@ -28,6 +28,7 @@ export class ListInstanceRequest extends $dara.Model {
    * scenario_im
    */
   robotType?: string;
+  sandbox?: boolean;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
@@ -35,6 +36,7 @@ export class ListInstanceRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       robotType: 'RobotType',
+      sandbox: 'Sandbox',
     };
   }
 
@@ -45,6 +47,7 @@ export class ListInstanceRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       robotType: 'string',
+      sandbox: 'boolean',
     };
   }
 
