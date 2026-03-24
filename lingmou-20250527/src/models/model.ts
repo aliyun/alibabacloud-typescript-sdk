@@ -16,6 +16,8 @@ export { ListPrivateTTSVoicesCustomResponseBodyDataData } from './ListPrivateTts
 export { ListPrivateTTSVoicesCustomResponseBodyData } from './ListPrivateTtsvoicesCustomResponseBody';
 export { ListTemplateMaterialResponseBodyData } from './ListTemplateMaterialResponseBody';
 export { BroadcastAudio } from './BroadcastAudio';
+export { BroadcastScene } from './BroadcastScene';
+export { BroadcastSceneTemplate } from './BroadcastSceneTemplate';
 export { BroadcastTemplate } from './BroadcastTemplate';
 export { BroadcastVideo } from './BroadcastVideo';
 export { ChatSessionInfo } from './ChatSessionInfo';
@@ -27,6 +29,9 @@ export { CloseChatInstanceSessionsResponse } from './CloseChatInstanceSessionsRe
 export { ConfirmTrainPicAvatarRequest } from './ConfirmTrainPicAvatarRequest';
 export { ConfirmTrainPicAvatarResponseBody } from './ConfirmTrainPicAvatarResponseBody';
 export { ConfirmTrainPicAvatarResponse } from './ConfirmTrainPicAvatarResponse';
+export { CopyBroadcastSceneFromTemplateRequest } from './CopyBroadcastSceneFromTemplateRequest';
+export { CopyBroadcastSceneFromTemplateResponseBody } from './CopyBroadcastSceneFromTemplateResponseBody';
+export { CopyBroadcastSceneFromTemplateResponse } from './CopyBroadcastSceneFromTemplateResponse';
 export { CreateBackgroundPicRequest } from './CreateBackgroundPicRequest';
 export { CreateBackgroundPicResponseBody } from './CreateBackgroundPicResponseBody';
 export { CreateBackgroundPicResponse } from './CreateBackgroundPicResponse';
@@ -80,6 +85,9 @@ export { ListBroadcastVideosByIdResponse } from './ListBroadcastVideosByIdRespon
 export { ListPrivateTTSVoicesCustomRequest } from './ListPrivateTtsvoicesCustomRequest';
 export { ListPrivateTTSVoicesCustomResponseBody } from './ListPrivateTtsvoicesCustomResponseBody';
 export { ListPrivateTTSVoicesCustomResponse } from './ListPrivateTtsvoicesCustomResponse';
+export { ListPublicBroadcastSceneTemplatesRequest } from './ListPublicBroadcastSceneTemplatesRequest';
+export { ListPublicBroadcastSceneTemplatesResponseBody } from './ListPublicBroadcastSceneTemplatesResponseBody';
+export { ListPublicBroadcastSceneTemplatesResponse } from './ListPublicBroadcastSceneTemplatesResponse';
 export { ListTemplateMaterialRequest } from './ListTemplateMaterialRequest';
 export { ListTemplateMaterialResponseBody } from './ListTemplateMaterialResponseBody';
 export { ListTemplateMaterialResponse } from './ListTemplateMaterialResponse';

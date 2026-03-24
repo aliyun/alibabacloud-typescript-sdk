@@ -130,6 +130,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 复制播报方案（从模版）
+   * 
+   * @param request - CopyBroadcastSceneFromTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyBroadcastSceneFromTemplateResponse
+   */
+  async copyBroadcastSceneFromTemplateWithOptions(request: $_model.CopyBroadcastSceneFromTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CopyBroadcastSceneFromTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ratio)) {
+      body["ratio"] = request.ratio;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CopyBroadcastSceneFromTemplate",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/customer/broadcast/template/scene/copyByTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CopyBroadcastSceneFromTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CopyBroadcastSceneFromTemplateResponse({}));
+  }
+
+  /**
+   * 复制播报方案（从模版）
+   * 
+   * @param request - CopyBroadcastSceneFromTemplateRequest
+   * @returns CopyBroadcastSceneFromTemplateResponse
+   */
+  async copyBroadcastSceneFromTemplate(request: $_model.CopyBroadcastSceneFromTemplateRequest): Promise<$_model.CopyBroadcastSceneFromTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.copyBroadcastSceneFromTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建背景素材
    * 
    * @param request - CreateBackgroundPicRequest
@@ -1032,6 +1085,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPrivateTTSVoicesCustomWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列举播报方案模板（公共的播报方案模板）
+   * 
+   * @param request - ListPublicBroadcastSceneTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublicBroadcastSceneTemplatesResponse
+   */
+  async listPublicBroadcastSceneTemplatesWithOptions(request: $_model.ListPublicBroadcastSceneTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPublicBroadcastSceneTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPublicBroadcastSceneTemplates",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/customer/broadcast/template/scene/listPublic`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPublicBroadcastSceneTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListPublicBroadcastSceneTemplatesResponse({}));
+  }
+
+  /**
+   * 列举播报方案模板（公共的播报方案模板）
+   * 
+   * @param request - ListPublicBroadcastSceneTemplatesRequest
+   * @returns ListPublicBroadcastSceneTemplatesResponse
+   */
+  async listPublicBroadcastSceneTemplates(request: $_model.ListPublicBroadcastSceneTemplatesRequest): Promise<$_model.ListPublicBroadcastSceneTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPublicBroadcastSceneTemplatesWithOptions(request, headers, runtime);
   }
 
   /**
