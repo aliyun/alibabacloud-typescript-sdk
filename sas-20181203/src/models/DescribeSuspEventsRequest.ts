@@ -74,6 +74,13 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * N
    */
   dealed?: string;
+  /**
+   * @remarks
+   * Source of discovery (invalid field)
+   * 
+   * @example
+   * linux
+   */
   detectSource?: string;
   /**
    * @remarks

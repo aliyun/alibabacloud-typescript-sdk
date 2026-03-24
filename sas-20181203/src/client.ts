@@ -22515,6 +22515,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query Alarm Security Event Statistics
+   * 
+   * @param request - DescribeSuspiciousSecurityEventyStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
+   */
+  async describeSuspiciousSecurityEventyStatisticsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSuspiciousSecurityEventyStatisticsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSuspiciousSecurityEventyStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSuspiciousSecurityEventyStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSuspiciousSecurityEventyStatisticsResponse({}));
+  }
+
+  /**
+   * Query Alarm Security Event Statistics
+   * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
+   */
+  async describeSuspiciousSecurityEventyStatistics(): Promise<$_model.DescribeSuspiciousSecurityEventyStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSuspiciousSecurityEventyStatisticsWithOptions(runtime);
+  }
+
+  /**
    * Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
    * 
    * @param request - DescribeSuspiciousUUIDConfigRequest
@@ -27392,6 +27424,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get Attack Analysis Dashboard Information
+   * 
+   * @param request - GetAttackEventDashboardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAttackEventDashboardResponse
+   */
+  async getAttackEventDashboardWithOptions(request: $_model.GetAttackEventDashboardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAttackEventDashboardResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAttackEventDashboard",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAttackEventDashboardResponse>(await this.callApi(params, req, runtime), new $_model.GetAttackEventDashboardResponse({}));
+  }
+
+  /**
+   * Get Attack Analysis Dashboard Information
+   * 
+   * @param request - GetAttackEventDashboardRequest
+   * @returns GetAttackEventDashboardResponse
+   */
+  async getAttackEventDashboard(request: $_model.GetAttackEventDashboardRequest): Promise<$_model.GetAttackEventDashboardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAttackEventDashboardWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Attack Analysis Event Details
+   * 
+   * @param request - GetAttackEventDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAttackEventDetailResponse
+   */
+  async getAttackEventDetailWithOptions(request: $_model.GetAttackEventDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAttackEventDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAttackEventDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAttackEventDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetAttackEventDetailResponse({}));
+  }
+
+  /**
+   * Get Attack Analysis Event Details
+   * 
+   * @param request - GetAttackEventDetailRequest
+   * @returns GetAttackEventDetailResponse
+   */
+  async getAttackEventDetail(request: $_model.GetAttackEventDetailRequest): Promise<$_model.GetAttackEventDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAttackEventDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Query Attack Path Event Details.
    * 
    * @param request - GetAttackPathEventDetailRequest
@@ -28541,6 +28669,48 @@ export default class Client extends OpenApi {
   async getClusterCheckItemWarningStatistics(request: $_model.GetClusterCheckItemWarningStatisticsRequest): Promise<$_model.GetClusterCheckItemWarningStatisticsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getClusterCheckItemWarningStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the number of cluster inspection item risks
+   * 
+   * @param request - GetClusterCheckSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterCheckSummaryResponse
+   */
+  async getClusterCheckSummaryWithOptions(request: $_model.GetClusterCheckSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClusterCheckSummaryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetClusterCheckSummary",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetClusterCheckSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetClusterCheckSummaryResponse({}));
+  }
+
+  /**
+   * Query the number of cluster inspection item risks
+   * 
+   * @param request - GetClusterCheckSummaryRequest
+   * @returns GetClusterCheckSummaryResponse
+   */
+  async getClusterCheckSummary(request: $_model.GetClusterCheckSummaryRequest): Promise<$_model.GetClusterCheckSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getClusterCheckSummaryWithOptions(request, runtime);
   }
 
   /**
@@ -31780,6 +31950,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get Valid Resource Package Instances
+   * 
+   * @param request - GetValidDeductInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetValidDeductInstancesResponse
+   */
+  async getValidDeductInstancesWithOptions(request: $_model.GetValidDeductInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetValidDeductInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.modules)) {
+      query["Modules"] = request.modules;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetValidDeductInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetValidDeductInstancesResponse>(await this.callApi(params, req, runtime), new $_model.GetValidDeductInstancesResponse({}));
+  }
+
+  /**
+   * Get Valid Resource Package Instances
+   * 
+   * @param request - GetValidDeductInstancesRequest
+   * @returns GetValidDeductInstancesResponse
+   */
+  async getValidDeductInstances(request: $_model.GetValidDeductInstancesRequest): Promise<$_model.GetValidDeductInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getValidDeductInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configurations of a periodic virus scan task.
    * 
    * @param request - GetVirusScanConfigRequest
@@ -33585,6 +33805,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get Attack Analysis Event List
+   * 
+   * @param request - ListAttackEventInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAttackEventInfoResponse
+   */
+  async listAttackEventInfoWithOptions(request: $_model.ListAttackEventInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAttackEventInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.attackInstance)) {
+      query["AttackInstance"] = request.attackInstance;
+    }
+
+    if (!$dara.isNull(request.attackType)) {
+      query["AttackType"] = request.attackType;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.dstPort)) {
+      query["DstPort"] = request.dstPort;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.srcIp)) {
+      query["SrcIp"] = request.srcIp;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAttackEventInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAttackEventInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListAttackEventInfoResponse({}));
+  }
+
+  /**
+   * Get Attack Analysis Event List
+   * 
+   * @param request - ListAttackEventInfoRequest
+   * @returns ListAttackEventInfoResponse
+   */
+  async listAttackEventInfo(request: $_model.ListAttackEventInfoRequest): Promise<$_model.ListAttackEventInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAttackEventInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Query Attack Path Events.
    * 
    * @param request - ListAttackPathEventRequest
@@ -35058,6 +35352,76 @@ export default class Client extends OpenApi {
   async listCloudVendorRegions(request: $_model.ListCloudVendorRegionsRequest): Promise<$_model.ListCloudVendorRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCloudVendorRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Cluster Check Item Scan Results
+   * 
+   * @param request - ListClusterCheckResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterCheckResultResponse
+   */
+  async listClusterCheckResultWithOptions(request: $_model.ListClusterCheckResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterCheckResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.checkKey)) {
+      query["CheckKey"] = request.checkKey;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.riskLevels)) {
+      query["RiskLevels"] = request.riskLevels;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!$dara.isNull(request.statuses)) {
+      query["Statuses"] = request.statuses;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListClusterCheckResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListClusterCheckResultResponse>(await this.callApi(params, req, runtime), new $_model.ListClusterCheckResultResponse({}));
+  }
+
+  /**
+   * Query Cluster Check Item Scan Results
+   * 
+   * @param request - ListClusterCheckResultRequest
+   * @returns ListClusterCheckResultResponse
+   */
+  async listClusterCheckResult(request: $_model.ListClusterCheckResultRequest): Promise<$_model.ListClusterCheckResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listClusterCheckResultWithOptions(request, runtime);
   }
 
   /**
@@ -36886,6 +37250,68 @@ export default class Client extends OpenApi {
   async listK8sAccessInfo(request: $_model.ListK8sAccessInfoRequest): Promise<$_model.ListK8sAccessInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listK8sAccessInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Get KSPM Asset List
+   * 
+   * @param request - ListKspmInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKspmInstancesResponse
+   */
+  async listKspmInstancesWithOptions(request: $_model.ListKspmInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKspmInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAssetTypes)) {
+      query["CloudAssetTypes"] = request.cloudAssetTypes;
+    }
+
+    if (!$dara.isNull(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.logicalExp)) {
+      query["LogicalExp"] = request.logicalExp;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKspmInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKspmInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListKspmInstancesResponse({}));
+  }
+
+  /**
+   * Get KSPM Asset List
+   * 
+   * @param request - ListKspmInstancesRequest
+   * @returns ListKspmInstancesResponse
+   */
+  async listKspmInstances(request: $_model.ListKspmInstancesRequest): Promise<$_model.ListKspmInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKspmInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -41049,6 +41475,19 @@ export default class Client extends OpenApi {
    */
   async modifyImageRegistryWithOptions(request: $_model.ModifyImageRegistryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyImageRegistryResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.registryHostIp)) {
+      query["RegistryHostIp"] = request.registryHostIp;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
@@ -41067,6 +41506,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -45956,6 +46396,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.baselineItemList)) {
       query["BaselineItemList"] = request.baselineItemList;
+    }
+
+    if (!$dara.isNull(request.imageVulClean)) {
+      query["ImageVulClean"] = request.imageVulClean;
     }
 
     if (!$dara.isNull(request.lang)) {

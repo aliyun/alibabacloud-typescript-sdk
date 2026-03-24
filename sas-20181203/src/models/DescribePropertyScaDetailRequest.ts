@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePropertyScaDetailRequestSearchCriteriaList extends $dara.Model {
   /**
+   * @remarks
+   * 搜索条件名称
+   * 
    * @example
    * Name
    */
   name?: string;
   /**
+   * @remarks
+   * 搜索条件过滤值
+   * 
    * @example
    * test
    */
@@ -180,6 +186,10 @@ export class DescribePropertyScaDetailRequest extends $dara.Model {
    * 1.0.2k
    */
   scaVersion?: string;
+  /**
+   * @remarks
+   * 搜索条件列表
+   */
   searchCriteriaList?: DescribePropertyScaDetailRequestSearchCriteriaList[];
   /**
    * @remarks

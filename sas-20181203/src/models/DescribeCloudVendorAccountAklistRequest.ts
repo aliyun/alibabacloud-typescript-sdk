@@ -57,6 +57,15 @@ export class DescribeCloudVendorAccountAKListRequest extends $dara.Model {
    * AlibabaCloud_***
    */
   subAccountName?: string;
+  /**
+   * @remarks
+   * Cloud asset vendor. Values:
+   *  - **Tencent**: Tencent Cloud 
+   * - **AWS**: Amazon Web Services
+   * 
+   * @example
+   * VOLCENGINE
+   */
   vendor?: string;
   /**
    * @remarks

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCheckCountStatisticResponseBodyCheckCountStatisticDTOCheckCountStatisticItems extends $dara.Model {
   /**
+   * @remarks
+   * 检查项展示名称
+   * 
    * @example
    * 开启公网访问
    */
@@ -184,6 +187,9 @@ export class GetCheckCountStatisticResponseBodyCheckCountStatisticDTOCheckCountS
    */
   vendor?: number;
   /**
+   * @remarks
+   * 厂商名称
+   * 
    * @example
    * 阿里云
    */

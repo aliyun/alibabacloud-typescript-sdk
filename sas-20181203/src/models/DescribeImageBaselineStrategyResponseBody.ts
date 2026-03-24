@@ -66,6 +66,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
    * An array that contains the baselines.
    */
   baselineItemList?: DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList[];
+  imageVulClean?: number;
   /**
    * @remarks
    * The number of selected baseline check items.
@@ -114,6 +115,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
     return {
       baselineItem: 'BaselineItem',
       baselineItemList: 'BaselineItemList',
+      imageVulClean: 'ImageVulClean',
       selectedItemCount: 'SelectedItemCount',
       strategyId: 'StrategyId',
       strategyName: 'StrategyName',
@@ -126,6 +128,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
     return {
       baselineItem: 'string',
       baselineItemList: { 'type': 'array', 'itemType': DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList },
+      imageVulClean: 'number',
       selectedItemCount: 'number',
       strategyId: 'number',
       strategyName: 'string',

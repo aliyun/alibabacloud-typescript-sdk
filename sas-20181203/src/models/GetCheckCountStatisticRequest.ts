@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCheckCountStatisticRequest extends $dara.Model {
   /**
+   * @remarks
+   * 语言参数
+   * 
    * @example
    * zh
    */
@@ -24,6 +27,9 @@ export class GetCheckCountStatisticRequest extends $dara.Model {
   /**
    * @remarks
    * Task source.
+   * 
+   * @example
+   * zh
    */
   taskSources?: string[];
   /**

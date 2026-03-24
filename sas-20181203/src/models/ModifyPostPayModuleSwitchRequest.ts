@@ -14,6 +14,9 @@ export class ModifyPostPayModuleSwitchRequestPostPayModuleSwitchObj extends $dar
    */
   agentless?: number;
   /**
+   * @remarks
+   * AI Digitization
+   * 
    * @example
    * 1
    */

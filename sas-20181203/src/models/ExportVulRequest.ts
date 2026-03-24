@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportVulRequestVulEntityList extends $dara.Model {
   /**
+   * @remarks
+   * 组件名称
+   * 
    * @example
    * Ollama
    */
   entityName?: string;
   /**
+   * @remarks
+   * 组件版本
+   * 
    * @example
    * 1.0.0
    */
@@ -212,6 +218,10 @@ export class ExportVulRequest extends $dara.Model {
    * ins-133****,ins-5414****
    */
   vpcInstanceIds?: string;
+  /**
+   * @remarks
+   * 漏洞组件信息列表
+   */
   vulEntityList?: ExportVulRequestVulEntityList[];
   static names(): { [key: string]: string } {
     return {

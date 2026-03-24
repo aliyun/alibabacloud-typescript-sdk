@@ -141,6 +141,14 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   errorFile?: string;
   /**
    * @remarks
+   * Snapshot expiration timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1799132915000
+   */
+  expireTime?: number;
+  /**
+   * @remarks
    * The ID of the ECS instance.
    * 
    * @example
@@ -287,6 +295,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       clientVersion: 'ClientVersion',
       createdTime: 'CreatedTime',
       errorFile: 'ErrorFile',
+      expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       itemsDone: 'ItemsDone',
       itemsTotal: 'ItemsTotal',
@@ -316,6 +325,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       clientVersion: 'string',
       createdTime: 'number',
       errorFile: 'string',
+      expireTime: 'number',
       instanceId: 'string',
       itemsDone: 'number',
       itemsTotal: 'number',

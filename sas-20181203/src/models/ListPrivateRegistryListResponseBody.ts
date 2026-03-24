@@ -62,6 +62,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
    * 90
    */
   persistenceDay?: number;
+  port?: number;
   /**
    * @remarks
    * The type of the protocol. Valid values:
@@ -170,6 +171,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
       netType: 'NetType',
       password: 'Password',
       persistenceDay: 'PersistenceDay',
+      port: 'Port',
       protocolType: 'ProtocolType',
       regionId: 'RegionId',
       registryHostIp: 'RegistryHostIp',
@@ -193,6 +195,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
       netType: 'number',
       password: 'string',
       persistenceDay: 'number',
+      port: 'number',
       protocolType: 'number',
       regionId: 'string',
       registryHostIp: 'string',

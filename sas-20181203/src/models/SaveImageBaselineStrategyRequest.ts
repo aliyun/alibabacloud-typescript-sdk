@@ -15,6 +15,7 @@ export class SaveImageBaselineStrategyRequest extends $dara.Model {
    * ak_leak
    */
   baselineItemList?: string;
+  imageVulClean?: number;
   /**
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
@@ -58,6 +59,7 @@ export class SaveImageBaselineStrategyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       baselineItemList: 'BaselineItemList',
+      imageVulClean: 'ImageVulClean',
       lang: 'Lang',
       source: 'Source',
       strategyId: 'StrategyId',
@@ -68,6 +70,7 @@ export class SaveImageBaselineStrategyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       baselineItemList: 'string',
+      imageVulClean: 'number',
       lang: 'string',
       source: 'string',
       strategyId: 'number',

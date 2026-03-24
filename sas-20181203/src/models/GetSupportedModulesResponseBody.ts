@@ -16,6 +16,15 @@ export class GetSupportedModulesResponseBodySupportedModuleResponseSupportedModu
    * HOST
    */
   module?: string;
+  /**
+   * @remarks
+   * Module authorization switch indicator. Values: 
+   * - **true**: Enabled
+   *  - **false**: Not enabled
+   * 
+   * @example
+   * true
+   */
   moduleAuth?: boolean;
   /**
    * @remarks

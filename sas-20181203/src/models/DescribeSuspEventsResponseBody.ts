@@ -295,6 +295,13 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * The details of the alert event.
    */
   details?: DescribeSuspEventsResponseBodySuspEventsDetails[];
+  /**
+   * @remarks
+   * Source of discovery (invalid field)
+   * 
+   * @example
+   * linux
+   */
   detectSource?: string;
   /**
    * @remarks

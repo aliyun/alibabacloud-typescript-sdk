@@ -73,6 +73,13 @@ export class GetAssetsPropertyDetailResponseBodyPageInfo extends $dara.Model {
 }
 
 export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
+  /**
+   * @remarks
+   * Agent
+   * 
+   * @example
+   * Mozilla/5.0 (Windows NT 10.0%3B Win64%3B x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0
+   */
   agent?: string;
   /**
    * @remarks
@@ -90,6 +97,13 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    * 1649149566000
    */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * Asset description.
+   * 
+   * @example
+   * {\\"Type\\": \\"text\\", \\"Value\\": u\\"\\u786e\\u4fdd\\u7f51\\u5173\\u5b89\\u5168\\u9632\\u62a4\\u3002\\u8981\\u6c42\\uff1a\\u5f00\\u542fWAF\\u9632\\u706b\\u5899\\u9632\\u62a4\\u529f\\u80fd\\u3002\\"}
+   */
   description?: string;
   /**
    * @remarks
@@ -126,6 +140,9 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    */
   filepath?: string;
   /**
+   * @remarks
+   * 镜像Digest
+   * 
    * @example
    * ImageDigest
    */
@@ -195,6 +212,13 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    * tcp
    */
   listenProtocol?: string;
+  /**
+   * @remarks
+   * MCP name.
+   * 
+   * @example
+   * @modelcontextprotocol/server-github
+   */
   mcpName?: string;
   /**
    * @remarks
@@ -284,11 +308,17 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * 镜像的RepoName
+   * 
    * @example
    * ACR-Example
    */
   repoName?: string;
   /**
+   * @remarks
+   * 镜像Repo命名空间
+   * 
    * @example
    * Default
    */
@@ -311,12 +341,29 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    * 10
    */
   size?: number;
+  /**
+   * @remarks
+   * Skill name
+   * 
+   * @example
+   * Analytics and Data Analysis
+   */
   skillsName?: string;
   /**
+   * @remarks
+   * 标签
+   * 
    * @example
    * AI
    */
   tag?: string;
+  /**
+   * @remarks
+   * Transmission name.
+   * 
+   * @example
+   * test
+   */
   transportName?: string;
   /**
    * @remarks
