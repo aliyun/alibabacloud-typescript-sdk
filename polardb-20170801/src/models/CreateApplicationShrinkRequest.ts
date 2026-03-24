@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateApplicationShrinkRequestTag extends $dara.Model {
+  /**
+   * @example
+   * testKey
+   */
+  key?: string;
+  /**
+   * @example
+   * testValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @example
@@ -106,6 +140,12 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   securityGroupId?: string;
+  tag?: CreateApplicationShrinkRequestTag[];
+  /**
+   * @example
+   * latest
+   */
+  targetVersion?: string;
   /**
    * @example
    * 1
@@ -149,6 +189,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
+      tag: 'Tag',
+      targetVersion: 'TargetVersion',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -183,6 +225,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateApplicationShrinkRequestTag },
+      targetVersion: 'string',
       usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -191,6 +235,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

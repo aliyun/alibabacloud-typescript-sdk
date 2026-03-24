@@ -168,6 +168,40 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   }
 }
 
+export class CreateApplicationRequestTag extends $dara.Model {
+  /**
+   * @example
+   * testKey
+   */
+  key?: string;
+  /**
+   * @example
+   * testValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequest extends $dara.Model {
   /**
    * @example
@@ -272,6 +306,12 @@ export class CreateApplicationRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   securityGroupId?: string;
+  tag?: CreateApplicationRequestTag[];
+  /**
+   * @example
+   * latest
+   */
+  targetVersion?: string;
   /**
    * @example
    * 1
@@ -315,6 +355,8 @@ export class CreateApplicationRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
+      tag: 'Tag',
+      targetVersion: 'TargetVersion',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -349,6 +391,8 @@ export class CreateApplicationRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateApplicationRequestTag },
+      targetVersion: 'string',
       usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -365,6 +409,9 @@ export class CreateApplicationRequest extends $dara.Model {
     }
     if(this.memApplicationSpec && typeof (this.memApplicationSpec as any).validate === 'function') {
       (this.memApplicationSpec as any).validate();
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }

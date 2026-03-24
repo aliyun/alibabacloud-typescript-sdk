@@ -1866,6 +1866,14 @@ export default class Client extends OpenApi {
       query["SecurityGroupId"] = request.securityGroupId;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.targetVersion)) {
+      query["TargetVersion"] = request.targetVersion;
+    }
+
     if (!$dara.isNull(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
@@ -5530,6 +5538,74 @@ export default class Client extends OpenApi {
   async deleteParameterGroup(request: $_model.DeleteParameterGroupRequest): Promise<$_model.DeleteParameterGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除PolarFs文件
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+   * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+   * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+   * 
+   * @param tmpReq - DeletePolarFsObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolarFsObjectsResponse
+   */
+  async deletePolarFsObjectsWithOptions(tmpReq: $_model.DeletePolarFsObjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolarFsObjectsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeletePolarFsObjectsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.objectsToDelete)) {
+      request.objectsToDeleteShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.objectsToDelete, "ObjectsToDelete", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.objectsToDeleteShrink)) {
+      query["ObjectsToDelete"] = request.objectsToDeleteShrink;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolarFsObjects",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolarFsObjectsResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolarFsObjectsResponse({}));
+  }
+
+  /**
+   * 删除PolarFs文件
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+   * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+   * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+   * 
+   * @param request - DeletePolarFsObjectsRequest
+   * @returns DeletePolarFsObjectsResponse
+   */
+  async deletePolarFsObjects(request: $_model.DeletePolarFsObjectsRequest): Promise<$_model.DeletePolarFsObjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolarFsObjectsWithOptions(request, runtime);
   }
 
   /**
