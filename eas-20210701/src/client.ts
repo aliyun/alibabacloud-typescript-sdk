@@ -976,6 +976,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建连接服务的token
+   * 
+   * @param request - CreateServiceInstanceTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceInstanceTokenResponse
+   */
+  async createServiceInstanceTokenWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.CreateServiceInstanceTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceInstanceTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!$dara.isNull(request.workerName)) {
+      query["WorkerName"] = request.workerName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceInstanceToken",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances/${$dara.URL.percentEncode(InstanceName)}/token`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceInstanceTokenResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceInstanceTokenResponse({}));
+  }
+
+  /**
+   * 创建连接服务的token
+   * 
+   * @param request - CreateServiceInstanceTokenRequest
+   * @returns CreateServiceInstanceTokenResponse
+   */
+  async createServiceInstanceToken(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.CreateServiceInstanceTokenRequest): Promise<$_model.CreateServiceInstanceTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceInstanceTokenWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
+  }
+
+  /**
    * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
    * 
    * @param request - CreateServiceMirrorRequest
@@ -1238,7 +1287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关内网访问端点
+   * Deletes an internal endpoint of a private gateway.
    * 
    * @param request - DeleteGatewayIntranetLinkedVpcRequest
    * @param headers - map
@@ -1275,7 +1324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关内网访问端点
+   * Deletes an internal endpoint of a private gateway.
    * 
    * @param request - DeleteGatewayIntranetLinkedVpcRequest
    * @returns DeleteGatewayIntranetLinkedVpcResponse
@@ -3892,6 +3941,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      query["Accessibility"] = request.accessibility;
+    }
+
     if (!$dara.isNull(request.autoscalerEnabled)) {
       query["AutoscalerEnabled"] = request.autoscalerEnabled;
     }
@@ -4296,6 +4349,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  }
+
+  /**
+   * 伸缩服务
+   * 
+   * @param request - ScaleServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScaleServiceResponse
+   */
+  async scaleServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.ScaleServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ScaleServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instance)) {
+      body["Instance"] = request.instance;
+    }
+
+    if (!$dara.isNull(request.instancesToDelete)) {
+      body["InstancesToDelete"] = request.instancesToDelete;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ScaleService",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/scale`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ScaleServiceResponse>(await this.callApi(params, req, runtime), new $_model.ScaleServiceResponse({}));
+  }
+
+  /**
+   * 伸缩服务
+   * 
+   * @param request - ScaleServiceRequest
+   * @returns ScaleServiceResponse
+   */
+  async scaleService(ClusterId: string, ServiceName: string, request: $_model.ScaleServiceRequest): Promise<$_model.ScaleServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.scaleServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**

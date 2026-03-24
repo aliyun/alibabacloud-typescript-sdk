@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListServicesRequest extends $dara.Model {
+  /**
+   * @example
+   * PUBLIC
+   */
+  accessibility?: string;
   autoscalerEnabled?: boolean;
   /**
    * @example
@@ -353,6 +358,7 @@ export class ListServicesRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       autoscalerEnabled: 'AutoscalerEnabled',
       callerUid: 'CallerUid',
       cronscalerEnabled: 'CronscalerEnabled',
@@ -384,6 +390,7 @@ export class ListServicesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       autoscalerEnabled: 'boolean',
       callerUid: 'string',
       cronscalerEnabled: 'boolean',

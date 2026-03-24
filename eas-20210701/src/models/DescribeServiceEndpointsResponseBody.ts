@@ -3,11 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeServiceEndpointsResponseBodyEndpoints extends $dara.Model {
+  /**
+   * @example
+   * nlb-5q4sp7u6oorkha****
+   */
   backendId?: string;
+  /**
+   * @example
+   * Nlb
+   */
   endpointType?: string;
   internetEndpoints?: string[];
   intranetEndpoints?: string[];
+  /**
+   * @example
+   * Service
+   */
   pathType?: string;
+  /**
+   * @example
+   * 9090
+   */
   port?: number;
   static names(): { [key: string]: string } {
     return {
