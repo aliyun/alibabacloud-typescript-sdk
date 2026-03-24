@@ -10,6 +10,9 @@ export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic } from './
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageOss } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
+export { ModifyAgentPlatformRequestAiPlatformConfig } from './ModifyAgentPlatformRequest';
+export { ModifyEmbodiedAIPlatformRequestRayConfigWorkerGroups } from './ModifyEmbodiedAiplatformRequest';
+export { ModifyEmbodiedAIPlatformRequestRayConfig } from './ModifyEmbodiedAiplatformRequest';
 export { CreateAgentPlatformRequest } from './CreateAgentPlatformRequest';
 export { CreateAgentPlatformShrinkRequest } from './CreateAgentPlatformShrinkRequest';
 export { CreateAgentPlatformResponseBody } from './CreateAgentPlatformResponseBody';
@@ -33,6 +36,14 @@ export { GetEmbodiedAIPlatformResourceUsageInfoResponse } from './GetEmbodiedAip
 export { LockEmbodiedAIPlatformRequest } from './LockEmbodiedAiplatformRequest';
 export { LockEmbodiedAIPlatformResponseBody } from './LockEmbodiedAiplatformResponseBody';
 export { LockEmbodiedAIPlatformResponse } from './LockEmbodiedAiplatformResponse';
+export { ModifyAgentPlatformRequest } from './ModifyAgentPlatformRequest';
+export { ModifyAgentPlatformShrinkRequest } from './ModifyAgentPlatformShrinkRequest';
+export { ModifyAgentPlatformResponseBody } from './ModifyAgentPlatformResponseBody';
+export { ModifyAgentPlatformResponse } from './ModifyAgentPlatformResponse';
+export { ModifyEmbodiedAIPlatformRequest } from './ModifyEmbodiedAiplatformRequest';
+export { ModifyEmbodiedAIPlatformShrinkRequest } from './ModifyEmbodiedAiplatformShrinkRequest';
+export { ModifyEmbodiedAIPlatformResponseBody } from './ModifyEmbodiedAiplatformResponseBody';
+export { ModifyEmbodiedAIPlatformResponse } from './ModifyEmbodiedAiplatformResponse';
 export { ResetEmbodiedAIPlatformPasswordRequest } from './ResetEmbodiedAiplatformPasswordRequest';
 export { ResetEmbodiedAIPlatformPasswordResponseBody } from './ResetEmbodiedAiplatformPasswordResponseBody';
 export { ResetEmbodiedAIPlatformPasswordResponse } from './ResetEmbodiedAiplatformPasswordResponse';

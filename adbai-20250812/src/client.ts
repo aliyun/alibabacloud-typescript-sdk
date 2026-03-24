@@ -440,6 +440,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改变配指标平台
+   * 
+   * @param tmpReq - ModifyAgentPlatformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAgentPlatformResponse
+   */
+  async modifyAgentPlatformWithOptions(tmpReq: $_model.ModifyAgentPlatformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAgentPlatformResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAgentPlatformShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.aiPlatformConfig)) {
+      request.aiPlatformConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aiPlatformConfig, "AiPlatformConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.aiPlatformConfigShrink)) {
+      query["AiPlatformConfig"] = request.aiPlatformConfigShrink;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAgentPlatform",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAgentPlatformResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAgentPlatformResponse({}));
+  }
+
+  /**
+   * 修改变配指标平台
+   * 
+   * @param request - ModifyAgentPlatformRequest
+   * @returns ModifyAgentPlatformResponse
+   */
+  async modifyAgentPlatform(request: $_model.ModifyAgentPlatformRequest): Promise<$_model.ModifyAgentPlatformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAgentPlatformWithOptions(request, runtime);
+  }
+
+  /**
+   * 变配具身智能平台
+   * 
+   * @param tmpReq - ModifyEmbodiedAIPlatformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEmbodiedAIPlatformResponse
+   */
+  async modifyEmbodiedAIPlatformWithOptions(tmpReq: $_model.ModifyEmbodiedAIPlatformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyEmbodiedAIPlatformResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyEmbodiedAIPlatformShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rayConfig)) {
+      request.rayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayConfig, "RayConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.platformName)) {
+      query["PlatformName"] = request.platformName;
+    }
+
+    if (!$dara.isNull(request.rayConfigShrink)) {
+      query["RayConfig"] = request.rayConfigShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.webserverSpecName)) {
+      query["WebserverSpecName"] = request.webserverSpecName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyEmbodiedAIPlatform",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyEmbodiedAIPlatformResponse>(await this.callApi(params, req, runtime), new $_model.ModifyEmbodiedAIPlatformResponse({}));
+  }
+
+  /**
+   * 变配具身智能平台
+   * 
+   * @param request - ModifyEmbodiedAIPlatformRequest
+   * @returns ModifyEmbodiedAIPlatformResponse
+   */
+  async modifyEmbodiedAIPlatform(request: $_model.ModifyEmbodiedAIPlatformRequest): Promise<$_model.ModifyEmbodiedAIPlatformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyEmbodiedAIPlatformWithOptions(request, runtime);
+  }
+
+  /**
    * 重置具身智能平台密码
    * 
    * @param request - ResetEmbodiedAIPlatformPasswordRequest
