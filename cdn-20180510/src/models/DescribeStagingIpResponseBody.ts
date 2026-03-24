@@ -29,10 +29,6 @@ export class DescribeStagingIpResponseBodyIPV4s extends $dara.Model {
 }
 
 export class DescribeStagingIpResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * IPv4 addresses.
-   */
   IPV4s?: DescribeStagingIpResponseBodyIPV4s;
   /**
    * @remarks

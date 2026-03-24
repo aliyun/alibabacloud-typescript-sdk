@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainPvDataResponseBodyPvDataIntervalUsageData extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2015-11-28T03:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The number of PVs.
-   * 
-   * @example
-   * 9292
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,10 +79,6 @@ export class DescribeDomainPvDataResponseBody extends $dara.Model {
    * 2015-11-28T04:00:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The number of PVs at each interval.
-   */
   pvDataInterval?: DescribeDomainPvDataResponseBodyPvDataInterval;
   /**
    * @remarks

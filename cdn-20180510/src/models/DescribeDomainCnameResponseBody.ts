@@ -3,34 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainCnameResponseBodyCnameDatasData extends $dara.Model {
-  /**
-   * @remarks
-   * The CNAME assigned to the domain name by Alibaba Cloud CDN.
-   * 
-   * @example
-   * a.com.w.alikunlun.net
-   */
   cname?: string;
-  /**
-   * @remarks
-   * The accelerated domain name.
-   * 
-   * @example
-   * a.com
-   */
   domain?: string;
   errMsg?: string;
   passed?: string;
-  /**
-   * @remarks
-   * The CNAME detection result. Valid values:
-   * 
-   * *   0: The DNS can detect the CNAME assigned to the domain name.
-   * *   Value other than 0: The DNS cannot detect the CNAME assigned to the domain name.
-   * 
-   * @example
-   * 0
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +64,6 @@ export class DescribeDomainCnameResponseBodyCnameDatas extends $dara.Model {
 }
 
 export class DescribeDomainCnameResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the CNAME detection results.
-   */
   cnameDatas?: DescribeDomainCnameResponseBodyCnameDatas;
   /**
    * @remarks

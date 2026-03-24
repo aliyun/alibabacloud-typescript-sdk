@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnSMCertificateListResponseBodyCertificateListModelCertListCert extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the certificate.
-   * 
-   * @example
-   * yourCertldentifier
-   */
   certIdentifier?: string;
-  /**
-   * @remarks
-   * The name of the certificate.
-   * 
-   * @example
-   * yourCertName
-   */
   certName?: string;
-  /**
-   * @remarks
-   * The common name of the certificate.
-   * 
-   * @example
-   * yourCertCommon
-   */
   common?: string;
-  /**
-   * @remarks
-   * The certificate authority (CA) that issued the certificate.
-   * 
-   * @example
-   * yourCertIssuer
-   */
   issuer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeCdnSMCertificateListResponseBodyCertificateListModelCertLis
 }
 
 export class DescribeCdnSMCertificateListResponseBodyCertificateListModel extends $dara.Model {
-  /**
-   * @remarks
-   * The list of certificates.
-   */
   certList?: DescribeCdnSMCertificateListResponseBodyCertificateListModelCertList;
   /**
    * @remarks

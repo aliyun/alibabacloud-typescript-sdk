@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDataDataItemTaskConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The end of the time range during which data was queried.
-   * 
-   * @example
-   * 2018-08-31T15:59:59Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The start of the time range during which data was queried.
-   * 
-   * @example
-   * 2018-07-31T16:00:00Z
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,58 +29,12 @@ export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDa
 }
 
 export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDataDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the task was created.
-   * 
-   * @example
-   * 2018-10-09T06:33:38Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The download URL.
-   * 
-   * @example
-   * https://test.oss-cn-beijing.aliyuncs.com/billing_data/xxx
-   */
   downloadUrl?: string;
-  /**
-   * @remarks
-   * The status of the task.
-   * 
-   * @example
-   * success
-   */
   status?: string;
-  /**
-   * @remarks
-   * The configurations of the task.
-   */
   taskConfig?: DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDataDataItemTaskConfig;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * 11
-   */
   taskId?: string;
-  /**
-   * @remarks
-   * The name of the task.
-   * 
-   * @example
-   * Refresh
-   */
   taskName?: string;
-  /**
-   * @remarks
-   * The time when the task was last modified.
-   * 
-   * @example
-   * 2018-10-09T06:35:46Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,10 +99,6 @@ export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageDa
 }
 
 export class DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPage extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the task.
-   */
   data?: DescribeUserUsageDetailDataExportTaskResponseBodyUsageDataPerPageData;
   /**
    * @remarks

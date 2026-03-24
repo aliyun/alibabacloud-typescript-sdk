@@ -45,10 +45,6 @@ export class DescribeUserVipsByDomainResponseBody extends $dara.Model {
    * 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of VIPs.
-   */
   vips?: DescribeUserVipsByDomainResponseBodyVips;
   static names(): { [key: string]: string } {
     return {

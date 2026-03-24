@@ -3,39 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainMultiUsageDataResponseBodyRequestPerIntervalRequestDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The accelerated domain name.
-   * 
-   * @example
-   * example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The number of requests.
-   * 
-   * @example
-   * 11288111
-   */
   request?: number;
-  /**
-   * @remarks
-   * The timestamp of the returned number of requests.
-   * 
-   * @example
-   * 2017-12-10T20:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The type.
-   * 
-   * >  The value is Simple for Alibaba Cloud CDN.
-   * 
-   * @example
-   * Simple
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,51 +61,10 @@ export class DescribeDomainMultiUsageDataResponseBodyRequestPerInterval extends 
 }
 
 export class DescribeDomainMultiUsageDataResponseBodyTrafficPerIntervalTrafficDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * CN
-   */
   area?: string;
-  /**
-   * @remarks
-   * The bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 11288111.1
-   */
   bps?: number;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The startstamp of the returned usage data.
-   * 
-   * @example
-   * 2017-12-10T20:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The type of requests. Valid values:
-   * 
-   * *   **StaticHttps**: static HTTPS requests
-   * *   **DynamicHttps**: dynamic HTTPS requests
-   * *   **DynamicHttp**: dynamic HTTP requests
-   * *   **StaticQuic**: static QUIC requests
-   * *   **DynamicQuic**: dynamic QUIC requests
-   * 
-   * @example
-   * DynamicHttp
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -209,10 +138,6 @@ export class DescribeDomainMultiUsageDataResponseBody extends $dara.Model {
    * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about requests collected every 5 minutes.
-   */
   requestPerInterval?: DescribeDomainMultiUsageDataResponseBodyRequestPerInterval;
   /**
    * @remarks
@@ -222,10 +147,6 @@ export class DescribeDomainMultiUsageDataResponseBody extends $dara.Model {
    * 2017-12-10T20:00:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The statistics of network traffic collected every 5 minutes.
-   */
   trafficPerInterval?: DescribeDomainMultiUsageDataResponseBodyTrafficPerInterval;
   static names(): { [key: string]: string } {
     return {

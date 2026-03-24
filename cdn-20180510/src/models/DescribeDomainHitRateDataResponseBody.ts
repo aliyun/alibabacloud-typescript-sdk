@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainHitRateDataResponseBodyHitRateIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The byte hit ratio of HTTPS requests.
-   * 
-   * @example
-   * 50.0
-   */
   httpsValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2019-12-30T08:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The byte hit ratio.
-   * 
-   * @example
-   * 100.0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +82,6 @@ export class DescribeDomainHitRateDataResponseBody extends $dara.Model {
    * 2019-12-30T08:10:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The byte hit ratio at each time interval. The byte hit ratio is measured in percentage.
-   */
   hitRateInterval?: DescribeDomainHitRateDataResponseBodyHitRateInterval;
   /**
    * @remarks

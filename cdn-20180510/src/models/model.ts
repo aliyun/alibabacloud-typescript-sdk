@@ -194,6 +194,7 @@ export { DescribeDomainUsageDataResponseBodyUsageDataPerIntervalDataModule } fro
 export { DescribeDomainUsageDataResponseBodyUsageDataPerInterval } from './DescribeDomainUsageDataResponseBody';
 export { DescribeDomainUvDataResponseBodyUvDataIntervalUsageData } from './DescribeDomainUvDataResponseBody';
 export { DescribeDomainUvDataResponseBodyUvDataInterval } from './DescribeDomainUvDataResponseBody';
+export { DescribeDomainVerifyDataResponseBodyContent } from './DescribeDomainVerifyDataResponseBody';
 export { DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomainInfosDomainInfo } from './DescribeDomainsBySourceResponseBody';
 export { DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomainInfos } from './DescribeDomainsBySourceResponseBody';
 export { DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomains } from './DescribeDomainsBySourceResponseBody';

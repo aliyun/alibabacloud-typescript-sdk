@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $dara.Model {
-  /**
-   * @example
-   * 2023-09-23T14:00:00Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * demo.aliyundoc.com_2015_05_23_2100_2200.gz
-   */
   logName?: string;
-  /**
-   * @example
-   * guide.aliyundoc.com-hangzhou.xxx
-   */
   logPath?: string;
-  /**
-   * @example
-   * 258
-   */
   logSize?: number;
-  /**
-   * @example
-   * 2023-09-23T13:00:00Z
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,20 +64,8 @@ export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDeta
 }
 
 export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   pageIndex?: number;
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 20
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -125,15 +93,7 @@ export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDeta
 }
 
 export class DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetail extends $dara.Model {
-  /**
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * 10
-   */
   logCount?: number;
   logInfos?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
   pageInfos?: DescribeCdnDomainLogsExTtlResponseBodyDomainLogDetailsDomainLogDetailPageInfos;

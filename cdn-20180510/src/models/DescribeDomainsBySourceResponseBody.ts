@@ -3,64 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomainInfosDomainInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The workload type of the accelerated domain name. Valid values:
-   * 
-   * *   **web**: images and small files
-   * *   **download**: large files
-   * *   **video**: on-demand video and audio streaming
-   * 
-   * @example
-   * web
-   */
   cdnType?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2016-07-12T11:53:19+08:00
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The CNAME record assigned to the domain name.
-   * 
-   * @example
-   * ***.alikunlun.com
-   */
   domainCname?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.org
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The status of the domain name. Valid values:
-   * 
-   * *   **applying**: The domain name is under review.
-   * *   **configuring**: The domain name is being configured.
-   * *   **online**: The domain name is working as expected.
-   * *   **stopping**: The domain name is being stopped.
-   * *   **offline**: The domain name is disabled.
-   * *   **disabling**: The domain name is being removed.
-   * 
-   * @example
-   * online
-   */
   status?: string;
-  /**
-   * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2017-03-31T04:49:00+08:00
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -146,23 +93,8 @@ export class DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomains ex
 }
 
 export class DescribeDomainsBySourceResponseBodyDomainsListDomainsData extends $dara.Model {
-  /**
-   * @remarks
-   * Information about the domain name.
-   */
   domainInfos?: DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomainInfos;
-  /**
-   * @remarks
-   * The domain names that correspond to each origin server.
-   */
   domains?: DescribeDomainsBySourceResponseBodyDomainsListDomainsDataDomains;
-  /**
-   * @remarks
-   * The origin server.
-   * 
-   * @example
-   * example.com
-   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -222,10 +154,6 @@ export class DescribeDomainsBySourceResponseBodyDomainsList extends $dara.Model 
 }
 
 export class DescribeDomainsBySourceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The domain names corresponding to each origin server.
-   */
   domainsList?: DescribeDomainsBySourceResponseBodyDomainsList;
   /**
    * @remarks

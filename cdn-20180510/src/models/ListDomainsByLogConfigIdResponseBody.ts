@@ -29,10 +29,6 @@ export class ListDomainsByLogConfigIdResponseBodyDomains extends $dara.Model {
 }
 
 export class ListDomainsByLogConfigIdResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The domain names.
-   */
   domains?: ListDomainsByLogConfigIdResponseBodyDomains;
   /**
    * @remarks

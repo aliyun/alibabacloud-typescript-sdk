@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRealtimeLogDeliveryDomainsResponseBodyContentDomains extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The status. Valid values:
-   * 
-   * *   **online**: enabled
-   * *   **offline**: disabled
-   * 
-   * @example
-   * online
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,10 +55,6 @@ export class ListRealtimeLogDeliveryDomainsResponseBodyContent extends $dara.Mod
 }
 
 export class ListRealtimeLogDeliveryDomainsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the accelerated domain names.
-   */
   content?: ListRealtimeLogDeliveryDomainsResponseBodyContent;
   /**
    * @remarks

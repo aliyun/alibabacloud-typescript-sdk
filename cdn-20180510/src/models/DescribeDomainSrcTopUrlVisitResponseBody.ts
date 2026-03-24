@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyAllUrlListUrlList extends $dara.Model {
-  /**
-   * @remarks
-   * The amount of network traffic. Unit: bytes.
-   * 
-   * @example
-   * 460486880
-   */
   flow?: string;
-  /**
-   * @remarks
-   * The proportion of network traffic consumed to access the URL.
-   * 
-   * @example
-   * 0.35
-   */
   flowProportion?: number;
-  /**
-   * @remarks
-   * The complete URL.
-   * 
-   * @example
-   * http://example.com/nn_live/nn_x64/a0.m3u8
-   */
   urlDetail?: string;
-  /**
-   * @remarks
-   * The number of visits to the URL.
-   * 
-   * @example
-   * 161673
-   */
   visitData?: string;
-  /**
-   * @remarks
-   * The proportion of visits to the URL.
-   * 
-   * @example
-   * 0.35
-   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -99,45 +64,10 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyAllUrlList extends $dara.Mo
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl200ListUrlList extends $dara.Model {
-  /**
-   * @remarks
-   * The amount of network traffic. Unit: bytes.
-   * 
-   * @example
-   * 460486880
-   */
   flow?: string;
-  /**
-   * @remarks
-   * The proportion of network traffic consumed to access the URL.
-   * 
-   * @example
-   * 0.35
-   */
   flowProportion?: number;
-  /**
-   * @remarks
-   * The complete URL.
-   * 
-   * @example
-   * http://example.com/nn_live/nn_x64/a0.m3u8
-   */
   urlDetail?: string;
-  /**
-   * @remarks
-   * The number of visits to the URL.
-   * 
-   * @example
-   * 161673
-   */
   visitData?: string;
-  /**
-   * @remarks
-   * The proportion of visits to the URL.
-   * 
-   * @example
-   * 0.35
-   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -195,45 +125,10 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl200List extends $dara.Mo
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl300ListUrlList extends $dara.Model {
-  /**
-   * @remarks
-   * The amount of network traffic. Unit: bytes.
-   * 
-   * @example
-   * 460486880
-   */
   flow?: string;
-  /**
-   * @remarks
-   * The proportion of network traffic consumed to access the URL.
-   * 
-   * @example
-   * 0.35
-   */
   flowProportion?: number;
-  /**
-   * @remarks
-   * The complete URL.
-   * 
-   * @example
-   * http://example.com/nn_live/nn_x64/a0.m3u8
-   */
   urlDetail?: string;
-  /**
-   * @remarks
-   * The number of visits to the URL.
-   * 
-   * @example
-   * 161673
-   */
   visitData?: string;
-  /**
-   * @remarks
-   * The proportion of visits to the URL.
-   * 
-   * @example
-   * 0.35
-   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -291,45 +186,10 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl300List extends $dara.Mo
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl400ListUrlList extends $dara.Model {
-  /**
-   * @remarks
-   * The amount of network traffic. Unit: bytes.
-   * 
-   * @example
-   * 460486880
-   */
   flow?: string;
-  /**
-   * @remarks
-   * The proportion of network traffic consumed to access the URL.
-   * 
-   * @example
-   * 0.35
-   */
   flowProportion?: number;
-  /**
-   * @remarks
-   * The complete URL.
-   * 
-   * @example
-   * http://example.com/nn_live/nn_x64/a0.m3u8
-   */
   urlDetail?: string;
-  /**
-   * @remarks
-   * The number of visits to the URL.
-   * 
-   * @example
-   * 161673
-   */
   visitData?: string;
-  /**
-   * @remarks
-   * The proportion of visits to the URL.
-   * 
-   * @example
-   * 0.35
-   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -387,45 +247,10 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl400List extends $dara.Mo
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBodyUrl500ListUrlList extends $dara.Model {
-  /**
-   * @remarks
-   * The amount of network traffic. Unit: bytes.
-   * 
-   * @example
-   * 460486880
-   */
   flow?: string;
-  /**
-   * @remarks
-   * The proportion of network traffic consumed to access the URL.
-   * 
-   * @example
-   * 0.35
-   */
   flowProportion?: number;
-  /**
-   * @remarks
-   * The complete URL.
-   * 
-   * @example
-   * http://example.com/nn_live/nn_x64/a0.m3u8
-   */
   urlDetail?: string;
-  /**
-   * @remarks
-   * The number of visits to the URL.
-   * 
-   * @example
-   * 161673
-   */
   visitData?: string;
-  /**
-   * @remarks
-   * The proportion of visits to the URL.
-   * 
-   * @example
-   * 0.35
-   */
   visitProportion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -483,10 +308,6 @@ export class DescribeDomainSrcTopUrlVisitResponseBodyUrl500List extends $dara.Mo
 }
 
 export class DescribeDomainSrcTopUrlVisitResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of frequently requested URLs.
-   */
   allUrlList?: DescribeDomainSrcTopUrlVisitResponseBodyAllUrlList;
   /**
    * @remarks
@@ -512,25 +333,9 @@ export class DescribeDomainSrcTopUrlVisitResponseBody extends $dara.Model {
    * 2018-10-03T16:00:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * A list of URLs for which 2xx status codes were returned.
-   */
   url200List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl200List;
-  /**
-   * @remarks
-   * A list of URLs for which 3xx status codes were returned.
-   */
   url300List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl300List;
-  /**
-   * @remarks
-   * A list of URLs for which 4xx status codes were returned.
-   */
   url400List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl400List;
-  /**
-   * @remarks
-   * A list of URLs for which 5xx status codes were returned.
-   */
   url500List?: DescribeDomainSrcTopUrlVisitResponseBodyUrl500List;
   static names(): { [key: string]: string } {
     return {

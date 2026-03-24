@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainBpsDataByTimeStampResponseBodyBpsDataListBpsDataModel extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth value.
-   * 
-   * @example
-   * 52119553
-   */
   bps?: number;
-  /**
-   * @remarks
-   * The name of the ISP.
-   * 
-   * @example
-   * unicom
-   */
   ispName?: string;
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * Liaoning
-   */
   locationName?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2019-11-30T05:40:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeDomainBpsDataByTimeStampResponseBodyBpsDataList extends $da
 }
 
 export class DescribeDomainBpsDataByTimeStampResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of bandwidth values by ISP and region.
-   */
   bpsDataList?: DescribeDomainBpsDataByTimeStampResponseBodyBpsDataList;
   /**
    * @remarks

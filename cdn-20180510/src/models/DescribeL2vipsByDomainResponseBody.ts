@@ -45,10 +45,6 @@ export class DescribeL2VipsByDomainResponseBody extends $dara.Model {
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of VIPs.
-   */
   vips?: DescribeL2VipsByDomainResponseBodyVips;
   static names(): { [key: string]: string } {
     return {

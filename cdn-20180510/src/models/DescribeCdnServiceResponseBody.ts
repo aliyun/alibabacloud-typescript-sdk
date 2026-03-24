@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnServiceResponseBodyOperationLocksLockReason extends $dara.Model {
-  /**
-   * @remarks
-   * The reason why the service is locked. A value of financial indicates that the service is locked due to overdue payments.
-   * 
-   * @example
-   * financial
-   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +100,6 @@ export class DescribeCdnServiceResponseBody extends $dara.Model {
    * 2019-02-28T13:11:49Z
    */
   openingTime?: string;
-  /**
-   * @remarks
-   * The lock status.
-   */
   operationLocks?: DescribeCdnServiceResponseBodyOperationLocks;
   /**
    * @remarks

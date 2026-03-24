@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2019-12-10T20:01:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The traffic value at each time interval.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,10 +81,6 @@ export class DescribeDomainRealTimeTrafficDataResponseBody extends $dara.Model {
    * 2019-12-10T20:01:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The network traffic returned at each time interval. Unit: bytes.
-   */
   realTimeTrafficDataPerInterval?: DescribeDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval;
   /**
    * @remarks

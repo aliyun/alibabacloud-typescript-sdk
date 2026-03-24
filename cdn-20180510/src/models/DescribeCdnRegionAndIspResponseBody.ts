@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnRegionAndIspResponseBodyIspsIsp extends $dara.Model {
-  /**
-   * @remarks
-   * The English name of the ISP.
-   * 
-   * @example
-   * unicom
-   */
   nameEn?: string;
-  /**
-   * @remarks
-   * The Chinese name of the ISP.
-   */
   nameZh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,18 +55,7 @@ export class DescribeCdnRegionAndIspResponseBodyIsps extends $dara.Model {
 }
 
 export class DescribeCdnRegionAndIspResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The English name of the region.
-   * 
-   * @example
-   * liaoning
-   */
   nameEn?: string;
-  /**
-   * @remarks
-   * The Chinese name of the region.
-   */
   nameZh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,15 +107,7 @@ export class DescribeCdnRegionAndIspResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeCdnRegionAndIspResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of ISPs.
-   */
   isps?: DescribeCdnRegionAndIspResponseBodyIsps;
-  /**
-   * @remarks
-   * The list of regions.
-   */
   regions?: DescribeCdnRegionAndIspResponseBodyRegions;
   /**
    * @remarks

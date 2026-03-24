@@ -29,10 +29,6 @@ export class ListUserCustomLogConfigResponseBodyConfigIds extends $dara.Model {
 }
 
 export class ListUserCustomLogConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of log configuration IDs.
-   */
   configIds?: ListUserCustomLogConfigResponseBodyConfigIds;
   /**
    * @remarks

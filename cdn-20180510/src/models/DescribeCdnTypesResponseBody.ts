@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnTypesResponseBodyCdnTypesCdnType extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the domain name type.
-   * 
-   * @example
-   * Download Acceleration
-   */
   desc?: string;
-  /**
-   * @remarks
-   * The type of the domain name.
-   * 
-   * @example
-   * download
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeCdnTypesResponseBodyCdnTypes extends $dara.Model {
 }
 
 export class DescribeCdnTypesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The types of the domain names.
-   */
   cdnTypes?: DescribeCdnTypesResponseBodyCdnTypes;
   /**
    * @remarks

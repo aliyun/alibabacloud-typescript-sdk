@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDomainVerifyDataResponseBodyContent extends $dara.Model {
+  rootDomain?: string;
+  verifyCode?: string;
+  verifyKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rootDomain: 'RootDomain',
+      verifyCode: 'verifyCode',
+      verifyKey: 'verifyKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rootDomain: 'string',
+      verifyCode: 'string',
+      verifyKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainVerifyDataResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -13,7 +42,7 @@ export class DescribeDomainVerifyDataResponseBody extends $dara.Model {
    *     "verifyKey": "_acme-challenge"
    *   }
    */
-  content?: string;
+  content?: DescribeDomainVerifyDataResponseBodyContent;
   /**
    * @remarks
    * The ID of the request.
@@ -31,12 +60,15 @@ export class DescribeDomainVerifyDataResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      content: 'string',
+      content: DescribeDomainVerifyDataResponseBodyContent,
       requestId: 'string',
     };
   }
 
   validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
     super.validate();
   }
 

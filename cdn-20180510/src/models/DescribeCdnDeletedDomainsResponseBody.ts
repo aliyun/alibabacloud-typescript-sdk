@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnDeletedDomainsResponseBodyDomainsPageData extends $dara.Model {
-  /**
-   * @remarks
-   * The accelerated domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The time when the accelerated domain name was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-10-28T11:05:52Z
-   */
   gmtModified?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeCdnDeletedDomainsResponseBodyDomains extends $dara.Model {
 }
 
 export class DescribeCdnDeletedDomainsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of accelerated domain names and the time each domain name was last modified.
-   */
   domains?: DescribeCdnDeletedDomainsResponseBodyDomains;
   /**
    * @remarks

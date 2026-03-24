@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2019-12-10T20:01:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The bandwidth during back-to-origin routing. Unit: bit/s.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,10 +81,6 @@ export class DescribeDomainRealTimeSrcBpsDataResponseBody extends $dara.Model {
    * 2019-12-10T20:01:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The origin bandwidth data at each interval.
-   */
   realTimeSrcBpsDataPerInterval?: DescribeDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerInterval;
   /**
    * @remarks

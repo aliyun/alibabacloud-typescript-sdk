@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the data returned.
-   * 
-   * @example
-   * 2015-12-10T21:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The QPS value.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,10 +87,6 @@ export class DescribeDomainSrcQpsDataResponseBody extends $dara.Model {
    * 7CBCD6AD-B016-42E5-AE0B-B3731DE8F755
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The back-to-origin bandwidth information at each interval.
-   */
   srcQpsDataPerInterval?: DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerInterval;
   /**
    * @remarks
