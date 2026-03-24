@@ -668,7 +668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改备份策略
+   * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DeleteBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改备份策略
+   * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DeleteBackupPolicyRequest
    * @returns DeleteBackupPolicyResponse
@@ -764,7 +764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+   * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DeleteDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -799,7 +799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+   * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
@@ -1026,7 +1026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建备份策略
+   * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1061,7 +1061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建备份策略
+   * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
@@ -1072,7 +1072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询备份集
+   * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1127,7 +1127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询备份集
+   * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -1509,6 +1509,38 @@ export default class Client extends OpenApi {
   async describeProcessList(request: $_model.DescribeProcessListRequest): Promise<$_model.DescribeProcessListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProcessListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云数据库ClickHouse所有地域和可用区的信息
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
+  }
+
+  /**
+   * 查询云数据库ClickHouse所有地域和可用区的信息
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRegionsWithOptions(runtime);
   }
 
   /**
@@ -2104,7 +2136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改备份策略
+   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2151,7 +2183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改备份策略
+   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
