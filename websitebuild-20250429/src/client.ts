@@ -854,6 +854,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑插件配置
+   * 
+   * @param request - EditPluginConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditPluginConfigResponse
+   */
+  async editPluginConfigWithOptions(request: $_model.EditPluginConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EditPluginConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.pluginConfig)) {
+      query["PluginConfig"] = request.pluginConfig;
+    }
+
+    if (!$dara.isNull(request.pluginDesc)) {
+      query["PluginDesc"] = request.pluginDesc;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.pluginName)) {
+      query["PluginName"] = request.pluginName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EditPluginConfig",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EditPluginConfigResponse>(await this.callApi(params, req, runtime), new $_model.EditPluginConfigResponse({}));
+  }
+
+  /**
+   * 编辑插件配置
+   * 
+   * @param request - EditPluginConfigRequest
+   * @returns EditPluginConfigResponse
+   */
+  async editPluginConfig(request: $_model.EditPluginConfigRequest): Promise<$_model.EditPluginConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.editPluginConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 导出素材文件
    * 
    * @param tmpReq - ExportMaterialFileRequest

@@ -177,6 +177,9 @@ export { DescribeAppDomainDnsRecordResponse } from './DescribeAppDomainDnsRecord
 export { DispatchConsoleAPIForPartnerRequest } from './DispatchConsoleApiforPartnerRequest';
 export { DispatchConsoleAPIForPartnerResponseBody } from './DispatchConsoleApiforPartnerResponseBody';
 export { DispatchConsoleAPIForPartnerResponse } from './DispatchConsoleApiforPartnerResponse';
+export { EditPluginConfigRequest } from './EditPluginConfigRequest';
+export { EditPluginConfigResponseBody } from './EditPluginConfigResponseBody';
+export { EditPluginConfigResponse } from './EditPluginConfigResponse';
 export { ExportMaterialFileRequest } from './ExportMaterialFileRequest';
 export { ExportMaterialFileShrinkRequest } from './ExportMaterialFileShrinkRequest';
 export { ExportMaterialFileResponseBody } from './ExportMaterialFileResponseBody';
