@@ -3,57 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the CEN instance.
-   * 
-   * @example
-   * cen-8z69wtwqel33lq****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * **Cen**: CEN instance
-   * 
-   * **BandwidthPackage**: bandwidth plan
-   * 
-   * **TransitRouter**: transit router
-   * 
-   * **TransitRouterVpcAttachment**: virtual private cloud (VPC) connection
-   * 
-   * **TransitRouterVbrAttachment**: virtual border router (VBR) connection
-   * 
-   * **TransitRouterPeerAttachment**: inter-region connection
-   * 
-   * **TransitRouterVpnAttachment**: VPN connection
-   * 
-   * **TransitRouterRouteTable**: route table
-   * 
-   * **Flowlog**: flow log
-   * 
-   * **TransitRouterMulticastDomain**: multicast domain
-   * 
-   * @example
-   * CEN
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * test
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * Bp
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -128,10 +80,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * 165B5C86-2033-5954-A89D-4CD83BA06C85
    */
   requestId?: string;
-  /**
-   * @remarks
-   * A list of resources and tags.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

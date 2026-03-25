@@ -29,21 +29,7 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRo
 }
 
 export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecordsCenOutRouteMapRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region where the routing policy is applied.
-   * 
-   * @example
-   * ccn-cn-shanghai
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the routing policy.
-   * 
-   * @example
-   * cenrmap-dbarzidzp7ek4k****
-   */
   routeMapId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,21 +81,7 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRo
 }
 
 export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecordsCenRouteMapRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region where the routing policy is applied.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the routing policy.
-   * 
-   * @example
-   * cenrmap-cz5axczdxb7yfu****
-   */
   routeMapId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -187,108 +159,17 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRo
 }
 
 export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The AS paths of the route.
-   */
   asPaths?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryAsPaths;
-  /**
-   * @remarks
-   * The routing policy that the routes match in the outbound direction.
-   */
   cenOutRouteMapRecords?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecords;
-  /**
-   * @remarks
-   * The routing policy that the routes match in the inbound direction.
-   */
   cenRouteMapRecords?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecords;
-  /**
-   * @remarks
-   * The communities of the route.
-   */
   communities?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCommunities;
-  /**
-   * @remarks
-   * The destination CIDR block of the route.
-   * 
-   * @example
-   * 192.168.1.0/24
-   */
   destinationCidrBlock?: string;
-  /**
-   * @remarks
-   * The ID of the instance specified as the next hop in the route.
-   * 
-   * @example
-   * vpc-bp1j8728mm6pweeod****
-   */
   nextHopInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the region to which the network instance specified as the next hop in the route belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   nextHopRegionId?: string;
-  /**
-   * @remarks
-   * The type of the instance specified as the next hop in the route. Valid values:
-   * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VBR**: virtual border router (VBR)
-   * *   **CCN**: Cloud Connect Network (CCN) instance
-   * *   **local_service**: system route. No next hop is specified.
-   * 
-   * @example
-   * VPC
-   */
   nextHopType?: string;
-  /**
-   * @remarks
-   * The route priority.
-   * 
-   * A smaller value indicates a higher priority.
-   * 
-   * @example
-   * 50
-   */
   preference?: number;
-  /**
-   * @remarks
-   * The route status. Valid values:
-   * 
-   * *   **Active**: available
-   * *   **Candidate**: standby
-   * *   **Rejected**: rejected
-   * *   **Prohibited**: prohibited
-   * 
-   * @example
-   * Active
-   */
   status?: string;
-  /**
-   * @remarks
-   * Indicates whether the route can be advertised to other regions. Valid values:
-   * 
-   * *   **Active**: The route can be advertised to other regions.
-   * *   **Prohibited**: The route cannot be advertised to other regions.
-   * 
-   * @example
-   * Active
-   */
   toOtherRegionStatus?: string;
-  /**
-   * @remarks
-   * The route type. Valid values:
-   * 
-   * *   **CEN**: route that is advertised through CEN
-   * *   **Custom**: custom route
-   * *   **System**: system route
-   * 
-   * @example
-   * CEN
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -372,10 +253,6 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries exte
 }
 
 export class DescribeCenRegionDomainRouteEntriesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of route entries.
-   */
   cenRouteEntries?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries;
   /**
    * @remarks

@@ -3,15 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
-   * 
-   * @example
-   * us-west-1
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +68,6 @@ export class DescribeGeographicRegionMembershipResponseBody extends $dara.Model 
    * 2
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The list of regions.
-   */
   regionIds?: DescribeGeographicRegionMembershipResponseBodyRegionIds;
   /**
    * @remarks

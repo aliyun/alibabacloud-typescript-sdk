@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeChildInstanceRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeChildInstanceRegionsResponseBodyRegions extends $dara.Model
 }
 
 export class DescribeChildInstanceRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of regions.
-   */
   regions?: DescribeChildInstanceRegionsResponseBodyRegions;
   /**
    * @remarks

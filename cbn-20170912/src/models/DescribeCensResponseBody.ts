@@ -29,21 +29,7 @@ export class DescribeCensResponseBodyCensCenCenBandwidthPackageIds extends $dara
 }
 
 export class DescribeCensResponseBodyCensCenTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * tagtest
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * tagtest
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,90 +81,15 @@ export class DescribeCensResponseBodyCensCenTags extends $dara.Model {
 }
 
 export class DescribeCensResponseBodyCensCen extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the bandwidth plans that are associated with the CEN instance.
-   */
   cenBandwidthPackageIds?: DescribeCensResponseBodyCensCenCenBandwidthPackageIds;
-  /**
-   * @remarks
-   * The CEN instance ID.
-   * 
-   * @example
-   * cen-0xyeagctz5sfg9****
-   */
   cenId?: string;
-  /**
-   * @remarks
-   * The time when the CEN instance was created.
-   * 
-   * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-10-22T07:44Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the CEN instance.
-   * 
-   * @example
-   * desctest
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether IPv6 is enabled for the CEN instance.
-   * 
-   * *   **ENABLE**
-   * *   **DISABLED**
-   * 
-   * @example
-   * DISABLED
-   */
   ipv6Level?: string;
-  /**
-   * @remarks
-   * The CEN instance name.
-   * 
-   * @example
-   * nametest
-   */
   name?: string;
-  /**
-   * @remarks
-   * The level of CIDR block overlapping.
-   * 
-   * **REDUCED**: Overlapped CIDR blocks are allowed. This value specifies that CIDR blocks can overlap but CIDR blocks cannot be duplicates.
-   * 
-   * @example
-   * REDUCED
-   */
   protectionLevel?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the CEN instance belongs.
-   * 
-   * @example
-   * rg-acfm3unpnuw****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The status of the CEN instance.
-   * 
-   * *   **Creating**
-   * *   **Active**
-   * *   **Deleting**
-   * 
-   * @example
-   * Active
-   */
   status?: string;
-  /**
-   * @remarks
-   * The IDs of the tags that are added to the CEN instance.
-   */
   tags?: DescribeCensResponseBodyCensCenTags;
   static names(): { [key: string]: string } {
     return {
@@ -252,10 +163,6 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
 }
 
 export class DescribeCensResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the CEN instance.
-   */
   cens?: DescribeCensResponseBodyCens;
   /**
    * @remarks

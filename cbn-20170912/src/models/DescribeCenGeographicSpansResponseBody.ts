@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCenGeographicSpansResponseBodyGeographicSpanModelsGeographicSpanModel extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the pair of connected areas.
-   * 
-   * @example
-   * china_asia-pacific
-   */
   geographicSpanId?: string;
-  /**
-   * @remarks
-   * The ID of the local area.
-   * 
-   * @example
-   * asia-pacific
-   */
   localGeoRegionId?: string;
-  /**
-   * @remarks
-   * The ID of the peer area.
-   * 
-   * @example
-   * china
-   */
   oppositeGeoRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeCenGeographicSpansResponseBodyGeographicSpanModels extends 
 }
 
 export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of areas.
-   */
   geographicSpanModels?: DescribeCenGeographicSpansResponseBodyGeographicSpanModels;
   /**
    * @remarks

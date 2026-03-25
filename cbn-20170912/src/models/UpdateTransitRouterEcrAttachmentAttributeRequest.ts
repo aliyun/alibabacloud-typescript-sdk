@@ -26,6 +26,11 @@ export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Mode
    * false
    */
   dryRun?: boolean;
+  /**
+   * @example
+   * PayByCenOwner
+   */
+  orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -64,6 +69,7 @@ export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Mode
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      orderType: 'OrderType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -78,6 +84,7 @@ export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Mode
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      orderType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

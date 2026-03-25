@@ -2657,7 +2657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Connects the virtual border routers (VBRs) among which you want to establish network communication to the transit router in the region. Then, the transit router can exchange data between the VBR and CEN instance over private connections.
+   * Connects a virtual border router (VBR) to an Enterprise Edition transit router.
    * 
    * @remarks
    *   For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](https://help.aliyun.com/document_detail/181681.html)
@@ -2756,7 +2756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Connects the virtual border routers (VBRs) among which you want to establish network communication to the transit router in the region. Then, the transit router can exchange data between the VBR and CEN instance over private connections.
+   * Connects a virtual border router (VBR) to an Enterprise Edition transit router.
    * 
    * @remarks
    *   For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](https://help.aliyun.com/document_detail/181681.html)
@@ -3211,6 +3211,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a bandwidth plan.
+   * 
    * @param request - DeleteCenBandwidthPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCenBandwidthPackageResponse
@@ -3256,6 +3258,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a bandwidth plan.
+   * 
    * @param request - DeleteCenBandwidthPackageRequest
    * @returns DeleteCenBandwidthPackageResponse
    */
@@ -6545,7 +6549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries overlapping routes.
+   * Queries conflicting routes on a network instance.
    * 
    * @param request - DescribeRouteConflictRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6616,7 +6620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries overlapping routes.
+   * Queries conflicting routes on a network instance.
    * 
    * @param request - DescribeRouteConflictRequest
    * @returns DescribeRouteConflictResponse
@@ -6627,7 +6631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of cloud services, such as the cloud service status and the ID of the associated VPC.
+   * Queries the cloud services that are configured on a Cloud Enterprise Network (CEN) instance.
    * 
    * @param request - DescribeRouteServicesInCenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6698,7 +6702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of cloud services, such as the cloud service status and the ID of the associated VPC.
+   * Queries the cloud services that are configured on a Cloud Enterprise Network (CEN) instance.
    * 
    * @param request - DescribeRouteServicesInCenRequest
    * @returns DescribeRouteServicesInCenResponse
@@ -8651,6 +8655,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about vSwitches that are associated with a multicast domain after the virtual private cloud (VPC) of the vSwitches is connected to an Enterprise Edition transit router.
+   * 
    * @param request - ListTransitRouterMulticastDomainVSwitchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTransitRouterMulticastDomainVSwitchesResponse
@@ -8712,6 +8718,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about vSwitches that are associated with a multicast domain after the virtual private cloud (VPC) of the vSwitches is connected to an Enterprise Edition transit router.
+   * 
    * @param request - ListTransitRouterMulticastDomainVSwitchesRequest
    * @returns ListTransitRouterMulticastDomainVSwitchesResponse
    */
@@ -11982,7 +11990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 进行云企业网预付费带宽包临时升配
+   * Temporarily upgrades a subscription bandwidth plan of Cloud Enterprise Network (CEN).
    * 
    * @param request - TempUpgradeCenBandwidthPackageSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12037,7 +12045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 进行云企业网预付费带宽包临时升配
+   * Temporarily upgrades a subscription bandwidth plan of Cloud Enterprise Network (CEN).
    * 
    * @param request - TempUpgradeCenBandwidthPackageSpecRequest
    * @returns TempUpgradeCenBandwidthPackageSpecResponse
@@ -12116,7 +12124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除PrivateZone
+   * Disables access to PrivateZone.
    * 
    * @param request - UnroutePrivateZoneInCenToVpcRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12167,7 +12175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除PrivateZone
+   * Disables access to PrivateZone.
    * 
    * @param request - UnroutePrivateZoneInCenToVpcRequest
    * @returns UnroutePrivateZoneInCenToVpcResponse
@@ -12178,7 +12186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the request.
+   * Remove tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12241,7 +12249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the request.
+   * Remove tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -12603,6 +12611,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -12946,6 +12958,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -13038,6 +13054,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -13211,6 +13231,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {

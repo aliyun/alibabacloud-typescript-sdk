@@ -37,6 +37,11 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
    * false
    */
   dryRun?: boolean;
+  /**
+   * @example
+   * PayByCenOwner
+   */
+  orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -81,6 +86,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
       autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      orderType: 'OrderType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -97,6 +103,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
       autoPublishRouteEnabled: 'boolean',
       clientToken: 'string',
       dryRun: 'boolean',
+      orderType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

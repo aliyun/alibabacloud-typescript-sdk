@@ -367,283 +367,37 @@ export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRouteTableId
 }
 
 export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMap extends $dara.Model {
-  /**
-   * @remarks
-   * The match method that is used to match routes based on the AS path.
-   * 
-   * *   **Include**: fuzzy match. A route is a match if the AS path of the route overlaps with the AS path specified in the match condition.
-   * *   **Complete**: exact match. A route is a match only if the AS path of the route is the same as an AS path specified in the match condition.
-   * 
-   * @example
-   * Include
-   */
   asPathMatchMode?: string;
-  /**
-   * @remarks
-   * The CEN instance ID.
-   * 
-   * @example
-   * cen-wx12mmlt17ld82****
-   */
   cenId?: string;
-  /**
-   * @remarks
-   * The region ID of the routing policy.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   cenRegionId?: string;
-  /**
-   * @remarks
-   * The match method that is used to evaluate routes based on the prefix. Valid values:
-   * 
-   * *   **Include**: fuzzy match. A route is a match if the route prefix is included in the match conditions.
-   * 
-   * For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is applied, the route whose prefix is 10.10.1.0/24 meets the match condition.
-   * 
-   * *   **Complete**: exact match. A route is a match only if the route prefix is the same as the prefix specified in the match condition.
-   * 
-   * For example, if you set the match condition to 10.10.0.0/16 and exact match is enabled, a route is a match only if the prefix is 10.10.0.0/16.
-   * 
-   * @example
-   * Include
-   */
   cidrMatchMode?: string;
-  /**
-   * @remarks
-   * The match method that is used to match routes against the community.
-   * 
-   * *   **Include**: fuzzy match. A route is a match if the community of the route overlaps with the community specified in the match condition.
-   * *   **Complete**: exact match. A route meets the match condition only if the community of the route is the same as the community specified in the match condition.
-   * 
-   * @example
-   * Include
-   */
   communityMatchMode?: string;
-  /**
-   * @remarks
-   * The action that is performed on the community of the route.
-   * 
-   * *   **Additive**: adds the community to the route.
-   * *   **Replace**: replaces the original community of the route.
-   * 
-   * This parameter specifies the action to be performed when a route meets the match condition.
-   * 
-   * @example
-   * Additive
-   */
   communityOperateMode?: string;
-  /**
-   * @remarks
-   * The description of the routing policy.
-   * 
-   * @example
-   * desctest
-   */
   description?: string;
-  /**
-   * @remarks
-   * The types of destination network instances to which the routes belong.
-   * 
-   * *   **VPC**
-   * *   **VBR**
-   * *   **CCN**
-   * *   **VPN**
-   * 
-   * >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the type of the destination route tables is the same as that of the network instance in the current region.
-   */
   destinationChildInstanceTypes?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationChildInstanceTypes;
-  /**
-   * @remarks
-   * The prefix list against which routes are matched.
-   * 
-   * IPv4 and IPv6 addresses are supported.
-   */
   destinationCidrBlocks?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationCidrBlocks;
-  /**
-   * @remarks
-   * The IDs of the destination network instances to which the routes point.
-   * 
-   * >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the ID the destination instance is the same as that of the network instance in the current region.
-   */
   destinationInstanceIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanceIds;
-  /**
-   * @remarks
-   * Indicates whether the destination network instance IDs are excluded.
-   * 
-   * *   **false** (default): A route is a match if its destination network instance ID is in the list specified by **DestinationInstanceIds.N**.
-   * *   **true**: A route is a match if its destination network instance ID is not in the list specified by **DestinationInstanceIds.N**.
-   * 
-   * @example
-   * false
-   */
   destinationInstanceIdsReverseMatch?: boolean;
-  /**
-   * @remarks
-   * The IDs of the destination regions for the routing policy.
-   */
   destinationRegionIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds;
-  /**
-   * @remarks
-   * The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
-   * 
-   * >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the destination route table IDs are in the current region.
-   */
   destinationRouteTableIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds;
-  /**
-   * @remarks
-   * The action performed on a route that meets the match conditions.
-   * 
-   * *   **Permit**: the route is permitted.
-   * *   **Deny**: the route is denied.
-   * 
-   * @example
-   * Deny
-   */
   mapResult?: string;
-  /**
-   * @remarks
-   * The type of IP address to be matched against the match condition. Valid values:
-   * 
-   * *   **IPv4**: IPv4 addresses
-   * *   **IPv6**: IPv6 addresses
-   * *   If no value is returned, both IPv4 and IPv6 addresses are matched against the match condition.
-   * 
-   * @example
-   * IPv4
-   */
   matchAddressType?: string;
-  /**
-   * @remarks
-   * The AS paths against which routes are matched.
-   */
   matchAsns?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchAsns;
-  /**
-   * @remarks
-   * The community set against which routes are matched.
-   */
   matchCommunitySet?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchCommunitySet;
-  /**
-   * @remarks
-   * The priority of the routing policy that you want to associate with the current one.
-   * 
-   * @example
-   * 33
-   */
   nextPriority?: number;
-  /**
-   * @remarks
-   * The community set on which actions are performed.
-   */
   operateCommunitySet?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapOperateCommunitySet;
-  /**
-   * @remarks
-   * The new priority of the route.
-   * 
-   * A smaller value indicates a higher priority.
-   * 
-   * This parameter indicates the action to be performed when a route meets the match condition.
-   * 
-   * @example
-   * 20
-   */
   preference?: number;
-  /**
-   * @remarks
-   * The AS paths that are prepended by using an action statement when regional gateways receive or advertise routes.
-   * 
-   * This parameter indicates the action to be performed when a route meets the match condition.
-   */
   prependAsPath?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapPrependAsPath;
-  /**
-   * @remarks
-   * The priority of the routing policy. A smaller value indicates a higher priority.
-   * 
-   * @example
-   * 5000
-   */
   priority?: number;
-  /**
-   * @remarks
-   * The routing policy ID.
-   * 
-   * @example
-   * cenrmap-y40mxdvf7joc12****
-   */
   routeMapId?: string;
-  /**
-   * @remarks
-   * The type of route that is compared. Valid values:
-   * 
-   * *   **System**: system routes that are automatically generated by the system.
-   * *   **Custom**: custom routes that are manually added.
-   * *   **BGP**: routes that are advertised over BGP.
-   */
   routeTypes?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapRouteTypes;
-  /**
-   * @remarks
-   * The types of source network instances to which the routes belong.
-   * 
-   * *   **VPC**
-   * *   **VBR**
-   * *   **CCN**
-   * *   **VPN**
-   */
   sourceChildInstanceTypes?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceChildInstanceTypes;
-  /**
-   * @remarks
-   * The IDs of the source network instances to which the routes belong.
-   */
   sourceInstanceIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceInstanceIds;
-  /**
-   * @remarks
-   * Indicates whether the source network instance IDs are excluded.
-   * 
-   * *   **false** (default): A route is a match if its source network instance ID is in the list specified by **SourceInstanceIds.N**.
-   * *   **true**: A route is match if its source network instance ID is not in the list specified by **SourceInstanceIds.N**.
-   * 
-   * @example
-   * false
-   */
   sourceInstanceIdsReverseMatch?: boolean;
-  /**
-   * @remarks
-   * The IDs of the source regions to which the routes belong.
-   */
   sourceRegionIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRegionIds;
-  /**
-   * @remarks
-   * The IDs of the source route tables to which the routes belong.
-   */
   sourceRouteTableIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRouteTableIds;
-  /**
-   * @remarks
-   * The status of the routing policy. Valid values:
-   * 
-   * *   **Creating**
-   * *   **Active**
-   * *   **Deleting**
-   * 
-   * @example
-   * Active
-   */
   status?: string;
-  /**
-   * @remarks
-   * The route table ID of the transit router with which the routing policy is associated.
-   * 
-   * @example
-   * vtb-gw8nx3515m1mbd1z1****
-   */
   transitRouterRouteTableId?: string;
-  /**
-   * @remarks
-   * The direction in which the routing policy is applied.
-   * 
-   * @example
-   * RegionOut
-   */
   transmitDirection?: string;
   static names(): { [key: string]: string } {
     return {
@@ -821,10 +575,6 @@ export class DescribeCenRouteMapsResponseBody extends $dara.Model {
    * 24CE1987-D1D1-5324-9BAD-2750B60E6ABB
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the routing policy.
-   */
   routeMaps?: DescribeCenRouteMapsResponseBodyRouteMaps;
   /**
    * @remarks

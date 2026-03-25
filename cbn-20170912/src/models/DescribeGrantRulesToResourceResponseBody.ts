@@ -28,6 +28,11 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Mo
    */
   createTime?: string;
   /**
+   * @example
+   * PayByCenOwner
+   */
+  effectiveOrderType?: string;
+  /**
    * @remarks
    * The entity that pays the fees of the network instance. Valid values: Valid values:
    * 
@@ -43,6 +48,7 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Mo
       cenId: 'CenId',
       cenOwnerId: 'CenOwnerId',
       createTime: 'CreateTime',
+      effectiveOrderType: 'EffectiveOrderType',
       orderType: 'OrderType',
     };
   }
@@ -52,6 +58,7 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Mo
       cenId: 'string',
       cenOwnerId: 'number',
       createTime: 'string',
+      effectiveOrderType: 'string',
       orderType: 'string',
     };
   }

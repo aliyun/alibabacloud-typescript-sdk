@@ -37,6 +37,11 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
    * false
    */
   dryRun?: boolean;
+  /**
+   * @example
+   * PayByCenOwner
+   */
+  orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -76,6 +81,7 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
       autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      orderType: 'OrderType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -91,6 +97,7 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
       autoPublishRouteEnabled: 'boolean',
       clientToken: 'string',
       dryRun: 'boolean',
+      orderType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
