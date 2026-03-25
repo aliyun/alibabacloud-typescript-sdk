@@ -2422,6 +2422,10 @@ export default class Client extends OpenApi {
       request.dataIngestionTemplateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataIngestionTemplateIds, "DataIngestionTemplateIds", "simple");
     }
 
+    if (!$dara.isNull(tmpReq.normalizationSchemaIds)) {
+      request.normalizationSchemaIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.normalizationSchemaIds, "NormalizationSchemaIds", "simple");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.dataIngestionIdsShrink)) {
       body["DataIngestionIds"] = request.dataIngestionIdsShrink;
@@ -2437,6 +2441,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaIdsShrink)) {
+      body["NormalizationSchemaIds"] = request.normalizationSchemaIdsShrink;
     }
 
     if (!$dara.isNull(request.productId)) {

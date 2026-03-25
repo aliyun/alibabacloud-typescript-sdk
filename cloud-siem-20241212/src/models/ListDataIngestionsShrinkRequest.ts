@@ -15,6 +15,7 @@ export class ListDataIngestionsShrinkRequest extends $dara.Model {
    * zh。
    */
   lang?: string;
+  normalizationSchemaIdsShrink?: string;
   /**
    * @example
    * alibaba_cloud_sas。
@@ -36,6 +37,7 @@ export class ListDataIngestionsShrinkRequest extends $dara.Model {
       dataIngestionStatus: 'DataIngestionStatus',
       dataIngestionTemplateIdsShrink: 'DataIngestionTemplateIds',
       lang: 'Lang',
+      normalizationSchemaIdsShrink: 'NormalizationSchemaIds',
       productId: 'ProductId',
       regionId: 'RegionId',
       roleFor: 'RoleFor',
@@ -48,6 +50,7 @@ export class ListDataIngestionsShrinkRequest extends $dara.Model {
       dataIngestionStatus: 'string',
       dataIngestionTemplateIdsShrink: 'string',
       lang: 'string',
+      normalizationSchemaIdsShrink: 'string',
       productId: 'string',
       regionId: 'string',
       roleFor: 'number',

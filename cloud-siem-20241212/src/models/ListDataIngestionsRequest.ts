@@ -15,6 +15,7 @@ export class ListDataIngestionsRequest extends $dara.Model {
    * zh。
    */
   lang?: string;
+  normalizationSchemaIds?: string[];
   /**
    * @example
    * alibaba_cloud_sas。
@@ -36,6 +37,7 @@ export class ListDataIngestionsRequest extends $dara.Model {
       dataIngestionStatus: 'DataIngestionStatus',
       dataIngestionTemplateIds: 'DataIngestionTemplateIds',
       lang: 'Lang',
+      normalizationSchemaIds: 'NormalizationSchemaIds',
       productId: 'ProductId',
       regionId: 'RegionId',
       roleFor: 'RoleFor',
@@ -48,6 +50,7 @@ export class ListDataIngestionsRequest extends $dara.Model {
       dataIngestionStatus: 'string',
       dataIngestionTemplateIds: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
+      normalizationSchemaIds: { 'type': 'array', 'itemType': 'string' },
       productId: 'string',
       regionId: 'string',
       roleFor: 'number',
@@ -60,6 +63,9 @@ export class ListDataIngestionsRequest extends $dara.Model {
     }
     if(Array.isArray(this.dataIngestionTemplateIds)) {
       $dara.Model.validateArray(this.dataIngestionTemplateIds);
+    }
+    if(Array.isArray(this.normalizationSchemaIds)) {
+      $dara.Model.validateArray(this.normalizationSchemaIds);
     }
     super.validate();
   }
