@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ValidationOptions extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   skipVerifyAIChatCompletion?: boolean;
   static names(): { [key: string]: string } {
     return {

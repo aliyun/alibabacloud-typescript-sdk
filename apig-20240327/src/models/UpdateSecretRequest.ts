@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSecretRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The key value.
+   * 
+   * @example
+   * apikey-xxxxxxxx
+   */
   secretData?: string;
   static names(): { [key: string]: string } {
     return {

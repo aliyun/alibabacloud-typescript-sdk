@@ -4,11 +4,50 @@ import { KMSConfig } from "./Kmsconfig";
 
 
 export class CreateSecretRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the key.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The type of the gateway.
+   * 
+   * @example
+   * API
+   */
   gatewayType?: string;
+  /**
+   * @remarks
+   * The key configuration information of KMS.
+   */
   kmsConfig?: KMSConfig;
+  /**
+   * @remarks
+   * The key name. It can be up to 64 characters in length and can contain letters, digits, and underscores (_).
+   * 
+   * @example
+   * my_secret
+   */
   name?: string;
+  /**
+   * @remarks
+   * The value of the KMS credential.
+   * 
+   * @example
+   * apikey-123456xxxxxxxx
+   */
   secretData?: string;
+  /**
+   * @remarks
+   * The source of the key.
+   * 
+   * @example
+   * KMS
+   */
   secretSource?: string;
   static names(): { [key: string]: string } {
     return {

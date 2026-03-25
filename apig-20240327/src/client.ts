@@ -1206,7 +1206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建密钥
+   * Generates a key.
    * 
    * @param request - CreateSecretRequest
    * @param headers - map
@@ -1259,7 +1259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建密钥
+   * Generates a key.
    * 
    * @param request - CreateSecretRequest
    * @returns CreateSecretResponse
@@ -1920,7 +1920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除密钥
+   * Deletes a key value.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1945,7 +1945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除密钥
+   * Deletes a key value.
    * @returns DeleteSecretResponse
    */
   async deleteSecret(secretId: string): Promise<$_model.DeleteSecretResponse> {
@@ -2766,7 +2766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥
+   * Obtains the key.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2791,7 +2794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥
+   * Obtains the key.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * @returns GetSecretResponse
    */
   async getSecret(secretId: string): Promise<$_model.GetSecretResponse> {
@@ -2801,7 +2807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥值
+   * Gets the key value.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2826,7 +2832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥值
+   * Gets the key value.
    * @returns GetSecretValueResponse
    */
   async getSecretValue(name: string): Promise<$_model.GetSecretValueResponse> {
@@ -3093,7 +3099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者授权规则列表
+   * Obtains a list of consumer authentication rules.
    * 
    * @param request - ListConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -3134,7 +3140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者授权规则列表
+   * Obtains a list of consumer authentication rules.
    * 
    * @param request - ListConsumerAuthorizationRulesRequest
    * @returns ListConsumerAuthorizationRulesResponse
@@ -3911,7 +3917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPluginClasses
+   * Obtains a plugin.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - ListPluginClassesRequest
    * @param headers - map
@@ -3984,7 +3993,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPluginClasses
+   * Obtains a plugin.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - ListPluginClassesRequest
    * @returns ListPluginClassesResponse
@@ -4211,7 +4223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥的引用详情
+   * Lists key references.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - ListSecretReferencesRequest
    * @param headers - map
@@ -4248,7 +4263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥的引用详情
+   * Lists key references.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - ListSecretReferencesRequest
    * @returns ListSecretReferencesResponse
@@ -5651,7 +5669,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消费者
+   * Updates the key.
+   * 
+   * @remarks
+   * You can only update the listening Ingress configuration for sources of the **ACK** type.
    * 
    * @param request - UpdateSecretRequest
    * @param headers - map
@@ -5684,7 +5705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消费者
+   * Updates the key.
+   * 
+   * @remarks
+   * You can only update the listening Ingress configuration for sources of the **ACK** type.
    * 
    * @param request - UpdateSecretRequest
    * @returns UpdateSecretResponse

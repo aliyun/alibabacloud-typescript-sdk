@@ -3,11 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSecretResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code.
+   * 
+   * @example
+   * Ok
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
+   * 
+   * @example
+   * B01CABA5-9AA1-51A2-A5A7-8BD83BA062F7
    */
   requestId?: string;
   static names(): { [key: string]: string } {

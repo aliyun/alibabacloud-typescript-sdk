@@ -6,55 +6,97 @@ import { GatewayInfo } from "./GatewayInfo";
 
 
 export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The API information.
+   */
   apiInfo?: HttpApiApiInfo;
   /**
+   * @remarks
+   * The ID of the consumer authorization rule.
+   * 
    * @example
    * car-csgeka5lhtggrjcprok0
    */
   consumerAuthorizationRuleId?: string;
   /**
+   * @remarks
+   * The consumer ID.
+   * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
    */
   consumerId?: string;
   /**
+   * @remarks
+   * The creation timestamp.
+   * 
    * @example
    * 1719386834548
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The deployment status of the API in the current environment.
+   * 
    * @example
    * {}
    */
   deployStatus?: string;
+  /**
+   * @remarks
+   * The environment information.
+   */
   environmentInfo?: EnvironmentInfo;
   /**
+   * @remarks
+   * The expiry mode. Valid values: LongTerm and ShortTerm.
+   * 
    * @example
    * ShortTerm
    */
   expireMode?: string;
   /**
+   * @remarks
+   * The rule status.
+   * 
    * @example
    * InEffect
    */
   expireStatus?: string;
   /**
+   * @remarks
+   * The time when the rule expires.
+   * 
    * @example
    * 172086834548
    */
   expireTimestamp?: number;
+  /**
+   * @remarks
+   * The gateway information.
+   */
   gatewayInfo?: GatewayInfo;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * 2351944
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * HttpApiRoute
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The update timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1721116090326
    */
@@ -114,18 +156,31 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
 }
 
 export class ListConsumerAuthorizationRulesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of consumer authorization information.
+   */
   items?: ListConsumerAuthorizationRulesResponseBodyDataItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number.
+   * 
    * @example
    * 9
    */
@@ -162,12 +217,22 @@ export class ListConsumerAuthorizationRulesResponseBodyData extends $dara.Model 
 
 export class ListConsumerAuthorizationRulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListConsumerAuthorizationRulesResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

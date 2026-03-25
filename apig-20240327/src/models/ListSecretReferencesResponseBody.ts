@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSecretReferencesResponseBodyDataItemsPluginConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The plug-in name.
+   * 
+   * @example
+   * oauth
+   */
   name?: string;
+  /**
+   * @remarks
+   * The plug-in type ID.
+   * 
+   * @example
+   * pls-xxxxxxxx
+   */
   pluginClassId?: string;
+  /**
+   * @remarks
+   * The plug-in ID.
+   * 
+   * @example
+   * pl-d4ijk56m1hkhxxxxxxxx
+   */
   pluginId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,7 +53,21 @@ export class ListSecretReferencesResponseBodyDataItemsPluginConfig extends $dara
 }
 
 export class ListSecretReferencesResponseBodyDataItemsServiceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * myService
+   */
   name?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * svc-cvgbtcmm1hkmxxxxxxxx
+   */
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +93,21 @@ export class ListSecretReferencesResponseBodyDataItemsServiceConfig extends $dar
 }
 
 export class ListSecretReferencesResponseBodyDataItemsConsumerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The consumer ID.
+   * 
+   * @example
+   * cs-d0iltnem1hkhxxxxxxxx
+   */
   consumerId?: string;
+  /**
+   * @remarks
+   * The consumer name.
+   * 
+   * @example
+   * myconsumer
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,8 +133,29 @@ export class ListSecretReferencesResponseBodyDataItemsConsumerConfig extends $da
 }
 
 export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP API ID.
+   * 
+   * @example
+   * api-d2vv43em201hxxxxxxxx
+   */
   httpApiId?: string;
+  /**
+   * @remarks
+   * The route name.
+   * 
+   * @example
+   * mcp
+   */
   name?: string;
+  /**
+   * @remarks
+   * The route ID.
+   * 
+   * @example
+   * hr-cv0i5oum1hkhxxxxxxxx
+   */
   routeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,11 +183,41 @@ export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $d
 }
 
 export class ListSecretReferencesResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the plug-in that references the current key.
+   */
   pluginConfig?: ListSecretReferencesResponseBodyDataItemsPluginConfig;
+  /**
+   * @remarks
+   * The service information that references the current key.
+   */
   serviceConfig?: ListSecretReferencesResponseBodyDataItemsServiceConfig;
+  /**
+   * @remarks
+   * The consumer information that references the current key.
+   */
   consumerConfig?: ListSecretReferencesResponseBodyDataItemsConsumerConfig;
+  /**
+   * @remarks
+   * The gateway instance ID.
+   * 
+   * @example
+   * gw-xxxx
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * MCP service information that references the current key.
+   */
   mcpServerConfig?: ListSecretReferencesResponseBodyDataItemsMcpServerConfig;
+  /**
+   * @remarks
+   * The type of resource.
+   * 
+   * @example
+   * Plugin
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,9 +263,34 @@ export class ListSecretReferencesResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListSecretReferencesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of reference details.
+   */
   items?: ListSecretReferencesResponseBodyDataItems[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 25
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -198,12 +323,33 @@ export class ListSecretReferencesResponseBodyData extends $dara.Model {
 }
 
 export class ListSecretReferencesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code.
+   * 
+   * @example
+   * Ok
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListSecretReferencesResponseBodyData;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
    * Id of the request
+   * 
+   * @example
+   * CE857A85-251D-5018-8103-A38957D71***
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -3,49 +3,84 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The alias of the plugin.
+   */
   alias?: string;
+  /**
+   * @remarks
+   * The description of the plugin.
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the plugin is installed.
+   * 
    * @example
    * true
    */
   installed?: boolean;
   /**
+   * @remarks
+   * The plugin name.
+   * 
    * @example
    * oauth
    */
   name?: string;
   /**
+   * @remarks
+   * The plugin type ID.
+   * 
    * @example
    * pls-d4ghv6em1hkixxxxxxxx
    */
   pluginClassId?: string;
   /**
+   * @remarks
+   * The plugin ID.
+   * 
    * @example
    * pl-cvu6r4um1hkoxxxxxxxx
    */
   pluginId?: string;
   /**
+   * @remarks
+   * The publishing status.
+   * 
    * @example
    * Success
    */
   publishStatus?: string;
   /**
+   * @remarks
+   * The source of the plugin.
+   * 
    * @example
    * HigressOfficial
    */
   source?: string;
   /**
+   * @remarks
+   * The minimum version of the gateway supported by the plugin.
+   * 
    * @example
    * 2.0.0
    */
   supportedMinGatewayVersion?: string;
   /**
+   * @remarks
+   * The type of the plugin.
+   * 
    * @example
    * Auth
    */
   type?: string;
   /**
+   * @remarks
+   * The version.
+   * 
    * @example
    * 1.0.0
    */
@@ -92,18 +127,31 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListPluginClassesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The plugin details.
+   */
   items?: ListPluginClassesResponseBodyDataItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
@@ -140,17 +188,30 @@ export class ListPluginClassesResponseBodyData extends $dara.Model {
 
 export class ListPluginClassesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: ListPluginClassesResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request
+   * 
    * @example
    * 61EBF577-1601-51E1-B136-9CD6xxxxxxxx
    */

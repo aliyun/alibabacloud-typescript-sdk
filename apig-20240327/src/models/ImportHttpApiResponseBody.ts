@@ -220,6 +220,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
    * The operations that fail the dry run.
    */
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
+  mcpToolsDefinition?: string;
   /**
    * @remarks
    * The data structs that pass the dry run.
@@ -241,6 +242,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
       existHttpApiInfo: 'existHttpApiInfo',
       failureComponents: 'failureComponents',
       failureOperations: 'failureOperations',
+      mcpToolsDefinition: 'mcpToolsDefinition',
       successComponents: 'successComponents',
       successOperations: 'successOperations',
       warningMessages: 'warningMessages',
@@ -253,6 +255,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
       existHttpApiInfo: HttpApiApiInfo,
       failureComponents: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoFailureComponents },
       failureOperations: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoFailureOperations },
+      mcpToolsDefinition: 'string',
       successComponents: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents },
       successOperations: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations },
       warningMessages: { 'type': 'array', 'itemType': 'string' },
