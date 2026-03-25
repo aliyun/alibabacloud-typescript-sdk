@@ -83,11 +83,13 @@ export class DescribeCouponRequest extends $dara.Model {
    * 1684750028000
    */
   expireStartDate?: number;
+  maxResults?: number;
   /**
    * @example
    * 2684201000001
    */
   nbid?: string;
+  nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -112,7 +114,9 @@ export class DescribeCouponRequest extends $dara.Model {
       effectiveStartTime: 'EffectiveStartTime',
       expireEndDate: 'ExpireEndDate',
       expireStartDate: 'ExpireStartDate',
+      maxResults: 'MaxResults',
       nbid: 'Nbid',
+      nextToken: 'NextToken',
       pageSize: 'PageSize',
       status: 'Status',
     };
@@ -129,7 +133,9 @@ export class DescribeCouponRequest extends $dara.Model {
       effectiveStartTime: 'number',
       expireEndDate: 'number',
       expireStartDate: 'number',
+      maxResults: 'number',
       nbid: 'string',
+      nextToken: 'string',
       pageSize: 'number',
       status: 'string',
     };

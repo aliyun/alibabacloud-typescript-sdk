@@ -640,7 +640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建账单订阅
+   * Create a bill report subscription.
    * 
    * @param request - CreateReportDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -721,7 +721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建账单订阅
+   * Create a bill report subscription.
    * 
    * @param request - CreateReportDefinitionRequest
    * @returns CreateReportDefinitionResponse
@@ -964,7 +964,63 @@ export default class Client extends OpenApi {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
     }
 
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.couponId)) {
+      query["CouponId"] = request.couponId;
+    }
+
+    if (!$dara.isNull(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!$dara.isNull(request.couponType)) {
+      query["CouponType"] = request.couponType;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.effectiveEndTime)) {
+      query["EffectiveEndTime"] = request.effectiveEndTime;
+    }
+
+    if (!$dara.isNull(request.effectiveStartTime)) {
+      query["EffectiveStartTime"] = request.effectiveStartTime;
+    }
+
+    if (!$dara.isNull(request.expireEndDate)) {
+      query["ExpireEndDate"] = request.expireEndDate;
+    }
+
+    if (!$dara.isNull(request.expireStartDate)) {
+      query["ExpireStartDate"] = request.expireStartDate;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -973,7 +1029,7 @@ export default class Client extends OpenApi {
       version: "2023-09-30",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -1008,7 +1064,31 @@ export default class Client extends OpenApi {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
     }
 
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.couponId)) {
+      query["CouponId"] = request.couponId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1017,7 +1097,7 @@ export default class Client extends OpenApi {
       version: "2023-09-30",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
