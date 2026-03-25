@@ -4078,6 +4078,10 @@ export default class Client extends OpenApi {
       query["GroupType"] = request.groupType;
     }
 
+    if (!$dara.isNull(request.groupUuid)) {
+      query["GroupUuid"] = request.groupUuid;
+    }
+
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }

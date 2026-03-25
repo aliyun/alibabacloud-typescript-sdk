@@ -38,6 +38,7 @@ export class DescribeAddressBookRequest extends $dara.Model {
    * ip
    */
   groupType?: string;
+  groupUuid?: string;
   /**
    * @remarks
    * The language of the content within the request. Valid values:
@@ -72,6 +73,7 @@ export class DescribeAddressBookRequest extends $dara.Model {
       containPort: 'ContainPort',
       currentPage: 'CurrentPage',
       groupType: 'GroupType',
+      groupUuid: 'GroupUuid',
       lang: 'Lang',
       pageSize: 'PageSize',
       query: 'Query',
@@ -83,6 +85,7 @@ export class DescribeAddressBookRequest extends $dara.Model {
       containPort: 'string',
       currentPage: 'string',
       groupType: 'string',
+      groupUuid: 'string',
       lang: 'string',
       pageSize: 'string',
       query: 'string',
