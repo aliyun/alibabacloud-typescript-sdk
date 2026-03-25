@@ -2520,6 +2520,10 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.sandboxId)) {
+      query["sandboxId"] = request.sandboxId;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
     }

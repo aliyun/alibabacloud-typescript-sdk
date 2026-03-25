@@ -18,6 +18,11 @@ export class ListSandboxesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @example
+   * 01KMB33KCB3YRYE9C2AJCW5DQK
+   */
+  sandboxId?: string;
+  /**
+   * @example
    * CREATING
    */
   status?: string;
@@ -38,6 +43,7 @@ export class ListSandboxesRequest extends $dara.Model {
     return {
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      sandboxId: 'sandboxId',
       status: 'status',
       templateName: 'templateName',
       templateType: 'templateType',
@@ -48,6 +54,7 @@ export class ListSandboxesRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      sandboxId: 'string',
       status: 'string',
       templateName: 'string',
       templateType: 'string',
