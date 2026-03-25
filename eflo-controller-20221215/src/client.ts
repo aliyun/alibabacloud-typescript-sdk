@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approves an O\\&M operation.
+   * Approves an O\\\\\\&M operation.
    * 
    * @param request - ApproveOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,7 +65,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approves an O\\&M operation.
+   * Approves an O\\\\\\&M operation.
    * 
    * @param request - ApproveOperationRequest
    * @returns ApproveOperationResponse
@@ -852,7 +852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节点分组
+   * Delete Node Group
    * 
    * @param request - DeleteNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -887,7 +887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节点分组
+   * Delete Node Group
    * 
    * @param request - DeleteNodeGroupRequest
    * @returns DeleteNodeGroupResponse
@@ -1078,7 +1078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution list and status of O\\&M Assistant commands.
+   * Queries the execution list and status of O\\\\\\&M Assistant commands.
    * 
    * @param request - DescribeInvocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1121,7 +1121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution list and status of O\\&M Assistant commands.
+   * Queries the execution list and status of O\\\\\\&M Assistant commands.
    * 
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
@@ -1258,7 +1258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Web Terminal会话
+   * 查询节点规格详情
    * 
    * @param request - DescribeNodeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1289,7 +1289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Web Terminal会话
+   * 查询节点规格详情
    * 
    * @param request - DescribeNodeTypeRequest
    * @returns DescribeNodeTypeResponse
@@ -1342,7 +1342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files that are sent by an O\\&M assistant and the status of the files.
+   * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1377,7 +1377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files that are sent by an O\\&M assistant and the status of the files.
+   * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @returns DescribeSendFileResultsResponse
@@ -2984,7 +2984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops the O\\&M assistant command execution.
+   * Stops the O\\\\\\&M assistant command execution.
    * 
    * @param tmpReq - StopInvocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3025,7 +3025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops the O\\&M assistant command execution.
+   * Stops the O\\\\\\&M assistant command execution.
    * 
    * @param request - StopInvocationRequest
    * @returns StopInvocationResponse

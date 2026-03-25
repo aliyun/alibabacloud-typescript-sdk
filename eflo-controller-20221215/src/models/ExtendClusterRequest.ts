@@ -345,6 +345,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodes extends $dara.Model {
   hostname?: string;
   hyperNodeId?: string;
   loginPassword?: string;
+  securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -353,6 +354,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodes extends $dara.Model {
       hostname: 'Hostname',
       hyperNodeId: 'HyperNodeId',
       loginPassword: 'LoginPassword',
+      securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -364,6 +366,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodes extends $dara.Model {
       hostname: 'string',
       hyperNodeId: 'string',
       loginPassword: 'string',
+      securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -517,6 +520,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
    * e01-cn-zvp2zdpy601
    */
   nodeId?: string;
+  securityGroupId?: string;
   /**
    * @remarks
    * VSwitch ID
@@ -539,6 +543,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
       hostname: 'Hostname',
       loginPassword: 'LoginPassword',
       nodeId: 'NodeId',
+      securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -550,6 +555,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
       hostname: 'string',
       loginPassword: 'string',
       nodeId: 'string',
+      securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
     };

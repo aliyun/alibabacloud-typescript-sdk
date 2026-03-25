@@ -3,41 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * i15azeddnvf7uhw2oij57o0
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * Valid values:
-   * 
-   * *   Node
-   * *   Cluster
-   * 
-   * @example
-   * Cluster
-   */
   resourceType?: string;
   /**
-   * @remarks
-   * The tag key.
-   * 
    * @example
-   * env
+   * TestKey
    */
   tagKey?: string;
   /**
-   * @remarks
-   * The tag value.
-   * 
    * @example
-   * dev
+   * TestValue
    */
   tagValue?: string;
   static names(): { [key: string]: string } {
@@ -110,10 +85,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * 8F208B6D-4C42-5FD3-B6BE-E826E92A44DD
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

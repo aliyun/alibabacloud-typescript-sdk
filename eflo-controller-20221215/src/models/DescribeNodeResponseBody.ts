@@ -97,6 +97,7 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
    * 47.254.235.44
    */
   ip?: string;
+  securityGroupId?: string;
   /**
    * @remarks
    * The subnet ID.
@@ -105,6 +106,7 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
    * vsw-uf68v51fldm5egmui5a6k
    */
   subnetId?: string;
+  vSwitchId?: string;
   /**
    * @remarks
    * The ID of the cluster network.
@@ -117,7 +119,9 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
     return {
       bondName: 'BondName',
       ip: 'Ip',
+      securityGroupId: 'SecurityGroupId',
       subnetId: 'SubnetId',
+      vSwitchId: 'VSwitchId',
       vpdId: 'VpdId',
     };
   }
@@ -126,7 +130,9 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
     return {
       bondName: 'string',
       ip: 'string',
+      securityGroupId: 'string',
       subnetId: 'string',
+      vSwitchId: 'string',
       vpdId: 'string',
     };
   }
