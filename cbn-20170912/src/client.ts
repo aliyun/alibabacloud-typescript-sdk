@@ -10407,6 +10407,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑跨账号授权记录
+   * 
+   * @param request - ModifyGrantInstanceToTransitRouterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyGrantInstanceToTransitRouterResponse
+   */
+  async modifyGrantInstanceToTransitRouterWithOptions(request: $_model.ModifyGrantInstanceToTransitRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyGrantInstanceToTransitRouterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cenId)) {
+      query["CenId"] = request.cenId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyGrantInstanceToTransitRouter",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyGrantInstanceToTransitRouterResponse>(await this.callApi(params, req, runtime), new $_model.ModifyGrantInstanceToTransitRouterResponse({}));
+  }
+
+  /**
+   * 编辑跨账号授权记录
+   * 
+   * @param request - ModifyGrantInstanceToTransitRouterRequest
+   * @returns ModifyGrantInstanceToTransitRouterResponse
+   */
+  async modifyGrantInstanceToTransitRouter(request: $_model.ModifyGrantInstanceToTransitRouterRequest): Promise<$_model.ModifyGrantInstanceToTransitRouterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyGrantInstanceToTransitRouterWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the name and description of a traffic classification rule.
    * 
    * @param request - ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
