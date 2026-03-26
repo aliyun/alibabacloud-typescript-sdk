@@ -3,13 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode extends $dara.Model {
+  /**
+   * @example
+   * 718
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 南京市
+   */
   cityName?: string;
+  /**
+   * @example
+   * 629
+   */
   countryCode?: string;
+  /**
+   * @example
+   * 中国
+   */
   countryName?: string;
+  /**
+   * @example
+   * 运营商节点
+   */
   groupName?: string;
+  /**
+   * @example
+   * ISP
+   */
   groupType?: string;
+  /**
+   * @example
+   * 5
+   */
   ispCode?: string;
+  /**
+   * @example
+   * 移动
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,6 +105,11 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityN
 }
 
 export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends $dara.Model {
+  /**
+   * @example
+   * mtp-xxxx
+   */
+  cloudGtmMonitorTemplateId?: string;
   createTime?: string;
   createTimestamp?: number;
   evaluationCount?: number;
@@ -83,6 +120,10 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends
   ispCityNodes?: SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes;
   name?: string;
   protocol?: string;
+  /**
+   * @example
+   * remark content: xxxx
+   */
   remark?: string;
   templateId?: string;
   timeout?: number;
@@ -90,6 +131,7 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      cloudGtmMonitorTemplateId: 'CloudGtmMonitorTemplateId',
       createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
       evaluationCount: 'EvaluationCount',
@@ -110,6 +152,7 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends
 
   static types(): { [key: string]: any } {
     return {
+      cloudGtmMonitorTemplateId: 'string',
       createTime: 'string',
       createTimestamp: 'number',
       evaluationCount: 'number',
