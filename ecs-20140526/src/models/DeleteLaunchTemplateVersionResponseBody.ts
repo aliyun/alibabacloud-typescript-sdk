@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the launch template.
-   * 
-   * @example
-   * lt-m5eiaupmvm2op9d****
-   */
   launchTemplateId?: string;
-  /**
-   * @remarks
-   * The version number of the launch template.
-   * 
-   * @example
-   * 2
-   */
   launchTemplateVersionNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersions exten
 }
 
 export class DeleteLaunchTemplateVersionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The deleted launch template versions.
-   */
   launchTemplateVersions?: DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersions;
   /**
    * @remarks

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePrefixListAssociationsResponseBodyPrefixListAssociationsPrefixListAssociation extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the resource.
-   * 
-   * @example
-   * sg-bp11ujym6xsff6l0****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * securitygroup
-   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +63,6 @@ export class DescribePrefixListAssociationsResponseBody extends $dara.Model {
    * AAAAAdDWBF2****
    */
   nextToken?: string;
-  /**
-   * @remarks
-   * Details about the resources that are associated with the prefix list.
-   */
   prefixListAssociations?: DescribePrefixListAssociationsResponseBodyPrefixListAssociations;
   /**
    * @remarks

@@ -37,10 +37,6 @@ export class RenewElasticityAssurancesResponseBody extends $dara.Model {
    * 182372800****
    */
   orderId?: string;
-  /**
-   * @remarks
-   * The IDs of the elasticity assurances.
-   */
   privatePoolOptionsIdSet?: RenewElasticityAssurancesResponseBodyPrivatePoolOptionsIdSet;
   /**
    * @remarks

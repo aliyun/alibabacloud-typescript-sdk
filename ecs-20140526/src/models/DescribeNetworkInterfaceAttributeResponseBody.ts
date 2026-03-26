@@ -85,10 +85,6 @@ export class DescribeNetworkInterfaceAttributeResponseBodyAttachment extends $da
    * hide
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and unavailable for general users.
-   */
   memberNetworkInterfaceIds?: DescribeNetworkInterfaceAttributeResponseBodyAttachmentMemberNetworkInterfaceIds;
   /**
    * @remarks
@@ -142,29 +138,8 @@ export class DescribeNetworkInterfaceAttributeResponseBodyAttachment extends $da
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecificationSlaveInterfaceSpecificationSet extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   bondNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   slaveNetworkInterfaceId?: string;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   workState?: string;
   static names(): { [key: string]: string } {
     return {
@@ -226,10 +201,6 @@ export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecifica
    * null
    */
   bondMode?: string;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and unavailable for general users.
-   */
   slaveInterfaceSpecification?: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecification;
   static names(): { [key: string]: string } {
     return {
@@ -358,13 +329,6 @@ export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extend
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 prefix of the ENI.
-   * 
-   * @example
-   * 192.168.**.0/28
-   */
   ipv4Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -414,13 +378,6 @@ export class DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets extends
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSetsIpv6PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 prefix of the ENI.
-   * 
-   * @example
-   * 2001:db8:1234:1a00:****::/80
-   */
   ipv6Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -470,13 +427,6 @@ export class DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets extends
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyIpv6SetsIpv6Set extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 address of the ENI.
-   * 
-   * @example
-   * 2001:db8:1234:1a00::****
-   */
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
@@ -576,21 +526,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTraffi
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSetAssociatedPublicIp extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   allocationId?: string;
-  /**
-   * @remarks
-   * The EIP.
-   * 
-   * @example
-   * ``116.62.**.**``
-   */
   publicIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -616,29 +552,8 @@ export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIp
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSet extends $dara.Model {
-  /**
-   * @remarks
-   * The EIP that is associated with the secondary private IP address of the ENI.
-   */
   associatedPublicIp?: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSetAssociatedPublicIp;
-  /**
-   * @remarks
-   * Indicates whether the IP address is the primary private IP address. Valid values:
-   * 
-   * *   true: The IP address is the primary private IP address.
-   * *   false: The IP address is a secondary private IP address.
-   * 
-   * @example
-   * true
-   */
   primary?: boolean;
-  /**
-   * @remarks
-   * The private IP address of the ENI.
-   * 
-   * @example
-   * ``172.17.**.**``
-   */
   privateIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -878,21 +793,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecific
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the ENI.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value of the ENI.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1010,20 +911,8 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * i-bp1e2l6djkndyuli****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The IPv4 prefixes of the ENI.
-   */
   ipv4PrefixSets?: DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 prefixes of the ENI.
-   */
   ipv6PrefixSets?: DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 addresses of the ENI.
-   */
   ipv6Sets?: DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets;
   /**
    * @remarks
@@ -1083,10 +972,6 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * ``10.1.**.**``
    */
   privateIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP addresses of the ENI.
-   */
   privateIpSets?: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets;
   /**
    * @remarks
@@ -1141,10 +1026,6 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * rg-bp67acfmxazb4p****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The IDs of the security groups to which the ENI belongs.
-   */
   securityGroupIds?: DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds;
   /**
    * @remarks
@@ -1191,10 +1072,6 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * Available
    */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the ENI.
-   */
   tags?: DescribeNetworkInterfaceAttributeResponseBodyTags;
   /**
    * @remarks

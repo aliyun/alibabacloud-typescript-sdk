@@ -3,52 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssuesIssue extends $dara.Model {
-  /**
-   * @remarks
-   * The additional data about the diagnosed issue. The value is a JSON string.
-   * 
-   * @example
-   * {
-   *   "TotalPercent": 95,
-   *   "TopUtilizationProcesses": [
-   *     {
-   *       "Pid": "1223",
-   *       "CommandName": "/usr/bin/mem.py",
-   *       "PhysicalMemoryPercent": 50
-   *     }
-   *   ]
-   * }
-   */
   additional?: string;
-  /**
-   * @remarks
-   * The ID of the diagnosed issue, which is the unique identifier of the issue.
-   * 
-   * @example
-   * GuestOS.CPU.HighUtiliz*****
-   */
   issueId?: string;
-  /**
-   * @remarks
-   * The time when the diagnosed issue occurred.
-   * 
-   * @example
-   * 2022-07-11T14:00:00Z
-   */
   occurrenceTime?: string;
   repairStatus?: string;
   repairable?: boolean;
-  /**
-   * @remarks
-   * The severity level of the diagnosed issue. Valid values:
-   * 
-   * *   Info: Diagnostic information was recorded and may be related to exceptions.
-   * *   Warn: Diagnostic information was recorded and may indicate potential exceptions.
-   * *   Critical: Critical exceptions were detected.
-   * 
-   * @example
-   * Info
-   */
   severity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,53 +67,10 @@ export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricRe
 }
 
 export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResult extends $dara.Model {
-  /**
-   * @remarks
-   * The diagnosed issues.
-   */
   issues?: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssues;
-  /**
-   * @remarks
-   * The category of the diagnostic metric.
-   * 
-   * @example
-   * CPU
-   */
   metricCategory?: string;
-  /**
-   * @remarks
-   * The ID of the diagnostic metric.
-   * 
-   * @example
-   * GuestOS.WinFirewall
-   */
   metricId?: string;
-  /**
-   * @remarks
-   * The severity level of the diagnostic metric. Valid values:
-   * 
-   * *   Unknown: The diagnostic has not started, failed to run, or exited unexpectedly without a diagnosis.
-   * *   Normal: No exceptions were detected.
-   * *   Info: Diagnostic information was recorded and may be related to exceptions.
-   * *   NotSupport: The version of the guest operating system does support diagnosing the metric.
-   * *   Warn: Diagnostic information was recorded and may indicate potential exceptions.
-   * *   Critical: Critical exceptions were detected.
-   * 
-   * @example
-   * Normal
-   */
   severity?: string;
-  /**
-   * @remarks
-   * The state of the diagnostic metric. Valid values:
-   * 
-   * *   InProgress.
-   * *   Finished.
-   * *   Failed.
-   * 
-   * @example
-   * Finished
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -249,10 +165,6 @@ export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model 
    * 2022-07-11T14:00:00Z
    */
   finishedTime?: string;
-  /**
-   * @remarks
-   * The results of all diagnostic metrics in the diagnostic metric set.
-   */
   metricResults?: DescribeDiagnosticReportAttributesResponseBodyMetricResults;
   /**
    * @remarks

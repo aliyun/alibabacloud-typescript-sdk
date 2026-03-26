@@ -92,6 +92,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
    * Availability
    */
   strategy?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       deploymentSetIds: 'DeploymentSetIds',
@@ -107,6 +108,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       strategy: 'Strategy',
+      type: 'Type',
     };
   }
 
@@ -125,6 +127,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       strategy: 'string',
+      type: 'string',
     };
   }
 

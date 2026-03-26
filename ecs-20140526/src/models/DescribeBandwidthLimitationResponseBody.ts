@@ -3,40 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBandwidthLimitationResponseBodyBandwidthsBandwidth extends $dara.Model {
-  /**
-   * @remarks
-   * The billing method for network usage. Valid values:
-   * 
-   * *   PayByBandwidth
-   * *   PayByTraffic
-   * 
-   * @example
-   * PayByTraffic
-   */
   internetChargeType?: string;
-  /**
-   * @remarks
-   * The maximum public bandwidth.
-   * 
-   * @example
-   * 100
-   */
   max?: number;
-  /**
-   * @remarks
-   * The minimum public bandwidth.
-   * 
-   * @example
-   * 0
-   */
   min?: number;
-  /**
-   * @remarks
-   * The unit of the public bandwidth.
-   * 
-   * @example
-   * Mbps
-   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,10 +61,6 @@ export class DescribeBandwidthLimitationResponseBodyBandwidths extends $dara.Mod
 }
 
 export class DescribeBandwidthLimitationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the maximum public bandwidth.
-   */
   bandwidths?: DescribeBandwidthLimitationResponseBodyBandwidths;
   /**
    * @remarks

@@ -31,21 +31,7 @@ export class CreateHpcClusterRequest extends $dara.Model {
    * hpc-Cluster-01
    */
   name?: string;
-  /**
-   * @remarks
-   * RAM用户的账号登录名称。
-   * 
-   * @example
-   * ECSforCloud@Alibaba.com
-   */
   ownerAccount?: string;
-  /**
-   * @remarks
-   * RAM用户的虚拟账号ID。
-   * 
-   * @example
-   * 1234567890
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -57,21 +43,7 @@ export class CreateHpcClusterRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * 资源主账号的账号名称。
-   * 
-   * @example
-   * ECSforCloud
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * 资源主账号的ID，亦即UID。
-   * 
-   * @example
-   * 1234567890
-   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {

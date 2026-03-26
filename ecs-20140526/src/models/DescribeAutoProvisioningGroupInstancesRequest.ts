@@ -13,15 +13,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
    * apg-uf6jel2bbl62wh13****
    */
   autoProvisioningGroupId?: string;
-  /**
-   * @example
-   * 123456
-   */
   ownerAccount?: string;
-  /**
-   * @example
-   * 123456
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -57,15 +49,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * 123456
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @example
-   * 123456
-   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {

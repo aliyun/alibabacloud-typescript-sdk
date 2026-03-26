@@ -55,119 +55,20 @@ export class DescribeDedicatedHostTypesResponseBodyDedicatedHostTypesDedicatedHo
 }
 
 export class DescribeDedicatedHostTypesResponseBodyDedicatedHostTypesDedicatedHostType extends $dara.Model {
-  /**
-   * @remarks
-   * The number of cores per physical CPU.
-   * 
-   * @example
-   * 2
-   */
   cores?: number;
-  /**
-   * @remarks
-   * The supported CPU overcommit ratio range.
-   * 
-   * @example
-   * 1-5
-   */
   cpuOverCommitRatioRange?: string;
-  /**
-   * @remarks
-   * The dedicated host type.
-   * 
-   * @example
-   * ddh.sn1ne
-   */
   dedicatedHostType?: string;
-  /**
-   * @remarks
-   * The GPU model.
-   * 
-   * @example
-   * gpu
-   */
   GPUSpec?: string;
-  /**
-   * @remarks
-   * The number of local disks on a dedicated host.
-   * 
-   * @example
-   * 0
-   */
   localStorageAmount?: number;
-  /**
-   * @remarks
-   * The capacity of a local disk. Unit: GiB.
-   * 
-   * @example
-   * 0
-   */
   localStorageCapacity?: number;
-  /**
-   * @remarks
-   * The category of local disks.
-   * 
-   * @example
-   * local
-   */
   localStorageCategory?: string;
-  /**
-   * @remarks
-   * The memory size. Unit: GiB.
-   * 
-   * @example
-   * 112.0
-   */
   memorySize?: number;
-  /**
-   * @remarks
-   * The number of physical GPUs.
-   * 
-   * @example
-   * 2
-   */
   physicalGpus?: number;
-  /**
-   * @remarks
-   * The number of physical CPUs.
-   * 
-   * @example
-   * 2
-   */
   sockets?: number;
-  /**
-   * @remarks
-   * Indicates whether the CPU overcommit ratio settings are supported.
-   * 
-   * @example
-   * true
-   */
   supportCpuOverCommitRatio?: boolean;
-  /**
-   * @remarks
-   * The ECS instance families supported by the dedicated host type.
-   */
   supportedInstanceTypeFamilies?: DescribeDedicatedHostTypesResponseBodyDedicatedHostTypesDedicatedHostTypeSupportedInstanceTypeFamilies;
-  /**
-   * @remarks
-   * The ECS instance types supported by the dedicated host type.
-   */
   supportedInstanceTypesList?: DescribeDedicatedHostTypesResponseBodyDedicatedHostTypesDedicatedHostTypeSupportedInstanceTypesList;
-  /**
-   * @remarks
-   * The total number of vCPUs.
-   * 
-   * @example
-   * 56
-   */
   totalVcpus?: number;
-  /**
-   * @remarks
-   * The total number of vGPUs.
-   * 
-   * @example
-   * 10
-   */
   totalVgpus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -251,10 +152,6 @@ export class DescribeDedicatedHostTypesResponseBodyDedicatedHostTypes extends $d
 }
 
 export class DescribeDedicatedHostTypesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the dedicated host types.
-   */
   dedicatedHostTypes?: DescribeDedicatedHostTypesResponseBodyDedicatedHostTypes;
   /**
    * @remarks

@@ -3,50 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttributesInstanceRenewAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether auto-renewal is enabled.
-   * 
-   * @example
-   * false
-   */
   autoRenewEnabled?: boolean;
-  /**
-   * @remarks
-   * The auto-renewal duration.
-   * 
-   * @example
-   * 1
-   */
   duration?: number;
   enableExpectedRenewDay?: boolean;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-bp18x3z4hc7bixhx****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The unit of the auto-renewal duration.
-   * 
-   * @example
-   * week
-   */
   periodUnit?: string;
-  /**
-   * @remarks
-   * The auto-renewal state of the instance. Valid values:
-   * 
-   * *   AutoRenewal: Auto-renewal is enabled for the instance.
-   * *   Normal: Auto-renewal is disabled for the instance.
-   * *   NotRenewal: The instance is not to be renewed. The system sends no more expiration reminders, but sends only a non-renewal reminder three days before the expiration date. For an instance that is not to be renewed, you can call the [ModifyInstanceAutoRenewAttribute](https://help.aliyun.com/document_detail/52843.html) operation to change its auto-renewal status to `Normal`. Then, you can manually renew the instance or enable auto-renewal for the instance.
-   * 
-   * @example
-   * Normal
-   */
   renewalStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,10 +67,6 @@ export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttribut
 }
 
 export class DescribeInstanceAutoRenewAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The renewal attributes of instances.
-   */
   instanceRenewAttributes?: DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttributes;
   /**
    * @remarks

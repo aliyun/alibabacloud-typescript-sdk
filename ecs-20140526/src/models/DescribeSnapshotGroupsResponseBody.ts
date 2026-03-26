@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapshotsSnapshotTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the snapshot. The default values of Key and Value contain snapshot source information.
-   * 
-   * @example
-   * acs:ecs:createFrom
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value of the snapshot. The default values of Key and Value contain snapshot source information.
-   * 
-   * @example
-   * i-bp11qm0o3dk4iuc****
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,79 +55,13 @@ export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapsh
 }
 
 export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapshotsSnapshot extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the snapshot can be shared and be used to create or roll back a disk. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
   available?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the instant access feature is enabled. Valid values:
-   * 
-   * *   true: The instant access feature is enabled. By default, the instant access feature is enabled for ESSDs.
-   * *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
-   * 
-   * >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
-   * 
-   * @example
-   * true
-   */
   instantAccess?: boolean;
-  /**
-   * @remarks
-   * The validity period of the instant access feature. When the validity period ends, the instant access snapshot is automatically released.
-   * 
-   * >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
-   * 
-   * @example
-   * 3
-   */
   instantAccessRetentionDays?: number;
-  /**
-   * @remarks
-   * The progress of the snapshot creation task. Unit: percent (%).
-   * 
-   * @example
-   * 100%
-   */
   progress?: string;
-  /**
-   * @remarks
-   * The ID of the snapshot.
-   * 
-   * @example
-   * s-j6cbzmrlbf09w72q****
-   */
   snapshotId?: string;
-  /**
-   * @remarks
-   * The ID of the source disk. This parameter is retained even after the source disk of the snapshot is released.
-   * 
-   * @example
-   * d-j6c3ogynmvpi6wy7****
-   */
   sourceDiskId?: string;
-  /**
-   * @remarks
-   * The type of the source disk. Valid values:
-   * 
-   * *   system: system disk
-   * *   data: data disk
-   * 
-   * @example
-   * system
-   */
   sourceDiskType?: string;
-  /**
-   * @remarks
-   * The tags of the snapshot. The default values contain snapshot source information.
-   */
   tags?: DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapshotsSnapshotTags;
   static names(): { [key: string]: string } {
     return {
@@ -208,21 +128,7 @@ export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapsh
 }
 
 export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the snapshot-consistent group.
-   * 
-   * @example
-   * TestKey
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value of the snapshot-consistent group.
-   * 
-   * @example
-   * TestValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -274,83 +180,15 @@ export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupTags e
 }
 
 export class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-03-23T10:58:48Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the snapshot-consistent group.
-   * 
-   * @example
-   * This is description.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the snapshot-consistent group belongs. This parameter has a value only when all disk snapshots in the snapshot-consistent group belong to the same instance. If disk snapshots in the snapshot-consistent group belong to different instances, you can check the response parameters that start with `Snapshots.Snapshot.Tags.` to determine the ID of the instance to which each snapshot in the snapshot-consistent group belongs.
-   * 
-   * @example
-   * i-j6ca469urv8ei629****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the snapshot-consistent group.
-   * 
-   * @example
-   * testName
-   */
   name?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * null
-   */
   progressStatus?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the snapshot-consistent group belongs.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the snapshot-consistent group.
-   * 
-   * @example
-   * ssg-j6ciyh3k52qp7ovm****
-   */
   snapshotGroupId?: string;
-  /**
-   * @remarks
-   * The information about the snapshots in the snapshot-consistent group.
-   */
   snapshots?: DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapshots;
-  /**
-   * @remarks
-   * The state of the snapshot-consistent group. Valid values:
-   * 
-   * *   progressing: The snapshot-consistent group was being created.
-   * *   accomplished: The snapshot-consistent group was created.
-   * *   failed: The snapshot-consistent group failed to be created.
-   * 
-   * @example
-   * accomplished
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the snapshot-consistent group.
-   */
   tags?: DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupTags;
   static names(): { [key: string]: string } {
     return {
@@ -442,10 +280,6 @@ export class DescribeSnapshotGroupsResponseBody extends $dara.Model {
    * 3F9A4CC4-362F-469A-B9EF-B3204EF8AA3A
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the snapshot-consistent groups.
-   */
   snapshotGroups?: DescribeSnapshotGroupsResponseBodySnapshotGroups;
   static names(): { [key: string]: string } {
     return {

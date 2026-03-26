@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResourcesSupportedResource extends $dara.Model {
-  /**
-   * @example
-   * 2048
-   */
   max?: number;
-  /**
-   * @example
-   * 20
-   */
   min?: number;
-  /**
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @example
-   * WithStock
-   */
   statusCategory?: string;
-  /**
-   * @example
-   * GiB
-   */
   unit?: string;
-  /**
-   * @example
-   * ecs.d1ne.xlarge
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,10 +68,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAva
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResource extends $dara.Model {
   supportedResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResources;
-  /**
-   * @example
-   * InstanceType
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,33 +123,9 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAva
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $dara.Model {
   availableResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResources;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The resource status based on the stock level in the zone. Valid value:
-   * 
-   * *   WithStock: The resources are available and can be continuously replenished.
-   * *   ClosedWithStock: Inventory is available, but resources will not be replenished. The ability to guarantee the supply of inventory is low. We recommend selecting a product specification in the WithStock state.
-   * *   WithoutStock: The resource is out of stock and will be replenished. We recommend using other resources that are in stock.
-   * *   ClosedWithoutStock: The resource is out of stock and will no longer be replenished. We recommend using other resources that are in stock.
-   * 
-   * @example
-   * WithStock
-   */
   statusCategory?: string;
-  /**
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -238,10 +186,6 @@ export class DescribeAvailableResourceResponseBodyAvailableZones extends $dara.M
 }
 
 export class DescribeAvailableResourceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the availability of resources in the zones.
-   */
   availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
   /**
    * @example

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSetRelatedItem extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the related item.
-   * 
-   * @example
-   * OSSObject
-   */
   name?: string;
-  /**
-   * @remarks
-   * The value of the related item.
-   * 
-   * @example
-   * MYOSSPRE_m-23f8tcp***_t-23ym6mv***.vhd
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,34 +55,9 @@ export class DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgr
 }
 
 export class DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgress extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * ParameterInvalid
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The specified RegionId parameter is invalid.
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The status of the operation.
-   * 
-   * @example
-   * Success
-   */
   operationStatus?: string;
-  /**
-   * @remarks
-   * The type of resource information.
-   */
   relatedItemSet?: DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSet;
   static names(): { [key: string]: string } {
     return {
@@ -179,10 +140,6 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
    * 2015-11-23T02:19Z
    */
   finishedTime?: string;
-  /**
-   * @remarks
-   * The return data of the task.
-   */
   operationProgressSet?: DescribeTaskAttributeResponseBodyOperationProgressSet;
   /**
    * @remarks

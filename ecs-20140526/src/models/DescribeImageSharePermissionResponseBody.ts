@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeImageSharePermissionResponseBodyAccountsAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 1234567890
-   */
   aliyunId?: string;
-  /**
-   * @remarks
-   * The time when the image was shared. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-01-01T12:05:00Z
-   */
   sharedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,13 +55,6 @@ export class DescribeImageSharePermissionResponseBodyAccounts extends $dara.Mode
 }
 
 export class DescribeImageSharePermissionResponseBodyShareGroupsShareGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The shared group.
-   * 
-   * @example
-   * all
-   */
   group?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,10 +104,6 @@ export class DescribeImageSharePermissionResponseBodyShareGroups extends $dara.M
 }
 
 export class DescribeImageSharePermissionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud accounts.
-   */
   accounts?: DescribeImageSharePermissionResponseBodyAccounts;
   /**
    * @remarks
@@ -170,10 +145,6 @@ export class DescribeImageSharePermissionResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The shared groups.
-   */
   shareGroups?: DescribeImageSharePermissionResponseBodyShareGroups;
   /**
    * @remarks

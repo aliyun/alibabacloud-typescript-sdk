@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSnapshotMonitorDataResponseBodyMonitorDataDataPoint extends $dara.Model {
-  /**
-   * @remarks
-   * The total size of snapshots. Unit: bytes.
-   * 
-   * @example
-   * 243036848128
-   */
   size?: number;
-  /**
-   * @remarks
-   * The timestamp that corresponds to a snapshot size.
-   * 
-   * @example
-   * 2019-05-10T04:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeSnapshotMonitorDataResponseBodyMonitorData extends $dara.Mo
 }
 
 export class DescribeSnapshotMonitorDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The monitoring data of snapshot sizes.
-   */
   monitorData?: DescribeSnapshotMonitorDataResponseBodyMonitorData;
   /**
    * @remarks

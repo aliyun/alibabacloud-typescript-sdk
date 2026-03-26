@@ -29,10 +29,6 @@ export class AllocateDedicatedHostsResponseBodyDedicatedHostIdSets extends $dara
 }
 
 export class AllocateDedicatedHostsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of dedicated host IDs.
-   */
   dedicatedHostIdSets?: AllocateDedicatedHostsResponseBodyDedicatedHostIdSets;
   /**
    * @remarks

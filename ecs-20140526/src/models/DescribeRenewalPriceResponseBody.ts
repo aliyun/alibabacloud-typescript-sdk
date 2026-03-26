@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the pricing rule.
-   * 
-   * @example
-   * Receive a 15% discount on a 1-year subscription.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the pricing rule.
-   * 
-   * @example
-   * 1234567890
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,42 +55,10 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfosDetailInfo
 }
 
 export class DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfosDetailInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The discount.
-   * 
-   * @example
-   * 655.2
-   */
   discountPrice?: number;
-  /**
-   * @remarks
-   * The original price.
-   * 
-   * @example
-   * 4368
-   */
   originalPrice?: number;
-  /**
-   * @remarks
-   * The name of the resource that corresponds to the price.
-   * 
-   * @example
-   * instance
-   */
   resource?: string;
-  /**
-   * @remarks
-   * The pricing rules.
-   */
   subRules?: DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubRules;
-  /**
-   * @remarks
-   * The transaction price.
-   * 
-   * @example
-   * 3712.8
-   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -177,10 +131,6 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
    * CNY
    */
   currency?: string;
-  /**
-   * @remarks
-   * Details about the resource prices.
-   */
   detailInfos?: DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
@@ -239,21 +189,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
 }
 
 export class DescribeRenewalPriceResponseBodyPriceInfoRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the promotion rule.
-   * 
-   * @example
-   * Receive a 15% discount on a 1-year subscription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the promotion rule.
-   * 
-   * @example
-   * 1234567890
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -310,10 +246,6 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
    * The price.
    */
   price?: DescribeRenewalPriceResponseBodyPriceInfoPrice;
-  /**
-   * @remarks
-   * The information about the promotion rules.
-   */
   rules?: DescribeRenewalPriceResponseBodyPriceInfoRules;
   static names(): { [key: string]: string } {
     return {

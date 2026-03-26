@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityGroupAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The attributes of the security group. Valid value: snapshotPolicyIds: queries information about snapshot policies associated with a security group.
+   * The attributes of the security group. Valid value:
+   * 
+   * *   snapshotPolicyIds: queries information about snapshot policies associated with a security group.
    * 
    * @example
    * snapshotPolicyIds

@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCapacityReservationInstancesResponseBodyCapacityReservationItemInstanceIdSet extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-bp67acfmxazb4****
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class DescribeCapacityReservationInstancesResponseBodyCapacityReservation
 }
 
 export class DescribeCapacityReservationInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the instances that match the capacity reservation.
-   */
   capacityReservationItem?: DescribeCapacityReservationInstancesResponseBodyCapacityReservationItem;
   /**
    * @remarks

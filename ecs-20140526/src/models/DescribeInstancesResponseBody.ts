@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstancesResponseBodyInstancesInstanceAdditionalInfo extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * true
-   */
   enableHighDensityMode?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -56,42 +49,11 @@ export class DescribeInstancesResponseBodyInstancesInstanceClockOptions extends 
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $dara.Model {
-  /**
-   * @remarks
-   * The number of physical CPU cores.
-   * 
-   * @example
-   * 2
-   */
   coreCount?: number;
   enableVISST?: boolean;
   enableVRDT?: boolean;
-  /**
-   * @remarks
-   * >  This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
   numa?: string;
-  /**
-   * @remarks
-   * The number of threads per CPU core.
-   * 
-   * @example
-   * 2
-   */
   threadsPerCore?: number;
-  /**
-   * @remarks
-   * The CPU topology type of the instance. Valid values:
-   * 
-   * *   ContinuousCoreToHTMapping: Hyper-Threading (HT) continuous CPU topology
-   * *   DiscreteCoreToHTMapping: HT discrete CPU topology
-   * 
-   * @example
-   * ContinuousCoreToHTMapping
-   */
   topologyType?: string;
   turboMode?: string;
   static names(): { [key: string]: string } {
@@ -128,29 +90,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $d
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceDedicatedHostAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the dedicated host cluster.
-   * 
-   * @example
-   * dc-bp67acfmxazb4h****
-   */
   dedicatedHostClusterId?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated host.
-   * 
-   * @example
-   * dh-bp67acfmxazb4p****
-   */
   dedicatedHostId?: string;
-  /**
-   * @remarks
-   * The name of the dedicated host.
-   * 
-   * @example
-   * testDedicatedHostName
-   */
   dedicatedHostName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,27 +119,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceDedicatedHostAttribut
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceDedicatedInstanceAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the instance on the dedicated host is associated with the dedicated host. Valid values:
-   * 
-   * *   default: The instance is not associated with the dedicated host. When the instance is restarted from economical mode, the instance may be automatically deployed on another dedicated host in the automatic deployment resource pool.
-   * *   host: The instance is associated with the dedicated host. When the instance is restarted from economical mode, the instance is still deployed on the original dedicated host.
-   * 
-   * @example
-   * default
-   */
   affinity?: string;
-  /**
-   * @remarks
-   * Indicates whether the instance is hosted on a dedicated host. Valid values:
-   * 
-   * *   default: The instance is not hosted on a dedicated host.
-   * *   host: The instance is hosted on a dedicated host.
-   * 
-   * @example
-   * default
-   */
   tenancy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -224,21 +145,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceDedicatedInstanceAttr
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceEcsCapacityReservationAttr extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the capacity reservation.
-   * 
-   * @example
-   * cr-bp67acfmxazb4p****
-   */
   capacityReservationId?: string;
-  /**
-   * @remarks
-   * The preference of the capacity reservation.
-   * 
-   * @example
-   * cr-bp67acfmxazb4p****
-   */
   capacityReservationPreference?: string;
   static names(): { [key: string]: string } {
     return {
@@ -264,48 +171,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceEcsCapacityReservatio
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceEipAddress extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the EIP.
-   * 
-   * @example
-   * eip-2ze88m67qx5z****
-   */
   allocationId?: string;
-  /**
-   * @remarks
-   * The maximum public bandwidth of the EIP. Unit: Mbit/s.
-   * 
-   * @example
-   * 5
-   */
   bandwidth?: number;
-  /**
-   * @remarks
-   * The metering method of the EIP. Valid values:
-   * 
-   * *   PayByBandwidth
-   * *   PayByTraffic
-   * 
-   * @example
-   * PayByTraffic
-   */
   internetChargeType?: string;
-  /**
-   * @remarks
-   * The EIP.
-   * 
-   * @example
-   * ``42.112.**.**``
-   */
   ipAddress?: string;
-  /**
-   * @remarks
-   * Indicates whether the EIP can be disassociated.
-   * 
-   * @example
-   * true
-   */
   isSupportUnassociate?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -337,13 +206,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceEipAddress extends $d
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceHibernationOptions extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * false
-   */
   configured?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -367,29 +229,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceHibernationOptions ex
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceImageOptions extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the operating system supports access to disks over the NVMe protocol. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * >  This parameter is returned only if you specify CURRENT_OS_NVME_SUPPORTED in AdditionalAttributes in the request.
-   * 
-   * @example
-   * true
-   */
   currentOSNVMeSupported?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the instance that uses the image supports logons of the ecs-user user. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
   loginAsNonRoot?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -441,35 +281,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceInnerIpAddress extend
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceMetadataOptions extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the access channel is enabled for instance metadata. Valid values:
-   * 
-   * *   enabled
-   * *   disabled
-   * 
-   * @example
-   * enabled
-   */
   httpEndpoint?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * 0
-   */
   httpPutResponseHopLimit?: number;
-  /**
-   * @remarks
-   * Indicates whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
-   * 
-   * *   optional: The security hardening mode (IMDSv2) is not forcefully used.
-   * *   required: The security hardening mode (IMDSv2) is forcefully used.
-   * 
-   * @example
-   * optional
-   */
   httpTokens?: string;
   static names(): { [key: string]: string } {
     return {
@@ -497,10 +310,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceMetadataOptions exten
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSetsIpv4PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 prefix of the ENI.
-   */
   ipv4Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -550,13 +359,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSetsIpv6PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 prefix of the ENI.
-   * 
-   * @example
-   * 2001:1111:*:*::/64
-   */
   ipv6Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -606,13 +408,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6SetsIpv6Set extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 address of the ENI.
-   * 
-   * @example
-   * 2408:4321:180:1701:94c7:bc38:3bfa:***
-   */
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
@@ -662,34 +457,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSetsPrivateIpSet extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the IP address is the primary private IP address. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   primary?: boolean;
-  /**
-   * @remarks
-   * The private domain name of the instance.
-   * 
-   * >  This parameter has a value in a specific format only if `HostnameType` is set to `IpBased` or `InstanceIdBased`.
-   * 
-   * @example
-   * dnsTestName
-   */
   privateDnsName?: string;
-  /**
-   * @remarks
-   * The private IP address of the ENI.
-   * 
-   * @example
-   * ``172.17.**.**``
-   */
   privateIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -743,60 +512,13 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterface extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 prefixes of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
-   */
   ipv4PrefixSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 prefixes of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
-   */
   ipv6PrefixSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 addresses of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
-   */
   ipv6Sets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6Sets;
-  /**
-   * @remarks
-   * The MAC address of the ENI.
-   * 
-   * @example
-   * 00:16:3e:32:b4:**
-   */
   macAddress?: string;
-  /**
-   * @remarks
-   * The ID of the ENI.
-   * 
-   * @example
-   * eni-2zeh9atclduxvf1z****
-   */
   networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The primary private IP address of the ENI.
-   * 
-   * @example
-   * ``172.17.**.**``*
-   */
   primaryIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP addresses of the ENI.
-   */
   privateIpSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSets;
-  /**
-   * @remarks
-   * The type of the ENI. Valid values:
-   * 
-   * *   Primary
-   * *   Secondary
-   * 
-   * @example
-   * Primary
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -872,27 +594,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfaces ext
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceOperationLocksLockReason extends $dara.Model {
-  /**
-   * @remarks
-   * The message returned when the instance was locked.
-   * 
-   * @example
-   * The specified instance is locked due to financial reason.
-   */
   lockMsg?: string;
-  /**
-   * @remarks
-   * The reason why the instance was locked. Valid values:
-   * 
-   * *   financial: The instance was locked due to overdue payments.
-   * *   security: The instance was locked due to security reasons.
-   * *   recycling: The spot instance was locked and pending release.
-   * *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
-   * *   refunded: The instance was locked because a refund was made for the instance.
-   * 
-   * @example
-   * Recycling
-   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -944,71 +646,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceOperationLocks extend
 }
 
 export class DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv6 Address (AAAA Record) is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * false
-   */
   enableInstanceIdDnsAAAARecord?: boolean;
-  /**
-   * @remarks
-   * Indicates whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * false
-   */
   enableInstanceIdDnsARecord?: boolean;
-  /**
-   * @remarks
-   * Indicates whether DNS Resolution from the IP Address-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * true
-   */
   enableIpDnsARecord?: boolean;
-  /**
-   * @remarks
-   * Indicates whether Reverse DNS Resolution from the Instance Primary Private IPv4 Address to the IP Address-based Hostname (PTR Record) is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * true
-   */
   enableIpDnsPtrRecord?: boolean;
-  /**
-   * @remarks
-   * The type of hostname. Valid values:
-   * 
-   * *   Custom: custom hostname
-   * *   IpBased: IP address-based hostname
-   * *   InstanceIdBased: instance ID-based hostname
-   * 
-   * Default value: Custom.
-   * 
-   * @example
-   * Custom
-   */
   hostnameType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1118,21 +759,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds exte
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the instance.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value of the instance.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1210,34 +837,9 @@ export class DescribeInstancesResponseBodyInstancesInstanceVpcAttributesPrivateI
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceVpcAttributes extends $dara.Model {
-  /**
-   * @remarks
-   * The NAT IP address of the instance. The NAT IP address is used by ECS instances in different VPCs for communication.
-   * 
-   * @example
-   * ``172.17.**.**``
-   */
   natIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP addresses of the instance.
-   */
   privateIpAddress?: DescribeInstancesResponseBodyInstancesInstanceVpcAttributesPrivateIpAddress;
-  /**
-   * @remarks
-   * The ID of the vSwitch to which the instance is connected.
-   * 
-   * @example
-   * vsw-2zeh0r1pabwtg6wcs****
-   */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the VPC.
-   * 
-   * @example
-   * vpc-2zeuphj08tt7q3brd****
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1271,535 +873,76 @@ export class DescribeInstancesResponseBodyInstancesInstanceVpcAttributes extends
 
 export class DescribeInstancesResponseBodyInstancesInstance extends $dara.Model {
   /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
    * **if can be null:**
    * true
    */
   additionalInfo?: DescribeInstancesResponseBodyInstancesInstanceAdditionalInfo;
-  /**
-   * @remarks
-   * The automatic release time of the pay-as-you-go instance.
-   * 
-   * @example
-   * 2017-12-10T04:04Z
-   */
   autoReleaseTime?: string;
   clockOptions?: DescribeInstancesResponseBodyInstancesInstanceClockOptions;
-  /**
-   * @remarks
-   * The ID of the cluster to which the instance belongs.
-   * 
-   * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
-   * 
-   * @example
-   * c-bp67acfmxazb4p****
-   */
   clusterId?: string;
-  /**
-   * @remarks
-   * The number of vCPUs.
-   * 
-   * @example
-   * 8
-   */
   cpu?: number;
-  /**
-   * @remarks
-   * Details about the CPU options.
-   */
   cpuOptions?: DescribeInstancesResponseBodyInstancesInstanceCpuOptions;
-  /**
-   * @remarks
-   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2017-12-10T04:04Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The performance mode of the burstable instance. Valid values:
-   * 
-   * *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-   * *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-   * 
-   * @example
-   * Standard
-   */
   creditSpecification?: string;
-  /**
-   * @remarks
-   * The information about the dedicated host. The value is an array that consists of DedicatedHostClusterId, DedicatedHostId, and DedicatedHostName.
-   */
   dedicatedHostAttribute?: DescribeInstancesResponseBodyInstancesInstanceDedicatedHostAttribute;
-  /**
-   * @remarks
-   * The attributes of the instance on the dedicated host.
-   */
   dedicatedInstanceAttribute?: DescribeInstancesResponseBodyInstancesInstanceDedicatedInstanceAttribute;
-  /**
-   * @remarks
-   * Indicates whether release protection is enabled for the instance. This parameter determines whether you can use the ECS console or call the DeleteInstance operation to release the instance. Valid values:
-   * 
-   * *   true: Release protection is enabled for the instance.
-   * *   false: Release protection is disabled for the instance.
-   * 
-   * >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
-   * 
-   * @example
-   * false
-   */
   deletionProtection?: boolean;
-  /**
-   * @remarks
-   * The number of the deployment set group to which the instance belongs in a deployment set.
-   * 
-   * @example
-   * 1
-   */
   deploymentSetGroupNo?: number;
-  /**
-   * @remarks
-   * The ID of the deployment set to which the instance belongs.
-   * 
-   * @example
-   * ds-bp67acfmxazb4p****
-   */
   deploymentSetId?: string;
-  /**
-   * @remarks
-   * The description of the instance.
-   * 
-   * @example
-   * testDescription
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether data disks can be attached to the instance. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   deviceAvailable?: boolean;
-  /**
-   * @remarks
-   * Details about the capacity reservation associated with the instance.
-   */
   ecsCapacityReservationAttr?: DescribeInstancesResponseBodyInstancesInstanceEcsCapacityReservationAttr;
-  /**
-   * @remarks
-   * Details about the EIP associated with the instance.
-   */
   eipAddress?: DescribeInstancesResponseBodyInstancesInstanceEipAddress;
   enableNVS?: boolean;
-  /**
-   * @remarks
-   * The expiration time of the instance. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2017-12-10T04:04Z
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The number of GPUs for the instance type.
-   * 
-   * @example
-   * 4
-   */
   GPUAmount?: number;
-  /**
-   * @remarks
-   * The category of GPUs for the instance type.
-   * 
-   * @example
-   * NVIDIA V100
-   */
   GPUSpec?: string;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   */
   hibernationOptions?: DescribeInstancesResponseBodyInstancesInstanceHibernationOptions;
-  /**
-   * @remarks
-   * The hostname of the instance.
-   * 
-   * @example
-   * testHostName
-   */
   hostName?: string;
-  /**
-   * @remarks
-   * The ID of the HPC cluster to which the instance belongs.
-   * 
-   * @example
-   * hpc-bp67acfmxazb4p****
-   */
   hpcClusterId?: string;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   ISP?: string;
-  /**
-   * @remarks
-   * The image ID of the instance.
-   * 
-   * @example
-   * m-bp67acfmxazb4p****
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * The image options.
-   */
   imageOptions?: DescribeInstancesResponseBodyInstancesInstanceImageOptions;
-  /**
-   * @remarks
-   * The internal IP addresses of the instance located in the classic network.
-   */
   innerIpAddress?: DescribeInstancesResponseBodyInstancesInstanceInnerIpAddress;
-  /**
-   * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   PrePaid: subscription
-   * *   PostPaid: pay-as-you-go
-   * 
-   * @example
-   * PostPaid
-   */
   instanceChargeType?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-bp67acfmxazb4p****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * InstanceNameTest
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * *   classic
-   * *   vpc
-   * 
-   * @example
-   * vpc
-   */
   instanceNetworkType?: string;
-  /**
-   * @remarks
-   * The instance type of the instance.
-   * 
-   * @example
-   * ecs.g5.large
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The instance family of the instance.
-   * 
-   * @example
-   * ecs.g5
-   */
   instanceTypeFamily?: string;
-  /**
-   * @remarks
-   * The billing method for network usage. Valid values:
-   * 
-   * *   PayByBandwidth: pay-by-bandwidth
-   * *   PayByTraffic: pay-by-traffic
-   * 
-   * @example
-   * PayByTraffic
-   */
   internetChargeType?: string;
-  /**
-   * @remarks
-   * The maximum inbound public bandwidth. Unit: Mbit/s.
-   * 
-   * @example
-   * 50
-   */
   internetMaxBandwidthIn?: number;
-  /**
-   * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s.
-   * 
-   * @example
-   * 5
-   */
   internetMaxBandwidthOut?: number;
-  /**
-   * @remarks
-   * Indicates whether the instance is an I/O optimized instance. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   ioOptimized?: boolean;
-  /**
-   * @remarks
-   * The name of the key pair.
-   * 
-   * @example
-   * testKeyPairName
-   */
   keyPairName?: string;
-  /**
-   * @remarks
-   * The number of local disks attached to the instance.
-   * 
-   * @example
-   * 2
-   */
   localStorageAmount?: number;
-  /**
-   * @remarks
-   * The capacity of local disks attached to the instance. Unit: GiB.
-   * 
-   * @example
-   * 1000
-   */
   localStorageCapacity?: number;
-  /**
-   * @remarks
-   * The memory size. Unit: MiB.
-   * 
-   * @example
-   * 16384
-   */
   memory?: number;
-  /**
-   * @remarks
-   * Details about the metadata options.
-   */
   metadataOptions?: DescribeInstancesResponseBodyInstancesInstanceMetadataOptions;
-  /**
-   * @remarks
-   * The ENIs attached to the instance.
-   */
   networkInterfaces?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfaces;
-  /**
-   * @remarks
-   * The name of the operating system of the instance.
-   * 
-   * @example
-   * CentOS 7.4 64-bit
-   */
   OSName?: string;
-  /**
-   * @remarks
-   * The English name of the operating system of the instance.
-   * 
-   * @example
-   * CentOS  7.4 64 bit
-   */
   OSNameEn?: string;
-  /**
-   * @remarks
-   * The type of the operating system of the instance. Valid values:
-   * 
-   * *   windows: Windows operating systems
-   * *   linux: Linux operating systems
-   * 
-   * @example
-   * linux
-   */
   OSType?: string;
-  /**
-   * @remarks
-   * The reasons why the instance was locked.
-   */
   operationLocks?: DescribeInstancesResponseBodyInstancesInstanceOperationLocks;
-  /**
-   * @remarks
-   * The private domain name options of the instance.
-   * 
-   * For information about the resolution of ECS private domain names, see [ECS private DNS resolution](https://help.aliyun.com/document_detail/2844797.html).
-   * 
-   * >  This parameter is returned only when the `AdditionalAttributes` parameter contains `PRIVATE_DNS_OPTIONS` in the request.
-   */
   privateDnsNameOptions?: DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions;
-  /**
-   * @remarks
-   * The public IP addresses of the instance.
-   */
   publicIpAddress?: DescribeInstancesResponseBodyInstancesInstancePublicIpAddress;
-  /**
-   * @remarks
-   * The RDMA IP addresses of the instance in the HPC cluster.
-   */
   rdmaIpAddress?: DescribeInstancesResponseBodyInstancesInstanceRdmaIpAddress;
-  /**
-   * @remarks
-   * Indicates whether the instance can be recycled.
-   * 
-   * @example
-   * false
-   */
   recyclable?: boolean;
-  /**
-   * @remarks
-   * The region ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the instance belongs.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * >  The parameter is removed.
-   * 
-   * @example
-   * month
-   */
   saleCycle?: string;
-  /**
-   * @remarks
-   * The IDs of the security groups to which the instance belongs.
-   */
   securityGroupIds?: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds;
-  /**
-   * @remarks
-   * The serial number of the instance.
-   * 
-   * @example
-   * 51d1353b-22bf-4567-a176-8b3e12e4****
-   */
   serialNumber?: string;
-  /**
-   * @remarks
-   * The protection period of the spot instance. Unit: hours. Valid values:
-   * 
-   * *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-   * *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-   * 
-   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify a protection period based on your business requirements.
-   * 
-   * >  This parameter is returned when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
-   * 
-   * @example
-   * 1
-   */
   spotDuration?: number;
-  /**
-   * @remarks
-   * The interruption mode of the spot instance when the system initiates a spot instance interruption operation. Valid values:
-   * 
-   * *   Terminate: releases the spot instance.
-   * *   Stop: stops the instance in economical mode.
-   * 
-   * @example
-   * Terminate
-   */
   spotInterruptionBehavior?: string;
-  /**
-   * @remarks
-   * The maximum hourly price of the instance. The value can be accurate to three decimal places. This parameter is valid when SpotStrategy is set to SpotWithPriceLimit.
-   * 
-   * @example
-   * 0.98
-   */
   spotPriceLimit?: number;
-  /**
-   * @remarks
-   * The bidding policy for the pay-as-you-go instance. Valid values:
-   * 
-   * *   NoSpot: The instance is a regular pay-as-you-go instance.
-   * *   SpotWithPriceLimit: The instance is a spot instance with a user-defined maximum hourly price.
-   * *   SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
-   * 
-   * @example
-   * NoSpot
-   */
   spotStrategy?: string;
-  /**
-   * @remarks
-   * The time when the instance was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2017-12-10T04:04Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The status of the instance.
-   * 
-   * @example
-   * Running
-   */
   status?: string;
-  /**
-   * @remarks
-   * Indicates whether the instance continues to be billed after it is stopped. Valid values:
-   * 
-   * *   KeepCharging: The instance is stopped in standard mode. Billing for the instance continues after the instance is stopped, and resources are retained for the instance.
-   * *   StopCharging: The instance is stopped in economical mode. Billing for some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP addresses are released. The instance may be unable to restart if some required resources are out of stock in the current region.
-   * *   Not-applicable: The instance does not support economical mode.
-   * 
-   * @example
-   * KeepCharging
-   */
   stoppedMode?: string;
-  /**
-   * @remarks
-   * The tags of the instance.
-   */
   tags?: DescribeInstancesResponseBodyInstancesInstanceTags;
-  /**
-   * @remarks
-   * The virtual LAN (VLAN) ID of the instance.
-   * 
-   * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
-   * 
-   * @example
-   * 10
-   */
   vlanId?: string;
-  /**
-   * @remarks
-   * The VPC attributes of the instance.
-   */
   vpcAttributes?: DescribeInstancesResponseBodyInstancesInstanceVpcAttributes;
-  /**
-   * @remarks
-   * The zone ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2040,10 +1183,6 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
 }
 
 export class DescribeInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the queried instances.
-   */
   instances?: DescribeInstancesResponseBodyInstances;
   /**
    * @remarks

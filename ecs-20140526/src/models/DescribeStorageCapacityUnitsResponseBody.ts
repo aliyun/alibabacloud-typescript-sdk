@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnitsStorageCapacityUnitTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N.
-   * 
-   * @example
-   * TestValue
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of tag N.
-   * 
-   * @example
-   * TestKey
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,98 +55,16 @@ export class DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnitsStorage
 }
 
 export class DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnitsStorageCapacityUnit extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates the allocation state of the SCU when the AllocationType parameter is set to Shared. Valid values:
-   * 
-   * *   allocated: The SCU is allocated to other accounts.
-   * *   BeAllocated: The SCU is allocated from another account.
-   * 
-   * @example
-   * allocated
-   */
   allocationStatus?: string;
-  /**
-   * @remarks
-   * The capacity of the SCU.
-   * 
-   * @example
-   * 20
-   */
   capacity?: number;
-  /**
-   * @remarks
-   * The time when the SCU was created.
-   * 
-   * @example
-   * 2021-08-17T02:55Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the SCU.
-   * 
-   * @example
-   * testScuDescription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The time when the SCU expires.
-   * 
-   * @example
-   * 2021-09-17T16:00Z
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The name of the SCU.
-   * 
-   * @example
-   * testScuName
-   */
   name?: string;
-  /**
-   * @remarks
-   * The region ID of the SCU.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The time when the SCU took effect.
-   * 
-   * @example
-   * 2021-08-17T02:55Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The status of the SCU. Valid values:
-   * 
-   * *   Creating: The SCUs are being created.
-   * *   Active: The SCUs are in effect.
-   * *   Expired: The SCUs have expired.
-   * *   Pending: The SCUs have not taken effect.
-   * 
-   * @example
-   * Active
-   */
   status?: string;
-  /**
-   * @remarks
-   * The ID of the SCU.
-   * 
-   * @example
-   * scu-bp67acfmxazb4p****
-   */
   storageCapacityUnitId?: string;
-  /**
-   * @remarks
-   * The tag key-value pairs of the SCU.
-   */
   tags?: DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnitsStorageCapacityUnitTags;
   static names(): { [key: string]: string } {
     return {
@@ -257,10 +161,6 @@ export class DescribeStorageCapacityUnitsResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the SCUs.
-   */
   storageCapacityUnits?: DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnits;
   /**
    * @remarks

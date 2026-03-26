@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAssociatedPublicIp extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   allocationId?: string;
-  /**
-   * @remarks
-   * The EIP.
-   * 
-   * @example
-   * ``116.62.**.**``
-   */
   publicIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,40 +29,9 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAttachment extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * 0
-   */
   deviceIndex?: number;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The index of the network card.
-   * 
-   * *   If the ENI is in the Available state or if no network card index was specified when the ENI was attached, this parameter is empty.
-   * *   If the ENI is in the InUse state and a network card index was specified when the ENI was attached, the specified network card index is returned as the value of this parameter.
-   * 
-   * @example
-   * 0
-   */
   networkCardIndex?: number;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   trunkNetworkInterfaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,13 +61,6 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSetsIpv4PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 prefix of the ENI.
-   * 
-   * @example
-   * hide
-   */
   ipv4Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -162,13 +110,6 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSetsIpv6PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 prefix of the ENI.
-   * 
-   * @example
-   * hide
-   */
   ipv6Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -218,13 +159,6 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6SetsIpv6Set extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 address of the ENI.
-   * 
-   * @example
-   * 2408:4321:180:1701:94c7:bc38:3bfa:****
-   */
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
@@ -274,21 +208,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSetAssociatedPublicIp extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * null
-   */
   allocationId?: string;
-  /**
-   * @remarks
-   * The EIP.
-   * 
-   * @example
-   * ``116.62.**.**``
-   */
   publicIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -314,39 +234,9 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet extends $dara.Model {
-  /**
-   * @remarks
-   * The elastic IP address (EIP) that is associated with the private IP address.
-   */
   associatedPublicIp?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSetAssociatedPublicIp;
-  /**
-   * @remarks
-   * Indicates whether the private IP address is the primary private IP address. Valid values:
-   * 
-   * *   true: The IP address is the primary private IP address.
-   * *   false: The IP address is a secondary private IP address.
-   * 
-   * @example
-   * true
-   */
   primary?: boolean;
-  /**
-   * @remarks
-   * The private domain name of the ECS instance.
-   * 
-   * >  A private domain name can be returned in a specific format only when `HostnameType` is set to `IP` or `InstanceId`.
-   * 
-   * @example
-   * DnsTestName
-   */
   privateDnsName?: string;
-  /**
-   * @remarks
-   * The private IP address of the ENI.
-   * 
-   * @example
-   * ``172.17.**.**``
-   */
   privateIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -431,21 +321,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -497,235 +373,34 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSet extends $dara.Model {
-  /**
-   * @remarks
-   * The EIPs that are associated with the secondary private IP addresses of the ENI.
-   */
   associatedPublicIp?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAssociatedPublicIp;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   */
   attachment?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAttachment;
-  /**
-   * @remarks
-   * The time when the security group was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-12-25T12:31:31Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * Indicates whether to retain the ENI when the associated instance is released. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   deleteOnRelease?: boolean;
-  /**
-   * @remarks
-   * The description of the ENI.
-   * 
-   * @example
-   * DescriptionTest
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the Elastic Compute Service (ECS) instance to which the ENI is attached.
-   * 
-   * >  If the ENI is managed by other Alibaba Cloud services, no instance ID is returned.
-   * 
-   * @example
-   * i-bp1e2l6djkndyuli****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The IPv4 prefixes of the ENI.
-   */
   ipv4PrefixSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 prefixes of the ENI.
-   */
   ipv6PrefixSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 addresses of the ENI.
-   */
   ipv6Sets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6Sets;
-  /**
-   * @remarks
-   * The MAC address of the ENI.
-   * 
-   * @example
-   * 00:16:3e:12:**:**
-   */
   macAddress?: string;
-  /**
-   * @remarks
-   * The ID of the ENI.
-   * 
-   * @example
-   * eni-bp125p95hhdhn3ot****
-   */
   networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The name of the ENI.
-   * 
-   * @example
-   * my-eni-name
-   */
   networkInterfaceName?: string;
-  /**
-   * @remarks
-   * The communication mode of the ENI. Valid values:
-   * 
-   * *   Standard: The TCP communication mode is used.
-   * *   HighPerformance: The Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
-   * 
-   * >  This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
-   * 
-   * @example
-   * Standard
-   */
   networkInterfaceTrafficMode?: string;
-  /**
-   * @remarks
-   * The ID of the account to which the ENI belongs.
-   * 
-   * @example
-   * 123456****
-   */
   ownerId?: string;
-  /**
-   * @remarks
-   * The primary private IP address of the ENI.
-   * 
-   * @example
-   * ``172.17.**.**``
-   */
   privateIpAddress?: string;
-  /**
-   * @remarks
-   * Details about the private IP addresses of the ENI.
-   */
   privateIpSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets;
-  /**
-   * @remarks
-   * The number of queues supported by the ENI.
-   * 
-   * *   If the ENI is a secondary ENI in the InUse state and the number of queues supported by the ENI has never been modified, the default number of queues per secondary ENI that the instance type supports is returned.
-   * *   If the ENI is a secondary ENI and the number of queues supported by the ENI has been modified, the new number of queues is returned.
-   * *   If the ENI is a secondary ENI in the Available state and the number of queues supported by the ENI has never been modified, an empty value is returned.
-   * *   If the ENI is a primary ENI, the default number of queues per primary ENI that the instance type supports is returned.
-   * 
-   * @example
-   * 8
-   */
   queueNumber?: number;
-  /**
-   * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
-   * 
-   * @example
-   * 0
-   */
   queuePairNumber?: number;
-  /**
-   * @remarks
-   * The ID of the resource group to which the ENI belongs.
-   * 
-   * @example
-   * rg-2ze88m67qx5z****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The security groups to which the ENI belongs.
-   */
   securityGroupIds?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetSecurityGroupIds;
-  /**
-   * @remarks
-   * The ID of the distributor to which the ENI belongs.
-   * 
-   * @example
-   * 12345678910
-   */
   serviceID?: number;
-  /**
-   * @remarks
-   * Indicates whether the user of the ENI is an Alibaba Cloud service or a distributor.
-   * 
-   * @example
-   * true
-   */
   serviceManaged?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the source and destination IP address check feature is enabled. To improve network security, enable this feature. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * Default value: false.
-   * 
-   * >  Before you use this parameter, read [Source and destination IP address check](https://help.aliyun.com/document_detail/2863210.html).
-   * 
-   * @example
-   * false
-   */
   sourceDestCheck?: boolean;
-  /**
-   * @remarks
-   * The state of the ENI.
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the ENI.
-   */
   tags?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetTags;
-  /**
-   * @remarks
-   * The type of the ENI.
-   * 
-   * @example
-   * Secondary
-   */
   type?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
-   * @example
-   * vsw-bp16usj2p27htro3****
-   */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the VPC to which the ENI belongs.
-   * 
-   * @example
-   * vpc-bp1j7w3gc1cexjqd****
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The zone ID of the ENI.
-   * 
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -855,10 +530,6 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets extends $
 }
 
 export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of the ENIs.
-   */
   networkInterfaceSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets;
   /**
    * @remarks

@@ -78,45 +78,10 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
 }
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacitiesSocketCapacity extends $dara.Model {
-  /**
-   * @remarks
-   * The amount of available memory. Unit: GiB.
-   * 
-   * @example
-   * 65
-   */
   availableMemory?: number;
-  /**
-   * @remarks
-   * The number of available vCPUs.
-   * 
-   * @example
-   * 64
-   */
   availableVcpu?: number;
-  /**
-   * @remarks
-   * The socket ID.
-   * 
-   * @example
-   * 1
-   */
   socketId?: number;
-  /**
-   * @remarks
-   * The total amount of memory. Unit: GiB.
-   * 
-   * @example
-   * 128
-   */
   totalMemory?: number;
-  /**
-   * @remarks
-   * The total number of vCPUs.
-   * 
-   * @example
-   * 128
-   */
   totalVcpu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -175,82 +140,15 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacity extends $dara.Model {
   availableInstanceTypes?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacityAvailableInstanceTypes;
-  /**
-   * @remarks
-   * The amount of available space on the local disks. Unit: GiB
-   * 
-   * @example
-   * 65
-   */
   availableLocalStorage?: number;
-  /**
-   * @remarks
-   * The amount of available memory. Unit: GiB.
-   * 
-   * @example
-   * 25
-   */
   availableMemory?: number;
-  /**
-   * @remarks
-   * The number of available vCPUs.
-   * 
-   * @example
-   * 5
-   */
   availableVcpus?: number;
-  /**
-   * @remarks
-   * The number of available vGPUs.
-   * 
-   * @example
-   * 2
-   */
   availableVgpus?: number;
-  /**
-   * @remarks
-   * The category of local disks.
-   * 
-   * @example
-   * i2
-   */
   localStorageCategory?: string;
-  /**
-   * @remarks
-   * The socket capacities.
-   */
   socketCapacities?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacities;
-  /**
-   * @remarks
-   * The total capacity of local disks. Unit: GiB.
-   * 
-   * @example
-   * 512
-   */
   totalLocalStorage?: number;
-  /**
-   * @remarks
-   * The total amount of memory. Unit: GiB.
-   * 
-   * @example
-   * 1024
-   */
   totalMemory?: number;
-  /**
-   * @remarks
-   * The total number of vCPUs.
-   * 
-   * @example
-   * 56
-   */
   totalVcpus?: number;
-  /**
-   * @remarks
-   * The total number of vGPUs.
-   * 
-   * @example
-   * 10
-   */
   totalVgpus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -300,13 +198,6 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
 }
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostHostDetailInfo extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
-   * 
-   * @example
-   * null
-   */
   serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -330,37 +221,9 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostHostDe
 }
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostInstancesInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the ECS instance.
-   * 
-   * @example
-   * i-bp14ot0ykf8w13a1****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the ECS instance owner.
-   * 
-   * @example
-   * 128************0
-   */
   instanceOwnerId?: number;
-  /**
-   * @remarks
-   * The instance type of the ECS instance that was created on the dedicated host.
-   * 
-   * @example
-   * ecs.g5.large
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The ID of the socket to which the ECS instance belongs.
-   * 
-   * @example
-   * 0,1
-   */
   socketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -416,21 +279,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostInstan
 }
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostNetworkAttributes extends $dara.Model {
-  /**
-   * @remarks
-   * The timeout period of the UDP session that is established between Server Load Balancer (SLB) and the dedicated host. Unit: seconds. Only 60 is returned.
-   * 
-   * @example
-   * 60
-   */
   slbUdpTimeout?: number;
-  /**
-   * @remarks
-   * The timeout period of the UDP session that is established between a user and an Alibaba Cloud service on the dedicated host. Unit: seconds. Only 60 is returned.
-   * 
-   * @example
-   * 60
-   */
   udpTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -456,16 +305,6 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostNetwor
 }
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostOperationLocksOperationLock extends $dara.Model {
-  /**
-   * @remarks
-   * The reason why the dedicated host was locked. Valid values:
-   * 
-   * *   financial: The dedicated host was locked due to overdue payments.
-   * *   security: The dedicated host was locked due to security reasons.
-   * 
-   * @example
-   * financial
-   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -593,21 +432,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostSuppor
 }
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the dedicated host.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value of the dedicated host.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -660,251 +485,37 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostTags e
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHost extends $dara.Model {
   schedulerOptions?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostSchedulerOptions;
-  /**
-   * @remarks
-   * The policy used to migrate the ECS instances deployed on the dedicated host when the dedicated host fails. Valid values:
-   * 
-   * *   Migrate: The instances are migrated to another physical machine. Instances that are not in the Stopped state when the dedicated host fails are restarted.
-   * *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical machine and then restarted.
-   * 
-   * If the dedicated host has cloud disks attached, the default value is Migrate. If the dedicated host has local disks attached, the default value is Stop.
-   * 
-   * @example
-   * Migrate
-   */
   actionOnMaintenance?: string;
-  /**
-   * @remarks
-   * Indicates whether the dedicated host is added to the resource pool for automatic deployment. Valid values:
-   * 
-   * *   on: The dedicated host is added to the resource pool for automatic deployment.
-   * *   off: The dedicated host is not added to the resource pool for automatic deployment.
-   * 
-   * For information about automatic deployment, see the "Automatic deployment" section in [Functions and features](https://help.aliyun.com/document_detail/118938.html).
-   * 
-   * @example
-   * on
-   */
   autoPlacement?: string;
-  /**
-   * @remarks
-   * The automatic release time of the dedicated host. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-01-01T12:00Z
-   */
   autoReleaseTime?: string;
-  /**
-   * @remarks
-   * The performance specifications of the dedicated host.
-   */
   capacity?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacity;
-  /**
-   * @remarks
-   * The billing method of the dedicated host.
-   * 
-   * @example
-   * Prepaid
-   */
   chargeType?: string;
-  /**
-   * @remarks
-   * The number of physical cores per CPU.
-   * 
-   * @example
-   * 3
-   */
   cores?: number;
-  /**
-   * @remarks
-   * The CPU overcommit ratio. Valid values: 1 to 5.
-   * 
-   * @example
-   * 1
-   */
   cpuOverCommitRatio?: number;
-  /**
-   * @remarks
-   * The time when the dedicated host was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-01-01T12:00Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated host cluster to which the dedicated host belongs.
-   * 
-   * @example
-   * dc-bp12wlf6am0vz9v2****
-   */
   dedicatedHostClusterId?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated host.
-   * 
-   * @example
-   * dh-bp165p6xk2tlw61e****
-   */
   dedicatedHostId?: string;
-  /**
-   * @remarks
-   * The name of the dedicated host.
-   * 
-   * @example
-   * MyDDHTestName
-   */
   dedicatedHostName?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated host owner.
-   * 
-   * @example
-   * 100************7
-   */
   dedicatedHostOwnerId?: number;
-  /**
-   * @remarks
-   * The type of the dedicated host.
-   * 
-   * @example
-   * ddh.g5
-   */
   dedicatedHostType?: string;
-  /**
-   * @remarks
-   * The description of the dedicated host.
-   * 
-   * @example
-   * this-is-my-DDH
-   */
   description?: string;
-  /**
-   * @remarks
-   * The expiration time of the subscription dedicated host. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-01-01T12:00Z
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The GPU model.
-   * 
-   * @example
-   * gpu
-   */
   GPUSpec?: string;
-  /**
-   * @remarks
-   * This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
-   */
   hostDetailInfo?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostHostDetailInfo;
-  /**
-   * @remarks
-   * The ECS instances that were created on the dedicated host.
-   */
   instances?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostInstances;
-  /**
-   * @remarks
-   * The machine code of the dedicated host.
-   * 
-   * @example
-   * 12aaa123456ff19dec12345d3026e****
-   */
   machineId?: string;
-  /**
-   * @remarks
-   * The network attributes of the dedicated host.
-   */
   networkAttributes?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostNetworkAttributes;
-  /**
-   * @remarks
-   * The reasons why the resources of the dedicated host were locked.
-   */
   operationLocks?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostOperationLocks;
-  /**
-   * @remarks
-   * The number of physical GPUs.
-   * 
-   * @example
-   * 10
-   */
   physicalGpus?: number;
-  /**
-   * @remarks
-   * The region ID of the dedicated host.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the dedicated host belongs.
-   * 
-   * @example
-   * rg-aek3b6jzp66****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The unit of the subscription duration. Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * 
-   * @example
-   * Month
-   */
   saleCycle?: string;
-  /**
-   * @remarks
-   * The number of physical CPUs.
-   * 
-   * @example
-   * 5
-   */
   sockets?: number;
-  /**
-   * @remarks
-   * The status of the dedicated host. Valid values:
-   * 
-   * *   Available: The dedicated host is running as expected.
-   * *   UnderAssessment: The dedicated host is available but has potential risks that may cause the ECS instances on the dedicated host to fail.
-   * *   PermanentFailure: The dedicated host has permanent failures and is unavailable.
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The custom ECS instance families that are supported by the dedicated host.
-   */
   supportedCustomInstanceTypeFamilies?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostSupportedCustomInstanceTypeFamilies;
-  /**
-   * @remarks
-   * The ECS instance families that are supported by the dedicated host.
-   */
   supportedInstanceTypeFamilies?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostSupportedInstanceTypeFamilies;
-  /**
-   * @remarks
-   * The ECS instance types that are supported by the dedicated host.
-   */
   supportedInstanceTypesList?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostSupportedInstanceTypesList;
-  /**
-   * @remarks
-   * The tags of the dedicated host.
-   */
   tags?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostTags;
-  /**
-   * @remarks
-   * The zone ID of the dedicated host.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1048,10 +659,6 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHosts extends $dara.Mode
 }
 
 export class DescribeDedicatedHostsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the DDH.
-   */
   dedicatedHosts?: DescribeDedicatedHostsResponseBodyDedicatedHosts;
   /**
    * @remarks

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAutoSnapshotPolicyAssociationsResponseBodyAutoSnapshotPolicyAssociationsAutoSnapshotPolicyAssociation extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the automatic snapshot policy.
-   * 
-   * @example
-   * sp-bp12quk7gqhhuu1f****
-   */
   autoSnapshotPolicyId?: string;
-  /**
-   * @remarks
-   * The ID of the cloud disk.
-   * 
-   * @example
-   * d-bp67acfmxazb4p****
-   */
   diskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeAutoSnapshotPolicyAssociationsResponseBodyAutoSnapshotPolic
 }
 
 export class DescribeAutoSnapshotPolicyAssociationsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The association of automatic snapshot policies.
-   */
   autoSnapshotPolicyAssociations?: DescribeAutoSnapshotPolicyAssociationsResponseBodyAutoSnapshotPolicyAssociations;
   /**
    * @remarks

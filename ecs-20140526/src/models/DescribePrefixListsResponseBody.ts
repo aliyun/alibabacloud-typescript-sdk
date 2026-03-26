@@ -3,23 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePrefixListsResponseBodyPrefixListsPrefixListTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag value. A prefix list can have 1 to 20 tags. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http:// or https://`.
-   * 
-   * @example
-   * TestValue
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag key. A prefix list can have 1 to 20 tags. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * TestKey
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,77 +55,14 @@ export class DescribePrefixListsResponseBodyPrefixListsPrefixListTags extends $d
 }
 
 export class DescribePrefixListsResponseBodyPrefixListsPrefixList extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address family of the prefix list. Valid values:
-   * 
-   * *   IPv4
-   * *   IPv6
-   * 
-   * @example
-   * IPv4
-   */
   addressFamily?: string;
-  /**
-   * @remarks
-   * The number of associated resources.
-   * 
-   * @example
-   * 1
-   */
   associationCount?: number;
-  /**
-   * @remarks
-   * The time when the prefix list was created.
-   * 
-   * @example
-   * 2021-02-20T07:11Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the prefix list.
-   * 
-   * @example
-   * This is description.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The maximum number of entries that the prefix list can contain.
-   * 
-   * @example
-   * 20
-   */
   maxEntries?: number;
-  /**
-   * @remarks
-   * The ID of the prefix list.
-   * 
-   * @example
-   * pl-x1j1k5ykzqlixdcy****
-   */
   prefixListId?: string;
-  /**
-   * @remarks
-   * The name of the prefix list.
-   * 
-   * @example
-   * PrefixListNameSample
-   */
   prefixListName?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the prefix list belongs.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags of the prefix list.
-   */
   tags?: DescribePrefixListsResponseBodyPrefixListsPrefixListTags;
   static names(): { [key: string]: string } {
     return {
@@ -218,10 +139,6 @@ export class DescribePrefixListsResponseBody extends $dara.Model {
    * AAAAAdDWBF2****
    */
   nextToken?: string;
-  /**
-   * @remarks
-   * Details about the prefix lists.
-   */
   prefixLists?: DescribePrefixListsResponseBodyPrefixLists;
   /**
    * @remarks

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterDedicatedHostClusterCapacityAvailableInstanceTypesAvailableInstanceType extends $dara.Model {
-  /**
-   * @remarks
-   * The available capacity of the ECS instance type.
-   * 
-   * @example
-   * 0
-   */
   availableInstanceCapacity?: number;
-  /**
-   * @remarks
-   * The ECS instance type.
-   * 
-   * @example
-   * ecs.c6.26xlarge
-   */
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,35 +55,8 @@ export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedic
 }
 
 export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterDedicatedHostClusterCapacityLocalStorageCapacitiesLocalStorageCapacity extends $dara.Model {
-  /**
-   * @remarks
-   * The available capacity of the local disk. Unit: GiB
-   * 
-   * @example
-   * 20
-   */
   availableDisk?: number;
-  /**
-   * @remarks
-   * The category of data disks. Valid values:
-   * 
-   * *   cloud: basic disk
-   * *   cloud_efficiency: ultra disk
-   * *   cloud_ssd: standard SSD
-   * *   ephemeral_ssd: local SSD
-   * *   cloud_essd: Enterprise SSD (ESSD)
-   * 
-   * @example
-   * cloud
-   */
   dataDiskCategory?: string;
-  /**
-   * @remarks
-   * The total capacity of the local disk. Unit: GiB
-   * 
-   * @example
-   * 40
-   */
   totalDisk?: number;
   static names(): { [key: string]: string } {
     return {
@@ -151,47 +110,11 @@ export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedic
 }
 
 export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterDedicatedHostClusterCapacity extends $dara.Model {
-  /**
-   * @remarks
-   * The available capacity of ECS instances in the host group.
-   */
   availableInstanceTypes?: DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterDedicatedHostClusterCapacityAvailableInstanceTypes;
-  /**
-   * @remarks
-   * The size of available memory. Unit: GiB
-   * 
-   * @example
-   * 4
-   */
   availableMemory?: number;
-  /**
-   * @remarks
-   * The number of available vCPUs.
-   * 
-   * @example
-   * 2
-   */
   availableVcpus?: number;
-  /**
-   * @remarks
-   * The local storage capacity.
-   */
   localStorageCapacities?: DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterDedicatedHostClusterCapacityLocalStorageCapacities;
-  /**
-   * @remarks
-   * The total memory size. Unit: GiB
-   * 
-   * @example
-   * 8
-   */
   totalMemory?: number;
-  /**
-   * @remarks
-   * The total number of vCPUs.
-   * 
-   * @example
-   * 4
-   */
   totalVcpus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -257,21 +180,7 @@ export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedic
 }
 
 export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -323,68 +232,14 @@ export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedic
 }
 
 export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostCluster extends $dara.Model {
-  /**
-   * @remarks
-   * The capacity of the host group.
-   */
   dedicatedHostClusterCapacity?: DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterDedicatedHostClusterCapacity;
-  /**
-   * @remarks
-   * The ID of the host group.
-   * 
-   * @example
-   * dc-bp12wlf6am0vz9v2****
-   */
   dedicatedHostClusterId?: string;
-  /**
-   * @remarks
-   * The name of the host group.
-   * 
-   * @example
-   * myDDHCluster
-   */
   dedicatedHostClusterName?: string;
-  /**
-   * @remarks
-   * The IDs of dedicated hosts in the host group.
-   */
   dedicatedHostIds?: DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterDedicatedHostIds;
-  /**
-   * @remarks
-   * The description of the host group.
-   * 
-   * @example
-   * This-is-my-DDHCluster
-   */
   description?: string;
-  /**
-   * @remarks
-   * The region ID of the host group.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID of the host group.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags of the host group.
-   */
   tags?: DescribeDedicatedHostClustersResponseBodyDedicatedHostClustersDedicatedHostClusterTags;
-  /**
-   * @remarks
-   * The zone ID of the host group.
-   * 
-   * @example
-   * cn-hangzhou-f
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -459,10 +314,6 @@ export class DescribeDedicatedHostClustersResponseBodyDedicatedHostClusters exte
 }
 
 export class DescribeDedicatedHostClustersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array consisting of host group information.
-   */
   dedicatedHostClusters?: DescribeDedicatedHostClustersResponseBodyDedicatedHostClusters;
   /**
    * @remarks

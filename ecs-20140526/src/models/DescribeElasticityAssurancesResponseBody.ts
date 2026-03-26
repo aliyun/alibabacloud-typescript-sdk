@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemAllocatedResourcesAllocatedResourceElasticityAssuranceUsagesElasticityAssuranceUsage extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * 1144775968548340
-   */
   accountId?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * name
-   */
   serviceName?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * 1
-   */
   usedAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,50 +58,11 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElast
 }
 
 export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemAllocatedResourcesAllocatedResource extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * 5
-   */
   availableAmount?: number;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   */
   elasticityAssuranceUsages?: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemAllocatedResourcesAllocatedResourceElasticityAssuranceUsages;
-  /**
-   * @remarks
-   * The instance type.
-   * 
-   * @example
-   * ecs.c6.large
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The total number of instances for which capacity of an instance type is reserved.
-   * 
-   * @example
-   * 2
-   */
   totalAmount?: number;
-  /**
-   * @remarks
-   * The number of instances that have used the elasticity assurance.
-   * 
-   * @example
-   * 2
-   */
   usedAmount?: number;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,45 +125,9 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElast
 }
 
 export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemRecurrenceRulesRecurrenceRule extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the time-segmented assurance ends.
-   * 
-   * @example
-   * 10
-   */
   endHour?: number;
-  /**
-   * @remarks
-   * The type of the recurrence rule. Valid values:
-   * 
-   * *   Daily
-   * *   Weekly
-   * *   Monthly
-   * 
-   * @example
-   * Daily
-   */
   recurrenceType?: string;
-  /**
-   * @remarks
-   * The recurrence value of the time-segmented assurance. Valid values:
-   * 
-   * *   If you set `RecurrenceType` to `Daily`, you can set RecurrenceValue to only one value. Valid values: 1 to 31. The time-segmented assurance is performed every few days.
-   * *   If you set `RecurrenceType` to `Weekly`, you can set RecurrenceValue to one or more values. Separate the values with commas (,). The values that correspond to Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6. For example, `1,2` indicates that the time-segmented assurance is performed on Monday and Tuesday of every week.
-   * *   If you set `RecurrenceType` to `Monthly`, you can set RecurrenceValue to two values in the `A-B` format. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates that the time-segmented assurance is performed from the 1st to the 5th of each month.
-   * 
-   * @example
-   * 1
-   */
   recurrenceValue?: string;
-  /**
-   * @remarks
-   * The time when the time-segmented assurance takes effect.
-   * 
-   * @example
-   * 4
-   */
   startHour?: number;
   static names(): { [key: string]: string } {
     return {
@@ -279,21 +183,7 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElast
 }
 
 export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -345,162 +235,24 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElast
 }
 
 export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItem extends $dara.Model {
-  /**
-   * @remarks
-   * Details of the allocated resources.
-   */
   allocatedResources?: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemAllocatedResources;
-  /**
-   * @remarks
-   * The description of the elasticity assurance.
-   * 
-   * @example
-   * This is description.
-   */
   description?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * e114477596854834
-   */
   elasticityAssuranceOwnerId?: string;
-  /**
-   * @remarks
-   * The time when the elasticity assurance expires.
-   * 
-   * @example
-   * 2021-12-03T16:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The billing method of the instance. The value can be only PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
-   * 
-   * @example
-   * PostPaid
-   */
   instanceChargeType?: string;
-  /**
-   * @remarks
-   * > This parameter is not publicly available.
-   * 
-   * @example
-   * null
-   */
   latestStartTime?: string;
-  /**
-   * @remarks
-   * The type of the elasticity assurance. Valid values:
-   * 
-   * *   ElasticityAssurance: the general-purpose elasticity assurance.
-   * *   TimeDivisionElasticityAssurance: the time-segmented assurance of the elasticity assurance.
-   * 
-   * @example
-   * ElasticityAssurance
-   */
   packageType?: string;
-  /**
-   * @remarks
-   * The ID of the elasticity assurance.
-   * 
-   * @example
-   * eap-bp1ir35kqtn8ywci****
-   */
   privatePoolOptionsId?: string;
-  /**
-   * @remarks
-   * The type of the private pool associated with the elasticity assurance. Valid values:
-   * 
-   * *   Open: open private pool
-   * *   Target: specific private pool
-   * 
-   * @example
-   * Target
-   */
   privatePoolOptionsMatchCriteria?: string;
-  /**
-   * @remarks
-   * The name of the elasticity assurance.
-   * 
-   * @example
-   * eapTestName
-   */
   privatePoolOptionsName?: string;
-  /**
-   * @remarks
-   * The recurrence rules of the time-segmented assurances.
-   */
   recurrenceRules?: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemRecurrenceRules;
-  /**
-   * @remarks
-   * The region ID of the elasticity assurance.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The time when the elasticity assurance takes effect.
-   * 
-   * @example
-   * 2020-12-03T05:25Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * Indicates when the elasticity assurance takes effect. Valid values:
-   * 
-   * *   Now: The elasticity assurance takes effect immediately after it is created.
-   * *   Later: The elasticity assurance takes effect at a specified time.
-   * 
-   * @example
-   * Now
-   */
   startTimeType?: string;
-  /**
-   * @remarks
-   * The status of the elasticity assurance. Valid values:
-   * 
-   * *   Preparing
-   * *   Prepared
-   * *   Active
-   * *   Released
-   * 
-   * @example
-   * Active
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the elasticity assurance.
-   */
   tags?: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemTags;
-  /**
-   * @remarks
-   * The total number of times that the elasticity assurance is applied.
-   * 
-   * @example
-   * Unlimited
-   */
   totalAssuranceTimes?: string;
-  /**
-   * @remarks
-   * > This parameter is not publicly available.
-   * 
-   * @example
-   * 0
-   */
   usedAssuranceTimes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -595,10 +347,6 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSet exte
 }
 
 export class DescribeElasticityAssurancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the elasticity assurances.
-   */
   elasticityAssuranceSet?: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSet;
   /**
    * @remarks

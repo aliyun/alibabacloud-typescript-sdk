@@ -14,6 +14,8 @@ export class ModifyCloudAssistantSettingsRequestAgentUpgradeConfig extends $dara
    * For example, [ "02:00-03:00", "05:00-06:00" ] specifies that Cloud Assistant Agent can be upgraded from 2:00:00 to 3:00:00 and from 5:00:00 to 6:00:00 every day in the UTC time zone.
    */
   allowedUpgradeWindow?: string[];
+  bootstrapUpgrade?: boolean;
+  disableUpgrade?: boolean;
   /**
    * @remarks
    * Specifies whether to enable custom upgrade for Cloud Assistant Agent. If you set this parameter to false, an upgrade attempt is performed for Cloud Assistant Agent every 30 minutes.
@@ -38,6 +40,8 @@ export class ModifyCloudAssistantSettingsRequestAgentUpgradeConfig extends $dara
   static names(): { [key: string]: string } {
     return {
       allowedUpgradeWindow: 'AllowedUpgradeWindow',
+      bootstrapUpgrade: 'BootstrapUpgrade',
+      disableUpgrade: 'DisableUpgrade',
       enabled: 'Enabled',
       timeZone: 'TimeZone',
     };
@@ -46,6 +50,8 @@ export class ModifyCloudAssistantSettingsRequestAgentUpgradeConfig extends $dara
   static types(): { [key: string]: any } {
     return {
       allowedUpgradeWindow: { 'type': 'array', 'itemType': 'string' },
+      bootstrapUpgrade: 'boolean',
+      disableUpgrade: 'boolean',
       enabled: 'boolean',
       timeZone: 'string',
     };
@@ -143,6 +149,44 @@ export class ModifyCloudAssistantSettingsRequestOssDeliveryConfig extends $dara.
       encryptionKeyId: 'string',
       encryptionType: 'string',
       prefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCloudAssistantSettingsRequestResourceUsageConfig extends $dara.Model {
+  cpuLimit?: number;
+  keepScriptFile?: boolean;
+  logFileCountLimit?: number;
+  logSizeLimit?: string;
+  memoryLimit?: string;
+  overloadLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuLimit: 'CpuLimit',
+      keepScriptFile: 'KeepScriptFile',
+      logFileCountLimit: 'LogFileCountLimit',
+      logSizeLimit: 'LogSizeLimit',
+      memoryLimit: 'MemoryLimit',
+      overloadLimit: 'OverloadLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuLimit: 'number',
+      keepScriptFile: 'boolean',
+      logFileCountLimit: 'number',
+      logSizeLimit: 'string',
+      memoryLimit: 'string',
+      overloadLimit: 'number',
     };
   }
 
@@ -267,6 +311,7 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourceUsageConfig?: ModifyCloudAssistantSettingsRequestResourceUsageConfig;
   /**
    * @remarks
    * Cloud Assistant Session Manager configuration.
@@ -301,6 +346,7 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceUsageConfig: 'ResourceUsageConfig',
       sessionManagerConfig: 'SessionManagerConfig',
       settingType: 'SettingType',
       slsDeliveryConfig: 'SlsDeliveryConfig',
@@ -316,6 +362,7 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourceUsageConfig: ModifyCloudAssistantSettingsRequestResourceUsageConfig,
       sessionManagerConfig: ModifyCloudAssistantSettingsRequestSessionManagerConfig,
       settingType: 'string',
       slsDeliveryConfig: ModifyCloudAssistantSettingsRequestSlsDeliveryConfig,
@@ -328,6 +375,9 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
     }
     if(this.ossDeliveryConfig && typeof (this.ossDeliveryConfig as any).validate === 'function') {
       (this.ossDeliveryConfig as any).validate();
+    }
+    if(this.resourceUsageConfig && typeof (this.resourceUsageConfig as any).validate === 'function') {
+      (this.resourceUsageConfig as any).validate();
     }
     if(this.sessionManagerConfig && typeof (this.sessionManagerConfig as any).validate === 'function') {
       (this.sessionManagerConfig as any).validate();

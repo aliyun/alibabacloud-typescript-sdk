@@ -29,10 +29,6 @@ export class RunInstancesResponseBodyInstanceIdSets extends $dara.Model {
 }
 
 export class RunInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instance IDs.
-   */
   instanceIdSets?: RunInstancesResponseBodyInstanceIdSets;
   /**
    * @remarks

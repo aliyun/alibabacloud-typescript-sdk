@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DetachInstanceRamRoleResponseBodyDetachInstanceRamRoleResultsDetachInstanceRamRoleResultInstanceRamRoleSetsInstanceRamRoleSet extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the ECS instance.
-   * 
-   * @example
-   * i-bp67acfmxazb4p****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the instance RAM role.
-   * 
-   * @example
-   * RamRoleTest
-   */
   ramRoleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,42 +55,10 @@ export class DetachInstanceRamRoleResponseBodyDetachInstanceRamRoleResultsDetach
 }
 
 export class DetachInstanceRamRoleResponseBodyDetachInstanceRamRoleResultsDetachInstanceRamRoleResult extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the instance RAM role was detached. If 200 is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * The ID of the ECS instance from which you attempted to detach the instance RAM role.
-   * 
-   * @example
-   * i-bp67acfmxazb4p****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the instance RAM role and the ID of the ECS instance.
-   */
   instanceRamRoleSets?: DetachInstanceRamRoleResponseBodyDetachInstanceRamRoleResultsDetachInstanceRamRoleResultInstanceRamRoleSets;
-  /**
-   * @remarks
-   * Indicates whether the instance RAM role was detached. If success is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
-   * 
-   * @example
-   * Success
-   */
   message?: string;
-  /**
-   * @remarks
-   * Indicates whether the instance RAM role was detached.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -165,10 +119,6 @@ export class DetachInstanceRamRoleResponseBodyDetachInstanceRamRoleResults exten
 }
 
 export class DetachInstanceRamRoleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The results of the instance RAM role detachment, which include the names of the instance RAM roles and the IDs of the ECS instances from which you attempted to detach the instance RAM roles.
-   */
   detachInstanceRamRoleResults?: DetachInstanceRamRoleResponseBodyDetachInstanceRamRoleResults;
   /**
    * @remarks

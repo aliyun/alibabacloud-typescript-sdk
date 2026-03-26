@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the pricing rule.
-   * 
-   * @example
-   * Receive a 15% discount on a 1-year subscription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the pricing rule.
-   * 
-   * @example
-   * 587
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,48 +55,10 @@ export class DescribePriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubRule
 }
 
 export class DescribePriceResponseBodyPriceInfoPriceDetailInfosDetailInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The discount.
-   * 
-   * @example
-   * 655.2
-   */
   discountPrice?: number;
-  /**
-   * @remarks
-   * The original price.
-   * 
-   * @example
-   * 4368
-   */
   originalPrice?: number;
-  /**
-   * @remarks
-   * The resource name. Valid values:
-   * 
-   * *   InstanceType
-   * *   bandwidth
-   * *   image
-   * *   SystemDisk
-   * *   DataDisk
-   * 
-   * @example
-   * instance
-   */
   resource?: string;
-  /**
-   * @remarks
-   * Details about the pricing rules.
-   */
   subRules?: DescribePriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubRules;
-  /**
-   * @remarks
-   * The transaction price.
-   * 
-   * @example
-   * 3712.8
-   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -183,12 +131,6 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * CNY
    */
   currency?: string;
-  /**
-   * @remarks
-   * The information about the price.
-   * 
-   * >  This parameter is returned only when ResourceType is set to instance.
-   */
   detailInfos?: DescribePriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
@@ -351,21 +293,7 @@ export class DescribePriceResponseBodyPriceInfoRelatedPrice extends $dara.Model 
 }
 
 export class DescribePriceResponseBodyPriceInfoRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the promotion rule.
-   * 
-   * @example
-   * Receive a 15% discount on a 1-year subscription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the pricing rule.
-   * 
-   * @example
-   * 587
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -427,10 +355,6 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
    * The related price.
    */
   relatedPrice?: DescribePriceResponseBodyPriceInfoRelatedPrice;
-  /**
-   * @remarks
-   * The information about the promotion rules.
-   */
   rules?: DescribePriceResponseBodyPriceInfoRules;
   static names(): { [key: string]: string } {
     return {

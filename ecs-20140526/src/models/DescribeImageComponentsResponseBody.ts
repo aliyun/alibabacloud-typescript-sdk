@@ -3,35 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeImageComponentsResponseBodyImageComponentImageComponentSetParametersParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The default value of the parameter.
-   * 
-   * @example
-   * null
-   */
   defaultValue?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * null
-   */
   name?: string;
-  /**
-   * @remarks
-   * The type of the parameter.
-   * 
-   * Valid values:
-   * 
-   * *   String
-   * *   Number
-   * *   Boolean
-   * 
-   * @example
-   * null
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,21 +58,7 @@ export class DescribeImageComponentsResponseBodyImageComponentImageComponentSetP
 }
 
 export class DescribeImageComponentsResponseBodyImageComponentImageComponentSetTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,98 +110,17 @@ export class DescribeImageComponentsResponseBodyImageComponentImageComponentSetT
 }
 
 export class DescribeImageComponentsResponseBodyImageComponentImageComponentSet extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the image component.
-   * 
-   * @example
-   * Build
-   */
   componentType?: string;
-  /**
-   * @remarks
-   * The version number of the image component.
-   * 
-   * @example
-   * null
-   */
   componentVersion?: string;
-  /**
-   * @remarks
-   * The content of the image component.
-   * 
-   * @example
-   * RESTART
-   */
   content?: string;
-  /**
-   * @remarks
-   * The time when the image component was created.
-   * 
-   * @example
-   * 2020-11-24T06:00:00Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the image component.
-   * 
-   * @example
-   * This is description.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the image component.
-   * 
-   * @example
-   * ic-bp67acfmxazb4p****
-   */
   imageComponentId?: string;
-  /**
-   * @remarks
-   * The name of the image component.
-   * 
-   * @example
-   * testComponent
-   */
   name?: string;
-  /**
-   * @remarks
-   * The type of the image component. Valid values:
-   * 
-   * *   SELF: the custom component that you created.
-   * *   ALIYUN: the system component provided by Alibaba Cloud.
-   * 
-   * @example
-   * SELF
-   */
   owner?: string;
-  /**
-   * @remarks
-   * The parameters contained in the image component.
-   */
   parameters?: DescribeImageComponentsResponseBodyImageComponentImageComponentSetParameters;
-  /**
-   * @remarks
-   * The ID of the resource group to which the image component belongs.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The type of the operating system supported by the image component.
-   * 
-   * @example
-   * Linux
-   */
   systemType?: string;
-  /**
-   * @remarks
-   * The tags of the image component.
-   */
   tags?: DescribeImageComponentsResponseBodyImageComponentImageComponentSetTags;
   static names(): { [key: string]: string } {
     return {
@@ -320,10 +198,6 @@ export class DescribeImageComponentsResponseBodyImageComponent extends $dara.Mod
 }
 
 export class DescribeImageComponentsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the image components.
-   */
   imageComponent?: DescribeImageComponentsResponseBodyImageComponent;
   /**
    * @remarks

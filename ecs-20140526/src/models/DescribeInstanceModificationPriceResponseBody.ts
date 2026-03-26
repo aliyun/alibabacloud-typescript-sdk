@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the pricing rule.
-   * 
-   * @example
-   * If you subscribe to an instance for one year, you can receive a 15% discount off the list price.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the pricing rule.
-   * 
-   * @example
-   * 315716429631488
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,48 +55,10 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailIn
 }
 
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfosDetailInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The discount.
-   * 
-   * @example
-   * 655.2
-   */
   discountPrice?: number;
-  /**
-   * @remarks
-   * The original price.
-   * 
-   * @example
-   * 4368
-   */
   originalPrice?: number;
-  /**
-   * @remarks
-   * The resource name. Valid values:
-   * 
-   * *   InstanceType
-   * *   bandwidth
-   * *   image
-   * *   SystemDisk
-   * *   DataDisk
-   * 
-   * @example
-   * instanceType
-   */
   resource?: string;
-  /**
-   * @remarks
-   * The pricing rules.
-   */
   subRules?: DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubRules;
-  /**
-   * @remarks
-   * The transaction price.
-   * 
-   * @example
-   * 3712.8
-   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -182,12 +130,6 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
    * CNY
    */
   currency?: string;
-  /**
-   * @remarks
-   * The information about the price.
-   * 
-   * >  This parameter is returned only when ResourceType is set to instance.
-   */
   detailInfos?: DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
@@ -246,21 +188,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
 }
 
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the promotion rule.
-   * 
-   * @example
-   * Upgrade offers
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the promotion rule.
-   * 
-   * @example
-   * 1234567890
-   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -317,10 +245,6 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
    * The price.
    */
   price?: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice;
-  /**
-   * @remarks
-   * The information about the promotion rules.
-   */
   rules?: DescribeInstanceModificationPriceResponseBodyPriceInfoRules;
   static names(): { [key: string]: string } {
     return {

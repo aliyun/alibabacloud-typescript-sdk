@@ -3,15 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceConditionSupportedResourcesConditionSupportedResourceConditionsCondition extends $dara.Model {
-  /**
-   * @remarks
-   * The condition name. Valid value:
-   * 
-   * DiskCategory, which indicates a disk category change.
-   * 
-   * @example
-   * DiskCategory
-   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,71 +52,12 @@ export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZon
 }
 
 export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceConditionSupportedResourcesConditionSupportedResource extends $dara.Model {
-  /**
-   * @remarks
-   * The conditions.
-   */
   conditions?: DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceConditionSupportedResourcesConditionSupportedResourceConditions;
-  /**
-   * @remarks
-   * The maximum disk capacity.
-   * 
-   * This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
-   * 
-   * @example
-   * 2
-   */
   max?: number;
-  /**
-   * @remarks
-   * The minimum disk capacity.
-   * 
-   * This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
-   * 
-   * @example
-   * 1
-   */
   min?: number;
-  /**
-   * @remarks
-   * The stock state of the resource. Valid values:
-   * 
-   * *   Available
-   * *   SoldOut
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The category of the resource based on stock status. Valid values:
-   * 
-   * *   WithStock: resources that are in sufficient stock
-   * *   ClosedWithStock: resources that are in insufficient stock
-   * *   WithoutStock: resources that are out of stock
-   * 
-   * @example
-   * WithStock
-   */
   statusCategory?: string;
-  /**
-   * @remarks
-   * The unit of the disk capacity.
-   * 
-   * This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
-   * 
-   * @example
-   * null
-   */
   unit?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ecs.g5.large
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -190,64 +122,11 @@ export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZon
 }
 
 export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResourcesSupportedResource extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum disk capacity.
-   * 
-   * This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
-   * 
-   * @example
-   * 2
-   */
   max?: number;
-  /**
-   * @remarks
-   * The minimum disk capacity.
-   * 
-   * This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
-   * 
-   * @example
-   * 1
-   */
   min?: number;
-  /**
-   * @remarks
-   * The state of the resource. Valid values:
-   * 
-   * *   Available
-   * *   SoldOut
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The category of the resource based on stock status. Valid values:
-   * 
-   * *   WithStock: resources that are in sufficient stock
-   * *   ClosedWithStock: resources that are in insufficient stock
-   * *   WithoutStock: resources that are out of stock
-   * 
-   * @example
-   * WithStock
-   */
   statusCategory?: string;
-  /**
-   * @remarks
-   * The unit of the disk capacity. This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
-   * 
-   * @example
-   * null
-   */
   unit?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * ecs.g5.large
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -307,26 +186,8 @@ export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZon
 }
 
 export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResource extends $dara.Model {
-  /**
-   * @remarks
-   * The resource types that resources can be changed to after the resources meet specified conditions. If the conditions are met, you can change the current resource to a resource in the list.
-   */
   conditionSupportedResources?: DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceConditionSupportedResources;
-  /**
-   * @remarks
-   * The information about the supported resources.
-   */
   supportedResources?: DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResources;
-  /**
-   * @remarks
-   * The resource type. Valid values:
-   * 
-   * *   InstanceType
-   * *   SystemDisk
-   * 
-   * @example
-   * InstanceType
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -386,49 +247,10 @@ export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZon
 }
 
 export class DescribeResourcesModificationResponseBodyAvailableZonesAvailableZone extends $dara.Model {
-  /**
-   * @remarks
-   * The resources that are available in the zone.
-   */
   availableResources?: DescribeResourcesModificationResponseBodyAvailableZonesAvailableZoneAvailableResources;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The state of the resource. Valid values:
-   * 
-   * *   Available
-   * *   SoldOut
-   * 
-   * @example
-   * Available
-   */
   status?: string;
-  /**
-   * @remarks
-   * The category of the resource based on stock status. Valid values:
-   * 
-   * *   WithStock: resources that are in sufficient stock
-   * *   ClosedWithStock: resources that are in insufficient stock
-   * *   WithoutStock: resources that are out of stock
-   * 
-   * @example
-   * WithStock
-   */
   statusCategory?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-e
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -489,10 +311,6 @@ export class DescribeResourcesModificationResponseBodyAvailableZones extends $da
 }
 
 export class DescribeResourcesModificationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the queried zones.
-   */
   availableZones?: DescribeResourcesModificationResponseBodyAvailableZones;
   /**
    * @remarks

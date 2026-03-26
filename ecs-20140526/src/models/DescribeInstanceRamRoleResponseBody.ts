@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceRamRoleResponseBodyInstanceRamRoleSetsInstanceRamRoleSet extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance
-   * 
-   * @example
-   * i-bp67acfmxazb4p****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the instance RAM role.
-   * 
-   * @example
-   * EcsServiceRole-EcsDocGuideTest
-   */
   ramRoleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeInstanceRamRoleResponseBodyInstanceRamRoleSets extends $dar
 }
 
 export class DescribeInstanceRamRoleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the ECS instances and the names of the corresponding instance RAM roles.
-   */
   instanceRamRoleSets?: DescribeInstanceRamRoleResponseBodyInstanceRamRoleSets;
   /**
    * @remarks

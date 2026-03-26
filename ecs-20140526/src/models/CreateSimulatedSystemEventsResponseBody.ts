@@ -29,10 +29,6 @@ export class CreateSimulatedSystemEventsResponseBodyEventIdSet extends $dara.Mod
 }
 
 export class CreateSimulatedSystemEventsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the simulated events.
-   */
   eventIdSet?: CreateSimulatedSystemEventsResponseBodyEventIdSet;
   /**
    * @remarks

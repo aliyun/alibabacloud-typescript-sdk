@@ -3,69 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeStorageSetDetailsResponseBodyDisksDisk extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the disk or Shared Block Storage device.
-   * 
-   * @example
-   * cloud_ssd
-   */
   category?: string;
-  /**
-   * @remarks
-   * The time when the disk or Shared Block Storage device was created.
-   * 
-   * @example
-   * 2019-06-01T00:00:00Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The ID of the disk or Shared Block Storage device.
-   * 
-   * @example
-   * d-bp67acfmxazb4p****
-   */
   diskId?: string;
-  /**
-   * @remarks
-   * The name of the disk or Shared Block Storage device.
-   * 
-   * @example
-   * testDiskName
-   */
   diskName?: string;
-  /**
-   * @remarks
-   * The region to which the disk or Shared Block Storage device belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the storage set.
-   * 
-   * @example
-   * ss-bp67acfmxazb4p****
-   */
   storageSetId?: string;
-  /**
-   * @remarks
-   * The number of partitions in the storage set.
-   * 
-   * @example
-   * 3
-   */
   storageSetPartitionNumber?: number;
-  /**
-   * @remarks
-   * The zone to which the disk or Shared Block Storage device belongs.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,10 +73,6 @@ export class DescribeStorageSetDetailsResponseBodyDisks extends $dara.Model {
 }
 
 export class DescribeStorageSetDetailsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the disks or Shared Block Storage devices in the storage set.
-   */
   disks?: DescribeStorageSetDetailsResponseBodyDisks;
   /**
    * @remarks

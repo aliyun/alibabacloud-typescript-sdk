@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DetachKeyPairResponseBodyResultsResult extends $dara.Model {
-  /**
-   * @remarks
-   * The operation status code that is returned. 200 indicates that the operation is successful.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-bp1d6tsvznfghy7y****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The result of the operation. For example, if the value of `Code` is 200, the value of `Message` is `successful`.
-   * 
-   * @example
-   * successful
-   */
   message?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation is successful.
-   * 
-   * @example
-   * true
-   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,10 +85,6 @@ export class DetachKeyPairResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The result set of the unbind operation.
-   */
   results?: DetachKeyPairResponseBodyResults;
   /**
    * @remarks

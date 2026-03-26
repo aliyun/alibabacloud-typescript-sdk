@@ -19,15 +19,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
    * testNewScuName
    */
   name?: string;
-  /**
-   * @example
-   * hide
-   */
   ownerAccount?: string;
-  /**
-   * @example
-   * 111
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -39,15 +31,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * hide
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @example
-   * 111
-   */
   resourceOwnerId?: number;
   /**
    * @remarks

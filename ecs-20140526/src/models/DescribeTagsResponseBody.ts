@@ -3,101 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTagsResponseBodyTagsTagResourceTypeCount extends $dara.Model {
-  /**
-   * @remarks
-   * The number of dedicated hosts to which the tag is added.
-   * 
-   * @example
-   * 1
-   */
   ddh?: number;
-  /**
-   * @remarks
-   * The number of disks to which the tag is added.
-   * 
-   * @example
-   * 15
-   */
   disk?: number;
-  /**
-   * @remarks
-   * The number of ENIs to which the tag is added.
-   * 
-   * @example
-   * 5
-   */
   eni?: number;
-  /**
-   * @remarks
-   * The number of images to which the tag is added.
-   * 
-   * @example
-   * 6
-   */
   image?: number;
-  /**
-   * @remarks
-   * The number of instances to which the tag is added.
-   * 
-   * @example
-   * 45
-   */
   instance?: number;
-  /**
-   * @remarks
-   * The number of key pairs to which the tag is added.
-   * 
-   * @example
-   * 17
-   */
   keyPair?: number;
-  /**
-   * @remarks
-   * The number of launch templates to which the tag is added.
-   * 
-   * @example
-   * 6
-   */
   launchTemplate?: number;
-  /**
-   * @remarks
-   * The number of reserved instances to which the tag is added.
-   * 
-   * @example
-   * 4
-   */
   reservedInstance?: number;
-  /**
-   * @remarks
-   * The number of security groups to which the tag is added.
-   * 
-   * @example
-   * 4
-   */
   securitygroup?: number;
-  /**
-   * @remarks
-   * The number of snapshots to which the tag is added.
-   * 
-   * @example
-   * 15
-   */
   snapshot?: number;
-  /**
-   * @remarks
-   * The number of automatic snapshot policies to which the tag is added.
-   * 
-   * @example
-   * 4
-   */
   snapshotPolicy?: number;
-  /**
-   * @remarks
-   * The number of storage volumes to which the tag is added.
-   * 
-   * @example
-   * 6
-   */
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -143,26 +59,8 @@ export class DescribeTagsResponseBodyTagsTagResourceTypeCount extends $dara.Mode
 }
 
 export class DescribeTagsResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The number of resource types.
-   */
   resourceTypeCount?: DescribeTagsResponseBodyTagsTagResourceTypeCount;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -243,10 +141,6 @@ export class DescribeTagsResponseBody extends $dara.Model {
    * B04B8CF3-4489-432D-83BA-6F128E4F2295
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tags that match all filter conditions.
-   */
   tags?: DescribeTagsResponseBodyTags;
   /**
    * @remarks

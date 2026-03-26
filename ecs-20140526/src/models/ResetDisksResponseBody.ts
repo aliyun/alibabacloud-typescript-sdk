@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetDisksResponseBodyOperationProgressSetOperationProgressRelatedItemSetRelatedItem extends $dara.Model {
-  /**
-   * @remarks
-   * The resource name.
-   * 
-   * @example
-   * SnapshotId
-   */
   name?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * s-j6cdofbycydvg7ey****
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,38 +55,9 @@ export class ResetDisksResponseBodyOperationProgressSetOperationProgressRelatedI
 }
 
 export class ResetDisksResponseBodyOperationProgressSetOperationProgress extends $dara.Model {
-  /**
-   * @remarks
-   * The error code that is returned if the request failed. This parameter is empty if the request is successful.
-   * 
-   * For information about error codes and error messages, see [Service error codes](https://error-center.alibabacloud.com/status/product/Ecs).
-   * 
-   * @example
-   * 400
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The error message that is returned if the request failed. This parameter is empty if the request is successful.
-   * 
-   * For information about error codes and error messages, see [Service error codes](https://error-center.alibabacloud.com/status/product/Ecs).
-   * 
-   * @example
-   * testErrorMsg
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful. If the request is successful, Success is returned. If the request failed, an error code and an error message are returned.
-   * 
-   * @example
-   * Success
-   */
   operationStatus?: string;
-  /**
-   * @remarks
-   * Details about the resources.
-   */
   relatedItemSet?: ResetDisksResponseBodyOperationProgressSetOperationProgressRelatedItemSet;
   static names(): { [key: string]: string } {
     return {
@@ -159,10 +116,6 @@ export class ResetDisksResponseBodyOperationProgressSet extends $dara.Model {
 }
 
 export class ResetDisksResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the rollback operation.
-   */
   operationProgressSet?: ResetDisksResponseBodyOperationProgressSet;
   /**
    * @remarks

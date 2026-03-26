@@ -3,53 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPluginStatusResponseBodyInstancePluginStatusSetInstancePluginStatusPluginStatusSetPluginStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The first time when Cloud Assistant reported the state of the plug-in.
-   * 
-   * @example
-   * 2020-01-19T09:15:46Z
-   */
   firstHeartbeatTime?: string;
-  /**
-   * @remarks
-   * The last time when Cloud Assistant reported the state of the plug-in.
-   * 
-   * @example
-   * 2020-01-19T09:15:46Z
-   */
   lastHeartbeatTime?: string;
-  /**
-   * @remarks
-   * The name of the plug-in.
-   * 
-   * @example
-   * testName
-   */
   pluginName?: string;
-  /**
-   * @remarks
-   * The state of the Cloud Assistant plug-in. Valid values:
-   * 
-   * *   NotInstalled: The plug-in is not installed.
-   * *   Installed: The one-time plug-in is installed.
-   * *   Running: The long-running plug-in is running.
-   * *   Stopped: The long-running plug-in is not running.
-   * *   Crashed: The plug-in is abnormal.
-   * *   Removed: The plug-in is uninstalled.
-   * *   Unknown: The state of the plug-in is unknown.
-   * 
-   * @example
-   * Running
-   */
   pluginStatus?: string;
-  /**
-   * @remarks
-   * The version of the plug-in.
-   * 
-   * @example
-   * 1.1
-   */
   pluginVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,18 +64,7 @@ export class ListPluginStatusResponseBodyInstancePluginStatusSetInstancePluginSt
 }
 
 export class ListPluginStatusResponseBodyInstancePluginStatusSetInstancePluginStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-xxxxx
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The queried Cloud Assistant plug-ins.
-   */
   pluginStatusSet?: ListPluginStatusResponseBodyInstancePluginStatusSetInstancePluginStatusPluginStatusSet;
   static names(): { [key: string]: string } {
     return {
@@ -173,10 +119,6 @@ export class ListPluginStatusResponseBodyInstancePluginStatusSet extends $dara.M
 }
 
 export class ListPluginStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The states of Cloud Assistant plug-ins on the instances.
-   */
   instancePluginStatusSet?: ListPluginStatusResponseBodyInstancePluginStatusSet;
   /**
    * @remarks

@@ -3,42 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributesReservedInstanceRenewAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * The auto-renewal duration.
-   * 
-   * @example
-   * 1
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The unit of the auto-renewal duration.
-   * 
-   * Valid values: Year and Month.
-   * 
-   * @example
-   * Month
-   */
   periodUnit?: string;
-  /**
-   * @remarks
-   * The auto-renewal status of the reserved instance. Valid values:
-   * 
-   * *   AutoRenewal: automatically renews the reserved instance.
-   * *   Normal: manually renews the reserved instances.
-   * 
-   * @example
-   * AutoRenewal
-   */
   renewalStatus?: string;
-  /**
-   * @remarks
-   * The ID of the reserved instance.
-   * 
-   * @example
-   * ecsri-ajdfaj****
-   */
   reservedInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -102,10 +69,6 @@ export class DescribeReservedInstanceAutoRenewAttributeResponseBody extends $dar
    * 04F0F334-1335-436C-A1D7-6C044FE7****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the auto-renewal settings of the reserved instances.
-   */
   reservedInstanceRenewAttributes?: DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributes;
   static names(): { [key: string]: string } {
     return {

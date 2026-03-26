@@ -188,19 +188,6 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
 }
 
 export class DescribeInstanceAttributeResponseBodyOperationLocksLockReason extends $dara.Model {
-  /**
-   * @remarks
-   * The reason why the instance was locked. Valid values:
-   * 
-   * *   financial: The instance was locked due to overdue payments.
-   * *   security: The instance was locked due to security reasons.
-   * *   recycling: The spot instance was locked and pending release.
-   * *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
-   * *   refunded: The instance was locked because a refund is made for the instance.
-   * 
-   * @example
-   * financial
-   */
   lockReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -336,10 +323,6 @@ export class DescribeInstanceAttributeResponseBodyVpcAttributes extends $dara.Mo
    * ``172.17.**.**``
    */
   natIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP address of the instance.
-   */
   privateIpAddress?: DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress;
   /**
    * @remarks
@@ -485,10 +468,6 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * m-bp1h46wfpjsjastc****
    */
   imageId?: string;
-  /**
-   * @remarks
-   * The internal IP address of the instance located in the classic network.
-   */
   innerIpAddress?: DescribeInstanceAttributeResponseBodyInnerIpAddress;
   /**
    * @remarks
@@ -591,21 +570,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * > This parameter is in invitational preview and is not publicly available.
    */
   networkOptions?: DescribeInstanceAttributeResponseBodyNetworkOptions;
-  /**
-   * @remarks
-   * The reason why the instance was locked. Valid values:
-   * 
-   * *   financial: The dedicated host was locked due to overdue payments.
-   * *   security: The instance was locked due to security reasons.
-   * *   recycling: The spot instance was locked and pending release.
-   * *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
-   * *   refunded: The instance was locked because a refund was made for the instance.
-   */
   operationLocks?: DescribeInstanceAttributeResponseBodyOperationLocks;
-  /**
-   * @remarks
-   * The public IP address of the instance.
-   */
   publicIpAddress?: DescribeInstanceAttributeResponseBodyPublicIpAddress;
   /**
    * @remarks
@@ -623,10 +588,6 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The IDs of the security groups to which the instance belongs.
-   */
   securityGroupIds?: DescribeInstanceAttributeResponseBodySecurityGroupIds;
   /**
    * @remarks

@@ -27,6 +27,7 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourceUsageConfigShrink?: string;
   /**
    * @remarks
    * Cloud Assistant Session Manager configuration.
@@ -61,6 +62,7 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceUsageConfigShrink: 'ResourceUsageConfig',
       sessionManagerConfigShrink: 'SessionManagerConfig',
       settingType: 'SettingType',
       slsDeliveryConfigShrink: 'SlsDeliveryConfig',
@@ -76,6 +78,7 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourceUsageConfigShrink: 'string',
       sessionManagerConfigShrink: 'string',
       settingType: 'string',
       slsDeliveryConfigShrink: 'string',

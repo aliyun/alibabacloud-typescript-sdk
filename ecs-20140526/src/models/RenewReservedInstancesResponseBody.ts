@@ -45,10 +45,6 @@ export class RenewReservedInstancesResponseBody extends $dara.Model {
    * 8C314443-AF0D-4766-9562-C83B7F1****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The IDs of the reserved instances.
-   */
   reservedInstanceIdSets?: RenewReservedInstancesResponseBodyReservedInstanceIdSets;
   static names(): { [key: string]: string } {
     return {

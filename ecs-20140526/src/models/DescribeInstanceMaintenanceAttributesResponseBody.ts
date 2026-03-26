@@ -29,30 +29,8 @@ export class DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttribu
 }
 
 export class DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributesMaintenanceAttributeActionOnMaintenance extends $dara.Model {
-  /**
-   * @remarks
-   * The default maintenance action.
-   * 
-   * @example
-   * AutoRecover
-   */
   defaultValue?: string;
-  /**
-   * @remarks
-   * The supported maintenance actions.
-   */
   supportedValues?: DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributesMaintenanceAttributeActionOnMaintenanceSupportedValues;
-  /**
-   * @remarks
-   * The current maintenance action. Valid values:
-   * 
-   * *   Stop: stops the instance.
-   * *   AutoRecover: automatically recovers the instance.
-   * *   AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
-   * 
-   * @example
-   * Stop
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,21 +61,7 @@ export class DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttribu
 }
 
 export class DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributesMaintenanceAttributeMaintenanceWindowsMaintenanceWindow extends $dara.Model {
-  /**
-   * @remarks
-   * The end time of the maintenance window.
-   * 
-   * @example
-   * 18:00:00
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The start time of the maintenance window.
-   * 
-   * @example
-   * 02:00:00
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,31 +113,9 @@ export class DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttribu
 }
 
 export class DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributesMaintenanceAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * The attributes of the maintenance action of the instance.
-   */
   actionOnMaintenance?: DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributesMaintenanceAttributeActionOnMaintenance;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-bp67acfmxazb4p****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The maintenance windows.
-   */
   maintenanceWindows?: DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributesMaintenanceAttributeMaintenanceWindows;
-  /**
-   * @remarks
-   * Indicates whether an event notification was sent before maintenance.
-   * 
-   * @example
-   * false
-   */
   notifyOnMaintenance?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -235,10 +177,6 @@ export class DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttribu
 }
 
 export class DescribeInstanceMaintenanceAttributesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The maintenance attributes.
-   */
   maintenanceAttributes?: DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributes;
   /**
    * @remarks

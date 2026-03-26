@@ -263,43 +263,12 @@ export class DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfoSy
 }
 
 export class DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The categories of data disks that can be created.
-   */
   dataDiskCategories?: DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfoDataDiskCategories;
-  /**
-   * @remarks
-   * The supported generations of instance families.
-   */
   instanceGenerations?: DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfoInstanceGenerations;
-  /**
-   * @remarks
-   * The supported instance families.
-   */
   instanceTypeFamilies?: DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfoInstanceTypeFamilies;
-  /**
-   * @remarks
-   * The supported instance types.
-   */
   instanceTypes?: DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfoInstanceTypes;
-  /**
-   * @remarks
-   * Indicates whether the instance is I/O optimized.
-   * 
-   * @example
-   * true
-   */
   ioOptimized?: boolean;
-  /**
-   * @remarks
-   * The supported network types.
-   */
   networkTypes?: DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfoNetworkTypes;
-  /**
-   * @remarks
-   * The categories of system disks that can be created.
-   */
   systemDiskCategories?: DescribeZonesResponseBodyZonesZoneAvailableResourcesResourcesInfoSystemDiskCategories;
   static names(): { [key: string]: string } {
     return {
@@ -431,78 +400,15 @@ export class DescribeZonesResponseBodyZonesZoneDedicatedHostGenerations extends 
 }
 
 export class DescribeZonesResponseBodyZonesZone extends $dara.Model {
-  /**
-   * @remarks
-   * The supported dedicated host types.
-   */
   availableDedicatedHostTypes?: DescribeZonesResponseBodyZonesZoneAvailableDedicatedHostTypes;
-  /**
-   * @remarks
-   * The categories of cloud disks that can be created. Valid values:
-   * 
-   * *   cloud: basic disk
-   * *   cloud_ssd: standard SSD
-   * *   cloud_efficiency: ultra disk
-   * *   cloud_essd: ESSD
-   */
   availableDiskCategories?: DescribeZonesResponseBodyZonesZoneAvailableDiskCategories;
-  /**
-   * @remarks
-   * The supported instance types.
-   */
   availableInstanceTypes?: DescribeZonesResponseBodyZonesZoneAvailableInstanceTypes;
-  /**
-   * @remarks
-   * The types of resources that can be created. Valid values:
-   * 
-   * *   VSwitch: vSwitch
-   * *   IoOptimized: I/O optimized instance
-   * *   Instance: instance
-   * *   DedicatedHost: dedicated host
-   * *   disk: cloud disk
-   */
   availableResourceCreation?: DescribeZonesResponseBodyZonesZoneAvailableResourceCreation;
-  /**
-   * @remarks
-   * Details about the resources that can be created in the zone.
-   */
   availableResources?: DescribeZonesResponseBodyZonesZoneAvailableResources;
-  /**
-   * @remarks
-   * The supported Shared Block Storage device categories.
-   */
   availableVolumeCategories?: DescribeZonesResponseBodyZonesZoneAvailableVolumeCategories;
-  /**
-   * @remarks
-   * The supported generations of dedicated hosts.
-   */
   dedicatedHostGenerations?: DescribeZonesResponseBodyZonesZoneDedicatedHostGenerations;
-  /**
-   * @remarks
-   * The name of the zone in the local language.
-   * 
-   * @example
-   * Hangzhou Zone G
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The ID of the zone.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
-  /**
-   * @remarks
-   * The type of the zone. Valid values:
-   * 
-   * *   AvailabilityZone: zone for the Alibaba Cloud public cloud
-   * *   CloudBoxZone: zone for CloudBox
-   * 
-   * @example
-   * AvailabilityZone
-   */
   zoneType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -599,10 +505,6 @@ export class DescribeZonesResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the zones and their supported resources.
-   */
   zones?: DescribeZonesResponseBodyZones;
   static names(): { [key: string]: string } {
     return {

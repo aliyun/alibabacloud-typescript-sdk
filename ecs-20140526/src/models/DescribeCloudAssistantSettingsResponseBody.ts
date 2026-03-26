@@ -29,11 +29,9 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowed
 }
 
 export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The time windows during which Cloud Assistant Agent can be upgraded.
-   */
   allowedUpgradeWindows?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowedUpgradeWindows;
+  bootstrapUpgrade?: boolean;
+  disableUpgrade?: boolean;
   /**
    * @remarks
    * Indicates whether custom upgrade is enabled for Cloud Assistant Agent. If the value is false or empty, an upgrade attempt is performed for Cloud Assistant Agent every 30 minutes.
@@ -53,6 +51,8 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   static names(): { [key: string]: string } {
     return {
       allowedUpgradeWindows: 'AllowedUpgradeWindows',
+      bootstrapUpgrade: 'BootstrapUpgrade',
+      disableUpgrade: 'DisableUpgrade',
       enabled: 'Enabled',
       timeZone: 'TimeZone',
     };
@@ -61,6 +61,8 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   static types(): { [key: string]: any } {
     return {
       allowedUpgradeWindows: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowedUpgradeWindows,
+      bootstrapUpgrade: 'boolean',
+      disableUpgrade: 'boolean',
       enabled: 'boolean',
       timeZone: 'string',
     };
@@ -79,71 +81,12 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
 }
 
 export class DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigsOssDeliveryConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the OSS bucket.
-   * 
-   * @example
-   * example-bucket
-   */
   bucketName?: string;
-  /**
-   * @remarks
-   * The type of items to be delivered. Valid values:
-   * 
-   * *   SessionManager: session records.
-   * *   Invocation: task execution records.
-   * 
-   * @example
-   * SessionManager
-   */
   deliveryType?: string;
-  /**
-   * @remarks
-   * Indicates whether to deliver the specified items to OSS.
-   * 
-   * @example
-   * false
-   */
   enabled?: boolean;
-  /**
-   * @remarks
-   * The OSS encryption algorithm. Valid values:
-   * 
-   * *   AES256
-   * *   SM4
-   * 
-   * @example
-   * AES256
-   */
   encryptionAlgorithm?: string;
-  /**
-   * @remarks
-   * The ID of the customer master key (CMK) when EncryptionType is set to KMS.
-   * 
-   * @example
-   * a807****7a70e
-   */
   encryptionKeyId?: string;
-  /**
-   * @remarks
-   * The OSS encryption method. Valid values:
-   * 
-   * *   Inherit: the encryption method used by the specified bucket.
-   * *   OssManaged: server-side encryption by using OSS-managed keys (SSE-OSS).
-   * *   KMS: server-side encryption with Key Management Service (SSE-KMS).
-   * 
-   * @example
-   * Inherit
-   */
   encryptionType?: string;
-  /**
-   * @remarks
-   * The prefix of the OSS bucket directory.
-   * 
-   * @example
-   * sessionmanager/audit
-   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -204,6 +147,44 @@ export class DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs extend
   }
 }
 
+export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig extends $dara.Model {
+  cpuLimit?: number;
+  keepScriptFile?: boolean;
+  logFileCountLimit?: number;
+  logSizeLimit?: string;
+  memoryLimit?: string;
+  overloadLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuLimit: 'CpuLimit',
+      keepScriptFile: 'KeepScriptFile',
+      logFileCountLimit: 'LogFileCountLimit',
+      logSizeLimit: 'LogSizeLimit',
+      memoryLimit: 'MemoryLimit',
+      overloadLimit: 'OverloadLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuLimit: 'number',
+      keepScriptFile: 'boolean',
+      logFileCountLimit: 'number',
+      logSizeLimit: 'string',
+      memoryLimit: 'string',
+      overloadLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig extends $dara.Model {
   /**
    * @remarks
@@ -242,40 +223,9 @@ export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig exte
 }
 
 export class DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigsSlsDeliveryConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The type of items to be delivered. Valid values:
-   * 
-   * *   SessionManager: session records.
-   * *   Invocation: task execution records.
-   * 
-   * @example
-   * SessionManager
-   */
   deliveryType?: string;
-  /**
-   * @remarks
-   * Indicates whether to deliver the specified items to Simple Log Service.
-   * 
-   * @example
-   * false
-   */
   enabled?: boolean;
-  /**
-   * @remarks
-   * The name of the Logstore.
-   * 
-   * @example
-   * example-logstore
-   */
   logstoreName?: string;
-  /**
-   * @remarks
-   * The name of the Simple Log Service project.
-   * 
-   * @example
-   * example-project
-   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -336,10 +286,6 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
    * The configurations for upgrading Cloud Assistant Agent.
    */
   agentUpgradeConfig?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig;
-  /**
-   * @remarks
-   * The configurations for delivering items to Object Storage Service (OSS).
-   */
   ossDeliveryConfigs?: DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs;
   /**
    * @remarks
@@ -349,21 +295,19 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
+  resourceUsageConfig?: DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig;
   /**
    * @remarks
    * Cloud Assistant Session Manager configuration.
    */
   sessionManagerConfig?: DescribeCloudAssistantSettingsResponseBodySessionManagerConfig;
-  /**
-   * @remarks
-   * The configurations for delivering items to Simple Log Service.
-   */
   slsDeliveryConfigs?: DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs;
   static names(): { [key: string]: string } {
     return {
       agentUpgradeConfig: 'AgentUpgradeConfig',
       ossDeliveryConfigs: 'OssDeliveryConfigs',
       requestId: 'RequestId',
+      resourceUsageConfig: 'ResourceUsageConfig',
       sessionManagerConfig: 'SessionManagerConfig',
       slsDeliveryConfigs: 'SlsDeliveryConfigs',
     };
@@ -374,6 +318,7 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
       agentUpgradeConfig: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig,
       ossDeliveryConfigs: DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs,
       requestId: 'string',
+      resourceUsageConfig: DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig,
       sessionManagerConfig: DescribeCloudAssistantSettingsResponseBodySessionManagerConfig,
       slsDeliveryConfigs: DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs,
     };
@@ -385,6 +330,9 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
     }
     if(this.ossDeliveryConfigs && typeof (this.ossDeliveryConfigs as any).validate === 'function') {
       (this.ossDeliveryConfigs as any).validate();
+    }
+    if(this.resourceUsageConfig && typeof (this.resourceUsageConfig as any).validate === 'function') {
+      (this.resourceUsageConfig as any).validate();
     }
     if(this.sessionManagerConfig && typeof (this.sessionManagerConfig as any).validate === 'function') {
       (this.sessionManagerConfig as any).validate();

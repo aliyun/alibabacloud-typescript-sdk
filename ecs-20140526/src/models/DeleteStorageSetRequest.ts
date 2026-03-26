@@ -11,15 +11,7 @@ export class DeleteStorageSetRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
-  /**
-   * @example
-   * hide
-   */
   ownerAccount?: string;
-  /**
-   * @example
-   * 111
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -31,15 +23,7 @@ export class DeleteStorageSetRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * hide
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @example
-   * 111
-   */
   resourceOwnerId?: number;
   /**
    * @remarks

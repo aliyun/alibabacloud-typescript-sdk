@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTasksResponseBodyTaskSetTask extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the task was created.
-   * 
-   * @example
-   * 2020-11-24T12:50Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The time when the task ended.
-   * 
-   * @example
-   * 2020-11-24T12:50Z
-   */
   finishedTime?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * m-bp1i8huqm5u7****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the task can be canceled.
-   * 
-   * @example
-   * true
-   */
   supportCancel?: string;
-  /**
-   * @remarks
-   * The name of the operation that generates the task.
-   * 
-   * @example
-   * ImportImage
-   */
   taskAction?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * t-bp1hvgwromzv32iq****
-   */
   taskId?: string;
-  /**
-   * @remarks
-   * The task status.
-   * 
-   * @example
-   * Finished
-   */
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,10 +102,6 @@ export class DescribeTasksResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the tasks.
-   */
   taskSet?: DescribeTasksResponseBodyTaskSet;
   /**
    * @remarks

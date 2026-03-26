@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeInstanceType extends $dara.Model {
-  /**
-   * @remarks
-   * The number of vCPUs of the instance type.
-   * 
-   * @example
-   * 1
-   */
   cores?: number;
-  /**
-   * @remarks
-   * The generation of the instance family.
-   * 
-   * @example
-   * ecs-4
-   */
   generation?: string;
-  /**
-   * @remarks
-   * The name of the instance type.
-   * 
-   * @example
-   * ecs.hfg6.large
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The instance family.
-   * 
-   * @example
-   * ecs.hfg6
-   */
   instanceTypeFamily?: string;
-  /**
-   * @remarks
-   * The memory size of the instance type. Unit: MB.
-   * 
-   * @example
-   * 8192
-   */
   memory?: number;
-  /**
-   * @remarks
-   * Indicates whether the instance type supports I/O optimization.
-   * 
-   * @example
-   * optimized
-   */
   supportIoOptimized?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,18 +67,7 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZ
 }
 
 export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZonesZone extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the network types of the instance type.
-   */
   networkTypes?: DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZonesZoneNetworkTypes;
-  /**
-   * @remarks
-   * The ID of the zone in which the instance type is available.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   zoneNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,79 +122,15 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZ
 }
 
 export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceType extends $dara.Model {
-  /**
-   * @remarks
-   * The commodity code of the instance type.
-   * 
-   * @example
-   * ecs
-   */
   commodityCode?: string;
-  /**
-   * @remarks
-   * The billing method of the instances.
-   * 
-   * @example
-   * PostPaid
-   */
   instanceChargeType?: string;
-  /**
-   * @remarks
-   * The details of the instance type.
-   */
   instanceType?: DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeInstanceType;
-  /**
-   * @remarks
-   * The network type of the ECS instances.
-   * 
-   * @example
-   * vpc
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The priority based on which the system sorts the instance types.
-   * 
-   * @example
-   * 2
-   */
   priority?: number;
-  /**
-   * @remarks
-   * The ID of the region in which the instance type is available.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The scenario in which the instance type is recommended.
-   * 
-   * @example
-   * CREATE
-   */
   scene?: string;
-  /**
-   * @remarks
-   * The bidding policy for the spot instances.
-   * 
-   * @example
-   * NoSpot
-   */
   spotStrategy?: string;
-  /**
-   * @remarks
-   * The ID of the zone in which the instance type is available.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   zoneId?: string;
-  /**
-   * @remarks
-   * The details of the zones in which the instance type is available.
-   */
   zones?: DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZones;
   static names(): { [key: string]: string } {
     return {
@@ -321,10 +204,6 @@ export class DescribeRecommendInstanceTypeResponseBodyData extends $dara.Model {
 }
 
 export class DescribeRecommendInstanceTypeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the recommended instance types.
-   */
   data?: DescribeRecommendInstanceTypeResponseBodyData;
   /**
    * @remarks

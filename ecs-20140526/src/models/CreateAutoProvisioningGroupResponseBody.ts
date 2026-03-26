@@ -29,62 +29,12 @@ export class CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResultIns
 }
 
 export class CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResult extends $dara.Model {
-  /**
-   * @remarks
-   * The number of created instances.
-   * 
-   * @example
-   * 1
-   */
   amount?: number;
-  /**
-   * @remarks
-   * The error code returned when the instance cannot be created.
-   * 
-   * @example
-   * InvalidParameter
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The error message returned when the instance cannot be created.
-   * 
-   * @example
-   * Specific parameter is not valid.
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The IDs of created instances.
-   */
   instanceIds?: CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResultInstanceIds;
-  /**
-   * @remarks
-   * The instance type of the instance.
-   * 
-   * @example
-   * ecs.g5.large
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The bidding policy for the pay-as-you-go instance. Valid values:
-   * 
-   * *   NoSpot: The instance is a regular pay-as-you-go instance.
-   * *   SpotWithPriceLimit: The instance is a spot instance for which you specify the maximum hourly price.
-   * *   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is used as the bid price.
-   * 
-   * @example
-   * NoSpot
-   */
   spotStrategy?: string;
-  /**
-   * @remarks
-   * The zone ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,10 +107,6 @@ export class CreateAutoProvisioningGroupResponseBody extends $dara.Model {
    * apg-sn54avj8htgvtyh8****
    */
   autoProvisioningGroupId?: string;
-  /**
-   * @remarks
-   * The instances created by the auto provisioning group. The values of the parameters in this array are returned only when AutoProvisioningGroupType is set to `instant`.
-   */
   launchResults?: CreateAutoProvisioningGroupResponseBodyLaunchResults;
   /**
    * @remarks

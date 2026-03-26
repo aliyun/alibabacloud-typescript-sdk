@@ -21,18 +21,7 @@ export class DeleteHpcClusterRequest extends $dara.Model {
    * hpc-cxvr5uzy54j0ya****
    */
   hpcClusterId?: string;
-  /**
-   * @example
-   * EcsforCloud@Alibaba.com
-   */
   ownerAccount?: string;
-  /**
-   * @remarks
-   * RAM用户的虚拟账号ID。
-   * 
-   * @example
-   * 155780923770
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -44,21 +33,7 @@ export class DeleteHpcClusterRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * 资源主账号的账号名称。
-   * 
-   * @example
-   * EcsforCloud
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * 资源主账号的ID，亦即UID。
-   * 
-   * @example
-   * 155780923770
-   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {

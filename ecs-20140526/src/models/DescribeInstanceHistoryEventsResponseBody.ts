@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeEventCycleStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The state code of the system event.
-   * 
-   * @example
-   * 0
-   */
   code?: number;
-  /**
-   * @remarks
-   * The state name of the system event.
-   * 
-   * @example
-   * Executed
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,21 +29,7 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
 }
 
 export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeEventType extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the system event type.
-   * 
-   * @example
-   * 34
-   */
   code?: number;
-  /**
-   * @remarks
-   * The name of the system event type.
-   * 
-   * @example
-   * InstanceExpiration.Stop
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,57 +55,10 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
 }
 
 export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisksInactiveDisk extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the disk was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-11-30T06:32:31Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The category of the disk. Valid values:
-   * 
-   * *   cloud: basic disk
-   * *   cloud_efficiency: ultra disk
-   * *   cloud_ssd: standard SSD
-   * *   cloud_essd: Enterprise SSD (ESSD)
-   * *   local_ssd_pro: I/O-intensive local disk
-   * *   local_hdd_pro: throughput-intensive local disk
-   * *   ephemeral: retired local disk
-   * *   ephemeral_ssd: retired local SSD
-   * 
-   * @example
-   * cloud_efficiency
-   */
   deviceCategory?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: GiB.
-   * 
-   * @example
-   * 80
-   */
   deviceSize?: string;
-  /**
-   * @remarks
-   * The type of the disk. Valid values:
-   * 
-   * *   system: system disk
-   * *   data: data disk
-   * 
-   * @example
-   * data
-   */
   deviceType?: string;
-  /**
-   * @remarks
-   * The time when the disk was released. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-30T06:32:31Z
-   */
   releaseTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -217,119 +142,21 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
 }
 
 export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the event can be handled.
-   * 
-   * @example
-   * true
-   */
   canAccept?: string;
-  /**
-   * @remarks
-   * The code of the security violation.
-   * 
-   * @example
-   * PR111
-   */
   code?: string;
-  /**
-   * @remarks
-   * The device name of the local disk.
-   * 
-   * @example
-   * /dev/vda
-   */
   device?: string;
-  /**
-   * @remarks
-   * The ID of the local disk.
-   * 
-   * @example
-   * d-diskid1
-   */
   diskId?: string;
-  /**
-   * @remarks
-   * The ID of the host.
-   * 
-   * @example
-   * dh-bp1ewce1gk3iwv2****
-   */
   hostId?: string;
-  /**
-   * @remarks
-   * The type of the host. Valid values:
-   * 
-   * *   ddh: dedicated host
-   * *   managehost: physical machine in a smart hosting pool
-   * 
-   * @example
-   * ddh
-   */
   hostType?: string;
-  /**
-   * @remarks
-   * The inactive disks that were released and whose data must be cleared.
-   */
   inactiveDisks?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks;
   metricName?: string;
   metricValue?: string;
-  /**
-   * @remarks
-   * The migration solution of the instance. Valid value: MigrationPlan. Instances can be migrated only by using migration plans.
-   */
   migrationOptions?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeMigrationOptions;
-  /**
-   * @remarks
-   * The online repair policy for the damaged disk. Valid value: IsolateOnly, which indicates that damaged disks are isolated but not repaired.
-   * 
-   * @example
-   * IsolateOnly
-   */
   onlineRepairPolicy?: string;
-  /**
-   * @remarks
-   * The illegal domain name.
-   * 
-   * @example
-   * 1228.test.com
-   */
   punishDomain?: string;
-  /**
-   * @remarks
-   * The type of the penalty.
-   * 
-   * @example
-   * ecs_message_alert
-   */
   punishType?: string;
-  /**
-   * @remarks
-   * The illegal URL.
-   * 
-   * @example
-   * http://1228.test.com/1
-   */
   punishUrl?: string;
-  /**
-   * @remarks
-   * The rack number of the cloud box.
-   * 
-   * @example
-   * A01
-   */
   rack?: string;
-  /**
-   * @remarks
-   * The response result of the event. Valid values:
-   * 
-   * *   true: The event was handled.
-   * *   false: The event failed to be handled.
-   * 
-   * @example
-   * true
-   */
   responseResult?: string;
   static names(): { [key: string]: string } {
     return {
@@ -389,96 +216,17 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
 }
 
 export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventType extends $dara.Model {
-  /**
-   * @remarks
-   * The lifecycle status of the system event.
-   */
   eventCycleStatus?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeEventCycleStatus;
-  /**
-   * @remarks
-   * The time when the system event ended. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-12-01T06:35:31Z
-   */
   eventFinishTime?: string;
-  /**
-   * @remarks
-   * The ID of the system event.
-   * 
-   * @example
-   * e-uf64yvznlao4jl2c****
-   */
   eventId?: string;
-  /**
-   * @remarks
-   * The time when the system event was published. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-11-30T06:32:31Z
-   */
   eventPublishTime?: string;
-  /**
-   * @remarks
-   * The type of the system event.
-   */
   eventType?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeEventType;
-  /**
-   * @remarks
-   * The extended attribute of the system event.
-   */
   extendedAttribute?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttribute;
-  /**
-   * @remarks
-   * The impact level of the system event.
-   * 
-   * @example
-   * 100
-   */
   impactLevel?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-uf678mass4zvr9n1****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The scheduled start time of the system event. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-12-06T00:00:00Z
-   */
   notBefore?: string;
-  /**
-   * @remarks
-   * The reason why the system event occurred.
-   * 
-   * @example
-   * System maintenance is scheduled due to ***.
-   */
   reason?: string;
-  /**
-   * @remarks
-   * The reason code category for the system event.
-   * 
-   * @example
-   * VPCMigrationEcs
-   */
   reasonCode?: string;
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   instance: ECS instance
-   * *   ddh: dedicated host
-   * *   managehost: physical machine in a smart hosting pool
-   * 
-   * @example
-   * instance
-   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -559,10 +307,6 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSet ext
 }
 
 export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the instance system events.
-   */
   instanceSystemEventSet?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSet;
   /**
    * @remarks

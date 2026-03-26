@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClassicLinkInstancesResponseBodyLinksLink extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-test
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-test
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeClassicLinkInstancesResponseBodyLinks extends $dara.Model {
 }
 
 export class DescribeClassicLinkInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the ClassicLink connections between the instances reside in the classic network and VPCs.
-   */
   links?: DescribeClassicLinkInstancesResponseBodyLinks;
   /**
    * @remarks

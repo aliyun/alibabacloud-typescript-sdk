@@ -45,10 +45,6 @@ export class PurchaseStorageCapacityUnitResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The IDs of the SCUs.
-   */
   storageCapacityUnitIds?: PurchaseStorageCapacityUnitResponseBodyStorageCapacityUnitIds;
   static names(): { [key: string]: string } {
     return {

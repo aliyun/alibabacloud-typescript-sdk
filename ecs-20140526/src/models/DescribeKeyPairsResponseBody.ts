@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeKeyPairsResponseBodyKeyPairsKeyPairTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the key pair.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value of the key pair.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,50 +55,11 @@ export class DescribeKeyPairsResponseBodyKeyPairsKeyPairTags extends $dara.Model
 }
 
 export class DescribeKeyPairsResponseBodyKeyPairsKeyPair extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the key pair was created.
-   * 
-   * @example
-   * 2023-09-04T08:33Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The fingerprint of the key pair.
-   * 
-   * @example
-   * ABC1234567
-   */
   keyPairFingerPrint?: string;
-  /**
-   * @remarks
-   * The name of the key pair.
-   * 
-   * @example
-   * testKeyPairName
-   */
   keyPairName?: string;
-  /**
-   * @remarks
-   * The content of the public key.
-   * 
-   * @example
-   * ssh-rsa****
-   */
   publicKey?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-amnhr7u7c7hj****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags of the key pair.
-   */
   tags?: DescribeKeyPairsResponseBodyKeyPairsKeyPairTags;
   static names(): { [key: string]: string } {
     return {
@@ -175,10 +122,6 @@ export class DescribeKeyPairsResponseBodyKeyPairs extends $dara.Model {
 }
 
 export class DescribeKeyPairsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the key pairs.
-   */
   keyPairs?: DescribeKeyPairsResponseBodyKeyPairs;
   /**
    * @remarks

@@ -3,33 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDedicatedHostsChargeTypeResponseBodyFeeOfInstancesFeeOfInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The unit of currency for the bill.
-   * 
-   * Alibaba Cloud China site (aliyun.com): CNY
-   * 
-   * Alibaba Cloud International site (alibabacloud.com): USD
-   * 
-   * @example
-   * CNY
-   */
   currency?: string;
-  /**
-   * @remarks
-   * The charged amount.
-   * 
-   * @example
-   * 0
-   */
   fee?: string;
-  /**
-   * @remarks
-   * The IDs of the dedicated hosts.
-   * 
-   * @example
-   * dh-bp181e5064b5sotrr****
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,10 +58,6 @@ export class ModifyDedicatedHostsChargeTypeResponseBodyFeeOfInstances extends $d
 }
 
 export class ModifyDedicatedHostsChargeTypeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the charges for the order.
-   */
   feeOfInstances?: ModifyDedicatedHostsChargeTypeResponseBodyFeeOfInstances;
   /**
    * @remarks

@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeDiskEventSetDiskEventTypeEventType extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the event type.
-   * 
-   * @example
-   * 7
-   */
   code?: number;
-  /**
-   * @remarks
-   * The name of the event type. Valid values:
-   * 
-   * *   Degraded: The performance of the EBS device is degraded.
-   * *   SeverelyDegraded: The performance of the EBS device is severely degraded.
-   * *   Stalled: The performance of the EBS device is severely affected.
-   * *   ErrorDetected: The local disk is damaged.
-   * 
-   * @example
-   * Stalled
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,42 +29,10 @@ export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusT
 }
 
 export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeDiskEventSetDiskEventType extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the event ended.
-   * 
-   * @example
-   * 2018-05-06T02:48:52Z
-   */
   eventEndTime?: string;
-  /**
-   * @remarks
-   * The ID of the event.
-   * 
-   * @example
-   * e-bp67acfmxazb4p****
-   */
   eventId?: string;
-  /**
-   * @remarks
-   * The time when the event occurred.
-   * 
-   * @example
-   * 2018-05-08T02:43:10Z
-   */
   eventTime?: string;
-  /**
-   * @remarks
-   * The type of the event.
-   */
   eventType?: DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeDiskEventSetDiskEventTypeEventType;
-  /**
-   * @remarks
-   * The impact level of the event.
-   * 
-   * @example
-   * 100
-   */
   impactLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,21 +93,7 @@ export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusT
 }
 
 export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeHealthStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the health status of the EBS device.
-   * 
-   * @example
-   * 128
-   */
   code?: number;
-  /**
-   * @remarks
-   * The name of the health status of the EBS device.
-   * 
-   * @example
-   * Impaired
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -184,21 +119,7 @@ export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusT
 }
 
 export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the lifecycle status of the EBS device.
-   * 
-   * @example
-   * 129
-   */
   code?: number;
-  /**
-   * @remarks
-   * The name of the lifecycle status of the EBS device.
-   * 
-   * @example
-   * Available
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -224,48 +145,11 @@ export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusT
 }
 
 export class DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusType extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the EBS device that is attached to an instance. Example: /dev/xvdb.
-   * 
-   * This parameter has a value only when the value of `Status` is `In_use`.
-   * 
-   * > This parameter will be deprecated in the future. To ensure future compatibility, we recommend that you do not use this parameter.
-   * 
-   * @example
-   * null
-   */
   device?: string;
-  /**
-   * @remarks
-   * The events about the EBS device.
-   */
   diskEventSet?: DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeDiskEventSet;
-  /**
-   * @remarks
-   * The EBS device ID.
-   * 
-   * @example
-   * d-bp67acfmxazb4p****
-   */
   diskId?: string;
-  /**
-   * @remarks
-   * The health status of the EBS device.
-   */
   healthStatus?: DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeHealthStatus;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-bp67acfmxazb4p****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The lifecycle status of the EBS device.
-   */
   status?: DescribeDisksFullStatusResponseBodyDiskFullStatusSetDiskFullStatusTypeStatus;
   static names(): { [key: string]: string } {
     return {
@@ -334,10 +218,6 @@ export class DescribeDisksFullStatusResponseBodyDiskFullStatusSet extends $dara.
 }
 
 export class DescribeDisksFullStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The collection of full status information of the EBS devices.
-   */
   diskFullStatusSet?: DescribeDisksFullStatusResponseBodyDiskFullStatusSet;
   /**
    * @remarks

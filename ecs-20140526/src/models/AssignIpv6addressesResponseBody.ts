@@ -55,15 +55,7 @@ export class AssignIpv6AddressesResponseBodyIpv6Sets extends $dara.Model {
 }
 
 export class AssignIpv6AddressesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 prefixes of the ENI.
-   */
   ipv6PrefixSets?: AssignIpv6AddressesResponseBodyIpv6PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 addresses assigned to the ENI.
-   */
   ipv6Sets?: AssignIpv6AddressesResponseBodyIpv6Sets;
   /**
    * @remarks

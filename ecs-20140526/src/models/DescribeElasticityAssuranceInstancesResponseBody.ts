@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeElasticityAssuranceInstancesResponseBodyElasticityAssuranceItemInstanceIdSet extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID
-   * 
-   * @example
-   * i-bp67acfmxazb4****
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class DescribeElasticityAssuranceInstancesResponseBodyElasticityAssurance
 }
 
 export class DescribeElasticityAssuranceInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the instances that match and use the elasticity assurance.
-   */
   elasticityAssuranceItem?: DescribeElasticityAssuranceInstancesResponseBodyElasticityAssuranceItem;
   /**
    * @remarks

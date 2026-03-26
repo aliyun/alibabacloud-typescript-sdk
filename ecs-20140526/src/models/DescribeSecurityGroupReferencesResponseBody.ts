@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReferenceReferencingSecurityGroupsReferencingSecurityGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account to which the security group whose rules reference the specified security group belongs.
-   * 
-   * @example
-   * 123456****
-   */
   aliUid?: string;
-  /**
-   * @remarks
-   * The ID of the security group whose rules reference the specified security group.
-   * 
-   * @example
-   * sg-bp67acfmxazb4j****
-   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,18 +55,7 @@ export class DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesS
 }
 
 export class DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReference extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the security groups whose rules reference the specified security group.
-   */
   referencingSecurityGroups?: DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReferenceReferencingSecurityGroups;
-  /**
-   * @remarks
-   * The ID of the specified security group.
-   * 
-   * @example
-   * sg-bp67acfmxazb4p****
-   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,10 +118,6 @@ export class DescribeSecurityGroupReferencesResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the references to the specified security groups.
-   */
   securityGroupReferences?: DescribeSecurityGroupReferencesResponseBodySecurityGroupReferences;
   static names(): { [key: string]: string } {
     return {

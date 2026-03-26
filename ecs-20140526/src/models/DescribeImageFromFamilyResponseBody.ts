@@ -3,63 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeImageFromFamilyResponseBodyImageDiskDeviceMappingsDiskDeviceMapping extends $dara.Model {
-  /**
-   * @remarks
-   * The device name of the disk. Example: /dev/xvdb.
-   * 
-   * >  This parameter will be removed in the future. To ensure compatibility, we recommend that you use other parameters.
-   * 
-   * @example
-   * /dev/xvdb
-   */
   device?: string;
-  /**
-   * @remarks
-   * The image format.
-   * 
-   * @example
-   * qcow2
-   */
   format?: string;
-  /**
-   * @remarks
-   * The OSS bucket that contains the imported image file.
-   * 
-   * @example
-   * testEcsImport
-   */
   importOSSBucket?: string;
-  /**
-   * @remarks
-   * The OSS object to which the imported image belongs.
-   * 
-   * @example
-   * imageImport
-   */
   importOSSObject?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: GiB.
-   * 
-   * @example
-   * 80
-   */
   size?: string;
-  /**
-   * @remarks
-   * The snapshot ID.
-   * 
-   * @example
-   * s-bp17ot2q7x72ggtw****
-   */
   snapshotId?: string;
-  /**
-   * @remarks
-   * The image type.
-   * 
-   * @example
-   * custom
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,21 +70,7 @@ export class DescribeImageFromFamilyResponseBodyImageDiskDeviceMappings extends 
 }
 
 export class DescribeImageFromFamilyResponseBodyImageTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the custom image.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value of the custom image.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -214,10 +149,6 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * testDescription
    */
   description?: string;
-  /**
-   * @remarks
-   * The mappings between the disk and the snapshot in the image.
-   */
   diskDeviceMappings?: DescribeImageFromFamilyResponseBodyImageDiskDeviceMappings;
   /**
    * @remarks
@@ -368,10 +299,6 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * Available
    */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the image.
-   */
   tags?: DescribeImageFromFamilyResponseBodyImageTags;
   /**
    * @remarks

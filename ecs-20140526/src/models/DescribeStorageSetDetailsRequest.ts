@@ -19,15 +19,7 @@ export class DescribeStorageSetDetailsRequest extends $dara.Model {
    * ["d-bp1d6tsvznfghy7y****", "d-bp1ippxbaql9zet7****", … "d-bp1ib7bcz07l****"]
    */
   diskIds?: string;
-  /**
-   * @example
-   * hide
-   */
   ownerAccount?: string;
-  /**
-   * @example
-   * 111
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -63,15 +55,7 @@ export class DescribeStorageSetDetailsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * hide
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @example
-   * 111
-   */
   resourceOwnerId?: number;
   /**
    * @remarks

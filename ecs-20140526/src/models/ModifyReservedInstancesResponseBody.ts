@@ -37,10 +37,6 @@ export class ModifyReservedInstancesResponseBody extends $dara.Model {
    * ED9E4A5F-FF4D-4C96-BE80-6B4227060DD7
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The IDs of the reserved instances.
-   */
   reservedInstanceIdSets?: ModifyReservedInstancesResponseBodyReservedInstanceIdSets;
   static names(): { [key: string]: string } {
     return {

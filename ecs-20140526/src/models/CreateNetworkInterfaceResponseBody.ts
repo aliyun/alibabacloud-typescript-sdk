@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateNetworkInterfaceResponseBodyIpv4PrefixSetsIpv4PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 prefix assigned to the ENI.
-   * 
-   * @example
-   * hide
-   */
   ipv4Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,13 +52,6 @@ export class CreateNetworkInterfaceResponseBodyIpv4PrefixSets extends $dara.Mode
 }
 
 export class CreateNetworkInterfaceResponseBodyIpv6PrefixSetsIpv6PrefixSet extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 prefix assigned to the ENI.
-   * 
-   * @example
-   * hide
-   */
   ipv6Prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,13 +101,6 @@ export class CreateNetworkInterfaceResponseBodyIpv6PrefixSets extends $dara.Mode
 }
 
 export class CreateNetworkInterfaceResponseBodyIpv6SetsIpv6Set extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 address assigned to the ENI.
-   * 
-   * @example
-   * 2001:db8:1234:1a00::****
-   */
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
@@ -171,21 +150,7 @@ export class CreateNetworkInterfaceResponseBodyIpv6Sets extends $dara.Model {
 }
 
 export class CreateNetworkInterfaceResponseBodyPrivateIpSetsPrivateIpSet extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the private IP address is the primary private IP address.
-   * 
-   * @example
-   * true
-   */
   primary?: boolean;
-  /**
-   * @remarks
-   * The private IP address of the instance.
-   * 
-   * @example
-   * ``172.17.**.**``
-   */
   privateIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -263,21 +228,7 @@ export class CreateNetworkInterfaceResponseBodySecurityGroupIds extends $dara.Mo
 }
 
 export class CreateNetworkInterfaceResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -337,20 +288,8 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
    * testDescription
    */
   description?: string;
-  /**
-   * @remarks
-   * The IPv4 prefixes assigned to the ENI.
-   */
   ipv4PrefixSets?: CreateNetworkInterfaceResponseBodyIpv4PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 prefixes assigned to the ENI.
-   */
   ipv6PrefixSets?: CreateNetworkInterfaceResponseBodyIpv6PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 addresses assigned to the ENI.
-   */
   ipv6Sets?: CreateNetworkInterfaceResponseBodyIpv6Sets;
   /**
    * @remarks
@@ -392,10 +331,6 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
    * ``172.17.**.**``
    */
   privateIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP addresses.
-   */
   privateIpSets?: CreateNetworkInterfaceResponseBodyPrivateIpSets;
   /**
    * @remarks
@@ -413,10 +348,6 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
    * rg-2ze88m67qx5z****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The IDs of the security groups to which the ENI belongs.
-   */
   securityGroupIds?: CreateNetworkInterfaceResponseBodySecurityGroupIds;
   /**
    * @remarks
@@ -450,10 +381,6 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
    * Available
    */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the ENI.
-   */
   tags?: CreateNetworkInterfaceResponseBodyTags;
   /**
    * @remarks

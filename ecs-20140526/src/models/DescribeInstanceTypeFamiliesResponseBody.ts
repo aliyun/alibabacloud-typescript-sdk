@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily extends $dara.Model {
-  /**
-   * @remarks
-   * The series of the instance family.
-   * 
-   * @example
-   * ecs-5
-   */
   generation?: string;
-  /**
-   * @remarks
-   * The ID of the instance family.
-   * 
-   * @example
-   * ecs.g6
-   */
   instanceTypeFamilyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeInstanceTypeFamiliesResponseBodyInstanceTypeFamilies extend
 }
 
 export class DescribeInstanceTypeFamiliesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instance families.
-   */
   instanceTypeFamilies?: DescribeInstanceTypeFamiliesResponseBodyInstanceTypeFamilies;
   /**
    * @remarks

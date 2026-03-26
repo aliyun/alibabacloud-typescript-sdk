@@ -21,15 +21,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
    * 2019-06-20T15:10:20Z
    */
   endTime?: string;
-  /**
-   * @example
-   * 123456
-   */
   ownerAccount?: string;
-  /**
-   * @example
-   * 123456
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -61,15 +53,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * 123456
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @example
-   * 123456
-   */
   resourceOwnerId?: number;
   /**
    * @remarks

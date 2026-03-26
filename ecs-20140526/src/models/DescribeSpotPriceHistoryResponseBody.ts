@@ -3,65 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSpotPriceHistoryResponseBodySpotPricesSpotPriceType extends $dara.Model {
-  /**
-   * @remarks
-   * The instance type of the spot instance.
-   * 
-   * @example
-   * ecs.g5.large
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * Details about the price history of the spot instance.
-   * 
-   * @example
-   * optimized
-   */
   ioOptimized?: string;
-  /**
-   * @remarks
-   * Queries the price history of a spot instance within the last 30 days.
-   * 
-   * @example
-   * vpc
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The price for a pay-as-you-go instance that has the same configuration as the specified spot instance.
-   * 
-   * @example
-   * 0.354
-   */
   originPrice?: number;
-  /**
-   * @remarks
-   * The price for a pay-as-you-go instance that has the same configurations as the spot instance.
-   * 
-   * @example
-   * 0.036
-   */
   spotPrice?: number;
-  /**
-   * @remarks
-   * The currency unit of the price.
-   * 
-   * Alibaba Cloud China site (aliyun.com): CNY.
-   * 
-   * Alibaba Cloud International site (alibabacloud.com): USD.
-   * 
-   * @example
-   * 2019-11-19T06:00:00Z
-   */
   timestamp?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * cn-hangzhou-c
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,10 +94,6 @@ export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The zone ID of the spot instance.
-   */
   spotPrices?: DescribeSpotPriceHistoryResponseBodySpotPrices;
   static names(): { [key: string]: string } {
     return {

@@ -3,40 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China (Qingdao)
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The endpoint of the region.
-   * 
-   * @example
-   * ecs.cn-qingdao.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-qingdao
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * Indicates whether clusters are sold out. 
-   * Valid values:
-   * - available
-   * - soldOut
-   * 
-   * @example
-   * available
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,10 +61,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the regions.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceByTagsResponseBodyResourcesResource extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * i-bp16t2cgmiiy7t1c****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * instance
-   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +82,6 @@ export class DescribeResourceByTagsResponseBody extends $dara.Model {
    * 1C1E5359-71D7-44D8-8FAA-0327B549157X
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the resources to which the tags are bound.
-   */
   resources?: DescribeResourceByTagsResponseBodyResources;
   /**
    * @remarks

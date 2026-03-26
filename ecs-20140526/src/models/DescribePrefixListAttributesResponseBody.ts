@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePrefixListAttributesResponseBodyEntriesEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The CIDR block in entry N.
-   * 
-   * @example
-   * 192.168.1.0/24
-   */
   cidr?: string;
-  /**
-   * @remarks
-   * The description in entry N.
-   * 
-   * @example
-   * Description Sample 01
-   */
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,10 +82,6 @@ export class DescribePrefixListAttributesResponseBody extends $dara.Model {
    * This is description.
    */
   description?: string;
-  /**
-   * @remarks
-   * Details about the entries in the prefix list.
-   */
   entries?: DescribePrefixListAttributesResponseBodyEntries;
   /**
    * @remarks

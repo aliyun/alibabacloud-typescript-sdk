@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHpcClustersResponseBodyHpcClustersHpcCluster extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the HPC cluster.
-   * 
-   * @example
-   * testDescription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The description of the HPC cluster.
-   * 
-   * @example
-   * hpc-bp1a5zr3u7nq9cx****
-   */
   hpcClusterId?: string;
-  /**
-   * @remarks
-   * The name of the HPC cluster.
-   * 
-   * @example
-   * testName
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeHpcClustersResponseBodyHpcClusters extends $dara.Model {
 }
 
 export class DescribeHpcClustersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the HPC cluster.
-   */
   hpcClusters?: DescribeHpcClustersResponseBodyHpcClusters;
   /**
    * @remarks

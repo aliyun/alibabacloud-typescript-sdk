@@ -45,10 +45,6 @@ export class PurchaseReservedInstancesOfferingResponseBody extends $dara.Model {
    * 8C314443-AF0D-4766-9562-C83B7F1A3C8B
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The IDs of the reserved instances.
-   */
   reservedInstanceIdSets?: PurchaseReservedInstancesOfferingResponseBodyReservedInstanceIdSets;
   static names(): { [key: string]: string } {
     return {

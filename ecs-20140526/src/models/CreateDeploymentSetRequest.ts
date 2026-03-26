@@ -97,6 +97,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
    * Availability
    */
   strategy?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -112,6 +113,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       strategy: 'Strategy',
+      type: 'Type',
     };
   }
 
@@ -130,6 +132,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       strategy: 'string',
+      type: 'string',
     };
   }
 

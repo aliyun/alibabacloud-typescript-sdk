@@ -13,13 +13,6 @@ export class DetachClassicLinkVpcRequest extends $dara.Model {
    * i-bp67acfmxazb4p****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * RAM用户的虚拟账号ID。
-   * 
-   * @example
-   * 155780923770
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -31,21 +24,7 @@ export class DetachClassicLinkVpcRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * 资源主账号的账号名称。
-   * 
-   * @example
-   * ECSforCloud
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * 资源主账号的ID，亦即UID。
-   * 
-   * @example
-   * 155780923770
-   */
   resourceOwnerId?: number;
   /**
    * @remarks

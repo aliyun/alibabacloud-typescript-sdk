@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The execution details of instance creation performed by the single scheduling task.
-   * 
-   * @example
-   * New ECS instances "i-bp67acfmxazb4p****, i-bp67acfmxazb5p****" created.
-   */
   detail?: string;
-  /**
-   * @remarks
-   * The execution status of instance creation performed by the single scheduling task. Valid values:
-   * 
-   * *   Successful: Instances are created.
-   * *   Failed: Instances failed to be created.
-   * *   InProgress: Instances are being created.
-   * *   Warning: Some instances are created.
-   * 
-   * @example
-   * Successful
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,46 +55,10 @@ export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGro
 }
 
 export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistory extends $dara.Model {
-  /**
-   * @remarks
-   * An array consisting of ActivityDetail data.
-   */
   activityDetails?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetails;
-  /**
-   * @remarks
-   * The execution time of the last instance creation performed by the single scheduling task.
-   * 
-   * @example
-   * 2019-04-01T15:10:20Z
-   */
   lastEventTime?: string;
-  /**
-   * @remarks
-   * The start time of executing the single scheduling task.
-   * 
-   * @example
-   * 2019-04-01T15:10:20Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The execution status of the single scheduling task. Valid values:
-   * 
-   * *   prepare: The scheduling task is being executed.
-   * *   success: The scheduling task is executed.
-   * *   failed: The scheduling task failed to be executed.
-   * 
-   * @example
-   * success
-   */
   status?: string;
-  /**
-   * @remarks
-   * The ID of the scheduling task.
-   * 
-   * @example
-   * apg-task-bp67acfmxazb4p****
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -174,10 +119,6 @@ export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGro
 }
 
 export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array consisting of AutoProvisioningGroupHistory data.
-   */
   autoProvisioningGroupHistories?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistories;
   /**
    * @remarks

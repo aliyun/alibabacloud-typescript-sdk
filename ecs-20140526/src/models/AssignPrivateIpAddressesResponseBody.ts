@@ -55,10 +55,6 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetPr
 }
 
 export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the assigned IPv4 prefixes.
-   */
   ipv4PrefixSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetIpv4PrefixSet;
   /**
    * @remarks
@@ -68,10 +64,6 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
    * eni-bp125p95hhdhn3ot****
    */
   networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The secondary private IP addresses that are assigned to the ENI.
-   */
   privateIpSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetPrivateIpSet;
   static names(): { [key: string]: string } {
     return {
