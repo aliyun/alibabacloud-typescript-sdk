@@ -16,6 +16,7 @@ export { GetDataEventSelectorResponseBodySlsDeliveryConfigs } from './GetDataEve
 export { GetDeliveryHistoryJobResponseBodyStatus } from './GetDeliveryHistoryJobResponseBody';
 export { GetGovernanceMetricsResponseBodyDataGovernanceMetrics } from './GetGovernanceMetricsResponseBody';
 export { GetGovernanceMetricsResponseBodyData } from './GetGovernanceMetricsResponseBody';
+export { GetInsightsEventsCountResponseBodyData } from './GetInsightsEventsCountResponseBody';
 export { ListDataEventSelectorsResponseBodyDataDataEventSelectorInfosSlsDeliveryConfigs } from './ListDataEventSelectorsResponseBody';
 export { ListDataEventSelectorsResponseBodyDataDataEventSelectorInfos } from './ListDataEventSelectorsResponseBody';
 export { ListDataEventSelectorsResponseBodyData } from './ListDataEventSelectorsResponseBody';
@@ -23,6 +24,7 @@ export { ListDataEventServicesResponseBodyDataServiceInfos } from './ListDataEve
 export { ListDataEventServicesResponseBodyData } from './ListDataEventServicesResponseBody';
 export { ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs } from './ListDeliveryHistoryJobsResponseBody';
 export { LookupEventsRequestLookupAttribute } from './LookupEventsRequest';
+export { LookupInsightEventsRequestLookupAttribute } from './LookupInsightEventsRequest';
 export { CreateAdvancedQueryHistoryRequest } from './CreateAdvancedQueryHistoryRequest';
 export { CreateAdvancedQueryHistoryResponseBody } from './CreateAdvancedQueryHistoryResponseBody';
 export { CreateAdvancedQueryHistoryResponse } from './CreateAdvancedQueryHistoryResponse';
@@ -76,6 +78,9 @@ export { DescribeUserAlertCountResponse } from './DescribeUserAlertCountResponse
 export { DescribeUserLogCountRequest } from './DescribeUserLogCountRequest';
 export { DescribeUserLogCountResponseBody } from './DescribeUserLogCountResponseBody';
 export { DescribeUserLogCountResponse } from './DescribeUserLogCountResponse';
+export { DisableInsightRequest } from './DisableInsightRequest';
+export { DisableInsightResponseBody } from './DisableInsightResponseBody';
+export { DisableInsightResponse } from './DisableInsightResponse';
 export { EnableInsightRequest } from './EnableInsightRequest';
 export { EnableInsightResponseBody } from './EnableInsightResponseBody';
 export { EnableInsightResponse } from './EnableInsightResponse';
@@ -107,6 +112,14 @@ export { GetGlobalEventsStorageRegionResponseBody } from './GetGlobalEventsStora
 export { GetGlobalEventsStorageRegionResponse } from './GetGlobalEventsStorageRegionResponse';
 export { GetGovernanceMetricsResponseBody } from './GetGovernanceMetricsResponseBody';
 export { GetGovernanceMetricsResponse } from './GetGovernanceMetricsResponse';
+export { GetInsightSelectorsRequest } from './GetInsightSelectorsRequest';
+export { GetInsightSelectorsResponseBody } from './GetInsightSelectorsResponseBody';
+export { GetInsightSelectorsResponse } from './GetInsightSelectorsResponse';
+export { GetInsightTypesResponseBody } from './GetInsightTypesResponseBody';
+export { GetInsightTypesResponse } from './GetInsightTypesResponse';
+export { GetInsightsEventsCountRequest } from './GetInsightsEventsCountRequest';
+export { GetInsightsEventsCountResponseBody } from './GetInsightsEventsCountResponseBody';
+export { GetInsightsEventsCountResponse } from './GetInsightsEventsCountResponse';
 export { GetTrailStatusRequest } from './GetTrailStatusRequest';
 export { GetTrailStatusResponseBody } from './GetTrailStatusResponseBody';
 export { GetTrailStatusResponse } from './GetTrailStatusResponse';
@@ -122,9 +135,15 @@ export { ListDeliveryHistoryJobsResponse } from './ListDeliveryHistoryJobsRespon
 export { LookupEventsRequest } from './LookupEventsRequest';
 export { LookupEventsResponseBody } from './LookupEventsResponseBody';
 export { LookupEventsResponse } from './LookupEventsResponse';
+export { LookupInsightEventsRequest } from './LookupInsightEventsRequest';
+export { LookupInsightEventsResponseBody } from './LookupInsightEventsResponseBody';
+export { LookupInsightEventsResponse } from './LookupInsightEventsResponse';
 export { PutDataEventSelectorRequest } from './PutDataEventSelectorRequest';
 export { PutDataEventSelectorResponseBody } from './PutDataEventSelectorResponseBody';
 export { PutDataEventSelectorResponse } from './PutDataEventSelectorResponse';
+export { PutInsightSelectorsRequest } from './PutInsightSelectorsRequest';
+export { PutInsightSelectorsResponseBody } from './PutInsightSelectorsResponseBody';
+export { PutInsightSelectorsResponse } from './PutInsightSelectorsResponse';
 export { StartLoggingRequest } from './StartLoggingRequest';
 export { StartLoggingResponseBody } from './StartLoggingResponseBody';
 export { StartLoggingResponse } from './StartLoggingResponse';

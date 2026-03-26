@@ -3,31 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * >  If AcceptLanguage is set to zh-CN, the Chinese name of the region is returned. If AcceptLanguage is set to en-US or left empty, the English name of the region is returned.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The endpoint of ActionTrail in the region.
-   * 
-   * @example
-   * actiontrail.cn-hangzhou.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,10 +58,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of regions.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

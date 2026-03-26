@@ -974,6 +974,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭insight
+   * 
+   * @param request - DisableInsightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableInsightResponse
+   */
+  async disableInsightWithOptions(request: $_model.DisableInsightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableInsightResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.insightType)) {
+      query["InsightType"] = request.insightType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableInsight",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableInsightResponse>(await this.callApi(params, req, runtime), new $_model.DisableInsightResponse({}));
+  }
+
+  /**
+   * 关闭insight
+   * 
+   * @param request - DisableInsightRequest
+   * @returns DisableInsightResponse
+   */
+  async disableInsight(request: $_model.DisableInsightRequest): Promise<$_model.DisableInsightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableInsightWithOptions(request, runtime);
+  }
+
+  /**
    * Enables the Insights feature
    * 
    * @param request - EnableInsightRequest
@@ -1496,6 +1538,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取跟踪insights配置
+   * 
+   * @param request - GetInsightSelectorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInsightSelectorsResponse
+   */
+  async getInsightSelectorsWithOptions(request: $_model.GetInsightSelectorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInsightSelectorsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.trailName)) {
+      query["TrailName"] = request.trailName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInsightSelectors",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInsightSelectorsResponse>(await this.callApi(params, req, runtime), new $_model.GetInsightSelectorsResponse({}));
+  }
+
+  /**
+   * 获取跟踪insights配置
+   * 
+   * @param request - GetInsightSelectorsRequest
+   * @returns GetInsightSelectorsResponse
+   */
+  async getInsightSelectors(request: $_model.GetInsightSelectorsRequest): Promise<$_model.GetInsightSelectorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInsightSelectorsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取查询账号开启insight的类型
+   * 
+   * @param request - GetInsightTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInsightTypesResponse
+   */
+  async getInsightTypesWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetInsightTypesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInsightTypes",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInsightTypesResponse>(await this.callApi(params, req, runtime), new $_model.GetInsightTypesResponse({}));
+  }
+
+  /**
+   * 获取查询账号开启insight的类型
+   * @returns GetInsightTypesResponse
+   */
+  async getInsightTypes(): Promise<$_model.GetInsightTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInsightTypesWithOptions(runtime);
+  }
+
+  /**
+   * 得到当前账号的insights事件数量
+   * 
+   * @param request - GetInsightsEventsCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInsightsEventsCountResponse
+   */
+  async getInsightsEventsCountWithOptions(request: $_model.GetInsightsEventsCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInsightsEventsCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.date)) {
+      query["Date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInsightsEventsCount",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInsightsEventsCountResponse>(await this.callApi(params, req, runtime), new $_model.GetInsightsEventsCountResponse({}));
+  }
+
+  /**
+   * 得到当前账号的insights事件数量
+   * 
+   * @param request - GetInsightsEventsCountRequest
+   * @returns GetInsightsEventsCountResponse
+   */
+  async getInsightsEventsCount(request: $_model.GetInsightsEventsCountRequest): Promise<$_model.GetInsightsEventsCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInsightsEventsCountWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the status of a trail.
    * 
    * @remarks
@@ -1762,6 +1928,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Insight事件
+   * 
+   * @param request - LookupInsightEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LookupInsightEventsResponse
+   */
+  async lookupInsightEventsWithOptions(request: $_model.LookupInsightEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LookupInsightEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lookupAttribute)) {
+      query["LookupAttribute"] = request.lookupAttribute;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LookupInsightEvents",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LookupInsightEventsResponse>(await this.callApi(params, req, runtime), new $_model.LookupInsightEventsResponse({}));
+  }
+
+  /**
+   * 查询Insight事件
+   * 
+   * @param request - LookupInsightEventsRequest
+   * @returns LookupInsightEventsResponse
+   */
+  async lookupInsightEvents(request: $_model.LookupInsightEventsRequest): Promise<$_model.LookupInsightEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.lookupInsightEventsWithOptions(request, runtime);
+  }
+
+  /**
    * 创建事件选择器
    * 
    * @param request - PutDataEventSelectorRequest
@@ -1813,6 +2037,52 @@ export default class Client extends OpenApi {
   async putDataEventSelector(request: $_model.PutDataEventSelectorRequest): Promise<$_model.PutDataEventSelectorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.putDataEventSelectorWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改跟踪insights功能
+   * 
+   * @param request - PutInsightSelectorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutInsightSelectorsResponse
+   */
+  async putInsightSelectorsWithOptions(request: $_model.PutInsightSelectorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutInsightSelectorsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.insightSelectors)) {
+      query["InsightSelectors"] = request.insightSelectors;
+    }
+
+    if (!$dara.isNull(request.trailName)) {
+      query["TrailName"] = request.trailName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutInsightSelectors",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PutInsightSelectorsResponse>(await this.callApi(params, req, runtime), new $_model.PutInsightSelectorsResponse({}));
+  }
+
+  /**
+   * 修改跟踪insights功能
+   * 
+   * @param request - PutInsightSelectorsRequest
+   * @returns PutInsightSelectorsResponse
+   */
+  async putInsightSelectors(request: $_model.PutInsightSelectorsRequest): Promise<$_model.PutInsightSelectorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.putInsightSelectorsWithOptions(request, runtime);
   }
 
   /**
