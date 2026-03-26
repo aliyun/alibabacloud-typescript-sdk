@@ -1145,3 +1145,6 @@ export { UpgradeDBClusterVersionResponse } from './UpgradeDbclusterVersionRespon
 export { UpgradeDBClusterVersionZonalRequest } from './UpgradeDbclusterVersionZonalRequest';
 export { UpgradeDBClusterVersionZonalResponseBody } from './UpgradeDbclusterVersionZonalResponseBody';
 export { UpgradeDBClusterVersionZonalResponse } from './UpgradeDbclusterVersionZonalResponse';
+export { UpgradePolarClawSkillsRequest } from './UpgradePolarClawSkillsRequest';
+export { UpgradePolarClawSkillsResponseBody } from './UpgradePolarClawSkillsResponseBody';
+export { UpgradePolarClawSkillsResponse } from './UpgradePolarClawSkillsResponse';

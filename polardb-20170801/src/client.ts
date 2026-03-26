@@ -21305,4 +21305,58 @@ export default class Client extends OpenApi {
     return await this.upgradeDBClusterVersionZonalWithOptions(request, runtime);
   }
 
+  /**
+   * 执行自定义命令
+   * 
+   * @param request - UpgradePolarClawSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradePolarClawSkillsResponse
+   */
+  async upgradePolarClawSkillsWithOptions(request: $_model.UpgradePolarClawSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradePolarClawSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.upgradeMethod)) {
+      query["UpgradeMethod"] = request.upgradeMethod;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradePolarClawSkills",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradePolarClawSkillsResponse>(await this.callApi(params, req, runtime), new $_model.UpgradePolarClawSkillsResponse({}));
+  }
+
+  /**
+   * 执行自定义命令
+   * 
+   * @param request - UpgradePolarClawSkillsRequest
+   * @returns UpgradePolarClawSkillsResponse
+   */
+  async upgradePolarClawSkills(request: $_model.UpgradePolarClawSkillsRequest): Promise<$_model.UpgradePolarClawSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradePolarClawSkillsWithOptions(request, runtime);
+  }
+
 }
