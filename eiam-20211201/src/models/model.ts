@@ -154,6 +154,7 @@ export { GetInstanceControlConfigurationResponseBodyInstanceControlConfiguration
 export { GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements } from './GetInstanceControlConfigurationResponseBody';
 export { GetInstanceControlConfigurationResponseBodyInstanceControlConfiguration } from './GetInstanceControlConfigurationResponseBody';
 export { GetInstanceGlobalizationConfigResponseBodyGlobalizationConfig } from './GetInstanceGlobalizationConfigResponseBody';
+export { GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail } from './GetInstanceLicenseResponseBody';
 export { GetInstanceLicenseResponseBodyLicense } from './GetInstanceLicenseResponseBody';
 export { GetInstanceModuleInfoResponseBodyModuleFeatures } from './GetInstanceModuleInfoResponseBody';
 export { GetInstanceModuleInfoResponseBodyModule } from './GetInstanceModuleInfoResponseBody';

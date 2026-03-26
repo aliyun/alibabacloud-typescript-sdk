@@ -2,6 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends $dara.Model {
+  conditionalAccessPolicyLicenseStatus?: string;
+  m2mApplicationLicenseStatus?: string;
+  m2mApplicationQuota?: number;
+  networkAccessEndpointQuota?: number;
+  userQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyLicenseStatus: 'ConditionalAccessPolicyLicenseStatus',
+      m2mApplicationLicenseStatus: 'M2mApplicationLicenseStatus',
+      m2mApplicationQuota: 'M2mApplicationQuota',
+      networkAccessEndpointQuota: 'NetworkAccessEndpointQuota',
+      userQuota: 'UserQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyLicenseStatus: 'string',
+      m2mApplicationLicenseStatus: 'string',
+      m2mApplicationQuota: 'number',
+      networkAccessEndpointQuota: 'number',
+      userQuota: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   /**
    * @remarks
@@ -19,6 +54,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
    * 1723996800000
    */
   endTime?: number;
+  instanceLicenseDetail?: GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail;
   /**
    * @remarks
    * Payment type of the License
@@ -95,6 +131,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
     return {
       edition: 'Edition',
       endTime: 'EndTime',
+      instanceLicenseDetail: 'InstanceLicenseDetail',
       licenseChargeType: 'LicenseChargeType',
       licenseConfigJson: 'LicenseConfigJson',
       licenseCreateTime: 'LicenseCreateTime',
@@ -111,6 +148,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
     return {
       edition: 'string',
       endTime: 'number',
+      instanceLicenseDetail: GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail,
       licenseChargeType: 'string',
       licenseConfigJson: 'string',
       licenseCreateTime: 'number',
@@ -124,6 +162,9 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   }
 
   validate() {
+    if(this.instanceLicenseDetail && typeof (this.instanceLicenseDetail as any).validate === 'function') {
+      (this.instanceLicenseDetail as any).validate();
+    }
     super.validate();
   }
 
