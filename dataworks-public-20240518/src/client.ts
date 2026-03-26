@@ -223,7 +223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从集合中移除实体对象
+   * Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - AddEntityIntoMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -262,7 +262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从集合中移除实体对象
+   * Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - AddEntityIntoMetaCollectionRequest
    * @returns AddEntityIntoMetaCollectionResponse
@@ -331,6 +331,8 @@ export default class Client extends OpenApi {
   /**
    * Associates monitoring rules with a data quality monitoring task.
    * 
+   * @deprecated OpenAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param tmpReq - AttachDataQualityRulesToEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachDataQualityRulesToEvaluationTaskResponse
@@ -376,9 +378,12 @@ export default class Client extends OpenApi {
   /**
    * Associates monitoring rules with a data quality monitoring task.
    * 
+   * @deprecated OpenAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - AttachDataQualityRulesToEvaluationTaskRequest
    * @returns AttachDataQualityRulesToEvaluationTaskResponse
    */
+  // Deprecated
   async attachDataQualityRulesToEvaluationTask(request: $_model.AttachDataQualityRulesToEvaluationTaskRequest): Promise<$_model.AttachDataQualityRulesToEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.attachDataQualityRulesToEvaluationTaskWithOptions(request, runtime);
@@ -567,6 +572,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a workflow in DataStudio.
+   * 
    * @param request - CreateBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateBusinessResponse
@@ -616,6 +623,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a workflow in DataStudio.
+   * 
    * @param request - CreateBusinessRequest
    * @returns CreateBusinessResponse
    */
@@ -675,7 +684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
    * 
    * @param request - CreateComputeResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -726,7 +735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
    * 
    * @param request - CreateComputeResourceRequest
    * @returns CreateComputeResourceResponse
@@ -842,6 +851,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -1064,6 +1077,8 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is supported in all DataWorks editions.
    * 
+   * @deprecated OpenAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param tmpReq - CreateDataQualityEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDataQualityEvaluationTaskResponse
@@ -1156,9 +1171,12 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is supported in all DataWorks editions.
    * 
+   * @deprecated OpenAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param request - CreateDataQualityEvaluationTaskRequest
    * @returns CreateDataQualityEvaluationTaskResponse
    */
+  // Deprecated
   async createDataQualityEvaluationTask(request: $_model.CreateDataQualityEvaluationTaskRequest): Promise<$_model.CreateDataQualityEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDataQualityEvaluationTaskWithOptions(request, runtime);
@@ -1166,6 +1184,8 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a monitor instance.
+   * 
+   * @deprecated OpenAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead.
    * 
    * @param tmpReq - CreateDataQualityEvaluationTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1216,9 +1236,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a monitor instance.
    * 
+   * @deprecated OpenAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead.
+   * 
    * @param request - CreateDataQualityEvaluationTaskInstanceRequest
    * @returns CreateDataQualityEvaluationTaskInstanceResponse
    */
+  // Deprecated
   async createDataQualityEvaluationTaskInstance(request: $_model.CreateDataQualityEvaluationTaskInstanceRequest): Promise<$_model.CreateDataQualityEvaluationTaskInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDataQualityEvaluationTaskInstanceWithOptions(request, runtime);
@@ -1226,6 +1249,8 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a data quality monitoring rule.
+   * 
+   * @deprecated OpenAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
    * 
    * @param tmpReq - CreateDataQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1312,9 +1337,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a data quality monitoring rule.
    * 
+   * @deprecated OpenAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param request - CreateDataQualityRuleRequest
    * @returns CreateDataQualityRuleResponse
    */
+  // Deprecated
   async createDataQualityRule(request: $_model.CreateDataQualityRuleRequest): Promise<$_model.CreateDataQualityRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDataQualityRuleWithOptions(request, runtime);
@@ -1322,6 +1350,8 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a data quality monitoring rule template.
+   * 
+   * @deprecated OpenAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead.
    * 
    * @param tmpReq - CreateDataQualityRuleTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1384,9 +1414,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a data quality monitoring rule template.
    * 
+   * @deprecated OpenAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead.
+   * 
    * @param request - CreateDataQualityRuleTemplateRequest
    * @returns CreateDataQualityRuleTemplateResponse
    */
+  // Deprecated
   async createDataQualityRuleTemplate(request: $_model.CreateDataQualityRuleTemplateRequest): Promise<$_model.CreateDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDataQualityRuleTemplateWithOptions(request, runtime);
@@ -1901,6 +1934,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+   * 
    * @param request - CreateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFileResponse
@@ -2062,6 +2097,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+   * 
    * @param request - CreateFileRequest
    * @returns CreateFileResponse
    */
@@ -2071,6 +2108,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a folder.
+   * 
    * @param request - CreateFolderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFolderResponse
@@ -2108,6 +2147,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a folder.
+   * 
    * @param request - CreateFolderRequest
    * @returns CreateFolderResponse
    */
@@ -2223,7 +2264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+   * Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
    * 
    * @param tmpReq - CreateLineageRelationshipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2276,7 +2317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+   * Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
    * 
    * @param request - CreateLineageRelationshipRequest
    * @returns CreateLineageRelationshipResponse
@@ -2667,7 +2708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+   * \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
    * 
    * @remarks
    * Private
@@ -2709,7 +2750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+   * \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
    * 
    * @remarks
    * Private
@@ -3137,6 +3178,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file for a function in DataStudio.
+   * 
    * @param request - CreateUdfFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateUdfFileResponse
@@ -3214,6 +3257,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file for a function in DataStudio.
+   * 
    * @param request - CreateUdfFileRequest
    * @returns CreateUdfFileResponse
    */
@@ -3421,6 +3466,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a workflow.
+   * 
    * @param request - DeleteBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBusinessResponse
@@ -3458,6 +3505,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a workflow.
+   * 
    * @param request - DeleteBusinessRequest
    * @returns DeleteBusinessResponse
    */
@@ -3573,7 +3622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Deletes the specified computing resource based on the computing resource ID.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -3613,7 +3662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Deletes the specified computing resource based on the computing resource ID.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -3819,6 +3868,8 @@ export default class Client extends OpenApi {
   /**
    * Deletes a data quality monitoring task.
    * 
+   * @deprecated OpenAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+   * 
    * @param request - DeleteDataQualityEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDataQualityEvaluationTaskResponse
@@ -3854,9 +3905,12 @@ export default class Client extends OpenApi {
   /**
    * Deletes a data quality monitoring task.
    * 
+   * @deprecated OpenAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+   * 
    * @param request - DeleteDataQualityEvaluationTaskRequest
    * @returns DeleteDataQualityEvaluationTaskResponse
    */
+  // Deprecated
   async deleteDataQualityEvaluationTask(request: $_model.DeleteDataQualityEvaluationTaskRequest): Promise<$_model.DeleteDataQualityEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataQualityEvaluationTaskWithOptions(request, runtime);
@@ -3911,6 +3965,8 @@ export default class Client extends OpenApi {
   /**
    * Deletes a data quality monitoring rule template.
    * 
+   * @deprecated OpenAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead.
+   * 
    * @param request - DeleteDataQualityRuleTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDataQualityRuleTemplateResponse
@@ -3946,9 +4002,12 @@ export default class Client extends OpenApi {
   /**
    * Deletes a data quality monitoring rule template.
    * 
+   * @deprecated OpenAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead.
+   * 
    * @param request - DeleteDataQualityRuleTemplateRequest
    * @returns DeleteDataQualityRuleTemplateResponse
    */
+  // Deprecated
   async deleteDataQualityRuleTemplate(request: $_model.DeleteDataQualityRuleTemplateRequest): Promise<$_model.DeleteDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataQualityRuleTemplateWithOptions(request, runtime);
@@ -4245,6 +4304,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+   * 
    * @param request - DeleteFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFileResponse
@@ -4282,6 +4343,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+   * 
    * @param request - DeleteFileRequest
    * @returns DeleteFileResponse
    */
@@ -4389,7 +4452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除血缘关系
+   * Deletes a lineage in Data Map.
    * 
    * @param request - DeleteLineageRelationshipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4420,7 +4483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除血缘关系
+   * Deletes a lineage in Data Map.
    * 
    * @param request - DeleteLineageRelationshipRequest
    * @returns DeleteLineageRelationshipResponse
@@ -4431,7 +4494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集合
+   * Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - DeleteMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4462,7 +4525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集合
+   * Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - DeleteMetaCollectionRequest
    * @returns DeleteMetaCollectionResponse
@@ -5041,6 +5104,8 @@ export default class Client extends OpenApi {
   /**
    * Disassociates monitoring rules from a data quality monitoring task.
    * 
+   * @deprecated OpenAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachDataQualityRulesFromEvaluationTaskResponse
@@ -5086,9 +5151,12 @@ export default class Client extends OpenApi {
   /**
    * Disassociates monitoring rules from a data quality monitoring task.
    * 
+   * @deprecated OpenAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - DetachDataQualityRulesFromEvaluationTaskRequest
    * @returns DetachDataQualityRulesFromEvaluationTaskResponse
    */
+  // Deprecated
   async detachDataQualityRulesFromEvaluationTask(request: $_model.DetachDataQualityRulesFromEvaluationTaskRequest): Promise<$_model.DetachDataQualityRulesFromEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachDataQualityRulesFromEvaluationTaskWithOptions(request, runtime);
@@ -5151,6 +5219,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+   * 
    * @param request - EstablishRelationTableToBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EstablishRelationTableToBusinessResponse
@@ -5196,6 +5266,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+   * 
    * @param request - EstablishRelationTableToBusinessRequest
    * @returns EstablishRelationTableToBusinessResponse
    */
@@ -5377,6 +5449,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a workflow.
+   * 
    * @param request - GetBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBusinessResponse
@@ -5414,6 +5488,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a workflow.
+   * 
    * @param request - GetBusinessRequest
    * @returns GetBusinessResponse
    */
@@ -5423,7 +5499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据目录详情
+   * Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
    * 
    * @param request - GetCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5450,7 +5526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据目录详情
+   * Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
    * 
    * @param request - GetCatalogRequest
    * @returns GetCatalogResponse
@@ -5461,7 +5537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a certificate file.
+   * View certificate details.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -5492,7 +5568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a certificate file.
+   * View certificate details.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -5507,7 +5583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取字段详情
+   * Queries the information about a specific field of a table in Data Map.
    * 
    * @param request - GetColumnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5534,7 +5610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取字段详情
+   * Queries the information about a specific field of a table in Data Map.
    * 
    * @param request - GetColumnRequest
    * @returns GetColumnResponse
@@ -5597,7 +5673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries the specified computing resource based on the computing resource ID.
    * 
    * @param request - GetComputeResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5632,7 +5708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries the specified computing resource based on the computing resource ID.
    * 
    * @param request - GetComputeResourceRequest
    * @returns GetComputeResourceResponse
@@ -5825,6 +5901,8 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of a monitor.
    * 
+   * @deprecated OpenAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param request - GetDataQualityEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDataQualityEvaluationTaskResponse
@@ -5852,9 +5930,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of a monitor.
    * 
+   * @deprecated OpenAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param request - GetDataQualityEvaluationTaskRequest
    * @returns GetDataQualityEvaluationTaskResponse
    */
+  // Deprecated
   async getDataQualityEvaluationTask(request: $_model.GetDataQualityEvaluationTaskRequest): Promise<$_model.GetDataQualityEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataQualityEvaluationTaskWithOptions(request, runtime);
@@ -5862,6 +5943,8 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of a monitor instance.
+   * 
+   * @deprecated OpenAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead.
    * 
    * @param request - GetDataQualityEvaluationTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5890,9 +5973,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of a monitor instance.
    * 
+   * @deprecated OpenAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead.
+   * 
    * @param request - GetDataQualityEvaluationTaskInstanceRequest
    * @returns GetDataQualityEvaluationTaskInstanceResponse
    */
+  // Deprecated
   async getDataQualityEvaluationTaskInstance(request: $_model.GetDataQualityEvaluationTaskInstanceRequest): Promise<$_model.GetDataQualityEvaluationTaskInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataQualityEvaluationTaskInstanceWithOptions(request, runtime);
@@ -5903,6 +5989,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
+   * 
+   * @deprecated OpenAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
    * 
    * @param request - GetDataQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5934,9 +6022,12 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
+   * @deprecated OpenAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+   * 
    * @param request - GetDataQualityRuleRequest
    * @returns GetDataQualityRuleResponse
    */
+  // Deprecated
   async getDataQualityRule(request: $_model.GetDataQualityRuleRequest): Promise<$_model.GetDataQualityRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataQualityRuleWithOptions(request, runtime);
@@ -5947,6 +6038,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
+   * 
+   * @deprecated OpenAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead.
    * 
    * @param request - GetDataQualityRuleTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5978,9 +6071,12 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
+   * @deprecated OpenAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead.
+   * 
    * @param request - GetDataQualityRuleTemplateRequest
    * @returns GetDataQualityRuleTemplateResponse
    */
+  // Deprecated
   async getDataQualityRuleTemplate(request: $_model.GetDataQualityRuleTemplateRequest): Promise<$_model.GetDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataQualityRuleTemplateWithOptions(request, runtime);
@@ -6231,7 +6327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库详情
+   * Queries the information about a specific database in Data Map.
    * 
    * @param request - GetDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6258,7 +6354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库详情
+   * Queries the information about a specific database in Data Map.
    * 
    * @param request - GetDatabaseRequest
    * @returns GetDatabaseResponse
@@ -6269,7 +6365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集详情
+   * Gets the details of a dataset.
    * 
    * @param request - GetDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6300,7 +6396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集详情
+   * Gets the details of a dataset.
    * 
    * @param request - GetDatasetRequest
    * @returns GetDatasetResponse
@@ -6353,6 +6449,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a deployment package.
+   * 
    * @param request - GetDeploymentPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeploymentPackageResponse
@@ -6390,6 +6488,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a deployment package.
+   * 
    * @param request - GetDeploymentPackageRequest
    * @returns GetDeploymentPackageResponse
    */
@@ -6507,6 +6607,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a folder.
+   * 
    * @param request - GetFolderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFolderResponse
@@ -6548,6 +6650,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a folder.
+   * 
    * @param request - GetFolderRequest
    * @returns GetFolderResponse
    */
@@ -6679,7 +6783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取血缘关系详情
+   * Queries the information about a lineage in Data Map.
    * 
    * @param request - GetLineageRelationshipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6706,7 +6810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取血缘关系详情
+   * Queries the information about a lineage in Data Map.
    * 
    * @param request - GetLineageRelationshipRequest
    * @returns GetLineageRelationshipResponse
@@ -7283,7 +7387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表详情
+   * Queries the information about a specific table in Data Map.
    * 
    * @param request - GetTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7310,7 +7414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表详情
+   * Queries the information about a specific table in Data Map.
    * 
    * @param request - GetTableRequest
    * @returns GetTableResponse
@@ -7907,6 +8011,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of workflows.
+   * 
    * @param request - ListBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListBusinessResponse
@@ -7952,6 +8058,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of workflows.
+   * 
    * @param request - ListBusinessRequest
    * @returns ListBusinessResponse
    */
@@ -7961,7 +8069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据目录列表
+   * Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
    * 
    * @param tmpReq - ListCatalogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7994,7 +8102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据目录列表
+   * Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
    * 
    * @param request - ListCatalogsRequest
    * @returns ListCatalogsResponse
@@ -8051,7 +8159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询字段列表
+   * Queries a list of fields in a data table in Data Map.
    * 
    * @param request - ListColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8078,7 +8186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询字段列表
+   * Queries a list of fields in a data table in Data Map.
    * 
    * @param request - ListColumnsRequest
    * @returns ListColumnsResponse
@@ -8149,7 +8257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries the list of computing resources that meet the specified business information.
    * 
    * @param tmpReq - ListComputeResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8214,7 +8322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries the list of computing resources that meet the specified business information.
    * 
    * @param request - ListComputeResourcesRequest
    * @returns ListComputeResourcesResponse
@@ -8225,7 +8333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询元数据采集器类型列表
+   * Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
    * 
    * @param request - ListCrawlerTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8248,7 +8356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询元数据采集器类型列表
+   * Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
    * @returns ListCrawlerTypesResponse
    */
   async listCrawlerTypes(): Promise<$_model.ListCrawlerTypesResponse> {
@@ -8644,6 +8752,8 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
+   * @deprecated OpenAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+   * 
    * @param request - ListDataQualityEvaluationTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataQualityEvaluationTaskInstancesResponse
@@ -8674,9 +8784,12 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
+   * @deprecated OpenAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+   * 
    * @param request - ListDataQualityEvaluationTaskInstancesRequest
    * @returns ListDataQualityEvaluationTaskInstancesResponse
    */
+  // Deprecated
   async listDataQualityEvaluationTaskInstances(request: $_model.ListDataQualityEvaluationTaskInstancesRequest): Promise<$_model.ListDataQualityEvaluationTaskInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataQualityEvaluationTaskInstancesWithOptions(request, runtime);
@@ -8687,6 +8800,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
+   * 
+   * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
    * 
    * @param request - ListDataQualityEvaluationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8718,17 +8833,24 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
+   * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+   * 
    * @param request - ListDataQualityEvaluationTasksRequest
    * @returns ListDataQualityEvaluationTasksResponse
    */
+  // Deprecated
   async listDataQualityEvaluationTasks(request: $_model.ListDataQualityEvaluationTasksRequest): Promise<$_model.ListDataQualityEvaluationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataQualityEvaluationTasksWithOptions(request, runtime);
   }
 
   /**
+   * 查询数据质量规则校验结果列表
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
+   * 
+   * @deprecated OpenAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
    * 
    * @param request - ListDataQualityResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8755,12 +8877,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据质量规则校验结果列表
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
+   * 
+   * @deprecated OpenAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
    * 
    * @param request - ListDataQualityResultsRequest
    * @returns ListDataQualityResultsResponse
    */
+  // Deprecated
   async listDataQualityResults(request: $_model.ListDataQualityResultsRequest): Promise<$_model.ListDataQualityResultsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataQualityResultsWithOptions(request, runtime);
@@ -8768,6 +8895,8 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of data quality monitoring rule templates.
+   * 
+   * @deprecated OpenAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead.
    * 
    * @param request - ListDataQualityRuleTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8796,9 +8925,12 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of data quality monitoring rule templates.
    * 
+   * @deprecated OpenAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead.
+   * 
    * @param request - ListDataQualityRuleTemplatesRequest
    * @returns ListDataQualityRuleTemplatesResponse
    */
+  // Deprecated
   async listDataQualityRuleTemplates(request: $_model.ListDataQualityRuleTemplatesRequest): Promise<$_model.ListDataQualityRuleTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataQualityRuleTemplatesWithOptions(request, runtime);
@@ -8809,6 +8941,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
+   * 
+   * @deprecated OpenAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
    * 
    * @param request - ListDataQualityRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8840,9 +8974,12 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
+   * @deprecated OpenAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+   * 
    * @param request - ListDataQualityRulesRequest
    * @returns ListDataQualityRulesResponse
    */
+  // Deprecated
   async listDataQualityRules(request: $_model.ListDataQualityRulesRequest): Promise<$_model.ListDataQualityRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataQualityRulesWithOptions(request, runtime);
@@ -9169,7 +9306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据库列表
+   * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
    * 
    * @param request - ListDatabasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9196,7 +9333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据库列表
+   * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
    * 
    * @param request - ListDatabasesRequest
    * @returns ListDatabasesResponse
@@ -9647,6 +9784,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of file versions.
+   * 
    * @param request - ListFileVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFileVersionsResponse
@@ -9692,6 +9831,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of file versions.
+   * 
    * @param request - ListFileVersionsRequest
    * @returns ListFileVersionsResponse
    */
@@ -9701,6 +9842,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of files.
+   * 
    * @param request - ListFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFilesResponse
@@ -9790,6 +9933,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of files.
+   * 
    * @param request - ListFilesRequest
    * @returns ListFilesResponse
    */
@@ -9799,6 +9944,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of folders.
+   * 
    * @param request - ListFoldersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFoldersResponse
@@ -9844,6 +9991,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of folders.
+   * 
    * @param request - ListFoldersRequest
    * @returns ListFoldersResponse
    */
@@ -9891,7 +10040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询血缘关系
+   * Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
    * 
    * @param request - ListLineageRelationshipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9918,7 +10067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询血缘关系
+   * Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
    * 
    * @param request - ListLineageRelationshipsRequest
    * @returns ListLineageRelationshipsResponse
@@ -9929,7 +10078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实体血缘
+   * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
    * 
    * @param request - ListLineagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9956,7 +10105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实体血缘
+   * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
    * 
    * @param request - ListLineagesRequest
    * @returns ListLineagesResponse
@@ -10125,7 +10274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据表的分区列表
+   * Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
    * 
    * @param request - ListPartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10152,7 +10301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据表的分区列表
+   * Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
    * 
    * @param request - ListPartitionsRequest
    * @returns ListPartitionsResponse
@@ -10483,7 +10632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of workspaces with which a resource group is associated
+   * Gets the list of workspaces bound to a resource group.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -10518,7 +10667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of workspaces with which a resource group is associated
+   * Gets the list of workspaces bound to a resource group.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -10533,7 +10682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定资源组的监控指标数据
+   * Queries the metric data of a resource group.
    * 
    * @param request - ListResourceGroupMetricDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10588,7 +10737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定资源组的监控指标数据
+   * Queries the metric data of a resource group.
    * 
    * @param request - ListResourceGroupMetricDataRequest
    * @returns ListResourceGroupMetricDataResponse
@@ -11713,7 +11862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从集合中移除实体对象
+   * Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - RemoveEntityFromMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11748,7 +11897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从集合中移除实体对象
+   * Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - RemoveEntityFromMetaCollectionRequest
    * @returns RemoveEntityFromMetaCollectionResponse
@@ -12619,6 +12768,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Commits a file to the development environment of the scheduling system to generate a task.
+   * 
    * @param request - SubmitFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitFileResponse
@@ -12664,6 +12815,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Commits a file to the development environment of the scheduling system to generate a task.
+   * 
    * @param request - SubmitFileRequest
    * @returns SubmitFileResponse
    */
@@ -13133,7 +13286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新字段业务元数据
+   * Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
    * 
    * @param request - UpdateColumnBusinessMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13168,7 +13321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新字段业务元数据
+   * Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
    * 
    * @param request - UpdateColumnBusinessMetadataRequest
    * @returns UpdateColumnBusinessMetadataResponse
@@ -13237,7 +13390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Modifies the specified computing resource based on the computing resource ID.
    * 
    * @param request - UpdateComputeResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13284,7 +13437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Modifies the specified computing resource based on the computing resource ID.
    * 
    * @param request - UpdateComputeResourceRequest
    * @returns UpdateComputeResourceResponse
@@ -13379,6 +13532,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -13588,6 +13745,8 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is supported in all DataWorks editions.
    * 
+   * @deprecated OpenAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param tmpReq - UpdateDataQualityEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDataQualityEvaluationTaskResponse
@@ -13684,9 +13843,12 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is supported in all DataWorks editions.
    * 
+   * @deprecated OpenAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - UpdateDataQualityEvaluationTaskRequest
    * @returns UpdateDataQualityEvaluationTaskResponse
    */
+  // Deprecated
   async updateDataQualityEvaluationTask(request: $_model.UpdateDataQualityEvaluationTaskRequest): Promise<$_model.UpdateDataQualityEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataQualityEvaluationTaskWithOptions(request, runtime);
@@ -13694,6 +13856,8 @@ export default class Client extends OpenApi {
 
   /**
    * Updates a data quality monitoring rule.
+   * 
+   * @deprecated OpenAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
    * 
    * @param tmpReq - UpdateDataQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13778,9 +13942,12 @@ export default class Client extends OpenApi {
   /**
    * Updates a data quality monitoring rule.
    * 
+   * @deprecated OpenAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - UpdateDataQualityRuleRequest
    * @returns UpdateDataQualityRuleResponse
    */
+  // Deprecated
   async updateDataQualityRule(request: $_model.UpdateDataQualityRuleRequest): Promise<$_model.UpdateDataQualityRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataQualityRuleWithOptions(request, runtime);
@@ -13788,6 +13955,8 @@ export default class Client extends OpenApi {
 
   /**
    * Updates a data quality monitoring rule template.
+   * 
+   * @deprecated OpenAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead.
    * 
    * @param tmpReq - UpdateDataQualityRuleTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13852,9 +14021,12 @@ export default class Client extends OpenApi {
   /**
    * Updates a data quality monitoring rule template.
    * 
+   * @deprecated OpenAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead.
+   * 
    * @param request - UpdateDataQualityRuleTemplateRequest
    * @returns UpdateDataQualityRuleTemplateResponse
    */
+  // Deprecated
   async updateDataQualityRuleTemplate(request: $_model.UpdateDataQualityRuleTemplateRequest): Promise<$_model.UpdateDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataQualityRuleTemplateWithOptions(request, runtime);
@@ -14201,6 +14373,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a file.
+   * 
    * @param request - UpdateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFileResponse
@@ -14358,6 +14532,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a file.
+   * 
    * @param request - UpdateFileRequest
    * @returns UpdateFileResponse
    */
@@ -14467,7 +14643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回调扩展点消息的检查结果
+   * Recalls the check result of the message of an extension point event.
    * 
    * @param request - UpdateIDEEventResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14510,7 +14686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回调扩展点消息的检查结果
+   * Recalls the check result of the message of an extension point event.
    * 
    * @param request - UpdateIDEEventResultRequest
    * @returns UpdateIDEEventResultResponse
@@ -15201,6 +15377,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the file information about a function.
+   * 
    * @param request - UpdateUdfFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUdfFileResponse
@@ -15274,6 +15452,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the file information about a function.
+   * 
    * @param request - UpdateUdfFileRequest
    * @returns UpdateUdfFileResponse
    */

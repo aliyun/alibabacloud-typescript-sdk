@@ -923,6 +923,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    * FullAndRealtimeIncremental
    */
   migrationType?: string;
+  owner?: string;
   /**
    * @remarks
    * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
@@ -977,6 +978,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
       jobStatus: 'JobStatus',
       jobType: 'JobType',
       migrationType: 'MigrationType',
+      owner: 'Owner',
       projectId: 'ProjectId',
       resourceSettings: 'ResourceSettings',
       sourceDataSourceSettings: 'SourceDataSourceSettings',
@@ -998,6 +1000,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
       jobStatus: 'string',
       jobType: 'string',
       migrationType: 'string',
+      owner: 'string',
       projectId: 'number',
       resourceSettings: GetDIJobResponseBodyPagingInfoResourceSettings,
       sourceDataSourceSettings: { 'type': 'array', 'itemType': GetDIJobResponseBodyPagingInfoSourceDataSourceSettings },

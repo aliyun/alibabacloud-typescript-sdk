@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDIJobShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The task description.
+   * 
+   * @example
+   * The description of the synchronization task.
+   */
   description?: string;
   /**
    * @remarks
+   * The list of destination data source settings.
+   * 
    * This parameter is required.
    */
   destinationDataSourceSettingsShrink?: string;
@@ -29,6 +38,10 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
    * @deprecated
    */
   jobName?: string;
+  /**
+   * @remarks
+   * The task-level settings, including DDL handling policies, column data type mapping between source and destination, and runtime parameters.
+   */
   jobSettingsShrink?: string;
   /**
    * @remarks
@@ -68,6 +81,14 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The task owner.
+   * 
+   * @example
+   * 3726346
+   */
+  owner?: string;
+  /**
+   * @remarks
    * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
    * 
    * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
@@ -78,11 +99,15 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The resource settings.
+   * 
    * This parameter is required.
    */
   resourceSettingsShrink?: string;
   /**
    * @remarks
+   * The list of source data source settings.
+   * 
    * This parameter is required.
    */
   sourceDataSourceSettingsShrink?: string;
@@ -98,9 +123,19 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   sourceDataSourceType?: string;
   /**
    * @remarks
+   * The list of synchronization object transformation mappings. Each element describes a set of source object selection rules and the transformation rules applied to those objects.
+   * 
+   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
+   * 
    * This parameter is required.
    */
   tableMappingsShrink?: string;
+  /**
+   * @remarks
+   * The list of synchronization object transformation rule definitions.
+   * 
+   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
+   */
   transformationRulesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,6 +147,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
       jobType: 'JobType',
       migrationType: 'MigrationType',
       name: 'Name',
+      owner: 'Owner',
       projectId: 'ProjectId',
       resourceSettingsShrink: 'ResourceSettings',
       sourceDataSourceSettingsShrink: 'SourceDataSourceSettings',
@@ -131,6 +167,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
       jobType: 'string',
       migrationType: 'string',
       name: 'string',
+      owner: 'string',
       projectId: 'number',
       resourceSettingsShrink: 'string',
       sourceDataSourceSettingsShrink: 'string',

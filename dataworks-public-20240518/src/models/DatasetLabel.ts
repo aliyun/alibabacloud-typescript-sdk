@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DatasetLabel extends $dara.Model {
+  /**
+   * @remarks
+   * Dataset label keys
+   * 
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @remarks
+   * Dataset label values
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

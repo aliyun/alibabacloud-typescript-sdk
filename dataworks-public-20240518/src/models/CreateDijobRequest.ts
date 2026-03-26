@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDIJobRequestDestinationDataSourceSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The data source name.
+   * 
+   * @example
+   * holo_datasource_1
+   */
   dataSourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,7 +33,21 @@ export class CreateDIJobRequestDestinationDataSourceSettings extends $dara.Model
 }
 
 export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The destination type, such as bigint, boolean, string, text, datetime, timestamp, decimal, or binary. Different data sources may have different types.
+   * 
+   * @example
+   * text
+   */
   destinationDataType?: string;
+  /**
+   * @remarks
+   * The source type, such as bigint, boolean, string, text, datetime, timestamp, decimal, or binary. Different data sources may have different types.
+   * 
+   * @example
+   * bigint
+   */
   sourceDataType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,7 +73,24 @@ export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.M
 }
 
 export class CreateDIJobRequestJobSettingsCycleScheduleSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The synchronization type that requires scheduling. Valid values:
+   * 
+   * *   Full: Full synchronization
+   * *   OfflineIncremental: Batch incremental synchronization
+   * 
+   * @example
+   * Full
+   */
   cycleMigrationType?: string;
+  /**
+   * @remarks
+   * The scheduling parameters.
+   * 
+   * @example
+   * bizdate=$bizdate
+   */
   scheduleParameters?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,7 +116,33 @@ export class CreateDIJobRequestJobSettingsCycleScheduleSettings extends $dara.Mo
 }
 
 export class CreateDIJobRequestJobSettingsDdlHandlingSettings extends $dara.Model {
+  /**
+   * @remarks
+   * Valid values:
+   * 
+   * *   Ignore
+   * *   Critical: Fail the task
+   * *   Normal
+   * 
+   * @example
+   * Critical
+   */
   action?: string;
+  /**
+   * @remarks
+   * The DDL type. Valid values:
+   * 
+   * *   RenameColumn
+   * *   ModifyColumn
+   * *   CreateTable
+   * *   TruncateTable
+   * *   DropTable
+   * *   DropColumn
+   * *   AddColumn
+   * 
+   * @example
+   * AddColumn
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -104,7 +168,30 @@ export class CreateDIJobRequestJobSettingsDdlHandlingSettings extends $dara.Mode
 }
 
 export class CreateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The setting name. Valid values:
+   * 
+   * *   src.offline.datasource.max.connection: Specifies the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   dst.offline.truncate: Specifies whether to clear the destination table before data writing.
+   * *   runtime.offline.speed.limit.enable: Specifies whether throttling is enabled for a batch synchronization task.
+   * *   runtime.offline.concurrent: Specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   runtime.enable.auto.create.schema: Specifies whether schemas are automatically created in the destination of a synchronization task.
+   * *   runtime.realtime.concurrent: Specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * *   runtime.realtime.failover.minute.dataxcdc: Specifies the maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
+   * *   runtime.realtime.failover.times.dataxcdc: Specifies the maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
+   * 
+   * @example
+   * runtime.offline.concurrent
+   */
   name?: string;
+  /**
+   * @remarks
+   * The setting value.
+   * 
+   * @example
+   * 1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -130,10 +217,50 @@ export class CreateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
 }
 
 export class CreateDIJobRequestJobSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The channel-specific settings. You can configure special settings for specific channels. Currently supported: Holo2Holo (Hologres to Hologres) and Holo2Kafka (Hologres to Kafka).
+   * 
+   * 1.  Holo2Kafka
+   * 
+   * *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}} kafkaClientProperties: Kafka producer parameters used when writing to Kafka.
+   * *   keyColumns: The columns to write to Kafka.
+   * *   writeMode: The Kafka write format. Valid values: json and canal.
+   * 
+   * 2.  Holo2Holo
+   * 
+   * *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
+   * *   conflictMode: The conflict handling policy when writing to Hologres. Valid values: replace (overwrite) and ignore.
+   * *   writeMode: The write mode for Hologres. Valid values: replay and insert.
+   * *   dynamicColumnAction: The dynamic column handling mode when writing to Hologres. Valid values: replay, insert, and ignore.
+   * 
+   * @example
+   * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
+   */
   channelSettings?: string;
+  /**
+   * @remarks
+   * The array of column type mappings.
+   * 
+   * >  ["ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
+   */
   columnDataTypeSettings?: CreateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  /**
+   * @remarks
+   * The scheduled task settings.
+   */
   cycleScheduleSettings?: CreateDIJobRequestJobSettingsCycleScheduleSettings;
+  /**
+   * @remarks
+   * The array of DDL handling settings.
+   * 
+   * >  ["DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
+   */
   ddlHandlingSettings?: CreateDIJobRequestJobSettingsDdlHandlingSettings[];
+  /**
+   * @remarks
+   * The runtime settings.
+   */
   runtimeSettings?: CreateDIJobRequestJobSettingsRuntimeSettings[];
   static names(): { [key: string]: string } {
     return {
@@ -177,7 +304,21 @@ export class CreateDIJobRequestJobSettings extends $dara.Model {
 }
 
 export class CreateDIJobRequestResourceSettingsOfflineResourceSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The CU of the Data Integration resource group used for batch synchronization.
+   * 
+   * @example
+   * 2.0
+   */
   requestedCu?: number;
+  /**
+   * @remarks
+   * The name of the Data Integration resource group used for batch synchronization.
+   * 
+   * @example
+   * S_res_group_111_222
+   */
   resourceGroupIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,7 +344,21 @@ export class CreateDIJobRequestResourceSettingsOfflineResourceSettings extends $
 }
 
 export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The CU of the Data Integration resource group used for real-time synchronization.
+   * 
+   * @example
+   * 2.0
+   */
   requestedCu?: number;
+  /**
+   * @remarks
+   * The name of the Data Integration resource group used for real-time synchronization.
+   * 
+   * @example
+   * S_res_group_111_222
+   */
   resourceGroupIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -229,7 +384,21 @@ export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
 }
 
 export class CreateDIJobRequestResourceSettingsScheduleResourceSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The CU of the scheduling resource group for batch synchronization tasks.
+   * 
+   * @example
+   * 2.0
+   */
   requestedCu?: number;
+  /**
+   * @remarks
+   * The name of the scheduling resource group for batch synchronization tasks.
+   * 
+   * @example
+   * S_res_group_235454102432001_1579085295030
+   */
   resourceGroupIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -255,8 +424,20 @@ export class CreateDIJobRequestResourceSettingsScheduleResourceSettings extends 
 }
 
 export class CreateDIJobRequestResourceSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The batch synchronization resources.
+   */
   offlineResourceSettings?: CreateDIJobRequestResourceSettingsOfflineResourceSettings;
+  /**
+   * @remarks
+   * The real-time synchronization resources.
+   */
   realtimeResourceSettings?: CreateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  /**
+   * @remarks
+   * The scheduling resources.
+   */
   scheduleResourceSettings?: CreateDIJobRequestResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
     return {
@@ -293,7 +474,21 @@ export class CreateDIJobRequestResourceSettings extends $dara.Model {
 }
 
 export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The database encoding.
+   * 
+   * @example
+   * UTF-8
+   */
   encoding?: string;
+  /**
+   * @remarks
+   * The time zone.
+   * 
+   * @example
+   * GMT+8
+   */
   timezone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -319,7 +514,18 @@ export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties exte
 }
 
 export class CreateDIJobRequestSourceDataSourceSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The data source name.
+   * 
+   * @example
+   * mysql_datasource_1
+   */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The data source properties.
+   */
   dataSourceProperties?: CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties;
   static names(): { [key: string]: string } {
     return {
@@ -348,9 +554,41 @@ export class CreateDIJobRequestSourceDataSourceSettings extends $dara.Model {
 }
 
 export class CreateDIJobRequestTableMappingsSourceObjectSelectionRules extends $dara.Model {
+  /**
+   * @remarks
+   * The selection action. Valid values: Include and Exclude.
+   * 
+   * @example
+   * Include
+   */
   action?: string;
+  /**
+   * @remarks
+   * The expression.
+   * 
+   * @example
+   * mysql_table_1
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The expression type. Valid values: Exact and Regex.
+   * 
+   * @example
+   * Exact
+   */
   expressionType?: string;
+  /**
+   * @remarks
+   * The object type. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * *   Database
+   * 
+   * @example
+   * Table
+   */
   objectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -380,8 +618,41 @@ export class CreateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
 }
 
 export class CreateDIJobRequestTableMappingsTransformationRules extends $dara.Model {
+  /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefinePartitionKey
+   * 
+   * @example
+   * Rename
+   */
   ruleActionType?: string;
+  /**
+   * @remarks
+   * The rule name. The rule name must be unique for a given combination of action type and target type. The name cannot exceed 50 characters.
+   * 
+   * @example
+   * rename_rule_1
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The target type for the action. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * *   Database
+   * 
+   * @example
+   * Table
+   */
   ruleTargetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -409,7 +680,15 @@ export class CreateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
 }
 
 export class CreateDIJobRequestTableMappings extends $dara.Model {
+  /**
+   * @remarks
+   * Each rule can select a set of source objects to synchronize. Multiple rules together select a table.
+   */
   sourceObjectSelectionRules?: CreateDIJobRequestTableMappingsSourceObjectSelectionRules[];
+  /**
+   * @remarks
+   * The list of synchronization object transformation rule definitions. Each element represents a single transformation rule definition.
+   */
   transformationRules?: CreateDIJobRequestTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -441,9 +720,92 @@ export class CreateDIJobRequestTableMappings extends $dara.Model {
 }
 
 export class CreateDIJobRequestTransformationRules extends $dara.Model {
+  /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefinePartitionKey
+   * 
+   * @example
+   * Rename
+   */
   ruleActionType?: string;
+  /**
+   * @remarks
+   * The rule expression in JSON string format.
+   * 
+   * 1.  Rename rule
+   * 
+   * *   Example: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }
+   * *   expression: The rename transformation expression. Supported variables include: ${srcDatasourceName} (source data source name), ${srcDatabaseName} (source database name), and ${srcTableName} (source table name).
+   * 
+   * 2.  AddColumn rule
+   * 
+   * *   Example: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
+   * *   If not specified, the default behavior is to not add columns.
+   * *   columnName: The name of the column to add.
+   * *   columnValueType: The value type of the column to add. Valid values: Constant and Variable.
+   * *   columnValue: The value of the column to add. When columnValueType is set to Constant, the value is a custom constant of the string type. When columnValueType is set to Variable, the value is a built-in variable. Built-in variables include: EXECUTE_TIME (execution time, long type), DB_NAME_SRC (source database name, string type), DATASOURCE_NAME_SRC (source data source name, string type), TABLE_NAME_SRC (source table name, string type), DB_NAME_DEST (destination database name, string type), DATASOURCE_NAME_DEST (destination data source name, string type), TABLE_NAME_DEST (destination table name, string type), and DB_NAME_SRC_TRANSED (transformed source database name, string type).
+   * 
+   * 3.  DefinePrimaryKey
+   * 
+   * *   Example: {"columns":["ukcolumn1","ukcolumn2"]}
+   * *   If not specified, the source primary key columns are used by default.
+   * *   When the destination table already exists: Data Integration does not modify the destination table structure. If the specified primary key columns are not in the destination table, the task fails to start.
+   * *   When the destination table is auto-created: Data Integration automatically creates the destination table structure with the defined primary key columns. If the specified primary key columns are not in the destination table, the task fails to start.
+   * 
+   * 4.  HandleDml rule
+   * 
+   * *   Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
+   * *   If not specified, the default rule is Normal for Insert, Update, and Delete.
+   * *   dmlType: The DML operation type. Valid values: Insert, Update, and Delete.
+   * *   dmlAction: The DML handling policy. Valid values: Normal, Ignore, Filter (conditional processing, used when dmlType is Update or Delete), and LogicalDelete.
+   * *   filterCondition: The DML filter condition. This parameter is used when dmlAction is set to Filter.
+   * 
+   * 5.  DefineIncrementalCondition
+   * 
+   * *   Example: {"where":"id > 0"}
+   * *   Specifies the incremental filter condition.
+   * 
+   * 6.  DefineCycleScheduleSettings
+   * 
+   * *   Example: {"cronExpress":" \\* \\* \\* \\* \\* \\*", "cycleType":"1"}
+   * *   Specifies the scheduled task parameters.
+   * 
+   * 7.  DefinePartitionKey
+   * 
+   * *   Example: {"columns":["id"]}
+   * *   Specifies the partition key.
+   * 
+   * @example
+   * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
+   */
   ruleExpression?: string;
+  /**
+   * @remarks
+   * The rule name. When the action type and target type are the same, the rule name must be unique. The name cannot exceed 50 characters.
+   * 
+   * @example
+   * rename_rule_1
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The target type for the action. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * *   Database
+   * 
+   * @example
+   * Table
+   */
   ruleTargetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -473,9 +835,18 @@ export class CreateDIJobRequestTransformationRules extends $dara.Model {
 }
 
 export class CreateDIJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The task description.
+   * 
+   * @example
+   * The description of the synchronization task.
+   */
   description?: string;
   /**
    * @remarks
+   * The list of destination data source settings.
+   * 
    * This parameter is required.
    */
   destinationDataSourceSettings?: CreateDIJobRequestDestinationDataSourceSettings[];
@@ -499,6 +870,10 @@ export class CreateDIJobRequest extends $dara.Model {
    * @deprecated
    */
   jobName?: string;
+  /**
+   * @remarks
+   * The task-level settings, including DDL handling policies, column data type mapping between source and destination, and runtime parameters.
+   */
   jobSettings?: CreateDIJobRequestJobSettings;
   /**
    * @remarks
@@ -538,6 +913,14 @@ export class CreateDIJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The task owner.
+   * 
+   * @example
+   * 3726346
+   */
+  owner?: string;
+  /**
+   * @remarks
    * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
    * 
    * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
@@ -548,11 +931,15 @@ export class CreateDIJobRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The resource settings.
+   * 
    * This parameter is required.
    */
   resourceSettings?: CreateDIJobRequestResourceSettings;
   /**
    * @remarks
+   * The list of source data source settings.
+   * 
    * This parameter is required.
    */
   sourceDataSourceSettings?: CreateDIJobRequestSourceDataSourceSettings[];
@@ -568,9 +955,19 @@ export class CreateDIJobRequest extends $dara.Model {
   sourceDataSourceType?: string;
   /**
    * @remarks
+   * The list of synchronization object transformation mappings. Each element describes a set of source object selection rules and the transformation rules applied to those objects.
+   * 
+   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
+   * 
    * This parameter is required.
    */
   tableMappings?: CreateDIJobRequestTableMappings[];
+  /**
+   * @remarks
+   * The list of synchronization object transformation rule definitions.
+   * 
+   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
+   */
   transformationRules?: CreateDIJobRequestTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -582,6 +979,7 @@ export class CreateDIJobRequest extends $dara.Model {
       jobType: 'JobType',
       migrationType: 'MigrationType',
       name: 'Name',
+      owner: 'Owner',
       projectId: 'ProjectId',
       resourceSettings: 'ResourceSettings',
       sourceDataSourceSettings: 'SourceDataSourceSettings',
@@ -601,6 +999,7 @@ export class CreateDIJobRequest extends $dara.Model {
       jobType: 'string',
       migrationType: 'string',
       name: 'string',
+      owner: 'string',
       projectId: 'number',
       resourceSettings: CreateDIJobRequestResourceSettings,
       sourceDataSourceSettings: { 'type': 'array', 'itemType': CreateDIJobRequestSourceDataSourceSettings },

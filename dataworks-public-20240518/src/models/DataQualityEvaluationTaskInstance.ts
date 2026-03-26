@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DataQualityEvaluationTaskInstanceTaskHooks extends $dara.Model {
   /**
+   * @remarks
+   * The trigger configuration of the callback event.
+   * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
    */
   condition?: string;
   /**
+   * @remarks
+   * The type of the callback event. Valid values:
+   * 
+   * *   BlockTaskInstance: An auto triggered node is blocked.
+   * 
    * @example
    * BlockTaskInstance
    */
@@ -37,6 +45,13 @@ export class DataQualityEvaluationTaskInstanceTaskHooks extends $dara.Model {
 }
 
 export class DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The alert notification methods.
+   * 
+   * @example
+   * Mail
+   */
   channels?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -64,15 +79,25 @@ export class DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNoti
 
 export class DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
+   * @remarks
+   * The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+   * 
    * @example
    * {"atAll":"true"}
    */
   extension?: string;
   /**
+   * @remarks
+   * The alert recipient configuration.
+   * 
    * @example
    * AliUid
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -103,7 +128,15 @@ export class DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNoti
 }
 
 export class DataQualityEvaluationTaskInstanceTaskNotificationsNotifications extends $dara.Model {
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   notificationChannels?: DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels[];
+  /**
+   * @remarks
+   * The alert recipient configurations.
+   */
   notificationReceivers?: DataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -136,10 +169,17 @@ export class DataQualityEvaluationTaskInstanceTaskNotificationsNotifications ext
 
 export class DataQualityEvaluationTaskInstanceTaskNotifications extends $dara.Model {
   /**
+   * @remarks
+   * The trigger condition of the alert notification.
+   * 
    * @example
    * ${blockType} == "Strong"
    */
   condition?: string;
+  /**
+   * @remarks
+   * The configurations for the alert notification.
+   */
   notifications?: DataQualityEvaluationTaskInstanceTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
     return {
@@ -169,21 +209,43 @@ export class DataQualityEvaluationTaskInstanceTaskNotifications extends $dara.Mo
 
 export class DataQualityEvaluationTaskInstanceTaskTarget extends $dara.Model {
   /**
+   * @remarks
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * 
    * @example
    * maxcompute
    */
   databaseType?: string;
   /**
+   * @remarks
+   * The configuration of the partitioned table.
+   * 
    * @example
    * ds=$[yyyymmdd-1]
    */
   partitionSpec?: string;
   /**
+   * @remarks
+   * The ID of the table in Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
+   * 
    * @example
    * Table
    */
@@ -216,8 +278,17 @@ export class DataQualityEvaluationTaskInstanceTaskTarget extends $dara.Model {
 }
 
 export class DataQualityEvaluationTaskInstanceTaskTrigger extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the auto triggered nodes of which the instances are successfully run. This parameter takes effect only if the Type parameter is set to ByScheduledTaskInstance.
+   */
   taskIds?: number[];
   /**
+   * @remarks
+   * The trigger condition of the task. Valid values:
+   * 
+   * *   ByScheduledTaskInstance: The task is triggered when the instance of an auto triggered node is successfully run.
+   * 
    * @example
    * ByScheduledTaskInstance
    */
@@ -250,30 +321,69 @@ export class DataQualityEvaluationTaskInstanceTaskTrigger extends $dara.Model {
 
 export class DataQualityEvaluationTaskInstanceTask extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data source that is used for task running.
+   * 
    * @example
    * 201
    */
   dataSourceId?: number;
+  /**
+   * @remarks
+   * The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+   */
   hooks?: DataQualityEvaluationTaskInstanceTaskHooks[];
   /**
+   * @remarks
+   * The ID of the data quality monitoring task.
+   * 
    * @example
    * 10001
    */
   id?: number;
   /**
-   * @example
-   * 质量校验任务
+   * @remarks
+   * The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
    */
   name?: string;
+  /**
+   * @remarks
+   * The subscription configurations for alert notifications.
+   */
   notifications?: DataQualityEvaluationTaskInstanceTaskNotifications[];
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * @example
+   * 2626
+   */
   projectId?: number;
   /**
+   * @remarks
+   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL to collect EMR data. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
+   * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
    */
   runtimeConf?: string;
+  /**
+   * @remarks
+   * The monitored object of the data quality monitoring task.
+   */
   target?: DataQualityEvaluationTaskInstanceTaskTarget;
+  /**
+   * @remarks
+   * The DataWorks tenant ID.
+   * 
+   * @example
+   * 195820716552192
+   */
   tenantId?: number;
+  /**
+   * @remarks
+   * The trigger configuration of the data quality monitoring task.
+   */
   trigger?: DataQualityEvaluationTaskInstanceTaskTrigger;
   static names(): { [key: string]: string } {
     return {
@@ -328,25 +438,41 @@ export class DataQualityEvaluationTaskInstanceTask extends $dara.Model {
 
 export class DataQualityEvaluationTaskInstance extends $dara.Model {
   /**
+   * @remarks
+   * The time at which the instance was generated.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The time at which the instance finished running.
+   * 
    * @example
    * 1710239005403
    */
   finishTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 10001
    */
   id?: number;
   /**
+   * @remarks
+   * The status of the instance.
+   * 
    * @example
    * Passed
    */
   status?: string;
+  /**
+   * @remarks
+   * The snapshot of the configurations for the data quality monitoring task when the task starts.
+   */
   task?: DataQualityEvaluationTaskInstanceTask;
   static names(): { [key: string]: string } {
     return {

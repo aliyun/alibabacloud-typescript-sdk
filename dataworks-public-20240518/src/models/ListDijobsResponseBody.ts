@@ -66,6 +66,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
    * FullAndRealtimeIncremental
    */
   migrationType?: string;
+  owner?: string;
   /**
    * @remarks
    * The ID of the DataWorks workspace to which the synchronization task belongs.
@@ -90,6 +91,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
       jobName: 'JobName',
       jobStatus: 'JobStatus',
       migrationType: 'MigrationType',
+      owner: 'Owner',
       projectId: 'ProjectId',
       sourceDataSourceType: 'SourceDataSourceType',
     };
@@ -103,6 +105,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
       jobName: 'string',
       jobStatus: 'string',
       migrationType: 'string',
+      owner: 'string',
       projectId: 'number',
       sourceDataSourceType: 'string',
     };

@@ -9,11 +9,24 @@ export class DataQualityRuleCheckingConfigThresholdsCritical extends $dara.Model
    */
   expression?: string;
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   />
+   * *   />=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -50,11 +63,24 @@ export class DataQualityRuleCheckingConfigThresholdsExpected extends $dara.Model
    */
   expression?: string;
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   />
+   * *   />=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -91,11 +117,24 @@ export class DataQualityRuleCheckingConfigThresholdsWarned extends $dara.Model {
    */
   expression?: string;
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   />
+   * *   />=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -126,8 +165,20 @@ export class DataQualityRuleCheckingConfigThresholdsWarned extends $dara.Model {
 }
 
 export class DataQualityRuleCheckingConfigThresholds extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
   critical?: DataQualityRuleCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold setting.
+   */
   expected?: DataQualityRuleCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for normal alerts.
+   */
   warned?: DataQualityRuleCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
     return {
@@ -165,12 +216,29 @@ export class DataQualityRuleCheckingConfigThresholds extends $dara.Model {
 
 export class DataQualityRuleCheckingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to indicate the query method of referenced samples.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
   referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
   thresholds?: DataQualityRuleCheckingConfigThresholds;
   /**
+   * @remarks
+   * The threshold calculation method. Valid values:
+   * 
+   * *   Fixed
+   * *   Fluctation
+   * *   FluctationDiscreate
+   * *   Auto
+   * *   Average
+   * *   Variance
+   * 
    * @example
    * Fixed
    */
@@ -205,11 +273,19 @@ export class DataQualityRuleCheckingConfig extends $dara.Model {
 
 export class DataQualityRuleErrorHandlers extends $dara.Model {
   /**
+   * @remarks
+   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
    */
   errorDataFilter?: string;
   /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   SaveErrorData
+   * 
    * @example
    * SaveErrorData
    */
@@ -239,21 +315,49 @@ export class DataQualityRuleErrorHandlers extends $dara.Model {
 
 export class DataQualityRuleSamplingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the percentage of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values in the field.
+   * *   DuplicatedPercent: the percentage of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field is set to null.
+   * *   NullValuePercent: the percentage of the number of rows in which the field is set to null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that the data is sampled by executing custom SQL statements.
+   * 
    * @example
    * Min
    */
   metric?: string;
   /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
    * @example
    * { "Columns": [ "id", "name" ] }
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * 
    * @example
    * id IS NULL
    */
   samplingFilter?: string;
   /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s;
    */
@@ -287,21 +391,43 @@ export class DataQualityRuleSamplingConfig extends $dara.Model {
 
 export class DataQualityRuleTarget extends $dara.Model {
   /**
+   * @remarks
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * 
    * @example
    * maxcompute
    */
   databaseType?: string;
   /**
+   * @remarks
+   * The configuration of the partitioned table.
+   * 
    * @example
    * ds=$[yyyymmdd-1]
    */
   partitionSpec?: string;
   /**
+   * @remarks
+   * The ID of the table in Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
+   * 
    * @example
    * Table
    */
@@ -334,46 +460,86 @@ export class DataQualityRuleTarget extends $dara.Model {
 }
 
 export class DataQualityRule extends $dara.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
   checkingConfig?: DataQualityRuleCheckingConfig;
   /**
+   * @remarks
+   * The description of the rule. The description can be up to 500 characters in length.
+   * 
    * @example
    * this is a odps _sql task
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
   errorHandlers?: DataQualityRuleErrorHandlers[];
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
-   * @example
-   * 表不能为空
+   * @remarks
+   * The rule name. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
    */
   name?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The settings for sampling.
+   */
   samplingConfig?: DataQualityRuleSamplingConfig;
   /**
+   * @remarks
+   * The strength of the rule. Valid values:
+   * 
+   * *   Normal
+   * *   High
+   * 
    * @example
    * High
    */
   severity?: string;
+  /**
+   * @remarks
+   * The monitored object of the rule.
+   */
   target?: DataQualityRuleTarget;
   /**
+   * @remarks
+   * The template used by the rule.
+   * 
    * @example
-   * SYSTEM:user_defined_sql
+   * system::user_defined
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The DataWorks tenant ID.
+   * 
    * @example
    * 1
    */

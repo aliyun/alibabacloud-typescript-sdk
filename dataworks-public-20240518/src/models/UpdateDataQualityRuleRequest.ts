@@ -470,7 +470,12 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 10000
    */
   projectId?: number;
   /**

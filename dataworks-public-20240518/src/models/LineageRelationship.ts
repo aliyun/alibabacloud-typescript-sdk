@@ -6,17 +6,35 @@ import { LineageTask } from "./LineageTask";
 
 export class LineageRelationship extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1743040581000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The destination entity.
+   */
   dstEntity?: LineageEntity;
   /**
+   * @remarks
+   * The ID.
+   * 
    * @example
    * maxcompute-table.p.table:custom-table.xxx:custom-sql.123
    */
   id?: string;
+  /**
+   * @remarks
+   * The source entity.
+   */
   srcEntity?: LineageEntity;
+  /**
+   * @remarks
+   * The task.
+   */
   task?: LineageTask;
   static names(): { [key: string]: string } {
     return {
