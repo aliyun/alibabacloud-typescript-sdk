@@ -1715,6 +1715,9 @@ export { RegisterYikeAssetMediaInfoResponse } from './RegisterYikeAssetMediaInfo
 export { ResumeMediaConnectFlowOutputRequest } from './ResumeMediaConnectFlowOutputRequest';
 export { ResumeMediaConnectFlowOutputResponseBody } from './ResumeMediaConnectFlowOutputResponseBody';
 export { ResumeMediaConnectFlowOutputResponse } from './ResumeMediaConnectFlowOutputResponse';
+export { ResumeYikeStoryboardJobRequest } from './ResumeYikeStoryboardJobRequest';
+export { ResumeYikeStoryboardJobResponseBody } from './ResumeYikeStoryboardJobResponseBody';
+export { ResumeYikeStoryboardJobResponse } from './ResumeYikeStoryboardJobResponse';
 export { SearchEditingProjectRequest } from './SearchEditingProjectRequest';
 export { SearchEditingProjectResponseBody } from './SearchEditingProjectResponseBody';
 export { SearchEditingProjectResponse } from './SearchEditingProjectResponse';

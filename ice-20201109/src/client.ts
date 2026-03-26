@@ -8846,7 +8846,11 @@ export default class Client extends OpenApi {
    */
   async getMediaProducingJobWithOptions(request: $_model.GetMediaProducingJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMediaProducingJobResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8855,7 +8859,7 @@ export default class Client extends OpenApi {
       version: "2020-11-09",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -15352,6 +15356,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 故事板任务恢复继续执行任务
+   * 
+   * @param request - ResumeYikeStoryboardJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeYikeStoryboardJobResponse
+   */
+  async resumeYikeStoryboardJobWithOptions(request: $_model.ResumeYikeStoryboardJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeYikeStoryboardJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeYikeStoryboardJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeYikeStoryboardJobResponse>(await this.callApi(params, req, runtime), new $_model.ResumeYikeStoryboardJobResponse({}));
+  }
+
+  /**
+   * 故事板任务恢复继续执行任务
+   * 
+   * @param request - ResumeYikeStoryboardJobRequest
+   * @returns ResumeYikeStoryboardJobResponse
+   */
+  async resumeYikeStoryboardJob(request: $_model.ResumeYikeStoryboardJobRequest): Promise<$_model.ResumeYikeStoryboardJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resumeYikeStoryboardJobWithOptions(request, runtime);
+  }
+
+  /**
    * Queries online editing projects by creation time and status.
    * 
    * @param request - SearchEditingProjectRequest
@@ -20467,6 +20513,10 @@ export default class Client extends OpenApi {
       query["AspectRatio"] = request.aspectRatio;
     }
 
+    if (!$dara.isNull(request.execMode)) {
+      query["ExecMode"] = request.execMode;
+    }
+
     if (!$dara.isNull(request.modelParams)) {
       query["ModelParams"] = request.modelParams;
     }
@@ -20481,6 +20531,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.shotPromptMode)) {
       query["ShotPromptMode"] = request.shotPromptMode;
+    }
+
+    if (!$dara.isNull(request.skipFailureShot)) {
+      query["SkipFailureShot"] = request.skipFailureShot;
     }
 
     if (!$dara.isNull(request.title)) {

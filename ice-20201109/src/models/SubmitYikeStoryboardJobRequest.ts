@@ -8,6 +8,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
    * 4:3
    */
   aspectRatio?: string;
+  execMode?: string;
   /**
    * @example
    * http://test.oss-cn-shanghai.aliyuncs.com/test.mp4
@@ -40,6 +41,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
    * firstPersonNarration
    */
   shotSplitMode?: string;
+  skipFailureShot?: boolean;
   /**
    * @example
    * Novel
@@ -70,12 +72,14 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aspectRatio: 'AspectRatio',
+      execMode: 'ExecMode',
       fileURL: 'FileURL',
       modelParams: 'ModelParams',
       narrationVoiceId: 'NarrationVoiceId',
       resolution: 'Resolution',
       shotPromptMode: 'ShotPromptMode',
       shotSplitMode: 'ShotSplitMode',
+      skipFailureShot: 'SkipFailureShot',
       sourceType: 'SourceType',
       styleId: 'StyleId',
       title: 'Title',
@@ -87,12 +91,14 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aspectRatio: 'string',
+      execMode: 'string',
       fileURL: 'string',
       modelParams: 'string',
       narrationVoiceId: 'string',
       resolution: 'string',
       shotPromptMode: 'string',
       shotSplitMode: 'string',
+      skipFailureShot: 'boolean',
       sourceType: 'string',
       styleId: 'string',
       title: 'string',

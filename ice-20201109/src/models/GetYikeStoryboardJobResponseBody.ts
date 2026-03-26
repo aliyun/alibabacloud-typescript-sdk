@@ -117,6 +117,8 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
    * https://test.oss-cn-shanghai.aliyuncs.com/test.mp4
    */
   outputUrl?: string;
+  storyboardInfoList?: string;
+  successStoryboardIds?: string;
   /**
    * @example
    * [\\"st_2118280473\\"]
@@ -127,6 +129,8 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
       exceptionStoryboardIds: 'ExceptionStoryboardIds',
       failureShotList: 'FailureShotList',
       outputUrl: 'OutputUrl',
+      storyboardInfoList: 'StoryboardInfoList',
+      successStoryboardIds: 'SuccessStoryboardIds',
       successStoryboardList: 'SuccessStoryboardList',
     };
   }
@@ -136,6 +140,8 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
       exceptionStoryboardIds: 'string',
       failureShotList: 'string',
       outputUrl: 'string',
+      storyboardInfoList: 'string',
+      successStoryboardIds: 'string',
       successStoryboardList: 'string',
     };
   }
