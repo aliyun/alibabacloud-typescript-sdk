@@ -11,7 +11,9 @@ export class CreateMemoryShrinkRequest extends $dara.Model {
    * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
+  autoUpdate?: boolean;
   content?: string;
+  expirationTime?: number;
   messagesJson?: string;
   metaDataShrink?: string;
   /**
@@ -19,6 +21,7 @@ export class CreateMemoryShrinkRequest extends $dara.Model {
    * profile_project
    */
   projectId?: string;
+  prompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -38,10 +41,13 @@ export class CreateMemoryShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      autoUpdate: 'AutoUpdate',
       content: 'Content',
+      expirationTime: 'ExpirationTime',
       messagesJson: 'MessagesJson',
       metaDataShrink: 'MetaData',
       projectId: 'ProjectId',
+      prompt: 'Prompt',
       userDefinedId: 'UserDefinedId',
       workspaceId: 'WorkspaceId',
     };
@@ -50,10 +56,13 @@ export class CreateMemoryShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      autoUpdate: 'boolean',
       content: 'string',
+      expirationTime: 'number',
       messagesJson: 'string',
       metaDataShrink: 'string',
       projectId: 'string',
+      prompt: 'string',
       userDefinedId: 'string',
       workspaceId: 'string',
     };

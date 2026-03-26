@@ -14,11 +14,13 @@ export class CreateMemoryResponseBodyDataMemoryNodes extends $dara.Model {
    * 384dc4786b9d4f5a8cab0d83112cd5a8
    */
   memoryNodeId?: string;
+  oldContent?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       event: 'Event',
       memoryNodeId: 'MemoryNodeId',
+      oldContent: 'OldContent',
     };
   }
 
@@ -27,6 +29,7 @@ export class CreateMemoryResponseBodyDataMemoryNodes extends $dara.Model {
       content: 'string',
       event: 'string',
       memoryNodeId: 'string',
+      oldContent: 'string',
     };
   }
 

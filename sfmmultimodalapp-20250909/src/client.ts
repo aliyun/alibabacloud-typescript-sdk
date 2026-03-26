@@ -129,8 +129,16 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.autoUpdate)) {
+      query["AutoUpdate"] = request.autoUpdate;
+    }
+
     if (!$dara.isNull(request.content)) {
       query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.expirationTime)) {
+      query["ExpirationTime"] = request.expirationTime;
     }
 
     if (!$dara.isNull(request.messagesJson)) {
@@ -143,6 +151,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
     }
 
     if (!$dara.isNull(request.userDefinedId)) {
