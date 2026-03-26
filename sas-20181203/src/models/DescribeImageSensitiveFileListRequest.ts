@@ -193,6 +193,10 @@ export class DescribeImageSensitiveFileListRequest extends $dara.Model {
    * *   **container**
    */
   scanRange?: string[];
+  /**
+   * @remarks
+   * 敏感文件Key列表
+   */
   sensitiveKeyList?: string[];
   static names(): { [key: string]: string } {
     return {

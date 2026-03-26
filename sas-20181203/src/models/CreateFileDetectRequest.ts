@@ -42,8 +42,6 @@ export class CreateFileDetectRequest extends $dara.Model {
    * @remarks
    * The identifier of the file. Only MD5 hash values are supported.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 0a212417e65c26ff133cfff28f6c****
    */

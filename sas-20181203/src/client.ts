@@ -41952,6 +41952,10 @@ export default class Client extends OpenApi {
       query["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.focusLevel)) {
+      query["FocusLevel"] = request.focusLevel;
+    }
+
     if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }

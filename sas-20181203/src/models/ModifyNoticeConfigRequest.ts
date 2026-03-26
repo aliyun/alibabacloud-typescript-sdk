@@ -12,6 +12,7 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
    * cms
    */
   bizType?: string;
+  focusLevel?: string;
   /**
    * @remarks
    * The identifier of the notification item. Valid values:
@@ -89,6 +90,7 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      focusLevel: 'FocusLevel',
       project: 'Project',
       route: 'Route',
       sourceIp: 'SourceIp',
@@ -99,6 +101,7 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      focusLevel: 'string',
       project: 'string',
       route: 'number',
       sourceIp: 'string',

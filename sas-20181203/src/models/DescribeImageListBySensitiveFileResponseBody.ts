@@ -27,6 +27,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
    * cri-a595qp31knh9****
    */
   instanceId?: string;
+  instanceName?: string;
   /**
    * @remarks
    * The timestamp when the last scan was performed. Unit: milliseconds.
@@ -104,6 +105,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
       digest: 'Digest',
       firstScanTime: 'FirstScanTime',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       lastScanTime: 'LastScanTime',
       regionId: 'RegionId',
       repoName: 'RepoName',
@@ -120,6 +122,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
       digest: 'string',
       firstScanTime: 'number',
       instanceId: 'string',
+      instanceName: 'string',
       lastScanTime: 'number',
       regionId: 'string',
       repoName: 'string',

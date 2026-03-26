@@ -193,6 +193,10 @@ export class DescribeImageSensitiveFileListShrinkRequest extends $dara.Model {
    * *   **container**
    */
   scanRangeShrink?: string;
+  /**
+   * @remarks
+   * 敏感文件Key列表
+   */
   sensitiveKeyList?: string[];
   static names(): { [key: string]: string } {
     return {
