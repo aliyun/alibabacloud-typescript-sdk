@@ -4,30 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateApiKeyRequest extends $dara.Model {
   /**
-   * @remarks
-   * API Key ID。
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3303332
-   */
-  apiKeyId?: number;
-  /**
    * @example
    * test
    */
   description?: string;
   static names(): { [key: string]: string } {
     return {
-      apiKeyId: 'apiKeyId',
       description: 'description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiKeyId: 'number',
       description: 'string',
     };
   }

@@ -56,7 +56,7 @@ export default class Client extends OpenApi {
       action: "CreateApiKey",
       version: "2026-03-18",
       protocol: "HTTPS",
-      pathname: `/bailianControl/apiKey/createApiKey`,
+      pathname: `/maas/apikeys`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -81,27 +81,19 @@ export default class Client extends OpenApi {
   /**
    * 删除apiKey
    * 
-   * @param request - DeleteApiKeyRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteApiKeyResponse
    */
-  async deleteApiKeyWithOptions(request: $_model.DeleteApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApiKeyResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.apiKeyId)) {
-      query["apiKeyId"] = request.apiKeyId;
-    }
-
+  async deleteApiKeyWithOptions(apiKeyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApiKeyResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeleteApiKey",
       version: "2026-03-18",
       protocol: "HTTPS",
-      pathname: `/bailianControl/apiKey/deleteApiKey`,
+      pathname: `/maas/apikeys/${$dara.URL.percentEncode(apiKeyId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -113,40 +105,30 @@ export default class Client extends OpenApi {
 
   /**
    * 删除apiKey
-   * 
-   * @param request - DeleteApiKeyRequest
    * @returns DeleteApiKeyResponse
    */
-  async deleteApiKey(request: $_model.DeleteApiKeyRequest): Promise<$_model.DeleteApiKeyResponse> {
+  async deleteApiKey(apiKeyId: string): Promise<$_model.DeleteApiKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteApiKeyWithOptions(request, headers, runtime);
+    return await this.deleteApiKeyWithOptions(apiKeyId, headers, runtime);
   }
 
   /**
    * 查询ApiKey详情
    * 
-   * @param request - GetApiKeyRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetApiKeyResponse
    */
-  async getApiKeyWithOptions(request: $_model.GetApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiKeyResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.apiKeyId)) {
-      query["apiKeyId"] = request.apiKeyId;
-    }
-
+  async getApiKeyWithOptions(apiKeyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiKeyResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetApiKey",
       version: "2026-03-18",
       protocol: "HTTPS",
-      pathname: `/bailianControl/apiKey/getApiKey`,
+      pathname: `/maas/apikeys/${$dara.URL.percentEncode(apiKeyId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -158,14 +140,12 @@ export default class Client extends OpenApi {
 
   /**
    * 查询ApiKey详情
-   * 
-   * @param request - GetApiKeyRequest
    * @returns GetApiKeyResponse
    */
-  async getApiKey(request: $_model.GetApiKeyRequest): Promise<$_model.GetApiKeyResponse> {
+  async getApiKey(apiKeyId: string): Promise<$_model.GetApiKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getApiKeyWithOptions(request, headers, runtime);
+    return await this.getApiKeyWithOptions(apiKeyId, headers, runtime);
   }
 
   /**
@@ -207,7 +187,7 @@ export default class Client extends OpenApi {
       action: "ListApiKeys",
       version: "2026-03-18",
       protocol: "HTTPS",
-      pathname: `/bailianControl/apiKeys`,
+      pathname: `/maas/apikeys`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -260,7 +240,7 @@ export default class Client extends OpenApi {
       action: "ListWorkspaces",
       version: "2026-03-18",
       protocol: "HTTPS",
-      pathname: `/bailianControl/workspaces`,
+      pathname: `/maas/workspaces`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -290,13 +270,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateApiKeyResponse
    */
-  async updateApiKeyWithOptions(request: $_model.UpdateApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApiKeyResponse> {
+  async updateApiKeyWithOptions(apiKeyId: string, request: $_model.UpdateApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApiKeyResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.apiKeyId)) {
-      query["apiKeyId"] = request.apiKeyId;
-    }
-
     if (!$dara.isNull(request.description)) {
       query["description"] = request.description;
     }
@@ -309,7 +285,7 @@ export default class Client extends OpenApi {
       action: "UpdateApiKey",
       version: "2026-03-18",
       protocol: "HTTPS",
-      pathname: `/bailianControl/apiKey/updateApiKey`,
+      pathname: `/maas/apikeys/${$dara.URL.percentEncode(apiKeyId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -325,10 +301,10 @@ export default class Client extends OpenApi {
    * @param request - UpdateApiKeyRequest
    * @returns UpdateApiKeyResponse
    */
-  async updateApiKey(request: $_model.UpdateApiKeyRequest): Promise<$_model.UpdateApiKeyResponse> {
+  async updateApiKey(apiKeyId: string, request: $_model.UpdateApiKeyRequest): Promise<$_model.UpdateApiKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateApiKeyWithOptions(request, headers, runtime);
+    return await this.updateApiKeyWithOptions(apiKeyId, request, headers, runtime);
   }
 
 }

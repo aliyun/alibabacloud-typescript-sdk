@@ -9,9 +9,6 @@ export class CreateApiKeyRequest extends $dara.Model {
    */
   description?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * llm-y3kv9qctnlytgmga
    */

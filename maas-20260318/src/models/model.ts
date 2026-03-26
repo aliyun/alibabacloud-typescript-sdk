@@ -5,10 +5,8 @@ export { ListWorkspacesResponseBodyWorkspaces } from './ListWorkspacesResponseBo
 export { CreateApiKeyRequest } from './CreateApiKeyRequest';
 export { CreateApiKeyResponseBody } from './CreateApiKeyResponseBody';
 export { CreateApiKeyResponse } from './CreateApiKeyResponse';
-export { DeleteApiKeyRequest } from './DeleteApiKeyRequest';
 export { DeleteApiKeyResponseBody } from './DeleteApiKeyResponseBody';
 export { DeleteApiKeyResponse } from './DeleteApiKeyResponse';
-export { GetApiKeyRequest } from './GetApiKeyRequest';
 export { GetApiKeyResponseBody } from './GetApiKeyResponseBody';
 export { GetApiKeyResponse } from './GetApiKeyResponse';
 export { ListApiKeysRequest } from './ListApiKeysRequest';
