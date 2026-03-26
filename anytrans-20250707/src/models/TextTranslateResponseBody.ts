@@ -44,6 +44,7 @@ export class TextTranslateResponseBodyDataUsage extends $dara.Model {
 }
 
 export class TextTranslateResponseBodyData extends $dara.Model {
+  detectedLang?: string;
   /**
    * @example
    * How does Mogujie solve the data annotation challenge by building a platform?
@@ -52,6 +53,7 @@ export class TextTranslateResponseBodyData extends $dara.Model {
   usage?: TextTranslateResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
+      detectedLang: 'detectedLang',
       translation: 'translation',
       usage: 'usage',
     };
@@ -59,6 +61,7 @@ export class TextTranslateResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      detectedLang: 'string',
       translation: 'string',
       usage: TextTranslateResponseBodyDataUsage,
     };

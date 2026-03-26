@@ -49,6 +49,7 @@ export class BatchTranslateResponseBodyDataTranslationList extends $dara.Model {
    * 200
    */
   code?: number;
+  detectedLang?: string;
   /**
    * @example
    * 0
@@ -68,6 +69,7 @@ export class BatchTranslateResponseBodyDataTranslationList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      detectedLang: 'detectedLang',
       index: 'index',
       message: 'message',
       translation: 'translation',
@@ -78,6 +80,7 @@ export class BatchTranslateResponseBodyDataTranslationList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      detectedLang: 'string',
       index: 'string',
       message: 'string',
       translation: 'string',
