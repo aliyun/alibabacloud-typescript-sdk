@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItemsPreCheckItems extends $dara.Model {
-  /**
-   * @example
-   * CHECK_MASTER_DB_STATUS
-   */
   code?: string;
-  /**
-   * @example
-   * test
-   */
   message?: string;
-  /**
-   * @example
-   * Running
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

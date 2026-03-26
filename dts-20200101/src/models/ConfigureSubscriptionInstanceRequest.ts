@@ -253,6 +253,10 @@ export class ConfigureSubscriptionInstanceRequest extends $dara.Model {
    */
   accountId?: string;
   ownerId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks

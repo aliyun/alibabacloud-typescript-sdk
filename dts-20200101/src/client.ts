@@ -1711,7 +1711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作流任务结果
+   * Creates a document parsing task.
    * 
    * @param request - CreateDocParserJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1762,7 +1762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作流任务结果
+   * Creates a document parsing task.
    * 
    * @param request - CreateDocParserJobRequest
    * @returns CreateDocParserJobResponse
@@ -2879,7 +2879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 请求所有数据校验任务数据
+   * Verifies data migration tasks and data synchronization tasks
    * 
    * @param request - DescribeCheckJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2934,7 +2934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 请求所有数据校验任务数据
+   * Verifies data migration tasks and data synchronization tasks
    * 
    * @param request - DescribeCheckJobsRequest
    * @returns DescribeCheckJobsResponse
@@ -3727,7 +3727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作流任务结果
+   * Retrieves the result of a document parsing task.
    * 
    * @param request - DescribeDocParserJobResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3770,7 +3770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作流任务结果
+   * Retrieves the result of a document parsing task.
    * 
    * @param request - DescribeDocParserJobResultRequest
    * @returns DescribeDocParserJobResultResponse
@@ -3781,7 +3781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作流任务结果
+   * Queries the execution status of a document parsing task.
    * 
    * @param request - DescribeDocParserJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3824,7 +3824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作流任务结果
+   * Queries the execution status of a document parsing task.
    * 
    * @param request - DescribeDocParserJobStatusRequest
    * @returns DescribeDocParserJobStatusResponse
@@ -3959,8 +3959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The latency of incremental data migration or synchronization.
-   * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+   * The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
    * 
    * @param request - DescribeDtsJobDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4015,8 +4014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The latency of incremental data migration or synchronization.
-   * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+   * The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
    * 
    * @param request - DescribeDtsJobDetailRequest
    * @returns DescribeDtsJobDetailResponse
@@ -4417,7 +4415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询GAD实例列表
+   * Queries the GAD instances.
    * 
    * @param request - DescribeGadInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4480,7 +4478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询GAD实例列表
+   * Queries the GAD instances.
    * 
    * @param request - DescribeGadInstancesRequest
    * @returns DescribeGadInstancesResponse
@@ -4963,7 +4961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询预检查创建GAD订单任务结果
+   * Queries the result of a precheck task before a GAD instance is created.
    * 
    * @param request - DescribePreCheckCreateGadOrderResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5010,7 +5008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询预检查创建GAD订单任务结果
+   * Queries the result of a precheck task before a GAD instance is created.
    * 
    * @param request - DescribePreCheckCreateGadOrderResultRequest
    * @returns DescribePreCheckCreateGadOrderResultResponse
@@ -5963,7 +5961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除从角色
+   * Removes a secondary instance
    * 
    * @param request - DetachGadInstanceDbMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6010,7 +6008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除从角色
+   * Removes a secondary instance
    * 
    * @param request - DetachGadInstanceDbMemberRequest
    * @returns DetachGadInstanceDbMemberResponse
@@ -7289,7 +7287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改GAD实例名称
+   * Modifies the name of a GAD instance.
    * 
    * @param request - ModifyGadInstanceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7336,7 +7334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改GAD实例名称
+   * Modifies the name of a GAD instance.
    * 
    * @param request - ModifyGadInstanceNameRequest
    * @returns ModifyGadInstanceNameResponse
@@ -7615,7 +7613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预检查创建GAD订单
+   * Prechecks before a GAD instance is created.
    * 
    * @param request - PreCheckCreateGadOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7690,7 +7688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预检查创建GAD订单
+   * Prechecks before a GAD instance is created.
    * 
    * @param request - PreCheckCreateGadOrderRequest
    * @returns PreCheckCreateGadOrderResponse
@@ -7949,7 +7947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调转双向任务的方向
+   * Reverse the direction of a two-way synchronization task.
    * 
    * @param request - ReverseTwoWayDirectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7992,7 +7990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调转双向任务的方向
+   * Reverse the direction of a two-way synchronization task.
    * 
    * @param request - ReverseTwoWayDirectionRequest
    * @returns ReverseTwoWayDirectionResponse
@@ -9099,7 +9097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 物理迁移任务切换上云
+   * Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
    * 
    * @param request - SwitchPhysicalDtsJobToCloudRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9146,7 +9144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 物理迁移任务切换上云
+   * Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
    * 
    * @param request - SwitchPhysicalDtsJobToCloudRequest
    * @returns SwitchPhysicalDtsJobToCloudResponse
@@ -9585,8 +9583,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
-   * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+   * If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+   * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
    * 
    * @remarks
    * The operation that you want to perform. Set the value to **WhiteIpList**.
@@ -9680,8 +9678,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
-   * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+   * If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+   * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
    * 
    * @remarks
    * The operation that you want to perform. Set the value to **WhiteIpList**.

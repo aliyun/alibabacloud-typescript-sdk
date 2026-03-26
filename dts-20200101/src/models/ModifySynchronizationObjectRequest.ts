@@ -12,6 +12,13 @@ export class ModifySynchronizationObjectRequest extends $dara.Model {
    */
   accountId?: string;
   ownerId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks
@@ -48,7 +55,12 @@ export class ModifySynchronizationObjectRequest extends $dara.Model {
   synchronizationJobId?: string;
   /**
    * @remarks
+   * The objects that you want to synchronize. The value is a JSON string and can contain regular expressions. For more information, see [SynchronizationObjects](https://help.aliyun.com/document_detail/141901.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * [{"DBName": "dtstestdata"}]
    */
   synchronizationObjects?: string;
   static names(): { [key: string]: string } {

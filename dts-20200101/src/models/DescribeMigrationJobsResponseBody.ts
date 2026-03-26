@@ -3,42 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization extends $dara.Model {
-  /**
-   * @remarks
-   * The error message returned if full data migration failed.
-   * 
-   * @example
-   * java.lang.NumberFormatException: For input string: ""
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The migration progress. Unit: %.
-   * 
-   * @example
-   * 100
-   */
   percent?: string;
-  /**
-   * @remarks
-   * The number of records that have been migrated during full data migration.
-   * 
-   * @example
-   * 200001
-   */
   progress?: string;
-  /**
-   * @remarks
-   * The status of full data migration. Valid values:
-   * 
-   * *   **NotStarted**: Full data migration is not started.
-   * *   **Migrating**: Full data migration is in progress.
-   * *   **Failed**: Full data migration failed.
-   * *   **Finished**: Full data migration is completed.
-   * 
-   * @example
-   * Finished
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -68,43 +35,9 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataIniti
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynchronization extends $dara.Model {
-  /**
-   * @remarks
-   * The latency of incremental data migration. Unit: seconds.
-   * 
-   * @example
-   * 0
-   */
   delay?: string;
-  /**
-   * @remarks
-   * The error message returned if incremental data migration failed.
-   * 
-   * @example
-   * Open: open \\\\\\\\?\\\\F:\\\\KINGDEE BACK\\\\AIS20221025151008_Data.mdf: The process cannot access the file because it is being used by another process.
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The progress of incremental data migration. Unit: %.
-   * 
-   * @example
-   * 95
-   */
   percent?: string;
-  /**
-   * @remarks
-   * The status of incremental data migration. Valid values:
-   * 
-   * *   **NotStarted**: Incremental data migration is not started.
-   * *   **Migrating**: Incremental data migration is in progress.
-   * *   **Failed**: Incremental data migration failed.
-   * *   **Finished**: Incremental data migration is completed.
-   * *   **Catched**: Incremental data migration is not delayed.
-   * 
-   * @example
-   * Catched
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,69 +67,13 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynch
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDestinationEndpoint extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database to which the migration object in the destination instance belongs.
-   * 
-   * @example
-   * dtstestdata
-   */
   databaseName?: string;
-  /**
-   * @remarks
-   * The database type of the destination instance.
-   * 
-   * @example
-   * MySQL
-   */
   engineName?: string;
-  /**
-   * @remarks
-   * The endpoint of the destination instance.
-   * 
-   * @example
-   * 172.16.88.***
-   */
   IP?: string;
-  /**
-   * @remarks
-   * The ID of the destination instance.
-   * 
-   * @example
-   * rm-bp1zc3iyqe3qw****
-   */
   instanceID?: string;
-  /**
-   * @remarks
-   * The type of the destination instance.
-   * 
-   * @example
-   * RDS
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the database type of the destination instance is **Oracle**.
-   * 
-   * @example
-   * testsid
-   */
   oracleSID?: string;
-  /**
-   * @remarks
-   * The database service port of the destination instance.
-   * 
-   * @example
-   * 3306
-   */
   port?: string;
-  /**
-   * @remarks
-   * The database account of the destination instance.
-   * 
-   * @example
-   * dtstest
-   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -234,38 +111,8 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDestinati
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationMode extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether full data migration is performed. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * true
-   */
   dataInitialization?: boolean;
-  /**
-   * @remarks
-   * Indicates whether incremental data migration is performed. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * true
-   */
   dataSynchronization?: boolean;
-  /**
-   * @remarks
-   * Indicates whether schema migration is performed. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * true
-   */
   structureInitialization?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -319,29 +166,8 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigration
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObject extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database to which the migration object in the source instance belongs.
-   * 
-   * @example
-   * dtstestdata
-   */
   databaseName?: string;
-  /**
-   * @remarks
-   * The names of the migrated tables.
-   */
   tableList?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObjectTableList;
-  /**
-   * @remarks
-   * Indicates whether an entire database is migrated. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * false
-   */
   wholeDatabase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -398,24 +224,7 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigration
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck extends $dara.Model {
-  /**
-   * @remarks
-   * The precheck progress. Unit: %.
-   * 
-   * @example
-   * 100
-   */
   percent?: string;
-  /**
-   * @remarks
-   * The precheck result. Valid values:
-   * 
-   * *   **Success**: The task passed the precheck.
-   * *   **Failed**: The task failed to pass the precheck.
-   * 
-   * @example
-   * Success
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -441,69 +250,13 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck 
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database to which the migration object in the source instance belongs.
-   * 
-   * @example
-   * dtstestdata
-   */
   databaseName?: string;
-  /**
-   * @remarks
-   * The database type of the source instance.
-   * 
-   * @example
-   * MySQL
-   */
   engineName?: string;
-  /**
-   * @remarks
-   * The endpoint of the source instance.
-   * 
-   * @example
-   * 172.16.88.***
-   */
   IP?: string;
-  /**
-   * @remarks
-   * The ID of the source instance.
-   * 
-   * @example
-   * rm-bp1i99e8l7913****
-   */
   instanceID?: string;
-  /**
-   * @remarks
-   * The type of the source instance.
-   * 
-   * @example
-   * RDS
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * This parameter is returned only if the database type of the source instance is **Oracle**.
-   * 
-   * @example
-   * testsid
-   */
   oracleSID?: string;
-  /**
-   * @remarks
-   * The database service port of the source instance.
-   * 
-   * @example
-   * 3306
-   */
   port?: string;
-  /**
-   * @remarks
-   * The database account of the source instance.
-   * 
-   * @example
-   * dtstest
-   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -541,42 +294,9 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEnd
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization extends $dara.Model {
-  /**
-   * @remarks
-   * The error message returned if schema migration failed.
-   * 
-   * @example
-   * DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist;
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The progress of schema migration. Unit: %.
-   * 
-   * @example
-   * 100
-   */
   percent?: string;
-  /**
-   * @remarks
-   * The number of tables whose schemas have been migrated.
-   * 
-   * @example
-   * 1
-   */
   progress?: string;
-  /**
-   * @remarks
-   * The status of schema migration. Valid values:
-   * 
-   * *   **NotStarted**: Schema migration is not started.
-   * *   **Migrating**: Schema migration is in progress.
-   * *   **Failed**: Schema migration failed.
-   * *   **Finished**: Schema migration is completed.
-   * 
-   * @example
-   * Finished
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -606,21 +326,7 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructure
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * testkey1
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value that corresponds to the tag key.
-   * 
-   * @example
-   * testvalue1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -672,114 +378,21 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTags exte
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJob extends $dara.Model {
-  /**
-   * @remarks
-   * The details of full data migration.
-   */
   dataInitialization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization;
-  /**
-   * @remarks
-   * The details of incremental data migration.
-   */
   dataSynchronization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynchronization;
-  /**
-   * @remarks
-   * The connection settings of the destination instance.
-   */
   destinationEndpoint?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDestinationEndpoint;
-  /**
-   * @remarks
-   * The time when the data migration instance was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
-   * 
-   * @example
-   * 2021-06-22T09:02:13Z
-   */
   instanceCreateTime?: string;
-  /**
-   * @remarks
-   * The time when the data migration task was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
-   * 
-   * @example
-   * 2021-06-22T08:53:55Z
-   */
   jobCreateTime?: string;
-  /**
-   * @remarks
-   * The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
-   * 
-   * @example
-   * 2xlarge
-   */
   migrationJobClass?: string;
-  /**
-   * @remarks
-   * The ID of the data migration instance.
-   * 
-   * @example
-   * dtson2z28evm33****
-   */
   migrationJobID?: string;
-  /**
-   * @remarks
-   * The name of the data migration task.
-   * 
-   * @example
-   * dtstest
-   */
   migrationJobName?: string;
-  /**
-   * @remarks
-   * The status of the data migration task. Valid values:
-   * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is being prechecked.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **Migrating**: The task is migrating data.
-   * *   **Suspending**: The task is paused.
-   * *   **MigrationFailed**: The task failed to migrate data.
-   * *   **Finished**: The task is completed.
-   * 
-   * @example
-   * Migrating
-   */
   migrationJobStatus?: string;
-  /**
-   * @remarks
-   * The migration types.
-   */
   migrationMode?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationMode;
-  /**
-   * @remarks
-   * The objects that are migrated by the task.
-   */
   migrationObject?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObject;
-  /**
-   * @remarks
-   * The billing method of the data migration instance. The value is **PostPaid** (pay-as-you-go).
-   * 
-   * @example
-   * PostPaid
-   */
   payType?: string;
-  /**
-   * @remarks
-   * The precheck details.
-   */
   precheck?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck;
-  /**
-   * @remarks
-   * The connection settings of the source instance.
-   */
   sourceEndpoint?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint;
-  /**
-   * @remarks
-   * The details of schema migration.
-   */
   structureInitialization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization;
-  /**
-   * @remarks
-   * The collection of tags.
-   */
   tags?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTags;
   static names(): { [key: string]: string } {
     return {
@@ -902,10 +515,6 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
    * The request processing has failed due to some unknown error.
    */
   errMessage?: string;
-  /**
-   * @remarks
-   * The list of data migration instances and the details of each instance.
-   */
   migrationJobs?: DescribeMigrationJobsResponseBodyMigrationJobs;
   /**
    * @remarks

@@ -30,6 +30,13 @@ export class StopMigrationJobRequest extends $dara.Model {
    */
   migrationJobId?: string;
   ownerId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks

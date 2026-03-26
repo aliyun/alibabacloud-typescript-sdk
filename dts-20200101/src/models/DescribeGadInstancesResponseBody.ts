@@ -3,71 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGadInstancesResponseBodyInstancesInstances extends $dara.Model {
-  /**
-   * @example
-   * 2024-05-29 23:55:58
-   */
   createTime?: number;
-  /**
-   * @example
-   * MySQL
-   */
   dbEngineType?: string;
-  /**
-   * @example
-   * 2
-   */
   dbInstanceCount?: number;
-  /**
-   * @example
-   * rg-a76s8afa****
-   */
   instanceId?: string;
-  /**
-   * @example
-   * test
-   */
   instanceName?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   instanceRegion?: string;
-  /**
-   * @example
-   * DR
-   */
   instanceType?: string;
-  /**
-   * @example
-   * rm-sadfasfa****
-   */
   masterDbInstanceId?: string;
-  /**
-   * @example
-   * test
-   */
   masterDbInstanceName?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   masterDbInstanceRegion?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   masterDbInstanceZoneId?: string;
   masterEngineArchType?: number;
-  /**
-   * @example
-   * rg-aekzq276dmnaxqa
-   */
   resourceGroupId?: string;
-  /**
-   * @example
-   * running
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

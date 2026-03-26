@@ -7767,6 +7767,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
    * new
    */
   appName?: string;
+  approvalProcessStatus?: number;
+  approvalProcessUrl?: string;
   /**
    * @remarks
    * The start of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
@@ -8257,6 +8259,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
+      approvalProcessStatus: 'ApprovalProcessStatus',
+      approvalProcessUrl: 'ApprovalProcessUrl',
       beginTimestamp: 'BeginTimestamp',
       binlog: 'Binlog',
       binlogSite: 'BinlogSite',
@@ -8321,6 +8325,8 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appName: 'string',
+      approvalProcessStatus: 'number',
+      approvalProcessUrl: 'string',
       beginTimestamp: 'string',
       binlog: 'string',
       binlogSite: 'string',

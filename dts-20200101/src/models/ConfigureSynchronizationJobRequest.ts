@@ -382,6 +382,13 @@ export class ConfigureSynchronizationJobRequest extends $dara.Model {
    */
   migrationReserved?: string;
   ownerId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks

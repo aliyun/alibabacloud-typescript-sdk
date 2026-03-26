@@ -167,29 +167,8 @@ export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSyn
 }
 
 export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObject extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database to which the object belongs.
-   * 
-   * @example
-   * dtstestdata
-   */
   databaseName?: string;
-  /**
-   * @remarks
-   * The table name.
-   */
   tableList?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObjectTableList;
-  /**
-   * @remarks
-   * Indicates whether the data of an entire database is tracked. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * false
-   */
   wholeDatabase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -377,10 +356,6 @@ export class DescribeSubscriptionInstanceStatusResponseBody extends $dara.Model 
    * dtstest
    */
   subscriptionInstanceName?: string;
-  /**
-   * @remarks
-   * The objects for change tracking.
-   */
   subscriptionObject?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject;
   /**
    * @remarks

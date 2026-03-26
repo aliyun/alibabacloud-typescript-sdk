@@ -20,6 +20,13 @@ export class DescribeSubscriptionInstanceAlertRequest extends $dara.Model {
    */
   clientToken?: string;
   ownerId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks

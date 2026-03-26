@@ -12,6 +12,13 @@ export class StartSynchronizationJobRequest extends $dara.Model {
    */
   accountId?: string;
   ownerId?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the data synchronization instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks

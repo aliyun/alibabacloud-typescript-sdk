@@ -146,6 +146,13 @@ export class CreateSynchronizationJobRequest extends $dara.Model {
    * Year
    */
   period?: string;
+  /**
+   * @remarks
+   * The ID of the region where the data synchronization instance resides. The region ID is the same as the value of the **DestRegion** parameter.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks
