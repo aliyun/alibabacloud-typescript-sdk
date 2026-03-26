@@ -513,6 +513,10 @@ export default class Client extends OpenApi {
       body["Accessibility"] = request.accessibility;
     }
 
+    if (!$dara.isNull(request.accessibleRoleIdList)) {
+      body["AccessibleRoleIdList"] = request.accessibleRoleIdList;
+    }
+
     if (!$dara.isNull(request.dataCount)) {
       body["DataCount"] = request.dataCount;
     }
@@ -3948,6 +3952,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.withLogs)) {
+      query["WithLogs"] = request.withLogs;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -4080,6 +4088,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dataTypes)) {
       query["DataTypes"] = request.dataTypes;
+    }
+
+    if (!$dara.isNull(request.datasetIds)) {
+      query["DatasetIds"] = request.datasetIds;
     }
 
     if (!$dara.isNull(request.edition)) {
@@ -4264,7 +4276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举特性
+   * Queries a list of features.
    * 
    * @param request - ListFeaturesRequest
    * @param headers - map
@@ -4297,7 +4309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举特性
+   * Queries a list of features.
    * 
    * @param request - ListFeaturesRequest
    * @returns ListFeaturesResponse
@@ -5921,6 +5933,14 @@ export default class Client extends OpenApi {
   async updateDatasetWithOptions(DatasetId: string, request: $_model.UpdateDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasetResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.accessibleRoleIdList)) {
+      body["AccessibleRoleIdList"] = request.accessibleRoleIdList;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }

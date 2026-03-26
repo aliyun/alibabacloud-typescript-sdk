@@ -6,20 +6,80 @@ import { RunParam } from "./RunParam";
 
 
 export class Run extends $dara.Model {
+  /**
+   * @remarks
+   * The visibility.
+   */
   accessibility?: string;
+  /**
+   * @remarks
+   * The ID of the experiment that corresponds to the run.
+   */
   experimentId?: string;
+  /**
+   * @remarks
+   * The creation time.
+   */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The last modified time.
+   */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The labels added to the run.
+   */
   labels?: RunLabel[];
+  /**
+   * @remarks
+   * The metrics of the run.
+   */
   metrics?: RunMetric[];
+  /**
+   * @remarks
+   * Parameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the owner account.
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * The hyperparameters of the run.
+   */
   params?: RunParam[];
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The run ID.
+   */
   runId?: string;
+  /**
+   * @remarks
+   * The ID of the source PAI workload.
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * The type of the source PAI workload.
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * The owner ID.
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace to which the run belongs.
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

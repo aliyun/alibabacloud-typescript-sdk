@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class LabelInfo extends $dara.Model {
   /**
+   * @remarks
+   * Key of Label
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * Value of Label
+   * 
    * @example
    * value
    */

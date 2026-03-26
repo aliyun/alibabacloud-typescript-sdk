@@ -5,13 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class RunMetric extends $dara.Model {
   /**
    * @remarks
+   * The metric name.
+   * 
    * This parameter is required.
    */
   key?: string;
+  /**
+   * @remarks
+   * The step number that generated the metric.
+   */
   step?: number;
+  /**
+   * @remarks
+   * The timestamp when the metric was generated.
+   */
   timestamp?: number;
   /**
    * @remarks
+   * The metric value.
+   * 
    * This parameter is required.
    */
   value?: number;

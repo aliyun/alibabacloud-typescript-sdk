@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExperimentLabel extends $dara.Model {
   /**
+   * @remarks
+   * ExperimentId
+   * 
    * @example
    * exp-890waerw09a0f
    */
   experimentId?: string;
   /**
+   * @remarks
+   * Create time
+   * 
    * @example
    * 2023-12-27T03:30:04Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * Modified time
+   * 
    * @example
    * 2023-12-27T03:30:04Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Key of Experiment Label
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * Value of Experiment Label
+   * 
    * @example
    * value
    */

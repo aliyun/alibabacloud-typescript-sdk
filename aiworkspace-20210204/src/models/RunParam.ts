@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class RunParam extends $dara.Model {
   /**
    * @remarks
+   * The name of the parameter.
+   * 
    * This parameter is required.
    */
   key?: string;
   /**
    * @remarks
+   * The value of the parameter.
+   * 
    * This parameter is required.
    */
   value?: string;

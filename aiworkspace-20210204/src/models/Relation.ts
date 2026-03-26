@@ -4,8 +4,20 @@ import { LineageRelation } from "./LineageRelation";
 
 
 export class Relation extends $dara.Model {
+  /**
+   * @remarks
+   * ErrMsg
+   */
   errMsg?: string;
+  /**
+   * @remarks
+   * LineageRelation
+   */
   lineageRelation?: LineageRelation;
+  /**
+   * @remarks
+   * Result
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -29,6 +29,7 @@ export class ListDatasetsRequest extends $dara.Model {
    * COMMON,TEXT
    */
   dataTypes?: string;
+  datasetIds?: string;
   edition?: string;
   /**
    * @remarks
@@ -146,6 +147,7 @@ export class ListDatasetsRequest extends $dara.Model {
       accessibility: 'Accessibility',
       dataSourceTypes: 'DataSourceTypes',
       dataTypes: 'DataTypes',
+      datasetIds: 'DatasetIds',
       edition: 'Edition',
       label: 'Label',
       name: 'Name',
@@ -168,6 +170,7 @@ export class ListDatasetsRequest extends $dara.Model {
       accessibility: 'string',
       dataSourceTypes: 'string',
       dataTypes: 'string',
+      datasetIds: 'string',
       edition: 'string',
       label: 'string',
       name: 'string',

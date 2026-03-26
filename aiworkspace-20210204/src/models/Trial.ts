@@ -3,17 +3,65 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Trial extends $dara.Model {
+  /**
+   * @remarks
+   * Accessibility
+   */
   accessibility?: string;
+  /**
+   * @remarks
+   * ExperimentId
+   */
   experimentId?: string;
+  /**
+   * @remarks
+   * GmtCreateTime
+   */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * GmtModifiedTime
+   */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * Labels
+   */
   labels?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * Name
+   */
   name?: string;
+  /**
+   * @remarks
+   * OwnerId
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * SourceId
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * SourceType
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * TrialId
+   */
   trialId?: string;
+  /**
+   * @remarks
+   * UserId
+   */
   userId?: string;
+  /**
+   * @remarks
+   * WorkspaceId
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

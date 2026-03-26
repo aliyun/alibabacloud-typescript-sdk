@@ -3,19 +3,115 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DatasetJob extends $dara.Model {
+  /**
+   * @remarks
+   * The number of completed files.
+   * 
+   * @example
+   * 990
+   */
   completedFileCount?: number;
+  /**
+   * @remarks
+   * The job creation time (UTC).
+   * 
+   * @example
+   * 2023-06-20T04:05:59Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * dsjob-9jx1*****uj9e
+   */
   datasetJobId?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
+  /**
+   * @remarks
+   * The job description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The number of failed files.
+   * 
+   * @example
+   * 10
+   */
   failedFileCount?: number;
+  /**
+   * @remarks
+   * The job finish time (UTC).
+   * 
+   * @example
+   * 2023-06-20T06:03:48Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The job action.
+   * 
+   * @example
+   * SemanticIndex
+   */
   jobAction?: string;
+  /**
+   * @remarks
+   * The job mode.
+   * 
+   * Valid value:
+   * 
+   * *   Full
+   * 
+   * @example
+   * Full
+   */
   jobMode?: string;
+  /**
+   * @remarks
+   * The job details.
+   * 
+   * @example
+   * {\\"modelId\\":\\"xxx\\"}
+   */
   jobSpec?: string;
+  /**
+   * @remarks
+   * The job logs.
+   */
   logs?: string[];
+  /**
+   * @remarks
+   * The job status.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The number of job files.
+   * 
+   * @example
+   * 1000
+   */
   totalFileCount?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 145883
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

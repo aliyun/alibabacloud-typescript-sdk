@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class Collection extends $dara.Model {
   /**
+   * @remarks
+   * The name of the collection. The name must be globally unique.
+   * 
    * @example
    * AI4D
    */
   collectionName?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-01-21T17:12:35Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The last update time.
+   * 
    * @example
    * 2021-01-21T17:12:35Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 155770209******
    */
   ownerId?: string;
   /**
+   * @remarks
+   * The ID of the user that created the collection.
+   * 
    * @example
    * 155770209******
    */

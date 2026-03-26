@@ -5,18 +5,70 @@ import { Run } from "./Run";
 
 
 export class Experiment extends $dara.Model {
+  /**
+   * @remarks
+   * Accessibility
+   */
   accessibility?: string;
+  /**
+   * @remarks
+   * ArtifactUri
+   */
   artifactUri?: string;
+  /**
+   * @remarks
+   * ExperimentId
+   */
   experimentId?: string;
+  /**
+   * @remarks
+   * GmtCreatedTime
+   */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * GmtModifiedTime
+   */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * Labels
+   */
   labels?: ExperimentLabel[];
+  /**
+   * @remarks
+   * LatestRun
+   */
   latestRun?: Run;
+  /**
+   * @remarks
+   * Name
+   */
   name?: string;
+  /**
+   * @remarks
+   * OwnerId
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * RequestId
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * TensorboardLogUri
+   */
   tensorboardLogUri?: string;
+  /**
+   * @remarks
+   * UserId
+   */
   userId?: string;
+  /**
+   * @remarks
+   * WorkspaceId
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

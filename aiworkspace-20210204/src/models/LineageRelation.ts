@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LineageRelation extends $dara.Model {
+  /**
+   * @remarks
+   * DestEntityQualifiedName
+   */
   destEntityQualifiedName?: string;
+  /**
+   * @remarks
+   * RelationshipGuid
+   */
   relationshipGuid?: string;
+  /**
+   * @remarks
+   * SrcEntityQualifiedName
+   */
   srcEntityQualifiedName?: string;
   static names(): { [key: string]: string } {
     return {

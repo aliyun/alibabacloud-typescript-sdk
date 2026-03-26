@@ -43,6 +43,7 @@ export class GetDatasetResponseBody extends $dara.Model {
    * PRIVATE
    */
   accessibility?: string;
+  accessibleRoleIdList?: string[];
   /**
    * @remarks
    * The type of the data source. Valid values:
@@ -323,6 +324,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      accessibleRoleIdList: 'AccessibleRoleIdList',
       dataSourceType: 'DataSourceType',
       dataType: 'DataType',
       datasetId: 'DatasetId',
@@ -359,6 +361,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      accessibleRoleIdList: { 'type': 'array', 'itemType': 'string' },
       dataSourceType: 'string',
       dataType: 'string',
       datasetId: 'string',
@@ -393,6 +396,9 @@ export class GetDatasetResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.accessibleRoleIdList)) {
+      $dara.Model.validateArray(this.accessibleRoleIdList);
+    }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
     }

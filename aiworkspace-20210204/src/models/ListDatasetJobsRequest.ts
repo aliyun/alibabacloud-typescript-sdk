@@ -38,6 +38,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
   pageSize?: number;
   sortBy?: string;
   status?: string;
+  withLogs?: boolean;
   /**
    * @remarks
    * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
@@ -55,6 +56,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
       pageSize: 'PageSize',
       sortBy: 'SortBy',
       status: 'Status',
+      withLogs: 'WithLogs',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -68,6 +70,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
       pageSize: 'number',
       sortBy: 'string',
       status: 'string',
+      withLogs: 'boolean',
       workspaceId: 'string',
     };
   }

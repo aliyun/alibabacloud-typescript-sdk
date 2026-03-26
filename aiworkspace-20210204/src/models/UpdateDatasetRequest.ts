@@ -30,6 +30,8 @@ export class UpdateDatasetRequestSharingConfig extends $dara.Model {
 }
 
 export class UpdateDatasetRequest extends $dara.Model {
+  accessibility?: string;
+  accessibleRoleIdList?: string[];
   /**
    * @remarks
    * The description of the dataset.
@@ -70,6 +72,8 @@ export class UpdateDatasetRequest extends $dara.Model {
   sharingConfig?: UpdateDatasetRequestSharingConfig;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
+      accessibleRoleIdList: 'AccessibleRoleIdList',
       description: 'Description',
       edition: 'Edition',
       mountAccessReadWriteRoleIdList: 'MountAccessReadWriteRoleIdList',
@@ -81,6 +85,8 @@ export class UpdateDatasetRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
+      accessibleRoleIdList: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       edition: 'string',
       mountAccessReadWriteRoleIdList: { 'type': 'array', 'itemType': 'string' },
@@ -91,6 +97,9 @@ export class UpdateDatasetRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.accessibleRoleIdList)) {
+      $dara.Model.validateArray(this.accessibleRoleIdList);
+    }
     if(Array.isArray(this.mountAccessReadWriteRoleIdList)) {
       $dara.Model.validateArray(this.mountAccessReadWriteRoleIdList);
     }

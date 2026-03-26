@@ -4,37 +4,127 @@ import { Label } from "./Label";
 
 
 export class DatasetVersion extends $dara.Model {
+  /**
+   * @remarks
+   * DataCount
+   * 
+   * @example
+   * 10000
+   */
   dataCount?: number;
+  /**
+   * @remarks
+   * DataSize
+   * 
+   * @example
+   * 10000
+   */
   dataSize?: number;
   /**
+   * @remarks
+   * DataSourceType
+   * 
    * @example
    * OSS
    */
   dataSourceType?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * base model v1
+   */
   description?: string;
+  /**
+   * @remarks
+   * create time
+   * 
+   * @example
+   * 2021-01-21T17:12:35.232Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * modify time
+   * 
+   * @example
+   * 2021-01-21T17:12:35.232Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * ImportInfo
+   * 
+   * @example
+   * {
+   *     "region": "cn-wulanchabu",
+   *     "fileSystemId": "bmcpfs-xxxxxxxxxxx",
+   *     "path": "/mnt",
+   *     "mountTarget": "cpfs-xxxxxxxxxxxx-vpc-gacs9f.cn-wulanchabu.cpfs.aliyuncs.com",
+   *     "isVpcMount": true
+   * }
+   */
   importInfo?: string;
+  /**
+   * @remarks
+   * Labels
+   */
   labels?: Label[];
   /**
+   * @remarks
+   * MountAccess
+   * 
    * @example
-   * RO RW
+   * RO
    */
   mountAccess?: string;
+  /**
+   * @remarks
+   * Options
+   * 
+   * @example
+   * {
+   *   "mountPath": "/mnt/data/"
+   * }
+   */
   options?: string;
   /**
+   * @remarks
+   * property
+   * 
    * @example
    * FILE
    */
   property?: string;
+  /**
+   * @remarks
+   * SourceId
+   * 
+   * @example
+   * d-65mrsr5fub4u74lej3
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * SourceType
+   * 
+   * @example
+   * USER
+   */
   sourceType?: string;
   /**
+   * @remarks
+   * Uri
+   * 
    * @example
    * OSS://xxx
    */
   uri?: string;
   /**
+   * @remarks
+   * version name
+   * 
    * @example
    * v1
    */

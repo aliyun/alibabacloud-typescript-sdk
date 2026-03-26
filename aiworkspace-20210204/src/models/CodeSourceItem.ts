@@ -4,67 +4,113 @@ import * as $dara from '@darabonba/typescript';
 
 export class CodeSourceItem extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the code source. Valid values:
+   * 
+   * *   PRIVATE: Visible only to you and the administrator in the workspace.
+   * *   PUBLIC: Visible to all users in the workspace.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The code branch.
+   * 
    * @example
    * master
    */
   codeBranch?: string;
   /**
+   * @remarks
+   * The code commit ID
+   * 
    * @example
-   * 44da109b59f8596152987eaa8f3b2487bb72ea63
+   * 44da10**********
    */
   codeCommit?: string;
   /**
+   * @remarks
+   * The address of the code repository.
+   * 
    * @example
-   * https://code.aliyun.com/pai-dlc/examples.git
+   * https://code.aliyun.com/****
    */
   codeRepo?: string;
+  /**
+   * @remarks
+   * The token used to access the code repository.
+   */
   codeRepoAccessToken?: string;
   /**
+   * @remarks
+   * The username of the code repository.
+   * 
    * @example
    * user
    */
   codeRepoUserName?: string;
   /**
+   * @remarks
+   * The code source ID.
+   * 
    * @example
-   * code-20210111103721-85qz78ia96lu
+   * code-202**********
    */
   codeSourceId?: string;
   /**
+   * @remarks
+   * The code source description.
+   * 
    * @example
    * code source of dlc examples
    */
   description?: string;
   /**
+   * @remarks
+   * The code source name.
+   * 
    * @example
    * MyCodeSourceName1
    */
   displayName?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-01-18T12:52:15Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The last modified time.
+   * 
    * @example
    * 2021-01-18T12:52:15Z
    */
   gmtModifyTime?: string;
   /**
+   * @remarks
+   * The local mount path of the code.
+   * 
    * @example
    * /root/code/
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 1157290171663117
    */
   userId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 1234
    */

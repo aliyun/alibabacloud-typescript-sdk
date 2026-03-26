@@ -15,6 +15,7 @@ export class CreateDatasetRequest extends $dara.Model {
    * PRIVATE
    */
   accessibility?: string;
+  accessibleRoleIdList?: string[];
   /**
    * @remarks
    * The number of dataset files.
@@ -275,6 +276,7 @@ export class CreateDatasetRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      accessibleRoleIdList: 'AccessibleRoleIdList',
       dataCount: 'DataCount',
       dataSize: 'DataSize',
       dataSourceType: 'DataSourceType',
@@ -304,6 +306,7 @@ export class CreateDatasetRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      accessibleRoleIdList: { 'type': 'array', 'itemType': 'string' },
       dataCount: 'number',
       dataSize: 'number',
       dataSourceType: 'string',
@@ -331,6 +334,9 @@ export class CreateDatasetRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.accessibleRoleIdList)) {
+      $dara.Model.validateArray(this.accessibleRoleIdList);
+    }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
     }

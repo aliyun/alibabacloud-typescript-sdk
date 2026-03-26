@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Relationship extends $dara.Model {
+  /**
+   * @remarks
+   * Attributes
+   */
   attributes?: { [key: string]: any };
+  /**
+   * @remarks
+   * DataChannel
+   */
   dataChannel?: string;
+  /**
+   * @remarks
+   * RelationshipGuid
+   */
   relationshipGuid?: string;
+  /**
+   * @remarks
+   * RelationshipType
+   */
   relationshipType?: string;
   static names(): { [key: string]: string } {
     return {
