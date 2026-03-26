@@ -595,6 +595,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建工具
+   * 
+   * @remarks
+   * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+   * 
+   * @param request - CreateToolRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateToolResponse
+   */
+  async createToolWithOptions(request: $_model.CreateToolRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateToolResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTool",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/tools`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateToolResponse>(await this.callApi(params, req, runtime), new $_model.CreateToolResponse({}));
+  }
+
+  /**
+   * 创建工具
+   * 
+   * @remarks
+   * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+   * 
+   * @param request - CreateToolRequest
+   * @returns CreateToolResponse
+   */
+  async createTool(request: $_model.CreateToolRequest): Promise<$_model.CreateToolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createToolWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建工作空间
    * 
    * @remarks
@@ -1082,6 +1128,47 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTemplateWithOptions(templateName, headers, runtime);
+  }
+
+  /**
+   * 删除工具
+   * 
+   * @remarks
+   * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteToolResponse
+   */
+  async deleteToolWithOptions(toolName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteToolResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTool",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/tools/${$dara.URL.percentEncode(toolName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteToolResponse>(await this.callApi(params, req, runtime), new $_model.DeleteToolResponse({}));
+  }
+
+  /**
+   * 删除工具
+   * 
+   * @remarks
+   * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+   * @returns DeleteToolResponse
+   */
+  async deleteTool(toolName: string): Promise<$_model.DeleteToolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteToolWithOptions(toolName, headers, runtime);
   }
 
   /**
@@ -1636,6 +1723,47 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTemplateWithOptions(templateName, headers, runtime);
+  }
+
+  /**
+   * 获取工具详情
+   * 
+   * @remarks
+   * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetToolResponse
+   */
+  async getToolWithOptions(toolName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetToolResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTool",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/tools/${$dara.URL.percentEncode(toolName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetToolResponse>(await this.callApi(params, req, runtime), new $_model.GetToolResponse({}));
+  }
+
+  /**
+   * 获取工具详情
+   * 
+   * @remarks
+   * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+   * @returns GetToolResponse
+   */
+  async getTool(toolName: string): Promise<$_model.GetToolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getToolWithOptions(toolName, headers, runtime);
   }
 
   /**
@@ -2645,6 +2773,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 工具列表
+   * 
+   * @remarks
+   * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+   * 
+   * @param request - ListToolsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListToolsResponse
+   */
+  async listToolsWithOptions(request: $_model.ListToolsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListToolsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.toolType)) {
+      query["toolType"] = request.toolType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceIds)) {
+      query["workspaceIds"] = request.workspaceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTools",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/tools`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListToolsResponse>(await this.callApi(params, req, runtime), new $_model.ListToolsResponse({}));
+  }
+
+  /**
+   * 工具列表
+   * 
+   * @remarks
+   * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+   * 
+   * @param request - ListToolsRequest
+   * @returns ListToolsResponse
+   */
+  async listTools(request: $_model.ListToolsRequest): Promise<$_model.ListToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listToolsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取工作空间列表
    * 
    * @remarks
@@ -3205,6 +3400,52 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTemplateWithOptions(templateName, request, headers, runtime);
+  }
+
+  /**
+   * 更新工具
+   * 
+   * @remarks
+   * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+   * 
+   * @param request - UpdateToolRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateToolResponse
+   */
+  async updateToolWithOptions(toolName: string, request: $_model.UpdateToolRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateToolResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTool",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/tools/${$dara.URL.percentEncode(toolName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateToolResponse>(await this.callApi(params, req, runtime), new $_model.UpdateToolResponse({}));
+  }
+
+  /**
+   * 更新工具
+   * 
+   * @remarks
+   * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+   * 
+   * @param request - UpdateToolRequest
+   * @returns UpdateToolResponse
+   */
+  async updateTool(toolName: string, request: $_model.UpdateToolRequest): Promise<$_model.UpdateToolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateToolWithOptions(toolName, request, headers, runtime);
   }
 
   /**
