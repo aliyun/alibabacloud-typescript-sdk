@@ -44,6 +44,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   instanceIds?: string;
   regionId?: string;
   reportLanguage?: string;
+  reportRegionId?: string;
   reportType?: string;
   /**
    * @remarks
@@ -60,6 +61,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
       instanceIds: 'InstanceIds',
       regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
+      reportRegionId: 'ReportRegionId',
       reportType: 'ReportType',
       startTime: 'StartTime',
     };
@@ -72,6 +74,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
       instanceIds: 'string',
       regionId: 'string',
       reportLanguage: 'string',
+      reportRegionId: 'string',
       reportType: 'string',
       startTime: 'string',
     };

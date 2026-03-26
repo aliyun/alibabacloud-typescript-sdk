@@ -43,6 +43,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   name?: string;
   regionId?: string;
   reportLanguage?: string;
+  reportRegionId?: string;
   reportType?: string;
   /**
    * @remarks
@@ -68,6 +69,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       name: 'Name',
       regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
+      reportRegionId: 'ReportRegionId',
       reportType: 'ReportType',
       startTime: 'StartTime',
       timeRange: 'TimeRange',
@@ -82,6 +84,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       name: 'string',
       regionId: 'string',
       reportLanguage: 'string',
+      reportRegionId: 'string',
       reportType: 'string',
       startTime: 'string',
       timeRange: 'string',

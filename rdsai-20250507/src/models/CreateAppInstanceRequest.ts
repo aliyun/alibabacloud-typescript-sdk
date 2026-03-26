@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateAppInstanceRequestComponents extends $dara.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppInstanceRequestDBInstanceConfig extends $dara.Model {
   /**
    * @example
@@ -70,6 +93,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  components?: CreateAppInstanceRequestComponents[];
   /**
    * @remarks
    * A reserved parameter.
@@ -180,6 +204,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       appName: 'AppName',
       appType: 'AppType',
       clientToken: 'ClientToken',
+      components: 'Components',
       DBInstanceConfig: 'DBInstanceConfig',
       DBInstanceName: 'DBInstanceName',
       dashboardPassword: 'DashboardPassword',
@@ -200,6 +225,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       appName: 'string',
       appType: 'string',
       clientToken: 'string',
+      components: { 'type': 'array', 'itemType': CreateAppInstanceRequestComponents },
       DBInstanceConfig: CreateAppInstanceRequestDBInstanceConfig,
       DBInstanceName: 'string',
       dashboardPassword: 'string',
@@ -216,6 +242,9 @@ export class CreateAppInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
     if(this.DBInstanceConfig && typeof (this.DBInstanceConfig as any).validate === 'function') {
       (this.DBInstanceConfig as any).validate();
     }

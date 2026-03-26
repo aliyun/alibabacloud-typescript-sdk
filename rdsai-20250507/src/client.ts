@@ -220,6 +220,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateAppInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.components)) {
+      request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
+    }
+
     if (!$dara.isNull(tmpReq.DBInstanceConfig)) {
       request.DBInstanceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBInstanceConfig, "DBInstanceConfig", "json");
     }
@@ -235,6 +239,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.componentsShrink)) {
+      query["Components"] = request.componentsShrink;
     }
 
     if (!$dara.isNull(request.DBInstanceConfigShrink)) {
@@ -504,6 +512,10 @@ export default class Client extends OpenApi {
       query["ReportLanguage"] = request.reportLanguage;
     }
 
+    if (!$dara.isNull(request.reportRegionId)) {
+      query["ReportRegionId"] = request.reportRegionId;
+    }
+
     if (!$dara.isNull(request.reportType)) {
       query["ReportType"] = request.reportType;
     }
@@ -572,6 +584,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reportLanguage)) {
       query["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.reportRegionId)) {
+      query["ReportRegionId"] = request.reportRegionId;
     }
 
     if (!$dara.isNull(request.reportType)) {

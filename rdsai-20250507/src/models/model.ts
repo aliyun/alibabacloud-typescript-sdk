@@ -1,8 +1,11 @@
 export { ChatMessagesRequestInputs } from './ChatMessagesRequest';
+export { CreateAppInstanceRequestComponents } from './CreateAppInstanceRequest';
 export { CreateAppInstanceRequestDBInstanceConfig } from './CreateAppInstanceRequest';
 export { CreateCustomAgentResponseBodySkills } from './CreateCustomAgentResponseBody';
 export { CreateEdgeFunctionRequestCode } from './CreateEdgeFunctionRequest';
 export { CreateInspectionTaskResponseBodyData } from './CreateInspectionTaskResponseBody';
+export { DescribeAppInstanceAttributeResponseBodyComponents } from './DescribeAppInstanceAttributeResponseBody';
+export { DescribeAppInstancesResponseBodyInstancesComponents } from './DescribeAppInstancesResponseBody';
 export { DescribeAppInstancesResponseBodyInstances } from './DescribeAppInstancesResponseBody';
 export { DescribeEdgeFunctionsResponseBodyEdgeFunctions } from './DescribeEdgeFunctionsResponseBody';
 export { DescribeEventsListResponseBodyEvents } from './DescribeEventsListResponseBody';

@@ -29,6 +29,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  componentsShrink?: string;
   /**
    * @remarks
    * A reserved parameter.
@@ -139,6 +140,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
       appName: 'AppName',
       appType: 'AppType',
       clientToken: 'ClientToken',
+      componentsShrink: 'Components',
       DBInstanceConfigShrink: 'DBInstanceConfig',
       DBInstanceName: 'DBInstanceName',
       dashboardPassword: 'DashboardPassword',
@@ -159,6 +161,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
       appName: 'string',
       appType: 'string',
       clientToken: 'string',
+      componentsShrink: 'string',
       DBInstanceConfigShrink: 'string',
       DBInstanceName: 'string',
       dashboardPassword: 'string',

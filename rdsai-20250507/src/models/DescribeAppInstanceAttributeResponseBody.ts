@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAppInstanceAttributeResponseBodyComponents extends $dara.Model {
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -19,6 +45,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
    * supabase
    */
   appType?: string;
+  components?: DescribeAppInstanceAttributeResponseBodyComponents[];
   /**
    * @remarks
    * The ID of the RDS for PostgreSQL instance with which the RDS Supabase instances are associated.
@@ -116,6 +143,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
     return {
       appName: 'AppName',
       appType: 'AppType',
+      components: 'Components',
       DBInstanceName: 'DBInstanceName',
       eipId: 'EipId',
       eipStatus: 'EipStatus',
@@ -139,6 +167,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
     return {
       appName: 'string',
       appType: 'string',
+      components: { 'type': 'array', 'itemType': DescribeAppInstanceAttributeResponseBodyComponents },
       DBInstanceName: 'string',
       eipId: 'string',
       eipStatus: 'string',
@@ -159,6 +188,9 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
     super.validate();
   }
 
